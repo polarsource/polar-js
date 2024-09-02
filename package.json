@@ -1,9 +1,13 @@
 {
   "name": "@polar-sh/sdk",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "author": "Speakeasy",
   "main": "./index.js",
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polarsource/polar-js.git"
+  },
   "scripts": {
     "lint": "eslint --max-warnings=0 src",
     "build": "tsc",
