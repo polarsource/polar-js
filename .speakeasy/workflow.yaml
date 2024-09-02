@@ -16,3 +16,5 @@ targets:
         publish:
             npm:
                 token: $npm_token
+        codeSamples:
+          output: codeSamples.yaml
