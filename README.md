@@ -1,6 +1,6 @@
 # @polar-sh/sdk
 
-Developer-friendly & type-safe Typescript SDK specifically catered to leverage *@polar-sh/sdk* API.
+Developer-friendly & type-safe Typescript SDK specifically catered to leverage [Polar](https://polar.sh) API.
 
 <div align="left">
     <a href="https://www.speakeasy.com/?utm_source=@polar-sh/sdk&utm_campaign=typescript"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
@@ -9,14 +9,8 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
     </a>
 </div>
 
-
-## 🏗 **Welcome to your new SDK!** 🏗
-
-It has been generated successfully based on your OpenAPI spec. However, it is not yet ready for production use. Here are some next steps:
-- [ ] 🛠 Make your SDK feel handcrafted by [customizing it](https://www.speakeasy.com/docs/customize-sdks)
-- [ ] ♻️ Refine your SDK quickly by iterating locally with the [Speakeasy CLI](https://github.com/speakeasy-api/speakeasy)
-- [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasy.com/docs/advanced-setup/publish-sdks)
-- [ ] ✨ When ready to productionize, delete this section from the README
+> [!WARNING]
+> Starting version `>v0.6.0`, we changed our SDK generator. It's not backward compatible with previous versions.
 
 <!-- Start Summary [summary] -->
 ## Summary
