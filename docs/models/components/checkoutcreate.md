@@ -1,0 +1,20 @@
+# CheckoutCreate
+
+## Example Usage
+
+```typescript
+import { CheckoutCreate } from "@polar-sh/sdk/models/components";
+
+let value: CheckoutCreate = {
+    productPriceId: "<value>",
+    successUrl: "http://well-made-loop.net",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                              | Type                                                                                                                                                                               | Required                                                                                                                                                                           | Description                                                                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `productPriceId`                                                                                                                                                                   | *string*                                                                                                                                                                           | :heavy_check_mark:                                                                                                                                                                 | ID of the product price to subscribe to.                                                                                                                                           |
+| `successUrl`                                                                                                                                                                       | *string*                                                                                                                                                                           | :heavy_check_mark:                                                                                                                                                                 | URL where the customer will be redirected after a successful subscription. You can add the `session_id={CHECKOUT_SESSION_ID}` query parameter to retrieve the checkout session id. |
+| `customerEmail`                                                                                                                                                                    | *string*                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                 | If you already know the email of your customer, you can set it. It'll be pre-filled on the checkout page.                                                                          |

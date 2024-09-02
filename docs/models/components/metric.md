@@ -1,0 +1,23 @@
+# Metric
+
+Information about a metric.
+
+## Example Usage
+
+```typescript
+import { Metric } from "@polar-sh/sdk/models/components";
+
+let value: Metric = {
+    slug: "<value>",
+    displayName: "Giuseppe67",
+    type: "scalar",
+};
+```
+
+## Fields
+
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `slug`                                                              | *string*                                                            | :heavy_check_mark:                                                  | Unique identifier for the metric.                                   |
+| `displayName`                                                       | *string*                                                            | :heavy_check_mark:                                                  | Human-readable name for the metric.                                 |
+| `type`                                                              | [components.MetricType](../../models/components/metrictype.md)      | :heavy_check_mark:                                                  | Type of the metric, useful to know the unit or format of the value. |

@@ -1,0 +1,31 @@
+speakeasyVersion: 1.385.0
+sources:
+    Polar-OAS:
+        sourceNamespace: polar-oas
+        sourceRevisionDigest: sha256:7494be3232e7fe973b4658b7a7f1efa3bc236e58c653edfbaacd87ad2b48f7ee
+        sourceBlobDigest: sha256:eee2ff28dd9671dccd1e58ceab42ab4e9468a91baba3cae7a2b1790b75a3292c
+        tags:
+            - latest
+targets:
+    polar:
+        source: Polar-OAS
+        sourceNamespace: polar-oas
+        sourceRevisionDigest: sha256:7494be3232e7fe973b4658b7a7f1efa3bc236e58c653edfbaacd87ad2b48f7ee
+        sourceBlobDigest: sha256:eee2ff28dd9671dccd1e58ceab42ab4e9468a91baba3cae7a2b1790b75a3292c
+        outLocation: /Users/fvoron/Development/polar-js
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Polar-OAS:
+            inputs:
+                - location: https://api.polar.sh/openapi.json
+            overlays:
+                - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/security.yml
+                - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/type_parameter.yml
+            registry:
+                location: registry.speakeasyapi.dev/polar/polar/polar-oas
+    targets:
+        polar:
+            target: typescript
+            source: Polar-OAS

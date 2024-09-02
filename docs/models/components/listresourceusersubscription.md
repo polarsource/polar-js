@@ -1,0 +1,22 @@
+# ListResourceUserSubscription
+
+## Example Usage
+
+```typescript
+import { ListResourceUserSubscription } from "@polar-sh/sdk/models/components";
+
+let value: ListResourceUserSubscription = {
+    items: [],
+    pagination: {
+        totalCount: 347233,
+        maxPage: 862310,
+    },
+};
+```
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `items`                                                                      | [components.UserSubscription](../../models/components/usersubscription.md)[] | :heavy_check_mark:                                                           | N/A                                                                          |
+| `pagination`                                                                 | [components.Pagination](../../models/components/pagination.md)               | :heavy_check_mark:                                                           | N/A                                                                          |

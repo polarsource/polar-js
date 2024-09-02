@@ -1,0 +1,19 @@
+# ProductBenefitsUpdate
+
+Schema to update the benefits granted by a product.
+
+## Example Usage
+
+```typescript
+import { ProductBenefitsUpdate } from "@polar-sh/sdk/models/components";
+
+let value: ProductBenefitsUpdate = {
+    benefits: ["<value>"],
+};
+```
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `benefits`                                                                     | *string*[]                                                                     | :heavy_check_mark:                                                             | List of benefit IDs. Each one must be on the same organization as the product. |

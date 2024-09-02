@@ -1,0 +1,47 @@
+# RepositoryOutput
+
+## Example Usage
+
+```typescript
+import { RepositoryOutput } from "@polar-sh/sdk/models/components";
+
+let value: RepositoryOutput = {
+    id: "3f5f0642-dac7-4af5-95cc-413aa63aae8d",
+    isPrivate: false,
+    name: "MyOrg",
+    description: "Managed hybrid knowledge user",
+    stars: 1337,
+    license: "<value>",
+    homepage: "<value>",
+    profileSettings: {},
+    organization: {
+        id: "64dbb675-fd5e-460b-b75e-d4f6fbee41f3",
+        name: "<value>",
+        avatarUrl: "<value>",
+        isPersonal: false,
+        bio: "<value>",
+        prettyName: "<value>",
+        company: "Farrell Inc",
+        blog: "<value>",
+        location: "<value>",
+        email: "Valerie35@yahoo.com",
+        twitterUsername: "<value>",
+        organizationId: "<value>",
+    },
+};
+```
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  | Example                                                                                      |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `id`                                                                                         | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |                                                                                              |
+| `platform`                                                                                   | [components.Platforms](../../models/components/platforms.md)                                 | :heavy_check_mark:                                                                           | N/A                                                                                          |                                                                                              |
+| `isPrivate`                                                                                  | *boolean*                                                                                    | :heavy_check_mark:                                                                           | N/A                                                                                          |                                                                                              |
+| `name`                                                                                       | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          | MyOrg                                                                                        |
+| `description`                                                                                | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |                                                                                              |
+| `stars`                                                                                      | *number*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          | 1337                                                                                         |
+| `license`                                                                                    | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |                                                                                              |
+| `homepage`                                                                                   | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |                                                                                              |
+| `profileSettings`                                                                            | [components.RepositoryProfileSettings](../../models/components/repositoryprofilesettings.md) | :heavy_check_mark:                                                                           | Settings for the repository profile                                                          |                                                                                              |
+| `organization`                                                                               | [components.ExternalOrganization](../../models/components/externalorganization.md)           | :heavy_check_mark:                                                                           | N/A                                                                                          |                                                                                              |
