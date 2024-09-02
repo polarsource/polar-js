@@ -1,0 +1,1787 @@
+overlay: 1.0.0
+info:
+  title: CodeSamples overlay for typescript target
+  version: 0.0.0
+actions:
+  - target: $["paths"]["/v1/users/downloadables/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.downloadables.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/license-keys/validate"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: validate
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.licenseKeys.validate({
+                key: "<key>",
+                organizationId: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/benefits/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.benefits.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/benefits/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.benefits.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/orders/{id}/invoice"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: invoice
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.orders.invoice({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/subscriptions/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: update
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.subscriptions.update({
+                id: "<value>",
+                userSubscriptionUpdate: {
+                  productPriceId: "<value>",
+                },
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/subscriptions/{id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: cancel
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.subscriptions.cancel({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/advertisements/{id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: delete
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.advertisements.delete({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/subscriptions/import"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: import
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+            import { openAsBlob } from "node:fs";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.subscriptions.importSubscriptions({
+                file: await openAsBlob("./sample-file"),
+                organizationId: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/articles/{id}/preview"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: preview
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.articles.preview({
+                id: "<value>",
+                articlePreview: {
+                  email: "Eileen56@yahoo.com",
+                },
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/articles/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.articles.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/products/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.products.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/subscriptions/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: create
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.subscriptions.create({
+                email: "Jena.Nienow28@yahoo.com",
+                productId: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/checkouts/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: create
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.checkouts.create({
+                productPriceId: "<value>",
+                successUrl: "http://limp-pastry.org",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/files/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.files.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/benefits/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: create
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.benefits.create({
+                description: "Multi-tiered motivating standardization",
+                properties: {
+                  guildToken: "<value>",
+                  roleId: "<value>",
+                },
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/subscriptions/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: create
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.subscriptions.create({
+                productId: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/advertisements/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.advertisements.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/advertisements/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: create
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.advertisements.create({
+                imageUrl: "http://limp-pastry.org",
+                text: "<value>",
+                linkUrl: "http://flashy-cartload.net",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/advertisements/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: update
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.advertisements.update({
+                id: "<value>",
+                userAdvertisementCampaignUpdate: {},
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/license-keys/activate"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: activate
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.licenseKeys.activate({
+                key: "<key>",
+                organizationId: "<value>",
+                label: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/subscriptions/export"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: export
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.subscriptions.export({});
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/oauth2/revoke"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: revoke_token
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.oauth2.revoke({
+                token: "<value>",
+                clientId: "<value>",
+                clientSecret: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/products/{id}/benefits"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: update_benefits
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.products.updateBenefits({
+                id: "<value>",
+                productBenefitsUpdate: {
+                  benefits: [
+                    "<value>",
+                  ],
+                },
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/orders/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.orders.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/organizations/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.organizations.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/articles/{id}/send"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: send
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.articles.send({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/orders/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.orders.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/advertisements/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.advertisements.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/oauth2/introspect"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: introspect_token
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.oauth2.introspect({
+                token: "<value>",
+                clientId: "<value>",
+                clientSecret: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/files/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: create
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.files.create({
+                name: "<value>",
+                mimeType: "<value>",
+                size: 489382,
+                upload: {
+                  parts: [
+                    {
+                      number: 638424,
+                      chunkStart: 859213,
+                      chunkEnd: 417458,
+                    },
+                  ],
+                },
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/files/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: update
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.files.update({
+                id: "<value>",
+                filePatch: {},
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/metrics/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+            import { RFCDate } from "@polar-sh/sdk/types";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.metrics.retrieve({
+                startDate: new RFCDate("2023-02-11"),
+                endDate: new RFCDate("2024-11-01"),
+                interval: "hour",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/metrics/limits"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: limits
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.metrics.limits();
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/subscriptions/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.subscriptions.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/subscriptions/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.subscriptions.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/repositories/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.repositories.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/advertisements/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.advertisements.list({
+                benefitId: "<value>",
+              });
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/oauth2/register"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: create_client
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.oauth2.clients.create({
+                redirectUris: [
+                  "http://limp-pastry.org",
+                ],
+                clientName: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/benefits/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: update
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.benefits.update({
+                id: "<value>",
+                requestBody: {},
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/benefits/{id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: delete
+          source: "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  await polar.benefits.delete({\n    id: \"<value>\",\n  });\n\n  \n}\n\nrun();"
+  - target: $["paths"]["/v1/license-keys/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.licenseKeys.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/subscriptions/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.subscriptions.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/benefits/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.benefits.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/advertisements/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.advertisements.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/advertisements/{id}/enable"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: enable
+          source: "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  await polar.users.advertisements.enable({\n    id: \"<value>\",\n    userAdvertisementCampaignEnable: {\n      benefitId: \"<value>\",\n    },\n  });\n\n  \n}\n\nrun();"
+  - target: $["paths"]["/v1/oauth2/userinfo"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: userinfo
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.oauth2.userinfo();
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/oauth2/register/{client_id}"]["put"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: update_client
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.oauth2.clients.update({
+                clientId: "<value>",
+                oAuth2ClientConfigurationUpdate: {
+                  redirectUris: [
+                    "https://alarming-nondisclosure.com",
+                  ],
+                  clientName: "<value>",
+                  clientId: "<value>",
+                },
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/files/{id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: delete
+          source: "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  await polar.files.delete({\n    id: \"<value>\",\n  });\n\n  \n}\n\nrun();"
+  - target: $["paths"]["/v1/license-keys"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.licenseKeys.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/orders/{id}/invoice"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: invoice
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.orders.invoice({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/external_organizations/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.externalOrganizations.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/organizations/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.organizations.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/articles/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.articles.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/articles/{id}/receivers"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: receivers
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.articles.receivers({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/oauth2/register/{client_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get_client
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.oauth2.clients.retrieve({
+                clientId: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/benefits/{id}/grants"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: grants
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.benefits.grants({
+                id: "<value>",
+              });
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/products/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.products.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/license-keys/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.licenseKeys.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/license-keys/deactivate"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: deactivate
+          source: "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  await polar.users.licenseKeys.deactivate({\n    key: \"<key>\",\n    organizationId: \"<value>\",\n    activationId: \"<value>\",\n  });\n\n  \n}\n\nrun();"
+  - target: $["paths"]["/v1/articles/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: create
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.articles.create({
+                title: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/license-keys/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.licenseKeys.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/organizations/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: update
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.organizations.update({
+                id: "<value>",
+                organizationUpdate: {},
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/articles/{id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: delete
+          source: "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  await polar.articles.delete({\n    id: \"<value>\",\n  });\n\n  \n}\n\nrun();"
+  - target: $["paths"]["/v1/benefits/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.benefits.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/products/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: create
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.products.create({
+                name: "<value>",
+                prices: [
+                  {
+                    recurringInterval: "month",
+                    priceAmount: 638424,
+                  },
+                ],
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/checkouts/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.checkouts.retrieve({
+                id: "<id>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/license-keys/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: update
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.licenseKeys.update({
+                id: "<value>",
+                licenseKeyUpdate: {},
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/orders/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.orders.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/orders/{id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.orders.retrieve({
+                id: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/users/downloadables/{token}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.users.downloadables.retrieve({
+                token: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/repositories/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: update
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.repositories.update({
+                id: "<value>",
+                repositoryUpdate: {},
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/organizations/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: create
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.organizations.create({
+                name: "<value>",
+                slug: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/articles/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: update
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.articles.update({
+                id: "<value>",
+                articleUpdate: {},
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/oauth2/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.oauth2.clients.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/products/{id}"]["patch"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: update
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.products.update({
+                id: "<value>",
+                productUpdate: {},
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/repositories/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: list
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.repositories.list({});
+
+              for await (const page of result) {
+                // Handle the page
+                console.log(page);
+              }
+            }
+
+            run();
+  - target: $["paths"]["/v1/files/{id}/uploaded"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: uploaded
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.files.uploaded({
+                id: "<value>",
+                fileUploadCompleted: {
+                  id: "<id>",
+                  path: "/sys",
+                  parts: [
+                    {
+                      number: 241210,
+                      checksumEtag: "<value>",
+                      checksumSha256Base64: "<value>",
+                    },
+                  ],
+                },
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/license-keys/{id}/activations/{activation_id}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: get_activation
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.licenseKeys.getActivation({
+                id: "<value>",
+                activationId: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/oauth2/token"]["post"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: request_token
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.oauth2.token({
+                clientId: "<value>",
+                clientSecret: "<value>",
+                code: "<value>",
+                redirectUri: "http://multicolored-chivalry.name",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();
+  - target: $["paths"]["/v1/oauth2/register/{client_id}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: typescript
+          label: delete_client
+          source: |-
+            import { Polar } from "@polar-sh/sdk";
+
+            const polar = new Polar({
+              accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+            });
+
+            async function run() {
+              const result = await polar.oauth2.clients.delete({
+                clientId: "<value>",
+              });
+
+              // Handle the result
+              console.log(result)
+            }
+
+            run();

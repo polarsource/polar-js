@@ -2,7 +2,7 @@ speakeasyVersion: 1.385.0
 sources:
     Polar-OAS:
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:7494be3232e7fe973b4658b7a7f1efa3bc236e58c653edfbaacd87ad2b48f7ee
+        sourceRevisionDigest: sha256:bb5c966d17bedcc9e4c0ca8adc5a3445b40e0f4044ff60490cb3e67b0e0b39fd
         sourceBlobDigest: sha256:eee2ff28dd9671dccd1e58ceab42ab4e9468a91baba3cae7a2b1790b75a3292c
         tags:
             - latest
@@ -10,7 +10,7 @@ targets:
     polar:
         source: Polar-OAS
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:7494be3232e7fe973b4658b7a7f1efa3bc236e58c653edfbaacd87ad2b48f7ee
+        sourceRevisionDigest: sha256:bb5c966d17bedcc9e4c0ca8adc5a3445b40e0f4044ff60490cb3e67b0e0b39fd
         sourceBlobDigest: sha256:eee2ff28dd9671dccd1e58ceab42ab4e9468a91baba3cae7a2b1790b75a3292c
         outLocation: /Users/fvoron/Development/polar-js
 workflow:
@@ -29,3 +29,8 @@ workflow:
         polar:
             target: typescript
             source: Polar-OAS
+            publish:
+                npm:
+                    token: $npm_token
+            codeSamples:
+                output: codeSamples.yaml
