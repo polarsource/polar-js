@@ -13,3 +13,6 @@ targets:
     polar:
         target: typescript
         source: Polar-OAS
+        publish:
+            npm:
+                token: $npm_token
