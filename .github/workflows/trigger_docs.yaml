@@ -1,0 +1,33 @@
+name: Trigger Docs Generation Workflow
+
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Generate a token
+      id: generate-token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ secrets.INTERNAL_GHA_APP_ID }}
+        private-key: ${{ secrets.INTERNAL_GHA_APP_PRIVATE_KEY }}
+        owner: polarsource
+        repositories: polar
+
+    - name: Dispatch workflow
+      uses: octokit/request-action@v2.x
+      with:
+        route: POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches
+        owner: polarsource
+        repo: polar
+        workflow_id: code_samples.yml
+        ref: main
+        inputs: null
+      env:
+        GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
