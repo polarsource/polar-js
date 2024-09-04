@@ -7,7 +7,7 @@
 ```typescript
 import { ProductRecurringCreateType } from "@polar-sh/sdk/models/components";
 
-let value: ProductRecurringCreateType = "business";
+let value: ProductRecurringCreateType = "individual";
 ```
 
 ## Values

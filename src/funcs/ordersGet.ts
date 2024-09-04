@@ -3,7 +3,7 @@
  */
 
 import { PolarCore } from "../core.js";
-import { encodeFormQuery as encodeFormQuery$ } from "../lib/encodings.js";
+import { encodeSimple as encodeSimple$ } from "../lib/encodings.js";
 import * as m$ from "../lib/matchers.js";
 import * as schemas$ from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
@@ -24,18 +24,19 @@ import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Metrics
+ * Get Order
  *
  * @remarks
- * Get metrics about your orders and subscriptions.
+ * Get an order by ID.
  */
-export async function metricsRetrieve(
+export async function ordersGet(
     client$: PolarCore,
-    request: operations.MetricsGetRequest,
+    request: operations.OrdersGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        components.MetricsResponse,
+        components.OrderOutput,
+        | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -50,7 +51,7 @@ export async function metricsRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.MetricsGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.OrdersGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -59,16 +60,11 @@ export async function metricsRetrieve(
     const payload$ = parsed$.value;
     const body$ = null;
 
-    const path$ = pathToFunc("/v1/metrics/")();
+    const pathParams$ = {
+        id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
+    };
 
-    const query$ = encodeFormQuery$({
-        end_date: payload$.end_date,
-        interval: payload$.interval,
-        organization_id: payload$.organization_id,
-        product_id: payload$.product_id,
-        product_price_type: payload$.product_price_type,
-        start_date: payload$.start_date,
-    });
+    const path$ = pathToFunc("/v1/orders/{id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -77,7 +73,7 @@ export async function metricsRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "metrics:get",
+        operationID: "orders:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -90,7 +86,6 @@ export async function metricsRetrieve(
             method: "GET",
             path: path$,
             headers: headers$,
-            query: query$,
             body: body$,
             timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
         },
@@ -103,7 +98,7 @@ export async function metricsRetrieve(
 
     const doResult = await client$.do$(request$, {
         context,
-        errorCodes: ["422", "4XX", "5XX"],
+        errorCodes: ["404", "422", "4XX", "5XX"],
         retryConfig: options?.retries || client$.options$.retryConfig,
         retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
     });
@@ -117,7 +112,8 @@ export async function metricsRetrieve(
     };
 
     const [result$] = await m$.match<
-        components.MetricsResponse,
+        components.OrderOutput,
+        | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -127,7 +123,8 @@ export async function metricsRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, components.MetricsResponse$inboundSchema),
+        m$.json(200, components.OrderOutput$inboundSchema),
+        m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
         m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
         m$.fail(["4XX", "5XX"])
     )(response, { extraFields: responseFields$ });

@@ -6,11 +6,11 @@
 import { BenefitGitHubRepositoryCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGitHubRepositoryCreate = {
-    description: "Future-proofed multimedia matrices",
+    description: "Fundamental global toolset",
     properties: {
         repositoryOwner: "polarsource",
         repositoryName: "private_repo",
-        permission: "admin",
+        permission: "push",
     },
 };
 ```

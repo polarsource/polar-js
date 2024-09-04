@@ -8,19 +8,19 @@ import { ListResourceOAuth2Client } from "@polar-sh/sdk/models/components";
 let value: ListResourceOAuth2Client = {
     items: [
         {
-            redirectUris: ["http://vapid-porthole.net"],
+            redirectUris: ["http://idiotic-wholesaler.name"],
             clientName: "<value>",
-            createdAt: new Date("2022-11-11T16:23:05.729Z"),
-            modifiedAt: new Date("2024-11-27T05:48:21.062Z"),
+            createdAt: new Date("2024-08-13T11:27:07.282Z"),
+            modifiedAt: new Date("2023-11-13T09:00:35.761Z"),
             clientId: "<value>",
             clientSecret: "<value>",
-            clientIdIssuedAt: 42976,
-            clientSecretExpiresAt: 919783,
+            clientIdIssuedAt: 502721,
+            clientSecretExpiresAt: 379356,
         },
     ],
     pagination: {
-        totalCount: 116098,
-        maxPage: 36033,
+        totalCount: 922348,
+        maxPage: 542129,
     },
 };
 ```

@@ -4,8 +4,8 @@
 
 import { oauth2ClientsCreate } from "../funcs/oauth2ClientsCreate.js";
 import { oauth2ClientsDelete } from "../funcs/oauth2ClientsDelete.js";
+import { oauth2ClientsGet } from "../funcs/oauth2ClientsGet.js";
 import { oauth2ClientsList } from "../funcs/oauth2ClientsList.js";
-import { oauth2ClientsRetrieve } from "../funcs/oauth2ClientsRetrieve.js";
 import { oauth2ClientsUpdate } from "../funcs/oauth2ClientsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -46,11 +46,11 @@ export class Clients extends ClientSDK {
      * @remarks
      * Get an OAuth2 client by Client ID.
      */
-    async retrieve(
+    async get(
         request: operations.Oauth2ClientsOauth2GetClientRequest,
         options?: RequestOptions
     ): Promise<any> {
-        return unwrapAsync(oauth2ClientsRetrieve(this, request, options));
+        return unwrapAsync(oauth2ClientsGet(this, request, options));
     }
 
     /**

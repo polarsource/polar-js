@@ -6,15 +6,15 @@
 import { OrderSubscription } from "@polar-sh/sdk/models/components";
 
 let value: OrderSubscription = {
-    createdAt: new Date("2023-12-02T13:10:20.148Z"),
-    modifiedAt: new Date("2023-02-23T00:16:14.412Z"),
+    createdAt: new Date("2023-03-15T04:39:30.890Z"),
+    modifiedAt: new Date("2022-03-06T12:31:26.254Z"),
     id: "<value>",
-    status: "trialing",
-    currentPeriodStart: new Date("2022-01-25T01:59:40.254Z"),
-    currentPeriodEnd: new Date("2023-04-19T05:01:06.012Z"),
+    status: "past_due",
+    currentPeriodStart: new Date("2022-05-16T17:36:12.941Z"),
+    currentPeriodEnd: new Date("2023-01-13T19:27:55.747Z"),
     cancelAtPeriodEnd: false,
-    startedAt: new Date("2023-02-15T17:29:42.348Z"),
-    endedAt: new Date("2023-11-05T12:32:11.394Z"),
+    startedAt: new Date("2024-07-28T00:05:24.116Z"),
+    endedAt: new Date("2024-02-22T06:55:25.503Z"),
     userId: "<value>",
     productId: "<value>",
     priceId: "<value>",

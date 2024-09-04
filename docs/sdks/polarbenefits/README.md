@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [list](#list) - List Benefits
-* [retrieve](#retrieve) - Get Benefit
+* [get](#get) - Get Benefit
 
 ## list
 
@@ -86,7 +86,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get a granted benefit by ID.
 
@@ -100,7 +100,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.benefits.retrieve({
+  const result = await polar.users.benefits.get({
     id: "<value>",
   });
 
@@ -117,7 +117,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersBenefitsRetrieve } from "@polar-sh/sdk/funcs/usersBenefitsRetrieve.js";
+import { usersBenefitsGet } from "@polar-sh/sdk/funcs/usersBenefitsGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -126,7 +126,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersBenefitsRetrieve(polar, {
+  const res = await usersBenefitsGet(polar, {
     id: "<value>",
   });
 

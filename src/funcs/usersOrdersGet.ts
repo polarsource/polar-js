@@ -9,6 +9,7 @@ import * as schemas$ from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
+import * as components from "../models/components/index.js";
 import {
     ConnectionError,
     InvalidRequestError,
@@ -21,21 +22,21 @@ import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
-import * as z from "zod";
 
 /**
- * Get Client
+ * Get Order
  *
  * @remarks
- * Get an OAuth2 client by Client ID.
+ * Get an order by ID.
  */
-export async function oauth2ClientsRetrieve(
+export async function usersOrdersGet(
     client$: PolarCore,
-    request: operations.Oauth2ClientsOauth2GetClientRequest,
+    request: operations.UsersOrdersGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        any,
+        components.UserOrder,
+        | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -50,7 +51,7 @@ export async function oauth2ClientsRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.Oauth2ClientsOauth2GetClientRequest$outboundSchema.parse(value$),
+        (value$) => operations.UsersOrdersGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -60,13 +61,10 @@ export async function oauth2ClientsRetrieve(
     const body$ = null;
 
     const pathParams$ = {
-        client_id: encodeSimple$("client_id", payload$.client_id, {
-            explode: false,
-            charEncoding: "percent",
-        }),
+        id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
     };
 
-    const path$ = pathToFunc("/v1/oauth2/register/{client_id}")(pathParams$);
+    const path$ = pathToFunc("/v1/users/orders/{id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -75,7 +73,7 @@ export async function oauth2ClientsRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "oauth2:clients:oauth2:get_client",
+        operationID: "users:orders:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -100,7 +98,7 @@ export async function oauth2ClientsRetrieve(
 
     const doResult = await client$.do$(request$, {
         context,
-        errorCodes: ["422", "4XX", "5XX"],
+        errorCodes: ["404", "422", "4XX", "5XX"],
         retryConfig: options?.retries || client$.options$.retryConfig,
         retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
     });
@@ -114,7 +112,8 @@ export async function oauth2ClientsRetrieve(
     };
 
     const [result$] = await m$.match<
-        any,
+        components.UserOrder,
+        | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -124,7 +123,8 @@ export async function oauth2ClientsRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, z.any()),
+        m$.json(200, components.UserOrder$inboundSchema),
+        m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
         m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
         m$.fail(["4XX", "5XX"])
     )(response, { extraFields: responseFields$ });

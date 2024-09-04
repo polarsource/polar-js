@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [list](#list) - List Repositories
-* [retrieve](#retrieve) - Get Repository
+* [get](#get) - Get Repository
 * [update](#update) - Update Repository
 
 ## list
@@ -87,7 +87,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get a repository by ID.
 
@@ -101,7 +101,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.repositories.retrieve({
+  const result = await polar.repositories.get({
     id: "<value>",
   });
 
@@ -118,7 +118,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { repositoriesRetrieve } from "@polar-sh/sdk/funcs/repositoriesRetrieve.js";
+import { repositoriesGet } from "@polar-sh/sdk/funcs/repositoriesGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -127,7 +127,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await repositoriesRetrieve(polar, {
+  const res = await repositoriesGet(polar, {
     id: "<value>",
   });
 

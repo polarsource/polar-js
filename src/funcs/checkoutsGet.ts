@@ -24,19 +24,18 @@ import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Order
+ * Get Checkout
  *
  * @remarks
- * Get an order by ID.
+ * Get an active checkout session by ID.
  */
-export async function usersOrdersRetrieve(
+export async function checkoutsGet(
     client$: PolarCore,
-    request: operations.UsersOrdersGetRequest,
+    request: operations.CheckoutsGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        components.UserOrder,
-        | errors.ResourceNotFound
+        components.Checkout,
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -51,7 +50,7 @@ export async function usersOrdersRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.UsersOrdersGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.CheckoutsGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -64,7 +63,7 @@ export async function usersOrdersRetrieve(
         id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
     };
 
-    const path$ = pathToFunc("/v1/users/orders/{id}")(pathParams$);
+    const path$ = pathToFunc("/v1/checkouts/{id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -73,7 +72,7 @@ export async function usersOrdersRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "users:orders:get",
+        operationID: "checkouts:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -98,7 +97,7 @@ export async function usersOrdersRetrieve(
 
     const doResult = await client$.do$(request$, {
         context,
-        errorCodes: ["404", "422", "4XX", "5XX"],
+        errorCodes: ["422", "4XX", "5XX"],
         retryConfig: options?.retries || client$.options$.retryConfig,
         retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
     });
@@ -112,8 +111,7 @@ export async function usersOrdersRetrieve(
     };
 
     const [result$] = await m$.match<
-        components.UserOrder,
-        | errors.ResourceNotFound
+        components.Checkout,
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -123,8 +121,7 @@ export async function usersOrdersRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, components.UserOrder$inboundSchema),
-        m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
+        m$.json(200, components.Checkout$inboundSchema),
         m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
         m$.fail(["4XX", "5XX"])
     )(response, { extraFields: responseFields$ });

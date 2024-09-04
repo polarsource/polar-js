@@ -5,10 +5,10 @@
 
 ### Available Operations
 
-* [retrieve](#retrieve) - Get Metrics
+* [get](#get) - Get Metrics
 * [limits](#limits) - Get Metrics Limits
 
-## retrieve
+## get
 
 Get metrics about your orders and subscriptions.
 
@@ -23,10 +23,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.metrics.retrieve({
-    startDate: new RFCDate("2023-02-11"),
-    endDate: new RFCDate("2024-11-01"),
-    interval: "hour",
+  const result = await polar.metrics.get({
+    startDate: new RFCDate("2024-02-07"),
+    endDate: new RFCDate("2022-04-09"),
+    interval: "week",
   });
 
   // Handle the result
@@ -42,7 +42,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { metricsRetrieve } from "@polar-sh/sdk/funcs/metricsRetrieve.js";
+import { metricsGet } from "@polar-sh/sdk/funcs/metricsGet.js";
 import { RFCDate } from "@polar-sh/sdk/types";
 
 // Use `PolarCore` for best tree-shaking performance.
@@ -52,10 +52,10 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await metricsRetrieve(polar, {
-    startDate: new RFCDate("2022-12-21"),
-    endDate: new RFCDate("2023-10-22"),
-    interval: "year",
+  const res = await metricsGet(polar, {
+    startDate: new RFCDate("2023-07-26"),
+    endDate: new RFCDate("2022-03-28"),
+    interval: "hour",
   });
 
   if (!res.ok) {

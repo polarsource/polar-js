@@ -9,7 +9,6 @@ import * as schemas$ from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
 import {
     ConnectionError,
     InvalidRequestError,
@@ -22,20 +21,21 @@ import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
+import * as z from "zod";
 
 /**
- * Get Checkout
+ * Get Client
  *
  * @remarks
- * Get an active checkout session by ID.
+ * Get an OAuth2 client by Client ID.
  */
-export async function checkoutsRetrieve(
+export async function oauth2ClientsGet(
     client$: PolarCore,
-    request: operations.CheckoutsGetRequest,
+    request: operations.Oauth2ClientsOauth2GetClientRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        components.Checkout,
+        any,
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -50,7 +50,7 @@ export async function checkoutsRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.CheckoutsGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.Oauth2ClientsOauth2GetClientRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -60,10 +60,13 @@ export async function checkoutsRetrieve(
     const body$ = null;
 
     const pathParams$ = {
-        id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
+        client_id: encodeSimple$("client_id", payload$.client_id, {
+            explode: false,
+            charEncoding: "percent",
+        }),
     };
 
-    const path$ = pathToFunc("/v1/checkouts/{id}")(pathParams$);
+    const path$ = pathToFunc("/v1/oauth2/register/{client_id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -72,7 +75,7 @@ export async function checkoutsRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "checkouts:get",
+        operationID: "oauth2:clients:oauth2:get_client",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -111,7 +114,7 @@ export async function checkoutsRetrieve(
     };
 
     const [result$] = await m$.match<
-        components.Checkout,
+        any,
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -121,7 +124,7 @@ export async function checkoutsRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, components.Checkout$inboundSchema),
+        m$.json(200, z.any()),
         m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
         m$.fail(["4XX", "5XX"])
     )(response, { extraFields: responseFields$ });

@@ -7,8 +7,9 @@ import { Donor } from "@polar-sh/sdk/models/components";
 
 let value: Donor = {
     id: "<value>",
-    publicName: "<value>",
+    name: "<value>",
     avatarUrl: "<value>",
+    isPersonal: false,
 };
 ```
 

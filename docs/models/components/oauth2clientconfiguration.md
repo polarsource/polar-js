@@ -6,7 +6,7 @@
 import { OAuth2ClientConfiguration } from "@polar-sh/sdk/models/components";
 
 let value: OAuth2ClientConfiguration = {
-    redirectUris: ["https://international-dame.org"],
+    redirectUris: ["http://frosty-go-kart.biz"],
     clientName: "<value>",
 };
 ```

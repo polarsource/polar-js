@@ -7,7 +7,7 @@ import { CheckoutCreate } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutCreate = {
     productPriceId: "<value>",
-    successUrl: "http://well-made-loop.net",
+    successUrl: "https://trained-technologist.com",
 };
 ```
 

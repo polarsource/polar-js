@@ -3,7 +3,7 @@
  */
 
 import { checkoutsCreate } from "../funcs/checkoutsCreate.js";
-import { checkoutsRetrieve } from "../funcs/checkoutsRetrieve.js";
+import { checkoutsGet } from "../funcs/checkoutsGet.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
@@ -29,10 +29,10 @@ export class Checkouts extends ClientSDK {
      * @remarks
      * Get an active checkout session by ID.
      */
-    async retrieve(
+    async get(
         request: operations.CheckoutsGetRequest,
         options?: RequestOptions
     ): Promise<components.Checkout> {
-        return unwrapAsync(checkoutsRetrieve(this, request, options));
+        return unwrapAsync(checkoutsGet(this, request, options));
     }
 }

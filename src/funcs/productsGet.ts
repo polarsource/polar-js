@@ -24,18 +24,18 @@ import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Organization
+ * Get Product
  *
  * @remarks
- * Get an organization by ID.
+ * Get a product by ID.
  */
-export async function organizationsRetrieve(
+export async function productsGet(
     client$: PolarCore,
-    request: operations.OrganizationsGetRequest,
+    request: operations.ProductsGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        components.OrganizationOutput,
+        components.ProductOutput,
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -51,7 +51,7 @@ export async function organizationsRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.OrganizationsGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.ProductsGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -64,7 +64,7 @@ export async function organizationsRetrieve(
         id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
     };
 
-    const path$ = pathToFunc("/v1/organizations/{id}")(pathParams$);
+    const path$ = pathToFunc("/v1/products/{id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -73,7 +73,7 @@ export async function organizationsRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "organizations:get",
+        operationID: "products:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -112,7 +112,7 @@ export async function organizationsRetrieve(
     };
 
     const [result$] = await m$.match<
-        components.OrganizationOutput,
+        components.ProductOutput,
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -123,7 +123,7 @@ export async function organizationsRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, components.OrganizationOutput$inboundSchema),
+        m$.json(200, components.ProductOutput$inboundSchema),
         m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
         m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
         m$.fail(["4XX", "5XX"])

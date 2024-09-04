@@ -24,18 +24,19 @@ import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Article
+ * Get License Key
  *
  * @remarks
- * Get an article by ID.
+ * Get a license key.
  */
-export async function articlesRetrieve(
+export async function licenseKeysGet(
     client$: PolarCore,
-    request: operations.ArticlesGetRequest,
+    request: operations.LicenseKeysGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        components.Article,
+        components.LicenseKeyWithActivations,
+        | errors.Unauthorized
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -51,7 +52,7 @@ export async function articlesRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.ArticlesGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.LicenseKeysGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -64,7 +65,7 @@ export async function articlesRetrieve(
         id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
     };
 
-    const path$ = pathToFunc("/v1/articles/{id}")(pathParams$);
+    const path$ = pathToFunc("/v1/license-keys/{id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -73,7 +74,7 @@ export async function articlesRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "articles:get",
+        operationID: "license_keys:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -98,7 +99,7 @@ export async function articlesRetrieve(
 
     const doResult = await client$.do$(request$, {
         context,
-        errorCodes: ["404", "422", "4XX", "5XX"],
+        errorCodes: ["401", "404", "422", "4XX", "5XX"],
         retryConfig: options?.retries || client$.options$.retryConfig,
         retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
     });
@@ -112,7 +113,8 @@ export async function articlesRetrieve(
     };
 
     const [result$] = await m$.match<
-        components.Article,
+        components.LicenseKeyWithActivations,
+        | errors.Unauthorized
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -123,7 +125,8 @@ export async function articlesRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, components.Article$inboundSchema),
+        m$.json(200, components.LicenseKeyWithActivations$inboundSchema),
+        m$.jsonErr(401, errors.Unauthorized$inboundSchema),
         m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
         m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
         m$.fail(["4XX", "5XX"])

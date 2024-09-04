@@ -24,18 +24,18 @@ import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Subscription
+ * Get Repository
  *
  * @remarks
- * Get a subscription by ID.
+ * Get a repository by ID.
  */
-export async function usersSubscriptionsRetrieve(
+export async function repositoriesGet(
     client$: PolarCore,
-    request: operations.UsersSubscriptionsGetRequest,
+    request: operations.RepositoriesGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        components.UserSubscription,
+        components.RepositoryOutput,
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -51,7 +51,7 @@ export async function usersSubscriptionsRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.UsersSubscriptionsGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.RepositoriesGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -64,7 +64,7 @@ export async function usersSubscriptionsRetrieve(
         id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
     };
 
-    const path$ = pathToFunc("/v1/users/subscriptions/{id}")(pathParams$);
+    const path$ = pathToFunc("/v1/repositories/{id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -73,7 +73,7 @@ export async function usersSubscriptionsRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "users:subscriptions:get",
+        operationID: "repositories:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -112,7 +112,7 @@ export async function usersSubscriptionsRetrieve(
     };
 
     const [result$] = await m$.match<
-        components.UserSubscription,
+        components.RepositoryOutput,
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -123,7 +123,7 @@ export async function usersSubscriptionsRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, components.UserSubscription$inboundSchema),
+        m$.json(200, components.RepositoryOutput$inboundSchema),
         m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
         m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
         m$.fail(["4XX", "5XX"])

@@ -4,8 +4,8 @@
 
 import { usersLicenseKeysActivate } from "../funcs/usersLicenseKeysActivate.js";
 import { usersLicenseKeysDeactivate } from "../funcs/usersLicenseKeysDeactivate.js";
+import { usersLicenseKeysGet } from "../funcs/usersLicenseKeysGet.js";
 import { usersLicenseKeysList } from "../funcs/usersLicenseKeysList.js";
-import { usersLicenseKeysRetrieve } from "../funcs/usersLicenseKeysRetrieve.js";
 import { usersLicenseKeysValidate } from "../funcs/usersLicenseKeysValidate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -30,11 +30,11 @@ export class PolarLicenseKeys extends ClientSDK {
      * @remarks
      * Get a license key.
      */
-    async retrieve(
+    async get(
         request: operations.UsersLicenseKeysGetRequest,
         options?: RequestOptions
     ): Promise<components.LicenseKeyWithActivations> {
-        return unwrapAsync(usersLicenseKeysRetrieve(this, request, options));
+        return unwrapAsync(usersLicenseKeysGet(this, request, options));
     }
 
     /**

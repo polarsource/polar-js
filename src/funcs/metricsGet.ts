@@ -3,7 +3,7 @@
  */
 
 import { PolarCore } from "../core.js";
-import { encodeSimple as encodeSimple$ } from "../lib/encodings.js";
+import { encodeFormQuery as encodeFormQuery$ } from "../lib/encodings.js";
 import * as m$ from "../lib/matchers.js";
 import * as schemas$ from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
@@ -24,19 +24,18 @@ import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Campaign
+ * Get Metrics
  *
  * @remarks
- * Get an advertisement campaign by ID.
+ * Get metrics about your orders and subscriptions.
  */
-export async function advertisementsRetrieve(
+export async function metricsGet(
     client$: PolarCore,
-    request: operations.AdvertisementsGetRequest,
+    request: operations.MetricsGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        components.AdvertisementCampaign,
-        | errors.ResourceNotFound
+        components.MetricsResponse,
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -51,7 +50,7 @@ export async function advertisementsRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.AdvertisementsGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.MetricsGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -60,11 +59,16 @@ export async function advertisementsRetrieve(
     const payload$ = parsed$.value;
     const body$ = null;
 
-    const pathParams$ = {
-        id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
-    };
+    const path$ = pathToFunc("/v1/metrics/")();
 
-    const path$ = pathToFunc("/v1/advertisements/{id}")(pathParams$);
+    const query$ = encodeFormQuery$({
+        end_date: payload$.end_date,
+        interval: payload$.interval,
+        organization_id: payload$.organization_id,
+        product_id: payload$.product_id,
+        product_price_type: payload$.product_price_type,
+        start_date: payload$.start_date,
+    });
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -73,7 +77,7 @@ export async function advertisementsRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "advertisements:get",
+        operationID: "metrics:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -86,6 +90,7 @@ export async function advertisementsRetrieve(
             method: "GET",
             path: path$,
             headers: headers$,
+            query: query$,
             body: body$,
             timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
         },
@@ -98,7 +103,7 @@ export async function advertisementsRetrieve(
 
     const doResult = await client$.do$(request$, {
         context,
-        errorCodes: ["404", "422", "4XX", "5XX"],
+        errorCodes: ["422", "4XX", "5XX"],
         retryConfig: options?.retries || client$.options$.retryConfig,
         retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
     });
@@ -112,8 +117,7 @@ export async function advertisementsRetrieve(
     };
 
     const [result$] = await m$.match<
-        components.AdvertisementCampaign,
-        | errors.ResourceNotFound
+        components.MetricsResponse,
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -123,8 +127,7 @@ export async function advertisementsRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, components.AdvertisementCampaign$inboundSchema),
-        m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
+        m$.json(200, components.MetricsResponse$inboundSchema),
         m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
         m$.fail(["4XX", "5XX"])
     )(response, { extraFields: responseFields$ });

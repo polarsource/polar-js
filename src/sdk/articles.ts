@@ -4,10 +4,10 @@
 
 import { articlesCreate } from "../funcs/articlesCreate.js";
 import { articlesDelete } from "../funcs/articlesDelete.js";
+import { articlesGet } from "../funcs/articlesGet.js";
 import { articlesList } from "../funcs/articlesList.js";
 import { articlesPreview } from "../funcs/articlesPreview.js";
 import { articlesReceivers } from "../funcs/articlesReceivers.js";
-import { articlesRetrieve } from "../funcs/articlesRetrieve.js";
 import { articlesSend } from "../funcs/articlesSend.js";
 import { articlesUpdate } from "../funcs/articlesUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -49,11 +49,11 @@ export class Articles extends ClientSDK {
      * @remarks
      * Get an article by ID.
      */
-    async retrieve(
+    async get(
         request: operations.ArticlesGetRequest,
         options?: RequestOptions
     ): Promise<components.Article> {
-        return unwrapAsync(articlesRetrieve(this, request, options));
+        return unwrapAsync(articlesGet(this, request, options));
     }
 
     /**

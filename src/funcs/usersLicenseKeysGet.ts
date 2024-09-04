@@ -29,9 +29,9 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Get a license key.
  */
-export async function licenseKeysRetrieve(
+export async function usersLicenseKeysGet(
     client$: PolarCore,
-    request: operations.LicenseKeysGetRequest,
+    request: operations.UsersLicenseKeysGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
@@ -52,7 +52,7 @@ export async function licenseKeysRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.LicenseKeysGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.UsersLicenseKeysGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -65,7 +65,7 @@ export async function licenseKeysRetrieve(
         id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
     };
 
-    const path$ = pathToFunc("/v1/license-keys/{id}")(pathParams$);
+    const path$ = pathToFunc("/v1/users/license-keys/{id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -74,7 +74,7 @@ export async function licenseKeysRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "license_keys:get",
+        operationID: "users:license_keys:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };

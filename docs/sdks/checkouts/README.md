@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [create](#create) - Create Checkout
-* [retrieve](#retrieve) - Get Checkout
+* [get](#get) - Get Checkout
 
 ## create
 
@@ -88,7 +88,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get an active checkout session by ID.
 
@@ -102,7 +102,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.checkouts.retrieve({
+  const result = await polar.checkouts.get({
     id: "<id>",
   });
 
@@ -119,7 +119,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { checkoutsRetrieve } from "@polar-sh/sdk/funcs/checkoutsRetrieve.js";
+import { checkoutsGet } from "@polar-sh/sdk/funcs/checkoutsGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -128,7 +128,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await checkoutsRetrieve(polar, {
+  const res = await checkoutsGet(polar, {
     id: "<id>",
   });
 

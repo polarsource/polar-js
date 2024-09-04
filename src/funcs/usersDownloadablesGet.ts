@@ -9,7 +9,6 @@ import * as schemas$ from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
 import {
     ConnectionError,
     InvalidRequestError,
@@ -22,21 +21,18 @@ import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
+import * as z from "zod";
 
 /**
- * Get Product
- *
- * @remarks
- * Get a product by ID.
+ * Get Downloadable
  */
-export async function productsRetrieve(
+export async function usersDownloadablesGet(
     client$: PolarCore,
-    request: operations.ProductsGetRequest,
+    request: operations.UsersDownloadablesGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        components.ProductOutput,
-        | errors.ResourceNotFound
+        any | undefined,
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -51,7 +47,7 @@ export async function productsRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.ProductsGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.UsersDownloadablesGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -61,10 +57,10 @@ export async function productsRetrieve(
     const body$ = null;
 
     const pathParams$ = {
-        id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
+        token: encodeSimple$("token", payload$.token, { explode: false, charEncoding: "percent" }),
     };
 
-    const path$ = pathToFunc("/v1/products/{id}")(pathParams$);
+    const path$ = pathToFunc("/v1/users/downloadables/{token}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -73,7 +69,7 @@ export async function productsRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "products:get",
+        operationID: "users:downloadables:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -98,7 +94,7 @@ export async function productsRetrieve(
 
     const doResult = await client$.do$(request$, {
         context,
-        errorCodes: ["404", "422", "4XX", "5XX"],
+        errorCodes: ["400", "404", "410", "422", "4XX", "5XX"],
         retryConfig: options?.retries || client$.options$.retryConfig,
         retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
     });
@@ -112,8 +108,7 @@ export async function productsRetrieve(
     };
 
     const [result$] = await m$.match<
-        components.ProductOutput,
-        | errors.ResourceNotFound
+        any | undefined,
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -123,10 +118,10 @@ export async function productsRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, components.ProductOutput$inboundSchema),
-        m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-        m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
-        m$.fail(["4XX", "5XX"])
+        m$.json(200, z.any().optional()),
+        m$.nil(302, z.any().optional()),
+        m$.fail([400, 404, 410, "4XX", "5XX"]),
+        m$.jsonErr(422, errors.HTTPValidationError$inboundSchema)
     )(response, { extraFields: responseFields$ });
     if (!result$.ok) {
         return result$;

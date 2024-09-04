@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [list](#list) - List Campaigns
-* [retrieve](#retrieve) - Get Campaign
+* [get](#get) - Get Campaign
 
 ## list
 
@@ -90,7 +90,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get an advertisement campaign by ID.
 
@@ -104,7 +104,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.advertisements.retrieve({
+  const result = await polar.advertisements.get({
     id: "<value>",
   });
 
@@ -121,7 +121,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { advertisementsRetrieve } from "@polar-sh/sdk/funcs/advertisementsRetrieve.js";
+import { advertisementsGet } from "@polar-sh/sdk/funcs/advertisementsGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -130,7 +130,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await advertisementsRetrieve(polar, {
+  const res = await advertisementsGet(polar, {
     id: "<value>",
   });
 

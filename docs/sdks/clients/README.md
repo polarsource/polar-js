@@ -7,7 +7,7 @@
 
 * [list](#list) - List Clients
 * [create](#create) - Create Client
-* [retrieve](#retrieve) - Get Client
+* [get](#get) - Get Client
 * [update](#update) - Update Client
 * [delete](#delete) - Delete Client
 
@@ -173,7 +173,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get an OAuth2 client by Client ID.
 
@@ -187,7 +187,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.oauth2.clients.retrieve({
+  const result = await polar.oauth2.clients.get({
     clientId: "<value>",
   });
 
@@ -204,7 +204,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { oauth2ClientsRetrieve } from "@polar-sh/sdk/funcs/oauth2ClientsRetrieve.js";
+import { oauth2ClientsGet } from "@polar-sh/sdk/funcs/oauth2ClientsGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -213,7 +213,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await oauth2ClientsRetrieve(polar, {
+  const res = await oauth2ClientsGet(polar, {
     clientId: "<value>",
   });
 

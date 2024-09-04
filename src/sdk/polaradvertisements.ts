@@ -5,8 +5,8 @@
 import { usersAdvertisementsCreate } from "../funcs/usersAdvertisementsCreate.js";
 import { usersAdvertisementsDelete } from "../funcs/usersAdvertisementsDelete.js";
 import { usersAdvertisementsEnable } from "../funcs/usersAdvertisementsEnable.js";
+import { usersAdvertisementsGet } from "../funcs/usersAdvertisementsGet.js";
 import { usersAdvertisementsList } from "../funcs/usersAdvertisementsList.js";
-import { usersAdvertisementsRetrieve } from "../funcs/usersAdvertisementsRetrieve.js";
 import { usersAdvertisementsUpdate } from "../funcs/usersAdvertisementsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -47,11 +47,11 @@ export class PolarAdvertisements extends ClientSDK {
      * @remarks
      * Get an advertisement campaign by ID.
      */
-    async retrieve(
+    async get(
         request: operations.UsersAdvertisementsGetRequest,
         options?: RequestOptions
     ): Promise<components.UserAdvertisementCampaign> {
-        return unwrapAsync(usersAdvertisementsRetrieve(this, request, options));
+        return unwrapAsync(usersAdvertisementsGet(this, request, options));
     }
 
     /**

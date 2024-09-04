@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 1457c7a0b5015bae5c5e9b2c47ca23c3
+  docChecksum: 023dd0396155eafbbdd3b7acf11e1395
   docVersion: 0.1.0
-  speakeasyVersion: 1.385.0
-  generationVersion: 2.407.2
-  releaseVersion: 0.6.1
-  configChecksum: 7323b6f75c1f55cf6e131f0df753481c
+  speakeasyVersion: 1.390.1
+  generationVersion: 2.409.0
+  releaseVersion: 0.7.0
+  configChecksum: 38929047fb1a6e83c2404132a941907a
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.14.2
+    core: 3.16.0
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.0
@@ -32,15 +32,16 @@ features:
     retries: 2.83.0
     sdkHooks: 0.1.0
     unions: 2.85.7
+    uploadStreams: 0.1.0
     webhooks: 1.0.0
 generatedFiles:
   - src/funcs/externalOrganizationsList.ts
   - src/funcs/repositoriesList.ts
-  - src/funcs/repositoriesRetrieve.ts
+  - src/funcs/repositoriesGet.ts
   - src/funcs/repositoriesUpdate.ts
   - src/funcs/organizationsList.ts
   - src/funcs/organizationsCreate.ts
-  - src/funcs/organizationsRetrieve.ts
+  - src/funcs/organizationsGet.ts
   - src/funcs/organizationsUpdate.ts
   - src/funcs/subscriptionsList.ts
   - src/funcs/subscriptionsCreate.ts
@@ -48,71 +49,71 @@ generatedFiles:
   - src/funcs/subscriptionsExport.ts
   - src/funcs/articlesList.ts
   - src/funcs/articlesCreate.ts
-  - src/funcs/articlesRetrieve.ts
+  - src/funcs/articlesGet.ts
   - src/funcs/articlesUpdate.ts
   - src/funcs/articlesDelete.ts
   - src/funcs/articlesReceivers.ts
   - src/funcs/articlesPreview.ts
   - src/funcs/articlesSend.ts
   - src/funcs/advertisementsList.ts
-  - src/funcs/advertisementsRetrieve.ts
+  - src/funcs/advertisementsGet.ts
   - src/funcs/oauth2Token.ts
   - src/funcs/oauth2Revoke.ts
   - src/funcs/oauth2Introspect.ts
   - src/funcs/oauth2Userinfo.ts
   - src/funcs/benefitsList.ts
   - src/funcs/benefitsCreate.ts
-  - src/funcs/benefitsRetrieve.ts
+  - src/funcs/benefitsGet.ts
   - src/funcs/benefitsUpdate.ts
   - src/funcs/benefitsDelete.ts
   - src/funcs/benefitsGrants.ts
   - src/funcs/productsList.ts
   - src/funcs/productsCreate.ts
-  - src/funcs/productsRetrieve.ts
+  - src/funcs/productsGet.ts
   - src/funcs/productsUpdate.ts
   - src/funcs/productsUpdateBenefits.ts
   - src/funcs/ordersList.ts
-  - src/funcs/ordersRetrieve.ts
+  - src/funcs/ordersGet.ts
   - src/funcs/ordersInvoice.ts
   - src/funcs/checkoutsCreate.ts
-  - src/funcs/checkoutsRetrieve.ts
+  - src/funcs/checkoutsGet.ts
   - src/funcs/filesList.ts
   - src/funcs/filesCreate.ts
   - src/funcs/filesUploaded.ts
   - src/funcs/filesUpdate.ts
   - src/funcs/filesDelete.ts
-  - src/funcs/metricsRetrieve.ts
+  - src/funcs/metricsGet.ts
   - src/funcs/metricsLimits.ts
   - src/funcs/licenseKeysList.ts
-  - src/funcs/licenseKeysRetrieve.ts
+  - src/funcs/licenseKeysGet.ts
   - src/funcs/licenseKeysUpdate.ts
   - src/funcs/licenseKeysGetActivation.ts
   - src/funcs/usersBenefitsList.ts
-  - src/funcs/usersBenefitsRetrieve.ts
+  - src/funcs/usersBenefitsGet.ts
   - src/funcs/usersOrdersList.ts
-  - src/funcs/usersOrdersRetrieve.ts
+  - src/funcs/usersOrdersGet.ts
   - src/funcs/usersOrdersInvoice.ts
   - src/funcs/usersSubscriptionsList.ts
   - src/funcs/usersSubscriptionsCreate.ts
-  - src/funcs/usersSubscriptionsRetrieve.ts
+  - src/funcs/usersSubscriptionsGet.ts
   - src/funcs/usersSubscriptionsUpdate.ts
   - src/funcs/usersSubscriptionsCancel.ts
   - src/funcs/usersAdvertisementsList.ts
   - src/funcs/usersAdvertisementsCreate.ts
-  - src/funcs/usersAdvertisementsRetrieve.ts
+  - src/funcs/usersAdvertisementsGet.ts
   - src/funcs/usersAdvertisementsUpdate.ts
   - src/funcs/usersAdvertisementsDelete.ts
   - src/funcs/usersAdvertisementsEnable.ts
   - src/funcs/usersDownloadablesList.ts
-  - src/funcs/usersDownloadablesRetrieve.ts
+  - src/funcs/usersDownloadablesGet.ts
   - src/funcs/usersLicenseKeysList.ts
-  - src/funcs/usersLicenseKeysRetrieve.ts
+  - src/funcs/usersLicenseKeysGet.ts
   - src/funcs/usersLicenseKeysValidate.ts
   - src/funcs/usersLicenseKeysActivate.ts
   - src/funcs/usersLicenseKeysDeactivate.ts
   - src/funcs/oauth2ClientsList.ts
   - src/funcs/oauth2ClientsCreate.ts
-  - src/funcs/oauth2ClientsRetrieve.ts
+  - src/funcs/oauth2ClientsGet.ts
   - src/funcs/oauth2ClientsUpdate.ts
   - src/funcs/oauth2ClientsDelete.ts
   - src/sdk/polarbenefits.ts
@@ -151,6 +152,7 @@ generatedFiles:
   - src/lib/dlv.ts
   - src/lib/encodings.ts
   - src/lib/env.ts
+  - src/lib/files.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
   - src/lib/logger.ts
@@ -172,6 +174,7 @@ generatedFiles:
   - src/types/index.ts
   - src/types/operations.ts
   - src/types/rfcdate.ts
+  - src/types/streams.ts
   - tsconfig.json
   - src/models/operations/usersbenefitslist.ts
   - src/models/operations/usersbenefitsget.ts

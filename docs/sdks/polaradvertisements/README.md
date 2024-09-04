@@ -7,7 +7,7 @@
 
 * [list](#list) - List Advertisements
 * [create](#create) - Create Advertisement
-* [retrieve](#retrieve) - Get Advertisement
+* [get](#get) - Get Advertisement
 * [update](#update) - Update Advertisement
 * [delete](#delete) - Delete Advertisement
 * [enable](#enable) - Enable Advertisement
@@ -172,7 +172,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get an advertisement campaign by ID.
 
@@ -186,7 +186,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.advertisements.retrieve({
+  const result = await polar.users.advertisements.get({
     id: "<value>",
   });
 
@@ -203,7 +203,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersAdvertisementsRetrieve } from "@polar-sh/sdk/funcs/usersAdvertisementsRetrieve.js";
+import { usersAdvertisementsGet } from "@polar-sh/sdk/funcs/usersAdvertisementsGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -212,7 +212,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersAdvertisementsRetrieve(polar, {
+  const res = await usersAdvertisementsGet(polar, {
     id: "<value>",
   });
 

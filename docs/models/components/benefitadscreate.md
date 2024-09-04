@@ -6,7 +6,7 @@
 import { BenefitAdsCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitAdsCreate = {
-    description: "Virtual maximized benchmark",
+    description: "Open-architected global framework",
     properties: {},
 };
 ```

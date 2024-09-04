@@ -7,7 +7,7 @@
 
 * [list](#list) - List Organizations
 * [create](#create) - Create Organization
-* [retrieve](#retrieve) - Get Organization
+* [get](#get) - Get Organization
 * [update](#update) - Update Organization
 
 ## list
@@ -168,7 +168,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get an organization by ID.
 
@@ -182,7 +182,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.organizations.retrieve({
+  const result = await polar.organizations.get({
     id: "<value>",
   });
 
@@ -199,7 +199,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { organizationsRetrieve } from "@polar-sh/sdk/funcs/organizationsRetrieve.js";
+import { organizationsGet } from "@polar-sh/sdk/funcs/organizationsGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -208,7 +208,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await organizationsRetrieve(polar, {
+  const res = await organizationsGet(polar, {
     id: "<value>",
   });
 

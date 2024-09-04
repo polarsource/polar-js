@@ -185,6 +185,18 @@ export class ClientSDK {
             }
         }
 
+        if (conf.body instanceof ReadableStream) {
+            if (!fetchOptions) {
+                fetchOptions = {
+                    // @ts-expect-error see https://github.com/node-fetch/node-fetch/issues/1769
+                    duplex: "half",
+                };
+            } else {
+                // @ts-expect-error see https://github.com/node-fetch/node-fetch/issues/1769
+                fetchOptions.duplex = "half";
+            }
+        }
+
         let input;
         try {
             input = this.hooks$.beforeCreateRequest(context, {

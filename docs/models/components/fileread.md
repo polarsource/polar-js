@@ -9,19 +9,18 @@ let value: FileRead = {
     id: "<value>",
     organizationId: "<value>",
     name: "<value>",
-    path: "/var/yp",
+    path: "/root",
     mimeType: "<value>",
-    size: 190567,
+    size: 937219,
     storageVersion: "<value>",
     checksumEtag: "<value>",
     checksumSha256Base64: "<value>",
     checksumSha256Hex: "<value>",
-    lastModifiedAt: new Date("2023-01-25T07:50:37.582Z"),
+    lastModifiedAt: new Date("2023-03-20T01:13:26.553Z"),
     version: "<value>",
     isUploaded: false,
-    createdAt: new Date("2022-01-21T23:00:31.318Z"),
+    createdAt: new Date("2024-11-16T07:19:00.301Z"),
     sizeReadable: "<value>",
-    publicUrl: "<value>",
 };
 ```
 

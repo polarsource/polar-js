@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [list](#list) - List Orders
-* [retrieve](#retrieve) - Get Order
+* [get](#get) - Get Order
 * [invoice](#invoice) - Get Order Invoice
 
 ## list
@@ -87,7 +87,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get an order by ID.
 
@@ -101,7 +101,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.orders.retrieve({
+  const result = await polar.users.orders.get({
     id: "<value>",
   });
 
@@ -118,7 +118,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersOrdersRetrieve } from "@polar-sh/sdk/funcs/usersOrdersRetrieve.js";
+import { usersOrdersGet } from "@polar-sh/sdk/funcs/usersOrdersGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -127,7 +127,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersOrdersRetrieve(polar, {
+  const res = await usersOrdersGet(polar, {
     id: "<value>",
   });
 

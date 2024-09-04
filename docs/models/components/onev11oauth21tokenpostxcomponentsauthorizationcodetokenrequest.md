@@ -9,7 +9,7 @@ let value: Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest = {
     clientId: "<value>",
     clientSecret: "<value>",
     code: "<value>",
-    redirectUri: "https://unfit-symbol.name",
+    redirectUri: "https://hidden-probability.net",
 };
 ```
 
