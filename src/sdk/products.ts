@@ -3,8 +3,8 @@
  */
 
 import { productsCreate } from "../funcs/productsCreate.js";
+import { productsGet } from "../funcs/productsGet.js";
 import { productsList } from "../funcs/productsList.js";
-import { productsRetrieve } from "../funcs/productsRetrieve.js";
 import { productsUpdate } from "../funcs/productsUpdate.js";
 import { productsUpdateBenefits } from "../funcs/productsUpdateBenefits.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -46,11 +46,11 @@ export class Products extends ClientSDK {
      * @remarks
      * Get a product by ID.
      */
-    async retrieve(
+    async get(
         request: operations.ProductsGetRequest,
         options?: RequestOptions
     ): Promise<components.ProductOutput> {
-        return unwrapAsync(productsRetrieve(this, request, options));
+        return unwrapAsync(productsGet(this, request, options));
     }
 
     /**

@@ -4,12 +4,8 @@
 
 ```typescript
 import { BodySubscriptionsImport } from "@polar-sh/sdk/models/components";
-import { openAsBlob } from "node:fs";
 
-let value: BodySubscriptionsImport = {
-    file: await openAsBlob("./sample-file"),
-    organizationId: "<value>",
-};
+// No examples available for this model
 ```
 
 ## Fields

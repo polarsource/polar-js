@@ -9,7 +9,7 @@ import { ProductPriceRecurringCreate } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringCreate = {
     recurringInterval: "month",
-    priceAmount: 107004,
+    priceAmount: 521996,
 };
 ```
 

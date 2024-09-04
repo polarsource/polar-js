@@ -7,7 +7,7 @@
 
 * [list](#list) - List Products
 * [create](#create) - Create Product
-* [retrieve](#retrieve) - Get Product
+* [get](#get) - Get Product
 * [update](#update) - Update Product
 * [updateBenefits](#updatebenefits) - Update Product Benefits
 
@@ -179,7 +179,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get a product by ID.
 
@@ -193,7 +193,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.products.retrieve({
+  const result = await polar.products.get({
     id: "<value>",
   });
 
@@ -210,7 +210,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { productsRetrieve } from "@polar-sh/sdk/funcs/productsRetrieve.js";
+import { productsGet } from "@polar-sh/sdk/funcs/productsGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -219,7 +219,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await productsRetrieve(polar, {
+  const res = await productsGet(polar, {
     id: "<value>",
   });
 

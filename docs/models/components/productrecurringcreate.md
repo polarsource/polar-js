@@ -12,7 +12,7 @@ let value: ProductRecurringCreate = {
     prices: [
         {
             recurringInterval: "month",
-            priceAmount: 117320,
+            priceAmount: 432281,
         },
     ],
 };

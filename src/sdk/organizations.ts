@@ -3,8 +3,8 @@
  */
 
 import { organizationsCreate } from "../funcs/organizationsCreate.js";
+import { organizationsGet } from "../funcs/organizationsGet.js";
 import { organizationsList } from "../funcs/organizationsList.js";
-import { organizationsRetrieve } from "../funcs/organizationsRetrieve.js";
 import { organizationsUpdate } from "../funcs/organizationsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -45,11 +45,11 @@ export class Organizations extends ClientSDK {
      * @remarks
      * Get an organization by ID.
      */
-    async retrieve(
+    async get(
         request: operations.OrganizationsGetRequest,
         options?: RequestOptions
     ): Promise<components.OrganizationOutput> {
-        return unwrapAsync(organizationsRetrieve(this, request, options));
+        return unwrapAsync(organizationsGet(this, request, options));
     }
 
     /**

@@ -24,18 +24,18 @@ import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Advertisement
+ * Get Campaign
  *
  * @remarks
  * Get an advertisement campaign by ID.
  */
-export async function usersAdvertisementsRetrieve(
+export async function advertisementsGet(
     client$: PolarCore,
-    request: operations.UsersAdvertisementsGetRequest,
+    request: operations.AdvertisementsGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        components.UserAdvertisementCampaign,
+        components.AdvertisementCampaign,
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -51,7 +51,7 @@ export async function usersAdvertisementsRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.UsersAdvertisementsGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.AdvertisementsGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -64,7 +64,7 @@ export async function usersAdvertisementsRetrieve(
         id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
     };
 
-    const path$ = pathToFunc("/v1/users/advertisements/{id}")(pathParams$);
+    const path$ = pathToFunc("/v1/advertisements/{id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -73,7 +73,7 @@ export async function usersAdvertisementsRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "users:advertisements:get",
+        operationID: "advertisements:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -112,7 +112,7 @@ export async function usersAdvertisementsRetrieve(
     };
 
     const [result$] = await m$.match<
-        components.UserAdvertisementCampaign,
+        components.AdvertisementCampaign,
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -123,7 +123,7 @@ export async function usersAdvertisementsRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, components.UserAdvertisementCampaign$inboundSchema),
+        m$.json(200, components.AdvertisementCampaign$inboundSchema),
         m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
         m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
         m$.fail(["4XX", "5XX"])

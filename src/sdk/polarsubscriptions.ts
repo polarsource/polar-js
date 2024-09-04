@@ -4,8 +4,8 @@
 
 import { usersSubscriptionsCancel } from "../funcs/usersSubscriptionsCancel.js";
 import { usersSubscriptionsCreate } from "../funcs/usersSubscriptionsCreate.js";
+import { usersSubscriptionsGet } from "../funcs/usersSubscriptionsGet.js";
 import { usersSubscriptionsList } from "../funcs/usersSubscriptionsList.js";
-import { usersSubscriptionsRetrieve } from "../funcs/usersSubscriptionsRetrieve.js";
 import { usersSubscriptionsUpdate } from "../funcs/usersSubscriptionsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -48,11 +48,11 @@ export class PolarSubscriptions extends ClientSDK {
      * @remarks
      * Get a subscription by ID.
      */
-    async retrieve(
+    async get(
         request: operations.UsersSubscriptionsGetRequest,
         options?: RequestOptions
     ): Promise<components.UserSubscription> {
-        return unwrapAsync(usersSubscriptionsRetrieve(this, request, options));
+        return unwrapAsync(usersSubscriptionsGet(this, request, options));
     }
 
     /**

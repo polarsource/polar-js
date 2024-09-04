@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [list](#list) - List License Keys
-* [retrieve](#retrieve) - Get License Key
+* [get](#get) - Get License Key
 * [update](#update) - Update License Key
 * [getActivation](#getactivation) - Get Activation
 
@@ -90,7 +90,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get a license key.
 
@@ -104,7 +104,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.licenseKeys.retrieve({
+  const result = await polar.licenseKeys.get({
     id: "<value>",
   });
 
@@ -121,7 +121,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { licenseKeysRetrieve } from "@polar-sh/sdk/funcs/licenseKeysRetrieve.js";
+import { licenseKeysGet } from "@polar-sh/sdk/funcs/licenseKeysGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -130,7 +130,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await licenseKeysRetrieve(polar, {
+  const res = await licenseKeysGet(polar, {
     id: "<value>",
   });
 

@@ -28,7 +28,7 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Get a granted benefit by ID.
  */
-export async function usersBenefitsRetrieve(
+export async function usersBenefitsGet(
     client$: PolarCore,
     request: operations.UsersBenefitsGetRequest,
     options?: RequestOptions

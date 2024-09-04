@@ -1,9 +1,9 @@
-speakeasyVersion: 1.385.0
+speakeasyVersion: 1.390.1
 sources:
     Polar-OAS:
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:823650b7bbc048b9feae6a5cb62601dc978e79a25fae66d61152a49b59a4bacf
-        sourceBlobDigest: sha256:839047495a6cbe8a089b36a53f0c00857d55e79c000b662b5f6e4b39ff927a8c
+        sourceRevisionDigest: sha256:5b11bf163e1665176abe1722c7ebda17d111f6e4b2419fb4a2bb9b789a3f22f9
+        sourceBlobDigest: sha256:3e5775321e8bfce8b04f57138abe6ea40d3d5a1bf0fe7be1df498cf91a5d6901
         tags:
             - latest
             - main
@@ -11,8 +11,8 @@ targets:
     polar:
         source: Polar-OAS
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:823650b7bbc048b9feae6a5cb62601dc978e79a25fae66d61152a49b59a4bacf
-        sourceBlobDigest: sha256:839047495a6cbe8a089b36a53f0c00857d55e79c000b662b5f6e4b39ff927a8c
+        sourceRevisionDigest: sha256:5b11bf163e1665176abe1722c7ebda17d111f6e4b2419fb4a2bb9b789a3f22f9
+        sourceBlobDigest: sha256:3e5775321e8bfce8b04f57138abe6ea40d3d5a1bf0fe7be1df498cf91a5d6901
         outLocation: /github/workspace/repo
 workflow:
     workflowVersion: 1.0.0

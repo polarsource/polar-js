@@ -6,7 +6,7 @@
 import { BenefitDiscordCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordCreate = {
-    description: "Grass-roots asynchronous monitoring",
+    description: "Up-sized high-level matrices",
     properties: {
         guildToken: "<value>",
         roleId: "<value>",

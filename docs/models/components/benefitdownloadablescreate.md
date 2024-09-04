@@ -6,7 +6,7 @@
 import { BenefitDownloadablesCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDownloadablesCreate = {
-    description: "Integrated 4th generation workforce",
+    description: "Compatible multi-state focus group",
     properties: {
         files: ["<value>"],
     },

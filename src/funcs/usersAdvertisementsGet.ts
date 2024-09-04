@@ -9,6 +9,7 @@ import * as schemas$ from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
+import * as components from "../models/components/index.js";
 import {
     ConnectionError,
     InvalidRequestError,
@@ -23,18 +24,18 @@ import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Benefit
+ * Get Advertisement
  *
  * @remarks
- * Get a benefit by ID.
+ * Get an advertisement campaign by ID.
  */
-export async function benefitsRetrieve(
+export async function usersAdvertisementsGet(
     client$: PolarCore,
-    request: operations.BenefitsGetRequest,
+    request: operations.UsersAdvertisementsGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        operations.BenefitsGetResponseBenefitsGet,
+        components.UserAdvertisementCampaign,
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -50,7 +51,7 @@ export async function benefitsRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.BenefitsGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.UsersAdvertisementsGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -63,7 +64,7 @@ export async function benefitsRetrieve(
         id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
     };
 
-    const path$ = pathToFunc("/v1/benefits/{id}")(pathParams$);
+    const path$ = pathToFunc("/v1/users/advertisements/{id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -72,7 +73,7 @@ export async function benefitsRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "benefits:get",
+        operationID: "users:advertisements:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -111,7 +112,7 @@ export async function benefitsRetrieve(
     };
 
     const [result$] = await m$.match<
-        operations.BenefitsGetResponseBenefitsGet,
+        components.UserAdvertisementCampaign,
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -122,7 +123,7 @@ export async function benefitsRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, operations.BenefitsGetResponseBenefitsGet$inboundSchema),
+        m$.json(200, components.UserAdvertisementCampaign$inboundSchema),
         m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
         m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
         m$.fail(["4XX", "5XX"])

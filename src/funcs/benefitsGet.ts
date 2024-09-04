@@ -21,18 +21,21 @@ import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
-import * as z from "zod";
 
 /**
- * Get Downloadable
+ * Get Benefit
+ *
+ * @remarks
+ * Get a benefit by ID.
  */
-export async function usersDownloadablesRetrieve(
+export async function benefitsGet(
     client$: PolarCore,
-    request: operations.UsersDownloadablesGetRequest,
+    request: operations.BenefitsGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        any | undefined,
+        operations.BenefitsGetResponseBenefitsGet,
+        | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -47,7 +50,7 @@ export async function usersDownloadablesRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.UsersDownloadablesGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.BenefitsGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -57,10 +60,10 @@ export async function usersDownloadablesRetrieve(
     const body$ = null;
 
     const pathParams$ = {
-        token: encodeSimple$("token", payload$.token, { explode: false, charEncoding: "percent" }),
+        id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
     };
 
-    const path$ = pathToFunc("/v1/users/downloadables/{token}")(pathParams$);
+    const path$ = pathToFunc("/v1/benefits/{id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -69,7 +72,7 @@ export async function usersDownloadablesRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "users:downloadables:get",
+        operationID: "benefits:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -94,7 +97,7 @@ export async function usersDownloadablesRetrieve(
 
     const doResult = await client$.do$(request$, {
         context,
-        errorCodes: ["400", "404", "410", "422", "4XX", "5XX"],
+        errorCodes: ["404", "422", "4XX", "5XX"],
         retryConfig: options?.retries || client$.options$.retryConfig,
         retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
     });
@@ -108,7 +111,8 @@ export async function usersDownloadablesRetrieve(
     };
 
     const [result$] = await m$.match<
-        any | undefined,
+        operations.BenefitsGetResponseBenefitsGet,
+        | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -118,10 +122,10 @@ export async function usersDownloadablesRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, z.any().optional()),
-        m$.nil(302, z.any().optional()),
-        m$.fail([400, 404, 410, "4XX", "5XX"]),
-        m$.jsonErr(422, errors.HTTPValidationError$inboundSchema)
+        m$.json(200, operations.BenefitsGetResponseBenefitsGet$inboundSchema),
+        m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
+        m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+        m$.fail(["4XX", "5XX"])
     )(response, { extraFields: responseFields$ });
     if (!result$.ok) {
         return result$;

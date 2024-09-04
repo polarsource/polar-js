@@ -6,7 +6,7 @@
 import { BenefitLicenseKeysCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitLicenseKeysCreate = {
-    description: "Visionary even-keeled hierarchy",
+    description: "Profound maximized secured line",
     properties: {},
 };
 ```

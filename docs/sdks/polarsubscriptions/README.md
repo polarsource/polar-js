@@ -7,7 +7,7 @@
 
 * [list](#list) - List Subscriptions
 * [create](#create) - Create Free Subscription
-* [retrieve](#retrieve) - Get Subscription
+* [get](#get) - Get Subscription
 * [update](#update) - Update Subscription
 * [cancel](#cancel) - Cancel Subscription
 
@@ -171,7 +171,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get a subscription by ID.
 
@@ -185,7 +185,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.subscriptions.retrieve({
+  const result = await polar.users.subscriptions.get({
     id: "<value>",
   });
 
@@ -202,7 +202,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersSubscriptionsRetrieve } from "@polar-sh/sdk/funcs/usersSubscriptionsRetrieve.js";
+import { usersSubscriptionsGet } from "@polar-sh/sdk/funcs/usersSubscriptionsGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -211,7 +211,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersSubscriptionsRetrieve(polar, {
+  const res = await usersSubscriptionsGet(polar, {
     id: "<value>",
   });
 

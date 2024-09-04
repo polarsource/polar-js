@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [list](#list) - List Downloadables
-* [retrieve](#retrieve) - Get Downloadable
+* [get](#get) - Get Downloadable
 
 ## list
 
@@ -86,7 +86,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get Downloadable
 
@@ -100,7 +100,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.downloadables.retrieve({
+  const result = await polar.users.downloadables.get({
     token: "<value>",
   });
 
@@ -117,7 +117,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersDownloadablesRetrieve } from "@polar-sh/sdk/funcs/usersDownloadablesRetrieve.js";
+import { usersDownloadablesGet } from "@polar-sh/sdk/funcs/usersDownloadablesGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -126,7 +126,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersDownloadablesRetrieve(polar, {
+  const res = await usersDownloadablesGet(polar, {
     token: "<value>",
   });
 

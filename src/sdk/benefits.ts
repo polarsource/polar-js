@@ -4,9 +4,9 @@
 
 import { benefitsCreate } from "../funcs/benefitsCreate.js";
 import { benefitsDelete } from "../funcs/benefitsDelete.js";
+import { benefitsGet } from "../funcs/benefitsGet.js";
 import { benefitsGrants } from "../funcs/benefitsGrants.js";
 import { benefitsList } from "../funcs/benefitsList.js";
-import { benefitsRetrieve } from "../funcs/benefitsRetrieve.js";
 import { benefitsUpdate } from "../funcs/benefitsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
@@ -46,11 +46,11 @@ export class Benefits extends ClientSDK {
      * @remarks
      * Get a benefit by ID.
      */
-    async retrieve(
+    async get(
         request: operations.BenefitsGetRequest,
         options?: RequestOptions
     ): Promise<operations.BenefitsGetResponseBenefitsGet> {
-        return unwrapAsync(benefitsRetrieve(this, request, options));
+        return unwrapAsync(benefitsGet(this, request, options));
     }
 
     /**

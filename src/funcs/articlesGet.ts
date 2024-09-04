@@ -24,19 +24,18 @@ import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get License Key
+ * Get Article
  *
  * @remarks
- * Get a license key.
+ * Get an article by ID.
  */
-export async function usersLicenseKeysRetrieve(
+export async function articlesGet(
     client$: PolarCore,
-    request: operations.UsersLicenseKeysGetRequest,
+    request: operations.ArticlesGetRequest,
     options?: RequestOptions
 ): Promise<
     Result<
-        components.LicenseKeyWithActivations,
-        | errors.Unauthorized
+        components.Article,
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -52,7 +51,7 @@ export async function usersLicenseKeysRetrieve(
 
     const parsed$ = schemas$.safeParse(
         input$,
-        (value$) => operations.UsersLicenseKeysGetRequest$outboundSchema.parse(value$),
+        (value$) => operations.ArticlesGetRequest$outboundSchema.parse(value$),
         "Input validation failed"
     );
     if (!parsed$.ok) {
@@ -65,7 +64,7 @@ export async function usersLicenseKeysRetrieve(
         id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
     };
 
-    const path$ = pathToFunc("/v1/users/license-keys/{id}")(pathParams$);
+    const path$ = pathToFunc("/v1/articles/{id}")(pathParams$);
 
     const headers$ = new Headers({
         Accept: "application/json",
@@ -74,7 +73,7 @@ export async function usersLicenseKeysRetrieve(
     const accessToken$ = await extractSecurity(client$.options$.accessToken);
     const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
     const context = {
-        operationID: "users:license_keys:get",
+        operationID: "articles:get",
         oAuth2Scopes: [],
         securitySource: client$.options$.accessToken,
     };
@@ -99,7 +98,7 @@ export async function usersLicenseKeysRetrieve(
 
     const doResult = await client$.do$(request$, {
         context,
-        errorCodes: ["401", "404", "422", "4XX", "5XX"],
+        errorCodes: ["404", "422", "4XX", "5XX"],
         retryConfig: options?.retries || client$.options$.retryConfig,
         retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
     });
@@ -113,8 +112,7 @@ export async function usersLicenseKeysRetrieve(
     };
 
     const [result$] = await m$.match<
-        components.LicenseKeyWithActivations,
-        | errors.Unauthorized
+        components.Article,
         | errors.ResourceNotFound
         | errors.HTTPValidationError
         | SDKError
@@ -125,8 +123,7 @@ export async function usersLicenseKeysRetrieve(
         | RequestTimeoutError
         | ConnectionError
     >(
-        m$.json(200, components.LicenseKeyWithActivations$inboundSchema),
-        m$.jsonErr(401, errors.Unauthorized$inboundSchema),
+        m$.json(200, components.Article$inboundSchema),
         m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
         m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
         m$.fail(["4XX", "5XX"])

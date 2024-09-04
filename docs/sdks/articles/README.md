@@ -7,7 +7,7 @@
 
 * [list](#list) - List Articles
 * [create](#create) - Create Article
-* [retrieve](#retrieve) - Get Article
+* [get](#get) - Get Article
 * [update](#update) - Update Article
 * [delete](#delete) - Delete Article
 * [receivers](#receivers) - Get Article Receivers Count
@@ -170,7 +170,7 @@ run();
 | errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
-## retrieve
+## get
 
 Get an article by ID.
 
@@ -184,7 +184,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.articles.retrieve({
+  const result = await polar.articles.get({
     id: "<value>",
   });
 
@@ -201,7 +201,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { articlesRetrieve } from "@polar-sh/sdk/funcs/articlesRetrieve.js";
+import { articlesGet } from "@polar-sh/sdk/funcs/articlesGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -210,7 +210,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await articlesRetrieve(polar, {
+  const res = await articlesGet(polar, {
     id: "<value>",
   });
 

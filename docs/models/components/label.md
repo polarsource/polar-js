@@ -7,7 +7,7 @@ import { Label } from "@polar-sh/sdk/models/components";
 
 let value: Label = {
     name: "<value>",
-    color: "cyan",
+    color: "indigo",
 };
 ```
 
