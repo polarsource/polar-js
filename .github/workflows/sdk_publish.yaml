@@ -12,9 +12,23 @@ permissions:
       - RELEASES.md
       - '*/RELEASES.md'
 jobs:
+  tokens:
+    runs-on: ubuntu-latest
+    outputs:
+      gh-token: ${{ steps.gh-token.outputs.token }}
+    steps:
+      # Generate a GitHub App Installation token to allow this workflow to trigger other events (like release published)
+      # See: https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#triggering-a-workflow-from-a-workflow
+      - name: Generate a GitHub App Installation token
+        id: gh-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.INTERNAL_GHA_APP_ID }}
+          private-key: ${{ secrets.INTERNAL_GHA_APP_PRIVATE_KEY }}
   publish:
+    needs: tokens
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
     secrets:
-      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      github_access_token: ${{ needs.tokens.outputs.gh-token }}
       npm_token: ${{ secrets.NPM_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
