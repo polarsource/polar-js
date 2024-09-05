@@ -25,6 +25,7 @@ jobs:
         with:
           app-id: ${{ secrets.INTERNAL_GHA_APP_ID }}
           private-key: ${{ secrets.INTERNAL_GHA_APP_PRIVATE_KEY }}
+          skip-token-revoke: true
   publish:
     needs: tokens
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
