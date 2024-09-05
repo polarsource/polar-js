@@ -25,7 +25,7 @@ async function run() {
   const result = await polar.advertisements.list({
     benefitId: "<value>",
   });
-
+  
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -107,7 +107,7 @@ async function run() {
   const result = await polar.advertisements.get({
     id: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }

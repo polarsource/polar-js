@@ -30,7 +30,7 @@ async function run() {
     code: "<value>",
     redirectUri: "http://multicolored-chivalry.name",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -112,7 +112,7 @@ async function run() {
     clientId: "<value>",
     clientSecret: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -193,7 +193,7 @@ async function run() {
     clientId: "<value>",
     clientSecret: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -270,7 +270,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.oauth2.userinfo();
-
+  
   // Handle the result
   console.log(result)
 }

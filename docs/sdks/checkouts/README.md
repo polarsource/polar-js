@@ -26,7 +26,7 @@ async function run() {
     productPriceId: "<value>",
     successUrl: "http://limp-pastry.org",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -105,7 +105,7 @@ async function run() {
   const result = await polar.checkouts.get({
     id: "<id>",
   });
-
+  
   // Handle the result
   console.log(result)
 }

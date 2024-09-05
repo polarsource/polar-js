@@ -26,7 +26,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.products.list({});
-
+  
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -112,7 +112,7 @@ async function run() {
       },
     ],
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -196,7 +196,7 @@ async function run() {
   const result = await polar.products.get({
     id: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -276,7 +276,7 @@ async function run() {
     id: "<value>",
     productUpdate: {},
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -362,7 +362,7 @@ async function run() {
       ],
     },
   });
-
+  
   // Handle the result
   console.log(result)
 }

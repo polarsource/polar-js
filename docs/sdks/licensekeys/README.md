@@ -25,7 +25,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.licenseKeys.list({});
-
+  
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -107,7 +107,7 @@ async function run() {
   const result = await polar.licenseKeys.get({
     id: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -188,7 +188,7 @@ async function run() {
     id: "<value>",
     licenseKeyUpdate: {},
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -270,7 +270,7 @@ async function run() {
     id: "<value>",
     activationId: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }

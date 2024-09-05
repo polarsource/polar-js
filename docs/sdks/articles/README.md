@@ -29,7 +29,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.articles.list({});
-
+  
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -109,7 +109,7 @@ async function run() {
   const result = await polar.articles.create({
     title: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -187,7 +187,7 @@ async function run() {
   const result = await polar.articles.get({
     id: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -267,7 +267,7 @@ async function run() {
     id: "<value>",
     articleUpdate: {},
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -348,8 +348,6 @@ async function run() {
   await polar.articles.delete({
     id: "<value>",
   });
-
-  
 }
 
 run();
@@ -426,7 +424,7 @@ async function run() {
   const result = await polar.articles.receivers({
     id: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -507,7 +505,7 @@ async function run() {
       email: "Eileen56@yahoo.com",
     },
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -590,7 +588,7 @@ async function run() {
   const result = await polar.articles.send({
     id: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
