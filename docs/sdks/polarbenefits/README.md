@@ -23,7 +23,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.users.benefits.list({});
-
+  
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -103,7 +103,7 @@ async function run() {
   const result = await polar.users.benefits.get({
     id: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }

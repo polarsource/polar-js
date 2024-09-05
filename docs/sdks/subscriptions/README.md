@@ -25,7 +25,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.subscriptions.list({});
-
+  
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -106,7 +106,7 @@ async function run() {
     email: "Jena.Nienow28@yahoo.com",
     productId: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -187,7 +187,7 @@ async function run() {
     file: await openAsBlob("./sample-file"),
     organizationId: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -265,7 +265,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.subscriptions.export({});
-
+  
   // Handle the result
   console.log(result)
 }

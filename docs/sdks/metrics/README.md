@@ -28,7 +28,7 @@ async function run() {
     endDate: new RFCDate("2022-04-09"),
     interval: "week",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -107,7 +107,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.metrics.limits();
-
+  
   // Handle the result
   console.log(result)
 }

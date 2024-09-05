@@ -27,7 +27,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.benefits.list({});
-
+  
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -111,7 +111,7 @@ async function run() {
       roleId: "<value>",
     },
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -193,7 +193,7 @@ async function run() {
   const result = await polar.benefits.get({
     id: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -273,7 +273,7 @@ async function run() {
     id: "<value>",
     requestBody: {},
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -364,8 +364,6 @@ async function run() {
   await polar.benefits.delete({
     id: "<value>",
   });
-
-  
 }
 
 run();
@@ -444,7 +442,7 @@ async function run() {
   const result = await polar.benefits.grants({
     id: "<value>",
   });
-
+  
   for await (const page of result) {
     // Handle the page
     console.log(page);

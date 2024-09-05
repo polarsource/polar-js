@@ -27,7 +27,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.users.advertisements.list({});
-
+  
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -109,7 +109,7 @@ async function run() {
     text: "<value>",
     linkUrl: "http://flashy-cartload.net",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -189,7 +189,7 @@ async function run() {
   const result = await polar.users.advertisements.get({
     id: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -269,7 +269,7 @@ async function run() {
     id: "<value>",
     userAdvertisementCampaignUpdate: {},
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -351,7 +351,7 @@ async function run() {
   const result = await polar.users.advertisements.delete({
     id: "<value>",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -433,8 +433,6 @@ async function run() {
       benefitId: "<value>",
     },
   });
-
-  
 }
 
 run();

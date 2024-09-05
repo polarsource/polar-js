@@ -519,6 +519,11 @@ async function run() {
     let result;
     try {
         result = await polar.users.benefits.list({});
+
+        for await (const page of result) {
+            // Handle the page
+            console.log(page);
+        }
     } catch (err) {
         switch (true) {
             case err instanceof SDKValidationError: {
@@ -537,11 +542,6 @@ async function run() {
                 throw err;
             }
         }
-    }
-
-    for await (const page of result) {
-        // Handle the page
-        console.log(page);
     }
 }
 
