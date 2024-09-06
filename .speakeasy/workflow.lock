@@ -2,18 +2,17 @@ speakeasyVersion: 1.390.8
 sources:
     Polar-OAS:
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:3a1dcde03f1491deb23f6ec762cf81f4f4e8500d75919160cedeca6756949c42
-        sourceBlobDigest: sha256:80c9d7cd57a11439aa781e3aeaee739c70e8774cd5b15aa3c5b1ce8987cc5df4
+        sourceRevisionDigest: sha256:b1c1546e80ee94bca723154e4f0e4b8b7b832736b941739af4a16ebdc0eb5f9a
+        sourceBlobDigest: sha256:9008ecb26530a2cc3059249e30ffa3a21450d4e25a808991f6aefcc265675b3a
         tags:
             - latest
-            - main
 targets:
     polar:
         source: Polar-OAS
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:3a1dcde03f1491deb23f6ec762cf81f4f4e8500d75919160cedeca6756949c42
-        sourceBlobDigest: sha256:80c9d7cd57a11439aa781e3aeaee739c70e8774cd5b15aa3c5b1ce8987cc5df4
-        outLocation: /github/workspace/repo
+        sourceRevisionDigest: sha256:b1c1546e80ee94bca723154e4f0e4b8b7b832736b941739af4a16ebdc0eb5f9a
+        sourceBlobDigest: sha256:9008ecb26530a2cc3059249e30ffa3a21450d4e25a808991f6aefcc265675b3a
+        outLocation: /Users/fvoron/Development/polar-js
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
