@@ -3,10 +3,10 @@ id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
   docChecksum: 0dbe07aa0aa542216a4fed03ea0f1102
   docVersion: 0.1.0
-  speakeasyVersion: 1.390.5
-  generationVersion: 2.409.3
-  releaseVersion: 0.7.1
-  configChecksum: 2b249976416979edc666c7dffb6ffac5
+  speakeasyVersion: 1.390.8
+  generationVersion: 2.409.8
+  releaseVersion: 0.7.2
+  configChecksum: f6a2f1351d01eb8685a90c52d228bd29
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.16.0
+    core: 3.16.1
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.0
