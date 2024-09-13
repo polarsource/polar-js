@@ -6,19 +6,19 @@
 import { ValidatedLicenseKey } from "@polar-sh/sdk/models/components";
 
 let value: ValidatedLicenseKey = {
-    id: "<value>",
-    organizationId: "<value>",
-    userId: "<value>",
-    benefitId: "<value>",
-    key: "<key>",
-    displayKey: "<value>",
-    status: "revoked",
-    limitActivations: 699622,
-    usage: 580197,
-    limitUsage: 327720,
-    validations: 716244,
-    lastValidatedAt: new Date("2024-04-09T10:18:19.841Z"),
-    expiresAt: new Date("2022-01-30T16:01:21.462Z"),
+  id: "<value>",
+  organizationId: "<value>",
+  userId: "<value>",
+  benefitId: "<value>",
+  key: "<key>",
+  displayKey: "<value>",
+  status: "disabled",
+  limitActivations: 580197,
+  usage: 327720,
+  limitUsage: 716244,
+  validations: 756779,
+  lastValidatedAt: new Date("2022-01-30T16:01:21.462Z"),
+  expiresAt: new Date("2023-11-29T02:57:00.110Z"),
 };
 ```
 

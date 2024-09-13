@@ -7,7 +7,7 @@ Interval between two timestamps.
 ```typescript
 import { Interval } from "@polar-sh/sdk/models/operations";
 
-let value: Interval = "hour";
+let value: Interval = "day";
 ```
 
 ## Values

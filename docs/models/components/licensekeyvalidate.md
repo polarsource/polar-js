@@ -6,8 +6,8 @@
 import { LicenseKeyValidate } from "@polar-sh/sdk/models/components";
 
 let value: LicenseKeyValidate = {
-    key: "<key>",
-    organizationId: "<value>",
+  key: "<key>",
+  organizationId: "<value>",
 };
 ```
 

@@ -10,29 +10,37 @@ import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Checkouts extends ClientSDK {
-    /**
-     * Create Checkout
-     *
-     * @remarks
-     * Create a checkout session.
-     */
-    async create(
-        request: components.CheckoutCreate,
-        options?: RequestOptions
-    ): Promise<components.Checkout> {
-        return unwrapAsync(checkoutsCreate(this, request, options));
-    }
+  /**
+   * Create Checkout
+   *
+   * @remarks
+   * Create a checkout session.
+   */
+  async create(
+    request: components.CheckoutCreate,
+    options?: RequestOptions,
+  ): Promise<components.Checkout> {
+    return unwrapAsync(checkoutsCreate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Checkout
-     *
-     * @remarks
-     * Get an active checkout session by ID.
-     */
-    async get(
-        request: operations.CheckoutsGetRequest,
-        options?: RequestOptions
-    ): Promise<components.Checkout> {
-        return unwrapAsync(checkoutsGet(this, request, options));
-    }
+  /**
+   * Get Checkout
+   *
+   * @remarks
+   * Get an active checkout session by ID.
+   */
+  async get(
+    request: operations.CheckoutsGetRequest,
+    options?: RequestOptions,
+  ): Promise<components.Checkout> {
+    return unwrapAsync(checkoutsGet(
+      this,
+      request,
+      options,
+    ));
+  }
 }

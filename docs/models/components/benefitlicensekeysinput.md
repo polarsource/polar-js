@@ -6,25 +6,25 @@
 import { BenefitLicenseKeysInput } from "@polar-sh/sdk/models/components";
 
 let value: BenefitLicenseKeysInput = {
-    createdAt: new Date("2023-02-19T17:31:20.127Z"),
-    modifiedAt: new Date("2023-09-26T00:55:47.150Z"),
-    id: "<value>",
-    description: "Phased analyzing implementation",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    properties: {
-        prefix: "<value>",
-        expires: {
-            ttl: 78246,
-            timeframe: "day",
-        },
-        activations: {
-            limit: 371287,
-            enableUserAdmin: false,
-        },
-        limitUsage: 97659,
+  createdAt: new Date("2023-02-19T17:31:20.127Z"),
+  modifiedAt: new Date("2023-09-26T00:55:47.150Z"),
+  id: "<value>",
+  description: "Phased analyzing implementation",
+  selectable: false,
+  deletable: false,
+  organizationId: "<value>",
+  properties: {
+    prefix: "<value>",
+    expires: {
+      ttl: 78246,
+      timeframe: "day",
     },
+    activations: {
+      limit: 371287,
+      enableUserAdmin: false,
+    },
+    limitUsage: 97659,
+  },
 };
 ```
 

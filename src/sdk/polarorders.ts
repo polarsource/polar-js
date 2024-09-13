@@ -12,42 +12,54 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class PolarOrders extends ClientSDK {
-    /**
-     * List Orders
-     *
-     * @remarks
-     * List my orders.
-     */
-    async list(
-        request: operations.UsersOrdersListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.UsersOrdersListResponse>> {
-        return unwrapResultIterator(usersOrdersList(this, request, options));
-    }
+  /**
+   * List Orders
+   *
+   * @remarks
+   * List my orders.
+   */
+  async list(
+    request: operations.UsersOrdersListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.UsersOrdersListResponse>> {
+    return unwrapResultIterator(usersOrdersList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Order
-     *
-     * @remarks
-     * Get an order by ID.
-     */
-    async get(
-        request: operations.UsersOrdersGetRequest,
-        options?: RequestOptions
-    ): Promise<components.UserOrder> {
-        return unwrapAsync(usersOrdersGet(this, request, options));
-    }
+  /**
+   * Get Order
+   *
+   * @remarks
+   * Get an order by ID.
+   */
+  async get(
+    request: operations.UsersOrdersGetRequest,
+    options?: RequestOptions,
+  ): Promise<components.UserOrder> {
+    return unwrapAsync(usersOrdersGet(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Order Invoice
-     *
-     * @remarks
-     * Get an order's invoice data.
-     */
-    async invoice(
-        request: operations.UsersOrdersInvoiceRequest,
-        options?: RequestOptions
-    ): Promise<components.UserOrderInvoice> {
-        return unwrapAsync(usersOrdersInvoice(this, request, options));
-    }
+  /**
+   * Get Order Invoice
+   *
+   * @remarks
+   * Get an order's invoice data.
+   */
+  async invoice(
+    request: operations.UsersOrdersInvoiceRequest,
+    options?: RequestOptions,
+  ): Promise<components.UserOrderInvoice> {
+    return unwrapAsync(usersOrdersInvoice(
+      this,
+      request,
+      options,
+    ));
+  }
 }

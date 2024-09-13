@@ -8,16 +8,20 @@ import * as operations from "../models/operations/index.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class ExternalOrganizations extends ClientSDK {
-    /**
-     * List External Organizations
-     *
-     * @remarks
-     * List external organizations.
-     */
-    async list(
-        request: operations.ExternalOrganizationsListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.ExternalOrganizationsListResponse>> {
-        return unwrapResultIterator(externalOrganizationsList(this, request, options));
-    }
+  /**
+   * List External Organizations
+   *
+   * @remarks
+   * List external organizations.
+   */
+  async list(
+    request: operations.ExternalOrganizationsListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.ExternalOrganizationsListResponse>> {
+    return unwrapResultIterator(externalOrganizationsList(
+      this,
+      request,
+      options,
+    ));
+  }
 }

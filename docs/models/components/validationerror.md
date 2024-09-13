@@ -6,9 +6,11 @@
 import { ValidationError } from "@polar-sh/sdk/models/components";
 
 let value: ValidationError = {
-    loc: ["<value>"],
-    msg: "<value>",
-    type: "<value>",
+  loc: [
+    947371,
+  ],
+  msg: "<value>",
+  type: "<value>",
 };
 ```
 

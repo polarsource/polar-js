@@ -6,10 +6,12 @@
 import { BenefitDownloadablesProperties } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDownloadablesProperties = {
-    archived: {
-        key: false,
-    },
-    files: ["<value>"],
+  archived: {
+    "key": false,
+  },
+  files: [
+    "<value>",
+  ],
 };
 ```
 

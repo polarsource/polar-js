@@ -6,8 +6,8 @@
 import { BenefitGrantLicenseKeysProperties } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrantLicenseKeysProperties = {
-    licenseKeyId: "<value>",
-    displayKey: "<value>",
+  licenseKeyId: "<value>",
+  displayKey: "<value>",
 };
 ```
 

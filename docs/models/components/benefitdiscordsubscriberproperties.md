@@ -8,7 +8,7 @@ Properties available to subscribers for a benefit of type `discord`.
 import { BenefitDiscordSubscriberProperties } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordSubscriberProperties = {
-    guildId: "<value>",
+  guildId: "<value>",
 };
 ```
 

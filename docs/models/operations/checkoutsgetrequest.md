@@ -6,7 +6,7 @@
 import { CheckoutsGetRequest } from "@polar-sh/sdk/models/operations";
 
 let value: CheckoutsGetRequest = {
-    id: "<id>",
+  id: "<id>",
 };
 ```
 

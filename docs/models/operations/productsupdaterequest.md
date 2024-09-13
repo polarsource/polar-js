@@ -6,8 +6,8 @@
 import { ProductsUpdateRequest } from "@polar-sh/sdk/models/operations";
 
 let value: ProductsUpdateRequest = {
-    id: "<value>",
-    productUpdate: {},
+  id: "<value>",
+  productUpdate: {},
 };
 ```
 

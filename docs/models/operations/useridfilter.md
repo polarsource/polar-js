@@ -7,7 +7,7 @@ Filter by customer's user ID.
 ```typescript
 import { UserIDFilter } from "@polar-sh/sdk/models/operations";
 
-let value: UserIDFilter = ["<value>"];
+let value: UserIDFilter = "<value>";
 ```
 
 ## Supported Types

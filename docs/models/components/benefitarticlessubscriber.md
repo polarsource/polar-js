@@ -6,16 +6,16 @@
 import { BenefitArticlesSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitArticlesSubscriber = {
-    createdAt: new Date("2024-01-16T21:02:51.489Z"),
-    modifiedAt: new Date("2022-10-06T18:35:34.521Z"),
-    id: "<value>",
-    description: "Cloned 6th generation analyzer",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    properties: {
-        paidArticles: false,
-    },
+  createdAt: new Date("2022-04-04T11:36:52.545Z"),
+  modifiedAt: new Date("2022-03-05T14:23:56.722Z"),
+  id: "<value>",
+  description: "Balanced global infrastructure",
+  selectable: false,
+  deletable: false,
+  organizationId: "<value>",
+  properties: {
+    paidArticles: false,
+  },
 };
 ```
 

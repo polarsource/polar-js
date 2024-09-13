@@ -1,18 +1,18 @@
-speakeasyVersion: 1.390.8
+speakeasyVersion: 1.396.6
 sources:
     Polar-OAS:
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:b1c1546e80ee94bca723154e4f0e4b8b7b832736b941739af4a16ebdc0eb5f9a
-        sourceBlobDigest: sha256:9008ecb26530a2cc3059249e30ffa3a21450d4e25a808991f6aefcc265675b3a
+        sourceRevisionDigest: sha256:5f656d87e4bd7fd0e2b110927cdba3e4c809c4d704e6c8c0b18c017c3ada3a36
+        sourceBlobDigest: sha256:c2e4dffc6f8f6d109ae7f5ea850208157a075e6238ea553dc592682171bb455d
         tags:
             - latest
+            - main
 targets:
     polar:
         source: Polar-OAS
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:b1c1546e80ee94bca723154e4f0e4b8b7b832736b941739af4a16ebdc0eb5f9a
-        sourceBlobDigest: sha256:9008ecb26530a2cc3059249e30ffa3a21450d4e25a808991f6aefcc265675b3a
-        outLocation: /Users/fvoron/Development/polar-js
+        sourceRevisionDigest: sha256:5f656d87e4bd7fd0e2b110927cdba3e4c809c4d704e6c8c0b18c017c3ada3a36
+        sourceBlobDigest: sha256:c2e4dffc6f8f6d109ae7f5ea850208157a075e6238ea553dc592682171bb455d
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

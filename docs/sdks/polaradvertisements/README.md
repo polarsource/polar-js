@@ -133,9 +133,9 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await usersAdvertisementsCreate(polar, {
-    imageUrl: "http://formal-blouse.net",
+    imageUrl: "http://limp-pastry.org",
     text: "<value>",
-    linkUrl: "https://thrifty-smile.name",
+    linkUrl: "http://flashy-cartload.net",
   });
 
   if (!res.ok) {

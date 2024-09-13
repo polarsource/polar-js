@@ -6,8 +6,8 @@
 import { BenefitAdsCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitAdsCreate = {
-    description: "Open-architected global framework",
-    properties: {},
+  description: "Open-architected global framework",
+  properties: {},
 };
 ```
 

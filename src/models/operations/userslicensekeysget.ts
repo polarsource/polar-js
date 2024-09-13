@@ -5,30 +5,30 @@
 import * as z from "zod";
 
 export type UsersLicenseKeysGetRequest = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const UsersLicenseKeysGetRequest$inboundSchema: z.ZodType<
-    UsersLicenseKeysGetRequest,
-    z.ZodTypeDef,
-    unknown
+  UsersLicenseKeysGetRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type UsersLicenseKeysGetRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const UsersLicenseKeysGetRequest$outboundSchema: z.ZodType<
-    UsersLicenseKeysGetRequest$Outbound,
-    z.ZodTypeDef,
-    UsersLicenseKeysGetRequest
+  UsersLicenseKeysGetRequest$Outbound,
+  z.ZodTypeDef,
+  UsersLicenseKeysGetRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -36,10 +36,10 @@ export const UsersLicenseKeysGetRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace UsersLicenseKeysGetRequest$ {
-    /** @deprecated use `UsersLicenseKeysGetRequest$inboundSchema` instead. */
-    export const inboundSchema = UsersLicenseKeysGetRequest$inboundSchema;
-    /** @deprecated use `UsersLicenseKeysGetRequest$outboundSchema` instead. */
-    export const outboundSchema = UsersLicenseKeysGetRequest$outboundSchema;
-    /** @deprecated use `UsersLicenseKeysGetRequest$Outbound` instead. */
-    export type Outbound = UsersLicenseKeysGetRequest$Outbound;
+  /** @deprecated use `UsersLicenseKeysGetRequest$inboundSchema` instead. */
+  export const inboundSchema = UsersLicenseKeysGetRequest$inboundSchema;
+  /** @deprecated use `UsersLicenseKeysGetRequest$outboundSchema` instead. */
+  export const outboundSchema = UsersLicenseKeysGetRequest$outboundSchema;
+  /** @deprecated use `UsersLicenseKeysGetRequest$Outbound` instead. */
+  export type Outbound = UsersLicenseKeysGetRequest$Outbound;
 }

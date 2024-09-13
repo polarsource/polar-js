@@ -531,7 +531,7 @@ async function run() {
   const res = await articlesPreview(polar, {
     id: "<value>",
     articlePreview: {
-      email: "Christian.Smith@hotmail.com",
+      email: "Eileen56@yahoo.com",
     },
   });
 

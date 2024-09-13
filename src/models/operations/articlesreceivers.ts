@@ -5,30 +5,30 @@
 import * as z from "zod";
 
 export type ArticlesReceiversRequest = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const ArticlesReceiversRequest$inboundSchema: z.ZodType<
-    ArticlesReceiversRequest,
-    z.ZodTypeDef,
-    unknown
+  ArticlesReceiversRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type ArticlesReceiversRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const ArticlesReceiversRequest$outboundSchema: z.ZodType<
-    ArticlesReceiversRequest$Outbound,
-    z.ZodTypeDef,
-    ArticlesReceiversRequest
+  ArticlesReceiversRequest$Outbound,
+  z.ZodTypeDef,
+  ArticlesReceiversRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -36,10 +36,10 @@ export const ArticlesReceiversRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace ArticlesReceiversRequest$ {
-    /** @deprecated use `ArticlesReceiversRequest$inboundSchema` instead. */
-    export const inboundSchema = ArticlesReceiversRequest$inboundSchema;
-    /** @deprecated use `ArticlesReceiversRequest$outboundSchema` instead. */
-    export const outboundSchema = ArticlesReceiversRequest$outboundSchema;
-    /** @deprecated use `ArticlesReceiversRequest$Outbound` instead. */
-    export type Outbound = ArticlesReceiversRequest$Outbound;
+  /** @deprecated use `ArticlesReceiversRequest$inboundSchema` instead. */
+  export const inboundSchema = ArticlesReceiversRequest$inboundSchema;
+  /** @deprecated use `ArticlesReceiversRequest$outboundSchema` instead. */
+  export const outboundSchema = ArticlesReceiversRequest$outboundSchema;
+  /** @deprecated use `ArticlesReceiversRequest$Outbound` instead. */
+  export type Outbound = ArticlesReceiversRequest$Outbound;
 }

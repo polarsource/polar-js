@@ -5,34 +5,34 @@
 import * as z from "zod";
 
 export type UserInfoOrganization = {
-    sub: string;
-    name: string | null;
+  sub: string;
+  name: string | null;
 };
 
 /** @internal */
 export const UserInfoOrganization$inboundSchema: z.ZodType<
-    UserInfoOrganization,
-    z.ZodTypeDef,
-    unknown
+  UserInfoOrganization,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    sub: z.string(),
-    name: z.nullable(z.string()),
+  sub: z.string(),
+  name: z.nullable(z.string()),
 });
 
 /** @internal */
 export type UserInfoOrganization$Outbound = {
-    sub: string;
-    name: string | null;
+  sub: string;
+  name: string | null;
 };
 
 /** @internal */
 export const UserInfoOrganization$outboundSchema: z.ZodType<
-    UserInfoOrganization$Outbound,
-    z.ZodTypeDef,
-    UserInfoOrganization
+  UserInfoOrganization$Outbound,
+  z.ZodTypeDef,
+  UserInfoOrganization
 > = z.object({
-    sub: z.string(),
-    name: z.nullable(z.string()),
+  sub: z.string(),
+  name: z.nullable(z.string()),
 });
 
 /**
@@ -40,10 +40,10 @@ export const UserInfoOrganization$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace UserInfoOrganization$ {
-    /** @deprecated use `UserInfoOrganization$inboundSchema` instead. */
-    export const inboundSchema = UserInfoOrganization$inboundSchema;
-    /** @deprecated use `UserInfoOrganization$outboundSchema` instead. */
-    export const outboundSchema = UserInfoOrganization$outboundSchema;
-    /** @deprecated use `UserInfoOrganization$Outbound` instead. */
-    export type Outbound = UserInfoOrganization$Outbound;
+  /** @deprecated use `UserInfoOrganization$inboundSchema` instead. */
+  export const inboundSchema = UserInfoOrganization$inboundSchema;
+  /** @deprecated use `UserInfoOrganization$outboundSchema` instead. */
+  export const outboundSchema = UserInfoOrganization$outboundSchema;
+  /** @deprecated use `UserInfoOrganization$Outbound` instead. */
+  export type Outbound = UserInfoOrganization$Outbound;
 }

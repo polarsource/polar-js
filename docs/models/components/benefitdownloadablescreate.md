@@ -6,10 +6,12 @@
 import { BenefitDownloadablesCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDownloadablesCreate = {
-    description: "Compatible multi-state focus group",
-    properties: {
-        files: ["<value>"],
-    },
+  description: "Compatible multi-state focus group",
+  properties: {
+    files: [
+      "<value>",
+    ],
+  },
 };
 ```
 

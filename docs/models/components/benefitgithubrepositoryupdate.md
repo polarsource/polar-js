@@ -6,11 +6,11 @@
 import { BenefitGitHubRepositoryUpdate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGitHubRepositoryUpdate = {
-    properties: {
-        repositoryOwner: "polarsource",
-        repositoryName: "private_repo",
-        permission: "maintain",
-    },
+  properties: {
+    repositoryOwner: "polarsource",
+    repositoryName: "private_repo",
+    permission: "maintain",
+  },
 };
 ```
 

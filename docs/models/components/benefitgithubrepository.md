@@ -10,19 +10,19 @@ Use it to automatically invite your backers to a private GitHub repository.
 import { BenefitGitHubRepository } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGitHubRepository = {
-    createdAt: new Date("2023-07-28T05:09:36.614Z"),
-    modifiedAt: new Date("2022-11-30T16:09:25.930Z"),
-    id: "<value>",
-    description: "Function-based zero tolerance ability",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    properties: {
-        repositoryId: "<value>",
-        repositoryOwner: "polarsource",
-        repositoryName: "private_repo",
-        permission: "triage",
-    },
+  createdAt: new Date("2023-07-28T05:09:36.614Z"),
+  modifiedAt: new Date("2022-11-30T16:09:25.930Z"),
+  id: "<value>",
+  description: "Function-based zero tolerance ability",
+  selectable: false,
+  deletable: false,
+  organizationId: "<value>",
+  properties: {
+    repositoryId: "<value>",
+    repositoryOwner: "polarsource",
+    repositoryName: "private_repo",
+    permission: "triage",
+  },
 };
 ```
 

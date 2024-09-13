@@ -6,7 +6,7 @@
 import { UsersLicenseKeysGetRequest } from "@polar-sh/sdk/models/operations";
 
 let value: UsersLicenseKeysGetRequest = {
-    id: "<value>",
+  id: "<value>",
 };
 ```
 

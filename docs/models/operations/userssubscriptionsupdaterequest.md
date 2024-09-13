@@ -6,10 +6,10 @@
 import { UsersSubscriptionsUpdateRequest } from "@polar-sh/sdk/models/operations";
 
 let value: UsersSubscriptionsUpdateRequest = {
-    id: "<value>",
-    userSubscriptionUpdate: {
-        productPriceId: "<value>",
-    },
+  id: "<value>",
+  userSubscriptionUpdate: {
+    productPriceId: "<value>",
+  },
 };
 ```
 

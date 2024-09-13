@@ -6,8 +6,8 @@
 import { LicenseKeysUpdateRequest } from "@polar-sh/sdk/models/operations";
 
 let value: LicenseKeysUpdateRequest = {
-    id: "<value>",
-    licenseKeyUpdate: {},
+  id: "<value>",
+  licenseKeyUpdate: {},
 };
 ```
 

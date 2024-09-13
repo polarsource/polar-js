@@ -8,10 +8,10 @@ Successful Response
 import { Oauth2UserinfoResponseOauth2Userinfo } from "@polar-sh/sdk/models/operations";
 
 let value: Oauth2UserinfoResponseOauth2Userinfo = {
-    sub: "<value>",
-    name: "<value>",
-    email: "Kevin_Glover28@hotmail.com",
-    emailVerified: false,
+  sub: "<value>",
+  name: "<value>",
+  email: "Kevin_Glover28@hotmail.com",
+  emailVerified: false,
 };
 ```
 

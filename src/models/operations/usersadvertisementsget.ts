@@ -5,33 +5,33 @@
 import * as z from "zod";
 
 export type UsersAdvertisementsGetRequest = {
-    /**
-     * The advertisement campaign ID.
-     */
-    id: string;
+  /**
+   * The advertisement campaign ID.
+   */
+  id: string;
 };
 
 /** @internal */
 export const UsersAdvertisementsGetRequest$inboundSchema: z.ZodType<
-    UsersAdvertisementsGetRequest,
-    z.ZodTypeDef,
-    unknown
+  UsersAdvertisementsGetRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type UsersAdvertisementsGetRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const UsersAdvertisementsGetRequest$outboundSchema: z.ZodType<
-    UsersAdvertisementsGetRequest$Outbound,
-    z.ZodTypeDef,
-    UsersAdvertisementsGetRequest
+  UsersAdvertisementsGetRequest$Outbound,
+  z.ZodTypeDef,
+  UsersAdvertisementsGetRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -39,10 +39,10 @@ export const UsersAdvertisementsGetRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace UsersAdvertisementsGetRequest$ {
-    /** @deprecated use `UsersAdvertisementsGetRequest$inboundSchema` instead. */
-    export const inboundSchema = UsersAdvertisementsGetRequest$inboundSchema;
-    /** @deprecated use `UsersAdvertisementsGetRequest$outboundSchema` instead. */
-    export const outboundSchema = UsersAdvertisementsGetRequest$outboundSchema;
-    /** @deprecated use `UsersAdvertisementsGetRequest$Outbound` instead. */
-    export type Outbound = UsersAdvertisementsGetRequest$Outbound;
+  /** @deprecated use `UsersAdvertisementsGetRequest$inboundSchema` instead. */
+  export const inboundSchema = UsersAdvertisementsGetRequest$inboundSchema;
+  /** @deprecated use `UsersAdvertisementsGetRequest$outboundSchema` instead. */
+  export const outboundSchema = UsersAdvertisementsGetRequest$outboundSchema;
+  /** @deprecated use `UsersAdvertisementsGetRequest$Outbound` instead. */
+  export type Outbound = UsersAdvertisementsGetRequest$Outbound;
 }

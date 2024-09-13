@@ -6,10 +6,10 @@
 import { Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest } from "@polar-sh/sdk/models/components";
 
 let value: Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest = {
-    clientId: "<value>",
-    clientSecret: "<value>",
-    code: "<value>",
-    redirectUri: "https://hidden-probability.net",
+  clientId: "<value>",
+  clientSecret: "<value>",
+  code: "<value>",
+  redirectUri: "https://hidden-probability.net",
 };
 ```
 

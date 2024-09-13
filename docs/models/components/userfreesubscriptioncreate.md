@@ -6,7 +6,7 @@
 import { UserFreeSubscriptionCreate } from "@polar-sh/sdk/models/components";
 
 let value: UserFreeSubscriptionCreate = {
-    productId: "<value>",
+  productId: "<value>",
 };
 ```
 

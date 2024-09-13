@@ -8,30 +8,33 @@ import * as z from "zod";
  * Order's invoice data.
  */
 export type UserOrderInvoice = {
-    /**
-     * The URL to the invoice.
-     */
-    url: string;
+  /**
+   * The URL to the invoice.
+   */
+  url: string;
 };
 
 /** @internal */
-export const UserOrderInvoice$inboundSchema: z.ZodType<UserOrderInvoice, z.ZodTypeDef, unknown> =
-    z.object({
-        url: z.string(),
-    });
+export const UserOrderInvoice$inboundSchema: z.ZodType<
+  UserOrderInvoice,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  url: z.string(),
+});
 
 /** @internal */
 export type UserOrderInvoice$Outbound = {
-    url: string;
+  url: string;
 };
 
 /** @internal */
 export const UserOrderInvoice$outboundSchema: z.ZodType<
-    UserOrderInvoice$Outbound,
-    z.ZodTypeDef,
-    UserOrderInvoice
+  UserOrderInvoice$Outbound,
+  z.ZodTypeDef,
+  UserOrderInvoice
 > = z.object({
-    url: z.string(),
+  url: z.string(),
 });
 
 /**
@@ -39,10 +42,10 @@ export const UserOrderInvoice$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace UserOrderInvoice$ {
-    /** @deprecated use `UserOrderInvoice$inboundSchema` instead. */
-    export const inboundSchema = UserOrderInvoice$inboundSchema;
-    /** @deprecated use `UserOrderInvoice$outboundSchema` instead. */
-    export const outboundSchema = UserOrderInvoice$outboundSchema;
-    /** @deprecated use `UserOrderInvoice$Outbound` instead. */
-    export type Outbound = UserOrderInvoice$Outbound;
+  /** @deprecated use `UserOrderInvoice$inboundSchema` instead. */
+  export const inboundSchema = UserOrderInvoice$inboundSchema;
+  /** @deprecated use `UserOrderInvoice$outboundSchema` instead. */
+  export const outboundSchema = UserOrderInvoice$outboundSchema;
+  /** @deprecated use `UserOrderInvoice$Outbound` instead. */
+  export type Outbound = UserOrderInvoice$Outbound;
 }

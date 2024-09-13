@@ -5,33 +5,33 @@
 import * as z from "zod";
 
 export type UsersAdvertisementsDeleteRequest = {
-    /**
-     * The advertisement campaign ID.
-     */
-    id: string;
+  /**
+   * The advertisement campaign ID.
+   */
+  id: string;
 };
 
 /** @internal */
 export const UsersAdvertisementsDeleteRequest$inboundSchema: z.ZodType<
-    UsersAdvertisementsDeleteRequest,
-    z.ZodTypeDef,
-    unknown
+  UsersAdvertisementsDeleteRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type UsersAdvertisementsDeleteRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const UsersAdvertisementsDeleteRequest$outboundSchema: z.ZodType<
-    UsersAdvertisementsDeleteRequest$Outbound,
-    z.ZodTypeDef,
-    UsersAdvertisementsDeleteRequest
+  UsersAdvertisementsDeleteRequest$Outbound,
+  z.ZodTypeDef,
+  UsersAdvertisementsDeleteRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -39,10 +39,10 @@ export const UsersAdvertisementsDeleteRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace UsersAdvertisementsDeleteRequest$ {
-    /** @deprecated use `UsersAdvertisementsDeleteRequest$inboundSchema` instead. */
-    export const inboundSchema = UsersAdvertisementsDeleteRequest$inboundSchema;
-    /** @deprecated use `UsersAdvertisementsDeleteRequest$outboundSchema` instead. */
-    export const outboundSchema = UsersAdvertisementsDeleteRequest$outboundSchema;
-    /** @deprecated use `UsersAdvertisementsDeleteRequest$Outbound` instead. */
-    export type Outbound = UsersAdvertisementsDeleteRequest$Outbound;
+  /** @deprecated use `UsersAdvertisementsDeleteRequest$inboundSchema` instead. */
+  export const inboundSchema = UsersAdvertisementsDeleteRequest$inboundSchema;
+  /** @deprecated use `UsersAdvertisementsDeleteRequest$outboundSchema` instead. */
+  export const outboundSchema = UsersAdvertisementsDeleteRequest$outboundSchema;
+  /** @deprecated use `UsersAdvertisementsDeleteRequest$Outbound` instead. */
+  export type Outbound = UsersAdvertisementsDeleteRequest$Outbound;
 }

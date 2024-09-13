@@ -10,23 +10,31 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Downloadables extends ClientSDK {
-    /**
-     * List Downloadables
-     */
-    async list(
-        request: operations.UsersDownloadablesListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.UsersDownloadablesListResponse>> {
-        return unwrapResultIterator(usersDownloadablesList(this, request, options));
-    }
+  /**
+   * List Downloadables
+   */
+  async list(
+    request: operations.UsersDownloadablesListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.UsersDownloadablesListResponse>> {
+    return unwrapResultIterator(usersDownloadablesList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Downloadable
-     */
-    async get(
-        request: operations.UsersDownloadablesGetRequest,
-        options?: RequestOptions
-    ): Promise<any | undefined> {
-        return unwrapAsync(usersDownloadablesGet(this, request, options));
-    }
+  /**
+   * Get Downloadable
+   */
+  async get(
+    request: operations.UsersDownloadablesGetRequest,
+    options?: RequestOptions,
+  ): Promise<any | undefined> {
+    return unwrapAsync(usersDownloadablesGet(
+      this,
+      request,
+      options,
+    ));
+  }
 }

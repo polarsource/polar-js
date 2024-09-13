@@ -6,9 +6,9 @@
 import { S3FileUploadCompletedPart } from "@polar-sh/sdk/models/components";
 
 let value: S3FileUploadCompletedPart = {
-    number: 192718,
-    checksumEtag: "<value>",
-    checksumSha256Base64: "<value>",
+  number: 192718,
+  checksumEtag: "<value>",
+  checksumSha256Base64: "<value>",
 };
 ```
 

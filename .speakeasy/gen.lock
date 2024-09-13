@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 0dbe07aa0aa542216a4fed03ea0f1102
+  docChecksum: f32e3ce6570534c1cf36917acc02b548
   docVersion: 0.1.0
-  speakeasyVersion: 1.390.8
-  generationVersion: 2.409.8
-  releaseVersion: 0.7.1
-  configChecksum: 2b249976416979edc666c7dffb6ffac5
+  speakeasyVersion: 1.396.6
+  generationVersion: 2.415.6
+  releaseVersion: 0.8.0
+  configChecksum: 318499a65f61d5e2ea199eaeab4b1204
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,10 +14,11 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.16.1
+    core: 3.17.2
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.0
+    enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.1
     globalSecurity: 2.82.11
     globalSecurityCallbacks: 0.1.0
@@ -35,117 +36,596 @@ features:
     uploadStreams: 0.1.0
     webhooks: 1.0.0
 generatedFiles:
-  - src/funcs/externalOrganizationsList.ts
-  - src/funcs/repositoriesList.ts
-  - src/funcs/repositoriesGet.ts
-  - src/funcs/repositoriesUpdate.ts
-  - src/funcs/organizationsList.ts
-  - src/funcs/organizationsCreate.ts
-  - src/funcs/organizationsGet.ts
-  - src/funcs/organizationsUpdate.ts
-  - src/funcs/subscriptionsList.ts
-  - src/funcs/subscriptionsCreate.ts
-  - src/funcs/subscriptionsImportSubscriptions.ts
-  - src/funcs/subscriptionsExport.ts
-  - src/funcs/articlesList.ts
-  - src/funcs/articlesCreate.ts
-  - src/funcs/articlesGet.ts
-  - src/funcs/articlesUpdate.ts
-  - src/funcs/articlesDelete.ts
-  - src/funcs/articlesReceivers.ts
-  - src/funcs/articlesPreview.ts
-  - src/funcs/articlesSend.ts
-  - src/funcs/advertisementsList.ts
-  - src/funcs/advertisementsGet.ts
-  - src/funcs/oauth2Token.ts
-  - src/funcs/oauth2Revoke.ts
-  - src/funcs/oauth2Introspect.ts
-  - src/funcs/oauth2Userinfo.ts
-  - src/funcs/benefitsList.ts
-  - src/funcs/benefitsCreate.ts
-  - src/funcs/benefitsGet.ts
-  - src/funcs/benefitsUpdate.ts
-  - src/funcs/benefitsDelete.ts
-  - src/funcs/benefitsGrants.ts
-  - src/funcs/productsList.ts
-  - src/funcs/productsCreate.ts
-  - src/funcs/productsGet.ts
-  - src/funcs/productsUpdate.ts
-  - src/funcs/productsUpdateBenefits.ts
-  - src/funcs/ordersList.ts
-  - src/funcs/ordersGet.ts
-  - src/funcs/ordersInvoice.ts
-  - src/funcs/checkoutsCreate.ts
-  - src/funcs/checkoutsGet.ts
-  - src/funcs/filesList.ts
-  - src/funcs/filesCreate.ts
-  - src/funcs/filesUploaded.ts
-  - src/funcs/filesUpdate.ts
-  - src/funcs/filesDelete.ts
-  - src/funcs/metricsGet.ts
-  - src/funcs/metricsLimits.ts
-  - src/funcs/licenseKeysList.ts
-  - src/funcs/licenseKeysGet.ts
-  - src/funcs/licenseKeysUpdate.ts
-  - src/funcs/licenseKeysGetActivation.ts
-  - src/funcs/usersBenefitsList.ts
-  - src/funcs/usersBenefitsGet.ts
-  - src/funcs/usersOrdersList.ts
-  - src/funcs/usersOrdersGet.ts
-  - src/funcs/usersOrdersInvoice.ts
-  - src/funcs/usersSubscriptionsList.ts
-  - src/funcs/usersSubscriptionsCreate.ts
-  - src/funcs/usersSubscriptionsGet.ts
-  - src/funcs/usersSubscriptionsUpdate.ts
-  - src/funcs/usersSubscriptionsCancel.ts
-  - src/funcs/usersAdvertisementsList.ts
-  - src/funcs/usersAdvertisementsCreate.ts
-  - src/funcs/usersAdvertisementsGet.ts
-  - src/funcs/usersAdvertisementsUpdate.ts
-  - src/funcs/usersAdvertisementsDelete.ts
-  - src/funcs/usersAdvertisementsEnable.ts
-  - src/funcs/usersDownloadablesList.ts
-  - src/funcs/usersDownloadablesGet.ts
-  - src/funcs/usersLicenseKeysList.ts
-  - src/funcs/usersLicenseKeysGet.ts
-  - src/funcs/usersLicenseKeysValidate.ts
-  - src/funcs/usersLicenseKeysActivate.ts
-  - src/funcs/usersLicenseKeysDeactivate.ts
-  - src/funcs/oauth2ClientsList.ts
-  - src/funcs/oauth2ClientsCreate.ts
-  - src/funcs/oauth2ClientsGet.ts
-  - src/funcs/oauth2ClientsUpdate.ts
-  - src/funcs/oauth2ClientsDelete.ts
-  - src/sdk/polarbenefits.ts
-  - src/sdk/polarorders.ts
-  - src/sdk/polarsubscriptions.ts
-  - src/sdk/polaradvertisements.ts
-  - src/sdk/downloadables.ts
-  - src/sdk/polarlicensekeys.ts
-  - src/sdk/users.ts
-  - src/sdk/externalorganizations.ts
-  - src/sdk/repositories.ts
-  - src/sdk/organizations.ts
-  - src/sdk/subscriptions.ts
-  - src/sdk/articles.ts
-  - src/sdk/advertisements.ts
-  - src/sdk/clients.ts
-  - src/sdk/oauth2.ts
-  - src/sdk/benefits.ts
-  - src/sdk/products.ts
-  - src/sdk/orders.ts
-  - src/sdk/checkouts.ts
-  - src/sdk/files.ts
-  - src/sdk/metrics.ts
-  - src/sdk/licensekeys.ts
-  - src/sdk/sdk.ts
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
   - .eslintrc.cjs
+  - .gitattributes
   - .npmignore
+  - CONTRIBUTING.md
   - FUNCTIONS.md
   - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/components/advertisementcampaign.md
+  - docs/models/components/advertisementcampaignlistresource.md
+  - docs/models/components/advertisementsortproperty.md
+  - docs/models/components/article.md
+  - docs/models/components/articlebyline.md
+  - docs/models/components/articlecreate.md
+  - docs/models/components/articlecreatearticlebyline.md
+  - docs/models/components/articlecreatearticlevisibility.md
+  - docs/models/components/articlepreview.md
+  - docs/models/components/articlereceivers.md
+  - docs/models/components/articleupdate.md
+  - docs/models/components/articlevisibility.md
+  - docs/models/components/assignee.md
+  - docs/models/components/author.md
+  - docs/models/components/benefit.md
+  - docs/models/components/benefitads.md
+  - docs/models/components/benefitadscreate.md
+  - docs/models/components/benefitadscreatetype.md
+  - docs/models/components/benefitadsproperties.md
+  - docs/models/components/benefitadssubscriber.md
+  - docs/models/components/benefitadssubscribertype.md
+  - docs/models/components/benefitadstype.md
+  - docs/models/components/benefitadsupdate.md
+  - docs/models/components/benefitadsupdatetype.md
+  - docs/models/components/benefitarticles.md
+  - docs/models/components/benefitarticlesproperties.md
+  - docs/models/components/benefitarticlessubscriber.md
+  - docs/models/components/benefitarticlessubscriberproperties.md
+  - docs/models/components/benefitarticlestype.md
+  - docs/models/components/benefitarticlesupdate.md
+  - docs/models/components/benefitarticlesupdatetype.md
+  - docs/models/components/benefitbase.md
+  - docs/models/components/benefitcustom.md
+  - docs/models/components/benefitcustomcreate.md
+  - docs/models/components/benefitcustomcreatetype.md
+  - docs/models/components/benefitcustomproperties.md
+  - docs/models/components/benefitcustomsubscriber.md
+  - docs/models/components/benefitcustomsubscriberproperties.md
+  - docs/models/components/benefitcustomsubscribertype.md
+  - docs/models/components/benefitcustomtype.md
+  - docs/models/components/benefitcustomupdate.md
+  - docs/models/components/benefitcustomupdatetype.md
+  - docs/models/components/benefitdiscordcreate.md
+  - docs/models/components/benefitdiscordcreateproperties.md
+  - docs/models/components/benefitdiscordcreatetype.md
+  - docs/models/components/benefitdiscordinput.md
+  - docs/models/components/benefitdiscordinputtype.md
+  - docs/models/components/benefitdiscordoutput.md
+  - docs/models/components/benefitdiscordoutputtype.md
+  - docs/models/components/benefitdiscordpropertiesinput.md
+  - docs/models/components/benefitdiscordpropertiesoutput.md
+  - docs/models/components/benefitdiscordsubscriber.md
+  - docs/models/components/benefitdiscordsubscriberproperties.md
+  - docs/models/components/benefitdiscordsubscribertype.md
+  - docs/models/components/benefitdiscordupdate.md
+  - docs/models/components/benefitdiscordupdatetype.md
+  - docs/models/components/benefitdownloadables.md
+  - docs/models/components/benefitdownloadablescreate.md
+  - docs/models/components/benefitdownloadablescreateproperties.md
+  - docs/models/components/benefitdownloadablescreatetype.md
+  - docs/models/components/benefitdownloadablesproperties.md
+  - docs/models/components/benefitdownloadablessubscriber.md
+  - docs/models/components/benefitdownloadablessubscriberproperties.md
+  - docs/models/components/benefitdownloadablessubscribertype.md
+  - docs/models/components/benefitdownloadablestype.md
+  - docs/models/components/benefitdownloadablesupdate.md
+  - docs/models/components/benefitdownloadablesupdatetype.md
+  - docs/models/components/benefitgithubrepository.md
+  - docs/models/components/benefitgithubrepositorycreate.md
+  - docs/models/components/benefitgithubrepositorycreateproperties.md
+  - docs/models/components/benefitgithubrepositorycreatepropertiespermission.md
+  - docs/models/components/benefitgithubrepositorycreatetype.md
+  - docs/models/components/benefitgithubrepositoryproperties.md
+  - docs/models/components/benefitgithubrepositorysubscriber.md
+  - docs/models/components/benefitgithubrepositorysubscriberproperties.md
+  - docs/models/components/benefitgithubrepositorysubscribertype.md
+  - docs/models/components/benefitgithubrepositorytype.md
+  - docs/models/components/benefitgithubrepositoryupdate.md
+  - docs/models/components/benefitgithubrepositoryupdatetype.md
+  - docs/models/components/benefitgrant.md
+  - docs/models/components/benefitgrantads.md
+  - docs/models/components/benefitgrantadsproperties.md
+  - docs/models/components/benefitgrantlicensekeys.md
+  - docs/models/components/benefitgrantlicensekeysproperties.md
+  - docs/models/components/benefitgrantproperties.md
+  - docs/models/components/benefitlicensekeyactivationproperties.md
+  - docs/models/components/benefitlicensekeyexpirationproperties.md
+  - docs/models/components/benefitlicensekeyscreate.md
+  - docs/models/components/benefitlicensekeyscreateproperties.md
+  - docs/models/components/benefitlicensekeyscreatetype.md
+  - docs/models/components/benefitlicensekeysinput.md
+  - docs/models/components/benefitlicensekeysinputtype.md
+  - docs/models/components/benefitlicensekeysoutput.md
+  - docs/models/components/benefitlicensekeysoutputtype.md
+  - docs/models/components/benefitlicensekeysproperties.md
+  - docs/models/components/benefitlicensekeyssubscriber.md
+  - docs/models/components/benefitlicensekeyssubscriberproperties.md
+  - docs/models/components/benefitlicensekeyssubscribertype.md
+  - docs/models/components/benefitlicensekeysupdate.md
+  - docs/models/components/benefitlicensekeysupdatetype.md
+  - docs/models/components/benefits.md
+  - docs/models/components/benefittype.md
+  - docs/models/components/bodysubscriptionsimport.md
+  - docs/models/components/bylineprofile.md
+  - docs/models/components/checkout.md
+  - docs/models/components/checkoutcreate.md
+  - docs/models/components/conditions.md
+  - docs/models/components/currencyamount.md
+  - docs/models/components/donationinput.md
+  - docs/models/components/donationorganization.md
+  - docs/models/components/donationuser.md
+  - docs/models/components/donor.md
+  - docs/models/components/downloadablefilecreate.md
+  - docs/models/components/downloadablefilecreateservice.md
+  - docs/models/components/downloadablefileread.md
+  - docs/models/components/downloadablefilereadservice.md
+  - docs/models/components/downloadableread.md
+  - docs/models/components/existingproductprice.md
+  - docs/models/components/externalorganization.md
+  - docs/models/components/externalorganizationsortproperty.md
+  - docs/models/components/filedownload.md
+  - docs/models/components/filepatch.md
+  - docs/models/components/fileread.md
+  - docs/models/components/fileservicetypes.md
+  - docs/models/components/filet.md
+  - docs/models/components/fileupload.md
+  - docs/models/components/fileuploadcompleted.md
+  - docs/models/components/funding.md
+  - docs/models/components/granttype.md
+  - docs/models/components/granttypes.md
+  - docs/models/components/introspecttokenresponse.md
+  - docs/models/components/introspecttokenresponsetokentype.md
+  - docs/models/components/issueinput.md
+  - docs/models/components/label.md
+  - docs/models/components/licensekeyactivate.md
+  - docs/models/components/licensekeyactivateconditions.md
+  - docs/models/components/licensekeyactivatemeta.md
+  - docs/models/components/licensekeyactivationbase.md
+  - docs/models/components/licensekeyactivationread.md
+  - docs/models/components/licensekeyactivationreadmeta.md
+  - docs/models/components/licensekeydeactivate.md
+  - docs/models/components/licensekeyread.md
+  - docs/models/components/licensekeystatus.md
+  - docs/models/components/licensekeyupdate.md
+  - docs/models/components/licensekeyvalidate.md
+  - docs/models/components/licensekeywithactivations.md
+  - docs/models/components/listresourcearticle.md
+  - docs/models/components/listresourcebenefit.md
+  - docs/models/components/listresourcebenefitgrant.md
+  - docs/models/components/listresourcedownloadableread.md
+  - docs/models/components/listresourceexternalorganization.md
+  - docs/models/components/listresourcefileread.md
+  - docs/models/components/listresourcelicensekeyread.md
+  - docs/models/components/listresourceoauth2client.md
+  - docs/models/components/listresourceorder.md
+  - docs/models/components/listresourceorganization.md
+  - docs/models/components/listresourceproduct.md
+  - docs/models/components/listresourcerepository.md
+  - docs/models/components/listresourcesubscription.md
+  - docs/models/components/listresourceuseradvertisementcampaign.md
+  - docs/models/components/listresourceuserbenefit.md
+  - docs/models/components/listresourceuserorder.md
+  - docs/models/components/listresourceusersubscription.md
+  - docs/models/components/loc.md
+  - docs/models/components/meta.md
+  - docs/models/components/metric.md
+  - docs/models/components/metricperiod.md
+  - docs/models/components/metrics.md
+  - docs/models/components/metricsintervallimit.md
+  - docs/models/components/metricsintervalslimits.md
+  - docs/models/components/metricslimits.md
+  - docs/models/components/metricsresponse.md
+  - docs/models/components/metrictype.md
+  - docs/models/components/oauth2client.md
+  - docs/models/components/oauth2clientconfiguration.md
+  - docs/models/components/oauth2clientconfigurationgranttypes.md
+  - docs/models/components/oauth2clientconfigurationresponsetypes.md
+  - docs/models/components/oauth2clientconfigurationtokenendpointauthmethod.md
+  - docs/models/components/oauth2clientconfigurationupdate.md
+  - docs/models/components/oauth2clientconfigurationupdategranttypes.md
+  - docs/models/components/oauth2clientconfigurationupdateresponsetypes.md
+  - docs/models/components/oauth2clientconfigurationupdatetokenendpointauthmethod.md
+  - docs/models/components/onev11oauth21tokenpostxcomponentsauthorizationcodetokenrequest.md
+  - docs/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequest.md
+  - docs/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequestgranttype.md
+  - docs/models/components/orderinput.md
+  - docs/models/components/orderinvoice.md
+  - docs/models/components/orderoutput.md
+  - docs/models/components/orderproduct.md
+  - docs/models/components/ordersortproperty.md
+  - docs/models/components/ordersubscription.md
+  - docs/models/components/orderuser.md
+  - docs/models/components/organizationavatarfilecreate.md
+  - docs/models/components/organizationavatarfilecreateservice.md
+  - docs/models/components/organizationavatarfileread.md
+  - docs/models/components/organizationavatarfilereadservice.md
+  - docs/models/components/organizationcreate.md
+  - docs/models/components/organizationfeaturesettings.md
+  - docs/models/components/organizationinput.md
+  - docs/models/components/organizationoutput.md
+  - docs/models/components/organizationprofilesettings.md
+  - docs/models/components/organizationsortproperty.md
+  - docs/models/components/organizationsubscribepromotesettings.md
+  - docs/models/components/organizationupdate.md
+  - docs/models/components/pagination.md
+  - docs/models/components/permission.md
+  - docs/models/components/platforms.md
+  - docs/models/components/pledgeinput.md
+  - docs/models/components/pledger.md
+  - docs/models/components/pledgestate.md
+  - docs/models/components/pledgetype.md
+  - docs/models/components/prices.md
+  - docs/models/components/productbenefitsupdate.md
+  - docs/models/components/productinput.md
+  - docs/models/components/productinputbenefits.md
+  - docs/models/components/productmediafilecreate.md
+  - docs/models/components/productmediafilecreateservice.md
+  - docs/models/components/productmediafilereadinput.md
+  - docs/models/components/productmediafilereadinputservice.md
+  - docs/models/components/productmediafilereadoutput.md
+  - docs/models/components/productonetimecreate.md
+  - docs/models/components/productoutput.md
+  - docs/models/components/productoutputbenefits.md
+  - docs/models/components/productpriceinput.md
+  - docs/models/components/productpriceonetime.md
+  - docs/models/components/productpriceonetimecreate.md
+  - docs/models/components/productpriceonetimecreatetype.md
+  - docs/models/components/productpriceonetimetype.md
+  - docs/models/components/productpriceoutput.md
+  - docs/models/components/productpricerecurring.md
+  - docs/models/components/productpricerecurringcreate.md
+  - docs/models/components/productpricerecurringcreatetype.md
+  - docs/models/components/productpricerecurringinterval.md
+  - docs/models/components/productpricerecurringtype.md
+  - docs/models/components/productpricetype.md
+  - docs/models/components/productrecurringcreate.md
+  - docs/models/components/productrecurringcreatetype.md
+  - docs/models/components/productupdate.md
+  - docs/models/components/reactions.md
+  - docs/models/components/repositoryinput.md
+  - docs/models/components/repositoryoutput.md
+  - docs/models/components/repositoryprofilesettings.md
+  - docs/models/components/repositoryprofilesettingsupdate.md
+  - docs/models/components/repositorysortproperty.md
+  - docs/models/components/repositoryupdate.md
+  - docs/models/components/responsetypes.md
+  - docs/models/components/revoketokenresponse.md
+  - docs/models/components/s3downloadurl.md
+  - docs/models/components/s3filecreatemultipart.md
+  - docs/models/components/s3filecreatepart.md
+  - docs/models/components/s3fileuploadcompletedpart.md
+  - docs/models/components/s3fileuploadmultipart.md
+  - docs/models/components/s3fileuploadpart.md
+  - docs/models/components/security.md
+  - docs/models/components/service.md
+  - docs/models/components/state.md
+  - docs/models/components/subscriptioncreateemail.md
+  - docs/models/components/subscriptioninput.md
+  - docs/models/components/subscriptionoutput.md
+  - docs/models/components/subscriptionsimported.md
+  - docs/models/components/subscriptionsortproperty.md
+  - docs/models/components/subscriptionstatus.md
+  - docs/models/components/subscriptiontiertype.md
+  - docs/models/components/subscriptionuser.md
+  - docs/models/components/subtype.md
+  - docs/models/components/timeframe.md
+  - docs/models/components/tokenendpointauthmethod.md
+  - docs/models/components/tokenresponse.md
+  - docs/models/components/tokentype.md
+  - docs/models/components/type.md
+  - docs/models/components/useradvertisementcampaign.md
+  - docs/models/components/useradvertisementcampaigncreate.md
+  - docs/models/components/useradvertisementcampaignenable.md
+  - docs/models/components/useradvertisementcampaignupdate.md
+  - docs/models/components/useradvertisementsortproperty.md
+  - docs/models/components/userbenefit.md
+  - docs/models/components/userbenefitsortproperty.md
+  - docs/models/components/userfreesubscriptioncreate.md
+  - docs/models/components/userinfoorganization.md
+  - docs/models/components/userinfouser.md
+  - docs/models/components/userorder.md
+  - docs/models/components/userorderinvoice.md
+  - docs/models/components/userorderproduct.md
+  - docs/models/components/userordersortproperty.md
+  - docs/models/components/userordersubscription.md
+  - docs/models/components/usersubscription.md
+  - docs/models/components/usersubscriptionproduct.md
+  - docs/models/components/usersubscriptionproductbenefits.md
+  - docs/models/components/usersubscriptionsortproperty.md
+  - docs/models/components/usersubscriptionupdate.md
+  - docs/models/components/validatedlicensekey.md
+  - docs/models/components/validationerror.md
+  - docs/models/components/webhookbenefitcreatedpayload.md
+  - docs/models/components/webhookbenefitcreatedpayloadbenefit.md
+  - docs/models/components/webhookbenefitcreatedpayloadtype.md
+  - docs/models/components/webhookbenefitupdatedpayload.md
+  - docs/models/components/webhookbenefitupdatedpayloadbenefit.md
+  - docs/models/components/webhookbenefitupdatedpayloadtype.md
+  - docs/models/components/webhookdonationcreatedpayload.md
+  - docs/models/components/webhookdonationcreatedpayloadtype.md
+  - docs/models/components/webhookordercreatedpayload.md
+  - docs/models/components/webhookordercreatedpayloadtype.md
+  - docs/models/components/webhookorganizationupdatedpayload.md
+  - docs/models/components/webhookorganizationupdatedpayloadtype.md
+  - docs/models/components/webhookpledgecreatedpayload.md
+  - docs/models/components/webhookpledgecreatedpayloadtype.md
+  - docs/models/components/webhookpledgeupdatedpayload.md
+  - docs/models/components/webhookpledgeupdatedpayloadtype.md
+  - docs/models/components/webhookproductcreatedpayload.md
+  - docs/models/components/webhookproductcreatedpayloadtype.md
+  - docs/models/components/webhookproductupdatedpayload.md
+  - docs/models/components/webhookproductupdatedpayloadtype.md
+  - docs/models/components/webhooksubscriptioncreatedpayload.md
+  - docs/models/components/webhooksubscriptioncreatedpayloadtype.md
+  - docs/models/components/webhooksubscriptionupdatedpayload.md
+  - docs/models/components/webhooksubscriptionupdatedpayloadtype.md
+  - docs/models/errors/alreadycanceledsubscription.md
+  - docs/models/errors/alreadycanceledsubscriptiontype.md
+  - docs/models/errors/alreadysubscribed.md
+  - docs/models/errors/alreadysubscribedtype.md
+  - docs/models/errors/filenotfound.md
+  - docs/models/errors/filenotfoundtype.md
+  - docs/models/errors/freesubscriptionupgrade.md
+  - docs/models/errors/freesubscriptionupgradetype.md
+  - docs/models/errors/httpvalidationerror.md
+  - docs/models/errors/notpermitted.md
+  - docs/models/errors/notpermittedtype.md
+  - docs/models/errors/resourcenotfound.md
+  - docs/models/errors/type.md
+  - docs/models/errors/unauthorized.md
+  - docs/models/errors/unauthorizedtype.md
+  - docs/models/operations/advertisementsgetrequest.md
+  - docs/models/operations/advertisementslistrequest.md
+  - docs/models/operations/advertisementslistresponse.md
+  - docs/models/operations/articlesdeleterequest.md
+  - docs/models/operations/articlesgetrequest.md
+  - docs/models/operations/articleslistqueryparamorganizationidfilter.md
+  - docs/models/operations/articleslistrequest.md
+  - docs/models/operations/articleslistresponse.md
+  - docs/models/operations/articlespreviewrequest.md
+  - docs/models/operations/articlesreceiversrequest.md
+  - docs/models/operations/articlessendrequest.md
+  - docs/models/operations/articlesupdaterequest.md
+  - docs/models/operations/articlevisibilityfilter.md
+  - docs/models/operations/benefitidfilter.md
+  - docs/models/operations/benefitscreatebenefitcreate.md
+  - docs/models/operations/benefitscreateresponsebenefitscreate.md
+  - docs/models/operations/benefitsdeleterequest.md
+  - docs/models/operations/benefitsgetrequest.md
+  - docs/models/operations/benefitsgetresponsebenefitsget.md
+  - docs/models/operations/benefitsgrantsrequest.md
+  - docs/models/operations/benefitsgrantsresponse.md
+  - docs/models/operations/benefitslistqueryparamorganizationidfilter.md
+  - docs/models/operations/benefitslistrequest.md
+  - docs/models/operations/benefitslistresponse.md
+  - docs/models/operations/benefitsupdatebenefitupdate.md
+  - docs/models/operations/benefitsupdaterequest.md
+  - docs/models/operations/benefitsupdateresponsebenefitsupdate.md
+  - docs/models/operations/benefittypefilter.md
+  - docs/models/operations/checkoutsgetrequest.md
+  - docs/models/operations/externalorganizationnamefilter.md
+  - docs/models/operations/externalorganizationslistqueryparamorganizationidfilter.md
+  - docs/models/operations/externalorganizationslistrequest.md
+  - docs/models/operations/externalorganizationslistresponse.md
+  - docs/models/operations/filescreatefilecreate.md
+  - docs/models/operations/filesdeleterequest.md
+  - docs/models/operations/fileslistrequest.md
+  - docs/models/operations/fileslistresponse.md
+  - docs/models/operations/filesupdaterequest.md
+  - docs/models/operations/filesupdateresponsefilesupdate.md
+  - docs/models/operations/filesuploadedrequest.md
+  - docs/models/operations/filesuploadedresponsefilesuploaded.md
+  - docs/models/operations/interval.md
+  - docs/models/operations/licensekeysgetactivationrequest.md
+  - docs/models/operations/licensekeysgetrequest.md
+  - docs/models/operations/licensekeyslistqueryparamorganizationidfilter.md
+  - docs/models/operations/licensekeyslistrequest.md
+  - docs/models/operations/licensekeyslistresponse.md
+  - docs/models/operations/licensekeysupdaterequest.md
+  - docs/models/operations/metricsgetqueryparamorganizationidfilter.md
+  - docs/models/operations/metricsgetqueryparamproductidfilter.md
+  - docs/models/operations/metricsgetqueryparamproductpricetypefilter.md
+  - docs/models/operations/metricsgetrequest.md
+  - docs/models/operations/oauth2clientslistrequest.md
+  - docs/models/operations/oauth2clientslistresponse.md
+  - docs/models/operations/oauth2clientsoauth2deleteclientrequest.md
+  - docs/models/operations/oauth2clientsoauth2getclientrequest.md
+  - docs/models/operations/oauth2clientsoauth2updateclientrequest.md
+  - docs/models/operations/oauth2introspecttokenintrospecttokenrequest.md
+  - docs/models/operations/oauth2introspecttokentokentypehint.md
+  - docs/models/operations/oauth2requesttokenrequestbody.md
+  - docs/models/operations/oauth2revoketokenrevoketokenrequest.md
+  - docs/models/operations/oauth2userinforesponseoauth2userinfo.md
+  - docs/models/operations/orderidfilter.md
+  - docs/models/operations/ordersgetrequest.md
+  - docs/models/operations/ordersinvoicerequest.md
+  - docs/models/operations/orderslistqueryparamorganizationidfilter.md
+  - docs/models/operations/orderslistqueryparamproductidfilter.md
+  - docs/models/operations/orderslistrequest.md
+  - docs/models/operations/orderslistresponse.md
+  - docs/models/operations/organizationid.md
+  - docs/models/operations/organizationidfilter.md
+  - docs/models/operations/organizationsgetrequest.md
+  - docs/models/operations/organizationslistrequest.md
+  - docs/models/operations/organizationslistresponse.md
+  - docs/models/operations/organizationsupdaterequest.md
+  - docs/models/operations/platformfilter.md
+  - docs/models/operations/productidfilter.md
+  - docs/models/operations/productpricetypefilter.md
+  - docs/models/operations/productscreateproductcreate.md
+  - docs/models/operations/productsgetrequest.md
+  - docs/models/operations/productslistqueryparamorganizationidfilter.md
+  - docs/models/operations/productslistrequest.md
+  - docs/models/operations/productslistresponse.md
+  - docs/models/operations/productsupdatebenefitsrequest.md
+  - docs/models/operations/productsupdaterequest.md
+  - docs/models/operations/queryparambenefitidfilter.md
+  - docs/models/operations/queryparambenefittypefilter.md
+  - docs/models/operations/queryparamorganizationidfilter.md
+  - docs/models/operations/queryparamplatformfilter.md
+  - docs/models/operations/queryparamproductidfilter.md
+  - docs/models/operations/queryparamproductpricetypefilter.md
+  - docs/models/operations/queryparamrepositorynamefilter.md
+  - docs/models/operations/queryparamsubscriptionidfilter.md
+  - docs/models/operations/queryparamsubscriptiontiertypefilter.md
+  - docs/models/operations/repositoriesgetrequest.md
+  - docs/models/operations/repositorieslistqueryparamorganizationidfilter.md
+  - docs/models/operations/repositorieslistrequest.md
+  - docs/models/operations/repositorieslistresponse.md
+  - docs/models/operations/repositoriesupdaterequest.md
+  - docs/models/operations/repositorynamefilter.md
+  - docs/models/operations/subscriptionidfilter.md
+  - docs/models/operations/subscriptionsexportrequest.md
+  - docs/models/operations/subscriptionslistqueryparamorganizationidfilter.md
+  - docs/models/operations/subscriptionslistqueryparamproductidfilter.md
+  - docs/models/operations/subscriptionslistrequest.md
+  - docs/models/operations/subscriptionslistresponse.md
+  - docs/models/operations/subscriptiontiertypefilter.md
+  - docs/models/operations/tokentypehint.md
+  - docs/models/operations/useridfilter.md
+  - docs/models/operations/usersadvertisementsdeleterequest.md
+  - docs/models/operations/usersadvertisementsenablerequest.md
+  - docs/models/operations/usersadvertisementsgetrequest.md
+  - docs/models/operations/usersadvertisementslistrequest.md
+  - docs/models/operations/usersadvertisementslistresponse.md
+  - docs/models/operations/usersadvertisementsupdaterequest.md
+  - docs/models/operations/usersbenefitsgetrequest.md
+  - docs/models/operations/usersbenefitsgetresponseusersbenefitsget.md
+  - docs/models/operations/usersbenefitslistrequest.md
+  - docs/models/operations/usersbenefitslistresponse.md
+  - docs/models/operations/usersdownloadablesgetrequest.md
+  - docs/models/operations/usersdownloadableslistqueryparamorganizationidfilter.md
+  - docs/models/operations/usersdownloadableslistrequest.md
+  - docs/models/operations/usersdownloadableslistresponse.md
+  - docs/models/operations/userslicensekeysgetrequest.md
+  - docs/models/operations/userslicensekeyslistqueryparamorganizationidfilter.md
+  - docs/models/operations/userslicensekeyslistrequest.md
+  - docs/models/operations/userslicensekeyslistresponse.md
+  - docs/models/operations/usersordersgetrequest.md
+  - docs/models/operations/usersordersinvoicerequest.md
+  - docs/models/operations/usersorderslistrequest.md
+  - docs/models/operations/usersorderslistresponse.md
+  - docs/models/operations/userssubscriptionscancelrequest.md
+  - docs/models/operations/userssubscriptionsgetrequest.md
+  - docs/models/operations/userssubscriptionslistqueryparamorganizationidfilter.md
+  - docs/models/operations/userssubscriptionslistrequest.md
+  - docs/models/operations/userssubscriptionslistresponse.md
+  - docs/models/operations/userssubscriptionsupdaterequest.md
+  - docs/sdks/advertisements/README.md
+  - docs/sdks/articles/README.md
+  - docs/sdks/benefits/README.md
+  - docs/sdks/checkouts/README.md
+  - docs/sdks/clients/README.md
+  - docs/sdks/downloadables/README.md
+  - docs/sdks/externalorganizations/README.md
+  - docs/sdks/files/README.md
+  - docs/sdks/licensekeys/README.md
+  - docs/sdks/metrics/README.md
+  - docs/sdks/oauth2/README.md
+  - docs/sdks/orders/README.md
+  - docs/sdks/organizations/README.md
+  - docs/sdks/polar/README.md
+  - docs/sdks/polaradvertisements/README.md
+  - docs/sdks/polarbenefits/README.md
+  - docs/sdks/polarlicensekeys/README.md
+  - docs/sdks/polarorders/README.md
+  - docs/sdks/polarsubscriptions/README.md
+  - docs/sdks/products/README.md
+  - docs/sdks/repositories/README.md
+  - docs/sdks/subscriptions/README.md
+  - docs/sdks/users/README.md
+  - docs/types/rfcdate.md
   - jsr.json
   - package.json
   - src/core.ts
+  - src/funcs/advertisementsGet.ts
+  - src/funcs/advertisementsList.ts
+  - src/funcs/articlesCreate.ts
+  - src/funcs/articlesDelete.ts
+  - src/funcs/articlesGet.ts
+  - src/funcs/articlesList.ts
+  - src/funcs/articlesPreview.ts
+  - src/funcs/articlesReceivers.ts
+  - src/funcs/articlesSend.ts
+  - src/funcs/articlesUpdate.ts
+  - src/funcs/benefitsCreate.ts
+  - src/funcs/benefitsDelete.ts
+  - src/funcs/benefitsGet.ts
+  - src/funcs/benefitsGrants.ts
+  - src/funcs/benefitsList.ts
+  - src/funcs/benefitsUpdate.ts
+  - src/funcs/checkoutsCreate.ts
+  - src/funcs/checkoutsGet.ts
+  - src/funcs/externalOrganizationsList.ts
+  - src/funcs/filesCreate.ts
+  - src/funcs/filesDelete.ts
+  - src/funcs/filesList.ts
+  - src/funcs/filesUpdate.ts
+  - src/funcs/filesUploaded.ts
+  - src/funcs/licenseKeysGet.ts
+  - src/funcs/licenseKeysGetActivation.ts
+  - src/funcs/licenseKeysList.ts
+  - src/funcs/licenseKeysUpdate.ts
+  - src/funcs/metricsGet.ts
+  - src/funcs/metricsLimits.ts
+  - src/funcs/oauth2ClientsCreate.ts
+  - src/funcs/oauth2ClientsDelete.ts
+  - src/funcs/oauth2ClientsGet.ts
+  - src/funcs/oauth2ClientsList.ts
+  - src/funcs/oauth2ClientsUpdate.ts
+  - src/funcs/oauth2Introspect.ts
+  - src/funcs/oauth2Revoke.ts
+  - src/funcs/oauth2Token.ts
+  - src/funcs/oauth2Userinfo.ts
+  - src/funcs/ordersGet.ts
+  - src/funcs/ordersInvoice.ts
+  - src/funcs/ordersList.ts
+  - src/funcs/organizationsCreate.ts
+  - src/funcs/organizationsGet.ts
+  - src/funcs/organizationsList.ts
+  - src/funcs/organizationsUpdate.ts
+  - src/funcs/productsCreate.ts
+  - src/funcs/productsGet.ts
+  - src/funcs/productsList.ts
+  - src/funcs/productsUpdate.ts
+  - src/funcs/productsUpdateBenefits.ts
+  - src/funcs/repositoriesGet.ts
+  - src/funcs/repositoriesList.ts
+  - src/funcs/repositoriesUpdate.ts
+  - src/funcs/subscriptionsCreate.ts
+  - src/funcs/subscriptionsExport.ts
+  - src/funcs/subscriptionsImportSubscriptions.ts
+  - src/funcs/subscriptionsList.ts
+  - src/funcs/usersAdvertisementsCreate.ts
+  - src/funcs/usersAdvertisementsDelete.ts
+  - src/funcs/usersAdvertisementsEnable.ts
+  - src/funcs/usersAdvertisementsGet.ts
+  - src/funcs/usersAdvertisementsList.ts
+  - src/funcs/usersAdvertisementsUpdate.ts
+  - src/funcs/usersBenefitsGet.ts
+  - src/funcs/usersBenefitsList.ts
+  - src/funcs/usersDownloadablesGet.ts
+  - src/funcs/usersDownloadablesList.ts
+  - src/funcs/usersLicenseKeysActivate.ts
+  - src/funcs/usersLicenseKeysDeactivate.ts
+  - src/funcs/usersLicenseKeysGet.ts
+  - src/funcs/usersLicenseKeysList.ts
+  - src/funcs/usersLicenseKeysValidate.ts
+  - src/funcs/usersOrdersGet.ts
+  - src/funcs/usersOrdersInvoice.ts
+  - src/funcs/usersOrdersList.ts
+  - src/funcs/usersSubscriptionsCancel.ts
+  - src/funcs/usersSubscriptionsCreate.ts
+  - src/funcs/usersSubscriptionsGet.ts
+  - src/funcs/usersSubscriptionsList.ts
+  - src/funcs/usersSubscriptionsUpdate.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
@@ -163,10 +643,341 @@ generatedFiles:
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
-  - src/sdk/index.ts
+  - src/models/components/advertisementcampaign.ts
+  - src/models/components/advertisementcampaignlistresource.ts
+  - src/models/components/advertisementsortproperty.ts
+  - src/models/components/article.ts
+  - src/models/components/articlebyline.ts
+  - src/models/components/articlecreate.ts
+  - src/models/components/articlepreview.ts
+  - src/models/components/articlereceivers.ts
+  - src/models/components/articleupdate.ts
+  - src/models/components/articlevisibility.ts
+  - src/models/components/assignee.ts
+  - src/models/components/author.ts
+  - src/models/components/benefitads.ts
+  - src/models/components/benefitadscreate.ts
+  - src/models/components/benefitadsproperties.ts
+  - src/models/components/benefitadssubscriber.ts
+  - src/models/components/benefitadsupdate.ts
+  - src/models/components/benefitarticles.ts
+  - src/models/components/benefitarticlesproperties.ts
+  - src/models/components/benefitarticlessubscriber.ts
+  - src/models/components/benefitarticlessubscriberproperties.ts
+  - src/models/components/benefitarticlesupdate.ts
+  - src/models/components/benefitbase.ts
+  - src/models/components/benefitcustom.ts
+  - src/models/components/benefitcustomcreate.ts
+  - src/models/components/benefitcustomproperties.ts
+  - src/models/components/benefitcustomsubscriber.ts
+  - src/models/components/benefitcustomsubscriberproperties.ts
+  - src/models/components/benefitcustomupdate.ts
+  - src/models/components/benefitdiscordcreate.ts
+  - src/models/components/benefitdiscordcreateproperties.ts
+  - src/models/components/benefitdiscordinput.ts
+  - src/models/components/benefitdiscordoutput.ts
+  - src/models/components/benefitdiscordpropertiesinput.ts
+  - src/models/components/benefitdiscordpropertiesoutput.ts
+  - src/models/components/benefitdiscordsubscriber.ts
+  - src/models/components/benefitdiscordsubscriberproperties.ts
+  - src/models/components/benefitdiscordupdate.ts
+  - src/models/components/benefitdownloadables.ts
+  - src/models/components/benefitdownloadablescreate.ts
+  - src/models/components/benefitdownloadablescreateproperties.ts
+  - src/models/components/benefitdownloadablesproperties.ts
+  - src/models/components/benefitdownloadablessubscriber.ts
+  - src/models/components/benefitdownloadablessubscriberproperties.ts
+  - src/models/components/benefitdownloadablesupdate.ts
+  - src/models/components/benefitgithubrepository.ts
+  - src/models/components/benefitgithubrepositorycreate.ts
+  - src/models/components/benefitgithubrepositorycreateproperties.ts
+  - src/models/components/benefitgithubrepositoryproperties.ts
+  - src/models/components/benefitgithubrepositorysubscriber.ts
+  - src/models/components/benefitgithubrepositorysubscriberproperties.ts
+  - src/models/components/benefitgithubrepositoryupdate.ts
+  - src/models/components/benefitgrant.ts
+  - src/models/components/benefitgrantads.ts
+  - src/models/components/benefitgrantadsproperties.ts
+  - src/models/components/benefitgrantlicensekeys.ts
+  - src/models/components/benefitgrantlicensekeysproperties.ts
+  - src/models/components/benefitgrantproperties.ts
+  - src/models/components/benefitlicensekeyactivationproperties.ts
+  - src/models/components/benefitlicensekeyexpirationproperties.ts
+  - src/models/components/benefitlicensekeyscreate.ts
+  - src/models/components/benefitlicensekeyscreateproperties.ts
+  - src/models/components/benefitlicensekeysinput.ts
+  - src/models/components/benefitlicensekeysoutput.ts
+  - src/models/components/benefitlicensekeysproperties.ts
+  - src/models/components/benefitlicensekeyssubscriber.ts
+  - src/models/components/benefitlicensekeyssubscriberproperties.ts
+  - src/models/components/benefitlicensekeysupdate.ts
+  - src/models/components/benefittype.ts
+  - src/models/components/bodysubscriptionsimport.ts
+  - src/models/components/bylineprofile.ts
+  - src/models/components/checkout.ts
+  - src/models/components/checkoutcreate.ts
+  - src/models/components/currencyamount.ts
+  - src/models/components/donationinput.ts
+  - src/models/components/donationorganization.ts
+  - src/models/components/donationuser.ts
+  - src/models/components/downloadablefilecreate.ts
+  - src/models/components/downloadablefileread.ts
+  - src/models/components/downloadableread.ts
+  - src/models/components/existingproductprice.ts
+  - src/models/components/externalorganization.ts
+  - src/models/components/externalorganizationsortproperty.ts
+  - src/models/components/filedownload.ts
+  - src/models/components/filepatch.ts
+  - src/models/components/fileservicetypes.ts
+  - src/models/components/fileupload.ts
+  - src/models/components/fileuploadcompleted.ts
+  - src/models/components/funding.ts
+  - src/models/components/index.ts
+  - src/models/components/introspecttokenresponse.ts
+  - src/models/components/issueinput.ts
+  - src/models/components/label.ts
+  - src/models/components/licensekeyactivate.ts
+  - src/models/components/licensekeyactivationbase.ts
+  - src/models/components/licensekeyactivationread.ts
+  - src/models/components/licensekeydeactivate.ts
+  - src/models/components/licensekeyread.ts
+  - src/models/components/licensekeystatus.ts
+  - src/models/components/licensekeyupdate.ts
+  - src/models/components/licensekeyvalidate.ts
+  - src/models/components/licensekeywithactivations.ts
+  - src/models/components/listresourcearticle.ts
+  - src/models/components/listresourcebenefit.ts
+  - src/models/components/listresourcebenefitgrant.ts
+  - src/models/components/listresourcedownloadableread.ts
+  - src/models/components/listresourceexternalorganization.ts
+  - src/models/components/listresourcefileread.ts
+  - src/models/components/listresourcelicensekeyread.ts
+  - src/models/components/listresourceoauth2client.ts
+  - src/models/components/listresourceorder.ts
+  - src/models/components/listresourceorganization.ts
+  - src/models/components/listresourceproduct.ts
+  - src/models/components/listresourcerepository.ts
+  - src/models/components/listresourcesubscription.ts
+  - src/models/components/listresourceuseradvertisementcampaign.ts
+  - src/models/components/listresourceuserbenefit.ts
+  - src/models/components/listresourceuserorder.ts
+  - src/models/components/listresourceusersubscription.ts
+  - src/models/components/metric.ts
+  - src/models/components/metricperiod.ts
+  - src/models/components/metrics.ts
+  - src/models/components/metricsintervallimit.ts
+  - src/models/components/metricsintervalslimits.ts
+  - src/models/components/metricslimits.ts
+  - src/models/components/metricsresponse.ts
+  - src/models/components/metrictype.ts
+  - src/models/components/oauth2client.ts
+  - src/models/components/oauth2clientconfiguration.ts
+  - src/models/components/oauth2clientconfigurationupdate.ts
+  - src/models/components/onev11oauth21tokenpostxcomponentsauthorizationcodetokenrequest.ts
+  - src/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequest.ts
+  - src/models/components/orderinput.ts
+  - src/models/components/orderinvoice.ts
+  - src/models/components/orderoutput.ts
+  - src/models/components/orderproduct.ts
+  - src/models/components/ordersortproperty.ts
+  - src/models/components/ordersubscription.ts
+  - src/models/components/orderuser.ts
+  - src/models/components/organizationavatarfilecreate.ts
+  - src/models/components/organizationavatarfileread.ts
+  - src/models/components/organizationcreate.ts
+  - src/models/components/organizationfeaturesettings.ts
+  - src/models/components/organizationinput.ts
+  - src/models/components/organizationoutput.ts
+  - src/models/components/organizationprofilesettings.ts
+  - src/models/components/organizationsortproperty.ts
+  - src/models/components/organizationsubscribepromotesettings.ts
+  - src/models/components/organizationupdate.ts
+  - src/models/components/pagination.ts
+  - src/models/components/platforms.ts
+  - src/models/components/pledgeinput.ts
+  - src/models/components/pledger.ts
+  - src/models/components/pledgestate.ts
+  - src/models/components/pledgetype.ts
+  - src/models/components/productbenefitsupdate.ts
+  - src/models/components/productinput.ts
+  - src/models/components/productmediafilecreate.ts
+  - src/models/components/productmediafilereadinput.ts
+  - src/models/components/productmediafilereadoutput.ts
+  - src/models/components/productonetimecreate.ts
+  - src/models/components/productoutput.ts
+  - src/models/components/productpriceinput.ts
+  - src/models/components/productpriceonetime.ts
+  - src/models/components/productpriceonetimecreate.ts
+  - src/models/components/productpriceoutput.ts
+  - src/models/components/productpricerecurring.ts
+  - src/models/components/productpricerecurringcreate.ts
+  - src/models/components/productpricerecurringinterval.ts
+  - src/models/components/productpricetype.ts
+  - src/models/components/productrecurringcreate.ts
+  - src/models/components/productupdate.ts
+  - src/models/components/reactions.ts
+  - src/models/components/repositoryinput.ts
+  - src/models/components/repositoryoutput.ts
+  - src/models/components/repositoryprofilesettings.ts
+  - src/models/components/repositoryprofilesettingsupdate.ts
+  - src/models/components/repositorysortproperty.ts
+  - src/models/components/repositoryupdate.ts
+  - src/models/components/revoketokenresponse.ts
+  - src/models/components/s3downloadurl.ts
+  - src/models/components/s3filecreatemultipart.ts
+  - src/models/components/s3filecreatepart.ts
+  - src/models/components/s3fileuploadcompletedpart.ts
+  - src/models/components/s3fileuploadmultipart.ts
+  - src/models/components/s3fileuploadpart.ts
+  - src/models/components/security.ts
+  - src/models/components/state.ts
+  - src/models/components/subscriptioncreateemail.ts
+  - src/models/components/subscriptioninput.ts
+  - src/models/components/subscriptionoutput.ts
+  - src/models/components/subscriptionsimported.ts
+  - src/models/components/subscriptionsortproperty.ts
+  - src/models/components/subscriptionstatus.ts
+  - src/models/components/subscriptiontiertype.ts
+  - src/models/components/subscriptionuser.ts
+  - src/models/components/subtype.ts
+  - src/models/components/tokenresponse.ts
+  - src/models/components/useradvertisementcampaign.ts
+  - src/models/components/useradvertisementcampaigncreate.ts
+  - src/models/components/useradvertisementcampaignenable.ts
+  - src/models/components/useradvertisementcampaignupdate.ts
+  - src/models/components/useradvertisementsortproperty.ts
+  - src/models/components/userbenefitsortproperty.ts
+  - src/models/components/userfreesubscriptioncreate.ts
+  - src/models/components/userinfoorganization.ts
+  - src/models/components/userinfouser.ts
+  - src/models/components/userorder.ts
+  - src/models/components/userorderinvoice.ts
+  - src/models/components/userorderproduct.ts
+  - src/models/components/userordersortproperty.ts
+  - src/models/components/userordersubscription.ts
+  - src/models/components/usersubscription.ts
+  - src/models/components/usersubscriptionproduct.ts
+  - src/models/components/usersubscriptionsortproperty.ts
+  - src/models/components/usersubscriptionupdate.ts
+  - src/models/components/validatedlicensekey.ts
+  - src/models/components/validationerror.ts
+  - src/models/components/webhookbenefitcreatedpayload.ts
+  - src/models/components/webhookbenefitupdatedpayload.ts
+  - src/models/components/webhookdonationcreatedpayload.ts
+  - src/models/components/webhookordercreatedpayload.ts
+  - src/models/components/webhookorganizationupdatedpayload.ts
+  - src/models/components/webhookpledgecreatedpayload.ts
+  - src/models/components/webhookpledgeupdatedpayload.ts
+  - src/models/components/webhookproductcreatedpayload.ts
+  - src/models/components/webhookproductupdatedpayload.ts
+  - src/models/components/webhooksubscriptioncreatedpayload.ts
+  - src/models/components/webhooksubscriptionupdatedpayload.ts
+  - src/models/errors/alreadycanceledsubscription.ts
+  - src/models/errors/alreadysubscribed.ts
+  - src/models/errors/filenotfound.ts
+  - src/models/errors/freesubscriptionupgrade.ts
   - src/models/errors/httpclienterrors.ts
+  - src/models/errors/httpvalidationerror.ts
+  - src/models/errors/index.ts
+  - src/models/errors/notpermitted.ts
+  - src/models/errors/resourcenotfound.ts
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/unauthorized.ts
+  - src/models/operations/advertisementsget.ts
+  - src/models/operations/advertisementslist.ts
+  - src/models/operations/articlesdelete.ts
+  - src/models/operations/articlesget.ts
+  - src/models/operations/articleslist.ts
+  - src/models/operations/articlespreview.ts
+  - src/models/operations/articlesreceivers.ts
+  - src/models/operations/articlessend.ts
+  - src/models/operations/articlesupdate.ts
+  - src/models/operations/benefitscreate.ts
+  - src/models/operations/benefitsdelete.ts
+  - src/models/operations/benefitsget.ts
+  - src/models/operations/benefitsgrants.ts
+  - src/models/operations/benefitslist.ts
+  - src/models/operations/benefitsupdate.ts
+  - src/models/operations/checkoutsget.ts
+  - src/models/operations/externalorganizationslist.ts
+  - src/models/operations/filescreate.ts
+  - src/models/operations/filesdelete.ts
+  - src/models/operations/fileslist.ts
+  - src/models/operations/filesupdate.ts
+  - src/models/operations/filesuploaded.ts
+  - src/models/operations/index.ts
+  - src/models/operations/licensekeysget.ts
+  - src/models/operations/licensekeysgetactivation.ts
+  - src/models/operations/licensekeyslist.ts
+  - src/models/operations/licensekeysupdate.ts
+  - src/models/operations/metricsget.ts
+  - src/models/operations/oauth2clientslist.ts
+  - src/models/operations/oauth2clientsoauth2deleteclient.ts
+  - src/models/operations/oauth2clientsoauth2getclient.ts
+  - src/models/operations/oauth2clientsoauth2updateclient.ts
+  - src/models/operations/oauth2introspecttoken.ts
+  - src/models/operations/oauth2requesttoken.ts
+  - src/models/operations/oauth2revoketoken.ts
+  - src/models/operations/oauth2userinfo.ts
+  - src/models/operations/ordersget.ts
+  - src/models/operations/ordersinvoice.ts
+  - src/models/operations/orderslist.ts
+  - src/models/operations/organizationsget.ts
+  - src/models/operations/organizationslist.ts
+  - src/models/operations/organizationsupdate.ts
+  - src/models/operations/productscreate.ts
+  - src/models/operations/productsget.ts
+  - src/models/operations/productslist.ts
+  - src/models/operations/productsupdate.ts
+  - src/models/operations/productsupdatebenefits.ts
+  - src/models/operations/repositoriesget.ts
+  - src/models/operations/repositorieslist.ts
+  - src/models/operations/repositoriesupdate.ts
+  - src/models/operations/subscriptionsexport.ts
+  - src/models/operations/subscriptionslist.ts
+  - src/models/operations/usersadvertisementsdelete.ts
+  - src/models/operations/usersadvertisementsenable.ts
+  - src/models/operations/usersadvertisementsget.ts
+  - src/models/operations/usersadvertisementslist.ts
+  - src/models/operations/usersadvertisementsupdate.ts
+  - src/models/operations/usersbenefitsget.ts
+  - src/models/operations/usersbenefitslist.ts
+  - src/models/operations/usersdownloadablesget.ts
+  - src/models/operations/usersdownloadableslist.ts
+  - src/models/operations/userslicensekeysget.ts
+  - src/models/operations/userslicensekeyslist.ts
+  - src/models/operations/usersordersget.ts
+  - src/models/operations/usersordersinvoice.ts
+  - src/models/operations/usersorderslist.ts
+  - src/models/operations/userssubscriptionscancel.ts
+  - src/models/operations/userssubscriptionsget.ts
+  - src/models/operations/userssubscriptionslist.ts
+  - src/models/operations/userssubscriptionsupdate.ts
+  - src/sdk/advertisements.ts
+  - src/sdk/articles.ts
+  - src/sdk/benefits.ts
+  - src/sdk/checkouts.ts
+  - src/sdk/clients.ts
+  - src/sdk/downloadables.ts
+  - src/sdk/externalorganizations.ts
+  - src/sdk/files.ts
+  - src/sdk/index.ts
+  - src/sdk/licensekeys.ts
+  - src/sdk/metrics.ts
+  - src/sdk/oauth2.ts
+  - src/sdk/orders.ts
+  - src/sdk/organizations.ts
+  - src/sdk/polaradvertisements.ts
+  - src/sdk/polarbenefits.ts
+  - src/sdk/polarlicensekeys.ts
+  - src/sdk/polarorders.ts
+  - src/sdk/polarsubscriptions.ts
+  - src/sdk/products.ts
+  - src/sdk/repositories.ts
+  - src/sdk/sdk.ts
+  - src/sdk/subscriptions.ts
+  - src/sdk/users.ts
   - src/types/blobs.ts
   - src/types/constdatetime.ts
   - src/types/enums.ts
@@ -176,813 +987,779 @@ generatedFiles:
   - src/types/rfcdate.ts
   - src/types/streams.ts
   - tsconfig.json
-  - src/models/operations/usersbenefitslist.ts
-  - src/models/operations/usersbenefitsget.ts
-  - src/models/operations/usersorderslist.ts
-  - src/models/operations/usersordersget.ts
-  - src/models/operations/usersordersinvoice.ts
-  - src/models/operations/userssubscriptionslist.ts
-  - src/models/operations/userssubscriptionsget.ts
-  - src/models/operations/userssubscriptionsupdate.ts
-  - src/models/operations/userssubscriptionscancel.ts
-  - src/models/operations/usersadvertisementslist.ts
-  - src/models/operations/usersadvertisementsget.ts
-  - src/models/operations/usersadvertisementsupdate.ts
-  - src/models/operations/usersadvertisementsdelete.ts
-  - src/models/operations/usersadvertisementsenable.ts
-  - src/models/operations/usersdownloadableslist.ts
-  - src/models/operations/usersdownloadablesget.ts
-  - src/models/operations/userslicensekeyslist.ts
-  - src/models/operations/userslicensekeysget.ts
-  - src/models/operations/externalorganizationslist.ts
-  - src/models/operations/repositorieslist.ts
-  - src/models/operations/repositoriesget.ts
-  - src/models/operations/repositoriesupdate.ts
-  - src/models/operations/organizationslist.ts
-  - src/models/operations/organizationsget.ts
-  - src/models/operations/organizationsupdate.ts
-  - src/models/operations/subscriptionslist.ts
-  - src/models/operations/subscriptionsexport.ts
-  - src/models/operations/articleslist.ts
-  - src/models/operations/articlesget.ts
-  - src/models/operations/articlesupdate.ts
-  - src/models/operations/articlesdelete.ts
-  - src/models/operations/articlesreceivers.ts
-  - src/models/operations/articlespreview.ts
-  - src/models/operations/articlessend.ts
-  - src/models/operations/advertisementslist.ts
-  - src/models/operations/advertisementsget.ts
-  - src/models/operations/oauth2requesttoken.ts
-  - src/models/operations/oauth2revoketoken.ts
-  - src/models/operations/oauth2introspecttoken.ts
-  - src/models/operations/oauth2userinfo.ts
-  - src/models/operations/oauth2clientslist.ts
-  - src/models/operations/oauth2clientsoauth2getclient.ts
-  - src/models/operations/oauth2clientsoauth2updateclient.ts
-  - src/models/operations/oauth2clientsoauth2deleteclient.ts
-  - src/models/operations/benefitslist.ts
-  - src/models/operations/benefitscreate.ts
-  - src/models/operations/benefitsget.ts
-  - src/models/operations/benefitsupdate.ts
-  - src/models/operations/benefitsdelete.ts
-  - src/models/operations/benefitsgrants.ts
-  - src/models/operations/productslist.ts
-  - src/models/operations/productscreate.ts
-  - src/models/operations/productsget.ts
-  - src/models/operations/productsupdate.ts
-  - src/models/operations/productsupdatebenefits.ts
-  - src/models/operations/orderslist.ts
-  - src/models/operations/ordersget.ts
-  - src/models/operations/ordersinvoice.ts
-  - src/models/operations/checkoutsget.ts
-  - src/models/operations/fileslist.ts
-  - src/models/operations/filescreate.ts
-  - src/models/operations/filesuploaded.ts
-  - src/models/operations/filesupdate.ts
-  - src/models/operations/filesdelete.ts
-  - src/models/operations/metricsget.ts
-  - src/models/operations/licensekeyslist.ts
-  - src/models/operations/licensekeysget.ts
-  - src/models/operations/licensekeysupdate.ts
-  - src/models/operations/licensekeysgetactivation.ts
-  - src/models/components/listresourceuserbenefit.ts
-  - src/models/components/pagination.ts
-  - src/models/components/benefitarticlessubscriber.ts
-  - src/models/components/benefitarticlessubscriberproperties.ts
-  - src/models/components/benefitadssubscriber.ts
-  - src/models/components/benefitgrantads.ts
-  - src/models/components/benefitgrantadsproperties.ts
-  - src/models/components/benefitadsproperties.ts
-  - src/models/components/benefitdiscordsubscriber.ts
-  - src/models/components/benefitdiscordsubscriberproperties.ts
-  - src/models/components/benefitcustomsubscriber.ts
-  - src/models/components/benefitcustomsubscriberproperties.ts
-  - src/models/components/benefitgrant.ts
-  - src/models/components/benefitgrantproperties.ts
-  - src/models/components/benefitgithubrepositorysubscriber.ts
-  - src/models/components/benefitgithubrepositorysubscriberproperties.ts
-  - src/models/components/benefitdownloadablessubscriber.ts
-  - src/models/components/benefitdownloadablessubscriberproperties.ts
-  - src/models/components/benefitlicensekeyssubscriber.ts
-  - src/models/components/benefitgrantlicensekeys.ts
-  - src/models/components/benefitgrantlicensekeysproperties.ts
-  - src/models/components/benefitlicensekeyssubscriberproperties.ts
-  - src/models/components/benefitlicensekeyactivationproperties.ts
-  - src/models/components/benefitlicensekeyexpirationproperties.ts
-  - src/models/components/validationerror.ts
-  - src/models/components/userbenefitsortproperty.ts
-  - src/models/components/benefittype.ts
-  - src/models/components/listresourceuserorder.ts
-  - src/models/components/userorder.ts
-  - src/models/components/userordersubscription.ts
-  - src/models/components/subscriptionstatus.ts
-  - src/models/components/productpriceoutput.ts
-  - src/models/components/productpricerecurring.ts
-  - src/models/components/productpricerecurringinterval.ts
-  - src/models/components/productpriceonetime.ts
-  - src/models/components/userorderproduct.ts
-  - src/models/components/productmediafilereadoutput.ts
-  - src/models/components/benefitbase.ts
-  - src/models/components/benefitarticles.ts
-  - src/models/components/benefitarticlesproperties.ts
-  - src/models/components/subscriptiontiertype.ts
-  - src/models/components/userordersortproperty.ts
-  - src/models/components/productpricetype.ts
-  - src/models/components/userorderinvoice.ts
-  - src/models/components/listresourceusersubscription.ts
-  - src/models/components/usersubscription.ts
-  - src/models/components/usersubscriptionproduct.ts
-  - src/models/components/usersubscriptionsortproperty.ts
-  - src/models/components/userfreesubscriptioncreate.ts
-  - src/models/components/usersubscriptionupdate.ts
-  - src/models/components/listresourceuseradvertisementcampaign.ts
-  - src/models/components/useradvertisementcampaign.ts
-  - src/models/components/useradvertisementsortproperty.ts
-  - src/models/components/useradvertisementcampaigncreate.ts
-  - src/models/components/useradvertisementcampaignupdate.ts
-  - src/models/components/useradvertisementcampaignenable.ts
-  - src/models/components/listresourcedownloadableread.ts
-  - src/models/components/downloadableread.ts
-  - src/models/components/filedownload.ts
-  - src/models/components/fileservicetypes.ts
-  - src/models/components/s3downloadurl.ts
-  - src/models/components/listresourcelicensekeyread.ts
-  - src/models/components/licensekeyread.ts
-  - src/models/components/licensekeystatus.ts
-  - src/models/components/licensekeywithactivations.ts
-  - src/models/components/licensekeyactivationbase.ts
-  - src/models/components/validatedlicensekey.ts
-  - src/models/components/licensekeyvalidate.ts
-  - src/models/components/licensekeyactivationread.ts
-  - src/models/components/licensekeyactivate.ts
-  - src/models/components/licensekeydeactivate.ts
-  - src/models/components/listresourceexternalorganization.ts
-  - src/models/components/externalorganization.ts
-  - src/models/components/platforms.ts
-  - src/models/components/externalorganizationsortproperty.ts
-  - src/models/components/listresourcerepository.ts
-  - src/models/components/repositoryoutput.ts
-  - src/models/components/repositoryprofilesettings.ts
-  - src/models/components/repositorysortproperty.ts
-  - src/models/components/repositoryupdate.ts
-  - src/models/components/repositoryprofilesettingsupdate.ts
-  - src/models/components/listresourceorganization.ts
-  - src/models/components/organizationoutput.ts
-  - src/models/components/organizationfeaturesettings.ts
-  - src/models/components/organizationprofilesettings.ts
-  - src/models/components/organizationsubscribepromotesettings.ts
-  - src/models/components/organizationsortproperty.ts
-  - src/models/components/organizationcreate.ts
-  - src/models/components/organizationupdate.ts
-  - src/models/components/listresourcesubscription.ts
-  - src/models/components/subscriptionoutput.ts
-  - src/models/components/productoutput.ts
-  - src/models/components/subscriptionuser.ts
-  - src/models/components/subscriptionsortproperty.ts
-  - src/models/components/subscriptioncreateemail.ts
-  - src/models/components/subscriptionsimported.ts
-  - src/models/components/bodysubscriptionsimport.ts
-  - src/models/components/listresourcearticle.ts
-  - src/models/components/article.ts
-  - src/models/components/articlevisibility.ts
-  - src/models/components/bylineprofile.ts
-  - src/models/components/articlecreate.ts
-  - src/models/components/articleupdate.ts
-  - src/models/components/articlebyline.ts
-  - src/models/components/articlereceivers.ts
-  - src/models/components/articlepreview.ts
-  - src/models/components/advertisementcampaignlistresource.ts
-  - src/models/components/advertisementcampaign.ts
-  - src/models/components/advertisementsortproperty.ts
-  - src/models/components/tokenresponse.ts
-  - src/models/components/onev11oauth21tokenpostxcomponentsauthorizationcodetokenrequest.ts
-  - src/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequest.ts
-  - src/models/components/revoketokenresponse.ts
-  - src/models/components/introspecttokenresponse.ts
-  - src/models/components/subtype.ts
-  - src/models/components/userinfouser.ts
-  - src/models/components/userinfoorganization.ts
-  - src/models/components/listresourceoauth2client.ts
-  - src/models/components/oauth2client.ts
-  - src/models/components/oauth2clientconfiguration.ts
-  - src/models/components/oauth2clientconfigurationupdate.ts
-  - src/models/components/listresourcebenefit.ts
-  - src/models/components/benefitads.ts
-  - src/models/components/benefitcustom.ts
-  - src/models/components/benefitcustomproperties.ts
-  - src/models/components/benefitdiscordoutput.ts
-  - src/models/components/benefitdiscordpropertiesoutput.ts
-  - src/models/components/benefitgithubrepository.ts
-  - src/models/components/benefitgithubrepositoryproperties.ts
-  - src/models/components/benefitdownloadables.ts
-  - src/models/components/benefitdownloadablesproperties.ts
-  - src/models/components/benefitlicensekeysoutput.ts
-  - src/models/components/benefitlicensekeysproperties.ts
-  - src/models/components/benefitcustomcreate.ts
-  - src/models/components/benefitadscreate.ts
-  - src/models/components/benefitdiscordcreate.ts
-  - src/models/components/benefitdiscordcreateproperties.ts
-  - src/models/components/benefitgithubrepositorycreate.ts
-  - src/models/components/benefitgithubrepositorycreateproperties.ts
-  - src/models/components/benefitdownloadablescreate.ts
-  - src/models/components/benefitdownloadablescreateproperties.ts
-  - src/models/components/benefitlicensekeyscreate.ts
-  - src/models/components/benefitlicensekeyscreateproperties.ts
-  - src/models/components/benefitarticlesupdate.ts
-  - src/models/components/benefitadsupdate.ts
-  - src/models/components/benefitcustomupdate.ts
-  - src/models/components/benefitdiscordupdate.ts
-  - src/models/components/benefitgithubrepositoryupdate.ts
-  - src/models/components/benefitdownloadablesupdate.ts
-  - src/models/components/benefitlicensekeysupdate.ts
-  - src/models/components/listresourcebenefitgrant.ts
-  - src/models/components/listresourceproduct.ts
-  - src/models/components/productrecurringcreate.ts
-  - src/models/components/productpricerecurringcreate.ts
-  - src/models/components/productonetimecreate.ts
-  - src/models/components/productpriceonetimecreate.ts
-  - src/models/components/productupdate.ts
-  - src/models/components/existingproductprice.ts
-  - src/models/components/productbenefitsupdate.ts
-  - src/models/components/listresourceorder.ts
-  - src/models/components/orderoutput.ts
-  - src/models/components/ordersubscription.ts
-  - src/models/components/orderproduct.ts
-  - src/models/components/orderuser.ts
-  - src/models/components/ordersortproperty.ts
-  - src/models/components/orderinvoice.ts
-  - src/models/components/checkout.ts
-  - src/models/components/checkoutcreate.ts
-  - src/models/components/listresourcefileread.ts
-  - src/models/components/downloadablefileread.ts
-  - src/models/components/organizationavatarfileread.ts
-  - src/models/components/fileupload.ts
-  - src/models/components/s3fileuploadmultipart.ts
-  - src/models/components/s3fileuploadpart.ts
-  - src/models/components/downloadablefilecreate.ts
-  - src/models/components/s3filecreatemultipart.ts
-  - src/models/components/s3filecreatepart.ts
-  - src/models/components/productmediafilecreate.ts
-  - src/models/components/organizationavatarfilecreate.ts
-  - src/models/components/fileuploadcompleted.ts
-  - src/models/components/s3fileuploadcompletedpart.ts
-  - src/models/components/filepatch.ts
-  - src/models/components/metricsresponse.ts
-  - src/models/components/metrics.ts
-  - src/models/components/metric.ts
-  - src/models/components/metrictype.ts
-  - src/models/components/metricperiod.ts
-  - src/models/components/metricslimits.ts
-  - src/models/components/metricsintervalslimits.ts
-  - src/models/components/metricsintervallimit.ts
-  - src/models/components/licensekeyupdate.ts
-  - src/models/components/security.ts
-  - src/models/components/webhookordercreatedpayload.ts
-  - src/models/components/orderinput.ts
-  - src/models/components/productpriceinput.ts
-  - src/models/components/webhooksubscriptioncreatedpayload.ts
-  - src/models/components/subscriptioninput.ts
-  - src/models/components/productinput.ts
-  - src/models/components/productmediafilereadinput.ts
-  - src/models/components/webhooksubscriptionupdatedpayload.ts
-  - src/models/components/webhookproductcreatedpayload.ts
-  - src/models/components/webhookproductupdatedpayload.ts
-  - src/models/components/webhookpledgecreatedpayload.ts
-  - src/models/components/pledgeinput.ts
-  - src/models/components/pledger.ts
-  - src/models/components/issueinput.ts
-  - src/models/components/repositoryinput.ts
-  - src/models/components/funding.ts
-  - src/models/components/currencyamount.ts
-  - src/models/components/state.ts
-  - src/models/components/reactions.ts
-  - src/models/components/assignee.ts
-  - src/models/components/author.ts
-  - src/models/components/label.ts
-  - src/models/components/pledgetype.ts
-  - src/models/components/pledgestate.ts
-  - src/models/components/webhookpledgeupdatedpayload.ts
-  - src/models/components/webhookdonationcreatedpayload.ts
-  - src/models/components/donationinput.ts
-  - src/models/components/donationorganization.ts
-  - src/models/components/donationuser.ts
-  - src/models/components/webhookorganizationupdatedpayload.ts
-  - src/models/components/organizationinput.ts
-  - src/models/components/webhookbenefitcreatedpayload.ts
-  - src/models/components/benefitdiscordinput.ts
-  - src/models/components/benefitdiscordpropertiesinput.ts
-  - src/models/components/benefitlicensekeysinput.ts
-  - src/models/components/webhookbenefitupdatedpayload.ts
-  - src/models/errors/httpvalidationerror.ts
-  - src/models/errors/resourcenotfound.ts
-  - src/models/errors/alreadysubscribed.ts
-  - src/models/errors/freesubscriptionupgrade.ts
-  - src/models/errors/alreadycanceledsubscription.ts
-  - src/models/errors/unauthorized.ts
-  - src/models/errors/notpermitted.ts
-  - src/models/errors/filenotfound.ts
-  - src/models/errors/index.ts
-  - src/models/operations/index.ts
-  - src/models/components/index.ts
-  - docs/models/operations/benefittypefilter.md
-  - docs/models/operations/organizationidfilter.md
-  - docs/models/operations/orderidfilter.md
-  - docs/models/operations/subscriptionidfilter.md
-  - docs/models/operations/usersbenefitslistrequest.md
-  - docs/models/operations/usersbenefitslistresponse.md
-  - docs/models/operations/usersbenefitsgetrequest.md
-  - docs/models/operations/usersbenefitsgetresponseusersbenefitsget.md
-  - docs/models/operations/queryparamorganizationidfilter.md
-  - docs/models/operations/productidfilter.md
-  - docs/models/operations/productpricetypefilter.md
-  - docs/models/operations/queryparamsubscriptionidfilter.md
-  - docs/models/operations/usersorderslistrequest.md
-  - docs/models/operations/usersorderslistresponse.md
-  - docs/models/operations/usersordersgetrequest.md
-  - docs/models/operations/usersordersinvoicerequest.md
-  - docs/models/operations/userssubscriptionslistqueryparamorganizationidfilter.md
-  - docs/models/operations/queryparamproductidfilter.md
-  - docs/models/operations/userssubscriptionslistrequest.md
-  - docs/models/operations/userssubscriptionslistresponse.md
-  - docs/models/operations/userssubscriptionsgetrequest.md
-  - docs/models/operations/userssubscriptionsupdaterequest.md
-  - docs/models/operations/userssubscriptionscancelrequest.md
-  - docs/models/operations/usersadvertisementslistrequest.md
-  - docs/models/operations/usersadvertisementslistresponse.md
-  - docs/models/operations/usersadvertisementsgetrequest.md
-  - docs/models/operations/usersadvertisementsupdaterequest.md
-  - docs/models/operations/usersadvertisementsdeleterequest.md
-  - docs/models/operations/usersadvertisementsenablerequest.md
-  - docs/models/operations/usersdownloadableslistqueryparamorganizationidfilter.md
-  - docs/models/operations/benefitidfilter.md
-  - docs/models/operations/usersdownloadableslistrequest.md
-  - docs/models/operations/usersdownloadableslistresponse.md
-  - docs/models/operations/usersdownloadablesgetrequest.md
-  - docs/models/operations/userslicensekeyslistqueryparamorganizationidfilter.md
-  - docs/models/operations/userslicensekeyslistrequest.md
-  - docs/models/operations/userslicensekeyslistresponse.md
-  - docs/models/operations/userslicensekeysgetrequest.md
-  - docs/models/operations/platformfilter.md
-  - docs/models/operations/repositorynamefilter.md
-  - docs/models/operations/externalorganizationslistqueryparamorganizationidfilter.md
-  - docs/models/operations/externalorganizationslistrequest.md
-  - docs/models/operations/externalorganizationslistresponse.md
-  - docs/models/operations/queryparamplatformfilter.md
-  - docs/models/operations/queryparamrepositorynamefilter.md
-  - docs/models/operations/externalorganizationnamefilter.md
-  - docs/models/operations/repositorieslistqueryparamorganizationidfilter.md
-  - docs/models/operations/repositorieslistrequest.md
-  - docs/models/operations/repositorieslistresponse.md
-  - docs/models/operations/repositoriesgetrequest.md
-  - docs/models/operations/repositoriesupdaterequest.md
-  - docs/models/operations/organizationslistrequest.md
-  - docs/models/operations/organizationslistresponse.md
-  - docs/models/operations/organizationsgetrequest.md
-  - docs/models/operations/organizationsupdaterequest.md
-  - docs/models/operations/subscriptionslistqueryparamorganizationidfilter.md
-  - docs/models/operations/subscriptionslistqueryparamproductidfilter.md
-  - docs/models/operations/subscriptiontiertypefilter.md
-  - docs/models/operations/subscriptionslistrequest.md
-  - docs/models/operations/subscriptionslistresponse.md
-  - docs/models/operations/organizationid.md
-  - docs/models/operations/subscriptionsexportrequest.md
-  - docs/models/operations/articleslistqueryparamorganizationidfilter.md
-  - docs/models/operations/articlevisibilityfilter.md
-  - docs/models/operations/articleslistrequest.md
-  - docs/models/operations/articleslistresponse.md
-  - docs/models/operations/articlesgetrequest.md
-  - docs/models/operations/articlesupdaterequest.md
-  - docs/models/operations/articlesdeleterequest.md
-  - docs/models/operations/articlesreceiversrequest.md
-  - docs/models/operations/articlespreviewrequest.md
-  - docs/models/operations/articlessendrequest.md
-  - docs/models/operations/advertisementslistrequest.md
-  - docs/models/operations/advertisementslistresponse.md
-  - docs/models/operations/advertisementsgetrequest.md
-  - docs/models/operations/oauth2requesttokenrequestbody.md
-  - docs/models/operations/tokentypehint.md
-  - docs/models/operations/oauth2revoketokenrevoketokenrequest.md
-  - docs/models/operations/oauth2introspecttokentokentypehint.md
-  - docs/models/operations/oauth2introspecttokenintrospecttokenrequest.md
-  - docs/models/operations/oauth2userinforesponseoauth2userinfo.md
-  - docs/models/operations/oauth2clientslistrequest.md
-  - docs/models/operations/oauth2clientslistresponse.md
-  - docs/models/operations/oauth2clientsoauth2getclientrequest.md
-  - docs/models/operations/oauth2clientsoauth2updateclientrequest.md
-  - docs/models/operations/oauth2clientsoauth2deleteclientrequest.md
-  - docs/models/operations/benefitslistqueryparamorganizationidfilter.md
-  - docs/models/operations/queryparambenefittypefilter.md
-  - docs/models/operations/benefitslistrequest.md
-  - docs/models/operations/benefitslistresponse.md
-  - docs/models/operations/benefitscreatebenefitcreate.md
-  - docs/models/operations/benefitscreateresponsebenefitscreate.md
-  - docs/models/operations/benefitsgetrequest.md
-  - docs/models/operations/benefitsgetresponsebenefitsget.md
-  - docs/models/operations/benefitsupdatebenefitupdate.md
-  - docs/models/operations/benefitsupdaterequest.md
-  - docs/models/operations/benefitsupdateresponsebenefitsupdate.md
-  - docs/models/operations/benefitsdeleterequest.md
-  - docs/models/operations/benefitsgrantsrequest.md
-  - docs/models/operations/benefitsgrantsresponse.md
-  - docs/models/operations/productslistqueryparamorganizationidfilter.md
-  - docs/models/operations/queryparambenefitidfilter.md
-  - docs/models/operations/queryparamsubscriptiontiertypefilter.md
-  - docs/models/operations/productslistrequest.md
-  - docs/models/operations/productslistresponse.md
-  - docs/models/operations/productscreateproductcreate.md
-  - docs/models/operations/productsgetrequest.md
-  - docs/models/operations/productsupdaterequest.md
-  - docs/models/operations/productsupdatebenefitsrequest.md
-  - docs/models/operations/orderslistqueryparamorganizationidfilter.md
-  - docs/models/operations/orderslistqueryparamproductidfilter.md
-  - docs/models/operations/queryparamproductpricetypefilter.md
-  - docs/models/operations/useridfilter.md
-  - docs/models/operations/orderslistrequest.md
-  - docs/models/operations/orderslistresponse.md
-  - docs/models/operations/ordersgetrequest.md
-  - docs/models/operations/ordersinvoicerequest.md
-  - docs/models/operations/checkoutsgetrequest.md
-  - docs/models/operations/fileslistrequest.md
-  - docs/models/operations/fileslistresponse.md
-  - docs/models/operations/filescreatefilecreate.md
-  - docs/models/operations/filesuploadedrequest.md
-  - docs/models/operations/filesuploadedresponsefilesuploaded.md
-  - docs/models/operations/filesupdaterequest.md
-  - docs/models/operations/filesupdateresponsefilesupdate.md
-  - docs/models/operations/filesdeleterequest.md
-  - docs/models/operations/interval.md
-  - docs/models/operations/metricsgetqueryparamorganizationidfilter.md
-  - docs/models/operations/metricsgetqueryparamproductidfilter.md
-  - docs/models/operations/metricsgetqueryparamproductpricetypefilter.md
-  - docs/types/rfcdate.md
-  - docs/models/operations/metricsgetrequest.md
-  - docs/models/operations/licensekeyslistqueryparamorganizationidfilter.md
-  - docs/models/operations/licensekeyslistrequest.md
-  - docs/models/operations/licensekeyslistresponse.md
-  - docs/models/operations/licensekeysgetrequest.md
-  - docs/models/operations/licensekeysupdaterequest.md
-  - docs/models/operations/licensekeysgetactivationrequest.md
-  - docs/models/components/userbenefit.md
-  - docs/models/components/listresourceuserbenefit.md
-  - docs/models/components/pagination.md
-  - docs/models/components/type.md
-  - docs/models/components/benefitarticlessubscriber.md
-  - docs/models/components/benefitarticlessubscriberproperties.md
-  - docs/models/components/benefitadssubscribertype.md
-  - docs/models/components/benefitadssubscriber.md
-  - docs/models/components/benefitgrantads.md
-  - docs/models/components/benefitgrantadsproperties.md
-  - docs/models/components/benefitadsproperties.md
-  - docs/models/components/benefitdiscordsubscribertype.md
-  - docs/models/components/benefitdiscordsubscriber.md
-  - docs/models/components/benefitdiscordsubscriberproperties.md
-  - docs/models/components/benefitcustomsubscribertype.md
-  - docs/models/components/benefitcustomsubscriber.md
-  - docs/models/components/benefitcustomsubscriberproperties.md
-  - docs/models/components/benefitgrant.md
-  - docs/models/components/benefitgrantproperties.md
-  - docs/models/components/benefitgithubrepositorysubscribertype.md
-  - docs/models/components/benefitgithubrepositorysubscriber.md
-  - docs/models/components/benefitgithubrepositorysubscriberproperties.md
-  - docs/models/components/benefitdownloadablessubscribertype.md
-  - docs/models/components/benefitdownloadablessubscriber.md
-  - docs/models/components/benefitdownloadablessubscriberproperties.md
-  - docs/models/components/benefitlicensekeyssubscribertype.md
-  - docs/models/components/benefitlicensekeyssubscriber.md
-  - docs/models/components/benefitgrantlicensekeys.md
-  - docs/models/components/benefitgrantlicensekeysproperties.md
-  - docs/models/components/benefitlicensekeyssubscriberproperties.md
-  - docs/models/components/benefitlicensekeyactivationproperties.md
-  - docs/models/components/timeframe.md
-  - docs/models/components/benefitlicensekeyexpirationproperties.md
-  - docs/models/components/loc.md
-  - docs/models/components/validationerror.md
-  - docs/models/components/userbenefitsortproperty.md
-  - docs/models/components/benefittype.md
-  - docs/models/components/listresourceuserorder.md
-  - docs/models/components/userorder.md
-  - docs/models/components/userordersubscription.md
-  - docs/models/components/subscriptionstatus.md
-  - docs/models/components/productpriceoutput.md
-  - docs/models/components/productpricerecurringtype.md
-  - docs/models/components/productpricerecurring.md
-  - docs/models/components/productpricerecurringinterval.md
-  - docs/models/components/productpriceonetimetype.md
-  - docs/models/components/productpriceonetime.md
-  - docs/models/components/benefits.md
-  - docs/models/components/userorderproduct.md
-  - docs/models/components/service.md
-  - docs/models/components/productmediafilereadoutput.md
-  - docs/models/components/benefitbase.md
-  - docs/models/components/benefitarticlestype.md
-  - docs/models/components/benefitarticles.md
-  - docs/models/components/benefitarticlesproperties.md
-  - docs/models/components/subscriptiontiertype.md
-  - docs/models/components/userordersortproperty.md
-  - docs/models/components/productpricetype.md
-  - docs/models/components/userorderinvoice.md
-  - docs/models/components/listresourceusersubscription.md
-  - docs/models/components/usersubscription.md
-  - docs/models/components/usersubscriptionproductbenefits.md
-  - docs/models/components/usersubscriptionproduct.md
-  - docs/models/components/usersubscriptionsortproperty.md
-  - docs/models/components/userfreesubscriptioncreate.md
-  - docs/models/components/usersubscriptionupdate.md
-  - docs/models/components/listresourceuseradvertisementcampaign.md
-  - docs/models/components/useradvertisementcampaign.md
-  - docs/models/components/useradvertisementsortproperty.md
-  - docs/models/components/useradvertisementcampaigncreate.md
-  - docs/models/components/useradvertisementcampaignupdate.md
-  - docs/models/components/useradvertisementcampaignenable.md
-  - docs/models/components/listresourcedownloadableread.md
-  - docs/models/components/downloadableread.md
-  - docs/models/components/filedownload.md
-  - docs/models/components/fileservicetypes.md
-  - docs/models/components/s3downloadurl.md
-  - docs/models/components/listresourcelicensekeyread.md
-  - docs/models/components/licensekeyread.md
-  - docs/models/components/licensekeystatus.md
-  - docs/models/components/licensekeywithactivations.md
-  - docs/models/components/meta.md
-  - docs/models/components/licensekeyactivationbase.md
-  - docs/models/components/validatedlicensekey.md
-  - docs/models/components/conditions.md
-  - docs/models/components/licensekeyvalidate.md
-  - docs/models/components/licensekeyactivationreadmeta.md
-  - docs/models/components/licensekeyactivationread.md
-  - docs/models/components/licensekeyactivateconditions.md
-  - docs/models/components/licensekeyactivatemeta.md
-  - docs/models/components/licensekeyactivate.md
-  - docs/models/components/licensekeydeactivate.md
-  - docs/models/components/listresourceexternalorganization.md
-  - docs/models/components/externalorganization.md
-  - docs/models/components/platforms.md
-  - docs/models/components/externalorganizationsortproperty.md
-  - docs/models/components/listresourcerepository.md
-  - docs/models/components/repositoryoutput.md
-  - docs/models/components/repositoryprofilesettings.md
-  - docs/models/components/repositorysortproperty.md
-  - docs/models/components/repositoryupdate.md
-  - docs/models/components/repositoryprofilesettingsupdate.md
-  - docs/models/components/listresourceorganization.md
-  - docs/models/components/organizationoutput.md
-  - docs/models/components/organizationfeaturesettings.md
-  - docs/models/components/organizationprofilesettings.md
-  - docs/models/components/organizationsubscribepromotesettings.md
-  - docs/models/components/organizationsortproperty.md
-  - docs/models/components/organizationcreate.md
-  - docs/models/components/organizationupdate.md
-  - docs/models/components/listresourcesubscription.md
-  - docs/models/components/subscriptionoutput.md
-  - docs/models/components/productoutputbenefits.md
-  - docs/models/components/productoutput.md
-  - docs/models/components/subscriptionuser.md
-  - docs/models/components/subscriptionsortproperty.md
-  - docs/models/components/subscriptioncreateemail.md
-  - docs/models/components/subscriptionsimported.md
-  - docs/models/components/filet.md
-  - docs/models/components/bodysubscriptionsimport.md
-  - docs/models/components/listresourcearticle.md
-  - docs/models/components/article.md
-  - docs/models/components/articlevisibility.md
-  - docs/models/components/bylineprofile.md
-  - docs/models/components/articlecreatearticlebyline.md
-  - docs/models/components/articlecreatearticlevisibility.md
-  - docs/models/components/articlecreate.md
-  - docs/models/components/articleupdate.md
-  - docs/models/components/articlebyline.md
-  - docs/models/components/articlereceivers.md
-  - docs/models/components/articlepreview.md
-  - docs/models/components/advertisementcampaignlistresource.md
-  - docs/models/components/advertisementcampaign.md
-  - docs/models/components/advertisementsortproperty.md
-  - docs/models/components/tokentype.md
-  - docs/models/components/tokenresponse.md
-  - docs/models/components/granttype.md
-  - docs/models/components/onev11oauth21tokenpostxcomponentsauthorizationcodetokenrequest.md
-  - docs/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequestgranttype.md
-  - docs/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequest.md
-  - docs/models/components/revoketokenresponse.md
-  - docs/models/components/introspecttokenresponsetokentype.md
-  - docs/models/components/introspecttokenresponse.md
-  - docs/models/components/subtype.md
-  - docs/models/components/userinfouser.md
-  - docs/models/components/userinfoorganization.md
-  - docs/models/components/listresourceoauth2client.md
-  - docs/models/components/tokenendpointauthmethod.md
-  - docs/models/components/granttypes.md
-  - docs/models/components/responsetypes.md
-  - docs/models/components/oauth2client.md
-  - docs/models/components/oauth2clientconfigurationtokenendpointauthmethod.md
-  - docs/models/components/oauth2clientconfigurationgranttypes.md
-  - docs/models/components/oauth2clientconfigurationresponsetypes.md
-  - docs/models/components/oauth2clientconfiguration.md
-  - docs/models/components/oauth2clientconfigurationupdatetokenendpointauthmethod.md
-  - docs/models/components/oauth2clientconfigurationupdategranttypes.md
-  - docs/models/components/oauth2clientconfigurationupdateresponsetypes.md
-  - docs/models/components/oauth2clientconfigurationupdate.md
-  - docs/models/components/benefit.md
-  - docs/models/components/listresourcebenefit.md
-  - docs/models/components/benefitadstype.md
-  - docs/models/components/benefitads.md
-  - docs/models/components/benefitcustomtype.md
-  - docs/models/components/benefitcustom.md
-  - docs/models/components/benefitcustomproperties.md
-  - docs/models/components/benefitdiscordoutputtype.md
-  - docs/models/components/benefitdiscordoutput.md
-  - docs/models/components/benefitdiscordpropertiesoutput.md
-  - docs/models/components/benefitgithubrepositorytype.md
-  - docs/models/components/benefitgithubrepository.md
-  - docs/models/components/permission.md
-  - docs/models/components/benefitgithubrepositoryproperties.md
-  - docs/models/components/benefitdownloadablestype.md
-  - docs/models/components/benefitdownloadables.md
-  - docs/models/components/benefitdownloadablesproperties.md
-  - docs/models/components/benefitlicensekeysoutputtype.md
-  - docs/models/components/benefitlicensekeysoutput.md
-  - docs/models/components/benefitlicensekeysproperties.md
-  - docs/models/components/benefitcustomcreatetype.md
-  - docs/models/components/benefitcustomcreate.md
-  - docs/models/components/benefitadscreatetype.md
-  - docs/models/components/benefitadscreate.md
-  - docs/models/components/benefitdiscordcreatetype.md
-  - docs/models/components/benefitdiscordcreate.md
-  - docs/models/components/benefitdiscordcreateproperties.md
-  - docs/models/components/benefitgithubrepositorycreatetype.md
-  - docs/models/components/benefitgithubrepositorycreate.md
-  - docs/models/components/benefitgithubrepositorycreatepropertiespermission.md
-  - docs/models/components/benefitgithubrepositorycreateproperties.md
-  - docs/models/components/benefitdownloadablescreatetype.md
-  - docs/models/components/benefitdownloadablescreate.md
-  - docs/models/components/benefitdownloadablescreateproperties.md
-  - docs/models/components/benefitlicensekeyscreatetype.md
-  - docs/models/components/benefitlicensekeyscreate.md
-  - docs/models/components/benefitlicensekeyscreateproperties.md
-  - docs/models/components/benefitarticlesupdatetype.md
-  - docs/models/components/benefitarticlesupdate.md
-  - docs/models/components/benefitadsupdatetype.md
-  - docs/models/components/benefitadsupdate.md
-  - docs/models/components/benefitcustomupdatetype.md
-  - docs/models/components/benefitcustomupdate.md
-  - docs/models/components/benefitdiscordupdatetype.md
-  - docs/models/components/benefitdiscordupdate.md
-  - docs/models/components/benefitgithubrepositoryupdatetype.md
-  - docs/models/components/benefitgithubrepositoryupdate.md
-  - docs/models/components/benefitdownloadablesupdatetype.md
-  - docs/models/components/benefitdownloadablesupdate.md
-  - docs/models/components/benefitlicensekeysupdatetype.md
-  - docs/models/components/benefitlicensekeysupdate.md
-  - docs/models/components/listresourcebenefitgrant.md
-  - docs/models/components/listresourceproduct.md
-  - docs/models/components/productrecurringcreatetype.md
-  - docs/models/components/productrecurringcreate.md
-  - docs/models/components/productpricerecurringcreatetype.md
-  - docs/models/components/productpricerecurringcreate.md
-  - docs/models/components/productonetimecreate.md
-  - docs/models/components/productpriceonetimecreatetype.md
-  - docs/models/components/productpriceonetimecreate.md
-  - docs/models/components/prices.md
-  - docs/models/components/productupdate.md
-  - docs/models/components/existingproductprice.md
-  - docs/models/components/productbenefitsupdate.md
-  - docs/models/components/listresourceorder.md
-  - docs/models/components/orderoutput.md
-  - docs/models/components/ordersubscription.md
-  - docs/models/components/orderproduct.md
-  - docs/models/components/orderuser.md
-  - docs/models/components/ordersortproperty.md
-  - docs/models/components/orderinvoice.md
-  - docs/models/components/checkout.md
-  - docs/models/components/checkoutcreate.md
-  - docs/models/components/fileread.md
-  - docs/models/components/listresourcefileread.md
-  - docs/models/components/downloadablefilereadservice.md
-  - docs/models/components/downloadablefileread.md
-  - docs/models/components/organizationavatarfilereadservice.md
-  - docs/models/components/organizationavatarfileread.md
-  - docs/models/components/fileupload.md
-  - docs/models/components/s3fileuploadmultipart.md
-  - docs/models/components/s3fileuploadpart.md
-  - docs/models/components/downloadablefilecreateservice.md
-  - docs/models/components/downloadablefilecreate.md
-  - docs/models/components/s3filecreatemultipart.md
-  - docs/models/components/s3filecreatepart.md
-  - docs/models/components/productmediafilecreateservice.md
-  - docs/models/components/productmediafilecreate.md
-  - docs/models/components/organizationavatarfilecreateservice.md
-  - docs/models/components/organizationavatarfilecreate.md
-  - docs/models/components/fileuploadcompleted.md
-  - docs/models/components/s3fileuploadcompletedpart.md
-  - docs/models/components/filepatch.md
-  - docs/models/components/metricsresponse.md
-  - docs/models/components/metrics.md
-  - docs/models/components/metric.md
-  - docs/models/components/metrictype.md
-  - docs/models/components/metricperiod.md
-  - docs/models/components/metricslimits.md
-  - docs/models/components/metricsintervalslimits.md
-  - docs/models/components/metricsintervallimit.md
-  - docs/models/components/licensekeyupdate.md
-  - docs/models/components/security.md
-  - docs/models/components/webhookordercreatedpayloadtype.md
-  - docs/models/components/webhookordercreatedpayload.md
-  - docs/models/components/orderinput.md
-  - docs/models/components/productpriceinput.md
-  - docs/models/components/webhooksubscriptioncreatedpayloadtype.md
-  - docs/models/components/webhooksubscriptioncreatedpayload.md
-  - docs/models/components/subscriptioninput.md
-  - docs/models/components/productinputbenefits.md
-  - docs/models/components/productinput.md
-  - docs/models/components/productmediafilereadinputservice.md
-  - docs/models/components/productmediafilereadinput.md
-  - docs/models/components/webhooksubscriptionupdatedpayloadtype.md
-  - docs/models/components/webhooksubscriptionupdatedpayload.md
-  - docs/models/components/webhookproductcreatedpayloadtype.md
-  - docs/models/components/webhookproductcreatedpayload.md
-  - docs/models/components/webhookproductupdatedpayloadtype.md
-  - docs/models/components/webhookproductupdatedpayload.md
-  - docs/models/components/webhookpledgecreatedpayloadtype.md
-  - docs/models/components/webhookpledgecreatedpayload.md
-  - docs/models/components/pledgeinput.md
-  - docs/models/components/pledger.md
-  - docs/models/components/issueinput.md
-  - docs/models/components/repositoryinput.md
-  - docs/models/components/funding.md
-  - docs/models/components/currencyamount.md
-  - docs/models/components/state.md
-  - docs/models/components/reactions.md
-  - docs/models/components/assignee.md
-  - docs/models/components/author.md
-  - docs/models/components/label.md
-  - docs/models/components/pledgetype.md
-  - docs/models/components/pledgestate.md
-  - docs/models/components/webhookpledgeupdatedpayloadtype.md
-  - docs/models/components/webhookpledgeupdatedpayload.md
-  - docs/models/components/webhookdonationcreatedpayloadtype.md
-  - docs/models/components/webhookdonationcreatedpayload.md
-  - docs/models/components/donor.md
-  - docs/models/components/donationinput.md
-  - docs/models/components/donationorganization.md
-  - docs/models/components/donationuser.md
-  - docs/models/components/webhookorganizationupdatedpayloadtype.md
-  - docs/models/components/webhookorganizationupdatedpayload.md
-  - docs/models/components/organizationinput.md
-  - docs/models/components/webhookbenefitcreatedpayloadtype.md
-  - docs/models/components/webhookbenefitcreatedpayloadbenefit.md
-  - docs/models/components/webhookbenefitcreatedpayload.md
-  - docs/models/components/benefitdiscordinputtype.md
-  - docs/models/components/benefitdiscordinput.md
-  - docs/models/components/benefitdiscordpropertiesinput.md
-  - docs/models/components/benefitlicensekeysinputtype.md
-  - docs/models/components/benefitlicensekeysinput.md
-  - docs/models/components/webhookbenefitupdatedpayloadtype.md
-  - docs/models/components/webhookbenefitupdatedpayloadbenefit.md
-  - docs/models/components/webhookbenefitupdatedpayload.md
-  - docs/models/errors/httpvalidationerror.md
-  - docs/models/errors/type.md
-  - docs/models/errors/resourcenotfound.md
-  - docs/models/errors/alreadysubscribedtype.md
-  - docs/models/errors/alreadysubscribed.md
-  - docs/models/errors/freesubscriptionupgradetype.md
-  - docs/models/errors/freesubscriptionupgrade.md
-  - docs/models/errors/alreadycanceledsubscriptiontype.md
-  - docs/models/errors/alreadycanceledsubscription.md
-  - docs/models/errors/unauthorizedtype.md
-  - docs/models/errors/unauthorized.md
-  - docs/models/errors/notpermittedtype.md
-  - docs/models/errors/notpermitted.md
-  - docs/models/errors/filenotfoundtype.md
-  - docs/models/errors/filenotfound.md
-  - docs/sdks/polar/README.md
-  - docs/sdks/users/README.md
-  - docs/lib/utils/retryconfig.md
-  - docs/sdks/polarbenefits/README.md
-  - docs/sdks/polarorders/README.md
-  - docs/sdks/polarsubscriptions/README.md
-  - docs/sdks/polaradvertisements/README.md
-  - docs/sdks/downloadables/README.md
-  - docs/sdks/polarlicensekeys/README.md
-  - docs/sdks/externalorganizations/README.md
-  - docs/sdks/repositories/README.md
-  - docs/sdks/organizations/README.md
-  - docs/sdks/subscriptions/README.md
-  - docs/sdks/articles/README.md
-  - docs/sdks/advertisements/README.md
-  - docs/sdks/oauth2/README.md
-  - docs/sdks/clients/README.md
-  - docs/sdks/benefits/README.md
-  - docs/sdks/products/README.md
-  - docs/sdks/orders/README.md
-  - docs/sdks/checkouts/README.md
-  - docs/sdks/files/README.md
-  - docs/sdks/metrics/README.md
-  - docs/sdks/licensekeys/README.md
-  - USAGE.md
-  - .gitattributes
-  - .devcontainer/README.md
-  - .devcontainer/devcontainer.json
-  - .devcontainer/setup.sh
-  - src/hooks/hooks.ts
-  - src/hooks/types.ts
-  - src/hooks/index.ts
-  - CONTRIBUTING.md
+examples:
+  users:benefits:list:
+    speakeasy-default-users:benefits:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  users:benefits:get:
+    speakeasy-default-users:benefits:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2022-04-09T17:04:24.706Z", "modified_at": "2023-09-05T11:33:52.010Z", "id": "<value>", "description": "Switchable interactive service-desk", "selectable": true, "deletable": false, "organization_id": "<value>", "properties": {"repository_owner": "polarsource", "repository_name": "private_repo"}}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:orders:list:
+    speakeasy-default-users:orders:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  users:orders:get:
+    speakeasy-default-users:orders:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-02-07T13:54:48.780Z", "modified_at": "2022-04-09T17:04:24.706Z", "id": "<value>", "amount": 558834, "tax_amount": 844199, "currency": "Ouguiya", "user_id": "<value>", "product_id": "<value>", "product_price_id": "<value>", "subscription_id": "<value>", "product": {"created_at": "2024-06-29T09:01:50.308Z", "modified_at": "2023-07-26T06:33:15.886Z", "id": "<value>", "name": "<value>", "description": "Centralized well-modulated strategy", "is_recurring": true, "is_archived": true, "organization_id": "<value>", "type": "individual", "is_highlighted": true, "prices": [], "benefits": [], "medias": []}, "product_price": {"created_at": "2024-09-12T20:19:34.430Z", "modified_at": "2022-08-22T22:47:10.338Z", "id": "<value>", "price_amount": 68359, "price_currency": "<value>", "is_archived": false}, "subscription": {"created_at": "2022-11-08T10:33:23.061Z", "modified_at": "2023-04-26T04:53:50.205Z", "id": "<value>", "status": "trialing", "current_period_start": "2024-05-28T07:17:56.701Z", "current_period_end": "2024-03-20T23:00:26.309Z", "cancel_at_period_end": false, "started_at": "2024-12-06T14:08:11.458Z", "ended_at": "2022-08-30T01:43:46.083Z", "user_id": "<value>", "product_id": "<value>", "price_id": "<value>"}}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:orders:invoice:
+    speakeasy-default-users:orders:invoice:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"url": "https://normal-stepdaughter.com"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:subscriptions:list:
+    speakeasy-default-users:subscriptions:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  users:subscriptions:create:
+    speakeasy-default-users:subscriptions:create:
+      requestBody:
+        application/json: {"product_id": "<value>"}
+      responses:
+        "201":
+          application/json: {"created_at": "2023-06-18T07:14:55.676Z", "modified_at": "2023-06-21T08:42:38.998Z", "id": "<value>", "status": "past_due", "current_period_start": "2024-07-30T16:43:31.437Z", "current_period_end": "2023-04-03T12:48:32.050Z", "cancel_at_period_end": false, "started_at": "2022-05-28T06:20:22.608Z", "ended_at": "2024-05-12T01:18:11.295Z", "user_id": "<value>", "product_id": "<value>", "price_id": "<value>", "product": {"created_at": "2022-03-17T15:39:20.208Z", "modified_at": "2024-12-28T09:20:07.048Z", "id": "<value>", "name": "<value>", "description": "Secured exuding throughput", "is_recurring": false, "is_archived": false, "organization_id": "<value>", "type": "individual", "is_highlighted": true, "prices": [], "benefits": [], "medias": []}, "price": {"created_at": "2022-04-09T14:25:28.984Z", "modified_at": "2024-02-23T16:23:46.908Z", "id": "<value>", "price_amount": 792620, "price_currency": "<value>", "is_archived": false}}
+        "400":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:subscriptions:get:
+    speakeasy-default-users:subscriptions:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-02-07T13:54:48.780Z", "modified_at": "2022-04-09T17:04:24.706Z", "id": "<value>", "status": "active", "current_period_start": "2024-07-14T05:47:45.857Z", "current_period_end": "2023-08-20T11:11:04.289Z", "cancel_at_period_end": false, "started_at": "2023-07-26T06:33:15.886Z", "ended_at": "2022-03-28T03:17:21.516Z", "user_id": "<value>", "product_id": "<value>", "price_id": "<value>", "product": {"created_at": "2024-11-29T01:50:48.387Z", "modified_at": "2024-08-07T07:28:43.175Z", "id": "<value>", "name": "<value>", "description": "Multi-channelled optimal hierarchy", "is_recurring": true, "is_archived": true, "organization_id": "<value>", "type": "business", "is_highlighted": true, "prices": [], "benefits": [], "medias": []}, "price": {"created_at": "2024-10-24T02:41:21.565Z", "modified_at": "2022-11-08T10:33:23.061Z", "id": "<value>", "price_amount": 438142, "price_currency": "<value>", "is_archived": true}}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:subscriptions:update:
+    speakeasy-default-users:subscriptions:update:
+      parameters:
+        path:
+          id: "<value>"
+      requestBody:
+        application/json: {"product_price_id": "<value>"}
+      responses:
+        "200":
+          application/json: {"created_at": "2024-07-28T19:04:48.900Z", "modified_at": "2022-01-27T21:53:39.052Z", "id": "<value>", "status": "past_due", "current_period_start": "2022-01-18T03:43:33.232Z", "current_period_end": "2023-01-13T16:52:57.237Z", "cancel_at_period_end": true, "started_at": "2024-12-22T15:27:45.933Z", "ended_at": "2022-10-24T06:37:05.817Z", "user_id": "<value>", "product_id": "<value>", "price_id": "<value>", "product": {"created_at": "2023-11-19T22:44:57.818Z", "modified_at": "2024-01-20T21:09:11.127Z", "id": "<value>", "name": "<value>", "description": "Multi-tiered grid-enabled website", "is_recurring": true, "is_archived": false, "organization_id": "<value>", "type": "free", "is_highlighted": true, "prices": [], "benefits": [], "medias": []}, "price": {"created_at": "2023-05-05T18:16:41.139Z", "modified_at": "2023-02-09T14:57:27.184Z", "id": "<value>", "price_amount": 311507, "price_currency": "<value>", "is_archived": false}}
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:subscriptions:cancel:
+    speakeasy-default-users:subscriptions:cancel:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2022-01-28T04:39:19.402Z", "modified_at": "2022-07-26T00:54:13.634Z", "id": "<value>", "status": "unpaid", "current_period_start": "2023-12-06T17:35:22.378Z", "current_period_end": "2023-06-04T09:53:22.955Z", "cancel_at_period_end": false, "started_at": "2022-04-04T13:59:58.493Z", "ended_at": "2022-07-16T10:00:54.807Z", "user_id": "<value>", "product_id": "<value>", "price_id": "<value>", "product": {"created_at": "2022-08-03T23:44:35.164Z", "modified_at": "2022-05-01T05:45:14.845Z", "id": "<value>", "name": "<value>", "description": "Fully-configurable multimedia alliance", "is_recurring": true, "is_archived": true, "organization_id": "<value>", "type": "free", "is_highlighted": true, "prices": [], "benefits": [], "medias": []}, "price": {"created_at": "2022-06-09T14:11:57.105Z", "modified_at": "2022-10-25T02:17:16.139Z", "id": "<value>", "price_amount": 218953, "price_currency": "<value>", "is_archived": true, "recurring_interval": "month"}}
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:advertisements:list:
+    speakeasy-default-users:advertisements:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  users:advertisements:create:
+    speakeasy-default-users:advertisements:create:
+      requestBody:
+        application/json: {"image_url": "http://limp-pastry.org", "text": "<value>", "link_url": "http://flashy-cartload.net"}
+      responses:
+        "201":
+          application/json: {"created_at": "2022-03-17T15:39:20.208Z", "modified_at": "2024-12-28T09:20:07.048Z", "id": "<value>", "user_id": "<value>", "views": 796474, "clicks": 376844, "image_url": "https://unimportant-atm.info", "image_url_dark": "http://formal-blouse.net", "text": "<value>", "link_url": "https://thrifty-smile.name"}
+        "422": {}
+  users:advertisements:get:
+    speakeasy-default-users:advertisements:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-02-07T13:54:48.780Z", "modified_at": "2022-04-09T17:04:24.706Z", "id": "<value>", "user_id": "<value>", "views": 558834, "clicks": 844199, "image_url": "https://sweltering-lock.com", "image_url_dark": "https://tremendous-inevitable.net", "text": "<value>", "link_url": "http://immaterial-dime.org"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:advertisements:update:
+    speakeasy-default-users:advertisements:update:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-07-28T19:04:48.900Z", "modified_at": "2022-01-27T21:53:39.052Z", "id": "<value>", "user_id": "<value>", "views": 597129, "clicks": 15652, "image_url": "http://rubbery-wrap.biz", "image_url_dark": "https://realistic-kill.info", "text": "<value>", "link_url": "https://complex-authority.biz"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:advertisements:delete:
+    speakeasy-default-users:advertisements:delete:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:advertisements:enable:
+    speakeasy-default-users:advertisements:enable:
+      parameters:
+        path:
+          id: "<value>"
+      requestBody:
+        application/json: {"benefit_id": "<value>"}
+      responses:
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:downloadables:list:
+    speakeasy-default-users:downloadables:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  users:downloadables:get:
+    speakeasy-default-users:downloadables:get:
+      parameters:
+        path:
+          token: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422": {}
+  users:license_keys:list:
+    speakeasy-default-users:license-keys:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "401":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:license_keys:get:
+    speakeasy-default-users:license-keys:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "<value>", "organization_id": "<value>", "user_id": "<value>", "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "disabled", "limit_activations": 90065, "usage": 558834, "limit_usage": 844199, "validations": 544221, "last_validated_at": "2024-06-29T09:01:50.308Z", "expires_at": "2023-07-26T06:33:15.886Z", "activations": []}
+        "401":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:license_keys:validate:
+    speakeasy-default-users:license-keys:validate:
+      requestBody:
+        application/json: {"key": "<key>", "organization_id": "<value>"}
+      responses:
+        "200":
+          application/json: {"id": "<value>", "organization_id": "<value>", "user_id": "<value>", "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "disabled", "limit_activations": 139635, "usage": 198036, "limit_usage": 824288, "validations": 220910, "last_validated_at": "2022-11-13T06:07:19.362Z", "expires_at": "2022-09-25T18:32:26.136Z"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:license_keys:activate:
+    speakeasy-default-users:license-keys:activate:
+      requestBody:
+        application/json: {"key": "<key>", "organization_id": "<value>", "label": "<value>"}
+      responses:
+        "200":
+          application/json: {"id": "<value>", "license_key_id": "<value>", "label": "<value>", "created_at": "2023-08-13T13:11:06.618Z", "modified_at": "2023-03-21T09:42:16.177Z", "license_key": {"id": "<value>", "organization_id": "<value>", "user_id": "<value>", "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "granted", "limit_activations": 95145, "usage": 923318, "limit_usage": 246615, "validations": 548731, "last_validated_at": "2023-03-31T03:55:03.497Z", "expires_at": "2024-06-27T10:16:03.791Z"}}
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  users:license_keys:deactivate:
+    speakeasy-default-users:license-keys:deactivate:
+      requestBody:
+        application/json: {"key": "<key>", "organization_id": "<value>", "activation_id": "<value>"}
+      responses:
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  external_organizations:list:
+    speakeasy-default-external-organizations:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  repositories:list:
+    speakeasy-default-repositories:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  repositories:get:
+    speakeasy-default-repositories:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "b18d8d81-fd7b-4764-a31e-475cb1f36591", "is_private": false, "name": "MyOrg", "description": "Optional reciprocal projection", "stars": 1337, "license": "<value>", "homepage": "<value>", "organization": {"id": "c65bc928-1545-452e-b0c0-48b8c2b5ed5f", "name": "<value>", "avatar_url": "<value>", "is_personal": true, "bio": "<value>", "pretty_name": "<value>", "company": "Windler, Bahringer and Kilback", "blog": "<value>", "location": "<value>", "email": "Herbert14@hotmail.com", "twitter_username": "<value>", "organization_id": "<value>"}}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  repositories:update:
+    speakeasy-default-repositories:update:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "d0905bf4-aa77-4f20-8e77-54c352acfe54", "is_private": true, "name": "MyOrg", "description": "Multi-lateral grid-enabled product", "stars": 1337, "license": "<value>", "homepage": "<value>", "organization": {"id": "abf6805c-5ca7-4187-9435-5ad7d4e1b584", "name": "<value>", "avatar_url": "<value>", "is_personal": false, "bio": "<value>", "pretty_name": "<value>", "company": "Lubowitz - Wiza", "blog": "<value>", "location": "<value>", "email": "Reta_Larkin@yahoo.com", "twitter_username": "<value>", "organization_id": "<value>"}}
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  organizations:list:
+    speakeasy-default-organizations:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  organizations:create:
+    speakeasy-default-organizations:create:
+      requestBody:
+        application/json: {"name": "<value>", "slug": "<value>"}
+      responses:
+        "201":
+          application/json: {"created_at": "2023-06-18T07:14:55.676Z", "modified_at": "2023-06-21T08:42:38.998Z", "id": "<value>", "name": "<value>", "slug": "<value>", "avatar_url": "<value>", "bio": "<value>", "company": "Stokes - Johnson", "blog": "<value>", "location": "<value>", "email": "Bria99@gmail.com", "twitter_username": "<value>", "pledge_minimum_amount": 796474, "pledge_badge_show_amount": false, "default_upfront_split_to_contributors": 951062, "donations_enabled": false}
+        "422": {}
+  organizations:get:
+    speakeasy-default-organizations:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-02-07T13:54:48.780Z", "modified_at": "2022-04-09T17:04:24.706Z", "id": "<value>", "name": "<value>", "slug": "<value>", "avatar_url": "<value>", "bio": "<value>", "company": "Sporer - Little", "blog": "<value>", "location": "<value>", "email": "Jovanny_Block45@hotmail.com", "twitter_username": "<value>", "pledge_minimum_amount": 735287, "pledge_badge_show_amount": false, "default_upfront_split_to_contributors": 413663, "donations_enabled": true}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  organizations:update:
+    speakeasy-default-organizations:update:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-07-28T19:04:48.900Z", "modified_at": "2022-01-27T21:53:39.052Z", "id": "<value>", "name": "<value>", "slug": "<value>", "avatar_url": "<value>", "bio": "<value>", "company": "Armstrong - Hegmann", "blog": "<value>", "location": "<value>", "email": "Yvonne_Glover@hotmail.com", "twitter_username": "<value>", "pledge_minimum_amount": 488852, "pledge_badge_show_amount": false, "default_upfront_split_to_contributors": 984008, "donations_enabled": true}
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  subscriptions:list:
+    speakeasy-default-subscriptions:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  subscriptions:create:
+    speakeasy-default-subscriptions:create:
+      requestBody:
+        application/json: {"email": "Jena.Nienow28@yahoo.com", "product_id": "<value>"}
+      responses:
+        "201":
+          application/json: {"created_at": "2022-05-28T06:20:22.608Z", "modified_at": "2024-05-12T01:18:11.295Z", "id": "<value>", "status": "incomplete", "current_period_start": "2024-12-28T09:20:07.048Z", "current_period_end": "2024-05-22T22:27:14.136Z", "cancel_at_period_end": false, "started_at": "2024-11-08T08:43:39.140Z", "ended_at": "2024-09-04T02:16:28.536Z", "user_id": "<value>", "product_id": "<value>", "price_id": "<value>", "user": {"email": "Jackie8@gmail.com", "public_name": "<value>", "github_username": "<value>", "avatar_url": "<value>"}, "product": {"created_at": "2024-02-23T16:23:46.908Z", "modified_at": "2024-05-18T17:03:53.985Z", "id": "<value>", "name": "<value>", "description": "Synchronised secondary knowledge user", "is_recurring": false, "is_archived": true, "organization_id": "<value>", "type": "business", "is_highlighted": false, "prices": [], "benefits": [], "medias": []}, "price": {"created_at": "2023-12-21T06:09:17.456Z", "modified_at": "2023-01-27T07:05:06.668Z", "id": "<value>", "price_amount": 28548, "price_currency": "<value>", "is_archived": true, "recurring_interval": "year"}}
+        "422": {}
+  subscriptions:import:
+    speakeasy-default-subscriptions:import:
+      requestBody:
+        multipart/form-data: {"file": {}, "organization_id": "<value>"}
+      responses:
+        "200":
+          application/json: {"count": 740192}
+        "422": {}
+  subscriptions:export:
+    speakeasy-default-subscriptions:export:
+      responses:
+        "200":
+          application/json: "<value>"
+        "422": {}
+  articles:list:
+    speakeasy-default-articles:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  articles:create:
+    speakeasy-default-articles:create:
+      requestBody:
+        application/json: {"title": "<value>"}
+      responses:
+        "201":
+          application/json: {"id": "<value>", "slug": "<value>", "title": "<value>", "body": "<value>", "byline": {"name": "<value>", "avatar_url": "<value>"}, "visibility": "hidden", "user_id": "<value>", "organization_id": "<value>", "organization": {"created_at": "2023-06-21T08:42:38.998Z", "modified_at": "2023-12-01T17:06:07.793Z", "id": "<value>", "name": "<value>", "slug": "<value>", "avatar_url": "<value>", "bio": "<value>", "company": "Johnson, Green and Collier", "blog": "<value>", "location": "<value>", "email": "Annie.Zieme95@hotmail.com", "twitter_username": "<value>", "pledge_minimum_amount": 891510, "pledge_badge_show_amount": false, "default_upfront_split_to_contributors": 455222, "donations_enabled": true}, "published_at": "2022-11-27T10:55:40.526Z", "paid_subscribers_only": false, "paid_subscribers_only_ends_at": "2024-02-23T16:23:46.908Z", "is_preview": false, "is_pinned": false, "notify_subscribers": false, "notifications_sent_at": "2023-08-28T21:56:09.233Z", "email_sent_to_count": 586220, "og_image_url": "<value>", "og_description": "<value>"}
+        "422": {}
+  articles:get:
+    speakeasy-default-articles:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "<value>", "slug": "<value>", "title": "<value>", "body": "<value>", "byline": {"name": "<value>", "avatar_url": "<value>"}, "visibility": "private", "user_id": "<value>", "organization_id": "<value>", "organization": {"created_at": "2022-04-09T17:04:24.706Z", "modified_at": "2023-09-05T11:33:52.010Z", "id": "<value>", "name": "<value>", "slug": "<value>", "avatar_url": "<value>", "bio": "<value>", "company": "Little, Simonis and Lebsack", "blog": "<value>", "location": "<value>", "email": "Waino_Streich@gmail.com", "twitter_username": "<value>", "pledge_minimum_amount": 450824, "pledge_badge_show_amount": true, "default_upfront_split_to_contributors": 262795, "donations_enabled": false}, "published_at": "2022-08-22T22:47:10.338Z", "paid_subscribers_only": true, "paid_subscribers_only_ends_at": "2024-10-24T02:41:21.565Z", "is_preview": false, "is_pinned": false, "notify_subscribers": true, "notifications_sent_at": "2024-05-28T07:17:56.701Z", "email_sent_to_count": 739014, "og_image_url": "<value>", "og_description": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  articles:update:
+    speakeasy-default-articles:update:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "<value>", "slug": "<value>", "title": "<value>", "body": "<value>", "byline": {"name": "<value>", "avatar_url": "<value>"}, "visibility": "private", "user_id": "<value>", "organization_id": "<value>", "organization": {"created_at": "2022-01-27T21:53:39.052Z", "modified_at": "2023-10-17T10:52:42.269Z", "id": "<value>", "name": "<value>", "slug": "<value>", "avatar_url": "<value>", "bio": "<value>", "company": "Hegmann LLC", "blog": "<value>", "location": "<value>", "email": "Don.Murazik44@hotmail.com", "twitter_username": "<value>", "pledge_minimum_amount": 984008, "pledge_badge_show_amount": true, "default_upfront_split_to_contributors": 54062, "donations_enabled": true}, "published_at": "2024-09-09T13:32:29.292Z", "paid_subscribers_only": true, "paid_subscribers_only_ends_at": "2023-05-05T18:16:41.139Z", "is_preview": false, "is_pinned": true, "notify_subscribers": false, "notifications_sent_at": "2022-10-01T09:16:10.269Z", "email_sent_to_count": 366807, "og_image_url": "<value>", "og_description": "<value>"}
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  articles:delete:
+    speakeasy-default-articles:delete:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  articles:receivers:
+    speakeasy-default-articles:receivers:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"free_subscribers": 477864, "premium_subscribers": 885208, "organization_members": 367824}
+        "422": {}
+  articles:preview:
+    speakeasy-default-articles:preview:
+      parameters:
+        path:
+          id: "<value>"
+      requestBody:
+        application/json: {"email": "Eileen56@yahoo.com"}
+      responses:
+        "202":
+          application/json: "<value>"
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  articles:send:
+    speakeasy-default-articles:send:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "202":
+          application/json: "<value>"
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  advertisements:list:
+    speakeasy-default-advertisements:list:
+      parameters:
+        query:
+          benefit_id: "<value>"
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}, "dimensions": []}
+        "422": {}
+  advertisements:get:
+    speakeasy-default-advertisements:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-02-07T13:54:48.780Z", "modified_at": "2022-04-09T17:04:24.706Z", "id": "<value>", "image_url": "https://terrible-marsh.net", "image_url_dark": "https://blond-wasabi.org", "text": "<value>", "link_url": "http://serious-immigration.info"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  oauth2:request_token:
+    speakeasy-default-oauth2-:request-token:
+      requestBody:
+        application/x-www-form-urlencoded: {"client_id": "<value>", "client_secret": "<value>", "code": "<value>", "redirect_uri": "http://multicolored-chivalry.name"}
+      responses:
+        "200":
+          application/json: {"access_token": "<value>", "expires_in": 542214, "refresh_token": "<value>", "scope": "<value>", "id_token": "<value>"}
+  oauth2:revoke_token:
+    speakeasy-default-oauth2-:revoke-token:
+      requestBody:
+        application/x-www-form-urlencoded: {"token": "<value>", "client_id": "<value>", "client_secret": "<value>"}
+  oauth2:introspect_token:
+    speakeasy-default-oauth2-:introspect-token:
+      requestBody:
+        application/x-www-form-urlencoded: {"token": "<value>", "client_id": "<value>", "client_secret": "<value>"}
+      responses:
+        "200":
+          application/json: {"active": false, "client_id": "<value>", "token_type": "refresh_token", "scope": "<value>", "sub_type": "user", "sub": "<value>", "aud": "<value>", "iss": "<value>", "exp": 592323, "iat": 153500}
+  oauth2:userinfo:
+    speakeasy-default-oauth2-:userinfo:
+      responses:
+        "200":
+          application/json: {"sub": "<value>", "name": "<value>"}
+  oauth2:clients:list:
+    speakeasy-default-oauth2-:clients:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  oauth2:clients:oauth2:create_client:
+    speakeasy-default-oauth2-:clients:oauth2-:create-client:
+      requestBody:
+        application/json: {"redirect_uris": [], "client_name": "<value>"}
+      responses:
+        "200":
+          application/json: "<value>"
+        "422": {}
+  oauth2:clients:oauth2:get_client:
+    speakeasy-default-oauth2-:clients:oauth2-:get-client:
+      parameters:
+        path:
+          client_id: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422": {}
+  oauth2:clients:oauth2:update_client:
+    speakeasy-default-oauth2-:clients:oauth2-:update-client:
+      parameters:
+        path:
+          client_id: "<value>"
+      requestBody:
+        application/json: {"redirect_uris": [], "client_name": "<value>", "client_id": "<value>"}
+      responses:
+        "200":
+          application/json: "<value>"
+        "422": {}
+  oauth2:clients:oauth2:delete_client:
+    speakeasy-default-oauth2-:clients:oauth2-:delete-client:
+      parameters:
+        path:
+          client_id: "<value>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "422": {}
+  benefits:list:
+    speakeasy-default-benefits:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  benefits:create:
+    speakeasy-default-benefits:create:
+      requestBody:
+        application/json: {"description": "Multi-tiered motivating standardization", "properties": {"guild_token": "<value>", "role_id": "<value>"}}
+      responses:
+        "201":
+          application/json: {"created_at": "2022-11-13T02:16:42.101Z", "modified_at": "2022-05-28T06:20:22.608Z", "id": "<value>", "description": "Seamless actuating workforce", "selectable": false, "deletable": false, "organization_id": "<value>", "properties": {"note": "<value>"}, "is_tax_applicable": false}
+        "422": {}
+  benefits:get:
+    speakeasy-default-benefits:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2022-04-09T17:04:24.706Z", "modified_at": "2023-09-05T11:33:52.010Z", "id": "<value>", "description": "Switchable interactive service-desk", "selectable": true, "deletable": false, "organization_id": "<value>", "properties": {"repository_id": "<value>", "repository_owner": "polarsource", "repository_name": "private_repo", "permission": "admin"}}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  benefits:update:
+    speakeasy-default-benefits:update:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2023-10-17T10:52:42.269Z", "modified_at": "2022-01-18T03:43:33.232Z", "id": "<value>", "description": "Future-proofed next generation workforce", "selectable": false, "deletable": false, "organization_id": "<value>", "properties": {"paid_articles": true}}
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  benefits:delete:
+    speakeasy-default-benefits:delete:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  benefits:grants:
+    speakeasy-default-benefits:grants:
+      parameters:
+        path:
+          id: "<value>"
+        query: {}
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 315236, "max_page": 480840}}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  products:list:
+    speakeasy-default-products:list:
+      parameters:
+        query:
+          organization_id: []
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 99895, "max_page": 547272}}
+        "422": {}
+  products:create:
+    speakeasy-default-products:create:
+      requestBody:
+        application/json: {"name": "<value>", "prices": [], "type": "individual"}
+      responses:
+        "201":
+          application/json: {"created_at": "2023-12-01T17:06:07.793Z", "modified_at": "2024-07-30T16:43:31.437Z", "id": "<value>", "name": "<value>", "description": "Inverse discrete benchmark", "is_recurring": false, "is_archived": true, "organization_id": "<value>", "type": "business", "is_highlighted": false, "prices": [], "benefits": [], "medias": []}
+        "422": {}
+  products:get:
+    speakeasy-default-products:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-02-07T13:54:48.780Z", "modified_at": "2022-04-09T17:04:24.706Z", "id": "<value>", "name": "<value>", "description": "Optional static intranet", "is_recurring": false, "is_archived": true, "organization_id": "<value>", "type": "free", "is_highlighted": true, "prices": [], "benefits": [], "medias": []}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  products:update:
+    speakeasy-default-products:update:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-07-28T19:04:48.900Z", "modified_at": "2022-01-27T21:53:39.052Z", "id": "<value>", "name": "<value>", "description": "Persistent 24/7 focus group", "is_recurring": true, "is_archived": false, "organization_id": "<value>", "type": "free", "is_highlighted": false, "prices": [], "benefits": [], "medias": []}
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  products:update_benefits:
+    speakeasy-default-products:update-benefits:
+      parameters:
+        path:
+          id: "<value>"
+      requestBody:
+        application/json: {"benefits": []}
+      responses:
+        "200":
+          application/json: {"created_at": "2023-02-17T23:13:10.706Z", "modified_at": "2024-10-03T16:30:23.323Z", "id": "<value>", "name": "<value>", "description": "Intuitive object-oriented parallelism", "is_recurring": false, "is_archived": true, "organization_id": "<value>", "type": "business", "is_highlighted": true, "prices": [], "benefits": [], "medias": []}
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  orders:list:
+    speakeasy-default-orders:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  orders:get:
+    speakeasy-default-orders:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-02-07T13:54:48.780Z", "modified_at": "2022-04-09T17:04:24.706Z", "id": "<value>", "amount": 558834, "tax_amount": 844199, "currency": "Ouguiya", "user_id": "<value>", "product_id": "<value>", "product_price_id": "<value>", "subscription_id": "<value>", "user": {"id": "<value>", "email": "Jovanny_Block45@hotmail.com", "public_name": "<value>", "github_username": "<value>", "avatar_url": "<value>"}, "product": {"created_at": "2024-03-16T20:58:20.526Z", "modified_at": "2023-05-10T02:28:23.859Z", "id": "<value>", "name": "<value>", "description": "Inverse demand-driven superstructure", "is_recurring": true, "is_archived": true, "organization_id": "<value>", "type": "business", "is_highlighted": false}, "product_price": {"created_at": "2023-01-20T18:50:11.498Z", "modified_at": "2024-05-28T07:17:56.701Z", "id": "<value>", "price_amount": 739014, "price_currency": "<value>", "is_archived": false}, "subscription": {"created_at": "2024-12-06T14:08:11.458Z", "modified_at": "2022-08-30T01:43:46.083Z", "id": "<value>", "status": "trialing", "current_period_start": "2022-12-10T13:21:21.114Z", "current_period_end": "2023-09-21T05:37:11.740Z", "cancel_at_period_end": true, "started_at": "2023-01-14T09:14:56.629Z", "ended_at": "2023-08-29T15:06:35.313Z", "user_id": "<value>", "product_id": "<value>", "price_id": "<value>"}}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  orders:invoice:
+    speakeasy-default-orders:invoice:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"url": "https://normal-stepdaughter.com"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  checkouts:create:
+    speakeasy-default-checkouts:create:
+      requestBody:
+        application/json: {"product_price_id": "<value>", "success_url": "http://limp-pastry.org"}
+      responses:
+        "201":
+          application/json: {"id": "<id>", "customer_email": "<value>", "customer_name": "<value>", "product": {"created_at": "2023-04-03T12:48:32.050Z", "modified_at": "2022-11-13T02:16:42.101Z", "id": "<value>", "name": "<value>", "description": "Customer-focused regional approach", "is_recurring": false, "is_archived": false, "organization_id": "<value>", "type": "individual", "is_highlighted": false, "prices": [], "benefits": [], "medias": []}, "product_price": {"created_at": "2022-01-01T02:16:41.699Z", "modified_at": "2023-05-14T22:08:51.375Z", "id": "<value>", "price_amount": 169727, "price_currency": "<value>", "is_archived": false, "recurring_interval": "month"}}
+        "422": {}
+  checkouts:get:
+    speakeasy-default-checkouts:get:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "customer_email": "<value>", "customer_name": "<value>", "product": {"created_at": "2024-02-07T13:54:48.780Z", "modified_at": "2022-04-09T17:04:24.706Z", "id": "<value>", "name": "<value>", "description": "Optional static intranet", "is_recurring": false, "is_archived": true, "organization_id": "<value>", "type": "free", "is_highlighted": true, "prices": [], "benefits": [], "medias": []}, "product_price": {"created_at": "2023-05-18T00:32:02.409Z", "modified_at": "2024-03-16T20:58:20.526Z", "id": "<value>", "price_amount": 450824, "price_currency": "<value>", "is_archived": true, "recurring_interval": "month"}}
+        "422": {}
+  files:list:
+    speakeasy-default-files:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "422": {}
+  files:create:
+    speakeasy-default-files:create:
+      requestBody:
+        application/json: {"name": "<value>", "mime_type": "<value>", "size": 489382, "upload": {"parts": []}}
+      responses:
+        "200":
+          application/json: {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/tmp", "mime_type": "<value>", "size": 859213, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2023-04-03T12:48:32.050Z", "upload": {"id": "<id>", "path": "/media", "parts": []}, "version": "<value>", "service": "downloadable", "size_readable": "<value>"}
+        "422": {}
+  files:uploaded:
+    speakeasy-default-files:uploaded:
+      parameters:
+        path:
+          id: "<value>"
+      requestBody:
+        application/json: {"id": "<id>", "path": "/sys", "parts": []}
+      responses:
+        "200":
+          application/json: {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/ports", "mime_type": "<value>", "size": 384761, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2022-07-09T17:39:16.794Z", "version": "<value>", "is_uploaded": true, "created_at": "2024-09-06T20:34:00.415Z", "size_readable": "<value>"}
+        "422": {}
+  files:update:
+    speakeasy-default-files:update:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/bin", "mime_type": "<value>", "size": 597129, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2022-01-18T03:43:33.232Z", "version": "<value>", "is_uploaded": false, "created_at": "2024-02-16T11:11:26.963Z", "size_readable": "<value>", "public_url": "<value>"}
+        "422": {}
+  files:delete:
+    speakeasy-default-files:delete:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "403":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  metrics:get:
+    speakeasy-default-metrics:get:
+      parameters:
+        query:
+          start_date: "2024-02-07"
+          end_date: "2022-04-09"
+          interval: "week"
+      responses:
+        "200":
+          application/json: {"periods": [], "metrics": {"orders": {"slug": "<value>", "display_name": "Rosalind_Little7", "type": "currency"}, "revenue": {"slug": "<value>", "display_name": "Sammie.Koch41", "type": "scalar"}, "average_order_value": {"slug": "<value>", "display_name": "Stefan93", "type": "scalar"}, "one_time_products": {"slug": "<value>", "display_name": "Ian_Herman7", "type": "currency"}, "one_time_products_revenue": {"slug": "<value>", "display_name": "Daisha57", "type": "scalar"}, "new_subscriptions": {"slug": "<value>", "display_name": "Ewell_Lueilwitz78", "type": "scalar"}, "new_subscriptions_revenue": {"slug": "<value>", "display_name": "Evangeline_Rogahn16", "type": "currency"}, "renewed_subscriptions": {"slug": "<value>", "display_name": "Arch32", "type": "scalar"}, "renewed_subscriptions_revenue": {"slug": "<value>", "display_name": "Charlotte0", "type": "currency"}, "active_subscriptions": {"slug": "<value>", "display_name": "Alex_Graham", "type": "currency"}, "monthly_recurring_revenue": {"slug": "<value>", "display_name": "Olin.Cole90", "type": "currency"}}}
+        "422": {}
+  metrics:limits:
+    speakeasy-default-metrics:limits:
+      responses:
+        "200":
+          application/json: {"min_date": "2024-09-15", "intervals": {"hour": {"max_days": 655235}, "day": {"max_days": 187794}, "week": {"max_days": 927191}, "month": {"max_days": 119301}, "year": {"max_days": 132897}}}
+  license_keys:list:
+    speakeasy-default-license-keys:list:
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 768578, "max_page": 99895}}
+        "401":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  license_keys:get:
+    speakeasy-default-license-keys:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "<value>", "organization_id": "<value>", "user_id": "<value>", "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "disabled", "limit_activations": 90065, "usage": 558834, "limit_usage": 844199, "validations": 544221, "last_validated_at": "2024-06-29T09:01:50.308Z", "expires_at": "2023-07-26T06:33:15.886Z", "activations": []}
+        "401":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  license_keys:update:
+    speakeasy-default-license-keys:update:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "<value>", "organization_id": "<value>", "user_id": "<value>", "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "disabled", "limit_activations": 24555, "usage": 597129, "limit_usage": 15652, "validations": 344620, "last_validated_at": "2024-02-16T11:11:26.963Z", "expires_at": "2024-12-22T15:27:45.933Z"}
+        "401":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}
+  license_keys:get_activation:
+    speakeasy-default-license-keys:get-activation:
+      parameters:
+        path:
+          id: "<value>"
+          activation_id: "<value>"
+      responses:
+        "200":
+          application/json: {"id": "<value>", "license_key_id": "<value>", "label": "<value>", "created_at": "2023-12-01T08:59:23.884Z", "modified_at": "2024-08-24T19:22:44.851Z", "license_key": {"id": "<value>", "organization_id": "<value>", "user_id": "<value>", "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "revoked", "limit_activations": 291118, "usage": 806587, "limit_usage": 221587, "validations": 620000, "last_validated_at": "2022-10-02T13:06:32.609Z", "expires_at": "2022-08-12T06:04:08.773Z"}}
+        "401":
+          application/json: {"detail": "<value>"}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422": {}

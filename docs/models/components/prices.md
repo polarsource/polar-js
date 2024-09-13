@@ -6,7 +6,7 @@
 import { Prices } from "@polar-sh/sdk/models/components";
 
 let value: Prices = {
-    id: "<value>",
+  priceAmount: 433279,
 };
 ```
 

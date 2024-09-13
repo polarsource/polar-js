@@ -8,22 +8,21 @@ Successful Response
 import { FilesUploadedResponseFilesUploaded } from "@polar-sh/sdk/models/operations";
 
 let value: FilesUploadedResponseFilesUploaded = {
-    id: "<value>",
-    organizationId: "<value>",
-    name: "<value>",
-    path: "/home",
-    mimeType: "<value>",
-    size: 179490,
-    storageVersion: "<value>",
-    checksumEtag: "<value>",
-    checksumSha256Base64: "<value>",
-    checksumSha256Hex: "<value>",
-    lastModifiedAt: new Date("2022-01-21T07:11:50.180Z"),
-    version: "<value>",
-    isUploaded: false,
-    createdAt: new Date("2022-07-07T09:37:52.810Z"),
-    sizeReadable: "<value>",
-    publicUrl: "<value>",
+  id: "<value>",
+  organizationId: "<value>",
+  name: "<value>",
+  path: "/bin",
+  mimeType: "<value>",
+  size: 170986,
+  storageVersion: "<value>",
+  checksumEtag: "<value>",
+  checksumSha256Base64: "<value>",
+  checksumSha256Hex: "<value>",
+  lastModifiedAt: new Date("2024-05-19T21:25:27.717Z"),
+  version: "<value>",
+  isUploaded: false,
+  createdAt: new Date("2023-05-23T22:36:52.119Z"),
+  sizeReadable: "<value>",
 };
 ```
 

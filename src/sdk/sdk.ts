@@ -20,78 +20,80 @@ import { Subscriptions } from "./subscriptions.js";
 import { Users } from "./users.js";
 
 export class Polar extends ClientSDK {
-    private _users?: Users;
-    get users(): Users {
-        return (this._users ??= new Users(this.options$));
-    }
+  private _users?: Users;
+  get users(): Users {
+    return (this._users ??= new Users(this.options$));
+  }
 
-    private _externalOrganizations?: ExternalOrganizations;
-    get externalOrganizations(): ExternalOrganizations {
-        return (this._externalOrganizations ??= new ExternalOrganizations(this.options$));
-    }
+  private _externalOrganizations?: ExternalOrganizations;
+  get externalOrganizations(): ExternalOrganizations {
+    return (this._externalOrganizations ??= new ExternalOrganizations(
+      this.options$,
+    ));
+  }
 
-    private _repositories?: Repositories;
-    get repositories(): Repositories {
-        return (this._repositories ??= new Repositories(this.options$));
-    }
+  private _repositories?: Repositories;
+  get repositories(): Repositories {
+    return (this._repositories ??= new Repositories(this.options$));
+  }
 
-    private _organizations?: Organizations;
-    get organizations(): Organizations {
-        return (this._organizations ??= new Organizations(this.options$));
-    }
+  private _organizations?: Organizations;
+  get organizations(): Organizations {
+    return (this._organizations ??= new Organizations(this.options$));
+  }
 
-    private _subscriptions?: Subscriptions;
-    get subscriptions(): Subscriptions {
-        return (this._subscriptions ??= new Subscriptions(this.options$));
-    }
+  private _subscriptions?: Subscriptions;
+  get subscriptions(): Subscriptions {
+    return (this._subscriptions ??= new Subscriptions(this.options$));
+  }
 
-    private _articles?: Articles;
-    get articles(): Articles {
-        return (this._articles ??= new Articles(this.options$));
-    }
+  private _articles?: Articles;
+  get articles(): Articles {
+    return (this._articles ??= new Articles(this.options$));
+  }
 
-    private _advertisements?: Advertisements;
-    get advertisements(): Advertisements {
-        return (this._advertisements ??= new Advertisements(this.options$));
-    }
+  private _advertisements?: Advertisements;
+  get advertisements(): Advertisements {
+    return (this._advertisements ??= new Advertisements(this.options$));
+  }
 
-    private _oauth2?: Oauth2;
-    get oauth2(): Oauth2 {
-        return (this._oauth2 ??= new Oauth2(this.options$));
-    }
+  private _oauth2?: Oauth2;
+  get oauth2(): Oauth2 {
+    return (this._oauth2 ??= new Oauth2(this.options$));
+  }
 
-    private _benefits?: Benefits;
-    get benefits(): Benefits {
-        return (this._benefits ??= new Benefits(this.options$));
-    }
+  private _benefits?: Benefits;
+  get benefits(): Benefits {
+    return (this._benefits ??= new Benefits(this.options$));
+  }
 
-    private _products?: Products;
-    get products(): Products {
-        return (this._products ??= new Products(this.options$));
-    }
+  private _products?: Products;
+  get products(): Products {
+    return (this._products ??= new Products(this.options$));
+  }
 
-    private _orders?: Orders;
-    get orders(): Orders {
-        return (this._orders ??= new Orders(this.options$));
-    }
+  private _orders?: Orders;
+  get orders(): Orders {
+    return (this._orders ??= new Orders(this.options$));
+  }
 
-    private _checkouts?: Checkouts;
-    get checkouts(): Checkouts {
-        return (this._checkouts ??= new Checkouts(this.options$));
-    }
+  private _checkouts?: Checkouts;
+  get checkouts(): Checkouts {
+    return (this._checkouts ??= new Checkouts(this.options$));
+  }
 
-    private _files?: Files;
-    get files(): Files {
-        return (this._files ??= new Files(this.options$));
-    }
+  private _files?: Files;
+  get files(): Files {
+    return (this._files ??= new Files(this.options$));
+  }
 
-    private _metrics?: Metrics;
-    get metrics(): Metrics {
-        return (this._metrics ??= new Metrics(this.options$));
-    }
+  private _metrics?: Metrics;
+  get metrics(): Metrics {
+    return (this._metrics ??= new Metrics(this.options$));
+  }
 
-    private _licenseKeys?: LicenseKeys;
-    get licenseKeys(): LicenseKeys {
-        return (this._licenseKeys ??= new LicenseKeys(this.options$));
-    }
+  private _licenseKeys?: LicenseKeys;
+  get licenseKeys(): LicenseKeys {
+    return (this._licenseKeys ??= new LicenseKeys(this.options$));
+  }
 }

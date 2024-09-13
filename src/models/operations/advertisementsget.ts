@@ -5,33 +5,33 @@
 import * as z from "zod";
 
 export type AdvertisementsGetRequest = {
-    /**
-     * The advertisement campaign ID.
-     */
-    id: string;
+  /**
+   * The advertisement campaign ID.
+   */
+  id: string;
 };
 
 /** @internal */
 export const AdvertisementsGetRequest$inboundSchema: z.ZodType<
-    AdvertisementsGetRequest,
-    z.ZodTypeDef,
-    unknown
+  AdvertisementsGetRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type AdvertisementsGetRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const AdvertisementsGetRequest$outboundSchema: z.ZodType<
-    AdvertisementsGetRequest$Outbound,
-    z.ZodTypeDef,
-    AdvertisementsGetRequest
+  AdvertisementsGetRequest$Outbound,
+  z.ZodTypeDef,
+  AdvertisementsGetRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -39,10 +39,10 @@ export const AdvertisementsGetRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace AdvertisementsGetRequest$ {
-    /** @deprecated use `AdvertisementsGetRequest$inboundSchema` instead. */
-    export const inboundSchema = AdvertisementsGetRequest$inboundSchema;
-    /** @deprecated use `AdvertisementsGetRequest$outboundSchema` instead. */
-    export const outboundSchema = AdvertisementsGetRequest$outboundSchema;
-    /** @deprecated use `AdvertisementsGetRequest$Outbound` instead. */
-    export type Outbound = AdvertisementsGetRequest$Outbound;
+  /** @deprecated use `AdvertisementsGetRequest$inboundSchema` instead. */
+  export const inboundSchema = AdvertisementsGetRequest$inboundSchema;
+  /** @deprecated use `AdvertisementsGetRequest$outboundSchema` instead. */
+  export const outboundSchema = AdvertisementsGetRequest$outboundSchema;
+  /** @deprecated use `AdvertisementsGetRequest$Outbound` instead. */
+  export type Outbound = AdvertisementsGetRequest$Outbound;
 }

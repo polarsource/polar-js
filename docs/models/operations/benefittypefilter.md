@@ -7,7 +7,9 @@ Filter by benefit type.
 ```typescript
 import { BenefitTypeFilter } from "@polar-sh/sdk/models/operations";
 
-let value: BenefitTypeFilter = ["github_repository"];
+let value: BenefitTypeFilter = [
+  "github_repository",
+];
 ```
 
 ## Supported Types

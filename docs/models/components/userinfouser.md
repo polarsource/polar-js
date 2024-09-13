@@ -6,10 +6,10 @@
 import { UserInfoUser } from "@polar-sh/sdk/models/components";
 
 let value: UserInfoUser = {
-    sub: "<value>",
-    name: "<value>",
-    email: "Sherwood_Torphy32@yahoo.com",
-    emailVerified: false,
+  sub: "<value>",
+  name: "<value>",
+  email: "Sherwood_Torphy32@yahoo.com",
+  emailVerified: false,
 };
 ```
 

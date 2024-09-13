@@ -6,7 +6,7 @@
 import { UsersDownloadablesGetRequest } from "@polar-sh/sdk/models/operations";
 
 let value: UsersDownloadablesGetRequest = {
-    token: "<value>",
+  token: "<value>",
 };
 ```
 

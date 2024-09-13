@@ -6,16 +6,18 @@
 import { BenefitDownloadablesSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDownloadablesSubscriber = {
-    createdAt: new Date("2022-10-16T14:25:54.595Z"),
-    modifiedAt: new Date("2022-05-31T09:26:45.422Z"),
-    id: "<value>",
-    description: "Ameliorated contextually-based pricing structure",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    properties: {
-        activeFiles: ["<value>"],
-    },
+  createdAt: new Date("2022-01-23T15:12:14.503Z"),
+  modifiedAt: new Date("2022-09-09T05:23:06.262Z"),
+  id: "<value>",
+  description: "Reverse-engineered tangible firmware",
+  selectable: false,
+  deletable: false,
+  organizationId: "<value>",
+  properties: {
+    activeFiles: [
+      "<value>",
+    ],
+  },
 };
 ```
 

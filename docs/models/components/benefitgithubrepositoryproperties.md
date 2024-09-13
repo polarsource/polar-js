@@ -8,10 +8,10 @@ Properties for a benefit of type `github_repository`.
 import { BenefitGitHubRepositoryProperties } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGitHubRepositoryProperties = {
-    repositoryId: "<value>",
-    repositoryOwner: "polarsource",
-    repositoryName: "private_repo",
-    permission: "push",
+  repositoryId: "<value>",
+  repositoryOwner: "polarsource",
+  repositoryName: "private_repo",
+  permission: "push",
 };
 ```
 

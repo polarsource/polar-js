@@ -5,30 +5,30 @@
 import * as z from "zod";
 
 export type RepositoriesGetRequest = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const RepositoriesGetRequest$inboundSchema: z.ZodType<
-    RepositoriesGetRequest,
-    z.ZodTypeDef,
-    unknown
+  RepositoriesGetRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type RepositoriesGetRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const RepositoriesGetRequest$outboundSchema: z.ZodType<
-    RepositoriesGetRequest$Outbound,
-    z.ZodTypeDef,
-    RepositoriesGetRequest
+  RepositoriesGetRequest$Outbound,
+  z.ZodTypeDef,
+  RepositoriesGetRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -36,10 +36,10 @@ export const RepositoriesGetRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace RepositoriesGetRequest$ {
-    /** @deprecated use `RepositoriesGetRequest$inboundSchema` instead. */
-    export const inboundSchema = RepositoriesGetRequest$inboundSchema;
-    /** @deprecated use `RepositoriesGetRequest$outboundSchema` instead. */
-    export const outboundSchema = RepositoriesGetRequest$outboundSchema;
-    /** @deprecated use `RepositoriesGetRequest$Outbound` instead. */
-    export type Outbound = RepositoriesGetRequest$Outbound;
+  /** @deprecated use `RepositoriesGetRequest$inboundSchema` instead. */
+  export const inboundSchema = RepositoriesGetRequest$inboundSchema;
+  /** @deprecated use `RepositoriesGetRequest$outboundSchema` instead. */
+  export const outboundSchema = RepositoriesGetRequest$outboundSchema;
+  /** @deprecated use `RepositoriesGetRequest$Outbound` instead. */
+  export type Outbound = RepositoriesGetRequest$Outbound;
 }

@@ -8,19 +8,19 @@ Benefit created.
 import { BenefitsCreateResponseBenefitsCreate } from "@polar-sh/sdk/models/operations";
 
 let value: BenefitsCreateResponseBenefitsCreate = {
-    createdAt: new Date("2024-03-05T21:05:19.027Z"),
-    modifiedAt: new Date("2023-12-24T23:55:04.678Z"),
-    id: "<value>",
-    description: "Object-based intangible time-frame",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    properties: {
-        repositoryId: "<value>",
-        repositoryOwner: "polarsource",
-        repositoryName: "private_repo",
-        permission: "triage",
-    },
+  createdAt: new Date("2024-03-05T21:05:19.027Z"),
+  modifiedAt: new Date("2023-12-24T23:55:04.678Z"),
+  id: "<value>",
+  description: "Object-based intangible time-frame",
+  selectable: false,
+  deletable: false,
+  organizationId: "<value>",
+  properties: {
+    repositoryId: "<value>",
+    repositoryOwner: "polarsource",
+    repositoryName: "private_repo",
+    permission: "triage",
+  },
 };
 ```
 

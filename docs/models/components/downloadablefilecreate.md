@@ -8,18 +8,18 @@ Schema to create a file to be associated with the downloadables benefit.
 import { DownloadableFileCreate } from "@polar-sh/sdk/models/components";
 
 let value: DownloadableFileCreate = {
-    name: "<value>",
-    mimeType: "<value>",
-    size: 426943,
-    upload: {
-        parts: [
-            {
-                number: 528234,
-                chunkStart: 301692,
-                chunkEnd: 349440,
-            },
-        ],
-    },
+  name: "<value>",
+  mimeType: "<value>",
+  size: 426943,
+  upload: {
+    parts: [
+      {
+        number: 528234,
+        chunkStart: 301692,
+        chunkEnd: 349440,
+      },
+    ],
+  },
 };
 ```
 

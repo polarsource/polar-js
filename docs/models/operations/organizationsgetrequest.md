@@ -6,7 +6,7 @@
 import { OrganizationsGetRequest } from "@polar-sh/sdk/models/operations";
 
 let value: OrganizationsGetRequest = {
-    id: "<value>",
+  id: "<value>",
 };
 ```
 

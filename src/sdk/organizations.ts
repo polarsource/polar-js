@@ -13,55 +13,71 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Organizations extends ClientSDK {
-    /**
-     * List Organizations
-     *
-     * @remarks
-     * List organizations.
-     */
-    async list(
-        request: operations.OrganizationsListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.OrganizationsListResponse>> {
-        return unwrapResultIterator(organizationsList(this, request, options));
-    }
+  /**
+   * List Organizations
+   *
+   * @remarks
+   * List organizations.
+   */
+  async list(
+    request: operations.OrganizationsListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.OrganizationsListResponse>> {
+    return unwrapResultIterator(organizationsList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Create Organization
-     *
-     * @remarks
-     * Create an organization.
-     */
-    async create(
-        request: components.OrganizationCreate,
-        options?: RequestOptions
-    ): Promise<components.OrganizationOutput> {
-        return unwrapAsync(organizationsCreate(this, request, options));
-    }
+  /**
+   * Create Organization
+   *
+   * @remarks
+   * Create an organization.
+   */
+  async create(
+    request: components.OrganizationCreate,
+    options?: RequestOptions,
+  ): Promise<components.OrganizationOutput> {
+    return unwrapAsync(organizationsCreate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Organization
-     *
-     * @remarks
-     * Get an organization by ID.
-     */
-    async get(
-        request: operations.OrganizationsGetRequest,
-        options?: RequestOptions
-    ): Promise<components.OrganizationOutput> {
-        return unwrapAsync(organizationsGet(this, request, options));
-    }
+  /**
+   * Get Organization
+   *
+   * @remarks
+   * Get an organization by ID.
+   */
+  async get(
+    request: operations.OrganizationsGetRequest,
+    options?: RequestOptions,
+  ): Promise<components.OrganizationOutput> {
+    return unwrapAsync(organizationsGet(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Update Organization
-     *
-     * @remarks
-     * Update an organization.
-     */
-    async update(
-        request: operations.OrganizationsUpdateRequest,
-        options?: RequestOptions
-    ): Promise<components.OrganizationOutput> {
-        return unwrapAsync(organizationsUpdate(this, request, options));
-    }
+  /**
+   * Update Organization
+   *
+   * @remarks
+   * Update an organization.
+   */
+  async update(
+    request: operations.OrganizationsUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<components.OrganizationOutput> {
+    return unwrapAsync(organizationsUpdate(
+      this,
+      request,
+      options,
+    ));
+  }
 }

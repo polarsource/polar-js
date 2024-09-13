@@ -7,7 +7,9 @@ Filter by subscription tier type.
 ```typescript
 import { SubscriptionTierTypeFilter } from "@polar-sh/sdk/models/operations";
 
-let value: SubscriptionTierTypeFilter = ["individual"];
+let value: SubscriptionTierTypeFilter = [
+  "individual",
+];
 ```
 
 ## Supported Types

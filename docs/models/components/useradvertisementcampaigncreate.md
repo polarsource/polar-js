@@ -6,9 +6,9 @@
 import { UserAdvertisementCampaignCreate } from "@polar-sh/sdk/models/components";
 
 let value: UserAdvertisementCampaignCreate = {
-    imageUrl: "https://that-scow.net",
-    text: "<value>",
-    linkUrl: "http://defiant-gain.com",
+  imageUrl: "https://some-possession.biz",
+  text: "<value>",
+  linkUrl: "http://harsh-bass.name",
 };
 ```
 

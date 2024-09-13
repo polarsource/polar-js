@@ -6,30 +6,30 @@
 import { BenefitCustomSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitCustomSubscriber = {
-    createdAt: new Date("2024-01-15T14:44:51.264Z"),
-    modifiedAt: new Date("2023-06-09T12:59:51.973Z"),
-    id: "<value>",
-    description: "Multi-channelled national internet solution",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    grants: [
-        {
-            createdAt: new Date("2023-10-28T07:42:47.820Z"),
-            modifiedAt: new Date("2024-09-09T18:02:29.830Z"),
-            id: "<value>",
-            isGranted: false,
-            isRevoked: false,
-            properties: {},
-            subscriptionId: "<value>",
-            orderId: "<value>",
-            userId: "<value>",
-            benefitId: "<value>",
-        },
-    ],
-    properties: {
-        note: "<value>",
+  createdAt: new Date("2023-05-13T06:02:29.999Z"),
+  modifiedAt: new Date("2024-01-13T01:57:13.620Z"),
+  id: "<value>",
+  description: "Operative mission-critical superstructure",
+  selectable: false,
+  deletable: false,
+  organizationId: "<value>",
+  grants: [
+    {
+      createdAt: new Date("2024-02-23T07:23:17.235Z"),
+      modifiedAt: new Date("2024-12-21T09:52:32.288Z"),
+      id: "<value>",
+      isGranted: false,
+      isRevoked: false,
+      properties: {},
+      subscriptionId: "<value>",
+      orderId: "<value>",
+      userId: "<value>",
+      benefitId: "<value>",
     },
+  ],
+  properties: {
+    note: "<value>",
+  },
 };
 ```
 

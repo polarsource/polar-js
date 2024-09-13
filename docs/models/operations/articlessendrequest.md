@@ -6,7 +6,7 @@
 import { ArticlesSendRequest } from "@polar-sh/sdk/models/operations";
 
 let value: ArticlesSendRequest = {
-    id: "<value>",
+  id: "<value>",
 };
 ```
 

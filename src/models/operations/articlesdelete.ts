@@ -5,30 +5,30 @@
 import * as z from "zod";
 
 export type ArticlesDeleteRequest = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const ArticlesDeleteRequest$inboundSchema: z.ZodType<
-    ArticlesDeleteRequest,
-    z.ZodTypeDef,
-    unknown
+  ArticlesDeleteRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type ArticlesDeleteRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const ArticlesDeleteRequest$outboundSchema: z.ZodType<
-    ArticlesDeleteRequest$Outbound,
-    z.ZodTypeDef,
-    ArticlesDeleteRequest
+  ArticlesDeleteRequest$Outbound,
+  z.ZodTypeDef,
+  ArticlesDeleteRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -36,10 +36,10 @@ export const ArticlesDeleteRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace ArticlesDeleteRequest$ {
-    /** @deprecated use `ArticlesDeleteRequest$inboundSchema` instead. */
-    export const inboundSchema = ArticlesDeleteRequest$inboundSchema;
-    /** @deprecated use `ArticlesDeleteRequest$outboundSchema` instead. */
-    export const outboundSchema = ArticlesDeleteRequest$outboundSchema;
-    /** @deprecated use `ArticlesDeleteRequest$Outbound` instead. */
-    export type Outbound = ArticlesDeleteRequest$Outbound;
+  /** @deprecated use `ArticlesDeleteRequest$inboundSchema` instead. */
+  export const inboundSchema = ArticlesDeleteRequest$inboundSchema;
+  /** @deprecated use `ArticlesDeleteRequest$outboundSchema` instead. */
+  export const outboundSchema = ArticlesDeleteRequest$outboundSchema;
+  /** @deprecated use `ArticlesDeleteRequest$Outbound` instead. */
+  export type Outbound = ArticlesDeleteRequest$Outbound;
 }

@@ -6,32 +6,32 @@
 import { ListResourceOrganization } from "@polar-sh/sdk/models/components";
 
 let value: ListResourceOrganization = {
-    items: [
-        {
-            createdAt: new Date("2023-02-27T05:17:06.651Z"),
-            modifiedAt: new Date("2022-03-05T23:00:19.753Z"),
-            id: "<value>",
-            name: "<value>",
-            slug: "<value>",
-            avatarUrl: "<value>",
-            bio: "<value>",
-            company: "Renner, Bruen and Tillman",
-            blog: "<value>",
-            location: "<value>",
-            email: "Donnie.Cole@yahoo.com",
-            twitterUsername: "<value>",
-            pledgeMinimumAmount: 374296,
-            pledgeBadgeShowAmount: false,
-            defaultUpfrontSplitToContributors: 324405,
-            donationsEnabled: false,
-            profileSettings: {},
-            featureSettings: {},
-        },
-    ],
-    pagination: {
-        totalCount: 748789,
-        maxPage: 680116,
+  items: [
+    {
+      createdAt: new Date("2022-03-05T23:00:19.753Z"),
+      modifiedAt: new Date("2024-10-01T17:35:14.588Z"),
+      id: "<value>",
+      name: "<value>",
+      slug: "<value>",
+      avatarUrl: "<value>",
+      bio: "<value>",
+      company: "Bruen, Tillman and Murray",
+      blog: "<value>",
+      location: "<value>",
+      email: "Brennon.Hoeger@gmail.com",
+      twitterUsername: "<value>",
+      pledgeMinimumAmount: 324405,
+      pledgeBadgeShowAmount: false,
+      defaultUpfrontSplitToContributors: 748789,
+      donationsEnabled: false,
+      profileSettings: {},
+      featureSettings: {},
     },
+  ],
+  pagination: {
+    totalCount: 680116,
+    maxPage: 237807,
+  },
 };
 ```
 

@@ -6,16 +6,16 @@
 import { BenefitDiscordSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordSubscriber = {
-    createdAt: new Date("2023-08-18T13:53:16.181Z"),
-    modifiedAt: new Date("2022-01-28T01:08:57.414Z"),
-    id: "<value>",
-    description: "Synchronised actuating portal",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    properties: {
-        guildId: "<value>",
-    },
+  createdAt: new Date("2024-07-25T15:45:20.481Z"),
+  modifiedAt: new Date("2022-03-15T16:56:03.439Z"),
+  id: "<value>",
+  description: "Reduced national info-mediaries",
+  selectable: false,
+  deletable: false,
+  organizationId: "<value>",
+  properties: {
+    guildId: "<value>",
+  },
 };
 ```
 

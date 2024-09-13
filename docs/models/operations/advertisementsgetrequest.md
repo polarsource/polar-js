@@ -6,7 +6,7 @@
 import { AdvertisementsGetRequest } from "@polar-sh/sdk/models/operations";
 
 let value: AdvertisementsGetRequest = {
-    id: "<value>",
+  id: "<value>",
 };
 ```
 

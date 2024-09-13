@@ -7,63 +7,63 @@ import * as z from "zod";
 export type Loc = string | number;
 
 export type ValidationError = {
-    loc: Array<string | number>;
-    msg: string;
-    type: string;
+  loc: Array<string | number>;
+  msg: string;
+  type: string;
 };
 
 /** @internal */
-export const Loc$inboundSchema: z.ZodType<Loc, z.ZodTypeDef, unknown> = z.union([
-    z.string(),
-    z.number().int(),
-]);
+export const Loc$inboundSchema: z.ZodType<Loc, z.ZodTypeDef, unknown> = z.union(
+  [z.string(), z.number().int()],
+);
 
 /** @internal */
 export type Loc$Outbound = string | number;
 
 /** @internal */
-export const Loc$outboundSchema: z.ZodType<Loc$Outbound, z.ZodTypeDef, Loc> = z.union([
-    z.string(),
-    z.number().int(),
-]);
+export const Loc$outboundSchema: z.ZodType<Loc$Outbound, z.ZodTypeDef, Loc> = z
+  .union([z.string(), z.number().int()]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace Loc$ {
-    /** @deprecated use `Loc$inboundSchema` instead. */
-    export const inboundSchema = Loc$inboundSchema;
-    /** @deprecated use `Loc$outboundSchema` instead. */
-    export const outboundSchema = Loc$outboundSchema;
-    /** @deprecated use `Loc$Outbound` instead. */
-    export type Outbound = Loc$Outbound;
+  /** @deprecated use `Loc$inboundSchema` instead. */
+  export const inboundSchema = Loc$inboundSchema;
+  /** @deprecated use `Loc$outboundSchema` instead. */
+  export const outboundSchema = Loc$outboundSchema;
+  /** @deprecated use `Loc$Outbound` instead. */
+  export type Outbound = Loc$Outbound;
 }
 
 /** @internal */
-export const ValidationError$inboundSchema: z.ZodType<ValidationError, z.ZodTypeDef, unknown> =
-    z.object({
-        loc: z.array(z.union([z.string(), z.number().int()])),
-        msg: z.string(),
-        type: z.string(),
-    });
+export const ValidationError$inboundSchema: z.ZodType<
+  ValidationError,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  loc: z.array(z.union([z.string(), z.number().int()])),
+  msg: z.string(),
+  type: z.string(),
+});
 
 /** @internal */
 export type ValidationError$Outbound = {
-    loc: Array<string | number>;
-    msg: string;
-    type: string;
+  loc: Array<string | number>;
+  msg: string;
+  type: string;
 };
 
 /** @internal */
 export const ValidationError$outboundSchema: z.ZodType<
-    ValidationError$Outbound,
-    z.ZodTypeDef,
-    ValidationError
+  ValidationError$Outbound,
+  z.ZodTypeDef,
+  ValidationError
 > = z.object({
-    loc: z.array(z.union([z.string(), z.number().int()])),
-    msg: z.string(),
-    type: z.string(),
+  loc: z.array(z.union([z.string(), z.number().int()])),
+  msg: z.string(),
+  type: z.string(),
 });
 
 /**
@@ -71,10 +71,10 @@ export const ValidationError$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace ValidationError$ {
-    /** @deprecated use `ValidationError$inboundSchema` instead. */
-    export const inboundSchema = ValidationError$inboundSchema;
-    /** @deprecated use `ValidationError$outboundSchema` instead. */
-    export const outboundSchema = ValidationError$outboundSchema;
-    /** @deprecated use `ValidationError$Outbound` instead. */
-    export type Outbound = ValidationError$Outbound;
+  /** @deprecated use `ValidationError$inboundSchema` instead. */
+  export const inboundSchema = ValidationError$inboundSchema;
+  /** @deprecated use `ValidationError$outboundSchema` instead. */
+  export const outboundSchema = ValidationError$outboundSchema;
+  /** @deprecated use `ValidationError$Outbound` instead. */
+  export type Outbound = ValidationError$Outbound;
 }

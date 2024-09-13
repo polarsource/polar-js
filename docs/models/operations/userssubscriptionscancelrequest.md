@@ -6,7 +6,7 @@
 import { UsersSubscriptionsCancelRequest } from "@polar-sh/sdk/models/operations";
 
 let value: UsersSubscriptionsCancelRequest = {
-    id: "<value>",
+  id: "<value>",
 };
 ```
 

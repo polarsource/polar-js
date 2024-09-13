@@ -14,70 +14,90 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class PolarSubscriptions extends ClientSDK {
-    /**
-     * List Subscriptions
-     *
-     * @remarks
-     * List my subscriptions.
-     */
-    async list(
-        request: operations.UsersSubscriptionsListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.UsersSubscriptionsListResponse>> {
-        return unwrapResultIterator(usersSubscriptionsList(this, request, options));
-    }
+  /**
+   * List Subscriptions
+   *
+   * @remarks
+   * List my subscriptions.
+   */
+  async list(
+    request: operations.UsersSubscriptionsListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.UsersSubscriptionsListResponse>> {
+    return unwrapResultIterator(usersSubscriptionsList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Create Free Subscription
-     *
-     * @remarks
-     * Create a subscription on a **free** tier.
-     *
-     * If you want to subscribe to a paid tier, you need to create a checkout session.
-     */
-    async create(
-        request: components.UserFreeSubscriptionCreate,
-        options?: RequestOptions
-    ): Promise<components.UserSubscription> {
-        return unwrapAsync(usersSubscriptionsCreate(this, request, options));
-    }
+  /**
+   * Create Free Subscription
+   *
+   * @remarks
+   * Create a subscription on a **free** tier.
+   *
+   * If you want to subscribe to a paid tier, you need to create a checkout session.
+   */
+  async create(
+    request: components.UserFreeSubscriptionCreate,
+    options?: RequestOptions,
+  ): Promise<components.UserSubscription> {
+    return unwrapAsync(usersSubscriptionsCreate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Subscription
-     *
-     * @remarks
-     * Get a subscription by ID.
-     */
-    async get(
-        request: operations.UsersSubscriptionsGetRequest,
-        options?: RequestOptions
-    ): Promise<components.UserSubscription> {
-        return unwrapAsync(usersSubscriptionsGet(this, request, options));
-    }
+  /**
+   * Get Subscription
+   *
+   * @remarks
+   * Get a subscription by ID.
+   */
+  async get(
+    request: operations.UsersSubscriptionsGetRequest,
+    options?: RequestOptions,
+  ): Promise<components.UserSubscription> {
+    return unwrapAsync(usersSubscriptionsGet(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Update Subscription
-     *
-     * @remarks
-     * Update a subscription.
-     */
-    async update(
-        request: operations.UsersSubscriptionsUpdateRequest,
-        options?: RequestOptions
-    ): Promise<components.UserSubscription> {
-        return unwrapAsync(usersSubscriptionsUpdate(this, request, options));
-    }
+  /**
+   * Update Subscription
+   *
+   * @remarks
+   * Update a subscription.
+   */
+  async update(
+    request: operations.UsersSubscriptionsUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<components.UserSubscription> {
+    return unwrapAsync(usersSubscriptionsUpdate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Cancel Subscription
-     *
-     * @remarks
-     * Cancel a subscription.
-     */
-    async cancel(
-        request: operations.UsersSubscriptionsCancelRequest,
-        options?: RequestOptions
-    ): Promise<components.UserSubscription> {
-        return unwrapAsync(usersSubscriptionsCancel(this, request, options));
-    }
+  /**
+   * Cancel Subscription
+   *
+   * @remarks
+   * Cancel a subscription.
+   */
+  async cancel(
+    request: operations.UsersSubscriptionsCancelRequest,
+    options?: RequestOptions,
+  ): Promise<components.UserSubscription> {
+    return unwrapAsync(usersSubscriptionsCancel(
+      this,
+      request,
+      options,
+    ));
+  }
 }

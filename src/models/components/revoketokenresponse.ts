@@ -8,9 +8,9 @@ export type RevokeTokenResponse = {};
 
 /** @internal */
 export const RevokeTokenResponse$inboundSchema: z.ZodType<
-    RevokeTokenResponse,
-    z.ZodTypeDef,
-    unknown
+  RevokeTokenResponse,
+  z.ZodTypeDef,
+  unknown
 > = z.object({});
 
 /** @internal */
@@ -18,9 +18,9 @@ export type RevokeTokenResponse$Outbound = {};
 
 /** @internal */
 export const RevokeTokenResponse$outboundSchema: z.ZodType<
-    RevokeTokenResponse$Outbound,
-    z.ZodTypeDef,
-    RevokeTokenResponse
+  RevokeTokenResponse$Outbound,
+  z.ZodTypeDef,
+  RevokeTokenResponse
 > = z.object({});
 
 /**
@@ -28,10 +28,10 @@ export const RevokeTokenResponse$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace RevokeTokenResponse$ {
-    /** @deprecated use `RevokeTokenResponse$inboundSchema` instead. */
-    export const inboundSchema = RevokeTokenResponse$inboundSchema;
-    /** @deprecated use `RevokeTokenResponse$outboundSchema` instead. */
-    export const outboundSchema = RevokeTokenResponse$outboundSchema;
-    /** @deprecated use `RevokeTokenResponse$Outbound` instead. */
-    export type Outbound = RevokeTokenResponse$Outbound;
+  /** @deprecated use `RevokeTokenResponse$inboundSchema` instead. */
+  export const inboundSchema = RevokeTokenResponse$inboundSchema;
+  /** @deprecated use `RevokeTokenResponse$outboundSchema` instead. */
+  export const outboundSchema = RevokeTokenResponse$outboundSchema;
+  /** @deprecated use `RevokeTokenResponse$Outbound` instead. */
+  export type Outbound = RevokeTokenResponse$Outbound;
 }

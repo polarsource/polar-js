@@ -8,33 +8,33 @@ import * as z from "zod";
  * Schema to update the benefits granted by a product.
  */
 export type ProductBenefitsUpdate = {
-    /**
-     * List of benefit IDs. Each one must be on the same organization as the product.
-     */
-    benefits: Array<string>;
+  /**
+   * List of benefit IDs. Each one must be on the same organization as the product.
+   */
+  benefits: Array<string>;
 };
 
 /** @internal */
 export const ProductBenefitsUpdate$inboundSchema: z.ZodType<
-    ProductBenefitsUpdate,
-    z.ZodTypeDef,
-    unknown
+  ProductBenefitsUpdate,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    benefits: z.array(z.string()),
+  benefits: z.array(z.string()),
 });
 
 /** @internal */
 export type ProductBenefitsUpdate$Outbound = {
-    benefits: Array<string>;
+  benefits: Array<string>;
 };
 
 /** @internal */
 export const ProductBenefitsUpdate$outboundSchema: z.ZodType<
-    ProductBenefitsUpdate$Outbound,
-    z.ZodTypeDef,
-    ProductBenefitsUpdate
+  ProductBenefitsUpdate$Outbound,
+  z.ZodTypeDef,
+  ProductBenefitsUpdate
 > = z.object({
-    benefits: z.array(z.string()),
+  benefits: z.array(z.string()),
 });
 
 /**
@@ -42,10 +42,10 @@ export const ProductBenefitsUpdate$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace ProductBenefitsUpdate$ {
-    /** @deprecated use `ProductBenefitsUpdate$inboundSchema` instead. */
-    export const inboundSchema = ProductBenefitsUpdate$inboundSchema;
-    /** @deprecated use `ProductBenefitsUpdate$outboundSchema` instead. */
-    export const outboundSchema = ProductBenefitsUpdate$outboundSchema;
-    /** @deprecated use `ProductBenefitsUpdate$Outbound` instead. */
-    export type Outbound = ProductBenefitsUpdate$Outbound;
+  /** @deprecated use `ProductBenefitsUpdate$inboundSchema` instead. */
+  export const inboundSchema = ProductBenefitsUpdate$inboundSchema;
+  /** @deprecated use `ProductBenefitsUpdate$outboundSchema` instead. */
+  export const outboundSchema = ProductBenefitsUpdate$outboundSchema;
+  /** @deprecated use `ProductBenefitsUpdate$Outbound` instead. */
+  export type Outbound = ProductBenefitsUpdate$Outbound;
 }
