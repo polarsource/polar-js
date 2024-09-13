@@ -6,33 +6,33 @@
 import { FileUpload } from "@polar-sh/sdk/models/components";
 
 let value: FileUpload = {
-    id: "<value>",
-    organizationId: "<value>",
-    name: "<value>",
-    path: "/mnt",
-    mimeType: "<value>",
-    size: 80532,
-    storageVersion: "<value>",
-    checksumEtag: "<value>",
-    checksumSha256Base64: "<value>",
-    checksumSha256Hex: "<value>",
-    lastModifiedAt: new Date("2023-08-12T20:35:15.275Z"),
-    upload: {
-        id: "<id>",
-        path: "/etc",
-        parts: [
-            {
-                number: 274575,
-                chunkStart: 221396,
-                chunkEnd: 8689,
-                url: "http://alert-directory.com",
-                expiresAt: new Date("2022-03-14T11:59:43.461Z"),
-            },
-        ],
-    },
-    version: "<value>",
-    service: "product_media",
-    sizeReadable: "<value>",
+  id: "<value>",
+  organizationId: "<value>",
+  name: "<value>",
+  path: "/mnt",
+  mimeType: "<value>",
+  size: 80532,
+  storageVersion: "<value>",
+  checksumEtag: "<value>",
+  checksumSha256Base64: "<value>",
+  checksumSha256Hex: "<value>",
+  lastModifiedAt: new Date("2023-08-12T20:35:15.275Z"),
+  upload: {
+    id: "<id>",
+    path: "/etc",
+    parts: [
+      {
+        number: 274575,
+        chunkStart: 221396,
+        chunkEnd: 8689,
+        url: "http://alert-directory.com",
+        expiresAt: new Date("2022-03-14T11:59:43.461Z"),
+      },
+    ],
+  },
+  version: "<value>",
+  service: "product_media",
+  sizeReadable: "<value>",
 };
 ```
 

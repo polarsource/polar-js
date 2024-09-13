@@ -8,7 +8,7 @@ Properties for a benefit of type `custom`.
 import { BenefitCustomProperties } from "@polar-sh/sdk/models/components";
 
 let value: BenefitCustomProperties = {
-    note: "<value>",
+  note: "<value>",
 };
 ```
 

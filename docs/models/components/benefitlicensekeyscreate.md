@@ -6,8 +6,8 @@
 import { BenefitLicenseKeysCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitLicenseKeysCreate = {
-    description: "Profound maximized secured line",
-    properties: {},
+  description: "Profound maximized secured line",
+  properties: {},
 };
 ```
 

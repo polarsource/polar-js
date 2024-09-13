@@ -8,8 +8,8 @@ Properties for a benefit of type `discord`.
 import { BenefitDiscordPropertiesInput } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordPropertiesInput = {
-    guildId: "<value>",
-    roleId: "<value>",
+  guildId: "<value>",
+  roleId: "<value>",
 };
 ```
 

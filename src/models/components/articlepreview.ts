@@ -5,30 +5,33 @@
 import * as z from "zod";
 
 export type ArticlePreview = {
-    /**
-     * Email address to send the preview to. The user must be registered on Polar.
-     */
-    email: string;
+  /**
+   * Email address to send the preview to. The user must be registered on Polar.
+   */
+  email: string;
 };
 
 /** @internal */
-export const ArticlePreview$inboundSchema: z.ZodType<ArticlePreview, z.ZodTypeDef, unknown> =
-    z.object({
-        email: z.string(),
-    });
+export const ArticlePreview$inboundSchema: z.ZodType<
+  ArticlePreview,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  email: z.string(),
+});
 
 /** @internal */
 export type ArticlePreview$Outbound = {
-    email: string;
+  email: string;
 };
 
 /** @internal */
 export const ArticlePreview$outboundSchema: z.ZodType<
-    ArticlePreview$Outbound,
-    z.ZodTypeDef,
-    ArticlePreview
+  ArticlePreview$Outbound,
+  z.ZodTypeDef,
+  ArticlePreview
 > = z.object({
-    email: z.string(),
+  email: z.string(),
 });
 
 /**
@@ -36,10 +39,10 @@ export const ArticlePreview$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace ArticlePreview$ {
-    /** @deprecated use `ArticlePreview$inboundSchema` instead. */
-    export const inboundSchema = ArticlePreview$inboundSchema;
-    /** @deprecated use `ArticlePreview$outboundSchema` instead. */
-    export const outboundSchema = ArticlePreview$outboundSchema;
-    /** @deprecated use `ArticlePreview$Outbound` instead. */
-    export type Outbound = ArticlePreview$Outbound;
+  /** @deprecated use `ArticlePreview$inboundSchema` instead. */
+  export const inboundSchema = ArticlePreview$inboundSchema;
+  /** @deprecated use `ArticlePreview$outboundSchema` instead. */
+  export const outboundSchema = ArticlePreview$outboundSchema;
+  /** @deprecated use `ArticlePreview$Outbound` instead. */
+  export type Outbound = ArticlePreview$Outbound;
 }

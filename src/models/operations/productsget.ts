@@ -5,30 +5,30 @@
 import * as z from "zod";
 
 export type ProductsGetRequest = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const ProductsGetRequest$inboundSchema: z.ZodType<
-    ProductsGetRequest,
-    z.ZodTypeDef,
-    unknown
+  ProductsGetRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type ProductsGetRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const ProductsGetRequest$outboundSchema: z.ZodType<
-    ProductsGetRequest$Outbound,
-    z.ZodTypeDef,
-    ProductsGetRequest
+  ProductsGetRequest$Outbound,
+  z.ZodTypeDef,
+  ProductsGetRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -36,10 +36,10 @@ export const ProductsGetRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace ProductsGetRequest$ {
-    /** @deprecated use `ProductsGetRequest$inboundSchema` instead. */
-    export const inboundSchema = ProductsGetRequest$inboundSchema;
-    /** @deprecated use `ProductsGetRequest$outboundSchema` instead. */
-    export const outboundSchema = ProductsGetRequest$outboundSchema;
-    /** @deprecated use `ProductsGetRequest$Outbound` instead. */
-    export type Outbound = ProductsGetRequest$Outbound;
+  /** @deprecated use `ProductsGetRequest$inboundSchema` instead. */
+  export const inboundSchema = ProductsGetRequest$inboundSchema;
+  /** @deprecated use `ProductsGetRequest$outboundSchema` instead. */
+  export const outboundSchema = ProductsGetRequest$outboundSchema;
+  /** @deprecated use `ProductsGetRequest$Outbound` instead. */
+  export type Outbound = ProductsGetRequest$Outbound;
 }

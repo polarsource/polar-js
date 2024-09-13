@@ -6,8 +6,8 @@
 import { OrganizationCreate } from "@polar-sh/sdk/models/components";
 
 let value: OrganizationCreate = {
-    name: "<value>",
-    slug: "<value>",
+  name: "<value>",
+  slug: "<value>",
 };
 ```
 

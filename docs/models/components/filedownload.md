@@ -6,25 +6,25 @@
 import { FileDownload } from "@polar-sh/sdk/models/components";
 
 let value: FileDownload = {
-    id: "<value>",
-    organizationId: "<value>",
-    name: "<value>",
-    path: "/selinux",
-    mimeType: "<value>",
-    size: 414567,
-    storageVersion: "<value>",
-    checksumEtag: "<value>",
-    checksumSha256Base64: "<value>",
-    checksumSha256Hex: "<value>",
-    lastModifiedAt: new Date("2024-11-17T12:56:04.847Z"),
-    download: {
-        url: "http://present-island.com",
-        expiresAt: new Date("2024-05-08T21:04:34.116Z"),
-    },
-    version: "<value>",
-    isUploaded: false,
-    service: "product_media",
-    sizeReadable: "<value>",
+  id: "<value>",
+  organizationId: "<value>",
+  name: "<value>",
+  path: "/opt/lib",
+  mimeType: "<value>",
+  size: 959434,
+  storageVersion: "<value>",
+  checksumEtag: "<value>",
+  checksumSha256Base64: "<value>",
+  checksumSha256Hex: "<value>",
+  lastModifiedAt: new Date("2022-07-10T19:50:26.525Z"),
+  download: {
+    url: "https://lanky-apparel.net",
+    expiresAt: new Date("2023-04-17T17:18:20.772Z"),
+  },
+  version: "<value>",
+  isUploaded: false,
+  service: "product_media",
+  sizeReadable: "<value>",
 };
 ```
 

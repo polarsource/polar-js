@@ -6,9 +6,9 @@
 import { LicenseKeyActivate } from "@polar-sh/sdk/models/components";
 
 let value: LicenseKeyActivate = {
-    key: "<key>",
-    organizationId: "<value>",
-    label: "<value>",
+  key: "<key>",
+  organizationId: "<value>",
+  label: "<value>",
 };
 ```
 

@@ -8,18 +8,18 @@ Schema to create a file to be used as an organization avatar.
 import { OrganizationAvatarFileCreate } from "@polar-sh/sdk/models/components";
 
 let value: OrganizationAvatarFileCreate = {
-    name: "<value>",
-    mimeType: "<value>",
-    size: 95619,
-    upload: {
-        parts: [
-            {
-                number: 392569,
-                chunkStart: 871103,
-                chunkEnd: 878373,
-            },
-        ],
-    },
+  name: "<value>",
+  mimeType: "<value>",
+  size: 95619,
+  upload: {
+    parts: [
+      {
+        number: 392569,
+        chunkStart: 871103,
+        chunkEnd: 878373,
+      },
+    ],
+  },
 };
 ```
 

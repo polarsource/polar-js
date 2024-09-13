@@ -6,9 +6,9 @@
 import { Onev11oauth21tokenPostXComponentsRefreshTokenRequest } from "@polar-sh/sdk/models/components";
 
 let value: Onev11oauth21tokenPostXComponentsRefreshTokenRequest = {
-    clientId: "<value>",
-    clientSecret: "<value>",
-    refreshToken: "<value>",
+  clientId: "<value>",
+  clientSecret: "<value>",
+  refreshToken: "<value>",
 };
 ```
 

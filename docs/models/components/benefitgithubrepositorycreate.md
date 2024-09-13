@@ -6,12 +6,12 @@
 import { BenefitGitHubRepositoryCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGitHubRepositoryCreate = {
-    description: "Fundamental global toolset",
-    properties: {
-        repositoryOwner: "polarsource",
-        repositoryName: "private_repo",
-        permission: "push",
-    },
+  description: "Fundamental global toolset",
+  properties: {
+    repositoryOwner: "polarsource",
+    repositoryName: "private_repo",
+    permission: "push",
+  },
 };
 ```
 

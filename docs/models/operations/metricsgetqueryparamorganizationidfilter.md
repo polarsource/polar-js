@@ -7,7 +7,9 @@ Filter by organization ID.
 ```typescript
 import { MetricsGetQueryParamOrganizationIDFilter } from "@polar-sh/sdk/models/operations";
 
-let value: MetricsGetQueryParamOrganizationIDFilter = ["<value>"];
+let value: MetricsGetQueryParamOrganizationIDFilter = [
+  "<value>",
+];
 ```
 
 ## Supported Types

@@ -17,104 +17,139 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Articles extends ClientSDK {
-    /**
-     * List Articles
-     *
-     * @remarks
-     * List articles.
-     */
-    async list(
-        request: operations.ArticlesListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.ArticlesListResponse>> {
-        return unwrapResultIterator(articlesList(this, request, options));
-    }
+  /**
+   * List Articles
+   *
+   * @remarks
+   * List articles.
+   */
+  async list(
+    request: operations.ArticlesListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.ArticlesListResponse>> {
+    return unwrapResultIterator(articlesList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Create Article
-     *
-     * @remarks
-     * Create an article.
-     */
-    async create(
-        request: components.ArticleCreate,
-        options?: RequestOptions
-    ): Promise<components.Article> {
-        return unwrapAsync(articlesCreate(this, request, options));
-    }
+  /**
+   * Create Article
+   *
+   * @remarks
+   * Create an article.
+   */
+  async create(
+    request: components.ArticleCreate,
+    options?: RequestOptions,
+  ): Promise<components.Article> {
+    return unwrapAsync(articlesCreate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Article
-     *
-     * @remarks
-     * Get an article by ID.
-     */
-    async get(
-        request: operations.ArticlesGetRequest,
-        options?: RequestOptions
-    ): Promise<components.Article> {
-        return unwrapAsync(articlesGet(this, request, options));
-    }
+  /**
+   * Get Article
+   *
+   * @remarks
+   * Get an article by ID.
+   */
+  async get(
+    request: operations.ArticlesGetRequest,
+    options?: RequestOptions,
+  ): Promise<components.Article> {
+    return unwrapAsync(articlesGet(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Update Article
-     *
-     * @remarks
-     * Update an article.
-     */
-    async update(
-        request: operations.ArticlesUpdateRequest,
-        options?: RequestOptions
-    ): Promise<components.Article> {
-        return unwrapAsync(articlesUpdate(this, request, options));
-    }
+  /**
+   * Update Article
+   *
+   * @remarks
+   * Update an article.
+   */
+  async update(
+    request: operations.ArticlesUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<components.Article> {
+    return unwrapAsync(articlesUpdate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Delete Article
-     *
-     * @remarks
-     * Delete an article.
-     */
-    async delete(
-        request: operations.ArticlesDeleteRequest,
-        options?: RequestOptions
-    ): Promise<void> {
-        return unwrapAsync(articlesDelete(this, request, options));
-    }
+  /**
+   * Delete Article
+   *
+   * @remarks
+   * Delete an article.
+   */
+  async delete(
+    request: operations.ArticlesDeleteRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(articlesDelete(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Article Receivers Count
-     *
-     * @remarks
-     * Get number of potential receivers for an article.
-     */
-    async receivers(
-        request: operations.ArticlesReceiversRequest,
-        options?: RequestOptions
-    ): Promise<components.ArticleReceivers> {
-        return unwrapAsync(articlesReceivers(this, request, options));
-    }
+  /**
+   * Get Article Receivers Count
+   *
+   * @remarks
+   * Get number of potential receivers for an article.
+   */
+  async receivers(
+    request: operations.ArticlesReceiversRequest,
+    options?: RequestOptions,
+  ): Promise<components.ArticleReceivers> {
+    return unwrapAsync(articlesReceivers(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Send Article Preview
-     *
-     * @remarks
-     * Send an article preview by email.
-     */
-    async preview(
-        request: operations.ArticlesPreviewRequest,
-        options?: RequestOptions
-    ): Promise<any> {
-        return unwrapAsync(articlesPreview(this, request, options));
-    }
+  /**
+   * Send Article Preview
+   *
+   * @remarks
+   * Send an article preview by email.
+   */
+  async preview(
+    request: operations.ArticlesPreviewRequest,
+    options?: RequestOptions,
+  ): Promise<any> {
+    return unwrapAsync(articlesPreview(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Send Article
-     *
-     * @remarks
-     * Send an article by email to all subscribers.
-     */
-    async send(request: operations.ArticlesSendRequest, options?: RequestOptions): Promise<any> {
-        return unwrapAsync(articlesSend(this, request, options));
-    }
+  /**
+   * Send Article
+   *
+   * @remarks
+   * Send an article by email to all subscribers.
+   */
+  async send(
+    request: operations.ArticlesSendRequest,
+    options?: RequestOptions,
+  ): Promise<any> {
+    return unwrapAsync(articlesSend(
+      this,
+      request,
+      options,
+    ));
+  }
 }

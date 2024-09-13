@@ -8,21 +8,21 @@ File to be associated with the downloadables benefit.
 import { DownloadableFileRead } from "@polar-sh/sdk/models/components";
 
 let value: DownloadableFileRead = {
-    id: "<value>",
-    organizationId: "<value>",
-    name: "<value>",
-    path: "/usr/ports",
-    mimeType: "<value>",
-    size: 518150,
-    storageVersion: "<value>",
-    checksumEtag: "<value>",
-    checksumSha256Base64: "<value>",
-    checksumSha256Hex: "<value>",
-    lastModifiedAt: new Date("2024-04-24T15:49:18.836Z"),
-    version: "<value>",
-    isUploaded: false,
-    createdAt: new Date("2024-07-12T16:24:09.257Z"),
-    sizeReadable: "<value>",
+  id: "<value>",
+  organizationId: "<value>",
+  name: "<value>",
+  path: "/usr/ports",
+  mimeType: "<value>",
+  size: 518150,
+  storageVersion: "<value>",
+  checksumEtag: "<value>",
+  checksumSha256Base64: "<value>",
+  checksumSha256Hex: "<value>",
+  lastModifiedAt: new Date("2024-04-24T15:49:18.836Z"),
+  version: "<value>",
+  isUploaded: false,
+  createdAt: new Date("2024-07-12T16:24:09.257Z"),
+  sizeReadable: "<value>",
 };
 ```
 

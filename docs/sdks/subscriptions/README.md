@@ -130,7 +130,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await subscriptionsCreate(polar, {
-    email: "Silas.Abbott@hotmail.com",
+    email: "Jena.Nienow28@yahoo.com",
     productId: "<value>",
   });
 
@@ -184,7 +184,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.subscriptions.importSubscriptions({
-    file: await openAsBlob("./sample-file"),
+    file: await openAsBlob("example.file"),
     organizationId: "<value>",
   });
   
@@ -212,7 +212,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await subscriptionsImportSubscriptions(polar, {
-    file: await openAsBlob("./sample-file"),
+    file: await openAsBlob("example.file"),
     organizationId: "<value>",
   });
 

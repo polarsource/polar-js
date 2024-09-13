@@ -11,11 +11,11 @@ import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import * as components from "../models/components/index.js";
 import {
-    ConnectionError,
-    InvalidRequestError,
-    RequestAbortedError,
-    RequestTimeoutError,
-    UnexpectedClientError,
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
@@ -29,98 +29,97 @@ import { Result } from "../types/fp.js";
  * Revoke an access token or a refresh token.
  */
 export async function oauth2Revoke(
-    client$: PolarCore,
-    request: operations.Oauth2RevokeTokenRevokeTokenRequest,
-    options?: RequestOptions
+  client$: PolarCore,
+  request: operations.Oauth2RevokeTokenRevokeTokenRequest,
+  options?: RequestOptions,
 ): Promise<
-    Result<
-        components.RevokeTokenResponse,
-        | SDKError
-        | SDKValidationError
-        | UnexpectedClientError
-        | InvalidRequestError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | ConnectionError
-    >
+  Result<
+    components.RevokeTokenResponse,
+    | SDKError
+    | SDKValidationError
+    | UnexpectedClientError
+    | InvalidRequestError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | ConnectionError
+  >
 > {
-    const input$ = request;
+  const input$ = request;
 
-    const parsed$ = schemas$.safeParse(
-        input$,
-        (value$) => operations.Oauth2RevokeTokenRevokeTokenRequest$outboundSchema.parse(value$),
-        "Input validation failed"
-    );
-    if (!parsed$.ok) {
-        return parsed$;
-    }
-    const payload$ = parsed$.value;
-    const body$ = Object.entries(payload$ || {})
-        .map(([k, v]) => {
-            return encodeBodyForm$(k, v, { charEncoding: "percent" });
-        })
-        .join("&");
+  const parsed$ = schemas$.safeParse(
+    input$,
+    (value$) =>
+      operations.Oauth2RevokeTokenRevokeTokenRequest$outboundSchema.parse(
+        value$,
+      ),
+    "Input validation failed",
+  );
+  if (!parsed$.ok) {
+    return parsed$;
+  }
+  const payload$ = parsed$.value;
 
-    const path$ = pathToFunc("/v1/oauth2/revoke")();
+  const body$ = Object.entries(payload$ || {}).map(([k, v]) => {
+    return encodeBodyForm$(k, v, { charEncoding: "percent" });
+  }).join("&");
 
-    const headers$ = new Headers({
-        "Content-Type": "application/x-www-form-urlencoded",
-        Accept: "application/json",
-    });
+  const path$ = pathToFunc("/v1/oauth2/revoke")();
 
-    const accessToken$ = await extractSecurity(client$.options$.accessToken);
-    const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
-    const context = {
-        operationID: "oauth2:revoke_token",
-        oAuth2Scopes: [],
-        securitySource: client$.options$.accessToken,
-    };
-    const securitySettings$ = resolveGlobalSecurity(security$);
+  const headers$ = new Headers({
+    "Content-Type": "application/x-www-form-urlencoded",
+    Accept: "application/json",
+  });
 
-    const requestRes = client$.createRequest$(
-        context,
-        {
-            security: securitySettings$,
-            method: "POST",
-            path: path$,
-            headers: headers$,
-            body: body$,
-            timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
-        },
-        options
-    );
-    if (!requestRes.ok) {
-        return requestRes;
-    }
-    const request$ = requestRes.value;
+  const accessToken$ = await extractSecurity(client$.options$.accessToken);
+  const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
+  const context = {
+    operationID: "oauth2:revoke_token",
+    oAuth2Scopes: [],
+    securitySource: client$.options$.accessToken,
+  };
+  const securitySettings$ = resolveGlobalSecurity(security$);
 
-    const doResult = await client$.do$(request$, {
-        context,
-        errorCodes: ["4XX", "5XX"],
-        retryConfig: options?.retries || client$.options$.retryConfig,
-        retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
-    });
-    if (!doResult.ok) {
-        return doResult;
-    }
-    const response = doResult.value;
+  const requestRes = client$.createRequest$(context, {
+    security: securitySettings$,
+    method: "POST",
+    path: path$,
+    headers: headers$,
+    body: body$,
+    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+  }, options);
+  if (!requestRes.ok) {
+    return requestRes;
+  }
+  const request$ = requestRes.value;
 
-    const [result$] = await m$.match<
-        components.RevokeTokenResponse,
-        | SDKError
-        | SDKValidationError
-        | UnexpectedClientError
-        | InvalidRequestError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | ConnectionError
-    >(
-        m$.json(200, components.RevokeTokenResponse$inboundSchema),
-        m$.fail(["4XX", "5XX"])
-    )(response);
-    if (!result$.ok) {
-        return result$;
-    }
+  const doResult = await client$.do$(request$, {
+    context,
+    errorCodes: ["4XX", "5XX"],
+    retryConfig: options?.retries
+      || client$.options$.retryConfig,
+    retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
+  });
+  if (!doResult.ok) {
+    return doResult;
+  }
+  const response = doResult.value;
 
+  const [result$] = await m$.match<
+    components.RevokeTokenResponse,
+    | SDKError
+    | SDKValidationError
+    | UnexpectedClientError
+    | InvalidRequestError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | ConnectionError
+  >(
+    m$.json(200, components.RevokeTokenResponse$inboundSchema),
+    m$.fail(["4XX", "5XX"]),
+  )(response);
+  if (!result$.ok) {
     return result$;
+  }
+
+  return result$;
 }

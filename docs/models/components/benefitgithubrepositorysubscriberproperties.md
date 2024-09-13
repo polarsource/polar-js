@@ -8,8 +8,8 @@ Properties available to subscribers for a benefit of type `github_repository`.
 import { BenefitGitHubRepositorySubscriberProperties } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGitHubRepositorySubscriberProperties = {
-    repositoryOwner: "polarsource",
-    repositoryName: "private_repo",
+  repositoryOwner: "polarsource",
+  repositoryName: "private_repo",
 };
 ```
 

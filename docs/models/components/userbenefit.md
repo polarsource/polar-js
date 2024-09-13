@@ -6,16 +6,42 @@
 import { UserBenefit } from "@polar-sh/sdk/models/components";
 
 let value: UserBenefit = {
-    createdAt: new Date("2023-08-11T01:17:06.359Z"),
-    modifiedAt: new Date("2024-08-05T06:03:32.627Z"),
-    id: "<value>",
-    description: "Persevering optimizing parallelism",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    properties: {
-        activeFiles: ["<value>"],
+  createdAt: new Date("2023-10-09T12:59:31.397Z"),
+  modifiedAt: new Date("2024-04-02T22:12:25.458Z"),
+  id: "<value>",
+  description: "Re-engineered well-modulated extranet",
+  selectable: false,
+  deletable: false,
+  organizationId: "<value>",
+  properties: {
+    prefix: "<value>",
+    expires: {
+      ttl: 554242,
+      timeframe: "month",
     },
+    activations: {
+      limit: 212390,
+      enableUserAdmin: false,
+    },
+    limitUsage: 209843,
+  },
+  grants: [
+    {
+      createdAt: new Date("2022-09-01T19:08:47.580Z"),
+      modifiedAt: new Date("2022-07-24T01:37:14.932Z"),
+      id: "<value>",
+      isGranted: false,
+      isRevoked: false,
+      properties: {
+        licenseKeyId: "<value>",
+        displayKey: "<value>",
+      },
+      subscriptionId: "<value>",
+      orderId: "<value>",
+      userId: "<value>",
+      benefitId: "<value>",
+    },
+  ],
 };
 ```
 

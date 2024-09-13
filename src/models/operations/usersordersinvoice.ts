@@ -5,33 +5,33 @@
 import * as z from "zod";
 
 export type UsersOrdersInvoiceRequest = {
-    /**
-     * The order ID.
-     */
-    id: string;
+  /**
+   * The order ID.
+   */
+  id: string;
 };
 
 /** @internal */
 export const UsersOrdersInvoiceRequest$inboundSchema: z.ZodType<
-    UsersOrdersInvoiceRequest,
-    z.ZodTypeDef,
-    unknown
+  UsersOrdersInvoiceRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type UsersOrdersInvoiceRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const UsersOrdersInvoiceRequest$outboundSchema: z.ZodType<
-    UsersOrdersInvoiceRequest$Outbound,
-    z.ZodTypeDef,
-    UsersOrdersInvoiceRequest
+  UsersOrdersInvoiceRequest$Outbound,
+  z.ZodTypeDef,
+  UsersOrdersInvoiceRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -39,10 +39,10 @@ export const UsersOrdersInvoiceRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace UsersOrdersInvoiceRequest$ {
-    /** @deprecated use `UsersOrdersInvoiceRequest$inboundSchema` instead. */
-    export const inboundSchema = UsersOrdersInvoiceRequest$inboundSchema;
-    /** @deprecated use `UsersOrdersInvoiceRequest$outboundSchema` instead. */
-    export const outboundSchema = UsersOrdersInvoiceRequest$outboundSchema;
-    /** @deprecated use `UsersOrdersInvoiceRequest$Outbound` instead. */
-    export type Outbound = UsersOrdersInvoiceRequest$Outbound;
+  /** @deprecated use `UsersOrdersInvoiceRequest$inboundSchema` instead. */
+  export const inboundSchema = UsersOrdersInvoiceRequest$inboundSchema;
+  /** @deprecated use `UsersOrdersInvoiceRequest$outboundSchema` instead. */
+  export const outboundSchema = UsersOrdersInvoiceRequest$outboundSchema;
+  /** @deprecated use `UsersOrdersInvoiceRequest$Outbound` instead. */
+  export type Outbound = UsersOrdersInvoiceRequest$Outbound;
 }

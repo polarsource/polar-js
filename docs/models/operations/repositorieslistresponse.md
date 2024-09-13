@@ -6,13 +6,13 @@
 import { RepositoriesListResponse } from "@polar-sh/sdk/models/operations";
 
 let value: RepositoriesListResponse = {
-    result: {
-        items: [],
-        pagination: {
-            totalCount: 778346,
-            maxPage: 196582,
-        },
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 778346,
+      maxPage: 196582,
     },
+  },
 };
 ```
 

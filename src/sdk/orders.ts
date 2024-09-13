@@ -12,42 +12,54 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Orders extends ClientSDK {
-    /**
-     * List Orders
-     *
-     * @remarks
-     * List orders.
-     */
-    async list(
-        request: operations.OrdersListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.OrdersListResponse>> {
-        return unwrapResultIterator(ordersList(this, request, options));
-    }
+  /**
+   * List Orders
+   *
+   * @remarks
+   * List orders.
+   */
+  async list(
+    request: operations.OrdersListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.OrdersListResponse>> {
+    return unwrapResultIterator(ordersList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Order
-     *
-     * @remarks
-     * Get an order by ID.
-     */
-    async get(
-        request: operations.OrdersGetRequest,
-        options?: RequestOptions
-    ): Promise<components.OrderOutput> {
-        return unwrapAsync(ordersGet(this, request, options));
-    }
+  /**
+   * Get Order
+   *
+   * @remarks
+   * Get an order by ID.
+   */
+  async get(
+    request: operations.OrdersGetRequest,
+    options?: RequestOptions,
+  ): Promise<components.OrderOutput> {
+    return unwrapAsync(ordersGet(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Order Invoice
-     *
-     * @remarks
-     * Get an order's invoice data.
-     */
-    async invoice(
-        request: operations.OrdersInvoiceRequest,
-        options?: RequestOptions
-    ): Promise<components.OrderInvoice> {
-        return unwrapAsync(ordersInvoice(this, request, options));
-    }
+  /**
+   * Get Order Invoice
+   *
+   * @remarks
+   * Get an order's invoice data.
+   */
+  async invoice(
+    request: operations.OrdersInvoiceRequest,
+    options?: RequestOptions,
+  ): Promise<components.OrderInvoice> {
+    return unwrapAsync(ordersInvoice(
+      this,
+      request,
+      options,
+    ));
+  }
 }

@@ -14,65 +14,88 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Files extends ClientSDK {
-    /**
-     * List Files
-     *
-     * @remarks
-     * List files.
-     */
-    async list(
-        request: operations.FilesListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.FilesListResponse>> {
-        return unwrapResultIterator(filesList(this, request, options));
-    }
+  /**
+   * List Files
+   *
+   * @remarks
+   * List files.
+   */
+  async list(
+    request: operations.FilesListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.FilesListResponse>> {
+    return unwrapResultIterator(filesList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Create File
-     *
-     * @remarks
-     * Create a file.
-     */
-    async create(
-        request: operations.FilesCreateFileCreate,
-        options?: RequestOptions
-    ): Promise<components.FileUpload> {
-        return unwrapAsync(filesCreate(this, request, options));
-    }
+  /**
+   * Create File
+   *
+   * @remarks
+   * Create a file.
+   */
+  async create(
+    request: operations.FilesCreateFileCreate,
+    options?: RequestOptions,
+  ): Promise<components.FileUpload> {
+    return unwrapAsync(filesCreate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Complete File Upload
-     *
-     * @remarks
-     * Complete a file upload.
-     */
-    async uploaded(
-        request: operations.FilesUploadedRequest,
-        options?: RequestOptions
-    ): Promise<operations.FilesUploadedResponseFilesUploaded> {
-        return unwrapAsync(filesUploaded(this, request, options));
-    }
+  /**
+   * Complete File Upload
+   *
+   * @remarks
+   * Complete a file upload.
+   */
+  async uploaded(
+    request: operations.FilesUploadedRequest,
+    options?: RequestOptions,
+  ): Promise<operations.FilesUploadedResponseFilesUploaded> {
+    return unwrapAsync(filesUploaded(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Update File
-     *
-     * @remarks
-     * Update a file.
-     */
-    async update(
-        request: operations.FilesUpdateRequest,
-        options?: RequestOptions
-    ): Promise<operations.FilesUpdateResponseFilesUpdate> {
-        return unwrapAsync(filesUpdate(this, request, options));
-    }
+  /**
+   * Update File
+   *
+   * @remarks
+   * Update a file.
+   */
+  async update(
+    request: operations.FilesUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<operations.FilesUpdateResponseFilesUpdate> {
+    return unwrapAsync(filesUpdate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Delete File
-     *
-     * @remarks
-     * Delete a file.
-     */
-    async delete(request: operations.FilesDeleteRequest, options?: RequestOptions): Promise<void> {
-        return unwrapAsync(filesDelete(this, request, options));
-    }
+  /**
+   * Delete File
+   *
+   * @remarks
+   * Delete a file.
+   */
+  async delete(
+    request: operations.FilesDeleteRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(filesDelete(
+      this,
+      request,
+      options,
+    ));
+  }
 }

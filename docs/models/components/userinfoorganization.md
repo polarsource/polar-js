@@ -6,8 +6,8 @@
 import { UserInfoOrganization } from "@polar-sh/sdk/models/components";
 
 let value: UserInfoOrganization = {
-    sub: "<value>",
-    name: "<value>",
+  sub: "<value>",
+  name: "<value>",
 };
 ```
 

@@ -12,30 +12,30 @@ import * as z from "zod";
  * Useful when updating a product if you want to keep an existing price.
  */
 export type ExistingProductPrice = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const ExistingProductPrice$inboundSchema: z.ZodType<
-    ExistingProductPrice,
-    z.ZodTypeDef,
-    unknown
+  ExistingProductPrice,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type ExistingProductPrice$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const ExistingProductPrice$outboundSchema: z.ZodType<
-    ExistingProductPrice$Outbound,
-    z.ZodTypeDef,
-    ExistingProductPrice
+  ExistingProductPrice$Outbound,
+  z.ZodTypeDef,
+  ExistingProductPrice
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -43,10 +43,10 @@ export const ExistingProductPrice$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace ExistingProductPrice$ {
-    /** @deprecated use `ExistingProductPrice$inboundSchema` instead. */
-    export const inboundSchema = ExistingProductPrice$inboundSchema;
-    /** @deprecated use `ExistingProductPrice$outboundSchema` instead. */
-    export const outboundSchema = ExistingProductPrice$outboundSchema;
-    /** @deprecated use `ExistingProductPrice$Outbound` instead. */
-    export type Outbound = ExistingProductPrice$Outbound;
+  /** @deprecated use `ExistingProductPrice$inboundSchema` instead. */
+  export const inboundSchema = ExistingProductPrice$inboundSchema;
+  /** @deprecated use `ExistingProductPrice$outboundSchema` instead. */
+  export const outboundSchema = ExistingProductPrice$outboundSchema;
+  /** @deprecated use `ExistingProductPrice$Outbound` instead. */
+  export type Outbound = ExistingProductPrice$Outbound;
 }

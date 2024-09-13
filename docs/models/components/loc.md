@@ -5,7 +5,7 @@
 ```typescript
 import { Loc } from "@polar-sh/sdk/models/components";
 
-let value: Loc = 483409;
+let value: Loc = "<value>";
 ```
 
 ## Supported Types

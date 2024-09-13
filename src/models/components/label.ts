@@ -5,26 +5,31 @@
 import * as z from "zod";
 
 export type Label = {
-    name: string;
-    color: string;
+  name: string;
+  color: string;
 };
 
 /** @internal */
-export const Label$inboundSchema: z.ZodType<Label, z.ZodTypeDef, unknown> = z.object({
+export const Label$inboundSchema: z.ZodType<Label, z.ZodTypeDef, unknown> = z
+  .object({
     name: z.string(),
     color: z.string(),
-});
+  });
 
 /** @internal */
 export type Label$Outbound = {
-    name: string;
-    color: string;
+  name: string;
+  color: string;
 };
 
 /** @internal */
-export const Label$outboundSchema: z.ZodType<Label$Outbound, z.ZodTypeDef, Label> = z.object({
-    name: z.string(),
-    color: z.string(),
+export const Label$outboundSchema: z.ZodType<
+  Label$Outbound,
+  z.ZodTypeDef,
+  Label
+> = z.object({
+  name: z.string(),
+  color: z.string(),
 });
 
 /**
@@ -32,10 +37,10 @@ export const Label$outboundSchema: z.ZodType<Label$Outbound, z.ZodTypeDef, Label
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace Label$ {
-    /** @deprecated use `Label$inboundSchema` instead. */
-    export const inboundSchema = Label$inboundSchema;
-    /** @deprecated use `Label$outboundSchema` instead. */
-    export const outboundSchema = Label$outboundSchema;
-    /** @deprecated use `Label$Outbound` instead. */
-    export type Outbound = Label$Outbound;
+  /** @deprecated use `Label$inboundSchema` instead. */
+  export const inboundSchema = Label$inboundSchema;
+  /** @deprecated use `Label$outboundSchema` instead. */
+  export const outboundSchema = Label$outboundSchema;
+  /** @deprecated use `Label$Outbound` instead. */
+  export type Outbound = Label$Outbound;
 }

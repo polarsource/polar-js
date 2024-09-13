@@ -6,7 +6,7 @@
 import { Oauth2ClientsOauth2DeleteClientRequest } from "@polar-sh/sdk/models/operations";
 
 let value: Oauth2ClientsOauth2DeleteClientRequest = {
-    clientId: "<value>",
+  clientId: "<value>",
 };
 ```
 

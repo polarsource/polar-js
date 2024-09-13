@@ -6,7 +6,7 @@
 import { UserSubscriptionUpdate } from "@polar-sh/sdk/models/components";
 
 let value: UserSubscriptionUpdate = {
-    productPriceId: "<value>",
+  productPriceId: "<value>",
 };
 ```
 

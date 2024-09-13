@@ -8,7 +8,7 @@ Properties for a benefit of type `articles`.
 import { BenefitArticlesProperties } from "@polar-sh/sdk/models/components";
 
 let value: BenefitArticlesProperties = {
-    paidArticles: false,
+  paidArticles: false,
 };
 ```
 

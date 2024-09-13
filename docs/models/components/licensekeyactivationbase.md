@@ -6,12 +6,12 @@
 import { LicenseKeyActivationBase } from "@polar-sh/sdk/models/components";
 
 let value: LicenseKeyActivationBase = {
-    id: "<value>",
-    licenseKeyId: "<value>",
-    label: "<value>",
-    meta: {},
-    createdAt: new Date("2023-04-13T05:32:59.331Z"),
-    modifiedAt: new Date("2024-01-27T06:25:05.269Z"),
+  id: "<value>",
+  licenseKeyId: "<value>",
+  label: "<value>",
+  meta: {},
+  createdAt: new Date("2024-01-27T06:25:05.269Z"),
+  modifiedAt: new Date("2023-06-03T15:35:47.337Z"),
 };
 ```
 

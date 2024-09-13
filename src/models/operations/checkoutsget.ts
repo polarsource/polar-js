@@ -5,30 +5,30 @@
 import * as z from "zod";
 
 export type CheckoutsGetRequest = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const CheckoutsGetRequest$inboundSchema: z.ZodType<
-    CheckoutsGetRequest,
-    z.ZodTypeDef,
-    unknown
+  CheckoutsGetRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type CheckoutsGetRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const CheckoutsGetRequest$outboundSchema: z.ZodType<
-    CheckoutsGetRequest$Outbound,
-    z.ZodTypeDef,
-    CheckoutsGetRequest
+  CheckoutsGetRequest$Outbound,
+  z.ZodTypeDef,
+  CheckoutsGetRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -36,10 +36,10 @@ export const CheckoutsGetRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace CheckoutsGetRequest$ {
-    /** @deprecated use `CheckoutsGetRequest$inboundSchema` instead. */
-    export const inboundSchema = CheckoutsGetRequest$inboundSchema;
-    /** @deprecated use `CheckoutsGetRequest$outboundSchema` instead. */
-    export const outboundSchema = CheckoutsGetRequest$outboundSchema;
-    /** @deprecated use `CheckoutsGetRequest$Outbound` instead. */
-    export type Outbound = CheckoutsGetRequest$Outbound;
+  /** @deprecated use `CheckoutsGetRequest$inboundSchema` instead. */
+  export const inboundSchema = CheckoutsGetRequest$inboundSchema;
+  /** @deprecated use `CheckoutsGetRequest$outboundSchema` instead. */
+  export const outboundSchema = CheckoutsGetRequest$outboundSchema;
+  /** @deprecated use `CheckoutsGetRequest$Outbound` instead. */
+  export type Outbound = CheckoutsGetRequest$Outbound;
 }

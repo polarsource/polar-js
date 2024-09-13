@@ -6,18 +6,18 @@
 import { UserOrderSubscription } from "@polar-sh/sdk/models/components";
 
 let value: UserOrderSubscription = {
-    createdAt: new Date("2022-06-08T18:04:31.965Z"),
-    modifiedAt: new Date("2022-06-30T19:04:41.355Z"),
-    id: "<value>",
-    status: "active",
-    currentPeriodStart: new Date("2022-05-17T19:36:31.801Z"),
-    currentPeriodEnd: new Date("2023-01-25T18:02:14.576Z"),
-    cancelAtPeriodEnd: false,
-    startedAt: new Date("2024-03-02T09:36:34.922Z"),
-    endedAt: new Date("2024-10-27T17:07:19.393Z"),
-    userId: "<value>",
-    productId: "<value>",
-    priceId: "<value>",
+  createdAt: new Date("2023-06-19T21:49:57.037Z"),
+  modifiedAt: new Date("2022-05-17T19:36:31.801Z"),
+  id: "<value>",
+  status: "trialing",
+  currentPeriodStart: new Date("2024-03-02T09:36:34.922Z"),
+  currentPeriodEnd: new Date("2024-10-27T17:07:19.393Z"),
+  cancelAtPeriodEnd: false,
+  startedAt: new Date("2022-02-03T09:02:05.320Z"),
+  endedAt: new Date("2024-04-18T19:06:55.584Z"),
+  userId: "<value>",
+  productId: "<value>",
+  priceId: "<value>",
 };
 ```
 

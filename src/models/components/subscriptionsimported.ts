@@ -8,30 +8,30 @@ import * as z from "zod";
  * Result of a subscription import operation.
  */
 export type SubscriptionsImported = {
-    count: number;
+  count: number;
 };
 
 /** @internal */
 export const SubscriptionsImported$inboundSchema: z.ZodType<
-    SubscriptionsImported,
-    z.ZodTypeDef,
-    unknown
+  SubscriptionsImported,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    count: z.number().int(),
+  count: z.number().int(),
 });
 
 /** @internal */
 export type SubscriptionsImported$Outbound = {
-    count: number;
+  count: number;
 };
 
 /** @internal */
 export const SubscriptionsImported$outboundSchema: z.ZodType<
-    SubscriptionsImported$Outbound,
-    z.ZodTypeDef,
-    SubscriptionsImported
+  SubscriptionsImported$Outbound,
+  z.ZodTypeDef,
+  SubscriptionsImported
 > = z.object({
-    count: z.number().int(),
+  count: z.number().int(),
 });
 
 /**
@@ -39,10 +39,10 @@ export const SubscriptionsImported$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace SubscriptionsImported$ {
-    /** @deprecated use `SubscriptionsImported$inboundSchema` instead. */
-    export const inboundSchema = SubscriptionsImported$inboundSchema;
-    /** @deprecated use `SubscriptionsImported$outboundSchema` instead. */
-    export const outboundSchema = SubscriptionsImported$outboundSchema;
-    /** @deprecated use `SubscriptionsImported$Outbound` instead. */
-    export type Outbound = SubscriptionsImported$Outbound;
+  /** @deprecated use `SubscriptionsImported$inboundSchema` instead. */
+  export const inboundSchema = SubscriptionsImported$inboundSchema;
+  /** @deprecated use `SubscriptionsImported$outboundSchema` instead. */
+  export const outboundSchema = SubscriptionsImported$outboundSchema;
+  /** @deprecated use `SubscriptionsImported$Outbound` instead. */
+  export type Outbound = SubscriptionsImported$Outbound;
 }

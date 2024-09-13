@@ -6,10 +6,10 @@
 import { UsersAdvertisementsEnableRequest } from "@polar-sh/sdk/models/operations";
 
 let value: UsersAdvertisementsEnableRequest = {
-    id: "<value>",
-    userAdvertisementCampaignEnable: {
-        benefitId: "<value>",
-    },
+  id: "<value>",
+  userAdvertisementCampaignEnable: {
+    benefitId: "<value>",
+  },
 };
 ```
 

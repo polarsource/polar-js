@@ -6,13 +6,13 @@
 import { SubscriptionsListResponse } from "@polar-sh/sdk/models/operations";
 
 let value: SubscriptionsListResponse = {
-    result: {
-        items: [],
-        pagination: {
-            totalCount: 739264,
-            maxPage: 19987,
-        },
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 739264,
+      maxPage: 19987,
     },
+  },
 };
 ```
 

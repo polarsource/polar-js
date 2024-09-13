@@ -210,7 +210,7 @@ async function run() {
       path: "/sys",
       parts: [
         {
-          number: 241210,
+          number: 606865,
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
         },
@@ -244,10 +244,10 @@ async function run() {
     id: "<value>",
     fileUploadCompleted: {
       id: "<id>",
-      path: "/etc/ppp",
+      path: "/sys",
       parts: [
         {
-          number: 101621,
+          number: 848922,
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
         },

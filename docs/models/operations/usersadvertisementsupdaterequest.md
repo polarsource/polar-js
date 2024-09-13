@@ -6,8 +6,8 @@
 import { UsersAdvertisementsUpdateRequest } from "@polar-sh/sdk/models/operations";
 
 let value: UsersAdvertisementsUpdateRequest = {
-    id: "<value>",
-    userAdvertisementCampaignUpdate: {},
+  id: "<value>",
+  userAdvertisementCampaignUpdate: {},
 };
 ```
 

@@ -5,33 +5,33 @@
 import * as z from "zod";
 
 export type UsersSubscriptionsCancelRequest = {
-    /**
-     * The subscription ID.
-     */
-    id: string;
+  /**
+   * The subscription ID.
+   */
+  id: string;
 };
 
 /** @internal */
 export const UsersSubscriptionsCancelRequest$inboundSchema: z.ZodType<
-    UsersSubscriptionsCancelRequest,
-    z.ZodTypeDef,
-    unknown
+  UsersSubscriptionsCancelRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type UsersSubscriptionsCancelRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const UsersSubscriptionsCancelRequest$outboundSchema: z.ZodType<
-    UsersSubscriptionsCancelRequest$Outbound,
-    z.ZodTypeDef,
-    UsersSubscriptionsCancelRequest
+  UsersSubscriptionsCancelRequest$Outbound,
+  z.ZodTypeDef,
+  UsersSubscriptionsCancelRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -39,10 +39,10 @@ export const UsersSubscriptionsCancelRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace UsersSubscriptionsCancelRequest$ {
-    /** @deprecated use `UsersSubscriptionsCancelRequest$inboundSchema` instead. */
-    export const inboundSchema = UsersSubscriptionsCancelRequest$inboundSchema;
-    /** @deprecated use `UsersSubscriptionsCancelRequest$outboundSchema` instead. */
-    export const outboundSchema = UsersSubscriptionsCancelRequest$outboundSchema;
-    /** @deprecated use `UsersSubscriptionsCancelRequest$Outbound` instead. */
-    export type Outbound = UsersSubscriptionsCancelRequest$Outbound;
+  /** @deprecated use `UsersSubscriptionsCancelRequest$inboundSchema` instead. */
+  export const inboundSchema = UsersSubscriptionsCancelRequest$inboundSchema;
+  /** @deprecated use `UsersSubscriptionsCancelRequest$outboundSchema` instead. */
+  export const outboundSchema = UsersSubscriptionsCancelRequest$outboundSchema;
+  /** @deprecated use `UsersSubscriptionsCancelRequest$Outbound` instead. */
+  export type Outbound = UsersSubscriptionsCancelRequest$Outbound;
 }

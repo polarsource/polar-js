@@ -10,7 +10,7 @@ Useful when updating a product if you want to keep an existing price.
 import { ExistingProductPrice } from "@polar-sh/sdk/models/components";
 
 let value: ExistingProductPrice = {
-    id: "<value>",
+  id: "<value>",
 };
 ```
 

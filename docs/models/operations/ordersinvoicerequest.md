@@ -6,7 +6,7 @@
 import { OrdersInvoiceRequest } from "@polar-sh/sdk/models/operations";
 
 let value: OrdersInvoiceRequest = {
-    id: "<value>",
+  id: "<value>",
 };
 ```
 

@@ -13,55 +13,71 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Subscriptions extends ClientSDK {
-    /**
-     * List Subscriptions
-     *
-     * @remarks
-     * List subscriptions.
-     */
-    async list(
-        request: operations.SubscriptionsListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.SubscriptionsListResponse>> {
-        return unwrapResultIterator(subscriptionsList(this, request, options));
-    }
+  /**
+   * List Subscriptions
+   *
+   * @remarks
+   * List subscriptions.
+   */
+  async list(
+    request: operations.SubscriptionsListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.SubscriptionsListResponse>> {
+    return unwrapResultIterator(subscriptionsList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Create Free Subscription
-     *
-     * @remarks
-     * Create a subscription on the free tier for a given email.
-     */
-    async create(
-        request: components.SubscriptionCreateEmail,
-        options?: RequestOptions
-    ): Promise<components.SubscriptionOutput> {
-        return unwrapAsync(subscriptionsCreate(this, request, options));
-    }
+  /**
+   * Create Free Subscription
+   *
+   * @remarks
+   * Create a subscription on the free tier for a given email.
+   */
+  async create(
+    request: components.SubscriptionCreateEmail,
+    options?: RequestOptions,
+  ): Promise<components.SubscriptionOutput> {
+    return unwrapAsync(subscriptionsCreate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Import Subscriptions
-     *
-     * @remarks
-     * Import subscriptions from a CSV file.
-     */
-    async importSubscriptions(
-        request: components.BodySubscriptionsImport,
-        options?: RequestOptions
-    ): Promise<components.SubscriptionsImported> {
-        return unwrapAsync(subscriptionsImportSubscriptions(this, request, options));
-    }
+  /**
+   * Import Subscriptions
+   *
+   * @remarks
+   * Import subscriptions from a CSV file.
+   */
+  async importSubscriptions(
+    request: components.BodySubscriptionsImport,
+    options?: RequestOptions,
+  ): Promise<components.SubscriptionsImported> {
+    return unwrapAsync(subscriptionsImportSubscriptions(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Export Subscriptions
-     *
-     * @remarks
-     * Export subscriptions as a CSV file.
-     */
-    async export(
-        request: operations.SubscriptionsExportRequest,
-        options?: RequestOptions
-    ): Promise<any> {
-        return unwrapAsync(subscriptionsExport(this, request, options));
-    }
+  /**
+   * Export Subscriptions
+   *
+   * @remarks
+   * Export subscriptions as a CSV file.
+   */
+  async export(
+    request: operations.SubscriptionsExportRequest,
+    options?: RequestOptions,
+  ): Promise<any> {
+    return unwrapAsync(subscriptionsExport(
+      this,
+      request,
+      options,
+    ));
+  }
 }

@@ -8,18 +8,18 @@ Schema to create a file to be used as a product media file.
 import { ProductMediaFileCreate } from "@polar-sh/sdk/models/components";
 
 let value: ProductMediaFileCreate = {
-    name: "<value>",
-    mimeType: "<value>",
-    size: 160393,
-    upload: {
-        parts: [
-            {
-                number: 28952,
-                chunkStart: 350207,
-                chunkEnd: 895692,
-            },
-        ],
-    },
+  name: "<value>",
+  mimeType: "<value>",
+  size: 160393,
+  upload: {
+    parts: [
+      {
+        number: 28952,
+        chunkStart: 350207,
+        chunkEnd: 895692,
+      },
+    ],
+  },
 };
 ```
 

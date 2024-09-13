@@ -6,7 +6,7 @@
 import { BenefitsDeleteRequest } from "@polar-sh/sdk/models/operations";
 
 let value: BenefitsDeleteRequest = {
-    id: "<value>",
+  id: "<value>",
 };
 ```
 

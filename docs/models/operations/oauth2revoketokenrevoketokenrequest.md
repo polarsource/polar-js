@@ -6,9 +6,9 @@
 import { Oauth2RevokeTokenRevokeTokenRequest } from "@polar-sh/sdk/models/operations";
 
 let value: Oauth2RevokeTokenRevokeTokenRequest = {
-    token: "<value>",
-    clientId: "<value>",
-    clientSecret: "<value>",
+  token: "<value>",
+  clientId: "<value>",
+  clientSecret: "<value>",
 };
 ```
 

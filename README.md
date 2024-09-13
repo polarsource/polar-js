@@ -86,16 +86,16 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 import { Polar } from "@polar-sh/sdk";
 
 const polar = new Polar({
-    accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 
 async function run() {
-    const result = await polar.users.benefits.list({});
+  const result = await polar.users.benefits.list({});
 
-    for await (const page of result) {
-        // Handle the page
-        console.log(page);
-    }
+  for await (const page of result) {
+    // Handle the page
+    console.log(page);
+  }
 }
 
 run();
@@ -106,70 +106,13 @@ run();
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [users.benefits](docs/sdks/polarbenefits/README.md)
+<details open>
+<summary>Available methods</summary>
 
-* [list](docs/sdks/polarbenefits/README.md#list) - List Benefits
-* [get](docs/sdks/polarbenefits/README.md#get) - Get Benefit
+### [advertisements](docs/sdks/advertisements/README.md)
 
-### [users.orders](docs/sdks/polarorders/README.md)
-
-* [list](docs/sdks/polarorders/README.md#list) - List Orders
-* [get](docs/sdks/polarorders/README.md#get) - Get Order
-* [invoice](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
-
-### [users.subscriptions](docs/sdks/polarsubscriptions/README.md)
-
-* [list](docs/sdks/polarsubscriptions/README.md#list) - List Subscriptions
-* [create](docs/sdks/polarsubscriptions/README.md#create) - Create Free Subscription
-* [get](docs/sdks/polarsubscriptions/README.md#get) - Get Subscription
-* [update](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
-* [cancel](docs/sdks/polarsubscriptions/README.md#cancel) - Cancel Subscription
-
-### [users.advertisements](docs/sdks/polaradvertisements/README.md)
-
-* [list](docs/sdks/polaradvertisements/README.md#list) - List Advertisements
-* [create](docs/sdks/polaradvertisements/README.md#create) - Create Advertisement
-* [get](docs/sdks/polaradvertisements/README.md#get) - Get Advertisement
-* [update](docs/sdks/polaradvertisements/README.md#update) - Update Advertisement
-* [delete](docs/sdks/polaradvertisements/README.md#delete) - Delete Advertisement
-* [enable](docs/sdks/polaradvertisements/README.md#enable) - Enable Advertisement
-
-### [users.downloadables](docs/sdks/downloadables/README.md)
-
-* [list](docs/sdks/downloadables/README.md#list) - List Downloadables
-* [get](docs/sdks/downloadables/README.md#get) - Get Downloadable
-
-### [users.licenseKeys](docs/sdks/polarlicensekeys/README.md)
-
-* [list](docs/sdks/polarlicensekeys/README.md#list) - List License Keys
-* [get](docs/sdks/polarlicensekeys/README.md#get) - Get License Key
-* [validate](docs/sdks/polarlicensekeys/README.md#validate) - Validate License Key
-* [activate](docs/sdks/polarlicensekeys/README.md#activate) - Activate License Key
-* [deactivate](docs/sdks/polarlicensekeys/README.md#deactivate) - Deactivate License Key
-
-### [externalOrganizations](docs/sdks/externalorganizations/README.md)
-
-* [list](docs/sdks/externalorganizations/README.md#list) - List External Organizations
-
-### [repositories](docs/sdks/repositories/README.md)
-
-* [list](docs/sdks/repositories/README.md#list) - List Repositories
-* [get](docs/sdks/repositories/README.md#get) - Get Repository
-* [update](docs/sdks/repositories/README.md#update) - Update Repository
-
-### [organizations](docs/sdks/organizations/README.md)
-
-* [list](docs/sdks/organizations/README.md#list) - List Organizations
-* [create](docs/sdks/organizations/README.md#create) - Create Organization
-* [get](docs/sdks/organizations/README.md#get) - Get Organization
-* [update](docs/sdks/organizations/README.md#update) - Update Organization
-
-### [subscriptions](docs/sdks/subscriptions/README.md)
-
-* [list](docs/sdks/subscriptions/README.md#list) - List Subscriptions
-* [create](docs/sdks/subscriptions/README.md#create) - Create Free Subscription
-* [importSubscriptions](docs/sdks/subscriptions/README.md#importsubscriptions) - Import Subscriptions
-* [export](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
+* [list](docs/sdks/advertisements/README.md#list) - List Campaigns
+* [get](docs/sdks/advertisements/README.md#get) - Get Campaign
 
 ### [articles](docs/sdks/articles/README.md)
 
@@ -182,26 +125,6 @@ run();
 * [preview](docs/sdks/articles/README.md#preview) - Send Article Preview
 * [send](docs/sdks/articles/README.md#send) - Send Article
 
-### [advertisements](docs/sdks/advertisements/README.md)
-
-* [list](docs/sdks/advertisements/README.md#list) - List Campaigns
-* [get](docs/sdks/advertisements/README.md#get) - Get Campaign
-
-### [oauth2](docs/sdks/oauth2/README.md)
-
-* [token](docs/sdks/oauth2/README.md#token) - Request Token
-* [revoke](docs/sdks/oauth2/README.md#revoke) - Revoke Token
-* [introspect](docs/sdks/oauth2/README.md#introspect) - Introspect Token
-* [userinfo](docs/sdks/oauth2/README.md#userinfo) - Get User Info
-
-### [oauth2.clients](docs/sdks/clients/README.md)
-
-* [list](docs/sdks/clients/README.md#list) - List Clients
-* [create](docs/sdks/clients/README.md#create) - Create Client
-* [get](docs/sdks/clients/README.md#get) - Get Client
-* [update](docs/sdks/clients/README.md#update) - Update Client
-* [delete](docs/sdks/clients/README.md#delete) - Delete Client
-
 ### [benefits](docs/sdks/benefits/README.md)
 
 * [list](docs/sdks/benefits/README.md#list) - List Benefits
@@ -211,24 +134,14 @@ run();
 * [delete](docs/sdks/benefits/README.md#delete) - Delete Benefit
 * [grants](docs/sdks/benefits/README.md#grants) - List Benefit Grants
 
-### [products](docs/sdks/products/README.md)
-
-* [list](docs/sdks/products/README.md#list) - List Products
-* [create](docs/sdks/products/README.md#create) - Create Product
-* [get](docs/sdks/products/README.md#get) - Get Product
-* [update](docs/sdks/products/README.md#update) - Update Product
-* [updateBenefits](docs/sdks/products/README.md#updatebenefits) - Update Product Benefits
-
-### [orders](docs/sdks/orders/README.md)
-
-* [list](docs/sdks/orders/README.md#list) - List Orders
-* [get](docs/sdks/orders/README.md#get) - Get Order
-* [invoice](docs/sdks/orders/README.md#invoice) - Get Order Invoice
-
 ### [checkouts](docs/sdks/checkouts/README.md)
 
 * [create](docs/sdks/checkouts/README.md#create) - Create Checkout
 * [get](docs/sdks/checkouts/README.md#get) - Get Checkout
+
+### [externalOrganizations](docs/sdks/externalorganizations/README.md)
+
+* [list](docs/sdks/externalorganizations/README.md#list) - List External Organizations
 
 ### [files](docs/sdks/files/README.md)
 
@@ -238,17 +151,113 @@ run();
 * [update](docs/sdks/files/README.md#update) - Update File
 * [delete](docs/sdks/files/README.md#delete) - Delete File
 
-### [metrics](docs/sdks/metrics/README.md)
-
-* [get](docs/sdks/metrics/README.md#get) - Get Metrics
-* [limits](docs/sdks/metrics/README.md#limits) - Get Metrics Limits
-
 ### [licenseKeys](docs/sdks/licensekeys/README.md)
 
 * [list](docs/sdks/licensekeys/README.md#list) - List License Keys
 * [get](docs/sdks/licensekeys/README.md#get) - Get License Key
 * [update](docs/sdks/licensekeys/README.md#update) - Update License Key
 * [getActivation](docs/sdks/licensekeys/README.md#getactivation) - Get Activation
+
+### [metrics](docs/sdks/metrics/README.md)
+
+* [get](docs/sdks/metrics/README.md#get) - Get Metrics
+* [limits](docs/sdks/metrics/README.md#limits) - Get Metrics Limits
+
+### [oauth2](docs/sdks/oauth2/README.md)
+
+* [token](docs/sdks/oauth2/README.md#token) - Request Token
+* [revoke](docs/sdks/oauth2/README.md#revoke) - Revoke Token
+* [introspect](docs/sdks/oauth2/README.md#introspect) - Introspect Token
+* [userinfo](docs/sdks/oauth2/README.md#userinfo) - Get User Info
+
+#### [oauth2.clients](docs/sdks/clients/README.md)
+
+* [list](docs/sdks/clients/README.md#list) - List Clients
+* [create](docs/sdks/clients/README.md#create) - Create Client
+* [get](docs/sdks/clients/README.md#get) - Get Client
+* [update](docs/sdks/clients/README.md#update) - Update Client
+* [delete](docs/sdks/clients/README.md#delete) - Delete Client
+
+### [orders](docs/sdks/orders/README.md)
+
+* [list](docs/sdks/orders/README.md#list) - List Orders
+* [get](docs/sdks/orders/README.md#get) - Get Order
+* [invoice](docs/sdks/orders/README.md#invoice) - Get Order Invoice
+
+### [organizations](docs/sdks/organizations/README.md)
+
+* [list](docs/sdks/organizations/README.md#list) - List Organizations
+* [create](docs/sdks/organizations/README.md#create) - Create Organization
+* [get](docs/sdks/organizations/README.md#get) - Get Organization
+* [update](docs/sdks/organizations/README.md#update) - Update Organization
+
+
+### [products](docs/sdks/products/README.md)
+
+* [list](docs/sdks/products/README.md#list) - List Products
+* [create](docs/sdks/products/README.md#create) - Create Product
+* [get](docs/sdks/products/README.md#get) - Get Product
+* [update](docs/sdks/products/README.md#update) - Update Product
+* [updateBenefits](docs/sdks/products/README.md#updatebenefits) - Update Product Benefits
+
+### [repositories](docs/sdks/repositories/README.md)
+
+* [list](docs/sdks/repositories/README.md#list) - List Repositories
+* [get](docs/sdks/repositories/README.md#get) - Get Repository
+* [update](docs/sdks/repositories/README.md#update) - Update Repository
+
+### [subscriptions](docs/sdks/subscriptions/README.md)
+
+* [list](docs/sdks/subscriptions/README.md#list) - List Subscriptions
+* [create](docs/sdks/subscriptions/README.md#create) - Create Free Subscription
+* [importSubscriptions](docs/sdks/subscriptions/README.md#importsubscriptions) - Import Subscriptions
+* [export](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
+
+### [users](docs/sdks/users/README.md)
+
+
+#### [users.advertisements](docs/sdks/polaradvertisements/README.md)
+
+* [list](docs/sdks/polaradvertisements/README.md#list) - List Advertisements
+* [create](docs/sdks/polaradvertisements/README.md#create) - Create Advertisement
+* [get](docs/sdks/polaradvertisements/README.md#get) - Get Advertisement
+* [update](docs/sdks/polaradvertisements/README.md#update) - Update Advertisement
+* [delete](docs/sdks/polaradvertisements/README.md#delete) - Delete Advertisement
+* [enable](docs/sdks/polaradvertisements/README.md#enable) - Enable Advertisement
+
+#### [users.benefits](docs/sdks/polarbenefits/README.md)
+
+* [list](docs/sdks/polarbenefits/README.md#list) - List Benefits
+* [get](docs/sdks/polarbenefits/README.md#get) - Get Benefit
+
+#### [users.downloadables](docs/sdks/downloadables/README.md)
+
+* [list](docs/sdks/downloadables/README.md#list) - List Downloadables
+* [get](docs/sdks/downloadables/README.md#get) - Get Downloadable
+
+#### [users.licenseKeys](docs/sdks/polarlicensekeys/README.md)
+
+* [list](docs/sdks/polarlicensekeys/README.md#list) - List License Keys
+* [get](docs/sdks/polarlicensekeys/README.md#get) - Get License Key
+* [validate](docs/sdks/polarlicensekeys/README.md#validate) - Validate License Key
+* [activate](docs/sdks/polarlicensekeys/README.md#activate) - Activate License Key
+* [deactivate](docs/sdks/polarlicensekeys/README.md#deactivate) - Deactivate License Key
+
+#### [users.orders](docs/sdks/polarorders/README.md)
+
+* [list](docs/sdks/polarorders/README.md#list) - List Orders
+* [get](docs/sdks/polarorders/README.md#get) - Get Order
+* [invoice](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
+
+#### [users.subscriptions](docs/sdks/polarsubscriptions/README.md)
+
+* [list](docs/sdks/polarsubscriptions/README.md#list) - List Subscriptions
+* [create](docs/sdks/polarsubscriptions/README.md#create) - Create Free Subscription
+* [get](docs/sdks/polarsubscriptions/README.md#get) - Get Subscription
+* [update](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
+* [cancel](docs/sdks/polarsubscriptions/README.md#cancel) - Cancel Subscription
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Standalone functions [standalone-funcs] -->
@@ -368,16 +377,16 @@ Here's an example of one such pagination call:
 import { Polar } from "@polar-sh/sdk";
 
 const polar = new Polar({
-    accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 
 async function run() {
-    const result = await polar.users.benefits.list({});
+  const result = await polar.users.benefits.list({});
 
-    for await (const page of result) {
-        // Handle the page
-        console.log(page);
-    }
+  for await (const page of result) {
+    // Handle the page
+    console.log(page);
+  }
 }
 
 run();
@@ -404,17 +413,17 @@ import { Polar } from "@polar-sh/sdk";
 import { openAsBlob } from "node:fs";
 
 const polar = new Polar({
-    accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 
 async function run() {
-    const result = await polar.subscriptions.importSubscriptions({
-        file: await openAsBlob("./sample-file"),
-        organizationId: "<value>",
-    });
+  const result = await polar.subscriptions.importSubscriptions({
+    file: await openAsBlob("example.file"),
+    organizationId: "<value>",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -432,30 +441,27 @@ To change the default retry strategy for a single API call, simply provide a ret
 import { Polar } from "@polar-sh/sdk";
 
 const polar = new Polar({
-    accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 
 async function run() {
-    const result = await polar.users.benefits.list(
-        {},
-        {
-            retries: {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 1,
-                    maxInterval: 50,
-                    exponent: 1.1,
-                    maxElapsedTime: 100,
-                },
-                retryConnectionErrors: false,
-            },
-        }
-    );
+  const result = await polar.users.benefits.list({}, {
+    retries: {
+      strategy: "backoff",
+      backoff: {
+        initialInterval: 1,
+        maxInterval: 50,
+        exponent: 1.1,
+        maxElapsedTime: 100,
+      },
+      retryConnectionErrors: false,
+    },
+  });
 
-    for await (const page of result) {
-        // Handle the page
-        console.log(page);
-    }
+  for await (const page of result) {
+    // Handle the page
+    console.log(page);
+  }
 }
 
 run();
@@ -467,26 +473,26 @@ If you'd like to override the default retry strategy for all operations that sup
 import { Polar } from "@polar-sh/sdk";
 
 const polar = new Polar({
-    retryConfig: {
-        strategy: "backoff",
-        backoff: {
-            initialInterval: 1,
-            maxInterval: 50,
-            exponent: 1.1,
-            maxElapsedTime: 100,
-        },
-        retryConnectionErrors: false,
+  retryConfig: {
+    strategy: "backoff",
+    backoff: {
+      initialInterval: 1,
+      maxInterval: 50,
+      exponent: 1.1,
+      maxElapsedTime: 100,
     },
-    accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+    retryConnectionErrors: false,
+  },
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 
 async function run() {
-    const result = await polar.users.benefits.list({});
+  const result = await polar.users.benefits.list({});
 
-    for await (const page of result) {
-        // Handle the page
-        console.log(page);
-    }
+  for await (const page of result) {
+    // Handle the page
+    console.log(page);
+  }
 }
 
 run();
@@ -509,40 +515,43 @@ Validation errors can also occur when either method arguments or data returned f
 
 ```typescript
 import { Polar } from "@polar-sh/sdk";
-import { HTTPValidationError, SDKValidationError } from "@polar-sh/sdk/models/errors";
+import {
+  HTTPValidationError,
+  SDKValidationError,
+} from "@polar-sh/sdk/models/errors";
 
 const polar = new Polar({
-    accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 
 async function run() {
-    let result;
-    try {
-        result = await polar.users.benefits.list({});
+  let result;
+  try {
+    result = await polar.users.benefits.list({});
 
-        for await (const page of result) {
-            // Handle the page
-            console.log(page);
-        }
-    } catch (err) {
-        switch (true) {
-            case err instanceof SDKValidationError: {
-                // Validation errors can be pretty-printed
-                console.error(err.pretty());
-                // Raw value may also be inspected
-                console.error(err.rawValue);
-                return;
-            }
-            case err instanceof HTTPValidationError: {
-                // Handle err.data$: HTTPValidationErrorData
-                console.error(err);
-                return;
-            }
-            default: {
-                throw err;
-            }
-        }
+    for await (const page of result) {
+      // Handle the page
+      console.log(page);
     }
+  } catch (err) {
+    switch (true) {
+      case (err instanceof SDKValidationError): {
+        // Validation errors can be pretty-printed
+        console.error(err.pretty());
+        // Raw value may also be inspected
+        console.error(err.rawValue);
+        return;
+      }
+      case (err instanceof HTTPValidationError): {
+        // Handle err.data$: HTTPValidationErrorData
+        console.error(err);
+        return;
+      }
+      default: {
+        throw err;
+      }
+    }
+  }
 }
 
 run();
@@ -565,17 +574,17 @@ You can override the default server globally by passing a server index to the `s
 import { Polar } from "@polar-sh/sdk";
 
 const polar = new Polar({
-    serverIdx: 0,
-    accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+  serverIdx: 0,
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 
 async function run() {
-    const result = await polar.users.benefits.list({});
+  const result = await polar.users.benefits.list({});
 
-    for await (const page of result) {
-        // Handle the page
-        console.log(page);
-    }
+  for await (const page of result) {
+    // Handle the page
+    console.log(page);
+  }
 }
 
 run();
@@ -591,17 +600,17 @@ The default server can also be overridden globally by passing a URL to the `serv
 import { Polar } from "@polar-sh/sdk";
 
 const polar = new Polar({
-    serverURL: "https://api.polar.sh",
-    accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+  serverURL: "https://api.polar.sh",
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 
 async function run() {
-    const result = await polar.users.benefits.list({});
+  const result = await polar.users.benefits.list({});
 
-    for await (const page of result) {
-        // Handle the page
-        console.log(page);
-    }
+  for await (const page of result) {
+    // Handle the page
+    console.log(page);
+  }
 }
 
 run();
@@ -674,16 +683,16 @@ To authenticate with the API the `accessToken` parameter must be set when initia
 import { Polar } from "@polar-sh/sdk";
 
 const polar = new Polar({
-    accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
+  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 
 async function run() {
-    const result = await polar.users.benefits.list({});
+  const result = await polar.users.benefits.list({});
 
-    for await (const page of result) {
-        // Handle the page
-        console.log(page);
-    }
+  for await (const page of result) {
+    // Handle the page
+    console.log(page);
+  }
 }
 
 run();

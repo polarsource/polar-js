@@ -6,16 +6,16 @@
 import { IntrospectTokenResponse } from "@polar-sh/sdk/models/components";
 
 let value: IntrospectTokenResponse = {
-    active: false,
-    clientId: "<value>",
-    tokenType: "access_token",
-    scope: "<value>",
-    subType: "user",
-    sub: "<value>",
-    aud: "<value>",
-    iss: "<value>",
-    exp: 826825,
-    iat: 410301,
+  active: false,
+  clientId: "<value>",
+  tokenType: "access_token",
+  scope: "<value>",
+  subType: "user",
+  sub: "<value>",
+  aud: "<value>",
+  iss: "<value>",
+  exp: 826825,
+  iat: 410301,
 };
 ```
 

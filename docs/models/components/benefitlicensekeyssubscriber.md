@@ -6,42 +6,42 @@
 import { BenefitLicenseKeysSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitLicenseKeysSubscriber = {
-    createdAt: new Date("2024-08-24T05:13:20.885Z"),
-    modifiedAt: new Date("2022-12-17T17:43:51.515Z"),
-    id: "<value>",
-    description: "Triple-buffered exuding moderator",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    properties: {
-        prefix: "<value>",
-        expires: {
-            ttl: 588317,
-            timeframe: "year",
-        },
-        activations: {
-            limit: 831049,
-            enableUserAdmin: false,
-        },
-        limitUsage: 519711,
+  createdAt: new Date("2024-09-18T05:59:40.567Z"),
+  modifiedAt: new Date("2023-02-25T06:38:03.101Z"),
+  id: "<value>",
+  description: "Profit-focused maximized firmware",
+  selectable: false,
+  deletable: false,
+  organizationId: "<value>",
+  properties: {
+    prefix: "<value>",
+    expires: {
+      ttl: 831049,
+      timeframe: "month",
     },
-    grants: [
-        {
-            createdAt: new Date("2023-11-21T08:44:18.797Z"),
-            modifiedAt: new Date("2022-01-01T01:27:21.369Z"),
-            id: "<value>",
-            isGranted: false,
-            isRevoked: false,
-            properties: {
-                licenseKeyId: "<value>",
-                displayKey: "<value>",
-            },
-            subscriptionId: "<value>",
-            orderId: "<value>",
-            userId: "<value>",
-            benefitId: "<value>",
-        },
-    ],
+    activations: {
+      limit: 628982,
+      enableUserAdmin: false,
+    },
+    limitUsage: 55,
+  },
+  grants: [
+    {
+      createdAt: new Date("2024-08-14T10:12:10.426Z"),
+      modifiedAt: new Date("2022-12-08T19:10:16.465Z"),
+      id: "<value>",
+      isGranted: false,
+      isRevoked: false,
+      properties: {
+        licenseKeyId: "<value>",
+        displayKey: "<value>",
+      },
+      subscriptionId: "<value>",
+      orderId: "<value>",
+      userId: "<value>",
+      benefitId: "<value>",
+    },
+  ],
 };
 ```
 

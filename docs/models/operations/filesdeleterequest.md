@@ -6,7 +6,7 @@
 import { FilesDeleteRequest } from "@polar-sh/sdk/models/operations";
 
 let value: FilesDeleteRequest = {
-    id: "<value>",
+  id: "<value>",
 };
 ```
 

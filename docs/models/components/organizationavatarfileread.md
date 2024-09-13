@@ -8,22 +8,22 @@ File to be used as an organization avatar.
 import { OrganizationAvatarFileRead } from "@polar-sh/sdk/models/components";
 
 let value: OrganizationAvatarFileRead = {
-    id: "<value>",
-    organizationId: "<value>",
-    name: "<value>",
-    path: "/usr/include",
-    mimeType: "<value>",
-    size: 373216,
-    storageVersion: "<value>",
-    checksumEtag: "<value>",
-    checksumSha256Base64: "<value>",
-    checksumSha256Hex: "<value>",
-    lastModifiedAt: new Date("2023-11-26T05:20:36.955Z"),
-    version: "<value>",
-    isUploaded: false,
-    createdAt: new Date("2022-09-02T06:12:35.444Z"),
-    sizeReadable: "<value>",
-    publicUrl: "<value>",
+  id: "<value>",
+  organizationId: "<value>",
+  name: "<value>",
+  path: "/usr/include",
+  mimeType: "<value>",
+  size: 373216,
+  storageVersion: "<value>",
+  checksumEtag: "<value>",
+  checksumSha256Base64: "<value>",
+  checksumSha256Hex: "<value>",
+  lastModifiedAt: new Date("2023-11-26T05:20:36.955Z"),
+  version: "<value>",
+  isUploaded: false,
+  createdAt: new Date("2022-09-02T06:12:35.444Z"),
+  sizeReadable: "<value>",
+  publicUrl: "<value>",
 };
 ```
 

@@ -6,7 +6,7 @@
 import { ArticleCreate } from "@polar-sh/sdk/models/components";
 
 let value: ArticleCreate = {
-    title: "<value>",
+  title: "<value>",
 };
 ```
 

@@ -6,7 +6,7 @@
 import { UserAdvertisementCampaignEnable } from "@polar-sh/sdk/models/components";
 
 let value: UserAdvertisementCampaignEnable = {
-    benefitId: "<value>",
+  benefitId: "<value>",
 };
 ```
 

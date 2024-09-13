@@ -8,30 +8,30 @@ import * as z from "zod";
  * Properties for a benefit of type `custom`.
  */
 export type BenefitCustomProperties = {
-    note: string | null;
+  note: string | null;
 };
 
 /** @internal */
 export const BenefitCustomProperties$inboundSchema: z.ZodType<
-    BenefitCustomProperties,
-    z.ZodTypeDef,
-    unknown
+  BenefitCustomProperties,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    note: z.nullable(z.string()),
+  note: z.nullable(z.string()),
 });
 
 /** @internal */
 export type BenefitCustomProperties$Outbound = {
-    note: string | null;
+  note: string | null;
 };
 
 /** @internal */
 export const BenefitCustomProperties$outboundSchema: z.ZodType<
-    BenefitCustomProperties$Outbound,
-    z.ZodTypeDef,
-    BenefitCustomProperties
+  BenefitCustomProperties$Outbound,
+  z.ZodTypeDef,
+  BenefitCustomProperties
 > = z.object({
-    note: z.nullable(z.string()),
+  note: z.nullable(z.string()),
 });
 
 /**
@@ -39,10 +39,10 @@ export const BenefitCustomProperties$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace BenefitCustomProperties$ {
-    /** @deprecated use `BenefitCustomProperties$inboundSchema` instead. */
-    export const inboundSchema = BenefitCustomProperties$inboundSchema;
-    /** @deprecated use `BenefitCustomProperties$outboundSchema` instead. */
-    export const outboundSchema = BenefitCustomProperties$outboundSchema;
-    /** @deprecated use `BenefitCustomProperties$Outbound` instead. */
-    export type Outbound = BenefitCustomProperties$Outbound;
+  /** @deprecated use `BenefitCustomProperties$inboundSchema` instead. */
+  export const inboundSchema = BenefitCustomProperties$inboundSchema;
+  /** @deprecated use `BenefitCustomProperties$outboundSchema` instead. */
+  export const outboundSchema = BenefitCustomProperties$outboundSchema;
+  /** @deprecated use `BenefitCustomProperties$Outbound` instead. */
+  export type Outbound = BenefitCustomProperties$Outbound;
 }

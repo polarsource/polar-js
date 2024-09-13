@@ -8,22 +8,22 @@ File to be used as a product media file.
 import { ProductMediaFileReadOutput } from "@polar-sh/sdk/models/components";
 
 let value: ProductMediaFileReadOutput = {
-    id: "<value>",
-    organizationId: "<value>",
-    name: "<value>",
-    path: "/var/spool",
-    mimeType: "<value>",
-    size: 455169,
-    storageVersion: "<value>",
-    checksumEtag: "<value>",
-    checksumSha256Base64: "<value>",
-    checksumSha256Hex: "<value>",
-    lastModifiedAt: new Date("2022-09-11T22:40:46.407Z"),
-    version: "<value>",
-    isUploaded: false,
-    createdAt: new Date("2024-08-21T05:47:22.603Z"),
-    sizeReadable: "<value>",
-    publicUrl: "<value>",
+  id: "<value>",
+  organizationId: "<value>",
+  name: "<value>",
+  path: "/private",
+  mimeType: "<value>",
+  size: 231701,
+  storageVersion: "<value>",
+  checksumEtag: "<value>",
+  checksumSha256Base64: "<value>",
+  checksumSha256Hex: "<value>",
+  lastModifiedAt: new Date("2024-08-21T05:47:22.603Z"),
+  version: "<value>",
+  isUploaded: false,
+  createdAt: new Date("2024-11-06T10:52:56.237Z"),
+  sizeReadable: "<value>",
+  publicUrl: "<value>",
 };
 ```
 

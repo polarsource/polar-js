@@ -51,7 +51,7 @@ const polar = new PolarCore({
 async function run() {
   const res = await checkoutsCreate(polar, {
     productPriceId: "<value>",
-    successUrl: "http://yummy-shift.info",
+    successUrl: "http://limp-pastry.org",
   });
 
   if (!res.ok) {

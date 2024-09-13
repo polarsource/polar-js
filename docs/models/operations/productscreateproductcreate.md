@@ -6,13 +6,12 @@
 import { ProductsCreateProductCreate } from "@polar-sh/sdk/models/operations";
 
 let value: ProductsCreateProductCreate = {
-    name: "<value>",
-    prices: [
-        {
-            recurringInterval: "month",
-            priceAmount: 919483,
-        },
-    ],
+  name: "<value>",
+  prices: [
+    {
+      priceAmount: 352312,
+    },
+  ],
 };
 ```
 

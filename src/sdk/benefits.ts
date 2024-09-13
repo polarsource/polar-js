@@ -14,87 +14,111 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Benefits extends ClientSDK {
-    /**
-     * List Benefits
-     *
-     * @remarks
-     * List benefits.
-     */
-    async list(
-        request: operations.BenefitsListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.BenefitsListResponse>> {
-        return unwrapResultIterator(benefitsList(this, request, options));
-    }
+  /**
+   * List Benefits
+   *
+   * @remarks
+   * List benefits.
+   */
+  async list(
+    request: operations.BenefitsListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.BenefitsListResponse>> {
+    return unwrapResultIterator(benefitsList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Create Benefit
-     *
-     * @remarks
-     * Create a benefit.
-     */
-    async create(
-        request: operations.BenefitsCreateBenefitCreate,
-        options?: RequestOptions
-    ): Promise<operations.BenefitsCreateResponseBenefitsCreate> {
-        return unwrapAsync(benefitsCreate(this, request, options));
-    }
+  /**
+   * Create Benefit
+   *
+   * @remarks
+   * Create a benefit.
+   */
+  async create(
+    request: operations.BenefitsCreateBenefitCreate,
+    options?: RequestOptions,
+  ): Promise<operations.BenefitsCreateResponseBenefitsCreate> {
+    return unwrapAsync(benefitsCreate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Benefit
-     *
-     * @remarks
-     * Get a benefit by ID.
-     */
-    async get(
-        request: operations.BenefitsGetRequest,
-        options?: RequestOptions
-    ): Promise<operations.BenefitsGetResponseBenefitsGet> {
-        return unwrapAsync(benefitsGet(this, request, options));
-    }
+  /**
+   * Get Benefit
+   *
+   * @remarks
+   * Get a benefit by ID.
+   */
+  async get(
+    request: operations.BenefitsGetRequest,
+    options?: RequestOptions,
+  ): Promise<operations.BenefitsGetResponseBenefitsGet> {
+    return unwrapAsync(benefitsGet(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Update Benefit
-     *
-     * @remarks
-     * Update a benefit.
-     */
-    async update(
-        request: operations.BenefitsUpdateRequest,
-        options?: RequestOptions
-    ): Promise<operations.BenefitsUpdateResponseBenefitsUpdate> {
-        return unwrapAsync(benefitsUpdate(this, request, options));
-    }
+  /**
+   * Update Benefit
+   *
+   * @remarks
+   * Update a benefit.
+   */
+  async update(
+    request: operations.BenefitsUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<operations.BenefitsUpdateResponseBenefitsUpdate> {
+    return unwrapAsync(benefitsUpdate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Delete Benefit
-     *
-     * @remarks
-     * Delete a benefit.
-     *
-     * > [!WARNING]
-     * > Every grants associated with the benefit will be revoked.
-     * > Users will lose access to the benefit.
-     */
-    async delete(
-        request: operations.BenefitsDeleteRequest,
-        options?: RequestOptions
-    ): Promise<void> {
-        return unwrapAsync(benefitsDelete(this, request, options));
-    }
+  /**
+   * Delete Benefit
+   *
+   * @remarks
+   * Delete a benefit.
+   *
+   * > [!WARNING]
+   * > Every grants associated with the benefit will be revoked.
+   * > Users will lose access to the benefit.
+   */
+  async delete(
+    request: operations.BenefitsDeleteRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(benefitsDelete(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * List Benefit Grants
-     *
-     * @remarks
-     * List the individual grants for a benefit.
-     *
-     * It's especially useful to check if a user has been granted a benefit.
-     */
-    async grants(
-        request: operations.BenefitsGrantsRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.BenefitsGrantsResponse>> {
-        return unwrapResultIterator(benefitsGrants(this, request, options));
-    }
+  /**
+   * List Benefit Grants
+   *
+   * @remarks
+   * List the individual grants for a benefit.
+   *
+   * It's especially useful to check if a user has been granted a benefit.
+   */
+  async grants(
+    request: operations.BenefitsGrantsRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.BenefitsGrantsResponse>> {
+    return unwrapResultIterator(benefitsGrants(
+      this,
+      request,
+      options,
+    ));
+  }
 }

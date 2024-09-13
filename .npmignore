@@ -7,3 +7,4 @@
 /cjs
 /.tshy
 /.tshy-*
+/__tests__

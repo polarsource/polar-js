@@ -8,8 +8,8 @@ Request schema for creating a subscription by email.
 import { SubscriptionCreateEmail } from "@polar-sh/sdk/models/components";
 
 let value: SubscriptionCreateEmail = {
-    email: "Isabella51@gmail.com",
-    productId: "<value>",
+  email: "Isabella51@gmail.com",
+  productId: "<value>",
 };
 ```
 

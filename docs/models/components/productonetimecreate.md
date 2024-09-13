@@ -8,12 +8,12 @@ Schema to create a one-time product.
 import { ProductOneTimeCreate } from "@polar-sh/sdk/models/components";
 
 let value: ProductOneTimeCreate = {
-    name: "<value>",
-    prices: [
-        {
-            priceAmount: 871083,
-        },
-    ],
+  name: "<value>",
+  prices: [
+    {
+      priceAmount: 773084,
+    },
+  ],
 };
 ```
 

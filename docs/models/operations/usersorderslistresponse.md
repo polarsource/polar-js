@@ -6,13 +6,13 @@
 import { UsersOrdersListResponse } from "@polar-sh/sdk/models/operations";
 
 let value: UsersOrdersListResponse = {
-    result: {
-        items: [],
-        pagination: {
-            totalCount: 20218,
-            maxPage: 368241,
-        },
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 20218,
+      maxPage: 368241,
     },
+  },
 };
 ```
 

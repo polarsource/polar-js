@@ -11,29 +11,37 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Advertisements extends ClientSDK {
-    /**
-     * List Campaigns
-     *
-     * @remarks
-     * List active advertisement campaigns for a benefit.
-     */
-    async list(
-        request: operations.AdvertisementsListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.AdvertisementsListResponse>> {
-        return unwrapResultIterator(advertisementsList(this, request, options));
-    }
+  /**
+   * List Campaigns
+   *
+   * @remarks
+   * List active advertisement campaigns for a benefit.
+   */
+  async list(
+    request: operations.AdvertisementsListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.AdvertisementsListResponse>> {
+    return unwrapResultIterator(advertisementsList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Campaign
-     *
-     * @remarks
-     * Get an advertisement campaign by ID.
-     */
-    async get(
-        request: operations.AdvertisementsGetRequest,
-        options?: RequestOptions
-    ): Promise<components.AdvertisementCampaign> {
-        return unwrapAsync(advertisementsGet(this, request, options));
-    }
+  /**
+   * Get Campaign
+   *
+   * @remarks
+   * Get an advertisement campaign by ID.
+   */
+  async get(
+    request: operations.AdvertisementsGetRequest,
+    options?: RequestOptions,
+  ): Promise<components.AdvertisementCampaign> {
+    return unwrapAsync(advertisementsGet(
+      this,
+      request,
+      options,
+    ));
+  }
 }

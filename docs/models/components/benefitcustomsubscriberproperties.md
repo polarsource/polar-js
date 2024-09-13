@@ -8,7 +8,7 @@ Properties available to subscribers for a benefit of type `custom`.
 import { BenefitCustomSubscriberProperties } from "@polar-sh/sdk/models/components";
 
 let value: BenefitCustomSubscriberProperties = {
-    note: "<value>",
+  note: "<value>",
 };
 ```
 

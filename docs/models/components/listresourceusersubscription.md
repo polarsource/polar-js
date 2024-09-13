@@ -6,11 +6,11 @@
 import { ListResourceUserSubscription } from "@polar-sh/sdk/models/components";
 
 let value: ListResourceUserSubscription = {
-    items: [],
-    pagination: {
-        totalCount: 347233,
-        maxPage: 862310,
-    },
+  items: [],
+  pagination: {
+    totalCount: 862310,
+    maxPage: 148141,
+  },
 };
 ```
 

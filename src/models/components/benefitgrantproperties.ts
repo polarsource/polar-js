@@ -11,9 +11,9 @@ export type BenefitGrantProperties = {};
 
 /** @internal */
 export const BenefitGrantProperties$inboundSchema: z.ZodType<
-    BenefitGrantProperties,
-    z.ZodTypeDef,
-    unknown
+  BenefitGrantProperties,
+  z.ZodTypeDef,
+  unknown
 > = z.object({});
 
 /** @internal */
@@ -21,9 +21,9 @@ export type BenefitGrantProperties$Outbound = {};
 
 /** @internal */
 export const BenefitGrantProperties$outboundSchema: z.ZodType<
-    BenefitGrantProperties$Outbound,
-    z.ZodTypeDef,
-    BenefitGrantProperties
+  BenefitGrantProperties$Outbound,
+  z.ZodTypeDef,
+  BenefitGrantProperties
 > = z.object({});
 
 /**
@@ -31,10 +31,10 @@ export const BenefitGrantProperties$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace BenefitGrantProperties$ {
-    /** @deprecated use `BenefitGrantProperties$inboundSchema` instead. */
-    export const inboundSchema = BenefitGrantProperties$inboundSchema;
-    /** @deprecated use `BenefitGrantProperties$outboundSchema` instead. */
-    export const outboundSchema = BenefitGrantProperties$outboundSchema;
-    /** @deprecated use `BenefitGrantProperties$Outbound` instead. */
-    export type Outbound = BenefitGrantProperties$Outbound;
+  /** @deprecated use `BenefitGrantProperties$inboundSchema` instead. */
+  export const inboundSchema = BenefitGrantProperties$inboundSchema;
+  /** @deprecated use `BenefitGrantProperties$outboundSchema` instead. */
+  export const outboundSchema = BenefitGrantProperties$outboundSchema;
+  /** @deprecated use `BenefitGrantProperties$Outbound` instead. */
+  export type Outbound = BenefitGrantProperties$Outbound;
 }

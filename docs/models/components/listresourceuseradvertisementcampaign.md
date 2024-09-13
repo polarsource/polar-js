@@ -6,24 +6,24 @@
 import { ListResourceUserAdvertisementCampaign } from "@polar-sh/sdk/models/components";
 
 let value: ListResourceUserAdvertisementCampaign = {
-    items: [
-        {
-            createdAt: new Date("2024-04-04T08:08:46.901Z"),
-            modifiedAt: new Date("2023-09-03T21:01:42.820Z"),
-            id: "<value>",
-            userId: "<value>",
-            views: 829603,
-            clicks: 860552,
-            imageUrl: "http://scrawny-booty.biz",
-            imageUrlDark: "http://compassionate-network.com",
-            text: "<value>",
-            linkUrl: "http://formal-keystone.biz",
-        },
-    ],
-    pagination: {
-        totalCount: 458515,
-        maxPage: 456141,
+  items: [
+    {
+      createdAt: new Date("2023-09-03T21:01:42.820Z"),
+      modifiedAt: new Date("2024-06-28T05:51:26.565Z"),
+      id: "<value>",
+      userId: "<value>",
+      views: 860552,
+      clicks: 379034,
+      imageUrl: "https://bulky-disposer.biz",
+      imageUrlDark: "http://optimistic-avenue.info",
+      text: "<value>",
+      linkUrl: "http://likely-dignity.info",
     },
+  ],
+  pagination: {
+    totalCount: 456141,
+    maxPage: 524593,
+  },
 };
 ```
 

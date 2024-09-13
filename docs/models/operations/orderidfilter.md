@@ -7,7 +7,9 @@ Filter by order ID.
 ```typescript
 import { OrderIDFilter } from "@polar-sh/sdk/models/operations";
 
-let value: OrderIDFilter = ["<value>"];
+let value: OrderIDFilter = [
+  "<value>",
+];
 ```
 
 ## Supported Types

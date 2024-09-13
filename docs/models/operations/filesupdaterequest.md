@@ -6,8 +6,8 @@
 import { FilesUpdateRequest } from "@polar-sh/sdk/models/operations";
 
 let value: FilesUpdateRequest = {
-    id: "<value>",
-    filePatch: {},
+  id: "<value>",
+  filePatch: {},
 };
 ```
 

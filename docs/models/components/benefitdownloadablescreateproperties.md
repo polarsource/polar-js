@@ -6,7 +6,9 @@
 import { BenefitDownloadablesCreateProperties } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDownloadablesCreateProperties = {
-    files: ["<value>"],
+  files: [
+    "<value>",
+  ],
 };
 ```
 

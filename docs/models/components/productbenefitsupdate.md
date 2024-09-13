@@ -8,7 +8,9 @@ Schema to update the benefits granted by a product.
 import { ProductBenefitsUpdate } from "@polar-sh/sdk/models/components";
 
 let value: ProductBenefitsUpdate = {
-    benefits: ["<value>"],
+  benefits: [
+    "<value>",
+  ],
 };
 ```
 

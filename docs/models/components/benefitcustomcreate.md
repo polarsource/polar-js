@@ -8,11 +8,11 @@ Schema to create a benefit of type `custom`.
 import { BenefitCustomCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitCustomCreate = {
-    description: "Proactive content-based success",
-    isTaxApplicable: false,
-    properties: {
-        note: "<value>",
-    },
+  description: "Proactive content-based success",
+  isTaxApplicable: false,
+  properties: {
+    note: "<value>",
+  },
 };
 ```
 

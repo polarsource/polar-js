@@ -6,27 +6,27 @@
 import { LicenseKeyActivationRead } from "@polar-sh/sdk/models/components";
 
 let value: LicenseKeyActivationRead = {
+  id: "<value>",
+  licenseKeyId: "<value>",
+  label: "<value>",
+  meta: {},
+  createdAt: new Date("2024-03-12T14:40:32.434Z"),
+  modifiedAt: new Date("2022-09-21T01:29:35.807Z"),
+  licenseKey: {
     id: "<value>",
-    licenseKeyId: "<value>",
-    label: "<value>",
-    meta: {},
-    createdAt: new Date("2023-11-29T02:57:00.110Z"),
-    modifiedAt: new Date("2024-03-12T14:40:32.434Z"),
-    licenseKey: {
-        id: "<value>",
-        organizationId: "<value>",
-        userId: "<value>",
-        benefitId: "<value>",
-        key: "<key>",
-        displayKey: "<value>",
-        status: "granted",
-        limitActivations: 766964,
-        usage: 160538,
-        limitUsage: 9766,
-        validations: 796392,
-        lastValidatedAt: new Date("2022-12-04T21:09:33.258Z"),
-        expiresAt: new Date("2024-11-17T05:55:05.965Z"),
-    },
+    organizationId: "<value>",
+    userId: "<value>",
+    benefitId: "<value>",
+    key: "<key>",
+    displayKey: "<value>",
+    status: "disabled",
+    limitActivations: 160538,
+    usage: 9766,
+    limitUsage: 796392,
+    validations: 308286,
+    lastValidatedAt: new Date("2024-11-17T05:55:05.965Z"),
+    expiresAt: new Date("2022-09-13T05:17:36.403Z"),
+  },
 };
 ```
 

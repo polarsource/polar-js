@@ -6,29 +6,29 @@
 import { LicenseKeysListResponse } from "@polar-sh/sdk/models/operations";
 
 let value: LicenseKeysListResponse = {
-    result: {
-        items: [
-            {
-                id: "<value>",
-                organizationId: "<value>",
-                userId: "<value>",
-                benefitId: "<value>",
-                key: "<key>",
-                displayKey: "<value>",
-                status: "revoked",
-                limitActivations: 50370,
-                usage: 577229,
-                limitUsage: 699098,
-                validations: 237893,
-                lastValidatedAt: new Date("2024-12-23T15:59:41.249Z"),
-                expiresAt: new Date("2024-10-20T21:33:54.368Z"),
-            },
-        ],
-        pagination: {
-            totalCount: 267262,
-            maxPage: 613966,
-        },
+  result: {
+    items: [
+      {
+        id: "<value>",
+        organizationId: "<value>",
+        userId: "<value>",
+        benefitId: "<value>",
+        key: "<key>",
+        displayKey: "<value>",
+        status: "revoked",
+        limitActivations: 699098,
+        usage: 237893,
+        limitUsage: 992397,
+        validations: 934214,
+        lastValidatedAt: new Date("2022-10-20T22:04:25.300Z"),
+        expiresAt: new Date("2023-11-04T21:45:37.496Z"),
+      },
+    ],
+    pagination: {
+      totalCount: 679091,
+      maxPage: 535633,
     },
+  },
 };
 ```
 

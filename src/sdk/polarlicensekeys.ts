@@ -14,65 +14,85 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class PolarLicenseKeys extends ClientSDK {
-    /**
-     * List License Keys
-     */
-    async list(
-        request: operations.UsersLicenseKeysListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.UsersLicenseKeysListResponse>> {
-        return unwrapResultIterator(usersLicenseKeysList(this, request, options));
-    }
+  /**
+   * List License Keys
+   */
+  async list(
+    request: operations.UsersLicenseKeysListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.UsersLicenseKeysListResponse>> {
+    return unwrapResultIterator(usersLicenseKeysList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get License Key
-     *
-     * @remarks
-     * Get a license key.
-     */
-    async get(
-        request: operations.UsersLicenseKeysGetRequest,
-        options?: RequestOptions
-    ): Promise<components.LicenseKeyWithActivations> {
-        return unwrapAsync(usersLicenseKeysGet(this, request, options));
-    }
+  /**
+   * Get License Key
+   *
+   * @remarks
+   * Get a license key.
+   */
+  async get(
+    request: operations.UsersLicenseKeysGetRequest,
+    options?: RequestOptions,
+  ): Promise<components.LicenseKeyWithActivations> {
+    return unwrapAsync(usersLicenseKeysGet(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Validate License Key
-     *
-     * @remarks
-     * Validate a license key.
-     */
-    async validate(
-        request: components.LicenseKeyValidate,
-        options?: RequestOptions
-    ): Promise<components.ValidatedLicenseKey> {
-        return unwrapAsync(usersLicenseKeysValidate(this, request, options));
-    }
+  /**
+   * Validate License Key
+   *
+   * @remarks
+   * Validate a license key.
+   */
+  async validate(
+    request: components.LicenseKeyValidate,
+    options?: RequestOptions,
+  ): Promise<components.ValidatedLicenseKey> {
+    return unwrapAsync(usersLicenseKeysValidate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Activate License Key
-     *
-     * @remarks
-     * Activate a license key instance.
-     */
-    async activate(
-        request: components.LicenseKeyActivate,
-        options?: RequestOptions
-    ): Promise<components.LicenseKeyActivationRead> {
-        return unwrapAsync(usersLicenseKeysActivate(this, request, options));
-    }
+  /**
+   * Activate License Key
+   *
+   * @remarks
+   * Activate a license key instance.
+   */
+  async activate(
+    request: components.LicenseKeyActivate,
+    options?: RequestOptions,
+  ): Promise<components.LicenseKeyActivationRead> {
+    return unwrapAsync(usersLicenseKeysActivate(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Deactivate License Key
-     *
-     * @remarks
-     * Deactivate a license key instance.
-     */
-    async deactivate(
-        request: components.LicenseKeyDeactivate,
-        options?: RequestOptions
-    ): Promise<void> {
-        return unwrapAsync(usersLicenseKeysDeactivate(this, request, options));
-    }
+  /**
+   * Deactivate License Key
+   *
+   * @remarks
+   * Deactivate a license key instance.
+   */
+  async deactivate(
+    request: components.LicenseKeyDeactivate,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(usersLicenseKeysDeactivate(
+      this,
+      request,
+      options,
+    ));
+  }
 }

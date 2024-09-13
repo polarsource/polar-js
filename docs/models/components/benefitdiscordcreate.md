@@ -6,11 +6,11 @@
 import { BenefitDiscordCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordCreate = {
-    description: "Up-sized high-level matrices",
-    properties: {
-        guildToken: "<value>",
-        roleId: "<value>",
-    },
+  description: "Up-sized high-level matrices",
+  properties: {
+    guildToken: "<value>",
+    roleId: "<value>",
+  },
 };
 ```
 

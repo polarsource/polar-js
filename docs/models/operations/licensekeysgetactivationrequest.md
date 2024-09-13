@@ -6,8 +6,8 @@
 import { LicenseKeysGetActivationRequest } from "@polar-sh/sdk/models/operations";
 
 let value: LicenseKeysGetActivationRequest = {
-    id: "<value>",
-    activationId: "<value>",
+  id: "<value>",
+  activationId: "<value>",
 };
 ```
 

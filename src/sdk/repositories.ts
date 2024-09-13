@@ -12,42 +12,54 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Repositories extends ClientSDK {
-    /**
-     * List Repositories
-     *
-     * @remarks
-     * List repositories.
-     */
-    async list(
-        request: operations.RepositoriesListRequest,
-        options?: RequestOptions
-    ): Promise<PageIterator<operations.RepositoriesListResponse>> {
-        return unwrapResultIterator(repositoriesList(this, request, options));
-    }
+  /**
+   * List Repositories
+   *
+   * @remarks
+   * List repositories.
+   */
+  async list(
+    request: operations.RepositoriesListRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.RepositoriesListResponse>> {
+    return unwrapResultIterator(repositoriesList(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get Repository
-     *
-     * @remarks
-     * Get a repository by ID.
-     */
-    async get(
-        request: operations.RepositoriesGetRequest,
-        options?: RequestOptions
-    ): Promise<components.RepositoryOutput> {
-        return unwrapAsync(repositoriesGet(this, request, options));
-    }
+  /**
+   * Get Repository
+   *
+   * @remarks
+   * Get a repository by ID.
+   */
+  async get(
+    request: operations.RepositoriesGetRequest,
+    options?: RequestOptions,
+  ): Promise<components.RepositoryOutput> {
+    return unwrapAsync(repositoriesGet(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Update Repository
-     *
-     * @remarks
-     * Update a repository.
-     */
-    async update(
-        request: operations.RepositoriesUpdateRequest,
-        options?: RequestOptions
-    ): Promise<components.RepositoryOutput> {
-        return unwrapAsync(repositoriesUpdate(this, request, options));
-    }
+  /**
+   * Update Repository
+   *
+   * @remarks
+   * Update a repository.
+   */
+  async update(
+    request: operations.RepositoriesUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<components.RepositoryOutput> {
+    return unwrapAsync(repositoriesUpdate(
+      this,
+      request,
+      options,
+    ));
+  }
 }
