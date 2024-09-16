@@ -39,3 +39,13 @@ Based on:
 - [typescript v0.8.0] .
 ### Releases
 - [NPM v0.8.0] https://www.npmjs.com/package/@polar-sh/sdk/v/0.8.0 - .
+
+## 2024-09-16 00:26:12
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.396.9 (2.415.7) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.8.1] .
+### Releases
+- [NPM v0.8.1] https://www.npmjs.com/package/@polar-sh/sdk/v/0.8.1 - .
