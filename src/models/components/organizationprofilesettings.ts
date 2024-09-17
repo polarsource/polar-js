@@ -13,6 +13,10 @@ import {
 
 export type OrganizationProfileSettings = {
   /**
+   * If this organization has a profile enabled
+   */
+  enabled?: boolean | null | undefined;
+  /**
    * A description of the organization
    */
   description?: string | null | undefined;
@@ -32,6 +36,10 @@ export type OrganizationProfileSettings = {
    * Subscription promotion settings
    */
   subscribe?: OrganizationSubscribePromoteSettings | null | undefined;
+  /**
+   * Accent color for the organization
+   */
+  accentColor?: string | null | undefined;
 };
 
 /** @internal */
@@ -40,26 +48,31 @@ export const OrganizationProfileSettings$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  enabled: z.nullable(z.boolean()).optional(),
   description: z.nullable(z.string()).optional(),
   featured_projects: z.nullable(z.array(z.string())).optional(),
   featured_organizations: z.nullable(z.array(z.string())).optional(),
   links: z.nullable(z.array(z.string())).optional(),
   subscribe: z.nullable(OrganizationSubscribePromoteSettings$inboundSchema)
     .optional(),
+  accent_color: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "featured_projects": "featuredProjects",
     "featured_organizations": "featuredOrganizations",
+    "accent_color": "accentColor",
   });
 });
 
 /** @internal */
 export type OrganizationProfileSettings$Outbound = {
+  enabled?: boolean | null | undefined;
   description?: string | null | undefined;
   featured_projects?: Array<string> | null | undefined;
   featured_organizations?: Array<string> | null | undefined;
   links?: Array<string> | null | undefined;
   subscribe?: OrganizationSubscribePromoteSettings$Outbound | null | undefined;
+  accent_color?: string | null | undefined;
 };
 
 /** @internal */
@@ -68,16 +81,19 @@ export const OrganizationProfileSettings$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   OrganizationProfileSettings
 > = z.object({
+  enabled: z.nullable(z.boolean()).optional(),
   description: z.nullable(z.string()).optional(),
   featuredProjects: z.nullable(z.array(z.string())).optional(),
   featuredOrganizations: z.nullable(z.array(z.string())).optional(),
   links: z.nullable(z.array(z.string())).optional(),
   subscribe: z.nullable(OrganizationSubscribePromoteSettings$outboundSchema)
     .optional(),
+  accentColor: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     featuredProjects: "featured_projects",
     featuredOrganizations: "featured_organizations",
+    accentColor: "accent_color",
   });
 });
 
