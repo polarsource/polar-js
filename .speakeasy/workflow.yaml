@@ -7,6 +7,7 @@ sources:
         overlays:
             - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/security.yml
             - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/type_parameter.yml
+            - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/product_price_discriminator.yml
         registry:
             location: registry.speakeasyapi.dev/polar/polar/polar-oas
 targets:
