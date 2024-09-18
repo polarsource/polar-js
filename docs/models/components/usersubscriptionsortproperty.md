@@ -5,11 +5,11 @@
 ```typescript
 import { UserSubscriptionSortProperty } from "@polar-sh/sdk/models/components";
 
-let value: UserSubscriptionSortProperty = "-organization";
+let value: UserSubscriptionSortProperty = "product";
 ```
 
 ## Values
 
 ```typescript
-"started_at" | "-started_at" | "price_amount" | "-price_amount" | "status" | "-status" | "organization" | "-organization" | "product" | "-product"
+"started_at" | "-started_at" | "amount" | "-amount" | "status" | "-status" | "organization" | "-organization" | "product" | "-product"
 ```

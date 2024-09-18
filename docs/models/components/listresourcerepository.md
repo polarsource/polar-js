@@ -8,8 +8,8 @@ import { ListResourceRepository } from "@polar-sh/sdk/models/components";
 let value: ListResourceRepository = {
   items: [],
   pagination: {
-    totalCount: 618480,
-    maxPage: 244651,
+    totalCount: 401259,
+    maxPage: 536275,
   },
 };
 ```

@@ -7,7 +7,9 @@ Filter by product price type. `recurring` will filter data corresponding to subs
 ```typescript
 import { MetricsGetQueryParamProductPriceTypeFilter } from "@polar-sh/sdk/models/operations";
 
-let value: MetricsGetQueryParamProductPriceTypeFilter = "recurring";
+let value: MetricsGetQueryParamProductPriceTypeFilter = [
+  "recurring",
+];
 ```
 
 ## Supported Types

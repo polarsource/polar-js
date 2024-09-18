@@ -5,6 +5,11 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
+  SubscriptionRecurringInterval,
+  SubscriptionRecurringInterval$inboundSchema,
+  SubscriptionRecurringInterval$outboundSchema,
+} from "./subscriptionrecurringinterval.js";
+import {
   SubscriptionStatus,
   SubscriptionStatus$inboundSchema,
   SubscriptionStatus$outboundSchema,
@@ -23,6 +28,9 @@ export type UserOrderSubscription = {
    * The ID of the object.
    */
   id: string;
+  amount: number | null;
+  currency: string | null;
+  recurringInterval: SubscriptionRecurringInterval;
   status: SubscriptionStatus;
   currentPeriodStart: Date;
   currentPeriodEnd: Date | null;
@@ -45,6 +53,9 @@ export const UserOrderSubscription$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
+  amount: z.nullable(z.number().int()),
+  currency: z.nullable(z.string()),
+  recurring_interval: SubscriptionRecurringInterval$inboundSchema,
   status: SubscriptionStatus$inboundSchema,
   current_period_start: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
@@ -66,6 +77,7 @@ export const UserOrderSubscription$inboundSchema: z.ZodType<
   return remap$(v, {
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
+    "recurring_interval": "recurringInterval",
     "current_period_start": "currentPeriodStart",
     "current_period_end": "currentPeriodEnd",
     "cancel_at_period_end": "cancelAtPeriodEnd",
@@ -82,6 +94,9 @@ export type UserOrderSubscription$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
+  amount: number | null;
+  currency: string | null;
+  recurring_interval: string;
   status: string;
   current_period_start: string;
   current_period_end: string | null;
@@ -102,6 +117,9 @@ export const UserOrderSubscription$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
+  amount: z.nullable(z.number().int()),
+  currency: z.nullable(z.string()),
+  recurringInterval: SubscriptionRecurringInterval$outboundSchema,
   status: SubscriptionStatus$outboundSchema,
   currentPeriodStart: z.date().transform(v => v.toISOString()),
   currentPeriodEnd: z.nullable(z.date().transform(v => v.toISOString())),
@@ -115,6 +133,7 @@ export const UserOrderSubscription$outboundSchema: z.ZodType<
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
+    recurringInterval: "recurring_interval",
     currentPeriodStart: "current_period_start",
     currentPeriodEnd: "current_period_end",
     cancelAtPeriodEnd: "cancel_at_period_end",

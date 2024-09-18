@@ -13,16 +13,17 @@ let value: FilesUpdateResponseFilesUpdate = {
   name: "<value>",
   path: "/usr/share",
   mimeType: "<value>",
-  size: 345352,
+  size: 37559,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-10-31T18:07:33.348Z"),
+  lastModifiedAt: new Date("2022-06-28T02:12:50.639Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2024-10-14T04:15:01.160Z"),
+  createdAt: new Date("2023-07-12T02:43:46.575Z"),
   sizeReadable: "<value>",
+  publicUrl: "<value>",
 };
 ```
 

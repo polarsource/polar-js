@@ -9,7 +9,7 @@ let value: ProductsCreateProductCreate = {
   name: "<value>",
   prices: [
     {
-      priceAmount: 352312,
+      priceAmount: 653201,
     },
   ],
 };

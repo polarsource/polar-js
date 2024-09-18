@@ -6,10 +6,10 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  ProductPriceRecurringInterval,
-  ProductPriceRecurringInterval$inboundSchema,
-  ProductPriceRecurringInterval$outboundSchema,
-} from "./productpricerecurringinterval.js";
+  SubscriptionRecurringInterval,
+  SubscriptionRecurringInterval$inboundSchema,
+  SubscriptionRecurringInterval$outboundSchema,
+} from "./subscriptionrecurringinterval.js";
 
 export const ProductPriceRecurringCreateType = {
   Recurring: "recurring",
@@ -24,17 +24,17 @@ export type ProductPriceRecurringCreateType = ClosedEnum<
 export type ProductPriceRecurringCreate = {
   type?: "recurring" | undefined;
   /**
-   * The recurring interval of the price.
+   * The currency. Currently, only `usd` is supported.
    */
-  recurringInterval: ProductPriceRecurringInterval;
+  priceCurrency?: string | undefined;
   /**
    * The price in cents.
    */
   priceAmount: number;
   /**
-   * The currency. Currently, only `usd` is supported.
+   * The recurring interval of the price.
    */
-  priceCurrency?: string | undefined;
+  recurringInterval: SubscriptionRecurringInterval;
 };
 
 /** @internal */
@@ -65,23 +65,23 @@ export const ProductPriceRecurringCreate$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("recurring").optional(),
-  recurring_interval: ProductPriceRecurringInterval$inboundSchema,
-  price_amount: z.number().int(),
   price_currency: z.string().default("usd"),
+  price_amount: z.number().int(),
+  recurring_interval: SubscriptionRecurringInterval$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
-    "recurring_interval": "recurringInterval",
-    "price_amount": "priceAmount",
     "price_currency": "priceCurrency",
+    "price_amount": "priceAmount",
+    "recurring_interval": "recurringInterval",
   });
 });
 
 /** @internal */
 export type ProductPriceRecurringCreate$Outbound = {
   type: "recurring";
-  recurring_interval: string;
-  price_amount: number;
   price_currency: string;
+  price_amount: number;
+  recurring_interval: string;
 };
 
 /** @internal */
@@ -91,14 +91,14 @@ export const ProductPriceRecurringCreate$outboundSchema: z.ZodType<
   ProductPriceRecurringCreate
 > = z.object({
   type: z.literal("recurring").default("recurring"),
-  recurringInterval: ProductPriceRecurringInterval$outboundSchema,
-  priceAmount: z.number().int(),
   priceCurrency: z.string().default("usd"),
+  priceAmount: z.number().int(),
+  recurringInterval: SubscriptionRecurringInterval$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
-    recurringInterval: "recurring_interval",
-    priceAmount: "price_amount",
     priceCurrency: "price_currency",
+    priceAmount: "price_amount",
+    recurringInterval: "recurring_interval",
   });
 });
 

@@ -11,11 +11,17 @@ import {
   ExistingProductPrice$outboundSchema,
 } from "./existingproductprice.js";
 import {
-  ProductPriceOneTimeCreate,
-  ProductPriceOneTimeCreate$inboundSchema,
-  ProductPriceOneTimeCreate$Outbound,
-  ProductPriceOneTimeCreate$outboundSchema,
-} from "./productpriceonetimecreate.js";
+  ProductPriceOneTimeCustomCreate,
+  ProductPriceOneTimeCustomCreate$inboundSchema,
+  ProductPriceOneTimeCustomCreate$Outbound,
+  ProductPriceOneTimeCustomCreate$outboundSchema,
+} from "./productpriceonetimecustomcreate.js";
+import {
+  ProductPriceOneTimeFixedCreate,
+  ProductPriceOneTimeFixedCreate$inboundSchema,
+  ProductPriceOneTimeFixedCreate$Outbound,
+  ProductPriceOneTimeFixedCreate$outboundSchema,
+} from "./productpriceonetimefixedcreate.js";
 import {
   ProductPriceRecurringCreate,
   ProductPriceRecurringCreate$inboundSchema,
@@ -23,10 +29,11 @@ import {
   ProductPriceRecurringCreate$outboundSchema,
 } from "./productpricerecurringcreate.js";
 
-export type Prices =
+export type ProductUpdatePrices =
   | ExistingProductPrice
-  | ProductPriceOneTimeCreate
-  | ProductPriceRecurringCreate;
+  | ProductPriceOneTimeFixedCreate
+  | ProductPriceRecurringCreate
+  | ProductPriceOneTimeCustomCreate;
 
 /**
  * Schema to update a product.
@@ -51,8 +58,9 @@ export type ProductUpdate = {
   prices?:
     | Array<
       | ExistingProductPrice
-      | ProductPriceOneTimeCreate
+      | ProductPriceOneTimeFixedCreate
       | ProductPriceRecurringCreate
+      | ProductPriceOneTimeCustomCreate
     >
     | null
     | undefined;
@@ -63,41 +71,47 @@ export type ProductUpdate = {
 };
 
 /** @internal */
-export const Prices$inboundSchema: z.ZodType<Prices, z.ZodTypeDef, unknown> = z
-  .union([
-    ExistingProductPrice$inboundSchema,
-    ProductPriceOneTimeCreate$inboundSchema,
-    ProductPriceRecurringCreate$inboundSchema,
-  ]);
-
-/** @internal */
-export type Prices$Outbound =
-  | ExistingProductPrice$Outbound
-  | ProductPriceOneTimeCreate$Outbound
-  | ProductPriceRecurringCreate$Outbound;
-
-/** @internal */
-export const Prices$outboundSchema: z.ZodType<
-  Prices$Outbound,
+export const ProductUpdatePrices$inboundSchema: z.ZodType<
+  ProductUpdatePrices,
   z.ZodTypeDef,
-  Prices
+  unknown
+> = z.union([
+  ExistingProductPrice$inboundSchema,
+  ProductPriceOneTimeFixedCreate$inboundSchema,
+  ProductPriceRecurringCreate$inboundSchema,
+  ProductPriceOneTimeCustomCreate$inboundSchema,
+]);
+
+/** @internal */
+export type ProductUpdatePrices$Outbound =
+  | ExistingProductPrice$Outbound
+  | ProductPriceOneTimeFixedCreate$Outbound
+  | ProductPriceRecurringCreate$Outbound
+  | ProductPriceOneTimeCustomCreate$Outbound;
+
+/** @internal */
+export const ProductUpdatePrices$outboundSchema: z.ZodType<
+  ProductUpdatePrices$Outbound,
+  z.ZodTypeDef,
+  ProductUpdatePrices
 > = z.union([
   ExistingProductPrice$outboundSchema,
-  ProductPriceOneTimeCreate$outboundSchema,
+  ProductPriceOneTimeFixedCreate$outboundSchema,
   ProductPriceRecurringCreate$outboundSchema,
+  ProductPriceOneTimeCustomCreate$outboundSchema,
 ]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Prices$ {
-  /** @deprecated use `Prices$inboundSchema` instead. */
-  export const inboundSchema = Prices$inboundSchema;
-  /** @deprecated use `Prices$outboundSchema` instead. */
-  export const outboundSchema = Prices$outboundSchema;
-  /** @deprecated use `Prices$Outbound` instead. */
-  export type Outbound = Prices$Outbound;
+export namespace ProductUpdatePrices$ {
+  /** @deprecated use `ProductUpdatePrices$inboundSchema` instead. */
+  export const inboundSchema = ProductUpdatePrices$inboundSchema;
+  /** @deprecated use `ProductUpdatePrices$outboundSchema` instead. */
+  export const outboundSchema = ProductUpdatePrices$outboundSchema;
+  /** @deprecated use `ProductUpdatePrices$Outbound` instead. */
+  export type Outbound = ProductUpdatePrices$Outbound;
 }
 
 /** @internal */
@@ -114,8 +128,9 @@ export const ProductUpdate$inboundSchema: z.ZodType<
     z.array(
       z.union([
         ExistingProductPrice$inboundSchema,
-        ProductPriceOneTimeCreate$inboundSchema,
+        ProductPriceOneTimeFixedCreate$inboundSchema,
         ProductPriceRecurringCreate$inboundSchema,
+        ProductPriceOneTimeCustomCreate$inboundSchema,
       ]),
     ),
   ).optional(),
@@ -136,8 +151,9 @@ export type ProductUpdate$Outbound = {
   prices?:
     | Array<
       | ExistingProductPrice$Outbound
-      | ProductPriceOneTimeCreate$Outbound
+      | ProductPriceOneTimeFixedCreate$Outbound
       | ProductPriceRecurringCreate$Outbound
+      | ProductPriceOneTimeCustomCreate$Outbound
     >
     | null
     | undefined;
@@ -158,8 +174,9 @@ export const ProductUpdate$outboundSchema: z.ZodType<
     z.array(
       z.union([
         ExistingProductPrice$outboundSchema,
-        ProductPriceOneTimeCreate$outboundSchema,
+        ProductPriceOneTimeFixedCreate$outboundSchema,
         ProductPriceRecurringCreate$outboundSchema,
+        ProductPriceOneTimeCustomCreate$outboundSchema,
       ]),
     ),
   ).optional(),

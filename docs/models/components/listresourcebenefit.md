@@ -8,23 +8,30 @@ import { ListResourceBenefit } from "@polar-sh/sdk/models/components";
 let value: ListResourceBenefit = {
   items: [
     {
-      createdAt: new Date("2023-11-17T13:53:16.489Z"),
-      modifiedAt: new Date("2022-03-25T19:54:28.931Z"),
+      createdAt: new Date("2023-11-10T05:36:12.893Z"),
+      modifiedAt: new Date("2022-12-26T19:41:24.967Z"),
       id: "<value>",
-      description: "Horizontal neutral support",
+      description: "Customer-focused foreground utilisation",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        guildId: "<value>",
-        roleId: "<value>",
-        guildToken: "<value>",
+        prefix: "<value>",
+        expires: {
+          ttl: 544647,
+          timeframe: "day",
+        },
+        activations: {
+          limit: 621693,
+          enableUserAdmin: false,
+        },
+        limitUsage: 502721,
       },
     },
   ],
   pagination: {
-    totalCount: 247399,
-    maxPage: 878493,
+    totalCount: 379356,
+    maxPage: 922348,
   },
 };
 ```

@@ -7,7 +7,7 @@ import { OAuth2ClientConfigurationUpdate } from "@polar-sh/sdk/models/components
 
 let value: OAuth2ClientConfigurationUpdate = {
   redirectUris: [
-    "http://untrue-chub.name",
+    "https://bright-inhibition.biz",
   ],
   clientName: "<value>",
   clientId: "<value>",

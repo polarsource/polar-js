@@ -8,8 +8,8 @@ import { ClosedEnum } from "../../types/enums.js";
 export const UserSubscriptionSortProperty = {
   StartedAt: "started_at",
   MinusStartedAt: "-started_at",
-  PriceAmount: "price_amount",
-  MinusPriceAmount: "-price_amount",
+  Amount: "amount",
+  MinusAmount: "-amount",
   Status: "status",
   MinusStatus: "-status",
   Organization: "organization",

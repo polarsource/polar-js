@@ -6,15 +6,15 @@
 import { OrderProduct } from "@polar-sh/sdk/models/components";
 
 let value: OrderProduct = {
-  createdAt: new Date("2023-03-15T00:51:02.013Z"),
-  modifiedAt: new Date("2023-12-02T13:10:20.148Z"),
+  createdAt: new Date("2022-06-11T20:43:17.206Z"),
+  modifiedAt: new Date("2024-04-18T17:40:39.234Z"),
   id: "<value>",
   name: "<value>",
-  description: "Innovative foreground adapter",
+  description: "Business-focused 3rd generation customer loyalty",
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",
-  type: "individual",
+  type: "free",
   isHighlighted: false,
 };
 ```

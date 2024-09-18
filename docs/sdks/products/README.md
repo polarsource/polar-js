@@ -115,8 +115,8 @@ async function run() {
     name: "<value>",
     prices: [
       {
+        priceAmount: 486589,
         recurringInterval: "month",
-        priceAmount: 489382,
       },
     ],
     type: "individual",
@@ -148,8 +148,8 @@ async function run() {
     name: "<value>",
     prices: [
       {
+        priceAmount: 417458,
         recurringInterval: "month",
-        priceAmount: 288408,
       },
     ],
     type: "individual",

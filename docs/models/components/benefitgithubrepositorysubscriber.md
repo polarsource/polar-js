@@ -6,10 +6,10 @@
 import { BenefitGitHubRepositorySubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGitHubRepositorySubscriber = {
-  createdAt: new Date("2023-05-15T19:00:31.154Z"),
-  modifiedAt: new Date("2023-12-28T17:36:32.640Z"),
+  createdAt: new Date("2024-10-20T21:33:54.368Z"),
+  modifiedAt: new Date("2022-10-20T22:04:25.300Z"),
   id: "<value>",
-  description: "Triple-buffered demand-driven budgetary management",
+  description: "Polarised national internet solution",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

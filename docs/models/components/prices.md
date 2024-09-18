@@ -6,27 +6,21 @@
 import { Prices } from "@polar-sh/sdk/models/components";
 
 let value: Prices = {
-  priceAmount: 433279,
+  priceAmount: 925703,
 };
 ```
 
 ## Supported Types
 
-### `components.ExistingProductPrice`
+### `components.ProductPriceOneTimeFixedCreate`
 
 ```typescript
-const value: components.ExistingProductPrice = /* values here */
+const value: components.ProductPriceOneTimeFixedCreate = /* values here */
 ```
 
-### `components.ProductPriceRecurringCreate`
+### `components.ProductPriceOneTimeCustomCreate`
 
 ```typescript
-const value: components.ProductPriceRecurringCreate = /* values here */
-```
-
-### `components.ProductPriceOneTimeCreate`
-
-```typescript
-const value: components.ProductPriceOneTimeCreate = /* values here */
+const value: components.ProductPriceOneTimeCustomCreate = /* values here */
 ```
 

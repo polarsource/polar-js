@@ -8,8 +8,8 @@ Schema to create a recurring product price, i.e. a subscription.
 import { ProductPriceRecurringCreate } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringCreate = {
-  recurringInterval: "year",
-  priceAmount: 871083,
+  priceAmount: 680349,
+  recurringInterval: "month",
 };
 ```
 
@@ -18,6 +18,6 @@ let value: ProductPriceRecurringCreate = {
 | Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `type`                                                                                                   | [components.ProductPriceRecurringCreateType](../../models/components/productpricerecurringcreatetype.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
-| `recurringInterval`                                                                                      | [components.ProductPriceRecurringInterval](../../models/components/productpricerecurringinterval.md)     | :heavy_check_mark:                                                                                       | The recurring interval of the price.                                                                     |
-| `priceAmount`                                                                                            | *number*                                                                                                 | :heavy_check_mark:                                                                                       | The price in cents.                                                                                      |
 | `priceCurrency`                                                                                          | *string*                                                                                                 | :heavy_minus_sign:                                                                                       | The currency. Currently, only `usd` is supported.                                                        |
+| `priceAmount`                                                                                            | *number*                                                                                                 | :heavy_check_mark:                                                                                       | The price in cents.                                                                                      |
+| `recurringInterval`                                                                                      | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)     | :heavy_check_mark:                                                                                       | The recurring interval of the price.                                                                     |

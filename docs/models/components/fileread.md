@@ -9,18 +9,19 @@ let value: FileRead = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/root",
+  path: "/selinux",
   mimeType: "<value>",
-  size: 937219,
+  size: 382440,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2023-03-20T01:13:26.553Z"),
+  lastModifiedAt: new Date("2022-09-22T17:54:58.970Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2024-11-16T07:19:00.301Z"),
+  createdAt: new Date("2022-04-16T19:59:24.257Z"),
   sizeReadable: "<value>",
+  publicUrl: "<value>",
 };
 ```
 

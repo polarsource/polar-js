@@ -10,15 +10,15 @@ import {
   ProductPriceOneTime$outboundSchema,
 } from "./productpriceonetime.js";
 import {
-  ProductPriceRecurring,
-  ProductPriceRecurring$inboundSchema,
-  ProductPriceRecurring$Outbound,
-  ProductPriceRecurring$outboundSchema,
-} from "./productpricerecurring.js";
+  ProductPriceRecurringOutput,
+  ProductPriceRecurringOutput$inboundSchema,
+  ProductPriceRecurringOutput$Outbound,
+  ProductPriceRecurringOutput$outboundSchema,
+} from "./productpricerecurringoutput.js";
 
 export type ProductPriceOutput =
-  | (ProductPriceOneTime & { type: "one_time" })
-  | (ProductPriceRecurring & { type: "recurring" });
+  | ProductPriceRecurringOutput
+  | ProductPriceOneTime;
 
 /** @internal */
 export const ProductPriceOutput$inboundSchema: z.ZodType<
@@ -26,22 +26,14 @@ export const ProductPriceOutput$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  ProductPriceOneTime$inboundSchema.and(
-    z.object({ type: z.literal("one_time") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  ProductPriceRecurring$inboundSchema.and(
-    z.object({ type: z.literal("recurring") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
+  ProductPriceRecurringOutput$inboundSchema,
+  ProductPriceOneTime$inboundSchema,
 ]);
 
 /** @internal */
 export type ProductPriceOutput$Outbound =
-  | (ProductPriceOneTime$Outbound & { type: "one_time" })
-  | (ProductPriceRecurring$Outbound & { type: "recurring" });
+  | ProductPriceRecurringOutput$Outbound
+  | ProductPriceOneTime$Outbound;
 
 /** @internal */
 export const ProductPriceOutput$outboundSchema: z.ZodType<
@@ -49,16 +41,8 @@ export const ProductPriceOutput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPriceOutput
 > = z.union([
-  ProductPriceOneTime$outboundSchema.and(
-    z.object({ type: z.literal("one_time") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  ProductPriceRecurring$outboundSchema.and(
-    z.object({ type: z.literal("recurring") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
+  ProductPriceRecurringOutput$outboundSchema,
+  ProductPriceOneTime$outboundSchema,
 ]);
 
 /**
