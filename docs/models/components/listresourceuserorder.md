@@ -8,8 +8,8 @@ import { ListResourceUserOrder } from "@polar-sh/sdk/models/components";
 let value: ListResourceUserOrder = {
   items: [],
   pagination: {
-    totalCount: 880298,
-    maxPage: 253941,
+    totalCount: 976405,
+    maxPage: 377752,
   },
 };
 ```

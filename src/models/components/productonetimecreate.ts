@@ -5,11 +5,21 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  ProductPriceOneTimeCreate,
-  ProductPriceOneTimeCreate$inboundSchema,
-  ProductPriceOneTimeCreate$Outbound,
-  ProductPriceOneTimeCreate$outboundSchema,
-} from "./productpriceonetimecreate.js";
+  ProductPriceOneTimeCustomCreate,
+  ProductPriceOneTimeCustomCreate$inboundSchema,
+  ProductPriceOneTimeCustomCreate$Outbound,
+  ProductPriceOneTimeCustomCreate$outboundSchema,
+} from "./productpriceonetimecustomcreate.js";
+import {
+  ProductPriceOneTimeFixedCreate,
+  ProductPriceOneTimeFixedCreate$inboundSchema,
+  ProductPriceOneTimeFixedCreate$Outbound,
+  ProductPriceOneTimeFixedCreate$outboundSchema,
+} from "./productpriceonetimefixedcreate.js";
+
+export type Prices =
+  | ProductPriceOneTimeFixedCreate
+  | ProductPriceOneTimeCustomCreate;
 
 /**
  * Schema to create a one-time product.
@@ -26,7 +36,9 @@ export type ProductOneTimeCreate = {
   /**
    * List of available prices for this product.
    */
-  prices: Array<ProductPriceOneTimeCreate>;
+  prices: Array<
+    ProductPriceOneTimeFixedCreate | ProductPriceOneTimeCustomCreate
+  >;
   /**
    * List of file IDs. Each one must be on the same organization as the product, of type `product_media` and correctly uploaded.
    */
@@ -38,6 +50,41 @@ export type ProductOneTimeCreate = {
 };
 
 /** @internal */
+export const Prices$inboundSchema: z.ZodType<Prices, z.ZodTypeDef, unknown> = z
+  .union([
+    ProductPriceOneTimeFixedCreate$inboundSchema,
+    ProductPriceOneTimeCustomCreate$inboundSchema,
+  ]);
+
+/** @internal */
+export type Prices$Outbound =
+  | ProductPriceOneTimeFixedCreate$Outbound
+  | ProductPriceOneTimeCustomCreate$Outbound;
+
+/** @internal */
+export const Prices$outboundSchema: z.ZodType<
+  Prices$Outbound,
+  z.ZodTypeDef,
+  Prices
+> = z.union([
+  ProductPriceOneTimeFixedCreate$outboundSchema,
+  ProductPriceOneTimeCustomCreate$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Prices$ {
+  /** @deprecated use `Prices$inboundSchema` instead. */
+  export const inboundSchema = Prices$inboundSchema;
+  /** @deprecated use `Prices$outboundSchema` instead. */
+  export const outboundSchema = Prices$outboundSchema;
+  /** @deprecated use `Prices$Outbound` instead. */
+  export type Outbound = Prices$Outbound;
+}
+
+/** @internal */
 export const ProductOneTimeCreate$inboundSchema: z.ZodType<
   ProductOneTimeCreate,
   z.ZodTypeDef,
@@ -45,7 +92,12 @@ export const ProductOneTimeCreate$inboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.nullable(z.string()).optional(),
-  prices: z.array(ProductPriceOneTimeCreate$inboundSchema),
+  prices: z.array(
+    z.union([
+      ProductPriceOneTimeFixedCreate$inboundSchema,
+      ProductPriceOneTimeCustomCreate$inboundSchema,
+    ]),
+  ),
   medias: z.nullable(z.array(z.string())).optional(),
   organization_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -58,7 +110,10 @@ export const ProductOneTimeCreate$inboundSchema: z.ZodType<
 export type ProductOneTimeCreate$Outbound = {
   name: string;
   description?: string | null | undefined;
-  prices: Array<ProductPriceOneTimeCreate$Outbound>;
+  prices: Array<
+    | ProductPriceOneTimeFixedCreate$Outbound
+    | ProductPriceOneTimeCustomCreate$Outbound
+  >;
   medias?: Array<string> | null | undefined;
   organization_id?: string | null | undefined;
 };
@@ -71,7 +126,12 @@ export const ProductOneTimeCreate$outboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.nullable(z.string()).optional(),
-  prices: z.array(ProductPriceOneTimeCreate$outboundSchema),
+  prices: z.array(
+    z.union([
+      ProductPriceOneTimeFixedCreate$outboundSchema,
+      ProductPriceOneTimeCustomCreate$outboundSchema,
+    ]),
+  ),
   medias: z.nullable(z.array(z.string())).optional(),
   organizationId: z.nullable(z.string()).optional(),
 }).transform((v) => {

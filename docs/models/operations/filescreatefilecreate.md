@@ -8,13 +8,13 @@ import { FilesCreateFileCreate } from "@polar-sh/sdk/models/operations";
 let value: FilesCreateFileCreate = {
   name: "<value>",
   mimeType: "<value>",
-  size: 339404,
+  size: 703889,
   upload: {
     parts: [
       {
-        number: 521037,
-        chunkStart: 489549,
-        chunkEnd: 54338,
+        number: 447926,
+        chunkStart: 100226,
+        chunkEnd: 99569,
       },
     ],
   },

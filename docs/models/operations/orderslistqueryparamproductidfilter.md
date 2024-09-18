@@ -7,7 +7,9 @@ Filter by product ID.
 ```typescript
 import { OrdersListQueryParamProductIDFilter } from "@polar-sh/sdk/models/operations";
 
-let value: OrdersListQueryParamProductIDFilter = "<value>";
+let value: OrdersListQueryParamProductIDFilter = [
+  "<value>",
+];
 ```
 
 ## Supported Types

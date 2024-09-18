@@ -8,11 +8,20 @@ import { RetryConfig } from "./retries.js";
 import { Params, pathToFunc } from "./url.js";
 
 /**
+ * Production environment
+ */
+export const ServerProduction = "production";
+/**
+ * Sandbox environment
+ */
+export const ServerSandbox = "sandbox";
+/**
  * Contains the list of servers available to the SDK
  */
-export const ServerList = [
-  "https://api.polar.sh",
-] as const;
+export const ServerList = {
+  [ServerProduction]: "https://api.polar.sh",
+  [ServerSandbox]: "https://sandbox-api.polar.sh",
+} as const;
 
 export type SDKOptions = {
   accessToken?: string | (() => Promise<string>);
@@ -21,7 +30,7 @@ export type SDKOptions = {
   /**
    * Allows overriding the default server used by the SDK
    */
-  serverIdx?: number;
+  server?: keyof typeof ServerList;
   /**
    * Allows overriding the default server URL used by the SDK
    */
@@ -40,11 +49,8 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
   const params: Params = {};
 
   if (!serverURL) {
-    const serverIdx = options.serverIdx ?? 0;
-    if (serverIdx < 0 || serverIdx >= ServerList.length) {
-      throw new Error(`Invalid server index ${serverIdx}`);
-    }
-    serverURL = ServerList[serverIdx] || "";
+    const server = options.server ?? ServerProduction;
+    serverURL = ServerList[server] || "";
   }
 
   const u = pathToFunc(serverURL)(params);
@@ -54,7 +60,7 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 export const SDK_METADATA = {
   language: "typescript",
   openapiDocVersion: "0.1.0",
-  sdkVersion: "0.8.2",
-  genVersion: "2.415.8",
-  userAgent: "speakeasy-sdk/typescript 0.8.2 2.415.8 0.1.0 @polar-sh/sdk",
+  sdkVersion: "0.9.0",
+  genVersion: "2.416.6",
+  userAgent: "speakeasy-sdk/typescript 0.9.0 2.416.6 0.1.0 @polar-sh/sdk",
 } as const;

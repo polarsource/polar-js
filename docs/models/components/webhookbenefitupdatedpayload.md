@@ -11,20 +11,16 @@ import { WebhookBenefitUpdatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookBenefitUpdatedPayload = {
   data: {
-    createdAt: new Date("2024-11-23T02:29:33.162Z"),
-    modifiedAt: new Date("2022-11-11T17:15:53.573Z"),
+    createdAt: new Date("2024-12-25T16:18:25.540Z"),
+    modifiedAt: new Date("2023-08-07T10:17:35.263Z"),
     id: "<value>",
-    description: "Realigned intermediate interface",
+    description: "Polarised executive algorithm",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      archived: {
-        "key": false,
-      },
-      files: [
-        "<value>",
-      ],
+      guildId: "<value>",
+      roleId: "<value>",
     },
   },
 };

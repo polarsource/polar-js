@@ -6,24 +6,24 @@
 import { BenefitLicenseKeysOutput } from "@polar-sh/sdk/models/components";
 
 let value: BenefitLicenseKeysOutput = {
-  createdAt: new Date("2022-07-11T10:12:51.159Z"),
-  modifiedAt: new Date("2023-12-29T14:19:58.836Z"),
+  createdAt: new Date("2023-09-29T15:39:31.934Z"),
+  modifiedAt: new Date("2022-06-25T14:42:08.428Z"),
   id: "<value>",
-  description: "Function-based discrete neural-net",
+  description: "Customizable multi-state flexibility",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 200364,
-      timeframe: "year",
+      ttl: 440264,
+      timeframe: "month",
     },
     activations: {
-      limit: 925703,
+      limit: 76486,
       enableUserAdmin: false,
     },
-    limitUsage: 607249,
+    limitUsage: 361306,
   },
 };
 ```

@@ -3,135 +3,47 @@
  */
 
 import * as z from "zod";
-import { remap as remap$ } from "../../lib/primitives.js";
-import { ClosedEnum } from "../../types/enums.js";
+import {
+  ProductPriceOneTimeCustom,
+  ProductPriceOneTimeCustom$inboundSchema,
+  ProductPriceOneTimeCustom$Outbound,
+  ProductPriceOneTimeCustom$outboundSchema,
+} from "./productpriceonetimecustom.js";
+import {
+  ProductPriceOneTimeFixed,
+  ProductPriceOneTimeFixed$inboundSchema,
+  ProductPriceOneTimeFixed$Outbound,
+  ProductPriceOneTimeFixed$outboundSchema,
+} from "./productpriceonetimefixed.js";
 
-/**
- * The type of the price.
- */
-export const ProductPriceOneTimeType = {
-  OneTime: "one_time",
-} as const;
-/**
- * The type of the price.
- */
-export type ProductPriceOneTimeType = ClosedEnum<
-  typeof ProductPriceOneTimeType
->;
-
-/**
- * A one-time price for a product.
- */
-export type ProductPriceOneTime = {
-  /**
-   * Creation timestamp of the object.
-   */
-  createdAt: Date;
-  /**
-   * Last modification timestamp of the object.
-   */
-  modifiedAt: Date | null;
-  /**
-   * The ID of the price.
-   */
-  id: string;
-  /**
-   * The price in cents.
-   */
-  priceAmount: number;
-  /**
-   * The currency.
-   */
-  priceCurrency: string;
-  /**
-   * Whether the price is archived and no longer available.
-   */
-  isArchived: boolean;
-  /**
-   * The type of the price.
-   */
-  type?: "one_time" | undefined;
-};
-
-/** @internal */
-export const ProductPriceOneTimeType$inboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceOneTimeType
-> = z.nativeEnum(ProductPriceOneTimeType);
-
-/** @internal */
-export const ProductPriceOneTimeType$outboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceOneTimeType
-> = ProductPriceOneTimeType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceOneTimeType$ {
-  /** @deprecated use `ProductPriceOneTimeType$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceOneTimeType$inboundSchema;
-  /** @deprecated use `ProductPriceOneTimeType$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceOneTimeType$outboundSchema;
-}
+export type ProductPriceOneTime =
+  | ProductPriceOneTimeFixed
+  | ProductPriceOneTimeCustom;
 
 /** @internal */
 export const ProductPriceOneTime$inboundSchema: z.ZodType<
   ProductPriceOneTime,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  modified_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ),
-  id: z.string(),
-  price_amount: z.number().int(),
-  price_currency: z.string(),
-  is_archived: z.boolean(),
-  type: z.literal("one_time").optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "created_at": "createdAt",
-    "modified_at": "modifiedAt",
-    "price_amount": "priceAmount",
-    "price_currency": "priceCurrency",
-    "is_archived": "isArchived",
-  });
-});
+> = z.union([
+  ProductPriceOneTimeFixed$inboundSchema,
+  ProductPriceOneTimeCustom$inboundSchema,
+]);
 
 /** @internal */
-export type ProductPriceOneTime$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  price_amount: number;
-  price_currency: string;
-  is_archived: boolean;
-  type: "one_time";
-};
+export type ProductPriceOneTime$Outbound =
+  | ProductPriceOneTimeFixed$Outbound
+  | ProductPriceOneTimeCustom$Outbound;
 
 /** @internal */
 export const ProductPriceOneTime$outboundSchema: z.ZodType<
   ProductPriceOneTime$Outbound,
   z.ZodTypeDef,
   ProductPriceOneTime
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  priceAmount: z.number().int(),
-  priceCurrency: z.string(),
-  isArchived: z.boolean(),
-  type: z.literal("one_time").default("one_time"),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    priceAmount: "price_amount",
-    priceCurrency: "price_currency",
-    isArchived: "is_archived",
-  });
-});
+> = z.union([
+  ProductPriceOneTimeFixed$outboundSchema,
+  ProductPriceOneTimeCustom$outboundSchema,
+]);
 
 /**
  * @internal

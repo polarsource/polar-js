@@ -8,21 +8,22 @@ import { ListResourceUserBenefit } from "@polar-sh/sdk/models/components";
 let value: ListResourceUserBenefit = {
   items: [
     {
-      createdAt: new Date("2024-11-01T00:46:16.709Z"),
-      modifiedAt: new Date("2023-09-17T06:03:43.855Z"),
+      createdAt: new Date("2022-09-10T21:26:47.593Z"),
+      modifiedAt: new Date("2022-01-13T20:07:37.920Z"),
       id: "<value>",
-      description: "Re-engineered heuristic initiative",
+      description: "Right-sized executive throughput",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        paidArticles: false,
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
       },
     },
   ],
   pagination: {
-    totalCount: 970237,
-    maxPage: 227414,
+    totalCount: 729991,
+    maxPage: 749999,
   },
 };
 ```

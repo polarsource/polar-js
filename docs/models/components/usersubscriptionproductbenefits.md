@@ -6,14 +6,16 @@
 import { UserSubscriptionProductBenefits } from "@polar-sh/sdk/models/components";
 
 let value: UserSubscriptionProductBenefits = {
-  createdAt: new Date("2022-03-30T21:17:27.692Z"),
-  modifiedAt: new Date("2022-11-27T19:21:33.542Z"),
+  createdAt: new Date("2024-12-12T02:02:24.696Z"),
+  modifiedAt: new Date("2024-12-15T14:17:20.778Z"),
   id: "<value>",
-  type: "ads",
-  description: "Robust contextually-based system engine",
+  description: "Multi-layered radical initiative",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
+  properties: {
+    paidArticles: false,
+  },
 };
 ```
 

@@ -11,18 +11,19 @@ let value: FilesUploadedResponseFilesUploaded = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/bin",
+  path: "/private/tmp",
   mimeType: "<value>",
-  size: 170986,
+  size: 998848,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-05-19T21:25:27.717Z"),
+  lastModifiedAt: new Date("2024-07-10T21:20:59.911Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2023-05-23T22:36:52.119Z"),
+  createdAt: new Date("2022-06-13T19:05:17.541Z"),
   sizeReadable: "<value>",
+  publicUrl: "<value>",
 };
 ```
 

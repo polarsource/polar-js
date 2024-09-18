@@ -5,7 +5,7 @@
 ```typescript
 import { ArticleByline } from "@polar-sh/sdk/models/components";
 
-let value: ArticleByline = "organization";
+let value: ArticleByline = "user";
 ```
 
 ## Values

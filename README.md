@@ -562,19 +562,20 @@ run();
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
+### Select Server by Name
 
-You can override the default server globally by passing a server index to the `serverIdx` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+You can override the default server globally by passing a server name to the `server` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.polar.sh` | None |
+| Name | Server | Variables |
+| ----- | ------ | --------- |
+| `production` | `https://api.polar.sh` | None |
+| `sandbox` | `https://sandbox-api.polar.sh` | None |
 
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
 const polar = new Polar({
-  serverIdx: 0,
+  server: "sandbox",
   accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 

@@ -11,10 +11,6 @@ export type OrganizationFeatureSettings = {
    */
   articlesEnabled?: boolean | undefined;
   /**
-   * If this organization has subscriptions enabled
-   */
-  subscriptionsEnabled?: boolean | undefined;
-  /**
    * If this organization has issue funding enabled
    */
   issueFundingEnabled?: boolean | undefined;
@@ -27,12 +23,10 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   articles_enabled: z.boolean().default(false),
-  subscriptions_enabled: z.boolean().default(false),
   issue_funding_enabled: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     "articles_enabled": "articlesEnabled",
-    "subscriptions_enabled": "subscriptionsEnabled",
     "issue_funding_enabled": "issueFundingEnabled",
   });
 });
@@ -40,7 +34,6 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodType<
 /** @internal */
 export type OrganizationFeatureSettings$Outbound = {
   articles_enabled: boolean;
-  subscriptions_enabled: boolean;
   issue_funding_enabled: boolean;
 };
 
@@ -51,12 +44,10 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodType<
   OrganizationFeatureSettings
 > = z.object({
   articlesEnabled: z.boolean().default(false),
-  subscriptionsEnabled: z.boolean().default(false),
   issueFundingEnabled: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     articlesEnabled: "articles_enabled",
-    subscriptionsEnabled: "subscriptions_enabled",
     issueFundingEnabled: "issue_funding_enabled",
   });
 });

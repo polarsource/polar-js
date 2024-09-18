@@ -329,7 +329,7 @@ actions:
       x-codeSamples:
         - lang: typescript
           label: create
-          source: "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.products.create({\n    name: \"<value>\",\n    prices: [\n      {\n        recurringInterval: \"month\",\n        priceAmount: 489382,\n      },\n    ],\n    type: \"individual\",\n  });\n  \n  // Handle the result\n  console.log(result)\n}\n\nrun();"
+          source: "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.products.create({\n    name: \"<value>\",\n    prices: [\n      {\n        priceAmount: 486589,\n        recurringInterval: \"month\",\n      },\n    ],\n    type: \"individual\",\n  });\n  \n  // Handle the result\n  console.log(result)\n}\n\nrun();"
   - target: $["paths"]["/v1/products/{id}"]["get"]
     update:
       x-codeSamples:

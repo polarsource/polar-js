@@ -8,7 +8,7 @@ import { blobLikeSchema } from "../../types/blobs.js";
 
 export type FileT = {
   fileName: string;
-  content: ReadableStream<Uint8Array> | Blob | ArrayBuffer;
+  content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
 export type BodySubscriptionsImport = {
@@ -30,13 +30,14 @@ export const FileT$inboundSchema: z.ZodType<FileT, z.ZodTypeDef, unknown> = z
       z.instanceof(ReadableStream<Uint8Array>),
       z.instanceof(Blob),
       z.instanceof(ArrayBuffer),
+      z.instanceof(Uint8Array),
     ]),
   });
 
 /** @internal */
 export type FileT$Outbound = {
   fileName: string;
-  content: ReadableStream<Uint8Array> | Blob | ArrayBuffer;
+  content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
 /** @internal */
@@ -50,6 +51,7 @@ export const FileT$outboundSchema: z.ZodType<
     z.instanceof(ReadableStream<Uint8Array>),
     z.instanceof(Blob),
     z.instanceof(ArrayBuffer),
+    z.instanceof(Uint8Array),
   ]),
 });
 

@@ -7,7 +7,9 @@ Filter by organization ID.
 ```typescript
 import { LicenseKeysListQueryParamOrganizationIDFilter } from "@polar-sh/sdk/models/operations";
 
-let value: LicenseKeysListQueryParamOrganizationIDFilter = "<value>";
+let value: LicenseKeysListQueryParamOrganizationIDFilter = [
+  "<value>",
+];
 ```
 
 ## Supported Types

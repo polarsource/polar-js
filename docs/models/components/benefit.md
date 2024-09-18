@@ -6,24 +6,20 @@
 import { Benefit } from "@polar-sh/sdk/models/components";
 
 let value: Benefit = {
-  createdAt: new Date("2023-10-18T08:07:39.633Z"),
-  modifiedAt: new Date("2023-05-05T05:57:31.258Z"),
+  createdAt: new Date("2023-03-26T16:34:20.006Z"),
+  modifiedAt: new Date("2023-08-14T20:57:57.462Z"),
   id: "<value>",
-  description: "Enterprise-wide transitional leverage",
+  description: "Pre-emptive tangible success",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
-    prefix: "<value>",
-    expires: {
-      ttl: 160230,
-      timeframe: "year",
+    archived: {
+      "key": false,
     },
-    activations: {
-      limit: 661118,
-      enableUserAdmin: false,
-    },
-    limitUsage: 335631,
+    files: [
+      "<value>",
+    ],
   },
 };
 ```
