@@ -7,7 +7,9 @@ Filter by organization ID.
 ```typescript
 import { OrganizationId } from "@polar-sh/sdk/models/operations";
 
-let value: OrganizationId = "<value>";
+let value: OrganizationId = [
+  "<value>",
+];
 ```
 
 ## Supported Types

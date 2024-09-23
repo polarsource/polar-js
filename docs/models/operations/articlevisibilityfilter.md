@@ -7,7 +7,7 @@ Filter by visibility.
 ```typescript
 import { ArticleVisibilityFilter } from "@polar-sh/sdk/models/operations";
 
-let value: ArticleVisibilityFilter = "private";
+let value: ArticleVisibilityFilter = "hidden";
 ```
 
 ## Supported Types

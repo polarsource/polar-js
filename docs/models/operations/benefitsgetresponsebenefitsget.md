@@ -8,19 +8,14 @@ Successful Response
 import { BenefitsGetResponseBenefitsGet } from "@polar-sh/sdk/models/operations";
 
 let value: BenefitsGetResponseBenefitsGet = {
-  createdAt: new Date("2023-03-09T18:38:30.699Z"),
-  modifiedAt: new Date("2023-04-10T13:04:59.074Z"),
+  createdAt: new Date("2022-04-27T01:45:19.792Z"),
+  modifiedAt: new Date("2024-11-08T05:51:26.933Z"),
   id: "<value>",
-  description: "Polarised mission-critical info-mediaries",
+  description: "Enterprise-wide needs-based alliance",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
-  properties: {
-    repositoryId: "<value>",
-    repositoryOwner: "polarsource",
-    repositoryName: "private_repo",
-    permission: "pull",
-  },
+  properties: {},
 };
 ```
 

@@ -49,13 +49,13 @@ export type ProductPriceRecurringCustom = {
   id: string;
   amountType?: "custom" | undefined;
   /**
-   * The currency.
-   */
-  priceCurrency: string;
-  /**
    * Whether the price is archived and no longer available.
    */
   isArchived: boolean;
+  /**
+   * The currency.
+   */
+  priceCurrency: string;
   /**
    * The minimum amount the customer can pay.
    */
@@ -135,8 +135,8 @@ export const ProductPriceRecurringCustom$inboundSchema: z.ZodType<
   ),
   id: z.string(),
   amount_type: z.literal("custom").optional(),
-  price_currency: z.string(),
   is_archived: z.boolean(),
+  price_currency: z.string(),
   minimum_amount: z.nullable(z.number().int()),
   maximum_amount: z.nullable(z.number().int()),
   preset_amount: z.nullable(z.number().int()),
@@ -147,8 +147,8 @@ export const ProductPriceRecurringCustom$inboundSchema: z.ZodType<
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
     "amount_type": "amountType",
-    "price_currency": "priceCurrency",
     "is_archived": "isArchived",
+    "price_currency": "priceCurrency",
     "minimum_amount": "minimumAmount",
     "maximum_amount": "maximumAmount",
     "preset_amount": "presetAmount",
@@ -162,8 +162,8 @@ export type ProductPriceRecurringCustom$Outbound = {
   modified_at: string | null;
   id: string;
   amount_type: "custom";
-  price_currency: string;
   is_archived: boolean;
+  price_currency: string;
   minimum_amount: number | null;
   maximum_amount: number | null;
   preset_amount: number | null;
@@ -181,8 +181,8 @@ export const ProductPriceRecurringCustom$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
   amountType: z.literal("custom").default("custom"),
-  priceCurrency: z.string(),
   isArchived: z.boolean(),
+  priceCurrency: z.string(),
   minimumAmount: z.nullable(z.number().int()),
   maximumAmount: z.nullable(z.number().int()),
   presetAmount: z.nullable(z.number().int()),
@@ -193,8 +193,8 @@ export const ProductPriceRecurringCustom$outboundSchema: z.ZodType<
     createdAt: "created_at",
     modifiedAt: "modified_at",
     amountType: "amount_type",
-    priceCurrency: "price_currency",
     isArchived: "is_archived",
+    priceCurrency: "price_currency",
     minimumAmount: "minimum_amount",
     maximumAmount: "maximum_amount",
     presetAmount: "preset_amount",

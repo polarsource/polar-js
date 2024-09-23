@@ -6,7 +6,7 @@
 import { ProductUpdatePrices } from "@polar-sh/sdk/models/components";
 
 let value: ProductUpdatePrices = {
-  priceAmount: 403218,
+  priceAmount: 481553,
   recurringInterval: "month",
 };
 ```
@@ -19,10 +19,16 @@ let value: ProductUpdatePrices = {
 const value: components.ExistingProductPrice = /* values here */
 ```
 
-### `components.ProductPriceRecurringCreate`
+### `components.ProductPriceRecurringFixedCreate`
 
 ```typescript
-const value: components.ProductPriceRecurringCreate = /* values here */
+const value: components.ProductPriceRecurringFixedCreate = /* values here */
+```
+
+### `components.ProductPriceRecurringFreeCreate`
+
+```typescript
+const value: components.ProductPriceRecurringFreeCreate = /* values here */
 ```
 
 ### `components.ProductPriceOneTimeFixedCreate`
@@ -35,5 +41,11 @@ const value: components.ProductPriceOneTimeFixedCreate = /* values here */
 
 ```typescript
 const value: components.ProductPriceOneTimeCustomCreate = /* values here */
+```
+
+### `components.ProductPriceOneTimeFreeCreate`
+
+```typescript
+const value: components.ProductPriceOneTimeFreeCreate = /* values here */
 ```
 

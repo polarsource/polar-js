@@ -15,8 +15,15 @@ import {
   ProductPriceOneTimeFixed$Outbound,
   ProductPriceOneTimeFixed$outboundSchema,
 } from "./productpriceonetimefixed.js";
+import {
+  ProductPriceOneTimeFree,
+  ProductPriceOneTimeFree$inboundSchema,
+  ProductPriceOneTimeFree$Outbound,
+  ProductPriceOneTimeFree$outboundSchema,
+} from "./productpriceonetimefree.js";
 
 export type ProductPriceOneTime =
+  | ProductPriceOneTimeFree
   | ProductPriceOneTimeFixed
   | ProductPriceOneTimeCustom;
 
@@ -26,12 +33,14 @@ export const ProductPriceOneTime$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  ProductPriceOneTimeFree$inboundSchema,
   ProductPriceOneTimeFixed$inboundSchema,
   ProductPriceOneTimeCustom$inboundSchema,
 ]);
 
 /** @internal */
 export type ProductPriceOneTime$Outbound =
+  | ProductPriceOneTimeFree$Outbound
   | ProductPriceOneTimeFixed$Outbound
   | ProductPriceOneTimeCustom$Outbound;
 
@@ -41,6 +50,7 @@ export const ProductPriceOneTime$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPriceOneTime
 > = z.union([
+  ProductPriceOneTimeFree$outboundSchema,
   ProductPriceOneTimeFixed$outboundSchema,
   ProductPriceOneTimeCustom$outboundSchema,
 ]);

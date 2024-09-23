@@ -4,27 +4,25 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { ClosedEnum } from "../../types/enums.js";
 import {
-  ProductPriceRecurringCreate,
-  ProductPriceRecurringCreate$inboundSchema,
-  ProductPriceRecurringCreate$Outbound,
-  ProductPriceRecurringCreate$outboundSchema,
-} from "./productpricerecurringcreate.js";
+  ProductPriceRecurringFixedCreate,
+  ProductPriceRecurringFixedCreate$inboundSchema,
+  ProductPriceRecurringFixedCreate$Outbound,
+  ProductPriceRecurringFixedCreate$outboundSchema,
+} from "./productpricerecurringfixedcreate.js";
+import {
+  ProductPriceRecurringFreeCreate,
+  ProductPriceRecurringFreeCreate$inboundSchema,
+  ProductPriceRecurringFreeCreate$Outbound,
+  ProductPriceRecurringFreeCreate$outboundSchema,
+} from "./productpricerecurringfreecreate.js";
 
 /**
- * @deprecated enum: This will be removed in a future release, please migrate away from it as soon as possible.
+ * List of available prices for this product.
  */
-export const ProductRecurringCreateType = {
-  Individual: "individual",
-  Business: "business",
-} as const;
-/**
- * @deprecated enum: This will be removed in a future release, please migrate away from it as soon as possible.
- */
-export type ProductRecurringCreateType = ClosedEnum<
-  typeof ProductRecurringCreateType
->;
+export type ProductRecurringCreatePrices =
+  | Array<ProductPriceRecurringFixedCreate>
+  | Array<ProductPriceRecurringFreeCreate>;
 
 /**
  * Schema to create a recurring product, i.e. a subscription.
@@ -41,7 +39,9 @@ export type ProductRecurringCreate = {
   /**
    * List of available prices for this product.
    */
-  prices: Array<ProductPriceRecurringCreate>;
+  prices:
+    | Array<ProductPriceRecurringFixedCreate>
+    | Array<ProductPriceRecurringFreeCreate>;
   /**
    * List of file IDs. Each one must be on the same organization as the product, of type `product_media` and correctly uploaded.
    */
@@ -50,35 +50,44 @@ export type ProductRecurringCreate = {
    * The ID of the organization owning the product. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  type: ProductRecurringCreateType;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  isHighlighted?: boolean | undefined;
 };
 
 /** @internal */
-export const ProductRecurringCreateType$inboundSchema: z.ZodNativeEnum<
-  typeof ProductRecurringCreateType
-> = z.nativeEnum(ProductRecurringCreateType);
+export const ProductRecurringCreatePrices$inboundSchema: z.ZodType<
+  ProductRecurringCreatePrices,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.array(ProductPriceRecurringFixedCreate$inboundSchema),
+  z.array(ProductPriceRecurringFreeCreate$inboundSchema),
+]);
 
 /** @internal */
-export const ProductRecurringCreateType$outboundSchema: z.ZodNativeEnum<
-  typeof ProductRecurringCreateType
-> = ProductRecurringCreateType$inboundSchema;
+export type ProductRecurringCreatePrices$Outbound =
+  | Array<ProductPriceRecurringFixedCreate$Outbound>
+  | Array<ProductPriceRecurringFreeCreate$Outbound>;
+
+/** @internal */
+export const ProductRecurringCreatePrices$outboundSchema: z.ZodType<
+  ProductRecurringCreatePrices$Outbound,
+  z.ZodTypeDef,
+  ProductRecurringCreatePrices
+> = z.union([
+  z.array(ProductPriceRecurringFixedCreate$outboundSchema),
+  z.array(ProductPriceRecurringFreeCreate$outboundSchema),
+]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ProductRecurringCreateType$ {
-  /** @deprecated use `ProductRecurringCreateType$inboundSchema` instead. */
-  export const inboundSchema = ProductRecurringCreateType$inboundSchema;
-  /** @deprecated use `ProductRecurringCreateType$outboundSchema` instead. */
-  export const outboundSchema = ProductRecurringCreateType$outboundSchema;
+export namespace ProductRecurringCreatePrices$ {
+  /** @deprecated use `ProductRecurringCreatePrices$inboundSchema` instead. */
+  export const inboundSchema = ProductRecurringCreatePrices$inboundSchema;
+  /** @deprecated use `ProductRecurringCreatePrices$outboundSchema` instead. */
+  export const outboundSchema = ProductRecurringCreatePrices$outboundSchema;
+  /** @deprecated use `ProductRecurringCreatePrices$Outbound` instead. */
+  export type Outbound = ProductRecurringCreatePrices$Outbound;
 }
 
 /** @internal */
@@ -89,15 +98,15 @@ export const ProductRecurringCreate$inboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.nullable(z.string()).optional(),
-  prices: z.array(ProductPriceRecurringCreate$inboundSchema),
+  prices: z.union([
+    z.array(ProductPriceRecurringFixedCreate$inboundSchema),
+    z.array(ProductPriceRecurringFreeCreate$inboundSchema),
+  ]),
   medias: z.nullable(z.array(z.string())).optional(),
   organization_id: z.nullable(z.string()).optional(),
-  type: ProductRecurringCreateType$inboundSchema,
-  is_highlighted: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
-    "is_highlighted": "isHighlighted",
   });
 });
 
@@ -105,11 +114,11 @@ export const ProductRecurringCreate$inboundSchema: z.ZodType<
 export type ProductRecurringCreate$Outbound = {
   name: string;
   description?: string | null | undefined;
-  prices: Array<ProductPriceRecurringCreate$Outbound>;
+  prices:
+    | Array<ProductPriceRecurringFixedCreate$Outbound>
+    | Array<ProductPriceRecurringFreeCreate$Outbound>;
   medias?: Array<string> | null | undefined;
   organization_id?: string | null | undefined;
-  type: string;
-  is_highlighted: boolean;
 };
 
 /** @internal */
@@ -120,15 +129,15 @@ export const ProductRecurringCreate$outboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.nullable(z.string()).optional(),
-  prices: z.array(ProductPriceRecurringCreate$outboundSchema),
+  prices: z.union([
+    z.array(ProductPriceRecurringFixedCreate$outboundSchema),
+    z.array(ProductPriceRecurringFreeCreate$outboundSchema),
+  ]),
   medias: z.nullable(z.array(z.string())).optional(),
   organizationId: z.nullable(z.string()).optional(),
-  type: ProductRecurringCreateType$outboundSchema,
-  isHighlighted: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
-    isHighlighted: "is_highlighted",
   });
 });
 

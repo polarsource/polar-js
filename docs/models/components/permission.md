@@ -7,7 +7,7 @@ The permission level to grant. Read more about roles and their permissions on [G
 ```typescript
 import { Permission } from "@polar-sh/sdk/models/components";
 
-let value: Permission = "pull";
+let value: Permission = "triage";
 ```
 
 ## Values

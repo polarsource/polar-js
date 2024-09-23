@@ -6,12 +6,10 @@
 import { ProductPriceInput } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceInput = {
-  createdAt: new Date("2022-09-04T00:22:41.909Z"),
-  modifiedAt: new Date("2023-06-14T19:11:01.269Z"),
+  createdAt: new Date("2023-12-14T14:52:10.682Z"),
+  modifiedAt: new Date("2023-07-09T11:24:13.011Z"),
   id: "<value>",
-  priceCurrency: "<value>",
   isArchived: false,
-  priceAmount: 24753,
 };
 ```
 

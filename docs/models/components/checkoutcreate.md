@@ -7,7 +7,7 @@ import { CheckoutCreate } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutCreate = {
   productPriceId: "<value>",
-  successUrl: "http://bumpy-blowgun.info",
+  successUrl: "https://delirious-guide.name",
 };
 ```
 

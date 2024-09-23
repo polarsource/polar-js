@@ -16,8 +16,6 @@ export const SubscriptionSortProperty = {
   MinusCurrentPeriodEnd: "-current_period_end",
   Amount: "amount",
   MinusAmount: "-amount",
-  SubscriptionTierType: "subscription_tier_type",
-  MinusSubscriptionTierType: "-subscription_tier_type",
   Product: "product",
   MinusProduct: "-product",
 } as const;

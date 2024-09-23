@@ -6,20 +6,18 @@
 import { Benefit } from "@polar-sh/sdk/models/components";
 
 let value: Benefit = {
-  createdAt: new Date("2023-03-26T16:34:20.006Z"),
-  modifiedAt: new Date("2023-08-14T20:57:57.462Z"),
+  createdAt: new Date("2024-08-24T04:44:43.700Z"),
+  modifiedAt: new Date("2024-10-15T06:09:22.323Z"),
   id: "<value>",
-  description: "Pre-emptive tangible success",
+  description: "Balanced client-server archive",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
-    archived: {
-      "key": false,
-    },
-    files: [
-      "<value>",
-    ],
+    repositoryId: "<value>",
+    repositoryOwner: "polarsource",
+    repositoryName: "private_repo",
+    permission: "pull",
   },
 };
 ```

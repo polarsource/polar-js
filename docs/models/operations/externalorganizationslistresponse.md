@@ -9,23 +9,23 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "6eb10faa-a235-42c5-9559-07aff1a3a2fa",
+        id: "1b7bdfd0-5b28-4030-9c35-eb02993e989b",
         name: "<value>",
         avatarUrl: "<value>",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Fritsch - Jerde",
+        company: "Ebert Group",
         blog: "<value>",
         location: "<value>",
-        email: "Jarred.Frami@yahoo.com",
+        email: "Myrtle.Farrell@hotmail.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 338007,
-      maxPage: 110375,
+      totalCount: 311796,
+      maxPage: 696344,
     },
   },
 };

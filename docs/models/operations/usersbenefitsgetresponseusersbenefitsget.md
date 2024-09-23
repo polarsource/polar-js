@@ -8,30 +8,42 @@ Successful Response
 import { UsersBenefitsGetResponseUsersBenefitsGet } from "@polar-sh/sdk/models/operations";
 
 let value: UsersBenefitsGetResponseUsersBenefitsGet = {
-  createdAt: new Date("2024-05-17T17:32:07.006Z"),
-  modifiedAt: new Date("2024-06-09T03:17:10.252Z"),
+  createdAt: new Date("2022-03-19T20:31:56.909Z"),
+  modifiedAt: new Date("2022-04-06T11:50:56.757Z"),
   id: "<value>",
-  description: "Open-source homogeneous local area network",
+  description: "Ameliorated stable product",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
+  properties: {
+    prefix: "<value>",
+    expires: {
+      ttl: 870013,
+      timeframe: "day",
+    },
+    activations: {
+      limit: 799159,
+      enableUserAdmin: false,
+    },
+    limitUsage: 461479,
+  },
   grants: [
     {
-      createdAt: new Date("2023-03-07T11:48:40.318Z"),
-      modifiedAt: new Date("2024-10-11T10:53:37.826Z"),
+      createdAt: new Date("2024-05-05T11:02:22.031Z"),
+      modifiedAt: new Date("2022-05-10T15:05:25.793Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
-      properties: {},
+      properties: {
+        licenseKeyId: "<value>",
+        displayKey: "<value>",
+      },
       subscriptionId: "<value>",
       orderId: "<value>",
       userId: "<value>",
       benefitId: "<value>",
     },
   ],
-  properties: {
-    note: "<value>",
-  },
 };
 ```
 

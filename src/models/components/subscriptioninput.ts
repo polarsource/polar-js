@@ -57,13 +57,13 @@ export type SubscriptionInput = {
   endedAt: Date | null;
   userId: string;
   productId: string;
-  priceId: string | null;
+  priceId: string;
   user: SubscriptionUser;
   /**
    * A product.
    */
   product: ProductInput;
-  price: ProductPriceInput | null;
+  price: ProductPriceInput;
 };
 
 /** @internal */
@@ -96,10 +96,10 @@ export const SubscriptionInput$inboundSchema: z.ZodType<
   ),
   user_id: z.string(),
   product_id: z.string(),
-  price_id: z.nullable(z.string()),
+  price_id: z.string(),
   user: SubscriptionUser$inboundSchema,
   product: ProductInput$inboundSchema,
-  price: z.nullable(ProductPriceInput$inboundSchema),
+  price: ProductPriceInput$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -132,10 +132,10 @@ export type SubscriptionInput$Outbound = {
   ended_at: string | null;
   user_id: string;
   product_id: string;
-  price_id: string | null;
+  price_id: string;
   user: SubscriptionUser$Outbound;
   product: ProductInput$Outbound;
-  price: ProductPriceInput$Outbound | null;
+  price: ProductPriceInput$Outbound;
 };
 
 /** @internal */
@@ -158,10 +158,10 @@ export const SubscriptionInput$outboundSchema: z.ZodType<
   endedAt: z.nullable(z.date().transform(v => v.toISOString())),
   userId: z.string(),
   productId: z.string(),
-  priceId: z.nullable(z.string()),
+  priceId: z.string(),
   user: SubscriptionUser$outboundSchema,
   product: ProductInput$outboundSchema,
-  price: z.nullable(ProductPriceInput$outboundSchema),
+  price: ProductPriceInput$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

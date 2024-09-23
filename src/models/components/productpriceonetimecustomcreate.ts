@@ -13,11 +13,19 @@ export type ProductPriceOneTimeCustomCreateType = ClosedEnum<
   typeof ProductPriceOneTimeCustomCreateType
 >;
 
+export const ProductPriceOneTimeCustomCreateAmountType = {
+  Custom: "custom",
+} as const;
+export type ProductPriceOneTimeCustomCreateAmountType = ClosedEnum<
+  typeof ProductPriceOneTimeCustomCreateAmountType
+>;
+
 /**
  * Schema to create a pay-what-you-want price for a one-time product.
  */
 export type ProductPriceOneTimeCustomCreate = {
   type?: "one_time" | undefined;
+  amountType?: "custom" | undefined;
   /**
    * The currency. Currently, only `usd` is supported.
    */
@@ -60,18 +68,43 @@ export namespace ProductPriceOneTimeCustomCreateType$ {
 }
 
 /** @internal */
+export const ProductPriceOneTimeCustomCreateAmountType$inboundSchema:
+  z.ZodNativeEnum<typeof ProductPriceOneTimeCustomCreateAmountType> = z
+    .nativeEnum(ProductPriceOneTimeCustomCreateAmountType);
+
+/** @internal */
+export const ProductPriceOneTimeCustomCreateAmountType$outboundSchema:
+  z.ZodNativeEnum<typeof ProductPriceOneTimeCustomCreateAmountType> =
+    ProductPriceOneTimeCustomCreateAmountType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ProductPriceOneTimeCustomCreateAmountType$ {
+  /** @deprecated use `ProductPriceOneTimeCustomCreateAmountType$inboundSchema` instead. */
+  export const inboundSchema =
+    ProductPriceOneTimeCustomCreateAmountType$inboundSchema;
+  /** @deprecated use `ProductPriceOneTimeCustomCreateAmountType$outboundSchema` instead. */
+  export const outboundSchema =
+    ProductPriceOneTimeCustomCreateAmountType$outboundSchema;
+}
+
+/** @internal */
 export const ProductPriceOneTimeCustomCreate$inboundSchema: z.ZodType<
   ProductPriceOneTimeCustomCreate,
   z.ZodTypeDef,
   unknown
 > = z.object({
   type: z.literal("one_time").optional(),
+  amount_type: z.literal("custom").optional(),
   price_currency: z.string().default("usd"),
   minimum_amount: z.nullable(z.number().int()).optional(),
   maximum_amount: z.nullable(z.number().int()).optional(),
   preset_amount: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "amount_type": "amountType",
     "price_currency": "priceCurrency",
     "minimum_amount": "minimumAmount",
     "maximum_amount": "maximumAmount",
@@ -82,6 +115,7 @@ export const ProductPriceOneTimeCustomCreate$inboundSchema: z.ZodType<
 /** @internal */
 export type ProductPriceOneTimeCustomCreate$Outbound = {
   type: "one_time";
+  amount_type: "custom";
   price_currency: string;
   minimum_amount?: number | null | undefined;
   maximum_amount?: number | null | undefined;
@@ -95,12 +129,14 @@ export const ProductPriceOneTimeCustomCreate$outboundSchema: z.ZodType<
   ProductPriceOneTimeCustomCreate
 > = z.object({
   type: z.literal("one_time").default("one_time"),
+  amountType: z.literal("custom").default("custom"),
   priceCurrency: z.string().default("usd"),
   minimumAmount: z.nullable(z.number().int()).optional(),
   maximumAmount: z.nullable(z.number().int()).optional(),
   presetAmount: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    amountType: "amount_type",
     priceCurrency: "price_currency",
     minimumAmount: "minimum_amount",
     maximumAmount: "maximum_amount",

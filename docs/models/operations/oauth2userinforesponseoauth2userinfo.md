@@ -10,7 +10,7 @@ import { Oauth2UserinfoResponseOauth2Userinfo } from "@polar-sh/sdk/models/opera
 let value: Oauth2UserinfoResponseOauth2Userinfo = {
   sub: "<value>",
   name: "<value>",
-  email: "Kevin_Glover28@hotmail.com",
+  email: "Darlene.Bartoletti42@gmail.com",
   emailVerified: false,
 };
 ```

@@ -18,13 +18,6 @@ export type SubscriptionsListQueryParamOrganizationIDFilter =
  */
 export type SubscriptionsListQueryParamProductIDFilter = string | Array<string>;
 
-/**
- * Filter by subscription tier type.
- */
-export type SubscriptionTierTypeFilter =
-  | components.SubscriptionTierType
-  | Array<components.SubscriptionTierType>;
-
 export type SubscriptionsListRequest = {
   /**
    * Filter by organization ID.
@@ -34,16 +27,6 @@ export type SubscriptionsListRequest = {
    * Filter by product ID.
    */
   productId?: string | Array<string> | null | undefined;
-  /**
-   * Filter by subscription tier type.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  typeFilter?:
-    | components.SubscriptionTierType
-    | Array<components.SubscriptionTierType>
-    | null
-    | undefined;
   /**
    * Filter by active or inactive subscription.
    */
@@ -137,42 +120,6 @@ export namespace SubscriptionsListQueryParamProductIDFilter$ {
 }
 
 /** @internal */
-export const SubscriptionTierTypeFilter$inboundSchema: z.ZodType<
-  SubscriptionTierTypeFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  components.SubscriptionTierType$inboundSchema,
-  z.array(components.SubscriptionTierType$inboundSchema),
-]);
-
-/** @internal */
-export type SubscriptionTierTypeFilter$Outbound = string | Array<string>;
-
-/** @internal */
-export const SubscriptionTierTypeFilter$outboundSchema: z.ZodType<
-  SubscriptionTierTypeFilter$Outbound,
-  z.ZodTypeDef,
-  SubscriptionTierTypeFilter
-> = z.union([
-  components.SubscriptionTierType$outboundSchema,
-  z.array(components.SubscriptionTierType$outboundSchema),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionTierTypeFilter$ {
-  /** @deprecated use `SubscriptionTierTypeFilter$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionTierTypeFilter$inboundSchema;
-  /** @deprecated use `SubscriptionTierTypeFilter$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionTierTypeFilter$outboundSchema;
-  /** @deprecated use `SubscriptionTierTypeFilter$Outbound` instead. */
-  export type Outbound = SubscriptionTierTypeFilter$Outbound;
-}
-
-/** @internal */
 export const SubscriptionsListRequest$inboundSchema: z.ZodType<
   SubscriptionsListRequest,
   z.ZodTypeDef,
@@ -181,12 +128,6 @@ export const SubscriptionsListRequest$inboundSchema: z.ZodType<
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  type_filter: z.nullable(
-    z.union([
-      components.SubscriptionTierType$inboundSchema,
-      z.array(components.SubscriptionTierType$inboundSchema),
-    ]),
-  ).optional(),
   active: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
@@ -197,7 +138,6 @@ export const SubscriptionsListRequest$inboundSchema: z.ZodType<
   return remap$(v, {
     "organization_id": "organizationId",
     "product_id": "productId",
-    "type_filter": "typeFilter",
   });
 });
 
@@ -205,7 +145,6 @@ export const SubscriptionsListRequest$inboundSchema: z.ZodType<
 export type SubscriptionsListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
-  type_filter?: string | Array<string> | null | undefined;
   active?: boolean | null | undefined;
   page: number;
   limit: number;
@@ -221,12 +160,6 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodType<
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  typeFilter: z.nullable(
-    z.union([
-      components.SubscriptionTierType$outboundSchema,
-      z.array(components.SubscriptionTierType$outboundSchema),
-    ]),
-  ).optional(),
   active: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
@@ -237,7 +170,6 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodType<
   return remap$(v, {
     organizationId: "organization_id",
     productId: "product_id",
-    typeFilter: "type_filter",
   });
 });
 

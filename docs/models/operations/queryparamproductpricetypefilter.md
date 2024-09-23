@@ -7,7 +7,9 @@ Filter by product price type. `recurring` will return orders corresponding to su
 ```typescript
 import { QueryParamProductPriceTypeFilter } from "@polar-sh/sdk/models/operations";
 
-let value: QueryParamProductPriceTypeFilter = "one_time";
+let value: QueryParamProductPriceTypeFilter = [
+  "one_time",
+];
 ```
 
 ## Supported Types

@@ -3,7 +3,6 @@
  */
 
 import { usersSubscriptionsCancel } from "../funcs/usersSubscriptionsCancel.js";
-import { usersSubscriptionsCreate } from "../funcs/usersSubscriptionsCreate.js";
 import { usersSubscriptionsGet } from "../funcs/usersSubscriptionsGet.js";
 import { usersSubscriptionsList } from "../funcs/usersSubscriptionsList.js";
 import { usersSubscriptionsUpdate } from "../funcs/usersSubscriptionsUpdate.js";
@@ -25,25 +24,6 @@ export class PolarSubscriptions extends ClientSDK {
     options?: RequestOptions,
   ): Promise<PageIterator<operations.UsersSubscriptionsListResponse>> {
     return unwrapResultIterator(usersSubscriptionsList(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Create Free Subscription
-   *
-   * @remarks
-   * Create a subscription on a **free** tier.
-   *
-   * If you want to subscribe to a paid tier, you need to create a checkout session.
-   */
-  async create(
-    request: components.UserFreeSubscriptionCreate,
-    options?: RequestOptions,
-  ): Promise<components.UserSubscription> {
-    return unwrapAsync(usersSubscriptionsCreate(
       this,
       request,
       options,

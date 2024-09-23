@@ -28,11 +28,6 @@ import {
   ProductPriceOutput$Outbound,
   ProductPriceOutput$outboundSchema,
 } from "./productpriceoutput.js";
-import {
-  SubscriptionTierType,
-  SubscriptionTierType$inboundSchema,
-  SubscriptionTierType$outboundSchema,
-} from "./subscriptiontiertype.js";
 
 export type UserSubscriptionProductBenefits = BenefitBase | BenefitArticles;
 
@@ -69,14 +64,6 @@ export type UserSubscriptionProduct = {
    * The ID of the organization owning the product.
    */
   organizationId: string;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  type: SubscriptionTierType | null;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  isHighlighted: boolean | null;
   /**
    * List of available prices for this product.
    */
@@ -139,8 +126,6 @@ export const UserSubscriptionProduct$inboundSchema: z.ZodType<
   is_recurring: z.boolean(),
   is_archived: z.boolean(),
   organization_id: z.string(),
-  type: z.nullable(SubscriptionTierType$inboundSchema),
-  is_highlighted: z.nullable(z.boolean()),
   prices: z.array(ProductPriceOutput$inboundSchema),
   benefits: z.array(
     z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]),
@@ -153,7 +138,6 @@ export const UserSubscriptionProduct$inboundSchema: z.ZodType<
     "is_recurring": "isRecurring",
     "is_archived": "isArchived",
     "organization_id": "organizationId",
-    "is_highlighted": "isHighlighted",
   });
 });
 
@@ -167,8 +151,6 @@ export type UserSubscriptionProduct$Outbound = {
   is_recurring: boolean;
   is_archived: boolean;
   organization_id: string;
-  type: string | null;
-  is_highlighted: boolean | null;
   prices: Array<ProductPriceOutput$Outbound>;
   benefits: Array<BenefitBase$Outbound | BenefitArticles$Outbound>;
   medias: Array<ProductMediaFileReadOutput$Outbound>;
@@ -188,8 +170,6 @@ export const UserSubscriptionProduct$outboundSchema: z.ZodType<
   isRecurring: z.boolean(),
   isArchived: z.boolean(),
   organizationId: z.string(),
-  type: z.nullable(SubscriptionTierType$outboundSchema),
-  isHighlighted: z.nullable(z.boolean()),
   prices: z.array(ProductPriceOutput$outboundSchema),
   benefits: z.array(
     z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]),
@@ -202,7 +182,6 @@ export const UserSubscriptionProduct$outboundSchema: z.ZodType<
     isRecurring: "is_recurring",
     isArchived: "is_archived",
     organizationId: "organization_id",
-    isHighlighted: "is_highlighted",
   });
 });
 

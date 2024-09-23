@@ -7,7 +7,9 @@ Filter by given benefit ID.
 ```typescript
 import { BenefitIDFilter } from "@polar-sh/sdk/models/operations";
 
-let value: BenefitIDFilter = "<value>";
+let value: BenefitIDFilter = [
+  "<value>",
+];
 ```
 
 ## Supported Types

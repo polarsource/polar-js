@@ -6,7 +6,7 @@
 import { SubscriptionUser } from "@polar-sh/sdk/models/components";
 
 let value: SubscriptionUser = {
-  email: "Leilani_Bradtke@yahoo.com",
+  email: "Ludwig.Treutel@gmail.com",
   publicName: "<value>",
   githubUsername: "<value>",
   avatarUrl: "<value>",

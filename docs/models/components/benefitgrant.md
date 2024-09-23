@@ -8,8 +8,8 @@ A grant of a benefit to a user.
 import { BenefitGrant } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrant = {
-  createdAt: new Date("2022-09-18T17:31:57.372Z"),
-  modifiedAt: new Date("2024-12-23T15:59:41.249Z"),
+  createdAt: new Date("2024-04-17T23:02:17.425Z"),
+  modifiedAt: new Date("2024-02-05T06:43:40.658Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,

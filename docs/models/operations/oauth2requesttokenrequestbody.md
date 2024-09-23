@@ -8,7 +8,8 @@ import { Oauth2RequestTokenRequestBody } from "@polar-sh/sdk/models/operations";
 let value: Oauth2RequestTokenRequestBody = {
   clientId: "<value>",
   clientSecret: "<value>",
-  refreshToken: "<value>",
+  code: "<value>",
+  redirectUri: "https://important-travel.com/",
 };
 ```
 

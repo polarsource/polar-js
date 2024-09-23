@@ -7,7 +7,9 @@ Filter by name.
 ```typescript
 import { RepositoryNameFilter } from "@polar-sh/sdk/models/operations";
 
-let value: RepositoryNameFilter = "<value>";
+let value: RepositoryNameFilter = [
+  "<value>",
+];
 ```
 
 ## Supported Types

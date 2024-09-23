@@ -23,16 +23,30 @@ import {
   ProductPriceOneTimeFixedCreate$outboundSchema,
 } from "./productpriceonetimefixedcreate.js";
 import {
-  ProductPriceRecurringCreate,
-  ProductPriceRecurringCreate$inboundSchema,
-  ProductPriceRecurringCreate$Outbound,
-  ProductPriceRecurringCreate$outboundSchema,
-} from "./productpricerecurringcreate.js";
+  ProductPriceOneTimeFreeCreate,
+  ProductPriceOneTimeFreeCreate$inboundSchema,
+  ProductPriceOneTimeFreeCreate$Outbound,
+  ProductPriceOneTimeFreeCreate$outboundSchema,
+} from "./productpriceonetimefreecreate.js";
+import {
+  ProductPriceRecurringFixedCreate,
+  ProductPriceRecurringFixedCreate$inboundSchema,
+  ProductPriceRecurringFixedCreate$Outbound,
+  ProductPriceRecurringFixedCreate$outboundSchema,
+} from "./productpricerecurringfixedcreate.js";
+import {
+  ProductPriceRecurringFreeCreate,
+  ProductPriceRecurringFreeCreate$inboundSchema,
+  ProductPriceRecurringFreeCreate$Outbound,
+  ProductPriceRecurringFreeCreate$outboundSchema,
+} from "./productpricerecurringfreecreate.js";
 
 export type ProductUpdatePrices =
   | ExistingProductPrice
+  | ProductPriceOneTimeFreeCreate
+  | ProductPriceRecurringFreeCreate
   | ProductPriceOneTimeFixedCreate
-  | ProductPriceRecurringCreate
+  | ProductPriceRecurringFixedCreate
   | ProductPriceOneTimeCustomCreate;
 
 /**
@@ -45,10 +59,6 @@ export type ProductUpdate = {
    */
   description?: string | null | undefined;
   /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  isHighlighted?: boolean | null | undefined;
-  /**
    * Whether the product is archived. If `true`, the product won't be available for purchase anymore. Existing customers will still have access to their benefits, and subscriptions will continue normally.
    */
   isArchived?: boolean | null | undefined;
@@ -58,8 +68,10 @@ export type ProductUpdate = {
   prices?:
     | Array<
       | ExistingProductPrice
+      | ProductPriceOneTimeFreeCreate
+      | ProductPriceRecurringFreeCreate
       | ProductPriceOneTimeFixedCreate
-      | ProductPriceRecurringCreate
+      | ProductPriceRecurringFixedCreate
       | ProductPriceOneTimeCustomCreate
     >
     | null
@@ -77,16 +89,20 @@ export const ProductUpdatePrices$inboundSchema: z.ZodType<
   unknown
 > = z.union([
   ExistingProductPrice$inboundSchema,
+  ProductPriceOneTimeFreeCreate$inboundSchema,
+  ProductPriceRecurringFreeCreate$inboundSchema,
   ProductPriceOneTimeFixedCreate$inboundSchema,
-  ProductPriceRecurringCreate$inboundSchema,
+  ProductPriceRecurringFixedCreate$inboundSchema,
   ProductPriceOneTimeCustomCreate$inboundSchema,
 ]);
 
 /** @internal */
 export type ProductUpdatePrices$Outbound =
   | ExistingProductPrice$Outbound
+  | ProductPriceOneTimeFreeCreate$Outbound
+  | ProductPriceRecurringFreeCreate$Outbound
   | ProductPriceOneTimeFixedCreate$Outbound
-  | ProductPriceRecurringCreate$Outbound
+  | ProductPriceRecurringFixedCreate$Outbound
   | ProductPriceOneTimeCustomCreate$Outbound;
 
 /** @internal */
@@ -96,8 +112,10 @@ export const ProductUpdatePrices$outboundSchema: z.ZodType<
   ProductUpdatePrices
 > = z.union([
   ExistingProductPrice$outboundSchema,
+  ProductPriceOneTimeFreeCreate$outboundSchema,
+  ProductPriceRecurringFreeCreate$outboundSchema,
   ProductPriceOneTimeFixedCreate$outboundSchema,
-  ProductPriceRecurringCreate$outboundSchema,
+  ProductPriceRecurringFixedCreate$outboundSchema,
   ProductPriceOneTimeCustomCreate$outboundSchema,
 ]);
 
@@ -122,14 +140,15 @@ export const ProductUpdate$inboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
-  is_highlighted: z.nullable(z.boolean()).optional(),
   is_archived: z.nullable(z.boolean()).optional(),
   prices: z.nullable(
     z.array(
       z.union([
         ExistingProductPrice$inboundSchema,
+        ProductPriceOneTimeFreeCreate$inboundSchema,
+        ProductPriceRecurringFreeCreate$inboundSchema,
         ProductPriceOneTimeFixedCreate$inboundSchema,
-        ProductPriceRecurringCreate$inboundSchema,
+        ProductPriceRecurringFixedCreate$inboundSchema,
         ProductPriceOneTimeCustomCreate$inboundSchema,
       ]),
     ),
@@ -137,7 +156,6 @@ export const ProductUpdate$inboundSchema: z.ZodType<
   medias: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
-    "is_highlighted": "isHighlighted",
     "is_archived": "isArchived",
   });
 });
@@ -146,13 +164,14 @@ export const ProductUpdate$inboundSchema: z.ZodType<
 export type ProductUpdate$Outbound = {
   name?: string | null | undefined;
   description?: string | null | undefined;
-  is_highlighted?: boolean | null | undefined;
   is_archived?: boolean | null | undefined;
   prices?:
     | Array<
       | ExistingProductPrice$Outbound
+      | ProductPriceOneTimeFreeCreate$Outbound
+      | ProductPriceRecurringFreeCreate$Outbound
       | ProductPriceOneTimeFixedCreate$Outbound
-      | ProductPriceRecurringCreate$Outbound
+      | ProductPriceRecurringFixedCreate$Outbound
       | ProductPriceOneTimeCustomCreate$Outbound
     >
     | null
@@ -168,14 +187,15 @@ export const ProductUpdate$outboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
-  isHighlighted: z.nullable(z.boolean()).optional(),
   isArchived: z.nullable(z.boolean()).optional(),
   prices: z.nullable(
     z.array(
       z.union([
         ExistingProductPrice$outboundSchema,
+        ProductPriceOneTimeFreeCreate$outboundSchema,
+        ProductPriceRecurringFreeCreate$outboundSchema,
         ProductPriceOneTimeFixedCreate$outboundSchema,
-        ProductPriceRecurringCreate$outboundSchema,
+        ProductPriceRecurringFixedCreate$outboundSchema,
         ProductPriceOneTimeCustomCreate$outboundSchema,
       ]),
     ),
@@ -183,7 +203,6 @@ export const ProductUpdate$outboundSchema: z.ZodType<
   medias: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
-    isHighlighted: "is_highlighted",
     isArchived: "is_archived",
   });
 });

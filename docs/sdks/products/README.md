@@ -115,11 +115,9 @@ async function run() {
     name: "<value>",
     prices: [
       {
-        priceAmount: 486589,
         recurringInterval: "month",
       },
     ],
-    type: "individual",
   });
   
   // Handle the result
@@ -148,11 +146,10 @@ async function run() {
     name: "<value>",
     prices: [
       {
-        priceAmount: 417458,
-        recurringInterval: "month",
+        priceAmount: 89964,
+        recurringInterval: "year",
       },
     ],
-    type: "individual",
   });
 
   if (!res.ok) {

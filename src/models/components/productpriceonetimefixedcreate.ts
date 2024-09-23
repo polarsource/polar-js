@@ -13,19 +13,27 @@ export type ProductPriceOneTimeFixedCreateType = ClosedEnum<
   typeof ProductPriceOneTimeFixedCreateType
 >;
 
+export const ProductPriceOneTimeFixedCreateAmountType = {
+  Fixed: "fixed",
+} as const;
+export type ProductPriceOneTimeFixedCreateAmountType = ClosedEnum<
+  typeof ProductPriceOneTimeFixedCreateAmountType
+>;
+
 /**
  * Schema to create a one-time product price.
  */
 export type ProductPriceOneTimeFixedCreate = {
   type?: "one_time" | undefined;
-  /**
-   * The currency. Currently, only `usd` is supported.
-   */
-  priceCurrency?: string | undefined;
+  amountType?: "fixed" | undefined;
   /**
    * The price in cents.
    */
   priceAmount: number;
+  /**
+   * The currency. Currently, only `usd` is supported.
+   */
+  priceCurrency?: string | undefined;
 };
 
 /** @internal */
@@ -51,26 +59,52 @@ export namespace ProductPriceOneTimeFixedCreateType$ {
 }
 
 /** @internal */
+export const ProductPriceOneTimeFixedCreateAmountType$inboundSchema:
+  z.ZodNativeEnum<typeof ProductPriceOneTimeFixedCreateAmountType> = z
+    .nativeEnum(ProductPriceOneTimeFixedCreateAmountType);
+
+/** @internal */
+export const ProductPriceOneTimeFixedCreateAmountType$outboundSchema:
+  z.ZodNativeEnum<typeof ProductPriceOneTimeFixedCreateAmountType> =
+    ProductPriceOneTimeFixedCreateAmountType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ProductPriceOneTimeFixedCreateAmountType$ {
+  /** @deprecated use `ProductPriceOneTimeFixedCreateAmountType$inboundSchema` instead. */
+  export const inboundSchema =
+    ProductPriceOneTimeFixedCreateAmountType$inboundSchema;
+  /** @deprecated use `ProductPriceOneTimeFixedCreateAmountType$outboundSchema` instead. */
+  export const outboundSchema =
+    ProductPriceOneTimeFixedCreateAmountType$outboundSchema;
+}
+
+/** @internal */
 export const ProductPriceOneTimeFixedCreate$inboundSchema: z.ZodType<
   ProductPriceOneTimeFixedCreate,
   z.ZodTypeDef,
   unknown
 > = z.object({
   type: z.literal("one_time").optional(),
-  price_currency: z.string().default("usd"),
+  amount_type: z.literal("fixed").optional(),
   price_amount: z.number().int(),
+  price_currency: z.string().default("usd"),
 }).transform((v) => {
   return remap$(v, {
-    "price_currency": "priceCurrency",
+    "amount_type": "amountType",
     "price_amount": "priceAmount",
+    "price_currency": "priceCurrency",
   });
 });
 
 /** @internal */
 export type ProductPriceOneTimeFixedCreate$Outbound = {
   type: "one_time";
-  price_currency: string;
+  amount_type: "fixed";
   price_amount: number;
+  price_currency: string;
 };
 
 /** @internal */
@@ -80,12 +114,14 @@ export const ProductPriceOneTimeFixedCreate$outboundSchema: z.ZodType<
   ProductPriceOneTimeFixedCreate
 > = z.object({
   type: z.literal("one_time").default("one_time"),
-  priceCurrency: z.string().default("usd"),
+  amountType: z.literal("fixed").default("fixed"),
   priceAmount: z.number().int(),
+  priceCurrency: z.string().default("usd"),
 }).transform((v) => {
   return remap$(v, {
-    priceCurrency: "price_currency",
+    amountType: "amount_type",
     priceAmount: "price_amount",
+    priceCurrency: "price_currency",
   });
 });
 

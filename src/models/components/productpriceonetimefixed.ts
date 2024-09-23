@@ -44,13 +44,13 @@ export type ProductPriceOneTimeFixed = {
   id: string;
   amountType?: "fixed" | undefined;
   /**
-   * The currency.
-   */
-  priceCurrency: string;
-  /**
    * Whether the price is archived and no longer available.
    */
   isArchived: boolean;
+  /**
+   * The currency.
+   */
+  priceCurrency: string;
   /**
    * The price in cents.
    */
@@ -116,8 +116,8 @@ export const ProductPriceOneTimeFixed$inboundSchema: z.ZodType<
   ),
   id: z.string(),
   amount_type: z.literal("fixed").optional(),
-  price_currency: z.string(),
   is_archived: z.boolean(),
+  price_currency: z.string(),
   price_amount: z.number().int(),
   type: z.literal("one_time").optional(),
 }).transform((v) => {
@@ -125,8 +125,8 @@ export const ProductPriceOneTimeFixed$inboundSchema: z.ZodType<
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
     "amount_type": "amountType",
-    "price_currency": "priceCurrency",
     "is_archived": "isArchived",
+    "price_currency": "priceCurrency",
     "price_amount": "priceAmount",
   });
 });
@@ -137,8 +137,8 @@ export type ProductPriceOneTimeFixed$Outbound = {
   modified_at: string | null;
   id: string;
   amount_type: "fixed";
-  price_currency: string;
   is_archived: boolean;
+  price_currency: string;
   price_amount: number;
   type: "one_time";
 };
@@ -153,8 +153,8 @@ export const ProductPriceOneTimeFixed$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
   amountType: z.literal("fixed").default("fixed"),
-  priceCurrency: z.string(),
   isArchived: z.boolean(),
+  priceCurrency: z.string(),
   priceAmount: z.number().int(),
   type: z.literal("one_time").default("one_time"),
 }).transform((v) => {
@@ -162,8 +162,8 @@ export const ProductPriceOneTimeFixed$outboundSchema: z.ZodType<
     createdAt: "created_at",
     modifiedAt: "modified_at",
     amountType: "amount_type",
-    priceCurrency: "price_currency",
     isArchived: "is_archived",
+    priceCurrency: "price_currency",
     priceAmount: "price_amount",
   });
 });

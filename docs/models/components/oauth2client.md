@@ -7,15 +7,15 @@ import { OAuth2Client } from "@polar-sh/sdk/models/components";
 
 let value: OAuth2Client = {
   redirectUris: [
-    "http://stupendous-pray.name",
+    "https://simplistic-igloo.net/",
   ],
   clientName: "<value>",
-  createdAt: new Date("2023-12-12T20:43:47.769Z"),
-  modifiedAt: new Date("2023-01-02T00:36:43.280Z"),
+  createdAt: new Date("2024-09-30T06:52:58.064Z"),
+  modifiedAt: new Date("2022-06-10T15:44:18.944Z"),
   clientId: "<value>",
   clientSecret: "<value>",
-  clientIdIssuedAt: 29100,
-  clientSecretExpiresAt: 790840,
+  clientIdIssuedAt: 919171,
+  clientSecretExpiresAt: 411626,
 };
 ```
 

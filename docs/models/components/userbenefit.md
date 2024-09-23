@@ -6,16 +6,15 @@
 import { UserBenefit } from "@polar-sh/sdk/models/components";
 
 let value: UserBenefit = {
-  createdAt: new Date("2022-02-25T10:40:10.987Z"),
-  modifiedAt: new Date("2024-08-07T13:19:14.531Z"),
+  createdAt: new Date("2022-03-25T19:54:28.701Z"),
+  modifiedAt: new Date("2024-02-03T07:45:59.605Z"),
   id: "<value>",
-  description: "Horizontal zero administration access",
+  description: "Ergonomic 5th generation alliance",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
-    repositoryOwner: "polarsource",
-    repositoryName: "private_repo",
+    guildId: "<value>",
   },
 };
 ```

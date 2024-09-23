@@ -8,21 +8,14 @@ Benefit updated.
 import { BenefitsUpdateResponseBenefitsUpdate } from "@polar-sh/sdk/models/operations";
 
 let value: BenefitsUpdateResponseBenefitsUpdate = {
-  createdAt: new Date("2023-12-25T13:12:17.112Z"),
-  modifiedAt: new Date("2022-11-12T15:18:55.313Z"),
+  createdAt: new Date("2023-02-20T10:42:45.340Z"),
+  modifiedAt: new Date("2023-02-15T05:29:12.502Z"),
   id: "<value>",
-  description: "Focused exuding middleware",
+  description: "Reduced contextually-based capability",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
-  properties: {
-    archived: {
-      "key": false,
-    },
-    files: [
-      "<value>",
-    ],
-  },
+  properties: {},
 };
 ```
 

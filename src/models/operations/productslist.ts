@@ -16,13 +16,6 @@ export type ProductsListQueryParamOrganizationIDFilter = string | Array<string>;
  */
 export type QueryParamBenefitIDFilter = string | Array<string>;
 
-/**
- * Filter by subscription tier type.
- */
-export type QueryParamSubscriptionTierTypeFilter =
-  | components.SubscriptionTierType
-  | Array<components.SubscriptionTierType>;
-
 export type ProductsListRequest = {
   /**
    * Filter by organization ID.
@@ -40,14 +33,6 @@ export type ProductsListRequest = {
    * Filter products granting specific benefit.
    */
   benefitId?: string | Array<string> | null | undefined;
-  /**
-   * Filter by subscription tier type.
-   */
-  typeFilter?:
-    | components.SubscriptionTierType
-    | Array<components.SubscriptionTierType>
-    | null
-    | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -126,46 +111,6 @@ export namespace QueryParamBenefitIDFilter$ {
 }
 
 /** @internal */
-export const QueryParamSubscriptionTierTypeFilter$inboundSchema: z.ZodType<
-  QueryParamSubscriptionTierTypeFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  components.SubscriptionTierType$inboundSchema,
-  z.array(components.SubscriptionTierType$inboundSchema),
-]);
-
-/** @internal */
-export type QueryParamSubscriptionTierTypeFilter$Outbound =
-  | string
-  | Array<string>;
-
-/** @internal */
-export const QueryParamSubscriptionTierTypeFilter$outboundSchema: z.ZodType<
-  QueryParamSubscriptionTierTypeFilter$Outbound,
-  z.ZodTypeDef,
-  QueryParamSubscriptionTierTypeFilter
-> = z.union([
-  components.SubscriptionTierType$outboundSchema,
-  z.array(components.SubscriptionTierType$outboundSchema),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryParamSubscriptionTierTypeFilter$ {
-  /** @deprecated use `QueryParamSubscriptionTierTypeFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    QueryParamSubscriptionTierTypeFilter$inboundSchema;
-  /** @deprecated use `QueryParamSubscriptionTierTypeFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    QueryParamSubscriptionTierTypeFilter$outboundSchema;
-  /** @deprecated use `QueryParamSubscriptionTierTypeFilter$Outbound` instead. */
-  export type Outbound = QueryParamSubscriptionTierTypeFilter$Outbound;
-}
-
-/** @internal */
 export const ProductsListRequest$inboundSchema: z.ZodType<
   ProductsListRequest,
   z.ZodTypeDef,
@@ -175,12 +120,6 @@ export const ProductsListRequest$inboundSchema: z.ZodType<
   is_archived: z.nullable(z.boolean()).optional(),
   is_recurring: z.nullable(z.boolean()).optional(),
   benefit_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  type_filter: z.nullable(
-    z.union([
-      components.SubscriptionTierType$inboundSchema,
-      z.array(components.SubscriptionTierType$inboundSchema),
-    ]),
-  ).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
@@ -189,7 +128,6 @@ export const ProductsListRequest$inboundSchema: z.ZodType<
     "is_archived": "isArchived",
     "is_recurring": "isRecurring",
     "benefit_id": "benefitId",
-    "type_filter": "typeFilter",
   });
 });
 
@@ -199,7 +137,6 @@ export type ProductsListRequest$Outbound = {
   is_archived?: boolean | null | undefined;
   is_recurring?: boolean | null | undefined;
   benefit_id?: string | Array<string> | null | undefined;
-  type_filter?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
 };
@@ -214,12 +151,6 @@ export const ProductsListRequest$outboundSchema: z.ZodType<
   isArchived: z.nullable(z.boolean()).optional(),
   isRecurring: z.nullable(z.boolean()).optional(),
   benefitId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  typeFilter: z.nullable(
-    z.union([
-      components.SubscriptionTierType$outboundSchema,
-      z.array(components.SubscriptionTierType$outboundSchema),
-    ]),
-  ).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
@@ -228,7 +159,6 @@ export const ProductsListRequest$outboundSchema: z.ZodType<
     isArchived: "is_archived",
     isRecurring: "is_recurring",
     benefitId: "benefit_id",
-    typeFilter: "type_filter",
   });
 });
 

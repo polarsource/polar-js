@@ -6,8 +6,12 @@
 import { BenefitsCreateBenefitCreate } from "@polar-sh/sdk/models/operations";
 
 let value: BenefitsCreateBenefitCreate = {
-  description: "Team-oriented well-modulated open system",
-  properties: {},
+  description: "Inverse executive service-desk",
+  properties: {
+    files: [
+      "<value>",
+    ],
+  },
 };
 ```
 

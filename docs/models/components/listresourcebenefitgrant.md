@@ -8,8 +8,8 @@ import { ListResourceBenefitGrant } from "@polar-sh/sdk/models/components";
 let value: ListResourceBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2023-05-31T19:56:59.817Z"),
-      modifiedAt: new Date("2023-12-13T09:21:23.434Z"),
+      createdAt: new Date("2024-09-13T00:26:18.256Z"),
+      modifiedAt: new Date("2022-05-08T15:26:57.975Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
@@ -21,8 +21,8 @@ let value: ListResourceBenefitGrant = {
     },
   ],
   pagination: {
-    totalCount: 378245,
-    maxPage: 5189,
+    totalCount: 163181,
+    maxPage: 696219,
   },
 };
 ```

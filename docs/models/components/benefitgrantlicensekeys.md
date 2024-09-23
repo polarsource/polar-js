@@ -6,8 +6,8 @@
 import { BenefitGrantLicenseKeys } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrantLicenseKeys = {
-  createdAt: new Date("2023-05-11T12:16:34.100Z"),
-  modifiedAt: new Date("2023-06-22T13:01:41.966Z"),
+  createdAt: new Date("2022-04-17T14:16:27.461Z"),
+  modifiedAt: new Date("2023-06-30T13:31:25.620Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,

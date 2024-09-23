@@ -29,7 +29,6 @@ Read the docs at https://docs.polar.sh/api
 * [Available Resources and Operations](#available-resources-and-operations)
 * [Standalone functions](#standalone-functions)
 * [Pagination](#pagination)
-* [File uploads](#file-uploads)
 * [Retries](#retries)
 * [Error Handling](#error-handling)
 * [Server Selection](#server-selection)
@@ -209,8 +208,6 @@ run();
 ### [subscriptions](docs/sdks/subscriptions/README.md)
 
 * [list](docs/sdks/subscriptions/README.md#list) - List Subscriptions
-* [create](docs/sdks/subscriptions/README.md#create) - Create Free Subscription
-* [importSubscriptions](docs/sdks/subscriptions/README.md#importsubscriptions) - Import Subscriptions
 * [export](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
 
 ### [users](docs/sdks/users/README.md)
@@ -252,7 +249,6 @@ run();
 #### [users.subscriptions](docs/sdks/polarsubscriptions/README.md)
 
 * [list](docs/sdks/polarsubscriptions/README.md#list) - List Subscriptions
-* [create](docs/sdks/polarsubscriptions/README.md#create) - Create Free Subscription
 * [get](docs/sdks/polarsubscriptions/README.md#get) - Get Subscription
 * [update](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
 * [cancel](docs/sdks/polarsubscriptions/README.md#cancel) - Cancel Subscription
@@ -329,9 +325,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [repositoriesGet](docs/sdks/repositories/README.md#get)
 - [repositoriesList](docs/sdks/repositories/README.md#list)
 - [repositoriesUpdate](docs/sdks/repositories/README.md#update)
-- [subscriptionsCreate](docs/sdks/subscriptions/README.md#create)
 - [subscriptionsExport](docs/sdks/subscriptions/README.md#export)
-- [subscriptionsImportSubscriptions](docs/sdks/subscriptions/README.md#importsubscriptions)
 - [subscriptionsList](docs/sdks/subscriptions/README.md#list)
 - [usersAdvertisementsCreate](docs/sdks/polaradvertisements/README.md#create)
 - [usersAdvertisementsDelete](docs/sdks/polaradvertisements/README.md#delete)
@@ -352,7 +346,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [usersOrdersInvoice](docs/sdks/polarorders/README.md#invoice)
 - [usersOrdersList](docs/sdks/polarorders/README.md#list)
 - [usersSubscriptionsCancel](docs/sdks/polarsubscriptions/README.md#cancel)
-- [usersSubscriptionsCreate](docs/sdks/polarsubscriptions/README.md#create)
 - [usersSubscriptionsGet](docs/sdks/polarsubscriptions/README.md#get)
 - [usersSubscriptionsList](docs/sdks/polarsubscriptions/README.md#list)
 - [usersSubscriptionsUpdate](docs/sdks/polarsubscriptions/README.md#update)
@@ -393,43 +386,6 @@ run();
 
 ```
 <!-- End Pagination [pagination] -->
-
-<!-- Start File uploads [file-upload] -->
-## File uploads
-
-Certain SDK methods accept files as part of a multi-part request. It is possible and typically recommended to upload files as a stream rather than reading the entire contents into memory. This avoids excessive memory consumption and potentially crashing with out-of-memory errors when working with very large files. The following example demonstrates how to attach a file stream to a request.
-
-> [!TIP]
->
-> Depending on your JavaScript runtime, there are convenient utilities that return a handle to a file without reading the entire contents into memory:
->
-> - **Node.js v20+:** Since v20, Node.js comes with a native `openAsBlob` function in [`node:fs`](https://nodejs.org/docs/latest-v20.x/api/fs.html#fsopenasblobpath-options).
-> - **Bun:** The native [`Bun.file`](https://bun.sh/docs/api/file-io#reading-files-bun-file) function produces a file handle that can be used for streaming file uploads.
-> - **Browsers:** All supported browsers return an instance to a [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File) when reading the value from an `<input type="file">` element.
-> - **Node.js v18:** A file stream can be created using the `fileFrom` helper from [`fetch-blob/from.js`](https://www.npmjs.com/package/fetch-blob).
-
-```typescript
-import { Polar } from "@polar-sh/sdk";
-import { openAsBlob } from "node:fs";
-
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
-
-async function run() {
-  const result = await polar.subscriptions.importSubscriptions({
-    file: await openAsBlob("example.file"),
-    organizationId: "<value>",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-
-```
-<!-- End File uploads [file-upload] -->
 
 <!-- Start Retries [retries] -->
 ## Retries

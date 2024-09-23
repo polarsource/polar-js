@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "http://pretty-inch.name",
+        "https://wordy-tectonics.name",
       ],
       clientName: "<value>",
-      createdAt: new Date("2024-12-01T09:39:29.562Z"),
-      modifiedAt: new Date("2023-10-08T06:12:24.107Z"),
+      createdAt: new Date("2023-10-07T14:53:57.713Z"),
+      modifiedAt: new Date("2022-02-07T13:21:36.825Z"),
       clientId: "<value>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 833819,
-      clientSecretExpiresAt: 962771,
+      clientIdIssuedAt: 998527,
+      clientSecretExpiresAt: 131576,
     },
   ],
   pagination: {
-    totalCount: 914791,
-    maxPage: 16871,
+    totalCount: 740347,
+    maxPage: 821016,
   },
 };
 ```

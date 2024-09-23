@@ -7,7 +7,9 @@ Filter products granting specific benefit.
 ```typescript
 import { QueryParamBenefitIDFilter } from "@polar-sh/sdk/models/operations";
 
-let value: QueryParamBenefitIDFilter = "<value>";
+let value: QueryParamBenefitIDFilter = [
+  "<value>",
+];
 ```
 
 ## Supported Types
