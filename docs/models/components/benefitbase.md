@@ -6,11 +6,11 @@
 import { BenefitBase } from "@polar-sh/sdk/models/components";
 
 let value: BenefitBase = {
-  createdAt: new Date("2022-11-17T04:38:55.132Z"),
-  modifiedAt: new Date("2022-11-11T11:00:48.081Z"),
+  createdAt: new Date("2022-05-07T18:22:11.563Z"),
+  modifiedAt: new Date("2024-03-08T18:22:12.424Z"),
   id: "<value>",
-  type: "articles",
-  description: "Progressive attitude-oriented application",
+  type: "github_repository",
+  description: "Sharable homogeneous synergy",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

@@ -7,7 +7,9 @@ Filter by benefit type.
 ```typescript
 import { QueryParamBenefitTypeFilter } from "@polar-sh/sdk/models/operations";
 
-let value: QueryParamBenefitTypeFilter = "downloadables";
+let value: QueryParamBenefitTypeFilter = [
+  "ads",
+];
 ```
 
 ## Supported Types

@@ -6,8 +6,8 @@ import * as z from "zod";
 import * as components from "../components/index.js";
 
 export type ProductsCreateProductCreate =
-  | components.ProductOneTimeCreate
-  | components.ProductRecurringCreate;
+  | components.ProductRecurringCreate
+  | components.ProductOneTimeCreate;
 
 /** @internal */
 export const ProductsCreateProductCreate$inboundSchema: z.ZodType<
@@ -15,14 +15,14 @@ export const ProductsCreateProductCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.ProductOneTimeCreate$inboundSchema,
   components.ProductRecurringCreate$inboundSchema,
+  components.ProductOneTimeCreate$inboundSchema,
 ]);
 
 /** @internal */
 export type ProductsCreateProductCreate$Outbound =
-  | components.ProductOneTimeCreate$Outbound
-  | components.ProductRecurringCreate$Outbound;
+  | components.ProductRecurringCreate$Outbound
+  | components.ProductOneTimeCreate$Outbound;
 
 /** @internal */
 export const ProductsCreateProductCreate$outboundSchema: z.ZodType<
@@ -30,8 +30,8 @@ export const ProductsCreateProductCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductsCreateProductCreate
 > = z.union([
-  components.ProductOneTimeCreate$outboundSchema,
   components.ProductRecurringCreate$outboundSchema,
+  components.ProductOneTimeCreate$outboundSchema,
 ]);
 
 /**

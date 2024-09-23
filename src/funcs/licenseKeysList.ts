@@ -4,9 +4,9 @@
 
 import { PolarCore } from "../core.js";
 import { dlv } from "../lib/dlv.js";
-import { encodeFormQuery as encodeFormQuery$ } from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeFormQuery } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -36,7 +36,7 @@ import {
  * Get license keys connected to the given organization & filters.
  */
 export async function licenseKeysList(
-  client$: PolarCore,
+  client: PolarCore,
   request: operations.LicenseKeysListRequest,
   options?: RequestOptions,
 ): Promise<
@@ -56,59 +56,59 @@ export async function licenseKeysList(
     >
   >
 > {
-  const input$ = request;
+  const input = request;
 
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) => operations.LicenseKeysListRequest$outboundSchema.parse(value$),
+  const parsed = safeParse(
+    input,
+    (value) => operations.LicenseKeysListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return haltIterator(parsed$);
+  if (!parsed.ok) {
+    return haltIterator(parsed);
   }
-  const payload$ = parsed$.value;
-  const body$ = null;
+  const payload = parsed.value;
+  const body = null;
 
-  const path$ = pathToFunc("/v1/license-keys")();
+  const path = pathToFunc("/v1/license-keys")();
 
-  const query$ = encodeFormQuery$({
-    "limit": payload$.limit,
-    "organization_id": payload$.organization_id,
-    "page": payload$.page,
+  const query = encodeFormQuery({
+    "limit": payload.limit,
+    "organization_id": payload.organization_id,
+    "page": payload.page,
   });
 
-  const headers$ = new Headers({
+  const headers = new Headers({
     Accept: "application/json",
   });
 
-  const accessToken$ = await extractSecurity(client$.options$.accessToken);
-  const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
+  const secConfig = await extractSecurity(client._options.accessToken);
+  const securityInput = secConfig == null ? {} : { accessToken: secConfig };
   const context = {
     operationID: "license_keys:list",
     oAuth2Scopes: [],
-    securitySource: client$.options$.accessToken,
+    securitySource: client._options.accessToken,
   };
-  const securitySettings$ = resolveGlobalSecurity(security$);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "GET",
-    path: path$,
-    headers: headers$,
-    query: query$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    path: path,
+    headers: headers,
+    query: query,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
     return haltIterator(requestRes);
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: ["401", "404", "422", "4XX", "5XX"],
     retryConfig: options?.retries
-      || client$.options$.retryConfig,
+      || client._options.retryConfig,
     retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   });
   if (!doResult.ok) {
@@ -116,11 +116,11 @@ export async function licenseKeysList(
   }
   const response = doResult.value;
 
-  const responseFields$ = {
-    HttpMeta: { Response: response, Request: request$ },
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
   };
 
-  const [result$, raw$] = await m$.match<
+  const [result, raw] = await M.match<
     operations.LicenseKeysListResponse,
     | errors.Unauthorized
     | errors.ResourceNotFound
@@ -133,16 +133,16 @@ export async function licenseKeysList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    m$.json(200, operations.LicenseKeysListResponse$inboundSchema, {
+    M.json(200, operations.LicenseKeysListResponse$inboundSchema, {
       key: "Result",
     }),
-    m$.jsonErr(401, errors.Unauthorized$inboundSchema),
-    m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
-    m$.fail(["4XX", "5XX"]),
-  )(response, { extraFields: responseFields$ });
-  if (!result$.ok) {
-    return haltIterator(result$);
+    M.jsonErr(401, errors.Unauthorized$inboundSchema),
+    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
+    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.fail(["4XX", "5XX"]),
+  )(response, { extraFields: responseFields });
+  if (!result.ok) {
+    return haltIterator(result);
   }
 
   const nextFunc = (
@@ -162,7 +162,7 @@ export async function licenseKeysList(
       | ConnectionError
     >
   > => {
-    const page = input$?.page || 0;
+    const page = input?.page || 0;
     const nextPage = page + 1;
     const numPages = dlv(responseData, "pagination.max_page");
     if (numPages == null || numPages <= page) {
@@ -176,22 +176,22 @@ export async function licenseKeysList(
     if (!Array.isArray(results) || !results.length) {
       return () => null;
     }
-    const limit = input$?.limit || 0;
+    const limit = input?.limit || 0;
     if (results.length < limit) {
       return () => null;
     }
 
     return () =>
       licenseKeysList(
-        client$,
+        client,
         {
-          ...input$,
+          ...input,
           page: nextPage,
         },
         options,
       );
   };
 
-  const page$ = { ...result$, next: nextFunc(raw$) };
-  return { ...page$, ...createPageIterator(page$, (v) => !v.ok) };
+  const page = { ...result, next: nextFunc(raw) };
+  return { ...page, ...createPageIterator(page, (v) => !v.ok) };
 }

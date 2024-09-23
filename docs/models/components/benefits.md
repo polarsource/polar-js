@@ -6,16 +6,14 @@
 import { Benefits } from "@polar-sh/sdk/models/components";
 
 let value: Benefits = {
-  createdAt: new Date("2024-07-10T02:37:55.899Z"),
-  modifiedAt: new Date("2022-07-20T20:59:34.441Z"),
+  createdAt: new Date("2022-02-13T19:58:14.380Z"),
+  modifiedAt: new Date("2023-12-03T02:48:11.197Z"),
   id: "<value>",
-  description: "Diverse bifurcated challenge",
+  type: "ads",
+  description: "Implemented scalable orchestration",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
-  properties: {
-    paidArticles: false,
-  },
 };
 ```
 

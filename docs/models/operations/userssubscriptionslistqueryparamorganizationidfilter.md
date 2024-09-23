@@ -7,9 +7,7 @@ Filter by organization ID.
 ```typescript
 import { UsersSubscriptionsListQueryParamOrganizationIDFilter } from "@polar-sh/sdk/models/operations";
 
-let value: UsersSubscriptionsListQueryParamOrganizationIDFilter = [
-  "<value>",
-];
+let value: UsersSubscriptionsListQueryParamOrganizationIDFilter = "<value>";
 ```
 
 ## Supported Types

@@ -6,14 +6,16 @@
 import { ProductInputBenefits } from "@polar-sh/sdk/models/components";
 
 let value: ProductInputBenefits = {
-  createdAt: new Date("2023-05-16T12:42:37.707Z"),
-  modifiedAt: new Date("2022-07-09T13:18:44.228Z"),
+  createdAt: new Date("2023-08-09T17:42:00.248Z"),
+  modifiedAt: new Date("2022-01-18T04:20:40.403Z"),
   id: "<value>",
-  type: "downloadables",
-  description: "Configurable multi-tasking secured line",
+  description: "Future-proofed object-oriented infrastructure",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
+  properties: {
+    paidArticles: false,
+  },
 };
 ```
 

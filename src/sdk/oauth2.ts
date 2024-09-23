@@ -15,7 +15,7 @@ import { Clients } from "./clients.js";
 export class Oauth2 extends ClientSDK {
   private _clients?: Clients;
   get clients(): Clients {
-    return (this._clients ??= new Clients(this.options$));
+    return (this._clients ??= new Clients(this._options));
   }
 
   /**

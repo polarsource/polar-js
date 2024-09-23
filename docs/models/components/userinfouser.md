@@ -8,7 +8,7 @@ import { UserInfoUser } from "@polar-sh/sdk/models/components";
 let value: UserInfoUser = {
   sub: "<value>",
   name: "<value>",
-  email: "Margarett.Reilly0@yahoo.com",
+  email: "Dessie76@gmail.com",
   emailVerified: false,
 };
 ```

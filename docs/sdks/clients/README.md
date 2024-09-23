@@ -105,7 +105,7 @@ const polar = new Polar({
 async function run() {
   const result = await polar.oauth2.clients.create({
     redirectUris: [
-      "http://limp-pastry.org",
+      "https://probable-heating.com/",
     ],
     clientName: "<value>",
   });
@@ -134,7 +134,7 @@ const polar = new PolarCore({
 async function run() {
   const res = await oauth2ClientsCreate(polar, {
     redirectUris: [
-      "http://yummy-shift.info",
+      "https://brisk-seafood.net/",
     ],
     clientName: "<value>",
   });
@@ -269,7 +269,7 @@ async function run() {
     clientId: "<value>",
     oAuth2ClientConfigurationUpdate: {
       redirectUris: [
-        "https://alarming-nondisclosure.com",
+        "https://passionate-flu.org",
       ],
       clientName: "<value>",
       clientId: "<value>",
@@ -302,7 +302,7 @@ async function run() {
     clientId: "<value>",
     oAuth2ClientConfigurationUpdate: {
       redirectUris: [
-        "https://realistic-kill.info",
+        "https://juvenile-exploration.biz",
       ],
       clientName: "<value>",
       clientId: "<value>",

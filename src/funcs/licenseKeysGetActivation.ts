@@ -3,9 +3,9 @@
  */
 
 import { PolarCore } from "../core.js";
-import { encodeSimple as encodeSimple$ } from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeSimple } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Get a license key activation.
  */
 export async function licenseKeysGetActivation(
-  client$: PolarCore,
+  client: PolarCore,
   request: operations.LicenseKeysGetActivationRequest,
   options?: RequestOptions,
 ): Promise<
@@ -48,66 +48,66 @@ export async function licenseKeysGetActivation(
     | ConnectionError
   >
 > {
-  const input$ = request;
+  const input = request;
 
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) =>
-      operations.LicenseKeysGetActivationRequest$outboundSchema.parse(value$),
+  const parsed = safeParse(
+    input,
+    (value) =>
+      operations.LicenseKeysGetActivationRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return parsed$;
+  if (!parsed.ok) {
+    return parsed;
   }
-  const payload$ = parsed$.value;
-  const body$ = null;
+  const payload = parsed.value;
+  const body = null;
 
-  const pathParams$ = {
-    activation_id: encodeSimple$("activation_id", payload$.activation_id, {
+  const pathParams = {
+    activation_id: encodeSimple("activation_id", payload.activation_id, {
       explode: false,
       charEncoding: "percent",
     }),
-    id: encodeSimple$("id", payload$.id, {
+    id: encodeSimple("id", payload.id, {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path$ = pathToFunc("/v1/license-keys/{id}/activations/{activation_id}")(
-    pathParams$,
+  const path = pathToFunc("/v1/license-keys/{id}/activations/{activation_id}")(
+    pathParams,
   );
 
-  const headers$ = new Headers({
+  const headers = new Headers({
     Accept: "application/json",
   });
 
-  const accessToken$ = await extractSecurity(client$.options$.accessToken);
-  const security$ = accessToken$ == null ? {} : { accessToken: accessToken$ };
+  const secConfig = await extractSecurity(client._options.accessToken);
+  const securityInput = secConfig == null ? {} : { accessToken: secConfig };
   const context = {
     operationID: "license_keys:get_activation",
     oAuth2Scopes: [],
-    securitySource: client$.options$.accessToken,
+    securitySource: client._options.accessToken,
   };
-  const securitySettings$ = resolveGlobalSecurity(security$);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "GET",
-    path: path$,
-    headers: headers$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    path: path,
+    headers: headers,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
     return requestRes;
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: ["401", "404", "422", "4XX", "5XX"],
     retryConfig: options?.retries
-      || client$.options$.retryConfig,
+      || client._options.retryConfig,
     retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   });
   if (!doResult.ok) {
@@ -115,11 +115,11 @@ export async function licenseKeysGetActivation(
   }
   const response = doResult.value;
 
-  const responseFields$ = {
-    HttpMeta: { Response: response, Request: request$ },
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
   };
 
-  const [result$] = await m$.match<
+  const [result] = await M.match<
     components.LicenseKeyActivationRead,
     | errors.Unauthorized
     | errors.ResourceNotFound
@@ -132,15 +132,15 @@ export async function licenseKeysGetActivation(
     | RequestTimeoutError
     | ConnectionError
   >(
-    m$.json(200, components.LicenseKeyActivationRead$inboundSchema),
-    m$.jsonErr(401, errors.Unauthorized$inboundSchema),
-    m$.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    m$.jsonErr(422, errors.HTTPValidationError$inboundSchema),
-    m$.fail(["4XX", "5XX"]),
-  )(response, { extraFields: responseFields$ });
-  if (!result$.ok) {
-    return result$;
+    M.json(200, components.LicenseKeyActivationRead$inboundSchema),
+    M.jsonErr(401, errors.Unauthorized$inboundSchema),
+    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
+    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.fail(["4XX", "5XX"]),
+  )(response, { extraFields: responseFields });
+  if (!result.ok) {
+    return result;
   }
 
-  return result$;
+  return result;
 }

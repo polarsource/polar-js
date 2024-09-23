@@ -9,30 +9,19 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-02-06T15:06:10.493Z"),
-        modifiedAt: new Date("2022-05-08T08:34:30.142Z"),
+        createdAt: new Date("2023-12-28T02:31:12.899Z"),
+        modifiedAt: new Date("2022-09-27T16:26:45.665Z"),
         id: "<value>",
-        description: "Focused real-time protocol",
+        description: "Programmable incremental hardware",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
-        properties: {
-          prefix: "<value>",
-          expires: {
-            ttl: 411820,
-            timeframe: "month",
-          },
-          activations: {
-            limit: 675439,
-            enableUserAdmin: false,
-          },
-          limitUsage: 881104,
-        },
+        properties: {},
       },
     ],
     pagination: {
-      totalCount: 249796,
-      maxPage: 581273,
+      totalCount: 554688,
+      maxPage: 287051,
     },
   },
 };

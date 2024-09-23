@@ -8,7 +8,7 @@ Filter by benefit type.
 import { BenefitTypeFilter } from "@polar-sh/sdk/models/operations";
 
 let value: BenefitTypeFilter = [
-  "github_repository",
+  "downloadables",
 ];
 ```
 

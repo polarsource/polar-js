@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://infantile-demur.net",
+          "https://elegant-disappointment.com/",
         ],
         clientName: "<value>",
-        createdAt: new Date("2023-09-24T11:14:33.228Z"),
-        modifiedAt: new Date("2023-03-11T02:58:08.798Z"),
+        createdAt: new Date("2022-01-14T04:36:02.905Z"),
+        modifiedAt: new Date("2022-05-07T13:41:56.227Z"),
         clientId: "<value>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 592042,
-        clientSecretExpiresAt: 896039,
+        clientIdIssuedAt: 618480,
+        clientSecretExpiresAt: 974257,
       },
     ],
     pagination: {
-      totalCount: 572252,
-      maxPage: 638921,
+      totalCount: 990345,
+      maxPage: 409054,
     },
   },
 };

@@ -9,21 +9,21 @@ let value: UsersAdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-08-11T12:47:58.088Z"),
-        modifiedAt: new Date("2024-08-11T14:46:30.188Z"),
+        createdAt: new Date("2023-03-11T13:41:13.226Z"),
+        modifiedAt: new Date("2024-08-23T16:32:18.589Z"),
         id: "<value>",
         userId: "<value>",
-        views: 978619,
-        clicks: 473608,
-        imageUrl: "https://starry-initialise.name",
-        imageUrlDark: "https://rash-butcher.net",
+        views: 581273,
+        clicks: 881736,
+        imageUrl: "https://serpentine-knight.org",
+        imageUrlDark: "https://insignificant-noon.com",
         text: "<value>",
-        linkUrl: "https://oily-cephalopod.name",
+        linkUrl: "https://quiet-elevator.name/",
       },
     ],
     pagination: {
-      totalCount: 944669,
-      maxPage: 758616,
+      totalCount: 428769,
+      maxPage: 135474,
     },
   },
 };

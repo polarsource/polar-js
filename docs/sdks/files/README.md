@@ -106,13 +106,13 @@ async function run() {
   const result = await polar.files.create({
     name: "<value>",
     mimeType: "<value>",
-    size: 489382,
+    size: 638424,
     upload: {
       parts: [
         {
-          number: 638424,
-          chunkStart: 859213,
-          chunkEnd: 417458,
+          number: 417458,
+          chunkStart: 134365,
+          chunkEnd: 69025,
         },
       ],
     },
@@ -143,13 +143,13 @@ async function run() {
   const res = await filesCreate(polar, {
     name: "<value>",
     mimeType: "<value>",
-    size: 376844,
+    size: 816588,
     upload: {
       parts: [
         {
-          number: 951062,
-          chunkStart: 891510,
-          chunkEnd: 86,
+          number: 586220,
+          chunkStart: 752438,
+          chunkEnd: 957409,
         },
       ],
     },
@@ -247,7 +247,7 @@ async function run() {
       path: "/sys",
       parts: [
         {
-          number: 848922,
+          number: 173116,
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
         },

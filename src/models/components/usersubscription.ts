@@ -51,9 +51,9 @@ export type UserSubscription = {
   endedAt: Date | null;
   userId: string;
   productId: string;
-  priceId: string | null;
+  priceId: string;
   product: UserSubscriptionProduct;
-  price: ProductPriceOutput | null;
+  price: ProductPriceOutput;
 };
 
 /** @internal */
@@ -86,9 +86,9 @@ export const UserSubscription$inboundSchema: z.ZodType<
   ),
   user_id: z.string(),
   product_id: z.string(),
-  price_id: z.nullable(z.string()),
+  price_id: z.string(),
   product: UserSubscriptionProduct$inboundSchema,
-  price: z.nullable(ProductPriceOutput$inboundSchema),
+  price: ProductPriceOutput$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -121,9 +121,9 @@ export type UserSubscription$Outbound = {
   ended_at: string | null;
   user_id: string;
   product_id: string;
-  price_id: string | null;
+  price_id: string;
   product: UserSubscriptionProduct$Outbound;
-  price: ProductPriceOutput$Outbound | null;
+  price: ProductPriceOutput$Outbound;
 };
 
 /** @internal */
@@ -146,9 +146,9 @@ export const UserSubscription$outboundSchema: z.ZodType<
   endedAt: z.nullable(z.date().transform(v => v.toISOString())),
   userId: z.string(),
   productId: z.string(),
-  priceId: z.nullable(z.string()),
+  priceId: z.string(),
   product: UserSubscriptionProduct$outboundSchema,
-  price: z.nullable(ProductPriceOutput$outboundSchema),
+  price: ProductPriceOutput$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

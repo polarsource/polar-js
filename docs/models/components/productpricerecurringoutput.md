@@ -6,15 +6,11 @@
 import { ProductPriceRecurringOutput } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringOutput = {
-  createdAt: new Date("2022-08-22T18:57:29.475Z"),
-  modifiedAt: new Date("2024-11-15T08:47:14.338Z"),
+  createdAt: new Date("2024-05-17T21:36:00.719Z"),
+  modifiedAt: new Date("2024-01-11T13:19:38.423Z"),
   id: "<value>",
-  priceCurrency: "<value>",
   isArchived: false,
-  minimumAmount: 518201,
-  maximumAmount: 471752,
-  presetAmount: 25662,
-  recurringInterval: "year",
+  recurringInterval: "month",
 };
 ```
 
@@ -30,5 +26,11 @@ const value: components.ProductPriceRecurringCustom = /* values here */
 
 ```typescript
 const value: components.ProductPriceRecurringFixed = /* values here */
+```
+
+### `components.ProductPriceRecurringFree`
+
+```typescript
+const value: components.ProductPriceRecurringFree = /* values here */
 ```
 

@@ -105,7 +105,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.benefits.create({
-    description: "Multi-tiered motivating standardization",
+    description: "Proactive full-range artificial intelligence",
     properties: {
       guildToken: "<value>",
       roleId: "<value>",
@@ -135,11 +135,8 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await benefitsCreate(polar, {
-    description: "Vision-oriented responsive function",
-    isTaxApplicable: false,
-    properties: {
-      note: "<value>",
-    },
+    description: "Cloned responsive protocol",
+    properties: {},
   });
 
   if (!res.ok) {
@@ -298,13 +295,7 @@ const polar = new PolarCore({
 async function run() {
   const res = await benefitsUpdate(polar, {
     id: "<value>",
-    requestBody: {
-      properties: {
-        repositoryOwner: "polarsource",
-        repositoryName: "private_repo",
-        permission: "pull",
-      },
-    },
+    requestBody: {},
   });
 
   if (!res.ok) {

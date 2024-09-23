@@ -5,9 +5,7 @@
 ```typescript
 import { Prices } from "@polar-sh/sdk/models/components";
 
-let value: Prices = {
-  priceAmount: 925703,
-};
+let value: Prices = {};
 ```
 
 ## Supported Types
@@ -22,5 +20,11 @@ const value: components.ProductPriceOneTimeFixedCreate = /* values here */
 
 ```typescript
 const value: components.ProductPriceOneTimeCustomCreate = /* values here */
+```
+
+### `components.ProductPriceOneTimeFreeCreate`
+
+```typescript
+const value: components.ProductPriceOneTimeFreeCreate = /* values here */
 ```
 

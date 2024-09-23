@@ -6,7 +6,7 @@
 import { BenefitDiscordCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordCreate = {
-  description: "Triple-buffered client-server policy",
+  description: "Polarised content-based adapter",
   properties: {
     guildToken: "<value>",
     roleId: "<value>",

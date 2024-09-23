@@ -39,7 +39,7 @@ export type OrderSubscription = {
   endedAt: Date | null;
   userId: string;
   productId: string;
-  priceId: string | null;
+  priceId: string;
 };
 
 /** @internal */
@@ -72,7 +72,7 @@ export const OrderSubscription$inboundSchema: z.ZodType<
   ),
   user_id: z.string(),
   product_id: z.string(),
-  price_id: z.nullable(z.string()),
+  price_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -105,7 +105,7 @@ export type OrderSubscription$Outbound = {
   ended_at: string | null;
   user_id: string;
   product_id: string;
-  price_id: string | null;
+  price_id: string;
 };
 
 /** @internal */
@@ -128,7 +128,7 @@ export const OrderSubscription$outboundSchema: z.ZodType<
   endedAt: z.nullable(z.date().transform(v => v.toISOString())),
   userId: z.string(),
   productId: z.string(),
-  priceId: z.nullable(z.string()),
+  priceId: z.string(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

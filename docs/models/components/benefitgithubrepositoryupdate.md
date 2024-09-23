@@ -9,7 +9,7 @@ let value: BenefitGitHubRepositoryUpdate = {
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "push",
+    permission: "pull",
   },
 };
 ```

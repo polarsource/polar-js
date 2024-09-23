@@ -7,7 +7,9 @@ Filter by platform.
 ```typescript
 import { PlatformFilter } from "@polar-sh/sdk/models/operations";
 
-let value: PlatformFilter = "github";
+let value: PlatformFilter = [
+  "github",
+];
 ```
 
 ## Supported Types

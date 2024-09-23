@@ -5,7 +5,7 @@
 ```typescript
 import { SubscriptionStatus } from "@polar-sh/sdk/models/components";
 
-let value: SubscriptionStatus = "incomplete_expired";
+let value: SubscriptionStatus = "unpaid";
 ```
 
 ## Values

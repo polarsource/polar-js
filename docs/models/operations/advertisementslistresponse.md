@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2022-11-01T09:06:32.789Z"),
-        modifiedAt: new Date("2022-12-16T03:38:16.047Z"),
+        createdAt: new Date("2023-05-17T02:48:20.581Z"),
+        modifiedAt: new Date("2024-11-09T06:06:22.459Z"),
         id: "<value>",
-        imageUrl: "http://quarrelsome-square.com",
-        imageUrlDark: "https://sandy-spruce.biz",
+        imageUrl: "https://sugary-thongs.net",
+        imageUrlDark: "https://practical-guacamole.com/",
         text: "<value>",
-        linkUrl: "http://delightful-graph.name",
+        linkUrl: "https://far-flung-steeple.com/",
       },
     ],
     pagination: {
-      totalCount: 552822,
-      maxPage: 20107,
+      totalCount: 958983,
+      maxPage: 355369,
     },
     dimensions: [
-      164940,
+      356707,
     ],
   },
 };

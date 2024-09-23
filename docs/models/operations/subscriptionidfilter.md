@@ -7,9 +7,7 @@ Filter by subscription ID.
 ```typescript
 import { SubscriptionIDFilter } from "@polar-sh/sdk/models/operations";
 
-let value: SubscriptionIDFilter = [
-  "<value>",
-];
+let value: SubscriptionIDFilter = "<value>";
 ```
 
 ## Supported Types

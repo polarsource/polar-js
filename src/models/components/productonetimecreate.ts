@@ -16,8 +16,15 @@ import {
   ProductPriceOneTimeFixedCreate$Outbound,
   ProductPriceOneTimeFixedCreate$outboundSchema,
 } from "./productpriceonetimefixedcreate.js";
+import {
+  ProductPriceOneTimeFreeCreate,
+  ProductPriceOneTimeFreeCreate$inboundSchema,
+  ProductPriceOneTimeFreeCreate$Outbound,
+  ProductPriceOneTimeFreeCreate$outboundSchema,
+} from "./productpriceonetimefreecreate.js";
 
 export type Prices =
+  | ProductPriceOneTimeFreeCreate
   | ProductPriceOneTimeFixedCreate
   | ProductPriceOneTimeCustomCreate;
 
@@ -37,7 +44,9 @@ export type ProductOneTimeCreate = {
    * List of available prices for this product.
    */
   prices: Array<
-    ProductPriceOneTimeFixedCreate | ProductPriceOneTimeCustomCreate
+    | ProductPriceOneTimeFreeCreate
+    | ProductPriceOneTimeFixedCreate
+    | ProductPriceOneTimeCustomCreate
   >;
   /**
    * List of file IDs. Each one must be on the same organization as the product, of type `product_media` and correctly uploaded.
@@ -52,12 +61,14 @@ export type ProductOneTimeCreate = {
 /** @internal */
 export const Prices$inboundSchema: z.ZodType<Prices, z.ZodTypeDef, unknown> = z
   .union([
+    ProductPriceOneTimeFreeCreate$inboundSchema,
     ProductPriceOneTimeFixedCreate$inboundSchema,
     ProductPriceOneTimeCustomCreate$inboundSchema,
   ]);
 
 /** @internal */
 export type Prices$Outbound =
+  | ProductPriceOneTimeFreeCreate$Outbound
   | ProductPriceOneTimeFixedCreate$Outbound
   | ProductPriceOneTimeCustomCreate$Outbound;
 
@@ -67,6 +78,7 @@ export const Prices$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Prices
 > = z.union([
+  ProductPriceOneTimeFreeCreate$outboundSchema,
   ProductPriceOneTimeFixedCreate$outboundSchema,
   ProductPriceOneTimeCustomCreate$outboundSchema,
 ]);
@@ -94,6 +106,7 @@ export const ProductOneTimeCreate$inboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   prices: z.array(
     z.union([
+      ProductPriceOneTimeFreeCreate$inboundSchema,
       ProductPriceOneTimeFixedCreate$inboundSchema,
       ProductPriceOneTimeCustomCreate$inboundSchema,
     ]),
@@ -111,6 +124,7 @@ export type ProductOneTimeCreate$Outbound = {
   name: string;
   description?: string | null | undefined;
   prices: Array<
+    | ProductPriceOneTimeFreeCreate$Outbound
     | ProductPriceOneTimeFixedCreate$Outbound
     | ProductPriceOneTimeCustomCreate$Outbound
   >;
@@ -128,6 +142,7 @@ export const ProductOneTimeCreate$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   prices: z.array(
     z.union([
+      ProductPriceOneTimeFreeCreate$outboundSchema,
       ProductPriceOneTimeFixedCreate$outboundSchema,
       ProductPriceOneTimeCustomCreate$outboundSchema,
     ]),

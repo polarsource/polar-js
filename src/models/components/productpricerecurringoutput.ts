@@ -15,8 +15,15 @@ import {
   ProductPriceRecurringFixed$Outbound,
   ProductPriceRecurringFixed$outboundSchema,
 } from "./productpricerecurringfixed.js";
+import {
+  ProductPriceRecurringFree,
+  ProductPriceRecurringFree$inboundSchema,
+  ProductPriceRecurringFree$Outbound,
+  ProductPriceRecurringFree$outboundSchema,
+} from "./productpricerecurringfree.js";
 
 export type ProductPriceRecurringOutput =
+  | (ProductPriceRecurringFree & { amountType: "free" })
   | (ProductPriceRecurringFixed & { amountType: "fixed" })
   | (ProductPriceRecurringCustom & { amountType: "custom" });
 
@@ -26,6 +33,11 @@ export const ProductPriceRecurringOutput$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  ProductPriceRecurringFree$inboundSchema.and(
+    z.object({ amount_type: z.literal("free") }).transform((v) => ({
+      amountType: v.amount_type,
+    })),
+  ),
   ProductPriceRecurringFixed$inboundSchema.and(
     z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
       amountType: v.amount_type,
@@ -40,6 +52,7 @@ export const ProductPriceRecurringOutput$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ProductPriceRecurringOutput$Outbound =
+  | (ProductPriceRecurringFree$Outbound & { amount_type: "free" })
   | (ProductPriceRecurringFixed$Outbound & { amount_type: "fixed" })
   | (ProductPriceRecurringCustom$Outbound & { amount_type: "custom" });
 
@@ -49,6 +62,11 @@ export const ProductPriceRecurringOutput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPriceRecurringOutput
 > = z.union([
+  ProductPriceRecurringFree$outboundSchema.and(
+    z.object({ amountType: z.literal("free") }).transform((v) => ({
+      amount_type: v.amountType,
+    })),
+  ),
   ProductPriceRecurringFixed$outboundSchema.and(
     z.object({ amountType: z.literal("fixed") }).transform((v) => ({
       amount_type: v.amountType,

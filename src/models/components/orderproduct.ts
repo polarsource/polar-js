@@ -4,11 +4,6 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
-import {
-  SubscriptionTierType,
-  SubscriptionTierType$inboundSchema,
-  SubscriptionTierType$outboundSchema,
-} from "./subscriptiontiertype.js";
 
 export type OrderProduct = {
   /**
@@ -43,14 +38,6 @@ export type OrderProduct = {
    * The ID of the organization owning the product.
    */
   organizationId: string;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  type: SubscriptionTierType | null;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  isHighlighted: boolean | null;
 };
 
 /** @internal */
@@ -69,8 +56,6 @@ export const OrderProduct$inboundSchema: z.ZodType<
   is_recurring: z.boolean(),
   is_archived: z.boolean(),
   organization_id: z.string(),
-  type: z.nullable(SubscriptionTierType$inboundSchema),
-  is_highlighted: z.nullable(z.boolean()),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -78,7 +63,6 @@ export const OrderProduct$inboundSchema: z.ZodType<
     "is_recurring": "isRecurring",
     "is_archived": "isArchived",
     "organization_id": "organizationId",
-    "is_highlighted": "isHighlighted",
   });
 });
 
@@ -92,8 +76,6 @@ export type OrderProduct$Outbound = {
   is_recurring: boolean;
   is_archived: boolean;
   organization_id: string;
-  type: string | null;
-  is_highlighted: boolean | null;
 };
 
 /** @internal */
@@ -110,8 +92,6 @@ export const OrderProduct$outboundSchema: z.ZodType<
   isRecurring: z.boolean(),
   isArchived: z.boolean(),
   organizationId: z.string(),
-  type: z.nullable(SubscriptionTierType$outboundSchema),
-  isHighlighted: z.nullable(z.boolean()),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -119,7 +99,6 @@ export const OrderProduct$outboundSchema: z.ZodType<
     isRecurring: "is_recurring",
     isArchived: "is_archived",
     organizationId: "organization_id",
-    isHighlighted: "is_highlighted",
   });
 });
 

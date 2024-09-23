@@ -47,13 +47,13 @@ export type ProductPriceRecurringFixed = {
   id: string;
   amountType?: "fixed" | undefined;
   /**
-   * The currency.
-   */
-  priceCurrency: string;
-  /**
    * Whether the price is archived and no longer available.
    */
   isArchived: boolean;
+  /**
+   * The currency.
+   */
+  priceCurrency: string;
   /**
    * The price in cents.
    */
@@ -120,8 +120,8 @@ export const ProductPriceRecurringFixed$inboundSchema: z.ZodType<
   ),
   id: z.string(),
   amount_type: z.literal("fixed").optional(),
-  price_currency: z.string(),
   is_archived: z.boolean(),
+  price_currency: z.string(),
   price_amount: z.number().int(),
   type: z.literal("recurring").optional(),
   recurring_interval: SubscriptionRecurringInterval$inboundSchema,
@@ -130,8 +130,8 @@ export const ProductPriceRecurringFixed$inboundSchema: z.ZodType<
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
     "amount_type": "amountType",
-    "price_currency": "priceCurrency",
     "is_archived": "isArchived",
+    "price_currency": "priceCurrency",
     "price_amount": "priceAmount",
     "recurring_interval": "recurringInterval",
   });
@@ -143,8 +143,8 @@ export type ProductPriceRecurringFixed$Outbound = {
   modified_at: string | null;
   id: string;
   amount_type: "fixed";
-  price_currency: string;
   is_archived: boolean;
+  price_currency: string;
   price_amount: number;
   type: "recurring";
   recurring_interval: string;
@@ -160,8 +160,8 @@ export const ProductPriceRecurringFixed$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
   amountType: z.literal("fixed").default("fixed"),
-  priceCurrency: z.string(),
   isArchived: z.boolean(),
+  priceCurrency: z.string(),
   priceAmount: z.number().int(),
   type: z.literal("recurring").default("recurring"),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,
@@ -170,8 +170,8 @@ export const ProductPriceRecurringFixed$outboundSchema: z.ZodType<
     createdAt: "created_at",
     modifiedAt: "modified_at",
     amountType: "amount_type",
-    priceCurrency: "price_currency",
     isArchived: "is_archived",
+    priceCurrency: "price_currency",
     priceAmount: "price_amount",
     recurringInterval: "recurring_interval",
   });

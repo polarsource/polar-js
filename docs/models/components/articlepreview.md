@@ -6,7 +6,7 @@
 import { ArticlePreview } from "@polar-sh/sdk/models/components";
 
 let value: ArticlePreview = {
-  email: "Justice_Mueller89@hotmail.com",
+  email: "Camila10@hotmail.com",
 };
 ```
 

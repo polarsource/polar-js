@@ -6,7 +6,7 @@
 import { BenefitDownloadablesCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDownloadablesCreate = {
-  description: "Open-source disintermediate firmware",
+  description: "Fundamental coherent projection",
   properties: {
     files: [
       "<value>",

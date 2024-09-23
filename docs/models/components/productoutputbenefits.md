@@ -6,16 +6,14 @@
 import { ProductOutputBenefits } from "@polar-sh/sdk/models/components";
 
 let value: ProductOutputBenefits = {
-  createdAt: new Date("2023-07-24T12:41:05.594Z"),
-  modifiedAt: new Date("2024-10-27T11:16:32.801Z"),
+  createdAt: new Date("2024-02-12T00:34:41.133Z"),
+  modifiedAt: new Date("2022-11-09T05:37:43.437Z"),
   id: "<value>",
-  description: "Future-proofed optimizing adapter",
+  type: "custom",
+  description: "Triple-buffered next generation methodology",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
-  properties: {
-    paidArticles: false,
-  },
 };
 ```
 

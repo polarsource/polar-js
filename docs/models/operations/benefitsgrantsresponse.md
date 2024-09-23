@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-04-01T02:09:48.123Z"),
-        modifiedAt: new Date("2023-04-15T22:19:54.652Z"),
+        createdAt: new Date("2023-05-08T10:10:03.097Z"),
+        modifiedAt: new Date("2022-11-30T16:44:13.155Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -22,8 +22,8 @@ let value: BenefitsGrantsResponse = {
       },
     ],
     pagination: {
-      totalCount: 878453,
-      maxPage: 135474,
+      totalCount: 839189,
+      maxPage: 237742,
     },
   },
 };

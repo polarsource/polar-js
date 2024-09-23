@@ -6,14 +6,12 @@
 import { ProductPriceOneTime } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceOneTime = {
-  createdAt: new Date("2024-06-04T02:35:28.645Z"),
-  modifiedAt: new Date("2024-08-04T18:51:27.851Z"),
+  createdAt: new Date("2022-11-30T09:38:32.582Z"),
+  modifiedAt: new Date("2022-03-24T14:14:41.831Z"),
   id: "<value>",
-  priceCurrency: "<value>",
   isArchived: false,
-  minimumAmount: 747080,
-  maximumAmount: 117531,
-  presetAmount: 674848,
+  priceCurrency: "<value>",
+  priceAmount: 424663,
 };
 ```
 
@@ -29,5 +27,11 @@ const value: components.ProductPriceOneTimeFixed = /* values here */
 
 ```typescript
 const value: components.ProductPriceOneTimeCustom = /* values here */
+```
+
+### `components.ProductPriceOneTimeFree`
+
+```typescript
+const value: components.ProductPriceOneTimeFree = /* values here */
 ```
 

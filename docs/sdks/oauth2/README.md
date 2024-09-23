@@ -28,7 +28,7 @@ async function run() {
     clientId: "<value>",
     clientSecret: "<value>",
     code: "<value>",
-    redirectUri: "http://multicolored-chivalry.name",
+    redirectUri: "https://old-fort.name",
   });
   
   // Handle the result
@@ -57,7 +57,7 @@ async function run() {
     clientId: "<value>",
     clientSecret: "<value>",
     code: "<value>",
-    redirectUri: "https://probable-benefit.com",
+    redirectUri: "https://ajar-comparison.name",
   });
 
   if (!res.ok) {
