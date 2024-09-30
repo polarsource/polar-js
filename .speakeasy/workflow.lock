@@ -1,9 +1,9 @@
-speakeasyVersion: 1.401.2
+speakeasyVersion: 1.404.5
 sources:
     Polar-OAS:
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:0700d8f0c6a9d4644d48f479c69488897e643eae446a743bf7c0c61f5966f042
-        sourceBlobDigest: sha256:076ed9fc10fc15ab5763bf35e9cbd3c49a7f3581e901b06ea875dd05b5b8e2f7
+        sourceRevisionDigest: sha256:b1b8e034ef1df990cd56101b9545e582db7ea3ebfde4ec4d69619aafca8ed05e
+        sourceBlobDigest: sha256:5eb0bac1eec44a3257c05fa5dad4dd44e9c066c1bf593658718856fca6070228
         tags:
             - latest
             - main
@@ -11,8 +11,8 @@ targets:
     polar:
         source: Polar-OAS
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:0700d8f0c6a9d4644d48f479c69488897e643eae446a743bf7c0c61f5966f042
-        sourceBlobDigest: sha256:076ed9fc10fc15ab5763bf35e9cbd3c49a7f3581e901b06ea875dd05b5b8e2f7
+        sourceRevisionDigest: sha256:b1b8e034ef1df990cd56101b9545e582db7ea3ebfde4ec4d69619aafca8ed05e
+        sourceBlobDigest: sha256:5eb0bac1eec44a3257c05fa5dad4dd44e9c066c1bf593658718856fca6070228
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

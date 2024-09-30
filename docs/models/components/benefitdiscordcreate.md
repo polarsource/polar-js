@@ -6,10 +6,10 @@
 import { BenefitDiscordCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordCreate = {
-  description: "Polarised content-based adapter",
+  description: "searchingly well-made apricot",
   properties: {
     guildToken: "<value>",
-    roleId: "<value>",
+    roleId: "<id>",
   },
 };
 ```

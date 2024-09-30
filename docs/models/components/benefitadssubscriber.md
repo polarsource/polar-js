@@ -6,26 +6,27 @@
 import { BenefitAdsSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitAdsSubscriber = {
-  createdAt: new Date("2023-06-08T12:00:49.002Z"),
-  modifiedAt: new Date("2022-11-08T06:20:07.399Z"),
+  createdAt: new Date("2022-04-18T07:39:21.900Z"),
+  modifiedAt: new Date("2023-07-04T08:31:11.803Z"),
   id: "<value>",
-  description: "Enterprise-wide impactful forecast",
+  description:
+    "till congregate inhibit unlucky helpless oof tuba greatly sans jaggedly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {},
   grants: [
     {
-      createdAt: new Date("2023-05-16T08:17:57.191Z"),
-      modifiedAt: new Date("2023-01-05T21:00:18.180Z"),
+      createdAt: new Date("2023-08-18T14:04:25.286Z"),
+      modifiedAt: new Date("2022-10-16T21:08:46.705Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
-      properties: {},
       subscriptionId: "<value>",
       orderId: "<value>",
       userId: "<value>",
       benefitId: "<value>",
+      properties: {},
     },
   ],
 };

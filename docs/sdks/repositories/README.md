@@ -24,7 +24,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.repositories.list({});
-  
+
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -104,9 +104,9 @@ async function run() {
   const result = await polar.repositories.get({
     id: "<value>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -138,7 +138,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -184,9 +184,9 @@ async function run() {
     id: "<value>",
     repositoryUpdate: {},
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -219,7 +219,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

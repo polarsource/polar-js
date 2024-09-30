@@ -6,8 +6,8 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 
 export type BenefitGrantLicenseKeysProperties = {
-  licenseKeyId: string;
-  displayKey: string;
+  licenseKeyId?: string | undefined;
+  displayKey?: string | undefined;
 };
 
 /** @internal */
@@ -16,8 +16,8 @@ export const BenefitGrantLicenseKeysProperties$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  license_key_id: z.string(),
-  display_key: z.string(),
+  license_key_id: z.string().optional(),
+  display_key: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
     "license_key_id": "licenseKeyId",
@@ -27,8 +27,8 @@ export const BenefitGrantLicenseKeysProperties$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitGrantLicenseKeysProperties$Outbound = {
-  license_key_id: string;
-  display_key: string;
+  license_key_id?: string | undefined;
+  display_key?: string | undefined;
 };
 
 /** @internal */
@@ -37,8 +37,8 @@ export const BenefitGrantLicenseKeysProperties$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGrantLicenseKeysProperties
 > = z.object({
-  licenseKeyId: z.string(),
-  displayKey: z.string(),
+  licenseKeyId: z.string().optional(),
+  displayKey: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
     licenseKeyId: "license_key_id",

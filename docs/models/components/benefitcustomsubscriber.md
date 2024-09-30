@@ -6,21 +6,21 @@
 import { BenefitCustomSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitCustomSubscriber = {
-  createdAt: new Date("2024-12-31T05:00:30.068Z"),
-  modifiedAt: new Date("2023-01-21T16:11:36.139Z"),
+  createdAt: new Date("2023-01-15T19:49:53.185Z"),
+  modifiedAt: new Date("2023-07-20T09:01:53.227Z"),
   id: "<value>",
-  description: "Reactive motivating protocol",
+  description:
+    "save jiggle although psst superficial enthusiastically but jealously",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   grants: [
     {
-      createdAt: new Date("2024-12-05T22:38:23.466Z"),
-      modifiedAt: new Date("2024-09-02T05:07:56.421Z"),
+      createdAt: new Date("2022-08-11T14:00:17.759Z"),
+      modifiedAt: new Date("2024-02-28T15:41:38.993Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
-      properties: {},
       subscriptionId: "<value>",
       orderId: "<value>",
       userId: "<value>",
@@ -45,5 +45,5 @@ let value: BenefitCustomSubscriber = {
 | `selectable`                                                                                                 | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is selectable when creating a product.                                                   |
 | `deletable`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is deletable.                                                                            |
 | `organizationId`                                                                                             | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the organization owning the benefit.                                                               |
-| `grants`                                                                                                     | [components.BenefitGrant](../../models/components/benefitgrant.md)[]                                         | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `grants`                                                                                                     | [components.BenefitGrantSubscriber](../../models/components/benefitgrantsubscriber.md)[]                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `properties`                                                                                                 | [components.BenefitCustomSubscriberProperties](../../models/components/benefitcustomsubscriberproperties.md) | :heavy_check_mark:                                                                                           | Properties available to subscribers for a benefit of type `custom`.                                          |

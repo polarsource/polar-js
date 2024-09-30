@@ -9,21 +9,21 @@ let value: UsersAdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-03-11T13:41:13.226Z"),
-        modifiedAt: new Date("2024-08-23T16:32:18.589Z"),
+        createdAt: new Date("2022-01-21T23:00:31.300Z"),
+        modifiedAt: new Date("2023-07-22T21:24:45.727Z"),
         id: "<value>",
         userId: "<value>",
-        views: 581273,
-        clicks: 881736,
-        imageUrl: "https://serpentine-knight.org",
-        imageUrlDark: "https://insignificant-noon.com",
+        views: 842777,
+        clicks: 373216,
+        imageUrl: "https://boring-blowgun.biz/",
+        imageUrlDark: "https://favorite-basket.com/",
         text: "<value>",
-        linkUrl: "https://quiet-elevator.name/",
+        linkUrl: "https://damp-meadow.net",
       },
     ],
     pagination: {
-      totalCount: 428769,
-      maxPage: 135474,
+      totalCount: 456410,
+      maxPage: 153369,
     },
   },
 };

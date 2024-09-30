@@ -25,7 +25,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.users.subscriptions.list({});
-  
+
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -105,9 +105,9 @@ async function run() {
   const result = await polar.users.subscriptions.get({
     id: "<value>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -139,7 +139,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -187,9 +187,9 @@ async function run() {
       productPriceId: "<value>",
     },
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -224,7 +224,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -269,9 +269,9 @@ async function run() {
   const result = await polar.users.subscriptions.cancel({
     id: "<value>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -303,7 +303,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

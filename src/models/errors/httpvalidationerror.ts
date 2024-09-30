@@ -5,16 +5,10 @@
 import * as z from "zod";
 import * as components from "../components/index.js";
 
-/**
- * Validation Error
- */
 export type HTTPValidationErrorData = {
   detail?: Array<components.ValidationError> | undefined;
 };
 
-/**
- * Validation Error
- */
 export class HTTPValidationError extends Error {
   detail?: Array<components.ValidationError> | undefined;
 

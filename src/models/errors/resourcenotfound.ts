@@ -10,17 +10,11 @@ export const Type = {
 } as const;
 export type Type = ClosedEnum<typeof Type>;
 
-/**
- * Order not found.
- */
 export type ResourceNotFoundData = {
   type: "ResourceNotFound";
   detail: string;
 };
 
-/**
- * Order not found.
- */
 export class ResourceNotFound extends Error {
   type: "ResourceNotFound";
   detail: string;

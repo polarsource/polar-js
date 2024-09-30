@@ -8,21 +8,21 @@ import { AdvertisementCampaignListResource } from "@polar-sh/sdk/models/componen
 let value: AdvertisementCampaignListResource = {
   items: [
     {
-      createdAt: new Date("2024-08-17T11:52:17.865Z"),
-      modifiedAt: new Date("2022-03-22T21:55:35.437Z"),
+      createdAt: new Date("2023-03-22T18:22:15.432Z"),
+      modifiedAt: new Date("2023-02-03T19:47:42.976Z"),
       id: "<value>",
-      imageUrl: "https://secondary-recovery.org/",
-      imageUrlDark: "https://gaseous-kiss.net",
+      imageUrl: "https://burly-cappelletti.biz",
+      imageUrlDark: "https://serpentine-teriyaki.biz",
       text: "<value>",
-      linkUrl: "https://diligent-issue.biz/",
+      linkUrl: "https://memorable-essence.org/",
     },
   ],
   pagination: {
-    totalCount: 862560,
-    maxPage: 586277,
+    totalCount: 39842,
+    maxPage: 190895,
   },
   dimensions: [
-    348665,
+    753559,
   ],
 };
 ```

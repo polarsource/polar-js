@@ -6,9 +6,9 @@
 import { ArticleReceivers } from "@polar-sh/sdk/models/components";
 
 let value: ArticleReceivers = {
-  freeSubscribers: 555938,
-  premiumSubscribers: 741603,
-  organizationMembers: 770544,
+  freeSubscribers: 251844,
+  premiumSubscribers: 329530,
+  organizationMembers: 699128,
 };
 ```
 

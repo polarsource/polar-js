@@ -9,19 +9,25 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-12-28T02:31:12.899Z"),
-        modifiedAt: new Date("2022-09-27T16:26:45.665Z"),
+        createdAt: new Date("2022-01-03T06:18:29.426Z"),
+        modifiedAt: new Date("2022-08-07T00:09:49.489Z"),
         id: "<value>",
-        description: "Programmable incremental hardware",
+        description:
+          "scratch dulcimer before when excluding worthless up transcend since while",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
-        properties: {},
+        properties: {
+          repositoryId: "<value>",
+          repositoryOwner: "polarsource",
+          repositoryName: "private_repo",
+          permission: "admin",
+        },
       },
     ],
     pagination: {
-      totalCount: 554688,
-      maxPage: 287051,
+      totalCount: 653000,
+      maxPage: 344289,
     },
   },
 };

@@ -8,14 +8,14 @@ A pay-what-you-want recurring price for a product, i.e. a subscription.
 import { ProductPriceRecurringCustom } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringCustom = {
-  createdAt: new Date("2023-05-12T14:11:27.716Z"),
-  modifiedAt: new Date("2023-06-26T09:04:00.715Z"),
+  createdAt: new Date("2024-02-29T19:46:53.595Z"),
+  modifiedAt: new Date("2022-04-24T11:42:19.437Z"),
   id: "<value>",
   isArchived: false,
   priceCurrency: "<value>",
-  minimumAmount: 778172,
-  maximumAmount: 844235,
-  presetAmount: 139072,
+  minimumAmount: 771645,
+  maximumAmount: 457289,
+  presetAmount: 132662,
   recurringInterval: "month",
 };
 ```

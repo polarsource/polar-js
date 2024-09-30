@@ -1,54 +1,53 @@
 # BenefitsUpdateBenefitUpdate
 
-## Example Usage
-
-```typescript
-import { BenefitsUpdateBenefitUpdate } from "@polar-sh/sdk/models/operations";
-
-let value: BenefitsUpdateBenefitUpdate = {};
-```
 
 ## Supported Types
 
 ### `components.BenefitArticlesUpdate`
 
 ```typescript
-const value: components.BenefitArticlesUpdate = /* values here */
+const value: components.BenefitArticlesUpdate = {};
 ```
 
 ### `components.BenefitAdsUpdate`
 
 ```typescript
-const value: components.BenefitAdsUpdate = /* values here */
+const value: components.BenefitAdsUpdate = {};
 ```
 
 ### `components.BenefitCustomUpdate`
 
 ```typescript
-const value: components.BenefitCustomUpdate = /* values here */
+const value: components.BenefitCustomUpdate = {};
 ```
 
 ### `components.BenefitDiscordUpdate`
 
 ```typescript
-const value: components.BenefitDiscordUpdate = /* values here */
+const value: components.BenefitDiscordUpdate = {};
 ```
 
 ### `components.BenefitGitHubRepositoryUpdate`
 
 ```typescript
-const value: components.BenefitGitHubRepositoryUpdate = /* values here */
+const value: components.BenefitGitHubRepositoryUpdate = {
+  properties: {
+    repositoryOwner: "polarsource",
+    repositoryName: "private_repo",
+    permission: "triage",
+  },
+};
 ```
 
 ### `components.BenefitDownloadablesUpdate`
 
 ```typescript
-const value: components.BenefitDownloadablesUpdate = /* values here */
+const value: components.BenefitDownloadablesUpdate = {};
 ```
 
 ### `components.BenefitLicenseKeysUpdate`
 
 ```typescript
-const value: components.BenefitLicenseKeysUpdate = /* values here */
+const value: components.BenefitLicenseKeysUpdate = {};
 ```
 

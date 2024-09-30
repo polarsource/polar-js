@@ -10,17 +10,11 @@ export const UnauthorizedType = {
 } as const;
 export type UnauthorizedType = ClosedEnum<typeof UnauthorizedType>;
 
-/**
- * Not authorized to manage license key.
- */
 export type UnauthorizedData = {
   type: "Unauthorized";
   detail: string;
 };
 
-/**
- * Not authorized to manage license key.
- */
 export class Unauthorized extends Error {
   type: "Unauthorized";
   detail: string;

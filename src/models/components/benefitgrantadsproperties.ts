@@ -6,10 +6,7 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 
 export type BenefitGrantAdsProperties = {
-  /**
-   * The ID of the enabled advertisement campaign for this benefit grant.
-   */
-  advertisementCampaignId?: string | null | undefined;
+  advertisementCampaignId: string;
 };
 
 /** @internal */
@@ -18,7 +15,7 @@ export const BenefitGrantAdsProperties$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  advertisement_campaign_id: z.nullable(z.string()).optional(),
+  advertisement_campaign_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
     "advertisement_campaign_id": "advertisementCampaignId",
@@ -27,7 +24,7 @@ export const BenefitGrantAdsProperties$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitGrantAdsProperties$Outbound = {
-  advertisement_campaign_id?: string | null | undefined;
+  advertisement_campaign_id: string;
 };
 
 /** @internal */
@@ -36,7 +33,7 @@ export const BenefitGrantAdsProperties$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGrantAdsProperties
 > = z.object({
-  advertisementCampaignId: z.nullable(z.string()).optional(),
+  advertisementCampaignId: z.string(),
 }).transform((v) => {
   return remap$(v, {
     advertisementCampaignId: "advertisement_campaign_id",

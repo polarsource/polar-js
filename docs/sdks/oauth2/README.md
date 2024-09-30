@@ -25,14 +25,14 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.oauth2.token({
-    clientId: "<value>",
+    clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",
     redirectUri: "https://old-fort.name",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -54,7 +54,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await oauth2Token(polar, {
-    clientId: "<value>",
+    clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",
     redirectUri: "https://ajar-comparison.name",
@@ -67,7 +67,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -112,9 +112,9 @@ async function run() {
     clientId: "<value>",
     clientSecret: "<value>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -148,7 +148,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -193,9 +193,9 @@ async function run() {
     clientId: "<value>",
     clientSecret: "<value>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -229,7 +229,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -270,9 +270,9 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.oauth2.userinfo();
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -302,7 +302,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

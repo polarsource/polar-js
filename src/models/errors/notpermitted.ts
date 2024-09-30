@@ -10,17 +10,11 @@ export const NotPermittedType = {
 } as const;
 export type NotPermittedType = ClosedEnum<typeof NotPermittedType>;
 
-/**
- * You don't have the permission to update this repository.
- */
 export type NotPermittedData = {
   type: "NotPermitted";
   detail: string;
 };
 
-/**
- * You don't have the permission to update this repository.
- */
 export class NotPermitted extends Error {
   type: "NotPermitted";
   detail: string;

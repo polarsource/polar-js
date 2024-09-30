@@ -26,7 +26,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.files.list({});
-  
+
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -117,9 +117,9 @@ async function run() {
       ],
     },
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -162,7 +162,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -217,9 +217,9 @@ async function run() {
       ],
     },
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -262,7 +262,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -307,9 +307,9 @@ async function run() {
     id: "<value>",
     filePatch: {},
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -342,7 +342,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -386,6 +386,8 @@ async function run() {
   await polar.files.delete({
     id: "<value>",
   });
+
+
 }
 
 run();

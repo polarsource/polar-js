@@ -1,6 +1,6 @@
 {
   "name": "@polar-sh/sdk",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "author": "Speakeasy",
   "main": "./index.js",
   "sideEffects": false,

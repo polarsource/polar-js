@@ -1,29 +1,27 @@
 # Oauth2RequestTokenRequestBody
 
-## Example Usage
-
-```typescript
-import { Oauth2RequestTokenRequestBody } from "@polar-sh/sdk/models/operations";
-
-let value: Oauth2RequestTokenRequestBody = {
-  clientId: "<value>",
-  clientSecret: "<value>",
-  code: "<value>",
-  redirectUri: "https://important-travel.com/",
-};
-```
 
 ## Supported Types
 
 ### `components.Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest`
 
 ```typescript
-const value: components.Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest = /* values here */
+const value:
+  components.Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest = {
+    clientId: "<id>",
+    clientSecret: "<value>",
+    code: "<value>",
+    redirectUri: "https://vengeful-doing.net/",
+  };
 ```
 
 ### `components.Onev11oauth21tokenPostXComponentsRefreshTokenRequest`
 
 ```typescript
-const value: components.Onev11oauth21tokenPostXComponentsRefreshTokenRequest = /* values here */
+const value: components.Onev11oauth21tokenPostXComponentsRefreshTokenRequest = {
+  clientId: "<id>",
+  clientSecret: "<value>",
+  refreshToken: "<value>",
+};
 ```
 

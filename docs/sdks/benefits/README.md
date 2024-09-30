@@ -27,7 +27,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.benefits.list({});
-  
+
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -105,15 +105,15 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.benefits.create({
-    description: "Proactive full-range artificial intelligence",
+    description: "delightfully fumigate convection though zowie up bulky electronics",
     properties: {
       guildToken: "<value>",
-      roleId: "<value>",
+      roleId: "<id>",
     },
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -135,8 +135,11 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await benefitsCreate(polar, {
-    description: "Cloned responsive protocol",
-    properties: {},
+    description: "brightly sleet where schedule insolence when warming when",
+    isTaxApplicable: false,
+    properties: {
+      note: "<value>",
+    },
   });
 
   if (!res.ok) {
@@ -146,7 +149,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -190,9 +193,9 @@ async function run() {
   const result = await polar.benefits.get({
     id: "<value>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -224,7 +227,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -270,9 +273,9 @@ async function run() {
     id: "<value>",
     requestBody: {},
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -305,7 +308,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -355,6 +358,8 @@ async function run() {
   await polar.benefits.delete({
     id: "<value>",
   });
+
+
 }
 
 run();
@@ -433,7 +438,7 @@ async function run() {
   const result = await polar.benefits.grants({
     id: "<value>",
   });
-  
+
   for await (const page of result) {
     // Handle the page
     console.log(page);

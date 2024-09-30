@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-05-17T02:48:20.581Z"),
-        modifiedAt: new Date("2024-11-09T06:06:22.459Z"),
+        createdAt: new Date("2024-11-26T04:51:12.762Z"),
+        modifiedAt: new Date("2024-08-01T18:58:46.575Z"),
         id: "<value>",
-        imageUrl: "https://sugary-thongs.net",
-        imageUrlDark: "https://practical-guacamole.com/",
+        imageUrl: "https://artistic-premier.org",
+        imageUrlDark: "https://happy-case.net",
         text: "<value>",
-        linkUrl: "https://far-flung-steeple.com/",
+        linkUrl: "https://calculating-reward.com",
       },
     ],
     pagination: {
-      totalCount: 958983,
-      maxPage: 355369,
+      totalCount: 967055,
+      maxPage: 615058,
     },
     dimensions: [
-      356707,
+      552439,
     ],
   },
 };

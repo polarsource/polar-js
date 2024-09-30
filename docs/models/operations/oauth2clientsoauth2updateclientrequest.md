@@ -6,13 +6,13 @@
 import { Oauth2ClientsOauth2UpdateClientRequest } from "@polar-sh/sdk/models/operations";
 
 let value: Oauth2ClientsOauth2UpdateClientRequest = {
-  clientId: "<value>",
+  clientId: "<id>",
   oAuth2ClientConfigurationUpdate: {
     redirectUris: [
-      "https://probable-jungle.org/",
+      "https://present-yogurt.org/",
     ],
     clientName: "<value>",
-    clientId: "<value>",
+    clientId: "<id>",
   },
 };
 ```
