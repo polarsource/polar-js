@@ -1,7 +1,5 @@
 # NotPermitted
 
-You don't have the permission to update this repository.
-
 ## Example Usage
 
 ```typescript

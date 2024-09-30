@@ -12,13 +12,13 @@ let value: LicenseKeyRead = {
   benefitId: "<value>",
   key: "<key>",
   displayKey: "<value>",
-  status: "disabled",
-  limitActivations: 24272,
-  usage: 430116,
-  limitUsage: 652125,
-  validations: 853246,
-  lastValidatedAt: new Date("2023-06-05T22:56:35.057Z"),
-  expiresAt: new Date("2024-11-28T05:59:28.499Z"),
+  status: "revoked",
+  limitActivations: 211584,
+  usage: 493800,
+  limitUsage: 812753,
+  validations: 882884,
+  lastValidatedAt: new Date("2024-01-01T18:30:52.387Z"),
+  expiresAt: new Date("2022-11-12T18:59:01.405Z"),
 };
 ```
 

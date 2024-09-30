@@ -8,22 +8,25 @@ import { ListResourceBenefit } from "@polar-sh/sdk/models/components";
 let value: ListResourceBenefit = {
   items: [
     {
-      createdAt: new Date("2023-07-10T03:48:33.767Z"),
-      modifiedAt: new Date("2023-11-21T21:20:53.215Z"),
+      createdAt: new Date("2023-09-08T22:05:58.754Z"),
+      modifiedAt: new Date("2024-02-19T21:52:41.487Z"),
       id: "<value>",
-      description: "Realigned tangible website",
+      description:
+        "fully daintily aside whenever edge meanwhile radiant whenever",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        note: "<value>",
+        repositoryId: "<value>",
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "maintain",
       },
-      isTaxApplicable: false,
     },
   ],
   pagination: {
-    totalCount: 662857,
-    maxPage: 845365,
+    totalCount: 913579,
+    maxPage: 728960,
   },
 };
 ```

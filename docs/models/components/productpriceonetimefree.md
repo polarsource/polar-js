@@ -8,8 +8,8 @@ A free one-time price for a product.
 import { ProductPriceOneTimeFree } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceOneTimeFree = {
-  createdAt: new Date("2022-09-23T10:15:56.663Z"),
-  modifiedAt: new Date("2022-10-02T10:28:28.527Z"),
+  createdAt: new Date("2023-02-27T11:23:35.011Z"),
+  modifiedAt: new Date("2022-09-22T23:00:20.053Z"),
   id: "<value>",
   isArchived: false,
 };

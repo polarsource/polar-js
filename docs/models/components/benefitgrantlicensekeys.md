@@ -6,19 +6,16 @@
 import { BenefitGrantLicenseKeys } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrantLicenseKeys = {
-  createdAt: new Date("2022-04-17T14:16:27.461Z"),
-  modifiedAt: new Date("2023-06-30T13:31:25.620Z"),
+  createdAt: new Date("2024-11-01T23:11:27.876Z"),
+  modifiedAt: new Date("2024-09-11T11:00:37.375Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
-  properties: {
-    licenseKeyId: "<value>",
-    displayKey: "<value>",
-  },
   subscriptionId: "<value>",
   orderId: "<value>",
   userId: "<value>",
   benefitId: "<value>",
+  properties: {},
 };
 ```
 
@@ -33,8 +30,8 @@ let value: BenefitGrantLicenseKeys = {
 | `isGranted`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is granted.                                                                              |
 | `revokedAt`                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                | :heavy_minus_sign:                                                                                           | The timestamp when the benefit was revoked. If `None`, the benefit is not revoked.                           |
 | `isRevoked`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is revoked.                                                                              |
-| `properties`                                                                                                 | [components.BenefitGrantLicenseKeysProperties](../../models/components/benefitgrantlicensekeysproperties.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `subscriptionId`                                                                                             | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the subscription that granted this benefit.                                                        |
 | `orderId`                                                                                                    | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the order that granted this benefit.                                                               |
 | `userId`                                                                                                     | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the user concerned by this grant.                                                                  |
 | `benefitId`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the benefit concerned by this grant.                                                               |
+| `properties`                                                                                                 | [components.BenefitGrantLicenseKeysProperties](../../models/components/benefitgrantlicensekeysproperties.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

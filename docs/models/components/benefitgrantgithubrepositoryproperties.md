@@ -1,0 +1,18 @@
+# BenefitGrantGitHubRepositoryProperties
+
+## Example Usage
+
+```typescript
+import { BenefitGrantGitHubRepositoryProperties } from "@polar-sh/sdk/models/components";
+
+let value: BenefitGrantGitHubRepositoryProperties = {};
+```
+
+## Fields
+
+| Field                                                                                                                                      | Type                                                                                                                                       | Required                                                                                                                                   | Description                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `repositoryId`                                                                                                                             | *string*                                                                                                                                   | :heavy_minus_sign:                                                                                                                         | N/A                                                                                                                                        |
+| `repositoryOwner`                                                                                                                          | *string*                                                                                                                                   | :heavy_minus_sign:                                                                                                                         | N/A                                                                                                                                        |
+| `repositoryName`                                                                                                                           | *string*                                                                                                                                   | :heavy_minus_sign:                                                                                                                         | N/A                                                                                                                                        |
+| `permission`                                                                                                                               | [components.BenefitGrantGitHubRepositoryPropertiesPermission](../../models/components/benefitgrantgithubrepositorypropertiespermission.md) | :heavy_minus_sign:                                                                                                                         | N/A                                                                                                                                        |

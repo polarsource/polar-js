@@ -18,6 +18,10 @@ export type CheckoutCreate = {
    * If you already know the email of your customer, you can set it. It'll be pre-filled on the checkout page.
    */
   customerEmail?: string | null | undefined;
+  /**
+   * ID of the subscription to update. If not provided, a new subscription will be created.
+   */
+  subscriptionId?: string | null | undefined;
 };
 
 /** @internal */
@@ -29,11 +33,13 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
   product_price_id: z.string(),
   success_url: z.string(),
   customer_email: z.nullable(z.string()).optional(),
+  subscription_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "product_price_id": "productPriceId",
     "success_url": "successUrl",
     "customer_email": "customerEmail",
+    "subscription_id": "subscriptionId",
   });
 });
 
@@ -42,6 +48,7 @@ export type CheckoutCreate$Outbound = {
   product_price_id: string;
   success_url: string;
   customer_email?: string | null | undefined;
+  subscription_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -53,11 +60,13 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
   productPriceId: z.string(),
   successUrl: z.string(),
   customerEmail: z.nullable(z.string()).optional(),
+  subscriptionId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     productPriceId: "product_price_id",
     successUrl: "success_url",
     customerEmail: "customer_email",
+    subscriptionId: "subscription_id",
   });
 });
 

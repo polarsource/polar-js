@@ -1,28 +1,26 @@
 # Donor
 
-## Example Usage
-
-```typescript
-import { Donor } from "@polar-sh/sdk/models/components";
-
-let value: Donor = {
-  id: "<value>",
-  publicName: "<value>",
-  avatarUrl: "<value>",
-};
-```
 
 ## Supported Types
 
 ### `components.DonationOrganization`
 
 ```typescript
-const value: components.DonationOrganization = /* values here */
+const value: components.DonationOrganization = {
+  id: "<value>",
+  name: "<value>",
+  avatarUrl: "https://humble-design.org",
+  isPersonal: false,
+};
 ```
 
 ### `components.DonationUser`
 
 ```typescript
-const value: components.DonationUser = /* values here */
+const value: components.DonationUser = {
+  id: "<value>",
+  publicName: "<value>",
+  avatarUrl: "https://limping-editor.org",
+};
 ```
 

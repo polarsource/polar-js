@@ -2,27 +2,20 @@
 
 Filter by benefit type.
 
-## Example Usage
-
-```typescript
-import { QueryParamBenefitTypeFilter } from "@polar-sh/sdk/models/operations";
-
-let value: QueryParamBenefitTypeFilter = [
-  "ads",
-];
-```
 
 ## Supported Types
 
 ### `components.BenefitType`
 
 ```typescript
-const value: components.BenefitType = /* values here */
+const value: components.BenefitType = "github_repository";
 ```
 
 ### `components.BenefitType[]`
 
 ```typescript
-const value: components.BenefitType[] = /* values here */
+const value: components.BenefitType[] = [
+  "custom",
+];
 ```
 

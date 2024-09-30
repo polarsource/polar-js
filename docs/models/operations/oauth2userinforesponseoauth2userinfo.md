@@ -2,30 +2,26 @@
 
 Successful Response
 
-## Example Usage
-
-```typescript
-import { Oauth2UserinfoResponseOauth2Userinfo } from "@polar-sh/sdk/models/operations";
-
-let value: Oauth2UserinfoResponseOauth2Userinfo = {
-  sub: "<value>",
-  name: "<value>",
-  email: "Darlene.Bartoletti42@gmail.com",
-  emailVerified: false,
-};
-```
 
 ## Supported Types
 
 ### `components.UserInfoUser`
 
 ```typescript
-const value: components.UserInfoUser = /* values here */
+const value: components.UserInfoUser = {
+  sub: "<value>",
+  name: "<value>",
+  email: "Annabel.Kessler@yahoo.com",
+  emailVerified: false,
+};
 ```
 
 ### `components.UserInfoOrganization`
 
 ```typescript
-const value: components.UserInfoOrganization = /* values here */
+const value: components.UserInfoOrganization = {
+  sub: "<value>",
+  name: "<value>",
+};
 ```
 

@@ -5,11 +5,11 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  BenefitGrantAdsProperties,
-  BenefitGrantAdsProperties$inboundSchema,
-  BenefitGrantAdsProperties$Outbound,
-  BenefitGrantAdsProperties$outboundSchema,
-} from "./benefitgrantadsproperties.js";
+  BenefitGrantAdsSubscriberProperties,
+  BenefitGrantAdsSubscriberProperties$inboundSchema,
+  BenefitGrantAdsSubscriberProperties$Outbound,
+  BenefitGrantAdsSubscriberProperties$outboundSchema,
+} from "./benefitgrantadssubscriberproperties.js";
 
 export type BenefitGrantAds = {
   /**
@@ -40,7 +40,6 @@ export type BenefitGrantAds = {
    * Whether the benefit is revoked.
    */
   isRevoked: boolean;
-  properties: BenefitGrantAdsProperties;
   /**
    * The ID of the subscription that granted this benefit.
    */
@@ -57,6 +56,7 @@ export type BenefitGrantAds = {
    * The ID of the benefit concerned by this grant.
    */
   benefitId: string;
+  properties: BenefitGrantAdsSubscriberProperties;
 };
 
 /** @internal */
@@ -78,11 +78,11 @@ export const BenefitGrantAds$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   is_revoked: z.boolean(),
-  properties: BenefitGrantAdsProperties$inboundSchema,
   subscription_id: z.nullable(z.string()),
   order_id: z.nullable(z.string()),
   user_id: z.string(),
   benefit_id: z.string(),
+  properties: BenefitGrantAdsSubscriberProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -107,11 +107,11 @@ export type BenefitGrantAds$Outbound = {
   is_granted: boolean;
   revoked_at?: string | null | undefined;
   is_revoked: boolean;
-  properties: BenefitGrantAdsProperties$Outbound;
   subscription_id: string | null;
   order_id: string | null;
   user_id: string;
   benefit_id: string;
+  properties: BenefitGrantAdsSubscriberProperties$Outbound;
 };
 
 /** @internal */
@@ -127,11 +127,11 @@ export const BenefitGrantAds$outboundSchema: z.ZodType<
   isGranted: z.boolean(),
   revokedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   isRevoked: z.boolean(),
-  properties: BenefitGrantAdsProperties$outboundSchema,
   subscriptionId: z.nullable(z.string()),
   orderId: z.nullable(z.string()),
   userId: z.string(),
   benefitId: z.string(),
+  properties: BenefitGrantAdsSubscriberProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

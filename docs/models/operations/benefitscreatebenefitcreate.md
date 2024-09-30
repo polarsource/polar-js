@@ -1,12 +1,59 @@
 # BenefitsCreateBenefitCreate
 
-## Example Usage
+
+## Supported Types
+
+### `components.BenefitCustomCreate`
 
 ```typescript
-import { BenefitsCreateBenefitCreate } from "@polar-sh/sdk/models/operations";
+const value: components.BenefitCustomCreate = {
+  description: "phooey without solidly accentuate delightfully with close",
+  isTaxApplicable: false,
+  properties: {
+    note: "<value>",
+  },
+};
+```
 
-let value: BenefitsCreateBenefitCreate = {
-  description: "Inverse executive service-desk",
+### `components.BenefitAdsCreate`
+
+```typescript
+const value: components.BenefitAdsCreate = {
+  description: "yippee internal essay gently underpants yak",
+  properties: {},
+};
+```
+
+### `components.BenefitDiscordCreate`
+
+```typescript
+const value: components.BenefitDiscordCreate = {
+  description: "poor deliberately pleasing",
+  properties: {
+    guildToken: "<value>",
+    roleId: "<id>",
+  },
+};
+```
+
+### `components.BenefitGitHubRepositoryCreate`
+
+```typescript
+const value: components.BenefitGitHubRepositoryCreate = {
+  description: "badly impolite unless",
+  properties: {
+    repositoryOwner: "polarsource",
+    repositoryName: "private_repo",
+    permission: "admin",
+  },
+};
+```
+
+### `components.BenefitDownloadablesCreate`
+
+```typescript
+const value: components.BenefitDownloadablesCreate = {
+  description: "ah speedily showy wealthy how onto vamoose genuine",
   properties: {
     files: [
       "<value>",
@@ -15,41 +62,12 @@ let value: BenefitsCreateBenefitCreate = {
 };
 ```
 
-## Supported Types
-
-### `components.BenefitCustomCreate`
-
-```typescript
-const value: components.BenefitCustomCreate = /* values here */
-```
-
-### `components.BenefitAdsCreate`
-
-```typescript
-const value: components.BenefitAdsCreate = /* values here */
-```
-
-### `components.BenefitDiscordCreate`
-
-```typescript
-const value: components.BenefitDiscordCreate = /* values here */
-```
-
-### `components.BenefitGitHubRepositoryCreate`
-
-```typescript
-const value: components.BenefitGitHubRepositoryCreate = /* values here */
-```
-
-### `components.BenefitDownloadablesCreate`
-
-```typescript
-const value: components.BenefitDownloadablesCreate = /* values here */
-```
-
 ### `components.BenefitLicenseKeysCreate`
 
 ```typescript
-const value: components.BenefitLicenseKeysCreate = /* values here */
+const value: components.BenefitLicenseKeysCreate = {
+  description: "swing across clamour wealthy for",
+  properties: {},
+};
 ```
 

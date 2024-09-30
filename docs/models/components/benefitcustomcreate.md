@@ -8,7 +8,7 @@ Schema to create a benefit of type `custom`.
 import { BenefitCustomCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitCustomCreate = {
-  description: "Synchronised real-time database",
+  description: "unless boldly cash suspiciously",
   isTaxApplicable: false,
   properties: {
     note: "<value>",

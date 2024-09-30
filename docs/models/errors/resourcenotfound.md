@@ -1,7 +1,5 @@
 # ResourceNotFound
 
-Order not found.
-
 ## Example Usage
 
 ```typescript

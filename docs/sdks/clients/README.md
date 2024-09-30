@@ -26,7 +26,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.oauth2.clients.list({});
-  
+
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -109,9 +109,9 @@ async function run() {
     ],
     clientName: "<value>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -146,7 +146,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -190,9 +190,9 @@ async function run() {
   const result = await polar.oauth2.clients.get({
     clientId: "<value>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -224,7 +224,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -275,9 +275,9 @@ async function run() {
       clientId: "<value>",
     },
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -316,7 +316,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -360,9 +360,9 @@ async function run() {
   const result = await polar.oauth2.clients.delete({
     clientId: "<value>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -394,7 +394,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

@@ -7,7 +7,7 @@ import { Oauth2IntrospectTokenIntrospectTokenRequest } from "@polar-sh/sdk/model
 
 let value: Oauth2IntrospectTokenIntrospectTokenRequest = {
   token: "<value>",
-  clientId: "<value>",
+  clientId: "<id>",
   clientSecret: "<value>",
 };
 ```

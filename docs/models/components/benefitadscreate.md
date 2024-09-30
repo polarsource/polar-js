@@ -6,7 +6,7 @@
 import { BenefitAdsCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitAdsCreate = {
-  description: "Implemented upward-trending secured line",
+  description: "pro asset er",
   properties: {},
 };
 ```

@@ -9,7 +9,7 @@ import { BenefitDiscordCreateProperties } from "@polar-sh/sdk/models/components"
 
 let value: BenefitDiscordCreateProperties = {
   guildToken: "<value>",
-  roleId: "<value>",
+  roleId: "<id>",
 };
 ```
 

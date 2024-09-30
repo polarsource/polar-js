@@ -5,7 +5,7 @@
 ```typescript
 import { BenefitType } from "@polar-sh/sdk/models/components";
 
-let value: BenefitType = "ads";
+let value: BenefitType = "discord";
 ```
 
 ## Values

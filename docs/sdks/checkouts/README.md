@@ -26,9 +26,9 @@ async function run() {
     productPriceId: "<value>",
     successUrl: "http://limp-pastry.org",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -61,7 +61,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -105,9 +105,9 @@ async function run() {
   const result = await polar.checkouts.get({
     id: "<id>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -139,7 +139,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

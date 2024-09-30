@@ -12,11 +12,11 @@ import {
   BenefitCustomSubscriberProperties$outboundSchema,
 } from "./benefitcustomsubscriberproperties.js";
 import {
-  BenefitGrant,
-  BenefitGrant$inboundSchema,
-  BenefitGrant$Outbound,
-  BenefitGrant$outboundSchema,
-} from "./benefitgrant.js";
+  BenefitGrantSubscriber,
+  BenefitGrantSubscriber$inboundSchema,
+  BenefitGrantSubscriber$Outbound,
+  BenefitGrantSubscriber$outboundSchema,
+} from "./benefitgrantsubscriber.js";
 
 export const BenefitCustomSubscriberType = {
   Custom: "custom",
@@ -55,7 +55,7 @@ export type BenefitCustomSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  grants: Array<BenefitGrant>;
+  grants: Array<BenefitGrantSubscriber>;
   /**
    * Properties available to subscribers for a benefit of type `custom`.
    */
@@ -99,7 +99,7 @@ export const BenefitCustomSubscriber$inboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
-  grants: z.array(BenefitGrant$inboundSchema),
+  grants: z.array(BenefitGrantSubscriber$inboundSchema),
   properties: BenefitCustomSubscriberProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -119,7 +119,7 @@ export type BenefitCustomSubscriber$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
-  grants: Array<BenefitGrant$Outbound>;
+  grants: Array<BenefitGrantSubscriber$Outbound>;
   properties: BenefitCustomSubscriberProperties$Outbound;
 };
 
@@ -137,7 +137,7 @@ export const BenefitCustomSubscriber$outboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
-  grants: z.array(BenefitGrant$outboundSchema),
+  grants: z.array(BenefitGrantSubscriber$outboundSchema),
   properties: BenefitCustomSubscriberProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

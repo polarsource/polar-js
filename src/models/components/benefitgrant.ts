@@ -5,15 +5,57 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  BenefitGrantProperties,
-  BenefitGrantProperties$inboundSchema,
-  BenefitGrantProperties$Outbound,
-  BenefitGrantProperties$outboundSchema,
-} from "./benefitgrantproperties.js";
+  BenefitGrantAdsProperties,
+  BenefitGrantAdsProperties$inboundSchema,
+  BenefitGrantAdsProperties$Outbound,
+  BenefitGrantAdsProperties$outboundSchema,
+} from "./benefitgrantadsproperties.js";
+import {
+  BenefitGrantArticlesProperties,
+  BenefitGrantArticlesProperties$inboundSchema,
+  BenefitGrantArticlesProperties$Outbound,
+  BenefitGrantArticlesProperties$outboundSchema,
+} from "./benefitgrantarticlesproperties.js";
+import {
+  BenefitGrantCustomProperties,
+  BenefitGrantCustomProperties$inboundSchema,
+  BenefitGrantCustomProperties$Outbound,
+  BenefitGrantCustomProperties$outboundSchema,
+} from "./benefitgrantcustomproperties.js";
+import {
+  BenefitGrantDiscordProperties,
+  BenefitGrantDiscordProperties$inboundSchema,
+  BenefitGrantDiscordProperties$Outbound,
+  BenefitGrantDiscordProperties$outboundSchema,
+} from "./benefitgrantdiscordproperties.js";
+import {
+  BenefitGrantDownloadablesProperties,
+  BenefitGrantDownloadablesProperties$inboundSchema,
+  BenefitGrantDownloadablesProperties$Outbound,
+  BenefitGrantDownloadablesProperties$outboundSchema,
+} from "./benefitgrantdownloadablesproperties.js";
+import {
+  BenefitGrantGitHubRepositoryProperties,
+  BenefitGrantGitHubRepositoryProperties$inboundSchema,
+  BenefitGrantGitHubRepositoryProperties$Outbound,
+  BenefitGrantGitHubRepositoryProperties$outboundSchema,
+} from "./benefitgrantgithubrepositoryproperties.js";
+import {
+  BenefitGrantLicenseKeysProperties,
+  BenefitGrantLicenseKeysProperties$inboundSchema,
+  BenefitGrantLicenseKeysProperties$Outbound,
+  BenefitGrantLicenseKeysProperties$outboundSchema,
+} from "./benefitgrantlicensekeysproperties.js";
 
-/**
- * A grant of a benefit to a user.
- */
+export type Properties =
+  | BenefitGrantCustomProperties
+  | BenefitGrantArticlesProperties
+  | BenefitGrantDownloadablesProperties
+  | BenefitGrantAdsProperties
+  | BenefitGrantLicenseKeysProperties
+  | BenefitGrantDiscordProperties
+  | BenefitGrantGitHubRepositoryProperties;
+
 export type BenefitGrant = {
   /**
    * Creation timestamp of the object.
@@ -44,10 +86,6 @@ export type BenefitGrant = {
    */
   isRevoked: boolean;
   /**
-   * The properties of the grant.
-   */
-  properties: BenefitGrantProperties;
-  /**
    * The ID of the subscription that granted this benefit.
    */
   subscriptionId: string | null;
@@ -63,7 +101,68 @@ export type BenefitGrant = {
    * The ID of the benefit concerned by this grant.
    */
   benefitId: string;
+  properties:
+    | BenefitGrantCustomProperties
+    | BenefitGrantArticlesProperties
+    | BenefitGrantDownloadablesProperties
+    | BenefitGrantAdsProperties
+    | BenefitGrantLicenseKeysProperties
+    | BenefitGrantDiscordProperties
+    | BenefitGrantGitHubRepositoryProperties;
 };
+
+/** @internal */
+export const Properties$inboundSchema: z.ZodType<
+  Properties,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  BenefitGrantCustomProperties$inboundSchema,
+  BenefitGrantArticlesProperties$inboundSchema,
+  BenefitGrantDownloadablesProperties$inboundSchema,
+  BenefitGrantAdsProperties$inboundSchema,
+  BenefitGrantLicenseKeysProperties$inboundSchema,
+  BenefitGrantDiscordProperties$inboundSchema,
+  BenefitGrantGitHubRepositoryProperties$inboundSchema,
+]);
+
+/** @internal */
+export type Properties$Outbound =
+  | BenefitGrantCustomProperties$Outbound
+  | BenefitGrantArticlesProperties$Outbound
+  | BenefitGrantDownloadablesProperties$Outbound
+  | BenefitGrantAdsProperties$Outbound
+  | BenefitGrantLicenseKeysProperties$Outbound
+  | BenefitGrantDiscordProperties$Outbound
+  | BenefitGrantGitHubRepositoryProperties$Outbound;
+
+/** @internal */
+export const Properties$outboundSchema: z.ZodType<
+  Properties$Outbound,
+  z.ZodTypeDef,
+  Properties
+> = z.union([
+  BenefitGrantCustomProperties$outboundSchema,
+  BenefitGrantArticlesProperties$outboundSchema,
+  BenefitGrantDownloadablesProperties$outboundSchema,
+  BenefitGrantAdsProperties$outboundSchema,
+  BenefitGrantLicenseKeysProperties$outboundSchema,
+  BenefitGrantDiscordProperties$outboundSchema,
+  BenefitGrantGitHubRepositoryProperties$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Properties$ {
+  /** @deprecated use `Properties$inboundSchema` instead. */
+  export const inboundSchema = Properties$inboundSchema;
+  /** @deprecated use `Properties$outboundSchema` instead. */
+  export const outboundSchema = Properties$outboundSchema;
+  /** @deprecated use `Properties$Outbound` instead. */
+  export type Outbound = Properties$Outbound;
+}
 
 /** @internal */
 export const BenefitGrant$inboundSchema: z.ZodType<
@@ -84,11 +183,19 @@ export const BenefitGrant$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   is_revoked: z.boolean(),
-  properties: BenefitGrantProperties$inboundSchema,
   subscription_id: z.nullable(z.string()),
   order_id: z.nullable(z.string()),
   user_id: z.string(),
   benefit_id: z.string(),
+  properties: z.union([
+    BenefitGrantCustomProperties$inboundSchema,
+    BenefitGrantArticlesProperties$inboundSchema,
+    BenefitGrantDownloadablesProperties$inboundSchema,
+    BenefitGrantAdsProperties$inboundSchema,
+    BenefitGrantLicenseKeysProperties$inboundSchema,
+    BenefitGrantDiscordProperties$inboundSchema,
+    BenefitGrantGitHubRepositoryProperties$inboundSchema,
+  ]),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -113,11 +220,18 @@ export type BenefitGrant$Outbound = {
   is_granted: boolean;
   revoked_at?: string | null | undefined;
   is_revoked: boolean;
-  properties: BenefitGrantProperties$Outbound;
   subscription_id: string | null;
   order_id: string | null;
   user_id: string;
   benefit_id: string;
+  properties:
+    | BenefitGrantCustomProperties$Outbound
+    | BenefitGrantArticlesProperties$Outbound
+    | BenefitGrantDownloadablesProperties$Outbound
+    | BenefitGrantAdsProperties$Outbound
+    | BenefitGrantLicenseKeysProperties$Outbound
+    | BenefitGrantDiscordProperties$Outbound
+    | BenefitGrantGitHubRepositoryProperties$Outbound;
 };
 
 /** @internal */
@@ -133,11 +247,19 @@ export const BenefitGrant$outboundSchema: z.ZodType<
   isGranted: z.boolean(),
   revokedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   isRevoked: z.boolean(),
-  properties: BenefitGrantProperties$outboundSchema,
   subscriptionId: z.nullable(z.string()),
   orderId: z.nullable(z.string()),
   userId: z.string(),
   benefitId: z.string(),
+  properties: z.union([
+    BenefitGrantCustomProperties$outboundSchema,
+    BenefitGrantArticlesProperties$outboundSchema,
+    BenefitGrantDownloadablesProperties$outboundSchema,
+    BenefitGrantAdsProperties$outboundSchema,
+    BenefitGrantLicenseKeysProperties$outboundSchema,
+    BenefitGrantDiscordProperties$outboundSchema,
+    BenefitGrantGitHubRepositoryProperties$outboundSchema,
+  ]),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

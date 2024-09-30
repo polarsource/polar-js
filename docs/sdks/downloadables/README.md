@@ -23,7 +23,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.users.downloadables.list({});
-  
+
   for await (const page of result) {
     // Handle the page
     console.log(page);
@@ -103,9 +103,9 @@ async function run() {
   const result = await polar.users.downloadables.get({
     token: "<value>",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -137,7 +137,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

@@ -8,7 +8,7 @@ Schema to create a recurring product price, i.e. a subscription.
 import { ProductPriceRecurringFixedCreate } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringFixedCreate = {
-  priceAmount: 927021,
+  priceAmount: 823250,
   recurringInterval: "month",
 };
 ```

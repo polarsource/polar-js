@@ -1,33 +1,38 @@
 # ProductOutputBenefits
 
-## Example Usage
-
-```typescript
-import { ProductOutputBenefits } from "@polar-sh/sdk/models/components";
-
-let value: ProductOutputBenefits = {
-  createdAt: new Date("2024-02-12T00:34:41.133Z"),
-  modifiedAt: new Date("2022-11-09T05:37:43.437Z"),
-  id: "<value>",
-  type: "custom",
-  description: "Triple-buffered next generation methodology",
-  selectable: false,
-  deletable: false,
-  organizationId: "<value>",
-};
-```
 
 ## Supported Types
 
 ### `components.BenefitBase`
 
 ```typescript
-const value: components.BenefitBase = /* values here */
+const value: components.BenefitBase = {
+  createdAt: new Date("2023-12-19T01:43:34.636Z"),
+  modifiedAt: new Date("2022-12-06T21:39:04.890Z"),
+  id: "<value>",
+  type: "articles",
+  description: "striking inspection whoa rotating blacken thump recount",
+  selectable: false,
+  deletable: false,
+  organizationId: "<value>",
+};
 ```
 
 ### `components.BenefitArticles`
 
 ```typescript
-const value: components.BenefitArticles = /* values here */
+const value: components.BenefitArticles = {
+  createdAt: new Date("2023-02-22T09:57:58.763Z"),
+  modifiedAt: new Date("2023-08-21T01:21:47.926Z"),
+  id: "<value>",
+  description:
+    "unknown rue why by internalise exactly nor heating weary whereas",
+  selectable: false,
+  deletable: false,
+  organizationId: "<value>",
+  properties: {
+    paidArticles: false,
+  },
+};
 ```
 

@@ -1,7 +1,5 @@
 # HTTPValidationError
 
-Validation Error
-
 ## Example Usage
 
 ```typescript
