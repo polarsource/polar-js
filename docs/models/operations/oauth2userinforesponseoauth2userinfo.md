@@ -10,9 +10,6 @@ Successful Response
 ```typescript
 const value: components.UserInfoUser = {
   sub: "<value>",
-  name: "<value>",
-  email: "Annabel.Kessler@yahoo.com",
-  emailVerified: false,
 };
 ```
 
@@ -21,7 +18,6 @@ const value: components.UserInfoUser = {
 ```typescript
 const value: components.UserInfoOrganization = {
   sub: "<value>",
-  name: "<value>",
 };
 ```
 

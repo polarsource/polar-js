@@ -9,10 +9,11 @@ Benefit created.
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2024-10-21T22:27:43.595Z"),
-  modifiedAt: new Date("2024-08-27T16:51:13.989Z"),
+  createdAt: new Date("2024-05-15T16:43:38.676Z"),
+  modifiedAt: new Date("2022-12-14T17:12:44.022Z"),
   id: "<value>",
-  description: "thigh upright whine enormously fall gently glow amused",
+  description:
+    "criminal blink mortally so continually rebuke circa anticodon self-reliant yowza",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -26,10 +27,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2022-08-01T05:04:01.310Z"),
-  modifiedAt: new Date("2022-05-04T00:37:25.698Z"),
+  createdAt: new Date("2024-03-22T10:05:33.577Z"),
+  modifiedAt: new Date("2024-06-18T19:59:01.294Z"),
   id: "<value>",
-  description: "gadzooks kiddingly wrongly",
+  description: "amongst peony despite energetically quixotic",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -41,10 +42,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2023-12-14T00:33:52.023Z"),
-  modifiedAt: new Date("2024-08-23T13:46:22.768Z"),
+  createdAt: new Date("2024-07-15T12:28:05.877Z"),
+  modifiedAt: new Date("2024-05-02T17:32:01.787Z"),
   id: "<value>",
-  description: "whoever mmm boohoo straight innocently management plus",
+  description: "brief where daintily role infatuated",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -59,10 +60,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscordOutput = {
-  createdAt: new Date("2022-12-15T02:59:19.660Z"),
-  modifiedAt: new Date("2022-12-27T12:47:58.923Z"),
+  createdAt: new Date("2023-03-15T21:57:18.934Z"),
+  modifiedAt: new Date("2024-02-02T02:23:36.593Z"),
   id: "<value>",
-  description: "splurge um ouch",
+  description: "suburban splash psst",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -78,11 +79,11 @@ const value: components.BenefitDiscordOutput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2023-05-12T02:35:54.356Z"),
-  modifiedAt: new Date("2024-02-22T05:37:54.958Z"),
+  createdAt: new Date("2024-12-13T06:53:53.078Z"),
+  modifiedAt: new Date("2022-06-07T21:18:57.113Z"),
   id: "<value>",
   description:
-    "disloyal jovially cleverly wrong abnegate convection bogus till lasting bruised",
+    "what likewise whether whereas collectivization despite till crumble besides even",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -90,7 +91,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "pull",
+    permission: "maintain",
   },
 };
 ```
@@ -99,10 +100,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2024-07-21T21:55:28.560Z"),
-  modifiedAt: new Date("2024-04-25T02:25:06.711Z"),
+  createdAt: new Date("2022-04-03T07:05:35.185Z"),
+  modifiedAt: new Date("2024-12-03T09:17:23.978Z"),
   id: "<value>",
-  description: "lazily elegantly celebrate until furthermore",
+  description: "scamper safe excitedly gee beneath since phony daintily",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -121,24 +122,25 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeysOutput = {
-  createdAt: new Date("2022-12-04T10:19:12.982Z"),
-  modifiedAt: new Date("2024-11-02T04:36:58.483Z"),
+  createdAt: new Date("2024-05-09T07:52:40.062Z"),
+  modifiedAt: new Date("2024-03-26T08:32:25.562Z"),
   id: "<value>",
-  description: "upward rival inasmuch uh-huh the",
+  description:
+    "if deserted meh failing up subsidy except fax hence optimistically",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 107301,
-      timeframe: "year",
+      ttl: 718187,
+      timeframe: "day",
     },
     activations: {
-      limit: 191724,
+      limit: 26321,
       enableUserAdmin: false,
     },
-    limitUsage: 270477,
+    limitUsage: 718879,
   },
 };
 ```

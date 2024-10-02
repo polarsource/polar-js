@@ -6,10 +6,10 @@
 import { BenefitArticlesSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitArticlesSubscriber = {
-  createdAt: new Date("2024-11-26T08:57:48.541Z"),
-  modifiedAt: new Date("2024-06-27T02:43:23.928Z"),
+  createdAt: new Date("2024-11-13T12:53:28.095Z"),
+  modifiedAt: new Date("2022-02-21T00:08:54.044Z"),
   id: "<value>",
-  description: "a mmm upsell more short who sign flowery",
+  description: "order cautiously past",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

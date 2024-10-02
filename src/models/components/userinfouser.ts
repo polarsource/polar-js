@@ -7,9 +7,9 @@ import { remap as remap$ } from "../../lib/primitives.js";
 
 export type UserInfoUser = {
   sub: string;
-  name: string | null;
-  email: string | null;
-  emailVerified: boolean | null;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  emailVerified?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -19,9 +19,9 @@ export const UserInfoUser$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   sub: z.string(),
-  name: z.nullable(z.string()),
-  email: z.nullable(z.string()),
-  email_verified: z.nullable(z.boolean()),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  email_verified: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "email_verified": "emailVerified",
@@ -31,9 +31,9 @@ export const UserInfoUser$inboundSchema: z.ZodType<
 /** @internal */
 export type UserInfoUser$Outbound = {
   sub: string;
-  name: string | null;
-  email: string | null;
-  email_verified: boolean | null;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  email_verified?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -43,9 +43,9 @@ export const UserInfoUser$outboundSchema: z.ZodType<
   UserInfoUser
 > = z.object({
   sub: z.string(),
-  name: z.nullable(z.string()),
-  email: z.nullable(z.string()),
-  emailVerified: z.nullable(z.boolean()),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  emailVerified: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     emailVerified: "email_verified",

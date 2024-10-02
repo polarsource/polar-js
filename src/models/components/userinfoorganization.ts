@@ -6,7 +6,7 @@ import * as z from "zod";
 
 export type UserInfoOrganization = {
   sub: string;
-  name: string | null;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -16,13 +16,13 @@ export const UserInfoOrganization$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   sub: z.string(),
-  name: z.nullable(z.string()),
+  name: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
 export type UserInfoOrganization$Outbound = {
   sub: string;
-  name: string | null;
+  name?: string | null | undefined;
 };
 
 /** @internal */
@@ -32,7 +32,7 @@ export const UserInfoOrganization$outboundSchema: z.ZodType<
   UserInfoOrganization
 > = z.object({
   sub: z.string(),
-  name: z.nullable(z.string()),
+  name: z.nullable(z.string()).optional(),
 });
 
 /**

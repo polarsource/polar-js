@@ -7,12 +7,14 @@
 
 ```typescript
 const value: components.ProductPriceRecurringOutput = {
-  createdAt: new Date("2022-04-04T03:54:32.981Z"),
-  modifiedAt: new Date("2022-12-19T23:19:10.766Z"),
+  createdAt: new Date("2023-03-22T23:27:48.401Z"),
+  modifiedAt: new Date("2022-07-31T03:27:33.648Z"),
   id: "<value>",
   isArchived: false,
   priceCurrency: "<value>",
-  priceAmount: 985155,
+  minimumAmount: 419683,
+  maximumAmount: 653492,
+  presetAmount: 944689,
   recurringInterval: "year",
 };
 ```
@@ -21,12 +23,14 @@ const value: components.ProductPriceRecurringOutput = {
 
 ```typescript
 const value: components.ProductPriceOneTime = {
-  createdAt: new Date("2023-02-17T01:18:56.856Z"),
-  modifiedAt: new Date("2023-04-18T13:22:03.376Z"),
+  createdAt: new Date("2023-04-02T08:07:24.314Z"),
+  modifiedAt: new Date("2022-04-26T16:22:44.021Z"),
   id: "<value>",
   isArchived: false,
   priceCurrency: "<value>",
-  priceAmount: 763869,
+  minimumAmount: 477074,
+  maximumAmount: 155108,
+  presetAmount: 582187,
 };
 ```
 
