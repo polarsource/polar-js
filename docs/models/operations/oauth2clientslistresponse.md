@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://jubilant-diversity.name/",
+          "https://biodegradable-integer.info",
         ],
         clientName: "<value>",
-        createdAt: new Date("2022-02-08T12:51:00.758Z"),
-        modifiedAt: new Date("2024-09-20T05:30:40.558Z"),
+        createdAt: new Date("2022-08-11T06:20:49.442Z"),
+        modifiedAt: new Date("2023-04-10T06:02:57.106Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 816365,
-        clientSecretExpiresAt: 552581,
+        clientIdIssuedAt: 357758,
+        clientSecretExpiresAt: 163684,
       },
     ],
     pagination: {
-      totalCount: 851809,
-      maxPage: 962396,
+      totalCount: 441374,
+      maxPage: 262800,
     },
   },
 };

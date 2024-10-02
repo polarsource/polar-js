@@ -8,21 +8,21 @@ import { ListResourceUserAdvertisementCampaign } from "@polar-sh/sdk/models/comp
 let value: ListResourceUserAdvertisementCampaign = {
   items: [
     {
-      createdAt: new Date("2022-12-15T15:28:10.903Z"),
-      modifiedAt: new Date("2023-04-01T13:49:57.045Z"),
+      createdAt: new Date("2023-07-17T14:02:10.568Z"),
+      modifiedAt: new Date("2022-06-01T19:28:49.387Z"),
       id: "<value>",
       userId: "<value>",
-      views: 93124,
-      clicks: 14273,
-      imageUrl: "https://boiling-embarrassment.name",
-      imageUrlDark: "https://gloomy-pecan.info",
+      views: 196647,
+      clicks: 915897,
+      imageUrl: "https://clumsy-duster.name",
+      imageUrlDark: "https://acceptable-premise.biz/",
       text: "<value>",
-      linkUrl: "https://inborn-allegation.org/",
+      linkUrl: "https://focused-circumference.com/",
     },
   ],
   pagination: {
-    totalCount: 762184,
-    maxPage: 339292,
+    totalCount: 144913,
+    maxPage: 967492,
   },
 };
 ```

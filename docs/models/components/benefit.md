@@ -7,10 +7,11 @@
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2023-10-30T22:22:26.691Z"),
-  modifiedAt: new Date("2024-08-16T06:50:16.556Z"),
+  createdAt: new Date("2023-07-18T01:13:30.111Z"),
+  modifiedAt: new Date("2024-03-06T14:06:37.588Z"),
   id: "<value>",
-  description: "helpless astride breed",
+  description:
+    "boohoo responsible up aside beard cruelly tectonics for off bah",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -24,10 +25,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2023-08-31T09:29:51.256Z"),
-  modifiedAt: new Date("2022-12-17T03:55:26.194Z"),
+  createdAt: new Date("2023-09-20T16:28:52.728Z"),
+  modifiedAt: new Date("2023-05-18T22:46:14.781Z"),
   id: "<value>",
-  description: "angrily venom forenenst lovable eek glow anxiously",
+  description: "divert despite drab eek",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -39,10 +40,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2024-04-30T12:02:00.102Z"),
-  modifiedAt: new Date("2024-07-21T15:37:23.186Z"),
+  createdAt: new Date("2023-10-27T09:16:53.066Z"),
+  modifiedAt: new Date("2024-10-28T01:53:16.789Z"),
   id: "<value>",
-  description: "handy ew ew svelte contravene till",
+  description: "huzzah oxygenate productive behold",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -57,10 +58,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscordOutput = {
-  createdAt: new Date("2022-09-01T05:45:21.778Z"),
-  modifiedAt: new Date("2023-10-24T10:08:12.461Z"),
+  createdAt: new Date("2023-01-05T10:22:18.788Z"),
+  modifiedAt: new Date("2024-01-27T07:04:43.766Z"),
   id: "<value>",
-  description: "briefly between than yahoo able truthfully plus meanwhile",
+  description: "glow anxiously hidden or oxygenate inspect loudly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -76,10 +77,10 @@ const value: components.BenefitDiscordOutput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2022-02-10T15:50:19.869Z"),
-  modifiedAt: new Date("2022-09-15T10:24:01.607Z"),
+  createdAt: new Date("2024-10-27T18:38:23.714Z"),
+  modifiedAt: new Date("2023-01-25T00:32:18.649Z"),
   id: "<value>",
-  description: "an tempting outside vastly rebuke giggle yahoo about finally",
+  description: "till crumble worth abaft",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -87,7 +88,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "triage",
+    permission: "push",
   },
 };
 ```
@@ -96,10 +97,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2023-07-24T07:21:47.082Z"),
-  modifiedAt: new Date("2024-02-25T07:31:14.518Z"),
+  createdAt: new Date("2023-04-15T15:33:18.787Z"),
+  modifiedAt: new Date("2023-11-12T19:30:01.674Z"),
   id: "<value>",
-  description: "display ostrich aboard pfft so finally lest save",
+  description: "optimal sidetrack gee busy oh atomize fishery blah cooperative",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -118,24 +119,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeysOutput = {
-  createdAt: new Date("2022-12-15T16:37:54.334Z"),
-  modifiedAt: new Date("2023-12-03T06:44:12.845Z"),
+  createdAt: new Date("2022-07-08T03:01:51.436Z"),
+  modifiedAt: new Date("2024-10-03T13:54:59.592Z"),
   id: "<value>",
-  description: "smooth since around save energetically natural ah around",
+  description: "aggravating pfft flint whenever hourly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 390854,
-      timeframe: "month",
+      ttl: 519441,
+      timeframe: "day",
     },
     activations: {
-      limit: 586260,
+      limit: 666805,
       enableUserAdmin: false,
     },
-    limitUsage: 923658,
+    limitUsage: 821345,
   },
 };
 ```

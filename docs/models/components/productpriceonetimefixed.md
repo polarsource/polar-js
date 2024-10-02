@@ -8,12 +8,12 @@ A one-time price for a product.
 import { ProductPriceOneTimeFixed } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceOneTimeFixed = {
-  createdAt: new Date("2023-09-04T17:15:43.678Z"),
-  modifiedAt: new Date("2022-03-25T16:09:06.883Z"),
+  createdAt: new Date("2022-09-07T12:36:13.519Z"),
+  modifiedAt: new Date("2024-03-31T06:46:07.766Z"),
   id: "<value>",
   isArchived: false,
   priceCurrency: "<value>",
-  priceAmount: 40346,
+  priceAmount: 812057,
 };
 ```
 

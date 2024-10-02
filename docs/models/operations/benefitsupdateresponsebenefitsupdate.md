@@ -9,10 +9,10 @@ Benefit updated.
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2024-04-07T05:50:07.896Z"),
-  modifiedAt: new Date("2023-08-11T07:51:57.382Z"),
+  createdAt: new Date("2024-07-13T13:48:02.918Z"),
+  modifiedAt: new Date("2024-02-03T04:05:53.565Z"),
   id: "<value>",
-  description: "drat alongside for over worse dishearten tender hm",
+  description: "halt deficient long unselfish meh",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -26,10 +26,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2024-12-18T05:29:23.891Z"),
-  modifiedAt: new Date("2022-01-15T23:11:30.521Z"),
+  createdAt: new Date("2024-12-10T06:06:11.956Z"),
+  modifiedAt: new Date("2023-04-09T04:20:07.375Z"),
   id: "<value>",
-  description: "outfit outrun lighthearted quizzically pleasing foolishly why",
+  description: "commonly talkative liberalize excepting flight",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -41,10 +41,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2022-08-27T10:29:36.021Z"),
-  modifiedAt: new Date("2022-02-15T07:34:29.918Z"),
+  createdAt: new Date("2022-07-28T12:36:44.736Z"),
+  modifiedAt: new Date("2024-12-21T15:08:34.645Z"),
   id: "<value>",
-  description: "junior gadzooks despite vainly scratchy dividend investigate",
+  description: "optimal abnormally er yahoo indeed respray coagulate",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -59,11 +59,11 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscordOutput = {
-  createdAt: new Date("2023-05-06T06:22:52.415Z"),
-  modifiedAt: new Date("2024-06-18T12:35:38.509Z"),
+  createdAt: new Date("2023-02-01T12:49:11.262Z"),
+  modifiedAt: new Date("2023-02-23T06:38:26.461Z"),
   id: "<value>",
   description:
-    "override shakily rewarding woot yet amid sweatshop so optimal abnormally",
+    "manipulate sweet for badly incidentally whereas beneath slime next fair",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -79,10 +79,10 @@ const value: components.BenefitDiscordOutput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2022-03-18T12:23:43.530Z"),
-  modifiedAt: new Date("2022-09-06T05:37:35.670Z"),
+  createdAt: new Date("2022-03-28T08:49:02.228Z"),
+  modifiedAt: new Date("2024-03-31T12:38:24.305Z"),
   id: "<value>",
-  description: "deduction yummy pish cluttered whose manipulate",
+  description: "instead aboard since hurtful forenenst solidly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -90,7 +90,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "pull",
+    permission: "maintain",
   },
 };
 ```
@@ -99,10 +99,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2022-07-26T11:39:39.770Z"),
-  modifiedAt: new Date("2023-04-23T16:22:02.173Z"),
+  createdAt: new Date("2024-11-12T19:38:06.759Z"),
+  modifiedAt: new Date("2022-10-13T05:31:33.488Z"),
   id: "<value>",
-  description: "veg save hourly as whenever antagonize obstruct overburden",
+  description: "toward happily elementary summer",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -121,24 +121,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeysOutput = {
-  createdAt: new Date("2023-04-13T12:32:02.752Z"),
-  modifiedAt: new Date("2024-08-18T09:11:38.486Z"),
+  createdAt: new Date("2024-12-24T18:31:51.343Z"),
+  modifiedAt: new Date("2024-04-17T04:37:18.826Z"),
   id: "<value>",
-  description: "pish jiggle keenly only self-confidence",
+  description: "flame yawningly limp as uncover sleepily",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 377430,
+      ttl: 424505,
       timeframe: "day",
     },
     activations: {
-      limit: 471664,
+      limit: 718816,
       enableUserAdmin: false,
     },
-    limitUsage: 702339,
+    limitUsage: 942840,
   },
 };
 ```

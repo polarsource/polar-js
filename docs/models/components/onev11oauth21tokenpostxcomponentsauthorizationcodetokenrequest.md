@@ -9,7 +9,7 @@ let value: Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest = {
   clientId: "<id>",
   clientSecret: "<value>",
   code: "<value>",
-  redirectUri: "https://artistic-pinstripe.biz",
+  redirectUri: "https://responsible-spring.info",
 };
 ```
 

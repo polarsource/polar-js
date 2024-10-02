@@ -9,25 +9,31 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2022-01-03T06:18:29.426Z"),
-        modifiedAt: new Date("2022-08-07T00:09:49.489Z"),
+        createdAt: new Date("2022-05-02T03:10:42.322Z"),
+        modifiedAt: new Date("2023-11-23T09:23:59.598Z"),
         id: "<value>",
         description:
-          "scratch dulcimer before when excluding worthless up transcend since while",
+          "wetly scratch dulcimer before when excluding worthless up transcend since",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          repositoryId: "<value>",
-          repositoryOwner: "polarsource",
-          repositoryName: "private_repo",
-          permission: "admin",
+          prefix: "<value>",
+          expires: {
+            ttl: 668218,
+            timeframe: "year",
+          },
+          activations: {
+            limit: 19462,
+            enableUserAdmin: false,
+          },
+          limitUsage: 399222,
         },
       },
     ],
     pagination: {
-      totalCount: 653000,
-      maxPage: 344289,
+      totalCount: 308528,
+      maxPage: 942185,
     },
   },
 };

@@ -6,8 +6,8 @@
 import { Pagination } from "@polar-sh/sdk/models/components";
 
 let value: Pagination = {
-  totalCount: 39783,
-  maxPage: 13836,
+  totalCount: 987085,
+  maxPage: 185182,
 };
 ```
 

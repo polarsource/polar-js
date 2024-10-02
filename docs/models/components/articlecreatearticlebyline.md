@@ -7,7 +7,7 @@ If the user or organization should be credited in the byline.
 ```typescript
 import { ArticleCreateArticleByline } from "@polar-sh/sdk/models/components";
 
-let value: ArticleCreateArticleByline = "user";
+let value: ArticleCreateArticleByline = "organization";
 ```
 
 ## Values
