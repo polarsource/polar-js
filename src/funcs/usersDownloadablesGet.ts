@@ -43,10 +43,8 @@ export async function usersDownloadablesGet(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.UsersDownloadablesGetRequest$outboundSchema.parse(value),
     "Input validation failed",

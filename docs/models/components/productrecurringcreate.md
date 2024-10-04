@@ -11,7 +11,6 @@ let value: ProductRecurringCreate = {
   name: "<value>",
   prices: [
     {
-      priceAmount: 635909,
       recurringInterval: "year",
     },
   ],

@@ -49,10 +49,8 @@ export async function usersAdvertisementsDelete(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.UsersAdvertisementsDeleteRequest$outboundSchema.parse(value),
     "Input validation failed",

@@ -5,11 +5,11 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  DonationInput,
-  DonationInput$inboundSchema,
-  DonationInput$Outbound,
-  DonationInput$outboundSchema,
-} from "./donationinput.js";
+  Donation,
+  Donation$inboundSchema,
+  Donation$Outbound,
+  Donation$outboundSchema,
+} from "./donation.js";
 
 export const WebhookDonationCreatedPayloadType = {
   DonationCreated: "donation.created",
@@ -27,7 +27,7 @@ export type WebhookDonationCreatedPayloadType = ClosedEnum<
  */
 export type WebhookDonationCreatedPayload = {
   type?: "donation.created" | undefined;
-  data: DonationInput;
+  data: Donation;
 };
 
 /** @internal */
@@ -59,13 +59,13 @@ export const WebhookDonationCreatedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("donation.created").optional(),
-  data: DonationInput$inboundSchema,
+  data: Donation$inboundSchema,
 });
 
 /** @internal */
 export type WebhookDonationCreatedPayload$Outbound = {
   type: "donation.created";
-  data: DonationInput$Outbound;
+  data: Donation$Outbound;
 };
 
 /** @internal */
@@ -75,7 +75,7 @@ export const WebhookDonationCreatedPayload$outboundSchema: z.ZodType<
   WebhookDonationCreatedPayload
 > = z.object({
   type: z.literal("donation.created").default("donation.created"),
-  data: DonationInput$outboundSchema,
+  data: Donation$outboundSchema,
 });
 
 /**

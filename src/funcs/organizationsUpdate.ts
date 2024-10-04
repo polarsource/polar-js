@@ -35,7 +35,7 @@ export async function organizationsUpdate(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.OrganizationOutput,
+    components.Organization,
     | errors.NotPermitted
     | errors.ResourceNotFound
     | errors.HTTPValidationError
@@ -48,10 +48,8 @@ export async function organizationsUpdate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.OrganizationsUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
@@ -117,7 +115,7 @@ export async function organizationsUpdate(
   };
 
   const [result] = await M.match<
-    components.OrganizationOutput,
+    components.Organization,
     | errors.NotPermitted
     | errors.ResourceNotFound
     | errors.HTTPValidationError
@@ -129,7 +127,7 @@ export async function organizationsUpdate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.OrganizationOutput$inboundSchema),
+    M.json(200, components.Organization$inboundSchema),
     M.jsonErr(403, errors.NotPermitted$inboundSchema),
     M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),

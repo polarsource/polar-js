@@ -12,40 +12,40 @@ let value: Article = {
   body: "<value>",
   byline: {
     name: "<value>",
-    avatarUrl: "https://exhausted-graffiti.org",
+    avatarUrl: "https://talkative-suitcase.com",
   },
-  visibility: "public",
+  visibility: "hidden",
   userId: "<value>",
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2023-09-12T00:54:49.380Z"),
-    modifiedAt: new Date("2022-05-07T01:41:53.430Z"),
+    createdAt: new Date("2024-12-17T16:29:24.726Z"),
+    modifiedAt: new Date("2022-04-15T19:51:11.119Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://jubilant-tomatillo.com",
+    avatarUrl: "https://sneaky-wombat.com/",
     bio: "<value>",
-    company: "Beier, Beer and Senger",
+    company: "Romaguera LLC",
     blog: "<value>",
     location: "<value>",
-    email: "Della62@hotmail.com",
+    email: "Bart_Monahan@hotmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 867104,
+    pledgeMinimumAmount: 604325,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 134449,
+    defaultUpfrontSplitToContributors: 7852,
     donationsEnabled: false,
     profileSettings: {},
     featureSettings: {},
   },
-  publishedAt: new Date("2023-09-27T08:58:46.574Z"),
+  publishedAt: new Date("2024-01-26T04:13:10.018Z"),
   paidSubscribersOnly: false,
-  paidSubscribersOnlyEndsAt: new Date("2024-12-17T16:29:24.726Z"),
+  paidSubscribersOnlyEndsAt: new Date("2022-01-17T22:17:36.774Z"),
   isPreview: false,
   isPinned: false,
   notifySubscribers: false,
-  notificationsSentAt: new Date("2022-04-15T19:51:11.119Z"),
-  emailSentToCount: 443546,
-  ogImageUrl: "https://wrong-carnival.info",
+  notificationsSentAt: new Date("2023-12-11T05:00:44.609Z"),
+  emailSentToCount: 505896,
+  ogImageUrl: "https://dapper-godparent.org",
   ogDescription: "<value>",
 };
 ```
@@ -62,7 +62,7 @@ let value: Article = {
 | `visibility`                                                                                  | [components.ArticleVisibility](../../models/components/articlevisibility.md)                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `userId`                                                                                      | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `organization`                                                                                | [components.OrganizationOutput](../../models/components/organizationoutput.md)                | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `organization`                                                                                | [components.Organization](../../models/components/organization.md)                            | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `publishedAt`                                                                                 | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `paidSubscribersOnly`                                                                         | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `paidSubscribersOnlyEndsAt`                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |

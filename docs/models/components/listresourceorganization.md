@@ -8,36 +8,36 @@ import { ListResourceOrganization } from "@polar-sh/sdk/models/components";
 let value: ListResourceOrganization = {
   items: [
     {
-      createdAt: new Date("2024-09-06T22:38:24.153Z"),
-      modifiedAt: new Date("2024-09-19T06:40:22.196Z"),
+      createdAt: new Date("2024-11-16T04:15:56.977Z"),
+      modifiedAt: new Date("2022-01-03T21:02:39.550Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://torn-amendment.com/",
+      avatarUrl: "https://slushy-cruelty.info/",
       bio: "<value>",
-      company: "Howell, Bernier and Kovacek",
+      company: "Gibson and Sons",
       blog: "<value>",
       location: "<value>",
-      email: "Agnes_Ebert33@gmail.com",
+      email: "Nellie.Murphy26@hotmail.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 984402,
+      pledgeMinimumAmount: 572412,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 249941,
+      defaultUpfrontSplitToContributors: 446719,
       donationsEnabled: false,
       profileSettings: {},
       featureSettings: {},
     },
   ],
   pagination: {
-    totalCount: 61977,
-    maxPage: 278836,
+    totalCount: 193564,
+    maxPage: 932641,
   },
 };
 ```
 
 ## Fields
 
-| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `items`                                                                          | [components.OrganizationOutput](../../models/components/organizationoutput.md)[] | :heavy_check_mark:                                                               | N/A                                                                              |
-| `pagination`                                                                     | [components.Pagination](../../models/components/pagination.md)                   | :heavy_check_mark:                                                               | N/A                                                                              |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `items`                                                              | [components.Organization](../../models/components/organization.md)[] | :heavy_check_mark:                                                   | N/A                                                                  |
+| `pagination`                                                         | [components.Pagination](../../models/components/pagination.md)       | :heavy_check_mark:                                                   | N/A                                                                  |

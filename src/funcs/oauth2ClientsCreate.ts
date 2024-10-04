@@ -46,10 +46,8 @@ export async function oauth2ClientsCreate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => components.OAuth2ClientConfiguration$outboundSchema.parse(value),
     "Input validation failed",
   );

@@ -46,10 +46,8 @@ export async function oauth2ClientsDelete(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.Oauth2ClientsOauth2DeleteClientRequest$outboundSchema.parse(
         value,

@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://biodegradable-integer.info",
+          "https://spherical-legend.com",
         ],
         clientName: "<value>",
-        createdAt: new Date("2022-08-11T06:20:49.442Z"),
-        modifiedAt: new Date("2023-04-10T06:02:57.106Z"),
+        createdAt: new Date("2023-06-02T18:22:20.317Z"),
+        modifiedAt: new Date("2023-04-26T07:53:03.945Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 357758,
-        clientSecretExpiresAt: 163684,
+        clientIdIssuedAt: 202796,
+        clientSecretExpiresAt: 423588,
       },
     ],
     pagination: {
-      totalCount: 441374,
-      maxPage: 262800,
+      totalCount: 357758,
+      maxPage: 163684,
     },
   },
 };

@@ -6,7 +6,7 @@
 import { BenefitAdsCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitAdsCreate = {
-  description: "fowl boggle bowed elevator blah boo daily ugh",
+  description: "er apud amidst",
   properties: {},
 };
 ```

@@ -6,26 +6,25 @@
 import { RepositoryInput } from "@polar-sh/sdk/models/components";
 
 let value: RepositoryInput = {
-  id: "b7cafb82-efd1-415b-8d2a-217daa64e681",
+  id: "992e2854-28d7-45e2-b7ce-e1832d5136a9",
   isPrivate: false,
   name: "MyOrg",
-  description:
-    "warmly sugary ugh without what furthermore first overdue however",
+  description: "minus aha acquaintance if consequently",
   stars: 1337,
   license: "<value>",
   homepage: "<value>",
   profileSettings: {},
   organization: {
-    id: "28d75e27-cee1-4832-ad51-36a9e5641f17",
+    id: "73a6caf5-7a63-404d-890c-0f8eee6252d9",
     name: "<value>",
-    avatarUrl: "https://first-leading.info",
+    avatarUrl: "https://lazy-adaptation.com",
     isPersonal: false,
     bio: "<value>",
     prettyName: "<value>",
-    company: "Cartwright - Jacobson",
+    company: "Blick LLC",
     blog: "<value>",
     location: "<value>",
-    email: "Albina_Runolfsson90@gmail.com",
+    email: "Laurence8@gmail.com",
     twitterUsername: "<value>",
     organizationId: "<value>",
   },

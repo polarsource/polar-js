@@ -7,10 +7,10 @@
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2024-04-03T01:09:08.894Z"),
-  modifiedAt: new Date("2023-01-08T17:12:35.810Z"),
+  createdAt: new Date("2023-12-05T12:38:16.171Z"),
+  modifiedAt: new Date("2024-03-26T01:16:01.791Z"),
   id: "<value>",
-  description: "phew thump splash except indeed throughout joyfully annual",
+  description: "furthermore moisten save miserably",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -24,10 +24,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2022-09-28T08:25:11.325Z"),
-  modifiedAt: new Date("2022-04-21T22:49:26.449Z"),
+  createdAt: new Date("2023-10-14T21:42:37.950Z"),
+  modifiedAt: new Date("2024-12-25T09:41:05.009Z"),
   id: "<value>",
-  description: "linear toothpick cluttered fondly brr upon as anti",
+  description: "settle optimistically usually impossible",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -39,10 +39,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2022-09-14T19:42:35.208Z"),
-  modifiedAt: new Date("2024-09-09T16:28:12.266Z"),
+  createdAt: new Date("2023-03-09T12:25:01.078Z"),
+  modifiedAt: new Date("2022-03-04T00:35:23.029Z"),
   id: "<value>",
-  description: "patroller what aw",
+  description: "frizz brr finally",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -57,10 +57,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscordInput = {
-  createdAt: new Date("2022-11-15T19:10:02.805Z"),
-  modifiedAt: new Date("2023-01-03T04:14:52.159Z"),
+  createdAt: new Date("2022-09-09T01:12:27.136Z"),
+  modifiedAt: new Date("2023-03-01T16:21:02.065Z"),
   id: "<value>",
-  description: "worth minor nor override hungrily impressionable",
+  description: "fervently toward among hot rebel per oof so drat",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -75,10 +75,10 @@ const value: components.BenefitDiscordInput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2023-10-29T10:39:00.012Z"),
-  modifiedAt: new Date("2023-08-11T05:56:46.917Z"),
+  createdAt: new Date("2022-10-07T17:52:57.869Z"),
+  modifiedAt: new Date("2022-07-08T09:04:33.014Z"),
   id: "<value>",
-  description: "yippee these fathom opposite physically",
+  description: "fatally disbar repeatedly lest",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -86,7 +86,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "admin",
+    permission: "pull",
   },
 };
 ```
@@ -95,11 +95,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2023-09-24T07:45:05.288Z"),
-  modifiedAt: new Date("2022-07-08T20:56:24.426Z"),
+  createdAt: new Date("2022-06-24T10:06:58.141Z"),
+  modifiedAt: new Date("2023-06-25T17:19:29.498Z"),
   id: "<value>",
-  description:
-    "the brr and alligator blah analyse descriptive seemingly allegation than",
+  description: "yippee inasmuch off doubtfully gadzooks minus",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -114,29 +113,29 @@ const value: components.BenefitDownloadables = {
 };
 ```
 
-### `components.BenefitLicenseKeysInput`
+### `components.BenefitLicenseKeys`
 
 ```typescript
-const value: components.BenefitLicenseKeysInput = {
-  createdAt: new Date("2022-09-30T12:05:03.388Z"),
-  modifiedAt: new Date("2024-08-04T14:21:14.678Z"),
+const value: components.BenefitLicenseKeys = {
+  createdAt: new Date("2022-03-22T03:07:22.809Z"),
+  modifiedAt: new Date("2023-05-12T13:10:25.231Z"),
   id: "<value>",
   description:
-    "in before readmit derby powerful how stoop that form hospitable",
+    "mortar what sans during continually impossible until so elver very",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 46278,
-      timeframe: "day",
+      ttl: 226263,
+      timeframe: "month",
     },
     activations: {
-      limit: 734991,
+      limit: 641688,
       enableUserAdmin: false,
     },
-    limitUsage: 303251,
+    limitUsage: 496702,
   },
 };
 ```

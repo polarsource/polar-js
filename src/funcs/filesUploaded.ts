@@ -45,10 +45,8 @@ export async function filesUploaded(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.FilesUploadedRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

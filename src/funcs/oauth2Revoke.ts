@@ -44,10 +44,8 @@ export async function oauth2Revoke(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.Oauth2RevokeTokenRevokeTokenRequest$outboundSchema.parse(
         value,

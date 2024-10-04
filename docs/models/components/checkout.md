@@ -12,30 +12,32 @@ let value: Checkout = {
   customerEmail: "<value>",
   customerName: "<value>",
   product: {
-    createdAt: new Date("2024-01-05T15:03:22.969Z"),
-    modifiedAt: new Date("2022-07-19T07:36:17.782Z"),
+    createdAt: new Date("2022-05-18T14:05:23.081Z"),
+    modifiedAt: new Date("2023-06-19T17:26:23.980Z"),
     id: "<value>",
     name: "<value>",
-    description: "hollow aha vivaciously who",
+    description: "how subdued legal wildly clamor sun duh slowly",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2022-06-10T07:21:24.112Z"),
-        modifiedAt: new Date("2024-02-04T02:05:19.101Z"),
+        createdAt: new Date("2024-06-06T07:40:09.796Z"),
+        modifiedAt: new Date("2024-04-21T01:22:42.197Z"),
         id: "<value>",
         isArchived: false,
-        recurringInterval: "month",
+        priceCurrency: "<value>",
+        priceAmount: 811221,
+        recurringInterval: "year",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2022-09-11T20:14:52.407Z"),
-        modifiedAt: new Date("2024-12-18T06:02:19.380Z"),
+        createdAt: new Date("2024-08-25T15:14:01.863Z"),
+        modifiedAt: new Date("2023-02-18T20:51:07.229Z"),
         id: "<value>",
-        type: "custom",
-        description: "bestride how exacerbate seagull",
+        type: "articles",
+        description: "coordinated beep ugh boo yippee sadly deplore",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -46,42 +48,42 @@ let value: Checkout = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/net",
+        path: "/sbin",
         mimeType: "<value>",
-        size: 986116,
+        size: 390215,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-01-01T11:35:03.806Z"),
+        lastModifiedAt: new Date("2023-08-22T23:08:59.755Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2022-01-20T02:42:32.862Z"),
+        createdAt: new Date("2024-03-04T13:39:39.013Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://unusual-encouragement.org/",
+        publicUrl: "https://unwieldy-poppy.info/",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2023-02-05T22:42:58.048Z"),
-    modifiedAt: new Date("2024-11-14T18:55:07.158Z"),
+    createdAt: new Date("2024-05-18T01:34:45.076Z"),
+    modifiedAt: new Date("2022-01-09T03:57:13.283Z"),
     id: "<value>",
     isArchived: false,
     priceCurrency: "<value>",
-    minimumAmount: 430616,
-    maximumAmount: 634386,
-    presetAmount: 637086,
+    minimumAmount: 585566,
+    maximumAmount: 23491,
+    presetAmount: 979335,
   },
 };
 ```
 
 ## Fields
 
-| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `id`                                                                 | *string*                                                             | :heavy_check_mark:                                                   | The ID of the checkout.                                              |
-| `url`                                                                | *string*                                                             | :heavy_minus_sign:                                                   | URL the customer should be redirected to complete the purchase.      |
-| `customerEmail`                                                      | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
-| `customerName`                                                       | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
-| `product`                                                            | [components.ProductOutput](../../models/components/productoutput.md) | :heavy_check_mark:                                                   | A product.                                                           |
-| `productPrice`                                                       | *components.ProductPriceOutput*                                      | :heavy_check_mark:                                                   | N/A                                                                  |
+| Field                                                           | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `id`                                                            | *string*                                                        | :heavy_check_mark:                                              | The ID of the checkout.                                         |
+| `url`                                                           | *string*                                                        | :heavy_minus_sign:                                              | URL the customer should be redirected to complete the purchase. |
+| `customerEmail`                                                 | *string*                                                        | :heavy_check_mark:                                              | N/A                                                             |
+| `customerName`                                                  | *string*                                                        | :heavy_check_mark:                                              | N/A                                                             |
+| `product`                                                       | [components.Product](../../models/components/product.md)        | :heavy_check_mark:                                              | A product.                                                      |
+| `productPrice`                                                  | *components.ProductPrice*                                       | :heavy_check_mark:                                              | N/A                                                             |

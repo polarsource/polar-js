@@ -17,6 +17,9 @@ import {
 } from "./s3downloadurl.js";
 
 export type FileDownload = {
+  /**
+   * The ID of the object.
+   */
   id: string;
   organizationId: string;
   name: string;

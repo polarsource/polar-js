@@ -47,10 +47,8 @@ export async function usersSubscriptionsGet(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.UsersSubscriptionsGetRequest$outboundSchema.parse(value),
     "Input validation failed",

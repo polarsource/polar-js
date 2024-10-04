@@ -47,10 +47,8 @@ export async function usersLicenseKeysActivate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => components.LicenseKeyActivate$outboundSchema.parse(value),
     "Input validation failed",
   );

@@ -5,17 +5,17 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  ProductOutput,
-  ProductOutput$inboundSchema,
-  ProductOutput$Outbound,
-  ProductOutput$outboundSchema,
-} from "./productoutput.js";
+  Product,
+  Product$inboundSchema,
+  Product$Outbound,
+  Product$outboundSchema,
+} from "./product.js";
 import {
-  ProductPriceOutput,
-  ProductPriceOutput$inboundSchema,
-  ProductPriceOutput$Outbound,
-  ProductPriceOutput$outboundSchema,
-} from "./productpriceoutput.js";
+  ProductPrice,
+  ProductPrice$inboundSchema,
+  ProductPrice$Outbound,
+  ProductPrice$outboundSchema,
+} from "./productprice.js";
 
 /**
  * A checkout session.
@@ -34,8 +34,8 @@ export type Checkout = {
   /**
    * A product.
    */
-  product: ProductOutput;
-  productPrice: ProductPriceOutput;
+  product: Product;
+  productPrice: ProductPrice;
 };
 
 /** @internal */
@@ -48,8 +48,8 @@ export const Checkout$inboundSchema: z.ZodType<
   url: z.nullable(z.string()).optional(),
   customer_email: z.nullable(z.string()),
   customer_name: z.nullable(z.string()),
-  product: ProductOutput$inboundSchema,
-  product_price: ProductPriceOutput$inboundSchema,
+  product: Product$inboundSchema,
+  product_price: ProductPrice$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "customer_email": "customerEmail",
@@ -64,8 +64,8 @@ export type Checkout$Outbound = {
   url?: string | null | undefined;
   customer_email: string | null;
   customer_name: string | null;
-  product: ProductOutput$Outbound;
-  product_price: ProductPriceOutput$Outbound;
+  product: Product$Outbound;
+  product_price: ProductPrice$Outbound;
 };
 
 /** @internal */
@@ -78,8 +78,8 @@ export const Checkout$outboundSchema: z.ZodType<
   url: z.nullable(z.string()).optional(),
   customerEmail: z.nullable(z.string()),
   customerName: z.nullable(z.string()),
-  product: ProductOutput$outboundSchema,
-  productPrice: ProductPriceOutput$outboundSchema,
+  product: Product$outboundSchema,
+  productPrice: ProductPrice$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     customerEmail: "customer_email",

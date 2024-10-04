@@ -12,41 +12,41 @@ const value: components.DownloadableFileRead = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/usr/sbin",
+  path: "/etc/mail",
   mimeType: "<value>",
-  size: 453304,
+  size: 461758,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2023-04-22T00:36:49.607Z"),
+  lastModifiedAt: new Date("2023-04-22T01:00:49.603Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2022-11-02T04:50:51.282Z"),
+  createdAt: new Date("2024-10-12T18:36:44.368Z"),
   sizeReadable: "<value>",
 };
 ```
 
-### `components.ProductMediaFileReadOutput`
+### `components.ProductMediaFileRead`
 
 ```typescript
-const value: components.ProductMediaFileReadOutput = {
+const value: components.ProductMediaFileRead = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/Applications",
+  path: "/etc/namedb",
   mimeType: "<value>",
-  size: 186303,
+  size: 91136,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-12-09T22:20:44.776Z"),
+  lastModifiedAt: new Date("2022-04-12T21:42:39.454Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2024-08-08T13:05:34.702Z"),
+  createdAt: new Date("2024-09-18T02:22:39.004Z"),
   sizeReadable: "<value>",
-  publicUrl: "https://whole-fund.biz/",
+  publicUrl: "https://criminal-muscat.name/",
 };
 ```
 
@@ -57,19 +57,19 @@ const value: components.OrganizationAvatarFileRead = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/etc/periodic",
+  path: "/home",
   mimeType: "<value>",
-  size: 901611,
+  size: 603038,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-12-17T17:51:01.747Z"),
+  lastModifiedAt: new Date("2023-01-08T21:26:32.595Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2022-12-25T20:13:46.460Z"),
+  createdAt: new Date("2022-09-19T06:06:16.828Z"),
   sizeReadable: "<value>",
-  publicUrl: "https://great-brush.info",
+  publicUrl: "https://fragrant-decision.org",
 };
 ```
 

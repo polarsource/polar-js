@@ -8,18 +8,17 @@ import { ListResourceUserBenefit } from "@polar-sh/sdk/models/components";
 let value: ListResourceUserBenefit = {
   items: [
     {
-      createdAt: new Date("2023-04-06T14:30:06.008Z"),
-      modifiedAt: new Date("2024-09-09T18:38:44.004Z"),
+      createdAt: new Date("2023-11-10T06:40:42.932Z"),
+      modifiedAt: new Date("2022-09-24T23:08:07.624Z"),
       id: "<value>",
-      description: "geez oxidise row a mmm",
+      description: "confirm mid individual reboot",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
-      properties: {},
       grants: [
         {
-          createdAt: new Date("2022-08-07T20:11:39.205Z"),
-          modifiedAt: new Date("2024-08-05T00:10:24.690Z"),
+          createdAt: new Date("2024-02-25T19:18:44.351Z"),
+          modifiedAt: new Date("2023-10-03T14:14:26.405Z"),
           id: "<value>",
           isGranted: false,
           isRevoked: false,
@@ -27,14 +26,16 @@ let value: ListResourceUserBenefit = {
           orderId: "<value>",
           userId: "<value>",
           benefitId: "<value>",
-          properties: {},
         },
       ],
+      properties: {
+        note: "<value>",
+      },
     },
   ],
   pagination: {
-    totalCount: 590573,
-    maxPage: 969911,
+    totalCount: 91333,
+    maxPage: 566262,
   },
 };
 ```

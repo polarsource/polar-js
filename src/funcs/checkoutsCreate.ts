@@ -45,10 +45,8 @@ export async function checkoutsCreate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => components.CheckoutCreate$outboundSchema.parse(value),
     "Input validation failed",
   );

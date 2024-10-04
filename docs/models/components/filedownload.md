@@ -9,17 +9,17 @@ let value: FileDownload = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/srv",
+  path: "/usr/local/src",
   mimeType: "<value>",
-  size: 129509,
+  size: 36619,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2023-06-10T09:24:09.197Z"),
+  lastModifiedAt: new Date("2023-03-02T10:40:57.891Z"),
   download: {
-    url: "https://somber-masterpiece.net",
-    expiresAt: new Date("2024-07-30T13:16:47.642Z"),
+    url: "https://insistent-pension.com",
+    expiresAt: new Date("2024-08-08T09:47:23.975Z"),
   },
   version: "<value>",
   isUploaded: false,
@@ -32,7 +32,7 @@ let value: FileDownload = {
 
 | Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the object.                                                                         |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `path`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |

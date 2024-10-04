@@ -19,7 +19,7 @@ export type FilesUploadedRequest = {
  */
 export type FilesUploadedResponseFilesUploaded =
   | (components.DownloadableFileRead & { service: "downloadable" })
-  | (components.ProductMediaFileReadOutput & { service: "product_media" })
+  | (components.ProductMediaFileRead & { service: "product_media" })
   | (components.OrganizationAvatarFileRead & {
     service: "organization_avatar";
   });
@@ -82,7 +82,7 @@ export const FilesUploadedResponseFilesUploaded$inboundSchema: z.ZodType<
       service: v.service,
     })),
   ),
-  components.ProductMediaFileReadOutput$inboundSchema.and(
+  components.ProductMediaFileRead$inboundSchema.and(
     z.object({ service: z.literal("product_media") }).transform((v) => ({
       service: v.service,
     })),
@@ -97,9 +97,7 @@ export const FilesUploadedResponseFilesUploaded$inboundSchema: z.ZodType<
 /** @internal */
 export type FilesUploadedResponseFilesUploaded$Outbound =
   | (components.DownloadableFileRead$Outbound & { service: "downloadable" })
-  | (components.ProductMediaFileReadOutput$Outbound & {
-    service: "product_media";
-  })
+  | (components.ProductMediaFileRead$Outbound & { service: "product_media" })
   | (components.OrganizationAvatarFileRead$Outbound & {
     service: "organization_avatar";
   });
@@ -115,7 +113,7 @@ export const FilesUploadedResponseFilesUploaded$outboundSchema: z.ZodType<
       service: v.service,
     })),
   ),
-  components.ProductMediaFileReadOutput$outboundSchema.and(
+  components.ProductMediaFileRead$outboundSchema.and(
     z.object({ service: z.literal("product_media") }).transform((v) => ({
       service: v.service,
     })),

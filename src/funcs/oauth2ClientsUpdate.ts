@@ -46,10 +46,8 @@ export async function oauth2ClientsUpdate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.Oauth2ClientsOauth2UpdateClientRequest$outboundSchema.parse(
         value,

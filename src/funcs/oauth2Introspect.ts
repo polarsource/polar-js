@@ -44,10 +44,8 @@ export async function oauth2Introspect(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.Oauth2IntrospectTokenIntrospectTokenRequest$outboundSchema
         .parse(value),

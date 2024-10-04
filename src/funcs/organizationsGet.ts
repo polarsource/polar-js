@@ -35,7 +35,7 @@ export async function organizationsGet(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.OrganizationOutput,
+    components.Organization,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -47,10 +47,8 @@ export async function organizationsGet(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.OrganizationsGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
@@ -112,7 +110,7 @@ export async function organizationsGet(
   };
 
   const [result] = await M.match<
-    components.OrganizationOutput,
+    components.Organization,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -123,7 +121,7 @@ export async function organizationsGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.OrganizationOutput$inboundSchema),
+    M.json(200, components.Organization$inboundSchema),
     M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),

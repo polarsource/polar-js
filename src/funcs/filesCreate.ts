@@ -46,10 +46,8 @@ export async function filesCreate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.FilesCreateFileCreate$outboundSchema.parse(value),
     "Input validation failed",
   );

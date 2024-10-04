@@ -17,17 +17,17 @@ import {
   BenefitBase$outboundSchema,
 } from "./benefitbase.js";
 import {
-  ProductMediaFileReadOutput,
-  ProductMediaFileReadOutput$inboundSchema,
-  ProductMediaFileReadOutput$Outbound,
-  ProductMediaFileReadOutput$outboundSchema,
-} from "./productmediafilereadoutput.js";
+  ProductMediaFileRead,
+  ProductMediaFileRead$inboundSchema,
+  ProductMediaFileRead$Outbound,
+  ProductMediaFileRead$outboundSchema,
+} from "./productmediafileread.js";
 import {
-  ProductPriceOutput,
-  ProductPriceOutput$inboundSchema,
-  ProductPriceOutput$Outbound,
-  ProductPriceOutput$outboundSchema,
-} from "./productpriceoutput.js";
+  ProductPrice,
+  ProductPrice$inboundSchema,
+  ProductPrice$Outbound,
+  ProductPrice$outboundSchema,
+} from "./productprice.js";
 
 export type Benefits = BenefitBase | BenefitArticles;
 
@@ -67,7 +67,7 @@ export type UserOrderProduct = {
   /**
    * List of available prices for this product.
    */
-  prices: Array<ProductPriceOutput>;
+  prices: Array<ProductPrice>;
   /**
    * The benefits granted by the product.
    */
@@ -75,7 +75,7 @@ export type UserOrderProduct = {
   /**
    * The medias associated to the product.
    */
-  medias: Array<ProductMediaFileReadOutput>;
+  medias: Array<ProductMediaFileRead>;
 };
 
 /** @internal */
@@ -124,11 +124,11 @@ export const UserOrderProduct$inboundSchema: z.ZodType<
   is_recurring: z.boolean(),
   is_archived: z.boolean(),
   organization_id: z.string(),
-  prices: z.array(ProductPriceOutput$inboundSchema),
+  prices: z.array(ProductPrice$inboundSchema),
   benefits: z.array(
     z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]),
   ),
-  medias: z.array(ProductMediaFileReadOutput$inboundSchema),
+  medias: z.array(ProductMediaFileRead$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -149,9 +149,9 @@ export type UserOrderProduct$Outbound = {
   is_recurring: boolean;
   is_archived: boolean;
   organization_id: string;
-  prices: Array<ProductPriceOutput$Outbound>;
+  prices: Array<ProductPrice$Outbound>;
   benefits: Array<BenefitBase$Outbound | BenefitArticles$Outbound>;
-  medias: Array<ProductMediaFileReadOutput$Outbound>;
+  medias: Array<ProductMediaFileRead$Outbound>;
 };
 
 /** @internal */
@@ -168,11 +168,11 @@ export const UserOrderProduct$outboundSchema: z.ZodType<
   isRecurring: z.boolean(),
   isArchived: z.boolean(),
   organizationId: z.string(),
-  prices: z.array(ProductPriceOutput$outboundSchema),
+  prices: z.array(ProductPrice$outboundSchema),
   benefits: z.array(
     z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]),
   ),
-  medias: z.array(ProductMediaFileReadOutput$outboundSchema),
+  medias: z.array(ProductMediaFileRead$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

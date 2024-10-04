@@ -7,7 +7,7 @@ import { CheckoutCreate } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutCreate = {
   productPriceId: "<value>",
-  successUrl: "https://functional-submitter.name",
+  successUrl: "https://flickering-calculus.info",
 };
 ```
 

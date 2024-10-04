@@ -157,7 +157,7 @@ run();
 
 ### Response
 
-**Promise\<[components.OrganizationOutput](../../models/components/organizationoutput.md)\>**
+**Promise\<[components.Organization](../../models/components/organization.md)\>**
 
 ### Errors
 
@@ -234,7 +234,7 @@ run();
 
 ### Response
 
-**Promise\<[components.OrganizationOutput](../../models/components/organizationoutput.md)\>**
+**Promise\<[components.Organization](../../models/components/organization.md)\>**
 
 ### Errors
 
@@ -314,7 +314,7 @@ run();
 
 ### Response
 
-**Promise\<[components.OrganizationOutput](../../models/components/organizationoutput.md)\>**
+**Promise\<[components.Organization](../../models/components/organization.md)\>**
 
 ### Errors
 

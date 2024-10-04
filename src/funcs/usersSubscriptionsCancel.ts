@@ -48,10 +48,8 @@ export async function usersSubscriptionsCancel(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.UsersSubscriptionsCancelRequest$outboundSchema.parse(value),
     "Input validation failed",

@@ -40,7 +40,7 @@ export class Products extends ClientSDK {
   async create(
     request: operations.ProductsCreateProductCreate,
     options?: RequestOptions,
-  ): Promise<components.ProductOutput> {
+  ): Promise<components.Product> {
     return unwrapAsync(productsCreate(
       this,
       request,
@@ -57,7 +57,7 @@ export class Products extends ClientSDK {
   async get(
     request: operations.ProductsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.ProductOutput> {
+  ): Promise<components.Product> {
     return unwrapAsync(productsGet(
       this,
       request,
@@ -74,7 +74,7 @@ export class Products extends ClientSDK {
   async update(
     request: operations.ProductsUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.ProductOutput> {
+  ): Promise<components.Product> {
     return unwrapAsync(productsUpdate(
       this,
       request,
@@ -91,7 +91,7 @@ export class Products extends ClientSDK {
   async updateBenefits(
     request: operations.ProductsUpdateBenefitsRequest,
     options?: RequestOptions,
-  ): Promise<components.ProductOutput> {
+  ): Promise<components.Product> {
     return unwrapAsync(productsUpdateBenefits(
       this,
       request,

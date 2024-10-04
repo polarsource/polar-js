@@ -11,21 +11,21 @@ import { WebhookOrganizationUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookOrganizationUpdatedPayload = {
   data: {
-    createdAt: new Date("2023-07-29T19:18:21.561Z"),
-    modifiedAt: new Date("2023-06-16T18:30:15.527Z"),
+    createdAt: new Date("2023-11-19T12:27:44.573Z"),
+    modifiedAt: new Date("2024-08-24T22:10:38.820Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://sophisticated-adrenalin.com",
+    avatarUrl: "https://narrow-bookcase.com",
     bio: "<value>",
-    company: "Streich Group",
+    company: "Hills, Mitchell and Greenfelder",
     blog: "<value>",
     location: "<value>",
-    email: "Torrey75@gmail.com",
+    email: "Ted_Ward-Maggio@hotmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 163374,
+    pledgeMinimumAmount: 630837,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 897394,
+    defaultUpfrontSplitToContributors: 439718,
     donationsEnabled: false,
     profileSettings: {},
     featureSettings: {},
@@ -38,4 +38,4 @@ let value: WebhookOrganizationUpdatedPayload = {
 | Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
 | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | `type`                                                                                                               | [components.WebhookOrganizationUpdatedPayloadType](../../models/components/webhookorganizationupdatedpayloadtype.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `data`                                                                                                               | [components.OrganizationInput](../../models/components/organizationinput.md)                                         | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `data`                                                                                                               | [components.Organization](../../models/components/organization.md)                                                   | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |

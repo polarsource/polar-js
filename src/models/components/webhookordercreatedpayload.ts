@@ -5,11 +5,11 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  OrderInput,
-  OrderInput$inboundSchema,
-  OrderInput$Outbound,
-  OrderInput$outboundSchema,
-} from "./orderinput.js";
+  Order,
+  Order$inboundSchema,
+  Order$Outbound,
+  Order$outboundSchema,
+} from "./order.js";
 
 export const WebhookOrderCreatedPayloadType = {
   OrderCreated: "order.created",
@@ -27,7 +27,7 @@ export type WebhookOrderCreatedPayloadType = ClosedEnum<
  */
 export type WebhookOrderCreatedPayload = {
   type?: "order.created" | undefined;
-  data: OrderInput;
+  data: Order;
 };
 
 /** @internal */
@@ -58,13 +58,13 @@ export const WebhookOrderCreatedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("order.created").optional(),
-  data: OrderInput$inboundSchema,
+  data: Order$inboundSchema,
 });
 
 /** @internal */
 export type WebhookOrderCreatedPayload$Outbound = {
   type: "order.created";
-  data: OrderInput$Outbound;
+  data: Order$Outbound;
 };
 
 /** @internal */
@@ -74,7 +74,7 @@ export const WebhookOrderCreatedPayload$outboundSchema: z.ZodType<
   WebhookOrderCreatedPayload
 > = z.object({
   type: z.literal("order.created").default("order.created"),
-  data: OrderInput$outboundSchema,
+  data: Order$outboundSchema,
 });
 
 /**

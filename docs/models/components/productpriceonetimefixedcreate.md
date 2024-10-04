@@ -8,7 +8,7 @@ Schema to create a one-time product price.
 import { ProductPriceOneTimeFixedCreate } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceOneTimeFixedCreate = {
-  priceAmount: 98864,
+  priceAmount: 386893,
 };
 ```
 

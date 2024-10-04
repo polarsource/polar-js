@@ -35,7 +35,7 @@ export async function productsUpdate(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.ProductOutput,
+    components.Product,
     | errors.NotPermitted
     | errors.ResourceNotFound
     | errors.HTTPValidationError
@@ -48,10 +48,8 @@ export async function productsUpdate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.ProductsUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
@@ -114,7 +112,7 @@ export async function productsUpdate(
   };
 
   const [result] = await M.match<
-    components.ProductOutput,
+    components.Product,
     | errors.NotPermitted
     | errors.ResourceNotFound
     | errors.HTTPValidationError
@@ -126,7 +124,7 @@ export async function productsUpdate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.ProductOutput$inboundSchema),
+    M.json(200, components.Product$inboundSchema),
     M.jsonErr(403, errors.NotPermitted$inboundSchema),
     M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),

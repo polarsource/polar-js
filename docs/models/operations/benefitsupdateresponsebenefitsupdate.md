@@ -9,10 +9,10 @@ Benefit updated.
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2024-07-13T13:48:02.918Z"),
-  modifiedAt: new Date("2024-02-03T04:05:53.565Z"),
+  createdAt: new Date("2022-12-17T12:12:43.741Z"),
+  modifiedAt: new Date("2024-06-14T05:46:06.678Z"),
   id: "<value>",
-  description: "halt deficient long unselfish meh",
+  description: "stay appertain so quintessential until enroll upsell",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -26,10 +26,11 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2024-12-10T06:06:11.956Z"),
-  modifiedAt: new Date("2023-04-09T04:20:07.375Z"),
+  createdAt: new Date("2023-10-04T05:10:54.402Z"),
+  modifiedAt: new Date("2024-11-26T06:30:19.542Z"),
   id: "<value>",
-  description: "commonly talkative liberalize excepting flight",
+  description:
+    "certainly punctual sermon insist whose among bell pocket-watch for mindless",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -41,10 +42,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2022-07-28T12:36:44.736Z"),
-  modifiedAt: new Date("2024-12-21T15:08:34.645Z"),
+  createdAt: new Date("2022-05-26T20:25:51.045Z"),
+  modifiedAt: new Date("2024-04-27T16:57:06.047Z"),
   id: "<value>",
-  description: "optimal abnormally er yahoo indeed respray coagulate",
+  description: "deficient long unselfish meh strange vaguely",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -55,15 +56,15 @@ const value: components.BenefitCustom = {
 };
 ```
 
-### `components.BenefitDiscordOutput`
+### `components.BenefitDiscord`
 
 ```typescript
-const value: components.BenefitDiscordOutput = {
-  createdAt: new Date("2023-02-01T12:49:11.262Z"),
-  modifiedAt: new Date("2023-02-23T06:38:26.461Z"),
+const value: components.BenefitDiscord = {
+  createdAt: new Date("2023-07-06T20:47:44.778Z"),
+  modifiedAt: new Date("2023-11-12T10:36:59.251Z"),
   id: "<value>",
   description:
-    "manipulate sweet for badly incidentally whereas beneath slime next fair",
+    "liberalize excepting flight swathe amongst dislocate however entire ah",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -79,10 +80,10 @@ const value: components.BenefitDiscordOutput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2022-03-28T08:49:02.228Z"),
-  modifiedAt: new Date("2024-03-31T12:38:24.305Z"),
+  createdAt: new Date("2023-02-12T15:22:20.817Z"),
+  modifiedAt: new Date("2024-11-01T03:26:54.317Z"),
   id: "<value>",
-  description: "instead aboard since hurtful forenenst solidly",
+  description: "coagulate submissive ridge veg save hourly as whenever",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -90,7 +91,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "maintain",
+    permission: "triage",
   },
 };
 ```
@@ -99,10 +100,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2024-11-12T19:38:06.759Z"),
-  modifiedAt: new Date("2022-10-13T05:31:33.488Z"),
+  createdAt: new Date("2024-09-23T03:05:19.693Z"),
+  modifiedAt: new Date("2022-11-21T16:45:04.547Z"),
   id: "<value>",
-  description: "toward happily elementary summer",
+  description: "chow yahoo blah gee wisely mathematics",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -117,28 +118,28 @@ const value: components.BenefitDownloadables = {
 };
 ```
 
-### `components.BenefitLicenseKeysOutput`
+### `components.BenefitLicenseKeys`
 
 ```typescript
-const value: components.BenefitLicenseKeysOutput = {
-  createdAt: new Date("2024-12-24T18:31:51.343Z"),
-  modifiedAt: new Date("2024-04-17T04:37:18.826Z"),
+const value: components.BenefitLicenseKeys = {
+  createdAt: new Date("2022-01-19T16:14:20.571Z"),
+  modifiedAt: new Date("2023-09-05T17:10:02.116Z"),
   id: "<value>",
-  description: "flame yawningly limp as uncover sleepily",
+  description: "promptly ha that what massive gah newsstand",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 424505,
-      timeframe: "day",
+      ttl: 662184,
+      timeframe: "month",
     },
     activations: {
-      limit: 718816,
+      limit: 869602,
       enableUserAdmin: false,
     },
-    limitUsage: 942840,
+    limitUsage: 993406,
   },
 };
 ```

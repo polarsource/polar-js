@@ -47,10 +47,8 @@ export async function repositoriesGet(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.RepositoriesGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

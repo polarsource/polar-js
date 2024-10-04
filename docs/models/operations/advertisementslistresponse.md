@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-11-26T04:51:12.762Z"),
-        modifiedAt: new Date("2024-08-01T18:58:46.575Z"),
+        createdAt: new Date("2024-04-28T20:28:23.222Z"),
+        modifiedAt: new Date("2022-06-04T11:44:43.665Z"),
         id: "<value>",
-        imageUrl: "https://artistic-premier.org",
-        imageUrlDark: "https://happy-case.net",
+        imageUrl: "https://total-ocelot.com",
+        imageUrlDark: "https://unwilling-lieu.info",
         text: "<value>",
-        linkUrl: "https://calculating-reward.com",
+        linkUrl: "https://slimy-swordfish.com/",
       },
     ],
     pagination: {
-      totalCount: 967055,
-      maxPage: 615058,
+      totalCount: 758985,
+      maxPage: 17060,
     },
     dimensions: [
-      552439,
+      967055,
     ],
   },
 };

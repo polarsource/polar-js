@@ -9,13 +9,13 @@ import {
   ProductInput$inboundSchema,
   ProductInput$Outbound,
   ProductInput$outboundSchema,
-} from "./productinput.js";
+} from "./product.js";
 import {
-  ProductPriceInput,
-  ProductPriceInput$inboundSchema,
-  ProductPriceInput$Outbound,
-  ProductPriceInput$outboundSchema,
-} from "./productpriceinput.js";
+  ProductPriceRecurring,
+  ProductPriceRecurring$inboundSchema,
+  ProductPriceRecurring$Outbound,
+  ProductPriceRecurring$outboundSchema,
+} from "./productpricerecurring.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
@@ -63,7 +63,7 @@ export type SubscriptionInput = {
    * A product.
    */
   product: ProductInput;
-  price: ProductPriceInput;
+  price: ProductPriceRecurring;
 };
 
 /** @internal */
@@ -99,7 +99,7 @@ export const SubscriptionInput$inboundSchema: z.ZodType<
   price_id: z.string(),
   user: SubscriptionUser$inboundSchema,
   product: ProductInput$inboundSchema,
-  price: ProductPriceInput$inboundSchema,
+  price: ProductPriceRecurring$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -135,7 +135,7 @@ export type SubscriptionInput$Outbound = {
   price_id: string;
   user: SubscriptionUser$Outbound;
   product: ProductInput$Outbound;
-  price: ProductPriceInput$Outbound;
+  price: ProductPriceRecurring$Outbound;
 };
 
 /** @internal */
@@ -161,7 +161,7 @@ export const SubscriptionInput$outboundSchema: z.ZodType<
   priceId: z.string(),
   user: SubscriptionUser$outboundSchema,
   product: ProductInput$outboundSchema,
-  price: ProductPriceInput$outboundSchema,
+  price: ProductPriceRecurring$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

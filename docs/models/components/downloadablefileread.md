@@ -11,17 +11,17 @@ let value: DownloadableFileRead = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/usr/local/bin",
+  path: "/opt/lib",
   mimeType: "<value>",
-  size: 632007,
+  size: 395967,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2023-10-16T01:46:18.546Z"),
+  lastModifiedAt: new Date("2024-04-09T16:36:06.881Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2022-06-09T08:28:23.555Z"),
+  createdAt: new Date("2022-03-10T18:18:16.044Z"),
   sizeReadable: "<value>",
 };
 ```
@@ -30,7 +30,7 @@ let value: DownloadableFileRead = {
 
 | Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
 | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `id`                                                                                             | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `id`                                                                                             | *string*                                                                                         | :heavy_check_mark:                                                                               | The ID of the object.                                                                            |
 | `organizationId`                                                                                 | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
 | `name`                                                                                           | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
 | `path`                                                                                           | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |

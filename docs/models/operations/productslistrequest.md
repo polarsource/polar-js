@@ -6,7 +6,9 @@
 import { ProductsListRequest } from "@polar-sh/sdk/models/operations";
 
 let value: ProductsListRequest = {
-  organizationId: "<value>",
+  organizationId: [
+    "<value>",
+  ],
 };
 ```
 

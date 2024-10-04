@@ -5,11 +5,11 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  PledgeInput,
-  PledgeInput$inboundSchema,
-  PledgeInput$Outbound,
-  PledgeInput$outboundSchema,
-} from "./pledgeinput.js";
+  Pledge,
+  Pledge$inboundSchema,
+  Pledge$Outbound,
+  Pledge$outboundSchema,
+} from "./pledge.js";
 
 export const WebhookPledgeCreatedPayloadType = {
   PledgeCreated: "pledge.created",
@@ -27,7 +27,7 @@ export type WebhookPledgeCreatedPayloadType = ClosedEnum<
  */
 export type WebhookPledgeCreatedPayload = {
   type?: "pledge.created" | undefined;
-  data: PledgeInput;
+  data: Pledge;
 };
 
 /** @internal */
@@ -58,13 +58,13 @@ export const WebhookPledgeCreatedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("pledge.created").optional(),
-  data: PledgeInput$inboundSchema,
+  data: Pledge$inboundSchema,
 });
 
 /** @internal */
 export type WebhookPledgeCreatedPayload$Outbound = {
   type: "pledge.created";
-  data: PledgeInput$Outbound;
+  data: Pledge$Outbound;
 };
 
 /** @internal */
@@ -74,7 +74,7 @@ export const WebhookPledgeCreatedPayload$outboundSchema: z.ZodType<
   WebhookPledgeCreatedPayload
 > = z.object({
   type: z.literal("pledge.created").default("pledge.created"),
-  data: PledgeInput$outboundSchema,
+  data: Pledge$outboundSchema,
 });
 
 /**

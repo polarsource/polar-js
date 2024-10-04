@@ -11,7 +11,7 @@ const value:
     clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",
-    redirectUri: "https://vengeful-doing.net/",
+    redirectUri: "https://next-encouragement.org",
   };
 ```
 

@@ -34,7 +34,7 @@ export async function organizationsCreate(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.OrganizationOutput,
+    components.Organization,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -45,10 +45,8 @@ export async function organizationsCreate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => components.OrganizationCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
@@ -104,7 +102,7 @@ export async function organizationsCreate(
   };
 
   const [result] = await M.match<
-    components.OrganizationOutput,
+    components.Organization,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -114,7 +112,7 @@ export async function organizationsCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(201, components.OrganizationOutput$inboundSchema),
+    M.json(201, components.Organization$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),
   )(response, { extraFields: responseFields });

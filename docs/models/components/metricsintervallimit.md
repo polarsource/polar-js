@@ -8,7 +8,7 @@ Date interval limit to get metrics for a given interval.
 import { MetricsIntervalLimit } from "@polar-sh/sdk/models/components";
 
 let value: MetricsIntervalLimit = {
-  maxDays: 117947,
+  maxDays: 1920,
 };
 ```
 

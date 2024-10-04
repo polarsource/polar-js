@@ -46,10 +46,8 @@ export async function oauth2ClientsGet(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.Oauth2ClientsOauth2GetClientRequest$outboundSchema.parse(
         value,
