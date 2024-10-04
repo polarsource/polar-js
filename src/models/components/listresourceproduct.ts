@@ -10,14 +10,14 @@ import {
   Pagination$outboundSchema,
 } from "./pagination.js";
 import {
-  ProductOutput,
-  ProductOutput$inboundSchema,
-  ProductOutput$Outbound,
-  ProductOutput$outboundSchema,
-} from "./productoutput.js";
+  Product,
+  Product$inboundSchema,
+  Product$Outbound,
+  Product$outboundSchema,
+} from "./product.js";
 
 export type ListResourceProduct = {
-  items: Array<ProductOutput>;
+  items: Array<Product>;
   pagination: Pagination;
 };
 
@@ -27,13 +27,13 @@ export const ListResourceProduct$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  items: z.array(ProductOutput$inboundSchema),
+  items: z.array(Product$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
 
 /** @internal */
 export type ListResourceProduct$Outbound = {
-  items: Array<ProductOutput$Outbound>;
+  items: Array<Product$Outbound>;
   pagination: Pagination$Outbound;
 };
 
@@ -43,7 +43,7 @@ export const ListResourceProduct$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListResourceProduct
 > = z.object({
-  items: z.array(ProductOutput$outboundSchema),
+  items: z.array(Product$outboundSchema),
   pagination: Pagination$outboundSchema,
 });
 

@@ -5,11 +5,11 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  ProductPriceOutput,
-  ProductPriceOutput$inboundSchema,
-  ProductPriceOutput$Outbound,
-  ProductPriceOutput$outboundSchema,
-} from "./productpriceoutput.js";
+  ProductPrice,
+  ProductPrice$inboundSchema,
+  ProductPrice$Outbound,
+  ProductPrice$outboundSchema,
+} from "./productprice.js";
 import {
   UserOrderProduct,
   UserOrderProduct$inboundSchema,
@@ -41,7 +41,7 @@ export type UserOrder = {
   productPriceId: string;
   subscriptionId: string | null;
   product: UserOrderProduct;
-  productPrice: ProductPriceOutput;
+  productPrice: ProductPrice;
   subscription: UserOrderSubscription | null;
 };
 
@@ -64,7 +64,7 @@ export const UserOrder$inboundSchema: z.ZodType<
   product_price_id: z.string(),
   subscription_id: z.nullable(z.string()),
   product: UserOrderProduct$inboundSchema,
-  product_price: ProductPriceOutput$inboundSchema,
+  product_price: ProductPrice$inboundSchema,
   subscription: z.nullable(UserOrderSubscription$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
@@ -92,7 +92,7 @@ export type UserOrder$Outbound = {
   product_price_id: string;
   subscription_id: string | null;
   product: UserOrderProduct$Outbound;
-  product_price: ProductPriceOutput$Outbound;
+  product_price: ProductPrice$Outbound;
   subscription: UserOrderSubscription$Outbound | null;
 };
 
@@ -113,7 +113,7 @@ export const UserOrder$outboundSchema: z.ZodType<
   productPriceId: z.string(),
   subscriptionId: z.nullable(z.string()),
   product: UserOrderProduct$outboundSchema,
-  productPrice: ProductPriceOutput$outboundSchema,
+  productPrice: ProductPrice$outboundSchema,
   subscription: z.nullable(UserOrderSubscription$outboundSchema),
 }).transform((v) => {
   return remap$(v, {

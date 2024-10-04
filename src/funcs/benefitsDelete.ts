@@ -52,10 +52,8 @@ export async function benefitsDelete(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.BenefitsDeleteRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

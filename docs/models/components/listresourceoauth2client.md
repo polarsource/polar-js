@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://liquid-goodwill.org/",
+        "https://standard-morning.info/",
       ],
       clientName: "<value>",
-      createdAt: new Date("2023-09-08T12:58:34.282Z"),
-      modifiedAt: new Date("2023-06-05T13:12:25.088Z"),
+      createdAt: new Date("2022-06-22T12:10:56.971Z"),
+      modifiedAt: new Date("2022-01-02T12:01:15.395Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 596194,
-      clientSecretExpiresAt: 232141,
+      clientIdIssuedAt: 383114,
+      clientSecretExpiresAt: 406720,
     },
   ],
   pagination: {
-    totalCount: 521384,
-    maxPage: 350037,
+    totalCount: 363891,
+    maxPage: 802404,
   },
 };
 ```

@@ -5,11 +5,11 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  ProductPriceOutput,
-  ProductPriceOutput$inboundSchema,
-  ProductPriceOutput$Outbound,
-  ProductPriceOutput$outboundSchema,
-} from "./productpriceoutput.js";
+  ProductPrice,
+  ProductPrice$inboundSchema,
+  ProductPrice$Outbound,
+  ProductPrice$outboundSchema,
+} from "./productprice.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
@@ -53,7 +53,7 @@ export type UserSubscription = {
   productId: string;
   priceId: string;
   product: UserSubscriptionProduct;
-  price: ProductPriceOutput;
+  price: ProductPrice;
 };
 
 /** @internal */
@@ -88,7 +88,7 @@ export const UserSubscription$inboundSchema: z.ZodType<
   product_id: z.string(),
   price_id: z.string(),
   product: UserSubscriptionProduct$inboundSchema,
-  price: ProductPriceOutput$inboundSchema,
+  price: ProductPrice$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -123,7 +123,7 @@ export type UserSubscription$Outbound = {
   product_id: string;
   price_id: string;
   product: UserSubscriptionProduct$Outbound;
-  price: ProductPriceOutput$Outbound;
+  price: ProductPrice$Outbound;
 };
 
 /** @internal */
@@ -148,7 +148,7 @@ export const UserSubscription$outboundSchema: z.ZodType<
   productId: z.string(),
   priceId: z.string(),
   product: UserSubscriptionProduct$outboundSchema,
-  price: ProductPriceOutput$outboundSchema,
+  price: ProductPrice$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

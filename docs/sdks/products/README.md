@@ -175,7 +175,7 @@ run();
 
 ### Response
 
-**Promise\<[components.ProductOutput](../../models/components/productoutput.md)\>**
+**Promise\<[components.Product](../../models/components/product.md)\>**
 
 ### Errors
 
@@ -252,7 +252,7 @@ run();
 
 ### Response
 
-**Promise\<[components.ProductOutput](../../models/components/productoutput.md)\>**
+**Promise\<[components.Product](../../models/components/product.md)\>**
 
 ### Errors
 
@@ -332,7 +332,7 @@ run();
 
 ### Response
 
-**Promise\<[components.ProductOutput](../../models/components/productoutput.md)\>**
+**Promise\<[components.Product](../../models/components/product.md)\>**
 
 ### Errors
 
@@ -421,7 +421,7 @@ run();
 
 ### Response
 
-**Promise\<[components.ProductOutput](../../models/components/productoutput.md)\>**
+**Promise\<[components.Product](../../models/components/product.md)\>**
 
 ### Errors
 

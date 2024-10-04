@@ -7,10 +7,10 @@
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2024-11-05T00:11:06.002Z"),
-  modifiedAt: new Date("2024-06-30T11:37:55.414Z"),
+  createdAt: new Date("2023-11-24T20:22:31.627Z"),
+  modifiedAt: new Date("2024-09-25T07:48:45.694Z"),
   id: "<value>",
-  description: "upside-down inspect embarrassment wring excepting lined",
+  description: "mealy ah aside after doubtfully eventually optimistically",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -24,10 +24,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2022-04-25T20:59:24.077Z"),
-  modifiedAt: new Date("2024-06-11T12:16:58.253Z"),
+  createdAt: new Date("2023-02-27T23:48:27.287Z"),
+  modifiedAt: new Date("2024-05-15T00:49:03.908Z"),
   id: "<value>",
-  description: "tousle sans fluctuate mortally so shirk via",
+  description: "which perfectly psst iterate",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -39,10 +39,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2023-02-23T10:06:17.920Z"),
-  modifiedAt: new Date("2023-07-29T11:20:08.331Z"),
+  createdAt: new Date("2022-03-14T05:11:25.734Z"),
+  modifiedAt: new Date("2022-11-06T19:40:07.937Z"),
   id: "<value>",
-  description: "neatly yahoo venture encode indelible and finger",
+  description: "supposing jazz farmer ah",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -57,10 +57,11 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscordInput = {
-  createdAt: new Date("2022-07-08T20:13:53.625Z"),
-  modifiedAt: new Date("2024-11-04T23:29:44.200Z"),
+  createdAt: new Date("2023-05-26T16:26:51.988Z"),
+  modifiedAt: new Date("2022-11-17T01:27:49.228Z"),
   id: "<value>",
-  description: "huddle greedily on that equally filthy",
+  description:
+    "happy-go-lucky however instead clamor cow pike daughter ouch whereas till",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -75,11 +76,10 @@ const value: components.BenefitDiscordInput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2022-01-28T06:52:10.820Z"),
-  modifiedAt: new Date("2022-10-30T14:10:23.904Z"),
+  createdAt: new Date("2024-10-10T15:09:32.839Z"),
+  modifiedAt: new Date("2022-01-29T12:22:17.411Z"),
   id: "<value>",
-  description:
-    "bonfire respray decide deplore whenever self-reliant if supposing meanwhile phew",
+  description: "quaver inhibit doubter ick solemnly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -87,7 +87,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "maintain",
+    permission: "pull",
   },
 };
 ```
@@ -96,11 +96,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2022-09-27T09:38:02.312Z"),
-  modifiedAt: new Date("2022-06-22T15:02:43.515Z"),
+  createdAt: new Date("2023-07-09T23:00:48.489Z"),
+  modifiedAt: new Date("2024-09-23T00:20:30.345Z"),
   id: "<value>",
-  description:
-    "corporation exempt ah although pear general coop barring peter rigidly",
+  description: "parallel juggernaut meanwhile so phew pish now",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -115,28 +114,28 @@ const value: components.BenefitDownloadables = {
 };
 ```
 
-### `components.BenefitLicenseKeysInput`
+### `components.BenefitLicenseKeys`
 
 ```typescript
-const value: components.BenefitLicenseKeysInput = {
-  createdAt: new Date("2024-01-13T21:02:35.378Z"),
-  modifiedAt: new Date("2022-11-21T21:55:40.029Z"),
+const value: components.BenefitLicenseKeys = {
+  createdAt: new Date("2022-09-24T07:39:44.970Z"),
+  modifiedAt: new Date("2022-02-12T14:32:02.870Z"),
   id: "<value>",
-  description: "vice what well for",
+  description: "close failing slump deeply pish that versus bonfire",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 451805,
-      timeframe: "month",
+      ttl: 457997,
+      timeframe: "day",
     },
     activations: {
-      limit: 863171,
+      limit: 179088,
       enableUserAdmin: false,
     },
-    limitUsage: 285900,
+    limitUsage: 295840,
   },
 };
 ```

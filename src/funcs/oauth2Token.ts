@@ -44,10 +44,8 @@ export async function oauth2Token(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.Oauth2RequestTokenRequestBody$outboundSchema.parse(value),
     "Input validation failed",

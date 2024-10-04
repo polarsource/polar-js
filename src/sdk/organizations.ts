@@ -39,7 +39,7 @@ export class Organizations extends ClientSDK {
   async create(
     request: components.OrganizationCreate,
     options?: RequestOptions,
-  ): Promise<components.OrganizationOutput> {
+  ): Promise<components.Organization> {
     return unwrapAsync(organizationsCreate(
       this,
       request,
@@ -56,7 +56,7 @@ export class Organizations extends ClientSDK {
   async get(
     request: operations.OrganizationsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.OrganizationOutput> {
+  ): Promise<components.Organization> {
     return unwrapAsync(organizationsGet(
       this,
       request,
@@ -73,7 +73,7 @@ export class Organizations extends ClientSDK {
   async update(
     request: operations.OrganizationsUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.OrganizationOutput> {
+  ): Promise<components.Organization> {
     return unwrapAsync(organizationsUpdate(
       this,
       request,

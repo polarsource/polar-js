@@ -27,7 +27,7 @@ import {
   BenefitDiscordInput$inboundSchema,
   BenefitDiscordInput$Outbound,
   BenefitDiscordInput$outboundSchema,
-} from "./benefitdiscordinput.js";
+} from "./benefitdiscord.js";
 import {
   BenefitDownloadables,
   BenefitDownloadables$inboundSchema,
@@ -83,11 +83,11 @@ import {
   BenefitGrantLicenseKeysProperties$outboundSchema,
 } from "./benefitgrantlicensekeysproperties.js";
 import {
-  BenefitLicenseKeysInput,
-  BenefitLicenseKeysInput$inboundSchema,
-  BenefitLicenseKeysInput$Outbound,
-  BenefitLicenseKeysInput$outboundSchema,
-} from "./benefitlicensekeysinput.js";
+  BenefitLicenseKeys,
+  BenefitLicenseKeys$inboundSchema,
+  BenefitLicenseKeys$Outbound,
+  BenefitLicenseKeys$outboundSchema,
+} from "./benefitlicensekeys.js";
 
 export type BenefitGrantWebhookProperties =
   | BenefitGrantCustomProperties
@@ -104,7 +104,7 @@ export type BenefitGrantWebhookBenefit =
   | BenefitDiscordInput
   | BenefitGitHubRepository
   | BenefitDownloadables
-  | BenefitLicenseKeysInput
+  | BenefitLicenseKeys
   | BenefitCustom;
 
 export type PreviousProperties =
@@ -175,7 +175,7 @@ export type BenefitGrantWebhook = {
     | BenefitDiscordInput
     | BenefitGitHubRepository
     | BenefitDownloadables
-    | BenefitLicenseKeysInput
+    | BenefitLicenseKeys
     | BenefitCustom;
   previousProperties?:
     | BenefitGrantCustomProperties
@@ -253,7 +253,7 @@ export const BenefitGrantWebhookBenefit$inboundSchema: z.ZodType<
   BenefitDiscordInput$inboundSchema,
   BenefitGitHubRepository$inboundSchema,
   BenefitDownloadables$inboundSchema,
-  BenefitLicenseKeysInput$inboundSchema,
+  BenefitLicenseKeys$inboundSchema,
   BenefitCustom$inboundSchema,
 ]);
 
@@ -264,7 +264,7 @@ export type BenefitGrantWebhookBenefit$Outbound =
   | BenefitDiscordInput$Outbound
   | BenefitGitHubRepository$Outbound
   | BenefitDownloadables$Outbound
-  | BenefitLicenseKeysInput$Outbound
+  | BenefitLicenseKeys$Outbound
   | BenefitCustom$Outbound;
 
 /** @internal */
@@ -278,7 +278,7 @@ export const BenefitGrantWebhookBenefit$outboundSchema: z.ZodType<
   BenefitDiscordInput$outboundSchema,
   BenefitGitHubRepository$outboundSchema,
   BenefitDownloadables$outboundSchema,
-  BenefitLicenseKeysInput$outboundSchema,
+  BenefitLicenseKeys$outboundSchema,
   BenefitCustom$outboundSchema,
 ]);
 
@@ -386,7 +386,7 @@ export const BenefitGrantWebhook$inboundSchema: z.ZodType<
     BenefitDiscordInput$inboundSchema,
     BenefitGitHubRepository$inboundSchema,
     BenefitDownloadables$inboundSchema,
-    BenefitLicenseKeysInput$inboundSchema,
+    BenefitLicenseKeys$inboundSchema,
     BenefitCustom$inboundSchema,
   ]),
   previous_properties: z.nullable(
@@ -443,7 +443,7 @@ export type BenefitGrantWebhook$Outbound = {
     | BenefitDiscordInput$Outbound
     | BenefitGitHubRepository$Outbound
     | BenefitDownloadables$Outbound
-    | BenefitLicenseKeysInput$Outbound
+    | BenefitLicenseKeys$Outbound
     | BenefitCustom$Outbound;
   previous_properties?:
     | BenefitGrantCustomProperties$Outbound
@@ -489,7 +489,7 @@ export const BenefitGrantWebhook$outboundSchema: z.ZodType<
     BenefitDiscordInput$outboundSchema,
     BenefitGitHubRepository$outboundSchema,
     BenefitDownloadables$outboundSchema,
-    BenefitLicenseKeysInput$outboundSchema,
+    BenefitLicenseKeys$outboundSchema,
     BenefitCustom$outboundSchema,
   ]),
   previousProperties: z.nullable(

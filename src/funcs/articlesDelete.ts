@@ -48,10 +48,8 @@ export async function articlesDelete(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.ArticlesDeleteRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

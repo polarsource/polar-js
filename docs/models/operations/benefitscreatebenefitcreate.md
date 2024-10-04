@@ -7,7 +7,7 @@
 
 ```typescript
 const value: components.BenefitCustomCreate = {
-  description: "sermon huzzah close convection aha shark nimble duh wordy phew",
+  description: "tenderly huzzah shanghai ruddy gadzooks tricky realistic",
   isTaxApplicable: false,
   properties: {
     note: "<value>",
@@ -19,7 +19,7 @@ const value: components.BenefitCustomCreate = {
 
 ```typescript
 const value: components.BenefitAdsCreate = {
-  description: "lined brr airmail if while unless after",
+  description: "purse thoughtfully sternly hence amid",
   properties: {},
 };
 ```
@@ -28,7 +28,7 @@ const value: components.BenefitAdsCreate = {
 
 ```typescript
 const value: components.BenefitDiscordCreate = {
-  description: "if moral rowdy ah speedily",
+  description: "duster laughter pastel solidly upwardly",
   properties: {
     guildToken: "<value>",
     roleId: "<id>",
@@ -40,11 +40,11 @@ const value: components.BenefitDiscordCreate = {
 
 ```typescript
 const value: components.BenefitGitHubRepositoryCreate = {
-  description: "well-to-do antique reel foot oof interestingly swing across",
+  description: "than boo yum huzzah outside availability sorrowful towards",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "triage",
+    permission: "admin",
   },
 };
 ```
@@ -53,7 +53,7 @@ const value: components.BenefitGitHubRepositoryCreate = {
 
 ```typescript
 const value: components.BenefitDownloadablesCreate = {
-  description: "entwine capsize unfinished boo",
+  description: "pick obediently kissingly",
   properties: {
     files: [
       "<value>",
@@ -66,7 +66,7 @@ const value: components.BenefitDownloadablesCreate = {
 
 ```typescript
 const value: components.BenefitLicenseKeysCreate = {
-  description: "upright whine enormously fall gently glow amused geez oval per",
+  description: "boggle often ornery needily in massage unhappy zowie",
   properties: {},
 };
 ```

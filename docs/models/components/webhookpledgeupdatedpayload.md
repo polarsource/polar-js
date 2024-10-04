@@ -11,42 +11,42 @@ import { WebhookPledgeUpdatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookPledgeUpdatedPayload = {
   data: {
-    createdAt: new Date("2024-06-17T16:49:17.447Z"),
-    modifiedAt: new Date("2023-05-21T03:07:59.370Z"),
+    createdAt: new Date("2022-06-26T21:16:43.440Z"),
+    modifiedAt: new Date("2022-11-11T05:52:22.936Z"),
     id: "<value>",
-    amount: 10879,
-    currency: "Belize Dollar",
-    state: "pending",
+    amount: 543203,
+    currency: "Mexican Peso",
+    state: "refunded",
     type: "pay_upfront",
     issue: {
-      id: "a390251f-3eaf-4ee9-8f27-c7fb3ce8f8c5",
-      number: 783761,
+      id: "ce42cbce-08c8-4890-ae30-a82f641822b1",
+      number: 69645,
       title: "<value>",
       state: "open",
-      issueCreatedAt: new Date("2022-11-08T04:29:28.682Z"),
+      issueCreatedAt: new Date("2022-05-17T22:22:57.707Z"),
       needsConfirmationSolved: false,
       funding: {},
       repository: {
-        id: "59557705-7379-4dc4-a206-d248980ce42c",
+        id: "f3538e7b-541f-46d9-8a75-7ce78bfad62b",
         isPrivate: false,
         name: "MyOrg",
         description:
-          "midst whoa amongst yet remark offset major doubtfully whether",
+          "baptise clueless ack quaintly unlined encode always mindless underneath bran",
         stars: 1337,
         license: "<value>",
         homepage: "<value>",
         profileSettings: {},
         organization: {
-          id: "ff0fa46e-e120-465a-b2c9-1edc793cbcfe",
+          id: "4f9db021-7db3-46be-8e86-aaf787b5084b",
           name: "<value>",
-          avatarUrl: "https://spotless-violin.biz/",
+          avatarUrl: "https://smooth-giant.biz",
           isPersonal: false,
           bio: "<value>",
           prettyName: "<value>",
-          company: "Flatley, Graham and Keebler",
+          company: "Heaney, Braun and Lang",
           blog: "<value>",
           location: "<value>",
-          email: "May.Spinka@yahoo.com",
+          email: "Carolina.Kutch72@gmail.com",
           twitterUsername: "<value>",
           organizationId: "<value>",
         },
@@ -62,4 +62,4 @@ let value: WebhookPledgeUpdatedPayload = {
 | Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `type`                                                                                                   | [components.WebhookPledgeUpdatedPayloadType](../../models/components/webhookpledgeupdatedpayloadtype.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
-| `data`                                                                                                   | [components.PledgeInput](../../models/components/pledgeinput.md)                                         | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `data`                                                                                                   | [components.Pledge](../../models/components/pledge.md)                                                   | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

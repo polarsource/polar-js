@@ -47,10 +47,8 @@ export async function articlesGet(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.ArticlesGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

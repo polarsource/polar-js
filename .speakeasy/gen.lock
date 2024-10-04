@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 731f3794df11184c4a3ac24b324ecdf6
+  docChecksum: 878a29087db8361af412356c9cfa0708
   docVersion: 0.1.0
-  speakeasyVersion: 1.405.6
-  generationVersion: 2.428.1
-  releaseVersion: 0.11.1
-  configChecksum: 6ab84e68644c4ddd13e3371466989451
+  speakeasyVersion: 1.406.0
+  generationVersion: 2.429.0
+  releaseVersion: 0.12.0
+  configChecksum: 3c6295b0cbd233b26fca99d261e36a9b
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.18.1
+    core: 3.18.2
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
@@ -25,6 +25,7 @@ features:
     globalServerURLs: 2.82.4
     groups: 2.81.2
     ignores: 2.81.1
+    inputOutputModels: 2.82.0
     nameOverrides: 2.81.2
     nullables: 0.1.0
     pagination: 2.82.7
@@ -89,18 +90,17 @@ generatedFiles:
   - docs/models/components/benefitcustomtype.md
   - docs/models/components/benefitcustomupdate.md
   - docs/models/components/benefitcustomupdatetype.md
+  - docs/models/components/benefitdiscord.md
   - docs/models/components/benefitdiscordcreate.md
   - docs/models/components/benefitdiscordcreateproperties.md
   - docs/models/components/benefitdiscordcreatetype.md
   - docs/models/components/benefitdiscordinput.md
-  - docs/models/components/benefitdiscordinputtype.md
-  - docs/models/components/benefitdiscordoutput.md
-  - docs/models/components/benefitdiscordoutputtype.md
+  - docs/models/components/benefitdiscordproperties.md
   - docs/models/components/benefitdiscordpropertiesinput.md
-  - docs/models/components/benefitdiscordpropertiesoutput.md
   - docs/models/components/benefitdiscordsubscriber.md
   - docs/models/components/benefitdiscordsubscriberproperties.md
   - docs/models/components/benefitdiscordsubscribertype.md
+  - docs/models/components/benefitdiscordtype.md
   - docs/models/components/benefitdiscordupdate.md
   - docs/models/components/benefitdiscordupdatetype.md
   - docs/models/components/benefitdownloadables.md
@@ -144,17 +144,15 @@ generatedFiles:
   - docs/models/components/benefitgrantwebhookproperties.md
   - docs/models/components/benefitlicensekeyactivationproperties.md
   - docs/models/components/benefitlicensekeyexpirationproperties.md
+  - docs/models/components/benefitlicensekeys.md
   - docs/models/components/benefitlicensekeyscreate.md
   - docs/models/components/benefitlicensekeyscreateproperties.md
   - docs/models/components/benefitlicensekeyscreatetype.md
-  - docs/models/components/benefitlicensekeysinput.md
-  - docs/models/components/benefitlicensekeysinputtype.md
-  - docs/models/components/benefitlicensekeysoutput.md
-  - docs/models/components/benefitlicensekeysoutputtype.md
   - docs/models/components/benefitlicensekeysproperties.md
   - docs/models/components/benefitlicensekeyssubscriber.md
   - docs/models/components/benefitlicensekeyssubscriberproperties.md
   - docs/models/components/benefitlicensekeyssubscribertype.md
+  - docs/models/components/benefitlicensekeystype.md
   - docs/models/components/benefitlicensekeysupdate.md
   - docs/models/components/benefitlicensekeysupdatetype.md
   - docs/models/components/benefits.md
@@ -164,7 +162,7 @@ generatedFiles:
   - docs/models/components/checkoutcreate.md
   - docs/models/components/conditions.md
   - docs/models/components/currencyamount.md
-  - docs/models/components/donationinput.md
+  - docs/models/components/donation.md
   - docs/models/components/donationorganization.md
   - docs/models/components/donationuser.md
   - docs/models/components/donor.md
@@ -187,7 +185,7 @@ generatedFiles:
   - docs/models/components/granttypes.md
   - docs/models/components/introspecttokenresponse.md
   - docs/models/components/introspecttokenresponsetokentype.md
-  - docs/models/components/issueinput.md
+  - docs/models/components/issue.md
   - docs/models/components/label.md
   - docs/models/components/licensekeyactivate.md
   - docs/models/components/licensekeyactivateconditions.md
@@ -240,21 +238,19 @@ generatedFiles:
   - docs/models/components/onev11oauth21tokenpostxcomponentsauthorizationcodetokenrequest.md
   - docs/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequest.md
   - docs/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequestgranttype.md
-  - docs/models/components/orderinput.md
+  - docs/models/components/order.md
   - docs/models/components/orderinvoice.md
-  - docs/models/components/orderoutput.md
   - docs/models/components/orderproduct.md
   - docs/models/components/ordersortproperty.md
   - docs/models/components/ordersubscription.md
   - docs/models/components/orderuser.md
+  - docs/models/components/organization.md
   - docs/models/components/organizationavatarfilecreate.md
   - docs/models/components/organizationavatarfilecreateservice.md
   - docs/models/components/organizationavatarfileread.md
   - docs/models/components/organizationavatarfilereadservice.md
   - docs/models/components/organizationcreate.md
   - docs/models/components/organizationfeaturesettings.md
-  - docs/models/components/organizationinput.md
-  - docs/models/components/organizationoutput.md
   - docs/models/components/organizationprofilesettings.md
   - docs/models/components/organizationsortproperty.md
   - docs/models/components/organizationsubscribepromotesettings.md
@@ -262,24 +258,22 @@ generatedFiles:
   - docs/models/components/pagination.md
   - docs/models/components/permission.md
   - docs/models/components/platforms.md
-  - docs/models/components/pledgeinput.md
+  - docs/models/components/pledge.md
   - docs/models/components/pledger.md
   - docs/models/components/pledgestate.md
   - docs/models/components/pledgetype.md
   - docs/models/components/previousproperties.md
   - docs/models/components/prices.md
+  - docs/models/components/product.md
+  - docs/models/components/productbenefits.md
   - docs/models/components/productbenefitsupdate.md
   - docs/models/components/productinput.md
-  - docs/models/components/productinputbenefits.md
   - docs/models/components/productmediafilecreate.md
   - docs/models/components/productmediafilecreateservice.md
+  - docs/models/components/productmediafileread.md
   - docs/models/components/productmediafilereadinput.md
-  - docs/models/components/productmediafilereadinputservice.md
-  - docs/models/components/productmediafilereadoutput.md
   - docs/models/components/productonetimecreate.md
-  - docs/models/components/productoutput.md
-  - docs/models/components/productoutputbenefits.md
-  - docs/models/components/productpriceinput.md
+  - docs/models/components/productprice.md
   - docs/models/components/productpriceonetime.md
   - docs/models/components/productpriceonetimecustom.md
   - docs/models/components/productpriceonetimecustomamounttype.md
@@ -299,7 +293,7 @@ generatedFiles:
   - docs/models/components/productpriceonetimefreecreateamounttype.md
   - docs/models/components/productpriceonetimefreecreatetype.md
   - docs/models/components/productpriceonetimefreetype.md
-  - docs/models/components/productpriceoutput.md
+  - docs/models/components/productpricerecurring.md
   - docs/models/components/productpricerecurringcustom.md
   - docs/models/components/productpricerecurringcustomamounttype.md
   - docs/models/components/productpricerecurringcustomtype.md
@@ -314,8 +308,6 @@ generatedFiles:
   - docs/models/components/productpricerecurringfreecreateamounttype.md
   - docs/models/components/productpricerecurringfreecreatetype.md
   - docs/models/components/productpricerecurringfreetype.md
-  - docs/models/components/productpricerecurringinput.md
-  - docs/models/components/productpricerecurringoutput.md
   - docs/models/components/productpricetype.md
   - docs/models/components/productrecurringcreate.md
   - docs/models/components/productrecurringcreateprices.md
@@ -340,8 +332,8 @@ generatedFiles:
   - docs/models/components/security.md
   - docs/models/components/service.md
   - docs/models/components/state.md
+  - docs/models/components/subscription.md
   - docs/models/components/subscriptioninput.md
-  - docs/models/components/subscriptionoutput.md
   - docs/models/components/subscriptionrecurringinterval.md
   - docs/models/components/subscriptionsortproperty.md
   - docs/models/components/subscriptionstatus.md
@@ -703,12 +695,11 @@ generatedFiles:
   - src/models/components/benefitcustomsubscriber.ts
   - src/models/components/benefitcustomsubscriberproperties.ts
   - src/models/components/benefitcustomupdate.ts
+  - src/models/components/benefitdiscord.ts
   - src/models/components/benefitdiscordcreate.ts
   - src/models/components/benefitdiscordcreateproperties.ts
-  - src/models/components/benefitdiscordinput.ts
-  - src/models/components/benefitdiscordoutput.ts
+  - src/models/components/benefitdiscordproperties.ts
   - src/models/components/benefitdiscordpropertiesinput.ts
-  - src/models/components/benefitdiscordpropertiesoutput.ts
   - src/models/components/benefitdiscordsubscriber.ts
   - src/models/components/benefitdiscordsubscriberproperties.ts
   - src/models/components/benefitdiscordupdate.ts
@@ -741,10 +732,9 @@ generatedFiles:
   - src/models/components/benefitgrantwebhook.ts
   - src/models/components/benefitlicensekeyactivationproperties.ts
   - src/models/components/benefitlicensekeyexpirationproperties.ts
+  - src/models/components/benefitlicensekeys.ts
   - src/models/components/benefitlicensekeyscreate.ts
   - src/models/components/benefitlicensekeyscreateproperties.ts
-  - src/models/components/benefitlicensekeysinput.ts
-  - src/models/components/benefitlicensekeysoutput.ts
   - src/models/components/benefitlicensekeysproperties.ts
   - src/models/components/benefitlicensekeyssubscriber.ts
   - src/models/components/benefitlicensekeyssubscriberproperties.ts
@@ -754,7 +744,7 @@ generatedFiles:
   - src/models/components/checkout.ts
   - src/models/components/checkoutcreate.ts
   - src/models/components/currencyamount.ts
-  - src/models/components/donationinput.ts
+  - src/models/components/donation.ts
   - src/models/components/donationorganization.ts
   - src/models/components/donationuser.ts
   - src/models/components/downloadablefilecreate.ts
@@ -771,7 +761,7 @@ generatedFiles:
   - src/models/components/funding.ts
   - src/models/components/index.ts
   - src/models/components/introspecttokenresponse.ts
-  - src/models/components/issueinput.ts
+  - src/models/components/issue.ts
   - src/models/components/label.ts
   - src/models/components/licensekeyactivate.ts
   - src/models/components/licensekeyactivationbase.ts
@@ -812,37 +802,33 @@ generatedFiles:
   - src/models/components/oauth2clientconfigurationupdate.ts
   - src/models/components/onev11oauth21tokenpostxcomponentsauthorizationcodetokenrequest.ts
   - src/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequest.ts
-  - src/models/components/orderinput.ts
+  - src/models/components/order.ts
   - src/models/components/orderinvoice.ts
-  - src/models/components/orderoutput.ts
   - src/models/components/orderproduct.ts
   - src/models/components/ordersortproperty.ts
   - src/models/components/ordersubscription.ts
   - src/models/components/orderuser.ts
+  - src/models/components/organization.ts
   - src/models/components/organizationavatarfilecreate.ts
   - src/models/components/organizationavatarfileread.ts
   - src/models/components/organizationcreate.ts
   - src/models/components/organizationfeaturesettings.ts
-  - src/models/components/organizationinput.ts
-  - src/models/components/organizationoutput.ts
   - src/models/components/organizationprofilesettings.ts
   - src/models/components/organizationsortproperty.ts
   - src/models/components/organizationsubscribepromotesettings.ts
   - src/models/components/organizationupdate.ts
   - src/models/components/pagination.ts
   - src/models/components/platforms.ts
-  - src/models/components/pledgeinput.ts
+  - src/models/components/pledge.ts
   - src/models/components/pledger.ts
   - src/models/components/pledgestate.ts
   - src/models/components/pledgetype.ts
+  - src/models/components/product.ts
   - src/models/components/productbenefitsupdate.ts
-  - src/models/components/productinput.ts
   - src/models/components/productmediafilecreate.ts
-  - src/models/components/productmediafilereadinput.ts
-  - src/models/components/productmediafilereadoutput.ts
+  - src/models/components/productmediafileread.ts
   - src/models/components/productonetimecreate.ts
-  - src/models/components/productoutput.ts
-  - src/models/components/productpriceinput.ts
+  - src/models/components/productprice.ts
   - src/models/components/productpriceonetime.ts
   - src/models/components/productpriceonetimecustom.ts
   - src/models/components/productpriceonetimecustomcreate.ts
@@ -850,14 +836,12 @@ generatedFiles:
   - src/models/components/productpriceonetimefixedcreate.ts
   - src/models/components/productpriceonetimefree.ts
   - src/models/components/productpriceonetimefreecreate.ts
-  - src/models/components/productpriceoutput.ts
+  - src/models/components/productpricerecurring.ts
   - src/models/components/productpricerecurringcustom.ts
   - src/models/components/productpricerecurringfixed.ts
   - src/models/components/productpricerecurringfixedcreate.ts
   - src/models/components/productpricerecurringfree.ts
   - src/models/components/productpricerecurringfreecreate.ts
-  - src/models/components/productpricerecurringinput.ts
-  - src/models/components/productpricerecurringoutput.ts
   - src/models/components/productpricetype.ts
   - src/models/components/productrecurringcreate.ts
   - src/models/components/productupdate.ts
@@ -877,8 +861,8 @@ generatedFiles:
   - src/models/components/s3fileuploadpart.ts
   - src/models/components/security.ts
   - src/models/components/state.ts
+  - src/models/components/subscription.ts
   - src/models/components/subscriptioninput.ts
-  - src/models/components/subscriptionoutput.ts
   - src/models/components/subscriptionrecurringinterval.ts
   - src/models/components/subscriptionsortproperty.ts
   - src/models/components/subscriptionstatus.ts
@@ -1685,7 +1669,7 @@ examples:
         application/json: {"product_price_id": "<value>", "success_url": "http://limp-pastry.org"}
       responses:
         "201":
-          application/json: {"id": "<id>", "customer_email": "<value>", "customer_name": "<value>", "product": {"created_at": "2023-04-03T12:48:32.050Z", "modified_at": "2022-11-13T02:16:42.101Z", "id": "<value>", "name": "<value>", "description": "Customer-focused regional approach", "is_recurring": false, "is_archived": false, "organization_id": "<value>", "prices": [], "benefits": [], "medias": []}, "product_price": {"created_at": "2023-04-03T12:48:32.253Z", "modified_at": "2022-05-28T06:20:22.766Z", "id": "<value>", "is_archived": true, "price_currency": "<value>", "price_amount": 796474, "recurring_interval": "year"}}
+          application/json: {"id": "<id>", "customer_email": "<value>", "customer_name": "<value>", "product": {"created_at": "2023-04-03T12:48:32.050Z", "modified_at": "2022-11-13T02:16:42.101Z", "id": "<value>", "name": "<value>", "description": "Customer-focused regional approach", "is_recurring": false, "is_archived": false, "organization_id": "<value>", "prices": [], "benefits": [], "medias": []}, "product_price": {"created_at": "2023-04-03T12:48:32.253Z", "modified_at": "2022-05-28T06:20:22.766Z", "id": "<value>", "is_archived": true, "price_currency": "<value>", "minimum_amount": 796474, "maximum_amount": 951062, "preset_amount": 86, "recurring_interval": "month"}}
         "422": {}
   checkouts:get:
     speakeasy-default-checkouts:get:

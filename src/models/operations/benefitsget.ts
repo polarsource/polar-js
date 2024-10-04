@@ -15,10 +15,10 @@ export type BenefitsGetRequest = {
 export type BenefitsGetResponseBenefitsGet =
   | components.BenefitArticles
   | components.BenefitAds
-  | components.BenefitDiscordOutput
+  | components.BenefitDiscord
   | components.BenefitGitHubRepository
   | components.BenefitDownloadables
-  | components.BenefitLicenseKeysOutput
+  | components.BenefitLicenseKeys
   | components.BenefitCustom;
 
 /** @internal */
@@ -65,10 +65,10 @@ export const BenefitsGetResponseBenefitsGet$inboundSchema: z.ZodType<
 > = z.union([
   components.BenefitArticles$inboundSchema,
   components.BenefitAds$inboundSchema,
-  components.BenefitDiscordOutput$inboundSchema,
+  components.BenefitDiscord$inboundSchema,
   components.BenefitGitHubRepository$inboundSchema,
   components.BenefitDownloadables$inboundSchema,
-  components.BenefitLicenseKeysOutput$inboundSchema,
+  components.BenefitLicenseKeys$inboundSchema,
   components.BenefitCustom$inboundSchema,
 ]);
 
@@ -76,10 +76,10 @@ export const BenefitsGetResponseBenefitsGet$inboundSchema: z.ZodType<
 export type BenefitsGetResponseBenefitsGet$Outbound =
   | components.BenefitArticles$Outbound
   | components.BenefitAds$Outbound
-  | components.BenefitDiscordOutput$Outbound
+  | components.BenefitDiscord$Outbound
   | components.BenefitGitHubRepository$Outbound
   | components.BenefitDownloadables$Outbound
-  | components.BenefitLicenseKeysOutput$Outbound
+  | components.BenefitLicenseKeys$Outbound
   | components.BenefitCustom$Outbound;
 
 /** @internal */
@@ -90,10 +90,10 @@ export const BenefitsGetResponseBenefitsGet$outboundSchema: z.ZodType<
 > = z.union([
   components.BenefitArticles$outboundSchema,
   components.BenefitAds$outboundSchema,
-  components.BenefitDiscordOutput$outboundSchema,
+  components.BenefitDiscord$outboundSchema,
   components.BenefitGitHubRepository$outboundSchema,
   components.BenefitDownloadables$outboundSchema,
-  components.BenefitLicenseKeysOutput$outboundSchema,
+  components.BenefitLicenseKeys$outboundSchema,
   components.BenefitCustom$outboundSchema,
 ]);
 

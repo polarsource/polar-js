@@ -154,7 +154,7 @@ run();
 
 ### Response
 
-**Promise\<[components.OrderOutput](../../models/components/orderoutput.md)\>**
+**Promise\<[components.Order](../../models/components/order.md)\>**
 
 ### Errors
 

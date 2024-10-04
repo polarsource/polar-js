@@ -22,22 +22,22 @@ import {
   Pagination$outboundSchema,
 } from "./pagination.js";
 import {
-  ProductMediaFileReadOutput,
-  ProductMediaFileReadOutput$inboundSchema,
-  ProductMediaFileReadOutput$Outbound,
-  ProductMediaFileReadOutput$outboundSchema,
-} from "./productmediafilereadoutput.js";
+  ProductMediaFileRead,
+  ProductMediaFileRead$inboundSchema,
+  ProductMediaFileRead$Outbound,
+  ProductMediaFileRead$outboundSchema,
+} from "./productmediafileread.js";
 
 export type FileRead =
   | (DownloadableFileRead & { service: "downloadable" })
   | (OrganizationAvatarFileRead & { service: "organization_avatar" })
-  | (ProductMediaFileReadOutput & { service: "product_media" });
+  | (ProductMediaFileRead & { service: "product_media" });
 
 export type ListResourceFileRead = {
   items: Array<
     | (DownloadableFileRead & { service: "downloadable" })
     | (OrganizationAvatarFileRead & { service: "organization_avatar" })
-    | (ProductMediaFileReadOutput & { service: "product_media" })
+    | (ProductMediaFileRead & { service: "product_media" })
   >;
   pagination: Pagination;
 };
@@ -58,7 +58,7 @@ export const FileRead$inboundSchema: z.ZodType<
       service: v.service,
     })),
   ),
-  ProductMediaFileReadOutput$inboundSchema.and(
+  ProductMediaFileRead$inboundSchema.and(
     z.object({ service: z.literal("product_media") }).transform((v) => ({
       service: v.service,
     })),
@@ -69,7 +69,7 @@ export const FileRead$inboundSchema: z.ZodType<
 export type FileRead$Outbound =
   | (DownloadableFileRead$Outbound & { service: "downloadable" })
   | (OrganizationAvatarFileRead$Outbound & { service: "organization_avatar" })
-  | (ProductMediaFileReadOutput$Outbound & { service: "product_media" });
+  | (ProductMediaFileRead$Outbound & { service: "product_media" });
 
 /** @internal */
 export const FileRead$outboundSchema: z.ZodType<
@@ -87,7 +87,7 @@ export const FileRead$outboundSchema: z.ZodType<
       service: v.service,
     })),
   ),
-  ProductMediaFileReadOutput$outboundSchema.and(
+  ProductMediaFileRead$outboundSchema.and(
     z.object({ service: z.literal("product_media") }).transform((v) => ({
       service: v.service,
     })),
@@ -125,7 +125,7 @@ export const ListResourceFileRead$inboundSchema: z.ZodType<
           v,
         ) => ({ service: v.service })),
       ),
-      ProductMediaFileReadOutput$inboundSchema.and(
+      ProductMediaFileRead$inboundSchema.and(
         z.object({ service: z.literal("product_media") }).transform((v) => ({
           service: v.service,
         })),
@@ -140,7 +140,7 @@ export type ListResourceFileRead$Outbound = {
   items: Array<
     | (DownloadableFileRead$Outbound & { service: "downloadable" })
     | (OrganizationAvatarFileRead$Outbound & { service: "organization_avatar" })
-    | (ProductMediaFileReadOutput$Outbound & { service: "product_media" })
+    | (ProductMediaFileRead$Outbound & { service: "product_media" })
   >;
   pagination: Pagination$Outbound;
 };
@@ -163,7 +163,7 @@ export const ListResourceFileRead$outboundSchema: z.ZodType<
           v,
         ) => ({ service: v.service })),
       ),
-      ProductMediaFileReadOutput$outboundSchema.and(
+      ProductMediaFileRead$outboundSchema.and(
         z.object({ service: z.literal("product_media") }).transform((v) => ({
           service: v.service,
         })),

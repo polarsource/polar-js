@@ -13,17 +13,17 @@ let value: OrganizationAvatarFileRead = {
   name: "<value>",
   path: "/etc/ppp",
   mimeType: "<value>",
-  size: 313287,
+  size: 719880,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-11-20T20:56:33.024Z"),
+  lastModifiedAt: new Date("2022-12-17T08:06:24.932Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2022-03-25T12:38:13.178Z"),
+  createdAt: new Date("2024-02-09T00:56:46.614Z"),
   sizeReadable: "<value>",
-  publicUrl: "https://lively-hubris.org",
+  publicUrl: "https://overdue-making.com/",
 };
 ```
 
@@ -31,7 +31,7 @@ let value: OrganizationAvatarFileRead = {
 
 | Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `id`                                                                                                         | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `id`                                                                                                         | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the object.                                                                                        |
 | `organizationId`                                                                                             | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `name`                                                                                                       | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `path`                                                                                                       | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

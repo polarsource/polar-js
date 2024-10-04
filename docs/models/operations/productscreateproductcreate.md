@@ -22,9 +22,7 @@ const value: components.ProductRecurringCreate = {
 const value: components.ProductOneTimeCreate = {
   name: "<value>",
   prices: [
-    {
-      priceAmount: 570047,
-    },
+    {},
   ],
 };
 ```

@@ -48,10 +48,8 @@ export async function filesDelete(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.FilesDeleteRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

@@ -9,29 +9,29 @@ let value: FileUpload = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/usr/obj",
+  path: "/etc/mail",
   mimeType: "<value>",
-  size: 133984,
+  size: 928155,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-06-08T16:07:28.902Z"),
+  lastModifiedAt: new Date("2023-07-08T11:57:55.965Z"),
   upload: {
     id: "<id>",
-    path: "/proc",
+    path: "/boot",
     parts: [
       {
-        number: 323127,
-        chunkStart: 108379,
-        chunkEnd: 592228,
-        url: "https://unfit-vista.com",
-        expiresAt: new Date("2023-03-11T21:00:22.844Z"),
+        number: 148557,
+        chunkStart: 672553,
+        chunkEnd: 476764,
+        url: "https://lavish-translation.net",
+        expiresAt: new Date("2024-12-10T05:43:15.244Z"),
       },
     ],
   },
   version: "<value>",
-  service: "downloadable",
+  service: "organization_avatar",
   sizeReadable: "<value>",
 };
 ```
@@ -40,7 +40,7 @@ let value: FileUpload = {
 
 | Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the object.                                                                         |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `path`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |

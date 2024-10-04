@@ -6,32 +6,33 @@
 import { UserOrder } from "@polar-sh/sdk/models/components";
 
 let value: UserOrder = {
-  createdAt: new Date("2023-11-19T09:25:40.086Z"),
-  modifiedAt: new Date("2023-07-08T16:33:31.193Z"),
+  createdAt: new Date("2022-04-09T06:29:36.990Z"),
+  modifiedAt: new Date("2024-11-07T09:51:45.663Z"),
   id: "<value>",
-  amount: 195869,
-  taxAmount: 144727,
-  currency: "Kip",
+  amount: 994496,
+  taxAmount: 374495,
+  currency: "North Korean Won",
   userId: "<value>",
   productId: "<value>",
   productPriceId: "<value>",
   subscriptionId: "<value>",
   product: {
-    createdAt: new Date("2024-05-04T05:05:58.982Z"),
-    modifiedAt: new Date("2024-05-03T14:22:38.068Z"),
+    createdAt: new Date("2022-06-09T06:51:23.859Z"),
+    modifiedAt: new Date("2024-02-18T08:35:44.064Z"),
     id: "<value>",
     name: "<value>",
-    description:
-      "instruction yippee unfurl tenderly outside meaningfully bourgeoisie incidentally safely harvest",
+    description: "outset hollow guzzle what knottily apostrophize",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2022-07-24T21:59:04.978Z"),
-        modifiedAt: new Date("2024-01-10T07:18:29.374Z"),
+        createdAt: new Date("2024-06-13T17:09:10.644Z"),
+        modifiedAt: new Date("2022-07-24T21:59:04.978Z"),
         id: "<value>",
         isArchived: false,
+        priceCurrency: "<value>",
+        priceAmount: 674548,
         recurringInterval: "month",
       },
     ],
@@ -113,5 +114,5 @@ let value: UserOrder = {
 | `productPriceId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `subscriptionId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `product`                                                                                     | [components.UserOrderProduct](../../models/components/userorderproduct.md)                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `productPrice`                                                                                | *components.ProductPriceOutput*                                                               | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `productPrice`                                                                                | *components.ProductPrice*                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `subscription`                                                                                | [components.UserOrderSubscription](../../models/components/userordersubscription.md)          | :heavy_check_mark:                                                                            | N/A                                                                                           |

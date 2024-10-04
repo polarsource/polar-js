@@ -16,11 +16,11 @@ import {
   BylineProfile$outboundSchema,
 } from "./bylineprofile.js";
 import {
-  OrganizationOutput,
-  OrganizationOutput$inboundSchema,
-  OrganizationOutput$Outbound,
-  OrganizationOutput$outboundSchema,
-} from "./organizationoutput.js";
+  Organization,
+  Organization$inboundSchema,
+  Organization$Outbound,
+  Organization$outboundSchema,
+} from "./organization.js";
 
 export type Article = {
   id: string;
@@ -31,7 +31,7 @@ export type Article = {
   visibility: ArticleVisibility;
   userId: string | null;
   organizationId: string;
-  organization: OrganizationOutput;
+  organization: Organization;
   publishedAt: Date | null;
   paidSubscribersOnly: boolean | null;
   paidSubscribersOnlyEndsAt: Date | null;
@@ -55,7 +55,7 @@ export const Article$inboundSchema: z.ZodType<Article, z.ZodTypeDef, unknown> =
     visibility: ArticleVisibility$inboundSchema,
     user_id: z.nullable(z.string()),
     organization_id: z.string(),
-    organization: OrganizationOutput$inboundSchema,
+    organization: Organization$inboundSchema,
     published_at: z.nullable(
       z.string().datetime({ offset: true }).transform(v => new Date(v)),
     ),
@@ -99,7 +99,7 @@ export type Article$Outbound = {
   visibility: string;
   user_id: string | null;
   organization_id: string;
-  organization: OrganizationOutput$Outbound;
+  organization: Organization$Outbound;
   published_at: string | null;
   paid_subscribers_only: boolean | null;
   paid_subscribers_only_ends_at: string | null;
@@ -126,7 +126,7 @@ export const Article$outboundSchema: z.ZodType<
   visibility: ArticleVisibility$outboundSchema,
   userId: z.nullable(z.string()),
   organizationId: z.string(),
-  organization: OrganizationOutput$outboundSchema,
+  organization: Organization$outboundSchema,
   publishedAt: z.nullable(z.date().transform(v => v.toISOString())),
   paidSubscribersOnly: z.nullable(z.boolean()),
   paidSubscribersOnlyEndsAt: z.nullable(

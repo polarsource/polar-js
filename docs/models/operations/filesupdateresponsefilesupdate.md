@@ -12,41 +12,41 @@ const value: components.DownloadableFileRead = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/sbin",
+  path: "/etc/periodic",
   mimeType: "<value>",
-  size: 123016,
+  size: 280590,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-06-15T19:50:49.445Z"),
+  lastModifiedAt: new Date("2023-02-28T04:59:02.197Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2023-06-30T02:38:21.936Z"),
+  createdAt: new Date("2022-10-27T21:46:55.611Z"),
   sizeReadable: "<value>",
 };
 ```
 
-### `components.ProductMediaFileReadOutput`
+### `components.ProductMediaFileRead`
 
 ```typescript
-const value: components.ProductMediaFileReadOutput = {
+const value: components.ProductMediaFileRead = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/lib",
+  path: "/home/user",
   mimeType: "<value>",
-  size: 592760,
+  size: 771146,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-05-19T09:53:34.032Z"),
+  lastModifiedAt: new Date("2022-12-27T14:26:27.740Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2022-12-26T01:49:51.159Z"),
+  createdAt: new Date("2022-05-04T07:32:27.021Z"),
   sizeReadable: "<value>",
-  publicUrl: "https://intent-viability.net",
+  publicUrl: "https://colorful-formation.org",
 };
 ```
 
@@ -57,19 +57,19 @@ const value: components.OrganizationAvatarFileRead = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/opt",
+  path: "/opt/bin",
   mimeType: "<value>",
-  size: 17747,
+  size: 632509,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2023-12-22T15:24:11.981Z"),
+  lastModifiedAt: new Date("2023-07-19T00:42:36.357Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2022-08-05T20:49:45.334Z"),
+  createdAt: new Date("2022-05-31T22:42:51.636Z"),
   sizeReadable: "<value>",
-  publicUrl: "https://victorious-zen.biz/",
+  publicUrl: "https://timely-bourgeoisie.net",
 };
 ```
 

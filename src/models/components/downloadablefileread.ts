@@ -17,6 +17,9 @@ export type DownloadableFileReadService = ClosedEnum<
  * File to be associated with the downloadables benefit.
  */
 export type DownloadableFileRead = {
+  /**
+   * The ID of the object.
+   */
   id: string;
   organizationId: string;
   name: string;

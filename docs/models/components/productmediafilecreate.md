@@ -10,13 +10,13 @@ import { ProductMediaFileCreate } from "@polar-sh/sdk/models/components";
 let value: ProductMediaFileCreate = {
   name: "<value>",
   mimeType: "<value>",
-  size: 141549,
+  size: 626424,
   upload: {
     parts: [
       {
-        number: 762643,
-        chunkStart: 566900,
-        chunkEnd: 563181,
+        number: 805607,
+        chunkStart: 295555,
+        chunkEnd: 500101,
       },
     ],
   },

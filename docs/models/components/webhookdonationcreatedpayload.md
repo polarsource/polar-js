@@ -11,46 +11,47 @@ import { WebhookDonationCreatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookDonationCreatedPayload = {
   data: {
-    createdAt: new Date("2024-04-29T11:11:06.519Z"),
-    modifiedAt: new Date("2023-01-17T20:56:10.200Z"),
+    createdAt: new Date("2022-12-02T00:07:54.191Z"),
+    modifiedAt: new Date("2022-11-24T08:56:53.231Z"),
     id: "<value>",
-    amount: 850288,
-    currency: "Kina",
+    amount: 747290,
+    currency: "Hryvnia",
     message: "<value>",
     donor: {
       id: "<value>",
-      publicName: "<value>",
-      avatarUrl: "https://overcooked-coin.org",
+      name: "<value>",
+      avatarUrl: "https://standard-sundae.net",
+      isPersonal: false,
     },
-    email: "Icie_Towne@yahoo.com",
+    email: "Antwan_Mraz50@gmail.com",
     issue: {
-      id: "40f14f9d-b021-47db-836b-ee86aaf787b5",
-      number: 556156,
+      id: "60a3b802-eed9-45fe-a018-b7263c86289a",
+      number: 41827,
       title: "<value>",
       state: "open",
-      issueCreatedAt: new Date("2024-03-30T19:29:14.034Z"),
+      issueCreatedAt: new Date("2023-02-12T18:04:44.177Z"),
       needsConfirmationSolved: false,
       funding: {},
       repository: {
-        id: "2dc62d51-8022-475b-a144-be78cdc41398",
+        id: "25078721-cb4a-4fd4-8208-7cc1f4590b3e",
         isPrivate: false,
         name: "MyOrg",
-        description: "avalanche whose dreamily",
+        description: "forenenst marathon um uh-huh kissingly that",
         stars: 1337,
         license: "<value>",
         homepage: "<value>",
         profileSettings: {},
         organization: {
-          id: "63c86289-ab06-4525-a078-721cb4afd420",
+          id: "60a32d87-c796-4e9e-bec8-a3edc03ecd64",
           name: "<value>",
-          avatarUrl: "https://skeletal-rule.com/",
+          avatarUrl: "https://frightened-eternity.org/",
           isPersonal: false,
           bio: "<value>",
           prettyName: "<value>",
-          company: "Gerhold, Hintz and Mayer",
+          company: "Sipes - Kreiger",
           blog: "<value>",
           location: "<value>",
-          email: "Meta.Von41@gmail.com",
+          email: "Krystina58@gmail.com",
           twitterUsername: "<value>",
           organizationId: "<value>",
         },
@@ -66,4 +67,4 @@ let value: WebhookDonationCreatedPayload = {
 | Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
 | `type`                                                                                                       | [components.WebhookDonationCreatedPayloadType](../../models/components/webhookdonationcreatedpayloadtype.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `data`                                                                                                       | [components.DonationInput](../../models/components/donationinput.md)                                         | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `data`                                                                                                       | [components.Donation](../../models/components/donation.md)                                                   | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

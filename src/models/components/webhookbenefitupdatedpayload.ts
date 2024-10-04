@@ -27,7 +27,7 @@ import {
   BenefitDiscordInput$inboundSchema,
   BenefitDiscordInput$Outbound,
   BenefitDiscordInput$outboundSchema,
-} from "./benefitdiscordinput.js";
+} from "./benefitdiscord.js";
 import {
   BenefitDownloadables,
   BenefitDownloadables$inboundSchema,
@@ -41,11 +41,11 @@ import {
   BenefitGitHubRepository$outboundSchema,
 } from "./benefitgithubrepository.js";
 import {
-  BenefitLicenseKeysInput,
-  BenefitLicenseKeysInput$inboundSchema,
-  BenefitLicenseKeysInput$Outbound,
-  BenefitLicenseKeysInput$outboundSchema,
-} from "./benefitlicensekeysinput.js";
+  BenefitLicenseKeys,
+  BenefitLicenseKeys$inboundSchema,
+  BenefitLicenseKeys$Outbound,
+  BenefitLicenseKeys$outboundSchema,
+} from "./benefitlicensekeys.js";
 
 export const WebhookBenefitUpdatedPayloadType = {
   BenefitUpdated: "benefit.updated",
@@ -60,7 +60,7 @@ export type WebhookBenefitUpdatedPayloadBenefit =
   | BenefitDiscordInput
   | BenefitGitHubRepository
   | BenefitDownloadables
-  | BenefitLicenseKeysInput
+  | BenefitLicenseKeys
   | BenefitCustom;
 
 /**
@@ -78,7 +78,7 @@ export type WebhookBenefitUpdatedPayload = {
     | BenefitDiscordInput
     | BenefitGitHubRepository
     | BenefitDownloadables
-    | BenefitLicenseKeysInput
+    | BenefitLicenseKeys
     | BenefitCustom;
 };
 
@@ -114,7 +114,7 @@ export const WebhookBenefitUpdatedPayloadBenefit$inboundSchema: z.ZodType<
   BenefitDiscordInput$inboundSchema,
   BenefitGitHubRepository$inboundSchema,
   BenefitDownloadables$inboundSchema,
-  BenefitLicenseKeysInput$inboundSchema,
+  BenefitLicenseKeys$inboundSchema,
   BenefitCustom$inboundSchema,
 ]);
 
@@ -125,7 +125,7 @@ export type WebhookBenefitUpdatedPayloadBenefit$Outbound =
   | BenefitDiscordInput$Outbound
   | BenefitGitHubRepository$Outbound
   | BenefitDownloadables$Outbound
-  | BenefitLicenseKeysInput$Outbound
+  | BenefitLicenseKeys$Outbound
   | BenefitCustom$Outbound;
 
 /** @internal */
@@ -139,7 +139,7 @@ export const WebhookBenefitUpdatedPayloadBenefit$outboundSchema: z.ZodType<
   BenefitDiscordInput$outboundSchema,
   BenefitGitHubRepository$outboundSchema,
   BenefitDownloadables$outboundSchema,
-  BenefitLicenseKeysInput$outboundSchema,
+  BenefitLicenseKeys$outboundSchema,
   BenefitCustom$outboundSchema,
 ]);
 
@@ -171,7 +171,7 @@ export const WebhookBenefitUpdatedPayload$inboundSchema: z.ZodType<
     BenefitDiscordInput$inboundSchema,
     BenefitGitHubRepository$inboundSchema,
     BenefitDownloadables$inboundSchema,
-    BenefitLicenseKeysInput$inboundSchema,
+    BenefitLicenseKeys$inboundSchema,
     BenefitCustom$inboundSchema,
   ]),
 });
@@ -185,7 +185,7 @@ export type WebhookBenefitUpdatedPayload$Outbound = {
     | BenefitDiscordInput$Outbound
     | BenefitGitHubRepository$Outbound
     | BenefitDownloadables$Outbound
-    | BenefitLicenseKeysInput$Outbound
+    | BenefitLicenseKeys$Outbound
     | BenefitCustom$Outbound;
 };
 
@@ -202,7 +202,7 @@ export const WebhookBenefitUpdatedPayload$outboundSchema: z.ZodType<
     BenefitDiscordInput$outboundSchema,
     BenefitGitHubRepository$outboundSchema,
     BenefitDownloadables$outboundSchema,
-    BenefitLicenseKeysInput$outboundSchema,
+    BenefitLicenseKeys$outboundSchema,
     BenefitCustom$outboundSchema,
   ]),
 });

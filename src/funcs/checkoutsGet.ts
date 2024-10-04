@@ -46,10 +46,8 @@ export async function checkoutsGet(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.CheckoutsGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

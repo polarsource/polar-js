@@ -47,10 +47,8 @@ export async function usersAdvertisementsUpdate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.UsersAdvertisementsUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",

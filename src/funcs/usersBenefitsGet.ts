@@ -46,10 +46,8 @@ export async function usersBenefitsGet(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.UsersBenefitsGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

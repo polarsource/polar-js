@@ -9,11 +9,11 @@ Benefit created.
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2024-05-15T16:43:38.676Z"),
-  modifiedAt: new Date("2022-12-14T17:12:44.022Z"),
+  createdAt: new Date("2022-05-10T17:03:48.644Z"),
+  modifiedAt: new Date("2022-01-28T14:36:19.330Z"),
   id: "<value>",
   description:
-    "criminal blink mortally so continually rebuke circa anticodon self-reliant yowza",
+    "across clamour wealthy for presume times mysterious soggy onto until",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -27,10 +27,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2024-03-22T10:05:33.577Z"),
-  modifiedAt: new Date("2024-06-18T19:59:01.294Z"),
+  createdAt: new Date("2024-06-29T04:50:59.216Z"),
+  modifiedAt: new Date("2022-03-05T11:14:44.230Z"),
   id: "<value>",
-  description: "amongst peony despite energetically quixotic",
+  description: "glow amused geez oval per",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -42,10 +42,11 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2024-07-15T12:28:05.877Z"),
-  modifiedAt: new Date("2024-05-02T17:32:01.787Z"),
+  createdAt: new Date("2024-05-15T16:43:38.676Z"),
+  modifiedAt: new Date("2022-12-14T17:12:44.022Z"),
   id: "<value>",
-  description: "brief where daintily role infatuated",
+  description:
+    "criminal blink mortally so continually rebuke circa anticodon self-reliant yowza",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -56,14 +57,14 @@ const value: components.BenefitCustom = {
 };
 ```
 
-### `components.BenefitDiscordOutput`
+### `components.BenefitDiscord`
 
 ```typescript
-const value: components.BenefitDiscordOutput = {
-  createdAt: new Date("2023-03-15T21:57:18.934Z"),
-  modifiedAt: new Date("2024-02-02T02:23:36.593Z"),
+const value: components.BenefitDiscord = {
+  createdAt: new Date("2024-03-22T10:05:33.577Z"),
+  modifiedAt: new Date("2024-06-18T19:59:01.294Z"),
   id: "<value>",
-  description: "suburban splash psst",
+  description: "amongst peony despite energetically quixotic",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -79,11 +80,10 @@ const value: components.BenefitDiscordOutput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2024-12-13T06:53:53.078Z"),
-  modifiedAt: new Date("2022-06-07T21:18:57.113Z"),
+  createdAt: new Date("2024-07-15T12:28:05.877Z"),
+  modifiedAt: new Date("2024-05-02T17:32:01.787Z"),
   id: "<value>",
-  description:
-    "what likewise whether whereas collectivization despite till crumble besides even",
+  description: "brief where daintily role infatuated",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -91,7 +91,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "maintain",
+    permission: "push",
   },
 };
 ```
@@ -100,10 +100,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2022-04-03T07:05:35.185Z"),
-  modifiedAt: new Date("2024-12-03T09:17:23.978Z"),
+  createdAt: new Date("2024-02-02T02:23:36.593Z"),
+  modifiedAt: new Date("2022-04-12T18:21:29.910Z"),
   id: "<value>",
-  description: "scamper safe excitedly gee beneath since phony daintily",
+  description: "pleasing about whack orient",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -118,29 +118,29 @@ const value: components.BenefitDownloadables = {
 };
 ```
 
-### `components.BenefitLicenseKeysOutput`
+### `components.BenefitLicenseKeys`
 
 ```typescript
-const value: components.BenefitLicenseKeysOutput = {
-  createdAt: new Date("2024-05-09T07:52:40.062Z"),
-  modifiedAt: new Date("2024-03-26T08:32:25.562Z"),
+const value: components.BenefitLicenseKeys = {
+  createdAt: new Date("2023-04-06T13:49:22.596Z"),
+  modifiedAt: new Date("2024-03-09T09:46:45.083Z"),
   id: "<value>",
   description:
-    "if deserted meh failing up subsidy except fax hence optimistically",
+    "furthermore conceal er anti browse develop freely summarise pick than",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 718187,
-      timeframe: "day",
+      ttl: 528742,
+      timeframe: "month",
     },
     activations: {
-      limit: 26321,
+      limit: 759451,
       enableUserAdmin: false,
     },
-    limitUsage: 718879,
+    limitUsage: 178201,
   },
 };
 ```

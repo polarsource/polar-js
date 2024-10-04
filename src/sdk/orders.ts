@@ -38,7 +38,7 @@ export class Orders extends ClientSDK {
   async get(
     request: operations.OrdersGetRequest,
     options?: RequestOptions,
-  ): Promise<components.OrderOutput> {
+  ): Promise<components.Order> {
     return unwrapAsync(ordersGet(
       this,
       request,

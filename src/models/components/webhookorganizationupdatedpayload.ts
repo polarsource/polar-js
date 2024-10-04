@@ -5,11 +5,11 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  OrganizationInput,
-  OrganizationInput$inboundSchema,
-  OrganizationInput$Outbound,
-  OrganizationInput$outboundSchema,
-} from "./organizationinput.js";
+  Organization,
+  Organization$inboundSchema,
+  Organization$Outbound,
+  Organization$outboundSchema,
+} from "./organization.js";
 
 export const WebhookOrganizationUpdatedPayloadType = {
   OrganizationUpdated: "organization.updated",
@@ -27,7 +27,7 @@ export type WebhookOrganizationUpdatedPayloadType = ClosedEnum<
  */
 export type WebhookOrganizationUpdatedPayload = {
   type?: "organization.updated" | undefined;
-  data: OrganizationInput;
+  data: Organization;
 };
 
 /** @internal */
@@ -61,13 +61,13 @@ export const WebhookOrganizationUpdatedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("organization.updated").optional(),
-  data: OrganizationInput$inboundSchema,
+  data: Organization$inboundSchema,
 });
 
 /** @internal */
 export type WebhookOrganizationUpdatedPayload$Outbound = {
   type: "organization.updated";
-  data: OrganizationInput$Outbound;
+  data: Organization$Outbound;
 };
 
 /** @internal */
@@ -77,7 +77,7 @@ export const WebhookOrganizationUpdatedPayload$outboundSchema: z.ZodType<
   WebhookOrganizationUpdatedPayload
 > = z.object({
   type: z.literal("organization.updated").default("organization.updated"),
-  data: OrganizationInput$outboundSchema,
+  data: Organization$outboundSchema,
 });
 
 /**

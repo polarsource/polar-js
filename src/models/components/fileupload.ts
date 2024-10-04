@@ -17,6 +17,9 @@ import {
 } from "./s3fileuploadmultipart.js";
 
 export type FileUpload = {
+  /**
+   * The ID of the object.
+   */
   id: string;
   organizationId: string;
   name: string;

@@ -47,10 +47,8 @@ export async function ordersInvoice(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.OrdersInvoiceRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

@@ -8,7 +8,7 @@ Filter by visibility.
 ### `components.ArticleVisibility`
 
 ```typescript
-const value: components.ArticleVisibility = "public";
+const value: components.ArticleVisibility = "hidden";
 ```
 
 ### `components.ArticleVisibility[]`

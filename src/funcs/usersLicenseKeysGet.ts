@@ -48,10 +48,8 @@ export async function usersLicenseKeysGet(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.UsersLicenseKeysGetRequest$outboundSchema.parse(value),
     "Input validation failed",

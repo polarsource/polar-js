@@ -17,6 +17,9 @@ export type OrganizationAvatarFileReadService = ClosedEnum<
  * File to be used as an organization avatar.
  */
 export type OrganizationAvatarFileRead = {
+  /**
+   * The ID of the object.
+   */
   id: string;
   organizationId: string;
   name: string;

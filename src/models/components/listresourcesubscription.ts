@@ -10,14 +10,14 @@ import {
   Pagination$outboundSchema,
 } from "./pagination.js";
 import {
-  SubscriptionOutput,
-  SubscriptionOutput$inboundSchema,
-  SubscriptionOutput$Outbound,
-  SubscriptionOutput$outboundSchema,
-} from "./subscriptionoutput.js";
+  Subscription,
+  Subscription$inboundSchema,
+  Subscription$Outbound,
+  Subscription$outboundSchema,
+} from "./subscription.js";
 
 export type ListResourceSubscription = {
-  items: Array<SubscriptionOutput>;
+  items: Array<Subscription>;
   pagination: Pagination;
 };
 
@@ -27,13 +27,13 @@ export const ListResourceSubscription$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  items: z.array(SubscriptionOutput$inboundSchema),
+  items: z.array(Subscription$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
 
 /** @internal */
 export type ListResourceSubscription$Outbound = {
-  items: Array<SubscriptionOutput$Outbound>;
+  items: Array<Subscription$Outbound>;
   pagination: Pagination$Outbound;
 };
 
@@ -43,7 +43,7 @@ export const ListResourceSubscription$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListResourceSubscription
 > = z.object({
-  items: z.array(SubscriptionOutput$outboundSchema),
+  items: z.array(Subscription$outboundSchema),
   pagination: Pagination$outboundSchema,
 });
 

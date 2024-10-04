@@ -45,10 +45,8 @@ export async function articlesCreate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => components.ArticleCreate$outboundSchema.parse(value),
     "Input validation failed",
   );

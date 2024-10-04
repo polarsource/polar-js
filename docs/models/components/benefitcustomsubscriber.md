@@ -6,17 +6,17 @@
 import { BenefitCustomSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitCustomSubscriber = {
-  createdAt: new Date("2023-01-21T05:01:58.399Z"),
-  modifiedAt: new Date("2023-07-15T22:33:35.122Z"),
+  createdAt: new Date("2024-09-08T05:53:16.779Z"),
+  modifiedAt: new Date("2022-04-16T11:56:12.784Z"),
   id: "<value>",
-  description: "ew mmm zowie",
+  description: "like majestically because weatherize airbrush",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   grants: [
     {
-      createdAt: new Date("2022-04-16T11:56:12.784Z"),
-      modifiedAt: new Date("2023-02-13T17:25:18.235Z"),
+      createdAt: new Date("2022-12-01T14:02:12.234Z"),
+      modifiedAt: new Date("2024-07-31T23:30:59.516Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,

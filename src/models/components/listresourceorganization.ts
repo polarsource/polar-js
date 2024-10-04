@@ -4,11 +4,11 @@
 
 import * as z from "zod";
 import {
-  OrganizationOutput,
-  OrganizationOutput$inboundSchema,
-  OrganizationOutput$Outbound,
-  OrganizationOutput$outboundSchema,
-} from "./organizationoutput.js";
+  Organization,
+  Organization$inboundSchema,
+  Organization$Outbound,
+  Organization$outboundSchema,
+} from "./organization.js";
 import {
   Pagination,
   Pagination$inboundSchema,
@@ -17,7 +17,7 @@ import {
 } from "./pagination.js";
 
 export type ListResourceOrganization = {
-  items: Array<OrganizationOutput>;
+  items: Array<Organization>;
   pagination: Pagination;
 };
 
@@ -27,13 +27,13 @@ export const ListResourceOrganization$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  items: z.array(OrganizationOutput$inboundSchema),
+  items: z.array(Organization$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
 
 /** @internal */
 export type ListResourceOrganization$Outbound = {
-  items: Array<OrganizationOutput$Outbound>;
+  items: Array<Organization$Outbound>;
   pagination: Pagination$Outbound;
 };
 
@@ -43,7 +43,7 @@ export const ListResourceOrganization$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListResourceOrganization
 > = z.object({
-  items: z.array(OrganizationOutput$outboundSchema),
+  items: z.array(Organization$outboundSchema),
   pagination: Pagination$outboundSchema,
 });
 

@@ -5,7 +5,7 @@
 ```typescript
 import { OrderSortProperty } from "@polar-sh/sdk/models/components";
 
-let value: OrderSortProperty = "user";
+let value: OrderSortProperty = "-created_at";
 ```
 
 ## Values

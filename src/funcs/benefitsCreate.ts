@@ -45,10 +45,8 @@ export async function benefitsCreate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.BenefitsCreateBenefitCreate$outboundSchema.parse(value),
     "Input validation failed",

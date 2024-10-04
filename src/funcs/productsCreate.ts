@@ -35,7 +35,7 @@ export async function productsCreate(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.ProductOutput,
+    components.Product,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -46,10 +46,8 @@ export async function productsCreate(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.ProductsCreateProductCreate$outboundSchema.parse(value),
     "Input validation failed",
@@ -106,7 +104,7 @@ export async function productsCreate(
   };
 
   const [result] = await M.match<
-    components.ProductOutput,
+    components.Product,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -116,7 +114,7 @@ export async function productsCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(201, components.ProductOutput$inboundSchema),
+    M.json(201, components.Product$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),
   )(response, { extraFields: responseFields });

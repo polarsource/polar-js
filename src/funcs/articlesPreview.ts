@@ -48,10 +48,8 @@ export async function articlesPreview(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.ArticlesPreviewRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

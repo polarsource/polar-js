@@ -35,7 +35,7 @@ export async function ordersGet(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.OrderOutput,
+    components.Order,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -47,10 +47,8 @@ export async function ordersGet(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.OrdersGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
@@ -112,7 +110,7 @@ export async function ordersGet(
   };
 
   const [result] = await M.match<
-    components.OrderOutput,
+    components.Order,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -123,7 +121,7 @@ export async function ordersGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.OrderOutput$inboundSchema),
+    M.json(200, components.Order$inboundSchema),
     M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),

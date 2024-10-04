@@ -22,11 +22,11 @@ import {
   BenefitCustom$outboundSchema,
 } from "./benefitcustom.js";
 import {
-  BenefitDiscordOutput,
-  BenefitDiscordOutput$inboundSchema,
-  BenefitDiscordOutput$Outbound,
-  BenefitDiscordOutput$outboundSchema,
-} from "./benefitdiscordoutput.js";
+  BenefitDiscord,
+  BenefitDiscord$inboundSchema,
+  BenefitDiscord$Outbound,
+  BenefitDiscord$outboundSchema,
+} from "./benefitdiscord.js";
 import {
   BenefitDownloadables,
   BenefitDownloadables$inboundSchema,
@@ -40,11 +40,11 @@ import {
   BenefitGitHubRepository$outboundSchema,
 } from "./benefitgithubrepository.js";
 import {
-  BenefitLicenseKeysOutput,
-  BenefitLicenseKeysOutput$inboundSchema,
-  BenefitLicenseKeysOutput$Outbound,
-  BenefitLicenseKeysOutput$outboundSchema,
-} from "./benefitlicensekeysoutput.js";
+  BenefitLicenseKeys,
+  BenefitLicenseKeys$inboundSchema,
+  BenefitLicenseKeys$Outbound,
+  BenefitLicenseKeys$outboundSchema,
+} from "./benefitlicensekeys.js";
 import {
   Pagination,
   Pagination$inboundSchema,
@@ -55,20 +55,20 @@ import {
 export type Benefit =
   | BenefitArticles
   | BenefitAds
-  | BenefitDiscordOutput
+  | BenefitDiscord
   | BenefitGitHubRepository
   | BenefitDownloadables
-  | BenefitLicenseKeysOutput
+  | BenefitLicenseKeys
   | BenefitCustom;
 
 export type ListResourceBenefit = {
   items: Array<
     | BenefitArticles
     | BenefitAds
-    | BenefitDiscordOutput
+    | BenefitDiscord
     | BenefitGitHubRepository
     | BenefitDownloadables
-    | BenefitLicenseKeysOutput
+    | BenefitLicenseKeys
     | BenefitCustom
   >;
   pagination: Pagination;
@@ -79,10 +79,10 @@ export const Benefit$inboundSchema: z.ZodType<Benefit, z.ZodTypeDef, unknown> =
   z.union([
     BenefitArticles$inboundSchema,
     BenefitAds$inboundSchema,
-    BenefitDiscordOutput$inboundSchema,
+    BenefitDiscord$inboundSchema,
     BenefitGitHubRepository$inboundSchema,
     BenefitDownloadables$inboundSchema,
-    BenefitLicenseKeysOutput$inboundSchema,
+    BenefitLicenseKeys$inboundSchema,
     BenefitCustom$inboundSchema,
   ]);
 
@@ -90,10 +90,10 @@ export const Benefit$inboundSchema: z.ZodType<Benefit, z.ZodTypeDef, unknown> =
 export type Benefit$Outbound =
   | BenefitArticles$Outbound
   | BenefitAds$Outbound
-  | BenefitDiscordOutput$Outbound
+  | BenefitDiscord$Outbound
   | BenefitGitHubRepository$Outbound
   | BenefitDownloadables$Outbound
-  | BenefitLicenseKeysOutput$Outbound
+  | BenefitLicenseKeys$Outbound
   | BenefitCustom$Outbound;
 
 /** @internal */
@@ -104,10 +104,10 @@ export const Benefit$outboundSchema: z.ZodType<
 > = z.union([
   BenefitArticles$outboundSchema,
   BenefitAds$outboundSchema,
-  BenefitDiscordOutput$outboundSchema,
+  BenefitDiscord$outboundSchema,
   BenefitGitHubRepository$outboundSchema,
   BenefitDownloadables$outboundSchema,
-  BenefitLicenseKeysOutput$outboundSchema,
+  BenefitLicenseKeys$outboundSchema,
   BenefitCustom$outboundSchema,
 ]);
 
@@ -134,10 +134,10 @@ export const ListResourceBenefit$inboundSchema: z.ZodType<
     z.union([
       BenefitArticles$inboundSchema,
       BenefitAds$inboundSchema,
-      BenefitDiscordOutput$inboundSchema,
+      BenefitDiscord$inboundSchema,
       BenefitGitHubRepository$inboundSchema,
       BenefitDownloadables$inboundSchema,
-      BenefitLicenseKeysOutput$inboundSchema,
+      BenefitLicenseKeys$inboundSchema,
       BenefitCustom$inboundSchema,
     ]),
   ),
@@ -149,10 +149,10 @@ export type ListResourceBenefit$Outbound = {
   items: Array<
     | BenefitArticles$Outbound
     | BenefitAds$Outbound
-    | BenefitDiscordOutput$Outbound
+    | BenefitDiscord$Outbound
     | BenefitGitHubRepository$Outbound
     | BenefitDownloadables$Outbound
-    | BenefitLicenseKeysOutput$Outbound
+    | BenefitLicenseKeys$Outbound
     | BenefitCustom$Outbound
   >;
   pagination: Pagination$Outbound;
@@ -168,10 +168,10 @@ export const ListResourceBenefit$outboundSchema: z.ZodType<
     z.union([
       BenefitArticles$outboundSchema,
       BenefitAds$outboundSchema,
-      BenefitDiscordOutput$outboundSchema,
+      BenefitDiscord$outboundSchema,
       BenefitGitHubRepository$outboundSchema,
       BenefitDownloadables$outboundSchema,
-      BenefitLicenseKeysOutput$outboundSchema,
+      BenefitLicenseKeys$outboundSchema,
       BenefitCustom$outboundSchema,
     ]),
   ),

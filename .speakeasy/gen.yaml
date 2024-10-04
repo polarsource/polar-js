@@ -15,7 +15,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
 typescript:
-  version: 0.11.1
+  version: 0.12.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -26,6 +26,7 @@ typescript:
   enumFormat: union
   envVarPrefix: POLAR
   flattenGlobalSecurity: true
+  flatteningOrder: body-first
   imports:
     option: openapi
     paths:

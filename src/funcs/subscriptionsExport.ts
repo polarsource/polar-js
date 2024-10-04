@@ -46,10 +46,8 @@ export async function subscriptionsExport(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.SubscriptionsExportRequest$outboundSchema.parse(value),
     "Input validation failed",
