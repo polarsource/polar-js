@@ -40,6 +40,7 @@ export type UserOrderSubscription = {
   userId: string;
   productId: string;
   priceId: string;
+  checkoutId: string | null;
 };
 
 /** @internal */
@@ -73,6 +74,7 @@ export const UserOrderSubscription$inboundSchema: z.ZodType<
   user_id: z.string(),
   product_id: z.string(),
   price_id: z.string(),
+  checkout_id: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -86,6 +88,7 @@ export const UserOrderSubscription$inboundSchema: z.ZodType<
     "user_id": "userId",
     "product_id": "productId",
     "price_id": "priceId",
+    "checkout_id": "checkoutId",
   });
 });
 
@@ -106,6 +109,7 @@ export type UserOrderSubscription$Outbound = {
   user_id: string;
   product_id: string;
   price_id: string;
+  checkout_id: string | null;
 };
 
 /** @internal */
@@ -129,6 +133,7 @@ export const UserOrderSubscription$outboundSchema: z.ZodType<
   userId: z.string(),
   productId: z.string(),
   priceId: z.string(),
+  checkoutId: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -142,6 +147,7 @@ export const UserOrderSubscription$outboundSchema: z.ZodType<
     userId: "user_id",
     productId: "product_id",
     priceId: "price_id",
+    checkoutId: "checkout_id",
   });
 });
 

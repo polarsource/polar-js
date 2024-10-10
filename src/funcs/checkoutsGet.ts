@@ -28,6 +28,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get an active checkout session by ID.
+ *
+ * @deprecated method: This API is deprecated. We recommend you to use the new custom checkout API, which is more flexible and powerful. Please refer to the documentation for more information..
  */
 export async function checkoutsGet(
   client: PolarCore,
@@ -35,7 +37,7 @@ export async function checkoutsGet(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.Checkout,
+    components.PolarCheckoutLegacySchemasCheckout,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -109,7 +111,7 @@ export async function checkoutsGet(
   };
 
   const [result] = await M.match<
-    components.Checkout,
+    components.PolarCheckoutLegacySchemasCheckout,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -119,7 +121,7 @@ export async function checkoutsGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.Checkout$inboundSchema),
+    M.json(200, components.PolarCheckoutLegacySchemasCheckout$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),
   )(response, { extraFields: responseFields });

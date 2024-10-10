@@ -27,14 +27,16 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a checkout session.
+ *
+ * @deprecated method: This API is deprecated. We recommend you to use the new custom checkout API, which is more flexible and powerful. Please refer to the documentation for more information.. Use create instead.
  */
 export async function checkoutsCreate(
   client: PolarCore,
-  request: components.CheckoutCreate,
+  request: components.PolarCheckoutLegacySchemasCheckoutCreate,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.Checkout,
+    components.PolarCheckoutLegacySchemasCheckout,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -47,7 +49,10 @@ export async function checkoutsCreate(
 > {
   const parsed = safeParse(
     request,
-    (value) => components.CheckoutCreate$outboundSchema.parse(value),
+    (value) =>
+      components.PolarCheckoutLegacySchemasCheckoutCreate$outboundSchema.parse(
+        value,
+      ),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -102,7 +107,7 @@ export async function checkoutsCreate(
   };
 
   const [result] = await M.match<
-    components.Checkout,
+    components.PolarCheckoutLegacySchemasCheckout,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -112,7 +117,7 @@ export async function checkoutsCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(201, components.Checkout$inboundSchema),
+    M.json(201, components.PolarCheckoutLegacySchemasCheckout$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),
   )(response, { extraFields: responseFields });

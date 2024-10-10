@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://standard-morning.info/",
+        "https://noxious-intent.name",
       ],
       clientName: "<value>",
-      createdAt: new Date("2022-06-22T12:10:56.971Z"),
-      modifiedAt: new Date("2022-01-02T12:01:15.395Z"),
+      createdAt: new Date("2022-09-12T10:14:23.290Z"),
+      modifiedAt: new Date("2023-07-26T10:28:21.576Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 383114,
-      clientSecretExpiresAt: 406720,
+      clientIdIssuedAt: 350037,
+      clientSecretExpiresAt: 108918,
     },
   ],
   pagination: {
-    totalCount: 363891,
-    maxPage: 802404,
+    totalCount: 791499,
+    maxPage: 360795,
   },
 };
 ```

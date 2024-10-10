@@ -24,6 +24,10 @@ let value: SubscriptionsListResponse = {
         userId: "<value>",
         productId: "<value>",
         priceId: "<value>",
+        checkoutId: "<value>",
+        metadata: {
+          "key": "<value>",
+        },
         user: {
           email: "Kenny_Heaney@hotmail.com",
           publicName: "<value>",

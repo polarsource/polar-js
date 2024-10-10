@@ -6,11 +6,11 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  BenefitCustomProperties,
-  BenefitCustomProperties$inboundSchema,
-  BenefitCustomProperties$Outbound,
-  BenefitCustomProperties$outboundSchema,
-} from "./benefitcustomproperties.js";
+  BenefitCustomCreateProperties,
+  BenefitCustomCreateProperties$inboundSchema,
+  BenefitCustomCreateProperties$Outbound,
+  BenefitCustomCreateProperties$outboundSchema,
+} from "./benefitcustomcreateproperties.js";
 
 export const BenefitCustomCreateType = {
   Custom: "custom",
@@ -37,9 +37,9 @@ export type BenefitCustomCreate = {
    */
   isTaxApplicable: boolean;
   /**
-   * Properties for a benefit of type `custom`.
+   * Properties for creating a benefit of type `custom`.
    */
-  properties: BenefitCustomProperties;
+  properties: BenefitCustomCreateProperties;
 };
 
 /** @internal */
@@ -73,7 +73,7 @@ export const BenefitCustomCreate$inboundSchema: z.ZodType<
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
   is_tax_applicable: z.boolean(),
-  properties: BenefitCustomProperties$inboundSchema,
+  properties: BenefitCustomCreateProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -87,7 +87,7 @@ export type BenefitCustomCreate$Outbound = {
   description: string;
   organization_id?: string | null | undefined;
   is_tax_applicable: boolean;
-  properties: BenefitCustomProperties$Outbound;
+  properties: BenefitCustomCreateProperties$Outbound;
 };
 
 /** @internal */
@@ -100,7 +100,7 @@ export const BenefitCustomCreate$outboundSchema: z.ZodType<
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   isTaxApplicable: z.boolean(),
-  properties: BenefitCustomProperties$outboundSchema,
+  properties: BenefitCustomCreateProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",

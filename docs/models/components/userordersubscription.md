@@ -6,21 +6,22 @@
 import { UserOrderSubscription } from "@polar-sh/sdk/models/components";
 
 let value: UserOrderSubscription = {
-  createdAt: new Date("2024-06-01T11:05:48.197Z"),
-  modifiedAt: new Date("2023-12-28T02:03:10.092Z"),
+  createdAt: new Date("2022-12-27T10:09:19.664Z"),
+  modifiedAt: new Date("2023-10-21T14:56:09.707Z"),
   id: "<value>",
-  amount: 173265,
-  currency: "Czech Koruna",
-  recurringInterval: "year",
+  amount: 315990,
+  currency: "Saint Helena Pound",
+  recurringInterval: "month",
   status: "trialing",
-  currentPeriodStart: new Date("2023-05-06T14:43:53.661Z"),
-  currentPeriodEnd: new Date("2023-03-05T16:26:01.578Z"),
+  currentPeriodStart: new Date("2024-01-04T10:27:21.788Z"),
+  currentPeriodEnd: new Date("2023-10-23T19:31:34.443Z"),
   cancelAtPeriodEnd: false,
-  startedAt: new Date("2022-02-27T00:35:31.829Z"),
-  endedAt: new Date("2024-02-12T05:06:25.414Z"),
+  startedAt: new Date("2022-05-11T23:44:19.772Z"),
+  endedAt: new Date("2023-04-27T15:54:38.748Z"),
   userId: "<value>",
   productId: "<value>",
   priceId: "<value>",
+  checkoutId: "<value>",
 };
 ```
 
@@ -43,3 +44,4 @@ let value: UserOrderSubscription = {
 | `userId`                                                                                             | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `productId`                                                                                          | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `priceId`                                                                                            | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `checkoutId`                                                                                         | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

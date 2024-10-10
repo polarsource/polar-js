@@ -20,7 +20,7 @@ import {
 /**
  * A checkout session.
  */
-export type Checkout = {
+export type PolarCheckoutLegacySchemasCheckout = {
   /**
    * The ID of the checkout.
    */
@@ -39,8 +39,8 @@ export type Checkout = {
 };
 
 /** @internal */
-export const Checkout$inboundSchema: z.ZodType<
-  Checkout,
+export const PolarCheckoutLegacySchemasCheckout$inboundSchema: z.ZodType<
+  PolarCheckoutLegacySchemasCheckout,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -59,7 +59,7 @@ export const Checkout$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type Checkout$Outbound = {
+export type PolarCheckoutLegacySchemasCheckout$Outbound = {
   id: string;
   url?: string | null | undefined;
   customer_email: string | null;
@@ -69,10 +69,10 @@ export type Checkout$Outbound = {
 };
 
 /** @internal */
-export const Checkout$outboundSchema: z.ZodType<
-  Checkout$Outbound,
+export const PolarCheckoutLegacySchemasCheckout$outboundSchema: z.ZodType<
+  PolarCheckoutLegacySchemasCheckout$Outbound,
   z.ZodTypeDef,
-  Checkout
+  PolarCheckoutLegacySchemasCheckout
 > = z.object({
   id: z.string(),
   url: z.nullable(z.string()).optional(),
@@ -92,11 +92,12 @@ export const Checkout$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Checkout$ {
-  /** @deprecated use `Checkout$inboundSchema` instead. */
-  export const inboundSchema = Checkout$inboundSchema;
-  /** @deprecated use `Checkout$outboundSchema` instead. */
-  export const outboundSchema = Checkout$outboundSchema;
-  /** @deprecated use `Checkout$Outbound` instead. */
-  export type Outbound = Checkout$Outbound;
+export namespace PolarCheckoutLegacySchemasCheckout$ {
+  /** @deprecated use `PolarCheckoutLegacySchemasCheckout$inboundSchema` instead. */
+  export const inboundSchema = PolarCheckoutLegacySchemasCheckout$inboundSchema;
+  /** @deprecated use `PolarCheckoutLegacySchemasCheckout$outboundSchema` instead. */
+  export const outboundSchema =
+    PolarCheckoutLegacySchemasCheckout$outboundSchema;
+  /** @deprecated use `PolarCheckoutLegacySchemasCheckout$Outbound` instead. */
+  export type Outbound = PolarCheckoutLegacySchemasCheckout$Outbound;
 }

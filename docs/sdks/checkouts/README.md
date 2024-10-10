@@ -5,12 +5,14 @@
 
 ### Available Operations
 
-* [create](#create) - Create Checkout
-* [get](#get) - Get Checkout
+* [~~create~~](#create) - Create Checkout :warning: **Deprecated** Use `create` instead.
+* [~~get~~](#get) - Get Checkout :warning: **Deprecated**
 
-## create
+## ~~create~~
 
 Create a checkout session.
+
+> :warning: **DEPRECATED**: This API is deprecated. We recommend you to use the new custom checkout API, which is more flexible and powerful. Please refer to the documentation for more information.. Use `create` instead.
 
 ### Example Usage
 
@@ -71,14 +73,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [components.CheckoutCreate](../../models/components/checkoutcreate.md)                                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [components.PolarCheckoutLegacySchemasCheckoutCreate](../../models/components/polarcheckoutlegacyschemascheckoutcreate.md)                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.Checkout](../../models/components/checkout.md)\>**
+**Promise\<[components.PolarCheckoutLegacySchemasCheckout](../../models/components/polarcheckoutlegacyschemascheckout.md)\>**
 
 ### Errors
 
@@ -87,9 +89,11 @@ run();
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
-## get
+## ~~get~~
 
 Get an active checkout session by ID.
+
+> :warning: **DEPRECATED**: This API is deprecated. We recommend you to use the new custom checkout API, which is more flexible and powerful. Please refer to the documentation for more information..
 
 ### Example Usage
 
@@ -155,7 +159,7 @@ run();
 
 ### Response
 
-**Promise\<[components.Checkout](../../models/components/checkout.md)\>**
+**Promise\<[components.PolarCheckoutLegacySchemasCheckout](../../models/components/polarcheckoutlegacyschemascheckout.md)\>**
 
 ### Errors
 

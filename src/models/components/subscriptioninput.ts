@@ -58,6 +58,8 @@ export type SubscriptionInput = {
   userId: string;
   productId: string;
   priceId: string;
+  checkoutId: string | null;
+  metadata: { [k: string]: string };
   user: SubscriptionUser;
   /**
    * A product.
@@ -97,6 +99,8 @@ export const SubscriptionInput$inboundSchema: z.ZodType<
   user_id: z.string(),
   product_id: z.string(),
   price_id: z.string(),
+  checkout_id: z.nullable(z.string()),
+  metadata: z.record(z.string()),
   user: SubscriptionUser$inboundSchema,
   product: ProductInput$inboundSchema,
   price: ProductPriceRecurring$inboundSchema,
@@ -113,6 +117,7 @@ export const SubscriptionInput$inboundSchema: z.ZodType<
     "user_id": "userId",
     "product_id": "productId",
     "price_id": "priceId",
+    "checkout_id": "checkoutId",
   });
 });
 
@@ -133,6 +138,8 @@ export type SubscriptionInput$Outbound = {
   user_id: string;
   product_id: string;
   price_id: string;
+  checkout_id: string | null;
+  metadata: { [k: string]: string };
   user: SubscriptionUser$Outbound;
   product: ProductInput$Outbound;
   price: ProductPriceRecurring$Outbound;
@@ -159,6 +166,8 @@ export const SubscriptionInput$outboundSchema: z.ZodType<
   userId: z.string(),
   productId: z.string(),
   priceId: z.string(),
+  checkoutId: z.nullable(z.string()),
+  metadata: z.record(z.string()),
   user: SubscriptionUser$outboundSchema,
   product: ProductInput$outboundSchema,
   price: ProductPriceRecurring$outboundSchema,
@@ -175,6 +184,7 @@ export const SubscriptionInput$outboundSchema: z.ZodType<
     userId: "user_id",
     productId: "product_id",
     priceId: "price_id",
+    checkoutId: "checkout_id",
   });
 });
 

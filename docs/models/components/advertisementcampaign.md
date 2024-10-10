@@ -6,13 +6,13 @@
 import { AdvertisementCampaign } from "@polar-sh/sdk/models/components";
 
 let value: AdvertisementCampaign = {
-  createdAt: new Date("2023-05-10T19:25:16.453Z"),
-  modifiedAt: new Date("2022-05-17T04:51:00.615Z"),
+  createdAt: new Date("2024-08-30T20:05:14.177Z"),
+  modifiedAt: new Date("2024-08-16T19:55:21.868Z"),
   id: "<value>",
-  imageUrl: "https://appropriate-horst.biz",
-  imageUrlDark: "https://comfortable-intent.info",
+  imageUrl: "https://square-fowl.org/",
+  imageUrlDark: "https://narrow-interior.name",
   text: "<value>",
-  linkUrl: "https://noxious-intent.name",
+  linkUrl: "https://brown-governance.net/",
 };
 ```
 

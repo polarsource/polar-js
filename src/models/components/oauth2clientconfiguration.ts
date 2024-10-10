@@ -131,7 +131,7 @@ export const OAuth2ClientConfiguration$inboundSchema: z.ZodType<
   response_types: z.array(OAuth2ClientConfigurationResponseTypes$inboundSchema)
     .optional(),
   scope: z.string().default(
-    "openid profile email user:read organizations:read organizations:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write orders:read metrics:read articles:read articles:write webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write user:benefits:read user:orders:read user:subscriptions:read user:subscriptions:write user:downloadables:read user:license_keys:read user:advertisement_campaigns:read user:advertisement_campaigns:write",
+    "openid profile email user:read organizations:read organizations:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write orders:read metrics:read articles:read articles:write webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write user:benefits:read user:orders:read user:subscriptions:read user:subscriptions:write user:downloadables:read user:license_keys:read user:advertisement_campaigns:read user:advertisement_campaigns:write",
   ),
   client_name: z.string(),
   client_uri: z.nullable(z.string()).optional(),
@@ -182,7 +182,7 @@ export const OAuth2ClientConfiguration$outboundSchema: z.ZodType<
   responseTypes: z.array(OAuth2ClientConfigurationResponseTypes$outboundSchema)
     .optional(),
   scope: z.string().default(
-    "openid profile email user:read organizations:read organizations:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write orders:read metrics:read articles:read articles:write webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write user:benefits:read user:orders:read user:subscriptions:read user:subscriptions:write user:downloadables:read user:license_keys:read user:advertisement_campaigns:read user:advertisement_campaigns:write",
+    "openid profile email user:read organizations:read organizations:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write orders:read metrics:read articles:read articles:write webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write user:benefits:read user:orders:read user:subscriptions:read user:subscriptions:write user:downloadables:read user:license_keys:read user:advertisement_campaigns:read user:advertisement_campaigns:write",
   ),
   clientName: z.string(),
   clientUri: z.nullable(z.string()).optional(),

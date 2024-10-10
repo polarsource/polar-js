@@ -7,10 +7,10 @@
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2023-12-05T12:38:16.171Z"),
-  modifiedAt: new Date("2024-03-26T01:16:01.791Z"),
+  createdAt: new Date("2023-10-05T18:49:29.270Z"),
+  modifiedAt: new Date("2022-08-03T12:20:45.785Z"),
   id: "<value>",
-  description: "furthermore moisten save miserably",
+  description: "anti aha insecure",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -24,10 +24,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2023-10-14T21:42:37.950Z"),
-  modifiedAt: new Date("2024-12-25T09:41:05.009Z"),
+  createdAt: new Date("2022-09-27T02:40:17.105Z"),
+  modifiedAt: new Date("2023-08-09T23:08:17.211Z"),
   id: "<value>",
-  description: "settle optimistically usually impossible",
+  description: "aw coal authorized easily duh enraged proofread blah",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -39,10 +39,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2023-03-09T12:25:01.078Z"),
-  modifiedAt: new Date("2022-03-04T00:35:23.029Z"),
+  createdAt: new Date("2022-05-15T08:58:24.746Z"),
+  modifiedAt: new Date("2023-09-23T02:19:05.190Z"),
   id: "<value>",
-  description: "frizz brr finally",
+  description: "trick home yet",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -57,10 +57,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscordInput = {
-  createdAt: new Date("2022-09-09T01:12:27.136Z"),
-  modifiedAt: new Date("2023-03-01T16:21:02.065Z"),
+  createdAt: new Date("2023-03-06T12:55:25.684Z"),
+  modifiedAt: new Date("2024-04-17T01:22:49.265Z"),
   id: "<value>",
-  description: "fervently toward among hot rebel per oof so drat",
+  description: "physically intently briefly tough reboot terribly astride next",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -75,10 +75,10 @@ const value: components.BenefitDiscordInput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2022-10-07T17:52:57.869Z"),
-  modifiedAt: new Date("2022-07-08T09:04:33.014Z"),
+  createdAt: new Date("2023-09-29T03:10:30.785Z"),
+  modifiedAt: new Date("2024-07-04T11:41:05.814Z"),
   id: "<value>",
-  description: "fatally disbar repeatedly lest",
+  description: "insist ah meh provision lively dishonor off twine brr",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -95,10 +95,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2022-06-24T10:06:58.141Z"),
-  modifiedAt: new Date("2023-06-25T17:19:29.498Z"),
+  createdAt: new Date("2022-03-07T05:39:05.938Z"),
+  modifiedAt: new Date("2023-12-25T08:53:12.327Z"),
   id: "<value>",
-  description: "yippee inasmuch off doubtfully gadzooks minus",
+  description: "stoop that form hospitable consequently",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -117,25 +117,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2022-03-22T03:07:22.809Z"),
-  modifiedAt: new Date("2023-05-12T13:10:25.231Z"),
+  createdAt: new Date("2024-07-13T10:03:43.619Z"),
+  modifiedAt: new Date("2024-08-01T05:59:09.495Z"),
   id: "<value>",
-  description:
-    "mortar what sans during continually impossible until so elver very",
+  description: "last extent embed antique at offset extremely",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 226263,
-      timeframe: "month",
+      ttl: 483090,
+      timeframe: "year",
     },
     activations: {
-      limit: 641688,
+      limit: 100544,
       enableUserAdmin: false,
     },
-    limitUsage: 496702,
+    limitUsage: 518508,
   },
 };
 ```
