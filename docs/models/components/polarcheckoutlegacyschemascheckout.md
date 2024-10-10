@@ -1,43 +1,43 @@
-# Checkout
+# PolarCheckoutLegacySchemasCheckout
 
 A checkout session.
 
 ## Example Usage
 
 ```typescript
-import { Checkout } from "@polar-sh/sdk/models/components";
+import { PolarCheckoutLegacySchemasCheckout } from "@polar-sh/sdk/models/components";
 
-let value: Checkout = {
+let value: PolarCheckoutLegacySchemasCheckout = {
   id: "<id>",
   customerEmail: "<value>",
   customerName: "<value>",
   product: {
-    createdAt: new Date("2022-05-18T14:05:23.081Z"),
-    modifiedAt: new Date("2023-06-19T17:26:23.980Z"),
+    createdAt: new Date("2023-01-19T13:22:59.390Z"),
+    modifiedAt: new Date("2023-03-24T08:43:04.460Z"),
     id: "<value>",
     name: "<value>",
-    description: "how subdued legal wildly clamor sun duh slowly",
+    description:
+      "glittering parched now fashion judgementally yak through excitedly steep",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2024-06-06T07:40:09.796Z"),
-        modifiedAt: new Date("2024-04-21T01:22:42.197Z"),
+        createdAt: new Date("2023-09-14T07:43:31.648Z"),
+        modifiedAt: new Date("2023-09-10T05:55:09.703Z"),
         id: "<value>",
         isArchived: false,
-        priceCurrency: "<value>",
-        priceAmount: 811221,
-        recurringInterval: "year",
+        recurringInterval: "month",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2024-08-25T15:14:01.863Z"),
-        modifiedAt: new Date("2023-02-18T20:51:07.229Z"),
+        createdAt: new Date("2022-07-09T15:57:29.739Z"),
+        modifiedAt: new Date("2022-03-05T03:05:50.686Z"),
         id: "<value>",
-        type: "articles",
-        description: "coordinated beep ugh boo yippee sadly deplore",
+        type: "downloadables",
+        description:
+          "zowie vibration abaft grizzled despite quarrelsomely mesh cuckoo",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -48,31 +48,28 @@ let value: Checkout = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/sbin",
+        path: "/lost+found",
         mimeType: "<value>",
-        size: 390215,
+        size: 766004,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2023-08-22T23:08:59.755Z"),
+        lastModifiedAt: new Date("2022-03-28T13:18:59.699Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2024-03-04T13:39:39.013Z"),
+        createdAt: new Date("2024-09-07T06:13:39.585Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://unwieldy-poppy.info/",
+        publicUrl: "https://secret-rim.org/",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2024-05-18T01:34:45.076Z"),
-    modifiedAt: new Date("2022-01-09T03:57:13.283Z"),
+    createdAt: new Date("2023-01-22T23:18:37.610Z"),
+    modifiedAt: new Date("2023-03-02T13:30:13.678Z"),
     id: "<value>",
     isArchived: false,
-    priceCurrency: "<value>",
-    minimumAmount: 585566,
-    maximumAmount: 23491,
-    presetAmount: 979335,
+    recurringInterval: "year",
   },
 };
 ```

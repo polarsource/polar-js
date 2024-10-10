@@ -8,31 +8,23 @@ import { ListResourceBenefit } from "@polar-sh/sdk/models/components";
 let value: ListResourceBenefit = {
   items: [
     {
-      createdAt: new Date("2024-01-18T10:35:41.703Z"),
-      modifiedAt: new Date("2023-09-08T22:05:58.754Z"),
+      createdAt: new Date("2023-06-22T00:09:40.274Z"),
+      modifiedAt: new Date("2022-07-19T21:06:20.014Z"),
       id: "<value>",
       description:
-        "harmful baptise pear instead nervously oof sentimental furthermore",
+        "huzzah factorise meh elegantly excepting pfft yawningly simple",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        prefix: "<value>",
-        expires: {
-          ttl: 773225,
-          timeframe: "day",
-        },
-        activations: {
-          limit: 913579,
-          enableUserAdmin: false,
-        },
-        limitUsage: 728960,
+        note: "<value>",
       },
+      isTaxApplicable: false,
     },
   ],
   pagination: {
-    totalCount: 107145,
-    maxPage: 664995,
+    totalCount: 519464,
+    maxPage: 539450,
   },
 };
 ```

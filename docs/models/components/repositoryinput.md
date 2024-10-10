@@ -6,25 +6,26 @@
 import { RepositoryInput } from "@polar-sh/sdk/models/components";
 
 let value: RepositoryInput = {
-  id: "992e2854-28d7-45e2-b7ce-e1832d5136a9",
+  id: "7b541f6d-9a75-47ce-b78b-fad62b3e176d",
   isPrivate: false,
   name: "MyOrg",
-  description: "minus aha acquaintance if consequently",
+  description:
+    "testify cod invite unhealthy athwart yowza reiterate till ick attest",
   stars: 1337,
   license: "<value>",
   homepage: "<value>",
   profileSettings: {},
   organization: {
-    id: "73a6caf5-7a63-404d-890c-0f8eee6252d9",
+    id: "217db36b-ee86-4aaf-9787-b5084b2dc62d",
     name: "<value>",
-    avatarUrl: "https://lazy-adaptation.com",
+    avatarUrl: "https://medium-anticodon.com/",
     isPersonal: false,
     bio: "<value>",
     prettyName: "<value>",
-    company: "Blick LLC",
+    company: "Kutch - Harber",
     blog: "<value>",
     location: "<value>",
-    email: "Laurence8@gmail.com",
+    email: "Bernadine_Gusikowski@hotmail.com",
     twitterUsername: "<value>",
     organizationId: "<value>",
   },

@@ -42,6 +42,7 @@ export type Order = {
    * The ID of the object.
    */
   id: string;
+  metadata: { [k: string]: string };
   amount: number;
   taxAmount: number;
   currency: string;
@@ -49,6 +50,7 @@ export type Order = {
   productId: string;
   productPriceId: string;
   subscriptionId: string | null;
+  checkoutId: string | null;
   user: OrderUser;
   product: OrderProduct;
   productPrice: ProductPrice;
@@ -65,6 +67,7 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       z.string().datetime({ offset: true }).transform(v => new Date(v)),
     ),
     id: z.string(),
+    metadata: z.record(z.string()),
     amount: z.number().int(),
     tax_amount: z.number().int(),
     currency: z.string(),
@@ -72,6 +75,7 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     product_id: z.string(),
     product_price_id: z.string(),
     subscription_id: z.nullable(z.string()),
+    checkout_id: z.nullable(z.string()),
     user: OrderUser$inboundSchema,
     product: OrderProduct$inboundSchema,
     product_price: ProductPrice$inboundSchema,
@@ -85,6 +89,7 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       "product_id": "productId",
       "product_price_id": "productPriceId",
       "subscription_id": "subscriptionId",
+      "checkout_id": "checkoutId",
       "product_price": "productPrice",
     });
   });
@@ -94,6 +99,7 @@ export type Order$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
+  metadata: { [k: string]: string };
   amount: number;
   tax_amount: number;
   currency: string;
@@ -101,6 +107,7 @@ export type Order$Outbound = {
   product_id: string;
   product_price_id: string;
   subscription_id: string | null;
+  checkout_id: string | null;
   user: OrderUser$Outbound;
   product: OrderProduct$Outbound;
   product_price: ProductPrice$Outbound;
@@ -116,6 +123,7 @@ export const Order$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
+  metadata: z.record(z.string()),
   amount: z.number().int(),
   taxAmount: z.number().int(),
   currency: z.string(),
@@ -123,6 +131,7 @@ export const Order$outboundSchema: z.ZodType<
   productId: z.string(),
   productPriceId: z.string(),
   subscriptionId: z.nullable(z.string()),
+  checkoutId: z.nullable(z.string()),
   user: OrderUser$outboundSchema,
   product: OrderProduct$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
@@ -136,6 +145,7 @@ export const Order$outboundSchema: z.ZodType<
     productId: "product_id",
     productPriceId: "product_price_id",
     subscriptionId: "subscription_id",
+    checkoutId: "checkout_id",
     productPrice: "product_price",
   });
 });

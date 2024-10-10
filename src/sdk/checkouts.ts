@@ -8,18 +8,26 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { Custom } from "./custom.js";
 
 export class Checkouts extends ClientSDK {
+  private _custom?: Custom;
+  get custom(): Custom {
+    return (this._custom ??= new Custom(this._options));
+  }
+
   /**
    * Create Checkout
    *
    * @remarks
    * Create a checkout session.
+   *
+   * @deprecated method: This API is deprecated. We recommend you to use the new custom checkout API, which is more flexible and powerful. Please refer to the documentation for more information.. Use create instead.
    */
   async create(
-    request: components.CheckoutCreate,
+    request: components.PolarCheckoutLegacySchemasCheckoutCreate,
     options?: RequestOptions,
-  ): Promise<components.Checkout> {
+  ): Promise<components.PolarCheckoutLegacySchemasCheckout> {
     return unwrapAsync(checkoutsCreate(
       this,
       request,
@@ -32,11 +40,13 @@ export class Checkouts extends ClientSDK {
    *
    * @remarks
    * Get an active checkout session by ID.
+   *
+   * @deprecated method: This API is deprecated. We recommend you to use the new custom checkout API, which is more flexible and powerful. Please refer to the documentation for more information..
    */
   async get(
     request: operations.CheckoutsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.Checkout> {
+  ): Promise<components.PolarCheckoutLegacySchemasCheckout> {
     return unwrapAsync(checkoutsGet(
       this,
       request,

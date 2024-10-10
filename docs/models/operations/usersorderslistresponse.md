@@ -94,6 +94,7 @@ let value: UsersOrdersListResponse = {
           userId: "<value>",
           productId: "<value>",
           priceId: "<value>",
+          checkoutId: "<value>",
         },
       },
     ],

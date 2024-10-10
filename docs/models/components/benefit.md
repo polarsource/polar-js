@@ -7,11 +7,11 @@
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2023-10-28T20:58:02.846Z"),
-  modifiedAt: new Date("2023-02-08T03:46:38.942Z"),
+  createdAt: new Date("2022-10-20T17:39:45.167Z"),
+  modifiedAt: new Date("2022-05-21T01:38:02.928Z"),
   id: "<value>",
   description:
-    "oh internalize deed dish bolster insist how sushi smoothly shout",
+    "overconfidently punctually anneal although amongst supposing elastic",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -25,10 +25,11 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2022-08-31T20:30:44.252Z"),
-  modifiedAt: new Date("2023-03-26T16:52:53.236Z"),
+  createdAt: new Date("2024-11-25T18:02:23.702Z"),
+  modifiedAt: new Date("2022-03-29T08:13:52.389Z"),
   id: "<value>",
-  description: "inasmuch and not geez shadowy pomelo hourly boldly stabilise",
+  description:
+    "um phew about helpless astride breed essential huzzah oxygenate",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -40,10 +41,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2023-02-07T10:25:06.441Z"),
-  modifiedAt: new Date("2024-11-11T23:08:52.002Z"),
+  createdAt: new Date("2024-10-12T17:44:21.842Z"),
+  modifiedAt: new Date("2022-09-18T20:45:01.005Z"),
   id: "<value>",
-  description: "hmph heavenly vibrant happy tankful alive overdub while",
+  description: "lovable eek glow anxiously hidden or",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -58,10 +59,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscord = {
-  createdAt: new Date("2022-01-11T16:29:34.953Z"),
-  modifiedAt: new Date("2023-09-17T08:05:44.716Z"),
+  createdAt: new Date("2022-03-31T15:24:09.344Z"),
+  modifiedAt: new Date("2024-08-03T03:25:30.360Z"),
   id: "<value>",
-  description: "bore rotten fooey now incidentally saloon",
+  description: "ew svelte contravene till crumble",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -77,10 +78,10 @@ const value: components.BenefitDiscord = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2022-02-01T17:24:49.733Z"),
-  modifiedAt: new Date("2022-02-19T00:25:38.865Z"),
+  createdAt: new Date("2024-11-25T03:26:32.516Z"),
+  modifiedAt: new Date("2023-06-30T12:33:10.822Z"),
   id: "<value>",
-  description: "stratify noisily delightfully ill-fated phooey baritone",
+  description: "between than yahoo",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -88,7 +89,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "triage",
+    permission: "maintain",
   },
 };
 ```
@@ -97,10 +98,11 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2023-01-11T07:22:16.983Z"),
-  modifiedAt: new Date("2023-12-10T21:59:36.211Z"),
+  createdAt: new Date("2022-10-16T01:37:14.449Z"),
+  modifiedAt: new Date("2024-09-30T14:09:22.071Z"),
   id: "<value>",
-  description: "the plus roughly hmph when gah airline given whisper maestro",
+  description:
+    "powerfully fooey excitedly tentacle even monstrous plait indeed",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -119,25 +121,25 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2024-05-01T18:15:09.156Z"),
-  modifiedAt: new Date("2022-12-15T16:37:54.334Z"),
+  createdAt: new Date("2022-08-26T19:56:08.017Z"),
+  modifiedAt: new Date("2024-09-26T15:04:08.995Z"),
   id: "<value>",
   description:
-    "questionably pale whereas jet likewise miserable captain digitize",
+    "triumphantly footrest coexist hammock rag display ostrich aboard pfft so",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 200850,
-      timeframe: "month",
+      ttl: 217340,
+      timeframe: "day",
     },
     activations: {
-      limit: 629486,
+      limit: 783687,
       enableUserAdmin: false,
     },
-    limitUsage: 586260,
+    limitUsage: 127908,
   },
 };
 ```

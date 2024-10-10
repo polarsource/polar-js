@@ -1,13 +1,13 @@
-# CheckoutCreate
+# PolarCheckoutLegacySchemasCheckoutCreate
 
 ## Example Usage
 
 ```typescript
-import { CheckoutCreate } from "@polar-sh/sdk/models/components";
+import { PolarCheckoutLegacySchemasCheckoutCreate } from "@polar-sh/sdk/models/components";
 
-let value: CheckoutCreate = {
+let value: PolarCheckoutLegacySchemasCheckoutCreate = {
   productPriceId: "<value>",
-  successUrl: "https://flickering-calculus.info",
+  successUrl: "https://hasty-tusk.biz/",
 };
 ```
 

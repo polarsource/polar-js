@@ -7,10 +7,11 @@
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2023-01-13T19:33:41.074Z"),
-  modifiedAt: new Date("2024-10-15T16:02:57.133Z"),
+  createdAt: new Date("2023-01-07T00:35:03.166Z"),
+  modifiedAt: new Date("2022-12-04T16:25:25.756Z"),
   id: "<value>",
-  description: "quicker pish during distant across mmm unlike",
+  description:
+    "gosh negligible yearly headline arrogantly priesthood absentmindedly knickers",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -24,10 +25,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2023-05-01T15:53:14.590Z"),
-  modifiedAt: new Date("2023-09-05T20:04:49.651Z"),
+  createdAt: new Date("2024-10-10T04:53:42.729Z"),
+  modifiedAt: new Date("2024-06-20T07:13:38.065Z"),
   id: "<value>",
-  description: "inasmuch fedora furthermore hence consequently carouse given",
+  description: "beside beside chap strange variable writ",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -39,10 +40,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2023-07-30T13:26:38.433Z"),
-  modifiedAt: new Date("2024-07-04T11:17:21.724Z"),
+  createdAt: new Date("2022-03-04T10:13:58.711Z"),
+  modifiedAt: new Date("2022-10-26T20:34:22.774Z"),
   id: "<value>",
-  description: "nauseate majestic switchboard ready even who versus",
+  description: "duster reprimand from",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -57,10 +58,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscordInput = {
-  createdAt: new Date("2023-10-20T00:06:26.156Z"),
-  modifiedAt: new Date("2022-09-28T15:32:41.145Z"),
+  createdAt: new Date("2024-12-12T17:30:45.317Z"),
+  modifiedAt: new Date("2022-07-20T20:31:05.179Z"),
   id: "<value>",
-  description: "crossly harvest energetically apologise incidentally ack livid",
+  description: "apud fully curse decisive firsthand pish quaintly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -75,11 +76,10 @@ const value: components.BenefitDiscordInput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2024-07-16T14:39:16.066Z"),
-  modifiedAt: new Date("2023-08-24T22:59:30.708Z"),
+  createdAt: new Date("2022-03-01T16:32:42.679Z"),
+  modifiedAt: new Date("2022-11-22T16:09:54.713Z"),
   id: "<value>",
-  description:
-    "rowdy ouch after yuck wherever up reluctantly whether although imagineer",
+  description: "drat wonderful knavishly forenenst",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -87,7 +87,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "admin",
+    permission: "maintain",
   },
 };
 ```
@@ -96,10 +96,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2024-06-01T17:15:51.169Z"),
-  modifiedAt: new Date("2022-11-13T01:30:13.128Z"),
+  createdAt: new Date("2022-10-19T23:23:19.077Z"),
+  modifiedAt: new Date("2024-05-26T17:27:56.559Z"),
   id: "<value>",
-  description: "athletic frenetically congregate around elementary",
+  description: "towards moisten petty plus quirkily incidentally",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -118,24 +118,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2023-06-08T02:22:44.446Z"),
-  modifiedAt: new Date("2024-12-12T17:30:45.317Z"),
+  createdAt: new Date("2024-09-09T13:26:58.540Z"),
+  modifiedAt: new Date("2022-05-28T13:13:34.231Z"),
   id: "<value>",
-  description: "mallard enroll despite scratch",
+  description: "to possession busily candid",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 172520,
-      timeframe: "day",
+      ttl: 446075,
+      timeframe: "year",
     },
     activations: {
-      limit: 710093,
+      limit: 168638,
       enableUserAdmin: false,
     },
-    limitUsage: 905799,
+    limitUsage: 770711,
   },
 };
 ```

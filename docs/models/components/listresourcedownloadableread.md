@@ -14,17 +14,17 @@ let value: ListResourceDownloadableRead = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/lib",
+        path: "/boot/defaults",
         mimeType: "<value>",
-        size: 51089,
+        size: 984550,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2022-10-31T09:40:41.509Z"),
+        lastModifiedAt: new Date("2023-12-22T17:04:10.022Z"),
         download: {
-          url: "https://amazing-exasperation.name/",
-          expiresAt: new Date("2023-12-14T17:59:25.488Z"),
+          url: "https://quiet-sanity.biz",
+          expiresAt: new Date("2022-10-10T00:40:07.960Z"),
         },
         version: "<value>",
         isUploaded: false,
@@ -34,8 +34,8 @@ let value: ListResourceDownloadableRead = {
     },
   ],
   pagination: {
-    totalCount: 204283,
-    maxPage: 569306,
+    totalCount: 563154,
+    maxPage: 505663,
   },
 };
 ```

@@ -6,61 +6,64 @@
 import { Order } from "@polar-sh/sdk/models/components";
 
 let value: Order = {
-  createdAt: new Date("2023-12-25T07:57:58.923Z"),
-  modifiedAt: new Date("2024-08-04T03:31:14.965Z"),
+  createdAt: new Date("2023-05-22T10:20:56.336Z"),
+  modifiedAt: new Date("2022-02-06T11:47:57.029Z"),
   id: "<value>",
-  amount: 32623,
-  taxAmount: 941845,
-  currency: "Uganda Shilling",
+  metadata: {
+    "key": "<value>",
+  },
+  amount: 81263,
+  taxAmount: 929429,
+  currency: "Seychelles Rupee",
   userId: "<value>",
   productId: "<value>",
   productPriceId: "<value>",
   subscriptionId: "<value>",
+  checkoutId: "<value>",
   user: {
     id: "<value>",
-    email: "Ludwig.Schneider29@hotmail.com",
+    email: "Corine.Rutherford21@yahoo.com",
     publicName: "<value>",
     githubUsername: "<value>",
-    avatarUrl: "https://digital-premier.info",
+    avatarUrl: "https://political-pants.org",
   },
   product: {
-    createdAt: new Date("2022-02-06T11:47:57.029Z"),
-    modifiedAt: new Date("2022-03-31T01:33:21.843Z"),
+    createdAt: new Date("2024-09-04T09:52:55.353Z"),
+    modifiedAt: new Date("2024-01-16T18:51:08.358Z"),
     id: "<value>",
     name: "<value>",
     description:
-      "cutlet respectful furthermore as notwithstanding where snowplow modulo handy meaningfully",
+      "ew quarrelsomely materialise blah lost wherever oh inasmuch paltry scholarship",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
   },
   productPrice: {
-    createdAt: new Date("2024-09-05T03:00:40.973Z"),
-    modifiedAt: new Date("2023-11-22T10:29:11.218Z"),
+    createdAt: new Date("2022-08-15T15:59:22.837Z"),
+    modifiedAt: new Date("2024-10-25T03:21:56.772Z"),
     id: "<value>",
     isArchived: false,
-    priceCurrency: "<value>",
-    minimumAmount: 369529,
-    maximumAmount: 860443,
-    presetAmount: 695723,
-    recurringInterval: "year",
   },
   subscription: {
-    createdAt: new Date("2023-07-21T02:29:37.778Z"),
-    modifiedAt: new Date("2022-04-07T06:27:56.731Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    createdAt: new Date("2023-09-26T16:34:12.626Z"),
+    modifiedAt: new Date("2022-03-24T22:50:12.488Z"),
     id: "<value>",
-    amount: 592935,
-    currency: "Iranian Rial",
+    amount: 313717,
+    currency: "Namibia Dollar",
     recurringInterval: "year",
-    status: "incomplete",
-    currentPeriodStart: new Date("2024-05-11T15:36:51.992Z"),
-    currentPeriodEnd: new Date("2023-07-16T02:29:30.643Z"),
+    status: "trialing",
+    currentPeriodStart: new Date("2024-09-30T14:20:49.162Z"),
+    currentPeriodEnd: new Date("2023-01-31T23:13:50.155Z"),
     cancelAtPeriodEnd: false,
-    startedAt: new Date("2024-06-29T16:47:50.583Z"),
-    endedAt: new Date("2022-08-15T15:59:22.837Z"),
+    startedAt: new Date("2024-03-29T20:55:19.511Z"),
+    endedAt: new Date("2022-06-10T07:21:24.112Z"),
     userId: "<value>",
     productId: "<value>",
     priceId: "<value>",
+    checkoutId: "<value>",
   },
 };
 ```
@@ -72,6 +75,7 @@ let value: Order = {
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Creation timestamp of the object.                                                             |
 | `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the object.                                                                         |
+| `metadata`                                                                                    | Record<string, *string*>                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `amount`                                                                                      | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `taxAmount`                                                                                   | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `currency`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
@@ -79,6 +83,7 @@ let value: Order = {
 | `productId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `productPriceId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `subscriptionId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `checkoutId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `user`                                                                                        | [components.OrderUser](../../models/components/orderuser.md)                                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `product`                                                                                     | [components.OrderProduct](../../models/components/orderproduct.md)                            | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `productPrice`                                                                                | *components.ProductPrice*                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |

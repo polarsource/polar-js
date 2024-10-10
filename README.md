@@ -135,8 +135,18 @@ run();
 
 ### [checkouts](docs/sdks/checkouts/README.md)
 
-* [create](docs/sdks/checkouts/README.md#create) - Create Checkout
-* [get](docs/sdks/checkouts/README.md#get) - Get Checkout
+* [~~create~~](docs/sdks/checkouts/README.md#create) - Create Checkout :warning: **Deprecated** Use `create` instead.
+* [~~get~~](docs/sdks/checkouts/README.md#get) - Get Checkout :warning: **Deprecated**
+
+#### [checkouts.custom](docs/sdks/custom/README.md)
+
+* [list](docs/sdks/custom/README.md#list) - List Checkout Sessions
+* [create](docs/sdks/custom/README.md#create) - Create Checkout Session
+* [get](docs/sdks/custom/README.md#get) - Get Checkout Session
+* [update](docs/sdks/custom/README.md#update) - Update Checkout Session
+* [clientGet](docs/sdks/custom/README.md#clientget) - Get Checkout Session from Client
+* [clientUpdate](docs/sdks/custom/README.md#clientupdate) - Update Checkout Session from Client
+* [clientConfirm](docs/sdks/custom/README.md#clientconfirm) - Confirm Checkout Session from Client
 
 ### [externalOrganizations](docs/sdks/externalorganizations/README.md)
 
@@ -271,85 +281,91 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [advertisementsGet](docs/sdks/advertisements/README.md#get)
-- [advertisementsList](docs/sdks/advertisements/README.md#list)
-- [articlesCreate](docs/sdks/articles/README.md#create)
-- [articlesDelete](docs/sdks/articles/README.md#delete)
-- [articlesGet](docs/sdks/articles/README.md#get)
-- [articlesList](docs/sdks/articles/README.md#list)
-- [articlesPreview](docs/sdks/articles/README.md#preview)
-- [articlesReceivers](docs/sdks/articles/README.md#receivers)
-- [articlesSend](docs/sdks/articles/README.md#send)
-- [articlesUpdate](docs/sdks/articles/README.md#update)
-- [benefitsCreate](docs/sdks/benefits/README.md#create)
-- [benefitsDelete](docs/sdks/benefits/README.md#delete)
-- [benefitsGet](docs/sdks/benefits/README.md#get)
-- [benefitsGrants](docs/sdks/benefits/README.md#grants)
-- [benefitsList](docs/sdks/benefits/README.md#list)
-- [benefitsUpdate](docs/sdks/benefits/README.md#update)
-- [checkoutsCreate](docs/sdks/checkouts/README.md#create)
-- [checkoutsGet](docs/sdks/checkouts/README.md#get)
-- [externalOrganizationsList](docs/sdks/externalorganizations/README.md#list)
-- [filesCreate](docs/sdks/files/README.md#create)
-- [filesDelete](docs/sdks/files/README.md#delete)
-- [filesList](docs/sdks/files/README.md#list)
-- [filesUpdate](docs/sdks/files/README.md#update)
-- [filesUploaded](docs/sdks/files/README.md#uploaded)
-- [licenseKeysGetActivation](docs/sdks/licensekeys/README.md#getactivation)
-- [licenseKeysGet](docs/sdks/licensekeys/README.md#get)
-- [licenseKeysList](docs/sdks/licensekeys/README.md#list)
-- [licenseKeysUpdate](docs/sdks/licensekeys/README.md#update)
-- [metricsGet](docs/sdks/metrics/README.md#get)
-- [metricsLimits](docs/sdks/metrics/README.md#limits)
-- [oauth2ClientsCreate](docs/sdks/clients/README.md#create)
-- [oauth2ClientsDelete](docs/sdks/clients/README.md#delete)
-- [oauth2ClientsGet](docs/sdks/clients/README.md#get)
-- [oauth2ClientsList](docs/sdks/clients/README.md#list)
-- [oauth2ClientsUpdate](docs/sdks/clients/README.md#update)
-- [oauth2Introspect](docs/sdks/oauth2/README.md#introspect)
-- [oauth2Revoke](docs/sdks/oauth2/README.md#revoke)
-- [oauth2Token](docs/sdks/oauth2/README.md#token)
-- [oauth2Userinfo](docs/sdks/oauth2/README.md#userinfo)
-- [ordersGet](docs/sdks/orders/README.md#get)
-- [ordersInvoice](docs/sdks/orders/README.md#invoice)
-- [ordersList](docs/sdks/orders/README.md#list)
-- [organizationsCreate](docs/sdks/organizations/README.md#create)
-- [organizationsGet](docs/sdks/organizations/README.md#get)
-- [organizationsList](docs/sdks/organizations/README.md#list)
-- [organizationsUpdate](docs/sdks/organizations/README.md#update)
-- [productsCreate](docs/sdks/products/README.md#create)
-- [productsGet](docs/sdks/products/README.md#get)
-- [productsList](docs/sdks/products/README.md#list)
-- [productsUpdateBenefits](docs/sdks/products/README.md#updatebenefits)
-- [productsUpdate](docs/sdks/products/README.md#update)
-- [repositoriesGet](docs/sdks/repositories/README.md#get)
-- [repositoriesList](docs/sdks/repositories/README.md#list)
-- [repositoriesUpdate](docs/sdks/repositories/README.md#update)
-- [subscriptionsExport](docs/sdks/subscriptions/README.md#export)
-- [subscriptionsList](docs/sdks/subscriptions/README.md#list)
-- [usersAdvertisementsCreate](docs/sdks/polaradvertisements/README.md#create)
-- [usersAdvertisementsDelete](docs/sdks/polaradvertisements/README.md#delete)
-- [usersAdvertisementsEnable](docs/sdks/polaradvertisements/README.md#enable)
-- [usersAdvertisementsGet](docs/sdks/polaradvertisements/README.md#get)
-- [usersAdvertisementsList](docs/sdks/polaradvertisements/README.md#list)
-- [usersAdvertisementsUpdate](docs/sdks/polaradvertisements/README.md#update)
-- [usersBenefitsGet](docs/sdks/polarbenefits/README.md#get)
-- [usersBenefitsList](docs/sdks/polarbenefits/README.md#list)
-- [usersDownloadablesGet](docs/sdks/downloadables/README.md#get)
-- [usersDownloadablesList](docs/sdks/downloadables/README.md#list)
-- [usersLicenseKeysActivate](docs/sdks/polarlicensekeys/README.md#activate)
-- [usersLicenseKeysDeactivate](docs/sdks/polarlicensekeys/README.md#deactivate)
-- [usersLicenseKeysGet](docs/sdks/polarlicensekeys/README.md#get)
-- [usersLicenseKeysList](docs/sdks/polarlicensekeys/README.md#list)
-- [usersLicenseKeysValidate](docs/sdks/polarlicensekeys/README.md#validate)
-- [usersOrdersGet](docs/sdks/polarorders/README.md#get)
-- [usersOrdersInvoice](docs/sdks/polarorders/README.md#invoice)
-- [usersOrdersList](docs/sdks/polarorders/README.md#list)
-- [usersSubscriptionsCancel](docs/sdks/polarsubscriptions/README.md#cancel)
-- [usersSubscriptionsGet](docs/sdks/polarsubscriptions/README.md#get)
-- [usersSubscriptionsList](docs/sdks/polarsubscriptions/README.md#list)
-- [usersSubscriptionsUpdate](docs/sdks/polarsubscriptions/README.md#update)
-
+- [`advertisementsGet`](docs/sdks/advertisements/README.md#get) - Get Campaign
+- [`advertisementsList`](docs/sdks/advertisements/README.md#list) - List Campaigns
+- [`articlesCreate`](docs/sdks/articles/README.md#create) - Create Article
+- [`articlesDelete`](docs/sdks/articles/README.md#delete) - Delete Article
+- [`articlesGet`](docs/sdks/articles/README.md#get) - Get Article
+- [`articlesList`](docs/sdks/articles/README.md#list) - List Articles
+- [`articlesPreview`](docs/sdks/articles/README.md#preview) - Send Article Preview
+- [`articlesReceivers`](docs/sdks/articles/README.md#receivers) - Get Article Receivers Count
+- [`articlesSend`](docs/sdks/articles/README.md#send) - Send Article
+- [`articlesUpdate`](docs/sdks/articles/README.md#update) - Update Article
+- [`benefitsCreate`](docs/sdks/benefits/README.md#create) - Create Benefit
+- [`benefitsDelete`](docs/sdks/benefits/README.md#delete) - Delete Benefit
+- [`benefitsGet`](docs/sdks/benefits/README.md#get) - Get Benefit
+- [`benefitsGrants`](docs/sdks/benefits/README.md#grants) - List Benefit Grants
+- [`benefitsList`](docs/sdks/benefits/README.md#list) - List Benefits
+- [`benefitsUpdate`](docs/sdks/benefits/README.md#update) - Update Benefit
+- [`checkoutsCustomClientConfirm`](docs/sdks/custom/README.md#clientconfirm) - Confirm Checkout Session from Client
+- [`checkoutsCustomClientGet`](docs/sdks/custom/README.md#clientget) - Get Checkout Session from Client
+- [`checkoutsCustomClientUpdate`](docs/sdks/custom/README.md#clientupdate) - Update Checkout Session from Client
+- [`checkoutsCustomCreate`](docs/sdks/custom/README.md#create) - Create Checkout Session
+- [`checkoutsCustomGet`](docs/sdks/custom/README.md#get) - Get Checkout Session
+- [`checkoutsCustomList`](docs/sdks/custom/README.md#list) - List Checkout Sessions
+- [`checkoutsCustomUpdate`](docs/sdks/custom/README.md#update) - Update Checkout Session
+- [`externalOrganizationsList`](docs/sdks/externalorganizations/README.md#list) - List External Organizations
+- [`filesCreate`](docs/sdks/files/README.md#create) - Create File
+- [`filesDelete`](docs/sdks/files/README.md#delete) - Delete File
+- [`filesList`](docs/sdks/files/README.md#list) - List Files
+- [`filesUpdate`](docs/sdks/files/README.md#update) - Update File
+- [`filesUploaded`](docs/sdks/files/README.md#uploaded) - Complete File Upload
+- [`licenseKeysGet`](docs/sdks/licensekeys/README.md#get) - Get License Key
+- [`licenseKeysGetActivation`](docs/sdks/licensekeys/README.md#getactivation) - Get Activation
+- [`licenseKeysList`](docs/sdks/licensekeys/README.md#list) - List License Keys
+- [`licenseKeysUpdate`](docs/sdks/licensekeys/README.md#update) - Update License Key
+- [`metricsGet`](docs/sdks/metrics/README.md#get) - Get Metrics
+- [`metricsLimits`](docs/sdks/metrics/README.md#limits) - Get Metrics Limits
+- [`oauth2ClientsCreate`](docs/sdks/clients/README.md#create) - Create Client
+- [`oauth2ClientsDelete`](docs/sdks/clients/README.md#delete) - Delete Client
+- [`oauth2ClientsGet`](docs/sdks/clients/README.md#get) - Get Client
+- [`oauth2ClientsList`](docs/sdks/clients/README.md#list) - List Clients
+- [`oauth2ClientsUpdate`](docs/sdks/clients/README.md#update) - Update Client
+- [`oauth2Introspect`](docs/sdks/oauth2/README.md#introspect) - Introspect Token
+- [`oauth2Revoke`](docs/sdks/oauth2/README.md#revoke) - Revoke Token
+- [`oauth2Token`](docs/sdks/oauth2/README.md#token) - Request Token
+- [`oauth2Userinfo`](docs/sdks/oauth2/README.md#userinfo) - Get User Info
+- [`ordersGet`](docs/sdks/orders/README.md#get) - Get Order
+- [`ordersInvoice`](docs/sdks/orders/README.md#invoice) - Get Order Invoice
+- [`ordersList`](docs/sdks/orders/README.md#list) - List Orders
+- [`organizationsCreate`](docs/sdks/organizations/README.md#create) - Create Organization
+- [`organizationsGet`](docs/sdks/organizations/README.md#get) - Get Organization
+- [`organizationsList`](docs/sdks/organizations/README.md#list) - List Organizations
+- [`organizationsUpdate`](docs/sdks/organizations/README.md#update) - Update Organization
+- [`productsCreate`](docs/sdks/products/README.md#create) - Create Product
+- [`productsGet`](docs/sdks/products/README.md#get) - Get Product
+- [`productsList`](docs/sdks/products/README.md#list) - List Products
+- [`productsUpdate`](docs/sdks/products/README.md#update) - Update Product
+- [`productsUpdateBenefits`](docs/sdks/products/README.md#updatebenefits) - Update Product Benefits
+- [`repositoriesGet`](docs/sdks/repositories/README.md#get) - Get Repository
+- [`repositoriesList`](docs/sdks/repositories/README.md#list) - List Repositories
+- [`repositoriesUpdate`](docs/sdks/repositories/README.md#update) - Update Repository
+- [`subscriptionsExport`](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
+- [`subscriptionsList`](docs/sdks/subscriptions/README.md#list) - List Subscriptions
+- [`usersAdvertisementsCreate`](docs/sdks/polaradvertisements/README.md#create) - Create Advertisement
+- [`usersAdvertisementsDelete`](docs/sdks/polaradvertisements/README.md#delete) - Delete Advertisement
+- [`usersAdvertisementsEnable`](docs/sdks/polaradvertisements/README.md#enable) - Enable Advertisement
+- [`usersAdvertisementsGet`](docs/sdks/polaradvertisements/README.md#get) - Get Advertisement
+- [`usersAdvertisementsList`](docs/sdks/polaradvertisements/README.md#list) - List Advertisements
+- [`usersAdvertisementsUpdate`](docs/sdks/polaradvertisements/README.md#update) - Update Advertisement
+- [`usersBenefitsGet`](docs/sdks/polarbenefits/README.md#get) - Get Benefit
+- [`usersBenefitsList`](docs/sdks/polarbenefits/README.md#list) - List Benefits
+- [`usersDownloadablesGet`](docs/sdks/downloadables/README.md#get) - Get Downloadable
+- [`usersDownloadablesList`](docs/sdks/downloadables/README.md#list) - List Downloadables
+- [`usersLicenseKeysActivate`](docs/sdks/polarlicensekeys/README.md#activate) - Activate License Key
+- [`usersLicenseKeysDeactivate`](docs/sdks/polarlicensekeys/README.md#deactivate) - Deactivate License Key
+- [`usersLicenseKeysGet`](docs/sdks/polarlicensekeys/README.md#get) - Get License Key
+- [`usersLicenseKeysList`](docs/sdks/polarlicensekeys/README.md#list) - List License Keys
+- [`usersLicenseKeysValidate`](docs/sdks/polarlicensekeys/README.md#validate) - Validate License Key
+- [`usersOrdersGet`](docs/sdks/polarorders/README.md#get) - Get Order
+- [`usersOrdersInvoice`](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
+- [`usersOrdersList`](docs/sdks/polarorders/README.md#list) - List Orders
+- [`usersSubscriptionsCancel`](docs/sdks/polarsubscriptions/README.md#cancel) - Cancel Subscription
+- [`usersSubscriptionsGet`](docs/sdks/polarsubscriptions/README.md#get) - Get Subscription
+- [`usersSubscriptionsList`](docs/sdks/polarsubscriptions/README.md#list) - List Subscriptions
+- [`usersSubscriptionsUpdate`](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
+- ~~[`checkoutsCreate`](docs/sdks/checkouts/README.md#create)~~ - Create Checkout :warning: **Deprecated** Use [`checkoutsCustomCreate`](docs/sdks/custom/README.md#create) instead.
+- ~~[`checkoutsGet`](docs/sdks/checkouts/README.md#get)~~ - Get Checkout :warning: **Deprecated**
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->

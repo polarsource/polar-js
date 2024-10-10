@@ -16,6 +16,7 @@ import {
 } from "./subscriptionstatus.js";
 
 export type OrderSubscription = {
+  metadata: { [k: string]: string };
   /**
    * Creation timestamp of the object.
    */
@@ -40,6 +41,7 @@ export type OrderSubscription = {
   userId: string;
   productId: string;
   priceId: string;
+  checkoutId: string | null;
 };
 
 /** @internal */
@@ -48,6 +50,7 @@ export const OrderSubscription$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(z.string()),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -73,6 +76,7 @@ export const OrderSubscription$inboundSchema: z.ZodType<
   user_id: z.string(),
   product_id: z.string(),
   price_id: z.string(),
+  checkout_id: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -86,11 +90,13 @@ export const OrderSubscription$inboundSchema: z.ZodType<
     "user_id": "userId",
     "product_id": "productId",
     "price_id": "priceId",
+    "checkout_id": "checkoutId",
   });
 });
 
 /** @internal */
 export type OrderSubscription$Outbound = {
+  metadata: { [k: string]: string };
   created_at: string;
   modified_at: string | null;
   id: string;
@@ -106,6 +112,7 @@ export type OrderSubscription$Outbound = {
   user_id: string;
   product_id: string;
   price_id: string;
+  checkout_id: string | null;
 };
 
 /** @internal */
@@ -114,6 +121,7 @@ export const OrderSubscription$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   OrderSubscription
 > = z.object({
+  metadata: z.record(z.string()),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
@@ -129,6 +137,7 @@ export const OrderSubscription$outboundSchema: z.ZodType<
   userId: z.string(),
   productId: z.string(),
   priceId: z.string(),
+  checkoutId: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -142,6 +151,7 @@ export const OrderSubscription$outboundSchema: z.ZodType<
     userId: "user_id",
     productId: "product_id",
     priceId: "price_id",
+    checkoutId: "checkout_id",
   });
 });
 

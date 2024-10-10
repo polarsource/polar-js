@@ -7,7 +7,7 @@ import { BylineProfile } from "@polar-sh/sdk/models/components";
 
 let value: BylineProfile = {
   name: "<value>",
-  avatarUrl: "https://mediocre-pliers.org",
+  avatarUrl: "https://pink-simple.org",
 };
 ```
 

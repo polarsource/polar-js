@@ -5,7 +5,8 @@
 ```typescript
 import { OAuth2ClientConfigurationTokenEndpointAuthMethod } from "@polar-sh/sdk/models/components";
 
-let value: OAuth2ClientConfigurationTokenEndpointAuthMethod = "none";
+let value: OAuth2ClientConfigurationTokenEndpointAuthMethod =
+  "client_secret_basic";
 ```
 
 ## Values

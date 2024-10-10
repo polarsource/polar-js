@@ -12,6 +12,9 @@ let value: OrdersListResponse = {
         createdAt: new Date("2023-08-16T23:39:48.423Z"),
         modifiedAt: new Date("2022-11-26T14:19:13.907Z"),
         id: "<value>",
+        metadata: {
+          "key": "<value>",
+        },
         amount: 738325,
         taxAmount: 259341,
         currency: "Yemeni Rial",
@@ -19,6 +22,7 @@ let value: OrdersListResponse = {
         productId: "<value>",
         productPriceId: "<value>",
         subscriptionId: "<value>",
+        checkoutId: "<value>",
         user: {
           id: "<value>",
           email: "Annette.Zieme31@yahoo.com",
@@ -47,6 +51,9 @@ let value: OrdersListResponse = {
           presetAmount: 73197,
         },
         subscription: {
+          metadata: {
+            "key": "<value>",
+          },
           createdAt: new Date("2022-06-18T21:53:52.884Z"),
           modifiedAt: new Date("2022-09-26T12:13:20.933Z"),
           id: "<value>",
@@ -62,6 +69,7 @@ let value: OrdersListResponse = {
           userId: "<value>",
           productId: "<value>",
           priceId: "<value>",
+          checkoutId: "<value>",
         },
       },
     ],

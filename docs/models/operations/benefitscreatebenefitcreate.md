@@ -9,9 +9,7 @@
 const value: components.BenefitCustomCreate = {
   description: "tenderly huzzah shanghai ruddy gadzooks tricky realistic",
   isTaxApplicable: false,
-  properties: {
-    note: "<value>",
-  },
+  properties: {},
 };
 ```
 

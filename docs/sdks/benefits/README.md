@@ -136,9 +136,7 @@ async function run() {
   const res = await benefitsCreate(polar, {
     description: "brightly sleet where schedule insolence when warming when",
     isTaxApplicable: false,
-    properties: {
-      note: "<value>",
-    },
+    properties: {},
   });
 
   if (!res.ok) {

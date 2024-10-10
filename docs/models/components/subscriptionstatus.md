@@ -5,7 +5,7 @@
 ```typescript
 import { SubscriptionStatus } from "@polar-sh/sdk/models/components";
 
-let value: SubscriptionStatus = "active";
+let value: SubscriptionStatus = "trialing";
 ```
 
 ## Values
