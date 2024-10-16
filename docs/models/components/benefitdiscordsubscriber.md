@@ -6,11 +6,10 @@
 import { BenefitDiscordSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordSubscriber = {
-  createdAt: new Date("2024-02-26T00:50:26.019Z"),
-  modifiedAt: new Date("2023-01-24T03:16:54.696Z"),
+  createdAt: new Date("2024-07-15T12:42:19.873Z"),
+  modifiedAt: new Date("2023-08-09T19:43:23.369Z"),
   id: "<value>",
-  description:
-    "majestically because weatherize airbrush happily short-term galoshes",
+  description: "flight swathe amongst dislocate however entire",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

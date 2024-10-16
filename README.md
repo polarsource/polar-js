@@ -117,6 +117,7 @@ run();
 
 * [list](docs/sdks/articles/README.md#list) - List Articles
 * [create](docs/sdks/articles/README.md#create) - Create Article
+* [export](docs/sdks/articles/README.md#export) - Export Articles
 * [get](docs/sdks/articles/README.md#get) - Get Article
 * [update](docs/sdks/articles/README.md#update) - Update Article
 * [delete](docs/sdks/articles/README.md#delete) - Delete Article
@@ -285,6 +286,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`advertisementsList`](docs/sdks/advertisements/README.md#list) - List Campaigns
 - [`articlesCreate`](docs/sdks/articles/README.md#create) - Create Article
 - [`articlesDelete`](docs/sdks/articles/README.md#delete) - Delete Article
+- [`articlesExport`](docs/sdks/articles/README.md#export) - Export Articles
 - [`articlesGet`](docs/sdks/articles/README.md#get) - Get Article
 - [`articlesList`](docs/sdks/articles/README.md#list) - List Articles
 - [`articlesPreview`](docs/sdks/articles/README.md#preview) - Send Article Preview

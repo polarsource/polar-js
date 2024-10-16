@@ -10,7 +10,9 @@ import { ProductOneTimeCreate } from "@polar-sh/sdk/models/components";
 let value: ProductOneTimeCreate = {
   name: "<value>",
   prices: [
-    {},
+    {
+      priceAmount: 526773,
+    },
   ],
 };
 ```

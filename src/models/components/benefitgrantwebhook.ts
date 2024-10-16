@@ -5,42 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  BenefitAds,
-  BenefitAds$inboundSchema,
-  BenefitAds$Outbound,
-  BenefitAds$outboundSchema,
-} from "./benefitads.js";
-import {
-  BenefitArticles,
-  BenefitArticles$inboundSchema,
-  BenefitArticles$Outbound,
-  BenefitArticles$outboundSchema,
-} from "./benefitarticles.js";
-import {
-  BenefitCustom,
-  BenefitCustom$inboundSchema,
-  BenefitCustom$Outbound,
-  BenefitCustom$outboundSchema,
-} from "./benefitcustom.js";
-import {
-  BenefitDiscordInput,
-  BenefitDiscordInput$inboundSchema,
-  BenefitDiscordInput$Outbound,
-  BenefitDiscordInput$outboundSchema,
-} from "./benefitdiscord.js";
-import {
-  BenefitDownloadables,
-  BenefitDownloadables$inboundSchema,
-  BenefitDownloadables$Outbound,
-  BenefitDownloadables$outboundSchema,
-} from "./benefitdownloadables.js";
-import {
-  BenefitGitHubRepository,
-  BenefitGitHubRepository$inboundSchema,
-  BenefitGitHubRepository$Outbound,
-  BenefitGitHubRepository$outboundSchema,
-} from "./benefitgithubrepository.js";
-import {
   BenefitGrantAdsProperties,
   BenefitGrantAdsProperties$inboundSchema,
   BenefitGrantAdsProperties$Outbound,
@@ -83,11 +47,11 @@ import {
   BenefitGrantLicenseKeysProperties$outboundSchema,
 } from "./benefitgrantlicensekeysproperties.js";
 import {
-  BenefitLicenseKeys,
-  BenefitLicenseKeys$inboundSchema,
-  BenefitLicenseKeys$Outbound,
-  BenefitLicenseKeys$outboundSchema,
-} from "./benefitlicensekeys.js";
+  BenefitInput,
+  BenefitInput$inboundSchema,
+  BenefitInput$Outbound,
+  BenefitInput$outboundSchema,
+} from "./benefitinput.js";
 
 export type BenefitGrantWebhookProperties =
   | BenefitGrantCustomProperties
@@ -97,15 +61,6 @@ export type BenefitGrantWebhookProperties =
   | BenefitGrantLicenseKeysProperties
   | BenefitGrantDiscordProperties
   | BenefitGrantGitHubRepositoryProperties;
-
-export type BenefitGrantWebhookBenefit =
-  | BenefitArticles
-  | BenefitAds
-  | BenefitDiscordInput
-  | BenefitGitHubRepository
-  | BenefitDownloadables
-  | BenefitLicenseKeys
-  | BenefitCustom;
 
 export type PreviousProperties =
   | BenefitGrantCustomProperties
@@ -169,14 +124,7 @@ export type BenefitGrantWebhook = {
     | BenefitGrantLicenseKeysProperties
     | BenefitGrantDiscordProperties
     | BenefitGrantGitHubRepositoryProperties;
-  benefit:
-    | BenefitArticles
-    | BenefitAds
-    | BenefitDiscordInput
-    | BenefitGitHubRepository
-    | BenefitDownloadables
-    | BenefitLicenseKeys
-    | BenefitCustom;
+  benefit: BenefitInput;
   previousProperties?:
     | BenefitGrantCustomProperties
     | BenefitGrantArticlesProperties
@@ -240,59 +188,6 @@ export namespace BenefitGrantWebhookProperties$ {
   export const outboundSchema = BenefitGrantWebhookProperties$outboundSchema;
   /** @deprecated use `BenefitGrantWebhookProperties$Outbound` instead. */
   export type Outbound = BenefitGrantWebhookProperties$Outbound;
-}
-
-/** @internal */
-export const BenefitGrantWebhookBenefit$inboundSchema: z.ZodType<
-  BenefitGrantWebhookBenefit,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  BenefitArticles$inboundSchema,
-  BenefitAds$inboundSchema,
-  BenefitDiscordInput$inboundSchema,
-  BenefitGitHubRepository$inboundSchema,
-  BenefitDownloadables$inboundSchema,
-  BenefitLicenseKeys$inboundSchema,
-  BenefitCustom$inboundSchema,
-]);
-
-/** @internal */
-export type BenefitGrantWebhookBenefit$Outbound =
-  | BenefitArticles$Outbound
-  | BenefitAds$Outbound
-  | BenefitDiscordInput$Outbound
-  | BenefitGitHubRepository$Outbound
-  | BenefitDownloadables$Outbound
-  | BenefitLicenseKeys$Outbound
-  | BenefitCustom$Outbound;
-
-/** @internal */
-export const BenefitGrantWebhookBenefit$outboundSchema: z.ZodType<
-  BenefitGrantWebhookBenefit$Outbound,
-  z.ZodTypeDef,
-  BenefitGrantWebhookBenefit
-> = z.union([
-  BenefitArticles$outboundSchema,
-  BenefitAds$outboundSchema,
-  BenefitDiscordInput$outboundSchema,
-  BenefitGitHubRepository$outboundSchema,
-  BenefitDownloadables$outboundSchema,
-  BenefitLicenseKeys$outboundSchema,
-  BenefitCustom$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantWebhookBenefit$ {
-  /** @deprecated use `BenefitGrantWebhookBenefit$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantWebhookBenefit$inboundSchema;
-  /** @deprecated use `BenefitGrantWebhookBenefit$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrantWebhookBenefit$outboundSchema;
-  /** @deprecated use `BenefitGrantWebhookBenefit$Outbound` instead. */
-  export type Outbound = BenefitGrantWebhookBenefit$Outbound;
 }
 
 /** @internal */
@@ -380,15 +275,7 @@ export const BenefitGrantWebhook$inboundSchema: z.ZodType<
     BenefitGrantDiscordProperties$inboundSchema,
     BenefitGrantGitHubRepositoryProperties$inboundSchema,
   ]),
-  benefit: z.union([
-    BenefitArticles$inboundSchema,
-    BenefitAds$inboundSchema,
-    BenefitDiscordInput$inboundSchema,
-    BenefitGitHubRepository$inboundSchema,
-    BenefitDownloadables$inboundSchema,
-    BenefitLicenseKeys$inboundSchema,
-    BenefitCustom$inboundSchema,
-  ]),
+  benefit: BenefitInput$inboundSchema,
   previous_properties: z.nullable(
     z.union([
       BenefitGrantCustomProperties$inboundSchema,
@@ -437,14 +324,7 @@ export type BenefitGrantWebhook$Outbound = {
     | BenefitGrantLicenseKeysProperties$Outbound
     | BenefitGrantDiscordProperties$Outbound
     | BenefitGrantGitHubRepositoryProperties$Outbound;
-  benefit:
-    | BenefitArticles$Outbound
-    | BenefitAds$Outbound
-    | BenefitDiscordInput$Outbound
-    | BenefitGitHubRepository$Outbound
-    | BenefitDownloadables$Outbound
-    | BenefitLicenseKeys$Outbound
-    | BenefitCustom$Outbound;
+  benefit: BenefitInput$Outbound;
   previous_properties?:
     | BenefitGrantCustomProperties$Outbound
     | BenefitGrantArticlesProperties$Outbound
@@ -483,15 +363,7 @@ export const BenefitGrantWebhook$outboundSchema: z.ZodType<
     BenefitGrantDiscordProperties$outboundSchema,
     BenefitGrantGitHubRepositoryProperties$outboundSchema,
   ]),
-  benefit: z.union([
-    BenefitArticles$outboundSchema,
-    BenefitAds$outboundSchema,
-    BenefitDiscordInput$outboundSchema,
-    BenefitGitHubRepository$outboundSchema,
-    BenefitDownloadables$outboundSchema,
-    BenefitLicenseKeys$outboundSchema,
-    BenefitCustom$outboundSchema,
-  ]),
+  benefit: BenefitInput$outboundSchema,
   previousProperties: z.nullable(
     z.union([
       BenefitGrantCustomProperties$outboundSchema,

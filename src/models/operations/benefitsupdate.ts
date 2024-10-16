@@ -27,18 +27,6 @@ export type BenefitsUpdateRequest = {
     | components.BenefitLicenseKeysUpdate;
 };
 
-/**
- * Benefit updated.
- */
-export type BenefitsUpdateResponseBenefitsUpdate =
-  | components.BenefitArticles
-  | components.BenefitAds
-  | components.BenefitDiscord
-  | components.BenefitGitHubRepository
-  | components.BenefitDownloadables
-  | components.BenefitLicenseKeys
-  | components.BenefitCustom;
-
 /** @internal */
 export const BenefitsUpdateBenefitUpdate$inboundSchema: z.ZodType<
   BenefitsUpdateBenefitUpdate,
@@ -160,59 +148,4 @@ export namespace BenefitsUpdateRequest$ {
   export const outboundSchema = BenefitsUpdateRequest$outboundSchema;
   /** @deprecated use `BenefitsUpdateRequest$Outbound` instead. */
   export type Outbound = BenefitsUpdateRequest$Outbound;
-}
-
-/** @internal */
-export const BenefitsUpdateResponseBenefitsUpdate$inboundSchema: z.ZodType<
-  BenefitsUpdateResponseBenefitsUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  components.BenefitArticles$inboundSchema,
-  components.BenefitAds$inboundSchema,
-  components.BenefitDiscord$inboundSchema,
-  components.BenefitGitHubRepository$inboundSchema,
-  components.BenefitDownloadables$inboundSchema,
-  components.BenefitLicenseKeys$inboundSchema,
-  components.BenefitCustom$inboundSchema,
-]);
-
-/** @internal */
-export type BenefitsUpdateResponseBenefitsUpdate$Outbound =
-  | components.BenefitArticles$Outbound
-  | components.BenefitAds$Outbound
-  | components.BenefitDiscord$Outbound
-  | components.BenefitGitHubRepository$Outbound
-  | components.BenefitDownloadables$Outbound
-  | components.BenefitLicenseKeys$Outbound
-  | components.BenefitCustom$Outbound;
-
-/** @internal */
-export const BenefitsUpdateResponseBenefitsUpdate$outboundSchema: z.ZodType<
-  BenefitsUpdateResponseBenefitsUpdate$Outbound,
-  z.ZodTypeDef,
-  BenefitsUpdateResponseBenefitsUpdate
-> = z.union([
-  components.BenefitArticles$outboundSchema,
-  components.BenefitAds$outboundSchema,
-  components.BenefitDiscord$outboundSchema,
-  components.BenefitGitHubRepository$outboundSchema,
-  components.BenefitDownloadables$outboundSchema,
-  components.BenefitLicenseKeys$outboundSchema,
-  components.BenefitCustom$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitsUpdateResponseBenefitsUpdate$ {
-  /** @deprecated use `BenefitsUpdateResponseBenefitsUpdate$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitsUpdateResponseBenefitsUpdate$inboundSchema;
-  /** @deprecated use `BenefitsUpdateResponseBenefitsUpdate$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitsUpdateResponseBenefitsUpdate$outboundSchema;
-  /** @deprecated use `BenefitsUpdateResponseBenefitsUpdate$Outbound` instead. */
-  export type Outbound = BenefitsUpdateResponseBenefitsUpdate$Outbound;
 }

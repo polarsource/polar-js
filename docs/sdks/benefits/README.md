@@ -163,7 +163,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.BenefitsCreateResponseBenefitsCreate](../../models/operations/benefitscreateresponsebenefitscreate.md)\>**
+**Promise\<[components.Benefit](../../models/components/benefit.md)\>**
 
 ### Errors
 
@@ -240,7 +240,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.BenefitsGetResponseBenefitsGet](../../models/operations/benefitsgetresponsebenefitsget.md)\>**
+**Promise\<[components.Benefit](../../models/components/benefit.md)\>**
 
 ### Errors
 
@@ -320,7 +320,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.BenefitsUpdateResponseBenefitsUpdate](../../models/operations/benefitsupdateresponsebenefitsupdate.md)\>**
+**Promise\<[components.Benefit](../../models/components/benefit.md)\>**
 
 ### Errors
 

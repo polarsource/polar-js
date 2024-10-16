@@ -23,9 +23,6 @@ export type BenefitBase = {
    * The ID of the benefit.
    */
   id: string;
-  /**
-   * The type of the benefit.
-   */
   type: BenefitType;
   /**
    * The description of the benefit.

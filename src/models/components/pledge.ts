@@ -45,13 +45,7 @@ export type Pledge = {
    */
   amount: number;
   currency: string;
-  /**
-   * Current state of the pledge
-   */
   state: PledgeState;
-  /**
-   * Type of pledge
-   */
   type: PledgeType;
   /**
    * If and when the pledge was refunded to the pledger
@@ -61,9 +55,6 @@ export type Pledge = {
    * When the payout is scheduled to be made to the maintainers behind the issue. Disputes must be made before this date.
    */
   scheduledPayoutAt?: Date | null | undefined;
-  /**
-   * The issue that the pledge was made towards
-   */
   issue: Issue;
   /**
    * The user or organization that made this pledge

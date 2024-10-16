@@ -39,9 +39,6 @@ export type ProductPriceRecurringFixedCreate = {
    * The currency. Currently, only `usd` is supported.
    */
   priceCurrency?: string | undefined;
-  /**
-   * The recurring interval of the price.
-   */
   recurringInterval: SubscriptionRecurringInterval;
 };
 

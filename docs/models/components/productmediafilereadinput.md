@@ -11,17 +11,17 @@ let value: ProductMediaFileReadInput = {
   id: "<value>",
   organizationId: "<value>",
   name: "<value>",
-  path: "/rescue",
+  path: "/selinux",
   mimeType: "<value>",
-  size: 662228,
+  size: 459004,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2023-03-30T13:32:11.830Z"),
+  lastModifiedAt: new Date("2022-01-22T16:32:28.279Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2022-06-18T23:13:24.033Z"),
+  createdAt: new Date("2023-04-15T12:39:51.701Z"),
 };
 ```
 

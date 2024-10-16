@@ -4,24 +4,8 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import * as components from "../components/index.js";
-
-/**
- * Interval between two timestamps.
- */
-export const Interval = {
-  Year: "year",
-  Month: "month",
-  Week: "week",
-  Day: "day",
-  Hour: "hour",
-} as const;
-/**
- * Interval between two timestamps.
- */
-export type Interval = ClosedEnum<typeof Interval>;
 
 /**
  * Filter by organization ID.
@@ -52,7 +36,7 @@ export type MetricsGetRequest = {
   /**
    * Interval between two timestamps.
    */
-  interval: Interval;
+  interval: components.Interval;
   /**
    * Filter by organization ID.
    */
@@ -70,25 +54,6 @@ export type MetricsGetRequest = {
     | null
     | undefined;
 };
-
-/** @internal */
-export const Interval$inboundSchema: z.ZodNativeEnum<typeof Interval> = z
-  .nativeEnum(Interval);
-
-/** @internal */
-export const Interval$outboundSchema: z.ZodNativeEnum<typeof Interval> =
-  Interval$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Interval$ {
-  /** @deprecated use `Interval$inboundSchema` instead. */
-  export const inboundSchema = Interval$inboundSchema;
-  /** @deprecated use `Interval$outboundSchema` instead. */
-  export const outboundSchema = Interval$outboundSchema;
-}
 
 /** @internal */
 export const MetricsGetQueryParamOrganizationIDFilter$inboundSchema: z.ZodType<
@@ -205,7 +170,7 @@ export const MetricsGetRequest$inboundSchema: z.ZodType<
 > = z.object({
   start_date: z.string().transform(v => new RFCDate(v)),
   end_date: z.string().transform(v => new RFCDate(v)),
-  interval: Interval$inboundSchema,
+  interval: components.Interval$inboundSchema,
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
@@ -243,7 +208,7 @@ export const MetricsGetRequest$outboundSchema: z.ZodType<
 > = z.object({
   startDate: z.instanceof(RFCDate).transform(v => v.toString()),
   endDate: z.instanceof(RFCDate).transform(v => v.toString()),
-  interval: Interval$outboundSchema,
+  interval: components.Interval$outboundSchema,
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),

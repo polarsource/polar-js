@@ -8,7 +8,7 @@ import { Pledger } from "@polar-sh/sdk/models/components";
 let value: Pledger = {
   name: "<value>",
   githubUsername: "<value>",
-  avatarUrl: "https://vast-cantaloupe.name",
+  avatarUrl: "https://accurate-caption.com",
 };
 ```
 

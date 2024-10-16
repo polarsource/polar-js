@@ -8,7 +8,7 @@ import { ArticlesPreviewRequest } from "@polar-sh/sdk/models/operations";
 let value: ArticlesPreviewRequest = {
   id: "<value>",
   articlePreview: {
-    email: "Bernardo_Wolf@hotmail.com",
+    email: "Vilma_Murray@hotmail.com",
   },
 };
 ```

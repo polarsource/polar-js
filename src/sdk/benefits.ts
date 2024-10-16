@@ -9,6 +9,7 @@ import { benefitsGrants } from "../funcs/benefitsGrants.js";
 import { benefitsList } from "../funcs/benefitsList.js";
 import { benefitsUpdate } from "../funcs/benefitsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
@@ -40,7 +41,7 @@ export class Benefits extends ClientSDK {
   async create(
     request: operations.BenefitsCreateBenefitCreate,
     options?: RequestOptions,
-  ): Promise<operations.BenefitsCreateResponseBenefitsCreate> {
+  ): Promise<components.Benefit> {
     return unwrapAsync(benefitsCreate(
       this,
       request,
@@ -57,7 +58,7 @@ export class Benefits extends ClientSDK {
   async get(
     request: operations.BenefitsGetRequest,
     options?: RequestOptions,
-  ): Promise<operations.BenefitsGetResponseBenefitsGet> {
+  ): Promise<components.Benefit> {
     return unwrapAsync(benefitsGet(
       this,
       request,
@@ -74,7 +75,7 @@ export class Benefits extends ClientSDK {
   async update(
     request: operations.BenefitsUpdateRequest,
     options?: RequestOptions,
-  ): Promise<operations.BenefitsUpdateResponseBenefitsUpdate> {
+  ): Promise<components.Benefit> {
     return unwrapAsync(benefitsUpdate(
       this,
       request,

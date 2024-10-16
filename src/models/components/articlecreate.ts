@@ -4,30 +4,16 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { ClosedEnum } from "../../types/enums.js";
-
-/**
- * If the user or organization should be credited in the byline.
- */
-export const ArticleCreateArticleByline = {
-  User: "user",
-  Organization: "organization",
-} as const;
-/**
- * If the user or organization should be credited in the byline.
- */
-export type ArticleCreateArticleByline = ClosedEnum<
-  typeof ArticleCreateArticleByline
->;
-
-export const ArticleCreateArticleVisibility = {
-  Public: "public",
-  Hidden: "hidden",
-  Private: "private",
-} as const;
-export type ArticleCreateArticleVisibility = ClosedEnum<
-  typeof ArticleCreateArticleVisibility
->;
+import {
+  ArticleByline,
+  ArticleByline$inboundSchema,
+  ArticleByline$outboundSchema,
+} from "./articlebyline.js";
+import {
+  ArticleVisibility,
+  ArticleVisibility$inboundSchema,
+  ArticleVisibility$outboundSchema,
+} from "./articlevisibility.js";
 
 export type ArticleCreate = {
   /**
@@ -50,11 +36,8 @@ export type ArticleCreate = {
    * The ID of the organization owning the article. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
-  /**
-   * If the user or organization should be credited in the byline.
-   */
-  byline?: ArticleCreateArticleByline | undefined;
-  visibility?: ArticleCreateArticleVisibility | undefined;
+  byline?: ArticleByline | undefined;
+  visibility?: ArticleVisibility | undefined;
   /**
    * Set to true to only make this article available for subscribers to a paid subscription tier in the organization.
    */
@@ -86,48 +69,6 @@ export type ArticleCreate = {
 };
 
 /** @internal */
-export const ArticleCreateArticleByline$inboundSchema: z.ZodNativeEnum<
-  typeof ArticleCreateArticleByline
-> = z.nativeEnum(ArticleCreateArticleByline);
-
-/** @internal */
-export const ArticleCreateArticleByline$outboundSchema: z.ZodNativeEnum<
-  typeof ArticleCreateArticleByline
-> = ArticleCreateArticleByline$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ArticleCreateArticleByline$ {
-  /** @deprecated use `ArticleCreateArticleByline$inboundSchema` instead. */
-  export const inboundSchema = ArticleCreateArticleByline$inboundSchema;
-  /** @deprecated use `ArticleCreateArticleByline$outboundSchema` instead. */
-  export const outboundSchema = ArticleCreateArticleByline$outboundSchema;
-}
-
-/** @internal */
-export const ArticleCreateArticleVisibility$inboundSchema: z.ZodNativeEnum<
-  typeof ArticleCreateArticleVisibility
-> = z.nativeEnum(ArticleCreateArticleVisibility);
-
-/** @internal */
-export const ArticleCreateArticleVisibility$outboundSchema: z.ZodNativeEnum<
-  typeof ArticleCreateArticleVisibility
-> = ArticleCreateArticleVisibility$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ArticleCreateArticleVisibility$ {
-  /** @deprecated use `ArticleCreateArticleVisibility$inboundSchema` instead. */
-  export const inboundSchema = ArticleCreateArticleVisibility$inboundSchema;
-  /** @deprecated use `ArticleCreateArticleVisibility$outboundSchema` instead. */
-  export const outboundSchema = ArticleCreateArticleVisibility$outboundSchema;
-}
-
-/** @internal */
 export const ArticleCreate$inboundSchema: z.ZodType<
   ArticleCreate,
   z.ZodTypeDef,
@@ -138,8 +79,8 @@ export const ArticleCreate$inboundSchema: z.ZodType<
   body: z.nullable(z.string()).optional(),
   body_base64: z.nullable(z.string()).optional(),
   organization_id: z.nullable(z.string()).optional(),
-  byline: ArticleCreateArticleByline$inboundSchema.default("organization"),
-  visibility: ArticleCreateArticleVisibility$inboundSchema.default("private"),
+  byline: ArticleByline$inboundSchema.optional(),
+  visibility: ArticleVisibility$inboundSchema.optional(),
   paid_subscribers_only: z.boolean().default(false),
   paid_subscribers_only_ends_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -172,8 +113,8 @@ export type ArticleCreate$Outbound = {
   body?: string | null | undefined;
   body_base64?: string | null | undefined;
   organization_id?: string | null | undefined;
-  byline: string;
-  visibility: string;
+  byline?: string | undefined;
+  visibility?: string | undefined;
   paid_subscribers_only: boolean;
   paid_subscribers_only_ends_at?: string | null | undefined;
   published_at?: string | null | undefined;
@@ -194,8 +135,8 @@ export const ArticleCreate$outboundSchema: z.ZodType<
   body: z.nullable(z.string()).optional(),
   bodyBase64: z.nullable(z.string()).optional(),
   organizationId: z.nullable(z.string()).optional(),
-  byline: ArticleCreateArticleByline$outboundSchema.default("organization"),
-  visibility: ArticleCreateArticleVisibility$outboundSchema.default("private"),
+  byline: ArticleByline$outboundSchema.optional(),
+  visibility: ArticleVisibility$outboundSchema.optional(),
   paidSubscribersOnly: z.boolean().default(false),
   paidSubscribersOnlyEndsAt: z.nullable(
     z.date().transform(v => v.toISOString()),

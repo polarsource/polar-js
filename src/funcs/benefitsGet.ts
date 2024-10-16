@@ -9,6 +9,7 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
+import * as components from "../models/components/index.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -34,7 +35,7 @@ export async function benefitsGet(
   options?: RequestOptions,
 ): Promise<
   Result<
-    operations.BenefitsGetResponseBenefitsGet,
+    components.Benefit,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -109,7 +110,7 @@ export async function benefitsGet(
   };
 
   const [result] = await M.match<
-    operations.BenefitsGetResponseBenefitsGet,
+    components.Benefit,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -120,7 +121,7 @@ export async function benefitsGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.BenefitsGetResponseBenefitsGet$inboundSchema),
+    M.json(200, components.Benefit$inboundSchema),
     M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),

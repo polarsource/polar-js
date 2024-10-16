@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-04-28T20:28:23.222Z"),
-        modifiedAt: new Date("2022-06-04T11:44:43.665Z"),
+        createdAt: new Date("2022-05-21T07:27:39.514Z"),
+        modifiedAt: new Date("2023-10-02T04:18:15.215Z"),
         id: "<value>",
-        imageUrl: "https://total-ocelot.com",
-        imageUrlDark: "https://unwilling-lieu.info",
+        imageUrl: "https://disloyal-vanadyl.biz/",
+        imageUrlDark: "https://flowery-understanding.net",
         text: "<value>",
-        linkUrl: "https://slimy-swordfish.com/",
+        linkUrl: "https://squiggly-cafe.info/",
       },
     ],
     pagination: {
-      totalCount: 758985,
-      maxPage: 17060,
+      totalCount: 221218,
+      maxPage: 683727,
     },
     dimensions: [
-      967055,
+      102446,
     ],
   },
 };

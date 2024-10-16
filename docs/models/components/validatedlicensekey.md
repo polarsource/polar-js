@@ -9,16 +9,22 @@ let value: ValidatedLicenseKey = {
   id: "<value>",
   organizationId: "<value>",
   userId: "<value>",
+  user: {
+    id: "<value>",
+    publicName: "<value>",
+    email: "Oswald_Kutch@gmail.com",
+    avatarUrl: "https://abandoned-swim.info/",
+  },
   benefitId: "<value>",
   key: "<key>",
   displayKey: "<value>",
   status: "disabled",
-  limitActivations: 229967,
-  usage: 381534,
-  limitUsage: 57182,
-  validations: 624181,
-  lastValidatedAt: new Date("2024-10-21T11:55:29.233Z"),
-  expiresAt: new Date("2023-03-11T05:34:07.493Z"),
+  limitActivations: 496307,
+  usage: 431108,
+  limitUsage: 295912,
+  validations: 81689,
+  lastValidatedAt: new Date("2022-12-06T10:12:28.995Z"),
+  expiresAt: new Date("2023-10-29T21:12:06.679Z"),
 };
 ```
 
@@ -29,6 +35,7 @@ let value: ValidatedLicenseKey = {
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `userId`                                                                                      | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `user`                                                                                        | [components.LicenseKeyUser](../../models/components/licensekeyuser.md)                        | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `benefitId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | The benefit ID.                                                                               |
 | `key`                                                                                         | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `displayKey`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |

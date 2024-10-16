@@ -7,11 +7,11 @@
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2022-10-20T17:39:45.167Z"),
-  modifiedAt: new Date("2022-05-21T01:38:02.928Z"),
+  createdAt: new Date("2023-06-06T10:43:50.149Z"),
+  modifiedAt: new Date("2022-11-13T23:20:26.533Z"),
   id: "<value>",
   description:
-    "overconfidently punctually anneal although amongst supposing elastic",
+    "yak chilly instantly foolishly quantify phooey as opera stabilise",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -25,11 +25,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2024-11-25T18:02:23.702Z"),
-  modifiedAt: new Date("2022-03-29T08:13:52.389Z"),
+  createdAt: new Date("2022-02-07T17:40:49.949Z"),
+  modifiedAt: new Date("2022-04-12T05:09:19.218Z"),
   id: "<value>",
-  description:
-    "um phew about helpless astride breed essential huzzah oxygenate",
+  description: "curl fully brook mmm bah carp gah off er bah",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -41,10 +40,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2024-10-12T17:44:21.842Z"),
-  modifiedAt: new Date("2022-09-18T20:45:01.005Z"),
+  createdAt: new Date("2023-04-16T01:44:35.832Z"),
+  modifiedAt: new Date("2023-04-23T10:52:03.142Z"),
   id: "<value>",
-  description: "lovable eek glow anxiously hidden or",
+  description: "lotion simple er doubtfully",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -59,10 +58,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscord = {
-  createdAt: new Date("2022-03-31T15:24:09.344Z"),
-  modifiedAt: new Date("2024-08-03T03:25:30.360Z"),
+  createdAt: new Date("2023-04-11T20:54:26.937Z"),
+  modifiedAt: new Date("2023-02-23T06:18:24.673Z"),
   id: "<value>",
-  description: "ew svelte contravene till crumble",
+  description: "space informal minus dark while beyond untimely whenever",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -78,10 +77,10 @@ const value: components.BenefitDiscord = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2024-11-25T03:26:32.516Z"),
-  modifiedAt: new Date("2023-06-30T12:33:10.822Z"),
+  createdAt: new Date("2024-08-29T10:56:21.811Z"),
+  modifiedAt: new Date("2023-05-07T08:26:35.788Z"),
   id: "<value>",
-  description: "between than yahoo",
+  description: "save dapper untimely spark once charlatan hm except",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -89,7 +88,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "maintain",
+    permission: "pull",
   },
 };
 ```
@@ -98,11 +97,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2022-10-16T01:37:14.449Z"),
-  modifiedAt: new Date("2024-09-30T14:09:22.071Z"),
+  createdAt: new Date("2024-10-06T08:46:10.626Z"),
+  modifiedAt: new Date("2022-08-21T10:30:21.944Z"),
   id: "<value>",
-  description:
-    "powerfully fooey excitedly tentacle even monstrous plait indeed",
+  description: "perky if defiantly reassemble information adrenalin",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -121,25 +119,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2022-08-26T19:56:08.017Z"),
-  modifiedAt: new Date("2024-09-26T15:04:08.995Z"),
+  createdAt: new Date("2023-11-26T13:41:08.143Z"),
+  modifiedAt: new Date("2023-12-31T14:12:56.950Z"),
   id: "<value>",
-  description:
-    "triumphantly footrest coexist hammock rag display ostrich aboard pfft so",
+  description: "underneath phew scholarship what shabby bloom blah",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 217340,
+      ttl: 459112,
       timeframe: "day",
     },
     activations: {
-      limit: 783687,
+      limit: 316392,
       enableUserAdmin: false,
     },
-    limitUsage: 127908,
+    limitUsage: 906531,
   },
 };
 ```

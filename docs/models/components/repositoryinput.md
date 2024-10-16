@@ -6,26 +6,26 @@
 import { RepositoryInput } from "@polar-sh/sdk/models/components";
 
 let value: RepositoryInput = {
-  id: "7b541f6d-9a75-47ce-b78b-fad62b3e176d",
+  id: "ec13d0ba-7949-4b62-9ff1-05f63f3a1a24",
   isPrivate: false,
   name: "MyOrg",
   description:
-    "testify cod invite unhealthy athwart yowza reiterate till ick attest",
+    "along spotless clamour consequently jet untidy wherever veto considering",
   stars: 1337,
   license: "<value>",
   homepage: "<value>",
   profileSettings: {},
   organization: {
-    id: "217db36b-ee86-4aaf-9787-b5084b2dc62d",
+    id: "40053a2e-f702-44ee-af42-856705b7cafb",
     name: "<value>",
-    avatarUrl: "https://medium-anticodon.com/",
+    avatarUrl: "https://utilized-yin.org/",
     isPersonal: false,
     bio: "<value>",
     prettyName: "<value>",
-    company: "Kutch - Harber",
+    company: "Brown - Hickle",
     blog: "<value>",
     location: "<value>",
-    email: "Bernadine_Gusikowski@hotmail.com",
+    email: "Reyna.Muller@hotmail.com",
     twitterUsername: "<value>",
     organizationId: "<value>",
   },

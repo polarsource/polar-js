@@ -27,6 +27,12 @@ actions:
         - "lang": "typescript"
           "label": "create"
           "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.articles.create({\n    title: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/articles/export"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "export"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.articles.export({\n    organizationId: \"cf4e3d5e-2b50-4470-a85b-8d021391fabb\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/articles/{id}"]["delete"]
     update:
       "x-codeSamples":
