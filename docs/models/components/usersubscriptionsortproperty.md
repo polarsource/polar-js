@@ -5,7 +5,7 @@
 ```typescript
 import { UserSubscriptionSortProperty } from "@polar-sh/sdk/models/components";
 
-let value: UserSubscriptionSortProperty = "-started_at";
+let value: UserSubscriptionSortProperty = "-organization";
 ```
 
 ## Values

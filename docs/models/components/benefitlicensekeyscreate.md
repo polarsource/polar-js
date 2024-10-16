@@ -6,7 +6,7 @@
 import { BenefitLicenseKeysCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitLicenseKeysCreate = {
-  description: "cop vivaciously yippee tame ouch nervously",
+  description: "editor ack including angrily venom forenenst lovable",
   properties: {},
 };
 ```

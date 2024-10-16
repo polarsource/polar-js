@@ -14,17 +14,17 @@ let value: ListResourceDownloadableRead = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/boot/defaults",
+        path: "/opt/include",
         mimeType: "<value>",
-        size: 984550,
+        size: 19610,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2023-12-22T17:04:10.022Z"),
+        lastModifiedAt: new Date("2024-06-13T17:09:10.644Z"),
         download: {
-          url: "https://quiet-sanity.biz",
-          expiresAt: new Date("2022-10-10T00:40:07.960Z"),
+          url: "https://reflecting-dusk.com/",
+          expiresAt: new Date("2024-10-16T14:29:18.954Z"),
         },
         version: "<value>",
         isUploaded: false,
@@ -34,8 +34,8 @@ let value: ListResourceDownloadableRead = {
     },
   ],
   pagination: {
-    totalCount: 563154,
-    maxPage: 505663,
+    totalCount: 890631,
+    maxPage: 306599,
   },
 };
 ```

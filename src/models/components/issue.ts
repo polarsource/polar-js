@@ -44,9 +44,6 @@ import { State, State$inboundSchema, State$outboundSchema } from "./state.js";
 
 export type Issue = {
   id: string;
-  /**
-   * Issue platform (currently always GitHub)
-   */
   platform?: "github" | undefined;
   /**
    * GitHub #number
@@ -90,9 +87,6 @@ export type Issue = {
    */
   confirmedSolvedAt?: Date | null | undefined;
   funding: Funding;
-  /**
-   * The repository that the issue is in
-   */
   repository: RepositoryInput;
   /**
    * Share of rewrads that will be rewarded to contributors of this issue. A number between 0 and 100 (inclusive).

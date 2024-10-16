@@ -10,74 +10,74 @@ import { MetricsResponse } from "@polar-sh/sdk/models/components";
 let value: MetricsResponse = {
   periods: [
     {
-      timestamp: new Date("2024-01-14T18:49:36.050Z"),
-      orders: 953960,
-      revenue: 151023,
-      averageOrderValue: 794154,
-      oneTimeProducts: 420626,
-      oneTimeProductsRevenue: 929687,
-      newSubscriptions: 686991,
-      newSubscriptionsRevenue: 147165,
-      renewedSubscriptions: 32474,
-      renewedSubscriptionsRevenue: 125622,
-      activeSubscriptions: 712690,
-      monthlyRecurringRevenue: 10541,
+      timestamp: new Date("2024-01-17T21:04:26.038Z"),
+      orders: 240101,
+      revenue: 349551,
+      averageOrderValue: 71631,
+      oneTimeProducts: 816230,
+      oneTimeProductsRevenue: 70999,
+      newSubscriptions: 298797,
+      newSubscriptionsRevenue: 925633,
+      renewedSubscriptions: 559410,
+      renewedSubscriptionsRevenue: 217880,
+      activeSubscriptions: 992888,
+      monthlyRecurringRevenue: 880730,
     },
   ],
   metrics: {
     orders: {
       slug: "<value>",
-      displayName: "Javier.Schulist0",
-      type: "scalar",
+      displayName: "Anne.Nitzsche53",
+      type: "currency",
     },
     revenue: {
       slug: "<value>",
-      displayName: "Willa22",
-      type: "scalar",
+      displayName: "Justus.Collier-Lemke61",
+      type: "currency",
     },
     averageOrderValue: {
       slug: "<value>",
-      displayName: "Joaquin.Toy76",
+      displayName: "Hyman49",
       type: "scalar",
     },
     oneTimeProducts: {
       slug: "<value>",
-      displayName: "Westley_OKon2",
-      type: "currency",
+      displayName: "Dena13",
+      type: "scalar",
     },
     oneTimeProductsRevenue: {
       slug: "<value>",
-      displayName: "Jackeline.Klein90",
+      displayName: "Ally.Fahey",
       type: "currency",
     },
     newSubscriptions: {
       slug: "<value>",
-      displayName: "Addison_DuBuque39",
-      type: "currency",
+      displayName: "Danny.Swift99",
+      type: "scalar",
     },
     newSubscriptionsRevenue: {
       slug: "<value>",
-      displayName: "Emil26",
+      displayName: "Kenya_Krajcik41",
       type: "scalar",
     },
     renewedSubscriptions: {
       slug: "<value>",
-      displayName: "Aliya.Kuphal",
-      type: "scalar",
+      displayName: "Tatum.Crooks",
+      type: "currency",
     },
     renewedSubscriptionsRevenue: {
       slug: "<value>",
-      displayName: "Nels_Kuhn",
+      displayName: "Ada_Marvin10",
       type: "currency",
     },
     activeSubscriptions: {
       slug: "<value>",
-      displayName: "Jolie38",
-      type: "currency",
+      displayName: "Kaelyn_Schumm",
+      type: "scalar",
     },
     monthlyRecurringRevenue: {
       slug: "<value>",
-      displayName: "Arnold39",
+      displayName: "Donnell88",
       type: "currency",
     },
   },
@@ -89,4 +89,4 @@ let value: MetricsResponse = {
 | Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
 | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | `periods`                                                            | [components.MetricPeriod](../../models/components/metricperiod.md)[] | :heavy_check_mark:                                                   | List of data for each timestamp.                                     |
-| `metrics`                                                            | [components.Metrics](../../models/components/metrics.md)             | :heavy_check_mark:                                                   | Information about the returned metrics.                              |
+| `metrics`                                                            | [components.Metrics](../../models/components/metrics.md)             | :heavy_check_mark:                                                   | N/A                                                                  |

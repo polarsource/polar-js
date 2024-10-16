@@ -7,15 +7,15 @@ import { OAuth2Client } from "@polar-sh/sdk/models/components";
 
 let value: OAuth2Client = {
   redirectUris: [
-    "https://failing-filter.net/",
+    "https://black-clavicle.biz",
   ],
   clientName: "<value>",
-  createdAt: new Date("2023-02-08T19:52:05.749Z"),
-  modifiedAt: new Date("2024-05-22T23:47:26.346Z"),
+  createdAt: new Date("2022-08-31T05:11:50.378Z"),
+  modifiedAt: new Date("2022-09-16T00:41:17.064Z"),
   clientId: "<id>",
   clientSecret: "<value>",
-  clientIdIssuedAt: 587166,
-  clientSecretExpiresAt: 350567,
+  clientIdIssuedAt: 152850,
+  clientSecretExpiresAt: 692918,
 };
 ```
 

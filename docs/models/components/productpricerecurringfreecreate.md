@@ -8,7 +8,7 @@ Schema to create a free recurring product price, i.e. a subscription.
 import { ProductPriceRecurringFreeCreate } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringFreeCreate = {
-  recurringInterval: "year",
+  recurringInterval: "month",
 };
 ```
 
@@ -18,4 +18,4 @@ let value: ProductPriceRecurringFreeCreate = {
 | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `type`                                                                                                                       | [components.ProductPriceRecurringFreeCreateType](../../models/components/productpricerecurringfreecreatetype.md)             | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
 | `amountType`                                                                                                                 | [components.ProductPriceRecurringFreeCreateAmountType](../../models/components/productpricerecurringfreecreateamounttype.md) | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
-| `recurringInterval`                                                                                                          | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                         | :heavy_check_mark:                                                                                                           | The recurring interval of the price.                                                                                         |
+| `recurringInterval`                                                                                                          | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                         | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |

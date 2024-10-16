@@ -6,8 +6,8 @@
 import { BenefitGrantSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrantSubscriber = {
-  createdAt: new Date("2024-06-24T20:44:45.993Z"),
-  modifiedAt: new Date("2023-12-10T11:55:43.052Z"),
+  createdAt: new Date("2022-08-13T10:34:08.199Z"),
+  modifiedAt: new Date("2022-02-28T19:32:56.713Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,

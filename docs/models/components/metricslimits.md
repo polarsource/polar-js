@@ -9,22 +9,22 @@ import { MetricsLimits } from "@polar-sh/sdk/models/components";
 import { RFCDate } from "@polar-sh/sdk/types";
 
 let value: MetricsLimits = {
-  minDate: new RFCDate("2024-11-25"),
+  minDate: new RFCDate("2023-06-10"),
   intervals: {
     hour: {
-      maxDays: 844253,
+      maxDays: 635909,
     },
     day: {
-      maxDays: 888924,
+      maxDays: 541834,
     },
     week: {
-      maxDays: 905059,
+      maxDays: 823250,
     },
     month: {
-      maxDays: 76555,
+      maxDays: 186640,
     },
     year: {
-      maxDays: 857243,
+      maxDays: 129904,
     },
   },
 };
@@ -35,4 +35,4 @@ let value: MetricsLimits = {
 | Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `minDate`                                                                              | [RFCDate](../../types/rfcdate.md)                                                      | :heavy_check_mark:                                                                     | Minimum date to get metrics.                                                           |
-| `intervals`                                                                            | [components.MetricsIntervalsLimits](../../models/components/metricsintervalslimits.md) | :heavy_check_mark:                                                                     | Limits for each interval.                                                              |
+| `intervals`                                                                            | [components.MetricsIntervalsLimits](../../models/components/metricsintervalslimits.md) | :heavy_check_mark:                                                                     | Date interval limits to get metrics for each interval.                                 |

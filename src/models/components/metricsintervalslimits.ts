@@ -15,23 +15,23 @@ import {
  */
 export type MetricsIntervalsLimits = {
   /**
-   * Limits for the hour interval.
+   * Date interval limit to get metrics for a given interval.
    */
   hour: MetricsIntervalLimit;
   /**
-   * Limits for the day interval.
+   * Date interval limit to get metrics for a given interval.
    */
   day: MetricsIntervalLimit;
   /**
-   * Limits for the week interval.
+   * Date interval limit to get metrics for a given interval.
    */
   week: MetricsIntervalLimit;
   /**
-   * Limits for the month interval.
+   * Date interval limit to get metrics for a given interval.
    */
   month: MetricsIntervalLimit;
   /**
-   * Limits for the year interval.
+   * Date interval limit to get metrics for a given interval.
    */
   year: MetricsIntervalLimit;
 };

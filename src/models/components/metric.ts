@@ -22,9 +22,6 @@ export type Metric = {
    * Human-readable name for the metric.
    */
   displayName: string;
-  /**
-   * Type of the metric, useful to know the unit or format of the value.
-   */
   type: MetricType;
 };
 

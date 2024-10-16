@@ -24,9 +24,6 @@ export type MetricsResponse = {
    * List of data for each timestamp.
    */
   periods: Array<MetricPeriod>;
-  /**
-   * Information about the returned metrics.
-   */
   metrics: Metrics;
 };
 

@@ -8,13 +8,13 @@ A recurring price for a product, i.e. a subscription.
 import { ProductPriceRecurringFixed } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringFixed = {
-  createdAt: new Date("2022-12-19T23:19:10.766Z"),
-  modifiedAt: new Date("2024-12-15T17:30:31.626Z"),
+  createdAt: new Date("2024-10-29T21:49:35.631Z"),
+  modifiedAt: new Date("2024-03-17T02:09:56.964Z"),
   id: "<value>",
   isArchived: false,
   priceCurrency: "<value>",
-  priceAmount: 857355,
-  recurringInterval: "month",
+  priceAmount: 123593,
+  recurringInterval: "year",
 };
 ```
 
@@ -30,4 +30,4 @@ let value: ProductPriceRecurringFixed = {
 | `priceCurrency`                                                                                        | *string*                                                                                               | :heavy_check_mark:                                                                                     | The currency.                                                                                          |
 | `priceAmount`                                                                                          | *number*                                                                                               | :heavy_check_mark:                                                                                     | The price in cents.                                                                                    |
 | `type`                                                                                                 | [components.ProductPriceRecurringFixedType](../../models/components/productpricerecurringfixedtype.md) | :heavy_check_mark:                                                                                     | The type of the price.                                                                                 |
-| `recurringInterval`                                                                                    | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)   | :heavy_check_mark:                                                                                     | The recurring interval of the price.                                                                   |
+| `recurringInterval`                                                                                    | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)   | :heavy_check_mark:                                                                                     | N/A                                                                                                    |

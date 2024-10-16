@@ -9,6 +9,7 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
+import * as components from "../models/components/index.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -34,7 +35,7 @@ export async function benefitsCreate(
   options?: RequestOptions,
 ): Promise<
   Result<
-    operations.BenefitsCreateResponseBenefitsCreate,
+    components.Benefit,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -103,7 +104,7 @@ export async function benefitsCreate(
   };
 
   const [result] = await M.match<
-    operations.BenefitsCreateResponseBenefitsCreate,
+    components.Benefit,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -113,7 +114,7 @@ export async function benefitsCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(201, operations.BenefitsCreateResponseBenefitsCreate$inboundSchema),
+    M.json(201, components.Benefit$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),
   )(response, { extraFields: responseFields });

@@ -8,33 +8,33 @@ Checkout session data retrieved using an access token.
 import { PolarCheckoutSchemasCheckout } from "@polar-sh/sdk/models/components";
 
 let value: PolarCheckoutSchemasCheckout = {
-  createdAt: new Date("2023-05-18T06:28:04.134Z"),
-  modifiedAt: new Date("2024-10-11T08:44:45.015Z"),
+  createdAt: new Date("2024-02-01T10:56:21.274Z"),
+  modifiedAt: new Date("2022-06-23T00:19:14.402Z"),
   id: "<value>",
   status: "failed",
   clientSecret: "<value>",
-  expiresAt: new Date("2024-12-10T05:43:15.244Z"),
-  successUrl: "https://shadowy-attraction.org",
-  amount: 473319,
-  taxAmount: 60997,
-  currency: "Zambian Kwacha",
-  totalAmount: 570377,
+  expiresAt: new Date("2023-05-05T04:09:38.309Z"),
+  successUrl: "https://downright-object.org/",
+  amount: 589101,
+  taxAmount: 652345,
+  currency: "Pound Sterling",
+  totalAmount: 325851,
   productId: "<value>",
   productPriceId: "<value>",
   isPaymentRequired: false,
   customerId: "<value>",
   customerName: "<value>",
-  customerEmail: "Aisha_Deckow@yahoo.com",
+  customerEmail: "Jordi.Mosciski62@gmail.com",
   customerIpAddress: "<value>",
   customerBillingAddress: {
-    country: "Argentina",
+    country: "Thailand",
   },
   customerTaxId: "<id>",
   paymentProcessorMetadata: {},
   metadata: {
     "key": "<value>",
   },
-  url: "https://well-lit-approach.com",
+  url: "https://dramatic-knickers.org/",
 };
 ```
 
@@ -45,8 +45,8 @@ let value: PolarCheckoutSchemasCheckout = {
 | `createdAt`                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)  | :heavy_check_mark:                                                                             | Creation timestamp of the object.                                                              |
 | `modifiedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)  | :heavy_check_mark:                                                                             | Last modification timestamp of the object.                                                     |
 | `id`                                                                                           | *string*                                                                                       | :heavy_check_mark:                                                                             | The ID of the object.                                                                          |
-| `paymentProcessor`                                                                             | [components.PolarEnumsPaymentProcessor](../../models/components/polarenumspaymentprocessor.md) | :heavy_check_mark:                                                                             | Payment processor used.                                                                        |
-| `status`                                                                                       | [components.CheckoutStatus](../../models/components/checkoutstatus.md)                         | :heavy_check_mark:                                                                             | Status of the checkout session.                                                                |
+| `paymentProcessor`                                                                             | [components.PolarEnumsPaymentProcessor](../../models/components/polarenumspaymentprocessor.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `status`                                                                                       | [components.CheckoutStatus](../../models/components/checkoutstatus.md)                         | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `clientSecret`                                                                                 | *string*                                                                                       | :heavy_check_mark:                                                                             | Client secret used to update and complete the checkout session from the client.                |
 | `expiresAt`                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)  | :heavy_check_mark:                                                                             | Expiration date and time of the checkout session.                                              |
 | `successUrl`                                                                                   | *string*                                                                                       | :heavy_check_mark:                                                                             | URL where the customer will be redirected after a successful payment.                          |

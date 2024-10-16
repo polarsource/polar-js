@@ -7,10 +7,10 @@ import { OrderUser } from "@polar-sh/sdk/models/components";
 
 let value: OrderUser = {
   id: "<value>",
-  email: "Bessie.Sawayn91@gmail.com",
+  email: "Johathan.Dooley@yahoo.com",
   publicName: "<value>",
   githubUsername: "<value>",
-  avatarUrl: "https://proper-metal.org/",
+  avatarUrl: "https://insecure-ownership.info",
 };
 ```
 

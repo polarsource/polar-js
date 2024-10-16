@@ -9,16 +9,22 @@ let value: LicenseKeyRead = {
   id: "<value>",
   organizationId: "<value>",
   userId: "<value>",
+  user: {
+    id: "<value>",
+    publicName: "<value>",
+    email: "Robyn.Bergstrom@yahoo.com",
+    avatarUrl: "https://strange-arcade.com/",
+  },
   benefitId: "<value>",
   key: "<key>",
   displayKey: "<value>",
-  status: "revoked",
-  limitActivations: 51013,
-  usage: 408363,
-  limitUsage: 29848,
-  validations: 964191,
-  lastValidatedAt: new Date("2024-04-15T08:28:57.630Z"),
-  expiresAt: new Date("2023-01-07T20:44:43.574Z"),
+  status: "granted",
+  limitActivations: 47401,
+  usage: 995713,
+  limitUsage: 691129,
+  validations: 519586,
+  lastValidatedAt: new Date("2024-06-01T11:05:48.197Z"),
+  expiresAt: new Date("2023-12-28T02:03:10.092Z"),
 };
 ```
 
@@ -29,6 +35,7 @@ let value: LicenseKeyRead = {
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `userId`                                                                                      | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `user`                                                                                        | [components.LicenseKeyUser](../../models/components/licensekeyuser.md)                        | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `benefitId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | The benefit ID.                                                                               |
 | `key`                                                                                         | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `displayKey`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |

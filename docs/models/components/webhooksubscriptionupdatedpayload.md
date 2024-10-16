@@ -1,8 +1,12 @@
 # WebhookSubscriptionUpdatedPayload
 
-Sent when a new subscription is updated. This event fires if the subscription is cancelled, both immediately and if the subscription is cancelled at the end of the current period.
+Sent when a subscription is updated. This event fires for all changes to the subscription, including renewals.
 
-**Discord & Slack support:** On cancellation
+If you want more specific events, you can listen to `subscription.active`, `subscription.canceled`, and `subscription.revoked`.
+
+To listen specifically for renewals, you can listen to `order.created` events and check the `billing_reason` field.
+
+**Discord & Slack support:** On cancellation and revocation. Renewals are skipped.
 
 ## Example Usage
 
@@ -11,18 +15,18 @@ import { WebhookSubscriptionUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookSubscriptionUpdatedPayload = {
   data: {
-    createdAt: new Date("2023-04-07T11:06:58.417Z"),
-    modifiedAt: new Date("2023-06-08T05:46:10.028Z"),
+    createdAt: new Date("2022-07-20T20:45:13.442Z"),
+    modifiedAt: new Date("2024-02-27T23:14:03.443Z"),
     id: "<value>",
-    amount: 677862,
-    currency: "Falkland Islands Pound",
-    recurringInterval: "year",
-    status: "incomplete_expired",
-    currentPeriodStart: new Date("2024-04-18T08:09:28.288Z"),
-    currentPeriodEnd: new Date("2024-03-02T10:25:24.644Z"),
+    amount: 7866,
+    currency: "Malagasy Ariary",
+    recurringInterval: "month",
+    status: "canceled",
+    currentPeriodStart: new Date("2024-11-10T12:13:29.060Z"),
+    currentPeriodEnd: new Date("2022-02-17T11:30:13.324Z"),
     cancelAtPeriodEnd: false,
-    startedAt: new Date("2022-05-10T01:15:05.305Z"),
-    endedAt: new Date("2023-10-12T13:11:40.528Z"),
+    startedAt: new Date("2022-04-23T23:31:32.791Z"),
+    endedAt: new Date("2023-07-20T02:09:27.293Z"),
     userId: "<value>",
     productId: "<value>",
     priceId: "<value>",
@@ -31,37 +35,40 @@ let value: WebhookSubscriptionUpdatedPayload = {
       "key": "<value>",
     },
     user: {
-      email: "Vladimir_Aufderhar@gmail.com",
+      email: "Hannah17@hotmail.com",
       publicName: "<value>",
       githubUsername: "<value>",
-      avatarUrl: "https://tired-tabletop.biz",
+      avatarUrl: "https://strange-encouragement.name",
     },
     product: {
-      createdAt: new Date("2023-01-28T02:30:44.160Z"),
-      modifiedAt: new Date("2024-12-04T00:32:06.141Z"),
+      createdAt: new Date("2022-08-18T00:27:45.134Z"),
+      modifiedAt: new Date("2024-07-25T15:30:25.665Z"),
       id: "<value>",
       name: "<value>",
-      description: "hubris ack attribute underneath taxicab quirkily",
+      description: "exasperation why blah per",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",
       prices: [
         {
-          createdAt: new Date("2022-01-22T13:47:16.368Z"),
-          modifiedAt: new Date("2023-09-01T01:11:59.221Z"),
+          createdAt: new Date("2024-09-22T14:10:48.963Z"),
+          modifiedAt: new Date("2023-10-07T14:09:54.362Z"),
           id: "<value>",
           isArchived: false,
-          recurringInterval: "year",
+          priceCurrency: "<value>",
+          minimumAmount: 137209,
+          maximumAmount: 164967,
+          presetAmount: 921974,
         },
       ],
       benefits: [
         {
-          createdAt: new Date("2023-04-15T05:58:11.260Z"),
-          modifiedAt: new Date("2022-11-22T09:26:52.208Z"),
+          createdAt: new Date("2022-06-01T03:41:33.937Z"),
+          modifiedAt: new Date("2023-12-17T19:30:08.420Z"),
           id: "<value>",
-          type: "github_repository",
+          type: "articles",
           description:
-            "seal cannon since or emphasise toward shrill closely republican",
+            "rapidly and loyalty oh outside made-up underneath husband tenderly",
           selectable: false,
           deletable: false,
           organizationId: "<value>",
@@ -72,26 +79,26 @@ let value: WebhookSubscriptionUpdatedPayload = {
           id: "<value>",
           organizationId: "<value>",
           name: "<value>",
-          path: "/lost+found",
+          path: "/Applications",
           mimeType: "<value>",
-          size: 276285,
+          size: 115028,
           storageVersion: "<value>",
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
           checksumSha256Hex: "<value>",
-          lastModifiedAt: new Date("2022-08-17T18:33:35.647Z"),
+          lastModifiedAt: new Date("2023-02-08T16:54:04.413Z"),
           version: "<value>",
           isUploaded: false,
-          createdAt: new Date("2022-04-24T07:30:00.599Z"),
+          createdAt: new Date("2023-03-12T19:58:30.016Z"),
         },
       ],
     },
     price: {
-      createdAt: new Date("2024-02-07T22:48:59.434Z"),
-      modifiedAt: new Date("2023-02-25T00:02:22.663Z"),
+      createdAt: new Date("2023-07-13T17:19:07.810Z"),
+      modifiedAt: new Date("2024-10-03T02:08:20.774Z"),
       id: "<value>",
       isArchived: false,
-      recurringInterval: "year",
+      recurringInterval: "month",
     },
   },
 };

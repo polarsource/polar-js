@@ -31,9 +31,6 @@ export type ProductPriceRecurringFreeCreateAmountType = ClosedEnum<
 export type ProductPriceRecurringFreeCreate = {
   type?: "recurring" | undefined;
   amountType?: "free" | undefined;
-  /**
-   * The recurring interval of the price.
-   */
   recurringInterval: SubscriptionRecurringInterval;
 };
 

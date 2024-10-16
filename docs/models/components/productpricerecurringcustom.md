@@ -8,14 +8,14 @@ A pay-what-you-want recurring price for a product, i.e. a subscription.
 import { ProductPriceRecurringCustom } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringCustom = {
-  createdAt: new Date("2023-02-17T01:18:56.856Z"),
-  modifiedAt: new Date("2023-04-18T13:22:03.376Z"),
+  createdAt: new Date("2022-11-08T12:27:27.718Z"),
+  modifiedAt: new Date("2024-11-29T08:28:52.570Z"),
   id: "<value>",
   isArchived: false,
   priceCurrency: "<value>",
-  minimumAmount: 763869,
-  maximumAmount: 33457,
-  presetAmount: 38622,
+  minimumAmount: 717486,
+  maximumAmount: 610766,
+  presetAmount: 695088,
   recurringInterval: "month",
 };
 ```
@@ -34,4 +34,4 @@ let value: ProductPriceRecurringCustom = {
 | `maximumAmount`                                                                                                      | *number*                                                                                                             | :heavy_check_mark:                                                                                                   | The maximum amount the customer can pay.                                                                             |
 | `presetAmount`                                                                                                       | *number*                                                                                                             | :heavy_check_mark:                                                                                                   | The initial amount shown to the customer.                                                                            |
 | `type`                                                                                                               | [components.ProductPriceRecurringCustomType](../../models/components/productpricerecurringcustomtype.md)             | :heavy_check_mark:                                                                                                   | The type of the price.                                                                                               |
-| `recurringInterval`                                                                                                  | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                 | :heavy_check_mark:                                                                                                   | The recurring interval of the price.                                                                                 |
+| `recurringInterval`                                                                                                  | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                 | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |

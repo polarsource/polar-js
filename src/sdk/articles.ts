@@ -4,6 +4,7 @@
 
 import { articlesCreate } from "../funcs/articlesCreate.js";
 import { articlesDelete } from "../funcs/articlesDelete.js";
+import { articlesExport } from "../funcs/articlesExport.js";
 import { articlesGet } from "../funcs/articlesGet.js";
 import { articlesList } from "../funcs/articlesList.js";
 import { articlesPreview } from "../funcs/articlesPreview.js";
@@ -45,6 +46,23 @@ export class Articles extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.Article> {
     return unwrapAsync(articlesCreate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Export Articles
+   *
+   * @remarks
+   * Export organization articles.
+   */
+  async export(
+    request: operations.ArticlesExportRequest,
+    options?: RequestOptions,
+  ): Promise<any> {
+    return unwrapAsync(articlesExport(
       this,
       request,
       options,

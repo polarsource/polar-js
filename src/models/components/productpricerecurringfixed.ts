@@ -62,9 +62,6 @@ export type ProductPriceRecurringFixed = {
    * The type of the price.
    */
   type?: "recurring" | undefined;
-  /**
-   * The recurring interval of the price.
-   */
   recurringInterval: SubscriptionRecurringInterval;
 };
 

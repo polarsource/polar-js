@@ -4,47 +4,11 @@
 
 import * as z from "zod";
 import {
-  BenefitAds,
-  BenefitAds$inboundSchema,
-  BenefitAds$Outbound,
-  BenefitAds$outboundSchema,
-} from "./benefitads.js";
-import {
-  BenefitArticles,
-  BenefitArticles$inboundSchema,
-  BenefitArticles$Outbound,
-  BenefitArticles$outboundSchema,
-} from "./benefitarticles.js";
-import {
-  BenefitCustom,
-  BenefitCustom$inboundSchema,
-  BenefitCustom$Outbound,
-  BenefitCustom$outboundSchema,
-} from "./benefitcustom.js";
-import {
-  BenefitDiscord,
-  BenefitDiscord$inboundSchema,
-  BenefitDiscord$Outbound,
-  BenefitDiscord$outboundSchema,
-} from "./benefitdiscord.js";
-import {
-  BenefitDownloadables,
-  BenefitDownloadables$inboundSchema,
-  BenefitDownloadables$Outbound,
-  BenefitDownloadables$outboundSchema,
-} from "./benefitdownloadables.js";
-import {
-  BenefitGitHubRepository,
-  BenefitGitHubRepository$inboundSchema,
-  BenefitGitHubRepository$Outbound,
-  BenefitGitHubRepository$outboundSchema,
-} from "./benefitgithubrepository.js";
-import {
-  BenefitLicenseKeys,
-  BenefitLicenseKeys$inboundSchema,
-  BenefitLicenseKeys$Outbound,
-  BenefitLicenseKeys$outboundSchema,
-} from "./benefitlicensekeys.js";
+  Benefit,
+  Benefit$inboundSchema,
+  Benefit$Outbound,
+  Benefit$outboundSchema,
+} from "./benefit.js";
 import {
   Pagination,
   Pagination$inboundSchema,
@@ -52,77 +16,10 @@ import {
   Pagination$outboundSchema,
 } from "./pagination.js";
 
-export type Benefit =
-  | BenefitArticles
-  | BenefitAds
-  | BenefitDiscord
-  | BenefitGitHubRepository
-  | BenefitDownloadables
-  | BenefitLicenseKeys
-  | BenefitCustom;
-
 export type ListResourceBenefit = {
-  items: Array<
-    | BenefitArticles
-    | BenefitAds
-    | BenefitDiscord
-    | BenefitGitHubRepository
-    | BenefitDownloadables
-    | BenefitLicenseKeys
-    | BenefitCustom
-  >;
+  items: Array<Benefit>;
   pagination: Pagination;
 };
-
-/** @internal */
-export const Benefit$inboundSchema: z.ZodType<Benefit, z.ZodTypeDef, unknown> =
-  z.union([
-    BenefitArticles$inboundSchema,
-    BenefitAds$inboundSchema,
-    BenefitDiscord$inboundSchema,
-    BenefitGitHubRepository$inboundSchema,
-    BenefitDownloadables$inboundSchema,
-    BenefitLicenseKeys$inboundSchema,
-    BenefitCustom$inboundSchema,
-  ]);
-
-/** @internal */
-export type Benefit$Outbound =
-  | BenefitArticles$Outbound
-  | BenefitAds$Outbound
-  | BenefitDiscord$Outbound
-  | BenefitGitHubRepository$Outbound
-  | BenefitDownloadables$Outbound
-  | BenefitLicenseKeys$Outbound
-  | BenefitCustom$Outbound;
-
-/** @internal */
-export const Benefit$outboundSchema: z.ZodType<
-  Benefit$Outbound,
-  z.ZodTypeDef,
-  Benefit
-> = z.union([
-  BenefitArticles$outboundSchema,
-  BenefitAds$outboundSchema,
-  BenefitDiscord$outboundSchema,
-  BenefitGitHubRepository$outboundSchema,
-  BenefitDownloadables$outboundSchema,
-  BenefitLicenseKeys$outboundSchema,
-  BenefitCustom$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Benefit$ {
-  /** @deprecated use `Benefit$inboundSchema` instead. */
-  export const inboundSchema = Benefit$inboundSchema;
-  /** @deprecated use `Benefit$outboundSchema` instead. */
-  export const outboundSchema = Benefit$outboundSchema;
-  /** @deprecated use `Benefit$Outbound` instead. */
-  export type Outbound = Benefit$Outbound;
-}
 
 /** @internal */
 export const ListResourceBenefit$inboundSchema: z.ZodType<
@@ -130,31 +27,13 @@ export const ListResourceBenefit$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  items: z.array(
-    z.union([
-      BenefitArticles$inboundSchema,
-      BenefitAds$inboundSchema,
-      BenefitDiscord$inboundSchema,
-      BenefitGitHubRepository$inboundSchema,
-      BenefitDownloadables$inboundSchema,
-      BenefitLicenseKeys$inboundSchema,
-      BenefitCustom$inboundSchema,
-    ]),
-  ),
+  items: z.array(Benefit$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
 
 /** @internal */
 export type ListResourceBenefit$Outbound = {
-  items: Array<
-    | BenefitArticles$Outbound
-    | BenefitAds$Outbound
-    | BenefitDiscord$Outbound
-    | BenefitGitHubRepository$Outbound
-    | BenefitDownloadables$Outbound
-    | BenefitLicenseKeys$Outbound
-    | BenefitCustom$Outbound
-  >;
+  items: Array<Benefit$Outbound>;
   pagination: Pagination$Outbound;
 };
 
@@ -164,17 +43,7 @@ export const ListResourceBenefit$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListResourceBenefit
 > = z.object({
-  items: z.array(
-    z.union([
-      BenefitArticles$outboundSchema,
-      BenefitAds$outboundSchema,
-      BenefitDiscord$outboundSchema,
-      BenefitGitHubRepository$outboundSchema,
-      BenefitDownloadables$outboundSchema,
-      BenefitLicenseKeys$outboundSchema,
-      BenefitCustom$outboundSchema,
-    ]),
-  ),
+  items: z.array(Benefit$outboundSchema),
   pagination: Pagination$outboundSchema,
 });
 

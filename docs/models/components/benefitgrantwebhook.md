@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2023-10-28T06:01:39.364Z"),
-  modifiedAt: new Date("2022-09-04T21:23:13.781Z"),
+  createdAt: new Date("2023-06-01T03:37:00.180Z"),
+  modifiedAt: new Date("2022-09-09T06:29:34.747Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,14 +17,25 @@ let value: BenefitGrantWebhook = {
   benefitId: "<value>",
   properties: {},
   benefit: {
-    createdAt: new Date("2024-05-01T09:46:08.628Z"),
-    modifiedAt: new Date("2023-06-29T11:49:18.398Z"),
+    createdAt: new Date("2022-05-28T13:13:34.231Z"),
+    modifiedAt: new Date("2022-08-25T10:24:20.426Z"),
     id: "<value>",
-    description: "untried painfully knit",
+    description: "throughout below knowledgeably",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
-    properties: {},
+    properties: {
+      prefix: "<value>",
+      expires: {
+        ttl: 750956,
+        timeframe: "month",
+      },
+      activations: {
+        limit: 662360,
+        enableUserAdmin: false,
+      },
+      limitUsage: 889439,
+    },
   },
 };
 ```
@@ -45,5 +56,5 @@ let value: BenefitGrantWebhook = {
 | `userId`                                                                                      | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the user concerned by this grant.                                                   |
 | `benefitId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the benefit concerned by this grant.                                                |
 | `properties`                                                                                  | *components.BenefitGrantWebhookProperties*                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `benefit`                                                                                     | *components.BenefitGrantWebhookBenefit*                                                       | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `benefit`                                                                                     | *components.BenefitInput*                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `previousProperties`                                                                          | *components.PreviousProperties*                                                               | :heavy_minus_sign:                                                                            | N/A                                                                                           |

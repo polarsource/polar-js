@@ -34,13 +34,7 @@ export type PolarCheckoutSchemasCheckout = {
    * The ID of the object.
    */
   id: string;
-  /**
-   * Payment processor used.
-   */
   paymentProcessor?: "stripe" | undefined;
-  /**
-   * Status of the checkout session.
-   */
   status: CheckoutStatus;
   /**
    * Client secret used to update and complete the checkout session from the client.
@@ -106,13 +100,7 @@ export type PolarCheckoutSchemasCheckoutInput = {
    * The ID of the object.
    */
   id: string;
-  /**
-   * Payment processor used.
-   */
   paymentProcessor?: "stripe" | undefined;
-  /**
-   * Status of the checkout session.
-   */
   status: CheckoutStatus;
   /**
    * Client secret used to update and complete the checkout session from the client.

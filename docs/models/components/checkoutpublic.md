@@ -8,59 +8,63 @@ Checkout session data retrieved using the client secret.
 import { CheckoutPublic } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutPublic = {
-  createdAt: new Date("2023-11-06T16:01:51.588Z"),
-  modifiedAt: new Date("2024-04-14T18:31:45.123Z"),
+  createdAt: new Date("2023-12-26T18:28:53.746Z"),
+  modifiedAt: new Date("2022-04-08T07:55:03.665Z"),
   id: "<value>",
-  status: "failed",
+  status: "expired",
   clientSecret: "<value>",
-  expiresAt: new Date("2022-07-14T00:14:45.565Z"),
-  successUrl: "https://powerful-shark.biz",
-  amount: 500101,
-  taxAmount: 208959,
-  currency: "Turkish Lira",
-  totalAmount: 204579,
+  expiresAt: new Date("2023-06-09T15:08:25.512Z"),
+  successUrl: "https://golden-seafood.net",
+  amount: 19463,
+  taxAmount: 190413,
+  currency: "Balboa",
+  totalAmount: 496042,
   productId: "<value>",
   productPriceId: "<value>",
   isPaymentRequired: false,
   customerId: "<value>",
   customerName: "<value>",
-  customerEmail: "Hazel_Jenkins52@yahoo.com",
+  customerEmail: "Floy.Zemlak@gmail.com",
   customerIpAddress: "<value>",
   customerBillingAddress: {
-    country: "Italy",
+    country: "Malta",
   },
   customerTaxId: "<id>",
   paymentProcessorMetadata: {},
   product: {
-    createdAt: new Date("2024-04-28T14:16:56.411Z"),
-    modifiedAt: new Date("2024-01-03T07:06:59.391Z"),
+    createdAt: new Date("2023-12-30T06:59:24.222Z"),
+    modifiedAt: new Date("2023-01-31T10:52:16.926Z"),
     id: "<value>",
     name: "<value>",
-    description: "after weary oval",
+    description: "during godfather phew per",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2024-10-07T11:35:19.244Z"),
-        modifiedAt: new Date("2022-03-29T21:43:02.894Z"),
+        createdAt: new Date("2023-07-01T04:04:20.139Z"),
+        modifiedAt: new Date("2024-03-23T22:47:32.575Z"),
         id: "<value>",
         isArchived: false,
         priceCurrency: "<value>",
-        priceAmount: 137914,
-        recurringInterval: "year",
+        minimumAmount: 313064,
+        maximumAmount: 104097,
+        presetAmount: 825257,
+        recurringInterval: "month",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2024-06-24T09:42:38.938Z"),
-        modifiedAt: new Date("2023-04-01T22:38:03.818Z"),
+        createdAt: new Date("2022-04-27T17:18:40.571Z"),
+        modifiedAt: new Date("2022-05-18T18:26:16.470Z"),
         id: "<value>",
-        type: "discord",
-        description: "beneath geez abnormally cleaner",
+        description: "unless boldly cash suspiciously",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
+        properties: {
+          paidArticles: false,
+        },
       },
     ],
     medias: [
@@ -68,29 +72,30 @@ let value: CheckoutPublic = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/private/tmp",
+        path: "/etc",
         mimeType: "<value>",
-        size: 477169,
+        size: 577549,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2022-03-16T09:33:11.695Z"),
+        lastModifiedAt: new Date("2023-08-09T10:13:51.600Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2024-01-12T21:22:57.299Z"),
+        createdAt: new Date("2023-04-18T14:04:46.675Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://pleased-order.net",
+        publicUrl: "https://intent-starboard.net/",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2023-06-24T23:34:58.651Z"),
-    modifiedAt: new Date("2024-11-01T17:29:09.841Z"),
+    createdAt: new Date("2024-05-10T16:19:06.783Z"),
+    modifiedAt: new Date("2022-02-18T12:13:52.647Z"),
     id: "<value>",
     isArchived: false,
+    recurringInterval: "year",
   },
-  url: "https://shabby-tuba.com/",
+  url: "https://authorized-transom.info",
 };
 ```
 
@@ -101,8 +106,8 @@ let value: CheckoutPublic = {
 | `createdAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                          | :heavy_check_mark:                                                                                                     | Creation timestamp of the object.                                                                                      |
 | `modifiedAt`                                                                                                           | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                          | :heavy_check_mark:                                                                                                     | Last modification timestamp of the object.                                                                             |
 | `id`                                                                                                                   | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | The ID of the object.                                                                                                  |
-| `paymentProcessor`                                                                                                     | [components.PolarEnumsPaymentProcessor](../../models/components/polarenumspaymentprocessor.md)                         | :heavy_check_mark:                                                                                                     | Payment processor used.                                                                                                |
-| `status`                                                                                                               | [components.CheckoutStatus](../../models/components/checkoutstatus.md)                                                 | :heavy_check_mark:                                                                                                     | Status of the checkout session.                                                                                        |
+| `paymentProcessor`                                                                                                     | [components.PolarEnumsPaymentProcessor](../../models/components/polarenumspaymentprocessor.md)                         | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `status`                                                                                                               | [components.CheckoutStatus](../../models/components/checkoutstatus.md)                                                 | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `clientSecret`                                                                                                         | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | Client secret used to update and complete the checkout session from the client.                                        |
 | `expiresAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                          | :heavy_check_mark:                                                                                                     | Expiration date and time of the checkout session.                                                                      |
 | `successUrl`                                                                                                           | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | URL where the customer will be redirected after a successful payment.                                                  |

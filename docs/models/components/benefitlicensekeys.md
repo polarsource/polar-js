@@ -6,24 +6,24 @@
 import { BenefitLicenseKeys } from "@polar-sh/sdk/models/components";
 
 let value: BenefitLicenseKeys = {
-  createdAt: new Date("2024-06-28T22:00:04.593Z"),
-  modifiedAt: new Date("2024-12-26T11:07:58.955Z"),
+  createdAt: new Date("2023-04-18T20:26:13.694Z"),
+  modifiedAt: new Date("2022-01-28T05:14:01.831Z"),
   id: "<value>",
-  description: "so ethical than lawmaker",
+  description: "quixotic what worth tomorrow",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 147974,
-      timeframe: "month",
+      ttl: 776593,
+      timeframe: "year",
     },
     activations: {
-      limit: 465310,
+      limit: 246846,
       enableUserAdmin: false,
     },
-    limitUsage: 624312,
+    limitUsage: 472655,
   },
 };
 ```

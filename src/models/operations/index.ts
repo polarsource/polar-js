@@ -5,6 +5,7 @@
 export * from "./advertisementsget.js";
 export * from "./advertisementslist.js";
 export * from "./articlesdelete.js";
+export * from "./articlesexport.js";
 export * from "./articlesget.js";
 export * from "./articleslist.js";
 export * from "./articlespreview.js";

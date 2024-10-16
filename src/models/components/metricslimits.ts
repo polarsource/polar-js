@@ -21,7 +21,7 @@ export type MetricsLimits = {
    */
   minDate: RFCDate;
   /**
-   * Limits for each interval.
+   * Date interval limits to get metrics for each interval.
    */
   intervals: MetricsIntervalsLimits;
 };

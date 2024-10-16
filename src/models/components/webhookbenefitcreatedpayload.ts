@@ -5,47 +5,11 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  BenefitAds,
-  BenefitAds$inboundSchema,
-  BenefitAds$Outbound,
-  BenefitAds$outboundSchema,
-} from "./benefitads.js";
-import {
-  BenefitArticles,
-  BenefitArticles$inboundSchema,
-  BenefitArticles$Outbound,
-  BenefitArticles$outboundSchema,
-} from "./benefitarticles.js";
-import {
-  BenefitCustom,
-  BenefitCustom$inboundSchema,
-  BenefitCustom$Outbound,
-  BenefitCustom$outboundSchema,
-} from "./benefitcustom.js";
-import {
-  BenefitDiscordInput,
-  BenefitDiscordInput$inboundSchema,
-  BenefitDiscordInput$Outbound,
-  BenefitDiscordInput$outboundSchema,
-} from "./benefitdiscord.js";
-import {
-  BenefitDownloadables,
-  BenefitDownloadables$inboundSchema,
-  BenefitDownloadables$Outbound,
-  BenefitDownloadables$outboundSchema,
-} from "./benefitdownloadables.js";
-import {
-  BenefitGitHubRepository,
-  BenefitGitHubRepository$inboundSchema,
-  BenefitGitHubRepository$Outbound,
-  BenefitGitHubRepository$outboundSchema,
-} from "./benefitgithubrepository.js";
-import {
-  BenefitLicenseKeys,
-  BenefitLicenseKeys$inboundSchema,
-  BenefitLicenseKeys$Outbound,
-  BenefitLicenseKeys$outboundSchema,
-} from "./benefitlicensekeys.js";
+  BenefitInput,
+  BenefitInput$inboundSchema,
+  BenefitInput$Outbound,
+  BenefitInput$outboundSchema,
+} from "./benefitinput.js";
 
 export const WebhookBenefitCreatedPayloadType = {
   BenefitCreated: "benefit.created",
@@ -53,15 +17,6 @@ export const WebhookBenefitCreatedPayloadType = {
 export type WebhookBenefitCreatedPayloadType = ClosedEnum<
   typeof WebhookBenefitCreatedPayloadType
 >;
-
-export type WebhookBenefitCreatedPayloadBenefit =
-  | BenefitArticles
-  | BenefitAds
-  | BenefitDiscordInput
-  | BenefitGitHubRepository
-  | BenefitDownloadables
-  | BenefitLicenseKeys
-  | BenefitCustom;
 
 /**
  * Sent when a new benefit is created.
@@ -72,14 +27,7 @@ export type WebhookBenefitCreatedPayloadBenefit =
  */
 export type WebhookBenefitCreatedPayload = {
   type?: "benefit.created" | undefined;
-  data:
-    | BenefitArticles
-    | BenefitAds
-    | BenefitDiscordInput
-    | BenefitGitHubRepository
-    | BenefitDownloadables
-    | BenefitLicenseKeys
-    | BenefitCustom;
+  data: BenefitInput;
 };
 
 /** @internal */
@@ -104,89 +52,19 @@ export namespace WebhookBenefitCreatedPayloadType$ {
 }
 
 /** @internal */
-export const WebhookBenefitCreatedPayloadBenefit$inboundSchema: z.ZodType<
-  WebhookBenefitCreatedPayloadBenefit,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  BenefitArticles$inboundSchema,
-  BenefitAds$inboundSchema,
-  BenefitDiscordInput$inboundSchema,
-  BenefitGitHubRepository$inboundSchema,
-  BenefitDownloadables$inboundSchema,
-  BenefitLicenseKeys$inboundSchema,
-  BenefitCustom$inboundSchema,
-]);
-
-/** @internal */
-export type WebhookBenefitCreatedPayloadBenefit$Outbound =
-  | BenefitArticles$Outbound
-  | BenefitAds$Outbound
-  | BenefitDiscordInput$Outbound
-  | BenefitGitHubRepository$Outbound
-  | BenefitDownloadables$Outbound
-  | BenefitLicenseKeys$Outbound
-  | BenefitCustom$Outbound;
-
-/** @internal */
-export const WebhookBenefitCreatedPayloadBenefit$outboundSchema: z.ZodType<
-  WebhookBenefitCreatedPayloadBenefit$Outbound,
-  z.ZodTypeDef,
-  WebhookBenefitCreatedPayloadBenefit
-> = z.union([
-  BenefitArticles$outboundSchema,
-  BenefitAds$outboundSchema,
-  BenefitDiscordInput$outboundSchema,
-  BenefitGitHubRepository$outboundSchema,
-  BenefitDownloadables$outboundSchema,
-  BenefitLicenseKeys$outboundSchema,
-  BenefitCustom$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookBenefitCreatedPayloadBenefit$ {
-  /** @deprecated use `WebhookBenefitCreatedPayloadBenefit$inboundSchema` instead. */
-  export const inboundSchema =
-    WebhookBenefitCreatedPayloadBenefit$inboundSchema;
-  /** @deprecated use `WebhookBenefitCreatedPayloadBenefit$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookBenefitCreatedPayloadBenefit$outboundSchema;
-  /** @deprecated use `WebhookBenefitCreatedPayloadBenefit$Outbound` instead. */
-  export type Outbound = WebhookBenefitCreatedPayloadBenefit$Outbound;
-}
-
-/** @internal */
 export const WebhookBenefitCreatedPayload$inboundSchema: z.ZodType<
   WebhookBenefitCreatedPayload,
   z.ZodTypeDef,
   unknown
 > = z.object({
   type: z.literal("benefit.created").optional(),
-  data: z.union([
-    BenefitArticles$inboundSchema,
-    BenefitAds$inboundSchema,
-    BenefitDiscordInput$inboundSchema,
-    BenefitGitHubRepository$inboundSchema,
-    BenefitDownloadables$inboundSchema,
-    BenefitLicenseKeys$inboundSchema,
-    BenefitCustom$inboundSchema,
-  ]),
+  data: BenefitInput$inboundSchema,
 });
 
 /** @internal */
 export type WebhookBenefitCreatedPayload$Outbound = {
   type: "benefit.created";
-  data:
-    | BenefitArticles$Outbound
-    | BenefitAds$Outbound
-    | BenefitDiscordInput$Outbound
-    | BenefitGitHubRepository$Outbound
-    | BenefitDownloadables$Outbound
-    | BenefitLicenseKeys$Outbound
-    | BenefitCustom$Outbound;
+  data: BenefitInput$Outbound;
 };
 
 /** @internal */
@@ -196,15 +74,7 @@ export const WebhookBenefitCreatedPayload$outboundSchema: z.ZodType<
   WebhookBenefitCreatedPayload
 > = z.object({
   type: z.literal("benefit.created").default("benefit.created"),
-  data: z.union([
-    BenefitArticles$outboundSchema,
-    BenefitAds$outboundSchema,
-    BenefitDiscordInput$outboundSchema,
-    BenefitGitHubRepository$outboundSchema,
-    BenefitDownloadables$outboundSchema,
-    BenefitLicenseKeys$outboundSchema,
-    BenefitCustom$outboundSchema,
-  ]),
+  data: BenefitInput$outboundSchema,
 });
 
 /**

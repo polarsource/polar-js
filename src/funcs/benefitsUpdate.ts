@@ -9,6 +9,7 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
+import * as components from "../models/components/index.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -34,7 +35,7 @@ export async function benefitsUpdate(
   options?: RequestOptions,
 ): Promise<
   Result<
-    operations.BenefitsUpdateResponseBenefitsUpdate,
+    components.Benefit,
     | errors.NotPermitted
     | errors.ResourceNotFound
     | errors.HTTPValidationError
@@ -111,7 +112,7 @@ export async function benefitsUpdate(
   };
 
   const [result] = await M.match<
-    operations.BenefitsUpdateResponseBenefitsUpdate,
+    components.Benefit,
     | errors.NotPermitted
     | errors.ResourceNotFound
     | errors.HTTPValidationError
@@ -123,7 +124,7 @@ export async function benefitsUpdate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.BenefitsUpdateResponseBenefitsUpdate$inboundSchema),
+    M.json(200, components.Benefit$inboundSchema),
     M.jsonErr(403, errors.NotPermitted$inboundSchema),
     M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),

@@ -9,23 +9,23 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "a48120f0-291e-4bf8-b48e-84e5035d775e",
+        id: "ebf848e8-4e50-435d-9775-eff6fca332e4",
         name: "<value>",
-        avatarUrl: "https://huge-vibration.net",
+        avatarUrl: "https://spanish-starboard.com/",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Frami, Emmerich and Cummerata",
+        company: "Spinka and Sons",
         blog: "<value>",
         location: "<value>",
-        email: "Eldred_Kunde84@hotmail.com",
+        email: "Carli.Blanda@gmail.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 426904,
-      maxPage: 842855,
+      totalCount: 246557,
+      maxPage: 596433,
     },
   },
 };

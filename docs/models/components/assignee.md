@@ -6,10 +6,10 @@
 import { Assignee } from "@polar-sh/sdk/models/components";
 
 let value: Assignee = {
-  id: 26189,
-  login: "Madalyn_Quigley5",
-  htmlUrl: "https://twin-singing.name",
-  avatarUrl: "https://which-thorn.com/",
+  id: 636696,
+  login: "Stella.Champlin94",
+  htmlUrl: "https://esteemed-lay.info",
+  avatarUrl: "https://sugary-zebra.biz",
 };
 ```
 

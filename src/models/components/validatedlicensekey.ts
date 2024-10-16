@@ -15,11 +15,18 @@ import {
   LicenseKeyStatus$inboundSchema,
   LicenseKeyStatus$outboundSchema,
 } from "./licensekeystatus.js";
+import {
+  LicenseKeyUser,
+  LicenseKeyUser$inboundSchema,
+  LicenseKeyUser$Outbound,
+  LicenseKeyUser$outboundSchema,
+} from "./licensekeyuser.js";
 
 export type ValidatedLicenseKey = {
   id: string;
   organizationId: string;
   userId: string;
+  user: LicenseKeyUser;
   /**
    * The benefit ID.
    */
@@ -45,6 +52,7 @@ export const ValidatedLicenseKey$inboundSchema: z.ZodType<
   id: z.string(),
   organization_id: z.string(),
   user_id: z.string(),
+  user: LicenseKeyUser$inboundSchema,
   benefit_id: z.string(),
   key: z.string(),
   display_key: z.string(),
@@ -78,6 +86,7 @@ export type ValidatedLicenseKey$Outbound = {
   id: string;
   organization_id: string;
   user_id: string;
+  user: LicenseKeyUser$Outbound;
   benefit_id: string;
   key: string;
   display_key: string;
@@ -100,6 +109,7 @@ export const ValidatedLicenseKey$outboundSchema: z.ZodType<
   id: z.string(),
   organizationId: z.string(),
   userId: z.string(),
+  user: LicenseKeyUser$outboundSchema,
   benefitId: z.string(),
   key: z.string(),
   displayKey: z.string(),
