@@ -48,6 +48,10 @@ export type ProductPriceOneTimeFixed = {
    */
   isArchived: boolean;
   /**
+   * The ID of the product owning the price.
+   */
+  productId: string;
+  /**
    * The currency.
    */
   priceCurrency: string;
@@ -117,6 +121,7 @@ export const ProductPriceOneTimeFixed$inboundSchema: z.ZodType<
   id: z.string(),
   amount_type: z.literal("fixed").optional(),
   is_archived: z.boolean(),
+  product_id: z.string(),
   price_currency: z.string(),
   price_amount: z.number().int(),
   type: z.literal("one_time").optional(),
@@ -126,6 +131,7 @@ export const ProductPriceOneTimeFixed$inboundSchema: z.ZodType<
     "modified_at": "modifiedAt",
     "amount_type": "amountType",
     "is_archived": "isArchived",
+    "product_id": "productId",
     "price_currency": "priceCurrency",
     "price_amount": "priceAmount",
   });
@@ -138,6 +144,7 @@ export type ProductPriceOneTimeFixed$Outbound = {
   id: string;
   amount_type: "fixed";
   is_archived: boolean;
+  product_id: string;
   price_currency: string;
   price_amount: number;
   type: "one_time";
@@ -154,6 +161,7 @@ export const ProductPriceOneTimeFixed$outboundSchema: z.ZodType<
   id: z.string(),
   amountType: z.literal("fixed").default("fixed"),
   isArchived: z.boolean(),
+  productId: z.string(),
   priceCurrency: z.string(),
   priceAmount: z.number().int(),
   type: z.literal("one_time").default("one_time"),
@@ -163,6 +171,7 @@ export const ProductPriceOneTimeFixed$outboundSchema: z.ZodType<
     modifiedAt: "modified_at",
     amountType: "amount_type",
     isArchived: "is_archived",
+    productId: "product_id",
     priceCurrency: "price_currency",
     priceAmount: "price_amount",
   });

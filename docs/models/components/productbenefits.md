@@ -7,12 +7,11 @@
 
 ```typescript
 const value: components.BenefitBase = {
-  createdAt: new Date("2024-10-13T01:07:10.723Z"),
-  modifiedAt: new Date("2023-06-11T19:54:13.878Z"),
+  createdAt: new Date("2024-10-09T21:09:28.886Z"),
+  modifiedAt: new Date("2024-11-17T19:14:12.440Z"),
   id: "<value>",
-  type: "ads",
-  description:
-    "hollow receptor aboard hence who which incidentally fully behind midwife",
+  type: "custom",
+  description: "aboard hence who which incidentally fully behind midwife",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

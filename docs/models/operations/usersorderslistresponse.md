@@ -35,6 +35,7 @@ let value: UsersOrdersListResponse = {
               modifiedAt: new Date("2022-11-06T20:07:53.826Z"),
               id: "<value>",
               isArchived: false,
+              productId: "<value>",
             },
           ],
           benefits: [
@@ -75,6 +76,7 @@ let value: UsersOrdersListResponse = {
           modifiedAt: new Date("2022-03-07T16:46:29.356Z"),
           id: "<value>",
           isArchived: false,
+          productId: "<value>",
           priceCurrency: "<value>",
           priceAmount: 61078,
         },

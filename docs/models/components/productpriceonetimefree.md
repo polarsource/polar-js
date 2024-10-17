@@ -8,10 +8,11 @@ A free one-time price for a product.
 import { ProductPriceOneTimeFree } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceOneTimeFree = {
-  createdAt: new Date("2022-07-06T05:48:12.702Z"),
-  modifiedAt: new Date("2024-04-22T13:47:04.399Z"),
+  createdAt: new Date("2023-06-05T20:01:47.770Z"),
+  modifiedAt: new Date("2022-11-11T20:57:07.064Z"),
   id: "<value>",
   isArchived: false,
+  productId: "<value>",
 };
 ```
 
@@ -24,4 +25,5 @@ let value: ProductPriceOneTimeFree = {
 | `id`                                                                                                         | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the price.                                                                                         |
 | `amountType`                                                                                                 | [components.ProductPriceOneTimeFreeAmountType](../../models/components/productpriceonetimefreeamounttype.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `isArchived`                                                                                                 | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the price is archived and no longer available.                                                       |
+| `productId`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the product owning the price.                                                                      |
 | `type`                                                                                                       | [components.ProductPriceOneTimeFreeType](../../models/components/productpriceonetimefreetype.md)             | :heavy_check_mark:                                                                                           | The type of the price.                                                                                       |

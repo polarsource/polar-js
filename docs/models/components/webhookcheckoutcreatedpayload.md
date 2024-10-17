@@ -11,26 +11,27 @@ import { WebhookCheckoutCreatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookCheckoutCreatedPayload = {
   data: {
-    createdAt: new Date("2024-11-15T08:05:56.849Z"),
-    modifiedAt: new Date("2024-12-26T16:52:12.542Z"),
+    createdAt: new Date("2024-08-01T00:30:34.557Z"),
+    modifiedAt: new Date("2024-08-10T19:52:48.916Z"),
     id: "<value>",
-    status: "confirmed",
+    status: "open",
     clientSecret: "<value>",
-    expiresAt: new Date("2022-09-21T21:39:25.434Z"),
-    successUrl: "https://shoddy-interior.biz",
-    amount: 822093,
-    taxAmount: 829115,
-    currency: "Kyat",
-    totalAmount: 601560,
+    url: "https://unlawful-rationale.org/",
+    expiresAt: new Date("2023-03-01T00:50:01.666Z"),
+    successUrl: "https://unlined-hornet.net/",
+    amount: 424591,
+    taxAmount: 708007,
+    currency: "Naira",
+    totalAmount: 441603,
     productId: "<value>",
     productPriceId: "<value>",
     isPaymentRequired: false,
     customerId: "<value>",
     customerName: "<value>",
-    customerEmail: "Otha_Abbott@yahoo.com",
+    customerEmail: "Lavina_Pagac96@yahoo.com",
     customerIpAddress: "<value>",
     customerBillingAddress: {
-      country: "Guatemala",
+      country: "Christmas Island",
     },
     customerTaxId: "<id>",
     paymentProcessorMetadata: {},
@@ -46,4 +47,4 @@ let value: WebhookCheckoutCreatedPayload = {
 | Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
 | `type`                                                                                                       | [components.WebhookCheckoutCreatedPayloadType](../../models/components/webhookcheckoutcreatedpayloadtype.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `data`                                                                                                       | [components.PolarCheckoutSchemasCheckoutInput](../../models/components/polarcheckoutschemascheckoutinput.md) | :heavy_check_mark:                                                                                           | Checkout session data retrieved using an access token.                                                       |
+| `data`                                                                                                       | [components.PolarCheckoutSchemasCheckout](../../models/components/polarcheckoutschemascheckout.md)           | :heavy_check_mark:                                                                                           | Checkout session data retrieved using an access token.                                                       |

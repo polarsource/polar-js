@@ -43,6 +43,7 @@ let value: Order = {
     modifiedAt: new Date("2024-07-16T11:44:37.294Z"),
     id: "<value>",
     isArchived: false,
+    productId: "<value>",
     priceCurrency: "<value>",
     priceAmount: 241190,
     recurringInterval: "month",

@@ -23,6 +23,7 @@ let value: ProductsListResponse = {
             modifiedAt: new Date("2022-02-19T21:06:49.752Z"),
             id: "<value>",
             isArchived: false,
+            productId: "<value>",
           },
         ],
         benefits: [

@@ -48,6 +48,10 @@ export type ProductPriceOneTimeFree = {
    */
   isArchived: boolean;
   /**
+   * The ID of the product owning the price.
+   */
+  productId: string;
+  /**
    * The type of the price.
    */
   type?: "one_time" | undefined;
@@ -109,6 +113,7 @@ export const ProductPriceOneTimeFree$inboundSchema: z.ZodType<
   id: z.string(),
   amount_type: z.literal("free").optional(),
   is_archived: z.boolean(),
+  product_id: z.string(),
   type: z.literal("one_time").optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -116,6 +121,7 @@ export const ProductPriceOneTimeFree$inboundSchema: z.ZodType<
     "modified_at": "modifiedAt",
     "amount_type": "amountType",
     "is_archived": "isArchived",
+    "product_id": "productId",
   });
 });
 
@@ -126,6 +132,7 @@ export type ProductPriceOneTimeFree$Outbound = {
   id: string;
   amount_type: "free";
   is_archived: boolean;
+  product_id: string;
   type: "one_time";
 };
 
@@ -140,6 +147,7 @@ export const ProductPriceOneTimeFree$outboundSchema: z.ZodType<
   id: z.string(),
   amountType: z.literal("free").default("free"),
   isArchived: z.boolean(),
+  productId: z.string(),
   type: z.literal("one_time").default("one_time"),
 }).transform((v) => {
   return remap$(v, {
@@ -147,6 +155,7 @@ export const ProductPriceOneTimeFree$outboundSchema: z.ZodType<
     modifiedAt: "modified_at",
     amountType: "amount_type",
     isArchived: "is_archived",
+    productId: "product_id",
   });
 });
 

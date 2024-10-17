@@ -45,6 +45,7 @@ let value: ListResourceOrder = {
         modifiedAt: new Date("2022-06-16T23:39:25.441Z"),
         id: "<value>",
         isArchived: false,
+        productId: "<value>",
         priceCurrency: "<value>",
         minimumAmount: 414720,
         maximumAmount: 910478,

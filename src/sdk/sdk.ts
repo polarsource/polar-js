@@ -6,6 +6,7 @@ import { ClientSDK } from "../lib/sdks.js";
 import { Advertisements } from "./advertisements.js";
 import { Articles } from "./articles.js";
 import { Benefits } from "./benefits.js";
+import { CheckoutLinks } from "./checkoutlinks.js";
 import { Checkouts } from "./checkouts.js";
 import { ExternalOrganizations } from "./externalorganizations.js";
 import { Files } from "./files.js";
@@ -95,5 +96,10 @@ export class Polar extends ClientSDK {
   private _licenseKeys?: LicenseKeys;
   get licenseKeys(): LicenseKeys {
     return (this._licenseKeys ??= new LicenseKeys(this._options));
+  }
+
+  private _checkoutLinks?: CheckoutLinks;
+  get checkoutLinks(): CheckoutLinks {
+    return (this._checkoutLinks ??= new CheckoutLinks(this._options));
   }
 }

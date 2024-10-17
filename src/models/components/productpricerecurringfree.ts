@@ -53,6 +53,10 @@ export type ProductPriceRecurringFree = {
    */
   isArchived: boolean;
   /**
+   * The ID of the product owning the price.
+   */
+  productId: string;
+  /**
    * The type of the price.
    */
   type?: "recurring" | undefined;
@@ -116,6 +120,7 @@ export const ProductPriceRecurringFree$inboundSchema: z.ZodType<
   id: z.string(),
   amount_type: z.literal("free").optional(),
   is_archived: z.boolean(),
+  product_id: z.string(),
   type: z.literal("recurring").optional(),
   recurring_interval: SubscriptionRecurringInterval$inboundSchema,
 }).transform((v) => {
@@ -124,6 +129,7 @@ export const ProductPriceRecurringFree$inboundSchema: z.ZodType<
     "modified_at": "modifiedAt",
     "amount_type": "amountType",
     "is_archived": "isArchived",
+    "product_id": "productId",
     "recurring_interval": "recurringInterval",
   });
 });
@@ -135,6 +141,7 @@ export type ProductPriceRecurringFree$Outbound = {
   id: string;
   amount_type: "free";
   is_archived: boolean;
+  product_id: string;
   type: "recurring";
   recurring_interval: string;
 };
@@ -150,6 +157,7 @@ export const ProductPriceRecurringFree$outboundSchema: z.ZodType<
   id: z.string(),
   amountType: z.literal("free").default("free"),
   isArchived: z.boolean(),
+  productId: z.string(),
   type: z.literal("recurring").default("recurring"),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,
 }).transform((v) => {
@@ -158,6 +166,7 @@ export const ProductPriceRecurringFree$outboundSchema: z.ZodType<
     modifiedAt: "modified_at",
     amountType: "amount_type",
     isArchived: "is_archived",
+    productId: "product_id",
     recurringInterval: "recurring_interval",
   });
 });
