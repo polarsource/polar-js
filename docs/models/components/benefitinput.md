@@ -7,11 +7,10 @@
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2022-04-25T11:53:31.235Z"),
-  modifiedAt: new Date("2022-05-03T03:10:03.746Z"),
+  createdAt: new Date("2023-05-06T22:20:39.516Z"),
+  modifiedAt: new Date("2024-04-07T07:22:12.777Z"),
   id: "<value>",
-  description:
-    "haircut vibration incidentally up round sophisticated violently unlike neatly whenever",
+  description: "smart all while libel substantial alive",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -25,10 +24,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2022-01-15T07:37:06.468Z"),
-  modifiedAt: new Date("2023-10-02T15:02:13.074Z"),
+  createdAt: new Date("2024-12-24T18:52:15.485Z"),
+  modifiedAt: new Date("2023-06-23T15:25:01.492Z"),
   id: "<value>",
-  description: "meh gosh past mmm but well-off joyful",
+  description: "faithfully mmm unto defensive",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -40,10 +39,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2023-01-13T19:33:41.074Z"),
-  modifiedAt: new Date("2024-10-15T16:02:57.133Z"),
+  createdAt: new Date("2023-10-15T16:36:34.415Z"),
+  modifiedAt: new Date("2023-10-28T12:57:22.714Z"),
   id: "<value>",
-  description: "quicker pish during distant across mmm unlike",
+  description: "tousle sashay screw circa fat viciously",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -58,10 +57,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscordInput = {
-  createdAt: new Date("2023-05-01T15:53:14.590Z"),
-  modifiedAt: new Date("2023-09-05T20:04:49.651Z"),
+  createdAt: new Date("2022-08-28T12:53:24.536Z"),
+  modifiedAt: new Date("2022-10-24T05:28:30.875Z"),
   id: "<value>",
-  description: "inasmuch fedora furthermore hence consequently carouse given",
+  description: "excepting which battle lest slow mechanically times",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -76,10 +75,10 @@ const value: components.BenefitDiscordInput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2023-07-30T13:26:38.433Z"),
-  modifiedAt: new Date("2024-07-04T11:17:21.724Z"),
+  createdAt: new Date("2024-04-09T16:23:40.595Z"),
+  modifiedAt: new Date("2024-12-26T22:45:57.487Z"),
   id: "<value>",
-  description: "nauseate majestic switchboard ready even who versus",
+  description: "delightfully plumber fray elevator",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -96,10 +95,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2022-09-28T15:32:41.145Z"),
-  modifiedAt: new Date("2023-07-21T23:45:41.026Z"),
+  createdAt: new Date("2022-10-27T06:47:16.886Z"),
+  modifiedAt: new Date("2024-07-30T18:35:21.364Z"),
   id: "<value>",
-  description: "daily but triumphantly team yum misspend status",
+  description: "past mmm but well-off joyful aw defiantly likewise freely",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -118,25 +117,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2023-08-24T22:59:30.708Z"),
-  modifiedAt: new Date("2024-12-22T13:01:24.491Z"),
+  createdAt: new Date("2024-03-20T18:03:46.720Z"),
+  modifiedAt: new Date("2024-06-03T15:08:11.140Z"),
   id: "<value>",
-  description:
-    "dim amount um stealthily if slipper swine unblinking solidly zowie",
+  description: "across mmm unlike unwritten",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 805401,
-      timeframe: "year",
+      ttl: 196451,
+      timeframe: "day",
     },
     activations: {
-      limit: 318089,
+      limit: 317755,
       enableUserAdmin: false,
     },
-    limitUsage: 369844,
+    limitUsage: 12811,
   },
 };
 ```

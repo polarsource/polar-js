@@ -12,19 +12,19 @@ let value: ValidatedLicenseKey = {
   user: {
     id: "<value>",
     publicName: "<value>",
-    email: "Oswald_Kutch@gmail.com",
-    avatarUrl: "https://abandoned-swim.info/",
+    email: "Sydnee.Keeling8@yahoo.com",
+    avatarUrl: "https://snappy-mainstream.net",
   },
   benefitId: "<value>",
   key: "<key>",
   displayKey: "<value>",
-  status: "disabled",
-  limitActivations: 496307,
-  usage: 431108,
-  limitUsage: 295912,
-  validations: 81689,
-  lastValidatedAt: new Date("2022-12-06T10:12:28.995Z"),
-  expiresAt: new Date("2023-10-29T21:12:06.679Z"),
+  status: "granted",
+  limitActivations: 583240,
+  usage: 882604,
+  limitUsage: 217960,
+  validations: 227669,
+  lastValidatedAt: new Date("2024-03-31T06:46:07.766Z"),
+  expiresAt: new Date("2024-06-09T00:20:30.007Z"),
 };
 ```
 

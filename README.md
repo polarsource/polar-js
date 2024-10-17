@@ -134,6 +134,14 @@ run();
 * [delete](docs/sdks/benefits/README.md#delete) - Delete Benefit
 * [grants](docs/sdks/benefits/README.md#grants) - List Benefit Grants
 
+### [checkoutLinks](docs/sdks/checkoutlinks/README.md)
+
+* [list](docs/sdks/checkoutlinks/README.md#list) - List Checkout Links
+* [create](docs/sdks/checkoutlinks/README.md#create) - Create Checkout Link
+* [get](docs/sdks/checkoutlinks/README.md#get) - Get Checkout Link
+* [update](docs/sdks/checkoutlinks/README.md#update) - Update Checkout Link
+* [delete](docs/sdks/checkoutlinks/README.md#delete) - Delete Checkout Link
+
 ### [checkouts](docs/sdks/checkouts/README.md)
 
 * [~~create~~](docs/sdks/checkouts/README.md#create) - Create Checkout :warning: **Deprecated** Use `create` instead.
@@ -299,6 +307,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`benefitsGrants`](docs/sdks/benefits/README.md#grants) - List Benefit Grants
 - [`benefitsList`](docs/sdks/benefits/README.md#list) - List Benefits
 - [`benefitsUpdate`](docs/sdks/benefits/README.md#update) - Update Benefit
+- [`checkoutLinksCreate`](docs/sdks/checkoutlinks/README.md#create) - Create Checkout Link
+- [`checkoutLinksDelete`](docs/sdks/checkoutlinks/README.md#delete) - Delete Checkout Link
+- [`checkoutLinksGet`](docs/sdks/checkoutlinks/README.md#get) - Get Checkout Link
+- [`checkoutLinksList`](docs/sdks/checkoutlinks/README.md#list) - List Checkout Links
+- [`checkoutLinksUpdate`](docs/sdks/checkoutlinks/README.md#update) - Update Checkout Link
 - [`checkoutsCustomClientConfirm`](docs/sdks/custom/README.md#clientconfirm) - Confirm Checkout Session from Client
 - [`checkoutsCustomClientGet`](docs/sdks/custom/README.md#clientget) - Get Checkout Session from Client
 - [`checkoutsCustomClientUpdate`](docs/sdks/custom/README.md#clientupdate) - Update Checkout Session from Client

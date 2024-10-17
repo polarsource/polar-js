@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2023-06-01T03:37:00.180Z"),
-  modifiedAt: new Date("2022-09-09T06:29:34.747Z"),
+  createdAt: new Date("2024-12-22T13:01:24.491Z"),
+  modifiedAt: new Date("2024-09-18T13:31:21.764Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,24 +17,25 @@ let value: BenefitGrantWebhook = {
   benefitId: "<value>",
   properties: {},
   benefit: {
-    createdAt: new Date("2022-05-28T13:13:34.231Z"),
-    modifiedAt: new Date("2022-08-25T10:24:20.426Z"),
+    createdAt: new Date("2024-04-18T19:33:03.929Z"),
+    modifiedAt: new Date("2023-07-30T22:49:24.756Z"),
     id: "<value>",
-    description: "throughout below knowledgeably",
+    description:
+      "headline arrogantly priesthood absentmindedly knickers forenenst shudder faint zowie eek",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
       prefix: "<value>",
       expires: {
-        ttl: 750956,
-        timeframe: "month",
+        ttl: 674063,
+        timeframe: "day",
       },
       activations: {
-        limit: 662360,
+        limit: 926516,
         enableUserAdmin: false,
       },
-      limitUsage: 889439,
+      limitUsage: 611872,
     },
   },
 };

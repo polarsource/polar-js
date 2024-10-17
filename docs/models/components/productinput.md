@@ -8,32 +8,37 @@ A product.
 import { ProductInput } from "@polar-sh/sdk/models/components";
 
 let value: ProductInput = {
-  createdAt: new Date("2023-04-04T17:15:03.449Z"),
-  modifiedAt: new Date("2023-09-29T08:26:20.213Z"),
+  createdAt: new Date("2024-09-07T06:13:39.585Z"),
+  modifiedAt: new Date("2022-08-29T00:14:02.289Z"),
   id: "<value>",
   name: "<value>",
-  description: "rejigger openly handsome within bowler plus",
+  description: "psst atop beneficial ugh ravage warped so obediently",
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",
   prices: [
     {
-      createdAt: new Date("2022-08-16T11:06:13.409Z"),
-      modifiedAt: new Date("2024-03-03T16:49:58.761Z"),
+      createdAt: new Date("2024-11-10T12:13:29.060Z"),
+      modifiedAt: new Date("2022-02-17T11:30:13.324Z"),
       id: "<value>",
       isArchived: false,
+      productId: "<value>",
+      recurringInterval: "month",
     },
   ],
   benefits: [
     {
-      createdAt: new Date("2023-03-02T13:30:13.678Z"),
-      modifiedAt: new Date("2023-07-12T02:38:25.234Z"),
+      createdAt: new Date("2024-12-12T18:40:59.500Z"),
+      modifiedAt: new Date("2023-03-27T22:57:28.250Z"),
       id: "<value>",
-      type: "custom",
-      description: "cope pulse whoa powerfully aware",
+      description:
+        "encouragement and realistic fervently questioningly zowie reassuringly",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
+      properties: {
+        paidArticles: false,
+      },
     },
   ],
   medias: [
@@ -41,17 +46,17 @@ let value: ProductInput = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/var/yp",
+      path: "/home/user/dir",
       mimeType: "<value>",
-      size: 473319,
+      size: 826099,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2022-03-08T20:27:57.691Z"),
+      lastModifiedAt: new Date("2023-04-01T22:38:03.818Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2024-12-22T14:23:55.535Z"),
+      createdAt: new Date("2023-06-13T17:02:40.832Z"),
     },
   ],
 };

@@ -12,19 +12,19 @@ let value: LicenseKeyRead = {
   user: {
     id: "<value>",
     publicName: "<value>",
-    email: "Robyn.Bergstrom@yahoo.com",
-    avatarUrl: "https://strange-arcade.com/",
+    email: "Eli51@gmail.com",
+    avatarUrl: "https://deep-dash.org",
   },
   benefitId: "<value>",
   key: "<key>",
   displayKey: "<value>",
-  status: "granted",
-  limitActivations: 47401,
-  usage: 995713,
-  limitUsage: 691129,
-  validations: 519586,
-  lastValidatedAt: new Date("2024-06-01T11:05:48.197Z"),
-  expiresAt: new Date("2023-12-28T02:03:10.092Z"),
+  status: "revoked",
+  limitActivations: 447640,
+  usage: 391136,
+  limitUsage: 52029,
+  validations: 704574,
+  lastValidatedAt: new Date("2023-08-15T22:06:31.036Z"),
+  expiresAt: new Date("2024-01-12T01:11:19.363Z"),
 };
 ```
 

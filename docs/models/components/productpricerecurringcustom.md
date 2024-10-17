@@ -8,15 +8,16 @@ A pay-what-you-want recurring price for a product, i.e. a subscription.
 import { ProductPriceRecurringCustom } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringCustom = {
-  createdAt: new Date("2022-11-08T12:27:27.718Z"),
-  modifiedAt: new Date("2024-11-29T08:28:52.570Z"),
+  createdAt: new Date("2022-02-11T16:01:53.719Z"),
+  modifiedAt: new Date("2022-05-21T17:10:05.507Z"),
   id: "<value>",
   isArchived: false,
+  productId: "<value>",
   priceCurrency: "<value>",
-  minimumAmount: 717486,
-  maximumAmount: 610766,
-  presetAmount: 695088,
-  recurringInterval: "month",
+  minimumAmount: 55790,
+  maximumAmount: 905001,
+  presetAmount: 134795,
+  recurringInterval: "year",
 };
 ```
 
@@ -29,6 +30,7 @@ let value: ProductPriceRecurringCustom = {
 | `id`                                                                                                                 | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | The ID of the price.                                                                                                 |
 | `amountType`                                                                                                         | [components.ProductPriceRecurringCustomAmountType](../../models/components/productpricerecurringcustomamounttype.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `isArchived`                                                                                                         | *boolean*                                                                                                            | :heavy_check_mark:                                                                                                   | Whether the price is archived and no longer available.                                                               |
+| `productId`                                                                                                          | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | The ID of the product owning the price.                                                                              |
 | `priceCurrency`                                                                                                      | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | The currency.                                                                                                        |
 | `minimumAmount`                                                                                                      | *number*                                                                                                             | :heavy_check_mark:                                                                                                   | The minimum amount the customer can pay.                                                                             |
 | `maximumAmount`                                                                                                      | *number*                                                                                                             | :heavy_check_mark:                                                                                                   | The maximum amount the customer can pay.                                                                             |

@@ -22,6 +22,7 @@ let value: Product = {
       modifiedAt: new Date("2024-08-08T09:47:23.975Z"),
       id: "<value>",
       isArchived: false,
+      productId: "<value>",
       priceCurrency: "<value>",
       minimumAmount: 77657,
       maximumAmount: 287746,

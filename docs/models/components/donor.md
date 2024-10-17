@@ -9,7 +9,7 @@
 const value: components.DonationOrganization = {
   id: "<value>",
   name: "<value>",
-  avatarUrl: "https://great-amnesty.name",
+  avatarUrl: "https://upright-casement.com",
   isPersonal: false,
 };
 ```
@@ -20,7 +20,7 @@ const value: components.DonationOrganization = {
 const value: components.DonationUser = {
   id: "<value>",
   publicName: "<value>",
-  avatarUrl: "https://simplistic-commodity.org/",
+  avatarUrl: "https://immaculate-fog.net/",
 };
 ```
 

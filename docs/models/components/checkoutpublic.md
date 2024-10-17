@@ -13,58 +13,57 @@ let value: CheckoutPublic = {
   id: "<value>",
   status: "expired",
   clientSecret: "<value>",
-  expiresAt: new Date("2023-06-09T15:08:25.512Z"),
-  successUrl: "https://golden-seafood.net",
-  amount: 19463,
-  taxAmount: 190413,
-  currency: "Balboa",
-  totalAmount: 496042,
+  url: "https://smooth-fencing.net/",
+  expiresAt: new Date("2024-05-07T19:48:42.313Z"),
+  successUrl: "https://different-pendant.info/",
+  amount: 27636,
+  taxAmount: 359649,
+  currency: "Norwegian Krone",
+  totalAmount: 991687,
   productId: "<value>",
   productPriceId: "<value>",
   isPaymentRequired: false,
   customerId: "<value>",
   customerName: "<value>",
-  customerEmail: "Floy.Zemlak@gmail.com",
+  customerEmail: "Candace_Lubowitz36@gmail.com",
   customerIpAddress: "<value>",
   customerBillingAddress: {
-    country: "Malta",
+    country: "Aland Islands",
   },
   customerTaxId: "<id>",
   paymentProcessorMetadata: {},
   product: {
-    createdAt: new Date("2023-12-30T06:59:24.222Z"),
-    modifiedAt: new Date("2023-01-31T10:52:16.926Z"),
+    createdAt: new Date("2022-07-21T01:23:23.506Z"),
+    modifiedAt: new Date("2022-04-20T16:04:19.195Z"),
     id: "<value>",
     name: "<value>",
-    description: "during godfather phew per",
+    description: "paintwork instance whereas rise",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2023-07-01T04:04:20.139Z"),
-        modifiedAt: new Date("2024-03-23T22:47:32.575Z"),
+        createdAt: new Date("2024-06-23T11:32:52.597Z"),
+        modifiedAt: new Date("2022-01-11T18:22:31.099Z"),
         id: "<value>",
         isArchived: false,
+        productId: "<value>",
         priceCurrency: "<value>",
-        minimumAmount: 313064,
-        maximumAmount: 104097,
-        presetAmount: 825257,
+        priceAmount: 873132,
         recurringInterval: "month",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2022-04-27T17:18:40.571Z"),
-        modifiedAt: new Date("2022-05-18T18:26:16.470Z"),
+        createdAt: new Date("2022-07-02T04:29:02.571Z"),
+        modifiedAt: new Date("2022-06-12T14:00:52.276Z"),
         id: "<value>",
-        description: "unless boldly cash suspiciously",
+        type: "downloadables",
+        description:
+          "phew pro pace provided with inspection boo incidentally alarmed",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
-        properties: {
-          paidArticles: false,
-        },
       },
     ],
     medias: [
@@ -72,30 +71,32 @@ let value: CheckoutPublic = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/etc",
+        path: "/etc/periodic",
         mimeType: "<value>",
-        size: 577549,
+        size: 459888,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2023-08-09T10:13:51.600Z"),
+        lastModifiedAt: new Date("2022-11-04T15:15:56.312Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2023-04-18T14:04:46.675Z"),
+        createdAt: new Date("2022-11-18T12:31:27.009Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://intent-starboard.net/",
+        publicUrl: "https://assured-airman.org",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2024-05-10T16:19:06.783Z"),
-    modifiedAt: new Date("2022-02-18T12:13:52.647Z"),
+    createdAt: new Date("2023-05-18T13:34:30.080Z"),
+    modifiedAt: new Date("2024-08-24T13:14:58.426Z"),
     id: "<value>",
     isArchived: false,
+    productId: "<value>",
+    priceCurrency: "<value>",
+    priceAmount: 306065,
     recurringInterval: "year",
   },
-  url: "https://authorized-transom.info",
 };
 ```
 
@@ -109,6 +110,7 @@ let value: CheckoutPublic = {
 | `paymentProcessor`                                                                                                     | [components.PolarEnumsPaymentProcessor](../../models/components/polarenumspaymentprocessor.md)                         | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `status`                                                                                                               | [components.CheckoutStatus](../../models/components/checkoutstatus.md)                                                 | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `clientSecret`                                                                                                         | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | Client secret used to update and complete the checkout session from the client.                                        |
+| `url`                                                                                                                  | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | URL where the customer can access the checkout session.                                                                |
 | `expiresAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                          | :heavy_check_mark:                                                                                                     | Expiration date and time of the checkout session.                                                                      |
 | `successUrl`                                                                                                           | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | URL where the customer will be redirected after a successful payment.                                                  |
 | `amount`                                                                                                               | *number*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
@@ -127,4 +129,3 @@ let value: CheckoutPublic = {
 | `paymentProcessorMetadata`                                                                                             | [components.CheckoutPublicPaymentProcessorMetadata](../../models/components/checkoutpublicpaymentprocessormetadata.md) | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `product`                                                                                                              | [components.Product](../../models/components/product.md)                                                               | :heavy_check_mark:                                                                                                     | A product.                                                                                                             |
 | `productPrice`                                                                                                         | *components.ProductPrice*                                                                                              | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
-| `url`                                                                                                                  | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |

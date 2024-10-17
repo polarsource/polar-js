@@ -53,6 +53,10 @@ export type CheckoutPublic = {
    */
   clientSecret: string;
   /**
+   * URL where the customer can access the checkout session.
+   */
+  url: string;
+  /**
    * Expiration date and time of the checkout session.
    */
   expiresAt: Date;
@@ -97,7 +101,6 @@ export type CheckoutPublic = {
    */
   product: Product;
   productPrice: ProductPrice;
-  url: string;
 };
 
 /** @internal */
@@ -146,6 +149,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   payment_processor: z.literal("stripe").optional(),
   status: CheckoutStatus$inboundSchema,
   client_secret: z.string(),
+  url: z.string(),
   expires_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   success_url: z.string(),
   amount: z.nullable(z.number().int()),
@@ -166,7 +170,6 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   ),
   product: Product$inboundSchema,
   product_price: ProductPrice$inboundSchema,
-  url: z.string(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -199,6 +202,7 @@ export type CheckoutPublic$Outbound = {
   payment_processor: "stripe";
   status: string;
   client_secret: string;
+  url: string;
   expires_at: string;
   success_url: string;
   amount: number | null;
@@ -217,7 +221,6 @@ export type CheckoutPublic$Outbound = {
   payment_processor_metadata: CheckoutPublicPaymentProcessorMetadata$Outbound;
   product: Product$Outbound;
   product_price: ProductPrice$Outbound;
-  url: string;
 };
 
 /** @internal */
@@ -232,6 +235,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   paymentProcessor: z.literal("stripe").default("stripe"),
   status: CheckoutStatus$outboundSchema,
   clientSecret: z.string(),
+  url: z.string(),
   expiresAt: z.date().transform(v => v.toISOString()),
   successUrl: z.string(),
   amount: z.nullable(z.number().int()),
@@ -252,7 +256,6 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   ),
   product: Product$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
-  url: z.string(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

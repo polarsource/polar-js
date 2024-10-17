@@ -8,12 +8,13 @@ A recurring price for a product, i.e. a subscription.
 import { ProductPriceRecurringFixed } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringFixed = {
-  createdAt: new Date("2024-10-29T21:49:35.631Z"),
-  modifiedAt: new Date("2024-03-17T02:09:56.964Z"),
+  createdAt: new Date("2022-09-18T19:19:03.998Z"),
+  modifiedAt: new Date("2024-09-15T03:51:48.041Z"),
   id: "<value>",
   isArchived: false,
+  productId: "<value>",
   priceCurrency: "<value>",
-  priceAmount: 123593,
+  priceAmount: 508510,
   recurringInterval: "year",
 };
 ```
@@ -27,6 +28,7 @@ let value: ProductPriceRecurringFixed = {
 | `id`                                                                                                   | *string*                                                                                               | :heavy_check_mark:                                                                                     | The ID of the price.                                                                                   |
 | `amountType`                                                                                           | [components.AmountType](../../models/components/amounttype.md)                                         | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
 | `isArchived`                                                                                           | *boolean*                                                                                              | :heavy_check_mark:                                                                                     | Whether the price is archived and no longer available.                                                 |
+| `productId`                                                                                            | *string*                                                                                               | :heavy_check_mark:                                                                                     | The ID of the product owning the price.                                                                |
 | `priceCurrency`                                                                                        | *string*                                                                                               | :heavy_check_mark:                                                                                     | The currency.                                                                                          |
 | `priceAmount`                                                                                          | *number*                                                                                               | :heavy_check_mark:                                                                                     | The price in cents.                                                                                    |
 | `type`                                                                                                 | [components.ProductPriceRecurringFixedType](../../models/components/productpricerecurringfixedtype.md) | :heavy_check_mark:                                                                                     | The type of the price.                                                                                 |

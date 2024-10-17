@@ -46,6 +46,7 @@ let value: OrdersListResponse = {
           modifiedAt: new Date("2024-09-02T13:29:38.345Z"),
           id: "<value>",
           isArchived: false,
+          productId: "<value>",
           priceCurrency: "<value>",
           minimumAmount: 989089,
           maximumAmount: 662857,

@@ -13,28 +13,28 @@ let value: PolarCheckoutSchemasCheckout = {
   id: "<value>",
   status: "failed",
   clientSecret: "<value>",
-  expiresAt: new Date("2023-05-05T04:09:38.309Z"),
-  successUrl: "https://downright-object.org/",
-  amount: 589101,
-  taxAmount: 652345,
-  currency: "Pound Sterling",
-  totalAmount: 325851,
+  url: "https://little-creature.name/",
+  expiresAt: new Date("2024-12-15T14:43:33.121Z"),
+  successUrl: "https://qualified-electronics.biz",
+  amount: 196355,
+  taxAmount: 514602,
+  currency: "Belarusian Ruble",
+  totalAmount: 618481,
   productId: "<value>",
   productPriceId: "<value>",
   isPaymentRequired: false,
   customerId: "<value>",
   customerName: "<value>",
-  customerEmail: "Jordi.Mosciski62@gmail.com",
+  customerEmail: "Linnea.Torp@yahoo.com",
   customerIpAddress: "<value>",
   customerBillingAddress: {
-    country: "Thailand",
+    country: "Uganda",
   },
   customerTaxId: "<id>",
   paymentProcessorMetadata: {},
   metadata: {
     "key": "<value>",
   },
-  url: "https://dramatic-knickers.org/",
 };
 ```
 
@@ -48,6 +48,7 @@ let value: PolarCheckoutSchemasCheckout = {
 | `paymentProcessor`                                                                             | [components.PolarEnumsPaymentProcessor](../../models/components/polarenumspaymentprocessor.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `status`                                                                                       | [components.CheckoutStatus](../../models/components/checkoutstatus.md)                         | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `clientSecret`                                                                                 | *string*                                                                                       | :heavy_check_mark:                                                                             | Client secret used to update and complete the checkout session from the client.                |
+| `url`                                                                                          | *string*                                                                                       | :heavy_check_mark:                                                                             | URL where the customer can access the checkout session.                                        |
 | `expiresAt`                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)  | :heavy_check_mark:                                                                             | Expiration date and time of the checkout session.                                              |
 | `successUrl`                                                                                   | *string*                                                                                       | :heavy_check_mark:                                                                             | URL where the customer will be redirected after a successful payment.                          |
 | `amount`                                                                                       | *number*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
@@ -65,4 +66,3 @@ let value: PolarCheckoutSchemasCheckout = {
 | `customerTaxId`                                                                                | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `paymentProcessorMetadata`                                                                     | [components.PaymentProcessorMetadata](../../models/components/paymentprocessormetadata.md)     | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `metadata`                                                                                     | Record<string, *string*>                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `url`                                                                                          | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |

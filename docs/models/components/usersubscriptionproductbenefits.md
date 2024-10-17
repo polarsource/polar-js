@@ -7,11 +7,11 @@
 
 ```typescript
 const value: components.BenefitBase = {
-  createdAt: new Date("2022-07-25T01:35:33.444Z"),
-  modifiedAt: new Date("2022-11-26T14:28:09.704Z"),
+  createdAt: new Date("2023-02-09T16:03:01.500Z"),
+  modifiedAt: new Date("2022-12-09T15:04:50.222Z"),
   id: "<value>",
-  type: "license_keys",
-  description: "although psst superficial enthusiastically but jealously",
+  type: "articles",
+  description: "pleasant outsource frivolous coexist suddenly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -22,10 +22,10 @@ const value: components.BenefitBase = {
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2022-08-11T14:00:17.759Z"),
-  modifiedAt: new Date("2024-02-28T15:41:38.993Z"),
+  createdAt: new Date("2023-12-12T08:42:47.730Z"),
+  modifiedAt: new Date("2022-01-20T00:11:01.003Z"),
   id: "<value>",
-  description: "hm thorn vague promise fisherman unethically onto indeed yum",
+  description: "kindheartedly whereas obvious",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

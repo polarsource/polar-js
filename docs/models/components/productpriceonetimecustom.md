@@ -8,14 +8,15 @@ A pay-what-you-want price for a one-time product.
 import { ProductPriceOneTimeCustom } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceOneTimeCustom = {
-  createdAt: new Date("2022-01-26T05:11:25.370Z"),
-  modifiedAt: new Date("2022-05-27T17:47:02.462Z"),
+  createdAt: new Date("2023-07-07T01:15:14.096Z"),
+  modifiedAt: new Date("2022-01-29T05:00:23.216Z"),
   id: "<value>",
   isArchived: false,
+  productId: "<value>",
   priceCurrency: "<value>",
-  minimumAmount: 25210,
-  maximumAmount: 857388,
-  presetAmount: 617325,
+  minimumAmount: 774353,
+  maximumAmount: 560374,
+  presetAmount: 82493,
 };
 ```
 
@@ -28,6 +29,7 @@ let value: ProductPriceOneTimeCustom = {
 | `id`                                                                                                             | *string*                                                                                                         | :heavy_check_mark:                                                                                               | The ID of the price.                                                                                             |
 | `amountType`                                                                                                     | [components.ProductPriceOneTimeCustomAmountType](../../models/components/productpriceonetimecustomamounttype.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `isArchived`                                                                                                     | *boolean*                                                                                                        | :heavy_check_mark:                                                                                               | Whether the price is archived and no longer available.                                                           |
+| `productId`                                                                                                      | *string*                                                                                                         | :heavy_check_mark:                                                                                               | The ID of the product owning the price.                                                                          |
 | `priceCurrency`                                                                                                  | *string*                                                                                                         | :heavy_check_mark:                                                                                               | The currency.                                                                                                    |
 | `minimumAmount`                                                                                                  | *number*                                                                                                         | :heavy_check_mark:                                                                                               | The minimum amount the customer can pay.                                                                         |
 | `maximumAmount`                                                                                                  | *number*                                                                                                         | :heavy_check_mark:                                                                                               | The maximum amount the customer can pay.                                                                         |

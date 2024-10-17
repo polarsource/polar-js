@@ -22,6 +22,7 @@ let value: ListResourceProduct = {
           modifiedAt: new Date("2024-06-28T09:31:01.146Z"),
           id: "<value>",
           isArchived: false,
+          productId: "<value>",
           recurringInterval: "year",
         },
       ],

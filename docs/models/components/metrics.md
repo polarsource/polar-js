@@ -8,58 +8,58 @@ import { Metrics } from "@polar-sh/sdk/models/components";
 let value: Metrics = {
   orders: {
     slug: "<value>",
-    displayName: "Cruz79",
-    type: "currency",
+    displayName: "Lloyd.Rodriguez57",
+    type: "scalar",
   },
   revenue: {
     slug: "<value>",
-    displayName: "Zena72",
-    type: "currency",
+    displayName: "Wilhelm49",
+    type: "scalar",
   },
   averageOrderValue: {
     slug: "<value>",
-    displayName: "Gisselle_Swift",
+    displayName: "Mariane.Thiel3",
     type: "currency",
   },
   oneTimeProducts: {
     slug: "<value>",
-    displayName: "Abelardo.Reilly",
-    type: "scalar",
+    displayName: "Cristopher.Bednar83",
+    type: "currency",
   },
   oneTimeProductsRevenue: {
     slug: "<value>",
-    displayName: "Katheryn_Parker",
-    type: "currency",
+    displayName: "Bert.Sawayn",
+    type: "scalar",
   },
   newSubscriptions: {
     slug: "<value>",
-    displayName: "Davonte_Bernhard17",
-    type: "currency",
+    displayName: "Cortney.Pollich28",
+    type: "scalar",
   },
   newSubscriptionsRevenue: {
     slug: "<value>",
-    displayName: "Gerda.OReilly72",
-    type: "currency",
+    displayName: "Alice.Jakubowski48",
+    type: "scalar",
   },
   renewedSubscriptions: {
     slug: "<value>",
-    displayName: "Enrique.Conroy",
-    type: "scalar",
+    displayName: "Landen_Koepp13",
+    type: "currency",
   },
   renewedSubscriptionsRevenue: {
     slug: "<value>",
-    displayName: "Nichole4",
-    type: "scalar",
+    displayName: "Greta.Feeney82",
+    type: "currency",
   },
   activeSubscriptions: {
     slug: "<value>",
-    displayName: "Rory.Erdman",
+    displayName: "Isadore_Nicolas82",
     type: "scalar",
   },
   monthlyRecurringRevenue: {
     slug: "<value>",
-    displayName: "Danial.Corwin6",
-    type: "scalar",
+    displayName: "Diamond83",
+    type: "currency",
   },
 };
 ```
