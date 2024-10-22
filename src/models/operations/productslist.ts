@@ -22,6 +22,10 @@ export type ProductsListRequest = {
    */
   organizationId: string | Array<string>;
   /**
+   * Filter by product name.
+   */
+  query?: string | null | undefined;
+  /**
    * Filter on archived products.
    */
   isArchived?: boolean | null | undefined;
@@ -41,6 +45,10 @@ export type ProductsListRequest = {
    * Size of a page, defaults to 10. Maximum is 100.
    */
   limit?: number | undefined;
+  /**
+   * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
+   */
+  sorting?: Array<components.ProductSortProperty> | null | undefined;
 };
 
 export type ProductsListResponse = {
@@ -117,11 +125,14 @@ export const ProductsListRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   organization_id: z.union([z.string(), z.array(z.string())]),
+  query: z.nullable(z.string()).optional(),
   is_archived: z.nullable(z.boolean()).optional(),
   is_recurring: z.nullable(z.boolean()).optional(),
   benefit_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
+  sorting: z.nullable(z.array(components.ProductSortProperty$inboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -134,11 +145,13 @@ export const ProductsListRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type ProductsListRequest$Outbound = {
   organization_id: string | Array<string>;
+  query?: string | null | undefined;
   is_archived?: boolean | null | undefined;
   is_recurring?: boolean | null | undefined;
   benefit_id?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
+  sorting?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -148,11 +161,14 @@ export const ProductsListRequest$outboundSchema: z.ZodType<
   ProductsListRequest
 > = z.object({
   organizationId: z.union([z.string(), z.array(z.string())]),
+  query: z.nullable(z.string()).optional(),
   isArchived: z.nullable(z.boolean()).optional(),
   isRecurring: z.nullable(z.boolean()).optional(),
   benefitId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
+  sorting: z.nullable(z.array(components.ProductSortProperty$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",

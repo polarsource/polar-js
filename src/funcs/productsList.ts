@@ -74,6 +74,8 @@ export async function productsList(
     "limit": payload.limit,
     "organization_id": payload.organization_id,
     "page": payload.page,
+    "query": payload.query,
+    "sorting": payload.sorting,
   });
 
   const headers = new Headers({
