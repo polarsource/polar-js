@@ -201,6 +201,7 @@ export * from "./productpricerecurringfree.js";
 export * from "./productpricerecurringfreecreate.js";
 export * from "./productpricetype.js";
 export * from "./productrecurringcreate.js";
+export * from "./productsortproperty.js";
 export * from "./productupdate.js";
 export * from "./reactions.js";
 export * from "./repositoryinput.js";

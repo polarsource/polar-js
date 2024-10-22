@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 9c75e35c4deaf4f580167375d2140a4e
+  docChecksum: 55c784471708066dc800f92d1ff780b7
   docVersion: 0.1.0
-  speakeasyVersion: 1.419.0
-  generationVersion: 2.438.3
-  releaseVersion: 0.13.2
-  configChecksum: 7c209f6b2f5ea0b82122d1c472d26f97
+  speakeasyVersion: 1.420.0
+  generationVersion: 2.438.15
+  releaseVersion: 0.13.3
+  configChecksum: c69e4eeb974795587bf2c9f864a9fd82
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -334,6 +334,7 @@ generatedFiles:
   - docs/models/components/productpricetype.md
   - docs/models/components/productrecurringcreate.md
   - docs/models/components/productrecurringcreateprices.md
+  - docs/models/components/productsortproperty.md
   - docs/models/components/productupdate.md
   - docs/models/components/productupdateprices.md
   - docs/models/components/properties.md
@@ -925,6 +926,7 @@ generatedFiles:
   - src/models/components/productpricerecurringfreecreate.ts
   - src/models/components/productpricetype.ts
   - src/models/components/productrecurringcreate.ts
+  - src/models/components/productsortproperty.ts
   - src/models/components/productupdate.ts
   - src/models/components/reactions.ts
   - src/models/components/repositoryinput.ts
@@ -1972,7 +1974,7 @@ examples:
     speakeasy-default-checkout-links:list:
       responses:
         "200":
-          application/json: {"items": [{"created_at": "2023-08-23T19:26:20.850Z", "modified_at": "2024-01-14T10:26:00.433Z", "id": "<value>", "metadata": {}, "client_secret": "<value>", "success_url": "https://crooked-overload.name/", "product_price_id": "<value>", "product_price": {"created_at": "2022-04-05T09:49:38.010Z", "modified_at": "2022-03-17T01:57:00.187Z", "id": "<value>", "is_archived": false, "product_id": "<value>", "recurring_interval": "year"}, "url": "https://acidic-avalanche.info"}, {"created_at": "2023-06-17T08:36:51.636Z", "modified_at": "2022-03-22T06:10:55.267Z", "id": "<value>", "metadata": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "client_secret": "<value>", "success_url": "https://ugly-jungle.com", "product_price_id": "<value>", "product_price": {"created_at": "2022-01-21T00:48:05.986Z", "modified_at": "2024-09-10T07:49:25.657Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "recurring_interval": "year"}, "url": "https://blue-technologist.com/"}, {"created_at": "2023-05-20T11:06:26.987Z", "modified_at": "2023-04-12T03:59:08.538Z", "id": "<value>", "metadata": {"key": "<value>"}, "client_secret": "<value>", "success_url": "https://careless-lid.org/", "product_price_id": "<value>", "product_price": {"created_at": "2022-12-03T21:35:05.453Z", "modified_at": "2023-03-06T16:40:09.484Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "recurring_interval": "month"}, "url": "https://animated-ostrich.org"}], "pagination": {"total_count": 918561, "max_page": 84189}}
+          application/json: {"items": [{"created_at": "2023-08-23T19:26:20.850Z", "modified_at": "2024-01-14T10:26:00.433Z", "id": "<value>", "metadata": {}, "client_secret": "<value>", "success_url": "https://crooked-overload.name/", "product_price_id": "<value>", "product_price": {"created_at": "2024-01-14T10:26:00.433Z", "modified_at": "2022-07-14T18:23:27.528Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "price_currency": "<value>", "minimum_amount": 152837, "maximum_amount": 635532, "preset_amount": 639387}, "url": "https://acidic-avalanche.info"}, {"created_at": "2023-06-17T08:36:51.636Z", "modified_at": "2022-03-22T06:10:55.267Z", "id": "<value>", "metadata": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "client_secret": "<value>", "success_url": "https://ugly-jungle.com", "product_price_id": "<value>", "product_price": {"created_at": "2022-04-05T09:49:38.010Z", "modified_at": "2022-03-17T01:57:00.187Z", "id": "<value>", "is_archived": false, "product_id": "<value>", "recurring_interval": "year"}, "url": "https://blue-technologist.com/"}, {"created_at": "2023-05-20T11:06:26.987Z", "modified_at": "2023-04-12T03:59:08.538Z", "id": "<value>", "metadata": {"key": "<value>"}, "client_secret": "<value>", "success_url": "https://careless-lid.org/", "product_price_id": "<value>", "product_price": {"created_at": "2022-03-01T20:22:54.911Z", "modified_at": "2023-02-08T01:09:52.088Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "price_currency": "<value>", "price_amount": 73227}, "url": "https://animated-ostrich.org"}], "pagination": {"total_count": 918561, "max_page": 84189}}
         "422": {}
   checkout-links:create:
     speakeasy-default-checkout-links:create:
@@ -1980,7 +1982,7 @@ examples:
         application/json: {"product_price_id": "<value>"}
       responses:
         "201":
-          application/json: {"created_at": "2023-06-18T07:14:55.338Z", "modified_at": "2023-12-01T17:06:07.804Z", "id": "<value>", "metadata": {"key": "<value>"}, "client_secret": "<value>", "success_url": "https://black-and-white-secrecy.org/", "product_price_id": "<value>", "product_price": {"created_at": "2022-04-09T14:25:29.356Z", "modified_at": "2024-05-18T17:03:53.906Z", "id": "<value>", "is_archived": false, "product_id": "<value>", "price_currency": "<value>", "price_amount": 586220, "recurring_interval": "year"}, "url": "https://harmful-disposer.com"}
+          application/json: {"created_at": "2023-06-18T07:14:55.338Z", "modified_at": "2023-12-01T17:06:07.804Z", "id": "<value>", "metadata": {"key": "<value>"}, "client_secret": "<value>", "success_url": "https://black-and-white-secrecy.org/", "product_price_id": "<value>", "product_price": {"created_at": "2023-04-03T12:48:32.253Z", "modified_at": "2022-05-28T06:20:22.766Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "price_currency": "<value>", "minimum_amount": 796474, "maximum_amount": 951062, "preset_amount": 86, "recurring_interval": "month"}, "url": "https://harmful-disposer.com"}
         "422": {}
   checkout-links:get:
     speakeasy-default-checkout-links:get:
@@ -1989,7 +1991,7 @@ examples:
           id: "<value>"
       responses:
         "200":
-          application/json: {"created_at": "2024-02-07T13:54:48.821Z", "modified_at": "2023-09-05T11:33:52.011Z", "id": "<value>", "metadata": {"key": "<value>", "key1": "<value>"}, "client_secret": "<value>", "success_url": "https://willing-impostor.info", "product_price_id": "<value>", "product_price": {"created_at": "2024-10-24T02:41:21.259Z", "modified_at": "2023-04-26T04:53:50.189Z", "id": "<value>", "is_archived": false, "product_id": "<value>", "price_currency": "<value>", "price_amount": 78888, "recurring_interval": "month"}, "url": "https://burdensome-marketplace.net/"}
+          application/json: {"created_at": "2024-02-07T13:54:48.821Z", "modified_at": "2023-09-05T11:33:52.011Z", "id": "<value>", "metadata": {"key": "<value>", "key1": "<value>"}, "client_secret": "<value>", "success_url": "https://willing-impostor.info", "product_price_id": "<value>", "product_price": {"created_at": "2023-08-20T11:11:04.610Z", "modified_at": "2023-07-26T06:33:15.810Z", "id": "<value>", "is_archived": false, "product_id": "<value>", "price_currency": "<value>", "minimum_amount": 458049, "maximum_amount": 450824, "preset_amount": 262795}, "url": "https://burdensome-marketplace.net/"}
         "404":
           application/json: {"detail": "<value>"}
         "422": {}
@@ -2000,7 +2002,7 @@ examples:
           id: "<value>"
       responses:
         "200":
-          application/json: {"created_at": "2024-07-28T19:04:48.565Z", "modified_at": "2023-10-17T10:52:42.015Z", "id": "<value>", "metadata": {"key": "<value>"}, "client_secret": "<value>", "success_url": "https://powerless-juggernaut.org", "product_price_id": "<value>", "product_price": {"created_at": "2023-05-05T18:16:40.936Z", "modified_at": "2022-12-08T09:52:54.805Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "recurring_interval": "month"}, "url": "https://uniform-euphonium.info"}
+          application/json: {"created_at": "2024-07-28T19:04:48.565Z", "modified_at": "2023-10-17T10:52:42.015Z", "id": "<value>", "metadata": {"key": "<value>"}, "client_secret": "<value>", "success_url": "https://powerless-juggernaut.org", "product_price_id": "<value>", "product_price": {"created_at": "2023-01-13T16:52:57.274Z", "modified_at": "2024-12-22T15:27:45.882Z", "id": "<value>", "is_archived": false, "product_id": "<value>", "price_currency": "<value>", "minimum_amount": 488852, "maximum_amount": 984008, "preset_amount": 54062}, "url": "https://uniform-euphonium.info"}
         "404":
           application/json: {"detail": "<value>"}
         "422": {}
