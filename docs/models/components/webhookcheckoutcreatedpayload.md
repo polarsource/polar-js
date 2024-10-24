@@ -19,6 +19,7 @@ let value: WebhookCheckoutCreatedPayload = {
     url: "https://unlawful-rationale.org/",
     expiresAt: new Date("2023-03-01T00:50:01.666Z"),
     successUrl: "https://unlined-hornet.net/",
+    embedOrigin: "<value>",
     amount: 424591,
     taxAmount: 708007,
     currency: "Naira",

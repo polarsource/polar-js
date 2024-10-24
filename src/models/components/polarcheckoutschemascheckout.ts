@@ -52,6 +52,10 @@ export type PolarCheckoutSchemasCheckout = {
    * URL where the customer will be redirected after a successful payment.
    */
   successUrl: string;
+  /**
+   * When checkout is embedded, represents the Origin of the page embedding the checkout. Used as a security measure to send messages only to the embedding page.
+   */
+  embedOrigin: string | null;
   amount: number | null;
   /**
    * Computed tax amount to pay in cents.
@@ -134,6 +138,7 @@ export const PolarCheckoutSchemasCheckout$inboundSchema: z.ZodType<
   url: z.string(),
   expires_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   success_url: z.string(),
+  embed_origin: z.nullable(z.string()),
   amount: z.nullable(z.number().int()),
   tax_amount: z.nullable(z.number().int()),
   currency: z.nullable(z.string()),
@@ -159,6 +164,7 @@ export const PolarCheckoutSchemasCheckout$inboundSchema: z.ZodType<
     "client_secret": "clientSecret",
     "expires_at": "expiresAt",
     "success_url": "successUrl",
+    "embed_origin": "embedOrigin",
     "tax_amount": "taxAmount",
     "total_amount": "totalAmount",
     "product_id": "productId",
@@ -185,6 +191,7 @@ export type PolarCheckoutSchemasCheckout$Outbound = {
   url: string;
   expires_at: string;
   success_url: string;
+  embed_origin: string | null;
   amount: number | null;
   tax_amount: number | null;
   currency: string | null;
@@ -217,6 +224,7 @@ export const PolarCheckoutSchemasCheckout$outboundSchema: z.ZodType<
   url: z.string(),
   expiresAt: z.date().transform(v => v.toISOString()),
   successUrl: z.string(),
+  embedOrigin: z.nullable(z.string()),
   amount: z.nullable(z.number().int()),
   taxAmount: z.nullable(z.number().int()),
   currency: z.nullable(z.string()),
@@ -242,6 +250,7 @@ export const PolarCheckoutSchemasCheckout$outboundSchema: z.ZodType<
     clientSecret: "client_secret",
     expiresAt: "expires_at",
     successUrl: "success_url",
+    embedOrigin: "embed_origin",
     taxAmount: "tax_amount",
     totalAmount: "total_amount",
     productId: "product_id",
