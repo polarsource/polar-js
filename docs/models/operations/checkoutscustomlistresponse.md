@@ -17,6 +17,7 @@ let value: CheckoutsCustomListResponse = {
         url: "https://whirlwind-section.com",
         expiresAt: new Date("2024-06-01T05:01:31.045Z"),
         successUrl: "https://esteemed-citizen.biz/",
+        embedOrigin: "<value>",
         amount: 528315,
         taxAmount: 671690,
         currency: "Kuwaiti Dinar",

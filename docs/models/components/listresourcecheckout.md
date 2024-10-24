@@ -16,6 +16,7 @@ let value: ListResourceCheckout = {
       url: "https://bustling-shark.biz/",
       expiresAt: new Date("2024-03-25T03:51:27.034Z"),
       successUrl: "https://sweet-yarmulke.com",
+      embedOrigin: "<value>",
       amount: 150417,
       taxAmount: 636216,
       currency: "Kwanza",

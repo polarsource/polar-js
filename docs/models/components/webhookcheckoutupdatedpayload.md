@@ -19,6 +19,7 @@ let value: WebhookCheckoutUpdatedPayload = {
     url: "https://clear-cut-dream.biz",
     expiresAt: new Date("2024-02-16T11:29:47.688Z"),
     successUrl: "https://slushy-event.net/",
+    embedOrigin: "<value>",
     amount: 366561,
     taxAmount: 426401,
     currency: "Brazilian Real",
