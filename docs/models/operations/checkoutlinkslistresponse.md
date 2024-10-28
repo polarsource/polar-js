@@ -9,30 +9,31 @@ let value: CheckoutLinksListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-11-16T13:14:05.219Z"),
-        modifiedAt: new Date("2022-08-16T10:24:53.845Z"),
+        createdAt: new Date("2023-11-06T16:40:09.305Z"),
+        modifiedAt: new Date("2024-11-03T10:14:15.332Z"),
         id: "<value>",
         metadata: {
           "key": "<value>",
         },
         clientSecret: "<value>",
-        successUrl: "https://firsthand-t-shirt.com",
+        successUrl: "https://upset-birdcage.info/",
         productPriceId: "<value>",
         productPrice: {
-          createdAt: new Date("2024-12-03T09:17:23.978Z"),
-          modifiedAt: new Date("2024-02-07T21:27:34.191Z"),
+          createdAt: new Date("2023-01-16T19:34:44.796Z"),
+          modifiedAt: new Date("2023-05-13T18:21:47.587Z"),
           id: "<value>",
           isArchived: false,
           productId: "<value>",
           priceCurrency: "<value>",
-          priceAmount: 841816,
+          priceAmount: 865212,
+          recurringInterval: "year",
         },
-        url: "https://live-omelet.name",
+        url: "https://true-nucleotidase.info",
       },
     ],
     pagination: {
-      totalCount: 469384,
-      maxPage: 759451,
+      totalCount: 194194,
+      maxPage: 413135,
     },
   },
 };

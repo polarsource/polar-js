@@ -5,10 +5,10 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  PolarCheckoutSchemasCheckout,
-  PolarCheckoutSchemasCheckout$inboundSchema,
-  PolarCheckoutSchemasCheckout$Outbound,
-  PolarCheckoutSchemasCheckout$outboundSchema,
+  PolarCheckoutSchemasCheckoutInput,
+  PolarCheckoutSchemasCheckoutInput$inboundSchema,
+  PolarCheckoutSchemasCheckoutInput$Outbound,
+  PolarCheckoutSchemasCheckoutInput$outboundSchema,
 } from "./polarcheckoutschemascheckout.js";
 
 export const WebhookCheckoutUpdatedPayloadType = {
@@ -30,7 +30,7 @@ export type WebhookCheckoutUpdatedPayload = {
   /**
    * Checkout session data retrieved using an access token.
    */
-  data: PolarCheckoutSchemasCheckout;
+  data: PolarCheckoutSchemasCheckoutInput;
 };
 
 /** @internal */
@@ -62,13 +62,13 @@ export const WebhookCheckoutUpdatedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("checkout.updated").optional(),
-  data: PolarCheckoutSchemasCheckout$inboundSchema,
+  data: PolarCheckoutSchemasCheckoutInput$inboundSchema,
 });
 
 /** @internal */
 export type WebhookCheckoutUpdatedPayload$Outbound = {
   type: "checkout.updated";
-  data: PolarCheckoutSchemasCheckout$Outbound;
+  data: PolarCheckoutSchemasCheckoutInput$Outbound;
 };
 
 /** @internal */
@@ -78,7 +78,7 @@ export const WebhookCheckoutUpdatedPayload$outboundSchema: z.ZodType<
   WebhookCheckoutUpdatedPayload
 > = z.object({
   type: z.literal("checkout.updated").default("checkout.updated"),
-  data: PolarCheckoutSchemasCheckout$outboundSchema,
+  data: PolarCheckoutSchemasCheckoutInput$outboundSchema,
 });
 
 /**

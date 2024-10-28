@@ -5,7 +5,7 @@
 ```typescript
 import { PledgeState } from "@polar-sh/sdk/models/components";
 
-let value: PledgeState = "cancelled";
+let value: PledgeState = "refunded";
 ```
 
 ## Values

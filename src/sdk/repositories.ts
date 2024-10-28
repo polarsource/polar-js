@@ -38,7 +38,7 @@ export class Repositories extends ClientSDK {
   async get(
     request: operations.RepositoriesGetRequest,
     options?: RequestOptions,
-  ): Promise<components.RepositoryOutput> {
+  ): Promise<components.Repository> {
     return unwrapAsync(repositoriesGet(
       this,
       request,
@@ -55,7 +55,7 @@ export class Repositories extends ClientSDK {
   async update(
     request: operations.RepositoriesUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.RepositoryOutput> {
+  ): Promise<components.Repository> {
     return unwrapAsync(repositoriesUpdate(
       this,
       request,

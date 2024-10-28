@@ -11,10 +11,10 @@ import { WebhookBenefitCreatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookBenefitCreatedPayload = {
   data: {
-    createdAt: new Date("2024-07-13T22:30:25.284Z"),
-    modifiedAt: new Date("2024-02-10T10:16:05.726Z"),
+    createdAt: new Date("2024-08-09T09:21:03.493Z"),
+    modifiedAt: new Date("2022-05-04T02:40:37.506Z"),
     id: "<value>",
-    description: "marathon um uh-huh kissingly that maul",
+    description: "harvest energetically apologise incidentally",
     selectable: false,
     deletable: false,
     organizationId: "<value>",

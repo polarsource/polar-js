@@ -18,4 +18,4 @@ targets:
             npm:
                 token: $npm_token
         codeSamples:
-          output: codeSamples.yaml
+            output: codeSamples.yaml

@@ -17,7 +17,7 @@ import {
   RepositoryProfileSettings$outboundSchema,
 } from "./repositoryprofilesettings.js";
 
-export type RepositoryInput = {
+export type Repository = {
   id: string;
   platform?: "github" | undefined;
   isPrivate: boolean;
@@ -34,8 +34,8 @@ export type RepositoryInput = {
 };
 
 /** @internal */
-export const RepositoryInput$inboundSchema: z.ZodType<
-  RepositoryInput,
+export const Repository$inboundSchema: z.ZodType<
+  Repository,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -57,7 +57,7 @@ export const RepositoryInput$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type RepositoryInput$Outbound = {
+export type Repository$Outbound = {
   id: string;
   platform: "github";
   is_private: boolean;
@@ -71,10 +71,10 @@ export type RepositoryInput$Outbound = {
 };
 
 /** @internal */
-export const RepositoryInput$outboundSchema: z.ZodType<
-  RepositoryInput$Outbound,
+export const Repository$outboundSchema: z.ZodType<
+  Repository$Outbound,
   z.ZodTypeDef,
-  RepositoryInput
+  Repository
 > = z.object({
   id: z.string(),
   platform: z.literal("github").default("github"),
@@ -97,11 +97,11 @@ export const RepositoryInput$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RepositoryInput$ {
-  /** @deprecated use `RepositoryInput$inboundSchema` instead. */
-  export const inboundSchema = RepositoryInput$inboundSchema;
-  /** @deprecated use `RepositoryInput$outboundSchema` instead. */
-  export const outboundSchema = RepositoryInput$outboundSchema;
-  /** @deprecated use `RepositoryInput$Outbound` instead. */
-  export type Outbound = RepositoryInput$Outbound;
+export namespace Repository$ {
+  /** @deprecated use `Repository$inboundSchema` instead. */
+  export const inboundSchema = Repository$inboundSchema;
+  /** @deprecated use `Repository$outboundSchema` instead. */
+  export const outboundSchema = Repository$outboundSchema;
+  /** @deprecated use `Repository$Outbound` instead. */
+  export type Outbound = Repository$Outbound;
 }

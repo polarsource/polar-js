@@ -8,29 +8,28 @@ import { ListResourceCheckoutLink } from "@polar-sh/sdk/models/components";
 let value: ListResourceCheckoutLink = {
   items: [
     {
-      createdAt: new Date("2024-07-11T04:31:02.339Z"),
-      modifiedAt: new Date("2023-06-21T19:25:27.760Z"),
+      createdAt: new Date("2022-06-22T21:29:53.700Z"),
+      modifiedAt: new Date("2022-03-20T13:14:56.817Z"),
       id: "<value>",
       metadata: {
         "key": "<value>",
       },
       clientSecret: "<value>",
-      successUrl: "https://misguided-issue.org/",
+      successUrl: "https://boiling-instructor.name",
       productPriceId: "<value>",
       productPrice: {
-        createdAt: new Date("2022-05-26T00:10:38.237Z"),
-        modifiedAt: new Date("2023-03-02T19:11:22.399Z"),
+        createdAt: new Date("2023-10-28T18:33:39.178Z"),
+        modifiedAt: new Date("2023-07-05T23:21:00.370Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        recurringInterval: "year",
       },
-      url: "https://discrete-developmental.net/",
+      url: "https://vain-word.com",
     },
   ],
   pagination: {
-    totalCount: 943491,
-    maxPage: 127155,
+    totalCount: 969553,
+    maxPage: 803186,
   },
 };
 ```
