@@ -10,10 +10,10 @@ Use it to automatically invite your backers to a Discord server.
 import { BenefitDiscordInput } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordInput = {
-  createdAt: new Date("2023-08-08T07:18:03.677Z"),
-  modifiedAt: new Date("2022-04-14T07:45:40.363Z"),
+  createdAt: new Date("2023-04-20T19:40:49.785Z"),
+  modifiedAt: new Date("2023-05-20T04:29:31.559Z"),
   id: "<value>",
-  description: "incidentally livid phew poetry tank bicycle",
+  description: "modulo since likewise lumpy while musty",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

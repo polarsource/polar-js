@@ -1,35 +1,35 @@
-# PolarCheckoutSchemasCheckout
+# PolarCheckoutSchemasCheckoutInput
 
 Checkout session data retrieved using an access token.
 
 ## Example Usage
 
 ```typescript
-import { PolarCheckoutSchemasCheckout } from "@polar-sh/sdk/models/components";
+import { PolarCheckoutSchemasCheckoutInput } from "@polar-sh/sdk/models/components";
 
-let value: PolarCheckoutSchemasCheckout = {
-  createdAt: new Date("2023-09-25T23:50:30.634Z"),
-  modifiedAt: new Date("2023-08-09T10:13:51.600Z"),
+let value: PolarCheckoutSchemasCheckoutInput = {
+  createdAt: new Date("2023-09-14T07:43:31.648Z"),
+  modifiedAt: new Date("2023-09-10T05:55:09.703Z"),
   id: "<value>",
-  status: "confirmed",
+  status: "expired",
   clientSecret: "<value>",
-  url: "https://intent-starboard.net/",
-  expiresAt: new Date("2023-04-28T21:37:38.772Z"),
-  successUrl: "https://spirited-apricot.net",
+  url: "https://deep-backbone.net/",
+  expiresAt: new Date("2024-03-26T08:49:10.019Z"),
+  successUrl: "https://same-colon.net",
   embedOrigin: "<value>",
-  amount: 718538,
-  taxAmount: 49220,
-  currency: "Vatu",
-  totalAmount: 467039,
+  amount: 557852,
+  taxAmount: 108673,
+  currency: "Uzbekistan Sum",
+  totalAmount: 902318,
   productId: "<value>",
   productPriceId: "<value>",
   isPaymentRequired: false,
   customerId: "<value>",
   customerName: "<value>",
-  customerEmail: "Isaias_Friesen6@gmail.com",
+  customerEmail: "Hector_Boyle96@yahoo.com",
   customerIpAddress: "<value>",
   customerBillingAddress: {
-    country: "Montserrat",
+    country: "Republic of Korea",
   },
   customerTaxId: "<id>",
   paymentProcessorMetadata: {},
@@ -37,32 +37,32 @@ let value: PolarCheckoutSchemasCheckout = {
     "key": "<value>",
   },
   product: {
-    createdAt: new Date("2023-07-13T17:41:56.779Z"),
-    modifiedAt: new Date("2024-01-06T23:16:10.605Z"),
+    createdAt: new Date("2022-04-27T05:09:55.285Z"),
+    modifiedAt: new Date("2023-04-04T17:15:03.449Z"),
     id: "<value>",
     name: "<value>",
-    description: "silky however loudly",
+    description: "sadly deplore rough airline within furthermore joyously",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2024-10-18T17:56:31.756Z"),
-        modifiedAt: new Date("2024-08-06T08:13:26.167Z"),
+        createdAt: new Date("2023-01-29T03:53:24.003Z"),
+        modifiedAt: new Date("2024-10-27T18:37:54.806Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
         priceCurrency: "<value>",
-        priceAmount: 280418,
+        priceAmount: 180628,
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2024-10-09T10:00:22.006Z"),
-        modifiedAt: new Date("2022-05-16T02:56:07.560Z"),
+        createdAt: new Date("2024-06-03T18:38:58.201Z"),
+        modifiedAt: new Date("2022-10-01T23:26:22.306Z"),
         id: "<value>",
-        type: "custom",
-        description: "amidst delightfully valentine jealous",
+        type: "articles",
+        description: "pulse whoa powerfully aware",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -73,31 +73,30 @@ let value: PolarCheckoutSchemasCheckout = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/opt/include",
+        path: "/var/yp",
         mimeType: "<value>",
-        size: 627838,
+        size: 473319,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-03-18T18:15:52.333Z"),
+        lastModifiedAt: new Date("2022-03-08T20:27:57.691Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2024-10-24T10:57:13.571Z"),
-        sizeReadable: "<value>",
-        publicUrl: "https://whirlwind-captain.org",
+        createdAt: new Date("2024-12-22T14:23:55.535Z"),
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2023-12-21T20:44:36.481Z"),
-    modifiedAt: new Date("2024-01-09T03:24:34.628Z"),
+    createdAt: new Date("2022-01-22T16:32:28.279Z"),
+    modifiedAt: new Date("2023-04-15T12:39:51.701Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
     priceCurrency: "<value>",
-    priceAmount: 973823,
-    recurringInterval: "year",
+    minimumAmount: 183270,
+    maximumAmount: 718949,
+    presetAmount: 7866,
   },
 };
 ```
@@ -131,5 +130,5 @@ let value: PolarCheckoutSchemasCheckout = {
 | `customerTaxId`                                                                                                                                              | *string*                                                                                                                                                     | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
 | `paymentProcessorMetadata`                                                                                                                                   | [components.PaymentProcessorMetadata](../../models/components/paymentprocessormetadata.md)                                                                   | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
 | `metadata`                                                                                                                                                   | Record<string, *string*>                                                                                                                                     | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
-| `product`                                                                                                                                                    | [components.Product](../../models/components/product.md)                                                                                                     | :heavy_check_mark:                                                                                                                                           | A product.                                                                                                                                                   |
+| `product`                                                                                                                                                    | [components.ProductInput](../../models/components/productinput.md)                                                                                           | :heavy_check_mark:                                                                                                                                           | A product.                                                                                                                                                   |
 | `productPrice`                                                                                                                                               | *components.ProductPrice*                                                                                                                                    | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |

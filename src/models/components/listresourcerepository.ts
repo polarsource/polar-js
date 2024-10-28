@@ -10,14 +10,14 @@ import {
   Pagination$outboundSchema,
 } from "./pagination.js";
 import {
-  RepositoryOutput,
-  RepositoryOutput$inboundSchema,
-  RepositoryOutput$Outbound,
-  RepositoryOutput$outboundSchema,
-} from "./repositoryoutput.js";
+  Repository,
+  Repository$inboundSchema,
+  Repository$Outbound,
+  Repository$outboundSchema,
+} from "./repository.js";
 
 export type ListResourceRepository = {
-  items: Array<RepositoryOutput>;
+  items: Array<Repository>;
   pagination: Pagination;
 };
 
@@ -27,13 +27,13 @@ export const ListResourceRepository$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  items: z.array(RepositoryOutput$inboundSchema),
+  items: z.array(Repository$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
 
 /** @internal */
 export type ListResourceRepository$Outbound = {
-  items: Array<RepositoryOutput$Outbound>;
+  items: Array<Repository$Outbound>;
   pagination: Pagination$Outbound;
 };
 
@@ -43,7 +43,7 @@ export const ListResourceRepository$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListResourceRepository
 > = z.object({
-  items: z.array(RepositoryOutput$outboundSchema),
+  items: z.array(Repository$outboundSchema),
   pagination: Pagination$outboundSchema,
 });
 

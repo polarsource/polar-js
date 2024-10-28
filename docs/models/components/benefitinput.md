@@ -7,10 +7,10 @@
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2023-05-06T22:20:39.516Z"),
-  modifiedAt: new Date("2024-04-07T07:22:12.777Z"),
+  createdAt: new Date("2022-12-04T16:25:25.756Z"),
+  modifiedAt: new Date("2024-02-16T22:54:46.161Z"),
   id: "<value>",
-  description: "smart all while libel substantial alive",
+  description: "astride yearly rowdy ouch after yuck wherever up reluctantly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -24,10 +24,11 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2024-12-24T18:52:15.485Z"),
-  modifiedAt: new Date("2023-06-23T15:25:01.492Z"),
+  createdAt: new Date("2024-08-24T06:52:47.595Z"),
+  modifiedAt: new Date("2022-11-30T21:45:00.403Z"),
   id: "<value>",
-  description: "faithfully mmm unto defensive",
+  description:
+    "since governance formal plain across until toothpick uh-huh amidst broadcast",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -39,10 +40,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2023-10-15T16:36:34.415Z"),
-  modifiedAt: new Date("2023-10-28T12:57:22.714Z"),
+  createdAt: new Date("2024-01-19T04:12:42.334Z"),
+  modifiedAt: new Date("2022-02-26T09:31:45.655Z"),
   id: "<value>",
-  description: "tousle sashay screw circa fat viciously",
+  description: "yowza warp statement snow",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -57,10 +58,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscordInput = {
-  createdAt: new Date("2022-08-28T12:53:24.536Z"),
-  modifiedAt: new Date("2022-10-24T05:28:30.875Z"),
+  createdAt: new Date("2024-11-02T13:11:38.475Z"),
+  modifiedAt: new Date("2024-08-20T00:50:52.223Z"),
   id: "<value>",
-  description: "excepting which battle lest slow mechanically times",
+  description: "avalanche squid noxious connect amused bowling",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -75,10 +76,11 @@ const value: components.BenefitDiscordInput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2024-04-09T16:23:40.595Z"),
-  modifiedAt: new Date("2024-12-26T22:45:57.487Z"),
+  createdAt: new Date("2023-11-22T13:06:40.923Z"),
+  modifiedAt: new Date("2022-01-29T22:14:42.973Z"),
   id: "<value>",
-  description: "delightfully plumber fray elevator",
+  description:
+    "beyond yahoo incidentally profuse fun bandwidth throughout below",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -86,7 +88,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "push",
+    permission: "pull",
   },
 };
 ```
@@ -95,10 +97,11 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2022-10-27T06:47:16.886Z"),
-  modifiedAt: new Date("2024-07-30T18:35:21.364Z"),
+  createdAt: new Date("2023-06-17T12:06:28.738Z"),
+  modifiedAt: new Date("2023-10-14T21:42:37.950Z"),
   id: "<value>",
-  description: "past mmm but well-off joyful aw defiantly likewise freely",
+  description:
+    "underneath completion before monthly daintily synergy yearn too fervently toward",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -117,24 +120,25 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2024-03-20T18:03:46.720Z"),
-  modifiedAt: new Date("2024-06-03T15:08:11.140Z"),
+  createdAt: new Date("2023-09-12T19:42:53.732Z"),
+  modifiedAt: new Date("2023-06-03T07:07:47.859Z"),
   id: "<value>",
-  description: "across mmm unlike unwritten",
+  description:
+    "bah stint seemingly hoof dwell hygienic geez fatally disbar repeatedly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 196451,
-      timeframe: "day",
+      ttl: 9143,
+      timeframe: "month",
     },
     activations: {
-      limit: 317755,
+      limit: 290874,
       enableUserAdmin: false,
     },
-    limitUsage: 12811,
+    limitUsage: 335015,
   },
 };
 ```

@@ -35,7 +35,7 @@ export async function repositoriesUpdate(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.RepositoryOutput,
+    components.Repository,
     | errors.NotPermitted
     | errors.ResourceNotFound
     | errors.HTTPValidationError
@@ -112,7 +112,7 @@ export async function repositoriesUpdate(
   };
 
   const [result] = await M.match<
-    components.RepositoryOutput,
+    components.Repository,
     | errors.NotPermitted
     | errors.ResourceNotFound
     | errors.HTTPValidationError
@@ -124,7 +124,7 @@ export async function repositoriesUpdate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.RepositoryOutput$inboundSchema),
+    M.json(200, components.Repository$inboundSchema),
     M.jsonErr(403, errors.NotPermitted$inboundSchema),
     M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),

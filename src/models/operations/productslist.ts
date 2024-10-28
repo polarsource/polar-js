@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import * as components from "../components/index.js";
 
 /**
- * Filter by organization ID.
+ * Filter by organization ID. **Required unless you use an organization token.**
  */
 export type ProductsListQueryParamOrganizationIDFilter = string | Array<string>;
 
@@ -18,9 +18,9 @@ export type QueryParamBenefitIDFilter = string | Array<string>;
 
 export type ProductsListRequest = {
   /**
-   * Filter by organization ID.
+   * Filter by organization ID. **Required unless you use an organization token.**
    */
-  organizationId: string | Array<string>;
+  organizationId?: string | Array<string> | null | undefined;
   /**
    * Filter by product name.
    */
@@ -124,7 +124,8 @@ export const ProductsListRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  organization_id: z.union([z.string(), z.array(z.string())]),
+  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
+    .optional(),
   query: z.nullable(z.string()).optional(),
   is_archived: z.nullable(z.boolean()).optional(),
   is_recurring: z.nullable(z.boolean()).optional(),
@@ -144,7 +145,7 @@ export const ProductsListRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ProductsListRequest$Outbound = {
-  organization_id: string | Array<string>;
+  organization_id?: string | Array<string> | null | undefined;
   query?: string | null | undefined;
   is_archived?: boolean | null | undefined;
   is_recurring?: boolean | null | undefined;
@@ -160,7 +161,8 @@ export const ProductsListRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductsListRequest
 > = z.object({
-  organizationId: z.union([z.string(), z.array(z.string())]),
+  organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
+    .optional(),
   query: z.nullable(z.string()).optional(),
   isArchived: z.nullable(z.boolean()).optional(),
   isRecurring: z.nullable(z.boolean()).optional(),

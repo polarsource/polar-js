@@ -154,7 +154,7 @@ run();
 
 ### Response
 
-**Promise\<[components.RepositoryOutput](../../models/components/repositoryoutput.md)\>**
+**Promise\<[components.Repository](../../models/components/repository.md)\>**
 
 ### Errors
 
@@ -234,7 +234,7 @@ run();
 
 ### Response
 
-**Promise\<[components.RepositoryOutput](../../models/components/repositoryoutput.md)\>**
+**Promise\<[components.Repository](../../models/components/repository.md)\>**
 
 ### Errors
 

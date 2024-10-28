@@ -8,27 +8,27 @@ Checkout link data.
 import { CheckoutLink } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutLink = {
-  createdAt: new Date("2023-08-24T13:00:43.871Z"),
-  modifiedAt: new Date("2022-06-11T05:25:03.700Z"),
+  createdAt: new Date("2022-03-24T04:55:38.302Z"),
+  modifiedAt: new Date("2024-05-26T23:36:57.146Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
   clientSecret: "<value>",
-  successUrl: "https://appropriate-horde.info/",
+  successUrl: "https://untidy-importance.name",
   productPriceId: "<value>",
   productPrice: {
-    createdAt: new Date("2022-09-09T18:27:38.526Z"),
-    modifiedAt: new Date("2022-04-16T13:09:43.732Z"),
+    createdAt: new Date("2023-07-31T21:34:52.600Z"),
+    modifiedAt: new Date("2022-09-25T19:36:57.431Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
     priceCurrency: "<value>",
-    minimumAmount: 571158,
-    maximumAmount: 217338,
-    presetAmount: 377150,
+    minimumAmount: 330422,
+    maximumAmount: 287648,
+    presetAmount: 45663,
   },
-  url: "https://extra-large-pearl.com/",
+  url: "https://tender-rust.biz",
 };
 ```
 

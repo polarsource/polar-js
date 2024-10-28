@@ -35,7 +35,7 @@ export async function repositoriesGet(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.RepositoryOutput,
+    components.Repository,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -110,7 +110,7 @@ export async function repositoriesGet(
   };
 
   const [result] = await M.match<
-    components.RepositoryOutput,
+    components.Repository,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -121,7 +121,7 @@ export async function repositoriesGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.RepositoryOutput$inboundSchema),
+    M.json(200, components.Repository$inboundSchema),
     M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),

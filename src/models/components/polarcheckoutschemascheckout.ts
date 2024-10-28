@@ -15,6 +15,22 @@ import {
   CheckoutStatus$inboundSchema,
   CheckoutStatus$outboundSchema,
 } from "./checkoutstatus.js";
+import {
+  Product,
+  Product$inboundSchema,
+  Product$Outbound,
+  Product$outboundSchema,
+  ProductInput,
+  ProductInput$inboundSchema,
+  ProductInput$Outbound,
+  ProductInput$outboundSchema,
+} from "./product.js";
+import {
+  ProductPrice,
+  ProductPrice$inboundSchema,
+  ProductPrice$Outbound,
+  ProductPrice$outboundSchema,
+} from "./productprice.js";
 
 export type PaymentProcessorMetadata = {};
 
@@ -89,6 +105,89 @@ export type PolarCheckoutSchemasCheckout = {
   customerTaxId: string | null;
   paymentProcessorMetadata: PaymentProcessorMetadata;
   metadata: { [k: string]: string };
+  /**
+   * A product.
+   */
+  product: Product;
+  productPrice: ProductPrice;
+};
+
+/**
+ * Checkout session data retrieved using an access token.
+ */
+export type PolarCheckoutSchemasCheckoutInput = {
+  /**
+   * Creation timestamp of the object.
+   */
+  createdAt: Date;
+  /**
+   * Last modification timestamp of the object.
+   */
+  modifiedAt: Date | null;
+  /**
+   * The ID of the object.
+   */
+  id: string;
+  paymentProcessor?: "stripe" | undefined;
+  status: CheckoutStatus;
+  /**
+   * Client secret used to update and complete the checkout session from the client.
+   */
+  clientSecret: string;
+  /**
+   * URL where the customer can access the checkout session.
+   */
+  url: string;
+  /**
+   * Expiration date and time of the checkout session.
+   */
+  expiresAt: Date;
+  /**
+   * URL where the customer will be redirected after a successful payment.
+   */
+  successUrl: string;
+  /**
+   * When checkout is embedded, represents the Origin of the page embedding the checkout. Used as a security measure to send messages only to the embedding page.
+   */
+  embedOrigin: string | null;
+  amount: number | null;
+  /**
+   * Computed tax amount to pay in cents.
+   */
+  taxAmount: number | null;
+  /**
+   * Currency code of the checkout session.
+   */
+  currency: string | null;
+  /**
+   * Total amount to pay in cents.
+   */
+  totalAmount: number | null;
+  /**
+   * ID of the product to checkout.
+   */
+  productId: string;
+  /**
+   * ID of the product price to checkout.
+   */
+  productPriceId: string;
+  /**
+   * Whether the checkout requires payment. Useful to detect free products.
+   */
+  isPaymentRequired: boolean;
+  customerId: string | null;
+  customerName: string | null;
+  customerEmail: string | null;
+  customerIpAddress: string | null;
+  customerBillingAddress: Address | null;
+  customerTaxId: string | null;
+  paymentProcessorMetadata: PaymentProcessorMetadata;
+  metadata: { [k: string]: string };
+  /**
+   * A product.
+   */
+  product: ProductInput;
+  productPrice: ProductPrice;
 };
 
 /** @internal */
@@ -156,6 +255,8 @@ export const PolarCheckoutSchemasCheckout$inboundSchema: z.ZodType<
     PaymentProcessorMetadata$inboundSchema
   ),
   metadata: z.record(z.string()),
+  product: Product$inboundSchema,
+  product_price: ProductPrice$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -177,6 +278,7 @@ export const PolarCheckoutSchemasCheckout$inboundSchema: z.ZodType<
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
+    "product_price": "productPrice",
   });
 });
 
@@ -207,6 +309,8 @@ export type PolarCheckoutSchemasCheckout$Outbound = {
   customer_tax_id: string | null;
   payment_processor_metadata: PaymentProcessorMetadata$Outbound;
   metadata: { [k: string]: string };
+  product: Product$Outbound;
+  product_price: ProductPrice$Outbound;
 };
 
 /** @internal */
@@ -242,6 +346,8 @@ export const PolarCheckoutSchemasCheckout$outboundSchema: z.ZodType<
     PaymentProcessorMetadata$outboundSchema
   ),
   metadata: z.record(z.string()),
+  product: Product$outboundSchema,
+  productPrice: ProductPrice$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -263,6 +369,7 @@ export const PolarCheckoutSchemasCheckout$outboundSchema: z.ZodType<
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",
+    productPrice: "product_price",
   });
 });
 
@@ -277,4 +384,171 @@ export namespace PolarCheckoutSchemasCheckout$ {
   export const outboundSchema = PolarCheckoutSchemasCheckout$outboundSchema;
   /** @deprecated use `PolarCheckoutSchemasCheckout$Outbound` instead. */
   export type Outbound = PolarCheckoutSchemasCheckout$Outbound;
+}
+
+/** @internal */
+export const PolarCheckoutSchemasCheckoutInput$inboundSchema: z.ZodType<
+  PolarCheckoutSchemasCheckoutInput,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  modified_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
+  id: z.string(),
+  payment_processor: z.literal("stripe").optional(),
+  status: CheckoutStatus$inboundSchema,
+  client_secret: z.string(),
+  url: z.string(),
+  expires_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  success_url: z.string(),
+  embed_origin: z.nullable(z.string()),
+  amount: z.nullable(z.number().int()),
+  tax_amount: z.nullable(z.number().int()),
+  currency: z.nullable(z.string()),
+  total_amount: z.nullable(z.number().int()),
+  product_id: z.string(),
+  product_price_id: z.string(),
+  is_payment_required: z.boolean(),
+  customer_id: z.nullable(z.string()),
+  customer_name: z.nullable(z.string()),
+  customer_email: z.nullable(z.string()),
+  customer_ip_address: z.nullable(z.string()),
+  customer_billing_address: z.nullable(Address$inboundSchema),
+  customer_tax_id: z.nullable(z.string()),
+  payment_processor_metadata: z.lazy(() =>
+    PaymentProcessorMetadata$inboundSchema
+  ),
+  metadata: z.record(z.string()),
+  product: ProductInput$inboundSchema,
+  product_price: ProductPrice$inboundSchema,
+}).transform((v) => {
+  return remap$(v, {
+    "created_at": "createdAt",
+    "modified_at": "modifiedAt",
+    "payment_processor": "paymentProcessor",
+    "client_secret": "clientSecret",
+    "expires_at": "expiresAt",
+    "success_url": "successUrl",
+    "embed_origin": "embedOrigin",
+    "tax_amount": "taxAmount",
+    "total_amount": "totalAmount",
+    "product_id": "productId",
+    "product_price_id": "productPriceId",
+    "is_payment_required": "isPaymentRequired",
+    "customer_id": "customerId",
+    "customer_name": "customerName",
+    "customer_email": "customerEmail",
+    "customer_ip_address": "customerIpAddress",
+    "customer_billing_address": "customerBillingAddress",
+    "customer_tax_id": "customerTaxId",
+    "payment_processor_metadata": "paymentProcessorMetadata",
+    "product_price": "productPrice",
+  });
+});
+
+/** @internal */
+export type PolarCheckoutSchemasCheckoutInput$Outbound = {
+  created_at: string;
+  modified_at: string | null;
+  id: string;
+  payment_processor: "stripe";
+  status: string;
+  client_secret: string;
+  url: string;
+  expires_at: string;
+  success_url: string;
+  embed_origin: string | null;
+  amount: number | null;
+  tax_amount: number | null;
+  currency: string | null;
+  total_amount: number | null;
+  product_id: string;
+  product_price_id: string;
+  is_payment_required: boolean;
+  customer_id: string | null;
+  customer_name: string | null;
+  customer_email: string | null;
+  customer_ip_address: string | null;
+  customer_billing_address: Address$Outbound | null;
+  customer_tax_id: string | null;
+  payment_processor_metadata: PaymentProcessorMetadata$Outbound;
+  metadata: { [k: string]: string };
+  product: ProductInput$Outbound;
+  product_price: ProductPrice$Outbound;
+};
+
+/** @internal */
+export const PolarCheckoutSchemasCheckoutInput$outboundSchema: z.ZodType<
+  PolarCheckoutSchemasCheckoutInput$Outbound,
+  z.ZodTypeDef,
+  PolarCheckoutSchemasCheckoutInput
+> = z.object({
+  createdAt: z.date().transform(v => v.toISOString()),
+  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
+  id: z.string(),
+  paymentProcessor: z.literal("stripe").default("stripe"),
+  status: CheckoutStatus$outboundSchema,
+  clientSecret: z.string(),
+  url: z.string(),
+  expiresAt: z.date().transform(v => v.toISOString()),
+  successUrl: z.string(),
+  embedOrigin: z.nullable(z.string()),
+  amount: z.nullable(z.number().int()),
+  taxAmount: z.nullable(z.number().int()),
+  currency: z.nullable(z.string()),
+  totalAmount: z.nullable(z.number().int()),
+  productId: z.string(),
+  productPriceId: z.string(),
+  isPaymentRequired: z.boolean(),
+  customerId: z.nullable(z.string()),
+  customerName: z.nullable(z.string()),
+  customerEmail: z.nullable(z.string()),
+  customerIpAddress: z.nullable(z.string()),
+  customerBillingAddress: z.nullable(Address$outboundSchema),
+  customerTaxId: z.nullable(z.string()),
+  paymentProcessorMetadata: z.lazy(() =>
+    PaymentProcessorMetadata$outboundSchema
+  ),
+  metadata: z.record(z.string()),
+  product: ProductInput$outboundSchema,
+  productPrice: ProductPrice$outboundSchema,
+}).transform((v) => {
+  return remap$(v, {
+    createdAt: "created_at",
+    modifiedAt: "modified_at",
+    paymentProcessor: "payment_processor",
+    clientSecret: "client_secret",
+    expiresAt: "expires_at",
+    successUrl: "success_url",
+    embedOrigin: "embed_origin",
+    taxAmount: "tax_amount",
+    totalAmount: "total_amount",
+    productId: "product_id",
+    productPriceId: "product_price_id",
+    isPaymentRequired: "is_payment_required",
+    customerId: "customer_id",
+    customerName: "customer_name",
+    customerEmail: "customer_email",
+    customerIpAddress: "customer_ip_address",
+    customerBillingAddress: "customer_billing_address",
+    customerTaxId: "customer_tax_id",
+    paymentProcessorMetadata: "payment_processor_metadata",
+    productPrice: "product_price",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PolarCheckoutSchemasCheckoutInput$ {
+  /** @deprecated use `PolarCheckoutSchemasCheckoutInput$inboundSchema` instead. */
+  export const inboundSchema = PolarCheckoutSchemasCheckoutInput$inboundSchema;
+  /** @deprecated use `PolarCheckoutSchemasCheckoutInput$outboundSchema` instead. */
+  export const outboundSchema =
+    PolarCheckoutSchemasCheckoutInput$outboundSchema;
+  /** @deprecated use `PolarCheckoutSchemasCheckoutInput$Outbound` instead. */
+  export type Outbound = PolarCheckoutSchemasCheckoutInput$Outbound;
 }

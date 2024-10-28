@@ -6,33 +6,34 @@
 import { Issue } from "@polar-sh/sdk/models/components";
 
 let value: Issue = {
-  id: "8f42e77f-4c8b-4762-9fb7-700c0cba85fe",
-  number: 175420,
+  id: "251f3eaf-ee9f-427c-97fb-3ce8f8c53c34",
+  number: 624507,
   title: "<value>",
   state: "open",
-  issueCreatedAt: new Date("2022-01-16T08:40:53.088Z"),
+  issueCreatedAt: new Date("2022-12-18T17:37:05.328Z"),
   needsConfirmationSolved: false,
   funding: {},
   repository: {
-    id: "d578c916-7bc0-490d-a353-d4b9d38d904a",
+    id: "77057379-dc42-406d-a248-980ce42cbce0",
     isPrivate: false,
     name: "MyOrg",
-    description: "brr because promptly yippee soulful ick vastly than mmm next",
+    description:
+      "always before blacken mystify violin intellect questionable blah yearningly",
     stars: 1337,
     license: "<value>",
     homepage: "<value>",
     profileSettings: {},
     organization: {
-      id: "b71a6f12-e735-41ae-99a4-be03ec135502",
+      id: "a46ee120-65a2-4c91-9edc-793cbcfee6cf",
       name: "<value>",
-      avatarUrl: "https://sure-footed-legislature.biz/",
+      avatarUrl: "https://excited-editor.info",
       isPersonal: false,
       bio: "<value>",
       prettyName: "<value>",
-      company: "Rowe, Howe and Spencer",
+      company: "Prohaska Group",
       blog: "<value>",
       location: "<value>",
-      email: "Linda.Jast40@yahoo.com",
+      email: "Bridgette34@hotmail.com",
       twitterUsername: "<value>",
       organizationId: "<value>",
     },
@@ -62,7 +63,7 @@ let value: Issue = {
 | `needsConfirmationSolved`                                                                                     | *boolean*                                                                                                     | :heavy_check_mark:                                                                                            | If a maintainer needs to mark this issue as solved                                                            |
 | `confirmedSolvedAt`                                                                                           | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                 | :heavy_minus_sign:                                                                                            | If this issue has been marked as confirmed solved through Polar                                               |
 | `funding`                                                                                                     | [components.Funding](../../models/components/funding.md)                                                      | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
-| `repository`                                                                                                  | [components.RepositoryInput](../../models/components/repositoryinput.md)                                      | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
+| `repository`                                                                                                  | [components.Repository](../../models/components/repository.md)                                                | :heavy_check_mark:                                                                                            | N/A                                                                                                           |
 | `upfrontSplitToContributors`                                                                                  | *number*                                                                                                      | :heavy_minus_sign:                                                                                            | Share of rewrads that will be rewarded to contributors of this issue. A number between 0 and 100 (inclusive). |
 | `pledgeBadgeCurrentlyEmbedded`                                                                                | *boolean*                                                                                                     | :heavy_check_mark:                                                                                            | If this issue currently has the Polar badge SVG embedded                                                      |
 | `badgeCustomContent`                                                                                          | *string*                                                                                                      | :heavy_minus_sign:                                                                                            | Optional custom badge SVG promotional content                                                                 |

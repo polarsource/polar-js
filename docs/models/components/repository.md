@@ -1,31 +1,30 @@
-# RepositoryInput
+# Repository
 
 ## Example Usage
 
 ```typescript
-import { RepositoryInput } from "@polar-sh/sdk/models/components";
+import { Repository } from "@polar-sh/sdk/models/components";
 
-let value: RepositoryInput = {
-  id: "37921d19-c2ab-4b0a-b24e-0d80cd7ce9e6",
+let value: Repository = {
+  id: "878b612f-0bf2-4b43-bde5-a2ce5ae0d968",
   isPrivate: false,
   name: "MyOrg",
-  description:
-    "fencing parsnip playfully convection unbearably supposing bleakly plumber marten",
+  description: "past finer square vice indolent stir-fry psst custom",
   stars: 1337,
   license: "<value>",
   homepage: "<value>",
   profileSettings: {},
   organization: {
-    id: "2ca01134-aadd-4c91-9b4c-529e244c276c",
+    id: "cf7c2cf8-42e5-4766-9cea-f39abc5e2479",
     name: "<value>",
-    avatarUrl: "https://boring-jet.biz/",
+    avatarUrl: "https://known-breastplate.net",
     isPersonal: false,
     bio: "<value>",
     prettyName: "<value>",
-    company: "Fisher, Leuschke and Nienow",
+    company: "Hegmann, Luettgen and McCullough",
     blog: "<value>",
     location: "<value>",
-    email: "Susana.Effertz@hotmail.com",
+    email: "Camryn.Reichert56@hotmail.com",
     twitterUsername: "<value>",
     organizationId: "<value>",
   },

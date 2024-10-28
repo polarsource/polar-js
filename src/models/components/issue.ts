@@ -35,11 +35,11 @@ import {
   Reactions$outboundSchema,
 } from "./reactions.js";
 import {
-  RepositoryInput,
-  RepositoryInput$inboundSchema,
-  RepositoryInput$Outbound,
-  RepositoryInput$outboundSchema,
-} from "./repositoryinput.js";
+  Repository,
+  Repository$inboundSchema,
+  Repository$Outbound,
+  Repository$outboundSchema,
+} from "./repository.js";
 import { State, State$inboundSchema, State$outboundSchema } from "./state.js";
 
 export type Issue = {
@@ -87,7 +87,7 @@ export type Issue = {
    */
   confirmedSolvedAt?: Date | null | undefined;
   funding: Funding;
-  repository: RepositoryInput;
+  repository: Repository;
   /**
    * Share of rewrads that will be rewarded to contributors of this issue. A number between 0 and 100 (inclusive).
    */
@@ -130,7 +130,7 @@ export const Issue$inboundSchema: z.ZodType<Issue, z.ZodTypeDef, unknown> = z
       z.string().datetime({ offset: true }).transform(v => new Date(v)),
     ).optional(),
     funding: Funding$inboundSchema,
-    repository: RepositoryInput$inboundSchema,
+    repository: Repository$inboundSchema,
     upfront_split_to_contributors: z.nullable(z.number().int()).optional(),
     pledge_badge_currently_embedded: z.boolean(),
     badge_custom_content: z.nullable(z.string()).optional(),
@@ -166,7 +166,7 @@ export type Issue$Outbound = {
   needs_confirmation_solved: boolean;
   confirmed_solved_at?: string | null | undefined;
   funding: Funding$Outbound;
-  repository: RepositoryInput$Outbound;
+  repository: Repository$Outbound;
   upfront_split_to_contributors?: number | null | undefined;
   pledge_badge_currently_embedded: boolean;
   badge_custom_content?: string | null | undefined;
@@ -198,7 +198,7 @@ export const Issue$outboundSchema: z.ZodType<
   confirmedSolvedAt: z.nullable(z.date().transform(v => v.toISOString()))
     .optional(),
   funding: Funding$outboundSchema,
-  repository: RepositoryInput$outboundSchema,
+  repository: Repository$outboundSchema,
   upfrontSplitToContributors: z.nullable(z.number().int()).optional(),
   pledgeBadgeCurrentlyEmbedded: z.boolean(),
   badgeCustomContent: z.nullable(z.string()).optional(),
