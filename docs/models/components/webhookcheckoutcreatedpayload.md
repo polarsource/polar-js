@@ -98,6 +98,7 @@ let value: WebhookCheckoutCreatedPayload = {
       isArchived: false,
       productId: "<value>",
     },
+    subscriptionId: "<value>",
   },
 };
 ```

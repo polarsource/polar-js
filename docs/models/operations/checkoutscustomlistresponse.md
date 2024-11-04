@@ -99,6 +99,7 @@ let value: CheckoutsCustomListResponse = {
           productId: "<value>",
           recurringInterval: "month",
         },
+        subscriptionId: "<value>",
       },
     ],
     pagination: {

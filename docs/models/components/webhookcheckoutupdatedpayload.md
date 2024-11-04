@@ -104,6 +104,7 @@ let value: WebhookCheckoutUpdatedPayload = {
       priceCurrency: "<value>",
       priceAmount: 511975,
     },
+    subscriptionId: "<value>",
   },
 };
 ```

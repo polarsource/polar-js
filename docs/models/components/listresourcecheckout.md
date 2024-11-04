@@ -100,6 +100,7 @@ let value: ListResourceCheckout = {
         isArchived: false,
         productId: "<value>",
       },
+      subscriptionId: "<value>",
     },
   ],
   pagination: {
