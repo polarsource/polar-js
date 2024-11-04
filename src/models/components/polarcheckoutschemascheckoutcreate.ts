@@ -25,6 +25,11 @@ export type PaymentProcessor = ClosedEnum<typeof PaymentProcessor>;
 
 /**
  * Create a new checkout session.
+ *
+ * @remarks
+ *
+ * Metadata set on the checkout will be copied
+ * to the resulting order and/or subscription.
  */
 export type PolarCheckoutSchemasCheckoutCreate = {
   /**
@@ -51,6 +56,10 @@ export type PolarCheckoutSchemasCheckoutCreate = {
   customerIpAddress?: string | null | undefined;
   customerBillingAddress?: Address | null | undefined;
   customerTaxId?: string | null | undefined;
+  /**
+   * ID of a subscription to upgrade. It must be on a free pricing. If checkout is successful, metadata set on this checkout will be copied to the subscription, and existing keys will be overwritten.
+   */
+  subscriptionId?: string | null | undefined;
   /**
    * URL where the customer will be redirected after a successful payment.You can add the `checkout_id={CHECKOUT_ID}` query parameter to retrieve the checkout session id.
    */
@@ -93,6 +102,7 @@ export const PolarCheckoutSchemasCheckoutCreate$inboundSchema: z.ZodType<
   customer_ip_address: z.nullable(z.string()).optional(),
   customer_billing_address: z.nullable(Address$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
+  subscription_id: z.nullable(z.string()).optional(),
   success_url: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -103,6 +113,7 @@ export const PolarCheckoutSchemasCheckoutCreate$inboundSchema: z.ZodType<
     "customer_ip_address": "customerIpAddress",
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
+    "subscription_id": "subscriptionId",
     "success_url": "successUrl",
   });
 });
@@ -118,6 +129,7 @@ export type PolarCheckoutSchemasCheckoutCreate$Outbound = {
   customer_ip_address?: string | null | undefined;
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
+  subscription_id?: string | null | undefined;
   success_url?: string | null | undefined;
 };
 
@@ -136,6 +148,7 @@ export const PolarCheckoutSchemasCheckoutCreate$outboundSchema: z.ZodType<
   customerIpAddress: z.nullable(z.string()).optional(),
   customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
+  subscriptionId: z.nullable(z.string()).optional(),
   successUrl: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -146,6 +159,7 @@ export const PolarCheckoutSchemasCheckoutCreate$outboundSchema: z.ZodType<
     customerIpAddress: "customer_ip_address",
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
+    subscriptionId: "subscription_id",
     successUrl: "success_url",
   });
 });

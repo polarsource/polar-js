@@ -110,6 +110,7 @@ export type PolarCheckoutSchemasCheckout = {
    */
   product: Product;
   productPrice: ProductPrice;
+  subscriptionId: string | null;
 };
 
 /**
@@ -188,6 +189,7 @@ export type PolarCheckoutSchemasCheckoutInput = {
    */
   product: ProductInput;
   productPrice: ProductPrice;
+  subscriptionId: string | null;
 };
 
 /** @internal */
@@ -257,6 +259,7 @@ export const PolarCheckoutSchemasCheckout$inboundSchema: z.ZodType<
   metadata: z.record(z.string()),
   product: Product$inboundSchema,
   product_price: ProductPrice$inboundSchema,
+  subscription_id: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -279,6 +282,7 @@ export const PolarCheckoutSchemasCheckout$inboundSchema: z.ZodType<
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
     "product_price": "productPrice",
+    "subscription_id": "subscriptionId",
   });
 });
 
@@ -311,6 +315,7 @@ export type PolarCheckoutSchemasCheckout$Outbound = {
   metadata: { [k: string]: string };
   product: Product$Outbound;
   product_price: ProductPrice$Outbound;
+  subscription_id: string | null;
 };
 
 /** @internal */
@@ -348,6 +353,7 @@ export const PolarCheckoutSchemasCheckout$outboundSchema: z.ZodType<
   metadata: z.record(z.string()),
   product: Product$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
+  subscriptionId: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -370,6 +376,7 @@ export const PolarCheckoutSchemasCheckout$outboundSchema: z.ZodType<
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",
     productPrice: "product_price",
+    subscriptionId: "subscription_id",
   });
 });
 
@@ -423,6 +430,7 @@ export const PolarCheckoutSchemasCheckoutInput$inboundSchema: z.ZodType<
   metadata: z.record(z.string()),
   product: ProductInput$inboundSchema,
   product_price: ProductPrice$inboundSchema,
+  subscription_id: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -445,6 +453,7 @@ export const PolarCheckoutSchemasCheckoutInput$inboundSchema: z.ZodType<
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
     "product_price": "productPrice",
+    "subscription_id": "subscriptionId",
   });
 });
 
@@ -477,6 +486,7 @@ export type PolarCheckoutSchemasCheckoutInput$Outbound = {
   metadata: { [k: string]: string };
   product: ProductInput$Outbound;
   product_price: ProductPrice$Outbound;
+  subscription_id: string | null;
 };
 
 /** @internal */
@@ -514,6 +524,7 @@ export const PolarCheckoutSchemasCheckoutInput$outboundSchema: z.ZodType<
   metadata: z.record(z.string()),
   product: ProductInput$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
+  subscriptionId: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -536,6 +547,7 @@ export const PolarCheckoutSchemasCheckoutInput$outboundSchema: z.ZodType<
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",
     productPrice: "product_price",
+    subscriptionId: "subscription_id",
   });
 });
 
