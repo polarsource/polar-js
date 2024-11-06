@@ -17,6 +17,12 @@ import {
   BenefitBase$outboundSchema,
 } from "./benefitbase.js";
 import {
+  Organization,
+  Organization$inboundSchema,
+  Organization$Outbound,
+  Organization$outboundSchema,
+} from "./organization.js";
+import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
   ProductMediaFileRead$Outbound,
@@ -65,17 +71,18 @@ export type UserSubscriptionProduct = {
    */
   organizationId: string;
   /**
-   * List of available prices for this product.
+   * List of prices for this product.
    */
   prices: Array<ProductPrice>;
   /**
-   * The benefits granted by the product.
+   * List of benefits granted by the product.
    */
   benefits: Array<BenefitBase | BenefitArticles>;
   /**
-   * The medias associated to the product.
+   * List of medias associated to the product.
    */
   medias: Array<ProductMediaFileRead>;
+  organization: Organization;
 };
 
 /** @internal */
@@ -131,6 +138,7 @@ export const UserSubscriptionProduct$inboundSchema: z.ZodType<
     z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]),
   ),
   medias: z.array(ProductMediaFileRead$inboundSchema),
+  organization: Organization$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -154,6 +162,7 @@ export type UserSubscriptionProduct$Outbound = {
   prices: Array<ProductPrice$Outbound>;
   benefits: Array<BenefitBase$Outbound | BenefitArticles$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
+  organization: Organization$Outbound;
 };
 
 /** @internal */
@@ -175,6 +184,7 @@ export const UserSubscriptionProduct$outboundSchema: z.ZodType<
     z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]),
   ),
   medias: z.array(ProductMediaFileRead$outboundSchema),
+  organization: Organization$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

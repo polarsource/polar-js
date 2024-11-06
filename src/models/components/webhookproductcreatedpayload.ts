@@ -9,7 +9,7 @@ import {
   ProductInput$inboundSchema,
   ProductInput$Outbound,
   ProductInput$outboundSchema,
-} from "./product.js";
+} from "./productinput.js";
 
 export const WebhookProductCreatedPayloadType = {
   ProductCreated: "product.created",

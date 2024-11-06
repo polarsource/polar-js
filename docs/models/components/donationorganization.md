@@ -8,7 +8,7 @@ import { DonationOrganization } from "@polar-sh/sdk/models/components";
 let value: DonationOrganization = {
   id: "<value>",
   name: "<value>",
-  avatarUrl: "https://fluffy-conversation.name",
+  avatarUrl: "https://scaly-cannon.com",
   isPersonal: false,
 };
 ```

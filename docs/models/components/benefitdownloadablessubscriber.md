@@ -6,13 +6,46 @@
 import { BenefitDownloadablesSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDownloadablesSubscriber = {
-  createdAt: new Date("2023-11-26T16:08:08.795Z"),
-  modifiedAt: new Date("2024-11-12T19:38:06.759Z"),
+  createdAt: new Date("2024-01-30T03:46:18.998Z"),
+  modifiedAt: new Date("2023-03-14T20:59:08.982Z"),
   id: "<value>",
-  description: "edible ah twine modulo plugin",
+  description: "minus pish up",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
+  grants: [
+    {
+      createdAt: new Date("2024-04-10T11:26:32.069Z"),
+      modifiedAt: new Date("2022-03-09T04:27:11.348Z"),
+      id: "<value>",
+      isGranted: false,
+      isRevoked: false,
+      subscriptionId: "<value>",
+      orderId: "<value>",
+      userId: "<value>",
+      benefitId: "<value>",
+    },
+  ],
+  organization: {
+    createdAt: new Date("2023-09-20T14:32:18.040Z"),
+    modifiedAt: new Date("2023-09-14T21:57:59.380Z"),
+    id: "<value>",
+    name: "<value>",
+    slug: "<value>",
+    avatarUrl: "https://gray-impostor.com/",
+    bio: "<value>",
+    company: "Cruickshank - Hoeger",
+    blog: "<value>",
+    location: "<value>",
+    email: "Ricky89@hotmail.com",
+    twitterUsername: "<value>",
+    pledgeMinimumAmount: 124460,
+    pledgeBadgeShowAmount: false,
+    defaultUpfrontSplitToContributors: 80673,
+    donationsEnabled: false,
+    profileSettings: {},
+    featureSettings: {},
+  },
   properties: {
     activeFiles: [
       "<value>",
@@ -33,4 +66,6 @@ let value: BenefitDownloadablesSubscriber = {
 | `selectable`                                                                                                               | *boolean*                                                                                                                  | :heavy_check_mark:                                                                                                         | Whether the benefit is selectable when creating a product.                                                                 |
 | `deletable`                                                                                                                | *boolean*                                                                                                                  | :heavy_check_mark:                                                                                                         | Whether the benefit is deletable.                                                                                          |
 | `organizationId`                                                                                                           | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | The ID of the organization owning the benefit.                                                                             |
+| `grants`                                                                                                                   | [components.BenefitGrantSubscriber](../../models/components/benefitgrantsubscriber.md)[]                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `organization`                                                                                                             | [components.Organization](../../models/components/organization.md)                                                         | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
 | `properties`                                                                                                               | [components.BenefitDownloadablesSubscriberProperties](../../models/components/benefitdownloadablessubscriberproperties.md) | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |

@@ -11,7 +11,7 @@ const value:
     clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",
-    redirectUri: "https://flawed-lace.info/",
+    redirectUri: "https://frivolous-self-confidence.name",
   };
 ```
 

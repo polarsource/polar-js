@@ -17,13 +17,13 @@ export type UsersBenefitsGetRequest = {
  */
 export type UsersBenefitsGetResponseUsersBenefitsGet =
   | (components.BenefitArticlesSubscriber & { type: "articles" })
+  | (components.BenefitAdsSubscriber & { type: "ads" })
   | (components.BenefitDiscordSubscriber & { type: "discord" })
+  | (components.BenefitCustomSubscriber & { type: "custom" })
   | (components.BenefitGitHubRepositorySubscriber & {
     type: "github_repository";
   })
   | (components.BenefitDownloadablesSubscriber & { type: "downloadables" })
-  | (components.BenefitAdsSubscriber & { type: "ads" })
-  | (components.BenefitCustomSubscriber & { type: "custom" })
   | (components.BenefitLicenseKeysSubscriber & { type: "license_keys" });
 
 /** @internal */
@@ -73,8 +73,16 @@ export const UsersBenefitsGetResponseUsersBenefitsGet$inboundSchema: z.ZodType<
       type: v.type,
     })),
   ),
+  components.BenefitAdsSubscriber$inboundSchema.and(
+    z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
+  ),
   components.BenefitDiscordSubscriber$inboundSchema.and(
     z.object({ type: z.literal("discord") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
+  components.BenefitCustomSubscriber$inboundSchema.and(
+    z.object({ type: z.literal("custom") }).transform((v) => ({
       type: v.type,
     })),
   ),
@@ -88,14 +96,6 @@ export const UsersBenefitsGetResponseUsersBenefitsGet$inboundSchema: z.ZodType<
       type: v.type,
     })),
   ),
-  components.BenefitAdsSubscriber$inboundSchema.and(
-    z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
-  ),
-  components.BenefitCustomSubscriber$inboundSchema.and(
-    z.object({ type: z.literal("custom") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
   components.BenefitLicenseKeysSubscriber$inboundSchema.and(
     z.object({ type: z.literal("license_keys") }).transform((v) => ({
       type: v.type,
@@ -106,15 +106,15 @@ export const UsersBenefitsGetResponseUsersBenefitsGet$inboundSchema: z.ZodType<
 /** @internal */
 export type UsersBenefitsGetResponseUsersBenefitsGet$Outbound =
   | (components.BenefitArticlesSubscriber$Outbound & { type: "articles" })
+  | (components.BenefitAdsSubscriber$Outbound & { type: "ads" })
   | (components.BenefitDiscordSubscriber$Outbound & { type: "discord" })
+  | (components.BenefitCustomSubscriber$Outbound & { type: "custom" })
   | (components.BenefitGitHubRepositorySubscriber$Outbound & {
     type: "github_repository";
   })
   | (components.BenefitDownloadablesSubscriber$Outbound & {
     type: "downloadables";
   })
-  | (components.BenefitAdsSubscriber$Outbound & { type: "ads" })
-  | (components.BenefitCustomSubscriber$Outbound & { type: "custom" })
   | (components.BenefitLicenseKeysSubscriber$Outbound & {
     type: "license_keys";
   });
@@ -130,8 +130,16 @@ export const UsersBenefitsGetResponseUsersBenefitsGet$outboundSchema: z.ZodType<
       type: v.type,
     })),
   ),
+  components.BenefitAdsSubscriber$outboundSchema.and(
+    z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
+  ),
   components.BenefitDiscordSubscriber$outboundSchema.and(
     z.object({ type: z.literal("discord") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
+  components.BenefitCustomSubscriber$outboundSchema.and(
+    z.object({ type: z.literal("custom") }).transform((v) => ({
       type: v.type,
     })),
   ),
@@ -142,14 +150,6 @@ export const UsersBenefitsGetResponseUsersBenefitsGet$outboundSchema: z.ZodType<
   ),
   components.BenefitDownloadablesSubscriber$outboundSchema.and(
     z.object({ type: z.literal("downloadables") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  components.BenefitAdsSubscriber$outboundSchema.and(
-    z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
-  ),
-  components.BenefitCustomSubscriber$outboundSchema.and(
-    z.object({ type: z.literal("custom") }).transform((v) => ({
       type: v.type,
     })),
   ),

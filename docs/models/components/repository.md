@@ -6,27 +6,48 @@
 import { Repository } from "@polar-sh/sdk/models/components";
 
 let value: Repository = {
-  id: "878b612f-0bf2-4b43-bde5-a2ce5ae0d968",
+  id: "33b7ac97-682c-4ecd-9d2f-a6e9fc5bb5e2",
   isPrivate: false,
   name: "MyOrg",
-  description: "past finer square vice indolent stir-fry psst custom",
+  description:
+    "emphasise signature but shyly idealistic maroon ameliorate lest",
   stars: 1337,
   license: "<value>",
   homepage: "<value>",
   profileSettings: {},
   organization: {
-    id: "cf7c2cf8-42e5-4766-9cea-f39abc5e2479",
+    id: "1b5220cb-746e-4103-8801-b7fe46e95cea",
     name: "<value>",
-    avatarUrl: "https://known-breastplate.net",
+    avatarUrl: "https://innocent-precedent.info",
     isPersonal: false,
     bio: "<value>",
     prettyName: "<value>",
-    company: "Hegmann, Luettgen and McCullough",
+    company: "Bernhard, Crist and Dietrich",
     blog: "<value>",
     location: "<value>",
-    email: "Camryn.Reichert56@hotmail.com",
+    email: "Darron.Pouros23@gmail.com",
     twitterUsername: "<value>",
     organizationId: "<value>",
+  },
+  internalOrganization: {
+    createdAt: new Date("2023-03-13T23:04:07.056Z"),
+    modifiedAt: new Date("2024-11-16T14:49:58.732Z"),
+    id: "<value>",
+    name: "<value>",
+    slug: "<value>",
+    avatarUrl: "https://friendly-bathrobe.info/",
+    bio: "<value>",
+    company: "Ruecker - Brown",
+    blog: "<value>",
+    location: "<value>",
+    email: "Dudley_Stamm57@gmail.com",
+    twitterUsername: "<value>",
+    pledgeMinimumAmount: 318878,
+    pledgeBadgeShowAmount: false,
+    defaultUpfrontSplitToContributors: 592218,
+    donationsEnabled: false,
+    profileSettings: {},
+    featureSettings: {},
   },
 };
 ```
@@ -45,3 +66,4 @@ let value: Repository = {
 | `homepage`                                                                                   | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |                                                                                              |
 | `profileSettings`                                                                            | [components.RepositoryProfileSettings](../../models/components/repositoryprofilesettings.md) | :heavy_check_mark:                                                                           | Settings for the repository profile                                                          |                                                                                              |
 | `organization`                                                                               | [components.ExternalOrganization](../../models/components/externalorganization.md)           | :heavy_check_mark:                                                                           | N/A                                                                                          |                                                                                              |
+| `internalOrganization`                                                                       | [components.Organization](../../models/components/organization.md)                           | :heavy_check_mark:                                                                           | N/A                                                                                          |                                                                                              |

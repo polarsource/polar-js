@@ -9,7 +9,7 @@ let value: Oauth2ClientsOauth2UpdateClientRequest = {
   clientId: "<id>",
   oAuth2ClientConfigurationUpdate: {
     redirectUris: [
-      "https://intelligent-taro.com/",
+      "https://icy-airmail.net",
     ],
     clientName: "<value>",
     clientId: "<id>",

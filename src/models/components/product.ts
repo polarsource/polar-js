@@ -5,26 +5,22 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  BenefitArticles,
-  BenefitArticles$inboundSchema,
-  BenefitArticles$Outbound,
-  BenefitArticles$outboundSchema,
-} from "./benefitarticles.js";
+  AttachedCustomField,
+  AttachedCustomField$inboundSchema,
+  AttachedCustomField$Outbound,
+  AttachedCustomField$outboundSchema,
+} from "./attachedcustomfield.js";
 import {
-  BenefitBase,
-  BenefitBase$inboundSchema,
-  BenefitBase$Outbound,
-  BenefitBase$outboundSchema,
-} from "./benefitbase.js";
+  Benefit,
+  Benefit$inboundSchema,
+  Benefit$Outbound,
+  Benefit$outboundSchema,
+} from "./benefit.js";
 import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
   ProductMediaFileRead$Outbound,
   ProductMediaFileRead$outboundSchema,
-  ProductMediaFileReadInput,
-  ProductMediaFileReadInput$inboundSchema,
-  ProductMediaFileReadInput$Outbound,
-  ProductMediaFileReadInput$outboundSchema,
 } from "./productmediafileread.js";
 import {
   ProductPrice,
@@ -32,8 +28,6 @@ import {
   ProductPrice$Outbound,
   ProductPrice$outboundSchema,
 } from "./productprice.js";
-
-export type ProductBenefits = BenefitBase | BenefitArticles;
 
 /**
  * A product.
@@ -72,100 +66,22 @@ export type Product = {
    */
   organizationId: string;
   /**
-   * List of available prices for this product.
+   * List of prices for this product.
    */
   prices: Array<ProductPrice>;
   /**
-   * The benefits granted by the product.
+   * List of benefits granted by the product.
    */
-  benefits: Array<BenefitBase | BenefitArticles>;
+  benefits: Array<Benefit>;
   /**
-   * The medias associated to the product.
+   * List of medias associated to the product.
    */
   medias: Array<ProductMediaFileRead>;
+  /**
+   * List of custom fields attached to the product.
+   */
+  attachedCustomFields: Array<AttachedCustomField>;
 };
-
-/**
- * A product.
- */
-export type ProductInput = {
-  /**
-   * Creation timestamp of the object.
-   */
-  createdAt: Date;
-  /**
-   * Last modification timestamp of the object.
-   */
-  modifiedAt: Date | null;
-  /**
-   * The ID of the product.
-   */
-  id: string;
-  /**
-   * The name of the product.
-   */
-  name: string;
-  /**
-   * The description of the product.
-   */
-  description: string | null;
-  /**
-   * Whether the product is a subscription tier.
-   */
-  isRecurring: boolean;
-  /**
-   * Whether the product is archived and no longer available.
-   */
-  isArchived: boolean;
-  /**
-   * The ID of the organization owning the product.
-   */
-  organizationId: string;
-  /**
-   * List of available prices for this product.
-   */
-  prices: Array<ProductPrice>;
-  /**
-   * The benefits granted by the product.
-   */
-  benefits: Array<BenefitBase | BenefitArticles>;
-  /**
-   * The medias associated to the product.
-   */
-  medias: Array<ProductMediaFileReadInput>;
-};
-
-/** @internal */
-export const ProductBenefits$inboundSchema: z.ZodType<
-  ProductBenefits,
-  z.ZodTypeDef,
-  unknown
-> = z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]);
-
-/** @internal */
-export type ProductBenefits$Outbound =
-  | BenefitBase$Outbound
-  | BenefitArticles$Outbound;
-
-/** @internal */
-export const ProductBenefits$outboundSchema: z.ZodType<
-  ProductBenefits$Outbound,
-  z.ZodTypeDef,
-  ProductBenefits
-> = z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductBenefits$ {
-  /** @deprecated use `ProductBenefits$inboundSchema` instead. */
-  export const inboundSchema = ProductBenefits$inboundSchema;
-  /** @deprecated use `ProductBenefits$outboundSchema` instead. */
-  export const outboundSchema = ProductBenefits$outboundSchema;
-  /** @deprecated use `ProductBenefits$Outbound` instead. */
-  export type Outbound = ProductBenefits$Outbound;
-}
 
 /** @internal */
 export const Product$inboundSchema: z.ZodType<Product, z.ZodTypeDef, unknown> =
@@ -183,10 +99,9 @@ export const Product$inboundSchema: z.ZodType<Product, z.ZodTypeDef, unknown> =
     is_archived: z.boolean(),
     organization_id: z.string(),
     prices: z.array(ProductPrice$inboundSchema),
-    benefits: z.array(
-      z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]),
-    ),
+    benefits: z.array(Benefit$inboundSchema),
     medias: z.array(ProductMediaFileRead$inboundSchema),
+    attached_custom_fields: z.array(AttachedCustomField$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
       "created_at": "createdAt",
@@ -194,6 +109,7 @@ export const Product$inboundSchema: z.ZodType<Product, z.ZodTypeDef, unknown> =
       "is_recurring": "isRecurring",
       "is_archived": "isArchived",
       "organization_id": "organizationId",
+      "attached_custom_fields": "attachedCustomFields",
     });
   });
 
@@ -208,8 +124,9 @@ export type Product$Outbound = {
   is_archived: boolean;
   organization_id: string;
   prices: Array<ProductPrice$Outbound>;
-  benefits: Array<BenefitBase$Outbound | BenefitArticles$Outbound>;
+  benefits: Array<Benefit$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
+  attached_custom_fields: Array<AttachedCustomField$Outbound>;
 };
 
 /** @internal */
@@ -227,10 +144,9 @@ export const Product$outboundSchema: z.ZodType<
   isArchived: z.boolean(),
   organizationId: z.string(),
   prices: z.array(ProductPrice$outboundSchema),
-  benefits: z.array(
-    z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]),
-  ),
+  benefits: z.array(Benefit$outboundSchema),
   medias: z.array(ProductMediaFileRead$outboundSchema),
+  attachedCustomFields: z.array(AttachedCustomField$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -238,6 +154,7 @@ export const Product$outboundSchema: z.ZodType<
     isRecurring: "is_recurring",
     isArchived: "is_archived",
     organizationId: "organization_id",
+    attachedCustomFields: "attached_custom_fields",
   });
 });
 
@@ -252,92 +169,4 @@ export namespace Product$ {
   export const outboundSchema = Product$outboundSchema;
   /** @deprecated use `Product$Outbound` instead. */
   export type Outbound = Product$Outbound;
-}
-
-/** @internal */
-export const ProductInput$inboundSchema: z.ZodType<
-  ProductInput,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  modified_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ),
-  id: z.string(),
-  name: z.string(),
-  description: z.nullable(z.string()),
-  is_recurring: z.boolean(),
-  is_archived: z.boolean(),
-  organization_id: z.string(),
-  prices: z.array(ProductPrice$inboundSchema),
-  benefits: z.array(
-    z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]),
-  ),
-  medias: z.array(ProductMediaFileReadInput$inboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    "created_at": "createdAt",
-    "modified_at": "modifiedAt",
-    "is_recurring": "isRecurring",
-    "is_archived": "isArchived",
-    "organization_id": "organizationId",
-  });
-});
-
-/** @internal */
-export type ProductInput$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  name: string;
-  description: string | null;
-  is_recurring: boolean;
-  is_archived: boolean;
-  organization_id: string;
-  prices: Array<ProductPrice$Outbound>;
-  benefits: Array<BenefitBase$Outbound | BenefitArticles$Outbound>;
-  medias: Array<ProductMediaFileReadInput$Outbound>;
-};
-
-/** @internal */
-export const ProductInput$outboundSchema: z.ZodType<
-  ProductInput$Outbound,
-  z.ZodTypeDef,
-  ProductInput
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  name: z.string(),
-  description: z.nullable(z.string()),
-  isRecurring: z.boolean(),
-  isArchived: z.boolean(),
-  organizationId: z.string(),
-  prices: z.array(ProductPrice$outboundSchema),
-  benefits: z.array(
-    z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]),
-  ),
-  medias: z.array(ProductMediaFileReadInput$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    isRecurring: "is_recurring",
-    isArchived: "is_archived",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductInput$ {
-  /** @deprecated use `ProductInput$inboundSchema` instead. */
-  export const inboundSchema = ProductInput$inboundSchema;
-  /** @deprecated use `ProductInput$outboundSchema` instead. */
-  export const outboundSchema = ProductInput$outboundSchema;
-  /** @deprecated use `ProductInput$Outbound` instead. */
-  export type Outbound = ProductInput$Outbound;
 }

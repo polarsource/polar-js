@@ -5,11 +5,11 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  Product,
-  Product$inboundSchema,
-  Product$Outbound,
-  Product$outboundSchema,
-} from "./product.js";
+  CheckoutProduct,
+  CheckoutProduct$inboundSchema,
+  CheckoutProduct$Outbound,
+  CheckoutProduct$outboundSchema,
+} from "./checkoutproduct.js";
 import {
   ProductPrice,
   ProductPrice$inboundSchema,
@@ -32,9 +32,9 @@ export type PolarCheckoutLegacySchemasCheckout = {
   customerEmail: string | null;
   customerName: string | null;
   /**
-   * A product.
+   * Product data for a checkout session.
    */
-  product: Product;
+  product: CheckoutProduct;
   productPrice: ProductPrice;
 };
 
@@ -48,7 +48,7 @@ export const PolarCheckoutLegacySchemasCheckout$inboundSchema: z.ZodType<
   url: z.nullable(z.string()).optional(),
   customer_email: z.nullable(z.string()),
   customer_name: z.nullable(z.string()),
-  product: Product$inboundSchema,
+  product: CheckoutProduct$inboundSchema,
   product_price: ProductPrice$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -64,7 +64,7 @@ export type PolarCheckoutLegacySchemasCheckout$Outbound = {
   url?: string | null | undefined;
   customer_email: string | null;
   customer_name: string | null;
-  product: Product$Outbound;
+  product: CheckoutProduct$Outbound;
   product_price: ProductPrice$Outbound;
 };
 
@@ -78,7 +78,7 @@ export const PolarCheckoutLegacySchemasCheckout$outboundSchema: z.ZodType<
   url: z.nullable(z.string()).optional(),
   customerEmail: z.nullable(z.string()),
   customerName: z.nullable(z.string()),
-  product: Product$outboundSchema,
+  product: CheckoutProduct$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

@@ -11,6 +11,18 @@ import {
   BenefitDiscordSubscriberProperties$Outbound,
   BenefitDiscordSubscriberProperties$outboundSchema,
 } from "./benefitdiscordsubscriberproperties.js";
+import {
+  BenefitGrantSubscriber,
+  BenefitGrantSubscriber$inboundSchema,
+  BenefitGrantSubscriber$Outbound,
+  BenefitGrantSubscriber$outboundSchema,
+} from "./benefitgrantsubscriber.js";
+import {
+  Organization,
+  Organization$inboundSchema,
+  Organization$Outbound,
+  Organization$outboundSchema,
+} from "./organization.js";
 
 export const BenefitDiscordSubscriberType = {
   Discord: "discord",
@@ -49,6 +61,8 @@ export type BenefitDiscordSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
+  grants: Array<BenefitGrantSubscriber>;
+  organization: Organization;
   /**
    * Properties available to subscribers for a benefit of type `discord`.
    */
@@ -92,6 +106,8 @@ export const BenefitDiscordSubscriber$inboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
+  grants: z.array(BenefitGrantSubscriber$inboundSchema),
+  organization: Organization$inboundSchema,
   properties: BenefitDiscordSubscriberProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -111,6 +127,8 @@ export type BenefitDiscordSubscriber$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
+  grants: Array<BenefitGrantSubscriber$Outbound>;
+  organization: Organization$Outbound;
   properties: BenefitDiscordSubscriberProperties$Outbound;
 };
 
@@ -128,6 +146,8 @@ export const BenefitDiscordSubscriber$outboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
+  grants: z.array(BenefitGrantSubscriber$outboundSchema),
+  organization: Organization$outboundSchema,
   properties: BenefitDiscordSubscriberProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

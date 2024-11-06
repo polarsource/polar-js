@@ -10,13 +10,13 @@ import { DownloadableFileCreate } from "@polar-sh/sdk/models/components";
 let value: DownloadableFileCreate = {
   name: "<value>",
   mimeType: "<value>",
-  size: 574923,
+  size: 735432,
   upload: {
     parts: [
       {
-        number: 138094,
-        chunkStart: 306970,
-        chunkEnd: 552212,
+        number: 628062,
+        chunkStart: 306,
+        chunkEnd: 16877,
       },
     ],
   },

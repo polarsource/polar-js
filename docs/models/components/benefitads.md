@@ -10,10 +10,10 @@ Use it so your backers can display ads on your README, website, etc.
 import { BenefitAds } from "@polar-sh/sdk/models/components";
 
 let value: BenefitAds = {
-  createdAt: new Date("2024-10-28T02:42:30.721Z"),
-  modifiedAt: new Date("2022-07-03T20:54:21.016Z"),
+  createdAt: new Date("2024-03-16T17:11:00.930Z"),
+  modifiedAt: new Date("2022-02-16T06:35:54.024Z"),
   id: "<value>",
-  description: "eek override absent",
+  description: "quart carefully quicker sometimes um phew about helpless",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

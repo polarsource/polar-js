@@ -12,10 +12,6 @@ export type OrganizationsListRequest = {
    */
   slug?: string | null | undefined;
   /**
-   * Filter by membership. If `true`, only organizations the user is a member of are returned. If `false`, only organizations the user is not a member of are returned.
-   */
-  isMember?: boolean | null | undefined;
-  /**
    * Page number, defaults to 1.
    */
   page?: number | undefined;
@@ -40,22 +36,16 @@ export const OrganizationsListRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   slug: z.nullable(z.string()).optional(),
-  is_member: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(
     z.array(components.OrganizationSortProperty$inboundSchema),
   ).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "is_member": "isMember",
-  });
 });
 
 /** @internal */
 export type OrganizationsListRequest$Outbound = {
   slug?: string | null | undefined;
-  is_member?: boolean | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -68,16 +58,11 @@ export const OrganizationsListRequest$outboundSchema: z.ZodType<
   OrganizationsListRequest
 > = z.object({
   slug: z.nullable(z.string()).optional(),
-  isMember: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(
     z.array(components.OrganizationSortProperty$outboundSchema),
   ).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    isMember: "is_member",
-  });
 });
 
 /**

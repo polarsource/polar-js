@@ -11,22 +11,39 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 import {
+  AttachedCustomField,
+  AttachedCustomField$inboundSchema,
+  AttachedCustomField$Outbound,
+  AttachedCustomField$outboundSchema,
+} from "./attachedcustomfield.js";
+import {
+  CheckoutProduct,
+  CheckoutProduct$inboundSchema,
+  CheckoutProduct$Outbound,
+  CheckoutProduct$outboundSchema,
+} from "./checkoutproduct.js";
+import {
   CheckoutStatus,
   CheckoutStatus$inboundSchema,
   CheckoutStatus$outboundSchema,
 } from "./checkoutstatus.js";
 import {
-  Product,
-  Product$inboundSchema,
-  Product$Outbound,
-  Product$outboundSchema,
-} from "./product.js";
+  Organization,
+  Organization$inboundSchema,
+  Organization$Outbound,
+  Organization$outboundSchema,
+} from "./organization.js";
 import {
   ProductPrice,
   ProductPrice$inboundSchema,
   ProductPrice$Outbound,
   ProductPrice$outboundSchema,
 } from "./productprice.js";
+
+/**
+ * Key-value object storing custom field values.
+ */
+export type CheckoutPublicCustomFieldData = {};
 
 export type CheckoutPublicPaymentProcessorMetadata = {};
 
@@ -46,6 +63,10 @@ export type CheckoutPublic = {
    * The ID of the object.
    */
   id: string;
+  /**
+   * Key-value object storing custom field values.
+   */
+  customFieldData?: CheckoutPublicCustomFieldData | undefined;
   paymentProcessor?: "stripe" | undefined;
   status: CheckoutStatus;
   /**
@@ -101,11 +122,43 @@ export type CheckoutPublic = {
   customerTaxId: string | null;
   paymentProcessorMetadata: CheckoutPublicPaymentProcessorMetadata;
   /**
-   * A product.
+   * Product data for a checkout session.
    */
-  product: Product;
+  product: CheckoutProduct;
   productPrice: ProductPrice;
+  organization: Organization;
+  attachedCustomFields: Array<AttachedCustomField>;
 };
+
+/** @internal */
+export const CheckoutPublicCustomFieldData$inboundSchema: z.ZodType<
+  CheckoutPublicCustomFieldData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+
+/** @internal */
+export type CheckoutPublicCustomFieldData$Outbound = {};
+
+/** @internal */
+export const CheckoutPublicCustomFieldData$outboundSchema: z.ZodType<
+  CheckoutPublicCustomFieldData$Outbound,
+  z.ZodTypeDef,
+  CheckoutPublicCustomFieldData
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutPublicCustomFieldData$ {
+  /** @deprecated use `CheckoutPublicCustomFieldData$inboundSchema` instead. */
+  export const inboundSchema = CheckoutPublicCustomFieldData$inboundSchema;
+  /** @deprecated use `CheckoutPublicCustomFieldData$outboundSchema` instead. */
+  export const outboundSchema = CheckoutPublicCustomFieldData$outboundSchema;
+  /** @deprecated use `CheckoutPublicCustomFieldData$Outbound` instead. */
+  export type Outbound = CheckoutPublicCustomFieldData$Outbound;
+}
 
 /** @internal */
 export const CheckoutPublicPaymentProcessorMetadata$inboundSchema: z.ZodType<
@@ -150,6 +203,8 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
+  custom_field_data: z.lazy(() => CheckoutPublicCustomFieldData$inboundSchema)
+    .optional(),
   payment_processor: z.literal("stripe").optional(),
   status: CheckoutStatus$inboundSchema,
   client_secret: z.string(),
@@ -173,12 +228,15 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   payment_processor_metadata: z.lazy(() =>
     CheckoutPublicPaymentProcessorMetadata$inboundSchema
   ),
-  product: Product$inboundSchema,
+  product: CheckoutProduct$inboundSchema,
   product_price: ProductPrice$inboundSchema,
+  organization: Organization$inboundSchema,
+  attached_custom_fields: z.array(AttachedCustomField$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
+    "custom_field_data": "customFieldData",
     "payment_processor": "paymentProcessor",
     "client_secret": "clientSecret",
     "expires_at": "expiresAt",
@@ -197,6 +255,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
     "product_price": "productPrice",
+    "attached_custom_fields": "attachedCustomFields",
   });
 });
 
@@ -205,6 +264,7 @@ export type CheckoutPublic$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
+  custom_field_data?: CheckoutPublicCustomFieldData$Outbound | undefined;
   payment_processor: "stripe";
   status: string;
   client_secret: string;
@@ -226,8 +286,10 @@ export type CheckoutPublic$Outbound = {
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
   payment_processor_metadata: CheckoutPublicPaymentProcessorMetadata$Outbound;
-  product: Product$Outbound;
+  product: CheckoutProduct$Outbound;
   product_price: ProductPrice$Outbound;
+  organization: Organization$Outbound;
+  attached_custom_fields: Array<AttachedCustomField$Outbound>;
 };
 
 /** @internal */
@@ -239,6 +301,8 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
+  customFieldData: z.lazy(() => CheckoutPublicCustomFieldData$outboundSchema)
+    .optional(),
   paymentProcessor: z.literal("stripe").default("stripe"),
   status: CheckoutStatus$outboundSchema,
   clientSecret: z.string(),
@@ -262,12 +326,15 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   paymentProcessorMetadata: z.lazy(() =>
     CheckoutPublicPaymentProcessorMetadata$outboundSchema
   ),
-  product: Product$outboundSchema,
+  product: CheckoutProduct$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
+  organization: Organization$outboundSchema,
+  attachedCustomFields: z.array(AttachedCustomField$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
+    customFieldData: "custom_field_data",
     paymentProcessor: "payment_processor",
     clientSecret: "client_secret",
     expiresAt: "expires_at",
@@ -286,6 +353,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",
     productPrice: "product_price",
+    attachedCustomFields: "attached_custom_fields",
   });
 });
 

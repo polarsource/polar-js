@@ -8,8 +8,8 @@ import { LicenseKeyUser } from "@polar-sh/sdk/models/components";
 let value: LicenseKeyUser = {
   id: "<value>",
   publicName: "<value>",
-  email: "Claudine_OKeefe@yahoo.com",
-  avatarUrl: "https://cautious-intervention.com/",
+  email: "Estefania4@gmail.com",
+  avatarUrl: "https://outstanding-vanadyl.com",
 };
 ```
 

@@ -7,7 +7,7 @@ import { PolarCheckoutLegacySchemasCheckoutCreate } from "@polar-sh/sdk/models/c
 
 let value: PolarCheckoutLegacySchemasCheckoutCreate = {
   productPriceId: "<value>",
-  successUrl: "https://rapid-extent.name",
+  successUrl: "https://right-sock.name",
 };
 ```
 

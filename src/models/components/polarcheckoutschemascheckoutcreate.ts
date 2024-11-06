@@ -13,6 +13,11 @@ import {
 } from "./address.js";
 
 /**
+ * Key-value object storing custom field values.
+ */
+export type PolarCheckoutSchemasCheckoutCreateCustomFieldData = {};
+
+/**
  * Payment processor to use. Currently only Stripe is supported.
  */
 export const PaymentProcessor = {
@@ -43,6 +48,12 @@ export type PolarCheckoutSchemasCheckoutCreate = {
    */
   metadata?: { [k: string]: string } | undefined;
   /**
+   * Key-value object storing custom field values.
+   */
+  customFieldData?:
+    | PolarCheckoutSchemasCheckoutCreateCustomFieldData
+    | undefined;
+  /**
    * Payment processor to use. Currently only Stripe is supported.
    */
   paymentProcessor?: "stripe" | undefined;
@@ -65,6 +76,41 @@ export type PolarCheckoutSchemasCheckoutCreate = {
    */
   successUrl?: string | null | undefined;
 };
+
+/** @internal */
+export const PolarCheckoutSchemasCheckoutCreateCustomFieldData$inboundSchema:
+  z.ZodType<
+    PolarCheckoutSchemasCheckoutCreateCustomFieldData,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({});
+
+/** @internal */
+export type PolarCheckoutSchemasCheckoutCreateCustomFieldData$Outbound = {};
+
+/** @internal */
+export const PolarCheckoutSchemasCheckoutCreateCustomFieldData$outboundSchema:
+  z.ZodType<
+    PolarCheckoutSchemasCheckoutCreateCustomFieldData$Outbound,
+    z.ZodTypeDef,
+    PolarCheckoutSchemasCheckoutCreateCustomFieldData
+  > = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PolarCheckoutSchemasCheckoutCreateCustomFieldData$ {
+  /** @deprecated use `PolarCheckoutSchemasCheckoutCreateCustomFieldData$inboundSchema` instead. */
+  export const inboundSchema =
+    PolarCheckoutSchemasCheckoutCreateCustomFieldData$inboundSchema;
+  /** @deprecated use `PolarCheckoutSchemasCheckoutCreateCustomFieldData$outboundSchema` instead. */
+  export const outboundSchema =
+    PolarCheckoutSchemasCheckoutCreateCustomFieldData$outboundSchema;
+  /** @deprecated use `PolarCheckoutSchemasCheckoutCreateCustomFieldData$Outbound` instead. */
+  export type Outbound =
+    PolarCheckoutSchemasCheckoutCreateCustomFieldData$Outbound;
+}
 
 /** @internal */
 export const PaymentProcessor$inboundSchema: z.ZodNativeEnum<
@@ -94,6 +140,9 @@ export const PolarCheckoutSchemasCheckoutCreate$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   metadata: z.record(z.string()).optional(),
+  custom_field_data: z.lazy(() =>
+    PolarCheckoutSchemasCheckoutCreateCustomFieldData$inboundSchema
+  ).optional(),
   payment_processor: z.literal("stripe").optional(),
   product_price_id: z.string(),
   amount: z.nullable(z.number().int()).optional(),
@@ -106,6 +155,7 @@ export const PolarCheckoutSchemasCheckoutCreate$inboundSchema: z.ZodType<
   success_url: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "custom_field_data": "customFieldData",
     "payment_processor": "paymentProcessor",
     "product_price_id": "productPriceId",
     "customer_name": "customerName",
@@ -121,6 +171,9 @@ export const PolarCheckoutSchemasCheckoutCreate$inboundSchema: z.ZodType<
 /** @internal */
 export type PolarCheckoutSchemasCheckoutCreate$Outbound = {
   metadata?: { [k: string]: string } | undefined;
+  custom_field_data?:
+    | PolarCheckoutSchemasCheckoutCreateCustomFieldData$Outbound
+    | undefined;
   payment_processor: "stripe";
   product_price_id: string;
   amount?: number | null | undefined;
@@ -140,6 +193,9 @@ export const PolarCheckoutSchemasCheckoutCreate$outboundSchema: z.ZodType<
   PolarCheckoutSchemasCheckoutCreate
 > = z.object({
   metadata: z.record(z.string()).optional(),
+  customFieldData: z.lazy(() =>
+    PolarCheckoutSchemasCheckoutCreateCustomFieldData$outboundSchema
+  ).optional(),
   paymentProcessor: z.literal("stripe").default("stripe"),
   productPriceId: z.string(),
   amount: z.nullable(z.number().int()).optional(),
@@ -152,6 +208,7 @@ export const PolarCheckoutSchemasCheckoutCreate$outboundSchema: z.ZodType<
   successUrl: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    customFieldData: "custom_field_data",
     paymentProcessor: "payment_processor",
     productPriceId: "product_price_id",
     customerName: "customer_name",

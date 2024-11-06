@@ -10,12 +10,12 @@ let value: IntrospectTokenResponse = {
   clientId: "<id>",
   tokenType: "refresh_token",
   scope: "<value>",
-  subType: "user",
+  subType: "organization",
   sub: "<value>",
   aud: "<value>",
   iss: "<value>",
-  exp: 948639,
-  iat: 910767,
+  exp: 663724,
+  iat: 767479,
 };
 ```
 

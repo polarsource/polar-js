@@ -7,13 +7,7 @@ import { BenefitsUpdateRequest } from "@polar-sh/sdk/models/operations";
 
 let value: BenefitsUpdateRequest = {
   id: "<value>",
-  requestBody: {
-    properties: {
-      repositoryOwner: "polarsource",
-      repositoryName: "private_repo",
-      permission: "maintain",
-    },
-  },
+  requestBody: {},
 };
 ```
 

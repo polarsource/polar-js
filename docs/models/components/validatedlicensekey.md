@@ -12,19 +12,19 @@ let value: ValidatedLicenseKey = {
   user: {
     id: "<value>",
     publicName: "<value>",
-    email: "Sydnee.Keeling8@yahoo.com",
-    avatarUrl: "https://snappy-mainstream.net",
+    email: "Hallie.Abbott@yahoo.com",
+    avatarUrl: "https://outstanding-habit.biz/",
   },
   benefitId: "<value>",
   key: "<key>",
   displayKey: "<value>",
   status: "granted",
-  limitActivations: 583240,
-  usage: 882604,
-  limitUsage: 217960,
-  validations: 227669,
-  lastValidatedAt: new Date("2024-03-31T06:46:07.766Z"),
-  expiresAt: new Date("2024-06-09T00:20:30.007Z"),
+  limitActivations: 313045,
+  usage: 924162,
+  limitUsage: 959673,
+  validations: 98830,
+  lastValidatedAt: new Date("2024-03-17T00:19:36.390Z"),
+  expiresAt: new Date("2023-12-22T21:47:23.048Z"),
 };
 ```
 

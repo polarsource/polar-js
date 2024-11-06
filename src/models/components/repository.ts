@@ -11,6 +11,12 @@ import {
   ExternalOrganization$outboundSchema,
 } from "./externalorganization.js";
 import {
+  Organization,
+  Organization$inboundSchema,
+  Organization$Outbound,
+  Organization$outboundSchema,
+} from "./organization.js";
+import {
   RepositoryProfileSettings,
   RepositoryProfileSettings$inboundSchema,
   RepositoryProfileSettings$Outbound,
@@ -31,6 +37,7 @@ export type Repository = {
    */
   profileSettings: RepositoryProfileSettings | null;
   organization: ExternalOrganization;
+  internalOrganization: Organization | null;
 };
 
 /** @internal */
@@ -49,10 +56,12 @@ export const Repository$inboundSchema: z.ZodType<
   homepage: z.nullable(z.string()),
   profile_settings: z.nullable(RepositoryProfileSettings$inboundSchema),
   organization: ExternalOrganization$inboundSchema,
+  internal_organization: z.nullable(Organization$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "is_private": "isPrivate",
     "profile_settings": "profileSettings",
+    "internal_organization": "internalOrganization",
   });
 });
 
@@ -68,6 +77,7 @@ export type Repository$Outbound = {
   homepage: string | null;
   profile_settings: RepositoryProfileSettings$Outbound | null;
   organization: ExternalOrganization$Outbound;
+  internal_organization: Organization$Outbound | null;
 };
 
 /** @internal */
@@ -86,10 +96,12 @@ export const Repository$outboundSchema: z.ZodType<
   homepage: z.nullable(z.string()),
   profileSettings: z.nullable(RepositoryProfileSettings$outboundSchema),
   organization: ExternalOrganization$outboundSchema,
+  internalOrganization: z.nullable(Organization$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     isPrivate: "is_private",
     profileSettings: "profile_settings",
+    internalOrganization: "internal_organization",
   });
 });
 

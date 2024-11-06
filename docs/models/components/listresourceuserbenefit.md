@@ -8,30 +8,17 @@ import { ListResourceUserBenefit } from "@polar-sh/sdk/models/components";
 let value: ListResourceUserBenefit = {
   items: [
     {
-      createdAt: new Date("2024-09-30T13:19:56.386Z"),
-      modifiedAt: new Date("2022-01-22T01:52:48.321Z"),
+      createdAt: new Date("2023-05-27T22:49:24.592Z"),
+      modifiedAt: new Date("2024-04-05T08:01:37.302Z"),
       id: "<value>",
-      description:
-        "outrun lighthearted quizzically pleasing foolishly why beside",
+      description: "repeatedly supposing ferociously",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
-      properties: {
-        prefix: "<value>",
-        expires: {
-          ttl: 329961,
-          timeframe: "day",
-        },
-        activations: {
-          limit: 491784,
-          enableUserAdmin: false,
-        },
-        limitUsage: 131116,
-      },
       grants: [
         {
-          createdAt: new Date("2022-09-30T06:35:01.392Z"),
-          modifiedAt: new Date("2022-10-31T08:48:47.117Z"),
+          createdAt: new Date("2023-10-12T20:51:35.951Z"),
+          modifiedAt: new Date("2023-11-03T05:14:01.508Z"),
           id: "<value>",
           isGranted: false,
           isRevoked: false,
@@ -39,14 +26,38 @@ let value: ListResourceUserBenefit = {
           orderId: "<value>",
           userId: "<value>",
           benefitId: "<value>",
-          properties: {},
         },
       ],
+      organization: {
+        createdAt: new Date("2022-09-12T22:21:35.224Z"),
+        modifiedAt: new Date("2023-06-21T04:35:15.122Z"),
+        id: "<value>",
+        name: "<value>",
+        slug: "<value>",
+        avatarUrl: "https://kosher-settler.info/",
+        bio: "<value>",
+        company: "Cummerata, Lemke and Senger",
+        blog: "<value>",
+        location: "<value>",
+        email: "Jamel7@gmail.com",
+        twitterUsername: "<value>",
+        pledgeMinimumAmount: 468221,
+        pledgeBadgeShowAmount: false,
+        defaultUpfrontSplitToContributors: 336123,
+        donationsEnabled: false,
+        profileSettings: {},
+        featureSettings: {},
+      },
+      properties: {
+        activeFiles: [
+          "<value>",
+        ],
+      },
     },
   ],
   pagination: {
-    totalCount: 123546,
-    maxPage: 463044,
+    totalCount: 116807,
+    maxPage: 432597,
   },
 };
 ```

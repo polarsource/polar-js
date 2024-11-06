@@ -5,7 +5,7 @@
 ```typescript
 import { TokenEndpointAuthMethod } from "@polar-sh/sdk/models/components";
 
-let value: TokenEndpointAuthMethod = "none";
+let value: TokenEndpointAuthMethod = "client_secret_basic";
 ```
 
 ## Values

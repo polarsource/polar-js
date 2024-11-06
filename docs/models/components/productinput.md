@@ -8,35 +8,50 @@ A product.
 import { ProductInput } from "@polar-sh/sdk/models/components";
 
 let value: ProductInput = {
-  createdAt: new Date("2023-08-08T04:58:13.944Z"),
-  modifiedAt: new Date("2022-02-17T21:54:41.068Z"),
+  createdAt: new Date("2023-03-27T21:41:18.396Z"),
+  modifiedAt: new Date("2023-07-17T16:35:31.351Z"),
   id: "<value>",
   name: "<value>",
-  description:
-    "queasily encouragement and realistic fervently questioningly zowie reassuringly",
+  description: "chunter meh although",
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",
   prices: [
     {
-      createdAt: new Date("2023-04-01T22:38:03.818Z"),
-      modifiedAt: new Date("2023-06-13T17:02:40.832Z"),
+      createdAt: new Date("2024-08-19T03:07:08.900Z"),
+      modifiedAt: new Date("2022-12-10T22:08:06.542Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
+      priceCurrency: "<value>",
+      minimumAmount: 701423,
+      maximumAmount: 940098,
+      presetAmount: 179367,
       recurringInterval: "month",
     },
   ],
   benefits: [
     {
-      createdAt: new Date("2024-04-12T02:56:59.471Z"),
-      modifiedAt: new Date("2022-03-23T02:13:30.603Z"),
+      createdAt: new Date("2022-02-24T19:52:51.740Z"),
+      modifiedAt: new Date("2022-11-04T23:36:35.403Z"),
       id: "<value>",
-      type: "github_repository",
-      description: "flint ski jungle tinderbox weakly fooey quickly",
+      description:
+        "tarragon given phew surprise whether swill futon eyeglasses minus",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
+      properties: {
+        prefix: "<value>",
+        expires: {
+          ttl: 700207,
+          timeframe: "year",
+        },
+        activations: {
+          limit: 516070,
+          enableUserAdmin: false,
+        },
+        limitUsage: 387649,
+      },
     },
   ],
   medias: [
@@ -44,17 +59,36 @@ let value: ProductInput = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/usr/ports",
+      path: "/etc",
       mimeType: "<value>",
-      size: 93378,
+      size: 120507,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2022-05-11T14:20:11.184Z"),
+      lastModifiedAt: new Date("2023-03-19T10:26:27.496Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2024-06-15T07:00:27.081Z"),
+      createdAt: new Date("2022-01-04T20:41:50.241Z"),
+    },
+  ],
+  attachedCustomFields: [
+    {
+      customFieldId: "<value>",
+      customField: {
+        createdAt: new Date("2022-02-28T09:04:13.801Z"),
+        modifiedAt: new Date("2024-04-18T21:08:09.093Z"),
+        id: "<value>",
+        metadata: {
+          "key": "<value>",
+        },
+        slug: "<value>",
+        name: "<value>",
+        organizationId: "<value>",
+        properties: {},
+      },
+      order: 889398,
+      required: false,
     },
   ],
 };
@@ -72,6 +106,7 @@ let value: ProductInput = {
 | `isRecurring`                                                                                  | *boolean*                                                                                      | :heavy_check_mark:                                                                             | Whether the product is a subscription tier.                                                    |
 | `isArchived`                                                                                   | *boolean*                                                                                      | :heavy_check_mark:                                                                             | Whether the product is archived and no longer available.                                       |
 | `organizationId`                                                                               | *string*                                                                                       | :heavy_check_mark:                                                                             | The ID of the organization owning the product.                                                 |
-| `prices`                                                                                       | *components.ProductPrice*[]                                                                    | :heavy_check_mark:                                                                             | List of available prices for this product.                                                     |
-| `benefits`                                                                                     | *components.ProductBenefits*[]                                                                 | :heavy_check_mark:                                                                             | The benefits granted by the product.                                                           |
-| `medias`                                                                                       | [components.ProductMediaFileReadInput](../../models/components/productmediafilereadinput.md)[] | :heavy_check_mark:                                                                             | The medias associated to the product.                                                          |
+| `prices`                                                                                       | *components.ProductPrice*[]                                                                    | :heavy_check_mark:                                                                             | List of prices for this product.                                                               |
+| `benefits`                                                                                     | *components.BenefitInput*[]                                                                    | :heavy_check_mark:                                                                             | List of benefits granted by the product.                                                       |
+| `medias`                                                                                       | [components.ProductMediaFileReadInput](../../models/components/productmediafilereadinput.md)[] | :heavy_check_mark:                                                                             | List of medias associated to the product.                                                      |
+| `attachedCustomFields`                                                                         | [components.AttachedCustomField](../../models/components/attachedcustomfield.md)[]             | :heavy_check_mark:                                                                             | List of custom fields attached to the product.                                                 |

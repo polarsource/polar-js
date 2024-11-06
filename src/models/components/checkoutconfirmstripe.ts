@@ -11,10 +11,16 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 
+export type CheckoutConfirmStripeCustomFieldData = {};
+
 /**
  * Confirm a checkout session using a Stripe confirmation token.
  */
 export type CheckoutConfirmStripe = {
+  /**
+   * Key-value object storing custom field values.
+   */
+  customFieldData?: CheckoutConfirmStripeCustomFieldData | null | undefined;
   /**
    * ID of the product price to checkout. Must correspond to a price linked to the same product.
    */
@@ -31,11 +37,46 @@ export type CheckoutConfirmStripe = {
 };
 
 /** @internal */
+export const CheckoutConfirmStripeCustomFieldData$inboundSchema: z.ZodType<
+  CheckoutConfirmStripeCustomFieldData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+
+/** @internal */
+export type CheckoutConfirmStripeCustomFieldData$Outbound = {};
+
+/** @internal */
+export const CheckoutConfirmStripeCustomFieldData$outboundSchema: z.ZodType<
+  CheckoutConfirmStripeCustomFieldData$Outbound,
+  z.ZodTypeDef,
+  CheckoutConfirmStripeCustomFieldData
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutConfirmStripeCustomFieldData$ {
+  /** @deprecated use `CheckoutConfirmStripeCustomFieldData$inboundSchema` instead. */
+  export const inboundSchema =
+    CheckoutConfirmStripeCustomFieldData$inboundSchema;
+  /** @deprecated use `CheckoutConfirmStripeCustomFieldData$outboundSchema` instead. */
+  export const outboundSchema =
+    CheckoutConfirmStripeCustomFieldData$outboundSchema;
+  /** @deprecated use `CheckoutConfirmStripeCustomFieldData$Outbound` instead. */
+  export type Outbound = CheckoutConfirmStripeCustomFieldData$Outbound;
+}
+
+/** @internal */
 export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
   CheckoutConfirmStripe,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  custom_field_data: z.nullable(
+    z.lazy(() => CheckoutConfirmStripeCustomFieldData$inboundSchema),
+  ).optional(),
   product_price_id: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
   customer_name: z.nullable(z.string()).optional(),
@@ -45,6 +86,7 @@ export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
   confirmation_token_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "custom_field_data": "customFieldData",
     "product_price_id": "productPriceId",
     "customer_name": "customerName",
     "customer_email": "customerEmail",
@@ -56,6 +98,10 @@ export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutConfirmStripe$Outbound = {
+  custom_field_data?:
+    | CheckoutConfirmStripeCustomFieldData$Outbound
+    | null
+    | undefined;
   product_price_id?: string | null | undefined;
   amount?: number | null | undefined;
   customer_name?: string | null | undefined;
@@ -71,6 +117,9 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutConfirmStripe
 > = z.object({
+  customFieldData: z.nullable(
+    z.lazy(() => CheckoutConfirmStripeCustomFieldData$outboundSchema),
+  ).optional(),
   productPriceId: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
   customerName: z.nullable(z.string()).optional(),
@@ -80,6 +129,7 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
   confirmationTokenId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    customFieldData: "custom_field_data",
     productPriceId: "product_price_id",
     customerName: "customer_name",
     customerEmail: "customer_email",

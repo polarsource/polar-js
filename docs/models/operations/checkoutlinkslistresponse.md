@@ -9,31 +9,29 @@ let value: CheckoutLinksListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-11-06T16:40:09.305Z"),
-        modifiedAt: new Date("2024-11-03T10:14:15.332Z"),
+        createdAt: new Date("2023-09-20T09:43:49.938Z"),
+        modifiedAt: new Date("2022-09-04T08:32:34.245Z"),
         id: "<value>",
         metadata: {
           "key": "<value>",
         },
         clientSecret: "<value>",
-        successUrl: "https://upset-birdcage.info/",
+        successUrl: "https://noxious-pronoun.org",
         productPriceId: "<value>",
         productPrice: {
-          createdAt: new Date("2023-01-16T19:34:44.796Z"),
-          modifiedAt: new Date("2023-05-13T18:21:47.587Z"),
+          createdAt: new Date("2022-01-08T23:31:11.246Z"),
+          modifiedAt: new Date("2022-02-06T14:44:43.529Z"),
           id: "<value>",
           isArchived: false,
           productId: "<value>",
-          priceCurrency: "<value>",
-          priceAmount: 865212,
           recurringInterval: "year",
         },
-        url: "https://true-nucleotidase.info",
+        url: "https://expert-dusk.biz/",
       },
     ],
     pagination: {
-      totalCount: 194194,
-      maxPage: 413135,
+      totalCount: 728948,
+      maxPage: 569196,
     },
   },
 };

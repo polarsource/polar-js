@@ -10,7 +10,8 @@ const value: components.ProductRecurringCreate = {
   name: "<value>",
   prices: [
     {
-      recurringInterval: "year",
+      priceAmount: 502509,
+      recurringInterval: "month",
     },
   ],
 };

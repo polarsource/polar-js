@@ -11,10 +11,16 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 
+export type CustomFieldData = {};
+
 /**
  * Update an existing checkout session using an access token.
  */
 export type CheckoutUpdate = {
+  /**
+   * Key-value object storing custom field values.
+   */
+  customFieldData?: CustomFieldData | null | undefined;
   /**
    * ID of the product price to checkout. Must correspond to a price linked to the same product.
    */
@@ -42,11 +48,43 @@ export type CheckoutUpdate = {
 };
 
 /** @internal */
+export const CustomFieldData$inboundSchema: z.ZodType<
+  CustomFieldData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+
+/** @internal */
+export type CustomFieldData$Outbound = {};
+
+/** @internal */
+export const CustomFieldData$outboundSchema: z.ZodType<
+  CustomFieldData$Outbound,
+  z.ZodTypeDef,
+  CustomFieldData
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomFieldData$ {
+  /** @deprecated use `CustomFieldData$inboundSchema` instead. */
+  export const inboundSchema = CustomFieldData$inboundSchema;
+  /** @deprecated use `CustomFieldData$outboundSchema` instead. */
+  export const outboundSchema = CustomFieldData$outboundSchema;
+  /** @deprecated use `CustomFieldData$Outbound` instead. */
+  export type Outbound = CustomFieldData$Outbound;
+}
+
+/** @internal */
 export const CheckoutUpdate$inboundSchema: z.ZodType<
   CheckoutUpdate,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  custom_field_data: z.nullable(z.lazy(() => CustomFieldData$inboundSchema))
+    .optional(),
   product_price_id: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
   customer_name: z.nullable(z.string()).optional(),
@@ -58,6 +96,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   success_url: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "custom_field_data": "customFieldData",
     "product_price_id": "productPriceId",
     "customer_name": "customerName",
     "customer_email": "customerEmail",
@@ -70,6 +109,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutUpdate$Outbound = {
+  custom_field_data?: CustomFieldData$Outbound | null | undefined;
   product_price_id?: string | null | undefined;
   amount?: number | null | undefined;
   customer_name?: string | null | undefined;
@@ -87,6 +127,8 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutUpdate
 > = z.object({
+  customFieldData: z.nullable(z.lazy(() => CustomFieldData$outboundSchema))
+    .optional(),
   productPriceId: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
   customerName: z.nullable(z.string()).optional(),
@@ -98,6 +140,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   successUrl: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    customFieldData: "custom_field_data",
     productPriceId: "product_price_id",
     customerName: "customer_name",
     customerEmail: "customer_email",

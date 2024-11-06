@@ -11,6 +11,18 @@ import {
   BenefitArticlesSubscriberProperties$Outbound,
   BenefitArticlesSubscriberProperties$outboundSchema,
 } from "./benefitarticlessubscriberproperties.js";
+import {
+  BenefitGrantSubscriber,
+  BenefitGrantSubscriber$inboundSchema,
+  BenefitGrantSubscriber$Outbound,
+  BenefitGrantSubscriber$outboundSchema,
+} from "./benefitgrantsubscriber.js";
+import {
+  Organization,
+  Organization$inboundSchema,
+  Organization$Outbound,
+  Organization$outboundSchema,
+} from "./organization.js";
 
 export const Type = {
   Articles: "articles",
@@ -47,6 +59,8 @@ export type BenefitArticlesSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
+  grants: Array<BenefitGrantSubscriber>;
+  organization: Organization;
   /**
    * Properties available to subscribers for a benefit of type `articles`.
    */
@@ -89,6 +103,8 @@ export const BenefitArticlesSubscriber$inboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
+  grants: z.array(BenefitGrantSubscriber$inboundSchema),
+  organization: Organization$inboundSchema,
   properties: BenefitArticlesSubscriberProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -108,6 +124,8 @@ export type BenefitArticlesSubscriber$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
+  grants: Array<BenefitGrantSubscriber$Outbound>;
+  organization: Organization$Outbound;
   properties: BenefitArticlesSubscriberProperties$Outbound;
 };
 
@@ -125,6 +143,8 @@ export const BenefitArticlesSubscriber$outboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
+  grants: z.array(BenefitGrantSubscriber$outboundSchema),
+  organization: Organization$outboundSchema,
   properties: BenefitArticlesSubscriberProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

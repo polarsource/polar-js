@@ -6,38 +6,33 @@
 import { UserOrderProduct } from "@polar-sh/sdk/models/components";
 
 let value: UserOrderProduct = {
-  createdAt: new Date("2023-02-23T19:41:54.637Z"),
-  modifiedAt: new Date("2023-04-11T06:18:21.553Z"),
+  createdAt: new Date("2022-04-15T20:23:47.603Z"),
+  modifiedAt: new Date("2023-03-20T09:04:49.131Z"),
   id: "<value>",
   name: "<value>",
-  description:
-    "and wonderful cutlet pitiful brr retrospectivity armoire reservation even",
+  description: "yowza after captain er jiggle beyond political",
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",
   prices: [
     {
-      createdAt: new Date("2024-10-26T02:31:57.553Z"),
-      modifiedAt: new Date("2022-12-16T01:04:03.360Z"),
+      createdAt: new Date("2023-02-09T23:07:56.607Z"),
+      modifiedAt: new Date("2023-06-05T20:40:09.335Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
-      recurringInterval: "year",
     },
   ],
   benefits: [
     {
-      createdAt: new Date("2023-10-26T12:11:28.317Z"),
-      modifiedAt: new Date("2023-09-13T10:23:25.936Z"),
+      createdAt: new Date("2022-08-18T07:04:21.930Z"),
+      modifiedAt: new Date("2022-12-19T18:58:02.170Z"),
       id: "<value>",
-      description:
-        "of powerfully potentially athwart broadcast whoever triangular",
+      type: "custom",
+      description: "chasuble defiantly rightfully behind tuxedo",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
-      properties: {
-        paidArticles: false,
-      },
     },
   ],
   medias: [
@@ -47,19 +42,39 @@ let value: UserOrderProduct = {
       name: "<value>",
       path: "/opt/include",
       mimeType: "<value>",
-      size: 795337,
+      size: 904131,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2023-12-16T20:57:59.104Z"),
+      lastModifiedAt: new Date("2023-01-03T06:05:43.351Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2022-11-30T19:27:00.258Z"),
+      createdAt: new Date("2022-12-22T18:16:42.157Z"),
       sizeReadable: "<value>",
-      publicUrl: "https://dull-premeditation.name/",
+      publicUrl: "https://well-groomed-deed.org",
     },
   ],
+  organization: {
+    createdAt: new Date("2023-01-11T08:00:43.248Z"),
+    modifiedAt: new Date("2024-12-09T06:01:03.753Z"),
+    id: "<value>",
+    name: "<value>",
+    slug: "<value>",
+    avatarUrl: "https://unsung-millet.biz",
+    bio: "<value>",
+    company: "Legros - Osinski",
+    blog: "<value>",
+    location: "<value>",
+    email: "Cecile.Kertzmann55@hotmail.com",
+    twitterUsername: "<value>",
+    pledgeMinimumAmount: 535055,
+    pledgeBadgeShowAmount: false,
+    defaultUpfrontSplitToContributors: 200109,
+    donationsEnabled: false,
+    profileSettings: {},
+    featureSettings: {},
+  },
 };
 ```
 
@@ -75,6 +90,7 @@ let value: UserOrderProduct = {
 | `isRecurring`                                                                                 | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the product is a subscription tier.                                                   |
 | `isArchived`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the product is archived and no longer available.                                      |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the product.                                                |
-| `prices`                                                                                      | *components.ProductPrice*[]                                                                   | :heavy_check_mark:                                                                            | List of available prices for this product.                                                    |
-| `benefits`                                                                                    | *components.Benefits*[]                                                                       | :heavy_check_mark:                                                                            | The benefits granted by the product.                                                          |
-| `medias`                                                                                      | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]          | :heavy_check_mark:                                                                            | The medias associated to the product.                                                         |
+| `prices`                                                                                      | *components.ProductPrice*[]                                                                   | :heavy_check_mark:                                                                            | List of prices for this product.                                                              |
+| `benefits`                                                                                    | *components.Benefits*[]                                                                       | :heavy_check_mark:                                                                            | List of benefits granted by the product.                                                      |
+| `medias`                                                                                      | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]          | :heavy_check_mark:                                                                            | List of medias associated to the product.                                                     |
+| `organization`                                                                                | [components.Organization](../../models/components/organization.md)                            | :heavy_check_mark:                                                                            | N/A                                                                                           |

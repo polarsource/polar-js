@@ -9,23 +9,23 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "ebf848e8-4e50-435d-9775-eff6fca332e4",
+        id: "beb2725e-e459-4f24-bd7e-2855765ebb49",
         name: "<value>",
-        avatarUrl: "https://spanish-starboard.com/",
+        avatarUrl: "https://grown-rust.net",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Spinka and Sons",
+        company: "Streich - Kiehn",
         blog: "<value>",
         location: "<value>",
-        email: "Carli.Blanda@gmail.com",
+        email: "Isidro.Mraz@yahoo.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 246557,
-      maxPage: 596433,
+      totalCount: 401428,
+      maxPage: 416692,
     },
   },
 };
