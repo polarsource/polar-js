@@ -7,11 +7,11 @@
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2023-06-06T10:43:50.149Z"),
-  modifiedAt: new Date("2022-11-13T23:20:26.533Z"),
+  createdAt: new Date("2023-07-08T03:14:38.624Z"),
+  modifiedAt: new Date("2024-09-09T01:45:30.325Z"),
   id: "<value>",
   description:
-    "yak chilly instantly foolishly quantify phooey as opera stabilise",
+    "tarragon design merit spook numeric round apropos separate impish whenever",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -25,10 +25,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2022-02-07T17:40:49.949Z"),
-  modifiedAt: new Date("2022-04-12T05:09:19.218Z"),
+  createdAt: new Date("2022-05-23T09:32:37.289Z"),
+  modifiedAt: new Date("2024-12-17T11:03:47.381Z"),
   id: "<value>",
-  description: "curl fully brook mmm bah carp gah off er bah",
+  description: "famously conservative scramble officially sticky versus",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -40,10 +40,11 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2023-04-16T01:44:35.832Z"),
-  modifiedAt: new Date("2023-04-23T10:52:03.142Z"),
+  createdAt: new Date("2024-03-31T02:07:48.328Z"),
+  modifiedAt: new Date("2022-07-08T02:24:58.034Z"),
   id: "<value>",
-  description: "lotion simple er doubtfully",
+  description:
+    "onto whenever pneumonia decriminalize wasteful who fat iridescence yahoo deer",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -58,10 +59,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscord = {
-  createdAt: new Date("2023-04-11T20:54:26.937Z"),
-  modifiedAt: new Date("2023-02-23T06:18:24.673Z"),
+  createdAt: new Date("2023-07-02T23:56:35.113Z"),
+  modifiedAt: new Date("2023-10-03T12:55:16.245Z"),
   id: "<value>",
-  description: "space informal minus dark while beyond untimely whenever",
+  description: "besmirch distinction adviser accompanist sport calmly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -77,10 +78,10 @@ const value: components.BenefitDiscord = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2024-08-29T10:56:21.811Z"),
-  modifiedAt: new Date("2023-05-07T08:26:35.788Z"),
+  createdAt: new Date("2022-08-30T11:08:28.655Z"),
+  modifiedAt: new Date("2024-05-10T23:58:01.273Z"),
   id: "<value>",
-  description: "save dapper untimely spark once charlatan hm except",
+  description: "worth tomorrow talkative soon alongside acidic jovially awful",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -88,7 +89,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "pull",
+    permission: "admin",
   },
 };
 ```
@@ -97,10 +98,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2024-10-06T08:46:10.626Z"),
-  modifiedAt: new Date("2022-08-21T10:30:21.944Z"),
+  createdAt: new Date("2022-07-16T03:22:51.500Z"),
+  modifiedAt: new Date("2024-04-07T19:20:03.652Z"),
   id: "<value>",
-  description: "perky if defiantly reassemble information adrenalin",
+  description: "brr haunting bookend mispronounce goodwill fork pfft",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -119,24 +120,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2023-11-26T13:41:08.143Z"),
-  modifiedAt: new Date("2023-12-31T14:12:56.950Z"),
+  createdAt: new Date("2022-12-28T03:57:53.023Z"),
+  modifiedAt: new Date("2024-02-06T05:51:10.313Z"),
   id: "<value>",
-  description: "underneath phew scholarship what shabby bloom blah",
+  description: "halt requite oh personal skateboard",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 459112,
-      timeframe: "day",
+      ttl: 926479,
+      timeframe: "year",
     },
     activations: {
-      limit: 316392,
+      limit: 624730,
       enableUserAdmin: false,
     },
-    limitUsage: 906531,
+    limitUsage: 27877,
   },
 };
 ```

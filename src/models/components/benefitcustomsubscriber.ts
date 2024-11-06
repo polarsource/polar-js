@@ -17,6 +17,12 @@ import {
   BenefitGrantSubscriber$Outbound,
   BenefitGrantSubscriber$outboundSchema,
 } from "./benefitgrantsubscriber.js";
+import {
+  Organization,
+  Organization$inboundSchema,
+  Organization$Outbound,
+  Organization$outboundSchema,
+} from "./organization.js";
 
 export const BenefitCustomSubscriberType = {
   Custom: "custom",
@@ -56,6 +62,7 @@ export type BenefitCustomSubscriber = {
    */
   organizationId: string;
   grants: Array<BenefitGrantSubscriber>;
+  organization: Organization;
   /**
    * Properties available to subscribers for a benefit of type `custom`.
    */
@@ -100,6 +107,7 @@ export const BenefitCustomSubscriber$inboundSchema: z.ZodType<
   deletable: z.boolean(),
   organization_id: z.string(),
   grants: z.array(BenefitGrantSubscriber$inboundSchema),
+  organization: Organization$inboundSchema,
   properties: BenefitCustomSubscriberProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -120,6 +128,7 @@ export type BenefitCustomSubscriber$Outbound = {
   deletable: boolean;
   organization_id: string;
   grants: Array<BenefitGrantSubscriber$Outbound>;
+  organization: Organization$Outbound;
   properties: BenefitCustomSubscriberProperties$Outbound;
 };
 
@@ -138,6 +147,7 @@ export const BenefitCustomSubscriber$outboundSchema: z.ZodType<
   deletable: z.boolean(),
   organizationId: z.string(),
   grants: z.array(BenefitGrantSubscriber$outboundSchema),
+  organization: Organization$outboundSchema,
   properties: BenefitCustomSubscriberProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

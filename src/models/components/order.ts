@@ -34,6 +34,11 @@ import {
   ProductPrice$outboundSchema,
 } from "./productprice.js";
 
+/**
+ * Key-value object storing custom field values.
+ */
+export type OrderCustomFieldData = {};
+
 export type Order = {
   /**
    * Creation timestamp of the object.
@@ -48,6 +53,10 @@ export type Order = {
    */
   id: string;
   metadata: { [k: string]: string };
+  /**
+   * Key-value object storing custom field values.
+   */
+  customFieldData?: OrderCustomFieldData | undefined;
   amount: number;
   taxAmount: number;
   currency: string;
@@ -64,6 +73,36 @@ export type Order = {
 };
 
 /** @internal */
+export const OrderCustomFieldData$inboundSchema: z.ZodType<
+  OrderCustomFieldData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+
+/** @internal */
+export type OrderCustomFieldData$Outbound = {};
+
+/** @internal */
+export const OrderCustomFieldData$outboundSchema: z.ZodType<
+  OrderCustomFieldData$Outbound,
+  z.ZodTypeDef,
+  OrderCustomFieldData
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OrderCustomFieldData$ {
+  /** @deprecated use `OrderCustomFieldData$inboundSchema` instead. */
+  export const inboundSchema = OrderCustomFieldData$inboundSchema;
+  /** @deprecated use `OrderCustomFieldData$outboundSchema` instead. */
+  export const outboundSchema = OrderCustomFieldData$outboundSchema;
+  /** @deprecated use `OrderCustomFieldData$Outbound` instead. */
+  export type Outbound = OrderCustomFieldData$Outbound;
+}
+
+/** @internal */
 export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
   .object({
     created_at: z.string().datetime({ offset: true }).transform(v =>
@@ -74,6 +113,8 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     ),
     id: z.string(),
     metadata: z.record(z.string()),
+    custom_field_data: z.lazy(() => OrderCustomFieldData$inboundSchema)
+      .optional(),
     amount: z.number().int(),
     tax_amount: z.number().int(),
     currency: z.string(),
@@ -91,6 +132,7 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     return remap$(v, {
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
+      "custom_field_data": "customFieldData",
       "tax_amount": "taxAmount",
       "billing_reason": "billingReason",
       "user_id": "userId",
@@ -108,6 +150,7 @@ export type Order$Outbound = {
   modified_at: string | null;
   id: string;
   metadata: { [k: string]: string };
+  custom_field_data?: OrderCustomFieldData$Outbound | undefined;
   amount: number;
   tax_amount: number;
   currency: string;
@@ -133,6 +176,7 @@ export const Order$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
   metadata: z.record(z.string()),
+  customFieldData: z.lazy(() => OrderCustomFieldData$outboundSchema).optional(),
   amount: z.number().int(),
   taxAmount: z.number().int(),
   currency: z.string(),
@@ -150,6 +194,7 @@ export const Order$outboundSchema: z.ZodType<
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
+    customFieldData: "custom_field_data",
     taxAmount: "tax_amount",
     billingReason: "billing_reason",
     userId: "user_id",

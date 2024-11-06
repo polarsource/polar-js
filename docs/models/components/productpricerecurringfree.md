@@ -8,12 +8,12 @@ A free recurring price for a product, i.e. a subscription.
 import { ProductPriceRecurringFree } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringFree = {
-  createdAt: new Date("2023-01-20T17:37:00.236Z"),
-  modifiedAt: new Date("2024-05-27T10:54:59.560Z"),
+  createdAt: new Date("2022-06-08T22:29:24.231Z"),
+  modifiedAt: new Date("2024-02-04T07:55:19.464Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  recurringInterval: "month",
+  recurringInterval: "year",
 };
 ```
 

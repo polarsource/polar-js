@@ -17,6 +17,12 @@ import {
   BenefitGrantAds$Outbound,
   BenefitGrantAds$outboundSchema,
 } from "./benefitgrantads.js";
+import {
+  Organization,
+  Organization$inboundSchema,
+  Organization$Outbound,
+  Organization$outboundSchema,
+} from "./organization.js";
 
 export const BenefitAdsSubscriberType = {
   Ads: "ads",
@@ -55,11 +61,12 @@ export type BenefitAdsSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
+  grants: Array<BenefitGrantAds>;
+  organization: Organization;
   /**
    * Properties for a benefit of type `ads`.
    */
   properties: BenefitAdsProperties;
-  grants: Array<BenefitGrantAds>;
 };
 
 /** @internal */
@@ -99,8 +106,9 @@ export const BenefitAdsSubscriber$inboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
-  properties: BenefitAdsProperties$inboundSchema,
   grants: z.array(BenefitGrantAds$inboundSchema),
+  organization: Organization$inboundSchema,
+  properties: BenefitAdsProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -119,8 +127,9 @@ export type BenefitAdsSubscriber$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
-  properties: BenefitAdsProperties$Outbound;
   grants: Array<BenefitGrantAds$Outbound>;
+  organization: Organization$Outbound;
+  properties: BenefitAdsProperties$Outbound;
 };
 
 /** @internal */
@@ -137,8 +146,9 @@ export const BenefitAdsSubscriber$outboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
-  properties: BenefitAdsProperties$outboundSchema,
   grants: z.array(BenefitGrantAds$outboundSchema),
+  organization: Organization$outboundSchema,
+  properties: BenefitAdsProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

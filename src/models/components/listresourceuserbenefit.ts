@@ -53,22 +53,22 @@ import {
 } from "./pagination.js";
 
 export type UserBenefit =
+  | (BenefitAdsSubscriber & { type: "ads" })
   | (BenefitArticlesSubscriber & { type: "articles" })
+  | (BenefitCustomSubscriber & { type: "custom" })
   | (BenefitDiscordSubscriber & { type: "discord" })
   | (BenefitDownloadablesSubscriber & { type: "downloadables" })
   | (BenefitGitHubRepositorySubscriber & { type: "github_repository" })
-  | (BenefitAdsSubscriber & { type: "ads" })
-  | (BenefitCustomSubscriber & { type: "custom" })
   | (BenefitLicenseKeysSubscriber & { type: "license_keys" });
 
 export type ListResourceUserBenefit = {
   items: Array<
+    | (BenefitAdsSubscriber & { type: "ads" })
     | (BenefitArticlesSubscriber & { type: "articles" })
+    | (BenefitCustomSubscriber & { type: "custom" })
     | (BenefitDiscordSubscriber & { type: "discord" })
     | (BenefitDownloadablesSubscriber & { type: "downloadables" })
     | (BenefitGitHubRepositorySubscriber & { type: "github_repository" })
-    | (BenefitAdsSubscriber & { type: "ads" })
-    | (BenefitCustomSubscriber & { type: "custom" })
     | (BenefitLicenseKeysSubscriber & { type: "license_keys" })
   >;
   pagination: Pagination;
@@ -80,8 +80,16 @@ export const UserBenefit$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  BenefitAdsSubscriber$inboundSchema.and(
+    z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
+  ),
   BenefitArticlesSubscriber$inboundSchema.and(
     z.object({ type: z.literal("articles") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
+  BenefitCustomSubscriber$inboundSchema.and(
+    z.object({ type: z.literal("custom") }).transform((v) => ({
       type: v.type,
     })),
   ),
@@ -100,14 +108,6 @@ export const UserBenefit$inboundSchema: z.ZodType<
       type: v.type,
     })),
   ),
-  BenefitAdsSubscriber$inboundSchema.and(
-    z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
-  ),
-  BenefitCustomSubscriber$inboundSchema.and(
-    z.object({ type: z.literal("custom") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
   BenefitLicenseKeysSubscriber$inboundSchema.and(
     z.object({ type: z.literal("license_keys") }).transform((v) => ({
       type: v.type,
@@ -117,12 +117,12 @@ export const UserBenefit$inboundSchema: z.ZodType<
 
 /** @internal */
 export type UserBenefit$Outbound =
+  | (BenefitAdsSubscriber$Outbound & { type: "ads" })
   | (BenefitArticlesSubscriber$Outbound & { type: "articles" })
+  | (BenefitCustomSubscriber$Outbound & { type: "custom" })
   | (BenefitDiscordSubscriber$Outbound & { type: "discord" })
   | (BenefitDownloadablesSubscriber$Outbound & { type: "downloadables" })
   | (BenefitGitHubRepositorySubscriber$Outbound & { type: "github_repository" })
-  | (BenefitAdsSubscriber$Outbound & { type: "ads" })
-  | (BenefitCustomSubscriber$Outbound & { type: "custom" })
   | (BenefitLicenseKeysSubscriber$Outbound & { type: "license_keys" });
 
 /** @internal */
@@ -131,8 +131,16 @@ export const UserBenefit$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UserBenefit
 > = z.union([
+  BenefitAdsSubscriber$outboundSchema.and(
+    z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
+  ),
   BenefitArticlesSubscriber$outboundSchema.and(
     z.object({ type: z.literal("articles") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
+  BenefitCustomSubscriber$outboundSchema.and(
+    z.object({ type: z.literal("custom") }).transform((v) => ({
       type: v.type,
     })),
   ),
@@ -148,14 +156,6 @@ export const UserBenefit$outboundSchema: z.ZodType<
   ),
   BenefitGitHubRepositorySubscriber$outboundSchema.and(
     z.object({ type: z.literal("github_repository") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  BenefitAdsSubscriber$outboundSchema.and(
-    z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
-  ),
-  BenefitCustomSubscriber$outboundSchema.and(
-    z.object({ type: z.literal("custom") }).transform((v) => ({
       type: v.type,
     })),
   ),
@@ -187,8 +187,18 @@ export const ListResourceUserBenefit$inboundSchema: z.ZodType<
 > = z.object({
   items: z.array(
     z.union([
+      BenefitAdsSubscriber$inboundSchema.and(
+        z.object({ type: z.literal("ads") }).transform((v) => ({
+          type: v.type,
+        })),
+      ),
       BenefitArticlesSubscriber$inboundSchema.and(
         z.object({ type: z.literal("articles") }).transform((v) => ({
+          type: v.type,
+        })),
+      ),
+      BenefitCustomSubscriber$inboundSchema.and(
+        z.object({ type: z.literal("custom") }).transform((v) => ({
           type: v.type,
         })),
       ),
@@ -207,16 +217,6 @@ export const ListResourceUserBenefit$inboundSchema: z.ZodType<
           type: v.type,
         })),
       ),
-      BenefitAdsSubscriber$inboundSchema.and(
-        z.object({ type: z.literal("ads") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
-      BenefitCustomSubscriber$inboundSchema.and(
-        z.object({ type: z.literal("custom") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
       BenefitLicenseKeysSubscriber$inboundSchema.and(
         z.object({ type: z.literal("license_keys") }).transform((v) => ({
           type: v.type,
@@ -230,14 +230,14 @@ export const ListResourceUserBenefit$inboundSchema: z.ZodType<
 /** @internal */
 export type ListResourceUserBenefit$Outbound = {
   items: Array<
+    | (BenefitAdsSubscriber$Outbound & { type: "ads" })
     | (BenefitArticlesSubscriber$Outbound & { type: "articles" })
+    | (BenefitCustomSubscriber$Outbound & { type: "custom" })
     | (BenefitDiscordSubscriber$Outbound & { type: "discord" })
     | (BenefitDownloadablesSubscriber$Outbound & { type: "downloadables" })
     | (BenefitGitHubRepositorySubscriber$Outbound & {
       type: "github_repository";
     })
-    | (BenefitAdsSubscriber$Outbound & { type: "ads" })
-    | (BenefitCustomSubscriber$Outbound & { type: "custom" })
     | (BenefitLicenseKeysSubscriber$Outbound & { type: "license_keys" })
   >;
   pagination: Pagination$Outbound;
@@ -251,8 +251,18 @@ export const ListResourceUserBenefit$outboundSchema: z.ZodType<
 > = z.object({
   items: z.array(
     z.union([
+      BenefitAdsSubscriber$outboundSchema.and(
+        z.object({ type: z.literal("ads") }).transform((v) => ({
+          type: v.type,
+        })),
+      ),
       BenefitArticlesSubscriber$outboundSchema.and(
         z.object({ type: z.literal("articles") }).transform((v) => ({
+          type: v.type,
+        })),
+      ),
+      BenefitCustomSubscriber$outboundSchema.and(
+        z.object({ type: z.literal("custom") }).transform((v) => ({
           type: v.type,
         })),
       ),
@@ -268,16 +278,6 @@ export const ListResourceUserBenefit$outboundSchema: z.ZodType<
       ),
       BenefitGitHubRepositorySubscriber$outboundSchema.and(
         z.object({ type: z.literal("github_repository") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
-      BenefitAdsSubscriber$outboundSchema.and(
-        z.object({ type: z.literal("ads") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
-      BenefitCustomSubscriber$outboundSchema.and(
-        z.object({ type: z.literal("custom") }).transform((v) => ({
           type: v.type,
         })),
       ),

@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://urban-mobility.info/",
+        "https://unruly-possession.info",
       ],
       clientName: "<value>",
-      createdAt: new Date("2024-05-27T05:53:52.720Z"),
-      modifiedAt: new Date("2024-10-10T06:09:21.767Z"),
+      createdAt: new Date("2022-11-03T20:32:51.033Z"),
+      modifiedAt: new Date("2023-11-30T08:31:54.256Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 673493,
-      clientSecretExpiresAt: 230903,
+      clientIdIssuedAt: 631429,
+      clientSecretExpiresAt: 23910,
     },
   ],
   pagination: {
-    totalCount: 819261,
-    maxPage: 420526,
+    totalCount: 747110,
+    maxPage: 221874,
   },
 };
 ```

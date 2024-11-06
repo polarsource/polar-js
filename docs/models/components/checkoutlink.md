@@ -8,27 +8,25 @@ Checkout link data.
 import { CheckoutLink } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutLink = {
-  createdAt: new Date("2022-03-24T04:55:38.302Z"),
-  modifiedAt: new Date("2024-05-26T23:36:57.146Z"),
+  createdAt: new Date("2024-04-15T02:43:00.812Z"),
+  modifiedAt: new Date("2024-04-05T22:09:08.993Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
   clientSecret: "<value>",
-  successUrl: "https://untidy-importance.name",
+  successUrl: "https://putrid-iridescence.com/",
   productPriceId: "<value>",
   productPrice: {
-    createdAt: new Date("2023-07-31T21:34:52.600Z"),
-    modifiedAt: new Date("2022-09-25T19:36:57.431Z"),
+    createdAt: new Date("2022-01-15T04:22:51.791Z"),
+    modifiedAt: new Date("2023-12-07T04:57:49.901Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
     priceCurrency: "<value>",
-    minimumAmount: 330422,
-    maximumAmount: 287648,
-    presetAmount: 45663,
+    priceAmount: 172105,
   },
-  url: "https://tender-rust.biz",
+  url: "https://vivacious-chops.name/",
 };
 ```
 

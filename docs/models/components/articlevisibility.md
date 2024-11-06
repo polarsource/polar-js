@@ -5,7 +5,7 @@
 ```typescript
 import { ArticleVisibility } from "@polar-sh/sdk/models/components";
 
-let value: ArticleVisibility = "public";
+let value: ArticleVisibility = "hidden";
 ```
 
 ## Values

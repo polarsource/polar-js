@@ -10,10 +10,11 @@ Use it to grant access to posts.
 import { BenefitArticles } from "@polar-sh/sdk/models/components";
 
 let value: BenefitArticles = {
-  createdAt: new Date("2024-11-26T08:57:48.541Z"),
-  modifiedAt: new Date("2024-06-27T02:43:23.928Z"),
+  createdAt: new Date("2022-02-27T21:22:28.511Z"),
+  modifiedAt: new Date("2022-01-01T01:54:20.575Z"),
   id: "<value>",
-  description: "a mmm upsell more short who sign flowery",
+  description:
+    "yum underneath off plain hmph however parody amidst before misappropriate",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

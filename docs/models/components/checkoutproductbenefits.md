@@ -1,4 +1,4 @@
-# ProductBenefits
+# CheckoutProductBenefits
 
 
 ## Supported Types
@@ -7,11 +7,11 @@
 
 ```typescript
 const value: components.BenefitBase = {
-  createdAt: new Date("2024-10-09T21:09:28.886Z"),
-  modifiedAt: new Date("2024-11-17T19:14:12.440Z"),
+  createdAt: new Date("2023-12-06T08:47:09.306Z"),
+  modifiedAt: new Date("2023-05-27T10:58:25.218Z"),
   id: "<value>",
-  type: "custom",
-  description: "aboard hence who which incidentally fully behind midwife",
+  type: "downloadables",
+  description: "about sternly translation how",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -22,10 +22,10 @@ const value: components.BenefitBase = {
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2022-12-29T18:51:15.843Z"),
-  modifiedAt: new Date("2022-06-29T15:55:54.718Z"),
+  createdAt: new Date("2024-12-02T12:30:01.615Z"),
+  modifiedAt: new Date("2022-09-03T13:07:24.254Z"),
   id: "<value>",
-  description: "noisily thorn peter behind huzzah now",
+  description: "quarrelsomely materialise blah lost wherever",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

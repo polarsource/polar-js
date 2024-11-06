@@ -5,6 +5,12 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
+  AttachedCustomFieldCreate,
+  AttachedCustomFieldCreate$inboundSchema,
+  AttachedCustomFieldCreate$Outbound,
+  AttachedCustomFieldCreate$outboundSchema,
+} from "./attachedcustomfieldcreate.js";
+import {
   ExistingProductPrice,
   ExistingProductPrice$inboundSchema,
   ExistingProductPrice$Outbound,
@@ -80,6 +86,7 @@ export type ProductUpdate = {
    * List of file IDs. Each one must be on the same organization as the product, of type `product_media` and correctly uploaded.
    */
   medias?: Array<string> | null | undefined;
+  attachedCustomFields?: Array<AttachedCustomFieldCreate> | null | undefined;
 };
 
 /** @internal */
@@ -154,9 +161,13 @@ export const ProductUpdate$inboundSchema: z.ZodType<
     ),
   ).optional(),
   medias: z.nullable(z.array(z.string())).optional(),
+  attached_custom_fields: z.nullable(
+    z.array(AttachedCustomFieldCreate$inboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "is_archived": "isArchived",
+    "attached_custom_fields": "attachedCustomFields",
   });
 });
 
@@ -177,6 +188,10 @@ export type ProductUpdate$Outbound = {
     | null
     | undefined;
   medias?: Array<string> | null | undefined;
+  attached_custom_fields?:
+    | Array<AttachedCustomFieldCreate$Outbound>
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -201,9 +216,13 @@ export const ProductUpdate$outboundSchema: z.ZodType<
     ),
   ).optional(),
   medias: z.nullable(z.array(z.string())).optional(),
+  attachedCustomFields: z.nullable(
+    z.array(AttachedCustomFieldCreate$outboundSchema),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     isArchived: "is_archived",
+    attachedCustomFields: "attached_custom_fields",
   });
 });
 

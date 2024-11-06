@@ -6,16 +6,16 @@
 import { UserAdvertisementCampaign } from "@polar-sh/sdk/models/components";
 
 let value: UserAdvertisementCampaign = {
-  createdAt: new Date("2024-03-12T17:24:42.086Z"),
-  modifiedAt: new Date("2023-01-11T13:11:35.931Z"),
+  createdAt: new Date("2022-02-14T12:50:16.034Z"),
+  modifiedAt: new Date("2024-01-13T05:08:56.049Z"),
   id: "<value>",
   userId: "<value>",
-  views: 122365,
-  clicks: 593600,
-  imageUrl: "https://baggy-coin.info/",
-  imageUrlDark: "https://profuse-accompanist.net",
+  views: 142591,
+  clicks: 459348,
+  imageUrl: "https://unique-nudge.biz",
+  imageUrlDark: "https://raw-cosset.net/",
   text: "<value>",
-  linkUrl: "https://repentant-allocation.info/",
+  linkUrl: "https://mixed-strait.biz",
 };
 ```
 

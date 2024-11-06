@@ -157,6 +157,14 @@ run();
 * [clientUpdate](docs/sdks/custom/README.md#clientupdate) - Update Checkout Session from Client
 * [clientConfirm](docs/sdks/custom/README.md#clientconfirm) - Confirm Checkout Session from Client
 
+### [customFields](docs/sdks/customfields/README.md)
+
+* [list](docs/sdks/customfields/README.md#list) - List Custom Fields
+* [create](docs/sdks/customfields/README.md#create) - Create Custom Field
+* [get](docs/sdks/customfields/README.md#get) - Get Custom Field
+* [update](docs/sdks/customfields/README.md#update) - Update Custom Field
+* [delete](docs/sdks/customfields/README.md#delete) - Delete Custom Field
+
 ### [externalOrganizations](docs/sdks/externalorganizations/README.md)
 
 * [list](docs/sdks/externalorganizations/README.md#list) - List External Organizations
@@ -319,6 +327,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`checkoutsCustomGet`](docs/sdks/custom/README.md#get) - Get Checkout Session
 - [`checkoutsCustomList`](docs/sdks/custom/README.md#list) - List Checkout Sessions
 - [`checkoutsCustomUpdate`](docs/sdks/custom/README.md#update) - Update Checkout Session
+- [`customFieldsCreate`](docs/sdks/customfields/README.md#create) - Create Custom Field
+- [`customFieldsDelete`](docs/sdks/customfields/README.md#delete) - Delete Custom Field
+- [`customFieldsGet`](docs/sdks/customfields/README.md#get) - Get Custom Field
+- [`customFieldsList`](docs/sdks/customfields/README.md#list) - List Custom Fields
+- [`customFieldsUpdate`](docs/sdks/customfields/README.md#update) - Update Custom Field
 - [`externalOrganizationsList`](docs/sdks/externalorganizations/README.md#list) - List External Organizations
 - [`filesCreate`](docs/sdks/files/README.md#create) - Create File
 - [`filesDelete`](docs/sdks/files/README.md#delete) - Delete File

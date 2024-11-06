@@ -17,6 +17,12 @@ import {
   BenefitLicenseKeysSubscriberProperties$Outbound,
   BenefitLicenseKeysSubscriberProperties$outboundSchema,
 } from "./benefitlicensekeyssubscriberproperties.js";
+import {
+  Organization,
+  Organization$inboundSchema,
+  Organization$Outbound,
+  Organization$outboundSchema,
+} from "./organization.js";
 
 export const BenefitLicenseKeysSubscriberType = {
   LicenseKeys: "license_keys",
@@ -55,8 +61,9 @@ export type BenefitLicenseKeysSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  properties: BenefitLicenseKeysSubscriberProperties;
   grants: Array<BenefitGrantLicenseKeys>;
+  organization: Organization;
+  properties: BenefitLicenseKeysSubscriberProperties;
 };
 
 /** @internal */
@@ -96,8 +103,9 @@ export const BenefitLicenseKeysSubscriber$inboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
-  properties: BenefitLicenseKeysSubscriberProperties$inboundSchema,
   grants: z.array(BenefitGrantLicenseKeys$inboundSchema),
+  organization: Organization$inboundSchema,
+  properties: BenefitLicenseKeysSubscriberProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -116,8 +124,9 @@ export type BenefitLicenseKeysSubscriber$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
-  properties: BenefitLicenseKeysSubscriberProperties$Outbound;
   grants: Array<BenefitGrantLicenseKeys$Outbound>;
+  organization: Organization$Outbound;
+  properties: BenefitLicenseKeysSubscriberProperties$Outbound;
 };
 
 /** @internal */
@@ -134,8 +143,9 @@ export const BenefitLicenseKeysSubscriber$outboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
-  properties: BenefitLicenseKeysSubscriberProperties$outboundSchema,
   grants: z.array(BenefitGrantLicenseKeys$outboundSchema),
+  organization: Organization$outboundSchema,
+  properties: BenefitLicenseKeysSubscriberProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

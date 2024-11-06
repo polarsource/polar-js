@@ -12,19 +12,19 @@ let value: LicenseKeyRead = {
   user: {
     id: "<value>",
     publicName: "<value>",
-    email: "Eli51@gmail.com",
-    avatarUrl: "https://deep-dash.org",
+    email: "Tyreek_Tillman@yahoo.com",
+    avatarUrl: "https://oblong-director.name",
   },
   benefitId: "<value>",
   key: "<key>",
   displayKey: "<value>",
-  status: "revoked",
-  limitActivations: 447640,
-  usage: 391136,
-  limitUsage: 52029,
-  validations: 704574,
-  lastValidatedAt: new Date("2023-08-15T22:06:31.036Z"),
-  expiresAt: new Date("2024-01-12T01:11:19.363Z"),
+  status: "granted",
+  limitActivations: 240669,
+  usage: 129141,
+  limitUsage: 689309,
+  validations: 781044,
+  lastValidatedAt: new Date("2022-12-21T16:17:21.610Z"),
+  expiresAt: new Date("2023-03-25T14:08:20.769Z"),
 };
 ```
 

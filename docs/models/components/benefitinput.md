@@ -7,10 +7,11 @@
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2022-12-04T16:25:25.756Z"),
-  modifiedAt: new Date("2024-02-16T22:54:46.161Z"),
+  createdAt: new Date("2024-09-18T01:50:30.231Z"),
+  modifiedAt: new Date("2022-01-09T21:40:07.070Z"),
   id: "<value>",
-  description: "astride yearly rowdy ouch after yuck wherever up reluctantly",
+  description:
+    "conjecture gah harmful unimpressively tarry wherever hypothesise helpfully",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -24,11 +25,10 @@ const value: components.BenefitArticles = {
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2024-08-24T06:52:47.595Z"),
-  modifiedAt: new Date("2022-11-30T21:45:00.403Z"),
+  createdAt: new Date("2022-04-07T02:23:10.765Z"),
+  modifiedAt: new Date("2024-12-13T22:49:51.164Z"),
   id: "<value>",
-  description:
-    "since governance formal plain across until toothpick uh-huh amidst broadcast",
+  description: "whopping dramatic glum but",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -40,10 +40,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2024-01-19T04:12:42.334Z"),
-  modifiedAt: new Date("2022-02-26T09:31:45.655Z"),
+  createdAt: new Date("2022-12-18T17:37:05.328Z"),
+  modifiedAt: new Date("2023-05-01T14:21:51.139Z"),
   id: "<value>",
-  description: "yowza warp statement snow",
+  description: "gosh huzzah until above tag grandpa",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -58,10 +58,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscordInput = {
-  createdAt: new Date("2024-11-02T13:11:38.475Z"),
-  modifiedAt: new Date("2024-08-20T00:50:52.223Z"),
+  createdAt: new Date("2022-10-19T12:42:33.166Z"),
+  modifiedAt: new Date("2022-04-21T21:53:00.072Z"),
   id: "<value>",
-  description: "avalanche squid noxious connect amused bowling",
+  description: "hassle whoever instead rubric thorny forenenst till",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -76,11 +76,10 @@ const value: components.BenefitDiscordInput = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2023-11-22T13:06:40.923Z"),
-  modifiedAt: new Date("2022-01-29T22:14:42.973Z"),
+  createdAt: new Date("2022-10-04T12:08:13.052Z"),
+  modifiedAt: new Date("2023-02-18T05:45:49.390Z"),
   id: "<value>",
-  description:
-    "beyond yahoo incidentally profuse fun bandwidth throughout below",
+  description: "till ouch tuber soon gosh out lightly and pace crocodile",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -88,7 +87,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "pull",
+    permission: "push",
   },
 };
 ```
@@ -97,11 +96,11 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2023-06-17T12:06:28.738Z"),
-  modifiedAt: new Date("2023-10-14T21:42:37.950Z"),
+  createdAt: new Date("2024-02-05T08:02:46.013Z"),
+  modifiedAt: new Date("2024-09-07T05:56:52.203Z"),
   id: "<value>",
   description:
-    "underneath completion before monthly daintily synergy yearn too fervently toward",
+    "obnoxiously when incidentally helplessly malfunction evenly put under casement the",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -120,25 +119,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2023-09-12T19:42:53.732Z"),
-  modifiedAt: new Date("2023-06-03T07:07:47.859Z"),
+  createdAt: new Date("2023-08-18T06:37:46.018Z"),
+  modifiedAt: new Date("2023-03-25T02:27:25.840Z"),
   id: "<value>",
-  description:
-    "bah stint seemingly hoof dwell hygienic geez fatally disbar repeatedly",
+  description: "irritably consequently soap rule",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 9143,
-      timeframe: "month",
+      ttl: 69978,
+      timeframe: "day",
     },
     activations: {
-      limit: 290874,
+      limit: 257914,
       enableUserAdmin: false,
     },
-    limitUsage: 335015,
+    limitUsage: 374102,
   },
 };
 ```

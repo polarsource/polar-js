@@ -1,6 +1,6 @@
 # ProductsListQueryParamOrganizationIDFilter
 
-Filter by organization ID. **Required unless you use an organization token.**
+Filter by organization ID.
 
 
 ## Supported Types

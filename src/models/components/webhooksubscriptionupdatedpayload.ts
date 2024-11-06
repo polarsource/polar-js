@@ -9,7 +9,7 @@ import {
   SubscriptionInput$inboundSchema,
   SubscriptionInput$Outbound,
   SubscriptionInput$outboundSchema,
-} from "./subscriptioninput.js";
+} from "./subscription.js";
 
 export const WebhookSubscriptionUpdatedPayloadType = {
   SubscriptionUpdated: "subscription.updated",

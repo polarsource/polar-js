@@ -14,17 +14,17 @@ let value: ListResourceDownloadableRead = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/mnt",
+        path: "/System",
         mimeType: "<value>",
-        size: 829836,
+        size: 617670,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-10-29T02:00:43.553Z"),
+        lastModifiedAt: new Date("2024-03-18T03:12:28.184Z"),
         download: {
-          url: "https://unsung-fisherman.biz/",
-          expiresAt: new Date("2024-12-27T07:45:07.954Z"),
+          url: "https://beloved-unibody.info",
+          expiresAt: new Date("2022-07-06T10:13:54.510Z"),
         },
         version: "<value>",
         isUploaded: false,
@@ -34,8 +34,8 @@ let value: ListResourceDownloadableRead = {
     },
   ],
   pagination: {
-    totalCount: 228618,
-    maxPage: 837202,
+    totalCount: 783992,
+    maxPage: 420354,
   },
 };
 ```

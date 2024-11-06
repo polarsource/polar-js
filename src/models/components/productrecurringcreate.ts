@@ -5,6 +5,12 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
+  AttachedCustomFieldCreate,
+  AttachedCustomFieldCreate$inboundSchema,
+  AttachedCustomFieldCreate$Outbound,
+  AttachedCustomFieldCreate$outboundSchema,
+} from "./attachedcustomfieldcreate.js";
+import {
   ProductPriceRecurringFixedCreate,
   ProductPriceRecurringFixedCreate$inboundSchema,
   ProductPriceRecurringFixedCreate$Outbound,
@@ -46,6 +52,10 @@ export type ProductRecurringCreate = {
    * List of file IDs. Each one must be on the same organization as the product, of type `product_media` and correctly uploaded.
    */
   medias?: Array<string> | null | undefined;
+  /**
+   * List of custom fields to attach.
+   */
+  attachedCustomFields?: Array<AttachedCustomFieldCreate> | undefined;
   /**
    * The ID of the organization owning the product. **Required unless you use an organization token.**
    */
@@ -103,9 +113,12 @@ export const ProductRecurringCreate$inboundSchema: z.ZodType<
     z.array(ProductPriceRecurringFreeCreate$inboundSchema),
   ]),
   medias: z.nullable(z.array(z.string())).optional(),
+  attached_custom_fields: z.array(AttachedCustomFieldCreate$inboundSchema)
+    .optional(),
   organization_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "attached_custom_fields": "attachedCustomFields",
     "organization_id": "organizationId",
   });
 });
@@ -118,6 +131,9 @@ export type ProductRecurringCreate$Outbound = {
     | Array<ProductPriceRecurringFixedCreate$Outbound>
     | Array<ProductPriceRecurringFreeCreate$Outbound>;
   medias?: Array<string> | null | undefined;
+  attached_custom_fields?:
+    | Array<AttachedCustomFieldCreate$Outbound>
+    | undefined;
   organization_id?: string | null | undefined;
 };
 
@@ -134,9 +150,12 @@ export const ProductRecurringCreate$outboundSchema: z.ZodType<
     z.array(ProductPriceRecurringFreeCreate$outboundSchema),
   ]),
   medias: z.nullable(z.array(z.string())).optional(),
+  attachedCustomFields: z.array(AttachedCustomFieldCreate$outboundSchema)
+    .optional(),
   organizationId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    attachedCustomFields: "attached_custom_fields",
     organizationId: "organization_id",
   });
 });

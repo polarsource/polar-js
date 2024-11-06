@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import * as components from "../components/index.js";
 
 /**
- * Filter by organization ID. **Required unless you use an organization token.**
+ * Filter by organization ID.
  */
 export type ProductsListQueryParamOrganizationIDFilter = string | Array<string>;
 
@@ -18,7 +18,7 @@ export type QueryParamBenefitIDFilter = string | Array<string>;
 
 export type ProductsListRequest = {
   /**
-   * Filter by organization ID. **Required unless you use an organization token.**
+   * Filter by organization ID.
    */
   organizationId?: string | Array<string> | null | undefined;
   /**

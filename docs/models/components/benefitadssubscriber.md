@@ -6,19 +6,18 @@
 import { BenefitAdsSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitAdsSubscriber = {
-  createdAt: new Date("2023-06-12T12:17:54.368Z"),
-  modifiedAt: new Date("2024-01-24T08:06:05.859Z"),
+  createdAt: new Date("2024-08-06T23:09:15.332Z"),
+  modifiedAt: new Date("2024-02-08T20:24:45.233Z"),
   id: "<value>",
   description:
-    "unto excepting insidious please once louse deployment circa trolley",
+    "ah unique interestingly throughout mixture scenario why grandiose vainly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
-  properties: {},
   grants: [
     {
-      createdAt: new Date("2022-06-05T14:48:44.098Z"),
-      modifiedAt: new Date("2022-10-12T06:34:08.121Z"),
+      createdAt: new Date("2023-02-09T06:12:33.108Z"),
+      modifiedAt: new Date("2023-06-04T12:09:50.425Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
@@ -29,6 +28,27 @@ let value: BenefitAdsSubscriber = {
       properties: {},
     },
   ],
+  organization: {
+    createdAt: new Date("2023-04-15T14:47:40.530Z"),
+    modifiedAt: new Date("2022-05-08T15:09:38.886Z"),
+    id: "<value>",
+    name: "<value>",
+    slug: "<value>",
+    avatarUrl: "https://sick-airline.com/",
+    bio: "<value>",
+    company: "Stiedemann - Morissette",
+    blog: "<value>",
+    location: "<value>",
+    email: "Odessa.Weber-Waelchi58@gmail.com",
+    twitterUsername: "<value>",
+    pledgeMinimumAmount: 564647,
+    pledgeBadgeShowAmount: false,
+    defaultUpfrontSplitToContributors: 318030,
+    donationsEnabled: false,
+    profileSettings: {},
+    featureSettings: {},
+  },
+  properties: {},
 };
 ```
 
@@ -44,5 +64,6 @@ let value: BenefitAdsSubscriber = {
 | `selectable`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is selectable when creating a product.                                    |
 | `deletable`                                                                                   | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is deletable.                                                             |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the benefit.                                                |
-| `properties`                                                                                  | [components.BenefitAdsProperties](../../models/components/benefitadsproperties.md)            | :heavy_check_mark:                                                                            | Properties for a benefit of type `ads`.                                                       |
 | `grants`                                                                                      | [components.BenefitGrantAds](../../models/components/benefitgrantads.md)[]                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `organization`                                                                                | [components.Organization](../../models/components/organization.md)                            | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `properties`                                                                                  | [components.BenefitAdsProperties](../../models/components/benefitadsproperties.md)            | :heavy_check_mark:                                                                            | Properties for a benefit of type `ads`.                                                       |

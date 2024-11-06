@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://enlightened-draft.net",
+          "https://carefree-embarrassment.org/",
         ],
         clientName: "<value>",
-        createdAt: new Date("2024-11-13T07:16:15.727Z"),
-        modifiedAt: new Date("2022-12-13T22:32:12.208Z"),
+        createdAt: new Date("2022-06-03T03:52:22.682Z"),
+        modifiedAt: new Date("2022-12-29T08:00:18.342Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 826806,
-        clientSecretExpiresAt: 103990,
+        clientIdIssuedAt: 51053,
+        clientSecretExpiresAt: 331269,
       },
     ],
     pagination: {
-      totalCount: 633982,
-      maxPage: 751033,
+      totalCount: 320326,
+      maxPage: 946808,
     },
   },
 };

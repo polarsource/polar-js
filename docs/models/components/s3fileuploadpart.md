@@ -6,11 +6,11 @@
 import { S3FileUploadPart } from "@polar-sh/sdk/models/components";
 
 let value: S3FileUploadPart = {
-  number: 404429,
-  chunkStart: 377668,
-  chunkEnd: 485638,
-  url: "https://haunting-mouser.biz/",
-  expiresAt: new Date("2023-05-22T07:36:17.577Z"),
+  number: 357536,
+  chunkStart: 389104,
+  chunkEnd: 835707,
+  url: "https://blaring-backbone.name",
+  expiresAt: new Date("2023-03-11T20:41:59.793Z"),
 };
 ```
 

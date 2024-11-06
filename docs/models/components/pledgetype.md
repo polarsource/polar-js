@@ -5,7 +5,7 @@
 ```typescript
 import { PledgeType } from "@polar-sh/sdk/models/components";
 
-let value: PledgeType = "pay_upfront";
+let value: PledgeType = "pay_directly";
 ```
 
 ## Values
