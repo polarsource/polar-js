@@ -75,6 +75,10 @@ export type PolarCheckoutSchemasCheckoutCreate = {
    * URL where the customer will be redirected after a successful payment.You can add the `checkout_id={CHECKOUT_ID}` query parameter to retrieve the checkout session id.
    */
   successUrl?: string | null | undefined;
+  /**
+   * If you plan to embed the checkout session, set this to the Origin of the embedding page. It'll allow the Polar iframe to communicate with the parent page.
+   */
+  embedOrigin?: string | null | undefined;
 };
 
 /** @internal */
@@ -153,6 +157,7 @@ export const PolarCheckoutSchemasCheckoutCreate$inboundSchema: z.ZodType<
   customer_tax_id: z.nullable(z.string()).optional(),
   subscription_id: z.nullable(z.string()).optional(),
   success_url: z.nullable(z.string()).optional(),
+  embed_origin: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "custom_field_data": "customFieldData",
@@ -165,6 +170,7 @@ export const PolarCheckoutSchemasCheckoutCreate$inboundSchema: z.ZodType<
     "customer_tax_id": "customerTaxId",
     "subscription_id": "subscriptionId",
     "success_url": "successUrl",
+    "embed_origin": "embedOrigin",
   });
 });
 
@@ -184,6 +190,7 @@ export type PolarCheckoutSchemasCheckoutCreate$Outbound = {
   customer_tax_id?: string | null | undefined;
   subscription_id?: string | null | undefined;
   success_url?: string | null | undefined;
+  embed_origin?: string | null | undefined;
 };
 
 /** @internal */
@@ -206,6 +213,7 @@ export const PolarCheckoutSchemasCheckoutCreate$outboundSchema: z.ZodType<
   customerTaxId: z.nullable(z.string()).optional(),
   subscriptionId: z.nullable(z.string()).optional(),
   successUrl: z.nullable(z.string()).optional(),
+  embedOrigin: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     customFieldData: "custom_field_data",
@@ -218,6 +226,7 @@ export const PolarCheckoutSchemasCheckoutCreate$outboundSchema: z.ZodType<
     customerTaxId: "customer_tax_id",
     subscriptionId: "subscription_id",
     successUrl: "success_url",
+    embedOrigin: "embed_origin",
   });
 });
 
