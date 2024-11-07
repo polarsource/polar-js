@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 9b3030720e46b7de09827b780f11990a
+  docChecksum: 3e8e9be2f79e0d50488eebebd547f81a
   docVersion: 0.1.0
-  speakeasyVersion: 1.431.0
-  generationVersion: 2.451.0
-  releaseVersion: 0.15.1
-  configChecksum: 696ad9740df1b7253d7c04779515176f
+  speakeasyVersion: 1.434.0
+  generationVersion: 2.452.0
+  releaseVersion: 0.15.2
+  configChecksum: 0d6becff251e212f59fd09a40a37154a
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
