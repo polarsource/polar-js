@@ -53,6 +53,9 @@ export async function oauth2Userinfo(
   const context = {
     operationID: "oauth2:userinfo",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

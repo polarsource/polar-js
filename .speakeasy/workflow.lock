@@ -1,9 +1,9 @@
-speakeasyVersion: 1.431.0
+speakeasyVersion: 1.438.1
 sources:
     Polar-OAS:
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:f42da804fd4b2c4d782ed454d174adb8316fdc986e50245ae703e445020b1b76
-        sourceBlobDigest: sha256:0e4a2d08c7f1223110e726f0037614363ba877289fef1c97a1a12fd3d5a7dc59
+        sourceRevisionDigest: sha256:4df6842813b1d54baedbb25f874738d0e3c669760833f3b457579ba69a12a8e4
+        sourceBlobDigest: sha256:0f5b5388af51c8cea34904ea7acce013ecca69a2afb75886d9f134e135a365bd
         tags:
             - latest
             - main
@@ -11,8 +11,10 @@ targets:
     polar:
         source: Polar-OAS
         sourceNamespace: polar-oas
-        sourceRevisionDigest: sha256:f42da804fd4b2c4d782ed454d174adb8316fdc986e50245ae703e445020b1b76
-        sourceBlobDigest: sha256:0e4a2d08c7f1223110e726f0037614363ba877289fef1c97a1a12fd3d5a7dc59
+        sourceRevisionDigest: sha256:4df6842813b1d54baedbb25f874738d0e3c669760833f3b457579ba69a12a8e4
+        sourceBlobDigest: sha256:0f5b5388af51c8cea34904ea7acce013ecca69a2afb75886d9f134e135a365bd
+        codeSamplesNamespace: polar-oas-code-samples
+        codeSamplesRevisionDigest: sha256:75cc7be78a96633fb0659d25db90c457df8c0fac82a428524a1fadb33d3a8699
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -24,6 +26,7 @@ workflow:
                 - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/security.yml
                 - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/type_parameter.yml
                 - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/product_price_discriminator.yml
+                - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/read_only.yml
             registry:
                 location: registry.speakeasyapi.dev/polar/polar/polar-oas
     targets:
@@ -35,3 +38,5 @@ workflow:
                     token: $npm_token
             codeSamples:
                 output: codeSamples.yaml
+                registry:
+                    location: registry.speakeasyapi.dev/polar/polar/polar-oas-code-samples

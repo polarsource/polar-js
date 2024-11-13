@@ -21,10 +21,6 @@ import {
   ProductMediaFileRead$inboundSchema,
   ProductMediaFileRead$Outbound,
   ProductMediaFileRead$outboundSchema,
-  ProductMediaFileReadInput,
-  ProductMediaFileReadInput$inboundSchema,
-  ProductMediaFileReadInput$Outbound,
-  ProductMediaFileReadInput$outboundSchema,
 } from "./productmediafileread.js";
 import {
   ProductPrice,
@@ -83,56 +79,6 @@ export type CheckoutProduct = {
    * List of medias associated to the product.
    */
   medias: Array<ProductMediaFileRead>;
-};
-
-/**
- * Product data for a checkout session.
- */
-export type CheckoutProductInput = {
-  /**
-   * Creation timestamp of the object.
-   */
-  createdAt: Date;
-  /**
-   * Last modification timestamp of the object.
-   */
-  modifiedAt: Date | null;
-  /**
-   * The ID of the product.
-   */
-  id: string;
-  /**
-   * The name of the product.
-   */
-  name: string;
-  /**
-   * The description of the product.
-   */
-  description: string | null;
-  /**
-   * Whether the product is a subscription tier.
-   */
-  isRecurring: boolean;
-  /**
-   * Whether the product is archived and no longer available.
-   */
-  isArchived: boolean;
-  /**
-   * The ID of the organization owning the product.
-   */
-  organizationId: string;
-  /**
-   * List of prices for this product.
-   */
-  prices: Array<ProductPrice>;
-  /**
-   * List of benefits granted by the product.
-   */
-  benefits: Array<BenefitBase | BenefitArticles>;
-  /**
-   * List of medias associated to the product.
-   */
-  medias: Array<ProductMediaFileReadInput>;
 };
 
 /** @internal */
@@ -253,92 +199,4 @@ export namespace CheckoutProduct$ {
   export const outboundSchema = CheckoutProduct$outboundSchema;
   /** @deprecated use `CheckoutProduct$Outbound` instead. */
   export type Outbound = CheckoutProduct$Outbound;
-}
-
-/** @internal */
-export const CheckoutProductInput$inboundSchema: z.ZodType<
-  CheckoutProductInput,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  modified_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ),
-  id: z.string(),
-  name: z.string(),
-  description: z.nullable(z.string()),
-  is_recurring: z.boolean(),
-  is_archived: z.boolean(),
-  organization_id: z.string(),
-  prices: z.array(ProductPrice$inboundSchema),
-  benefits: z.array(
-    z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]),
-  ),
-  medias: z.array(ProductMediaFileReadInput$inboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    "created_at": "createdAt",
-    "modified_at": "modifiedAt",
-    "is_recurring": "isRecurring",
-    "is_archived": "isArchived",
-    "organization_id": "organizationId",
-  });
-});
-
-/** @internal */
-export type CheckoutProductInput$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  name: string;
-  description: string | null;
-  is_recurring: boolean;
-  is_archived: boolean;
-  organization_id: string;
-  prices: Array<ProductPrice$Outbound>;
-  benefits: Array<BenefitBase$Outbound | BenefitArticles$Outbound>;
-  medias: Array<ProductMediaFileReadInput$Outbound>;
-};
-
-/** @internal */
-export const CheckoutProductInput$outboundSchema: z.ZodType<
-  CheckoutProductInput$Outbound,
-  z.ZodTypeDef,
-  CheckoutProductInput
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  name: z.string(),
-  description: z.nullable(z.string()),
-  isRecurring: z.boolean(),
-  isArchived: z.boolean(),
-  organizationId: z.string(),
-  prices: z.array(ProductPrice$outboundSchema),
-  benefits: z.array(
-    z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]),
-  ),
-  medias: z.array(ProductMediaFileReadInput$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    isRecurring: "is_recurring",
-    isArchived: "is_archived",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutProductInput$ {
-  /** @deprecated use `CheckoutProductInput$inboundSchema` instead. */
-  export const inboundSchema = CheckoutProductInput$inboundSchema;
-  /** @deprecated use `CheckoutProductInput$outboundSchema` instead. */
-  export const outboundSchema = CheckoutProductInput$outboundSchema;
-  /** @deprecated use `CheckoutProductInput$Outbound` instead. */
-  export type Outbound = CheckoutProductInput$Outbound;
 }

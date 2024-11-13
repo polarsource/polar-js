@@ -6,16 +6,16 @@
 import { Order } from "@polar-sh/sdk/models/components";
 
 let value: Order = {
-  createdAt: new Date("2022-01-09T04:32:15.217Z"),
-  modifiedAt: new Date("2023-06-04T16:24:12.271Z"),
+  createdAt: new Date("2023-07-08T15:12:48.113Z"),
+  modifiedAt: new Date("2024-05-10T10:58:39.596Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
-  amount: 836804,
-  taxAmount: 419707,
-  currency: "Cuban Peso",
-  billingReason: "subscription_create",
+  amount: 281064,
+  taxAmount: 574591,
+  currency: "Malagasy Ariary",
+  billingReason: "purchase",
   userId: "<value>",
   productId: "<value>",
   productPriceId: "<value>",
@@ -23,46 +23,50 @@ let value: Order = {
   checkoutId: "<value>",
   user: {
     id: "<value>",
-    email: "Major50@hotmail.com",
+    email: "Nicholaus_Nikolaus58@gmail.com",
     publicName: "<value>",
     githubUsername: "<value>",
-    avatarUrl: "https://fluffy-minion.name/",
+    avatarUrl: "https://compassionate-dress.name",
   },
   product: {
-    createdAt: new Date("2022-04-25T01:43:31.801Z"),
-    modifiedAt: new Date("2022-07-12T00:53:04.419Z"),
+    createdAt: new Date("2022-02-15T01:23:01.586Z"),
+    modifiedAt: new Date("2022-01-01T22:22:58.693Z"),
     id: "<value>",
     name: "<value>",
-    description: "among until mmm word lean from quarrel finally altruistic",
+    description:
+      "where though sarcastic godparent weird patiently married alliance sonar keenly",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
   },
   productPrice: {
-    createdAt: new Date("2024-08-21T18:47:35.544Z"),
-    modifiedAt: new Date("2022-06-07T04:12:06.961Z"),
+    createdAt: new Date("2022-08-20T06:58:32.848Z"),
+    modifiedAt: new Date("2022-09-05T20:51:23.814Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
     priceCurrency: "<value>",
-    priceAmount: 30643,
+    minimumAmount: 690696,
+    maximumAmount: 151557,
+    presetAmount: 281986,
+    recurringInterval: "month",
   },
   subscription: {
     metadata: {
       "key": "<value>",
     },
-    createdAt: new Date("2022-03-08T19:15:27.321Z"),
-    modifiedAt: new Date("2023-07-27T07:33:30.803Z"),
+    createdAt: new Date("2022-02-11T10:30:57.987Z"),
+    modifiedAt: new Date("2024-02-05T09:06:07.394Z"),
     id: "<value>",
-    amount: 215248,
-    currency: "Sudanese Pound",
+    amount: 404429,
+    currency: "Bhutanese Ngultrum",
     recurringInterval: "month",
     status: "incomplete_expired",
-    currentPeriodStart: new Date("2024-06-28T22:40:32.191Z"),
-    currentPeriodEnd: new Date("2022-02-20T00:32:42.159Z"),
+    currentPeriodStart: new Date("2023-01-30T22:12:53.323Z"),
+    currentPeriodEnd: new Date("2023-10-10T16:45:39.713Z"),
     cancelAtPeriodEnd: false,
-    startedAt: new Date("2024-05-13T05:22:03.123Z"),
-    endedAt: new Date("2022-05-03T11:52:05.226Z"),
+    startedAt: new Date("2022-09-04T01:52:32.823Z"),
+    endedAt: new Date("2023-05-22T07:36:17.577Z"),
     userId: "<value>",
     productId: "<value>",
     priceId: "<value>",
@@ -78,7 +82,7 @@ let value: Order = {
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Creation timestamp of the object.                                                             |
 | `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the object.                                                                         |
-| `metadata`                                                                                    | Record<string, *string*>                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `metadata`                                                                                    | Record<string, *components.OrderMetadata*>                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `customFieldData`                                                                             | [components.OrderCustomFieldData](../../models/components/ordercustomfielddata.md)            | :heavy_minus_sign:                                                                            | Key-value object storing custom field values.                                                 |
 | `amount`                                                                                      | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `taxAmount`                                                                                   | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |

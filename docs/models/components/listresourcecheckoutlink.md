@@ -8,30 +8,28 @@ import { ListResourceCheckoutLink } from "@polar-sh/sdk/models/components";
 let value: ListResourceCheckoutLink = {
   items: [
     {
-      createdAt: new Date("2024-02-16T00:15:32.715Z"),
-      modifiedAt: new Date("2024-01-10T10:45:06.401Z"),
+      createdAt: new Date("2024-02-28T16:31:31.253Z"),
+      modifiedAt: new Date("2022-12-28T14:16:16.603Z"),
       id: "<value>",
       metadata: {
-        "key": "<value>",
+        "key": false,
       },
       clientSecret: "<value>",
-      successUrl: "https://scientific-tentacle.net/",
+      successUrl: "https://great-representation.com/",
       productPriceId: "<value>",
       productPrice: {
-        createdAt: new Date("2024-09-05T00:05:28.311Z"),
-        modifiedAt: new Date("2023-06-21T17:32:39.701Z"),
+        createdAt: new Date("2022-11-30T04:59:07.344Z"),
+        modifiedAt: new Date("2024-02-21T04:41:02.985Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        priceCurrency: "<value>",
-        priceAmount: 407877,
       },
-      url: "https://earnest-fishery.net",
+      url: "https://stormy-league.com",
     },
   ],
   pagination: {
-    totalCount: 563474,
-    maxPage: 762279,
+    totalCount: 892340,
+    maxPage: 489718,
   },
 };
 ```

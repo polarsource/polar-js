@@ -12,6 +12,8 @@ import {
   CustomFieldCheckboxProperties$outboundSchema,
 } from "./customfieldcheckboxproperties.js";
 
+export type CustomFieldCheckboxMetadata = string | number | boolean;
+
 export const CustomFieldCheckboxType = {
   Checkbox: "checkbox",
 } as const;
@@ -35,10 +37,10 @@ export type CustomFieldCheckbox = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   type?: "checkbox" | undefined;
   /**
-   * Identifier of the custom field. It'll be used as key when storing the value. Must be unique across the organization.
+   * Identifier of the custom field. It'll be used as key when storing the value.
    */
   slug: string;
   /**
@@ -51,6 +53,36 @@ export type CustomFieldCheckbox = {
   organizationId: string;
   properties: CustomFieldCheckboxProperties;
 };
+
+/** @internal */
+export const CustomFieldCheckboxMetadata$inboundSchema: z.ZodType<
+  CustomFieldCheckboxMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CustomFieldCheckboxMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CustomFieldCheckboxMetadata$outboundSchema: z.ZodType<
+  CustomFieldCheckboxMetadata$Outbound,
+  z.ZodTypeDef,
+  CustomFieldCheckboxMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomFieldCheckboxMetadata$ {
+  /** @deprecated use `CustomFieldCheckboxMetadata$inboundSchema` instead. */
+  export const inboundSchema = CustomFieldCheckboxMetadata$inboundSchema;
+  /** @deprecated use `CustomFieldCheckboxMetadata$outboundSchema` instead. */
+  export const outboundSchema = CustomFieldCheckboxMetadata$outboundSchema;
+  /** @deprecated use `CustomFieldCheckboxMetadata$Outbound` instead. */
+  export type Outbound = CustomFieldCheckboxMetadata$Outbound;
+}
 
 /** @internal */
 export const CustomFieldCheckboxType$inboundSchema: z.ZodNativeEnum<
@@ -84,7 +116,7 @@ export const CustomFieldCheckbox$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   type: z.literal("checkbox").optional(),
   slug: z.string(),
   name: z.string(),
@@ -103,7 +135,7 @@ export type CustomFieldCheckbox$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   type: "checkbox";
   slug: string;
   name: string;
@@ -120,7 +152,7 @@ export const CustomFieldCheckbox$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   type: z.literal("checkbox").default("checkbox"),
   slug: z.string(),
   name: z.string(),

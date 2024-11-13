@@ -47,7 +47,6 @@ let value: RepositoriesListResponse = {
           pledgeMinimumAmount: 411615,
           pledgeBadgeShowAmount: false,
           defaultUpfrontSplitToContributors: 489459,
-          donationsEnabled: false,
           profileSettings: {},
           featureSettings: {},
         },

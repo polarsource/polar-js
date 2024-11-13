@@ -70,6 +70,7 @@ export async function licenseKeysList(
   const path = pathToFunc("/v1/license-keys")();
 
   const query = encodeFormQuery({
+    "benefit_id": payload.benefit_id,
     "limit": payload.limit,
     "organization_id": payload.organization_id,
     "page": payload.page,
@@ -86,6 +87,9 @@ export async function licenseKeysList(
   const context = {
     operationID: "license_keys:list",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

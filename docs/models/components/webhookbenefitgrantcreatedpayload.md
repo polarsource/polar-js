@@ -11,8 +11,8 @@ import { WebhookBenefitGrantCreatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantCreatedPayload = {
   data: {
-    createdAt: new Date("2023-03-27T12:43:43.871Z"),
-    modifiedAt: new Date("2024-07-16T06:38:50.927Z"),
+    createdAt: new Date("2024-02-04T12:58:34.917Z"),
+    modifiedAt: new Date("2024-12-24T14:46:09.468Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,24 +22,20 @@ let value: WebhookBenefitGrantCreatedPayload = {
     benefitId: "<value>",
     properties: {},
     benefit: {
-      createdAt: new Date("2022-01-19T15:42:01.485Z"),
-      modifiedAt: new Date("2022-01-30T17:42:43.078Z"),
+      createdAt: new Date("2023-12-19T01:08:14.559Z"),
+      modifiedAt: new Date("2023-04-07T08:58:17.552Z"),
       id: "<value>",
-      description: "broadly cruelly monocle embalm pace",
+      description: "minus why worth",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        prefix: "<value>",
-        expires: {
-          ttl: 252144,
-          timeframe: "month",
+        archived: {
+          "key": false,
         },
-        activations: {
-          limit: 337514,
-          enableUserAdmin: false,
-        },
-        limitUsage: 926674,
+        files: [
+          "<value>",
+        ],
       },
     },
   },

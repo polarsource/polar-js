@@ -83,6 +83,9 @@ export async function usersDownloadablesList(
   const context = {
     operationID: "users:downloadables:list",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

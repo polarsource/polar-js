@@ -91,7 +91,6 @@ let value: UsersSubscriptionsListResponse = {
             pledgeMinimumAmount: 975884,
             pledgeBadgeShowAmount: false,
             defaultUpfrontSplitToContributors: 932562,
-            donationsEnabled: false,
             profileSettings: {},
             featureSettings: {},
           },

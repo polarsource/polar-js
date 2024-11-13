@@ -75,6 +75,9 @@ export async function subscriptionsExport(
   const context = {
     operationID: "subscriptions:export",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

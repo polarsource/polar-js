@@ -89,6 +89,9 @@ export async function repositoriesList(
   const context = {
     operationID: "repositories:list",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

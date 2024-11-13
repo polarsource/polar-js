@@ -45,7 +45,6 @@ let value: Repository = {
     pledgeMinimumAmount: 318878,
     pledgeBadgeShowAmount: false,
     defaultUpfrontSplitToContributors: 592218,
-    donationsEnabled: false,
     profileSettings: {},
     featureSettings: {},
   },

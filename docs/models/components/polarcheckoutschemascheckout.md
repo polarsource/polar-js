@@ -8,63 +8,58 @@ Checkout session data retrieved using an access token.
 import { PolarCheckoutSchemasCheckout } from "@polar-sh/sdk/models/components";
 
 let value: PolarCheckoutSchemasCheckout = {
-  createdAt: new Date("2023-03-10T23:31:28.664Z"),
-  modifiedAt: new Date("2024-04-09T16:36:06.881Z"),
+  createdAt: new Date("2023-08-24T23:11:15.301Z"),
+  modifiedAt: new Date("2023-04-04T00:47:20.992Z"),
   id: "<value>",
   status: "open",
   clientSecret: "<value>",
-  url: "https://self-assured-fat.net/",
-  expiresAt: new Date("2022-01-26T01:19:06.557Z"),
-  successUrl: "https://necessary-chasuble.com",
+  url: "https://spiffy-litter.biz/",
+  expiresAt: new Date("2023-05-04T04:09:06.657Z"),
+  successUrl: "https://realistic-calculus.name",
   embedOrigin: "<value>",
-  amount: 928155,
-  taxAmount: 505017,
-  currency: "Australian Dollar",
-  totalAmount: 148557,
+  amount: 198695,
+  taxAmount: 978408,
+  currency: "Solomon Islands Dollar",
+  totalAmount: 81000,
   productId: "<value>",
   productPriceId: "<value>",
   isPaymentRequired: false,
   customerId: "<value>",
   customerName: "<value>",
-  customerEmail: "Jasen82@hotmail.com",
+  customerEmail: "Arianna.Senger16@gmail.com",
   customerIpAddress: "<value>",
   customerBillingAddress: {
-    country: "United Arab Emirates",
+    country: "Nepal",
   },
   customerTaxId: "<id>",
   paymentProcessorMetadata: {},
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
   product: {
-    createdAt: new Date("2024-03-09T15:40:10.296Z"),
-    modifiedAt: new Date("2022-02-27T13:45:36.700Z"),
+    createdAt: new Date("2024-06-20T17:08:39.320Z"),
+    modifiedAt: new Date("2022-08-09T05:10:15.962Z"),
     id: "<value>",
     name: "<value>",
-    description:
-      "implode ick sans in aha cheerful after weary oval furthermore",
+    description: "verbally merrily legend punctually amid joyously gee hateful",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2023-06-13T17:02:40.832Z"),
-        modifiedAt: new Date("2022-05-21T23:41:53.158Z"),
+        createdAt: new Date("2022-01-18T18:59:13.114Z"),
+        modifiedAt: new Date("2024-10-05T21:58:09.997Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        priceCurrency: "<value>",
-        minimumAmount: 28163,
-        maximumAmount: 759236,
-        presetAmount: 73989,
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2023-08-13T03:13:38.266Z"),
-        modifiedAt: new Date("2023-07-23T06:22:31.196Z"),
+        createdAt: new Date("2022-08-14T05:05:54.788Z"),
+        modifiedAt: new Date("2023-03-26T01:06:23.500Z"),
         id: "<value>",
-        description: "geez abnormally cleaner order mmm",
+        description: "bulky inwardly importance",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -78,46 +73,49 @@ let value: PolarCheckoutSchemasCheckout = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/var/mail",
+        path: "/opt/lib",
         mimeType: "<value>",
-        size: 16232,
+        size: 549457,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-10-05T21:58:09.997Z"),
+        lastModifiedAt: new Date("2023-12-03T06:03:57.837Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2024-08-28T00:21:29.394Z"),
+        createdAt: new Date("2022-03-06T13:25:23.485Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://incomparable-cash.net/",
+        publicUrl: "https://complete-hose.org",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2023-04-29T19:57:08.545Z"),
-    modifiedAt: new Date("2023-11-22T13:08:14.775Z"),
+    createdAt: new Date("2023-04-09T15:05:07.991Z"),
+    modifiedAt: new Date("2022-03-08T04:36:01.401Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
+    priceCurrency: "<value>",
+    priceAmount: 286276,
+    recurringInterval: "month",
   },
   subscriptionId: "<value>",
   attachedCustomFields: [
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2022-04-13T08:13:23.724Z"),
-        modifiedAt: new Date("2022-05-11T14:20:11.184Z"),
+        createdAt: new Date("2023-09-21T10:09:14.320Z"),
+        modifiedAt: new Date("2024-04-01T05:07:23.085Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": false,
         },
         slug: "<value>",
         name: "<value>",
         organizationId: "<value>",
         properties: {},
       },
-      order: 817785,
+      order: 437621,
       required: false,
     },
   ],
@@ -132,7 +130,7 @@ let value: PolarCheckoutSchemasCheckout = {
 | `modifiedAt`                                                                                                                                                 | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                | :heavy_check_mark:                                                                                                                                           | Last modification timestamp of the object.                                                                                                                   |
 | `id`                                                                                                                                                         | *string*                                                                                                                                                     | :heavy_check_mark:                                                                                                                                           | The ID of the object.                                                                                                                                        |
 | `customFieldData`                                                                                                                                            | [components.PolarCheckoutSchemasCheckoutCustomFieldData](../../models/components/polarcheckoutschemascheckoutcustomfielddata.md)                             | :heavy_minus_sign:                                                                                                                                           | Key-value object storing custom field values.                                                                                                                |
-| `paymentProcessor`                                                                                                                                           | [components.PolarEnumsPaymentProcessor](../../models/components/polarenumspaymentprocessor.md)                                                               | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
+| `paymentProcessor`                                                                                                                                           | [components.PaymentProcessor](../../models/components/paymentprocessor.md)                                                                                   | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
 | `status`                                                                                                                                                     | [components.CheckoutStatus](../../models/components/checkoutstatus.md)                                                                                       | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
 | `clientSecret`                                                                                                                                               | *string*                                                                                                                                                     | :heavy_check_mark:                                                                                                                                           | Client secret used to update and complete the checkout session from the client.                                                                              |
 | `url`                                                                                                                                                        | *string*                                                                                                                                                     | :heavy_check_mark:                                                                                                                                           | URL where the customer can access the checkout session.                                                                                                      |
@@ -153,7 +151,7 @@ let value: PolarCheckoutSchemasCheckout = {
 | `customerBillingAddress`                                                                                                                                     | [components.Address](../../models/components/address.md)                                                                                                     | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
 | `customerTaxId`                                                                                                                                              | *string*                                                                                                                                                     | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
 | `paymentProcessorMetadata`                                                                                                                                   | [components.PaymentProcessorMetadata](../../models/components/paymentprocessormetadata.md)                                                                   | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
-| `metadata`                                                                                                                                                   | Record<string, *string*>                                                                                                                                     | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
+| `metadata`                                                                                                                                                   | Record<string, *components.PolarCheckoutSchemasCheckoutMetadata*>                                                                                            | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
 | `product`                                                                                                                                                    | [components.CheckoutProduct](../../models/components/checkoutproduct.md)                                                                                     | :heavy_check_mark:                                                                                                                                           | Product data for a checkout session.                                                                                                                         |
 | `productPrice`                                                                                                                                               | *components.ProductPrice*                                                                                                                                    | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |
 | `subscriptionId`                                                                                                                                             | *string*                                                                                                                                                     | :heavy_check_mark:                                                                                                                                           | N/A                                                                                                                                                          |

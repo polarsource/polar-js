@@ -6,22 +6,21 @@
 import { Organization } from "@polar-sh/sdk/models/components";
 
 let value: Organization = {
-  createdAt: new Date("2024-06-15T19:50:49.445Z"),
-  modifiedAt: new Date("2023-06-30T02:38:21.936Z"),
+  createdAt: new Date("2022-01-20T10:50:32.334Z"),
+  modifiedAt: new Date("2023-12-22T15:24:11.981Z"),
   id: "<value>",
   name: "<value>",
   slug: "<value>",
-  avatarUrl: "https://pale-seagull.biz/",
+  avatarUrl: "https://clueless-trench.org/",
   bio: "<value>",
-  company: "Keebler, Windler and Russel",
+  company: "Gutkowski - Cummerata",
   blog: "<value>",
   location: "<value>",
-  email: "Ahmed93@yahoo.com",
+  email: "Samir73@yahoo.com",
   twitterUsername: "<value>",
-  pledgeMinimumAmount: 269889,
+  pledgeMinimumAmount: 281416,
   pledgeBadgeShowAmount: false,
-  defaultUpfrontSplitToContributors: 301768,
-  donationsEnabled: false,
+  defaultUpfrontSplitToContributors: 690654,
   profileSettings: {},
   featureSettings: {},
 };
@@ -46,6 +45,5 @@ let value: Organization = {
 | `pledgeMinimumAmount`                                                                            | *number*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
 | `pledgeBadgeShowAmount`                                                                          | *boolean*                                                                                        | :heavy_check_mark:                                                                               | N/A                                                                                              |
 | `defaultUpfrontSplitToContributors`                                                              | *number*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
-| `donationsEnabled`                                                                               | *boolean*                                                                                        | :heavy_check_mark:                                                                               | If this organizations accepts donations                                                          |
 | `profileSettings`                                                                                | [components.OrganizationProfileSettings](../../models/components/organizationprofilesettings.md) | :heavy_check_mark:                                                                               | Settings for the organization profile                                                            |
 | `featureSettings`                                                                                | [components.OrganizationFeatureSettings](../../models/components/organizationfeaturesettings.md) | :heavy_check_mark:                                                                               | Settings for the organization features                                                           |

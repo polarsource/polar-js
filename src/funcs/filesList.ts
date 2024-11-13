@@ -85,6 +85,9 @@ export async function filesList(
   const context = {
     operationID: "files:list",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

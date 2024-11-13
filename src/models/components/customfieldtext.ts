@@ -12,6 +12,8 @@ import {
   CustomFieldTextProperties$outboundSchema,
 } from "./customfieldtextproperties.js";
 
+export type CustomFieldTextMetadata = string | number | boolean;
+
 export const CustomFieldTextType = {
   Text: "text",
 } as const;
@@ -33,10 +35,10 @@ export type CustomFieldText = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   type?: "text" | undefined;
   /**
-   * Identifier of the custom field. It'll be used as key when storing the value. Must be unique across the organization.
+   * Identifier of the custom field. It'll be used as key when storing the value.
    */
   slug: string;
   /**
@@ -49,6 +51,36 @@ export type CustomFieldText = {
   organizationId: string;
   properties: CustomFieldTextProperties;
 };
+
+/** @internal */
+export const CustomFieldTextMetadata$inboundSchema: z.ZodType<
+  CustomFieldTextMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CustomFieldTextMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CustomFieldTextMetadata$outboundSchema: z.ZodType<
+  CustomFieldTextMetadata$Outbound,
+  z.ZodTypeDef,
+  CustomFieldTextMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomFieldTextMetadata$ {
+  /** @deprecated use `CustomFieldTextMetadata$inboundSchema` instead. */
+  export const inboundSchema = CustomFieldTextMetadata$inboundSchema;
+  /** @deprecated use `CustomFieldTextMetadata$outboundSchema` instead. */
+  export const outboundSchema = CustomFieldTextMetadata$outboundSchema;
+  /** @deprecated use `CustomFieldTextMetadata$Outbound` instead. */
+  export type Outbound = CustomFieldTextMetadata$Outbound;
+}
 
 /** @internal */
 export const CustomFieldTextType$inboundSchema: z.ZodNativeEnum<
@@ -82,7 +114,7 @@ export const CustomFieldText$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   type: z.literal("text").optional(),
   slug: z.string(),
   name: z.string(),
@@ -101,7 +133,7 @@ export type CustomFieldText$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   type: "text";
   slug: string;
   name: string;
@@ -118,7 +150,7 @@ export const CustomFieldText$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   type: z.literal("text").default("text"),
   slug: z.string(),
   name: z.string(),

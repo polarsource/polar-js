@@ -15,8 +15,10 @@ import {
   SubscriptionStatus$outboundSchema,
 } from "./subscriptionstatus.js";
 
+export type OrderSubscriptionMetadata = string | number | boolean;
+
 export type OrderSubscription = {
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   /**
    * Creation timestamp of the object.
    */
@@ -45,12 +47,42 @@ export type OrderSubscription = {
 };
 
 /** @internal */
+export const OrderSubscriptionMetadata$inboundSchema: z.ZodType<
+  OrderSubscriptionMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type OrderSubscriptionMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const OrderSubscriptionMetadata$outboundSchema: z.ZodType<
+  OrderSubscriptionMetadata$Outbound,
+  z.ZodTypeDef,
+  OrderSubscriptionMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OrderSubscriptionMetadata$ {
+  /** @deprecated use `OrderSubscriptionMetadata$inboundSchema` instead. */
+  export const inboundSchema = OrderSubscriptionMetadata$inboundSchema;
+  /** @deprecated use `OrderSubscriptionMetadata$outboundSchema` instead. */
+  export const outboundSchema = OrderSubscriptionMetadata$outboundSchema;
+  /** @deprecated use `OrderSubscriptionMetadata$Outbound` instead. */
+  export type Outbound = OrderSubscriptionMetadata$Outbound;
+}
+
+/** @internal */
 export const OrderSubscription$inboundSchema: z.ZodType<
   OrderSubscription,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -96,7 +128,7 @@ export const OrderSubscription$inboundSchema: z.ZodType<
 
 /** @internal */
 export type OrderSubscription$Outbound = {
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   created_at: string;
   modified_at: string | null;
   id: string;
@@ -121,7 +153,7 @@ export const OrderSubscription$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   OrderSubscription
 > = z.object({
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),

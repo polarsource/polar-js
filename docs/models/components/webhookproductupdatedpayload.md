@@ -11,39 +11,37 @@ import { WebhookProductUpdatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookProductUpdatedPayload = {
   data: {
-    createdAt: new Date("2024-12-25T09:41:05.009Z"),
-    modifiedAt: new Date("2022-05-26T16:11:49.684Z"),
+    createdAt: new Date("2022-02-26T03:29:51.928Z"),
+    modifiedAt: new Date("2023-07-07T02:04:12.238Z"),
     id: "<value>",
     name: "<value>",
-    description: "candid than indeed",
+    description: "perfectly extremely encode gadzooks browse atomize",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
+    metadata: {
+      "key": 193506,
+    },
     prices: [
       {
-        createdAt: new Date("2024-03-14T12:56:53.269Z"),
-        modifiedAt: new Date("2024-07-23T05:17:11.148Z"),
+        createdAt: new Date("2022-01-16T20:56:53.226Z"),
+        modifiedAt: new Date("2023-03-31T19:03:13.780Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        priceCurrency: "<value>",
-        minimumAmount: 525439,
-        maximumAmount: 402139,
-        presetAmount: 394633,
+        recurringInterval: "year",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2022-01-17T05:42:45.439Z"),
-        modifiedAt: new Date("2024-03-25T22:52:07.722Z"),
+        createdAt: new Date("2024-09-12T19:18:28.211Z"),
+        modifiedAt: new Date("2023-03-24T21:56:02.071Z"),
         id: "<value>",
-        description: "indeed throughout joyfully annual doodle dish",
+        description: "consequently improbable quarterly testify",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
-        properties: {
-          paidArticles: false,
-        },
+        properties: {},
       },
     ],
     medias: [
@@ -51,42 +49,37 @@ let value: WebhookProductUpdatedPayload = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/etc/mail",
+        path: "/usr/local/src",
         mimeType: "<value>",
-        size: 570896,
+        size: 846160,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-10-06T18:59:00.388Z"),
+        lastModifiedAt: new Date("2023-03-20T09:47:46.111Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2023-12-13T02:05:45.362Z"),
+        createdAt: new Date("2022-10-08T23:40:51.269Z"),
+        sizeReadable: "<value>",
+        publicUrl: "https://honored-equal.biz",
       },
     ],
     attachedCustomFields: [
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2024-07-29T19:58:52.381Z"),
-          modifiedAt: new Date("2024-02-07T07:59:02.677Z"),
+          createdAt: new Date("2022-07-13T21:58:05.271Z"),
+          modifiedAt: new Date("2024-07-01T22:06:35.493Z"),
           id: "<value>",
           metadata: {
-            "key": "<value>",
+            "key": 261144,
           },
           slug: "<value>",
           name: "<value>",
           organizationId: "<value>",
-          properties: {
-            options: [
-              {
-                value: "<value>",
-                label: "<value>",
-              },
-            ],
-          },
+          properties: {},
         },
-        order: 375940,
+        order: 584231,
         required: false,
       },
     ],
@@ -99,4 +92,4 @@ let value: WebhookProductUpdatedPayload = {
 | Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `type`                                                                                                     | [components.WebhookProductUpdatedPayloadType](../../models/components/webhookproductupdatedpayloadtype.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `data`                                                                                                     | [components.ProductInput](../../models/components/productinput.md)                                         | :heavy_check_mark:                                                                                         | A product.                                                                                                 |
+| `data`                                                                                                     | [components.Product](../../models/components/product.md)                                                   | :heavy_check_mark:                                                                                         | A product.                                                                                                 |

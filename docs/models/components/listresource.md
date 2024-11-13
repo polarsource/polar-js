@@ -8,11 +8,11 @@ import { ListResource } from "@polar-sh/sdk/models/components";
 let value: ListResource = {
   items: [
     {
-      createdAt: new Date("2022-12-11T12:45:41.520Z"),
-      modifiedAt: new Date("2023-01-20T02:46:22.982Z"),
+      createdAt: new Date("2023-01-20T02:46:22.982Z"),
+      modifiedAt: new Date("2023-06-25T19:23:05.706Z"),
       id: "<value>",
       metadata: {
-        "key": "<value>",
+        "key": false,
       },
       slug: "<value>",
       name: "<value>",
@@ -21,8 +21,8 @@ let value: ListResource = {
     },
   ],
   pagination: {
-    totalCount: 493438,
-    maxPage: 706735,
+    totalCount: 999978,
+    maxPage: 518571,
   },
 };
 ```

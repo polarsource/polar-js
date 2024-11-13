@@ -79,6 +79,9 @@ export async function articlesSend(
   const context = {
     operationID: "articles:send",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

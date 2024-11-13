@@ -53,6 +53,9 @@ export async function metricsLimits(
   const context = {
     operationID: "metrics:limits",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

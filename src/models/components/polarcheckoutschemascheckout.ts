@@ -21,10 +21,6 @@ import {
   CheckoutProduct$inboundSchema,
   CheckoutProduct$Outbound,
   CheckoutProduct$outboundSchema,
-  CheckoutProductInput,
-  CheckoutProductInput$inboundSchema,
-  CheckoutProductInput$Outbound,
-  CheckoutProductInput$outboundSchema,
 } from "./checkoutproduct.js";
 import {
   CheckoutStatus,
@@ -44,6 +40,8 @@ import {
 export type PolarCheckoutSchemasCheckoutCustomFieldData = {};
 
 export type PaymentProcessorMetadata = {};
+
+export type PolarCheckoutSchemasCheckoutMetadata = string | number | boolean;
 
 /**
  * Checkout session data retrieved using an access token.
@@ -119,95 +117,11 @@ export type PolarCheckoutSchemasCheckout = {
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
   paymentProcessorMetadata: PaymentProcessorMetadata;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   /**
    * Product data for a checkout session.
    */
   product: CheckoutProduct;
-  productPrice: ProductPrice;
-  subscriptionId: string | null;
-  attachedCustomFields: Array<AttachedCustomField>;
-};
-
-/**
- * Checkout session data retrieved using an access token.
- */
-export type PolarCheckoutSchemasCheckoutInput = {
-  /**
-   * Creation timestamp of the object.
-   */
-  createdAt: Date;
-  /**
-   * Last modification timestamp of the object.
-   */
-  modifiedAt: Date | null;
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  /**
-   * Key-value object storing custom field values.
-   */
-  customFieldData?: PolarCheckoutSchemasCheckoutCustomFieldData | undefined;
-  paymentProcessor?: "stripe" | undefined;
-  status: CheckoutStatus;
-  /**
-   * Client secret used to update and complete the checkout session from the client.
-   */
-  clientSecret: string;
-  /**
-   * URL where the customer can access the checkout session.
-   */
-  url: string;
-  /**
-   * Expiration date and time of the checkout session.
-   */
-  expiresAt: Date;
-  /**
-   * URL where the customer will be redirected after a successful payment.
-   */
-  successUrl: string;
-  /**
-   * When checkout is embedded, represents the Origin of the page embedding the checkout. Used as a security measure to send messages only to the embedding page.
-   */
-  embedOrigin: string | null;
-  amount: number | null;
-  /**
-   * Computed tax amount to pay in cents.
-   */
-  taxAmount: number | null;
-  /**
-   * Currency code of the checkout session.
-   */
-  currency: string | null;
-  /**
-   * Total amount to pay in cents.
-   */
-  totalAmount: number | null;
-  /**
-   * ID of the product to checkout.
-   */
-  productId: string;
-  /**
-   * ID of the product price to checkout.
-   */
-  productPriceId: string;
-  /**
-   * Whether the checkout requires payment. Useful to detect free products.
-   */
-  isPaymentRequired: boolean;
-  customerId: string | null;
-  customerName: string | null;
-  customerEmail: string | null;
-  customerIpAddress: string | null;
-  customerBillingAddress: Address | null;
-  customerTaxId: string | null;
-  paymentProcessorMetadata: PaymentProcessorMetadata;
-  metadata: { [k: string]: string };
-  /**
-   * Product data for a checkout session.
-   */
-  product: CheckoutProductInput;
   productPrice: ProductPrice;
   subscriptionId: string | null;
   attachedCustomFields: Array<AttachedCustomField>;
@@ -278,6 +192,41 @@ export namespace PaymentProcessorMetadata$ {
 }
 
 /** @internal */
+export const PolarCheckoutSchemasCheckoutMetadata$inboundSchema: z.ZodType<
+  PolarCheckoutSchemasCheckoutMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type PolarCheckoutSchemasCheckoutMetadata$Outbound =
+  | string
+  | number
+  | boolean;
+
+/** @internal */
+export const PolarCheckoutSchemasCheckoutMetadata$outboundSchema: z.ZodType<
+  PolarCheckoutSchemasCheckoutMetadata$Outbound,
+  z.ZodTypeDef,
+  PolarCheckoutSchemasCheckoutMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PolarCheckoutSchemasCheckoutMetadata$ {
+  /** @deprecated use `PolarCheckoutSchemasCheckoutMetadata$inboundSchema` instead. */
+  export const inboundSchema =
+    PolarCheckoutSchemasCheckoutMetadata$inboundSchema;
+  /** @deprecated use `PolarCheckoutSchemasCheckoutMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    PolarCheckoutSchemasCheckoutMetadata$outboundSchema;
+  /** @deprecated use `PolarCheckoutSchemasCheckoutMetadata$Outbound` instead. */
+  export type Outbound = PolarCheckoutSchemasCheckoutMetadata$Outbound;
+}
+
+/** @internal */
 export const PolarCheckoutSchemasCheckout$inboundSchema: z.ZodType<
   PolarCheckoutSchemasCheckout,
   z.ZodTypeDef,
@@ -314,7 +263,7 @@ export const PolarCheckoutSchemasCheckout$inboundSchema: z.ZodType<
   payment_processor_metadata: z.lazy(() =>
     PaymentProcessorMetadata$inboundSchema
   ),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   product: CheckoutProduct$inboundSchema,
   product_price: ProductPrice$inboundSchema,
   subscription_id: z.nullable(z.string()),
@@ -376,7 +325,7 @@ export type PolarCheckoutSchemasCheckout$Outbound = {
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
   payment_processor_metadata: PaymentProcessorMetadata$Outbound;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   product: CheckoutProduct$Outbound;
   product_price: ProductPrice$Outbound;
   subscription_id: string | null;
@@ -418,7 +367,7 @@ export const PolarCheckoutSchemasCheckout$outboundSchema: z.ZodType<
   paymentProcessorMetadata: z.lazy(() =>
     PaymentProcessorMetadata$outboundSchema
   ),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   product: CheckoutProduct$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
   subscriptionId: z.nullable(z.string()),
@@ -462,192 +411,4 @@ export namespace PolarCheckoutSchemasCheckout$ {
   export const outboundSchema = PolarCheckoutSchemasCheckout$outboundSchema;
   /** @deprecated use `PolarCheckoutSchemasCheckout$Outbound` instead. */
   export type Outbound = PolarCheckoutSchemasCheckout$Outbound;
-}
-
-/** @internal */
-export const PolarCheckoutSchemasCheckoutInput$inboundSchema: z.ZodType<
-  PolarCheckoutSchemasCheckoutInput,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  modified_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ),
-  id: z.string(),
-  custom_field_data: z.lazy(() =>
-    PolarCheckoutSchemasCheckoutCustomFieldData$inboundSchema
-  ).optional(),
-  payment_processor: z.literal("stripe").optional(),
-  status: CheckoutStatus$inboundSchema,
-  client_secret: z.string(),
-  url: z.string(),
-  expires_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  success_url: z.string(),
-  embed_origin: z.nullable(z.string()),
-  amount: z.nullable(z.number().int()),
-  tax_amount: z.nullable(z.number().int()),
-  currency: z.nullable(z.string()),
-  total_amount: z.nullable(z.number().int()),
-  product_id: z.string(),
-  product_price_id: z.string(),
-  is_payment_required: z.boolean(),
-  customer_id: z.nullable(z.string()),
-  customer_name: z.nullable(z.string()),
-  customer_email: z.nullable(z.string()),
-  customer_ip_address: z.nullable(z.string()),
-  customer_billing_address: z.nullable(Address$inboundSchema),
-  customer_tax_id: z.nullable(z.string()),
-  payment_processor_metadata: z.lazy(() =>
-    PaymentProcessorMetadata$inboundSchema
-  ),
-  metadata: z.record(z.string()),
-  product: CheckoutProductInput$inboundSchema,
-  product_price: ProductPrice$inboundSchema,
-  subscription_id: z.nullable(z.string()),
-  attached_custom_fields: z.array(AttachedCustomField$inboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    "created_at": "createdAt",
-    "modified_at": "modifiedAt",
-    "custom_field_data": "customFieldData",
-    "payment_processor": "paymentProcessor",
-    "client_secret": "clientSecret",
-    "expires_at": "expiresAt",
-    "success_url": "successUrl",
-    "embed_origin": "embedOrigin",
-    "tax_amount": "taxAmount",
-    "total_amount": "totalAmount",
-    "product_id": "productId",
-    "product_price_id": "productPriceId",
-    "is_payment_required": "isPaymentRequired",
-    "customer_id": "customerId",
-    "customer_name": "customerName",
-    "customer_email": "customerEmail",
-    "customer_ip_address": "customerIpAddress",
-    "customer_billing_address": "customerBillingAddress",
-    "customer_tax_id": "customerTaxId",
-    "payment_processor_metadata": "paymentProcessorMetadata",
-    "product_price": "productPrice",
-    "subscription_id": "subscriptionId",
-    "attached_custom_fields": "attachedCustomFields",
-  });
-});
-
-/** @internal */
-export type PolarCheckoutSchemasCheckoutInput$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  custom_field_data?:
-    | PolarCheckoutSchemasCheckoutCustomFieldData$Outbound
-    | undefined;
-  payment_processor: "stripe";
-  status: string;
-  client_secret: string;
-  url: string;
-  expires_at: string;
-  success_url: string;
-  embed_origin: string | null;
-  amount: number | null;
-  tax_amount: number | null;
-  currency: string | null;
-  total_amount: number | null;
-  product_id: string;
-  product_price_id: string;
-  is_payment_required: boolean;
-  customer_id: string | null;
-  customer_name: string | null;
-  customer_email: string | null;
-  customer_ip_address: string | null;
-  customer_billing_address: Address$Outbound | null;
-  customer_tax_id: string | null;
-  payment_processor_metadata: PaymentProcessorMetadata$Outbound;
-  metadata: { [k: string]: string };
-  product: CheckoutProductInput$Outbound;
-  product_price: ProductPrice$Outbound;
-  subscription_id: string | null;
-  attached_custom_fields: Array<AttachedCustomField$Outbound>;
-};
-
-/** @internal */
-export const PolarCheckoutSchemasCheckoutInput$outboundSchema: z.ZodType<
-  PolarCheckoutSchemasCheckoutInput$Outbound,
-  z.ZodTypeDef,
-  PolarCheckoutSchemasCheckoutInput
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  customFieldData: z.lazy(() =>
-    PolarCheckoutSchemasCheckoutCustomFieldData$outboundSchema
-  ).optional(),
-  paymentProcessor: z.literal("stripe").default("stripe"),
-  status: CheckoutStatus$outboundSchema,
-  clientSecret: z.string(),
-  url: z.string(),
-  expiresAt: z.date().transform(v => v.toISOString()),
-  successUrl: z.string(),
-  embedOrigin: z.nullable(z.string()),
-  amount: z.nullable(z.number().int()),
-  taxAmount: z.nullable(z.number().int()),
-  currency: z.nullable(z.string()),
-  totalAmount: z.nullable(z.number().int()),
-  productId: z.string(),
-  productPriceId: z.string(),
-  isPaymentRequired: z.boolean(),
-  customerId: z.nullable(z.string()),
-  customerName: z.nullable(z.string()),
-  customerEmail: z.nullable(z.string()),
-  customerIpAddress: z.nullable(z.string()),
-  customerBillingAddress: z.nullable(Address$outboundSchema),
-  customerTaxId: z.nullable(z.string()),
-  paymentProcessorMetadata: z.lazy(() =>
-    PaymentProcessorMetadata$outboundSchema
-  ),
-  metadata: z.record(z.string()),
-  product: CheckoutProductInput$outboundSchema,
-  productPrice: ProductPrice$outboundSchema,
-  subscriptionId: z.nullable(z.string()),
-  attachedCustomFields: z.array(AttachedCustomField$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    customFieldData: "custom_field_data",
-    paymentProcessor: "payment_processor",
-    clientSecret: "client_secret",
-    expiresAt: "expires_at",
-    successUrl: "success_url",
-    embedOrigin: "embed_origin",
-    taxAmount: "tax_amount",
-    totalAmount: "total_amount",
-    productId: "product_id",
-    productPriceId: "product_price_id",
-    isPaymentRequired: "is_payment_required",
-    customerId: "customer_id",
-    customerName: "customer_name",
-    customerEmail: "customer_email",
-    customerIpAddress: "customer_ip_address",
-    customerBillingAddress: "customer_billing_address",
-    customerTaxId: "customer_tax_id",
-    paymentProcessorMetadata: "payment_processor_metadata",
-    productPrice: "product_price",
-    subscriptionId: "subscription_id",
-    attachedCustomFields: "attached_custom_fields",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PolarCheckoutSchemasCheckoutInput$ {
-  /** @deprecated use `PolarCheckoutSchemasCheckoutInput$inboundSchema` instead. */
-  export const inboundSchema = PolarCheckoutSchemasCheckoutInput$inboundSchema;
-  /** @deprecated use `PolarCheckoutSchemasCheckoutInput$outboundSchema` instead. */
-  export const outboundSchema =
-    PolarCheckoutSchemasCheckoutInput$outboundSchema;
-  /** @deprecated use `PolarCheckoutSchemasCheckoutInput$Outbound` instead. */
-  export type Outbound = PolarCheckoutSchemasCheckoutInput$Outbound;
 }

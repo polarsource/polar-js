@@ -85,6 +85,9 @@ export async function usersAdvertisementsList(
   const context = {
     operationID: "users:advertisements:list",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

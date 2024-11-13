@@ -74,6 +74,9 @@ export async function articlesExport(
   const context = {
     operationID: "articles:export",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

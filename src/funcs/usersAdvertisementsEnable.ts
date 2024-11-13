@@ -82,6 +82,9 @@ export async function usersAdvertisementsEnable(
   const context = {
     operationID: "users:advertisements:enable",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

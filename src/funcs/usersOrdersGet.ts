@@ -78,6 +78,9 @@ export async function usersOrdersGet(
   const context = {
     operationID: "users:orders:get",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

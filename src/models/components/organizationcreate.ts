@@ -15,7 +15,6 @@ export type OrganizationCreate = {
   name: string;
   slug: string;
   avatarUrl?: string | null | undefined;
-  donationsEnabled?: boolean | undefined;
   featureSettings?: OrganizationFeatureSettings | null | undefined;
 };
 
@@ -28,13 +27,11 @@ export const OrganizationCreate$inboundSchema: z.ZodType<
   name: z.string(),
   slug: z.string(),
   avatar_url: z.nullable(z.string()).optional(),
-  donations_enabled: z.boolean().default(false),
   feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema)
     .optional(),
 }).transform((v) => {
   return remap$(v, {
     "avatar_url": "avatarUrl",
-    "donations_enabled": "donationsEnabled",
     "feature_settings": "featureSettings",
   });
 });
@@ -44,7 +41,6 @@ export type OrganizationCreate$Outbound = {
   name: string;
   slug: string;
   avatar_url?: string | null | undefined;
-  donations_enabled: boolean;
   feature_settings?: OrganizationFeatureSettings$Outbound | null | undefined;
 };
 
@@ -57,13 +53,11 @@ export const OrganizationCreate$outboundSchema: z.ZodType<
   name: z.string(),
   slug: z.string(),
   avatarUrl: z.nullable(z.string()).optional(),
-  donationsEnabled: z.boolean().default(false),
   featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema)
     .optional(),
 }).transform((v) => {
   return remap$(v, {
     avatarUrl: "avatar_url",
-    donationsEnabled: "donations_enabled",
     featureSettings: "feature_settings",
   });
 });

@@ -5,11 +5,11 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  BenefitInput,
-  BenefitInput$inboundSchema,
-  BenefitInput$Outbound,
-  BenefitInput$outboundSchema,
-} from "./benefitinput.js";
+  Benefit,
+  Benefit$inboundSchema,
+  Benefit$Outbound,
+  Benefit$outboundSchema,
+} from "./benefit.js";
 
 export const WebhookBenefitCreatedPayloadType = {
   BenefitCreated: "benefit.created",
@@ -27,7 +27,7 @@ export type WebhookBenefitCreatedPayloadType = ClosedEnum<
  */
 export type WebhookBenefitCreatedPayload = {
   type?: "benefit.created" | undefined;
-  data: BenefitInput;
+  data: Benefit;
 };
 
 /** @internal */
@@ -58,13 +58,13 @@ export const WebhookBenefitCreatedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("benefit.created").optional(),
-  data: BenefitInput$inboundSchema,
+  data: Benefit$inboundSchema,
 });
 
 /** @internal */
 export type WebhookBenefitCreatedPayload$Outbound = {
   type: "benefit.created";
-  data: BenefitInput$Outbound;
+  data: Benefit$Outbound;
 };
 
 /** @internal */
@@ -74,7 +74,7 @@ export const WebhookBenefitCreatedPayload$outboundSchema: z.ZodType<
   WebhookBenefitCreatedPayload
 > = z.object({
   type: z.literal("benefit.created").default("benefit.created"),
-  data: BenefitInput$outboundSchema,
+  data: Benefit$outboundSchema,
 });
 
 /**

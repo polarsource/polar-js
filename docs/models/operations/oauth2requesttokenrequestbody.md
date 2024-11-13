@@ -11,7 +11,7 @@ const value:
     clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",
-    redirectUri: "https://frivolous-self-confidence.name",
+    redirectUri: "https://happy-go-lucky-siege.name/",
   };
 ```
 

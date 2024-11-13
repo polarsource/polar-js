@@ -9,29 +9,32 @@ let value: CheckoutLinksListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-09-20T09:43:49.938Z"),
-        modifiedAt: new Date("2022-09-04T08:32:34.245Z"),
+        createdAt: new Date("2023-08-02T18:40:01.314Z"),
+        modifiedAt: new Date("2024-05-28T04:41:45.730Z"),
         id: "<value>",
         metadata: {
           "key": "<value>",
         },
         clientSecret: "<value>",
-        successUrl: "https://noxious-pronoun.org",
+        successUrl: "https://fantastic-doorpost.net/",
         productPriceId: "<value>",
         productPrice: {
-          createdAt: new Date("2022-01-08T23:31:11.246Z"),
-          modifiedAt: new Date("2022-02-06T14:44:43.529Z"),
+          createdAt: new Date("2022-01-12T14:26:50.258Z"),
+          modifiedAt: new Date("2024-11-23T13:27:52.601Z"),
           id: "<value>",
           isArchived: false,
           productId: "<value>",
-          recurringInterval: "year",
+          priceCurrency: "<value>",
+          minimumAmount: 962024,
+          maximumAmount: 217552,
+          presetAmount: 41346,
         },
-        url: "https://expert-dusk.biz/",
+        url: "https://well-documented-thread.name",
       },
     ],
     pagination: {
-      totalCount: 728948,
-      maxPage: 569196,
+      totalCount: 303549,
+      maxPage: 329961,
     },
   },
 };

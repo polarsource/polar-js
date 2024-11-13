@@ -13,6 +13,8 @@ import {
 
 export type CustomFieldData = {};
 
+export type CheckoutUpdateMetadata = string | number | boolean;
+
 /**
  * Update an existing checkout session using an access token.
  */
@@ -36,10 +38,14 @@ export type CheckoutUpdate = {
    * @remarks
    *
    * The key must be a string with a maximum length of **40 characters**.
-   * The value must be a string with a maximum length of **500 characters**.
+   * The value must be either:
+   *     * A string with a maximum length of **500 characters**
+   *     * An integer
+   *     * A boolean
+   *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | null | undefined;
   customerIpAddress?: string | null | undefined;
   /**
    * URL where the customer will be redirected after a successful payment.You can add the `checkout_id={CHECKOUT_ID}` query parameter to retrieve the checkout session id.
@@ -82,6 +88,36 @@ export namespace CustomFieldData$ {
 }
 
 /** @internal */
+export const CheckoutUpdateMetadata$inboundSchema: z.ZodType<
+  CheckoutUpdateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CheckoutUpdateMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CheckoutUpdateMetadata$outboundSchema: z.ZodType<
+  CheckoutUpdateMetadata$Outbound,
+  z.ZodTypeDef,
+  CheckoutUpdateMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutUpdateMetadata$ {
+  /** @deprecated use `CheckoutUpdateMetadata$inboundSchema` instead. */
+  export const inboundSchema = CheckoutUpdateMetadata$inboundSchema;
+  /** @deprecated use `CheckoutUpdateMetadata$outboundSchema` instead. */
+  export const outboundSchema = CheckoutUpdateMetadata$outboundSchema;
+  /** @deprecated use `CheckoutUpdateMetadata$Outbound` instead. */
+  export type Outbound = CheckoutUpdateMetadata$Outbound;
+}
+
+/** @internal */
 export const CheckoutUpdate$inboundSchema: z.ZodType<
   CheckoutUpdate,
   z.ZodTypeDef,
@@ -95,7 +131,9 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   customer_email: z.nullable(z.string()).optional(),
   customer_billing_address: z.nullable(Address$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
-  metadata: z.nullable(z.record(z.string())).optional(),
+  metadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   customer_ip_address: z.nullable(z.string()).optional(),
   success_url: z.nullable(z.string()).optional(),
   embed_origin: z.nullable(z.string()).optional(),
@@ -122,7 +160,7 @@ export type CheckoutUpdate$Outbound = {
   customer_email?: string | null | undefined;
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
-  metadata?: { [k: string]: string } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | null | undefined;
   customer_ip_address?: string | null | undefined;
   success_url?: string | null | undefined;
   embed_origin?: string | null | undefined;
@@ -142,7 +180,9 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   customerEmail: z.nullable(z.string()).optional(),
   customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
-  metadata: z.nullable(z.record(z.string())).optional(),
+  metadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   customerIpAddress: z.nullable(z.string()).optional(),
   successUrl: z.nullable(z.string()).optional(),
   embedOrigin: z.nullable(z.string()).optional(),

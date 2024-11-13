@@ -5,6 +5,8 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 
+export type CheckoutLinkUpdateMetadata = string | number | boolean;
+
 /**
  * Schema to update an existing checkout link.
  */
@@ -15,10 +17,14 @@ export type CheckoutLinkUpdate = {
    * @remarks
    *
    * The key must be a string with a maximum length of **40 characters**.
-   * The value must be a string with a maximum length of **500 characters**.
+   * The value must be either:
+   *     * A string with a maximum length of **500 characters**
+   *     * An integer
+   *     * A boolean
+   *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | null | undefined;
   /**
    * URL where the customer will be redirected after a successful payment.You can add the `checkout_id={CHECKOUT_ID}` query parameter to retrieve the checkout session id.
    */
@@ -26,12 +32,44 @@ export type CheckoutLinkUpdate = {
 };
 
 /** @internal */
+export const CheckoutLinkUpdateMetadata$inboundSchema: z.ZodType<
+  CheckoutLinkUpdateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CheckoutLinkUpdateMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CheckoutLinkUpdateMetadata$outboundSchema: z.ZodType<
+  CheckoutLinkUpdateMetadata$Outbound,
+  z.ZodTypeDef,
+  CheckoutLinkUpdateMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutLinkUpdateMetadata$ {
+  /** @deprecated use `CheckoutLinkUpdateMetadata$inboundSchema` instead. */
+  export const inboundSchema = CheckoutLinkUpdateMetadata$inboundSchema;
+  /** @deprecated use `CheckoutLinkUpdateMetadata$outboundSchema` instead. */
+  export const outboundSchema = CheckoutLinkUpdateMetadata$outboundSchema;
+  /** @deprecated use `CheckoutLinkUpdateMetadata$Outbound` instead. */
+  export type Outbound = CheckoutLinkUpdateMetadata$Outbound;
+}
+
+/** @internal */
 export const CheckoutLinkUpdate$inboundSchema: z.ZodType<
   CheckoutLinkUpdate,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.nullable(z.record(z.string())).optional(),
+  metadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   success_url: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -41,7 +79,7 @@ export const CheckoutLinkUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutLinkUpdate$Outbound = {
-  metadata?: { [k: string]: string } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | null | undefined;
   success_url?: string | null | undefined;
 };
 
@@ -51,7 +89,9 @@ export const CheckoutLinkUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutLinkUpdate
 > = z.object({
-  metadata: z.nullable(z.record(z.string())).optional(),
+  metadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   successUrl: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

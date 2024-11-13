@@ -12,6 +12,8 @@ import {
   CustomFieldSelectProperties$outboundSchema,
 } from "./customfieldselectproperties.js";
 
+export type CustomFieldSelectMetadata = string | number | boolean;
+
 export const CustomFieldSelectType = {
   Select: "select",
 } as const;
@@ -33,10 +35,10 @@ export type CustomFieldSelect = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   type?: "select" | undefined;
   /**
-   * Identifier of the custom field. It'll be used as key when storing the value. Must be unique across the organization.
+   * Identifier of the custom field. It'll be used as key when storing the value.
    */
   slug: string;
   /**
@@ -49,6 +51,36 @@ export type CustomFieldSelect = {
   organizationId: string;
   properties: CustomFieldSelectProperties;
 };
+
+/** @internal */
+export const CustomFieldSelectMetadata$inboundSchema: z.ZodType<
+  CustomFieldSelectMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CustomFieldSelectMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CustomFieldSelectMetadata$outboundSchema: z.ZodType<
+  CustomFieldSelectMetadata$Outbound,
+  z.ZodTypeDef,
+  CustomFieldSelectMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomFieldSelectMetadata$ {
+  /** @deprecated use `CustomFieldSelectMetadata$inboundSchema` instead. */
+  export const inboundSchema = CustomFieldSelectMetadata$inboundSchema;
+  /** @deprecated use `CustomFieldSelectMetadata$outboundSchema` instead. */
+  export const outboundSchema = CustomFieldSelectMetadata$outboundSchema;
+  /** @deprecated use `CustomFieldSelectMetadata$Outbound` instead. */
+  export type Outbound = CustomFieldSelectMetadata$Outbound;
+}
 
 /** @internal */
 export const CustomFieldSelectType$inboundSchema: z.ZodNativeEnum<
@@ -82,7 +114,7 @@ export const CustomFieldSelect$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   type: z.literal("select").optional(),
   slug: z.string(),
   name: z.string(),
@@ -101,7 +133,7 @@ export type CustomFieldSelect$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   type: "select";
   slug: string;
   name: string;
@@ -118,7 +150,7 @@ export const CustomFieldSelect$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   type: z.literal("select").default("select"),
   slug: z.string(),
   name: z.string(),

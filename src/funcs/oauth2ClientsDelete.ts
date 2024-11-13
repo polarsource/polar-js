@@ -80,6 +80,9 @@ export async function oauth2ClientsDelete(
   const context = {
     operationID: "oauth2:clients:oauth2:delete_client",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

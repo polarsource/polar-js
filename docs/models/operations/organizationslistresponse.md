@@ -24,7 +24,6 @@ let value: OrganizationsListResponse = {
         pledgeMinimumAmount: 254382,
         pledgeBadgeShowAmount: false,
         defaultUpfrontSplitToContributors: 265303,
-        donationsEnabled: false,
         profileSettings: {},
         featureSettings: {},
       },

@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-10-01T07:24:57.730Z"),
-        modifiedAt: new Date("2022-10-12T06:39:45.765Z"),
+        createdAt: new Date("2022-11-26T12:19:41.082Z"),
+        modifiedAt: new Date("2024-05-27T16:12:22.860Z"),
         id: "<value>",
-        imageUrl: "https://lawful-millet.org",
-        imageUrlDark: "https://total-fort.org",
+        imageUrl: "https://lined-place.com",
+        imageUrlDark: "https://frail-whack.com/",
         text: "<value>",
-        linkUrl: "https://internal-amnesty.net",
+        linkUrl: "https://average-finding.biz/",
       },
     ],
     pagination: {
-      totalCount: 502106,
-      maxPage: 786189,
+      totalCount: 946808,
+      maxPage: 845154,
     },
     dimensions: [
-      748023,
+      382764,
     ],
   },
 };

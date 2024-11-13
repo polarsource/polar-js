@@ -285,6 +285,12 @@ actions:
         - "lang": "typescript"
           "label": "list"
           "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.oauth2.clients.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+  - target: $["paths"]["/v1/oauth2/authorize"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "authorize"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.oauth2.authorize();\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/oauth2/introspect"]["post"]
     update:
       "x-codeSamples":

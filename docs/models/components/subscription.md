@@ -26,44 +26,49 @@ let value: Subscription = {
     "key": "<value>",
   },
   user: {
-    email: "Logan.Gleichner@gmail.com",
+    email: "Darion_Deckow44@yahoo.com",
     publicName: "<value>",
     githubUsername: "<value>",
-    avatarUrl: "https://violent-design.net/",
+    avatarUrl: "https://evil-sauerkraut.com",
   },
   product: {
-    createdAt: new Date("2022-01-28T01:28:09.985Z"),
-    modifiedAt: new Date("2022-07-21T02:15:38.786Z"),
+    createdAt: new Date("2022-07-21T02:15:38.786Z"),
+    modifiedAt: new Date("2024-06-16T11:27:10.944Z"),
     id: "<value>",
     name: "<value>",
-    description:
-      "up heating avaricious vainly considering gadzooks viability individual specific",
+    description: "jaywalk kissingly worriedly hunt retool space informal",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
+    metadata: {
+      "key": "<value>",
+    },
     prices: [
       {
-        createdAt: new Date("2024-12-05T19:52:32.444Z"),
-        modifiedAt: new Date("2024-08-07T07:44:13.681Z"),
+        createdAt: new Date("2024-12-01T04:15:48.042Z"),
+        modifiedAt: new Date("2022-11-10T06:10:54.367Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        recurringInterval: "year",
+        recurringInterval: "month",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2024-07-22T20:45:22.257Z"),
-        modifiedAt: new Date("2024-08-31T14:34:42.904Z"),
+        createdAt: new Date("2024-11-11T12:00:22.100Z"),
+        modifiedAt: new Date("2022-09-28T20:54:23.206Z"),
         id: "<value>",
-        description: "out experienced sunbathe whose synthesise",
+        description:
+          "towards saturate though when plus save dapper untimely spark once",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          note: "<value>",
+          repositoryId: "<value>",
+          repositoryOwner: "polarsource",
+          repositoryName: "private_repo",
+          permission: "triage",
         },
-        isTaxApplicable: false,
       },
     ],
     medias: [
@@ -71,27 +76,27 @@ let value: Subscription = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/srv",
+        path: "/opt/sbin",
         mimeType: "<value>",
-        size: 163928,
+        size: 787299,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-11-08T08:55:48.564Z"),
+        lastModifiedAt: new Date("2022-10-25T07:23:29.621Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2023-08-07T14:30:02.776Z"),
+        createdAt: new Date("2024-06-10T07:44:52.955Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://inborn-pupil.org/",
+        publicUrl: "https://corny-translation.info/",
       },
     ],
     attachedCustomFields: [
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2022-06-03T18:10:10.891Z"),
-          modifiedAt: new Date("2024-08-13T11:33:11.689Z"),
+          createdAt: new Date("2023-11-01T01:05:57.542Z"),
+          modifiedAt: new Date("2023-05-15T18:48:33.124Z"),
           id: "<value>",
           metadata: {
             "key": "<value>",
@@ -101,22 +106,22 @@ let value: Subscription = {
           organizationId: "<value>",
           properties: {},
         },
-        order: 590167,
+        order: 347962,
         required: false,
       },
     ],
   },
   price: {
-    createdAt: new Date("2023-05-24T22:42:36.749Z"),
-    modifiedAt: new Date("2024-05-20T21:27:59.894Z"),
+    createdAt: new Date("2023-11-19T23:14:44.002Z"),
+    modifiedAt: new Date("2024-08-30T01:05:50.247Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
     priceCurrency: "<value>",
-    minimumAmount: 844775,
-    maximumAmount: 657897,
-    presetAmount: 58461,
-    recurringInterval: "year",
+    minimumAmount: 492506,
+    maximumAmount: 104737,
+    presetAmount: 113553,
+    recurringInterval: "month",
   },
 };
 ```
@@ -141,7 +146,7 @@ let value: Subscription = {
 | `productId`                                                                                          | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `priceId`                                                                                            | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `checkoutId`                                                                                         | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `metadata`                                                                                           | Record<string, *string*>                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `metadata`                                                                                           | Record<string, *components.Metadata*>                                                                | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `customFieldData`                                                                                    | [components.SubscriptionCustomFieldData](../../models/components/subscriptioncustomfielddata.md)     | :heavy_minus_sign:                                                                                   | Key-value object storing custom field values.                                                        |
 | `user`                                                                                               | [components.SubscriptionUser](../../models/components/subscriptionuser.md)                           | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `product`                                                                                            | [components.Product](../../models/components/product.md)                                             | :heavy_check_mark:                                                                                   | A product.                                                                                           |

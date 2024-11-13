@@ -6,30 +6,34 @@
 import { UserOrderProduct } from "@polar-sh/sdk/models/components";
 
 let value: UserOrderProduct = {
-  createdAt: new Date("2022-04-15T20:23:47.603Z"),
-  modifiedAt: new Date("2023-03-20T09:04:49.131Z"),
+  createdAt: new Date("2023-08-31T01:40:43.170Z"),
+  modifiedAt: new Date("2024-04-30T16:47:28.347Z"),
   id: "<value>",
   name: "<value>",
-  description: "yowza after captain er jiggle beyond political",
+  description:
+    "carelessly memorise considering verbally furthermore yet minority persecute hoick",
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",
   prices: [
     {
-      createdAt: new Date("2023-02-09T23:07:56.607Z"),
-      modifiedAt: new Date("2023-06-05T20:40:09.335Z"),
+      createdAt: new Date("2022-03-02T07:06:59.765Z"),
+      modifiedAt: new Date("2022-12-23T18:40:43.978Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
+      priceCurrency: "<value>",
+      priceAmount: 390583,
+      recurringInterval: "month",
     },
   ],
   benefits: [
     {
-      createdAt: new Date("2022-08-18T07:04:21.930Z"),
-      modifiedAt: new Date("2022-12-19T18:58:02.170Z"),
+      createdAt: new Date("2022-10-01T11:56:46.049Z"),
+      modifiedAt: new Date("2022-09-07T07:22:34.884Z"),
       id: "<value>",
-      type: "custom",
-      description: "chasuble defiantly rightfully behind tuxedo",
+      type: "ads",
+      description: "defiantly rightfully behind tuxedo",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
@@ -71,7 +75,6 @@ let value: UserOrderProduct = {
     pledgeMinimumAmount: 535055,
     pledgeBadgeShowAmount: false,
     defaultUpfrontSplitToContributors: 200109,
-    donationsEnabled: false,
     profileSettings: {},
     featureSettings: {},
   },

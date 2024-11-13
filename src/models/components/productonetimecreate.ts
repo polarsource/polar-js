@@ -29,6 +29,8 @@ import {
   ProductPriceOneTimeFreeCreate$outboundSchema,
 } from "./productpriceonetimefreecreate.js";
 
+export type ProductOneTimeCreateMetadata = string | number | boolean;
+
 export type Prices =
   | ProductPriceOneTimeFreeCreate
   | ProductPriceOneTimeFixedCreate
@@ -38,6 +40,20 @@ export type Prices =
  * Schema to create a one-time product.
  */
 export type ProductOneTimeCreate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *     * A string with a maximum length of **500 characters**
+   *     * An integer
+   *     * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   /**
    * The name of the product.
    */
@@ -67,6 +83,36 @@ export type ProductOneTimeCreate = {
    */
   organizationId?: string | null | undefined;
 };
+
+/** @internal */
+export const ProductOneTimeCreateMetadata$inboundSchema: z.ZodType<
+  ProductOneTimeCreateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type ProductOneTimeCreateMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const ProductOneTimeCreateMetadata$outboundSchema: z.ZodType<
+  ProductOneTimeCreateMetadata$Outbound,
+  z.ZodTypeDef,
+  ProductOneTimeCreateMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ProductOneTimeCreateMetadata$ {
+  /** @deprecated use `ProductOneTimeCreateMetadata$inboundSchema` instead. */
+  export const inboundSchema = ProductOneTimeCreateMetadata$inboundSchema;
+  /** @deprecated use `ProductOneTimeCreateMetadata$outboundSchema` instead. */
+  export const outboundSchema = ProductOneTimeCreateMetadata$outboundSchema;
+  /** @deprecated use `ProductOneTimeCreateMetadata$Outbound` instead. */
+  export type Outbound = ProductOneTimeCreateMetadata$Outbound;
+}
 
 /** @internal */
 export const Prices$inboundSchema: z.ZodType<Prices, z.ZodTypeDef, unknown> = z
@@ -112,6 +158,8 @@ export const ProductOneTimeCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.string(),
   description: z.nullable(z.string()).optional(),
   prices: z.array(
@@ -134,6 +182,7 @@ export const ProductOneTimeCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ProductOneTimeCreate$Outbound = {
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   name: string;
   description?: string | null | undefined;
   prices: Array<
@@ -154,6 +203,8 @@ export const ProductOneTimeCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductOneTimeCreate
 > = z.object({
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.string(),
   description: z.nullable(z.string()).optional(),
   prices: z.array(

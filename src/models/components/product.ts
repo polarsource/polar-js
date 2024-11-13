@@ -29,6 +29,8 @@ import {
   ProductPrice$outboundSchema,
 } from "./productprice.js";
 
+export type ProductMetadata = string | number | boolean;
+
 /**
  * A product.
  */
@@ -65,6 +67,7 @@ export type Product = {
    * The ID of the organization owning the product.
    */
   organizationId: string;
+  metadata: { [k: string]: string | number | boolean };
   /**
    * List of prices for this product.
    */
@@ -84,6 +87,36 @@ export type Product = {
 };
 
 /** @internal */
+export const ProductMetadata$inboundSchema: z.ZodType<
+  ProductMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type ProductMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const ProductMetadata$outboundSchema: z.ZodType<
+  ProductMetadata$Outbound,
+  z.ZodTypeDef,
+  ProductMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ProductMetadata$ {
+  /** @deprecated use `ProductMetadata$inboundSchema` instead. */
+  export const inboundSchema = ProductMetadata$inboundSchema;
+  /** @deprecated use `ProductMetadata$outboundSchema` instead. */
+  export const outboundSchema = ProductMetadata$outboundSchema;
+  /** @deprecated use `ProductMetadata$Outbound` instead. */
+  export type Outbound = ProductMetadata$Outbound;
+}
+
+/** @internal */
 export const Product$inboundSchema: z.ZodType<Product, z.ZodTypeDef, unknown> =
   z.object({
     created_at: z.string().datetime({ offset: true }).transform(v =>
@@ -98,6 +131,7 @@ export const Product$inboundSchema: z.ZodType<Product, z.ZodTypeDef, unknown> =
     is_recurring: z.boolean(),
     is_archived: z.boolean(),
     organization_id: z.string(),
+    metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
     prices: z.array(ProductPrice$inboundSchema),
     benefits: z.array(Benefit$inboundSchema),
     medias: z.array(ProductMediaFileRead$inboundSchema),
@@ -123,6 +157,7 @@ export type Product$Outbound = {
   is_recurring: boolean;
   is_archived: boolean;
   organization_id: string;
+  metadata: { [k: string]: string | number | boolean };
   prices: Array<ProductPrice$Outbound>;
   benefits: Array<Benefit$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
@@ -143,6 +178,7 @@ export const Product$outboundSchema: z.ZodType<
   isRecurring: z.boolean(),
   isArchived: z.boolean(),
   organizationId: z.string(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   prices: z.array(ProductPrice$outboundSchema),
   benefits: z.array(Benefit$outboundSchema),
   medias: z.array(ProductMediaFileRead$outboundSchema),

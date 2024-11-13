@@ -83,6 +83,9 @@ export async function organizationsUpdate(
   const context = {
     operationID: "organizations:update",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

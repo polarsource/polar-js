@@ -20,3 +20,5 @@ targets:
                 token: $npm_token
         codeSamples:
             output: codeSamples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/polar/polar/polar-oas-code-samples

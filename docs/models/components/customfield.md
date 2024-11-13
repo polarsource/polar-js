@@ -7,8 +7,8 @@
 
 ```typescript
 const value: components.CustomFieldCheckbox = {
-  createdAt: new Date("2024-10-19T21:29:25.463Z"),
-  modifiedAt: new Date("2024-02-23T12:12:14.708Z"),
+  createdAt: new Date("2022-04-24T05:56:52.679Z"),
+  modifiedAt: new Date("2022-09-20T16:27:39.107Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
@@ -24,8 +24,8 @@ const value: components.CustomFieldCheckbox = {
 
 ```typescript
 const value: components.CustomFieldDate = {
-  createdAt: new Date("2023-10-18T08:22:17.195Z"),
-  modifiedAt: new Date("2024-02-15T22:04:01.869Z"),
+  createdAt: new Date("2023-07-06T00:01:05.389Z"),
+  modifiedAt: new Date("2022-10-16T17:25:09.716Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
@@ -41,11 +41,11 @@ const value: components.CustomFieldDate = {
 
 ```typescript
 const value: components.CustomFieldNumber = {
-  createdAt: new Date("2022-01-03T23:42:04.530Z"),
-  modifiedAt: new Date("2022-06-09T11:47:38.531Z"),
+  createdAt: new Date("2024-08-23T10:42:20.718Z"),
+  modifiedAt: new Date("2022-08-06T17:41:01.540Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": 271465,
   },
   slug: "<value>",
   name: "<value>",
@@ -58,11 +58,11 @@ const value: components.CustomFieldNumber = {
 
 ```typescript
 const value: components.CustomFieldSelect = {
-  createdAt: new Date("2024-01-29T03:47:52.443Z"),
-  modifiedAt: new Date("2024-02-23T14:31:52.929Z"),
+  createdAt: new Date("2023-10-17T20:37:43.818Z"),
+  modifiedAt: new Date("2023-12-19T02:37:07.150Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
   slug: "<value>",
   name: "<value>",
@@ -82,11 +82,11 @@ const value: components.CustomFieldSelect = {
 
 ```typescript
 const value: components.CustomFieldText = {
-  createdAt: new Date("2024-07-23T20:35:59.037Z"),
-  modifiedAt: new Date("2023-10-04T18:18:47.556Z"),
+  createdAt: new Date("2022-11-21T02:46:43.586Z"),
+  modifiedAt: new Date("2022-02-21T18:59:55.083Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
   slug: "<value>",
   name: "<value>",

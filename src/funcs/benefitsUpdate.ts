@@ -80,6 +80,9 @@ export async function benefitsUpdate(
   const context = {
     operationID: "benefits:update",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

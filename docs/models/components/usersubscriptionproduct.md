@@ -75,7 +75,6 @@ let value: UserSubscriptionProduct = {
     pledgeMinimumAmount: 661787,
     pledgeBadgeShowAmount: false,
     defaultUpfrontSplitToContributors: 283619,
-    donationsEnabled: false,
     profileSettings: {},
     featureSettings: {},
   },

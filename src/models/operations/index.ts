@@ -44,6 +44,7 @@ export * from "./licensekeysgetactivation.js";
 export * from "./licensekeyslist.js";
 export * from "./licensekeysupdate.js";
 export * from "./metricsget.js";
+export * from "./oauth2authorize.js";
 export * from "./oauth2clientslist.js";
 export * from "./oauth2clientsoauth2deleteclient.js";
 export * from "./oauth2clientsoauth2getclient.js";

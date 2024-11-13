@@ -11,6 +11,8 @@ import {
   CustomFieldTextProperties$outboundSchema,
 } from "./customfieldtextproperties.js";
 
+export type CustomFieldUpdateTextMetadata = string | number | boolean;
+
 export const CustomFieldUpdateTextType = {
   Text: "text",
 } as const;
@@ -28,15 +30,49 @@ export type CustomFieldUpdateText = {
    * @remarks
    *
    * The key must be a string with a maximum length of **40 characters**.
-   * The value must be a string with a maximum length of **500 characters**.
+   * The value must be either:
+   *     * A string with a maximum length of **500 characters**
+   *     * An integer
+   *     * A boolean
+   *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | null | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
   type?: "text" | undefined;
   properties?: CustomFieldTextProperties | null | undefined;
 };
+
+/** @internal */
+export const CustomFieldUpdateTextMetadata$inboundSchema: z.ZodType<
+  CustomFieldUpdateTextMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CustomFieldUpdateTextMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CustomFieldUpdateTextMetadata$outboundSchema: z.ZodType<
+  CustomFieldUpdateTextMetadata$Outbound,
+  z.ZodTypeDef,
+  CustomFieldUpdateTextMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomFieldUpdateTextMetadata$ {
+  /** @deprecated use `CustomFieldUpdateTextMetadata$inboundSchema` instead. */
+  export const inboundSchema = CustomFieldUpdateTextMetadata$inboundSchema;
+  /** @deprecated use `CustomFieldUpdateTextMetadata$outboundSchema` instead. */
+  export const outboundSchema = CustomFieldUpdateTextMetadata$outboundSchema;
+  /** @deprecated use `CustomFieldUpdateTextMetadata$Outbound` instead. */
+  export type Outbound = CustomFieldUpdateTextMetadata$Outbound;
+}
 
 /** @internal */
 export const CustomFieldUpdateTextType$inboundSchema: z.ZodNativeEnum<
@@ -65,7 +101,9 @@ export const CustomFieldUpdateText$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.nullable(z.record(z.string())).optional(),
+  metadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
   type: z.literal("text").optional(),
@@ -74,7 +112,7 @@ export const CustomFieldUpdateText$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomFieldUpdateText$Outbound = {
-  metadata?: { [k: string]: string } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | null | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
   type: "text";
@@ -87,7 +125,9 @@ export const CustomFieldUpdateText$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomFieldUpdateText
 > = z.object({
-  metadata: z.nullable(z.record(z.string())).optional(),
+  metadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
   type: z.literal("text").default("text"),

@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://unruly-possession.info",
+        "https://shy-cafe.biz",
       ],
       clientName: "<value>",
-      createdAt: new Date("2022-11-03T20:32:51.033Z"),
-      modifiedAt: new Date("2023-11-30T08:31:54.256Z"),
+      createdAt: new Date("2023-12-02T04:42:08.759Z"),
+      modifiedAt: new Date("2023-02-22T02:38:09.369Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 631429,
-      clientSecretExpiresAt: 23910,
+      clientIdIssuedAt: 765245,
+      clientSecretExpiresAt: 536042,
     },
   ],
   pagination: {
-    totalCount: 747110,
-    maxPage: 221874,
+    totalCount: 856997,
+    maxPage: 111026,
   },
 };
 ```

@@ -8,41 +8,37 @@ A product.
 import { Product } from "@polar-sh/sdk/models/components";
 
 let value: Product = {
-  createdAt: new Date("2022-01-29T05:10:32.874Z"),
-  modifiedAt: new Date("2023-03-01T23:51:11.548Z"),
+  createdAt: new Date("2024-10-06T08:46:10.626Z"),
+  modifiedAt: new Date("2022-08-21T10:30:21.944Z"),
   id: "<value>",
   name: "<value>",
-  description: "adrenalin bonfire catch brr than a",
+  description: "perky if defiantly reassemble information adrenalin",
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",
+  metadata: {
+    "key": 665687,
+  },
   prices: [
     {
-      createdAt: new Date("2024-03-17T01:50:29.399Z"),
-      modifiedAt: new Date("2022-08-16T22:10:33.984Z"),
+      createdAt: new Date("2022-10-10T19:36:32.221Z"),
+      modifiedAt: new Date("2024-07-22T16:47:45.821Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
-      priceCurrency: "<value>",
-      priceAmount: 164765,
     },
   ],
   benefits: [
     {
-      createdAt: new Date("2024-12-13T21:16:19.781Z"),
-      modifiedAt: new Date("2023-04-08T14:07:06.599Z"),
+      createdAt: new Date("2022-10-15T02:28:08.072Z"),
+      modifiedAt: new Date("2022-08-13T13:39:26.566Z"),
       id: "<value>",
       description:
-        "governance ice-cream uncover where dependency ha gadzooks burdensome pfft",
+        "phew scholarship what shabby bloom blah along eek override absent",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
-      properties: {
-        repositoryId: "<value>",
-        repositoryOwner: "polarsource",
-        repositoryName: "private_repo",
-        permission: "admin",
-      },
+      properties: {},
     },
   ],
   medias: [
@@ -50,37 +46,37 @@ let value: Product = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/boot",
+      path: "/usr/local/bin",
       mimeType: "<value>",
-      size: 398054,
+      size: 673057,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2024-08-01T01:47:59.550Z"),
+      lastModifiedAt: new Date("2023-04-27T08:46:07.096Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2023-05-04T15:45:49.822Z"),
+      createdAt: new Date("2023-07-08T03:14:38.624Z"),
       sizeReadable: "<value>",
-      publicUrl: "https://lawful-reach.biz/",
+      publicUrl: "https://ultimate-confusion.org",
     },
   ],
   attachedCustomFields: [
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2024-10-28T02:42:30.721Z"),
-        modifiedAt: new Date("2022-07-03T20:54:21.016Z"),
+        createdAt: new Date("2022-04-27T07:19:35.512Z"),
+        modifiedAt: new Date("2022-12-08T09:16:03.862Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": false,
         },
         slug: "<value>",
         name: "<value>",
         organizationId: "<value>",
         properties: {},
       },
-      order: 93386,
+      order: 893434,
       required: false,
     },
   ],
@@ -99,6 +95,7 @@ let value: Product = {
 | `isRecurring`                                                                                 | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the product is a subscription tier.                                                   |
 | `isArchived`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the product is archived and no longer available.                                      |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the product.                                                |
+| `metadata`                                                                                    | Record<string, *components.ProductMetadata*>                                                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `prices`                                                                                      | *components.ProductPrice*[]                                                                   | :heavy_check_mark:                                                                            | List of prices for this product.                                                              |
 | `benefits`                                                                                    | *components.Benefit*[]                                                                        | :heavy_check_mark:                                                                            | List of benefits granted by the product.                                                      |
 | `medias`                                                                                      | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]          | :heavy_check_mark:                                                                            | List of medias associated to the product.                                                     |
