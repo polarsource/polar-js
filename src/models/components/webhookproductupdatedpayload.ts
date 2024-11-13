@@ -5,11 +5,11 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  ProductInput,
-  ProductInput$inboundSchema,
-  ProductInput$Outbound,
-  ProductInput$outboundSchema,
-} from "./productinput.js";
+  Product,
+  Product$inboundSchema,
+  Product$Outbound,
+  Product$outboundSchema,
+} from "./product.js";
 
 export const WebhookProductUpdatedPayloadType = {
   ProductUpdated: "product.updated",
@@ -30,7 +30,7 @@ export type WebhookProductUpdatedPayload = {
   /**
    * A product.
    */
-  data: ProductInput;
+  data: Product;
 };
 
 /** @internal */
@@ -61,13 +61,13 @@ export const WebhookProductUpdatedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("product.updated").optional(),
-  data: ProductInput$inboundSchema,
+  data: Product$inboundSchema,
 });
 
 /** @internal */
 export type WebhookProductUpdatedPayload$Outbound = {
   type: "product.updated";
-  data: ProductInput$Outbound;
+  data: Product$Outbound;
 };
 
 /** @internal */
@@ -77,7 +77,7 @@ export const WebhookProductUpdatedPayload$outboundSchema: z.ZodType<
   WebhookProductUpdatedPayload
 > = z.object({
   type: z.literal("product.updated").default("product.updated"),
-  data: ProductInput$outboundSchema,
+  data: Product$outboundSchema,
 });
 
 /**

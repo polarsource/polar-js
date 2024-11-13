@@ -78,6 +78,9 @@ export async function checkoutLinksGet(
   const context = {
     operationID: "checkout-links:get",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

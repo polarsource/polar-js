@@ -43,10 +43,6 @@ export type Organization = {
   pledgeBadgeShowAmount: boolean;
   defaultUpfrontSplitToContributors: number | null;
   /**
-   * If this organizations accepts donations
-   */
-  donationsEnabled: boolean;
-  /**
    * Settings for the organization profile
    */
   profileSettings: OrganizationProfileSettings | null;
@@ -79,7 +75,6 @@ export const Organization$inboundSchema: z.ZodType<
   pledge_minimum_amount: z.number().int(),
   pledge_badge_show_amount: z.boolean(),
   default_upfront_split_to_contributors: z.nullable(z.number().int()),
-  donations_enabled: z.boolean(),
   profile_settings: z.nullable(OrganizationProfileSettings$inboundSchema),
   feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema),
 }).transform((v) => {
@@ -92,7 +87,6 @@ export const Organization$inboundSchema: z.ZodType<
     "pledge_badge_show_amount": "pledgeBadgeShowAmount",
     "default_upfront_split_to_contributors":
       "defaultUpfrontSplitToContributors",
-    "donations_enabled": "donationsEnabled",
     "profile_settings": "profileSettings",
     "feature_settings": "featureSettings",
   });
@@ -115,7 +109,6 @@ export type Organization$Outbound = {
   pledge_minimum_amount: number;
   pledge_badge_show_amount: boolean;
   default_upfront_split_to_contributors: number | null;
-  donations_enabled: boolean;
   profile_settings: OrganizationProfileSettings$Outbound | null;
   feature_settings: OrganizationFeatureSettings$Outbound | null;
 };
@@ -141,7 +134,6 @@ export const Organization$outboundSchema: z.ZodType<
   pledgeMinimumAmount: z.number().int(),
   pledgeBadgeShowAmount: z.boolean(),
   defaultUpfrontSplitToContributors: z.nullable(z.number().int()),
-  donationsEnabled: z.boolean(),
   profileSettings: z.nullable(OrganizationProfileSettings$outboundSchema),
   featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema),
 }).transform((v) => {
@@ -153,7 +145,6 @@ export const Organization$outboundSchema: z.ZodType<
     pledgeMinimumAmount: "pledge_minimum_amount",
     pledgeBadgeShowAmount: "pledge_badge_show_amount",
     defaultUpfrontSplitToContributors: "default_upfront_split_to_contributors",
-    donationsEnabled: "donations_enabled",
     profileSettings: "profile_settings",
     featureSettings: "feature_settings",
   });

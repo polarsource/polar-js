@@ -11,6 +11,8 @@ import {
   ProductPrice$outboundSchema,
 } from "./productprice.js";
 
+export type CheckoutLinkMetadata = string | number | boolean;
+
 /**
  * Checkout link data.
  */
@@ -27,7 +29,7 @@ export type CheckoutLink = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   paymentProcessor?: "stripe" | undefined;
   /**
    * Client secret used to access the checkout link.
@@ -46,6 +48,36 @@ export type CheckoutLink = {
 };
 
 /** @internal */
+export const CheckoutLinkMetadata$inboundSchema: z.ZodType<
+  CheckoutLinkMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CheckoutLinkMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CheckoutLinkMetadata$outboundSchema: z.ZodType<
+  CheckoutLinkMetadata$Outbound,
+  z.ZodTypeDef,
+  CheckoutLinkMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutLinkMetadata$ {
+  /** @deprecated use `CheckoutLinkMetadata$inboundSchema` instead. */
+  export const inboundSchema = CheckoutLinkMetadata$inboundSchema;
+  /** @deprecated use `CheckoutLinkMetadata$outboundSchema` instead. */
+  export const outboundSchema = CheckoutLinkMetadata$outboundSchema;
+  /** @deprecated use `CheckoutLinkMetadata$Outbound` instead. */
+  export type Outbound = CheckoutLinkMetadata$Outbound;
+}
+
+/** @internal */
 export const CheckoutLink$inboundSchema: z.ZodType<
   CheckoutLink,
   z.ZodTypeDef,
@@ -56,7 +88,7 @@ export const CheckoutLink$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   payment_processor: z.literal("stripe").optional(),
   client_secret: z.string(),
   success_url: z.nullable(z.string()),
@@ -80,7 +112,7 @@ export type CheckoutLink$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   payment_processor: "stripe";
   client_secret: string;
   success_url: string | null;
@@ -98,7 +130,7 @@ export const CheckoutLink$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   paymentProcessor: z.literal("stripe").default("stripe"),
   clientSecret: z.string(),
   successUrl: z.nullable(z.string()),

@@ -75,6 +75,9 @@ export async function oauth2Revoke(
   const context = {
     operationID: "oauth2:revoke_token",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

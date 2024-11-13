@@ -9,7 +9,7 @@ let value: Oauth2ClientsOauth2UpdateClientRequest = {
   clientId: "<id>",
   oAuth2ClientConfigurationUpdate: {
     redirectUris: [
-      "https://icy-airmail.net",
+      "https://staid-permafrost.name/",
     ],
     clientName: "<value>",
     clientId: "<id>",

@@ -78,6 +78,9 @@ export async function customFieldsDelete(
   const context = {
     operationID: "custom-fields:delete",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

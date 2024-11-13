@@ -85,6 +85,9 @@ export async function usersLicenseKeysList(
   const context = {
     operationID: "users:license_keys:list",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

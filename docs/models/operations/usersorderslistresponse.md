@@ -90,7 +90,6 @@ let value: UsersOrdersListResponse = {
             pledgeMinimumAmount: 399812,
             pledgeBadgeShowAmount: false,
             defaultUpfrontSplitToContributors: 671384,
-            donationsEnabled: false,
             profileSettings: {},
             featureSettings: {},
           },

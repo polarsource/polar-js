@@ -12,6 +12,8 @@ import {
   CustomFieldNumberProperties$outboundSchema,
 } from "./customfieldnumberproperties.js";
 
+export type CustomFieldNumberMetadata = string | number | boolean;
+
 export const CustomFieldNumberType = {
   Number: "number",
 } as const;
@@ -33,10 +35,10 @@ export type CustomFieldNumber = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   type?: "number" | undefined;
   /**
-   * Identifier of the custom field. It'll be used as key when storing the value. Must be unique across the organization.
+   * Identifier of the custom field. It'll be used as key when storing the value.
    */
   slug: string;
   /**
@@ -49,6 +51,36 @@ export type CustomFieldNumber = {
   organizationId: string;
   properties: CustomFieldNumberProperties;
 };
+
+/** @internal */
+export const CustomFieldNumberMetadata$inboundSchema: z.ZodType<
+  CustomFieldNumberMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CustomFieldNumberMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CustomFieldNumberMetadata$outboundSchema: z.ZodType<
+  CustomFieldNumberMetadata$Outbound,
+  z.ZodTypeDef,
+  CustomFieldNumberMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomFieldNumberMetadata$ {
+  /** @deprecated use `CustomFieldNumberMetadata$inboundSchema` instead. */
+  export const inboundSchema = CustomFieldNumberMetadata$inboundSchema;
+  /** @deprecated use `CustomFieldNumberMetadata$outboundSchema` instead. */
+  export const outboundSchema = CustomFieldNumberMetadata$outboundSchema;
+  /** @deprecated use `CustomFieldNumberMetadata$Outbound` instead. */
+  export type Outbound = CustomFieldNumberMetadata$Outbound;
+}
 
 /** @internal */
 export const CustomFieldNumberType$inboundSchema: z.ZodNativeEnum<
@@ -82,7 +114,7 @@ export const CustomFieldNumber$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   type: z.literal("number").optional(),
   slug: z.string(),
   name: z.string(),
@@ -101,7 +133,7 @@ export type CustomFieldNumber$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string };
+  metadata: { [k: string]: string | number | boolean };
   type: "number";
   slug: string;
   name: string;
@@ -118,7 +150,7 @@ export const CustomFieldNumber$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  metadata: z.record(z.string()),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   type: z.literal("number").default("number"),
   slug: z.string(),
   name: z.string(),

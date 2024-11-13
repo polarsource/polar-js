@@ -46,7 +46,6 @@ let value: UsersBenefitsListResponse = {
           pledgeMinimumAmount: 414263,
           pledgeBadgeShowAmount: false,
           defaultUpfrontSplitToContributors: 64147,
-          donationsEnabled: false,
           profileSettings: {},
           featureSettings: {},
         },

@@ -10,75 +10,75 @@ import { MetricsResponse } from "@polar-sh/sdk/models/components";
 let value: MetricsResponse = {
   periods: [
     {
-      timestamp: new Date("2024-08-23T22:10:48.974Z"),
-      orders: 315591,
-      revenue: 822577,
-      averageOrderValue: 4891,
-      oneTimeProducts: 949209,
-      oneTimeProductsRevenue: 54329,
-      newSubscriptions: 262883,
-      newSubscriptionsRevenue: 24886,
-      renewedSubscriptions: 959355,
-      renewedSubscriptionsRevenue: 51685,
-      activeSubscriptions: 349003,
-      monthlyRecurringRevenue: 663840,
+      timestamp: new Date("2023-04-01T15:25:04.349Z"),
+      orders: 42665,
+      revenue: 533171,
+      averageOrderValue: 116704,
+      oneTimeProducts: 79114,
+      oneTimeProductsRevenue: 467579,
+      newSubscriptions: 314769,
+      newSubscriptionsRevenue: 881318,
+      renewedSubscriptions: 315591,
+      renewedSubscriptionsRevenue: 822577,
+      activeSubscriptions: 4891,
+      monthlyRecurringRevenue: 949209,
     },
   ],
   metrics: {
     orders: {
       slug: "<value>",
-      displayName: "Emory37",
+      displayName: "Amos_Bailey",
       type: "currency",
     },
     revenue: {
       slug: "<value>",
-      displayName: "Kylee_Wunsch",
+      displayName: "Emory37",
       type: "currency",
     },
     averageOrderValue: {
       slug: "<value>",
+      displayName: "Kylee_Wunsch",
+      type: "currency",
+    },
+    oneTimeProducts: {
+      slug: "<value>",
       displayName: "Jammie68",
       type: "scalar",
     },
-    oneTimeProducts: {
+    oneTimeProductsRevenue: {
       slug: "<value>",
       displayName: "Josiane.Ledner",
       type: "currency",
     },
-    oneTimeProductsRevenue: {
+    newSubscriptions: {
       slug: "<value>",
       displayName: "Zena.Fay",
       type: "currency",
     },
-    newSubscriptions: {
+    newSubscriptionsRevenue: {
       slug: "<value>",
       displayName: "Giovani_Cummerata69",
       type: "currency",
     },
-    newSubscriptionsRevenue: {
+    renewedSubscriptions: {
       slug: "<value>",
       displayName: "Dylan37",
       type: "scalar",
     },
-    renewedSubscriptions: {
+    renewedSubscriptionsRevenue: {
       slug: "<value>",
       displayName: "Lucile18",
       type: "scalar",
     },
-    renewedSubscriptionsRevenue: {
+    activeSubscriptions: {
       slug: "<value>",
       displayName: "Maryam53",
       type: "scalar",
     },
-    activeSubscriptions: {
+    monthlyRecurringRevenue: {
       slug: "<value>",
       displayName: "Garth.Durgan",
       type: "scalar",
-    },
-    monthlyRecurringRevenue: {
-      slug: "<value>",
-      displayName: "Rubye_Balistreri",
-      type: "currency",
     },
   },
 };

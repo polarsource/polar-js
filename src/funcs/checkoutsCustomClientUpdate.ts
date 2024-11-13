@@ -84,6 +84,9 @@ export async function checkoutsCustomClientUpdate(
   const context = {
     operationID: "checkouts:custom:client_update",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -7,8 +7,7 @@
 
 ```typescript
 const value: components.BenefitCustomCreate = {
-  description:
-    "beneath irritably provided sorrowful furthermore lest besides sniveling close whoa",
+  description: "aboard barring alongside mortar gadzooks",
   isTaxApplicable: false,
   properties: {},
 };
@@ -18,7 +17,7 @@ const value: components.BenefitCustomCreate = {
 
 ```typescript
 const value: components.BenefitAdsCreate = {
-  description: "alongside mortar gadzooks headline service",
+  description: "presume times mysterious soggy onto until",
   properties: {},
 };
 ```
@@ -28,7 +27,7 @@ const value: components.BenefitAdsCreate = {
 ```typescript
 const value: components.BenefitDiscordCreate = {
   description:
-    "mysterious soggy onto until oof hateful faithfully steel promptly",
+    "longboat synthesise lively nervous save uncommon likewise separately content",
   properties: {
     guildToken: "<value>",
     roleId: "<id>",
@@ -40,12 +39,11 @@ const value: components.BenefitDiscordCreate = {
 
 ```typescript
 const value: components.BenefitGitHubRepositoryCreate = {
-  description:
-    "uncommon likewise separately content to as needily near relative",
+  description: "straight innocently management plus",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "maintain",
+    permission: "triage",
   },
 };
 ```
@@ -54,8 +52,7 @@ const value: components.BenefitGitHubRepositoryCreate = {
 
 ```typescript
 const value: components.BenefitDownloadablesCreate = {
-  description:
-    "oval enormously vastly capsize supposing immediately terrible joint nervously",
+  description: "sans annual before hotfoot pulp",
   properties: {
     files: [
       "<value>",
@@ -68,7 +65,7 @@ const value: components.BenefitDownloadablesCreate = {
 
 ```typescript
 const value: components.BenefitLicenseKeysCreate = {
-  description: "far exalted marten save above hourly",
+  description: "vengeful gee funny brief where daintily role infatuated ew",
   properties: {},
 };
 ```

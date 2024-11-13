@@ -12,6 +12,8 @@ import {
   CustomFieldCheckboxProperties$outboundSchema,
 } from "./customfieldcheckboxproperties.js";
 
+export type CustomFieldCreateCheckboxMetadata = string | number | boolean;
+
 export const CustomFieldCreateCheckboxType = {
   Checkbox: "checkbox",
 } as const;
@@ -29,13 +31,17 @@ export type CustomFieldCreateCheckbox = {
    * @remarks
    *
    * The key must be a string with a maximum length of **40 characters**.
-   * The value must be a string with a maximum length of **500 characters**.
+   * The value must be either:
+   *     * A string with a maximum length of **500 characters**
+   *     * An integer
+   *     * A boolean
+   *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string } | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   type?: "checkbox" | undefined;
   /**
-   * Identifier of the custom field. It'll be used as key when storing the value. Must be unique across the organization.
+   * Identifier of the custom field. It'll be used as key when storing the value. Must be unique across the organization.It can only contain ASCII letters, numbers and hyphens.
    */
   slug: string;
   /**
@@ -48,6 +54,40 @@ export type CustomFieldCreateCheckbox = {
   organizationId?: string | null | undefined;
   properties: CustomFieldCheckboxProperties;
 };
+
+/** @internal */
+export const CustomFieldCreateCheckboxMetadata$inboundSchema: z.ZodType<
+  CustomFieldCreateCheckboxMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CustomFieldCreateCheckboxMetadata$Outbound =
+  | string
+  | number
+  | boolean;
+
+/** @internal */
+export const CustomFieldCreateCheckboxMetadata$outboundSchema: z.ZodType<
+  CustomFieldCreateCheckboxMetadata$Outbound,
+  z.ZodTypeDef,
+  CustomFieldCreateCheckboxMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomFieldCreateCheckboxMetadata$ {
+  /** @deprecated use `CustomFieldCreateCheckboxMetadata$inboundSchema` instead. */
+  export const inboundSchema = CustomFieldCreateCheckboxMetadata$inboundSchema;
+  /** @deprecated use `CustomFieldCreateCheckboxMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    CustomFieldCreateCheckboxMetadata$outboundSchema;
+  /** @deprecated use `CustomFieldCreateCheckboxMetadata$Outbound` instead. */
+  export type Outbound = CustomFieldCreateCheckboxMetadata$Outbound;
+}
 
 /** @internal */
 export const CustomFieldCreateCheckboxType$inboundSchema: z.ZodNativeEnum<
@@ -76,7 +116,8 @@ export const CustomFieldCreateCheckbox$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.string()).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   type: z.literal("checkbox").optional(),
   slug: z.string(),
   name: z.string(),
@@ -90,7 +131,7 @@ export const CustomFieldCreateCheckbox$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomFieldCreateCheckbox$Outbound = {
-  metadata?: { [k: string]: string } | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   type: "checkbox";
   slug: string;
   name: string;
@@ -104,7 +145,8 @@ export const CustomFieldCreateCheckbox$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomFieldCreateCheckbox
 > = z.object({
-  metadata: z.record(z.string()).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   type: z.literal("checkbox").default("checkbox"),
   slug: z.string(),
   name: z.string(),

@@ -79,6 +79,9 @@ export async function filesUploaded(
   const context = {
     operationID: "files:uploaded",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -71,6 +71,9 @@ export async function filesCreate(
   const context = {
     operationID: "files:create",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

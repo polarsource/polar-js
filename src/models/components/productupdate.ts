@@ -47,6 +47,8 @@ import {
   ProductPriceRecurringFreeCreate$outboundSchema,
 } from "./productpricerecurringfreecreate.js";
 
+export type ProductUpdateMetadata = string | number | boolean;
+
 export type ProductUpdatePrices =
   | ExistingProductPrice
   | ProductPriceOneTimeFreeCreate
@@ -59,6 +61,20 @@ export type ProductUpdatePrices =
  * Schema to update a product.
  */
 export type ProductUpdate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *     * A string with a maximum length of **500 characters**
+   *     * An integer
+   *     * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | null | undefined;
   name?: string | null | undefined;
   /**
    * The description of the product.
@@ -88,6 +104,36 @@ export type ProductUpdate = {
   medias?: Array<string> | null | undefined;
   attachedCustomFields?: Array<AttachedCustomFieldCreate> | null | undefined;
 };
+
+/** @internal */
+export const ProductUpdateMetadata$inboundSchema: z.ZodType<
+  ProductUpdateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type ProductUpdateMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const ProductUpdateMetadata$outboundSchema: z.ZodType<
+  ProductUpdateMetadata$Outbound,
+  z.ZodTypeDef,
+  ProductUpdateMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ProductUpdateMetadata$ {
+  /** @deprecated use `ProductUpdateMetadata$inboundSchema` instead. */
+  export const inboundSchema = ProductUpdateMetadata$inboundSchema;
+  /** @deprecated use `ProductUpdateMetadata$outboundSchema` instead. */
+  export const outboundSchema = ProductUpdateMetadata$outboundSchema;
+  /** @deprecated use `ProductUpdateMetadata$Outbound` instead. */
+  export type Outbound = ProductUpdateMetadata$Outbound;
+}
 
 /** @internal */
 export const ProductUpdatePrices$inboundSchema: z.ZodType<
@@ -145,6 +191,9 @@ export const ProductUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   is_archived: z.nullable(z.boolean()).optional(),
@@ -173,6 +222,7 @@ export const ProductUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ProductUpdate$Outbound = {
+  metadata?: { [k: string]: string | number | boolean } | null | undefined;
   name?: string | null | undefined;
   description?: string | null | undefined;
   is_archived?: boolean | null | undefined;
@@ -200,6 +250,9 @@ export const ProductUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductUpdate
 > = z.object({
+  metadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   isArchived: z.nullable(z.boolean()).optional(),

@@ -79,6 +79,9 @@ export async function licenseKeysGet(
   const context = {
     operationID: "license_keys:get",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

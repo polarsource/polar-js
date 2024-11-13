@@ -78,6 +78,9 @@ export async function organizationsGet(
   const context = {
     operationID: "organizations:get",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -80,6 +80,9 @@ export async function productsUpdate(
   const context = {
     operationID: "products:update",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

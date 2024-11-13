@@ -79,6 +79,9 @@ export async function articlesDelete(
   const context = {
     operationID: "articles:delete",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -87,6 +87,9 @@ export async function customFieldsList(
   const context = {
     operationID: "custom-fields:list",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

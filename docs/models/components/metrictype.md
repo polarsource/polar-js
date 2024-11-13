@@ -5,7 +5,7 @@
 ```typescript
 import { MetricType } from "@polar-sh/sdk/models/components";
 
-let value: MetricType = "currency";
+let value: MetricType = "scalar";
 ```
 
 ## Values

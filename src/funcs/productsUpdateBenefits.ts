@@ -83,6 +83,9 @@ export async function productsUpdateBenefits(
   const context = {
     operationID: "products:update_benefits",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

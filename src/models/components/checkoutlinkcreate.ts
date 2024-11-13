@@ -6,6 +6,8 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { ClosedEnum } from "../../types/enums.js";
 
+export type CheckoutLinkCreateMetadata = string | number | boolean;
+
 /**
  * Payment processor to use. Currently only Stripe is supported.
  */
@@ -29,10 +31,14 @@ export type CheckoutLinkCreate = {
    * @remarks
    *
    * The key must be a string with a maximum length of **40 characters**.
-   * The value must be a string with a maximum length of **500 characters**.
+   * The value must be either:
+   *     * A string with a maximum length of **500 characters**
+   *     * An integer
+   *     * A boolean
+   *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string } | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   /**
    * Payment processor to use. Currently only Stripe is supported.
    */
@@ -46,6 +52,36 @@ export type CheckoutLinkCreate = {
    */
   successUrl?: string | null | undefined;
 };
+
+/** @internal */
+export const CheckoutLinkCreateMetadata$inboundSchema: z.ZodType<
+  CheckoutLinkCreateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CheckoutLinkCreateMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CheckoutLinkCreateMetadata$outboundSchema: z.ZodType<
+  CheckoutLinkCreateMetadata$Outbound,
+  z.ZodTypeDef,
+  CheckoutLinkCreateMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutLinkCreateMetadata$ {
+  /** @deprecated use `CheckoutLinkCreateMetadata$inboundSchema` instead. */
+  export const inboundSchema = CheckoutLinkCreateMetadata$inboundSchema;
+  /** @deprecated use `CheckoutLinkCreateMetadata$outboundSchema` instead. */
+  export const outboundSchema = CheckoutLinkCreateMetadata$outboundSchema;
+  /** @deprecated use `CheckoutLinkCreateMetadata$Outbound` instead. */
+  export type Outbound = CheckoutLinkCreateMetadata$Outbound;
+}
 
 /** @internal */
 export const CheckoutLinkCreatePaymentProcessor$inboundSchema: z.ZodNativeEnum<
@@ -75,7 +111,8 @@ export const CheckoutLinkCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.string()).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   payment_processor: z.literal("stripe").optional(),
   product_price_id: z.string(),
   success_url: z.nullable(z.string()).optional(),
@@ -89,7 +126,7 @@ export const CheckoutLinkCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutLinkCreate$Outbound = {
-  metadata?: { [k: string]: string } | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   payment_processor: "stripe";
   product_price_id: string;
   success_url?: string | null | undefined;
@@ -101,7 +138,8 @@ export const CheckoutLinkCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutLinkCreate
 > = z.object({
-  metadata: z.record(z.string()).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   paymentProcessor: z.literal("stripe").default("stripe"),
   productPriceId: z.string(),
   successUrl: z.nullable(z.string()).optional(),

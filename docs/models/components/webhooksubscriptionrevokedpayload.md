@@ -12,73 +12,70 @@ import { WebhookSubscriptionRevokedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookSubscriptionRevokedPayload = {
   data: {
-    createdAt: new Date("2024-08-05T00:25:50.473Z"),
-    modifiedAt: new Date("2024-03-22T22:29:10.462Z"),
+    createdAt: new Date("2023-01-27T07:29:07.482Z"),
+    modifiedAt: new Date("2023-05-04T23:37:31.406Z"),
     id: "<value>",
-    amount: 166565,
-    currency: "Ethiopian Birr",
+    amount: 668199,
+    currency: "Yen",
     recurringInterval: "month",
-    status: "canceled",
-    currentPeriodStart: new Date("2023-05-28T12:14:22.735Z"),
-    currentPeriodEnd: new Date("2022-06-14T21:20:15.821Z"),
+    status: "incomplete",
+    currentPeriodStart: new Date("2022-10-30T01:32:14.646Z"),
+    currentPeriodEnd: new Date("2024-08-05T03:49:40.522Z"),
     cancelAtPeriodEnd: false,
-    startedAt: new Date("2022-01-12T01:32:36.517Z"),
-    endedAt: new Date("2022-11-02T05:56:35.308Z"),
+    startedAt: new Date("2023-10-09T03:14:12.239Z"),
+    endedAt: new Date("2022-01-06T02:19:06.964Z"),
     userId: "<value>",
     productId: "<value>",
     priceId: "<value>",
     checkoutId: "<value>",
     metadata: {
-      "key": "<value>",
+      "key": false,
     },
     user: {
-      email: "Alexandria_Beer@hotmail.com",
+      email: "Velda_Upton@gmail.com",
       publicName: "<value>",
       githubUsername: "<value>",
-      avatarUrl: "https://grimy-expansion.net/",
+      avatarUrl: "https://hairy-chainstay.org/",
     },
     product: {
-      createdAt: new Date("2024-08-12T21:27:15.147Z"),
-      modifiedAt: new Date("2023-03-25T14:39:48.268Z"),
+      createdAt: new Date("2023-09-16T04:12:01.967Z"),
+      modifiedAt: new Date("2022-09-30T10:42:40.243Z"),
       id: "<value>",
       name: "<value>",
       description:
-        "scarcely idolized closely uh-huh now whoa mid failing beside",
+        "for furthermore whopping dramatic glum but far abnormally manner",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",
+      metadata: {
+        "key": "<value>",
+      },
       prices: [
         {
-          createdAt: new Date("2022-11-03T19:09:54.192Z"),
-          modifiedAt: new Date("2024-06-08T16:42:11.724Z"),
+          createdAt: new Date("2022-10-05T01:05:42.886Z"),
+          modifiedAt: new Date("2022-05-27T00:07:13.026Z"),
           id: "<value>",
           isArchived: false,
           productId: "<value>",
-          priceCurrency: "<value>",
-          priceAmount: 853221,
         },
       ],
       benefits: [
         {
-          createdAt: new Date("2022-11-29T02:24:30.639Z"),
-          modifiedAt: new Date("2024-05-05T03:19:00.639Z"),
+          createdAt: new Date("2024-03-11T02:46:48.262Z"),
+          modifiedAt: new Date("2024-05-19T04:21:15.142Z"),
           id: "<value>",
           description:
-            "beside healthily athletic frenetically congregate around elementary unbearably rebel blah",
+            "accredit um pro hence happy outside into unless video upwardly",
           selectable: false,
           deletable: false,
           organizationId: "<value>",
           properties: {
-            prefix: "<value>",
-            expires: {
-              ttl: 67982,
-              timeframe: "year",
+            archived: {
+              "key": false,
             },
-            activations: {
-              limit: 394192,
-              enableUserAdmin: false,
-            },
-            limitUsage: 196814,
+            files: [
+              "<value>",
+            ],
           },
         },
       ],
@@ -87,46 +84,55 @@ let value: WebhookSubscriptionRevokedPayload = {
           id: "<value>",
           organizationId: "<value>",
           name: "<value>",
-          path: "/lib",
+          path: "/var",
           mimeType: "<value>",
-          size: 183975,
+          size: 121889,
           storageVersion: "<value>",
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
           checksumSha256Hex: "<value>",
-          lastModifiedAt: new Date("2022-11-24T09:56:09.198Z"),
+          lastModifiedAt: new Date("2022-06-07T01:46:11.385Z"),
           version: "<value>",
           isUploaded: false,
-          createdAt: new Date("2023-07-08T07:48:14.392Z"),
+          createdAt: new Date("2022-02-18T10:31:07.486Z"),
+          sizeReadable: "<value>",
+          publicUrl: "https://grubby-pilot.com/",
         },
       ],
       attachedCustomFields: [
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2024-05-18T00:30:59.700Z"),
-            modifiedAt: new Date("2022-07-09T01:59:04.501Z"),
+            createdAt: new Date("2023-09-28T20:12:42.622Z"),
+            modifiedAt: new Date("2022-05-02T15:57:51.261Z"),
             id: "<value>",
             metadata: {
-              "key": "<value>",
+              "key": false,
             },
             slug: "<value>",
             name: "<value>",
             organizationId: "<value>",
-            properties: {},
+            properties: {
+              options: [
+                {
+                  value: "<value>",
+                  label: "<value>",
+                },
+              ],
+            },
           },
-          order: 802851,
+          order: 849427,
           required: false,
         },
       ],
     },
     price: {
-      createdAt: new Date("2024-09-19T18:07:16.947Z"),
-      modifiedAt: new Date("2023-04-22T10:31:33.307Z"),
+      createdAt: new Date("2023-06-10T19:07:01.719Z"),
+      modifiedAt: new Date("2023-10-31T23:25:04.764Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
-      recurringInterval: "year",
+      recurringInterval: "month",
     },
   },
 };
@@ -137,4 +143,4 @@ let value: WebhookSubscriptionRevokedPayload = {
 | Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
 | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | `type`                                                                                                               | [components.WebhookSubscriptionRevokedPayloadType](../../models/components/webhooksubscriptionrevokedpayloadtype.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `data`                                                                                                               | [components.SubscriptionInput](../../models/components/subscriptioninput.md)                                         | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `data`                                                                                                               | [components.Subscription](../../models/components/subscription.md)                                                   | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |

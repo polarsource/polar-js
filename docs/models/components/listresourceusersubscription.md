@@ -94,7 +94,6 @@ let value: ListResourceUserSubscription = {
           pledgeMinimumAmount: 798619,
           pledgeBadgeShowAmount: false,
           defaultUpfrontSplitToContributors: 961171,
-          donationsEnabled: false,
           profileSettings: {},
           featureSettings: {},
         },

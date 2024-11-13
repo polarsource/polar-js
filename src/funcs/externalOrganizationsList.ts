@@ -88,6 +88,9 @@ export async function externalOrganizationsList(
   const context = {
     operationID: "external_organizations:list",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

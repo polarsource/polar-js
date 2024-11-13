@@ -7,7 +7,7 @@ import { OAuth2ClientConfiguration } from "@polar-sh/sdk/models/components";
 
 let value: OAuth2ClientConfiguration = {
   redirectUris: [
-    "https://probable-gloom.net/",
+    "https://official-kit.name/",
   ],
   clientName: "<value>",
 };

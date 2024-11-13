@@ -70,6 +70,9 @@ export async function articlesCreate(
   const context = {
     operationID: "articles:create",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

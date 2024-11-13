@@ -191,6 +191,7 @@ run();
 
 ### [oauth2](docs/sdks/oauth2/README.md)
 
+* [authorize](docs/sdks/oauth2/README.md#authorize) - Authorize
 * [token](docs/sdks/oauth2/README.md#token) - Request Token
 * [revoke](docs/sdks/oauth2/README.md#revoke) - Revoke Token
 * [introspect](docs/sdks/oauth2/README.md#introspect) - Introspect Token
@@ -344,6 +345,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`licenseKeysUpdate`](docs/sdks/licensekeys/README.md#update) - Update License Key
 - [`metricsGet`](docs/sdks/metrics/README.md#get) - Get Metrics
 - [`metricsLimits`](docs/sdks/metrics/README.md#limits) - Get Metrics Limits
+- [`oauth2Authorize`](docs/sdks/oauth2/README.md#authorize) - Authorize
 - [`oauth2ClientsCreate`](docs/sdks/clients/README.md#create) - Create Client
 - [`oauth2ClientsDelete`](docs/sdks/clients/README.md#delete) - Delete Client
 - [`oauth2ClientsGet`](docs/sdks/clients/README.md#get) - Get Client
@@ -517,10 +519,10 @@ If a HTTP request fails, an operation my also throw an error from the `models/er
 
 In addition, when custom error responses are specified for an operation, the SDK may throw their associated Error type. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation. For example, the `list` method may throw the following errors:
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                 | Status Code | Content Type     |
+| -------------------------- | ----------- | ---------------- |
+| errors.HTTPValidationError | 422         | application/json |
+| errors.SDKError            | 4XX, 5XX    | \*/\*            |
 
 ```typescript
 import { Polar } from "@polar-sh/sdk";
@@ -575,12 +577,14 @@ Validation errors can also occur when either method arguments or data returned f
 
 ### Select Server by Name
 
-You can override the default server globally by passing a server name to the `server` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
+You can override the default server globally by passing a server name to the `server: keyof typeof ServerList` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name | Server | Variables |
-| ----- | ------ | --------- |
-| `production` | `https://api.polar.sh` | None |
-| `sandbox` | `https://sandbox-api.polar.sh` | None |
+| Name         | Server                         |
+| ------------ | ------------------------------ |
+| `production` | `https://api.polar.sh`         |
+| `sandbox`    | `https://sandbox-api.polar.sh` |
+
+#### Example
 
 ```typescript
 import { Polar } from "@polar-sh/sdk";
@@ -603,11 +607,9 @@ run();
 
 ```
 
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
-
+The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -686,9 +688,9 @@ const sdk = new Polar({ httpClient });
 
 This SDK supports the following security scheme globally:
 
-| Name                 | Type                 | Scheme               | Environment Variable |
-| -------------------- | -------------------- | -------------------- | -------------------- |
-| `accessToken`        | http                 | HTTP Bearer          | `POLAR_ACCESS_TOKEN` |
+| Name          | Type | Scheme      | Environment Variable |
+| ------------- | ---- | ----------- | -------------------- |
+| `accessToken` | http | HTTP Bearer | `POLAR_ACCESS_TOKEN` |
 
 To authenticate with the API the `accessToken` parameter must be set when initializing the SDK client instance. For example:
 ```typescript

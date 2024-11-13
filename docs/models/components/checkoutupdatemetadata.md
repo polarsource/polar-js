@@ -1,0 +1,23 @@
+# CheckoutUpdateMetadata
+
+
+## Supported Types
+
+### `string`
+
+```typescript
+const value: string = "<value>";
+```
+
+### `number`
+
+```typescript
+const value: number = 592279;
+```
+
+### `boolean`
+
+```typescript
+const value: boolean = false;
+```
+

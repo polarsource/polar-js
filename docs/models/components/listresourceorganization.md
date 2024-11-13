@@ -23,7 +23,6 @@ let value: ListResourceOrganization = {
       pledgeMinimumAmount: 613286,
       pledgeBadgeShowAmount: false,
       defaultUpfrontSplitToContributors: 486162,
-      donationsEnabled: false,
       profileSettings: {},
       featureSettings: {},
     },

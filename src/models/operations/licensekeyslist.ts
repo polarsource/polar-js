@@ -13,11 +13,20 @@ export type LicenseKeysListQueryParamOrganizationIDFilter =
   | string
   | Array<string>;
 
+/**
+ * Filter by benefit ID.
+ */
+export type LicenseKeysListQueryParamBenefitIDFilter = string | Array<string>;
+
 export type LicenseKeysListRequest = {
   /**
    * Filter by organization ID.
    */
   organizationId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by benefit ID.
+   */
+  benefitId?: string | Array<string> | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -69,6 +78,40 @@ export namespace LicenseKeysListQueryParamOrganizationIDFilter$ {
 }
 
 /** @internal */
+export const LicenseKeysListQueryParamBenefitIDFilter$inboundSchema: z.ZodType<
+  LicenseKeysListQueryParamBenefitIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type LicenseKeysListQueryParamBenefitIDFilter$Outbound =
+  | string
+  | Array<string>;
+
+/** @internal */
+export const LicenseKeysListQueryParamBenefitIDFilter$outboundSchema: z.ZodType<
+  LicenseKeysListQueryParamBenefitIDFilter$Outbound,
+  z.ZodTypeDef,
+  LicenseKeysListQueryParamBenefitIDFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace LicenseKeysListQueryParamBenefitIDFilter$ {
+  /** @deprecated use `LicenseKeysListQueryParamBenefitIDFilter$inboundSchema` instead. */
+  export const inboundSchema =
+    LicenseKeysListQueryParamBenefitIDFilter$inboundSchema;
+  /** @deprecated use `LicenseKeysListQueryParamBenefitIDFilter$outboundSchema` instead. */
+  export const outboundSchema =
+    LicenseKeysListQueryParamBenefitIDFilter$outboundSchema;
+  /** @deprecated use `LicenseKeysListQueryParamBenefitIDFilter$Outbound` instead. */
+  export type Outbound = LicenseKeysListQueryParamBenefitIDFilter$Outbound;
+}
+
+/** @internal */
 export const LicenseKeysListRequest$inboundSchema: z.ZodType<
   LicenseKeysListRequest,
   z.ZodTypeDef,
@@ -76,17 +119,20 @@ export const LicenseKeysListRequest$inboundSchema: z.ZodType<
 > = z.object({
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  benefit_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
+    "benefit_id": "benefitId",
   });
 });
 
 /** @internal */
 export type LicenseKeysListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
+  benefit_id?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
 };
@@ -99,11 +145,13 @@ export const LicenseKeysListRequest$outboundSchema: z.ZodType<
 > = z.object({
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  benefitId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
+    benefitId: "benefit_id",
   });
 });
 

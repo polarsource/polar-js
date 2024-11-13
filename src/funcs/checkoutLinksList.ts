@@ -86,6 +86,9 @@ export async function checkoutLinksList(
   const context = {
     operationID: "checkout-links:list",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

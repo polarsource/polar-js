@@ -71,6 +71,9 @@ export async function usersLicenseKeysValidate(
   const context = {
     operationID: "users:license_keys:validate",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

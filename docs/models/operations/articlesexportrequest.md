@@ -6,7 +6,7 @@
 import { ArticlesExportRequest } from "@polar-sh/sdk/models/operations";
 
 let value: ArticlesExportRequest = {
-  organizationId: "fff1f37c-3921-4150-b6a6-1142f2c998f5",
+  organizationId: "142f2c99-8f5c-486f-a916-cbe4c79ffd5e",
 };
 ```
 

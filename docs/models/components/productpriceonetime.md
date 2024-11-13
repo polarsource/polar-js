@@ -7,13 +7,13 @@
 
 ```typescript
 const value: components.ProductPriceOneTimeFixed = {
-  createdAt: new Date("2022-10-02T02:39:34.529Z"),
-  modifiedAt: new Date("2024-11-16T17:16:25.681Z"),
+  createdAt: new Date("2022-05-07T19:51:00.898Z"),
+  modifiedAt: new Date("2023-09-08T20:31:08.350Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
   priceCurrency: "<value>",
-  priceAmount: 771303,
+  priceAmount: 335650,
 };
 ```
 
@@ -21,15 +21,15 @@ const value: components.ProductPriceOneTimeFixed = {
 
 ```typescript
 const value: components.ProductPriceOneTimeCustom = {
-  createdAt: new Date("2022-11-26T03:39:31.331Z"),
-  modifiedAt: new Date("2023-11-08T00:51:46.255Z"),
+  createdAt: new Date("2023-05-18T21:35:04.801Z"),
+  modifiedAt: new Date("2023-04-09T08:14:40.781Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
   priceCurrency: "<value>",
-  minimumAmount: 307848,
-  maximumAmount: 99467,
-  presetAmount: 824149,
+  minimumAmount: 104774,
+  maximumAmount: 158023,
+  presetAmount: 86808,
 };
 ```
 
@@ -37,8 +37,8 @@ const value: components.ProductPriceOneTimeCustom = {
 
 ```typescript
 const value: components.ProductPriceOneTimeFree = {
-  createdAt: new Date("2023-12-31T17:23:17.649Z"),
-  modifiedAt: new Date("2023-11-04T22:40:23.273Z"),
+  createdAt: new Date("2022-07-30T22:07:34.485Z"),
+  modifiedAt: new Date("2024-07-23T06:41:49.713Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",

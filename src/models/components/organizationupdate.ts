@@ -27,7 +27,6 @@ export type OrganizationUpdate = {
   pledgeMinimumAmount?: number | undefined;
   totalMonthlySpendingLimit?: number | null | undefined;
   perUserMonthlySpendingLimit?: number | null | undefined;
-  donationsEnabled?: boolean | undefined;
   profileSettings?: OrganizationProfileSettings | null | undefined;
   featureSettings?: OrganizationFeatureSettings | null | undefined;
 };
@@ -48,7 +47,6 @@ export const OrganizationUpdate$inboundSchema: z.ZodType<
   pledge_minimum_amount: z.number().int().default(2000),
   total_monthly_spending_limit: z.nullable(z.number().int()).optional(),
   per_user_monthly_spending_limit: z.nullable(z.number().int()).optional(),
-  donations_enabled: z.boolean().default(false),
   profile_settings: z.nullable(OrganizationProfileSettings$inboundSchema)
     .optional(),
   feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema)
@@ -64,7 +62,6 @@ export const OrganizationUpdate$inboundSchema: z.ZodType<
     "pledge_minimum_amount": "pledgeMinimumAmount",
     "total_monthly_spending_limit": "totalMonthlySpendingLimit",
     "per_user_monthly_spending_limit": "perUserMonthlySpendingLimit",
-    "donations_enabled": "donationsEnabled",
     "profile_settings": "profileSettings",
     "feature_settings": "featureSettings",
   });
@@ -81,7 +78,6 @@ export type OrganizationUpdate$Outbound = {
   pledge_minimum_amount: number;
   total_monthly_spending_limit?: number | null | undefined;
   per_user_monthly_spending_limit?: number | null | undefined;
-  donations_enabled: boolean;
   profile_settings?: OrganizationProfileSettings$Outbound | null | undefined;
   feature_settings?: OrganizationFeatureSettings$Outbound | null | undefined;
 };
@@ -101,7 +97,6 @@ export const OrganizationUpdate$outboundSchema: z.ZodType<
   pledgeMinimumAmount: z.number().int().default(2000),
   totalMonthlySpendingLimit: z.nullable(z.number().int()).optional(),
   perUserMonthlySpendingLimit: z.nullable(z.number().int()).optional(),
-  donationsEnabled: z.boolean().default(false),
   profileSettings: z.nullable(OrganizationProfileSettings$outboundSchema)
     .optional(),
   featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema)
@@ -116,7 +111,6 @@ export const OrganizationUpdate$outboundSchema: z.ZodType<
     pledgeMinimumAmount: "pledge_minimum_amount",
     totalMonthlySpendingLimit: "total_monthly_spending_limit",
     perUserMonthlySpendingLimit: "per_user_monthly_spending_limit",
-    donationsEnabled: "donations_enabled",
     profileSettings: "profile_settings",
     featureSettings: "feature_settings",
   });

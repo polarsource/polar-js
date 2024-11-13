@@ -12,6 +12,11 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 
+export type PolarCheckoutSchemasCheckoutCreateMetadata =
+  | string
+  | number
+  | boolean;
+
 /**
  * Key-value object storing custom field values.
  */
@@ -20,13 +25,15 @@ export type PolarCheckoutSchemasCheckoutCreateCustomFieldData = {};
 /**
  * Payment processor to use. Currently only Stripe is supported.
  */
-export const PaymentProcessor = {
+export const PolarCheckoutSchemasCheckoutCreatePaymentProcessor = {
   Stripe: "stripe",
 } as const;
 /**
  * Payment processor to use. Currently only Stripe is supported.
  */
-export type PaymentProcessor = ClosedEnum<typeof PaymentProcessor>;
+export type PolarCheckoutSchemasCheckoutCreatePaymentProcessor = ClosedEnum<
+  typeof PolarCheckoutSchemasCheckoutCreatePaymentProcessor
+>;
 
 /**
  * Create a new checkout session.
@@ -43,10 +50,14 @@ export type PolarCheckoutSchemasCheckoutCreate = {
    * @remarks
    *
    * The key must be a string with a maximum length of **40 characters**.
-   * The value must be a string with a maximum length of **500 characters**.
+   * The value must be either:
+   *     * A string with a maximum length of **500 characters**
+   *     * An integer
+   *     * A boolean
+   *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string } | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   /**
    * Key-value object storing custom field values.
    */
@@ -80,6 +91,40 @@ export type PolarCheckoutSchemasCheckoutCreate = {
    */
   embedOrigin?: string | null | undefined;
 };
+
+/** @internal */
+export const PolarCheckoutSchemasCheckoutCreateMetadata$inboundSchema:
+  z.ZodType<PolarCheckoutSchemasCheckoutCreateMetadata, z.ZodTypeDef, unknown> =
+    z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type PolarCheckoutSchemasCheckoutCreateMetadata$Outbound =
+  | string
+  | number
+  | boolean;
+
+/** @internal */
+export const PolarCheckoutSchemasCheckoutCreateMetadata$outboundSchema:
+  z.ZodType<
+    PolarCheckoutSchemasCheckoutCreateMetadata$Outbound,
+    z.ZodTypeDef,
+    PolarCheckoutSchemasCheckoutCreateMetadata
+  > = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PolarCheckoutSchemasCheckoutCreateMetadata$ {
+  /** @deprecated use `PolarCheckoutSchemasCheckoutCreateMetadata$inboundSchema` instead. */
+  export const inboundSchema =
+    PolarCheckoutSchemasCheckoutCreateMetadata$inboundSchema;
+  /** @deprecated use `PolarCheckoutSchemasCheckoutCreateMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    PolarCheckoutSchemasCheckoutCreateMetadata$outboundSchema;
+  /** @deprecated use `PolarCheckoutSchemasCheckoutCreateMetadata$Outbound` instead. */
+  export type Outbound = PolarCheckoutSchemasCheckoutCreateMetadata$Outbound;
+}
 
 /** @internal */
 export const PolarCheckoutSchemasCheckoutCreateCustomFieldData$inboundSchema:
@@ -117,24 +162,26 @@ export namespace PolarCheckoutSchemasCheckoutCreateCustomFieldData$ {
 }
 
 /** @internal */
-export const PaymentProcessor$inboundSchema: z.ZodNativeEnum<
-  typeof PaymentProcessor
-> = z.nativeEnum(PaymentProcessor);
+export const PolarCheckoutSchemasCheckoutCreatePaymentProcessor$inboundSchema:
+  z.ZodNativeEnum<typeof PolarCheckoutSchemasCheckoutCreatePaymentProcessor> = z
+    .nativeEnum(PolarCheckoutSchemasCheckoutCreatePaymentProcessor);
 
 /** @internal */
-export const PaymentProcessor$outboundSchema: z.ZodNativeEnum<
-  typeof PaymentProcessor
-> = PaymentProcessor$inboundSchema;
+export const PolarCheckoutSchemasCheckoutCreatePaymentProcessor$outboundSchema:
+  z.ZodNativeEnum<typeof PolarCheckoutSchemasCheckoutCreatePaymentProcessor> =
+    PolarCheckoutSchemasCheckoutCreatePaymentProcessor$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace PaymentProcessor$ {
-  /** @deprecated use `PaymentProcessor$inboundSchema` instead. */
-  export const inboundSchema = PaymentProcessor$inboundSchema;
-  /** @deprecated use `PaymentProcessor$outboundSchema` instead. */
-  export const outboundSchema = PaymentProcessor$outboundSchema;
+export namespace PolarCheckoutSchemasCheckoutCreatePaymentProcessor$ {
+  /** @deprecated use `PolarCheckoutSchemasCheckoutCreatePaymentProcessor$inboundSchema` instead. */
+  export const inboundSchema =
+    PolarCheckoutSchemasCheckoutCreatePaymentProcessor$inboundSchema;
+  /** @deprecated use `PolarCheckoutSchemasCheckoutCreatePaymentProcessor$outboundSchema` instead. */
+  export const outboundSchema =
+    PolarCheckoutSchemasCheckoutCreatePaymentProcessor$outboundSchema;
 }
 
 /** @internal */
@@ -143,7 +190,8 @@ export const PolarCheckoutSchemasCheckoutCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.string()).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   custom_field_data: z.lazy(() =>
     PolarCheckoutSchemasCheckoutCreateCustomFieldData$inboundSchema
   ).optional(),
@@ -176,7 +224,7 @@ export const PolarCheckoutSchemasCheckoutCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type PolarCheckoutSchemasCheckoutCreate$Outbound = {
-  metadata?: { [k: string]: string } | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   custom_field_data?:
     | PolarCheckoutSchemasCheckoutCreateCustomFieldData$Outbound
     | undefined;
@@ -199,7 +247,8 @@ export const PolarCheckoutSchemasCheckoutCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PolarCheckoutSchemasCheckoutCreate
 > = z.object({
-  metadata: z.record(z.string()).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   customFieldData: z.lazy(() =>
     PolarCheckoutSchemasCheckoutCreateCustomFieldData$outboundSchema
   ).optional(),

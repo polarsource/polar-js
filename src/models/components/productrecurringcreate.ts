@@ -23,6 +23,8 @@ import {
   ProductPriceRecurringFreeCreate$outboundSchema,
 } from "./productpricerecurringfreecreate.js";
 
+export type ProductRecurringCreateMetadata = string | number | boolean;
+
 /**
  * List of available prices for this product.
  */
@@ -34,6 +36,20 @@ export type ProductRecurringCreatePrices =
  * Schema to create a recurring product, i.e. a subscription.
  */
 export type ProductRecurringCreate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *     * A string with a maximum length of **500 characters**
+   *     * An integer
+   *     * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   /**
    * The name of the product.
    */
@@ -61,6 +77,36 @@ export type ProductRecurringCreate = {
    */
   organizationId?: string | null | undefined;
 };
+
+/** @internal */
+export const ProductRecurringCreateMetadata$inboundSchema: z.ZodType<
+  ProductRecurringCreateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type ProductRecurringCreateMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const ProductRecurringCreateMetadata$outboundSchema: z.ZodType<
+  ProductRecurringCreateMetadata$Outbound,
+  z.ZodTypeDef,
+  ProductRecurringCreateMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ProductRecurringCreateMetadata$ {
+  /** @deprecated use `ProductRecurringCreateMetadata$inboundSchema` instead. */
+  export const inboundSchema = ProductRecurringCreateMetadata$inboundSchema;
+  /** @deprecated use `ProductRecurringCreateMetadata$outboundSchema` instead. */
+  export const outboundSchema = ProductRecurringCreateMetadata$outboundSchema;
+  /** @deprecated use `ProductRecurringCreateMetadata$Outbound` instead. */
+  export type Outbound = ProductRecurringCreateMetadata$Outbound;
+}
 
 /** @internal */
 export const ProductRecurringCreatePrices$inboundSchema: z.ZodType<
@@ -106,6 +152,8 @@ export const ProductRecurringCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.string(),
   description: z.nullable(z.string()).optional(),
   prices: z.union([
@@ -125,6 +173,7 @@ export const ProductRecurringCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ProductRecurringCreate$Outbound = {
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   name: string;
   description?: string | null | undefined;
   prices:
@@ -143,6 +192,8 @@ export const ProductRecurringCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductRecurringCreate
 > = z.object({
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.string(),
   description: z.nullable(z.string()).optional(),
   prices: z.union([

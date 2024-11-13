@@ -46,7 +46,6 @@ let value: ListResourceRepository = {
         pledgeMinimumAmount: 640046,
         pledgeBadgeShowAmount: false,
         defaultUpfrontSplitToContributors: 666273,
-        donationsEnabled: false,
         profileSettings: {},
         featureSettings: {},
       },

@@ -83,6 +83,9 @@ export async function oauth2ClientsList(
   const context = {
     operationID: "oauth2:clients:list",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

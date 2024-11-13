@@ -5,10 +5,10 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 import {
-  SubscriptionInput,
-  SubscriptionInput$inboundSchema,
-  SubscriptionInput$Outbound,
-  SubscriptionInput$outboundSchema,
+  Subscription,
+  Subscription$inboundSchema,
+  Subscription$Outbound,
+  Subscription$outboundSchema,
 } from "./subscription.js";
 
 export const WebhookSubscriptionCanceledPayloadType = {
@@ -28,7 +28,7 @@ export type WebhookSubscriptionCanceledPayloadType = ClosedEnum<
  */
 export type WebhookSubscriptionCanceledPayload = {
   type?: "subscription.canceled" | undefined;
-  data: SubscriptionInput;
+  data: Subscription;
 };
 
 /** @internal */
@@ -62,13 +62,13 @@ export const WebhookSubscriptionCanceledPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("subscription.canceled").optional(),
-  data: SubscriptionInput$inboundSchema,
+  data: Subscription$inboundSchema,
 });
 
 /** @internal */
 export type WebhookSubscriptionCanceledPayload$Outbound = {
   type: "subscription.canceled";
-  data: SubscriptionInput$Outbound;
+  data: Subscription$Outbound;
 };
 
 /** @internal */
@@ -78,7 +78,7 @@ export const WebhookSubscriptionCanceledPayload$outboundSchema: z.ZodType<
   WebhookSubscriptionCanceledPayload
 > = z.object({
   type: z.literal("subscription.canceled").default("subscription.canceled"),
-  data: SubscriptionInput$outboundSchema,
+  data: Subscription$outboundSchema,
 });
 
 /**

@@ -79,6 +79,9 @@ export async function usersSubscriptionsGet(
   const context = {
     operationID: "users:subscriptions:get",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

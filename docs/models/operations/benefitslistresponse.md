@@ -9,30 +9,21 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2022-04-20T20:32:25.216Z"),
-        modifiedAt: new Date("2024-08-08T08:34:51.248Z"),
+        createdAt: new Date("2022-06-11T13:12:44.267Z"),
+        modifiedAt: new Date("2024-04-08T21:22:45.615Z"),
         id: "<value>",
-        description: "while unless after vainly scoop",
+        description: "intermarry colonialism worthy",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          prefix: "<value>",
-          expires: {
-            ttl: 527715,
-            timeframe: "year",
-          },
-          activations: {
-            limit: 271306,
-            enableUserAdmin: false,
-          },
-          limitUsage: 258059,
+          paidArticles: false,
         },
       },
     ],
     pagination: {
-      totalCount: 532320,
-      maxPage: 703189,
+      totalCount: 887284,
+      maxPage: 765070,
     },
   },
 };

@@ -11,21 +11,17 @@ import { WebhookBenefitUpdatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookBenefitUpdatedPayload = {
   data: {
-    createdAt: new Date("2024-09-26T16:56:57.899Z"),
-    modifiedAt: new Date("2023-10-02T21:44:40.357Z"),
+    createdAt: new Date("2022-12-04T11:10:25.256Z"),
+    modifiedAt: new Date("2022-04-02T15:04:46.624Z"),
     id: "<value>",
-    description:
-      "babyish collaboration cap neck crowded westernize huge down cantaloupe yet",
+    description: "below accompany coaxingly",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      archived: {
-        "key": false,
-      },
-      files: [
-        "<value>",
-      ],
+      guildId: "<id>",
+      roleId: "<id>",
+      guildToken: "<value>",
     },
   },
 };
@@ -36,4 +32,4 @@ let value: WebhookBenefitUpdatedPayload = {
 | Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `type`                                                                                                     | [components.WebhookBenefitUpdatedPayloadType](../../models/components/webhookbenefitupdatedpayloadtype.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `data`                                                                                                     | *components.BenefitInput*                                                                                  | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `data`                                                                                                     | *components.Benefit*                                                                                       | :heavy_check_mark:                                                                                         | N/A                                                                                                        |

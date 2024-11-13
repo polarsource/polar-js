@@ -77,6 +77,9 @@ export async function articlesReceivers(
   const context = {
     operationID: "articles:receivers",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

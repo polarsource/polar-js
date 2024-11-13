@@ -74,6 +74,9 @@ export async function oauth2Introspect(
   const context = {
     operationID: "oauth2:introspect_token",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

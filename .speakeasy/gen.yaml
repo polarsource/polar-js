@@ -16,7 +16,7 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
 typescript:
-  version: 0.15.1
+  version: 0.16.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -24,6 +24,7 @@ typescript:
   additionalPackageJSON: {}
   author: Speakeasy
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKError
   enumFormat: union
   envVarPrefix: POLAR
   flattenGlobalSecurity: true

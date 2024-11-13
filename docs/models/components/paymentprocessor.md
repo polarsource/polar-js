@@ -1,7 +1,5 @@
 # PaymentProcessor
 
-Payment processor to use. Currently only Stripe is supported.
-
 ## Example Usage
 
 ```typescript

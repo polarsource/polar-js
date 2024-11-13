@@ -5,6 +5,12 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
+  Benefit,
+  Benefit$inboundSchema,
+  Benefit$Outbound,
+  Benefit$outboundSchema,
+} from "./benefit.js";
+import {
   BenefitGrantAdsProperties,
   BenefitGrantAdsProperties$inboundSchema,
   BenefitGrantAdsProperties$Outbound,
@@ -46,12 +52,6 @@ import {
   BenefitGrantLicenseKeysProperties$Outbound,
   BenefitGrantLicenseKeysProperties$outboundSchema,
 } from "./benefitgrantlicensekeysproperties.js";
-import {
-  BenefitInput,
-  BenefitInput$inboundSchema,
-  BenefitInput$Outbound,
-  BenefitInput$outboundSchema,
-} from "./benefitinput.js";
 
 export type BenefitGrantWebhookProperties =
   | BenefitGrantCustomProperties
@@ -124,7 +124,7 @@ export type BenefitGrantWebhook = {
     | BenefitGrantLicenseKeysProperties
     | BenefitGrantDiscordProperties
     | BenefitGrantGitHubRepositoryProperties;
-  benefit: BenefitInput;
+  benefit: Benefit;
   previousProperties?:
     | BenefitGrantCustomProperties
     | BenefitGrantArticlesProperties
@@ -275,7 +275,7 @@ export const BenefitGrantWebhook$inboundSchema: z.ZodType<
     BenefitGrantDiscordProperties$inboundSchema,
     BenefitGrantGitHubRepositoryProperties$inboundSchema,
   ]),
-  benefit: BenefitInput$inboundSchema,
+  benefit: Benefit$inboundSchema,
   previous_properties: z.nullable(
     z.union([
       BenefitGrantCustomProperties$inboundSchema,
@@ -324,7 +324,7 @@ export type BenefitGrantWebhook$Outbound = {
     | BenefitGrantLicenseKeysProperties$Outbound
     | BenefitGrantDiscordProperties$Outbound
     | BenefitGrantGitHubRepositoryProperties$Outbound;
-  benefit: BenefitInput$Outbound;
+  benefit: Benefit$Outbound;
   previous_properties?:
     | BenefitGrantCustomProperties$Outbound
     | BenefitGrantArticlesProperties$Outbound
@@ -363,7 +363,7 @@ export const BenefitGrantWebhook$outboundSchema: z.ZodType<
     BenefitGrantDiscordProperties$outboundSchema,
     BenefitGrantGitHubRepositoryProperties$outboundSchema,
   ]),
-  benefit: BenefitInput$outboundSchema,
+  benefit: Benefit$outboundSchema,
   previousProperties: z.nullable(
     z.union([
       BenefitGrantCustomProperties$outboundSchema,

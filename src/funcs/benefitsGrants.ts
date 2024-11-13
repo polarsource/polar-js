@@ -96,6 +96,9 @@ export async function benefitsGrants(
   const context = {
     operationID: "benefits:grants",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig

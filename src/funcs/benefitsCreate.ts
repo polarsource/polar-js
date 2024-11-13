@@ -72,6 +72,9 @@ export async function benefitsCreate(
   const context = {
     operationID: "benefits:create",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig
