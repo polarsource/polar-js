@@ -38,7 +38,7 @@ export class Products extends ClientSDK {
    * Create a product.
    */
   async create(
-    request: operations.ProductsCreateProductCreate,
+    request: components.ProductCreate,
     options?: RequestOptions,
   ): Promise<components.Product> {
     return unwrapAsync(productsCreate(

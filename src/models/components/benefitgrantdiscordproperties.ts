@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitGrantDiscordProperties = {
   guildId?: string | undefined;
@@ -63,4 +66,24 @@ export namespace BenefitGrantDiscordProperties$ {
   export const outboundSchema = BenefitGrantDiscordProperties$outboundSchema;
   /** @deprecated use `BenefitGrantDiscordProperties$Outbound` instead. */
   export type Outbound = BenefitGrantDiscordProperties$Outbound;
+}
+
+export function benefitGrantDiscordPropertiesToJSON(
+  benefitGrantDiscordProperties: BenefitGrantDiscordProperties,
+): string {
+  return JSON.stringify(
+    BenefitGrantDiscordProperties$outboundSchema.parse(
+      benefitGrantDiscordProperties,
+    ),
+  );
+}
+
+export function benefitGrantDiscordPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGrantDiscordProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitGrantDiscordProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGrantDiscordProperties' from JSON`,
+  );
 }

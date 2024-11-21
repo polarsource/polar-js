@@ -24,6 +24,7 @@ let value: UsersSubscriptionsListResponse = {
         userId: "<value>",
         productId: "<value>",
         priceId: "<value>",
+        discountId: "<value>",
         checkoutId: "<value>",
         product: {
           createdAt: new Date("2023-07-29T12:07:56.150Z"),

@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UsersBenefitsGetRequest = {
   /**
@@ -60,6 +63,24 @@ export namespace UsersBenefitsGetRequest$ {
   export const outboundSchema = UsersBenefitsGetRequest$outboundSchema;
   /** @deprecated use `UsersBenefitsGetRequest$Outbound` instead. */
   export type Outbound = UsersBenefitsGetRequest$Outbound;
+}
+
+export function usersBenefitsGetRequestToJSON(
+  usersBenefitsGetRequest: UsersBenefitsGetRequest,
+): string {
+  return JSON.stringify(
+    UsersBenefitsGetRequest$outboundSchema.parse(usersBenefitsGetRequest),
+  );
+}
+
+export function usersBenefitsGetRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersBenefitsGetRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersBenefitsGetRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersBenefitsGetRequest' from JSON`,
+  );
 }
 
 /** @internal */
@@ -173,4 +194,31 @@ export namespace UsersBenefitsGetResponseUsersBenefitsGet$ {
     UsersBenefitsGetResponseUsersBenefitsGet$outboundSchema;
   /** @deprecated use `UsersBenefitsGetResponseUsersBenefitsGet$Outbound` instead. */
   export type Outbound = UsersBenefitsGetResponseUsersBenefitsGet$Outbound;
+}
+
+export function usersBenefitsGetResponseUsersBenefitsGetToJSON(
+  usersBenefitsGetResponseUsersBenefitsGet:
+    UsersBenefitsGetResponseUsersBenefitsGet,
+): string {
+  return JSON.stringify(
+    UsersBenefitsGetResponseUsersBenefitsGet$outboundSchema.parse(
+      usersBenefitsGetResponseUsersBenefitsGet,
+    ),
+  );
+}
+
+export function usersBenefitsGetResponseUsersBenefitsGetFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  UsersBenefitsGetResponseUsersBenefitsGet,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      UsersBenefitsGetResponseUsersBenefitsGet$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'UsersBenefitsGetResponseUsersBenefitsGet' from JSON`,
+  );
 }

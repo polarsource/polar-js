@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   MetricType,
   MetricType$inboundSchema,
@@ -70,4 +73,18 @@ export namespace Metric$ {
   export const outboundSchema = Metric$outboundSchema;
   /** @deprecated use `Metric$Outbound` instead. */
   export type Outbound = Metric$Outbound;
+}
+
+export function metricToJSON(metric: Metric): string {
+  return JSON.stringify(Metric$outboundSchema.parse(metric));
+}
+
+export function metricFromJSON(
+  jsonString: string,
+): SafeParseResult<Metric, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Metric$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Metric' from JSON`,
+  );
 }

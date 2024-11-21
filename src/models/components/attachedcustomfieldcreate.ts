@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Schema to attach a custom field to a resource.
@@ -64,4 +67,22 @@ export namespace AttachedCustomFieldCreate$ {
   export const outboundSchema = AttachedCustomFieldCreate$outboundSchema;
   /** @deprecated use `AttachedCustomFieldCreate$Outbound` instead. */
   export type Outbound = AttachedCustomFieldCreate$Outbound;
+}
+
+export function attachedCustomFieldCreateToJSON(
+  attachedCustomFieldCreate: AttachedCustomFieldCreate,
+): string {
+  return JSON.stringify(
+    AttachedCustomFieldCreate$outboundSchema.parse(attachedCustomFieldCreate),
+  );
+}
+
+export function attachedCustomFieldCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<AttachedCustomFieldCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AttachedCustomFieldCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AttachedCustomFieldCreate' from JSON`,
+  );
 }

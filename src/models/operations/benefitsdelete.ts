@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitsDeleteRequest = {
   id: string;
@@ -42,4 +45,22 @@ export namespace BenefitsDeleteRequest$ {
   export const outboundSchema = BenefitsDeleteRequest$outboundSchema;
   /** @deprecated use `BenefitsDeleteRequest$Outbound` instead. */
   export type Outbound = BenefitsDeleteRequest$Outbound;
+}
+
+export function benefitsDeleteRequestToJSON(
+  benefitsDeleteRequest: BenefitsDeleteRequest,
+): string {
+  return JSON.stringify(
+    BenefitsDeleteRequest$outboundSchema.parse(benefitsDeleteRequest),
+  );
+}
+
+export function benefitsDeleteRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitsDeleteRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitsDeleteRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitsDeleteRequest' from JSON`,
+  );
 }

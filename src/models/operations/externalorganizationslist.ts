@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by platform.
@@ -97,6 +100,20 @@ export namespace PlatformFilter$ {
   export type Outbound = PlatformFilter$Outbound;
 }
 
+export function platformFilterToJSON(platformFilter: PlatformFilter): string {
+  return JSON.stringify(PlatformFilter$outboundSchema.parse(platformFilter));
+}
+
+export function platformFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<PlatformFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PlatformFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PlatformFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const RepositoryNameFilter$inboundSchema: z.ZodType<
   RepositoryNameFilter,
@@ -125,6 +142,24 @@ export namespace RepositoryNameFilter$ {
   export const outboundSchema = RepositoryNameFilter$outboundSchema;
   /** @deprecated use `RepositoryNameFilter$Outbound` instead. */
   export type Outbound = RepositoryNameFilter$Outbound;
+}
+
+export function repositoryNameFilterToJSON(
+  repositoryNameFilter: RepositoryNameFilter,
+): string {
+  return JSON.stringify(
+    RepositoryNameFilter$outboundSchema.parse(repositoryNameFilter),
+  );
+}
+
+export function repositoryNameFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<RepositoryNameFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RepositoryNameFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RepositoryNameFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -162,6 +197,31 @@ export namespace ExternalOrganizationsListQueryParamOrganizationIDFilter$ {
   /** @deprecated use `ExternalOrganizationsListQueryParamOrganizationIDFilter$Outbound` instead. */
   export type Outbound =
     ExternalOrganizationsListQueryParamOrganizationIDFilter$Outbound;
+}
+
+export function externalOrganizationsListQueryParamOrganizationIDFilterToJSON(
+  externalOrganizationsListQueryParamOrganizationIDFilter:
+    ExternalOrganizationsListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    ExternalOrganizationsListQueryParamOrganizationIDFilter$outboundSchema
+      .parse(externalOrganizationsListQueryParamOrganizationIDFilter),
+  );
+}
+
+export function externalOrganizationsListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  ExternalOrganizationsListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ExternalOrganizationsListQueryParamOrganizationIDFilter$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'ExternalOrganizationsListQueryParamOrganizationIDFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -239,6 +299,26 @@ export namespace ExternalOrganizationsListRequest$ {
   export type Outbound = ExternalOrganizationsListRequest$Outbound;
 }
 
+export function externalOrganizationsListRequestToJSON(
+  externalOrganizationsListRequest: ExternalOrganizationsListRequest,
+): string {
+  return JSON.stringify(
+    ExternalOrganizationsListRequest$outboundSchema.parse(
+      externalOrganizationsListRequest,
+    ),
+  );
+}
+
+export function externalOrganizationsListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ExternalOrganizationsListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ExternalOrganizationsListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ExternalOrganizationsListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const ExternalOrganizationsListResponse$inboundSchema: z.ZodType<
   ExternalOrganizationsListResponse,
@@ -282,4 +362,24 @@ export namespace ExternalOrganizationsListResponse$ {
     ExternalOrganizationsListResponse$outboundSchema;
   /** @deprecated use `ExternalOrganizationsListResponse$Outbound` instead. */
   export type Outbound = ExternalOrganizationsListResponse$Outbound;
+}
+
+export function externalOrganizationsListResponseToJSON(
+  externalOrganizationsListResponse: ExternalOrganizationsListResponse,
+): string {
+  return JSON.stringify(
+    ExternalOrganizationsListResponse$outboundSchema.parse(
+      externalOrganizationsListResponse,
+    ),
+  );
+}
+
+export function externalOrganizationsListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ExternalOrganizationsListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ExternalOrganizationsListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ExternalOrganizationsListResponse' from JSON`,
+  );
 }

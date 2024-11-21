@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutsGetRequest = {
   id: string;
@@ -42,4 +45,22 @@ export namespace CheckoutsGetRequest$ {
   export const outboundSchema = CheckoutsGetRequest$outboundSchema;
   /** @deprecated use `CheckoutsGetRequest$Outbound` instead. */
   export type Outbound = CheckoutsGetRequest$Outbound;
+}
+
+export function checkoutsGetRequestToJSON(
+  checkoutsGetRequest: CheckoutsGetRequest,
+): string {
+  return JSON.stringify(
+    CheckoutsGetRequest$outboundSchema.parse(checkoutsGetRequest),
+  );
+}
+
+export function checkoutsGetRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutsGetRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutsGetRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutsGetRequest' from JSON`,
+  );
 }

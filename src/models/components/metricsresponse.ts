@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   MetricPeriod,
   MetricPeriod$inboundSchema,
@@ -64,4 +67,20 @@ export namespace MetricsResponse$ {
   export const outboundSchema = MetricsResponse$outboundSchema;
   /** @deprecated use `MetricsResponse$Outbound` instead. */
   export type Outbound = MetricsResponse$Outbound;
+}
+
+export function metricsResponseToJSON(
+  metricsResponse: MetricsResponse,
+): string {
+  return JSON.stringify(MetricsResponse$outboundSchema.parse(metricsResponse));
+}
+
+export function metricsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsResponse' from JSON`,
+  );
 }

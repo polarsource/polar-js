@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Oauth2ClientsOauth2GetClientRequest = {
   clientId: string;
@@ -53,4 +56,25 @@ export namespace Oauth2ClientsOauth2GetClientRequest$ {
     Oauth2ClientsOauth2GetClientRequest$outboundSchema;
   /** @deprecated use `Oauth2ClientsOauth2GetClientRequest$Outbound` instead. */
   export type Outbound = Oauth2ClientsOauth2GetClientRequest$Outbound;
+}
+
+export function oauth2ClientsOauth2GetClientRequestToJSON(
+  oauth2ClientsOauth2GetClientRequest: Oauth2ClientsOauth2GetClientRequest,
+): string {
+  return JSON.stringify(
+    Oauth2ClientsOauth2GetClientRequest$outboundSchema.parse(
+      oauth2ClientsOauth2GetClientRequest,
+    ),
+  );
+}
+
+export function oauth2ClientsOauth2GetClientRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<Oauth2ClientsOauth2GetClientRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      Oauth2ClientsOauth2GetClientRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Oauth2ClientsOauth2GetClientRequest' from JSON`,
+  );
 }

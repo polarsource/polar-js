@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by platform.
@@ -109,6 +112,24 @@ export namespace QueryParamPlatformFilter$ {
   export type Outbound = QueryParamPlatformFilter$Outbound;
 }
 
+export function queryParamPlatformFilterToJSON(
+  queryParamPlatformFilter: QueryParamPlatformFilter,
+): string {
+  return JSON.stringify(
+    QueryParamPlatformFilter$outboundSchema.parse(queryParamPlatformFilter),
+  );
+}
+
+export function queryParamPlatformFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryParamPlatformFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryParamPlatformFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamPlatformFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const QueryParamRepositoryNameFilter$inboundSchema: z.ZodType<
   QueryParamRepositoryNameFilter,
@@ -139,6 +160,26 @@ export namespace QueryParamRepositoryNameFilter$ {
   export type Outbound = QueryParamRepositoryNameFilter$Outbound;
 }
 
+export function queryParamRepositoryNameFilterToJSON(
+  queryParamRepositoryNameFilter: QueryParamRepositoryNameFilter,
+): string {
+  return JSON.stringify(
+    QueryParamRepositoryNameFilter$outboundSchema.parse(
+      queryParamRepositoryNameFilter,
+    ),
+  );
+}
+
+export function queryParamRepositoryNameFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryParamRepositoryNameFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryParamRepositoryNameFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamRepositoryNameFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const ExternalOrganizationNameFilter$inboundSchema: z.ZodType<
   ExternalOrganizationNameFilter,
@@ -167,6 +208,26 @@ export namespace ExternalOrganizationNameFilter$ {
   export const outboundSchema = ExternalOrganizationNameFilter$outboundSchema;
   /** @deprecated use `ExternalOrganizationNameFilter$Outbound` instead. */
   export type Outbound = ExternalOrganizationNameFilter$Outbound;
+}
+
+export function externalOrganizationNameFilterToJSON(
+  externalOrganizationNameFilter: ExternalOrganizationNameFilter,
+): string {
+  return JSON.stringify(
+    ExternalOrganizationNameFilter$outboundSchema.parse(
+      externalOrganizationNameFilter,
+    ),
+  );
+}
+
+export function externalOrganizationNameFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<ExternalOrganizationNameFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ExternalOrganizationNameFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ExternalOrganizationNameFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -204,6 +265,33 @@ export namespace RepositoriesListQueryParamOrganizationIDFilter$ {
   /** @deprecated use `RepositoriesListQueryParamOrganizationIDFilter$Outbound` instead. */
   export type Outbound =
     RepositoriesListQueryParamOrganizationIDFilter$Outbound;
+}
+
+export function repositoriesListQueryParamOrganizationIDFilterToJSON(
+  repositoriesListQueryParamOrganizationIDFilter:
+    RepositoriesListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    RepositoriesListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      repositoriesListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function repositoriesListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  RepositoriesListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      RepositoriesListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'RepositoriesListQueryParamOrganizationIDFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -293,6 +381,24 @@ export namespace RepositoriesListRequest$ {
   export type Outbound = RepositoriesListRequest$Outbound;
 }
 
+export function repositoriesListRequestToJSON(
+  repositoriesListRequest: RepositoriesListRequest,
+): string {
+  return JSON.stringify(
+    RepositoriesListRequest$outboundSchema.parse(repositoriesListRequest),
+  );
+}
+
+export function repositoriesListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<RepositoriesListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RepositoriesListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RepositoriesListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const RepositoriesListResponse$inboundSchema: z.ZodType<
   RepositoriesListResponse,
@@ -335,4 +441,22 @@ export namespace RepositoriesListResponse$ {
   export const outboundSchema = RepositoriesListResponse$outboundSchema;
   /** @deprecated use `RepositoriesListResponse$Outbound` instead. */
   export type Outbound = RepositoriesListResponse$Outbound;
+}
+
+export function repositoriesListResponseToJSON(
+  repositoriesListResponse: RepositoriesListResponse,
+): string {
+  return JSON.stringify(
+    RepositoriesListResponse$outboundSchema.parse(repositoriesListResponse),
+  );
+}
+
+export function repositoriesListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<RepositoriesListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RepositoriesListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RepositoriesListResponse' from JSON`,
+  );
 }

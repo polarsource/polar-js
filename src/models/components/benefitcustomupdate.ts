@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitCustomProperties,
   BenefitCustomProperties$inboundSchema,
@@ -88,4 +91,22 @@ export namespace BenefitCustomUpdate$ {
   export const outboundSchema = BenefitCustomUpdate$outboundSchema;
   /** @deprecated use `BenefitCustomUpdate$Outbound` instead. */
   export type Outbound = BenefitCustomUpdate$Outbound;
+}
+
+export function benefitCustomUpdateToJSON(
+  benefitCustomUpdate: BenefitCustomUpdate,
+): string {
+  return JSON.stringify(
+    BenefitCustomUpdate$outboundSchema.parse(benefitCustomUpdate),
+  );
+}
+
+export function benefitCustomUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitCustomUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitCustomUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitCustomUpdate' from JSON`,
+  );
 }

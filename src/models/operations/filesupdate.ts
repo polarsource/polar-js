@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type FilesUpdateRequest = {
   /**
@@ -69,6 +72,24 @@ export namespace FilesUpdateRequest$ {
   export const outboundSchema = FilesUpdateRequest$outboundSchema;
   /** @deprecated use `FilesUpdateRequest$Outbound` instead. */
   export type Outbound = FilesUpdateRequest$Outbound;
+}
+
+export function filesUpdateRequestToJSON(
+  filesUpdateRequest: FilesUpdateRequest,
+): string {
+  return JSON.stringify(
+    FilesUpdateRequest$outboundSchema.parse(filesUpdateRequest),
+  );
+}
+
+export function filesUpdateRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<FilesUpdateRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FilesUpdateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FilesUpdateRequest' from JSON`,
+  );
 }
 
 /** @internal */
@@ -136,4 +157,24 @@ export namespace FilesUpdateResponseFilesUpdate$ {
   export const outboundSchema = FilesUpdateResponseFilesUpdate$outboundSchema;
   /** @deprecated use `FilesUpdateResponseFilesUpdate$Outbound` instead. */
   export type Outbound = FilesUpdateResponseFilesUpdate$Outbound;
+}
+
+export function filesUpdateResponseFilesUpdateToJSON(
+  filesUpdateResponseFilesUpdate: FilesUpdateResponseFilesUpdate,
+): string {
+  return JSON.stringify(
+    FilesUpdateResponseFilesUpdate$outboundSchema.parse(
+      filesUpdateResponseFilesUpdate,
+    ),
+  );
+}
+
+export function filesUpdateResponseFilesUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<FilesUpdateResponseFilesUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FilesUpdateResponseFilesUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FilesUpdateResponseFilesUpdate' from JSON`,
+  );
 }

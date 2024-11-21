@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ArticlesReceiversRequest = {
   id: string;
@@ -42,4 +45,22 @@ export namespace ArticlesReceiversRequest$ {
   export const outboundSchema = ArticlesReceiversRequest$outboundSchema;
   /** @deprecated use `ArticlesReceiversRequest$Outbound` instead. */
   export type Outbound = ArticlesReceiversRequest$Outbound;
+}
+
+export function articlesReceiversRequestToJSON(
+  articlesReceiversRequest: ArticlesReceiversRequest,
+): string {
+  return JSON.stringify(
+    ArticlesReceiversRequest$outboundSchema.parse(articlesReceiversRequest),
+  );
+}
+
+export function articlesReceiversRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ArticlesReceiversRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ArticlesReceiversRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ArticlesReceiversRequest' from JSON`,
+  );
 }

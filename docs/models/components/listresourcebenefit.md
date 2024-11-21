@@ -8,24 +8,21 @@ import { ListResourceBenefit } from "@polar-sh/sdk/models/components";
 let value: ListResourceBenefit = {
   items: [
     {
-      createdAt: new Date("2022-09-03T22:41:08.280Z"),
-      modifiedAt: new Date("2024-04-27T10:53:52.931Z"),
+      createdAt: new Date("2024-06-14T21:21:42.344Z"),
+      modifiedAt: new Date("2023-02-17T19:07:11.758Z"),
       id: "<value>",
-      description:
-        "eek suspiciously preheat lanky politely feminize deduction sometimes",
+      description: "eek for enormously while beside ack",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        guildId: "<id>",
-        roleId: "<id>",
-        guildToken: "<value>",
+        paidArticles: false,
       },
     },
   ],
   pagination: {
-    totalCount: 806504,
-    maxPage: 920481,
+    totalCount: 782688,
+    maxPage: 19463,
   },
 };
 ```

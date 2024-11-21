@@ -13,15 +13,15 @@ let value: DownloadableFileRead = {
   name: "<value>",
   path: "/System",
   mimeType: "<value>",
-  size: 987897,
+  size: 714352,
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-08-28T08:37:13.354Z"),
+  lastModifiedAt: new Date("2022-10-26T18:09:17.843Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2023-07-22T06:05:22.331Z"),
+  createdAt: new Date("2022-05-08T20:07:14.403Z"),
   sizeReadable: "<value>",
 };
 ```

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ArticlesExportRequest = {
   organizationId: string;
@@ -51,4 +54,22 @@ export namespace ArticlesExportRequest$ {
   export const outboundSchema = ArticlesExportRequest$outboundSchema;
   /** @deprecated use `ArticlesExportRequest$Outbound` instead. */
   export type Outbound = ArticlesExportRequest$Outbound;
+}
+
+export function articlesExportRequestToJSON(
+  articlesExportRequest: ArticlesExportRequest,
+): string {
+  return JSON.stringify(
+    ArticlesExportRequest$outboundSchema.parse(articlesExportRequest),
+  );
+}
+
+export function articlesExportRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ArticlesExportRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ArticlesExportRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ArticlesExportRequest' from JSON`,
+  );
 }

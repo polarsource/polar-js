@@ -35,7 +35,7 @@ export async function checkoutsCustomUpdate(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.PolarCheckoutSchemasCheckout,
+    components.Checkout,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -119,7 +119,7 @@ export async function checkoutsCustomUpdate(
   };
 
   const [result] = await M.match<
-    components.PolarCheckoutSchemasCheckout,
+    components.Checkout,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -130,7 +130,7 @@ export async function checkoutsCustomUpdate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.PolarCheckoutSchemasCheckout$inboundSchema),
+    M.json(200, components.Checkout$inboundSchema),
     M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),

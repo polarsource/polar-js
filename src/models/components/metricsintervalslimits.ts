@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   MetricsIntervalLimit,
   MetricsIntervalLimit$inboundSchema,
@@ -82,4 +85,22 @@ export namespace MetricsIntervalsLimits$ {
   export const outboundSchema = MetricsIntervalsLimits$outboundSchema;
   /** @deprecated use `MetricsIntervalsLimits$Outbound` instead. */
   export type Outbound = MetricsIntervalsLimits$Outbound;
+}
+
+export function metricsIntervalsLimitsToJSON(
+  metricsIntervalsLimits: MetricsIntervalsLimits,
+): string {
+  return JSON.stringify(
+    MetricsIntervalsLimits$outboundSchema.parse(metricsIntervalsLimits),
+  );
+}
+
+export function metricsIntervalsLimitsFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsIntervalsLimits, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsIntervalsLimits$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsIntervalsLimits' from JSON`,
+  );
 }

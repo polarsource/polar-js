@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Reactions = {
   totalCount: number;
@@ -87,4 +90,18 @@ export namespace Reactions$ {
   export const outboundSchema = Reactions$outboundSchema;
   /** @deprecated use `Reactions$Outbound` instead. */
   export type Outbound = Reactions$Outbound;
+}
+
+export function reactionsToJSON(reactions: Reactions): string {
+  return JSON.stringify(Reactions$outboundSchema.parse(reactions));
+}
+
+export function reactionsFromJSON(
+  jsonString: string,
+): SafeParseResult<Reactions, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Reactions$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Reactions' from JSON`,
+  );
 }

@@ -38,7 +38,7 @@ export class Files extends ClientSDK {
    * Create a file.
    */
   async create(
-    request: operations.FilesCreateFileCreate,
+    request: components.FileCreate,
     options?: RequestOptions,
   ): Promise<components.FileUpload> {
     return unwrapAsync(filesCreate(

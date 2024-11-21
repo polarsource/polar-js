@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGitHubRepositoryCreateProperties,
   BenefitGitHubRepositoryCreateProperties$inboundSchema,
@@ -94,4 +97,24 @@ export namespace BenefitGitHubRepositoryUpdate$ {
   export const outboundSchema = BenefitGitHubRepositoryUpdate$outboundSchema;
   /** @deprecated use `BenefitGitHubRepositoryUpdate$Outbound` instead. */
   export type Outbound = BenefitGitHubRepositoryUpdate$Outbound;
+}
+
+export function benefitGitHubRepositoryUpdateToJSON(
+  benefitGitHubRepositoryUpdate: BenefitGitHubRepositoryUpdate,
+): string {
+  return JSON.stringify(
+    BenefitGitHubRepositoryUpdate$outboundSchema.parse(
+      benefitGitHubRepositoryUpdate,
+    ),
+  );
+}
+
+export function benefitGitHubRepositoryUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGitHubRepositoryUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitGitHubRepositoryUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGitHubRepositoryUpdate' from JSON`,
+  );
 }

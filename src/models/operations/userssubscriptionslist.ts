@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -90,6 +93,33 @@ export namespace UsersSubscriptionsListQueryParamOrganizationIDFilter$ {
     UsersSubscriptionsListQueryParamOrganizationIDFilter$Outbound;
 }
 
+export function usersSubscriptionsListQueryParamOrganizationIDFilterToJSON(
+  usersSubscriptionsListQueryParamOrganizationIDFilter:
+    UsersSubscriptionsListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    UsersSubscriptionsListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      usersSubscriptionsListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function usersSubscriptionsListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  UsersSubscriptionsListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      UsersSubscriptionsListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'UsersSubscriptionsListQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const QueryParamProductIDFilter$inboundSchema: z.ZodType<
   QueryParamProductIDFilter,
@@ -118,6 +148,24 @@ export namespace QueryParamProductIDFilter$ {
   export const outboundSchema = QueryParamProductIDFilter$outboundSchema;
   /** @deprecated use `QueryParamProductIDFilter$Outbound` instead. */
   export type Outbound = QueryParamProductIDFilter$Outbound;
+}
+
+export function queryParamProductIDFilterToJSON(
+  queryParamProductIDFilter: QueryParamProductIDFilter,
+): string {
+  return JSON.stringify(
+    QueryParamProductIDFilter$outboundSchema.parse(queryParamProductIDFilter),
+  );
+}
+
+export function queryParamProductIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryParamProductIDFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryParamProductIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamProductIDFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -190,6 +238,26 @@ export namespace UsersSubscriptionsListRequest$ {
   export type Outbound = UsersSubscriptionsListRequest$Outbound;
 }
 
+export function usersSubscriptionsListRequestToJSON(
+  usersSubscriptionsListRequest: UsersSubscriptionsListRequest,
+): string {
+  return JSON.stringify(
+    UsersSubscriptionsListRequest$outboundSchema.parse(
+      usersSubscriptionsListRequest,
+    ),
+  );
+}
+
+export function usersSubscriptionsListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersSubscriptionsListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersSubscriptionsListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersSubscriptionsListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const UsersSubscriptionsListResponse$inboundSchema: z.ZodType<
   UsersSubscriptionsListResponse,
@@ -232,4 +300,24 @@ export namespace UsersSubscriptionsListResponse$ {
   export const outboundSchema = UsersSubscriptionsListResponse$outboundSchema;
   /** @deprecated use `UsersSubscriptionsListResponse$Outbound` instead. */
   export type Outbound = UsersSubscriptionsListResponse$Outbound;
+}
+
+export function usersSubscriptionsListResponseToJSON(
+  usersSubscriptionsListResponse: UsersSubscriptionsListResponse,
+): string {
+  return JSON.stringify(
+    UsersSubscriptionsListResponse$outboundSchema.parse(
+      usersSubscriptionsListResponse,
+    ),
+  );
+}
+
+export function usersSubscriptionsListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersSubscriptionsListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersSubscriptionsListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersSubscriptionsListResponse' from JSON`,
+  );
 }

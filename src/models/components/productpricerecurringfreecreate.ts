@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
@@ -130,4 +133,24 @@ export namespace ProductPriceRecurringFreeCreate$ {
   export const outboundSchema = ProductPriceRecurringFreeCreate$outboundSchema;
   /** @deprecated use `ProductPriceRecurringFreeCreate$Outbound` instead. */
   export type Outbound = ProductPriceRecurringFreeCreate$Outbound;
+}
+
+export function productPriceRecurringFreeCreateToJSON(
+  productPriceRecurringFreeCreate: ProductPriceRecurringFreeCreate,
+): string {
+  return JSON.stringify(
+    ProductPriceRecurringFreeCreate$outboundSchema.parse(
+      productPriceRecurringFreeCreate,
+    ),
+  );
+}
+
+export function productPriceRecurringFreeCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductPriceRecurringFreeCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductPriceRecurringFreeCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductPriceRecurringFreeCreate' from JSON`,
+  );
 }

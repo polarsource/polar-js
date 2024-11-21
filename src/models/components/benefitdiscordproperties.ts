@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Properties for a benefit of type `discord`.
@@ -72,4 +75,22 @@ export namespace BenefitDiscordProperties$ {
   export const outboundSchema = BenefitDiscordProperties$outboundSchema;
   /** @deprecated use `BenefitDiscordProperties$Outbound` instead. */
   export type Outbound = BenefitDiscordProperties$Outbound;
+}
+
+export function benefitDiscordPropertiesToJSON(
+  benefitDiscordProperties: BenefitDiscordProperties,
+): string {
+  return JSON.stringify(
+    BenefitDiscordProperties$outboundSchema.parse(benefitDiscordProperties),
+  );
+}
+
+export function benefitDiscordPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitDiscordProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitDiscordProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitDiscordProperties' from JSON`,
+  );
 }

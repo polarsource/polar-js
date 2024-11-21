@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LicenseKeyActivateConditions = {};
 
@@ -47,6 +50,26 @@ export namespace LicenseKeyActivateConditions$ {
   export type Outbound = LicenseKeyActivateConditions$Outbound;
 }
 
+export function licenseKeyActivateConditionsToJSON(
+  licenseKeyActivateConditions: LicenseKeyActivateConditions,
+): string {
+  return JSON.stringify(
+    LicenseKeyActivateConditions$outboundSchema.parse(
+      licenseKeyActivateConditions,
+    ),
+  );
+}
+
+export function licenseKeyActivateConditionsFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeyActivateConditions, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeyActivateConditions$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeyActivateConditions' from JSON`,
+  );
+}
+
 /** @internal */
 export const LicenseKeyActivateMeta$inboundSchema: z.ZodType<
   LicenseKeyActivateMeta,
@@ -75,6 +98,24 @@ export namespace LicenseKeyActivateMeta$ {
   export const outboundSchema = LicenseKeyActivateMeta$outboundSchema;
   /** @deprecated use `LicenseKeyActivateMeta$Outbound` instead. */
   export type Outbound = LicenseKeyActivateMeta$Outbound;
+}
+
+export function licenseKeyActivateMetaToJSON(
+  licenseKeyActivateMeta: LicenseKeyActivateMeta,
+): string {
+  return JSON.stringify(
+    LicenseKeyActivateMeta$outboundSchema.parse(licenseKeyActivateMeta),
+  );
+}
+
+export function licenseKeyActivateMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeyActivateMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeyActivateMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeyActivateMeta' from JSON`,
+  );
 }
 
 /** @internal */
@@ -133,4 +174,22 @@ export namespace LicenseKeyActivate$ {
   export const outboundSchema = LicenseKeyActivate$outboundSchema;
   /** @deprecated use `LicenseKeyActivate$Outbound` instead. */
   export type Outbound = LicenseKeyActivate$Outbound;
+}
+
+export function licenseKeyActivateToJSON(
+  licenseKeyActivate: LicenseKeyActivate,
+): string {
+  return JSON.stringify(
+    LicenseKeyActivate$outboundSchema.parse(licenseKeyActivate),
+  );
+}
+
+export function licenseKeyActivateFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeyActivate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeyActivate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeyActivate' from JSON`,
+  );
 }

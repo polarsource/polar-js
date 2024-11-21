@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Pagination = {
   totalCount: number;
@@ -57,4 +60,18 @@ export namespace Pagination$ {
   export const outboundSchema = Pagination$outboundSchema;
   /** @deprecated use `Pagination$Outbound` instead. */
   export type Outbound = Pagination$Outbound;
+}
+
+export function paginationToJSON(pagination: Pagination): string {
+  return JSON.stringify(Pagination$outboundSchema.parse(pagination));
+}
+
+export function paginationFromJSON(
+  jsonString: string,
+): SafeParseResult<Pagination, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Pagination$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Pagination' from JSON`,
+  );
 }

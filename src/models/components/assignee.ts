@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Assignee = {
   id: number;
@@ -65,4 +68,18 @@ export namespace Assignee$ {
   export const outboundSchema = Assignee$outboundSchema;
   /** @deprecated use `Assignee$Outbound` instead. */
   export type Outbound = Assignee$Outbound;
+}
+
+export function assigneeToJSON(assignee: Assignee): string {
+  return JSON.stringify(Assignee$outboundSchema.parse(assignee));
+}
+
+export function assigneeFromJSON(
+  jsonString: string,
+): SafeParseResult<Assignee, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Assignee$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Assignee' from JSON`,
+  );
 }

@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutLinksUpdateRequest = {
   /**
@@ -59,4 +62,22 @@ export namespace CheckoutLinksUpdateRequest$ {
   export const outboundSchema = CheckoutLinksUpdateRequest$outboundSchema;
   /** @deprecated use `CheckoutLinksUpdateRequest$Outbound` instead. */
   export type Outbound = CheckoutLinksUpdateRequest$Outbound;
+}
+
+export function checkoutLinksUpdateRequestToJSON(
+  checkoutLinksUpdateRequest: CheckoutLinksUpdateRequest,
+): string {
+  return JSON.stringify(
+    CheckoutLinksUpdateRequest$outboundSchema.parse(checkoutLinksUpdateRequest),
+  );
+}
+
+export function checkoutLinksUpdateRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLinksUpdateRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLinksUpdateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLinksUpdateRequest' from JSON`,
+  );
 }

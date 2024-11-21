@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UsersAdvertisementsListRequest = {
   /**
@@ -71,6 +74,26 @@ export namespace UsersAdvertisementsListRequest$ {
   export type Outbound = UsersAdvertisementsListRequest$Outbound;
 }
 
+export function usersAdvertisementsListRequestToJSON(
+  usersAdvertisementsListRequest: UsersAdvertisementsListRequest,
+): string {
+  return JSON.stringify(
+    UsersAdvertisementsListRequest$outboundSchema.parse(
+      usersAdvertisementsListRequest,
+    ),
+  );
+}
+
+export function usersAdvertisementsListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersAdvertisementsListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersAdvertisementsListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersAdvertisementsListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const UsersAdvertisementsListResponse$inboundSchema: z.ZodType<
   UsersAdvertisementsListResponse,
@@ -113,4 +136,24 @@ export namespace UsersAdvertisementsListResponse$ {
   export const outboundSchema = UsersAdvertisementsListResponse$outboundSchema;
   /** @deprecated use `UsersAdvertisementsListResponse$Outbound` instead. */
   export type Outbound = UsersAdvertisementsListResponse$Outbound;
+}
+
+export function usersAdvertisementsListResponseToJSON(
+  usersAdvertisementsListResponse: UsersAdvertisementsListResponse,
+): string {
+  return JSON.stringify(
+    UsersAdvertisementsListResponse$outboundSchema.parse(
+      usersAdvertisementsListResponse,
+    ),
+  );
+}
+
+export function usersAdvertisementsListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersAdvertisementsListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersAdvertisementsListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersAdvertisementsListResponse' from JSON`,
+  );
 }

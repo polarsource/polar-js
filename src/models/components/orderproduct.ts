@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrderProduct = {
   /**
@@ -113,4 +116,18 @@ export namespace OrderProduct$ {
   export const outboundSchema = OrderProduct$outboundSchema;
   /** @deprecated use `OrderProduct$Outbound` instead. */
   export type Outbound = OrderProduct$Outbound;
+}
+
+export function orderProductToJSON(orderProduct: OrderProduct): string {
+  return JSON.stringify(OrderProduct$outboundSchema.parse(orderProduct));
+}
+
+export function orderProductFromJSON(
+  jsonString: string,
+): SafeParseResult<OrderProduct, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrderProduct$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrderProduct' from JSON`,
+  );
 }

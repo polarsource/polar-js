@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const Timeframe = {
   Year: "year",
@@ -75,4 +78,25 @@ export namespace BenefitLicenseKeyExpirationProperties$ {
     BenefitLicenseKeyExpirationProperties$outboundSchema;
   /** @deprecated use `BenefitLicenseKeyExpirationProperties$Outbound` instead. */
   export type Outbound = BenefitLicenseKeyExpirationProperties$Outbound;
+}
+
+export function benefitLicenseKeyExpirationPropertiesToJSON(
+  benefitLicenseKeyExpirationProperties: BenefitLicenseKeyExpirationProperties,
+): string {
+  return JSON.stringify(
+    BenefitLicenseKeyExpirationProperties$outboundSchema.parse(
+      benefitLicenseKeyExpirationProperties,
+    ),
+  );
+}
+
+export function benefitLicenseKeyExpirationPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitLicenseKeyExpirationProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitLicenseKeyExpirationProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitLicenseKeyExpirationProperties' from JSON`,
+  );
 }

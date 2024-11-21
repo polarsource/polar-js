@@ -7,12 +7,11 @@
 
 ```typescript
 const value: components.BenefitBase = {
-  createdAt: new Date("2023-11-12T05:07:40.672Z"),
-  modifiedAt: new Date("2023-12-04T20:46:32.398Z"),
+  createdAt: new Date("2024-05-20T09:25:06.072Z"),
+  modifiedAt: new Date("2023-04-07T00:08:29.443Z"),
   id: "<value>",
   type: "license_keys",
-  description:
-    "waver even toothpick woefully mysteriously badly whereas justly strategy neaten",
+  description: "norm procrastinate under on ick lovingly paintwork versus",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -23,10 +22,10 @@ const value: components.BenefitBase = {
 
 ```typescript
 const value: components.BenefitArticles = {
-  createdAt: new Date("2022-05-16T23:24:22.710Z"),
-  modifiedAt: new Date("2024-05-11T15:36:51.992Z"),
+  createdAt: new Date("2023-06-29T15:00:15.453Z"),
+  modifiedAt: new Date("2023-06-17T15:00:21.981Z"),
   id: "<value>",
-  description: "while ha gift wherever ah arrogantly fail",
+  description: "french joyously aha eek morning",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldCheckboxProperties = {
   formLabel?: string | undefined;
@@ -63,4 +66,24 @@ export namespace CustomFieldCheckboxProperties$ {
   export const outboundSchema = CustomFieldCheckboxProperties$outboundSchema;
   /** @deprecated use `CustomFieldCheckboxProperties$Outbound` instead. */
   export type Outbound = CustomFieldCheckboxProperties$Outbound;
+}
+
+export function customFieldCheckboxPropertiesToJSON(
+  customFieldCheckboxProperties: CustomFieldCheckboxProperties,
+): string {
+  return JSON.stringify(
+    CustomFieldCheckboxProperties$outboundSchema.parse(
+      customFieldCheckboxProperties,
+    ),
+  );
+}
+
+export function customFieldCheckboxPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCheckboxProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCheckboxProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCheckboxProperties' from JSON`,
+  );
 }

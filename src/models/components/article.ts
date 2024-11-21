@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ArticleVisibility,
   ArticleVisibility$inboundSchema,
@@ -167,4 +170,18 @@ export namespace Article$ {
   export const outboundSchema = Article$outboundSchema;
   /** @deprecated use `Article$Outbound` instead. */
   export type Outbound = Article$Outbound;
+}
+
+export function articleToJSON(article: Article): string {
+  return JSON.stringify(Article$outboundSchema.parse(article));
+}
+
+export function articleFromJSON(
+  jsonString: string,
+): SafeParseResult<Article, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Article$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Article' from JSON`,
+  );
 }

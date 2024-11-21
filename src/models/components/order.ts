@@ -4,6 +4,33 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  DiscountFixedOnceForeverDurationBase,
+  DiscountFixedOnceForeverDurationBase$inboundSchema,
+  DiscountFixedOnceForeverDurationBase$Outbound,
+  DiscountFixedOnceForeverDurationBase$outboundSchema,
+} from "./discountfixedonceforeverdurationbase.js";
+import {
+  DiscountFixedRepeatDurationBase,
+  DiscountFixedRepeatDurationBase$inboundSchema,
+  DiscountFixedRepeatDurationBase$Outbound,
+  DiscountFixedRepeatDurationBase$outboundSchema,
+} from "./discountfixedrepeatdurationbase.js";
+import {
+  DiscountPercentageOnceForeverDurationBase,
+  DiscountPercentageOnceForeverDurationBase$inboundSchema,
+  DiscountPercentageOnceForeverDurationBase$Outbound,
+  DiscountPercentageOnceForeverDurationBase$outboundSchema,
+} from "./discountpercentageonceforeverdurationbase.js";
+import {
+  DiscountPercentageRepeatDurationBase,
+  DiscountPercentageRepeatDurationBase$inboundSchema,
+  DiscountPercentageRepeatDurationBase$Outbound,
+  DiscountPercentageRepeatDurationBase$outboundSchema,
+} from "./discountpercentagerepeatdurationbase.js";
 import {
   OrderBillingReason,
   OrderBillingReason$inboundSchema,
@@ -41,6 +68,12 @@ export type OrderMetadata = string | number | boolean;
  */
 export type OrderCustomFieldData = {};
 
+export type OrderDiscount =
+  | DiscountPercentageOnceForeverDurationBase
+  | DiscountFixedOnceForeverDurationBase
+  | DiscountPercentageRepeatDurationBase
+  | DiscountFixedRepeatDurationBase;
+
 export type Order = {
   /**
    * Creation timestamp of the object.
@@ -66,11 +99,18 @@ export type Order = {
   userId: string;
   productId: string;
   productPriceId: string;
+  discountId: string | null;
   subscriptionId: string | null;
   checkoutId: string | null;
   user: OrderUser;
   product: OrderProduct;
   productPrice: ProductPrice;
+  discount:
+    | DiscountPercentageOnceForeverDurationBase
+    | DiscountFixedOnceForeverDurationBase
+    | DiscountPercentageRepeatDurationBase
+    | DiscountFixedRepeatDurationBase
+    | null;
   subscription: OrderSubscription | null;
 };
 
@@ -104,6 +144,20 @@ export namespace OrderMetadata$ {
   export type Outbound = OrderMetadata$Outbound;
 }
 
+export function orderMetadataToJSON(orderMetadata: OrderMetadata): string {
+  return JSON.stringify(OrderMetadata$outboundSchema.parse(orderMetadata));
+}
+
+export function orderMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<OrderMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrderMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrderMetadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const OrderCustomFieldData$inboundSchema: z.ZodType<
   OrderCustomFieldData,
@@ -134,6 +188,82 @@ export namespace OrderCustomFieldData$ {
   export type Outbound = OrderCustomFieldData$Outbound;
 }
 
+export function orderCustomFieldDataToJSON(
+  orderCustomFieldData: OrderCustomFieldData,
+): string {
+  return JSON.stringify(
+    OrderCustomFieldData$outboundSchema.parse(orderCustomFieldData),
+  );
+}
+
+export function orderCustomFieldDataFromJSON(
+  jsonString: string,
+): SafeParseResult<OrderCustomFieldData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrderCustomFieldData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrderCustomFieldData' from JSON`,
+  );
+}
+
+/** @internal */
+export const OrderDiscount$inboundSchema: z.ZodType<
+  OrderDiscount,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  DiscountPercentageOnceForeverDurationBase$inboundSchema,
+  DiscountFixedOnceForeverDurationBase$inboundSchema,
+  DiscountPercentageRepeatDurationBase$inboundSchema,
+  DiscountFixedRepeatDurationBase$inboundSchema,
+]);
+
+/** @internal */
+export type OrderDiscount$Outbound =
+  | DiscountPercentageOnceForeverDurationBase$Outbound
+  | DiscountFixedOnceForeverDurationBase$Outbound
+  | DiscountPercentageRepeatDurationBase$Outbound
+  | DiscountFixedRepeatDurationBase$Outbound;
+
+/** @internal */
+export const OrderDiscount$outboundSchema: z.ZodType<
+  OrderDiscount$Outbound,
+  z.ZodTypeDef,
+  OrderDiscount
+> = z.union([
+  DiscountPercentageOnceForeverDurationBase$outboundSchema,
+  DiscountFixedOnceForeverDurationBase$outboundSchema,
+  DiscountPercentageRepeatDurationBase$outboundSchema,
+  DiscountFixedRepeatDurationBase$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OrderDiscount$ {
+  /** @deprecated use `OrderDiscount$inboundSchema` instead. */
+  export const inboundSchema = OrderDiscount$inboundSchema;
+  /** @deprecated use `OrderDiscount$outboundSchema` instead. */
+  export const outboundSchema = OrderDiscount$outboundSchema;
+  /** @deprecated use `OrderDiscount$Outbound` instead. */
+  export type Outbound = OrderDiscount$Outbound;
+}
+
+export function orderDiscountToJSON(orderDiscount: OrderDiscount): string {
+  return JSON.stringify(OrderDiscount$outboundSchema.parse(orderDiscount));
+}
+
+export function orderDiscountFromJSON(
+  jsonString: string,
+): SafeParseResult<OrderDiscount, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrderDiscount$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrderDiscount' from JSON`,
+  );
+}
+
 /** @internal */
 export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
   .object({
@@ -154,11 +284,20 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     user_id: z.string(),
     product_id: z.string(),
     product_price_id: z.string(),
+    discount_id: z.nullable(z.string()),
     subscription_id: z.nullable(z.string()),
     checkout_id: z.nullable(z.string()),
     user: OrderUser$inboundSchema,
     product: OrderProduct$inboundSchema,
     product_price: ProductPrice$inboundSchema,
+    discount: z.nullable(
+      z.union([
+        DiscountPercentageOnceForeverDurationBase$inboundSchema,
+        DiscountFixedOnceForeverDurationBase$inboundSchema,
+        DiscountPercentageRepeatDurationBase$inboundSchema,
+        DiscountFixedRepeatDurationBase$inboundSchema,
+      ]),
+    ),
     subscription: z.nullable(OrderSubscription$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
@@ -170,6 +309,7 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       "user_id": "userId",
       "product_id": "productId",
       "product_price_id": "productPriceId",
+      "discount_id": "discountId",
       "subscription_id": "subscriptionId",
       "checkout_id": "checkoutId",
       "product_price": "productPrice",
@@ -190,11 +330,18 @@ export type Order$Outbound = {
   user_id: string;
   product_id: string;
   product_price_id: string;
+  discount_id: string | null;
   subscription_id: string | null;
   checkout_id: string | null;
   user: OrderUser$Outbound;
   product: OrderProduct$Outbound;
   product_price: ProductPrice$Outbound;
+  discount:
+    | DiscountPercentageOnceForeverDurationBase$Outbound
+    | DiscountFixedOnceForeverDurationBase$Outbound
+    | DiscountPercentageRepeatDurationBase$Outbound
+    | DiscountFixedRepeatDurationBase$Outbound
+    | null;
   subscription: OrderSubscription$Outbound | null;
 };
 
@@ -216,11 +363,20 @@ export const Order$outboundSchema: z.ZodType<
   userId: z.string(),
   productId: z.string(),
   productPriceId: z.string(),
+  discountId: z.nullable(z.string()),
   subscriptionId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
   user: OrderUser$outboundSchema,
   product: OrderProduct$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
+  discount: z.nullable(
+    z.union([
+      DiscountPercentageOnceForeverDurationBase$outboundSchema,
+      DiscountFixedOnceForeverDurationBase$outboundSchema,
+      DiscountPercentageRepeatDurationBase$outboundSchema,
+      DiscountFixedRepeatDurationBase$outboundSchema,
+    ]),
+  ),
   subscription: z.nullable(OrderSubscription$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
@@ -232,6 +388,7 @@ export const Order$outboundSchema: z.ZodType<
     userId: "user_id",
     productId: "product_id",
     productPriceId: "product_price_id",
+    discountId: "discount_id",
     subscriptionId: "subscription_id",
     checkoutId: "checkout_id",
     productPrice: "product_price",
@@ -249,4 +406,18 @@ export namespace Order$ {
   export const outboundSchema = Order$outboundSchema;
   /** @deprecated use `Order$Outbound` instead. */
   export type Outbound = Order$Outbound;
+}
+
+export function orderToJSON(order: Order): string {
+  return JSON.stringify(Order$outboundSchema.parse(order));
+}
+
+export function orderFromJSON(
+  jsonString: string,
+): SafeParseResult<Order, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Order$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Order' from JSON`,
+  );
 }

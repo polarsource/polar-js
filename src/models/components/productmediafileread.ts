@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const Service = {
   ProductMedia: "product_media",
@@ -168,4 +171,22 @@ export namespace ProductMediaFileRead$ {
   export const outboundSchema = ProductMediaFileRead$outboundSchema;
   /** @deprecated use `ProductMediaFileRead$Outbound` instead. */
   export type Outbound = ProductMediaFileRead$Outbound;
+}
+
+export function productMediaFileReadToJSON(
+  productMediaFileRead: ProductMediaFileRead,
+): string {
+  return JSON.stringify(
+    ProductMediaFileRead$outboundSchema.parse(productMediaFileRead),
+  );
+}
+
+export function productMediaFileReadFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductMediaFileRead, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductMediaFileRead$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductMediaFileRead' from JSON`,
+  );
 }

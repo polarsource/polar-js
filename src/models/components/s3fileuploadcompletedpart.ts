@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type S3FileUploadCompletedPart = {
   number: number;
@@ -61,4 +64,22 @@ export namespace S3FileUploadCompletedPart$ {
   export const outboundSchema = S3FileUploadCompletedPart$outboundSchema;
   /** @deprecated use `S3FileUploadCompletedPart$Outbound` instead. */
   export type Outbound = S3FileUploadCompletedPart$Outbound;
+}
+
+export function s3FileUploadCompletedPartToJSON(
+  s3FileUploadCompletedPart: S3FileUploadCompletedPart,
+): string {
+  return JSON.stringify(
+    S3FileUploadCompletedPart$outboundSchema.parse(s3FileUploadCompletedPart),
+  );
+}
+
+export function s3FileUploadCompletedPartFromJSON(
+  jsonString: string,
+): SafeParseResult<S3FileUploadCompletedPart, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => S3FileUploadCompletedPart$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'S3FileUploadCompletedPart' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Properties available to subscribers for a benefit of type `github_repository`.
@@ -70,4 +73,31 @@ export namespace BenefitGitHubRepositorySubscriberProperties$ {
     BenefitGitHubRepositorySubscriberProperties$outboundSchema;
   /** @deprecated use `BenefitGitHubRepositorySubscriberProperties$Outbound` instead. */
   export type Outbound = BenefitGitHubRepositorySubscriberProperties$Outbound;
+}
+
+export function benefitGitHubRepositorySubscriberPropertiesToJSON(
+  benefitGitHubRepositorySubscriberProperties:
+    BenefitGitHubRepositorySubscriberProperties,
+): string {
+  return JSON.stringify(
+    BenefitGitHubRepositorySubscriberProperties$outboundSchema.parse(
+      benefitGitHubRepositorySubscriberProperties,
+    ),
+  );
+}
+
+export function benefitGitHubRepositorySubscriberPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  BenefitGitHubRepositorySubscriberProperties,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitGitHubRepositorySubscriberProperties$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'BenefitGitHubRepositorySubscriberProperties' from JSON`,
+  );
 }

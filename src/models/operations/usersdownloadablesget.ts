@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UsersDownloadablesGetRequest = {
   token: string;
@@ -42,4 +45,24 @@ export namespace UsersDownloadablesGetRequest$ {
   export const outboundSchema = UsersDownloadablesGetRequest$outboundSchema;
   /** @deprecated use `UsersDownloadablesGetRequest$Outbound` instead. */
   export type Outbound = UsersDownloadablesGetRequest$Outbound;
+}
+
+export function usersDownloadablesGetRequestToJSON(
+  usersDownloadablesGetRequest: UsersDownloadablesGetRequest,
+): string {
+  return JSON.stringify(
+    UsersDownloadablesGetRequest$outboundSchema.parse(
+      usersDownloadablesGetRequest,
+    ),
+  );
+}
+
+export function usersDownloadablesGetRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersDownloadablesGetRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersDownloadablesGetRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersDownloadablesGetRequest' from JSON`,
+  );
 }

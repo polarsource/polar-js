@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrganizationsListRequest = {
   /**
@@ -78,6 +81,24 @@ export namespace OrganizationsListRequest$ {
   export type Outbound = OrganizationsListRequest$Outbound;
 }
 
+export function organizationsListRequestToJSON(
+  organizationsListRequest: OrganizationsListRequest,
+): string {
+  return JSON.stringify(
+    OrganizationsListRequest$outboundSchema.parse(organizationsListRequest),
+  );
+}
+
+export function organizationsListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<OrganizationsListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrganizationsListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrganizationsListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const OrganizationsListResponse$inboundSchema: z.ZodType<
   OrganizationsListResponse,
@@ -120,4 +141,22 @@ export namespace OrganizationsListResponse$ {
   export const outboundSchema = OrganizationsListResponse$outboundSchema;
   /** @deprecated use `OrganizationsListResponse$Outbound` instead. */
   export type Outbound = OrganizationsListResponse$Outbound;
+}
+
+export function organizationsListResponseToJSON(
+  organizationsListResponse: OrganizationsListResponse,
+): string {
+  return JSON.stringify(
+    OrganizationsListResponse$outboundSchema.parse(organizationsListResponse),
+  );
+}
+
+export function organizationsListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<OrganizationsListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrganizationsListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrganizationsListResponse' from JSON`,
+  );
 }

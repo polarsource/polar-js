@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ArticlePreview = {
   /**
@@ -45,4 +48,18 @@ export namespace ArticlePreview$ {
   export const outboundSchema = ArticlePreview$outboundSchema;
   /** @deprecated use `ArticlePreview$Outbound` instead. */
   export type Outbound = ArticlePreview$Outbound;
+}
+
+export function articlePreviewToJSON(articlePreview: ArticlePreview): string {
+  return JSON.stringify(ArticlePreview$outboundSchema.parse(articlePreview));
+}
+
+export function articlePreviewFromJSON(
+  jsonString: string,
+): SafeParseResult<ArticlePreview, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ArticlePreview$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ArticlePreview' from JSON`,
+  );
 }

@@ -20,7 +20,6 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -31,7 +30,7 @@ import { Result } from "../types/fp.js";
  */
 export async function productsCreate(
   client: PolarCore,
-  request: operations.ProductsCreateProductCreate,
+  request: components.ProductCreate,
   options?: RequestOptions,
 ): Promise<
   Result<
@@ -48,8 +47,7 @@ export async function productsCreate(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.ProductsCreateProductCreate$outboundSchema.parse(value),
+    (value) => components.ProductCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {

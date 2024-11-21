@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldDateProperties,
   CustomFieldDateProperties$inboundSchema,
@@ -72,6 +75,26 @@ export namespace CustomFieldUpdateDateMetadata$ {
   export const outboundSchema = CustomFieldUpdateDateMetadata$outboundSchema;
   /** @deprecated use `CustomFieldUpdateDateMetadata$Outbound` instead. */
   export type Outbound = CustomFieldUpdateDateMetadata$Outbound;
+}
+
+export function customFieldUpdateDateMetadataToJSON(
+  customFieldUpdateDateMetadata: CustomFieldUpdateDateMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldUpdateDateMetadata$outboundSchema.parse(
+      customFieldUpdateDateMetadata,
+    ),
+  );
+}
+
+export function customFieldUpdateDateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldUpdateDateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldUpdateDateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldUpdateDateMetadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -145,4 +168,22 @@ export namespace CustomFieldUpdateDate$ {
   export const outboundSchema = CustomFieldUpdateDate$outboundSchema;
   /** @deprecated use `CustomFieldUpdateDate$Outbound` instead. */
   export type Outbound = CustomFieldUpdateDate$Outbound;
+}
+
+export function customFieldUpdateDateToJSON(
+  customFieldUpdateDate: CustomFieldUpdateDate,
+): string {
+  return JSON.stringify(
+    CustomFieldUpdateDate$outboundSchema.parse(customFieldUpdateDate),
+  );
+}
+
+export function customFieldUpdateDateFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldUpdateDate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldUpdateDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldUpdateDate' from JSON`,
+  );
 }

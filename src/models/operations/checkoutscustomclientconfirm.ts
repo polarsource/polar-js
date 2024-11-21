@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutsCustomClientConfirmRequest = {
   /**
@@ -63,4 +66,25 @@ export namespace CheckoutsCustomClientConfirmRequest$ {
     CheckoutsCustomClientConfirmRequest$outboundSchema;
   /** @deprecated use `CheckoutsCustomClientConfirmRequest$Outbound` instead. */
   export type Outbound = CheckoutsCustomClientConfirmRequest$Outbound;
+}
+
+export function checkoutsCustomClientConfirmRequestToJSON(
+  checkoutsCustomClientConfirmRequest: CheckoutsCustomClientConfirmRequest,
+): string {
+  return JSON.stringify(
+    CheckoutsCustomClientConfirmRequest$outboundSchema.parse(
+      checkoutsCustomClientConfirmRequest,
+    ),
+  );
+}
+
+export function checkoutsCustomClientConfirmRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutsCustomClientConfirmRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutsCustomClientConfirmRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutsCustomClientConfirmRequest' from JSON`,
+  );
 }

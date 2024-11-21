@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Author = {
   id: number;
@@ -62,4 +65,18 @@ export namespace Author$ {
   export const outboundSchema = Author$outboundSchema;
   /** @deprecated use `Author$Outbound` instead. */
   export type Outbound = Author$Outbound;
+}
+
+export function authorToJSON(author: Author): string {
+  return JSON.stringify(Author$outboundSchema.parse(author));
+}
+
+export function authorFromJSON(
+  jsonString: string,
+): SafeParseResult<Author, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Author$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Author' from JSON`,
+  );
 }

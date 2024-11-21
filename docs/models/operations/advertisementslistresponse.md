@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2022-11-26T12:19:41.082Z"),
-        modifiedAt: new Date("2024-05-27T16:12:22.860Z"),
+        createdAt: new Date("2022-02-25T22:53:59.329Z"),
+        modifiedAt: new Date("2022-12-30T01:41:47.858Z"),
         id: "<value>",
-        imageUrl: "https://lined-place.com",
-        imageUrlDark: "https://frail-whack.com/",
+        imageUrl: "https://webbed-statue.info/",
+        imageUrlDark: "https://swift-perp.com/",
         text: "<value>",
-        linkUrl: "https://average-finding.biz/",
+        linkUrl: "https://calculating-suitcase.biz",
       },
     ],
     pagination: {
-      totalCount: 946808,
-      maxPage: 845154,
+      totalCount: 435353,
+      maxPage: 795457,
     },
     dimensions: [
-      382764,
+      677509,
     ],
   },
 };

@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldCheckboxProperties,
   CustomFieldCheckboxProperties$inboundSchema,
@@ -82,6 +85,26 @@ export namespace CustomFieldCheckboxMetadata$ {
   export const outboundSchema = CustomFieldCheckboxMetadata$outboundSchema;
   /** @deprecated use `CustomFieldCheckboxMetadata$Outbound` instead. */
   export type Outbound = CustomFieldCheckboxMetadata$Outbound;
+}
+
+export function customFieldCheckboxMetadataToJSON(
+  customFieldCheckboxMetadata: CustomFieldCheckboxMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldCheckboxMetadata$outboundSchema.parse(
+      customFieldCheckboxMetadata,
+    ),
+  );
+}
+
+export function customFieldCheckboxMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCheckboxMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCheckboxMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCheckboxMetadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -177,4 +200,22 @@ export namespace CustomFieldCheckbox$ {
   export const outboundSchema = CustomFieldCheckbox$outboundSchema;
   /** @deprecated use `CustomFieldCheckbox$Outbound` instead. */
   export type Outbound = CustomFieldCheckbox$Outbound;
+}
+
+export function customFieldCheckboxToJSON(
+  customFieldCheckbox: CustomFieldCheckbox,
+): string {
+  return JSON.stringify(
+    CustomFieldCheckbox$outboundSchema.parse(customFieldCheckbox),
+  );
+}
+
+export function customFieldCheckboxFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCheckbox, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCheckbox' from JSON`,
+  );
 }

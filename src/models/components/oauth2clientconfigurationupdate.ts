@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const OAuth2ClientConfigurationUpdateTokenEndpointAuthMethod = {
   ClientSecretBasic: "client_secret_basic",
@@ -135,7 +138,7 @@ export const OAuth2ClientConfigurationUpdate$inboundSchema: z.ZodType<
     OAuth2ClientConfigurationUpdateResponseTypes$inboundSchema,
   ).optional(),
   scope: z.string().default(
-    "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write orders:read metrics:read articles:read articles:write webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write user:benefits:read user:orders:read user:subscriptions:read user:subscriptions:write user:downloadables:read user:license_keys:read user:advertisement_campaigns:read user:advertisement_campaigns:write",
+    "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write orders:read metrics:read articles:read articles:write webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write user:benefits:read user:orders:read user:subscriptions:read user:subscriptions:write user:downloadables:read user:license_keys:read user:advertisement_campaigns:read user:advertisement_campaigns:write",
   ),
   client_name: z.string(),
   client_uri: z.nullable(z.string()).optional(),
@@ -189,7 +192,7 @@ export const OAuth2ClientConfigurationUpdate$outboundSchema: z.ZodType<
     OAuth2ClientConfigurationUpdateResponseTypes$outboundSchema,
   ).optional(),
   scope: z.string().default(
-    "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write orders:read metrics:read articles:read articles:write webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write user:benefits:read user:orders:read user:subscriptions:read user:subscriptions:write user:downloadables:read user:license_keys:read user:advertisement_campaigns:read user:advertisement_campaigns:write",
+    "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write orders:read metrics:read articles:read articles:write webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write user:benefits:read user:orders:read user:subscriptions:read user:subscriptions:write user:downloadables:read user:license_keys:read user:advertisement_campaigns:read user:advertisement_campaigns:write",
   ),
   clientName: z.string(),
   clientUri: z.nullable(z.string()).optional(),
@@ -223,4 +226,24 @@ export namespace OAuth2ClientConfigurationUpdate$ {
   export const outboundSchema = OAuth2ClientConfigurationUpdate$outboundSchema;
   /** @deprecated use `OAuth2ClientConfigurationUpdate$Outbound` instead. */
   export type Outbound = OAuth2ClientConfigurationUpdate$Outbound;
+}
+
+export function oAuth2ClientConfigurationUpdateToJSON(
+  oAuth2ClientConfigurationUpdate: OAuth2ClientConfigurationUpdate,
+): string {
+  return JSON.stringify(
+    OAuth2ClientConfigurationUpdate$outboundSchema.parse(
+      oAuth2ClientConfigurationUpdate,
+    ),
+  );
+}
+
+export function oAuth2ClientConfigurationUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<OAuth2ClientConfigurationUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OAuth2ClientConfigurationUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OAuth2ClientConfigurationUpdate' from JSON`,
+  );
 }

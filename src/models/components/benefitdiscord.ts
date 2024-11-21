@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitDiscordProperties,
   BenefitDiscordProperties$inboundSchema,
@@ -153,4 +156,18 @@ export namespace BenefitDiscord$ {
   export const outboundSchema = BenefitDiscord$outboundSchema;
   /** @deprecated use `BenefitDiscord$Outbound` instead. */
   export type Outbound = BenefitDiscord$Outbound;
+}
+
+export function benefitDiscordToJSON(benefitDiscord: BenefitDiscord): string {
+  return JSON.stringify(BenefitDiscord$outboundSchema.parse(benefitDiscord));
+}
+
+export function benefitDiscordFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitDiscord, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitDiscord$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitDiscord' from JSON`,
+  );
 }

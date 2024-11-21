@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Organization,
   Organization$inboundSchema,
@@ -92,4 +95,24 @@ export namespace WebhookOrganizationUpdatedPayload$ {
     WebhookOrganizationUpdatedPayload$outboundSchema;
   /** @deprecated use `WebhookOrganizationUpdatedPayload$Outbound` instead. */
   export type Outbound = WebhookOrganizationUpdatedPayload$Outbound;
+}
+
+export function webhookOrganizationUpdatedPayloadToJSON(
+  webhookOrganizationUpdatedPayload: WebhookOrganizationUpdatedPayload,
+): string {
+  return JSON.stringify(
+    WebhookOrganizationUpdatedPayload$outboundSchema.parse(
+      webhookOrganizationUpdatedPayload,
+    ),
+  );
+}
+
+export function webhookOrganizationUpdatedPayloadFromJSON(
+  jsonString: string,
+): SafeParseResult<WebhookOrganizationUpdatedPayload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => WebhookOrganizationUpdatedPayload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'WebhookOrganizationUpdatedPayload' from JSON`,
+  );
 }

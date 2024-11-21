@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AttachedCustomFieldCreate,
   AttachedCustomFieldCreate$inboundSchema,
@@ -135,6 +138,24 @@ export namespace ProductUpdateMetadata$ {
   export type Outbound = ProductUpdateMetadata$Outbound;
 }
 
+export function productUpdateMetadataToJSON(
+  productUpdateMetadata: ProductUpdateMetadata,
+): string {
+  return JSON.stringify(
+    ProductUpdateMetadata$outboundSchema.parse(productUpdateMetadata),
+  );
+}
+
+export function productUpdateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductUpdateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductUpdateMetadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const ProductUpdatePrices$inboundSchema: z.ZodType<
   ProductUpdatePrices,
@@ -183,6 +204,24 @@ export namespace ProductUpdatePrices$ {
   export const outboundSchema = ProductUpdatePrices$outboundSchema;
   /** @deprecated use `ProductUpdatePrices$Outbound` instead. */
   export type Outbound = ProductUpdatePrices$Outbound;
+}
+
+export function productUpdatePricesToJSON(
+  productUpdatePrices: ProductUpdatePrices,
+): string {
+  return JSON.stringify(
+    ProductUpdatePrices$outboundSchema.parse(productUpdatePrices),
+  );
+}
+
+export function productUpdatePricesFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductUpdatePrices, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductUpdatePrices$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductUpdatePrices' from JSON`,
+  );
 }
 
 /** @internal */
@@ -290,4 +329,18 @@ export namespace ProductUpdate$ {
   export const outboundSchema = ProductUpdate$outboundSchema;
   /** @deprecated use `ProductUpdate$Outbound` instead. */
   export type Outbound = ProductUpdate$Outbound;
+}
+
+export function productUpdateToJSON(productUpdate: ProductUpdate): string {
+  return JSON.stringify(ProductUpdate$outboundSchema.parse(productUpdate));
+}
+
+export function productUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductUpdate' from JSON`,
+  );
 }

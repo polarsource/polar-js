@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -94,6 +97,33 @@ export namespace ArticlesListQueryParamOrganizationIDFilter$ {
   export type Outbound = ArticlesListQueryParamOrganizationIDFilter$Outbound;
 }
 
+export function articlesListQueryParamOrganizationIDFilterToJSON(
+  articlesListQueryParamOrganizationIDFilter:
+    ArticlesListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    ArticlesListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      articlesListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function articlesListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  ArticlesListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ArticlesListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'ArticlesListQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const ArticleVisibilityFilter$inboundSchema: z.ZodType<
   ArticleVisibilityFilter,
@@ -128,6 +158,24 @@ export namespace ArticleVisibilityFilter$ {
   export const outboundSchema = ArticleVisibilityFilter$outboundSchema;
   /** @deprecated use `ArticleVisibilityFilter$Outbound` instead. */
   export type Outbound = ArticleVisibilityFilter$Outbound;
+}
+
+export function articleVisibilityFilterToJSON(
+  articleVisibilityFilter: ArticleVisibilityFilter,
+): string {
+  return JSON.stringify(
+    ArticleVisibilityFilter$outboundSchema.parse(articleVisibilityFilter),
+  );
+}
+
+export function articleVisibilityFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<ArticleVisibilityFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ArticleVisibilityFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ArticleVisibilityFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -213,6 +261,24 @@ export namespace ArticlesListRequest$ {
   export type Outbound = ArticlesListRequest$Outbound;
 }
 
+export function articlesListRequestToJSON(
+  articlesListRequest: ArticlesListRequest,
+): string {
+  return JSON.stringify(
+    ArticlesListRequest$outboundSchema.parse(articlesListRequest),
+  );
+}
+
+export function articlesListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ArticlesListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ArticlesListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ArticlesListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const ArticlesListResponse$inboundSchema: z.ZodType<
   ArticlesListResponse,
@@ -255,4 +321,22 @@ export namespace ArticlesListResponse$ {
   export const outboundSchema = ArticlesListResponse$outboundSchema;
   /** @deprecated use `ArticlesListResponse$Outbound` instead. */
   export type Outbound = ArticlesListResponse$Outbound;
+}
+
+export function articlesListResponseToJSON(
+  articlesListResponse: ArticlesListResponse,
+): string {
+  return JSON.stringify(
+    ArticlesListResponse$outboundSchema.parse(articlesListResponse),
+  );
+}
+
+export function articlesListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ArticlesListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ArticlesListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ArticlesListResponse' from JSON`,
+  );
 }

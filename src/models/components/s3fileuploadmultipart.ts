@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   S3FileUploadPart,
   S3FileUploadPart$inboundSchema,
@@ -56,4 +59,22 @@ export namespace S3FileUploadMultipart$ {
   export const outboundSchema = S3FileUploadMultipart$outboundSchema;
   /** @deprecated use `S3FileUploadMultipart$Outbound` instead. */
   export type Outbound = S3FileUploadMultipart$Outbound;
+}
+
+export function s3FileUploadMultipartToJSON(
+  s3FileUploadMultipart: S3FileUploadMultipart,
+): string {
+  return JSON.stringify(
+    S3FileUploadMultipart$outboundSchema.parse(s3FileUploadMultipart),
+  );
+}
+
+export function s3FileUploadMultipartFromJSON(
+  jsonString: string,
+): SafeParseResult<S3FileUploadMultipart, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => S3FileUploadMultipart$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'S3FileUploadMultipart' from JSON`,
+  );
 }

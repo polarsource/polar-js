@@ -3,153 +3,50 @@
  */
 
 import * as z from "zod";
-import { remap as remap$ } from "../../lib/primitives.js";
-import { ClosedEnum } from "../../types/enums.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  CheckoutLinkPriceCreate,
+  CheckoutLinkPriceCreate$inboundSchema,
+  CheckoutLinkPriceCreate$Outbound,
+  CheckoutLinkPriceCreate$outboundSchema,
+} from "./checkoutlinkpricecreate.js";
+import {
+  CheckoutLinkProductCreate,
+  CheckoutLinkProductCreate$inboundSchema,
+  CheckoutLinkProductCreate$Outbound,
+  CheckoutLinkProductCreate$outboundSchema,
+} from "./checkoutlinkproductcreate.js";
 
-export type CheckoutLinkCreateMetadata = string | number | boolean;
-
-/**
- * Payment processor to use. Currently only Stripe is supported.
- */
-export const CheckoutLinkCreatePaymentProcessor = {
-  Stripe: "stripe",
-} as const;
-/**
- * Payment processor to use. Currently only Stripe is supported.
- */
-export type CheckoutLinkCreatePaymentProcessor = ClosedEnum<
-  typeof CheckoutLinkCreatePaymentProcessor
->;
-
-/**
- * Schema to create a new checkout link.
- */
-export type CheckoutLinkCreate = {
-  /**
-   * Key-value object allowing you to store additional information.
-   *
-   * @remarks
-   *
-   * The key must be a string with a maximum length of **40 characters**.
-   * The value must be either:
-   *     * A string with a maximum length of **500 characters**
-   *     * An integer
-   *     * A boolean
-   *
-   * You can store up to **50 key-value pairs**.
-   */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
-  /**
-   * Payment processor to use. Currently only Stripe is supported.
-   */
-  paymentProcessor?: "stripe" | undefined;
-  /**
-   * ID of the product price to checkout.
-   */
-  productPriceId: string;
-  /**
-   * URL where the customer will be redirected after a successful payment.You can add the `checkout_id={CHECKOUT_ID}` query parameter to retrieve the checkout session id.
-   */
-  successUrl?: string | null | undefined;
-};
-
-/** @internal */
-export const CheckoutLinkCreateMetadata$inboundSchema: z.ZodType<
-  CheckoutLinkCreateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
-
-/** @internal */
-export type CheckoutLinkCreateMetadata$Outbound = string | number | boolean;
-
-/** @internal */
-export const CheckoutLinkCreateMetadata$outboundSchema: z.ZodType<
-  CheckoutLinkCreateMetadata$Outbound,
-  z.ZodTypeDef,
-  CheckoutLinkCreateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkCreateMetadata$ {
-  /** @deprecated use `CheckoutLinkCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkCreateMetadata$inboundSchema;
-  /** @deprecated use `CheckoutLinkCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinkCreateMetadata$outboundSchema;
-  /** @deprecated use `CheckoutLinkCreateMetadata$Outbound` instead. */
-  export type Outbound = CheckoutLinkCreateMetadata$Outbound;
-}
-
-/** @internal */
-export const CheckoutLinkCreatePaymentProcessor$inboundSchema: z.ZodNativeEnum<
-  typeof CheckoutLinkCreatePaymentProcessor
-> = z.nativeEnum(CheckoutLinkCreatePaymentProcessor);
-
-/** @internal */
-export const CheckoutLinkCreatePaymentProcessor$outboundSchema: z.ZodNativeEnum<
-  typeof CheckoutLinkCreatePaymentProcessor
-> = CheckoutLinkCreatePaymentProcessor$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkCreatePaymentProcessor$ {
-  /** @deprecated use `CheckoutLinkCreatePaymentProcessor$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkCreatePaymentProcessor$inboundSchema;
-  /** @deprecated use `CheckoutLinkCreatePaymentProcessor$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutLinkCreatePaymentProcessor$outboundSchema;
-}
+export type CheckoutLinkCreate =
+  | CheckoutLinkProductCreate
+  | CheckoutLinkPriceCreate;
 
 /** @internal */
 export const CheckoutLinkCreate$inboundSchema: z.ZodType<
   CheckoutLinkCreate,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
-  payment_processor: z.literal("stripe").optional(),
-  product_price_id: z.string(),
-  success_url: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "payment_processor": "paymentProcessor",
-    "product_price_id": "productPriceId",
-    "success_url": "successUrl",
-  });
-});
+> = z.union([
+  CheckoutLinkProductCreate$inboundSchema,
+  CheckoutLinkPriceCreate$inboundSchema,
+]);
 
 /** @internal */
-export type CheckoutLinkCreate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
-  payment_processor: "stripe";
-  product_price_id: string;
-  success_url?: string | null | undefined;
-};
+export type CheckoutLinkCreate$Outbound =
+  | CheckoutLinkProductCreate$Outbound
+  | CheckoutLinkPriceCreate$Outbound;
 
 /** @internal */
 export const CheckoutLinkCreate$outboundSchema: z.ZodType<
   CheckoutLinkCreate$Outbound,
   z.ZodTypeDef,
   CheckoutLinkCreate
-> = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
-  paymentProcessor: z.literal("stripe").default("stripe"),
-  productPriceId: z.string(),
-  successUrl: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    paymentProcessor: "payment_processor",
-    productPriceId: "product_price_id",
-    successUrl: "success_url",
-  });
-});
+> = z.union([
+  CheckoutLinkProductCreate$outboundSchema,
+  CheckoutLinkPriceCreate$outboundSchema,
+]);
 
 /**
  * @internal
@@ -162,4 +59,22 @@ export namespace CheckoutLinkCreate$ {
   export const outboundSchema = CheckoutLinkCreate$outboundSchema;
   /** @deprecated use `CheckoutLinkCreate$Outbound` instead. */
   export type Outbound = CheckoutLinkCreate$Outbound;
+}
+
+export function checkoutLinkCreateToJSON(
+  checkoutLinkCreate: CheckoutLinkCreate,
+): string {
+  return JSON.stringify(
+    CheckoutLinkCreate$outboundSchema.parse(checkoutLinkCreate),
+  );
+}
+
+export function checkoutLinkCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLinkCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLinkCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLinkCreate' from JSON`,
+  );
 }

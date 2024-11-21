@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AdvertisementCampaign,
   AdvertisementCampaign$inboundSchema,
@@ -66,4 +69,24 @@ export namespace AdvertisementCampaignListResource$ {
     AdvertisementCampaignListResource$outboundSchema;
   /** @deprecated use `AdvertisementCampaignListResource$Outbound` instead. */
   export type Outbound = AdvertisementCampaignListResource$Outbound;
+}
+
+export function advertisementCampaignListResourceToJSON(
+  advertisementCampaignListResource: AdvertisementCampaignListResource,
+): string {
+  return JSON.stringify(
+    AdvertisementCampaignListResource$outboundSchema.parse(
+      advertisementCampaignListResource,
+    ),
+  );
+}
+
+export function advertisementCampaignListResourceFromJSON(
+  jsonString: string,
+): SafeParseResult<AdvertisementCampaignListResource, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AdvertisementCampaignListResource$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AdvertisementCampaignListResource' from JSON`,
+  );
 }

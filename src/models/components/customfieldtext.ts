@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldTextProperties,
   CustomFieldTextProperties$inboundSchema,
@@ -80,6 +83,24 @@ export namespace CustomFieldTextMetadata$ {
   export const outboundSchema = CustomFieldTextMetadata$outboundSchema;
   /** @deprecated use `CustomFieldTextMetadata$Outbound` instead. */
   export type Outbound = CustomFieldTextMetadata$Outbound;
+}
+
+export function customFieldTextMetadataToJSON(
+  customFieldTextMetadata: CustomFieldTextMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldTextMetadata$outboundSchema.parse(customFieldTextMetadata),
+  );
+}
+
+export function customFieldTextMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldTextMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldTextMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldTextMetadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -175,4 +196,20 @@ export namespace CustomFieldText$ {
   export const outboundSchema = CustomFieldText$outboundSchema;
   /** @deprecated use `CustomFieldText$Outbound` instead. */
   export type Outbound = CustomFieldText$Outbound;
+}
+
+export function customFieldTextToJSON(
+  customFieldText: CustomFieldText,
+): string {
+  return JSON.stringify(CustomFieldText$outboundSchema.parse(customFieldText));
+}
+
+export function customFieldTextFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldText, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldText' from JSON`,
+  );
 }

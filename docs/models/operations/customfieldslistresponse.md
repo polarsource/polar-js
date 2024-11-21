@@ -9,11 +9,11 @@ let value: CustomFieldsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2022-09-30T06:35:01.392Z"),
-        modifiedAt: new Date("2022-10-31T08:48:47.117Z"),
+        createdAt: new Date("2022-06-09T09:55:13.803Z"),
+        modifiedAt: new Date("2024-05-03T21:44:08.112Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": false,
         },
         slug: "<value>",
         name: "<value>",
@@ -22,8 +22,8 @@ let value: CustomFieldsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 463044,
-      maxPage: 916051,
+      totalCount: 769247,
+      maxPage: 536999,
     },
   },
 };
@@ -31,6 +31,6 @@ let value: CustomFieldsListResponse = {
 
 ## Fields
 
-| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `result`                                                           | [components.ListResource](../../models/components/listresource.md) | :heavy_check_mark:                                                 | N/A                                                                |
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `result`                                                                                 | [components.ListResourceCustomField](../../models/components/listresourcecustomfield.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |

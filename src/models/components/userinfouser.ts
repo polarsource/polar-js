@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UserInfoUser = {
   sub: string;
@@ -63,4 +66,18 @@ export namespace UserInfoUser$ {
   export const outboundSchema = UserInfoUser$outboundSchema;
   /** @deprecated use `UserInfoUser$Outbound` instead. */
   export type Outbound = UserInfoUser$Outbound;
+}
+
+export function userInfoUserToJSON(userInfoUser: UserInfoUser): string {
+  return JSON.stringify(UserInfoUser$outboundSchema.parse(userInfoUser));
+}
+
+export function userInfoUserFromJSON(
+  jsonString: string,
+): SafeParseResult<UserInfoUser, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UserInfoUser$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UserInfoUser' from JSON`,
+  );
 }

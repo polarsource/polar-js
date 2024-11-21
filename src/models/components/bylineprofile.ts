@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BylineProfile = {
   name: string;
@@ -55,4 +58,18 @@ export namespace BylineProfile$ {
   export const outboundSchema = BylineProfile$outboundSchema;
   /** @deprecated use `BylineProfile$Outbound` instead. */
   export type Outbound = BylineProfile$Outbound;
+}
+
+export function bylineProfileToJSON(bylineProfile: BylineProfile): string {
+  return JSON.stringify(BylineProfile$outboundSchema.parse(bylineProfile));
+}
+
+export function bylineProfileFromJSON(
+  jsonString: string,
+): SafeParseResult<BylineProfile, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BylineProfile$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BylineProfile' from JSON`,
+  );
 }

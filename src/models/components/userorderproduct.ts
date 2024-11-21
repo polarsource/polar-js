@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitArticles,
   BenefitArticles$inboundSchema,
@@ -115,6 +118,20 @@ export namespace Benefits$ {
   export type Outbound = Benefits$Outbound;
 }
 
+export function benefitsToJSON(benefits: Benefits): string {
+  return JSON.stringify(Benefits$outboundSchema.parse(benefits));
+}
+
+export function benefitsFromJSON(
+  jsonString: string,
+): SafeParseResult<Benefits, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Benefits$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Benefits' from JSON`,
+  );
+}
+
 /** @internal */
 export const UserOrderProduct$inboundSchema: z.ZodType<
   UserOrderProduct,
@@ -204,4 +221,22 @@ export namespace UserOrderProduct$ {
   export const outboundSchema = UserOrderProduct$outboundSchema;
   /** @deprecated use `UserOrderProduct$Outbound` instead. */
   export type Outbound = UserOrderProduct$Outbound;
+}
+
+export function userOrderProductToJSON(
+  userOrderProduct: UserOrderProduct,
+): string {
+  return JSON.stringify(
+    UserOrderProduct$outboundSchema.parse(userOrderProduct),
+  );
+}
+
+export function userOrderProductFromJSON(
+  jsonString: string,
+): SafeParseResult<UserOrderProduct, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UserOrderProduct$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UserOrderProduct' from JSON`,
+  );
 }

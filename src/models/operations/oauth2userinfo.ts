@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Successful Response
@@ -50,4 +53,25 @@ export namespace Oauth2UserinfoResponseOauth2Userinfo$ {
     Oauth2UserinfoResponseOauth2Userinfo$outboundSchema;
   /** @deprecated use `Oauth2UserinfoResponseOauth2Userinfo$Outbound` instead. */
   export type Outbound = Oauth2UserinfoResponseOauth2Userinfo$Outbound;
+}
+
+export function oauth2UserinfoResponseOauth2UserinfoToJSON(
+  oauth2UserinfoResponseOauth2Userinfo: Oauth2UserinfoResponseOauth2Userinfo,
+): string {
+  return JSON.stringify(
+    Oauth2UserinfoResponseOauth2Userinfo$outboundSchema.parse(
+      oauth2UserinfoResponseOauth2Userinfo,
+    ),
+  );
+}
+
+export function oauth2UserinfoResponseOauth2UserinfoFromJSON(
+  jsonString: string,
+): SafeParseResult<Oauth2UserinfoResponseOauth2Userinfo, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      Oauth2UserinfoResponseOauth2Userinfo$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Oauth2UserinfoResponseOauth2Userinfo' from JSON`,
+  );
 }

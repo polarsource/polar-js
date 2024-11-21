@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UsersAdvertisementsUpdateRequest = {
   /**
@@ -62,4 +65,24 @@ export namespace UsersAdvertisementsUpdateRequest$ {
   export const outboundSchema = UsersAdvertisementsUpdateRequest$outboundSchema;
   /** @deprecated use `UsersAdvertisementsUpdateRequest$Outbound` instead. */
   export type Outbound = UsersAdvertisementsUpdateRequest$Outbound;
+}
+
+export function usersAdvertisementsUpdateRequestToJSON(
+  usersAdvertisementsUpdateRequest: UsersAdvertisementsUpdateRequest,
+): string {
+  return JSON.stringify(
+    UsersAdvertisementsUpdateRequest$outboundSchema.parse(
+      usersAdvertisementsUpdateRequest,
+    ),
+  );
+}
+
+export function usersAdvertisementsUpdateRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersAdvertisementsUpdateRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersAdvertisementsUpdateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersAdvertisementsUpdateRequest' from JSON`,
+  );
 }

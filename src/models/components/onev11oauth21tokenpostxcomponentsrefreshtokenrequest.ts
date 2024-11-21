@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType = {
   RefreshToken: "refresh_token",
@@ -111,4 +114,31 @@ export namespace Onev11oauth21tokenPostXComponentsRefreshTokenRequest$ {
   /** @deprecated use `Onev11oauth21tokenPostXComponentsRefreshTokenRequest$Outbound` instead. */
   export type Outbound =
     Onev11oauth21tokenPostXComponentsRefreshTokenRequest$Outbound;
+}
+
+export function onev11oauth21tokenPostXComponentsRefreshTokenRequestToJSON(
+  onev11oauth21tokenPostXComponentsRefreshTokenRequest:
+    Onev11oauth21tokenPostXComponentsRefreshTokenRequest,
+): string {
+  return JSON.stringify(
+    Onev11oauth21tokenPostXComponentsRefreshTokenRequest$outboundSchema.parse(
+      onev11oauth21tokenPostXComponentsRefreshTokenRequest,
+    ),
+  );
+}
+
+export function onev11oauth21tokenPostXComponentsRefreshTokenRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  Onev11oauth21tokenPostXComponentsRefreshTokenRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      Onev11oauth21tokenPostXComponentsRefreshTokenRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'Onev11oauth21tokenPostXComponentsRefreshTokenRequest' from JSON`,
+  );
 }

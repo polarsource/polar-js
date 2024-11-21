@@ -105,7 +105,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.checkouts.custom.create({
-    productPriceId: "<value>",
+    productId: "<value>",
   });
 
   // Handle the result
@@ -131,7 +131,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await checkoutsCustomCreate(polar, {
-    productPriceId: "<value>",
+    productId: "<value>",
   });
 
   if (!res.ok) {
@@ -151,14 +151,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [components.PolarCheckoutSchemasCheckoutCreate](../../models/components/polarcheckoutschemascheckoutcreate.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [components.CheckoutCreate](../../models/components/checkoutcreate.md)                                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.PolarCheckoutSchemasCheckout](../../models/components/polarcheckoutschemascheckout.md)\>**
+**Promise\<[components.Checkout](../../models/components/checkout.md)\>**
 
 ### Errors
 
@@ -235,7 +235,7 @@ run();
 
 ### Response
 
-**Promise\<[components.PolarCheckoutSchemasCheckout](../../models/components/polarcheckoutschemascheckout.md)\>**
+**Promise\<[components.Checkout](../../models/components/checkout.md)\>**
 
 ### Errors
 
@@ -315,7 +315,7 @@ run();
 
 ### Response
 
-**Promise\<[components.PolarCheckoutSchemasCheckout](../../models/components/polarcheckoutschemascheckout.md)\>**
+**Promise\<[components.Checkout](../../models/components/checkout.md)\>**
 
 ### Errors
 

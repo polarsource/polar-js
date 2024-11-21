@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductPrice,
   ProductPrice$inboundSchema,
@@ -52,6 +55,7 @@ export type UserSubscription = {
   userId: string;
   productId: string;
   priceId: string;
+  discountId: string | null;
   checkoutId: string | null;
   product: UserSubscriptionProduct;
   price: ProductPrice;
@@ -88,6 +92,7 @@ export const UserSubscription$inboundSchema: z.ZodType<
   user_id: z.string(),
   product_id: z.string(),
   price_id: z.string(),
+  discount_id: z.nullable(z.string()),
   checkout_id: z.nullable(z.string()),
   product: UserSubscriptionProduct$inboundSchema,
   price: ProductPrice$inboundSchema,
@@ -104,6 +109,7 @@ export const UserSubscription$inboundSchema: z.ZodType<
     "user_id": "userId",
     "product_id": "productId",
     "price_id": "priceId",
+    "discount_id": "discountId",
     "checkout_id": "checkoutId",
   });
 });
@@ -125,6 +131,7 @@ export type UserSubscription$Outbound = {
   user_id: string;
   product_id: string;
   price_id: string;
+  discount_id: string | null;
   checkout_id: string | null;
   product: UserSubscriptionProduct$Outbound;
   price: ProductPrice$Outbound;
@@ -151,6 +158,7 @@ export const UserSubscription$outboundSchema: z.ZodType<
   userId: z.string(),
   productId: z.string(),
   priceId: z.string(),
+  discountId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
   product: UserSubscriptionProduct$outboundSchema,
   price: ProductPrice$outboundSchema,
@@ -167,6 +175,7 @@ export const UserSubscription$outboundSchema: z.ZodType<
     userId: "user_id",
     productId: "product_id",
     priceId: "price_id",
+    discountId: "discount_id",
     checkoutId: "checkout_id",
   });
 });
@@ -182,4 +191,22 @@ export namespace UserSubscription$ {
   export const outboundSchema = UserSubscription$outboundSchema;
   /** @deprecated use `UserSubscription$Outbound` instead. */
   export type Outbound = UserSubscription$Outbound;
+}
+
+export function userSubscriptionToJSON(
+  userSubscription: UserSubscription,
+): string {
+  return JSON.stringify(
+    UserSubscription$outboundSchema.parse(userSubscription),
+  );
+}
+
+export function userSubscriptionFromJSON(
+  jsonString: string,
+): SafeParseResult<UserSubscription, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UserSubscription$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UserSubscription' from JSON`,
+  );
 }

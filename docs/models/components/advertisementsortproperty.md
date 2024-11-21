@@ -5,7 +5,7 @@
 ```typescript
 import { AdvertisementSortProperty } from "@polar-sh/sdk/models/components";
 
-let value: AdvertisementSortProperty = "-granted_at";
+let value: AdvertisementSortProperty = "created_at";
 ```
 
 ## Values

@@ -25,9 +25,9 @@ export class Checkouts extends ClientSDK {
    * @deprecated method: This API is deprecated. We recommend you to use the new custom checkout API, which is more flexible and powerful. Please refer to the documentation for more information.. Use create instead.
    */
   async create(
-    request: components.PolarCheckoutLegacySchemasCheckoutCreate,
+    request: components.CheckoutLegacyCreate,
     options?: RequestOptions,
-  ): Promise<components.PolarCheckoutLegacySchemasCheckout> {
+  ): Promise<components.CheckoutLegacy> {
     return unwrapAsync(checkoutsCreate(
       this,
       request,
@@ -46,7 +46,7 @@ export class Checkouts extends ClientSDK {
   async get(
     request: operations.CheckoutsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.PolarCheckoutLegacySchemasCheckout> {
+  ): Promise<components.CheckoutLegacy> {
     return unwrapAsync(checkoutsGet(
       this,
       request,

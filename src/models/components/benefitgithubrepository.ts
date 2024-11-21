@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGitHubRepositoryProperties,
   BenefitGitHubRepositoryProperties$inboundSchema,
@@ -155,4 +158,22 @@ export namespace BenefitGitHubRepository$ {
   export const outboundSchema = BenefitGitHubRepository$outboundSchema;
   /** @deprecated use `BenefitGitHubRepository$Outbound` instead. */
   export type Outbound = BenefitGitHubRepository$Outbound;
+}
+
+export function benefitGitHubRepositoryToJSON(
+  benefitGitHubRepository: BenefitGitHubRepository,
+): string {
+  return JSON.stringify(
+    BenefitGitHubRepository$outboundSchema.parse(benefitGitHubRepository),
+  );
+}
+
+export function benefitGitHubRepositoryFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGitHubRepository, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitGitHubRepository$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGitHubRepository' from JSON`,
+  );
 }

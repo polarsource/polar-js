@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ArticlesDeleteRequest = {
   id: string;
@@ -42,4 +45,22 @@ export namespace ArticlesDeleteRequest$ {
   export const outboundSchema = ArticlesDeleteRequest$outboundSchema;
   /** @deprecated use `ArticlesDeleteRequest$Outbound` instead. */
   export type Outbound = ArticlesDeleteRequest$Outbound;
+}
+
+export function articlesDeleteRequestToJSON(
+  articlesDeleteRequest: ArticlesDeleteRequest,
+): string {
+  return JSON.stringify(
+    ArticlesDeleteRequest$outboundSchema.parse(articlesDeleteRequest),
+  );
+}
+
+export function articlesDeleteRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ArticlesDeleteRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ArticlesDeleteRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ArticlesDeleteRequest' from JSON`,
+  );
 }

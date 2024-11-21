@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldDateProperties = {
   formLabel?: string | undefined;
@@ -71,4 +74,22 @@ export namespace CustomFieldDateProperties$ {
   export const outboundSchema = CustomFieldDateProperties$outboundSchema;
   /** @deprecated use `CustomFieldDateProperties$Outbound` instead. */
   export type Outbound = CustomFieldDateProperties$Outbound;
+}
+
+export function customFieldDatePropertiesToJSON(
+  customFieldDateProperties: CustomFieldDateProperties,
+): string {
+  return JSON.stringify(
+    CustomFieldDateProperties$outboundSchema.parse(customFieldDateProperties),
+  );
+}
+
+export function customFieldDatePropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldDateProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldDateProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldDateProperties' from JSON`,
+  );
 }

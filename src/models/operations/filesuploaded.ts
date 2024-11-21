@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type FilesUploadedRequest = {
   /**
@@ -69,6 +72,24 @@ export namespace FilesUploadedRequest$ {
   export const outboundSchema = FilesUploadedRequest$outboundSchema;
   /** @deprecated use `FilesUploadedRequest$Outbound` instead. */
   export type Outbound = FilesUploadedRequest$Outbound;
+}
+
+export function filesUploadedRequestToJSON(
+  filesUploadedRequest: FilesUploadedRequest,
+): string {
+  return JSON.stringify(
+    FilesUploadedRequest$outboundSchema.parse(filesUploadedRequest),
+  );
+}
+
+export function filesUploadedRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<FilesUploadedRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FilesUploadedRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FilesUploadedRequest' from JSON`,
+  );
 }
 
 /** @internal */
@@ -137,4 +158,25 @@ export namespace FilesUploadedResponseFilesUploaded$ {
     FilesUploadedResponseFilesUploaded$outboundSchema;
   /** @deprecated use `FilesUploadedResponseFilesUploaded$Outbound` instead. */
   export type Outbound = FilesUploadedResponseFilesUploaded$Outbound;
+}
+
+export function filesUploadedResponseFilesUploadedToJSON(
+  filesUploadedResponseFilesUploaded: FilesUploadedResponseFilesUploaded,
+): string {
+  return JSON.stringify(
+    FilesUploadedResponseFilesUploaded$outboundSchema.parse(
+      filesUploadedResponseFilesUploaded,
+    ),
+  );
+}
+
+export function filesUploadedResponseFilesUploadedFromJSON(
+  jsonString: string,
+): SafeParseResult<FilesUploadedResponseFilesUploaded, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FilesUploadedResponseFilesUploaded$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FilesUploadedResponseFilesUploaded' from JSON`,
+  );
 }

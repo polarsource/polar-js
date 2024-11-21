@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Schema to update the benefits granted by a product.
@@ -48,4 +51,22 @@ export namespace ProductBenefitsUpdate$ {
   export const outboundSchema = ProductBenefitsUpdate$outboundSchema;
   /** @deprecated use `ProductBenefitsUpdate$Outbound` instead. */
   export type Outbound = ProductBenefitsUpdate$Outbound;
+}
+
+export function productBenefitsUpdateToJSON(
+  productBenefitsUpdate: ProductBenefitsUpdate,
+): string {
+  return JSON.stringify(
+    ProductBenefitsUpdate$outboundSchema.parse(productBenefitsUpdate),
+  );
+}
+
+export function productBenefitsUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductBenefitsUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductBenefitsUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductBenefitsUpdate' from JSON`,
+  );
 }

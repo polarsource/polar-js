@@ -37,7 +37,7 @@ export async function checkoutsGet(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.PolarCheckoutLegacySchemasCheckout,
+    components.CheckoutLegacy,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -118,7 +118,7 @@ export async function checkoutsGet(
   };
 
   const [result] = await M.match<
-    components.PolarCheckoutLegacySchemasCheckout,
+    components.CheckoutLegacy,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -128,7 +128,7 @@ export async function checkoutsGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.PolarCheckoutLegacySchemasCheckout$inboundSchema),
+    M.json(200, components.CheckoutLegacy$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),
   )(response, { extraFields: responseFields });

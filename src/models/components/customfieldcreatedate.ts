@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldDateProperties,
   CustomFieldDateProperties$inboundSchema,
@@ -83,6 +86,26 @@ export namespace CustomFieldCreateDateMetadata$ {
   export const outboundSchema = CustomFieldCreateDateMetadata$outboundSchema;
   /** @deprecated use `CustomFieldCreateDateMetadata$Outbound` instead. */
   export type Outbound = CustomFieldCreateDateMetadata$Outbound;
+}
+
+export function customFieldCreateDateMetadataToJSON(
+  customFieldCreateDateMetadata: CustomFieldCreateDateMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldCreateDateMetadata$outboundSchema.parse(
+      customFieldCreateDateMetadata,
+    ),
+  );
+}
+
+export function customFieldCreateDateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCreateDateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCreateDateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCreateDateMetadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -165,4 +188,22 @@ export namespace CustomFieldCreateDate$ {
   export const outboundSchema = CustomFieldCreateDate$outboundSchema;
   /** @deprecated use `CustomFieldCreateDate$Outbound` instead. */
   export type Outbound = CustomFieldCreateDate$Outbound;
+}
+
+export function customFieldCreateDateToJSON(
+  customFieldCreateDate: CustomFieldCreateDate,
+): string {
+  return JSON.stringify(
+    CustomFieldCreateDate$outboundSchema.parse(customFieldCreateDate),
+  );
+}
+
+export function customFieldCreateDateFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCreateDate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCreateDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCreateDate' from JSON`,
+  );
 }

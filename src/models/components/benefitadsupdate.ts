@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitAdsProperties,
   BenefitAdsProperties$inboundSchema,
@@ -86,4 +89,22 @@ export namespace BenefitAdsUpdate$ {
   export const outboundSchema = BenefitAdsUpdate$outboundSchema;
   /** @deprecated use `BenefitAdsUpdate$Outbound` instead. */
   export type Outbound = BenefitAdsUpdate$Outbound;
+}
+
+export function benefitAdsUpdateToJSON(
+  benefitAdsUpdate: BenefitAdsUpdate,
+): string {
+  return JSON.stringify(
+    BenefitAdsUpdate$outboundSchema.parse(benefitAdsUpdate),
+  );
+}
+
+export function benefitAdsUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitAdsUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitAdsUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitAdsUpdate' from JSON`,
+  );
 }

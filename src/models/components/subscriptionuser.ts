@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionUser = {
   email: string;
@@ -67,4 +70,22 @@ export namespace SubscriptionUser$ {
   export const outboundSchema = SubscriptionUser$outboundSchema;
   /** @deprecated use `SubscriptionUser$Outbound` instead. */
   export type Outbound = SubscriptionUser$Outbound;
+}
+
+export function subscriptionUserToJSON(
+  subscriptionUser: SubscriptionUser,
+): string {
+  return JSON.stringify(
+    SubscriptionUser$outboundSchema.parse(subscriptionUser),
+  );
+}
+
+export function subscriptionUserFromJSON(
+  jsonString: string,
+): SafeParseResult<SubscriptionUser, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SubscriptionUser$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionUser' from JSON`,
+  );
 }

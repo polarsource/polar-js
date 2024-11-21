@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type RevokeTokenResponse = {};
 
@@ -34,4 +37,22 @@ export namespace RevokeTokenResponse$ {
   export const outboundSchema = RevokeTokenResponse$outboundSchema;
   /** @deprecated use `RevokeTokenResponse$Outbound` instead. */
   export type Outbound = RevokeTokenResponse$Outbound;
+}
+
+export function revokeTokenResponseToJSON(
+  revokeTokenResponse: RevokeTokenResponse,
+): string {
+  return JSON.stringify(
+    RevokeTokenResponse$outboundSchema.parse(revokeTokenResponse),
+  );
+}
+
+export function revokeTokenResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<RevokeTokenResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RevokeTokenResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RevokeTokenResponse' from JSON`,
+  );
 }

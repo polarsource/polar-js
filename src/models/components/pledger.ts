@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Pledger = {
   name: string;
@@ -58,4 +61,18 @@ export namespace Pledger$ {
   export const outboundSchema = Pledger$outboundSchema;
   /** @deprecated use `Pledger$Outbound` instead. */
   export type Outbound = Pledger$Outbound;
+}
+
+export function pledgerToJSON(pledger: Pledger): string {
+  return JSON.stringify(Pledger$outboundSchema.parse(pledger));
+}
+
+export function pledgerFromJSON(
+  jsonString: string,
+): SafeParseResult<Pledger, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Pledger$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Pledger' from JSON`,
+  );
 }

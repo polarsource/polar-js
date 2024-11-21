@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitLicenseKeyActivationProperties = {
   limit: number;
@@ -57,4 +60,25 @@ export namespace BenefitLicenseKeyActivationProperties$ {
     BenefitLicenseKeyActivationProperties$outboundSchema;
   /** @deprecated use `BenefitLicenseKeyActivationProperties$Outbound` instead. */
   export type Outbound = BenefitLicenseKeyActivationProperties$Outbound;
+}
+
+export function benefitLicenseKeyActivationPropertiesToJSON(
+  benefitLicenseKeyActivationProperties: BenefitLicenseKeyActivationProperties,
+): string {
+  return JSON.stringify(
+    BenefitLicenseKeyActivationProperties$outboundSchema.parse(
+      benefitLicenseKeyActivationProperties,
+    ),
+  );
+}
+
+export function benefitLicenseKeyActivationPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitLicenseKeyActivationProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitLicenseKeyActivationProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitLicenseKeyActivationProperties' from JSON`,
+  );
 }

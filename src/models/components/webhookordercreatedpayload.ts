@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Order,
   Order$inboundSchema,
@@ -88,4 +91,22 @@ export namespace WebhookOrderCreatedPayload$ {
   export const outboundSchema = WebhookOrderCreatedPayload$outboundSchema;
   /** @deprecated use `WebhookOrderCreatedPayload$Outbound` instead. */
   export type Outbound = WebhookOrderCreatedPayload$Outbound;
+}
+
+export function webhookOrderCreatedPayloadToJSON(
+  webhookOrderCreatedPayload: WebhookOrderCreatedPayload,
+): string {
+  return JSON.stringify(
+    WebhookOrderCreatedPayload$outboundSchema.parse(webhookOrderCreatedPayload),
+  );
+}
+
+export function webhookOrderCreatedPayloadFromJSON(
+  jsonString: string,
+): SafeParseResult<WebhookOrderCreatedPayload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => WebhookOrderCreatedPayload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'WebhookOrderCreatedPayload' from JSON`,
+  );
 }

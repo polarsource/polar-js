@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
   Address$inboundSchema,
@@ -16,6 +19,30 @@ import {
   AttachedCustomField$Outbound,
   AttachedCustomField$outboundSchema,
 } from "./attachedcustomfield.js";
+import {
+  CheckoutDiscountFixedOnceForeverDuration,
+  CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
+  CheckoutDiscountFixedOnceForeverDuration$Outbound,
+  CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
+} from "./checkoutdiscountfixedonceforeverduration.js";
+import {
+  CheckoutDiscountFixedRepeatDuration,
+  CheckoutDiscountFixedRepeatDuration$inboundSchema,
+  CheckoutDiscountFixedRepeatDuration$Outbound,
+  CheckoutDiscountFixedRepeatDuration$outboundSchema,
+} from "./checkoutdiscountfixedrepeatduration.js";
+import {
+  CheckoutDiscountPercentageOnceForeverDuration,
+  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+  CheckoutDiscountPercentageOnceForeverDuration$Outbound,
+  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+} from "./checkoutdiscountpercentageonceforeverduration.js";
+import {
+  CheckoutDiscountPercentageRepeatDuration,
+  CheckoutDiscountPercentageRepeatDuration$inboundSchema,
+  CheckoutDiscountPercentageRepeatDuration$Outbound,
+  CheckoutDiscountPercentageRepeatDuration$outboundSchema,
+} from "./checkoutdiscountpercentagerepeatduration.js";
 import {
   CheckoutProduct,
   CheckoutProduct$inboundSchema,
@@ -46,6 +73,12 @@ import {
 export type CheckoutPublicCustomFieldData = {};
 
 export type CheckoutPublicPaymentProcessorMetadata = {};
+
+export type CheckoutPublicDiscount =
+  | CheckoutDiscountPercentageOnceForeverDuration
+  | CheckoutDiscountFixedOnceForeverDuration
+  | CheckoutDiscountPercentageRepeatDuration
+  | CheckoutDiscountFixedRepeatDuration;
 
 /**
  * Checkout session data retrieved using the client secret.
@@ -99,7 +132,11 @@ export type CheckoutPublic = {
    */
   currency: string | null;
   /**
-   * Total amount to pay in cents.
+   * Subtotal amount in cents, including discounts and before tax.
+   */
+  subtotalAmount: number | null;
+  /**
+   * Total amount to pay in cents, including discounts and after tax.
    */
   totalAmount: number | null;
   /**
@@ -111,9 +148,33 @@ export type CheckoutPublic = {
    */
   productPriceId: string;
   /**
-   * Whether the checkout requires payment. Useful to detect free products.
+   * ID of the discount applied to the checkout.
+   */
+  discountId: string | null;
+  /**
+   * Whether to allow the customer to apply discount codes. If you apply a discount through `discount_id`, it'll still be applied, but the customer won't be able to change it.
+   */
+  allowDiscountCodes: boolean;
+  /**
+   * Whether the discount is applicable to the checkout. Typically, free and custom prices are not discountable.
+   */
+  isDiscountApplicable: boolean;
+  /**
+   * Whether the product price is free, regardless of discounts.
+   */
+  isFreeProductPrice: boolean;
+  /**
+   * Whether the checkout requires payment, e.g. in case of free products or discounts that cover the total amount.
    */
   isPaymentRequired: boolean;
+  /**
+   * Whether the checkout requires setting up a payment method, regardless of the amount, e.g. subscriptions that have first free cycles.
+   */
+  isPaymentSetupRequired: boolean;
+  /**
+   * Whether the checkout requires a payment form, whether because of a payment or payment method setup.
+   */
+  isPaymentFormRequired: boolean;
   customerId: string | null;
   customerName: string | null;
   customerEmail: string | null;
@@ -126,6 +187,12 @@ export type CheckoutPublic = {
    */
   product: CheckoutProduct;
   productPrice: ProductPrice;
+  discount:
+    | CheckoutDiscountPercentageOnceForeverDuration
+    | CheckoutDiscountFixedOnceForeverDuration
+    | CheckoutDiscountPercentageRepeatDuration
+    | CheckoutDiscountFixedRepeatDuration
+    | null;
   organization: Organization;
   attachedCustomFields: Array<AttachedCustomField>;
 };
@@ -160,6 +227,26 @@ export namespace CheckoutPublicCustomFieldData$ {
   export type Outbound = CheckoutPublicCustomFieldData$Outbound;
 }
 
+export function checkoutPublicCustomFieldDataToJSON(
+  checkoutPublicCustomFieldData: CheckoutPublicCustomFieldData,
+): string {
+  return JSON.stringify(
+    CheckoutPublicCustomFieldData$outboundSchema.parse(
+      checkoutPublicCustomFieldData,
+    ),
+  );
+}
+
+export function checkoutPublicCustomFieldDataFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutPublicCustomFieldData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutPublicCustomFieldData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutPublicCustomFieldData' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutPublicPaymentProcessorMetadata$inboundSchema: z.ZodType<
   CheckoutPublicPaymentProcessorMetadata,
@@ -192,6 +279,90 @@ export namespace CheckoutPublicPaymentProcessorMetadata$ {
   export type Outbound = CheckoutPublicPaymentProcessorMetadata$Outbound;
 }
 
+export function checkoutPublicPaymentProcessorMetadataToJSON(
+  checkoutPublicPaymentProcessorMetadata:
+    CheckoutPublicPaymentProcessorMetadata,
+): string {
+  return JSON.stringify(
+    CheckoutPublicPaymentProcessorMetadata$outboundSchema.parse(
+      checkoutPublicPaymentProcessorMetadata,
+    ),
+  );
+}
+
+export function checkoutPublicPaymentProcessorMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutPublicPaymentProcessorMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutPublicPaymentProcessorMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutPublicPaymentProcessorMetadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const CheckoutPublicDiscount$inboundSchema: z.ZodType<
+  CheckoutPublicDiscount,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+  CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
+  CheckoutDiscountPercentageRepeatDuration$inboundSchema,
+  CheckoutDiscountFixedRepeatDuration$inboundSchema,
+]);
+
+/** @internal */
+export type CheckoutPublicDiscount$Outbound =
+  | CheckoutDiscountPercentageOnceForeverDuration$Outbound
+  | CheckoutDiscountFixedOnceForeverDuration$Outbound
+  | CheckoutDiscountPercentageRepeatDuration$Outbound
+  | CheckoutDiscountFixedRepeatDuration$Outbound;
+
+/** @internal */
+export const CheckoutPublicDiscount$outboundSchema: z.ZodType<
+  CheckoutPublicDiscount$Outbound,
+  z.ZodTypeDef,
+  CheckoutPublicDiscount
+> = z.union([
+  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+  CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
+  CheckoutDiscountPercentageRepeatDuration$outboundSchema,
+  CheckoutDiscountFixedRepeatDuration$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutPublicDiscount$ {
+  /** @deprecated use `CheckoutPublicDiscount$inboundSchema` instead. */
+  export const inboundSchema = CheckoutPublicDiscount$inboundSchema;
+  /** @deprecated use `CheckoutPublicDiscount$outboundSchema` instead. */
+  export const outboundSchema = CheckoutPublicDiscount$outboundSchema;
+  /** @deprecated use `CheckoutPublicDiscount$Outbound` instead. */
+  export type Outbound = CheckoutPublicDiscount$Outbound;
+}
+
+export function checkoutPublicDiscountToJSON(
+  checkoutPublicDiscount: CheckoutPublicDiscount,
+): string {
+  return JSON.stringify(
+    CheckoutPublicDiscount$outboundSchema.parse(checkoutPublicDiscount),
+  );
+}
+
+export function checkoutPublicDiscountFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutPublicDiscount, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutPublicDiscount$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutPublicDiscount' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutPublic$inboundSchema: z.ZodType<
   CheckoutPublic,
@@ -215,10 +386,17 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   amount: z.nullable(z.number().int()),
   tax_amount: z.nullable(z.number().int()),
   currency: z.nullable(z.string()),
+  subtotal_amount: z.nullable(z.number().int()),
   total_amount: z.nullable(z.number().int()),
   product_id: z.string(),
   product_price_id: z.string(),
+  discount_id: z.nullable(z.string()),
+  allow_discount_codes: z.boolean(),
+  is_discount_applicable: z.boolean(),
+  is_free_product_price: z.boolean(),
   is_payment_required: z.boolean(),
+  is_payment_setup_required: z.boolean(),
+  is_payment_form_required: z.boolean(),
   customer_id: z.nullable(z.string()),
   customer_name: z.nullable(z.string()),
   customer_email: z.nullable(z.string()),
@@ -230,6 +408,14 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   ),
   product: CheckoutProduct$inboundSchema,
   product_price: ProductPrice$inboundSchema,
+  discount: z.nullable(
+    z.union([
+      CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+      CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
+      CheckoutDiscountPercentageRepeatDuration$inboundSchema,
+      CheckoutDiscountFixedRepeatDuration$inboundSchema,
+    ]),
+  ),
   organization: Organization$inboundSchema,
   attached_custom_fields: z.array(AttachedCustomField$inboundSchema),
 }).transform((v) => {
@@ -243,10 +429,17 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     "success_url": "successUrl",
     "embed_origin": "embedOrigin",
     "tax_amount": "taxAmount",
+    "subtotal_amount": "subtotalAmount",
     "total_amount": "totalAmount",
     "product_id": "productId",
     "product_price_id": "productPriceId",
+    "discount_id": "discountId",
+    "allow_discount_codes": "allowDiscountCodes",
+    "is_discount_applicable": "isDiscountApplicable",
+    "is_free_product_price": "isFreeProductPrice",
     "is_payment_required": "isPaymentRequired",
+    "is_payment_setup_required": "isPaymentSetupRequired",
+    "is_payment_form_required": "isPaymentFormRequired",
     "customer_id": "customerId",
     "customer_name": "customerName",
     "customer_email": "customerEmail",
@@ -275,10 +468,17 @@ export type CheckoutPublic$Outbound = {
   amount: number | null;
   tax_amount: number | null;
   currency: string | null;
+  subtotal_amount: number | null;
   total_amount: number | null;
   product_id: string;
   product_price_id: string;
+  discount_id: string | null;
+  allow_discount_codes: boolean;
+  is_discount_applicable: boolean;
+  is_free_product_price: boolean;
   is_payment_required: boolean;
+  is_payment_setup_required: boolean;
+  is_payment_form_required: boolean;
   customer_id: string | null;
   customer_name: string | null;
   customer_email: string | null;
@@ -288,6 +488,12 @@ export type CheckoutPublic$Outbound = {
   payment_processor_metadata: CheckoutPublicPaymentProcessorMetadata$Outbound;
   product: CheckoutProduct$Outbound;
   product_price: ProductPrice$Outbound;
+  discount:
+    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
+    | CheckoutDiscountFixedOnceForeverDuration$Outbound
+    | CheckoutDiscountPercentageRepeatDuration$Outbound
+    | CheckoutDiscountFixedRepeatDuration$Outbound
+    | null;
   organization: Organization$Outbound;
   attached_custom_fields: Array<AttachedCustomField$Outbound>;
 };
@@ -313,10 +519,17 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   amount: z.nullable(z.number().int()),
   taxAmount: z.nullable(z.number().int()),
   currency: z.nullable(z.string()),
+  subtotalAmount: z.nullable(z.number().int()),
   totalAmount: z.nullable(z.number().int()),
   productId: z.string(),
   productPriceId: z.string(),
+  discountId: z.nullable(z.string()),
+  allowDiscountCodes: z.boolean(),
+  isDiscountApplicable: z.boolean(),
+  isFreeProductPrice: z.boolean(),
   isPaymentRequired: z.boolean(),
+  isPaymentSetupRequired: z.boolean(),
+  isPaymentFormRequired: z.boolean(),
   customerId: z.nullable(z.string()),
   customerName: z.nullable(z.string()),
   customerEmail: z.nullable(z.string()),
@@ -328,6 +541,14 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   ),
   product: CheckoutProduct$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
+  discount: z.nullable(
+    z.union([
+      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+      CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
+      CheckoutDiscountPercentageRepeatDuration$outboundSchema,
+      CheckoutDiscountFixedRepeatDuration$outboundSchema,
+    ]),
+  ),
   organization: Organization$outboundSchema,
   attachedCustomFields: z.array(AttachedCustomField$outboundSchema),
 }).transform((v) => {
@@ -341,10 +562,17 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
     successUrl: "success_url",
     embedOrigin: "embed_origin",
     taxAmount: "tax_amount",
+    subtotalAmount: "subtotal_amount",
     totalAmount: "total_amount",
     productId: "product_id",
     productPriceId: "product_price_id",
+    discountId: "discount_id",
+    allowDiscountCodes: "allow_discount_codes",
+    isDiscountApplicable: "is_discount_applicable",
+    isFreeProductPrice: "is_free_product_price",
     isPaymentRequired: "is_payment_required",
+    isPaymentSetupRequired: "is_payment_setup_required",
+    isPaymentFormRequired: "is_payment_form_required",
     customerId: "customer_id",
     customerName: "customer_name",
     customerEmail: "customer_email",
@@ -368,4 +596,18 @@ export namespace CheckoutPublic$ {
   export const outboundSchema = CheckoutPublic$outboundSchema;
   /** @deprecated use `CheckoutPublic$Outbound` instead. */
   export type Outbound = CheckoutPublic$Outbound;
+}
+
+export function checkoutPublicToJSON(checkoutPublic: CheckoutPublic): string {
+  return JSON.stringify(CheckoutPublic$outboundSchema.parse(checkoutPublic));
+}
+
+export function checkoutPublicFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutPublic, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutPublic$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutPublic' from JSON`,
+  );
 }

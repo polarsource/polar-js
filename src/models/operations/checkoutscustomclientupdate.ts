@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutsCustomClientUpdateRequest = {
   /**
@@ -62,4 +65,25 @@ export namespace CheckoutsCustomClientUpdateRequest$ {
     CheckoutsCustomClientUpdateRequest$outboundSchema;
   /** @deprecated use `CheckoutsCustomClientUpdateRequest$Outbound` instead. */
   export type Outbound = CheckoutsCustomClientUpdateRequest$Outbound;
+}
+
+export function checkoutsCustomClientUpdateRequestToJSON(
+  checkoutsCustomClientUpdateRequest: CheckoutsCustomClientUpdateRequest,
+): string {
+  return JSON.stringify(
+    CheckoutsCustomClientUpdateRequest$outboundSchema.parse(
+      checkoutsCustomClientUpdateRequest,
+    ),
+  );
+}
+
+export function checkoutsCustomClientUpdateRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutsCustomClientUpdateRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutsCustomClientUpdateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutsCustomClientUpdateRequest' from JSON`,
+  );
 }

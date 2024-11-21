@@ -16,6 +16,8 @@ export const Scope = {
   OrganizationsWrite: "organizations:write",
   CustomFieldsRead: "custom_fields:read",
   CustomFieldsWrite: "custom_fields:write",
+  DiscountsRead: "discounts:read",
+  DiscountsWrite: "discounts:write",
   CheckoutLinksRead: "checkout_links:read",
   CheckoutLinksWrite: "checkout_links:write",
   CheckoutsRead: "checkouts:read",

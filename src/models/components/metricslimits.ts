@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   MetricsIntervalsLimits,
   MetricsIntervalsLimits$inboundSchema,
@@ -71,4 +74,18 @@ export namespace MetricsLimits$ {
   export const outboundSchema = MetricsLimits$outboundSchema;
   /** @deprecated use `MetricsLimits$Outbound` instead. */
   export type Outbound = MetricsLimits$Outbound;
+}
+
+export function metricsLimitsToJSON(metricsLimits: MetricsLimits): string {
+  return JSON.stringify(MetricsLimits$outboundSchema.parse(metricsLimits));
+}
+
+export function metricsLimitsFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsLimits, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsLimits$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsLimits' from JSON`,
+  );
 }

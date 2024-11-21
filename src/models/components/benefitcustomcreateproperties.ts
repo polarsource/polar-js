@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Properties for creating a benefit of type `custom`.
@@ -45,4 +48,24 @@ export namespace BenefitCustomCreateProperties$ {
   export const outboundSchema = BenefitCustomCreateProperties$outboundSchema;
   /** @deprecated use `BenefitCustomCreateProperties$Outbound` instead. */
   export type Outbound = BenefitCustomCreateProperties$Outbound;
+}
+
+export function benefitCustomCreatePropertiesToJSON(
+  benefitCustomCreateProperties: BenefitCustomCreateProperties,
+): string {
+  return JSON.stringify(
+    BenefitCustomCreateProperties$outboundSchema.parse(
+      benefitCustomCreateProperties,
+    ),
+  );
+}
+
+export function benefitCustomCreatePropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitCustomCreateProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitCustomCreateProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitCustomCreateProperties' from JSON`,
+  );
 }

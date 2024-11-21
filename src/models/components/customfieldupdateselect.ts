@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldSelectProperties,
   CustomFieldSelectProperties$inboundSchema,
@@ -77,6 +80,26 @@ export namespace CustomFieldUpdateSelectMetadata$ {
   export type Outbound = CustomFieldUpdateSelectMetadata$Outbound;
 }
 
+export function customFieldUpdateSelectMetadataToJSON(
+  customFieldUpdateSelectMetadata: CustomFieldUpdateSelectMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldUpdateSelectMetadata$outboundSchema.parse(
+      customFieldUpdateSelectMetadata,
+    ),
+  );
+}
+
+export function customFieldUpdateSelectMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldUpdateSelectMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldUpdateSelectMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldUpdateSelectMetadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const CustomFieldUpdateSelectType$inboundSchema: z.ZodNativeEnum<
   typeof CustomFieldUpdateSelectType
@@ -148,4 +171,22 @@ export namespace CustomFieldUpdateSelect$ {
   export const outboundSchema = CustomFieldUpdateSelect$outboundSchema;
   /** @deprecated use `CustomFieldUpdateSelect$Outbound` instead. */
   export type Outbound = CustomFieldUpdateSelect$Outbound;
+}
+
+export function customFieldUpdateSelectToJSON(
+  customFieldUpdateSelect: CustomFieldUpdateSelect,
+): string {
+  return JSON.stringify(
+    CustomFieldUpdateSelect$outboundSchema.parse(customFieldUpdateSelect),
+  );
+}
+
+export function customFieldUpdateSelectFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldUpdateSelect, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldUpdateSelect$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldUpdateSelect' from JSON`,
+  );
 }

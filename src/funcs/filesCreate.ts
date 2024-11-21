@@ -20,7 +20,6 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -31,7 +30,7 @@ import { Result } from "../types/fp.js";
  */
 export async function filesCreate(
   client: PolarCore,
-  request: operations.FilesCreateFileCreate,
+  request: components.FileCreate,
   options?: RequestOptions,
 ): Promise<
   Result<
@@ -48,7 +47,7 @@ export async function filesCreate(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.FilesCreateFileCreate$outboundSchema.parse(value),
+    (value) => components.FileCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {

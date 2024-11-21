@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   FileDownload,
   FileDownload$inboundSchema,
@@ -65,4 +68,22 @@ export namespace DownloadableRead$ {
   export const outboundSchema = DownloadableRead$outboundSchema;
   /** @deprecated use `DownloadableRead$Outbound` instead. */
   export type Outbound = DownloadableRead$Outbound;
+}
+
+export function downloadableReadToJSON(
+  downloadableRead: DownloadableRead,
+): string {
+  return JSON.stringify(
+    DownloadableRead$outboundSchema.parse(downloadableRead),
+  );
+}
+
+export function downloadableReadFromJSON(
+  jsonString: string,
+): SafeParseResult<DownloadableRead, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DownloadableRead$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DownloadableRead' from JSON`,
+  );
 }

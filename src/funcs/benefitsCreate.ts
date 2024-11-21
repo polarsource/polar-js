@@ -20,7 +20,6 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -31,7 +30,7 @@ import { Result } from "../types/fp.js";
  */
 export async function benefitsCreate(
   client: PolarCore,
-  request: operations.BenefitsCreateBenefitCreate,
+  request: components.BenefitCreate,
   options?: RequestOptions,
 ): Promise<
   Result<
@@ -48,8 +47,7 @@ export async function benefitsCreate(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.BenefitsCreateBenefitCreate$outboundSchema.parse(value),
+    (value) => components.BenefitCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {

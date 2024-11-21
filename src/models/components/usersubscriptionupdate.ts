@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UserSubscriptionUpdate = {
   productPriceId: string;
@@ -51,4 +54,22 @@ export namespace UserSubscriptionUpdate$ {
   export const outboundSchema = UserSubscriptionUpdate$outboundSchema;
   /** @deprecated use `UserSubscriptionUpdate$Outbound` instead. */
   export type Outbound = UserSubscriptionUpdate$Outbound;
+}
+
+export function userSubscriptionUpdateToJSON(
+  userSubscriptionUpdate: UserSubscriptionUpdate,
+): string {
+  return JSON.stringify(
+    UserSubscriptionUpdate$outboundSchema.parse(userSubscriptionUpdate),
+  );
+}
+
+export function userSubscriptionUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<UserSubscriptionUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UserSubscriptionUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UserSubscriptionUpdate' from JSON`,
+  );
 }

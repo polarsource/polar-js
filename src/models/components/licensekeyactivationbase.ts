@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Meta = {};
 
@@ -38,6 +41,20 @@ export namespace Meta$ {
   export const outboundSchema = Meta$outboundSchema;
   /** @deprecated use `Meta$Outbound` instead. */
   export type Outbound = Meta$Outbound;
+}
+
+export function metaToJSON(meta: Meta): string {
+  return JSON.stringify(Meta$outboundSchema.parse(meta));
+}
+
+export function metaFromJSON(
+  jsonString: string,
+): SafeParseResult<Meta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Meta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Meta' from JSON`,
+  );
 }
 
 /** @internal */
@@ -103,4 +120,22 @@ export namespace LicenseKeyActivationBase$ {
   export const outboundSchema = LicenseKeyActivationBase$outboundSchema;
   /** @deprecated use `LicenseKeyActivationBase$Outbound` instead. */
   export type Outbound = LicenseKeyActivationBase$Outbound;
+}
+
+export function licenseKeyActivationBaseToJSON(
+  licenseKeyActivationBase: LicenseKeyActivationBase,
+): string {
+  return JSON.stringify(
+    LicenseKeyActivationBase$outboundSchema.parse(licenseKeyActivationBase),
+  );
+}
+
+export function licenseKeyActivationBaseFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeyActivationBase, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeyActivationBase$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeyActivationBase' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Date interval limit to get metrics for a given interval.
@@ -57,4 +60,22 @@ export namespace MetricsIntervalLimit$ {
   export const outboundSchema = MetricsIntervalLimit$outboundSchema;
   /** @deprecated use `MetricsIntervalLimit$Outbound` instead. */
   export type Outbound = MetricsIntervalLimit$Outbound;
+}
+
+export function metricsIntervalLimitToJSON(
+  metricsIntervalLimit: MetricsIntervalLimit,
+): string {
+  return JSON.stringify(
+    MetricsIntervalLimit$outboundSchema.parse(metricsIntervalLimit),
+  );
+}
+
+export function metricsIntervalLimitFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsIntervalLimit, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsIntervalLimit$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsIntervalLimit' from JSON`,
+  );
 }

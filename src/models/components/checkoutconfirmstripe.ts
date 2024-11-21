@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
   Address$inboundSchema,
@@ -30,6 +33,10 @@ export type CheckoutConfirmStripe = {
   customerEmail?: string | null | undefined;
   customerBillingAddress?: Address | null | undefined;
   customerTaxId?: string | null | undefined;
+  /**
+   * Discount code to apply to the checkout.
+   */
+  discountCode?: string | null | undefined;
   /**
    * ID of the Stripe confirmation token. Required for fixed prices and custom prices.
    */
@@ -68,6 +75,27 @@ export namespace CheckoutConfirmStripeCustomFieldData$ {
   export type Outbound = CheckoutConfirmStripeCustomFieldData$Outbound;
 }
 
+export function checkoutConfirmStripeCustomFieldDataToJSON(
+  checkoutConfirmStripeCustomFieldData: CheckoutConfirmStripeCustomFieldData,
+): string {
+  return JSON.stringify(
+    CheckoutConfirmStripeCustomFieldData$outboundSchema.parse(
+      checkoutConfirmStripeCustomFieldData,
+    ),
+  );
+}
+
+export function checkoutConfirmStripeCustomFieldDataFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutConfirmStripeCustomFieldData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutConfirmStripeCustomFieldData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutConfirmStripeCustomFieldData' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
   CheckoutConfirmStripe,
@@ -83,6 +111,7 @@ export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
   customer_email: z.nullable(z.string()).optional(),
   customer_billing_address: z.nullable(Address$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
+  discount_code: z.nullable(z.string()).optional(),
   confirmation_token_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -92,6 +121,7 @@ export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
     "customer_email": "customerEmail",
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
+    "discount_code": "discountCode",
     "confirmation_token_id": "confirmationTokenId",
   });
 });
@@ -108,6 +138,7 @@ export type CheckoutConfirmStripe$Outbound = {
   customer_email?: string | null | undefined;
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
+  discount_code?: string | null | undefined;
   confirmation_token_id?: string | null | undefined;
 };
 
@@ -126,6 +157,7 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
   customerEmail: z.nullable(z.string()).optional(),
   customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
+  discountCode: z.nullable(z.string()).optional(),
   confirmationTokenId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -135,6 +167,7 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
     customerEmail: "customer_email",
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
+    discountCode: "discount_code",
     confirmationTokenId: "confirmation_token_id",
   });
 });
@@ -150,4 +183,22 @@ export namespace CheckoutConfirmStripe$ {
   export const outboundSchema = CheckoutConfirmStripe$outboundSchema;
   /** @deprecated use `CheckoutConfirmStripe$Outbound` instead. */
   export type Outbound = CheckoutConfirmStripe$Outbound;
+}
+
+export function checkoutConfirmStripeToJSON(
+  checkoutConfirmStripe: CheckoutConfirmStripe,
+): string {
+  return JSON.stringify(
+    CheckoutConfirmStripe$outboundSchema.parse(checkoutConfirmStripe),
+  );
+}
+
+export function checkoutConfirmStripeFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutConfirmStripe, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutConfirmStripe$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutConfirmStripe' from JSON`,
+  );
 }

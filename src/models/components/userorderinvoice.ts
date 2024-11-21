@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Order's invoice data.
@@ -48,4 +51,22 @@ export namespace UserOrderInvoice$ {
   export const outboundSchema = UserOrderInvoice$outboundSchema;
   /** @deprecated use `UserOrderInvoice$Outbound` instead. */
   export type Outbound = UserOrderInvoice$Outbound;
+}
+
+export function userOrderInvoiceToJSON(
+  userOrderInvoice: UserOrderInvoice,
+): string {
+  return JSON.stringify(
+    UserOrderInvoice$outboundSchema.parse(userOrderInvoice),
+  );
+}
+
+export function userOrderInvoiceFromJSON(
+  jsonString: string,
+): SafeParseResult<UserOrderInvoice, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UserOrderInvoice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UserOrderInvoice' from JSON`,
+  );
 }

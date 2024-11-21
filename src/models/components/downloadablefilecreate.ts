@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   S3FileCreateMultipart,
   S3FileCreateMultipart$inboundSchema,
@@ -121,4 +124,22 @@ export namespace DownloadableFileCreate$ {
   export const outboundSchema = DownloadableFileCreate$outboundSchema;
   /** @deprecated use `DownloadableFileCreate$Outbound` instead. */
   export type Outbound = DownloadableFileCreate$Outbound;
+}
+
+export function downloadableFileCreateToJSON(
+  downloadableFileCreate: DownloadableFileCreate,
+): string {
+  return JSON.stringify(
+    DownloadableFileCreate$outboundSchema.parse(downloadableFileCreate),
+  );
+}
+
+export function downloadableFileCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<DownloadableFileCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DownloadableFileCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DownloadableFileCreate' from JSON`,
+  );
 }

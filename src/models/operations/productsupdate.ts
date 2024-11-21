@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ProductsUpdateRequest = {
   id: string;
@@ -56,4 +59,22 @@ export namespace ProductsUpdateRequest$ {
   export const outboundSchema = ProductsUpdateRequest$outboundSchema;
   /** @deprecated use `ProductsUpdateRequest$Outbound` instead. */
   export type Outbound = ProductsUpdateRequest$Outbound;
+}
+
+export function productsUpdateRequestToJSON(
+  productsUpdateRequest: ProductsUpdateRequest,
+): string {
+  return JSON.stringify(
+    ProductsUpdateRequest$outboundSchema.parse(productsUpdateRequest),
+  );
+}
+
+export function productsUpdateRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductsUpdateRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductsUpdateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductsUpdateRequest' from JSON`,
+  );
 }

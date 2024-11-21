@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -78,6 +81,33 @@ export namespace BenefitsListQueryParamOrganizationIDFilter$ {
   export type Outbound = BenefitsListQueryParamOrganizationIDFilter$Outbound;
 }
 
+export function benefitsListQueryParamOrganizationIDFilterToJSON(
+  benefitsListQueryParamOrganizationIDFilter:
+    BenefitsListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    BenefitsListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      benefitsListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function benefitsListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  BenefitsListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitsListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'BenefitsListQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const QueryParamBenefitTypeFilter$inboundSchema: z.ZodType<
   QueryParamBenefitTypeFilter,
@@ -112,6 +142,26 @@ export namespace QueryParamBenefitTypeFilter$ {
   export const outboundSchema = QueryParamBenefitTypeFilter$outboundSchema;
   /** @deprecated use `QueryParamBenefitTypeFilter$Outbound` instead. */
   export type Outbound = QueryParamBenefitTypeFilter$Outbound;
+}
+
+export function queryParamBenefitTypeFilterToJSON(
+  queryParamBenefitTypeFilter: QueryParamBenefitTypeFilter,
+): string {
+  return JSON.stringify(
+    QueryParamBenefitTypeFilter$outboundSchema.parse(
+      queryParamBenefitTypeFilter,
+    ),
+  );
+}
+
+export function queryParamBenefitTypeFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryParamBenefitTypeFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryParamBenefitTypeFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamBenefitTypeFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -181,6 +231,24 @@ export namespace BenefitsListRequest$ {
   export type Outbound = BenefitsListRequest$Outbound;
 }
 
+export function benefitsListRequestToJSON(
+  benefitsListRequest: BenefitsListRequest,
+): string {
+  return JSON.stringify(
+    BenefitsListRequest$outboundSchema.parse(benefitsListRequest),
+  );
+}
+
+export function benefitsListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitsListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitsListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitsListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const BenefitsListResponse$inboundSchema: z.ZodType<
   BenefitsListResponse,
@@ -223,4 +291,22 @@ export namespace BenefitsListResponse$ {
   export const outboundSchema = BenefitsListResponse$outboundSchema;
   /** @deprecated use `BenefitsListResponse$Outbound` instead. */
   export type Outbound = BenefitsListResponse$Outbound;
+}
+
+export function benefitsListResponseToJSON(
+  benefitsListResponse: BenefitsListResponse,
+): string {
+  return JSON.stringify(
+    BenefitsListResponse$outboundSchema.parse(benefitsListResponse),
+  );
+}
+
+export function benefitsListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitsListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitsListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitsListResponse' from JSON`,
+  );
 }

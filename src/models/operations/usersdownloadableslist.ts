@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -78,6 +81,33 @@ export namespace UsersDownloadablesListQueryParamOrganizationIDFilter$ {
     UsersDownloadablesListQueryParamOrganizationIDFilter$Outbound;
 }
 
+export function usersDownloadablesListQueryParamOrganizationIDFilterToJSON(
+  usersDownloadablesListQueryParamOrganizationIDFilter:
+    UsersDownloadablesListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    UsersDownloadablesListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      usersDownloadablesListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function usersDownloadablesListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  UsersDownloadablesListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      UsersDownloadablesListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'UsersDownloadablesListQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const BenefitIDFilter$inboundSchema: z.ZodType<
   BenefitIDFilter,
@@ -106,6 +136,22 @@ export namespace BenefitIDFilter$ {
   export const outboundSchema = BenefitIDFilter$outboundSchema;
   /** @deprecated use `BenefitIDFilter$Outbound` instead. */
   export type Outbound = BenefitIDFilter$Outbound;
+}
+
+export function benefitIDFilterToJSON(
+  benefitIDFilter: BenefitIDFilter,
+): string {
+  return JSON.stringify(BenefitIDFilter$outboundSchema.parse(benefitIDFilter));
+}
+
+export function benefitIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitIDFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitIDFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -165,6 +211,26 @@ export namespace UsersDownloadablesListRequest$ {
   export type Outbound = UsersDownloadablesListRequest$Outbound;
 }
 
+export function usersDownloadablesListRequestToJSON(
+  usersDownloadablesListRequest: UsersDownloadablesListRequest,
+): string {
+  return JSON.stringify(
+    UsersDownloadablesListRequest$outboundSchema.parse(
+      usersDownloadablesListRequest,
+    ),
+  );
+}
+
+export function usersDownloadablesListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersDownloadablesListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersDownloadablesListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersDownloadablesListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const UsersDownloadablesListResponse$inboundSchema: z.ZodType<
   UsersDownloadablesListResponse,
@@ -207,4 +273,24 @@ export namespace UsersDownloadablesListResponse$ {
   export const outboundSchema = UsersDownloadablesListResponse$outboundSchema;
   /** @deprecated use `UsersDownloadablesListResponse$Outbound` instead. */
   export type Outbound = UsersDownloadablesListResponse$Outbound;
+}
+
+export function usersDownloadablesListResponseToJSON(
+  usersDownloadablesListResponse: UsersDownloadablesListResponse,
+): string {
+  return JSON.stringify(
+    UsersDownloadablesListResponse$outboundSchema.parse(
+      usersDownloadablesListResponse,
+    ),
+  );
+}
+
+export function usersDownloadablesListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersDownloadablesListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersDownloadablesListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersDownloadablesListResponse' from JSON`,
+  );
 }

@@ -39,7 +39,7 @@ export class Benefits extends ClientSDK {
    * Create a benefit.
    */
   async create(
-    request: operations.BenefitsCreateBenefitCreate,
+    request: components.BenefitCreate,
     options?: RequestOptions,
   ): Promise<components.Benefit> {
     return unwrapAsync(benefitsCreate(

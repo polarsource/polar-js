@@ -8,17 +8,18 @@ import { ListResourceUserBenefit } from "@polar-sh/sdk/models/components";
 let value: ListResourceUserBenefit = {
   items: [
     {
-      createdAt: new Date("2024-10-26T05:58:24.759Z"),
-      modifiedAt: new Date("2022-05-22T13:19:47.503Z"),
+      createdAt: new Date("2024-06-03T10:02:48.006Z"),
+      modifiedAt: new Date("2024-02-27T19:43:42.467Z"),
       id: "<value>",
-      description: "from throughout undergo",
+      description:
+        "before consequently broadside standard stint unto sternly briefly provided accredit",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       grants: [
         {
-          createdAt: new Date("2023-05-29T04:05:53.462Z"),
-          modifiedAt: new Date("2023-01-04T09:22:53.989Z"),
+          createdAt: new Date("2024-12-28T18:18:25.337Z"),
+          modifiedAt: new Date("2022-08-30T16:10:43.426Z"),
           id: "<value>",
           isGranted: false,
           isRevoked: false,
@@ -29,32 +30,32 @@ let value: ListResourceUserBenefit = {
         },
       ],
       organization: {
-        createdAt: new Date("2022-05-09T00:29:29.459Z"),
-        modifiedAt: new Date("2023-04-20T03:01:19.557Z"),
+        createdAt: new Date("2022-12-09T13:39:01.927Z"),
+        modifiedAt: new Date("2022-08-17T10:07:20.026Z"),
         id: "<value>",
         name: "<value>",
         slug: "<value>",
-        avatarUrl: "https://burdensome-executor.org",
+        avatarUrl: "https://qualified-label.name",
         bio: "<value>",
-        company: "DuBuque Group",
+        company: "Morar - Johnston",
         blog: "<value>",
         location: "<value>",
-        email: "Edmund.Zulauf@hotmail.com",
+        email: "Madisyn50@gmail.com",
         twitterUsername: "<value>",
-        pledgeMinimumAmount: 434345,
+        pledgeMinimumAmount: 447878,
         pledgeBadgeShowAmount: false,
-        defaultUpfrontSplitToContributors: 926803,
+        defaultUpfrontSplitToContributors: 966222,
         profileSettings: {},
         featureSettings: {},
       },
       properties: {
-        guildId: "<id>",
+        note: "<value>",
       },
     },
   ],
   pagination: {
-    totalCount: 134205,
-    maxPage: 91136,
+    totalCount: 793029,
+    maxPage: 826431,
   },
 };
 ```

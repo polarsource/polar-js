@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -84,6 +87,33 @@ export namespace CheckoutsCustomListQueryParamOrganizationIDFilter$ {
     CheckoutsCustomListQueryParamOrganizationIDFilter$Outbound;
 }
 
+export function checkoutsCustomListQueryParamOrganizationIDFilterToJSON(
+  checkoutsCustomListQueryParamOrganizationIDFilter:
+    CheckoutsCustomListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    CheckoutsCustomListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      checkoutsCustomListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function checkoutsCustomListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CheckoutsCustomListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutsCustomListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CheckoutsCustomListQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutsCustomListQueryParamProductIDFilter$inboundSchema:
   z.ZodType<
@@ -118,6 +148,33 @@ export namespace CheckoutsCustomListQueryParamProductIDFilter$ {
     CheckoutsCustomListQueryParamProductIDFilter$outboundSchema;
   /** @deprecated use `CheckoutsCustomListQueryParamProductIDFilter$Outbound` instead. */
   export type Outbound = CheckoutsCustomListQueryParamProductIDFilter$Outbound;
+}
+
+export function checkoutsCustomListQueryParamProductIDFilterToJSON(
+  checkoutsCustomListQueryParamProductIDFilter:
+    CheckoutsCustomListQueryParamProductIDFilter,
+): string {
+  return JSON.stringify(
+    CheckoutsCustomListQueryParamProductIDFilter$outboundSchema.parse(
+      checkoutsCustomListQueryParamProductIDFilter,
+    ),
+  );
+}
+
+export function checkoutsCustomListQueryParamProductIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CheckoutsCustomListQueryParamProductIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutsCustomListQueryParamProductIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CheckoutsCustomListQueryParamProductIDFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -182,6 +239,24 @@ export namespace CheckoutsCustomListRequest$ {
   export type Outbound = CheckoutsCustomListRequest$Outbound;
 }
 
+export function checkoutsCustomListRequestToJSON(
+  checkoutsCustomListRequest: CheckoutsCustomListRequest,
+): string {
+  return JSON.stringify(
+    CheckoutsCustomListRequest$outboundSchema.parse(checkoutsCustomListRequest),
+  );
+}
+
+export function checkoutsCustomListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutsCustomListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutsCustomListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutsCustomListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutsCustomListResponse$inboundSchema: z.ZodType<
   CheckoutsCustomListResponse,
@@ -224,4 +299,24 @@ export namespace CheckoutsCustomListResponse$ {
   export const outboundSchema = CheckoutsCustomListResponse$outboundSchema;
   /** @deprecated use `CheckoutsCustomListResponse$Outbound` instead. */
   export type Outbound = CheckoutsCustomListResponse$Outbound;
+}
+
+export function checkoutsCustomListResponseToJSON(
+  checkoutsCustomListResponse: CheckoutsCustomListResponse,
+): string {
+  return JSON.stringify(
+    CheckoutsCustomListResponse$outboundSchema.parse(
+      checkoutsCustomListResponse,
+    ),
+  );
+}
+
+export function checkoutsCustomListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutsCustomListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutsCustomListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutsCustomListResponse' from JSON`,
+  );
 }

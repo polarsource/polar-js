@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -45,6 +48,20 @@ export namespace OrganizationId$ {
   export const outboundSchema = OrganizationId$outboundSchema;
   /** @deprecated use `OrganizationId$Outbound` instead. */
   export type Outbound = OrganizationId$Outbound;
+}
+
+export function organizationIdToJSON(organizationId: OrganizationId): string {
+  return JSON.stringify(OrganizationId$outboundSchema.parse(organizationId));
+}
+
+export function organizationIdFromJSON(
+  jsonString: string,
+): SafeParseResult<OrganizationId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrganizationId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrganizationId' from JSON`,
+  );
 }
 
 /** @internal */
@@ -91,4 +108,22 @@ export namespace SubscriptionsExportRequest$ {
   export const outboundSchema = SubscriptionsExportRequest$outboundSchema;
   /** @deprecated use `SubscriptionsExportRequest$Outbound` instead. */
   export type Outbound = SubscriptionsExportRequest$Outbound;
+}
+
+export function subscriptionsExportRequestToJSON(
+  subscriptionsExportRequest: SubscriptionsExportRequest,
+): string {
+  return JSON.stringify(
+    SubscriptionsExportRequest$outboundSchema.parse(subscriptionsExportRequest),
+  );
+}
+
+export function subscriptionsExportRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<SubscriptionsExportRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SubscriptionsExportRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionsExportRequest' from JSON`,
+  );
 }

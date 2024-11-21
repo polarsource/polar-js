@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitsGetRequest = {
   id: string;
@@ -42,4 +45,22 @@ export namespace BenefitsGetRequest$ {
   export const outboundSchema = BenefitsGetRequest$outboundSchema;
   /** @deprecated use `BenefitsGetRequest$Outbound` instead. */
   export type Outbound = BenefitsGetRequest$Outbound;
+}
+
+export function benefitsGetRequestToJSON(
+  benefitsGetRequest: BenefitsGetRequest,
+): string {
+  return JSON.stringify(
+    BenefitsGetRequest$outboundSchema.parse(benefitsGetRequest),
+  );
+}
+
+export function benefitsGetRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitsGetRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitsGetRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitsGetRequest' from JSON`,
+  );
 }

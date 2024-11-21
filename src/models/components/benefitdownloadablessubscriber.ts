@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitDownloadablesSubscriberProperties,
   BenefitDownloadablesSubscriberProperties$inboundSchema,
@@ -166,4 +169,24 @@ export namespace BenefitDownloadablesSubscriber$ {
   export const outboundSchema = BenefitDownloadablesSubscriber$outboundSchema;
   /** @deprecated use `BenefitDownloadablesSubscriber$Outbound` instead. */
   export type Outbound = BenefitDownloadablesSubscriber$Outbound;
+}
+
+export function benefitDownloadablesSubscriberToJSON(
+  benefitDownloadablesSubscriber: BenefitDownloadablesSubscriber,
+): string {
+  return JSON.stringify(
+    BenefitDownloadablesSubscriber$outboundSchema.parse(
+      benefitDownloadablesSubscriber,
+    ),
+  );
+}
+
+export function benefitDownloadablesSubscriberFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitDownloadablesSubscriber, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitDownloadablesSubscriber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitDownloadablesSubscriber' from JSON`,
+  );
 }

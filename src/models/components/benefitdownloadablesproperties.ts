@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitDownloadablesProperties = {
   archived: { [k: string]: boolean };
@@ -46,4 +49,24 @@ export namespace BenefitDownloadablesProperties$ {
   export const outboundSchema = BenefitDownloadablesProperties$outboundSchema;
   /** @deprecated use `BenefitDownloadablesProperties$Outbound` instead. */
   export type Outbound = BenefitDownloadablesProperties$Outbound;
+}
+
+export function benefitDownloadablesPropertiesToJSON(
+  benefitDownloadablesProperties: BenefitDownloadablesProperties,
+): string {
+  return JSON.stringify(
+    BenefitDownloadablesProperties$outboundSchema.parse(
+      benefitDownloadablesProperties,
+    ),
+  );
+}
+
+export function benefitDownloadablesPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitDownloadablesProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitDownloadablesProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitDownloadablesProperties' from JSON`,
+  );
 }

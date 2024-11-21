@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
   Address$inboundSchema,
@@ -30,6 +33,10 @@ export type CheckoutUpdatePublic = {
   customerEmail?: string | null | undefined;
   customerBillingAddress?: Address | null | undefined;
   customerTaxId?: string | null | undefined;
+  /**
+   * Discount code to apply to the checkout.
+   */
+  discountCode?: string | null | undefined;
 };
 
 /** @internal */
@@ -64,6 +71,27 @@ export namespace CheckoutUpdatePublicCustomFieldData$ {
   export type Outbound = CheckoutUpdatePublicCustomFieldData$Outbound;
 }
 
+export function checkoutUpdatePublicCustomFieldDataToJSON(
+  checkoutUpdatePublicCustomFieldData: CheckoutUpdatePublicCustomFieldData,
+): string {
+  return JSON.stringify(
+    CheckoutUpdatePublicCustomFieldData$outboundSchema.parse(
+      checkoutUpdatePublicCustomFieldData,
+    ),
+  );
+}
+
+export function checkoutUpdatePublicCustomFieldDataFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutUpdatePublicCustomFieldData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutUpdatePublicCustomFieldData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutUpdatePublicCustomFieldData' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutUpdatePublic$inboundSchema: z.ZodType<
   CheckoutUpdatePublic,
@@ -79,6 +107,7 @@ export const CheckoutUpdatePublic$inboundSchema: z.ZodType<
   customer_email: z.nullable(z.string()).optional(),
   customer_billing_address: z.nullable(Address$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
+  discount_code: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "custom_field_data": "customFieldData",
@@ -87,6 +116,7 @@ export const CheckoutUpdatePublic$inboundSchema: z.ZodType<
     "customer_email": "customerEmail",
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
+    "discount_code": "discountCode",
   });
 });
 
@@ -102,6 +132,7 @@ export type CheckoutUpdatePublic$Outbound = {
   customer_email?: string | null | undefined;
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
+  discount_code?: string | null | undefined;
 };
 
 /** @internal */
@@ -119,6 +150,7 @@ export const CheckoutUpdatePublic$outboundSchema: z.ZodType<
   customerEmail: z.nullable(z.string()).optional(),
   customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
+  discountCode: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     customFieldData: "custom_field_data",
@@ -127,6 +159,7 @@ export const CheckoutUpdatePublic$outboundSchema: z.ZodType<
     customerEmail: "customer_email",
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
+    discountCode: "discount_code",
   });
 });
 
@@ -141,4 +174,22 @@ export namespace CheckoutUpdatePublic$ {
   export const outboundSchema = CheckoutUpdatePublic$outboundSchema;
   /** @deprecated use `CheckoutUpdatePublic$Outbound` instead. */
   export type Outbound = CheckoutUpdatePublic$Outbound;
+}
+
+export function checkoutUpdatePublicToJSON(
+  checkoutUpdatePublic: CheckoutUpdatePublic,
+): string {
+  return JSON.stringify(
+    CheckoutUpdatePublic$outboundSchema.parse(checkoutUpdatePublic),
+  );
+}
+
+export function checkoutUpdatePublicFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutUpdatePublic, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutUpdatePublic$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutUpdatePublic' from JSON`,
+  );
 }

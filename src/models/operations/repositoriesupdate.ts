@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type RepositoriesUpdateRequest = {
   id: string;
@@ -56,4 +59,22 @@ export namespace RepositoriesUpdateRequest$ {
   export const outboundSchema = RepositoriesUpdateRequest$outboundSchema;
   /** @deprecated use `RepositoriesUpdateRequest$Outbound` instead. */
   export type Outbound = RepositoriesUpdateRequest$Outbound;
+}
+
+export function repositoriesUpdateRequestToJSON(
+  repositoriesUpdateRequest: RepositoriesUpdateRequest,
+): string {
+  return JSON.stringify(
+    RepositoriesUpdateRequest$outboundSchema.parse(repositoriesUpdateRequest),
+  );
+}
+
+export function repositoriesUpdateRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<RepositoriesUpdateRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RepositoriesUpdateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RepositoriesUpdateRequest' from JSON`,
+  );
 }

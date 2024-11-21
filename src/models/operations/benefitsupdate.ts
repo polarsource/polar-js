@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitsUpdateBenefitUpdate =
   | components.BenefitArticlesUpdate
@@ -80,6 +83,26 @@ export namespace BenefitsUpdateBenefitUpdate$ {
   export type Outbound = BenefitsUpdateBenefitUpdate$Outbound;
 }
 
+export function benefitsUpdateBenefitUpdateToJSON(
+  benefitsUpdateBenefitUpdate: BenefitsUpdateBenefitUpdate,
+): string {
+  return JSON.stringify(
+    BenefitsUpdateBenefitUpdate$outboundSchema.parse(
+      benefitsUpdateBenefitUpdate,
+    ),
+  );
+}
+
+export function benefitsUpdateBenefitUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitsUpdateBenefitUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitsUpdateBenefitUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitsUpdateBenefitUpdate' from JSON`,
+  );
+}
+
 /** @internal */
 export const BenefitsUpdateRequest$inboundSchema: z.ZodType<
   BenefitsUpdateRequest,
@@ -148,4 +171,22 @@ export namespace BenefitsUpdateRequest$ {
   export const outboundSchema = BenefitsUpdateRequest$outboundSchema;
   /** @deprecated use `BenefitsUpdateRequest$Outbound` instead. */
   export type Outbound = BenefitsUpdateRequest$Outbound;
+}
+
+export function benefitsUpdateRequestToJSON(
+  benefitsUpdateRequest: BenefitsUpdateRequest,
+): string {
+  return JSON.stringify(
+    BenefitsUpdateRequest$outboundSchema.parse(benefitsUpdateRequest),
+  );
+}
+
+export function benefitsUpdateRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitsUpdateRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitsUpdateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitsUpdateRequest' from JSON`,
+  );
 }

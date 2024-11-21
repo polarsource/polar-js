@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Label = {
   name: string;
@@ -43,4 +46,18 @@ export namespace Label$ {
   export const outboundSchema = Label$outboundSchema;
   /** @deprecated use `Label$Outbound` instead. */
   export type Outbound = Label$Outbound;
+}
+
+export function labelToJSON(label: Label): string {
+  return JSON.stringify(Label$outboundSchema.parse(label));
+}
+
+export function labelFromJSON(
+  jsonString: string,
+): SafeParseResult<Label, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Label$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Label' from JSON`,
+  );
 }

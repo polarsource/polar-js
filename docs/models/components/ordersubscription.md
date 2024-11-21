@@ -7,23 +7,24 @@ import { OrderSubscription } from "@polar-sh/sdk/models/components";
 
 let value: OrderSubscription = {
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
-  createdAt: new Date("2022-12-03T10:32:14.023Z"),
-  modifiedAt: new Date("2023-08-29T05:23:30.237Z"),
+  createdAt: new Date("2022-03-29T21:43:02.894Z"),
+  modifiedAt: new Date("2022-06-01T03:41:33.937Z"),
   id: "<value>",
-  amount: 401260,
-  currency: "Russian Ruble",
-  recurringInterval: "month",
-  status: "active",
-  currentPeriodStart: new Date("2024-06-18T20:47:45.015Z"),
-  currentPeriodEnd: new Date("2022-06-06T11:24:14.782Z"),
+  amount: 653114,
+  currency: "Djibouti Franc",
+  recurringInterval: "year",
+  status: "trialing",
+  currentPeriodStart: new Date("2023-06-13T17:02:40.832Z"),
+  currentPeriodEnd: new Date("2022-05-21T23:41:53.158Z"),
   cancelAtPeriodEnd: false,
-  startedAt: new Date("2024-09-07T20:11:01.826Z"),
-  endedAt: new Date("2023-05-06T04:21:20.735Z"),
+  startedAt: new Date("2022-01-31T20:48:56.127Z"),
+  endedAt: new Date("2024-04-12T02:56:59.471Z"),
   userId: "<value>",
   productId: "<value>",
   priceId: "<value>",
+  discountId: "<value>",
   checkoutId: "<value>",
 };
 ```
@@ -48,4 +49,5 @@ let value: OrderSubscription = {
 | `userId`                                                                                             | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `productId`                                                                                          | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `priceId`                                                                                            | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `discountId`                                                                                         | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `checkoutId`                                                                                         | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

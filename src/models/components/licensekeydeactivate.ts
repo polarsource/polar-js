@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LicenseKeyDeactivate = {
   key: string;
@@ -61,4 +64,22 @@ export namespace LicenseKeyDeactivate$ {
   export const outboundSchema = LicenseKeyDeactivate$outboundSchema;
   /** @deprecated use `LicenseKeyDeactivate$Outbound` instead. */
   export type Outbound = LicenseKeyDeactivate$Outbound;
+}
+
+export function licenseKeyDeactivateToJSON(
+  licenseKeyDeactivate: LicenseKeyDeactivate,
+): string {
+  return JSON.stringify(
+    LicenseKeyDeactivate$outboundSchema.parse(licenseKeyDeactivate),
+  );
+}
+
+export function licenseKeyDeactivateFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeyDeactivate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeyDeactivate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeyDeactivate' from JSON`,
+  );
 }

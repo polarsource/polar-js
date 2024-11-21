@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -52,7 +55,7 @@ export type CustomFieldsListRequest = {
 };
 
 export type CustomFieldsListResponse = {
-  result: components.ListResource;
+  result: components.ListResourceCustomField;
 };
 
 /** @internal */
@@ -92,6 +95,33 @@ export namespace CustomFieldsListQueryParamOrganizationIDFilter$ {
     CustomFieldsListQueryParamOrganizationIDFilter$Outbound;
 }
 
+export function customFieldsListQueryParamOrganizationIDFilterToJSON(
+  customFieldsListQueryParamOrganizationIDFilter:
+    CustomFieldsListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    CustomFieldsListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      customFieldsListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function customFieldsListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CustomFieldsListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CustomFieldsListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CustomFieldsListQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const CustomFieldTypeFilter$inboundSchema: z.ZodType<
   CustomFieldTypeFilter,
@@ -126,6 +156,24 @@ export namespace CustomFieldTypeFilter$ {
   export const outboundSchema = CustomFieldTypeFilter$outboundSchema;
   /** @deprecated use `CustomFieldTypeFilter$Outbound` instead. */
   export type Outbound = CustomFieldTypeFilter$Outbound;
+}
+
+export function customFieldTypeFilterToJSON(
+  customFieldTypeFilter: CustomFieldTypeFilter,
+): string {
+  return JSON.stringify(
+    CustomFieldTypeFilter$outboundSchema.parse(customFieldTypeFilter),
+  );
+}
+
+export function customFieldTypeFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldTypeFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldTypeFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldTypeFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -204,13 +252,31 @@ export namespace CustomFieldsListRequest$ {
   export type Outbound = CustomFieldsListRequest$Outbound;
 }
 
+export function customFieldsListRequestToJSON(
+  customFieldsListRequest: CustomFieldsListRequest,
+): string {
+  return JSON.stringify(
+    CustomFieldsListRequest$outboundSchema.parse(customFieldsListRequest),
+  );
+}
+
+export function customFieldsListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldsListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldsListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldsListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const CustomFieldsListResponse$inboundSchema: z.ZodType<
   CustomFieldsListResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResource$inboundSchema,
+  Result: components.ListResourceCustomField$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -219,7 +285,7 @@ export const CustomFieldsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomFieldsListResponse$Outbound = {
-  Result: components.ListResource$Outbound;
+  Result: components.ListResourceCustomField$Outbound;
 };
 
 /** @internal */
@@ -228,7 +294,7 @@ export const CustomFieldsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomFieldsListResponse
 > = z.object({
-  result: components.ListResource$outboundSchema,
+  result: components.ListResourceCustomField$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",
@@ -246,4 +312,22 @@ export namespace CustomFieldsListResponse$ {
   export const outboundSchema = CustomFieldsListResponse$outboundSchema;
   /** @deprecated use `CustomFieldsListResponse$Outbound` instead. */
   export type Outbound = CustomFieldsListResponse$Outbound;
+}
+
+export function customFieldsListResponseToJSON(
+  customFieldsListResponse: CustomFieldsListResponse,
+): string {
+  return JSON.stringify(
+    CustomFieldsListResponse$outboundSchema.parse(customFieldsListResponse),
+  );
+}
+
+export function customFieldsListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldsListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldsListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldsListResponse' from JSON`,
+  );
 }
