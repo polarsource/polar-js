@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Properties available to subscribers for a benefit of type `articles`.
@@ -59,4 +62,25 @@ export namespace BenefitArticlesSubscriberProperties$ {
     BenefitArticlesSubscriberProperties$outboundSchema;
   /** @deprecated use `BenefitArticlesSubscriberProperties$Outbound` instead. */
   export type Outbound = BenefitArticlesSubscriberProperties$Outbound;
+}
+
+export function benefitArticlesSubscriberPropertiesToJSON(
+  benefitArticlesSubscriberProperties: BenefitArticlesSubscriberProperties,
+): string {
+  return JSON.stringify(
+    BenefitArticlesSubscriberProperties$outboundSchema.parse(
+      benefitArticlesSubscriberProperties,
+    ),
+  );
+}
+
+export function benefitArticlesSubscriberPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitArticlesSubscriberProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitArticlesSubscriberProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitArticlesSubscriberProperties' from JSON`,
+  );
 }

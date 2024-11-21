@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const DownloadableFileReadService = {
   Downloadable: "downloadable",
@@ -166,4 +169,22 @@ export namespace DownloadableFileRead$ {
   export const outboundSchema = DownloadableFileRead$outboundSchema;
   /** @deprecated use `DownloadableFileRead$Outbound` instead. */
   export type Outbound = DownloadableFileRead$Outbound;
+}
+
+export function downloadableFileReadToJSON(
+  downloadableFileRead: DownloadableFileRead,
+): string {
+  return JSON.stringify(
+    DownloadableFileRead$outboundSchema.parse(downloadableFileRead),
+  );
+}
+
+export function downloadableFileReadFromJSON(
+  jsonString: string,
+): SafeParseResult<DownloadableFileRead, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DownloadableFileRead$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DownloadableFileRead' from JSON`,
+  );
 }

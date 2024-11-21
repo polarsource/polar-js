@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldsGetRequest = {
   /**
@@ -45,4 +48,22 @@ export namespace CustomFieldsGetRequest$ {
   export const outboundSchema = CustomFieldsGetRequest$outboundSchema;
   /** @deprecated use `CustomFieldsGetRequest$Outbound` instead. */
   export type Outbound = CustomFieldsGetRequest$Outbound;
+}
+
+export function customFieldsGetRequestToJSON(
+  customFieldsGetRequest: CustomFieldsGetRequest,
+): string {
+  return JSON.stringify(
+    CustomFieldsGetRequest$outboundSchema.parse(customFieldsGetRequest),
+  );
+}
+
+export function customFieldsGetRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldsGetRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldsGetRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldsGetRequest' from JSON`,
+  );
 }

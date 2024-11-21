@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldCreateCheckbox,
   CustomFieldCreateCheckbox$inboundSchema,
@@ -118,4 +121,22 @@ export namespace CustomFieldCreate$ {
   export const outboundSchema = CustomFieldCreate$outboundSchema;
   /** @deprecated use `CustomFieldCreate$Outbound` instead. */
   export type Outbound = CustomFieldCreate$Outbound;
+}
+
+export function customFieldCreateToJSON(
+  customFieldCreate: CustomFieldCreate,
+): string {
+  return JSON.stringify(
+    CustomFieldCreate$outboundSchema.parse(customFieldCreate),
+  );
+}
+
+export function customFieldCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCreate' from JSON`,
+  );
 }

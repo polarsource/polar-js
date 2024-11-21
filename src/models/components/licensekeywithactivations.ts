@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LicenseKeyActivationBase,
   LicenseKeyActivationBase$inboundSchema,
@@ -145,4 +148,22 @@ export namespace LicenseKeyWithActivations$ {
   export const outboundSchema = LicenseKeyWithActivations$outboundSchema;
   /** @deprecated use `LicenseKeyWithActivations$Outbound` instead. */
   export type Outbound = LicenseKeyWithActivations$Outbound;
+}
+
+export function licenseKeyWithActivationsToJSON(
+  licenseKeyWithActivations: LicenseKeyWithActivations,
+): string {
+  return JSON.stringify(
+    LicenseKeyWithActivations$outboundSchema.parse(licenseKeyWithActivations),
+  );
+}
+
+export function licenseKeyWithActivationsFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeyWithActivations, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeyWithActivations$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeyWithActivations' from JSON`,
+  );
 }

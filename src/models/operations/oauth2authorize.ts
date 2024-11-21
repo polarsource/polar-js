@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Successful Response
@@ -68,4 +71,26 @@ export namespace Oauth2AuthorizeResponseOauth2Authorize$ {
     Oauth2AuthorizeResponseOauth2Authorize$outboundSchema;
   /** @deprecated use `Oauth2AuthorizeResponseOauth2Authorize$Outbound` instead. */
   export type Outbound = Oauth2AuthorizeResponseOauth2Authorize$Outbound;
+}
+
+export function oauth2AuthorizeResponseOauth2AuthorizeToJSON(
+  oauth2AuthorizeResponseOauth2Authorize:
+    Oauth2AuthorizeResponseOauth2Authorize,
+): string {
+  return JSON.stringify(
+    Oauth2AuthorizeResponseOauth2Authorize$outboundSchema.parse(
+      oauth2AuthorizeResponseOauth2Authorize,
+    ),
+  );
+}
+
+export function oauth2AuthorizeResponseOauth2AuthorizeFromJSON(
+  jsonString: string,
+): SafeParseResult<Oauth2AuthorizeResponseOauth2Authorize, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      Oauth2AuthorizeResponseOauth2Authorize$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Oauth2AuthorizeResponseOauth2Authorize' from JSON`,
+  );
 }

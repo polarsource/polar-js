@@ -11,7 +11,7 @@ let value: BenefitGitHubRepositoryProperties = {
   repositoryId: "<value>",
   repositoryOwner: "polarsource",
   repositoryName: "private_repo",
-  permission: "maintain",
+  permission: "push",
 };
 ```
 

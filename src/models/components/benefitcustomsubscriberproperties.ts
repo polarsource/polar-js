@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Properties available to subscribers for a benefit of type `custom`.
@@ -46,4 +49,24 @@ export namespace BenefitCustomSubscriberProperties$ {
     BenefitCustomSubscriberProperties$outboundSchema;
   /** @deprecated use `BenefitCustomSubscriberProperties$Outbound` instead. */
   export type Outbound = BenefitCustomSubscriberProperties$Outbound;
+}
+
+export function benefitCustomSubscriberPropertiesToJSON(
+  benefitCustomSubscriberProperties: BenefitCustomSubscriberProperties,
+): string {
+  return JSON.stringify(
+    BenefitCustomSubscriberProperties$outboundSchema.parse(
+      benefitCustomSubscriberProperties,
+    ),
+  );
+}
+
+export function benefitCustomSubscriberPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitCustomSubscriberProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitCustomSubscriberProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitCustomSubscriberProperties' from JSON`,
+  );
 }

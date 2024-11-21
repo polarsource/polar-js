@@ -9,6 +9,7 @@ import { Benefits } from "./benefits.js";
 import { CheckoutLinks } from "./checkoutlinks.js";
 import { Checkouts } from "./checkouts.js";
 import { CustomFields } from "./customfields.js";
+import { Discounts } from "./discounts.js";
 import { ExternalOrganizations } from "./externalorganizations.js";
 import { Files } from "./files.js";
 import { LicenseKeys } from "./licensekeys.js";
@@ -107,5 +108,10 @@ export class Polar extends ClientSDK {
   private _customFields?: CustomFields;
   get customFields(): CustomFields {
     return (this._customFields ??= new CustomFields(this._options));
+  }
+
+  private _discounts?: Discounts;
+  get discounts(): Discounts {
+    return (this._discounts ??= new Discounts(this._options));
   }
 }

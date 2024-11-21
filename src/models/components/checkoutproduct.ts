@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitArticles,
   BenefitArticles$inboundSchema,
@@ -113,6 +116,24 @@ export namespace CheckoutProductBenefits$ {
   export type Outbound = CheckoutProductBenefits$Outbound;
 }
 
+export function checkoutProductBenefitsToJSON(
+  checkoutProductBenefits: CheckoutProductBenefits,
+): string {
+  return JSON.stringify(
+    CheckoutProductBenefits$outboundSchema.parse(checkoutProductBenefits),
+  );
+}
+
+export function checkoutProductBenefitsFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutProductBenefits, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutProductBenefits$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutProductBenefits' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutProduct$inboundSchema: z.ZodType<
   CheckoutProduct,
@@ -199,4 +220,20 @@ export namespace CheckoutProduct$ {
   export const outboundSchema = CheckoutProduct$outboundSchema;
   /** @deprecated use `CheckoutProduct$Outbound` instead. */
   export type Outbound = CheckoutProduct$Outbound;
+}
+
+export function checkoutProductToJSON(
+  checkoutProduct: CheckoutProduct,
+): string {
+  return JSON.stringify(CheckoutProduct$outboundSchema.parse(checkoutProduct));
+}
+
+export function checkoutProductFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutProduct, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutProduct$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutProduct' from JSON`,
+  );
 }

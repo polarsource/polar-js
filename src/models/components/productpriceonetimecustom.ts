@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const ProductPriceOneTimeCustomAmountType = {
   Custom: "custom",
@@ -207,4 +210,22 @@ export namespace ProductPriceOneTimeCustom$ {
   export const outboundSchema = ProductPriceOneTimeCustom$outboundSchema;
   /** @deprecated use `ProductPriceOneTimeCustom$Outbound` instead. */
   export type Outbound = ProductPriceOneTimeCustom$Outbound;
+}
+
+export function productPriceOneTimeCustomToJSON(
+  productPriceOneTimeCustom: ProductPriceOneTimeCustom,
+): string {
+  return JSON.stringify(
+    ProductPriceOneTimeCustom$outboundSchema.parse(productPriceOneTimeCustom),
+  );
+}
+
+export function productPriceOneTimeCustomFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductPriceOneTimeCustom, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductPriceOneTimeCustom$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductPriceOneTimeCustom' from JSON`,
+  );
 }

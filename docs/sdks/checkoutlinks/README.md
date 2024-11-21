@@ -103,7 +103,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.checkoutLinks.create({
-    productPriceId: "<value>",
+    productId: "<value>",
   });
 
   // Handle the result
@@ -129,7 +129,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await checkoutLinksCreate(polar, {
-    productPriceId: "<value>",
+    productId: "<value>",
   });
 
   if (!res.ok) {

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductPriceOneTimeCustom,
   ProductPriceOneTimeCustom$inboundSchema,
@@ -66,4 +69,22 @@ export namespace ProductPriceOneTime$ {
   export const outboundSchema = ProductPriceOneTime$outboundSchema;
   /** @deprecated use `ProductPriceOneTime$Outbound` instead. */
   export type Outbound = ProductPriceOneTime$Outbound;
+}
+
+export function productPriceOneTimeToJSON(
+  productPriceOneTime: ProductPriceOneTime,
+): string {
+  return JSON.stringify(
+    ProductPriceOneTime$outboundSchema.parse(productPriceOneTime),
+  );
+}
+
+export function productPriceOneTimeFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductPriceOneTime, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductPriceOneTime$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductPriceOneTime' from JSON`,
+  );
 }

@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitsGrantsRequest = {
   id: string;
@@ -97,6 +100,24 @@ export namespace BenefitsGrantsRequest$ {
   export type Outbound = BenefitsGrantsRequest$Outbound;
 }
 
+export function benefitsGrantsRequestToJSON(
+  benefitsGrantsRequest: BenefitsGrantsRequest,
+): string {
+  return JSON.stringify(
+    BenefitsGrantsRequest$outboundSchema.parse(benefitsGrantsRequest),
+  );
+}
+
+export function benefitsGrantsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitsGrantsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitsGrantsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitsGrantsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const BenefitsGrantsResponse$inboundSchema: z.ZodType<
   BenefitsGrantsResponse,
@@ -139,4 +160,22 @@ export namespace BenefitsGrantsResponse$ {
   export const outboundSchema = BenefitsGrantsResponse$outboundSchema;
   /** @deprecated use `BenefitsGrantsResponse$Outbound` instead. */
   export type Outbound = BenefitsGrantsResponse$Outbound;
+}
+
+export function benefitsGrantsResponseToJSON(
+  benefitsGrantsResponse: BenefitsGrantsResponse,
+): string {
+  return JSON.stringify(
+    BenefitsGrantsResponse$outboundSchema.parse(benefitsGrantsResponse),
+  );
+}
+
+export function benefitsGrantsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitsGrantsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitsGrantsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitsGrantsResponse' from JSON`,
+  );
 }

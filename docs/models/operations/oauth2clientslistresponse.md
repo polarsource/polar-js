@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://snoopy-polarisation.net/",
+          "https://quick-witted-molasses.net",
         ],
         clientName: "<value>",
-        createdAt: new Date("2024-04-20T20:41:36.879Z"),
-        modifiedAt: new Date("2022-11-11T17:15:53.855Z"),
+        createdAt: new Date("2024-10-31T15:49:47.989Z"),
+        modifiedAt: new Date("2022-02-10T05:07:51.800Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 548256,
-        clientSecretExpiresAt: 543353,
+        clientIdIssuedAt: 147400,
+        clientSecretExpiresAt: 756287,
       },
     ],
     pagination: {
-      totalCount: 739633,
-      maxPage: 956871,
+      totalCount: 83791,
+      maxPage: 516124,
     },
   },
 };

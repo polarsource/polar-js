@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type FilePatch = {
   name?: string | null | undefined;
@@ -46,4 +49,18 @@ export namespace FilePatch$ {
   export const outboundSchema = FilePatch$outboundSchema;
   /** @deprecated use `FilePatch$Outbound` instead. */
   export type Outbound = FilePatch$Outbound;
+}
+
+export function filePatchToJSON(filePatch: FilePatch): string {
+  return JSON.stringify(FilePatch$outboundSchema.parse(filePatch));
+}
+
+export function filePatchFromJSON(
+  jsonString: string,
+): SafeParseResult<FilePatch, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FilePatch$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FilePatch' from JSON`,
+  );
 }

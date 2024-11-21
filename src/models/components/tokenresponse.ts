@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const TokenType = {
   Bearer: "Bearer",
@@ -104,4 +107,18 @@ export namespace TokenResponse$ {
   export const outboundSchema = TokenResponse$outboundSchema;
   /** @deprecated use `TokenResponse$Outbound` instead. */
   export type Outbound = TokenResponse$Outbound;
+}
+
+export function tokenResponseToJSON(tokenResponse: TokenResponse): string {
+  return JSON.stringify(TokenResponse$outboundSchema.parse(tokenResponse));
+}
+
+export function tokenResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<TokenResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TokenResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TokenResponse' from JSON`,
+  );
 }

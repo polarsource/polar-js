@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
@@ -40,6 +43,7 @@ export type UserOrderSubscription = {
   userId: string;
   productId: string;
   priceId: string;
+  discountId: string | null;
   checkoutId: string | null;
 };
 
@@ -74,6 +78,7 @@ export const UserOrderSubscription$inboundSchema: z.ZodType<
   user_id: z.string(),
   product_id: z.string(),
   price_id: z.string(),
+  discount_id: z.nullable(z.string()),
   checkout_id: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
@@ -88,6 +93,7 @@ export const UserOrderSubscription$inboundSchema: z.ZodType<
     "user_id": "userId",
     "product_id": "productId",
     "price_id": "priceId",
+    "discount_id": "discountId",
     "checkout_id": "checkoutId",
   });
 });
@@ -109,6 +115,7 @@ export type UserOrderSubscription$Outbound = {
   user_id: string;
   product_id: string;
   price_id: string;
+  discount_id: string | null;
   checkout_id: string | null;
 };
 
@@ -133,6 +140,7 @@ export const UserOrderSubscription$outboundSchema: z.ZodType<
   userId: z.string(),
   productId: z.string(),
   priceId: z.string(),
+  discountId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
@@ -147,6 +155,7 @@ export const UserOrderSubscription$outboundSchema: z.ZodType<
     userId: "user_id",
     productId: "product_id",
     priceId: "price_id",
+    discountId: "discount_id",
     checkoutId: "checkout_id",
   });
 });
@@ -162,4 +171,22 @@ export namespace UserOrderSubscription$ {
   export const outboundSchema = UserOrderSubscription$outboundSchema;
   /** @deprecated use `UserOrderSubscription$Outbound` instead. */
   export type Outbound = UserOrderSubscription$Outbound;
+}
+
+export function userOrderSubscriptionToJSON(
+  userOrderSubscription: UserOrderSubscription,
+): string {
+  return JSON.stringify(
+    UserOrderSubscription$outboundSchema.parse(userOrderSubscription),
+  );
+}
+
+export function userOrderSubscriptionFromJSON(
+  jsonString: string,
+): SafeParseResult<UserOrderSubscription, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UserOrderSubscription$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UserOrderSubscription' from JSON`,
+  );
 }

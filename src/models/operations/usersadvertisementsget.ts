@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UsersAdvertisementsGetRequest = {
   /**
@@ -45,4 +48,24 @@ export namespace UsersAdvertisementsGetRequest$ {
   export const outboundSchema = UsersAdvertisementsGetRequest$outboundSchema;
   /** @deprecated use `UsersAdvertisementsGetRequest$Outbound` instead. */
   export type Outbound = UsersAdvertisementsGetRequest$Outbound;
+}
+
+export function usersAdvertisementsGetRequestToJSON(
+  usersAdvertisementsGetRequest: UsersAdvertisementsGetRequest,
+): string {
+  return JSON.stringify(
+    UsersAdvertisementsGetRequest$outboundSchema.parse(
+      usersAdvertisementsGetRequest,
+    ),
+  );
+}
+
+export function usersAdvertisementsGetRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersAdvertisementsGetRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersAdvertisementsGetRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersAdvertisementsGetRequest' from JSON`,
+  );
 }

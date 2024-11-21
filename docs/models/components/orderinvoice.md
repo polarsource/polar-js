@@ -8,7 +8,7 @@ Order's invoice data.
 import { OrderInvoice } from "@polar-sh/sdk/models/components";
 
 let value: OrderInvoice = {
-  url: "https://awful-antelope.info/",
+  url: "https://biodegradable-importance.info/",
 };
 ```
 

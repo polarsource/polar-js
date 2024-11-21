@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SubType,
   SubType$inboundSchema,
@@ -126,4 +129,22 @@ export namespace IntrospectTokenResponse$ {
   export const outboundSchema = IntrospectTokenResponse$outboundSchema;
   /** @deprecated use `IntrospectTokenResponse$Outbound` instead. */
   export type Outbound = IntrospectTokenResponse$Outbound;
+}
+
+export function introspectTokenResponseToJSON(
+  introspectTokenResponse: IntrospectTokenResponse,
+): string {
+  return JSON.stringify(
+    IntrospectTokenResponse$outboundSchema.parse(introspectTokenResponse),
+  );
+}
+
+export function introspectTokenResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<IntrospectTokenResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => IntrospectTokenResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'IntrospectTokenResponse' from JSON`,
+  );
 }

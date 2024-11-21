@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitGrantSubscriber = {
   /**
@@ -148,4 +151,22 @@ export namespace BenefitGrantSubscriber$ {
   export const outboundSchema = BenefitGrantSubscriber$outboundSchema;
   /** @deprecated use `BenefitGrantSubscriber$Outbound` instead. */
   export type Outbound = BenefitGrantSubscriber$Outbound;
+}
+
+export function benefitGrantSubscriberToJSON(
+  benefitGrantSubscriber: BenefitGrantSubscriber,
+): string {
+  return JSON.stringify(
+    BenefitGrantSubscriber$outboundSchema.parse(benefitGrantSubscriber),
+  );
+}
+
+export function benefitGrantSubscriberFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGrantSubscriber, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitGrantSubscriber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGrantSubscriber' from JSON`,
+  );
 }

@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2022-01-28T03:31:31.089Z"),
-    modifiedAt: new Date("2024-06-29T19:26:32.721Z"),
+    createdAt: new Date("2024-10-24T21:35:04.220Z"),
+    modifiedAt: new Date("2023-11-12T18:28:30.435Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://crooked-yin.com",
-    logoUri: "https://free-hubris.net",
-    tosUri: "https://warm-omelet.com",
-    policyUri: "https://soggy-prohibition.com",
+    clientUri: "https://unfinished-runway.net/",
+    logoUri: "https://impartial-colon.net/",
+    tosUri: "https://uneven-vibration.net",
+    policyUri: "https://pleasing-angle.com",
   },
   sub: {
     id: "<value>",
-    email: "Catharine96@yahoo.com",
-    avatarUrl: "https://pleasing-angle.com",
+    email: "Ressie4@yahoo.com",
+    avatarUrl: "https://nocturnal-whack.info/",
   },
   scopes: [
-    "products:read",
+    "webhooks:write",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2024-06-21T12:36:00.354Z"),
-    modifiedAt: new Date("2024-08-07T06:48:26.335Z"),
+    createdAt: new Date("2023-03-16T08:44:09.750Z"),
+    modifiedAt: new Date("2024-04-21T22:35:32.835Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://big-apricot.org",
-    logoUri: "https://nocturnal-whack.info/",
-    tosUri: "https://impolite-rule.name",
-    policyUri: "https://firm-disk.name/",
+    clientUri: "https://everlasting-dredger.biz",
+    logoUri: "https://salty-unique.net",
+    tosUri: "https://deadly-gerbil.info",
+    policyUri: "https://french-event.info",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://weighty-populist.net",
+    avatarUrl: "https://orderly-beret.com",
   },
   scopes: [
-    "organizations:write",
+    "products:read",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://indolent-pocket-watch.biz/",
+      avatarUrl: "https://robust-privilege.net",
     },
   ],
 };

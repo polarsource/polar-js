@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AdvertisementsListRequest = {
   benefitId: string;
@@ -83,6 +86,24 @@ export namespace AdvertisementsListRequest$ {
   export type Outbound = AdvertisementsListRequest$Outbound;
 }
 
+export function advertisementsListRequestToJSON(
+  advertisementsListRequest: AdvertisementsListRequest,
+): string {
+  return JSON.stringify(
+    AdvertisementsListRequest$outboundSchema.parse(advertisementsListRequest),
+  );
+}
+
+export function advertisementsListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<AdvertisementsListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AdvertisementsListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AdvertisementsListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const AdvertisementsListResponse$inboundSchema: z.ZodType<
   AdvertisementsListResponse,
@@ -125,4 +146,22 @@ export namespace AdvertisementsListResponse$ {
   export const outboundSchema = AdvertisementsListResponse$outboundSchema;
   /** @deprecated use `AdvertisementsListResponse$Outbound` instead. */
   export type Outbound = AdvertisementsListResponse$Outbound;
+}
+
+export function advertisementsListResponseToJSON(
+  advertisementsListResponse: AdvertisementsListResponse,
+): string {
+  return JSON.stringify(
+    AdvertisementsListResponse$outboundSchema.parse(advertisementsListResponse),
+  );
+}
+
+export function advertisementsListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<AdvertisementsListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AdvertisementsListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AdvertisementsListResponse' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitGrantAdsSubscriberProperties = {
   /**
@@ -56,4 +59,25 @@ export namespace BenefitGrantAdsSubscriberProperties$ {
     BenefitGrantAdsSubscriberProperties$outboundSchema;
   /** @deprecated use `BenefitGrantAdsSubscriberProperties$Outbound` instead. */
   export type Outbound = BenefitGrantAdsSubscriberProperties$Outbound;
+}
+
+export function benefitGrantAdsSubscriberPropertiesToJSON(
+  benefitGrantAdsSubscriberProperties: BenefitGrantAdsSubscriberProperties,
+): string {
+  return JSON.stringify(
+    BenefitGrantAdsSubscriberProperties$outboundSchema.parse(
+      benefitGrantAdsSubscriberProperties,
+    ),
+  );
+}
+
+export function benefitGrantAdsSubscriberPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGrantAdsSubscriberProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitGrantAdsSubscriberProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGrantAdsSubscriberProperties' from JSON`,
+  );
 }

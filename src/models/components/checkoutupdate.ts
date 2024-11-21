@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
   Address$inboundSchema,
@@ -46,6 +49,14 @@ export type CheckoutUpdate = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  /**
+   * ID of the discount to apply to the checkout.
+   */
+  discountId?: string | null | undefined;
+  /**
+   * Whether to allow the customer to apply discount codes. If you apply a discount through `discount_id`, it'll still be applied, but the customer won't be able to change it.
+   */
+  allowDiscountCodes?: boolean | null | undefined;
   customerIpAddress?: string | null | undefined;
   /**
    * URL where the customer will be redirected after a successful payment.You can add the `checkout_id={CHECKOUT_ID}` query parameter to retrieve the checkout session id.
@@ -87,6 +98,22 @@ export namespace CustomFieldData$ {
   export type Outbound = CustomFieldData$Outbound;
 }
 
+export function customFieldDataToJSON(
+  customFieldData: CustomFieldData,
+): string {
+  return JSON.stringify(CustomFieldData$outboundSchema.parse(customFieldData));
+}
+
+export function customFieldDataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldData' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutUpdateMetadata$inboundSchema: z.ZodType<
   CheckoutUpdateMetadata,
@@ -117,6 +144,24 @@ export namespace CheckoutUpdateMetadata$ {
   export type Outbound = CheckoutUpdateMetadata$Outbound;
 }
 
+export function checkoutUpdateMetadataToJSON(
+  checkoutUpdateMetadata: CheckoutUpdateMetadata,
+): string {
+  return JSON.stringify(
+    CheckoutUpdateMetadata$outboundSchema.parse(checkoutUpdateMetadata),
+  );
+}
+
+export function checkoutUpdateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutUpdateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutUpdateMetadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutUpdate$inboundSchema: z.ZodType<
   CheckoutUpdate,
@@ -134,6 +179,8 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   metadata: z.nullable(
     z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   ).optional(),
+  discount_id: z.nullable(z.string()).optional(),
+  allow_discount_codes: z.nullable(z.boolean()).optional(),
   customer_ip_address: z.nullable(z.string()).optional(),
   success_url: z.nullable(z.string()).optional(),
   embed_origin: z.nullable(z.string()).optional(),
@@ -145,6 +192,8 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
     "customer_email": "customerEmail",
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
+    "discount_id": "discountId",
+    "allow_discount_codes": "allowDiscountCodes",
     "customer_ip_address": "customerIpAddress",
     "success_url": "successUrl",
     "embed_origin": "embedOrigin",
@@ -161,6 +210,8 @@ export type CheckoutUpdate$Outbound = {
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
   metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  discount_id?: string | null | undefined;
+  allow_discount_codes?: boolean | null | undefined;
   customer_ip_address?: string | null | undefined;
   success_url?: string | null | undefined;
   embed_origin?: string | null | undefined;
@@ -183,6 +234,8 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   metadata: z.nullable(
     z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   ).optional(),
+  discountId: z.nullable(z.string()).optional(),
+  allowDiscountCodes: z.nullable(z.boolean()).optional(),
   customerIpAddress: z.nullable(z.string()).optional(),
   successUrl: z.nullable(z.string()).optional(),
   embedOrigin: z.nullable(z.string()).optional(),
@@ -194,6 +247,8 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
     customerEmail: "customer_email",
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
+    discountId: "discount_id",
+    allowDiscountCodes: "allow_discount_codes",
     customerIpAddress: "customer_ip_address",
     successUrl: "success_url",
     embedOrigin: "embed_origin",
@@ -211,4 +266,18 @@ export namespace CheckoutUpdate$ {
   export const outboundSchema = CheckoutUpdate$outboundSchema;
   /** @deprecated use `CheckoutUpdate$Outbound` instead. */
   export type Outbound = CheckoutUpdate$Outbound;
+}
+
+export function checkoutUpdateToJSON(checkoutUpdate: CheckoutUpdate): string {
+  return JSON.stringify(CheckoutUpdate$outboundSchema.parse(checkoutUpdate));
+}
+
+export function checkoutUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutUpdate' from JSON`,
+  );
 }

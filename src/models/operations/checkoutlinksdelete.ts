@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutLinksDeleteRequest = {
   /**
@@ -45,4 +48,22 @@ export namespace CheckoutLinksDeleteRequest$ {
   export const outboundSchema = CheckoutLinksDeleteRequest$outboundSchema;
   /** @deprecated use `CheckoutLinksDeleteRequest$Outbound` instead. */
   export type Outbound = CheckoutLinksDeleteRequest$Outbound;
+}
+
+export function checkoutLinksDeleteRequestToJSON(
+  checkoutLinksDeleteRequest: CheckoutLinksDeleteRequest,
+): string {
+  return JSON.stringify(
+    CheckoutLinksDeleteRequest$outboundSchema.parse(checkoutLinksDeleteRequest),
+  );
+}
+
+export function checkoutLinksDeleteRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLinksDeleteRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLinksDeleteRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLinksDeleteRequest' from JSON`,
+  );
 }

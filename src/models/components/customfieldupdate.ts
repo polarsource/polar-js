@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldUpdateCheckbox,
   CustomFieldUpdateCheckbox$inboundSchema,
@@ -118,4 +121,22 @@ export namespace CustomFieldUpdate$ {
   export const outboundSchema = CustomFieldUpdate$outboundSchema;
   /** @deprecated use `CustomFieldUpdate$Outbound` instead. */
   export type Outbound = CustomFieldUpdate$Outbound;
+}
+
+export function customFieldUpdateToJSON(
+  customFieldUpdate: CustomFieldUpdate,
+): string {
+  return JSON.stringify(
+    CustomFieldUpdate$outboundSchema.parse(customFieldUpdate),
+  );
+}
+
+export function customFieldUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldUpdate' from JSON`,
+  );
 }

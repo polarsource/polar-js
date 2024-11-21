@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ExternalOrganization,
   ExternalOrganization$inboundSchema,
@@ -58,4 +61,24 @@ export namespace ListResourceExternalOrganization$ {
   export const outboundSchema = ListResourceExternalOrganization$outboundSchema;
   /** @deprecated use `ListResourceExternalOrganization$Outbound` instead. */
   export type Outbound = ListResourceExternalOrganization$Outbound;
+}
+
+export function listResourceExternalOrganizationToJSON(
+  listResourceExternalOrganization: ListResourceExternalOrganization,
+): string {
+  return JSON.stringify(
+    ListResourceExternalOrganization$outboundSchema.parse(
+      listResourceExternalOrganization,
+    ),
+  );
+}
+
+export function listResourceExternalOrganizationFromJSON(
+  jsonString: string,
+): SafeParseResult<ListResourceExternalOrganization, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListResourceExternalOrganization$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourceExternalOrganization' from JSON`,
+  );
 }

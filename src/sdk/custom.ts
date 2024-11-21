@@ -40,9 +40,9 @@ export class Custom extends ClientSDK {
    * Create a checkout session.
    */
   async create(
-    request: components.PolarCheckoutSchemasCheckoutCreate,
+    request: components.CheckoutCreate,
     options?: RequestOptions,
-  ): Promise<components.PolarCheckoutSchemasCheckout> {
+  ): Promise<components.Checkout> {
     return unwrapAsync(checkoutsCustomCreate(
       this,
       request,
@@ -59,7 +59,7 @@ export class Custom extends ClientSDK {
   async get(
     request: operations.CheckoutsCustomGetRequest,
     options?: RequestOptions,
-  ): Promise<components.PolarCheckoutSchemasCheckout> {
+  ): Promise<components.Checkout> {
     return unwrapAsync(checkoutsCustomGet(
       this,
       request,
@@ -76,7 +76,7 @@ export class Custom extends ClientSDK {
   async update(
     request: operations.CheckoutsCustomUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.PolarCheckoutSchemasCheckout> {
+  ): Promise<components.Checkout> {
     return unwrapAsync(checkoutsCustomUpdate(
       this,
       request,

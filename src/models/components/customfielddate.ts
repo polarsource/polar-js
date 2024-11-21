@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldDateProperties,
   CustomFieldDateProperties$inboundSchema,
@@ -80,6 +83,24 @@ export namespace CustomFieldDateMetadata$ {
   export const outboundSchema = CustomFieldDateMetadata$outboundSchema;
   /** @deprecated use `CustomFieldDateMetadata$Outbound` instead. */
   export type Outbound = CustomFieldDateMetadata$Outbound;
+}
+
+export function customFieldDateMetadataToJSON(
+  customFieldDateMetadata: CustomFieldDateMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldDateMetadata$outboundSchema.parse(customFieldDateMetadata),
+  );
+}
+
+export function customFieldDateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldDateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldDateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldDateMetadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -175,4 +196,20 @@ export namespace CustomFieldDate$ {
   export const outboundSchema = CustomFieldDate$outboundSchema;
   /** @deprecated use `CustomFieldDate$Outbound` instead. */
   export type Outbound = CustomFieldDate$Outbound;
+}
+
+export function customFieldDateToJSON(
+  customFieldDate: CustomFieldDate,
+): string {
+  return JSON.stringify(CustomFieldDate$outboundSchema.parse(customFieldDate));
+}
+
+export function customFieldDateFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldDate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldDate' from JSON`,
+  );
 }

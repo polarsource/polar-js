@@ -11,46 +11,48 @@ import { WebhookProductCreatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookProductCreatedPayload = {
   data: {
-    createdAt: new Date("2024-04-12T17:44:59.979Z"),
-    modifiedAt: new Date("2024-01-31T13:31:33.214Z"),
+    createdAt: new Date("2022-02-15T18:15:28.299Z"),
+    modifiedAt: new Date("2024-04-07T05:26:02.209Z"),
     id: "<value>",
     name: "<value>",
-    description:
-      "fearless caring hmph woot embed stir-fry mmm infatuated until",
+    description: "which notwithstanding following once joyfully fork easily",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     metadata: {
-      "key": 35662,
+      "key": "<value>",
     },
     prices: [
       {
-        createdAt: new Date("2024-03-30T19:29:14.034Z"),
-        modifiedAt: new Date("2022-07-08T06:05:15.080Z"),
+        createdAt: new Date("2023-02-20T08:18:29.065Z"),
+        modifiedAt: new Date("2022-04-13T00:01:55.315Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
         priceCurrency: "<value>",
-        priceAmount: 845105,
+        priceAmount: 36508,
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2023-02-17T17:56:53.516Z"),
-        modifiedAt: new Date("2022-07-08T18:50:43.868Z"),
+        createdAt: new Date("2024-04-15T14:34:09.142Z"),
+        modifiedAt: new Date("2023-04-22T15:26:51.405Z"),
         id: "<value>",
-        description:
-          "mostly substantiate bravely anesthetize unto agile crest put phooey",
+        description: "crossly sprinkles when how",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          archived: {
-            "key": false,
+          prefix: "<value>",
+          expires: {
+            ttl: 159620,
+            timeframe: "day",
           },
-          files: [
-            "<value>",
-          ],
+          activations: {
+            limit: 820355,
+            enableUserAdmin: false,
+          },
+          limitUsage: 682147,
         },
       },
     ],
@@ -59,27 +61,27 @@ let value: WebhookProductCreatedPayload = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/private",
+        path: "/net",
         mimeType: "<value>",
-        size: 513819,
+        size: 167783,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2023-06-21T03:59:41.372Z"),
+        lastModifiedAt: new Date("2024-06-13T10:46:10.763Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2022-06-05T14:44:57.569Z"),
+        createdAt: new Date("2024-10-12T11:41:32.180Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://smoggy-republican.biz/",
+        publicUrl: "https://faint-bonnet.name",
       },
     ],
     attachedCustomFields: [
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2024-10-28T21:36:36.709Z"),
-          modifiedAt: new Date("2024-07-08T13:41:05.027Z"),
+          createdAt: new Date("2024-12-11T21:08:23.117Z"),
+          modifiedAt: new Date("2024-09-30T19:05:33.452Z"),
           id: "<value>",
           metadata: {
             "key": "<value>",
@@ -96,7 +98,7 @@ let value: WebhookProductCreatedPayload = {
             ],
           },
         },
-        order: 133230,
+        order: 22070,
         required: false,
       },
     ],

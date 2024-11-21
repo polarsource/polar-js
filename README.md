@@ -165,6 +165,14 @@ run();
 * [update](docs/sdks/customfields/README.md#update) - Update Custom Field
 * [delete](docs/sdks/customfields/README.md#delete) - Delete Custom Field
 
+### [discounts](docs/sdks/discounts/README.md)
+
+* [list](docs/sdks/discounts/README.md#list) - List Discounts
+* [create](docs/sdks/discounts/README.md#create) - Create Discount
+* [get](docs/sdks/discounts/README.md#get) - Get Discount
+* [update](docs/sdks/discounts/README.md#update) - Update Discount
+* [delete](docs/sdks/discounts/README.md#delete) - Delete Discount
+
 ### [externalOrganizations](docs/sdks/externalorganizations/README.md)
 
 * [list](docs/sdks/externalorganizations/README.md#list) - List External Organizations
@@ -333,6 +341,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customFieldsGet`](docs/sdks/customfields/README.md#get) - Get Custom Field
 - [`customFieldsList`](docs/sdks/customfields/README.md#list) - List Custom Fields
 - [`customFieldsUpdate`](docs/sdks/customfields/README.md#update) - Update Custom Field
+- [`discountsCreate`](docs/sdks/discounts/README.md#create) - Create Discount
+- [`discountsDelete`](docs/sdks/discounts/README.md#delete) - Delete Discount
+- [`discountsGet`](docs/sdks/discounts/README.md#get) - Get Discount
+- [`discountsList`](docs/sdks/discounts/README.md#list) - List Discounts
+- [`discountsUpdate`](docs/sdks/discounts/README.md#update) - Update Discount
 - [`externalOrganizationsList`](docs/sdks/externalorganizations/README.md#list) - List External Organizations
 - [`filesCreate`](docs/sdks/files/README.md#create) - Create File
 - [`filesDelete`](docs/sdks/files/README.md#delete) - Delete File

@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldTextProperties,
   CustomFieldTextProperties$inboundSchema,
@@ -83,6 +86,26 @@ export namespace CustomFieldCreateTextMetadata$ {
   export const outboundSchema = CustomFieldCreateTextMetadata$outboundSchema;
   /** @deprecated use `CustomFieldCreateTextMetadata$Outbound` instead. */
   export type Outbound = CustomFieldCreateTextMetadata$Outbound;
+}
+
+export function customFieldCreateTextMetadataToJSON(
+  customFieldCreateTextMetadata: CustomFieldCreateTextMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldCreateTextMetadata$outboundSchema.parse(
+      customFieldCreateTextMetadata,
+    ),
+  );
+}
+
+export function customFieldCreateTextMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCreateTextMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCreateTextMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCreateTextMetadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -165,4 +188,22 @@ export namespace CustomFieldCreateText$ {
   export const outboundSchema = CustomFieldCreateText$outboundSchema;
   /** @deprecated use `CustomFieldCreateText$Outbound` instead. */
   export type Outbound = CustomFieldCreateText$Outbound;
+}
+
+export function customFieldCreateTextToJSON(
+  customFieldCreateText: CustomFieldCreateText,
+): string {
+  return JSON.stringify(
+    CustomFieldCreateText$outboundSchema.parse(customFieldCreateText),
+  );
+}
+
+export function customFieldCreateTextFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCreateText, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCreateText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCreateText' from JSON`,
+  );
 }

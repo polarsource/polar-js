@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldCheckboxProperties,
   CustomFieldCheckboxProperties$inboundSchema,
@@ -89,6 +92,26 @@ export namespace CustomFieldCreateCheckboxMetadata$ {
   export type Outbound = CustomFieldCreateCheckboxMetadata$Outbound;
 }
 
+export function customFieldCreateCheckboxMetadataToJSON(
+  customFieldCreateCheckboxMetadata: CustomFieldCreateCheckboxMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldCreateCheckboxMetadata$outboundSchema.parse(
+      customFieldCreateCheckboxMetadata,
+    ),
+  );
+}
+
+export function customFieldCreateCheckboxMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCreateCheckboxMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCreateCheckboxMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCreateCheckboxMetadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const CustomFieldCreateCheckboxType$inboundSchema: z.ZodNativeEnum<
   typeof CustomFieldCreateCheckboxType
@@ -169,4 +192,22 @@ export namespace CustomFieldCreateCheckbox$ {
   export const outboundSchema = CustomFieldCreateCheckbox$outboundSchema;
   /** @deprecated use `CustomFieldCreateCheckbox$Outbound` instead. */
   export type Outbound = CustomFieldCreateCheckbox$Outbound;
+}
+
+export function customFieldCreateCheckboxToJSON(
+  customFieldCreateCheckbox: CustomFieldCreateCheckbox,
+): string {
+  return JSON.stringify(
+    CustomFieldCreateCheckbox$outboundSchema.parse(customFieldCreateCheckbox),
+  );
+}
+
+export function customFieldCreateCheckboxFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCreateCheckbox, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCreateCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCreateCheckbox' from JSON`,
+  );
 }

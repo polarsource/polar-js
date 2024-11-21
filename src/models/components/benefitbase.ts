@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitType,
   BenefitType$inboundSchema,
@@ -111,4 +114,18 @@ export namespace BenefitBase$ {
   export const outboundSchema = BenefitBase$outboundSchema;
   /** @deprecated use `BenefitBase$Outbound` instead. */
   export type Outbound = BenefitBase$Outbound;
+}
+
+export function benefitBaseToJSON(benefitBase: BenefitBase): string {
+  return JSON.stringify(BenefitBase$outboundSchema.parse(benefitBase));
+}
+
+export function benefitBaseFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitBase, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitBase$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitBase' from JSON`,
+  );
 }

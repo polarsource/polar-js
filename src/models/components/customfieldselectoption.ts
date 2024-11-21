@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldSelectOption = {
   value: string;
@@ -46,4 +49,22 @@ export namespace CustomFieldSelectOption$ {
   export const outboundSchema = CustomFieldSelectOption$outboundSchema;
   /** @deprecated use `CustomFieldSelectOption$Outbound` instead. */
   export type Outbound = CustomFieldSelectOption$Outbound;
+}
+
+export function customFieldSelectOptionToJSON(
+  customFieldSelectOption: CustomFieldSelectOption,
+): string {
+  return JSON.stringify(
+    CustomFieldSelectOption$outboundSchema.parse(customFieldSelectOption),
+  );
+}
+
+export function customFieldSelectOptionFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldSelectOption, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldSelectOption$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldSelectOption' from JSON`,
+  );
 }

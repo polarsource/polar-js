@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LicenseKeysGetRequest = {
   id: string;
@@ -42,4 +45,22 @@ export namespace LicenseKeysGetRequest$ {
   export const outboundSchema = LicenseKeysGetRequest$outboundSchema;
   /** @deprecated use `LicenseKeysGetRequest$Outbound` instead. */
   export type Outbound = LicenseKeysGetRequest$Outbound;
+}
+
+export function licenseKeysGetRequestToJSON(
+  licenseKeysGetRequest: LicenseKeysGetRequest,
+): string {
+  return JSON.stringify(
+    LicenseKeysGetRequest$outboundSchema.parse(licenseKeysGetRequest),
+  );
+}
+
+export function licenseKeysGetRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeysGetRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeysGetRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeysGetRequest' from JSON`,
+  );
 }

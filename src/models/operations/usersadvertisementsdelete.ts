@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UsersAdvertisementsDeleteRequest = {
   /**
@@ -45,4 +48,24 @@ export namespace UsersAdvertisementsDeleteRequest$ {
   export const outboundSchema = UsersAdvertisementsDeleteRequest$outboundSchema;
   /** @deprecated use `UsersAdvertisementsDeleteRequest$Outbound` instead. */
   export type Outbound = UsersAdvertisementsDeleteRequest$Outbound;
+}
+
+export function usersAdvertisementsDeleteRequestToJSON(
+  usersAdvertisementsDeleteRequest: UsersAdvertisementsDeleteRequest,
+): string {
+  return JSON.stringify(
+    UsersAdvertisementsDeleteRequest$outboundSchema.parse(
+      usersAdvertisementsDeleteRequest,
+    ),
+  );
+}
+
+export function usersAdvertisementsDeleteRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersAdvertisementsDeleteRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersAdvertisementsDeleteRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersAdvertisementsDeleteRequest' from JSON`,
+  );
 }

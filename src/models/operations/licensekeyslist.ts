@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -77,6 +80,33 @@ export namespace LicenseKeysListQueryParamOrganizationIDFilter$ {
   export type Outbound = LicenseKeysListQueryParamOrganizationIDFilter$Outbound;
 }
 
+export function licenseKeysListQueryParamOrganizationIDFilterToJSON(
+  licenseKeysListQueryParamOrganizationIDFilter:
+    LicenseKeysListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    LicenseKeysListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      licenseKeysListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function licenseKeysListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  LicenseKeysListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      LicenseKeysListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'LicenseKeysListQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const LicenseKeysListQueryParamBenefitIDFilter$inboundSchema: z.ZodType<
   LicenseKeysListQueryParamBenefitIDFilter,
@@ -109,6 +139,33 @@ export namespace LicenseKeysListQueryParamBenefitIDFilter$ {
     LicenseKeysListQueryParamBenefitIDFilter$outboundSchema;
   /** @deprecated use `LicenseKeysListQueryParamBenefitIDFilter$Outbound` instead. */
   export type Outbound = LicenseKeysListQueryParamBenefitIDFilter$Outbound;
+}
+
+export function licenseKeysListQueryParamBenefitIDFilterToJSON(
+  licenseKeysListQueryParamBenefitIDFilter:
+    LicenseKeysListQueryParamBenefitIDFilter,
+): string {
+  return JSON.stringify(
+    LicenseKeysListQueryParamBenefitIDFilter$outboundSchema.parse(
+      licenseKeysListQueryParamBenefitIDFilter,
+    ),
+  );
+}
+
+export function licenseKeysListQueryParamBenefitIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  LicenseKeysListQueryParamBenefitIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      LicenseKeysListQueryParamBenefitIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'LicenseKeysListQueryParamBenefitIDFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -168,6 +225,24 @@ export namespace LicenseKeysListRequest$ {
   export type Outbound = LicenseKeysListRequest$Outbound;
 }
 
+export function licenseKeysListRequestToJSON(
+  licenseKeysListRequest: LicenseKeysListRequest,
+): string {
+  return JSON.stringify(
+    LicenseKeysListRequest$outboundSchema.parse(licenseKeysListRequest),
+  );
+}
+
+export function licenseKeysListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeysListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeysListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeysListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const LicenseKeysListResponse$inboundSchema: z.ZodType<
   LicenseKeysListResponse,
@@ -210,4 +285,22 @@ export namespace LicenseKeysListResponse$ {
   export const outboundSchema = LicenseKeysListResponse$outboundSchema;
   /** @deprecated use `LicenseKeysListResponse$Outbound` instead. */
   export type Outbound = LicenseKeysListResponse$Outbound;
+}
+
+export function licenseKeysListResponseToJSON(
+  licenseKeysListResponse: LicenseKeysListResponse,
+): string {
+  return JSON.stringify(
+    LicenseKeysListResponse$outboundSchema.parse(licenseKeysListResponse),
+  );
+}
+
+export function licenseKeysListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeysListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeysListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeysListResponse' from JSON`,
+  );
 }

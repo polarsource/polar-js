@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const OrganizationAvatarFileReadService = {
   OrganizationAvatar: "organization_avatar",
@@ -173,4 +176,22 @@ export namespace OrganizationAvatarFileRead$ {
   export const outboundSchema = OrganizationAvatarFileRead$outboundSchema;
   /** @deprecated use `OrganizationAvatarFileRead$Outbound` instead. */
   export type Outbound = OrganizationAvatarFileRead$Outbound;
+}
+
+export function organizationAvatarFileReadToJSON(
+  organizationAvatarFileRead: OrganizationAvatarFileRead,
+): string {
+  return JSON.stringify(
+    OrganizationAvatarFileRead$outboundSchema.parse(organizationAvatarFileRead),
+  );
+}
+
+export function organizationAvatarFileReadFromJSON(
+  jsonString: string,
+): SafeParseResult<OrganizationAvatarFileRead, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrganizationAvatarFileRead$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrganizationAvatarFileRead' from JSON`,
+  );
 }

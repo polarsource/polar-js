@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AuthorizeUser,
   AuthorizeUser$inboundSchema,
@@ -105,4 +108,22 @@ export namespace AuthorizeResponseUser$ {
   export const outboundSchema = AuthorizeResponseUser$outboundSchema;
   /** @deprecated use `AuthorizeResponseUser$Outbound` instead. */
   export type Outbound = AuthorizeResponseUser$Outbound;
+}
+
+export function authorizeResponseUserToJSON(
+  authorizeResponseUser: AuthorizeResponseUser,
+): string {
+  return JSON.stringify(
+    AuthorizeResponseUser$outboundSchema.parse(authorizeResponseUser),
+  );
+}
+
+export function authorizeResponseUserFromJSON(
+  jsonString: string,
+): SafeParseResult<AuthorizeResponseUser, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AuthorizeResponseUser$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AuthorizeResponseUser' from JSON`,
+  );
 }

@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const Oauth2IntrospectTokenTokenTypeHint = {
   AccessToken: "access_token",
@@ -105,4 +108,31 @@ export namespace Oauth2IntrospectTokenIntrospectTokenRequest$ {
     Oauth2IntrospectTokenIntrospectTokenRequest$outboundSchema;
   /** @deprecated use `Oauth2IntrospectTokenIntrospectTokenRequest$Outbound` instead. */
   export type Outbound = Oauth2IntrospectTokenIntrospectTokenRequest$Outbound;
+}
+
+export function oauth2IntrospectTokenIntrospectTokenRequestToJSON(
+  oauth2IntrospectTokenIntrospectTokenRequest:
+    Oauth2IntrospectTokenIntrospectTokenRequest,
+): string {
+  return JSON.stringify(
+    Oauth2IntrospectTokenIntrospectTokenRequest$outboundSchema.parse(
+      oauth2IntrospectTokenIntrospectTokenRequest,
+    ),
+  );
+}
+
+export function oauth2IntrospectTokenIntrospectTokenRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  Oauth2IntrospectTokenIntrospectTokenRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      Oauth2IntrospectTokenIntrospectTokenRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'Oauth2IntrospectTokenIntrospectTokenRequest' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AttachedCustomFieldCreate,
   AttachedCustomFieldCreate$inboundSchema,
@@ -114,6 +117,26 @@ export namespace ProductOneTimeCreateMetadata$ {
   export type Outbound = ProductOneTimeCreateMetadata$Outbound;
 }
 
+export function productOneTimeCreateMetadataToJSON(
+  productOneTimeCreateMetadata: ProductOneTimeCreateMetadata,
+): string {
+  return JSON.stringify(
+    ProductOneTimeCreateMetadata$outboundSchema.parse(
+      productOneTimeCreateMetadata,
+    ),
+  );
+}
+
+export function productOneTimeCreateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductOneTimeCreateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductOneTimeCreateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductOneTimeCreateMetadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const Prices$inboundSchema: z.ZodType<Prices, z.ZodTypeDef, unknown> = z
   .union([
@@ -150,6 +173,20 @@ export namespace Prices$ {
   export const outboundSchema = Prices$outboundSchema;
   /** @deprecated use `Prices$Outbound` instead. */
   export type Outbound = Prices$Outbound;
+}
+
+export function pricesToJSON(prices: Prices): string {
+  return JSON.stringify(Prices$outboundSchema.parse(prices));
+}
+
+export function pricesFromJSON(
+  jsonString: string,
+): SafeParseResult<Prices, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Prices$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Prices' from JSON`,
+  );
 }
 
 /** @internal */
@@ -236,4 +273,22 @@ export namespace ProductOneTimeCreate$ {
   export const outboundSchema = ProductOneTimeCreate$outboundSchema;
   /** @deprecated use `ProductOneTimeCreate$Outbound` instead. */
   export type Outbound = ProductOneTimeCreate$Outbound;
+}
+
+export function productOneTimeCreateToJSON(
+  productOneTimeCreate: ProductOneTimeCreate,
+): string {
+  return JSON.stringify(
+    ProductOneTimeCreate$outboundSchema.parse(productOneTimeCreate),
+  );
+}
+
+export function productOneTimeCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductOneTimeCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductOneTimeCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductOneTimeCreate' from JSON`,
+  );
 }

@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LicenseKeysUpdateRequest = {
   id: string;
@@ -56,4 +59,22 @@ export namespace LicenseKeysUpdateRequest$ {
   export const outboundSchema = LicenseKeysUpdateRequest$outboundSchema;
   /** @deprecated use `LicenseKeysUpdateRequest$Outbound` instead. */
   export type Outbound = LicenseKeysUpdateRequest$Outbound;
+}
+
+export function licenseKeysUpdateRequestToJSON(
+  licenseKeysUpdateRequest: LicenseKeysUpdateRequest,
+): string {
+  return JSON.stringify(
+    LicenseKeysUpdateRequest$outboundSchema.parse(licenseKeysUpdateRequest),
+  );
+}
+
+export function licenseKeysUpdateRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeysUpdateRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeysUpdateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeysUpdateRequest' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldSelectOption,
   CustomFieldSelectOption$inboundSchema,
@@ -73,4 +76,24 @@ export namespace CustomFieldSelectProperties$ {
   export const outboundSchema = CustomFieldSelectProperties$outboundSchema;
   /** @deprecated use `CustomFieldSelectProperties$Outbound` instead. */
   export type Outbound = CustomFieldSelectProperties$Outbound;
+}
+
+export function customFieldSelectPropertiesToJSON(
+  customFieldSelectProperties: CustomFieldSelectProperties,
+): string {
+  return JSON.stringify(
+    CustomFieldSelectProperties$outboundSchema.parse(
+      customFieldSelectProperties,
+    ),
+  );
+}
+
+export function customFieldSelectPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldSelectProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldSelectProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldSelectProperties' from JSON`,
+  );
 }

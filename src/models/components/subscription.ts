@@ -4,6 +4,33 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  DiscountFixedOnceForeverDurationBase,
+  DiscountFixedOnceForeverDurationBase$inboundSchema,
+  DiscountFixedOnceForeverDurationBase$Outbound,
+  DiscountFixedOnceForeverDurationBase$outboundSchema,
+} from "./discountfixedonceforeverdurationbase.js";
+import {
+  DiscountFixedRepeatDurationBase,
+  DiscountFixedRepeatDurationBase$inboundSchema,
+  DiscountFixedRepeatDurationBase$Outbound,
+  DiscountFixedRepeatDurationBase$outboundSchema,
+} from "./discountfixedrepeatdurationbase.js";
+import {
+  DiscountPercentageOnceForeverDurationBase,
+  DiscountPercentageOnceForeverDurationBase$inboundSchema,
+  DiscountPercentageOnceForeverDurationBase$Outbound,
+  DiscountPercentageOnceForeverDurationBase$outboundSchema,
+} from "./discountpercentageonceforeverdurationbase.js";
+import {
+  DiscountPercentageRepeatDurationBase,
+  DiscountPercentageRepeatDurationBase$inboundSchema,
+  DiscountPercentageRepeatDurationBase$Outbound,
+  DiscountPercentageRepeatDurationBase$outboundSchema,
+} from "./discountpercentagerepeatdurationbase.js";
 import {
   Product,
   Product$inboundSchema,
@@ -40,6 +67,12 @@ export type Metadata = string | number | boolean;
  */
 export type SubscriptionCustomFieldData = {};
 
+export type SubscriptionDiscount =
+  | DiscountPercentageOnceForeverDurationBase
+  | DiscountFixedOnceForeverDurationBase
+  | DiscountPercentageRepeatDurationBase
+  | DiscountFixedRepeatDurationBase;
+
 export type Subscription = {
   /**
    * Creation timestamp of the object.
@@ -65,6 +98,7 @@ export type Subscription = {
   userId: string;
   productId: string;
   priceId: string;
+  discountId: string | null;
   checkoutId: string | null;
   metadata: { [k: string]: string | number | boolean };
   /**
@@ -77,6 +111,12 @@ export type Subscription = {
    */
   product: Product;
   price: ProductPriceRecurring;
+  discount:
+    | DiscountPercentageOnceForeverDurationBase
+    | DiscountFixedOnceForeverDurationBase
+    | DiscountPercentageRepeatDurationBase
+    | DiscountFixedRepeatDurationBase
+    | null;
 };
 
 /** @internal */
@@ -109,6 +149,20 @@ export namespace Metadata$ {
   export type Outbound = Metadata$Outbound;
 }
 
+export function metadataToJSON(metadata: Metadata): string {
+  return JSON.stringify(Metadata$outboundSchema.parse(metadata));
+}
+
+export function metadataFromJSON(
+  jsonString: string,
+): SafeParseResult<Metadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Metadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Metadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const SubscriptionCustomFieldData$inboundSchema: z.ZodType<
   SubscriptionCustomFieldData,
@@ -137,6 +191,88 @@ export namespace SubscriptionCustomFieldData$ {
   export const outboundSchema = SubscriptionCustomFieldData$outboundSchema;
   /** @deprecated use `SubscriptionCustomFieldData$Outbound` instead. */
   export type Outbound = SubscriptionCustomFieldData$Outbound;
+}
+
+export function subscriptionCustomFieldDataToJSON(
+  subscriptionCustomFieldData: SubscriptionCustomFieldData,
+): string {
+  return JSON.stringify(
+    SubscriptionCustomFieldData$outboundSchema.parse(
+      subscriptionCustomFieldData,
+    ),
+  );
+}
+
+export function subscriptionCustomFieldDataFromJSON(
+  jsonString: string,
+): SafeParseResult<SubscriptionCustomFieldData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SubscriptionCustomFieldData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionCustomFieldData' from JSON`,
+  );
+}
+
+/** @internal */
+export const SubscriptionDiscount$inboundSchema: z.ZodType<
+  SubscriptionDiscount,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  DiscountPercentageOnceForeverDurationBase$inboundSchema,
+  DiscountFixedOnceForeverDurationBase$inboundSchema,
+  DiscountPercentageRepeatDurationBase$inboundSchema,
+  DiscountFixedRepeatDurationBase$inboundSchema,
+]);
+
+/** @internal */
+export type SubscriptionDiscount$Outbound =
+  | DiscountPercentageOnceForeverDurationBase$Outbound
+  | DiscountFixedOnceForeverDurationBase$Outbound
+  | DiscountPercentageRepeatDurationBase$Outbound
+  | DiscountFixedRepeatDurationBase$Outbound;
+
+/** @internal */
+export const SubscriptionDiscount$outboundSchema: z.ZodType<
+  SubscriptionDiscount$Outbound,
+  z.ZodTypeDef,
+  SubscriptionDiscount
+> = z.union([
+  DiscountPercentageOnceForeverDurationBase$outboundSchema,
+  DiscountFixedOnceForeverDurationBase$outboundSchema,
+  DiscountPercentageRepeatDurationBase$outboundSchema,
+  DiscountFixedRepeatDurationBase$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SubscriptionDiscount$ {
+  /** @deprecated use `SubscriptionDiscount$inboundSchema` instead. */
+  export const inboundSchema = SubscriptionDiscount$inboundSchema;
+  /** @deprecated use `SubscriptionDiscount$outboundSchema` instead. */
+  export const outboundSchema = SubscriptionDiscount$outboundSchema;
+  /** @deprecated use `SubscriptionDiscount$Outbound` instead. */
+  export type Outbound = SubscriptionDiscount$Outbound;
+}
+
+export function subscriptionDiscountToJSON(
+  subscriptionDiscount: SubscriptionDiscount,
+): string {
+  return JSON.stringify(
+    SubscriptionDiscount$outboundSchema.parse(subscriptionDiscount),
+  );
+}
+
+export function subscriptionDiscountFromJSON(
+  jsonString: string,
+): SafeParseResult<SubscriptionDiscount, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SubscriptionDiscount$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionDiscount' from JSON`,
+  );
 }
 
 /** @internal */
@@ -170,6 +306,7 @@ export const Subscription$inboundSchema: z.ZodType<
   user_id: z.string(),
   product_id: z.string(),
   price_id: z.string(),
+  discount_id: z.nullable(z.string()),
   checkout_id: z.nullable(z.string()),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   custom_field_data: z.lazy(() => SubscriptionCustomFieldData$inboundSchema)
@@ -177,6 +314,14 @@ export const Subscription$inboundSchema: z.ZodType<
   user: SubscriptionUser$inboundSchema,
   product: Product$inboundSchema,
   price: ProductPriceRecurring$inboundSchema,
+  discount: z.nullable(
+    z.union([
+      DiscountPercentageOnceForeverDurationBase$inboundSchema,
+      DiscountFixedOnceForeverDurationBase$inboundSchema,
+      DiscountPercentageRepeatDurationBase$inboundSchema,
+      DiscountFixedRepeatDurationBase$inboundSchema,
+    ]),
+  ),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -190,6 +335,7 @@ export const Subscription$inboundSchema: z.ZodType<
     "user_id": "userId",
     "product_id": "productId",
     "price_id": "priceId",
+    "discount_id": "discountId",
     "checkout_id": "checkoutId",
     "custom_field_data": "customFieldData",
   });
@@ -212,12 +358,19 @@ export type Subscription$Outbound = {
   user_id: string;
   product_id: string;
   price_id: string;
+  discount_id: string | null;
   checkout_id: string | null;
   metadata: { [k: string]: string | number | boolean };
   custom_field_data?: SubscriptionCustomFieldData$Outbound | undefined;
   user: SubscriptionUser$Outbound;
   product: Product$Outbound;
   price: ProductPriceRecurring$Outbound;
+  discount:
+    | DiscountPercentageOnceForeverDurationBase$Outbound
+    | DiscountFixedOnceForeverDurationBase$Outbound
+    | DiscountPercentageRepeatDurationBase$Outbound
+    | DiscountFixedRepeatDurationBase$Outbound
+    | null;
 };
 
 /** @internal */
@@ -241,6 +394,7 @@ export const Subscription$outboundSchema: z.ZodType<
   userId: z.string(),
   productId: z.string(),
   priceId: z.string(),
+  discountId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   customFieldData: z.lazy(() => SubscriptionCustomFieldData$outboundSchema)
@@ -248,6 +402,14 @@ export const Subscription$outboundSchema: z.ZodType<
   user: SubscriptionUser$outboundSchema,
   product: Product$outboundSchema,
   price: ProductPriceRecurring$outboundSchema,
+  discount: z.nullable(
+    z.union([
+      DiscountPercentageOnceForeverDurationBase$outboundSchema,
+      DiscountFixedOnceForeverDurationBase$outboundSchema,
+      DiscountPercentageRepeatDurationBase$outboundSchema,
+      DiscountFixedRepeatDurationBase$outboundSchema,
+    ]),
+  ),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -261,6 +423,7 @@ export const Subscription$outboundSchema: z.ZodType<
     userId: "user_id",
     productId: "product_id",
     priceId: "price_id",
+    discountId: "discount_id",
     checkoutId: "checkout_id",
     customFieldData: "custom_field_data",
   });
@@ -277,4 +440,18 @@ export namespace Subscription$ {
   export const outboundSchema = Subscription$outboundSchema;
   /** @deprecated use `Subscription$Outbound` instead. */
   export type Outbound = Subscription$Outbound;
+}
+
+export function subscriptionToJSON(subscription: Subscription): string {
+  return JSON.stringify(Subscription$outboundSchema.parse(subscription));
+}
+
+export function subscriptionFromJSON(
+  jsonString: string,
+): SafeParseResult<Subscription, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Subscription$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Subscription' from JSON`,
+  );
 }

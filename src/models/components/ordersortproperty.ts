@@ -14,6 +14,8 @@ export const OrderSortProperty = {
   MinusUser: "-user",
   Product: "product",
   MinusProduct: "-product",
+  Discount: "discount",
+  MinusDiscount: "-discount",
   Subscription: "subscription",
   MinusSubscription: "-subscription",
 } as const;

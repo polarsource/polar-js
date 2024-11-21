@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UserAdvertisementCampaignEnable = {
   /**
@@ -54,4 +57,24 @@ export namespace UserAdvertisementCampaignEnable$ {
   export const outboundSchema = UserAdvertisementCampaignEnable$outboundSchema;
   /** @deprecated use `UserAdvertisementCampaignEnable$Outbound` instead. */
   export type Outbound = UserAdvertisementCampaignEnable$Outbound;
+}
+
+export function userAdvertisementCampaignEnableToJSON(
+  userAdvertisementCampaignEnable: UserAdvertisementCampaignEnable,
+): string {
+  return JSON.stringify(
+    UserAdvertisementCampaignEnable$outboundSchema.parse(
+      userAdvertisementCampaignEnable,
+    ),
+  );
+}
+
+export function userAdvertisementCampaignEnableFromJSON(
+  jsonString: string,
+): SafeParseResult<UserAdvertisementCampaignEnable, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UserAdvertisementCampaignEnable$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UserAdvertisementCampaignEnable' from JSON`,
+  );
 }

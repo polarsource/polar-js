@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const GrantType = {
   AuthorizationCode: "authorization_code",
@@ -104,4 +107,29 @@ export namespace Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$
   /** @deprecated use `Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$Outbound` instead. */
   export type Outbound =
     Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$Outbound;
+}
+
+export function onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequestToJSON(
+  onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest:
+    Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest,
+): string {
+  return JSON.stringify(
+    Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$outboundSchema
+      .parse(onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest),
+  );
+}
+
+export function onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest' from JSON`,
+  );
 }

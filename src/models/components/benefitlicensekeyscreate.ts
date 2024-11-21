@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitLicenseKeysCreateProperties,
   BenefitLicenseKeysCreateProperties$inboundSchema,
@@ -104,4 +107,22 @@ export namespace BenefitLicenseKeysCreate$ {
   export const outboundSchema = BenefitLicenseKeysCreate$outboundSchema;
   /** @deprecated use `BenefitLicenseKeysCreate$Outbound` instead. */
   export type Outbound = BenefitLicenseKeysCreate$Outbound;
+}
+
+export function benefitLicenseKeysCreateToJSON(
+  benefitLicenseKeysCreate: BenefitLicenseKeysCreate,
+): string {
+  return JSON.stringify(
+    BenefitLicenseKeysCreate$outboundSchema.parse(benefitLicenseKeysCreate),
+  );
+}
+
+export function benefitLicenseKeysCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitLicenseKeysCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitLicenseKeysCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitLicenseKeysCreate' from JSON`,
+  );
 }

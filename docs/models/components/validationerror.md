@@ -7,7 +7,7 @@ import { ValidationError } from "@polar-sh/sdk/models/components";
 
 let value: ValidationError = {
   loc: [
-    813544,
+    "<value>",
   ],
   msg: "<value>",
   type: "<value>",

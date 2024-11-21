@@ -8,11 +8,11 @@ Schema for a custom field of type text.
 import { CustomFieldText } from "@polar-sh/sdk/models/components";
 
 let value: CustomFieldText = {
-  createdAt: new Date("2024-08-29T07:15:18.011Z"),
-  modifiedAt: new Date("2022-04-01T12:58:28.992Z"),
+  createdAt: new Date("2024-05-10T13:25:58.293Z"),
+  modifiedAt: new Date("2024-06-12T21:06:38.090Z"),
   id: "<value>",
   metadata: {
-    "key": false,
+    "key": 447960,
   },
   slug: "<value>",
   name: "<value>",

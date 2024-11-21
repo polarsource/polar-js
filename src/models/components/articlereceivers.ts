@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ArticleReceivers = {
   freeSubscribers: number;
@@ -63,4 +66,22 @@ export namespace ArticleReceivers$ {
   export const outboundSchema = ArticleReceivers$outboundSchema;
   /** @deprecated use `ArticleReceivers$Outbound` instead. */
   export type Outbound = ArticleReceivers$Outbound;
+}
+
+export function articleReceiversToJSON(
+  articleReceivers: ArticleReceivers,
+): string {
+  return JSON.stringify(
+    ArticleReceivers$outboundSchema.parse(articleReceivers),
+  );
+}
+
+export function articleReceiversFromJSON(
+  jsonString: string,
+): SafeParseResult<ArticleReceivers, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ArticleReceivers$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ArticleReceivers' from JSON`,
+  );
 }

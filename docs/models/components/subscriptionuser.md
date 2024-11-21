@@ -6,10 +6,10 @@
 import { SubscriptionUser } from "@polar-sh/sdk/models/components";
 
 let value: SubscriptionUser = {
-  email: "Viva.Pagac72@gmail.com",
+  email: "Roscoe.Douglas@gmail.com",
   publicName: "<value>",
   githubUsername: "<value>",
-  avatarUrl: "https://downright-daughter.name",
+  avatarUrl: "https://responsible-meander.net",
 };
 ```
 

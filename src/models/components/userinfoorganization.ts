@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UserInfoOrganization = {
   sub: string;
@@ -46,4 +49,22 @@ export namespace UserInfoOrganization$ {
   export const outboundSchema = UserInfoOrganization$outboundSchema;
   /** @deprecated use `UserInfoOrganization$Outbound` instead. */
   export type Outbound = UserInfoOrganization$Outbound;
+}
+
+export function userInfoOrganizationToJSON(
+  userInfoOrganization: UserInfoOrganization,
+): string {
+  return JSON.stringify(
+    UserInfoOrganization$outboundSchema.parse(userInfoOrganization),
+  );
+}
+
+export function userInfoOrganizationFromJSON(
+  jsonString: string,
+): SafeParseResult<UserInfoOrganization, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UserInfoOrganization$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UserInfoOrganization' from JSON`,
+  );
 }

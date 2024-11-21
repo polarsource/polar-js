@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   OAuth2Client,
   OAuth2Client$inboundSchema,
@@ -58,4 +61,22 @@ export namespace ListResourceOAuth2Client$ {
   export const outboundSchema = ListResourceOAuth2Client$outboundSchema;
   /** @deprecated use `ListResourceOAuth2Client$Outbound` instead. */
   export type Outbound = ListResourceOAuth2Client$Outbound;
+}
+
+export function listResourceOAuth2ClientToJSON(
+  listResourceOAuth2Client: ListResourceOAuth2Client,
+): string {
+  return JSON.stringify(
+    ListResourceOAuth2Client$outboundSchema.parse(listResourceOAuth2Client),
+  );
+}
+
+export function listResourceOAuth2ClientFromJSON(
+  jsonString: string,
+): SafeParseResult<ListResourceOAuth2Client, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListResourceOAuth2Client$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourceOAuth2Client' from JSON`,
+  );
 }

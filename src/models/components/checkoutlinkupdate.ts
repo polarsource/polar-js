@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutLinkUpdateMetadata = string | number | boolean;
 
@@ -25,6 +28,16 @@ export type CheckoutLinkUpdate = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  label?: string | null | undefined;
+  /**
+   * Whether to allow the customer to apply discount codes. If you apply a discount through `discount_id`, it'll still be applied, but the customer won't be able to change it.
+   */
+  allowDiscountCodes?: boolean | null | undefined;
+  productPriceId?: string | null | undefined;
+  /**
+   * ID of the discount to apply to the checkout. If the discount is not applicable anymore when opening the checkout link, it'll be ignored.
+   */
+  discountId?: string | null | undefined;
   /**
    * URL where the customer will be redirected after a successful payment.You can add the `checkout_id={CHECKOUT_ID}` query parameter to retrieve the checkout session id.
    */
@@ -61,6 +74,24 @@ export namespace CheckoutLinkUpdateMetadata$ {
   export type Outbound = CheckoutLinkUpdateMetadata$Outbound;
 }
 
+export function checkoutLinkUpdateMetadataToJSON(
+  checkoutLinkUpdateMetadata: CheckoutLinkUpdateMetadata,
+): string {
+  return JSON.stringify(
+    CheckoutLinkUpdateMetadata$outboundSchema.parse(checkoutLinkUpdateMetadata),
+  );
+}
+
+export function checkoutLinkUpdateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLinkUpdateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLinkUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLinkUpdateMetadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutLinkUpdate$inboundSchema: z.ZodType<
   CheckoutLinkUpdate,
@@ -70,9 +101,16 @@ export const CheckoutLinkUpdate$inboundSchema: z.ZodType<
   metadata: z.nullable(
     z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   ).optional(),
+  label: z.nullable(z.string()).optional(),
+  allow_discount_codes: z.nullable(z.boolean()).optional(),
+  product_price_id: z.nullable(z.string()).optional(),
+  discount_id: z.nullable(z.string()).optional(),
   success_url: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "allow_discount_codes": "allowDiscountCodes",
+    "product_price_id": "productPriceId",
+    "discount_id": "discountId",
     "success_url": "successUrl",
   });
 });
@@ -80,6 +118,10 @@ export const CheckoutLinkUpdate$inboundSchema: z.ZodType<
 /** @internal */
 export type CheckoutLinkUpdate$Outbound = {
   metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  label?: string | null | undefined;
+  allow_discount_codes?: boolean | null | undefined;
+  product_price_id?: string | null | undefined;
+  discount_id?: string | null | undefined;
   success_url?: string | null | undefined;
 };
 
@@ -92,9 +134,16 @@ export const CheckoutLinkUpdate$outboundSchema: z.ZodType<
   metadata: z.nullable(
     z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   ).optional(),
+  label: z.nullable(z.string()).optional(),
+  allowDiscountCodes: z.nullable(z.boolean()).optional(),
+  productPriceId: z.nullable(z.string()).optional(),
+  discountId: z.nullable(z.string()).optional(),
   successUrl: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    allowDiscountCodes: "allow_discount_codes",
+    productPriceId: "product_price_id",
+    discountId: "discount_id",
     successUrl: "success_url",
   });
 });
@@ -110,4 +159,22 @@ export namespace CheckoutLinkUpdate$ {
   export const outboundSchema = CheckoutLinkUpdate$outboundSchema;
   /** @deprecated use `CheckoutLinkUpdate$Outbound` instead. */
   export type Outbound = CheckoutLinkUpdate$Outbound;
+}
+
+export function checkoutLinkUpdateToJSON(
+  checkoutLinkUpdate: CheckoutLinkUpdate,
+): string {
+  return JSON.stringify(
+    CheckoutLinkUpdate$outboundSchema.parse(checkoutLinkUpdate),
+  );
+}
+
+export function checkoutLinkUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLinkUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLinkUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLinkUpdate' from JSON`,
+  );
 }

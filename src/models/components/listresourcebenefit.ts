@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Benefit,
   Benefit$inboundSchema,
@@ -58,4 +61,22 @@ export namespace ListResourceBenefit$ {
   export const outboundSchema = ListResourceBenefit$outboundSchema;
   /** @deprecated use `ListResourceBenefit$Outbound` instead. */
   export type Outbound = ListResourceBenefit$Outbound;
+}
+
+export function listResourceBenefitToJSON(
+  listResourceBenefit: ListResourceBenefit,
+): string {
+  return JSON.stringify(
+    ListResourceBenefit$outboundSchema.parse(listResourceBenefit),
+  );
+}
+
+export function listResourceBenefitFromJSON(
+  jsonString: string,
+): SafeParseResult<ListResourceBenefit, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListResourceBenefit$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourceBenefit' from JSON`,
+  );
 }

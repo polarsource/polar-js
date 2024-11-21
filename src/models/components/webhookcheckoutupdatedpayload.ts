@@ -3,13 +3,16 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PolarCheckoutSchemasCheckout,
-  PolarCheckoutSchemasCheckout$inboundSchema,
-  PolarCheckoutSchemasCheckout$Outbound,
-  PolarCheckoutSchemasCheckout$outboundSchema,
-} from "./polarcheckoutschemascheckout.js";
+  Checkout,
+  Checkout$inboundSchema,
+  Checkout$Outbound,
+  Checkout$outboundSchema,
+} from "./checkout.js";
 
 export const WebhookCheckoutUpdatedPayloadType = {
   CheckoutUpdated: "checkout.updated",
@@ -30,7 +33,7 @@ export type WebhookCheckoutUpdatedPayload = {
   /**
    * Checkout session data retrieved using an access token.
    */
-  data: PolarCheckoutSchemasCheckout;
+  data: Checkout;
 };
 
 /** @internal */
@@ -62,13 +65,13 @@ export const WebhookCheckoutUpdatedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("checkout.updated").optional(),
-  data: PolarCheckoutSchemasCheckout$inboundSchema,
+  data: Checkout$inboundSchema,
 });
 
 /** @internal */
 export type WebhookCheckoutUpdatedPayload$Outbound = {
   type: "checkout.updated";
-  data: PolarCheckoutSchemasCheckout$Outbound;
+  data: Checkout$Outbound;
 };
 
 /** @internal */
@@ -78,7 +81,7 @@ export const WebhookCheckoutUpdatedPayload$outboundSchema: z.ZodType<
   WebhookCheckoutUpdatedPayload
 > = z.object({
   type: z.literal("checkout.updated").default("checkout.updated"),
-  data: PolarCheckoutSchemasCheckout$outboundSchema,
+  data: Checkout$outboundSchema,
 });
 
 /**
@@ -92,4 +95,24 @@ export namespace WebhookCheckoutUpdatedPayload$ {
   export const outboundSchema = WebhookCheckoutUpdatedPayload$outboundSchema;
   /** @deprecated use `WebhookCheckoutUpdatedPayload$Outbound` instead. */
   export type Outbound = WebhookCheckoutUpdatedPayload$Outbound;
+}
+
+export function webhookCheckoutUpdatedPayloadToJSON(
+  webhookCheckoutUpdatedPayload: WebhookCheckoutUpdatedPayload,
+): string {
+  return JSON.stringify(
+    WebhookCheckoutUpdatedPayload$outboundSchema.parse(
+      webhookCheckoutUpdatedPayload,
+    ),
+  );
+}
+
+export function webhookCheckoutUpdatedPayloadFromJSON(
+  jsonString: string,
+): SafeParseResult<WebhookCheckoutUpdatedPayload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => WebhookCheckoutUpdatedPayload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'WebhookCheckoutUpdatedPayload' from JSON`,
+  );
 }

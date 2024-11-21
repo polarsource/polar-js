@@ -68,6 +68,7 @@ export async function ordersList(
   const path = pathToFunc("/v1/orders/")();
 
   const query = encodeFormQuery({
+    "discount_id": payload.discount_id,
     "limit": payload.limit,
     "organization_id": payload.organization_id,
     "page": payload.page,

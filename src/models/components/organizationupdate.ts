@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   OrganizationFeatureSettings,
   OrganizationFeatureSettings$inboundSchema,
@@ -127,4 +130,22 @@ export namespace OrganizationUpdate$ {
   export const outboundSchema = OrganizationUpdate$outboundSchema;
   /** @deprecated use `OrganizationUpdate$Outbound` instead. */
   export type Outbound = OrganizationUpdate$Outbound;
+}
+
+export function organizationUpdateToJSON(
+  organizationUpdate: OrganizationUpdate,
+): string {
+  return JSON.stringify(
+    OrganizationUpdate$outboundSchema.parse(organizationUpdate),
+  );
+}
+
+export function organizationUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<OrganizationUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrganizationUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrganizationUpdate' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AuthorizeOrganization = {
   id: string;
@@ -59,4 +62,22 @@ export namespace AuthorizeOrganization$ {
   export const outboundSchema = AuthorizeOrganization$outboundSchema;
   /** @deprecated use `AuthorizeOrganization$Outbound` instead. */
   export type Outbound = AuthorizeOrganization$Outbound;
+}
+
+export function authorizeOrganizationToJSON(
+  authorizeOrganization: AuthorizeOrganization,
+): string {
+  return JSON.stringify(
+    AuthorizeOrganization$outboundSchema.parse(authorizeOrganization),
+  );
+}
+
+export function authorizeOrganizationFromJSON(
+  jsonString: string,
+): SafeParseResult<AuthorizeOrganization, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AuthorizeOrganization$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AuthorizeOrganization' from JSON`,
+  );
 }

@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -73,6 +76,33 @@ export namespace UsersLicenseKeysListQueryParamOrganizationIDFilter$ {
     UsersLicenseKeysListQueryParamOrganizationIDFilter$Outbound;
 }
 
+export function usersLicenseKeysListQueryParamOrganizationIDFilterToJSON(
+  usersLicenseKeysListQueryParamOrganizationIDFilter:
+    UsersLicenseKeysListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    UsersLicenseKeysListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      usersLicenseKeysListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function usersLicenseKeysListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  UsersLicenseKeysListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      UsersLicenseKeysListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'UsersLicenseKeysListQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const UsersLicenseKeysListRequest$inboundSchema: z.ZodType<
   UsersLicenseKeysListRequest,
@@ -130,6 +160,26 @@ export namespace UsersLicenseKeysListRequest$ {
   export type Outbound = UsersLicenseKeysListRequest$Outbound;
 }
 
+export function usersLicenseKeysListRequestToJSON(
+  usersLicenseKeysListRequest: UsersLicenseKeysListRequest,
+): string {
+  return JSON.stringify(
+    UsersLicenseKeysListRequest$outboundSchema.parse(
+      usersLicenseKeysListRequest,
+    ),
+  );
+}
+
+export function usersLicenseKeysListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersLicenseKeysListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersLicenseKeysListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersLicenseKeysListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const UsersLicenseKeysListResponse$inboundSchema: z.ZodType<
   UsersLicenseKeysListResponse,
@@ -172,4 +222,24 @@ export namespace UsersLicenseKeysListResponse$ {
   export const outboundSchema = UsersLicenseKeysListResponse$outboundSchema;
   /** @deprecated use `UsersLicenseKeysListResponse$Outbound` instead. */
   export type Outbound = UsersLicenseKeysListResponse$Outbound;
+}
+
+export function usersLicenseKeysListResponseToJSON(
+  usersLicenseKeysListResponse: UsersLicenseKeysListResponse,
+): string {
+  return JSON.stringify(
+    UsersLicenseKeysListResponse$outboundSchema.parse(
+      usersLicenseKeysListResponse,
+    ),
+  );
+}
+
+export function usersLicenseKeysListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersLicenseKeysListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersLicenseKeysListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersLicenseKeysListResponse' from JSON`,
+  );
 }

@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Oauth2RequestTokenRequestBody =
   | (components.Onev11oauth21tokenPostXComponentsRefreshTokenRequest & {
@@ -78,4 +81,24 @@ export namespace Oauth2RequestTokenRequestBody$ {
   export const outboundSchema = Oauth2RequestTokenRequestBody$outboundSchema;
   /** @deprecated use `Oauth2RequestTokenRequestBody$Outbound` instead. */
   export type Outbound = Oauth2RequestTokenRequestBody$Outbound;
+}
+
+export function oauth2RequestTokenRequestBodyToJSON(
+  oauth2RequestTokenRequestBody: Oauth2RequestTokenRequestBody,
+): string {
+  return JSON.stringify(
+    Oauth2RequestTokenRequestBody$outboundSchema.parse(
+      oauth2RequestTokenRequestBody,
+    ),
+  );
+}
+
+export function oauth2RequestTokenRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<Oauth2RequestTokenRequestBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Oauth2RequestTokenRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Oauth2RequestTokenRequestBody' from JSON`,
+  );
 }

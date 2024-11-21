@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldTextProperties,
   CustomFieldTextProperties$inboundSchema,
@@ -72,6 +75,26 @@ export namespace CustomFieldUpdateTextMetadata$ {
   export const outboundSchema = CustomFieldUpdateTextMetadata$outboundSchema;
   /** @deprecated use `CustomFieldUpdateTextMetadata$Outbound` instead. */
   export type Outbound = CustomFieldUpdateTextMetadata$Outbound;
+}
+
+export function customFieldUpdateTextMetadataToJSON(
+  customFieldUpdateTextMetadata: CustomFieldUpdateTextMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldUpdateTextMetadata$outboundSchema.parse(
+      customFieldUpdateTextMetadata,
+    ),
+  );
+}
+
+export function customFieldUpdateTextMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldUpdateTextMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldUpdateTextMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldUpdateTextMetadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -145,4 +168,22 @@ export namespace CustomFieldUpdateText$ {
   export const outboundSchema = CustomFieldUpdateText$outboundSchema;
   /** @deprecated use `CustomFieldUpdateText$Outbound` instead. */
   export type Outbound = CustomFieldUpdateText$Outbound;
+}
+
+export function customFieldUpdateTextToJSON(
+  customFieldUpdateText: CustomFieldUpdateText,
+): string {
+  return JSON.stringify(
+    CustomFieldUpdateText$outboundSchema.parse(customFieldUpdateText),
+  );
+}
+
+export function customFieldUpdateTextFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldUpdateText, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldUpdateText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldUpdateText' from JSON`,
+  );
 }

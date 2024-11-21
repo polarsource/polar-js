@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   S3FileCreateMultipart,
   S3FileCreateMultipart$inboundSchema,
@@ -127,4 +130,22 @@ export namespace ProductMediaFileCreate$ {
   export const outboundSchema = ProductMediaFileCreate$outboundSchema;
   /** @deprecated use `ProductMediaFileCreate$Outbound` instead. */
   export type Outbound = ProductMediaFileCreate$Outbound;
+}
+
+export function productMediaFileCreateToJSON(
+  productMediaFileCreate: ProductMediaFileCreate,
+): string {
+  return JSON.stringify(
+    ProductMediaFileCreate$outboundSchema.parse(productMediaFileCreate),
+  );
+}
+
+export function productMediaFileCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductMediaFileCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductMediaFileCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductMediaFileCreate' from JSON`,
+  );
 }

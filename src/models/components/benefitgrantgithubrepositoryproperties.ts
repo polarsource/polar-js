@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const BenefitGrantGitHubRepositoryPropertiesPermission = {
   Pull: "pull",
@@ -106,4 +109,26 @@ export namespace BenefitGrantGitHubRepositoryProperties$ {
     BenefitGrantGitHubRepositoryProperties$outboundSchema;
   /** @deprecated use `BenefitGrantGitHubRepositoryProperties$Outbound` instead. */
   export type Outbound = BenefitGrantGitHubRepositoryProperties$Outbound;
+}
+
+export function benefitGrantGitHubRepositoryPropertiesToJSON(
+  benefitGrantGitHubRepositoryProperties:
+    BenefitGrantGitHubRepositoryProperties,
+): string {
+  return JSON.stringify(
+    BenefitGrantGitHubRepositoryProperties$outboundSchema.parse(
+      benefitGrantGitHubRepositoryProperties,
+    ),
+  );
+}
+
+export function benefitGrantGitHubRepositoryPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGrantGitHubRepositoryProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitGrantGitHubRepositoryProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGrantGitHubRepositoryProperties' from JSON`,
+  );
 }

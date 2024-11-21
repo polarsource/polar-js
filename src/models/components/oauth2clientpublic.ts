@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OAuth2ClientPublic = {
   /**
@@ -101,4 +104,22 @@ export namespace OAuth2ClientPublic$ {
   export const outboundSchema = OAuth2ClientPublic$outboundSchema;
   /** @deprecated use `OAuth2ClientPublic$Outbound` instead. */
   export type Outbound = OAuth2ClientPublic$Outbound;
+}
+
+export function oAuth2ClientPublicToJSON(
+  oAuth2ClientPublic: OAuth2ClientPublic,
+): string {
+  return JSON.stringify(
+    OAuth2ClientPublic$outboundSchema.parse(oAuth2ClientPublic),
+  );
+}
+
+export function oAuth2ClientPublicFromJSON(
+  jsonString: string,
+): SafeParseResult<OAuth2ClientPublic, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OAuth2ClientPublic$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OAuth2ClientPublic' from JSON`,
+  );
 }

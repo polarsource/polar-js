@@ -69,6 +69,7 @@ export async function subscriptionsList(
 
   const query = encodeFormQuery({
     "active": payload.active,
+    "discount_id": payload.discount_id,
     "limit": payload.limit,
     "organization_id": payload.organization_id,
     "page": payload.page,

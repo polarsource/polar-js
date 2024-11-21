@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type S3DownloadURL = {
   url: string;
@@ -59,4 +62,18 @@ export namespace S3DownloadURL$ {
   export const outboundSchema = S3DownloadURL$outboundSchema;
   /** @deprecated use `S3DownloadURL$Outbound` instead. */
   export type Outbound = S3DownloadURL$Outbound;
+}
+
+export function s3DownloadURLToJSON(s3DownloadURL: S3DownloadURL): string {
+  return JSON.stringify(S3DownloadURL$outboundSchema.parse(s3DownloadURL));
+}
+
+export function s3DownloadURLFromJSON(
+  jsonString: string,
+): SafeParseResult<S3DownloadURL, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => S3DownloadURL$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'S3DownloadURL' from JSON`,
+  );
 }

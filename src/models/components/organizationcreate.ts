@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   OrganizationFeatureSettings,
   OrganizationFeatureSettings$inboundSchema,
@@ -73,4 +76,22 @@ export namespace OrganizationCreate$ {
   export const outboundSchema = OrganizationCreate$outboundSchema;
   /** @deprecated use `OrganizationCreate$Outbound` instead. */
   export type Outbound = OrganizationCreate$Outbound;
+}
+
+export function organizationCreateToJSON(
+  organizationCreate: OrganizationCreate,
+): string {
+  return JSON.stringify(
+    OrganizationCreate$outboundSchema.parse(organizationCreate),
+  );
+}
+
+export function organizationCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<OrganizationCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrganizationCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrganizationCreate' from JSON`,
+  );
 }

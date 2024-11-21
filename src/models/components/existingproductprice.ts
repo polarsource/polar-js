@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * A price that already exists for this product.
@@ -49,4 +52,22 @@ export namespace ExistingProductPrice$ {
   export const outboundSchema = ExistingProductPrice$outboundSchema;
   /** @deprecated use `ExistingProductPrice$Outbound` instead. */
   export type Outbound = ExistingProductPrice$Outbound;
+}
+
+export function existingProductPriceToJSON(
+  existingProductPrice: ExistingProductPrice,
+): string {
+  return JSON.stringify(
+    ExistingProductPrice$outboundSchema.parse(existingProductPrice),
+  );
+}
+
+export function existingProductPriceFromJSON(
+  jsonString: string,
+): SafeParseResult<ExistingProductPrice, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ExistingProductPrice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ExistingProductPrice' from JSON`,
+  );
 }

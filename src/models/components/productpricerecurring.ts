@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductPriceRecurringCustom,
   ProductPriceRecurringCustom$inboundSchema,
@@ -66,4 +69,22 @@ export namespace ProductPriceRecurring$ {
   export const outboundSchema = ProductPriceRecurring$outboundSchema;
   /** @deprecated use `ProductPriceRecurring$Outbound` instead. */
   export type Outbound = ProductPriceRecurring$Outbound;
+}
+
+export function productPriceRecurringToJSON(
+  productPriceRecurring: ProductPriceRecurring,
+): string {
+  return JSON.stringify(
+    ProductPriceRecurring$outboundSchema.parse(productPriceRecurring),
+  );
+}
+
+export function productPriceRecurringFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductPriceRecurring, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductPriceRecurring$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductPriceRecurring' from JSON`,
+  );
 }

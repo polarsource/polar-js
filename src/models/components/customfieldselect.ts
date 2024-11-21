@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldSelectProperties,
   CustomFieldSelectProperties$inboundSchema,
@@ -80,6 +83,24 @@ export namespace CustomFieldSelectMetadata$ {
   export const outboundSchema = CustomFieldSelectMetadata$outboundSchema;
   /** @deprecated use `CustomFieldSelectMetadata$Outbound` instead. */
   export type Outbound = CustomFieldSelectMetadata$Outbound;
+}
+
+export function customFieldSelectMetadataToJSON(
+  customFieldSelectMetadata: CustomFieldSelectMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldSelectMetadata$outboundSchema.parse(customFieldSelectMetadata),
+  );
+}
+
+export function customFieldSelectMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldSelectMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldSelectMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldSelectMetadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -175,4 +196,22 @@ export namespace CustomFieldSelect$ {
   export const outboundSchema = CustomFieldSelect$outboundSchema;
   /** @deprecated use `CustomFieldSelect$Outbound` instead. */
   export type Outbound = CustomFieldSelect$Outbound;
+}
+
+export function customFieldSelectToJSON(
+  customFieldSelect: CustomFieldSelect,
+): string {
+  return JSON.stringify(
+    CustomFieldSelect$outboundSchema.parse(customFieldSelect),
+  );
+}
+
+export function customFieldSelectFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldSelect, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldSelect$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldSelect' from JSON`,
+  );
 }

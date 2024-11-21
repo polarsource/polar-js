@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldCheckboxProperties,
   CustomFieldCheckboxProperties$inboundSchema,
@@ -76,6 +79,26 @@ export namespace CustomFieldUpdateCheckboxMetadata$ {
     CustomFieldUpdateCheckboxMetadata$outboundSchema;
   /** @deprecated use `CustomFieldUpdateCheckboxMetadata$Outbound` instead. */
   export type Outbound = CustomFieldUpdateCheckboxMetadata$Outbound;
+}
+
+export function customFieldUpdateCheckboxMetadataToJSON(
+  customFieldUpdateCheckboxMetadata: CustomFieldUpdateCheckboxMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldUpdateCheckboxMetadata$outboundSchema.parse(
+      customFieldUpdateCheckboxMetadata,
+    ),
+  );
+}
+
+export function customFieldUpdateCheckboxMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldUpdateCheckboxMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldUpdateCheckboxMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldUpdateCheckboxMetadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -151,4 +174,22 @@ export namespace CustomFieldUpdateCheckbox$ {
   export const outboundSchema = CustomFieldUpdateCheckbox$outboundSchema;
   /** @deprecated use `CustomFieldUpdateCheckbox$Outbound` instead. */
   export type Outbound = CustomFieldUpdateCheckbox$Outbound;
+}
+
+export function customFieldUpdateCheckboxToJSON(
+  customFieldUpdateCheckbox: CustomFieldUpdateCheckbox,
+): string {
+  return JSON.stringify(
+    CustomFieldUpdateCheckbox$outboundSchema.parse(customFieldUpdateCheckbox),
+  );
+}
+
+export function customFieldUpdateCheckboxFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldUpdateCheckbox, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldUpdateCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldUpdateCheckbox' from JSON`,
+  );
 }

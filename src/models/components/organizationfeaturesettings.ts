@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrganizationFeatureSettings = {
   /**
@@ -63,4 +66,24 @@ export namespace OrganizationFeatureSettings$ {
   export const outboundSchema = OrganizationFeatureSettings$outboundSchema;
   /** @deprecated use `OrganizationFeatureSettings$Outbound` instead. */
   export type Outbound = OrganizationFeatureSettings$Outbound;
+}
+
+export function organizationFeatureSettingsToJSON(
+  organizationFeatureSettings: OrganizationFeatureSettings,
+): string {
+  return JSON.stringify(
+    OrganizationFeatureSettings$outboundSchema.parse(
+      organizationFeatureSettings,
+    ),
+  );
+}
+
+export function organizationFeatureSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<OrganizationFeatureSettings, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrganizationFeatureSettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrganizationFeatureSettings' from JSON`,
+  );
 }

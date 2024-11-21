@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ArticlesPreviewRequest = {
   id: string;
@@ -56,4 +59,22 @@ export namespace ArticlesPreviewRequest$ {
   export const outboundSchema = ArticlesPreviewRequest$outboundSchema;
   /** @deprecated use `ArticlesPreviewRequest$Outbound` instead. */
   export type Outbound = ArticlesPreviewRequest$Outbound;
+}
+
+export function articlesPreviewRequestToJSON(
+  articlesPreviewRequest: ArticlesPreviewRequest,
+): string {
+  return JSON.stringify(
+    ArticlesPreviewRequest$outboundSchema.parse(articlesPreviewRequest),
+  );
+}
+
+export function articlesPreviewRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ArticlesPreviewRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ArticlesPreviewRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ArticlesPreviewRequest' from JSON`,
+  );
 }

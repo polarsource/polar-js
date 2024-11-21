@@ -18,6 +18,8 @@ export const SubscriptionSortProperty = {
   MinusAmount: "-amount",
   Product: "product",
   MinusProduct: "-product",
+  Discount: "discount",
+  MinusDiscount: "-discount",
 } as const;
 export type SubscriptionSortProperty = ClosedEnum<
   typeof SubscriptionSortProperty

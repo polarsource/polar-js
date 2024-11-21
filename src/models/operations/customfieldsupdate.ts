@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldsUpdateRequest = {
   /**
@@ -59,4 +62,22 @@ export namespace CustomFieldsUpdateRequest$ {
   export const outboundSchema = CustomFieldsUpdateRequest$outboundSchema;
   /** @deprecated use `CustomFieldsUpdateRequest$Outbound` instead. */
   export type Outbound = CustomFieldsUpdateRequest$Outbound;
+}
+
+export function customFieldsUpdateRequestToJSON(
+  customFieldsUpdateRequest: CustomFieldsUpdateRequest,
+): string {
+  return JSON.stringify(
+    CustomFieldsUpdateRequest$outboundSchema.parse(customFieldsUpdateRequest),
+  );
+}
+
+export function customFieldsUpdateRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldsUpdateRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldsUpdateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldsUpdateRequest' from JSON`,
+  );
 }

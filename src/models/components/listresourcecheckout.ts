@@ -3,21 +3,24 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  Checkout,
+  Checkout$inboundSchema,
+  Checkout$Outbound,
+  Checkout$outboundSchema,
+} from "./checkout.js";
 import {
   Pagination,
   Pagination$inboundSchema,
   Pagination$Outbound,
   Pagination$outboundSchema,
 } from "./pagination.js";
-import {
-  PolarCheckoutSchemasCheckout,
-  PolarCheckoutSchemasCheckout$inboundSchema,
-  PolarCheckoutSchemasCheckout$Outbound,
-  PolarCheckoutSchemasCheckout$outboundSchema,
-} from "./polarcheckoutschemascheckout.js";
 
 export type ListResourceCheckout = {
-  items: Array<PolarCheckoutSchemasCheckout>;
+  items: Array<Checkout>;
   pagination: Pagination;
 };
 
@@ -27,13 +30,13 @@ export const ListResourceCheckout$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  items: z.array(PolarCheckoutSchemasCheckout$inboundSchema),
+  items: z.array(Checkout$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
 
 /** @internal */
 export type ListResourceCheckout$Outbound = {
-  items: Array<PolarCheckoutSchemasCheckout$Outbound>;
+  items: Array<Checkout$Outbound>;
   pagination: Pagination$Outbound;
 };
 
@@ -43,7 +46,7 @@ export const ListResourceCheckout$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListResourceCheckout
 > = z.object({
-  items: z.array(PolarCheckoutSchemasCheckout$outboundSchema),
+  items: z.array(Checkout$outboundSchema),
   pagination: Pagination$outboundSchema,
 });
 
@@ -58,4 +61,22 @@ export namespace ListResourceCheckout$ {
   export const outboundSchema = ListResourceCheckout$outboundSchema;
   /** @deprecated use `ListResourceCheckout$Outbound` instead. */
   export type Outbound = ListResourceCheckout$Outbound;
+}
+
+export function listResourceCheckoutToJSON(
+  listResourceCheckout: ListResourceCheckout,
+): string {
+  return JSON.stringify(
+    ListResourceCheckout$outboundSchema.parse(listResourceCheckout),
+  );
+}
+
+export function listResourceCheckoutFromJSON(
+  jsonString: string,
+): SafeParseResult<ListResourceCheckout, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListResourceCheckout$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourceCheckout' from JSON`,
+  );
 }

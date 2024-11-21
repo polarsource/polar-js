@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Oauth2ClientsOauth2DeleteClientRequest = {
   clientId: string;
@@ -53,4 +56,26 @@ export namespace Oauth2ClientsOauth2DeleteClientRequest$ {
     Oauth2ClientsOauth2DeleteClientRequest$outboundSchema;
   /** @deprecated use `Oauth2ClientsOauth2DeleteClientRequest$Outbound` instead. */
   export type Outbound = Oauth2ClientsOauth2DeleteClientRequest$Outbound;
+}
+
+export function oauth2ClientsOauth2DeleteClientRequestToJSON(
+  oauth2ClientsOauth2DeleteClientRequest:
+    Oauth2ClientsOauth2DeleteClientRequest,
+): string {
+  return JSON.stringify(
+    Oauth2ClientsOauth2DeleteClientRequest$outboundSchema.parse(
+      oauth2ClientsOauth2DeleteClientRequest,
+    ),
+  );
+}
+
+export function oauth2ClientsOauth2DeleteClientRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<Oauth2ClientsOauth2DeleteClientRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      Oauth2ClientsOauth2DeleteClientRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Oauth2ClientsOauth2DeleteClientRequest' from JSON`,
+  );
 }

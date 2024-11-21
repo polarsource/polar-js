@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGrantWebhook,
   BenefitGrantWebhook$inboundSchema,
@@ -92,4 +95,24 @@ export namespace WebhookBenefitGrantRevokedPayload$ {
     WebhookBenefitGrantRevokedPayload$outboundSchema;
   /** @deprecated use `WebhookBenefitGrantRevokedPayload$Outbound` instead. */
   export type Outbound = WebhookBenefitGrantRevokedPayload$Outbound;
+}
+
+export function webhookBenefitGrantRevokedPayloadToJSON(
+  webhookBenefitGrantRevokedPayload: WebhookBenefitGrantRevokedPayload,
+): string {
+  return JSON.stringify(
+    WebhookBenefitGrantRevokedPayload$outboundSchema.parse(
+      webhookBenefitGrantRevokedPayload,
+    ),
+  );
+}
+
+export function webhookBenefitGrantRevokedPayloadFromJSON(
+  jsonString: string,
+): SafeParseResult<WebhookBenefitGrantRevokedPayload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => WebhookBenefitGrantRevokedPayload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'WebhookBenefitGrantRevokedPayload' from JSON`,
+  );
 }

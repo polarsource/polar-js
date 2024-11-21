@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LicenseKeyStatus,
   LicenseKeyStatus$inboundSchema,
@@ -135,4 +138,18 @@ export namespace LicenseKeyRead$ {
   export const outboundSchema = LicenseKeyRead$outboundSchema;
   /** @deprecated use `LicenseKeyRead$Outbound` instead. */
   export type Outbound = LicenseKeyRead$Outbound;
+}
+
+export function licenseKeyReadToJSON(licenseKeyRead: LicenseKeyRead): string {
+  return JSON.stringify(LicenseKeyRead$outboundSchema.parse(licenseKeyRead));
+}
+
+export function licenseKeyReadFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeyRead, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeyRead$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeyRead' from JSON`,
+  );
 }

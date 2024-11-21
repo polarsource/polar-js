@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const TokenTypeHint = {
   AccessToken: "access_token",
@@ -97,4 +100,25 @@ export namespace Oauth2RevokeTokenRevokeTokenRequest$ {
     Oauth2RevokeTokenRevokeTokenRequest$outboundSchema;
   /** @deprecated use `Oauth2RevokeTokenRevokeTokenRequest$Outbound` instead. */
   export type Outbound = Oauth2RevokeTokenRevokeTokenRequest$Outbound;
+}
+
+export function oauth2RevokeTokenRevokeTokenRequestToJSON(
+  oauth2RevokeTokenRevokeTokenRequest: Oauth2RevokeTokenRevokeTokenRequest,
+): string {
+  return JSON.stringify(
+    Oauth2RevokeTokenRevokeTokenRequest$outboundSchema.parse(
+      oauth2RevokeTokenRevokeTokenRequest,
+    ),
+  );
+}
+
+export function oauth2RevokeTokenRevokeTokenRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<Oauth2RevokeTokenRevokeTokenRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      Oauth2RevokeTokenRevokeTokenRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Oauth2RevokeTokenRevokeTokenRequest' from JSON`,
+  );
 }

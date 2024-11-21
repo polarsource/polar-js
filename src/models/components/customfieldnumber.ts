@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldNumberProperties,
   CustomFieldNumberProperties$inboundSchema,
@@ -80,6 +83,24 @@ export namespace CustomFieldNumberMetadata$ {
   export const outboundSchema = CustomFieldNumberMetadata$outboundSchema;
   /** @deprecated use `CustomFieldNumberMetadata$Outbound` instead. */
   export type Outbound = CustomFieldNumberMetadata$Outbound;
+}
+
+export function customFieldNumberMetadataToJSON(
+  customFieldNumberMetadata: CustomFieldNumberMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldNumberMetadata$outboundSchema.parse(customFieldNumberMetadata),
+  );
+}
+
+export function customFieldNumberMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldNumberMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldNumberMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldNumberMetadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -175,4 +196,22 @@ export namespace CustomFieldNumber$ {
   export const outboundSchema = CustomFieldNumber$outboundSchema;
   /** @deprecated use `CustomFieldNumber$Outbound` instead. */
   export type Outbound = CustomFieldNumber$Outbound;
+}
+
+export function customFieldNumberToJSON(
+  customFieldNumber: CustomFieldNumber,
+): string {
+  return JSON.stringify(
+    CustomFieldNumber$outboundSchema.parse(customFieldNumber),
+  );
+}
+
+export function customFieldNumberFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldNumber, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldNumber' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Loc = string | number;
 
@@ -35,6 +38,20 @@ export namespace Loc$ {
   export const outboundSchema = Loc$outboundSchema;
   /** @deprecated use `Loc$Outbound` instead. */
   export type Outbound = Loc$Outbound;
+}
+
+export function locToJSON(loc: Loc): string {
+  return JSON.stringify(Loc$outboundSchema.parse(loc));
+}
+
+export function locFromJSON(
+  jsonString: string,
+): SafeParseResult<Loc, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Loc$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Loc' from JSON`,
+  );
 }
 
 /** @internal */
@@ -77,4 +94,20 @@ export namespace ValidationError$ {
   export const outboundSchema = ValidationError$outboundSchema;
   /** @deprecated use `ValidationError$Outbound` instead. */
   export type Outbound = ValidationError$Outbound;
+}
+
+export function validationErrorToJSON(
+  validationError: ValidationError,
+): string {
+  return JSON.stringify(ValidationError$outboundSchema.parse(validationError));
+}
+
+export function validationErrorFromJSON(
+  jsonString: string,
+): SafeParseResult<ValidationError, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ValidationError$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ValidationError' from JSON`,
+  );
 }

@@ -23,6 +23,7 @@ let value: ListResourceSubscription = {
       userId: "<value>",
       productId: "<value>",
       priceId: "<value>",
+      discountId: "<value>",
       checkoutId: "<value>",
       metadata: {
         "key": "<value>",
@@ -128,11 +129,30 @@ let value: ListResourceSubscription = {
         productId: "<value>",
         recurringInterval: "year",
       },
+      discount: {
+        duration: "once",
+        type: "percentage",
+        amount: 2624,
+        currency: "Tenge",
+        createdAt: new Date("2024-04-08T22:49:57.409Z"),
+        modifiedAt: new Date("2022-08-19T02:52:03.167Z"),
+        id: "<value>",
+        metadata: {
+          "key": 493061,
+        },
+        name: "<value>",
+        code: "<value>",
+        startsAt: new Date("2022-10-13T09:29:12.610Z"),
+        endsAt: new Date("2024-08-21T02:40:22.469Z"),
+        maxRedemptions: 925157,
+        redemptionsCount: 749337,
+        organizationId: "<value>",
+      },
     },
   ],
   pagination: {
-    totalCount: 109609,
-    maxPage: 146540,
+    totalCount: 8636,
+    maxPage: 628926,
   },
 };
 ```

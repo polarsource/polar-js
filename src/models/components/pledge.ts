@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Issue,
   Issue$inboundSchema,
@@ -182,4 +185,18 @@ export namespace Pledge$ {
   export const outboundSchema = Pledge$outboundSchema;
   /** @deprecated use `Pledge$Outbound` instead. */
   export type Outbound = Pledge$Outbound;
+}
+
+export function pledgeToJSON(pledge: Pledge): string {
+  return JSON.stringify(Pledge$outboundSchema.parse(pledge));
+}
+
+export function pledgeFromJSON(
+  jsonString: string,
+): SafeParseResult<Pledge, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Pledge$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Pledge' from JSON`,
+  );
 }

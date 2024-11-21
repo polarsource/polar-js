@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const ProductPriceOneTimeFreeCreateType = {
   OneTime: "one_time",
@@ -118,4 +121,24 @@ export namespace ProductPriceOneTimeFreeCreate$ {
   export const outboundSchema = ProductPriceOneTimeFreeCreate$outboundSchema;
   /** @deprecated use `ProductPriceOneTimeFreeCreate$Outbound` instead. */
   export type Outbound = ProductPriceOneTimeFreeCreate$Outbound;
+}
+
+export function productPriceOneTimeFreeCreateToJSON(
+  productPriceOneTimeFreeCreate: ProductPriceOneTimeFreeCreate,
+): string {
+  return JSON.stringify(
+    ProductPriceOneTimeFreeCreate$outboundSchema.parse(
+      productPriceOneTimeFreeCreate,
+    ),
+  );
+}
+
+export function productPriceOneTimeFreeCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductPriceOneTimeFreeCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductPriceOneTimeFreeCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductPriceOneTimeFreeCreate' from JSON`,
+  );
 }

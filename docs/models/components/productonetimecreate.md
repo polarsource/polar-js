@@ -11,7 +11,7 @@ let value: ProductOneTimeCreate = {
   name: "<value>",
   prices: [
     {
-      priceAmount: 717659,
+      priceAmount: 171134,
     },
   ],
 };

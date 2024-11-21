@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldNumberProperties,
   CustomFieldNumberProperties$inboundSchema,
@@ -88,6 +91,26 @@ export namespace CustomFieldCreateNumberMetadata$ {
   export type Outbound = CustomFieldCreateNumberMetadata$Outbound;
 }
 
+export function customFieldCreateNumberMetadataToJSON(
+  customFieldCreateNumberMetadata: CustomFieldCreateNumberMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldCreateNumberMetadata$outboundSchema.parse(
+      customFieldCreateNumberMetadata,
+    ),
+  );
+}
+
+export function customFieldCreateNumberMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCreateNumberMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCreateNumberMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCreateNumberMetadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const CustomFieldCreateNumberType$inboundSchema: z.ZodNativeEnum<
   typeof CustomFieldCreateNumberType
@@ -168,4 +191,22 @@ export namespace CustomFieldCreateNumber$ {
   export const outboundSchema = CustomFieldCreateNumber$outboundSchema;
   /** @deprecated use `CustomFieldCreateNumber$Outbound` instead. */
   export type Outbound = CustomFieldCreateNumber$Outbound;
+}
+
+export function customFieldCreateNumberToJSON(
+  customFieldCreateNumber: CustomFieldCreateNumber,
+): string {
+  return JSON.stringify(
+    CustomFieldCreateNumber$outboundSchema.parse(customFieldCreateNumber),
+  );
+}
+
+export function customFieldCreateNumberFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCreateNumber, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCreateNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCreateNumber' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DownloadableFileRead,
   DownloadableFileRead$inboundSchema,
@@ -107,6 +110,20 @@ export namespace FileRead$ {
   export type Outbound = FileRead$Outbound;
 }
 
+export function fileReadToJSON(fileRead: FileRead): string {
+  return JSON.stringify(FileRead$outboundSchema.parse(fileRead));
+}
+
+export function fileReadFromJSON(
+  jsonString: string,
+): SafeParseResult<FileRead, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FileRead$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FileRead' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListResourceFileRead$inboundSchema: z.ZodType<
   ListResourceFileRead,
@@ -184,4 +201,22 @@ export namespace ListResourceFileRead$ {
   export const outboundSchema = ListResourceFileRead$outboundSchema;
   /** @deprecated use `ListResourceFileRead$Outbound` instead. */
   export type Outbound = ListResourceFileRead$Outbound;
+}
+
+export function listResourceFileReadToJSON(
+  listResourceFileRead: ListResourceFileRead,
+): string {
+  return JSON.stringify(
+    ListResourceFileRead$outboundSchema.parse(listResourceFileRead),
+  );
+}
+
+export function listResourceFileReadFromJSON(
+  jsonString: string,
+): SafeParseResult<ListResourceFileRead, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListResourceFileRead$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourceFileRead' from JSON`,
+  );
 }

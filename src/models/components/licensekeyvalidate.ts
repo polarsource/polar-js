@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Conditions = {};
 
@@ -45,6 +48,20 @@ export namespace Conditions$ {
   export const outboundSchema = Conditions$outboundSchema;
   /** @deprecated use `Conditions$Outbound` instead. */
   export type Outbound = Conditions$Outbound;
+}
+
+export function conditionsToJSON(conditions: Conditions): string {
+  return JSON.stringify(Conditions$outboundSchema.parse(conditions));
+}
+
+export function conditionsFromJSON(
+  jsonString: string,
+): SafeParseResult<Conditions, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Conditions$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Conditions' from JSON`,
+  );
 }
 
 /** @internal */
@@ -115,4 +132,22 @@ export namespace LicenseKeyValidate$ {
   export const outboundSchema = LicenseKeyValidate$outboundSchema;
   /** @deprecated use `LicenseKeyValidate$Outbound` instead. */
   export type Outbound = LicenseKeyValidate$Outbound;
+}
+
+export function licenseKeyValidateToJSON(
+  licenseKeyValidate: LicenseKeyValidate,
+): string {
+  return JSON.stringify(
+    LicenseKeyValidate$outboundSchema.parse(licenseKeyValidate),
+  );
+}
+
+export function licenseKeyValidateFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeyValidate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeyValidate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeyValidate' from JSON`,
+  );
 }

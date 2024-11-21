@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Pagination,
   Pagination$inboundSchema,
@@ -58,4 +61,22 @@ export namespace ListResourceRepository$ {
   export const outboundSchema = ListResourceRepository$outboundSchema;
   /** @deprecated use `ListResourceRepository$Outbound` instead. */
   export type Outbound = ListResourceRepository$Outbound;
+}
+
+export function listResourceRepositoryToJSON(
+  listResourceRepository: ListResourceRepository,
+): string {
+  return JSON.stringify(
+    ListResourceRepository$outboundSchema.parse(listResourceRepository),
+  );
+}
+
+export function listResourceRepositoryFromJSON(
+  jsonString: string,
+): SafeParseResult<ListResourceRepository, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListResourceRepository$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourceRepository' from JSON`,
+  );
 }

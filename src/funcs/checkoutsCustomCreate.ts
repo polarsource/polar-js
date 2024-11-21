@@ -30,11 +30,11 @@ import { Result } from "../types/fp.js";
  */
 export async function checkoutsCustomCreate(
   client: PolarCore,
-  request: components.PolarCheckoutSchemasCheckoutCreate,
+  request: components.CheckoutCreate,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.PolarCheckoutSchemasCheckout,
+    components.Checkout,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -47,8 +47,7 @@ export async function checkoutsCustomCreate(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      components.PolarCheckoutSchemasCheckoutCreate$outboundSchema.parse(value),
+    (value) => components.CheckoutCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -110,7 +109,7 @@ export async function checkoutsCustomCreate(
   };
 
   const [result] = await M.match<
-    components.PolarCheckoutSchemasCheckout,
+    components.Checkout,
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -120,7 +119,7 @@ export async function checkoutsCustomCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(201, components.PolarCheckoutSchemasCheckout$inboundSchema),
+    M.json(201, components.Checkout$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),
   )(response, { extraFields: responseFields });

@@ -4,6 +4,39 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  CheckoutLinkProduct,
+  CheckoutLinkProduct$inboundSchema,
+  CheckoutLinkProduct$Outbound,
+  CheckoutLinkProduct$outboundSchema,
+} from "./checkoutlinkproduct.js";
+import {
+  DiscountFixedOnceForeverDurationBase,
+  DiscountFixedOnceForeverDurationBase$inboundSchema,
+  DiscountFixedOnceForeverDurationBase$Outbound,
+  DiscountFixedOnceForeverDurationBase$outboundSchema,
+} from "./discountfixedonceforeverdurationbase.js";
+import {
+  DiscountFixedRepeatDurationBase,
+  DiscountFixedRepeatDurationBase$inboundSchema,
+  DiscountFixedRepeatDurationBase$Outbound,
+  DiscountFixedRepeatDurationBase$outboundSchema,
+} from "./discountfixedrepeatdurationbase.js";
+import {
+  DiscountPercentageOnceForeverDurationBase,
+  DiscountPercentageOnceForeverDurationBase$inboundSchema,
+  DiscountPercentageOnceForeverDurationBase$Outbound,
+  DiscountPercentageOnceForeverDurationBase$outboundSchema,
+} from "./discountpercentageonceforeverdurationbase.js";
+import {
+  DiscountPercentageRepeatDurationBase,
+  DiscountPercentageRepeatDurationBase$inboundSchema,
+  DiscountPercentageRepeatDurationBase$Outbound,
+  DiscountPercentageRepeatDurationBase$outboundSchema,
+} from "./discountpercentagerepeatdurationbase.js";
 import {
   ProductPrice,
   ProductPrice$inboundSchema,
@@ -12,6 +45,12 @@ import {
 } from "./productprice.js";
 
 export type CheckoutLinkMetadata = string | number | boolean;
+
+export type CheckoutLinkDiscount =
+  | DiscountPercentageOnceForeverDurationBase
+  | DiscountFixedOnceForeverDurationBase
+  | DiscountPercentageRepeatDurationBase
+  | DiscountFixedRepeatDurationBase;
 
 /**
  * Checkout link data.
@@ -40,10 +79,36 @@ export type CheckoutLink = {
    */
   successUrl: string | null;
   /**
-   * ID of the product price to checkout.
+   * Optional label to distinguish links internally
    */
-  productPriceId: string;
-  productPrice: ProductPrice;
+  label: string | null;
+  /**
+   * Whether to allow the customer to apply discount codes. If you apply a discount through `discount_id`, it'll still be applied, but the customer won't be able to change it.
+   */
+  allowDiscountCodes: boolean;
+  /**
+   * ID of the product to checkout.
+   */
+  productId: string;
+  /**
+   * ID of the product price to checkout. First available price will be selected unless an explicit price ID is set.
+   */
+  productPriceId: string | null;
+  /**
+   * ID of the discount to apply to the checkout. If the discount is not applicable anymore when opening the checkout link, it'll be ignored.
+   */
+  discountId: string | null;
+  /**
+   * Product data for a checkout link.
+   */
+  product: CheckoutLinkProduct;
+  productPrice: ProductPrice | null;
+  discount:
+    | DiscountPercentageOnceForeverDurationBase
+    | DiscountFixedOnceForeverDurationBase
+    | DiscountPercentageRepeatDurationBase
+    | DiscountFixedRepeatDurationBase
+    | null;
   url: string;
 };
 
@@ -77,6 +142,86 @@ export namespace CheckoutLinkMetadata$ {
   export type Outbound = CheckoutLinkMetadata$Outbound;
 }
 
+export function checkoutLinkMetadataToJSON(
+  checkoutLinkMetadata: CheckoutLinkMetadata,
+): string {
+  return JSON.stringify(
+    CheckoutLinkMetadata$outboundSchema.parse(checkoutLinkMetadata),
+  );
+}
+
+export function checkoutLinkMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLinkMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLinkMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLinkMetadata' from JSON`,
+  );
+}
+
+/** @internal */
+export const CheckoutLinkDiscount$inboundSchema: z.ZodType<
+  CheckoutLinkDiscount,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  DiscountPercentageOnceForeverDurationBase$inboundSchema,
+  DiscountFixedOnceForeverDurationBase$inboundSchema,
+  DiscountPercentageRepeatDurationBase$inboundSchema,
+  DiscountFixedRepeatDurationBase$inboundSchema,
+]);
+
+/** @internal */
+export type CheckoutLinkDiscount$Outbound =
+  | DiscountPercentageOnceForeverDurationBase$Outbound
+  | DiscountFixedOnceForeverDurationBase$Outbound
+  | DiscountPercentageRepeatDurationBase$Outbound
+  | DiscountFixedRepeatDurationBase$Outbound;
+
+/** @internal */
+export const CheckoutLinkDiscount$outboundSchema: z.ZodType<
+  CheckoutLinkDiscount$Outbound,
+  z.ZodTypeDef,
+  CheckoutLinkDiscount
+> = z.union([
+  DiscountPercentageOnceForeverDurationBase$outboundSchema,
+  DiscountFixedOnceForeverDurationBase$outboundSchema,
+  DiscountPercentageRepeatDurationBase$outboundSchema,
+  DiscountFixedRepeatDurationBase$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutLinkDiscount$ {
+  /** @deprecated use `CheckoutLinkDiscount$inboundSchema` instead. */
+  export const inboundSchema = CheckoutLinkDiscount$inboundSchema;
+  /** @deprecated use `CheckoutLinkDiscount$outboundSchema` instead. */
+  export const outboundSchema = CheckoutLinkDiscount$outboundSchema;
+  /** @deprecated use `CheckoutLinkDiscount$Outbound` instead. */
+  export type Outbound = CheckoutLinkDiscount$Outbound;
+}
+
+export function checkoutLinkDiscountToJSON(
+  checkoutLinkDiscount: CheckoutLinkDiscount,
+): string {
+  return JSON.stringify(
+    CheckoutLinkDiscount$outboundSchema.parse(checkoutLinkDiscount),
+  );
+}
+
+export function checkoutLinkDiscountFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLinkDiscount, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLinkDiscount$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLinkDiscount' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutLink$inboundSchema: z.ZodType<
   CheckoutLink,
@@ -92,8 +237,21 @@ export const CheckoutLink$inboundSchema: z.ZodType<
   payment_processor: z.literal("stripe").optional(),
   client_secret: z.string(),
   success_url: z.nullable(z.string()),
-  product_price_id: z.string(),
-  product_price: ProductPrice$inboundSchema,
+  label: z.nullable(z.string()),
+  allow_discount_codes: z.boolean(),
+  product_id: z.string(),
+  product_price_id: z.nullable(z.string()),
+  discount_id: z.nullable(z.string()),
+  product: CheckoutLinkProduct$inboundSchema,
+  product_price: z.nullable(ProductPrice$inboundSchema),
+  discount: z.nullable(
+    z.union([
+      DiscountPercentageOnceForeverDurationBase$inboundSchema,
+      DiscountFixedOnceForeverDurationBase$inboundSchema,
+      DiscountPercentageRepeatDurationBase$inboundSchema,
+      DiscountFixedRepeatDurationBase$inboundSchema,
+    ]),
+  ),
   url: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -102,7 +260,10 @@ export const CheckoutLink$inboundSchema: z.ZodType<
     "payment_processor": "paymentProcessor",
     "client_secret": "clientSecret",
     "success_url": "successUrl",
+    "allow_discount_codes": "allowDiscountCodes",
+    "product_id": "productId",
     "product_price_id": "productPriceId",
+    "discount_id": "discountId",
     "product_price": "productPrice",
   });
 });
@@ -116,8 +277,19 @@ export type CheckoutLink$Outbound = {
   payment_processor: "stripe";
   client_secret: string;
   success_url: string | null;
-  product_price_id: string;
-  product_price: ProductPrice$Outbound;
+  label: string | null;
+  allow_discount_codes: boolean;
+  product_id: string;
+  product_price_id: string | null;
+  discount_id: string | null;
+  product: CheckoutLinkProduct$Outbound;
+  product_price: ProductPrice$Outbound | null;
+  discount:
+    | DiscountPercentageOnceForeverDurationBase$Outbound
+    | DiscountFixedOnceForeverDurationBase$Outbound
+    | DiscountPercentageRepeatDurationBase$Outbound
+    | DiscountFixedRepeatDurationBase$Outbound
+    | null;
   url: string;
 };
 
@@ -134,8 +306,21 @@ export const CheckoutLink$outboundSchema: z.ZodType<
   paymentProcessor: z.literal("stripe").default("stripe"),
   clientSecret: z.string(),
   successUrl: z.nullable(z.string()),
-  productPriceId: z.string(),
-  productPrice: ProductPrice$outboundSchema,
+  label: z.nullable(z.string()),
+  allowDiscountCodes: z.boolean(),
+  productId: z.string(),
+  productPriceId: z.nullable(z.string()),
+  discountId: z.nullable(z.string()),
+  product: CheckoutLinkProduct$outboundSchema,
+  productPrice: z.nullable(ProductPrice$outboundSchema),
+  discount: z.nullable(
+    z.union([
+      DiscountPercentageOnceForeverDurationBase$outboundSchema,
+      DiscountFixedOnceForeverDurationBase$outboundSchema,
+      DiscountPercentageRepeatDurationBase$outboundSchema,
+      DiscountFixedRepeatDurationBase$outboundSchema,
+    ]),
+  ),
   url: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -144,7 +329,10 @@ export const CheckoutLink$outboundSchema: z.ZodType<
     paymentProcessor: "payment_processor",
     clientSecret: "client_secret",
     successUrl: "success_url",
+    allowDiscountCodes: "allow_discount_codes",
+    productId: "product_id",
     productPriceId: "product_price_id",
+    discountId: "discount_id",
     productPrice: "product_price",
   });
 });
@@ -160,4 +348,18 @@ export namespace CheckoutLink$ {
   export const outboundSchema = CheckoutLink$outboundSchema;
   /** @deprecated use `CheckoutLink$Outbound` instead. */
   export type Outbound = CheckoutLink$Outbound;
+}
+
+export function checkoutLinkToJSON(checkoutLink: CheckoutLink): string {
+  return JSON.stringify(CheckoutLink$outboundSchema.parse(checkoutLink));
+}
+
+export function checkoutLinkFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLink, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLink$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLink' from JSON`,
+  );
 }

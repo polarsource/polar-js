@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type RepositoriesGetRequest = {
   id: string;
@@ -42,4 +45,22 @@ export namespace RepositoriesGetRequest$ {
   export const outboundSchema = RepositoriesGetRequest$outboundSchema;
   /** @deprecated use `RepositoriesGetRequest$Outbound` instead. */
   export type Outbound = RepositoriesGetRequest$Outbound;
+}
+
+export function repositoriesGetRequestToJSON(
+  repositoriesGetRequest: RepositoriesGetRequest,
+): string {
+  return JSON.stringify(
+    RepositoriesGetRequest$outboundSchema.parse(repositoriesGetRequest),
+  );
+}
+
+export function repositoriesGetRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<RepositoriesGetRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RepositoriesGetRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RepositoriesGetRequest' from JSON`,
+  );
 }

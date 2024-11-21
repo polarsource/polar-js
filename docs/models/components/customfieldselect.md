@@ -8,11 +8,11 @@ Schema for a custom field of type select.
 import { CustomFieldSelect } from "@polar-sh/sdk/models/components";
 
 let value: CustomFieldSelect = {
-  createdAt: new Date("2022-12-06T21:39:04.890Z"),
-  modifiedAt: new Date("2022-07-12T08:26:30.494Z"),
+  createdAt: new Date("2022-03-31T15:29:06.229Z"),
+  modifiedAt: new Date("2022-08-16T15:03:18.055Z"),
   id: "<value>",
   metadata: {
-    "key": 736174,
+    "key": false,
   },
   slug: "<value>",
   name: "<value>",

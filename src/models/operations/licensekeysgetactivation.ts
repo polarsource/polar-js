@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LicenseKeysGetActivationRequest = {
   id: string;
@@ -55,4 +58,24 @@ export namespace LicenseKeysGetActivationRequest$ {
   export const outboundSchema = LicenseKeysGetActivationRequest$outboundSchema;
   /** @deprecated use `LicenseKeysGetActivationRequest$Outbound` instead. */
   export type Outbound = LicenseKeysGetActivationRequest$Outbound;
+}
+
+export function licenseKeysGetActivationRequestToJSON(
+  licenseKeysGetActivationRequest: LicenseKeysGetActivationRequest,
+): string {
+  return JSON.stringify(
+    LicenseKeysGetActivationRequest$outboundSchema.parse(
+      licenseKeysGetActivationRequest,
+    ),
+  );
+}
+
+export function licenseKeysGetActivationRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeysGetActivationRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeysGetActivationRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeysGetActivationRequest' from JSON`,
+  );
 }

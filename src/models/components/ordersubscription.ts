@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
@@ -43,6 +46,7 @@ export type OrderSubscription = {
   userId: string;
   productId: string;
   priceId: string;
+  discountId: string | null;
   checkoutId: string | null;
 };
 
@@ -74,6 +78,24 @@ export namespace OrderSubscriptionMetadata$ {
   export const outboundSchema = OrderSubscriptionMetadata$outboundSchema;
   /** @deprecated use `OrderSubscriptionMetadata$Outbound` instead. */
   export type Outbound = OrderSubscriptionMetadata$Outbound;
+}
+
+export function orderSubscriptionMetadataToJSON(
+  orderSubscriptionMetadata: OrderSubscriptionMetadata,
+): string {
+  return JSON.stringify(
+    OrderSubscriptionMetadata$outboundSchema.parse(orderSubscriptionMetadata),
+  );
+}
+
+export function orderSubscriptionMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<OrderSubscriptionMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrderSubscriptionMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrderSubscriptionMetadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -108,6 +130,7 @@ export const OrderSubscription$inboundSchema: z.ZodType<
   user_id: z.string(),
   product_id: z.string(),
   price_id: z.string(),
+  discount_id: z.nullable(z.string()),
   checkout_id: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
@@ -122,6 +145,7 @@ export const OrderSubscription$inboundSchema: z.ZodType<
     "user_id": "userId",
     "product_id": "productId",
     "price_id": "priceId",
+    "discount_id": "discountId",
     "checkout_id": "checkoutId",
   });
 });
@@ -144,6 +168,7 @@ export type OrderSubscription$Outbound = {
   user_id: string;
   product_id: string;
   price_id: string;
+  discount_id: string | null;
   checkout_id: string | null;
 };
 
@@ -169,6 +194,7 @@ export const OrderSubscription$outboundSchema: z.ZodType<
   userId: z.string(),
   productId: z.string(),
   priceId: z.string(),
+  discountId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
@@ -183,6 +209,7 @@ export const OrderSubscription$outboundSchema: z.ZodType<
     userId: "user_id",
     productId: "product_id",
     priceId: "price_id",
+    discountId: "discount_id",
     checkoutId: "checkout_id",
   });
 });
@@ -198,4 +225,22 @@ export namespace OrderSubscription$ {
   export const outboundSchema = OrderSubscription$outboundSchema;
   /** @deprecated use `OrderSubscription$Outbound` instead. */
   export type Outbound = OrderSubscription$Outbound;
+}
+
+export function orderSubscriptionToJSON(
+  orderSubscription: OrderSubscription,
+): string {
+  return JSON.stringify(
+    OrderSubscription$outboundSchema.parse(orderSubscription),
+  );
+}
+
+export function orderSubscriptionFromJSON(
+  jsonString: string,
+): SafeParseResult<OrderSubscription, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrderSubscription$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrderSubscription' from JSON`,
+  );
 }

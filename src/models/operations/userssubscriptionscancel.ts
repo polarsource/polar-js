@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UsersSubscriptionsCancelRequest = {
   /**
@@ -45,4 +48,24 @@ export namespace UsersSubscriptionsCancelRequest$ {
   export const outboundSchema = UsersSubscriptionsCancelRequest$outboundSchema;
   /** @deprecated use `UsersSubscriptionsCancelRequest$Outbound` instead. */
   export type Outbound = UsersSubscriptionsCancelRequest$Outbound;
+}
+
+export function usersSubscriptionsCancelRequestToJSON(
+  usersSubscriptionsCancelRequest: UsersSubscriptionsCancelRequest,
+): string {
+  return JSON.stringify(
+    UsersSubscriptionsCancelRequest$outboundSchema.parse(
+      usersSubscriptionsCancelRequest,
+    ),
+  );
+}
+
+export function usersSubscriptionsCancelRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersSubscriptionsCancelRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersSubscriptionsCancelRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersSubscriptionsCancelRequest' from JSON`,
+  );
 }

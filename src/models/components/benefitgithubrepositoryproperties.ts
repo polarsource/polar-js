@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The permission level to grant. Read more about roles and their permissions on [GitHub documentation](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role).
@@ -115,4 +118,24 @@ export namespace BenefitGitHubRepositoryProperties$ {
     BenefitGitHubRepositoryProperties$outboundSchema;
   /** @deprecated use `BenefitGitHubRepositoryProperties$Outbound` instead. */
   export type Outbound = BenefitGitHubRepositoryProperties$Outbound;
+}
+
+export function benefitGitHubRepositoryPropertiesToJSON(
+  benefitGitHubRepositoryProperties: BenefitGitHubRepositoryProperties,
+): string {
+  return JSON.stringify(
+    BenefitGitHubRepositoryProperties$outboundSchema.parse(
+      benefitGitHubRepositoryProperties,
+    ),
+  );
+}
+
+export function benefitGitHubRepositoryPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGitHubRepositoryProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitGitHubRepositoryProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGitHubRepositoryProperties' from JSON`,
+  );
 }

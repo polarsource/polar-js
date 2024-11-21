@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   S3FileUploadCompletedPart,
   S3FileUploadCompletedPart$inboundSchema,
@@ -56,4 +59,22 @@ export namespace FileUploadCompleted$ {
   export const outboundSchema = FileUploadCompleted$outboundSchema;
   /** @deprecated use `FileUploadCompleted$Outbound` instead. */
   export type Outbound = FileUploadCompleted$Outbound;
+}
+
+export function fileUploadCompletedToJSON(
+  fileUploadCompleted: FileUploadCompleted,
+): string {
+  return JSON.stringify(
+    FileUploadCompleted$outboundSchema.parse(fileUploadCompleted),
+  );
+}
+
+export function fileUploadCompletedFromJSON(
+  jsonString: string,
+): SafeParseResult<FileUploadCompleted, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FileUploadCompleted$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FileUploadCompleted' from JSON`,
+  );
 }

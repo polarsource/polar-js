@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Subscription,
   Subscription$inboundSchema,
@@ -93,4 +96,25 @@ export namespace WebhookSubscriptionCanceledPayload$ {
     WebhookSubscriptionCanceledPayload$outboundSchema;
   /** @deprecated use `WebhookSubscriptionCanceledPayload$Outbound` instead. */
   export type Outbound = WebhookSubscriptionCanceledPayload$Outbound;
+}
+
+export function webhookSubscriptionCanceledPayloadToJSON(
+  webhookSubscriptionCanceledPayload: WebhookSubscriptionCanceledPayload,
+): string {
+  return JSON.stringify(
+    WebhookSubscriptionCanceledPayload$outboundSchema.parse(
+      webhookSubscriptionCanceledPayload,
+    ),
+  );
+}
+
+export function webhookSubscriptionCanceledPayloadFromJSON(
+  jsonString: string,
+): SafeParseResult<WebhookSubscriptionCanceledPayload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      WebhookSubscriptionCanceledPayload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'WebhookSubscriptionCanceledPayload' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Order,
   Order$inboundSchema,
@@ -58,4 +61,22 @@ export namespace ListResourceOrder$ {
   export const outboundSchema = ListResourceOrder$outboundSchema;
   /** @deprecated use `ListResourceOrder$Outbound` instead. */
   export type Outbound = ListResourceOrder$Outbound;
+}
+
+export function listResourceOrderToJSON(
+  listResourceOrder: ListResourceOrder,
+): string {
+  return JSON.stringify(
+    ListResourceOrder$outboundSchema.parse(listResourceOrder),
+  );
+}
+
+export function listResourceOrderFromJSON(
+  jsonString: string,
+): SafeParseResult<ListResourceOrder, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListResourceOrder$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourceOrder' from JSON`,
+  );
 }

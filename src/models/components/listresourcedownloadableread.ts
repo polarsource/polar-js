@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DownloadableRead,
   DownloadableRead$inboundSchema,
@@ -58,4 +61,24 @@ export namespace ListResourceDownloadableRead$ {
   export const outboundSchema = ListResourceDownloadableRead$outboundSchema;
   /** @deprecated use `ListResourceDownloadableRead$Outbound` instead. */
   export type Outbound = ListResourceDownloadableRead$Outbound;
+}
+
+export function listResourceDownloadableReadToJSON(
+  listResourceDownloadableRead: ListResourceDownloadableRead,
+): string {
+  return JSON.stringify(
+    ListResourceDownloadableRead$outboundSchema.parse(
+      listResourceDownloadableRead,
+    ),
+  );
+}
+
+export function listResourceDownloadableReadFromJSON(
+  jsonString: string,
+): SafeParseResult<ListResourceDownloadableRead, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListResourceDownloadableRead$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourceDownloadableRead' from JSON`,
+  );
 }

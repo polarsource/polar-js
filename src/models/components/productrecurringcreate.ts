@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AttachedCustomFieldCreate,
   AttachedCustomFieldCreate$inboundSchema,
@@ -108,6 +111,26 @@ export namespace ProductRecurringCreateMetadata$ {
   export type Outbound = ProductRecurringCreateMetadata$Outbound;
 }
 
+export function productRecurringCreateMetadataToJSON(
+  productRecurringCreateMetadata: ProductRecurringCreateMetadata,
+): string {
+  return JSON.stringify(
+    ProductRecurringCreateMetadata$outboundSchema.parse(
+      productRecurringCreateMetadata,
+    ),
+  );
+}
+
+export function productRecurringCreateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductRecurringCreateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductRecurringCreateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductRecurringCreateMetadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const ProductRecurringCreatePrices$inboundSchema: z.ZodType<
   ProductRecurringCreatePrices,
@@ -144,6 +167,26 @@ export namespace ProductRecurringCreatePrices$ {
   export const outboundSchema = ProductRecurringCreatePrices$outboundSchema;
   /** @deprecated use `ProductRecurringCreatePrices$Outbound` instead. */
   export type Outbound = ProductRecurringCreatePrices$Outbound;
+}
+
+export function productRecurringCreatePricesToJSON(
+  productRecurringCreatePrices: ProductRecurringCreatePrices,
+): string {
+  return JSON.stringify(
+    ProductRecurringCreatePrices$outboundSchema.parse(
+      productRecurringCreatePrices,
+    ),
+  );
+}
+
+export function productRecurringCreatePricesFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductRecurringCreatePrices, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductRecurringCreatePrices$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductRecurringCreatePrices' from JSON`,
+  );
 }
 
 /** @internal */
@@ -222,4 +265,22 @@ export namespace ProductRecurringCreate$ {
   export const outboundSchema = ProductRecurringCreate$outboundSchema;
   /** @deprecated use `ProductRecurringCreate$Outbound` instead. */
   export type Outbound = ProductRecurringCreate$Outbound;
+}
+
+export function productRecurringCreateToJSON(
+  productRecurringCreate: ProductRecurringCreate,
+): string {
+  return JSON.stringify(
+    ProductRecurringCreate$outboundSchema.parse(productRecurringCreate),
+  );
+}
+
+export function productRecurringCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductRecurringCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductRecurringCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductRecurringCreate' from JSON`,
+  );
 }

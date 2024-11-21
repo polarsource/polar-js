@@ -4,8 +4,11 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -89,6 +92,33 @@ export namespace MetricsGetQueryParamOrganizationIDFilter$ {
   export type Outbound = MetricsGetQueryParamOrganizationIDFilter$Outbound;
 }
 
+export function metricsGetQueryParamOrganizationIDFilterToJSON(
+  metricsGetQueryParamOrganizationIDFilter:
+    MetricsGetQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    MetricsGetQueryParamOrganizationIDFilter$outboundSchema.parse(
+      metricsGetQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function metricsGetQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsGetQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsGetQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsGetQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const MetricsGetQueryParamProductIDFilter$inboundSchema: z.ZodType<
   MetricsGetQueryParamProductIDFilter,
@@ -121,6 +151,27 @@ export namespace MetricsGetQueryParamProductIDFilter$ {
     MetricsGetQueryParamProductIDFilter$outboundSchema;
   /** @deprecated use `MetricsGetQueryParamProductIDFilter$Outbound` instead. */
   export type Outbound = MetricsGetQueryParamProductIDFilter$Outbound;
+}
+
+export function metricsGetQueryParamProductIDFilterToJSON(
+  metricsGetQueryParamProductIDFilter: MetricsGetQueryParamProductIDFilter,
+): string {
+  return JSON.stringify(
+    MetricsGetQueryParamProductIDFilter$outboundSchema.parse(
+      metricsGetQueryParamProductIDFilter,
+    ),
+  );
+}
+
+export function metricsGetQueryParamProductIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsGetQueryParamProductIDFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsGetQueryParamProductIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsGetQueryParamProductIDFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -160,6 +211,33 @@ export namespace MetricsGetQueryParamProductPriceTypeFilter$ {
     MetricsGetQueryParamProductPriceTypeFilter$outboundSchema;
   /** @deprecated use `MetricsGetQueryParamProductPriceTypeFilter$Outbound` instead. */
   export type Outbound = MetricsGetQueryParamProductPriceTypeFilter$Outbound;
+}
+
+export function metricsGetQueryParamProductPriceTypeFilterToJSON(
+  metricsGetQueryParamProductPriceTypeFilter:
+    MetricsGetQueryParamProductPriceTypeFilter,
+): string {
+  return JSON.stringify(
+    MetricsGetQueryParamProductPriceTypeFilter$outboundSchema.parse(
+      metricsGetQueryParamProductPriceTypeFilter,
+    ),
+  );
+}
+
+export function metricsGetQueryParamProductPriceTypeFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsGetQueryParamProductPriceTypeFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsGetQueryParamProductPriceTypeFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsGetQueryParamProductPriceTypeFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -239,4 +317,22 @@ export namespace MetricsGetRequest$ {
   export const outboundSchema = MetricsGetRequest$outboundSchema;
   /** @deprecated use `MetricsGetRequest$Outbound` instead. */
   export type Outbound = MetricsGetRequest$Outbound;
+}
+
+export function metricsGetRequestToJSON(
+  metricsGetRequest: MetricsGetRequest,
+): string {
+  return JSON.stringify(
+    MetricsGetRequest$outboundSchema.parse(metricsGetRequest),
+  );
+}
+
+export function metricsGetRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsGetRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsGetRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsGetRequest' from JSON`,
+  );
 }

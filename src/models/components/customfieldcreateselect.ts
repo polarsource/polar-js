@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldSelectProperties,
   CustomFieldSelectProperties$inboundSchema,
@@ -88,6 +91,26 @@ export namespace CustomFieldCreateSelectMetadata$ {
   export type Outbound = CustomFieldCreateSelectMetadata$Outbound;
 }
 
+export function customFieldCreateSelectMetadataToJSON(
+  customFieldCreateSelectMetadata: CustomFieldCreateSelectMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldCreateSelectMetadata$outboundSchema.parse(
+      customFieldCreateSelectMetadata,
+    ),
+  );
+}
+
+export function customFieldCreateSelectMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCreateSelectMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCreateSelectMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCreateSelectMetadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const CustomFieldCreateSelectType$inboundSchema: z.ZodNativeEnum<
   typeof CustomFieldCreateSelectType
@@ -168,4 +191,22 @@ export namespace CustomFieldCreateSelect$ {
   export const outboundSchema = CustomFieldCreateSelect$outboundSchema;
   /** @deprecated use `CustomFieldCreateSelect$Outbound` instead. */
   export type Outbound = CustomFieldCreateSelect$Outbound;
+}
+
+export function customFieldCreateSelectToJSON(
+  customFieldCreateSelect: CustomFieldCreateSelect,
+): string {
+  return JSON.stringify(
+    CustomFieldCreateSelect$outboundSchema.parse(customFieldCreateSelect),
+  );
+}
+
+export function customFieldCreateSelectFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldCreateSelect, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldCreateSelect$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldCreateSelect' from JSON`,
+  );
 }

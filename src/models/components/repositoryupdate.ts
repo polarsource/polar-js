@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   RepositoryProfileSettingsUpdate,
   RepositoryProfileSettingsUpdate$inboundSchema,
@@ -62,4 +65,22 @@ export namespace RepositoryUpdate$ {
   export const outboundSchema = RepositoryUpdate$outboundSchema;
   /** @deprecated use `RepositoryUpdate$Outbound` instead. */
   export type Outbound = RepositoryUpdate$Outbound;
+}
+
+export function repositoryUpdateToJSON(
+  repositoryUpdate: RepositoryUpdate,
+): string {
+  return JSON.stringify(
+    RepositoryUpdate$outboundSchema.parse(repositoryUpdate),
+  );
+}
+
+export function repositoryUpdateFromJSON(
+  jsonString: string,
+): SafeParseResult<RepositoryUpdate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RepositoryUpdate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RepositoryUpdate' from JSON`,
+  );
 }

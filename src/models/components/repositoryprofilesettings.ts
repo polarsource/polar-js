@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type RepositoryProfileSettings = {
   /**
@@ -86,4 +89,22 @@ export namespace RepositoryProfileSettings$ {
   export const outboundSchema = RepositoryProfileSettings$outboundSchema;
   /** @deprecated use `RepositoryProfileSettings$Outbound` instead. */
   export type Outbound = RepositoryProfileSettings$Outbound;
+}
+
+export function repositoryProfileSettingsToJSON(
+  repositoryProfileSettings: RepositoryProfileSettings,
+): string {
+  return JSON.stringify(
+    RepositoryProfileSettings$outboundSchema.parse(repositoryProfileSettings),
+  );
+}
+
+export function repositoryProfileSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<RepositoryProfileSettings, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RepositoryProfileSettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RepositoryProfileSettings' from JSON`,
+  );
 }

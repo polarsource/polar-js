@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldNumberProperties = {
   formLabel?: string | undefined;
@@ -71,4 +74,24 @@ export namespace CustomFieldNumberProperties$ {
   export const outboundSchema = CustomFieldNumberProperties$outboundSchema;
   /** @deprecated use `CustomFieldNumberProperties$Outbound` instead. */
   export type Outbound = CustomFieldNumberProperties$Outbound;
+}
+
+export function customFieldNumberPropertiesToJSON(
+  customFieldNumberProperties: CustomFieldNumberProperties,
+): string {
+  return JSON.stringify(
+    CustomFieldNumberProperties$outboundSchema.parse(
+      customFieldNumberProperties,
+    ),
+  );
+}
+
+export function customFieldNumberPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldNumberProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldNumberProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldNumberProperties' from JSON`,
+  );
 }

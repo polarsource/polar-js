@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LicenseKeyRead,
   LicenseKeyRead$inboundSchema,
@@ -51,6 +54,26 @@ export namespace LicenseKeyActivationReadMeta$ {
   export const outboundSchema = LicenseKeyActivationReadMeta$outboundSchema;
   /** @deprecated use `LicenseKeyActivationReadMeta$Outbound` instead. */
   export type Outbound = LicenseKeyActivationReadMeta$Outbound;
+}
+
+export function licenseKeyActivationReadMetaToJSON(
+  licenseKeyActivationReadMeta: LicenseKeyActivationReadMeta,
+): string {
+  return JSON.stringify(
+    LicenseKeyActivationReadMeta$outboundSchema.parse(
+      licenseKeyActivationReadMeta,
+    ),
+  );
+}
+
+export function licenseKeyActivationReadMetaFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeyActivationReadMeta, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeyActivationReadMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeyActivationReadMeta' from JSON`,
+  );
 }
 
 /** @internal */
@@ -121,4 +144,22 @@ export namespace LicenseKeyActivationRead$ {
   export const outboundSchema = LicenseKeyActivationRead$outboundSchema;
   /** @deprecated use `LicenseKeyActivationRead$Outbound` instead. */
   export type Outbound = LicenseKeyActivationRead$Outbound;
+}
+
+export function licenseKeyActivationReadToJSON(
+  licenseKeyActivationRead: LicenseKeyActivationRead,
+): string {
+  return JSON.stringify(
+    LicenseKeyActivationRead$outboundSchema.parse(licenseKeyActivationRead),
+  );
+}
+
+export function licenseKeyActivationReadFromJSON(
+  jsonString: string,
+): SafeParseResult<LicenseKeyActivationRead, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LicenseKeyActivationRead$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeyActivationRead' from JSON`,
+  );
 }

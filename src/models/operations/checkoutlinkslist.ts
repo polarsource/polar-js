@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -82,6 +85,33 @@ export namespace CheckoutLinksListQueryParamOrganizationIDFilter$ {
     CheckoutLinksListQueryParamOrganizationIDFilter$Outbound;
 }
 
+export function checkoutLinksListQueryParamOrganizationIDFilterToJSON(
+  checkoutLinksListQueryParamOrganizationIDFilter:
+    CheckoutLinksListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    CheckoutLinksListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      checkoutLinksListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function checkoutLinksListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CheckoutLinksListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutLinksListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CheckoutLinksListQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutLinksListQueryParamProductIDFilter$inboundSchema:
   z.ZodType<CheckoutLinksListQueryParamProductIDFilter, z.ZodTypeDef, unknown> =
@@ -113,6 +143,33 @@ export namespace CheckoutLinksListQueryParamProductIDFilter$ {
     CheckoutLinksListQueryParamProductIDFilter$outboundSchema;
   /** @deprecated use `CheckoutLinksListQueryParamProductIDFilter$Outbound` instead. */
   export type Outbound = CheckoutLinksListQueryParamProductIDFilter$Outbound;
+}
+
+export function checkoutLinksListQueryParamProductIDFilterToJSON(
+  checkoutLinksListQueryParamProductIDFilter:
+    CheckoutLinksListQueryParamProductIDFilter,
+): string {
+  return JSON.stringify(
+    CheckoutLinksListQueryParamProductIDFilter$outboundSchema.parse(
+      checkoutLinksListQueryParamProductIDFilter,
+    ),
+  );
+}
+
+export function checkoutLinksListQueryParamProductIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CheckoutLinksListQueryParamProductIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutLinksListQueryParamProductIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CheckoutLinksListQueryParamProductIDFilter' from JSON`,
+  );
 }
 
 /** @internal */
@@ -179,6 +236,24 @@ export namespace CheckoutLinksListRequest$ {
   export type Outbound = CheckoutLinksListRequest$Outbound;
 }
 
+export function checkoutLinksListRequestToJSON(
+  checkoutLinksListRequest: CheckoutLinksListRequest,
+): string {
+  return JSON.stringify(
+    CheckoutLinksListRequest$outboundSchema.parse(checkoutLinksListRequest),
+  );
+}
+
+export function checkoutLinksListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLinksListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLinksListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLinksListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const CheckoutLinksListResponse$inboundSchema: z.ZodType<
   CheckoutLinksListResponse,
@@ -221,4 +296,22 @@ export namespace CheckoutLinksListResponse$ {
   export const outboundSchema = CheckoutLinksListResponse$outboundSchema;
   /** @deprecated use `CheckoutLinksListResponse$Outbound` instead. */
   export type Outbound = CheckoutLinksListResponse$Outbound;
+}
+
+export function checkoutLinksListResponseToJSON(
+  checkoutLinksListResponse: CheckoutLinksListResponse,
+): string {
+  return JSON.stringify(
+    CheckoutLinksListResponse$outboundSchema.parse(checkoutLinksListResponse),
+  );
+}
+
+export function checkoutLinksListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLinksListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLinksListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLinksListResponse' from JSON`,
+  );
 }

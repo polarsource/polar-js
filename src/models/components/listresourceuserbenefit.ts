@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitAdsSubscriber,
   BenefitAdsSubscriber$inboundSchema,
@@ -179,6 +182,20 @@ export namespace UserBenefit$ {
   export type Outbound = UserBenefit$Outbound;
 }
 
+export function userBenefitToJSON(userBenefit: UserBenefit): string {
+  return JSON.stringify(UserBenefit$outboundSchema.parse(userBenefit));
+}
+
+export function userBenefitFromJSON(
+  jsonString: string,
+): SafeParseResult<UserBenefit, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UserBenefit$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UserBenefit' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListResourceUserBenefit$inboundSchema: z.ZodType<
   ListResourceUserBenefit,
@@ -302,4 +319,22 @@ export namespace ListResourceUserBenefit$ {
   export const outboundSchema = ListResourceUserBenefit$outboundSchema;
   /** @deprecated use `ListResourceUserBenefit$Outbound` instead. */
   export type Outbound = ListResourceUserBenefit$Outbound;
+}
+
+export function listResourceUserBenefitToJSON(
+  listResourceUserBenefit: ListResourceUserBenefit,
+): string {
+  return JSON.stringify(
+    ListResourceUserBenefit$outboundSchema.parse(listResourceUserBenefit),
+  );
+}
+
+export function listResourceUserBenefitFromJSON(
+  jsonString: string,
+): SafeParseResult<ListResourceUserBenefit, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListResourceUserBenefit$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourceUserBenefit' from JSON`,
+  );
 }

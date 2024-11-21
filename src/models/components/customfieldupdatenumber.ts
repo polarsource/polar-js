@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldNumberProperties,
   CustomFieldNumberProperties$inboundSchema,
@@ -77,6 +80,26 @@ export namespace CustomFieldUpdateNumberMetadata$ {
   export type Outbound = CustomFieldUpdateNumberMetadata$Outbound;
 }
 
+export function customFieldUpdateNumberMetadataToJSON(
+  customFieldUpdateNumberMetadata: CustomFieldUpdateNumberMetadata,
+): string {
+  return JSON.stringify(
+    CustomFieldUpdateNumberMetadata$outboundSchema.parse(
+      customFieldUpdateNumberMetadata,
+    ),
+  );
+}
+
+export function customFieldUpdateNumberMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldUpdateNumberMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldUpdateNumberMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldUpdateNumberMetadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const CustomFieldUpdateNumberType$inboundSchema: z.ZodNativeEnum<
   typeof CustomFieldUpdateNumberType
@@ -148,4 +171,22 @@ export namespace CustomFieldUpdateNumber$ {
   export const outboundSchema = CustomFieldUpdateNumber$outboundSchema;
   /** @deprecated use `CustomFieldUpdateNumber$Outbound` instead. */
   export type Outbound = CustomFieldUpdateNumber$Outbound;
+}
+
+export function customFieldUpdateNumberToJSON(
+  customFieldUpdateNumber: CustomFieldUpdateNumber,
+): string {
+  return JSON.stringify(
+    CustomFieldUpdateNumber$outboundSchema.parse(customFieldUpdateNumber),
+  );
+}
+
+export function customFieldUpdateNumberFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomFieldUpdateNumber, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomFieldUpdateNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldUpdateNumber' from JSON`,
+  );
 }

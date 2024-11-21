@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CheckoutLink,
   CheckoutLink$inboundSchema,
@@ -58,4 +61,22 @@ export namespace ListResourceCheckoutLink$ {
   export const outboundSchema = ListResourceCheckoutLink$outboundSchema;
   /** @deprecated use `ListResourceCheckoutLink$Outbound` instead. */
   export type Outbound = ListResourceCheckoutLink$Outbound;
+}
+
+export function listResourceCheckoutLinkToJSON(
+  listResourceCheckoutLink: ListResourceCheckoutLink,
+): string {
+  return JSON.stringify(
+    ListResourceCheckoutLink$outboundSchema.parse(listResourceCheckoutLink),
+  );
+}
+
+export function listResourceCheckoutLinkFromJSON(
+  jsonString: string,
+): SafeParseResult<ListResourceCheckoutLink, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListResourceCheckoutLink$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourceCheckoutLink' from JSON`,
+  );
 }

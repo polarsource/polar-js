@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -18,6 +21,11 @@ export type SubscriptionsListQueryParamOrganizationIDFilter =
  */
 export type SubscriptionsListQueryParamProductIDFilter = string | Array<string>;
 
+/**
+ * Filter by discount ID.
+ */
+export type DiscountIDFilter = string | Array<string>;
+
 export type SubscriptionsListRequest = {
   /**
    * Filter by organization ID.
@@ -27,6 +35,10 @@ export type SubscriptionsListRequest = {
    * Filter by product ID.
    */
   productId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by discount ID.
+   */
+  discountId?: string | Array<string> | null | undefined;
   /**
    * Filter by active or inactive subscription.
    */
@@ -86,6 +98,33 @@ export namespace SubscriptionsListQueryParamOrganizationIDFilter$ {
     SubscriptionsListQueryParamOrganizationIDFilter$Outbound;
 }
 
+export function subscriptionsListQueryParamOrganizationIDFilterToJSON(
+  subscriptionsListQueryParamOrganizationIDFilter:
+    SubscriptionsListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    SubscriptionsListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      subscriptionsListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function subscriptionsListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  SubscriptionsListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      SubscriptionsListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'SubscriptionsListQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const SubscriptionsListQueryParamProductIDFilter$inboundSchema:
   z.ZodType<SubscriptionsListQueryParamProductIDFilter, z.ZodTypeDef, unknown> =
@@ -119,6 +158,81 @@ export namespace SubscriptionsListQueryParamProductIDFilter$ {
   export type Outbound = SubscriptionsListQueryParamProductIDFilter$Outbound;
 }
 
+export function subscriptionsListQueryParamProductIDFilterToJSON(
+  subscriptionsListQueryParamProductIDFilter:
+    SubscriptionsListQueryParamProductIDFilter,
+): string {
+  return JSON.stringify(
+    SubscriptionsListQueryParamProductIDFilter$outboundSchema.parse(
+      subscriptionsListQueryParamProductIDFilter,
+    ),
+  );
+}
+
+export function subscriptionsListQueryParamProductIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  SubscriptionsListQueryParamProductIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      SubscriptionsListQueryParamProductIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'SubscriptionsListQueryParamProductIDFilter' from JSON`,
+  );
+}
+
+/** @internal */
+export const DiscountIDFilter$inboundSchema: z.ZodType<
+  DiscountIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type DiscountIDFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const DiscountIDFilter$outboundSchema: z.ZodType<
+  DiscountIDFilter$Outbound,
+  z.ZodTypeDef,
+  DiscountIDFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DiscountIDFilter$ {
+  /** @deprecated use `DiscountIDFilter$inboundSchema` instead. */
+  export const inboundSchema = DiscountIDFilter$inboundSchema;
+  /** @deprecated use `DiscountIDFilter$outboundSchema` instead. */
+  export const outboundSchema = DiscountIDFilter$outboundSchema;
+  /** @deprecated use `DiscountIDFilter$Outbound` instead. */
+  export type Outbound = DiscountIDFilter$Outbound;
+}
+
+export function discountIDFilterToJSON(
+  discountIDFilter: DiscountIDFilter,
+): string {
+  return JSON.stringify(
+    DiscountIDFilter$outboundSchema.parse(discountIDFilter),
+  );
+}
+
+export function discountIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<DiscountIDFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DiscountIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DiscountIDFilter' from JSON`,
+  );
+}
+
 /** @internal */
 export const SubscriptionsListRequest$inboundSchema: z.ZodType<
   SubscriptionsListRequest,
@@ -128,6 +242,8 @@ export const SubscriptionsListRequest$inboundSchema: z.ZodType<
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  discount_id: z.nullable(z.union([z.string(), z.array(z.string())]))
+    .optional(),
   active: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
@@ -138,6 +254,7 @@ export const SubscriptionsListRequest$inboundSchema: z.ZodType<
   return remap$(v, {
     "organization_id": "organizationId",
     "product_id": "productId",
+    "discount_id": "discountId",
   });
 });
 
@@ -145,6 +262,7 @@ export const SubscriptionsListRequest$inboundSchema: z.ZodType<
 export type SubscriptionsListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
+  discount_id?: string | Array<string> | null | undefined;
   active?: boolean | null | undefined;
   page: number;
   limit: number;
@@ -160,6 +278,7 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodType<
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  discountId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   active: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
@@ -170,6 +289,7 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodType<
   return remap$(v, {
     organizationId: "organization_id",
     productId: "product_id",
+    discountId: "discount_id",
   });
 });
 
@@ -184,6 +304,24 @@ export namespace SubscriptionsListRequest$ {
   export const outboundSchema = SubscriptionsListRequest$outboundSchema;
   /** @deprecated use `SubscriptionsListRequest$Outbound` instead. */
   export type Outbound = SubscriptionsListRequest$Outbound;
+}
+
+export function subscriptionsListRequestToJSON(
+  subscriptionsListRequest: SubscriptionsListRequest,
+): string {
+  return JSON.stringify(
+    SubscriptionsListRequest$outboundSchema.parse(subscriptionsListRequest),
+  );
+}
+
+export function subscriptionsListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<SubscriptionsListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SubscriptionsListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionsListRequest' from JSON`,
+  );
 }
 
 /** @internal */
@@ -228,4 +366,22 @@ export namespace SubscriptionsListResponse$ {
   export const outboundSchema = SubscriptionsListResponse$outboundSchema;
   /** @deprecated use `SubscriptionsListResponse$Outbound` instead. */
   export type Outbound = SubscriptionsListResponse$Outbound;
+}
+
+export function subscriptionsListResponseToJSON(
+  subscriptionsListResponse: SubscriptionsListResponse,
+): string {
+  return JSON.stringify(
+    SubscriptionsListResponse$outboundSchema.parse(subscriptionsListResponse),
+  );
+}
+
+export function subscriptionsListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<SubscriptionsListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SubscriptionsListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionsListResponse' from JSON`,
+  );
 }

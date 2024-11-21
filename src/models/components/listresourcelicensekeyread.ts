@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LicenseKeyRead,
   LicenseKeyRead$inboundSchema,
@@ -58,4 +61,22 @@ export namespace ListResourceLicenseKeyRead$ {
   export const outboundSchema = ListResourceLicenseKeyRead$outboundSchema;
   /** @deprecated use `ListResourceLicenseKeyRead$Outbound` instead. */
   export type Outbound = ListResourceLicenseKeyRead$Outbound;
+}
+
+export function listResourceLicenseKeyReadToJSON(
+  listResourceLicenseKeyRead: ListResourceLicenseKeyRead,
+): string {
+  return JSON.stringify(
+    ListResourceLicenseKeyRead$outboundSchema.parse(listResourceLicenseKeyRead),
+  );
+}
+
+export function listResourceLicenseKeyReadFromJSON(
+  jsonString: string,
+): SafeParseResult<ListResourceLicenseKeyRead, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListResourceLicenseKeyRead$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListResourceLicenseKeyRead' from JSON`,
+  );
 }

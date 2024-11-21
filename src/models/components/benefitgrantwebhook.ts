@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Benefit,
   Benefit$inboundSchema,
@@ -190,6 +193,26 @@ export namespace BenefitGrantWebhookProperties$ {
   export type Outbound = BenefitGrantWebhookProperties$Outbound;
 }
 
+export function benefitGrantWebhookPropertiesToJSON(
+  benefitGrantWebhookProperties: BenefitGrantWebhookProperties,
+): string {
+  return JSON.stringify(
+    BenefitGrantWebhookProperties$outboundSchema.parse(
+      benefitGrantWebhookProperties,
+    ),
+  );
+}
+
+export function benefitGrantWebhookPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGrantWebhookProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitGrantWebhookProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGrantWebhookProperties' from JSON`,
+  );
+}
+
 /** @internal */
 export const PreviousProperties$inboundSchema: z.ZodType<
   PreviousProperties,
@@ -241,6 +264,24 @@ export namespace PreviousProperties$ {
   export const outboundSchema = PreviousProperties$outboundSchema;
   /** @deprecated use `PreviousProperties$Outbound` instead. */
   export type Outbound = PreviousProperties$Outbound;
+}
+
+export function previousPropertiesToJSON(
+  previousProperties: PreviousProperties,
+): string {
+  return JSON.stringify(
+    PreviousProperties$outboundSchema.parse(previousProperties),
+  );
+}
+
+export function previousPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<PreviousProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PreviousProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PreviousProperties' from JSON`,
+  );
 }
 
 /** @internal */
@@ -402,4 +443,22 @@ export namespace BenefitGrantWebhook$ {
   export const outboundSchema = BenefitGrantWebhook$outboundSchema;
   /** @deprecated use `BenefitGrantWebhook$Outbound` instead. */
   export type Outbound = BenefitGrantWebhook$Outbound;
+}
+
+export function benefitGrantWebhookToJSON(
+  benefitGrantWebhook: BenefitGrantWebhook,
+): string {
+  return JSON.stringify(
+    BenefitGrantWebhook$outboundSchema.parse(benefitGrantWebhook),
+  );
+}
+
+export function benefitGrantWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGrantWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitGrantWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGrantWebhook' from JSON`,
+  );
 }

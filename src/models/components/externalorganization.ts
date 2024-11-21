@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ExternalOrganization = {
   id: string;
@@ -107,4 +110,22 @@ export namespace ExternalOrganization$ {
   export const outboundSchema = ExternalOrganization$outboundSchema;
   /** @deprecated use `ExternalOrganization$Outbound` instead. */
   export type Outbound = ExternalOrganization$Outbound;
+}
+
+export function externalOrganizationToJSON(
+  externalOrganization: ExternalOrganization,
+): string {
+  return JSON.stringify(
+    ExternalOrganization$outboundSchema.parse(externalOrganization),
+  );
+}
+
+export function externalOrganizationFromJSON(
+  jsonString: string,
+): SafeParseResult<ExternalOrganization, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ExternalOrganization$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ExternalOrganization' from JSON`,
+  );
 }

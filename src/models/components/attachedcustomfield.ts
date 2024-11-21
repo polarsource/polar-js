@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomField,
   CustomField$inboundSchema,
@@ -83,4 +86,22 @@ export namespace AttachedCustomField$ {
   export const outboundSchema = AttachedCustomField$outboundSchema;
   /** @deprecated use `AttachedCustomField$Outbound` instead. */
   export type Outbound = AttachedCustomField$Outbound;
+}
+
+export function attachedCustomFieldToJSON(
+  attachedCustomField: AttachedCustomField,
+): string {
+  return JSON.stringify(
+    AttachedCustomField$outboundSchema.parse(attachedCustomField),
+  );
+}
+
+export function attachedCustomFieldFromJSON(
+  jsonString: string,
+): SafeParseResult<AttachedCustomField, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AttachedCustomField$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AttachedCustomField' from JSON`,
+  );
 }

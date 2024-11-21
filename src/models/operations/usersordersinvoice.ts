@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UsersOrdersInvoiceRequest = {
   /**
@@ -45,4 +48,22 @@ export namespace UsersOrdersInvoiceRequest$ {
   export const outboundSchema = UsersOrdersInvoiceRequest$outboundSchema;
   /** @deprecated use `UsersOrdersInvoiceRequest$Outbound` instead. */
   export type Outbound = UsersOrdersInvoiceRequest$Outbound;
+}
+
+export function usersOrdersInvoiceRequestToJSON(
+  usersOrdersInvoiceRequest: UsersOrdersInvoiceRequest,
+): string {
+  return JSON.stringify(
+    UsersOrdersInvoiceRequest$outboundSchema.parse(usersOrdersInvoiceRequest),
+  );
+}
+
+export function usersOrdersInvoiceRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UsersOrdersInvoiceRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UsersOrdersInvoiceRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UsersOrdersInvoiceRequest' from JSON`,
+  );
 }

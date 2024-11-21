@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type FilesListRequest = {
   organizationId?: string | null | undefined;
@@ -79,6 +82,24 @@ export namespace FilesListRequest$ {
   export type Outbound = FilesListRequest$Outbound;
 }
 
+export function filesListRequestToJSON(
+  filesListRequest: FilesListRequest,
+): string {
+  return JSON.stringify(
+    FilesListRequest$outboundSchema.parse(filesListRequest),
+  );
+}
+
+export function filesListRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<FilesListRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FilesListRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FilesListRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const FilesListResponse$inboundSchema: z.ZodType<
   FilesListResponse,
@@ -121,4 +142,22 @@ export namespace FilesListResponse$ {
   export const outboundSchema = FilesListResponse$outboundSchema;
   /** @deprecated use `FilesListResponse$Outbound` instead. */
   export type Outbound = FilesListResponse$Outbound;
+}
+
+export function filesListResponseToJSON(
+  filesListResponse: FilesListResponse,
+): string {
+  return JSON.stringify(
+    FilesListResponse$outboundSchema.parse(filesListResponse),
+  );
+}
+
+export function filesListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<FilesListResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FilesListResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FilesListResponse' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CurrencyAmount,
   CurrencyAmount$inboundSchema,
@@ -63,4 +66,18 @@ export namespace Funding$ {
   export const outboundSchema = Funding$outboundSchema;
   /** @deprecated use `Funding$Outbound` instead. */
   export type Outbound = Funding$Outbound;
+}
+
+export function fundingToJSON(funding: Funding): string {
+  return JSON.stringify(Funding$outboundSchema.parse(funding));
+}
+
+export function fundingFromJSON(
+  jsonString: string,
+): SafeParseResult<Funding, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Funding$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Funding' from JSON`,
+  );
 }

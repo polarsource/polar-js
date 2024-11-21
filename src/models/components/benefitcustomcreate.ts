@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitCustomCreateProperties,
   BenefitCustomCreateProperties$inboundSchema,
@@ -119,4 +122,22 @@ export namespace BenefitCustomCreate$ {
   export const outboundSchema = BenefitCustomCreate$outboundSchema;
   /** @deprecated use `BenefitCustomCreate$Outbound` instead. */
   export type Outbound = BenefitCustomCreate$Outbound;
+}
+
+export function benefitCustomCreateToJSON(
+  benefitCustomCreate: BenefitCustomCreate,
+): string {
+  return JSON.stringify(
+    BenefitCustomCreate$outboundSchema.parse(benefitCustomCreate),
+  );
+}
+
+export function benefitCustomCreateFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitCustomCreate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitCustomCreate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitCustomCreate' from JSON`,
+  );
 }
