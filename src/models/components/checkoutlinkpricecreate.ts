@@ -32,9 +32,10 @@ export type CheckoutLinkPriceCreate = {
    *
    * The key must be a string with a maximum length of **40 characters**.
    * The value must be either:
-   *     * A string with a maximum length of **500 characters**
-   *     * An integer
-   *     * A boolean
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
