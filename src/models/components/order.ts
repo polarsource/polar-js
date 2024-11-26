@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  Address,
+  Address$inboundSchema,
+  Address$Outbound,
+  Address$outboundSchema,
+} from "./address.js";
+import {
   DiscountFixedOnceForeverDurationBase,
   DiscountFixedOnceForeverDurationBase$inboundSchema,
   DiscountFixedOnceForeverDurationBase$Outbound,
@@ -96,6 +102,7 @@ export type Order = {
   taxAmount: number;
   currency: string;
   billingReason: OrderBillingReason;
+  billingAddress: Address | null;
   userId: string;
   productId: string;
   productPriceId: string;
@@ -281,6 +288,7 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     tax_amount: z.number().int(),
     currency: z.string(),
     billing_reason: OrderBillingReason$inboundSchema,
+    billing_address: z.nullable(Address$inboundSchema),
     user_id: z.string(),
     product_id: z.string(),
     product_price_id: z.string(),
@@ -306,6 +314,7 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       "custom_field_data": "customFieldData",
       "tax_amount": "taxAmount",
       "billing_reason": "billingReason",
+      "billing_address": "billingAddress",
       "user_id": "userId",
       "product_id": "productId",
       "product_price_id": "productPriceId",
@@ -327,6 +336,7 @@ export type Order$Outbound = {
   tax_amount: number;
   currency: string;
   billing_reason: string;
+  billing_address: Address$Outbound | null;
   user_id: string;
   product_id: string;
   product_price_id: string;
@@ -360,6 +370,7 @@ export const Order$outboundSchema: z.ZodType<
   taxAmount: z.number().int(),
   currency: z.string(),
   billingReason: OrderBillingReason$outboundSchema,
+  billingAddress: z.nullable(Address$outboundSchema),
   userId: z.string(),
   productId: z.string(),
   productPriceId: z.string(),
@@ -385,6 +396,7 @@ export const Order$outboundSchema: z.ZodType<
     customFieldData: "custom_field_data",
     taxAmount: "tax_amount",
     billingReason: "billing_reason",
+    billingAddress: "billing_address",
     userId: "user_id",
     productId: "product_id",
     productPriceId: "product_price_id",

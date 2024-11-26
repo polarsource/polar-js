@@ -8,29 +8,31 @@ import { ListResourceDiscount } from "@polar-sh/sdk/models/components";
 let value: ListResourceDiscount = {
   items: [
     {
-      duration: "once",
-      type: "percentage",
-      basisPoints: 425759,
-      createdAt: new Date("2023-04-27T00:40:26.962Z"),
-      modifiedAt: new Date("2024-01-14T14:31:56.581Z"),
+      duration: "repeating",
+      type: "fixed",
+      amount: 873613,
+      currency: "Cordoba Oro",
+      createdAt: new Date("2024-01-14T07:42:06.849Z"),
+      modifiedAt: new Date("2023-05-17T03:56:32.810Z"),
       id: "<value>",
       metadata: {
-        "key": false,
+        "key": "<value>",
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2024-03-26T11:21:16.585Z"),
-      endsAt: new Date("2023-04-29T17:12:43.686Z"),
-      maxRedemptions: 462378,
-      redemptionsCount: 278355,
+      startsAt: new Date("2023-06-04T03:56:34.081Z"),
+      endsAt: new Date("2024-04-19T22:51:54.283Z"),
+      maxRedemptions: 912095,
+      redemptionsCount: 495291,
       organizationId: "<value>",
       products: [
         {
-          createdAt: new Date("2022-03-05T23:56:33.777Z"),
-          modifiedAt: new Date("2024-10-26T21:27:50.253Z"),
+          createdAt: new Date("2023-08-05T19:48:44.616Z"),
+          modifiedAt: new Date("2024-03-13T18:34:45.687Z"),
           id: "<value>",
           name: "<value>",
-          description: "come scarcely winged",
+          description:
+            "upward baptise clueless ack quaintly unlined encode always mindless underneath",
           isRecurring: false,
           isArchived: false,
           organizationId: "<value>",
@@ -39,8 +41,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 498055,
-    maxPage: 537614,
+    totalCount: 744045,
+    maxPage: 441348,
   },
 };
 ```

@@ -7,7 +7,7 @@ import { CheckoutLegacyCreate } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutLegacyCreate = {
   productPriceId: "<value>",
-  successUrl: "https://charming-sushi.net",
+  successUrl: "https://wasteful-vibration.org",
 };
 ```
 

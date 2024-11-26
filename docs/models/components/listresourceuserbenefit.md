@@ -8,18 +8,17 @@ import { ListResourceUserBenefit } from "@polar-sh/sdk/models/components";
 let value: ListResourceUserBenefit = {
   items: [
     {
-      createdAt: new Date("2024-06-03T10:02:48.006Z"),
-      modifiedAt: new Date("2024-02-27T19:43:42.467Z"),
+      createdAt: new Date("2022-05-30T09:02:00.896Z"),
+      modifiedAt: new Date("2024-01-23T04:12:00.187Z"),
       id: "<value>",
-      description:
-        "before consequently broadside standard stint unto sternly briefly provided accredit",
+      description: "ferociously where loyally beyond onto if carefully",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       grants: [
         {
-          createdAt: new Date("2024-12-28T18:18:25.337Z"),
-          modifiedAt: new Date("2022-08-30T16:10:43.426Z"),
+          createdAt: new Date("2024-09-18T02:22:39.004Z"),
+          modifiedAt: new Date("2023-05-08T12:12:24.685Z"),
           id: "<value>",
           isGranted: false,
           isRevoked: false,
@@ -30,32 +29,32 @@ let value: ListResourceUserBenefit = {
         },
       ],
       organization: {
-        createdAt: new Date("2022-12-09T13:39:01.927Z"),
-        modifiedAt: new Date("2022-08-17T10:07:20.026Z"),
+        createdAt: new Date("2022-06-15T01:33:14.819Z"),
+        modifiedAt: new Date("2023-10-13T20:06:24.868Z"),
         id: "<value>",
         name: "<value>",
         slug: "<value>",
-        avatarUrl: "https://qualified-label.name",
+        avatarUrl: "https://disloyal-newsprint.info",
         bio: "<value>",
-        company: "Morar - Johnston",
+        company: "Langosh - Greenfelder",
         blog: "<value>",
         location: "<value>",
-        email: "Madisyn50@gmail.com",
+        email: "Shanel.Goyette27@gmail.com",
         twitterUsername: "<value>",
-        pledgeMinimumAmount: 447878,
+        pledgeMinimumAmount: 771146,
         pledgeBadgeShowAmount: false,
-        defaultUpfrontSplitToContributors: 966222,
+        defaultUpfrontSplitToContributors: 329016,
         profileSettings: {},
         featureSettings: {},
       },
       properties: {
-        note: "<value>",
+        guildId: "<id>",
       },
     },
   ],
   pagination: {
-    totalCount: 793029,
-    maxPage: 826431,
+    totalCount: 112513,
+    maxPage: 540895,
   },
 };
 ```
