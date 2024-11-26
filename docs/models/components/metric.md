@@ -9,7 +9,7 @@ import { Metric } from "@polar-sh/sdk/models/components";
 
 let value: Metric = {
   slug: "<value>",
-  displayName: "Lucy_Quitzon4",
+  displayName: "Brown45",
   type: "currency",
 };
 ```

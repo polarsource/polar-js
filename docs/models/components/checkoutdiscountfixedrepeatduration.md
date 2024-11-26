@@ -10,10 +10,10 @@ import { CheckoutDiscountFixedRepeatDuration } from "@polar-sh/sdk/models/compon
 
 let value: CheckoutDiscountFixedRepeatDuration = {
   duration: "repeating",
-  durationInMonths: 81399,
+  durationInMonths: 197633,
   type: "fixed",
-  amount: 742652,
-  currency: "Rupiah",
+  amount: 60969,
+  currency: "Belarusian Ruble",
   id: "<value>",
   name: "<value>",
   code: "<value>",
