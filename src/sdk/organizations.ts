@@ -22,7 +22,9 @@ export class Organizations extends ClientSDK {
   async list(
     request: operations.OrganizationsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.OrganizationsListResponse>> {
+  ): Promise<
+    PageIterator<operations.OrganizationsListResponse, { page: number }>
+  > {
     return unwrapResultIterator(organizationsList(
       this,
       request,

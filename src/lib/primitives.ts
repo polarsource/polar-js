@@ -58,3 +58,65 @@ export function remap<
 
   return out;
 }
+
+export function combineSignals(
+  ...signals: Array<AbortSignal | null | undefined>
+): AbortSignal | null {
+  const filtered: AbortSignal[] = [];
+  for (const signal of signals) {
+    if (signal) {
+      filtered.push(signal);
+    }
+  }
+
+  switch (filtered.length) {
+    case 0:
+    case 1:
+      return filtered[0] || null;
+    default:
+      if ("any" in AbortSignal && typeof AbortSignal.any === "function") {
+        return AbortSignal.any(filtered);
+      }
+      return abortSignalAny(filtered);
+  }
+}
+
+export function abortSignalAny(signals: AbortSignal[]): AbortSignal {
+  const controller = new AbortController();
+  const result = controller.signal;
+  if (!signals.length) {
+    return controller.signal;
+  }
+
+  if (signals.length === 1) {
+    return signals[0] || controller.signal;
+  }
+
+  for (const signal of signals) {
+    if (signal.aborted) {
+      return signal;
+    }
+  }
+
+  function abort(this: AbortSignal) {
+    controller.abort(this.reason);
+    clean();
+  }
+
+  const signalRefs: WeakRef<AbortSignal>[] = [];
+  function clean() {
+    for (const signalRef of signalRefs) {
+      const signal = signalRef.deref();
+      if (signal) {
+        signal.removeEventListener("abort", abort);
+      }
+    }
+  }
+
+  for (const signal of signals) {
+    signalRefs.push(new WeakRef(signal));
+    signal.addEventListener("abort", abort);
+  }
+
+  return result;
+}

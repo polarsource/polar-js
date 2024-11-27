@@ -23,7 +23,9 @@ export class Clients extends ClientSDK {
   async list(
     request: operations.Oauth2ClientsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.Oauth2ClientsListResponse>> {
+  ): Promise<
+    PageIterator<operations.Oauth2ClientsListResponse, { page: number }>
+  > {
     return unwrapResultIterator(oauth2ClientsList(
       this,
       request,

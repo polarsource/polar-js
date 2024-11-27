@@ -23,7 +23,7 @@ export class Products extends ClientSDK {
   async list(
     request: operations.ProductsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.ProductsListResponse>> {
+  ): Promise<PageIterator<operations.ProductsListResponse, { page: number }>> {
     return unwrapResultIterator(productsList(
       this,
       request,

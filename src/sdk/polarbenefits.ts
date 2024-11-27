@@ -19,7 +19,9 @@ export class PolarBenefits extends ClientSDK {
   async list(
     request: operations.UsersBenefitsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.UsersBenefitsListResponse>> {
+  ): Promise<
+    PageIterator<operations.UsersBenefitsListResponse, { page: number }>
+  > {
     return unwrapResultIterator(usersBenefitsList(
       this,
       request,

@@ -23,7 +23,7 @@ export class Discounts extends ClientSDK {
   async list(
     request: operations.DiscountsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.DiscountsListResponse>> {
+  ): Promise<PageIterator<operations.DiscountsListResponse, { page: number }>> {
     return unwrapResultIterator(discountsList(
       this,
       request,

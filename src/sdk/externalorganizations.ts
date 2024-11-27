@@ -17,7 +17,9 @@ export class ExternalOrganizations extends ClientSDK {
   async list(
     request: operations.ExternalOrganizationsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.ExternalOrganizationsListResponse>> {
+  ): Promise<
+    PageIterator<operations.ExternalOrganizationsListResponse, { page: number }>
+  > {
     return unwrapResultIterator(externalOrganizationsList(
       this,
       request,

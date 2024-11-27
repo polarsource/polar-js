@@ -21,7 +21,9 @@ export class Repositories extends ClientSDK {
   async list(
     request: operations.RepositoriesListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.RepositoriesListResponse>> {
+  ): Promise<
+    PageIterator<operations.RepositoriesListResponse, { page: number }>
+  > {
     return unwrapResultIterator(repositoriesList(
       this,
       request,

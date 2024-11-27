@@ -24,7 +24,9 @@ export class PolarAdvertisements extends ClientSDK {
   async list(
     request: operations.UsersAdvertisementsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.UsersAdvertisementsListResponse>> {
+  ): Promise<
+    PageIterator<operations.UsersAdvertisementsListResponse, { page: number }>
+  > {
     return unwrapResultIterator(usersAdvertisementsList(
       this,
       request,

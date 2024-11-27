@@ -22,7 +22,9 @@ export class LicenseKeys extends ClientSDK {
   async list(
     request: operations.LicenseKeysListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.LicenseKeysListResponse>> {
+  ): Promise<
+    PageIterator<operations.LicenseKeysListResponse, { page: number }>
+  > {
     return unwrapResultIterator(licenseKeysList(
       this,
       request,

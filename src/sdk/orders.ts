@@ -21,7 +21,7 @@ export class Orders extends ClientSDK {
   async list(
     request: operations.OrdersListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.OrdersListResponse>> {
+  ): Promise<PageIterator<operations.OrdersListResponse, { page: number }>> {
     return unwrapResultIterator(ordersList(
       this,
       request,

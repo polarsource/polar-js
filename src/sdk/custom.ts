@@ -25,7 +25,9 @@ export class Custom extends ClientSDK {
   async list(
     request: operations.CheckoutsCustomListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.CheckoutsCustomListResponse>> {
+  ): Promise<
+    PageIterator<operations.CheckoutsCustomListResponse, { page: number }>
+  > {
     return unwrapResultIterator(checkoutsCustomList(
       this,
       request,
