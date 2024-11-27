@@ -102,6 +102,32 @@ run();
 ```
 <!-- End SDK Example Usage [usage] -->
 
+### Webhook support
+
+The SDK has built-in support to validate webhook events. Here is an example with Express.js:
+
+```ts
+import express, { Request, Response } from "express";
+import { validateEvent, WebhookVerificationError } from "@polar-sh/sdk/webhooks";
+
+const app = express();
+
+app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, res: Response) => {
+  try {
+    const event = validateEvent(req.body, req.headers, process.env["POLAR_WEBHOOK_SECRET"] ?? "");
+
+    // Process the event
+
+    res.status(202).send('')
+  } catch (error) {
+    if (error instanceof WebhookVerificationError) {
+      res.status(403).send('')
+    }
+    throw error
+  }
+});
+```
+
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 

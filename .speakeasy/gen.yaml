@@ -18,13 +18,19 @@ generation:
 typescript:
   version: 0.17.0
   additionalDependencies:
-    dependencies: {}
-    devDependencies: {}
+    dependencies:
+      standardwebhooks: ^1.0.0
+    devDependencies:
+      '@types/jest': '*'
+      '@types/node': '*'
+      jest: '*'
+      ts-jest: '*'
     peerDependencies: {}
   additionalPackageJSON: {}
   author: Speakeasy
   clientServerStatusCodesAsErrors: true
   defaultErrorName: SDKError
+  enableReactQuery: false
   enumFormat: union
   envVarPrefix: POLAR
   flattenGlobalSecurity: true
