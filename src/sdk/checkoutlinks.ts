@@ -23,7 +23,9 @@ export class CheckoutLinks extends ClientSDK {
   async list(
     request: operations.CheckoutLinksListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.CheckoutLinksListResponse>> {
+  ): Promise<
+    PageIterator<operations.CheckoutLinksListResponse, { page: number }>
+  > {
     return unwrapResultIterator(checkoutLinksList(
       this,
       request,

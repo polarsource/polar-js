@@ -16,7 +16,9 @@ export class Downloadables extends ClientSDK {
   async list(
     request: operations.UsersDownloadablesListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.UsersDownloadablesListResponse>> {
+  ): Promise<
+    PageIterator<operations.UsersDownloadablesListResponse, { page: number }>
+  > {
     return unwrapResultIterator(usersDownloadablesList(
       this,
       request,

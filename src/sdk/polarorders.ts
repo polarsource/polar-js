@@ -21,7 +21,9 @@ export class PolarOrders extends ClientSDK {
   async list(
     request: operations.UsersOrdersListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.UsersOrdersListResponse>> {
+  ): Promise<
+    PageIterator<operations.UsersOrdersListResponse, { page: number }>
+  > {
     return unwrapResultIterator(usersOrdersList(
       this,
       request,

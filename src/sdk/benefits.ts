@@ -24,7 +24,7 @@ export class Benefits extends ClientSDK {
   async list(
     request: operations.BenefitsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.BenefitsListResponse>> {
+  ): Promise<PageIterator<operations.BenefitsListResponse, { page: number }>> {
     return unwrapResultIterator(benefitsList(
       this,
       request,
@@ -115,7 +115,9 @@ export class Benefits extends ClientSDK {
   async grants(
     request: operations.BenefitsGrantsRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.BenefitsGrantsResponse>> {
+  ): Promise<
+    PageIterator<operations.BenefitsGrantsResponse, { page: number }>
+  > {
     return unwrapResultIterator(benefitsGrants(
       this,
       request,

@@ -23,7 +23,7 @@ export class Files extends ClientSDK {
   async list(
     request: operations.FilesListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.FilesListResponse>> {
+  ): Promise<PageIterator<operations.FilesListResponse, { page: number }>> {
     return unwrapResultIterator(filesList(
       this,
       request,

@@ -20,7 +20,9 @@ export class PolarLicenseKeys extends ClientSDK {
   async list(
     request: operations.UsersLicenseKeysListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.UsersLicenseKeysListResponse>> {
+  ): Promise<
+    PageIterator<operations.UsersLicenseKeysListResponse, { page: number }>
+  > {
     return unwrapResultIterator(usersLicenseKeysList(
       this,
       request,

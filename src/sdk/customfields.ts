@@ -23,7 +23,9 @@ export class CustomFields extends ClientSDK {
   async list(
     request: operations.CustomFieldsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.CustomFieldsListResponse>> {
+  ): Promise<
+    PageIterator<operations.CustomFieldsListResponse, { page: number }>
+  > {
     return unwrapResultIterator(customFieldsList(
       this,
       request,

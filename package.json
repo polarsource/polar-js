@@ -1,6 +1,6 @@
 {
   "name": "@polar-sh/sdk",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "author": "Speakeasy",
   "main": "./index.js",
   "sideEffects": false,
@@ -14,18 +14,24 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19",
     "zod": ">= 3"
   },
   "devDependencies": {
+    "@types/jest": "*",
+    "@types/node": "*",
     "@typescript-eslint/eslint-plugin": "^7.7.1",
     "@typescript-eslint/parser": "^7.7.1",
     "eslint": "^8.57.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
+    "jest": "*",
+    "ts-jest": "*",
     "typescript": "^5.4.5",
     "zod": "^3.23.4"
   },
   "dependencies": {
-    
+    "standardwebhooks": "^1.0.0"
   }
 }

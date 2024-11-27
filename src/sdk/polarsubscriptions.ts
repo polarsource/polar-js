@@ -22,7 +22,9 @@ export class PolarSubscriptions extends ClientSDK {
   async list(
     request: operations.UsersSubscriptionsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.UsersSubscriptionsListResponse>> {
+  ): Promise<
+    PageIterator<operations.UsersSubscriptionsListResponse, { page: number }>
+  > {
     return unwrapResultIterator(usersSubscriptionsList(
       this,
       request,

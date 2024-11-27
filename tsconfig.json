@@ -4,6 +4,7 @@
     "tsBuildInfoFile": ".tsbuildinfo",
     "target": "ES2018",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
 
     "module": "Node16",
     "moduleResolution": "Node16",

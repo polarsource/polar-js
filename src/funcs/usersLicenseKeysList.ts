@@ -50,7 +50,8 @@ export async function usersLicenseKeysList(
       | RequestAbortedError
       | RequestTimeoutError
       | ConnectionError
-    >
+    >,
+    { page: number }
   >
 > {
   const parsed = safeParse(
@@ -151,41 +152,44 @@ export async function usersLicenseKeysList(
 
   const nextFunc = (
     responseData: unknown,
-  ): Paginator<
-    Result<
-      operations.UsersLicenseKeysListResponse,
-      | errors.Unauthorized
-      | errors.ResourceNotFound
-      | errors.HTTPValidationError
-      | SDKError
-      | SDKValidationError
-      | UnexpectedClientError
-      | InvalidRequestError
-      | RequestAbortedError
-      | RequestTimeoutError
-      | ConnectionError
-    >
-  > => {
+  ): {
+    next: Paginator<
+      Result<
+        operations.UsersLicenseKeysListResponse,
+        | errors.Unauthorized
+        | errors.ResourceNotFound
+        | errors.HTTPValidationError
+        | SDKError
+        | SDKValidationError
+        | UnexpectedClientError
+        | InvalidRequestError
+        | RequestAbortedError
+        | RequestTimeoutError
+        | ConnectionError
+      >
+    >;
+    "~next"?: { page: number };
+  } => {
     const page = request?.page || 0;
     const nextPage = page + 1;
     const numPages = dlv(responseData, "pagination.max_page");
     if (numPages == null || numPages <= page) {
-      return () => null;
+      return { next: () => null };
     }
 
     if (!responseData) {
-      return () => null;
+      return { next: () => null };
     }
     const results = dlv(responseData, "items");
     if (!Array.isArray(results) || !results.length) {
-      return () => null;
+      return { next: () => null };
     }
     const limit = request?.limit || 0;
     if (results.length < limit) {
-      return () => null;
+      return { next: () => null };
     }
 
-    return () =>
+    const nextVal = () =>
       usersLicenseKeysList(
         client,
         {
@@ -194,8 +198,10 @@ export async function usersLicenseKeysList(
         },
         options,
       );
+
+    return { next: nextVal, "~next": { page: nextPage } };
   };
 
-  const page = { ...result, next: nextFunc(raw) };
+  const page = { ...result, ...nextFunc(raw) };
   return { ...page, ...createPageIterator(page, (v) => !v.ok) };
 }

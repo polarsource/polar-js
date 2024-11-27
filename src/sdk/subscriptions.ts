@@ -19,7 +19,9 @@ export class Subscriptions extends ClientSDK {
   async list(
     request: operations.SubscriptionsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.SubscriptionsListResponse>> {
+  ): Promise<
+    PageIterator<operations.SubscriptionsListResponse, { page: number }>
+  > {
     return unwrapResultIterator(subscriptionsList(
       this,
       request,

@@ -20,7 +20,9 @@ export class Advertisements extends ClientSDK {
   async list(
     request: operations.AdvertisementsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.AdvertisementsListResponse>> {
+  ): Promise<
+    PageIterator<operations.AdvertisementsListResponse, { page: number }>
+  > {
     return unwrapResultIterator(advertisementsList(
       this,
       request,

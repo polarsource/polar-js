@@ -27,7 +27,7 @@ export class Articles extends ClientSDK {
   async list(
     request: operations.ArticlesListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.ArticlesListResponse>> {
+  ): Promise<PageIterator<operations.ArticlesListResponse, { page: number }>> {
     return unwrapResultIterator(articlesList(
       this,
       request,
