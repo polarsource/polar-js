@@ -22,19 +22,24 @@ Read the docs at https://docs.polar.sh/api
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [@polar-sh/sdk](#polar-shsdk)
+  * [SDK Installation](#sdk-installation)
+  * [Requirements](#requirements)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Standalone functions](#standalone-functions)
+  * [Pagination](#pagination)
+  * [Retries](#retries)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Authentication](#authentication)
+  * [Debugging](#debugging)
+* [Development](#development)
+  * [Maturity](#maturity)
+  * [Contributions](#contributions)
 
-* [SDK Installation](#sdk-installation)
-* [Requirements](#requirements)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [Standalone functions](#standalone-functions)
-* [Pagination](#pagination)
-* [Retries](#retries)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
-* [Custom HTTP Client](#custom-http-client)
-* [Authentication](#authentication)
-* [Debugging](#debugging)
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
