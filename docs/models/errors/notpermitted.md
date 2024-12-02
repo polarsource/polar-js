@@ -10,7 +10,7 @@ import { NotPermitted } from "@polar-sh/sdk/models/errors";
 
 ## Fields
 
-| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `type`                                                             | [errors.NotPermittedType](../../models/errors/notpermittedtype.md) | :heavy_check_mark:                                                 | N/A                                                                |
-| `detail`                                                           | *string*                                                           | :heavy_check_mark:                                                 | N/A                                                                |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `error`                                                              | [errors.NotPermittedError](../../models/errors/notpermittederror.md) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `detail`                                                             | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |

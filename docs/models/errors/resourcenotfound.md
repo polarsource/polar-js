@@ -10,7 +10,7 @@ import { ResourceNotFound } from "@polar-sh/sdk/models/errors";
 
 ## Fields
 
-| Field                                      | Type                                       | Required                                   | Description                                |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| `type`                                     | [errors.Type](../../models/errors/type.md) | :heavy_check_mark:                         | N/A                                        |
-| `detail`                                   | *string*                                   | :heavy_check_mark:                         | N/A                                        |
+| Field                                          | Type                                           | Required                                       | Description                                    |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| `error`                                        | [errors.ErrorT](../../models/errors/errort.md) | :heavy_check_mark:                             | N/A                                            |
+| `detail`                                       | *string*                                       | :heavy_check_mark:                             | N/A                                            |

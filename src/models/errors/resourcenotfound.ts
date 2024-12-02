@@ -5,18 +5,18 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 
-export const Type = {
+export const ErrorT = {
   ResourceNotFound: "ResourceNotFound",
 } as const;
-export type Type = ClosedEnum<typeof Type>;
+export type ErrorT = ClosedEnum<typeof ErrorT>;
 
 export type ResourceNotFoundData = {
-  type: "ResourceNotFound";
+  error: "ResourceNotFound";
   detail: string;
 };
 
 export class ResourceNotFound extends Error {
-  type: "ResourceNotFound";
+  error: "ResourceNotFound";
   detail: string;
 
   /** The original data that was passed to this error instance. */
@@ -29,7 +29,7 @@ export class ResourceNotFound extends Error {
     super(message);
     this.data$ = err;
 
-    this.type = err.type;
+    this.error = err.error;
     this.detail = err.detail;
 
     this.name = "ResourceNotFound";
@@ -37,23 +37,22 @@ export class ResourceNotFound extends Error {
 }
 
 /** @internal */
-export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
-  Type,
-);
+export const ErrorT$inboundSchema: z.ZodNativeEnum<typeof ErrorT> = z
+  .nativeEnum(ErrorT);
 
 /** @internal */
-export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> =
-  Type$inboundSchema;
+export const ErrorT$outboundSchema: z.ZodNativeEnum<typeof ErrorT> =
+  ErrorT$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Type$ {
-  /** @deprecated use `Type$inboundSchema` instead. */
-  export const inboundSchema = Type$inboundSchema;
-  /** @deprecated use `Type$outboundSchema` instead. */
-  export const outboundSchema = Type$outboundSchema;
+export namespace ErrorT$ {
+  /** @deprecated use `ErrorT$inboundSchema` instead. */
+  export const inboundSchema = ErrorT$inboundSchema;
+  /** @deprecated use `ErrorT$outboundSchema` instead. */
+  export const outboundSchema = ErrorT$outboundSchema;
 }
 
 /** @internal */
@@ -62,7 +61,7 @@ export const ResourceNotFound$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("ResourceNotFound"),
+  error: z.literal("ResourceNotFound"),
   detail: z.string(),
 })
   .transform((v) => {
@@ -71,7 +70,7 @@ export const ResourceNotFound$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ResourceNotFound$Outbound = {
-  type: "ResourceNotFound";
+  error: "ResourceNotFound";
   detail: string;
 };
 
@@ -83,7 +82,7 @@ export const ResourceNotFound$outboundSchema: z.ZodType<
 > = z.instanceof(ResourceNotFound)
   .transform(v => v.data$)
   .pipe(z.object({
-    type: z.literal("ResourceNotFound").default("ResourceNotFound"),
+    error: z.literal("ResourceNotFound").default("ResourceNotFound"),
     detail: z.string(),
   }));
 

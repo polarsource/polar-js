@@ -5,18 +5,18 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 
-export const UnauthorizedType = {
+export const UnauthorizedError = {
   Unauthorized: "Unauthorized",
 } as const;
-export type UnauthorizedType = ClosedEnum<typeof UnauthorizedType>;
+export type UnauthorizedError = ClosedEnum<typeof UnauthorizedError>;
 
 export type UnauthorizedData = {
-  type: "Unauthorized";
+  error: "Unauthorized";
   detail: string;
 };
 
 export class Unauthorized extends Error {
-  type: "Unauthorized";
+  error: "Unauthorized";
   detail: string;
 
   /** The original data that was passed to this error instance. */
@@ -29,7 +29,7 @@ export class Unauthorized extends Error {
     super(message);
     this.data$ = err;
 
-    this.type = err.type;
+    this.error = err.error;
     this.detail = err.detail;
 
     this.name = "Unauthorized";
@@ -37,24 +37,24 @@ export class Unauthorized extends Error {
 }
 
 /** @internal */
-export const UnauthorizedType$inboundSchema: z.ZodNativeEnum<
-  typeof UnauthorizedType
-> = z.nativeEnum(UnauthorizedType);
+export const UnauthorizedError$inboundSchema: z.ZodNativeEnum<
+  typeof UnauthorizedError
+> = z.nativeEnum(UnauthorizedError);
 
 /** @internal */
-export const UnauthorizedType$outboundSchema: z.ZodNativeEnum<
-  typeof UnauthorizedType
-> = UnauthorizedType$inboundSchema;
+export const UnauthorizedError$outboundSchema: z.ZodNativeEnum<
+  typeof UnauthorizedError
+> = UnauthorizedError$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace UnauthorizedType$ {
-  /** @deprecated use `UnauthorizedType$inboundSchema` instead. */
-  export const inboundSchema = UnauthorizedType$inboundSchema;
-  /** @deprecated use `UnauthorizedType$outboundSchema` instead. */
-  export const outboundSchema = UnauthorizedType$outboundSchema;
+export namespace UnauthorizedError$ {
+  /** @deprecated use `UnauthorizedError$inboundSchema` instead. */
+  export const inboundSchema = UnauthorizedError$inboundSchema;
+  /** @deprecated use `UnauthorizedError$outboundSchema` instead. */
+  export const outboundSchema = UnauthorizedError$outboundSchema;
 }
 
 /** @internal */
@@ -63,7 +63,7 @@ export const Unauthorized$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("Unauthorized"),
+  error: z.literal("Unauthorized"),
   detail: z.string(),
 })
   .transform((v) => {
@@ -72,7 +72,7 @@ export const Unauthorized$inboundSchema: z.ZodType<
 
 /** @internal */
 export type Unauthorized$Outbound = {
-  type: "Unauthorized";
+  error: "Unauthorized";
   detail: string;
 };
 
@@ -84,7 +84,7 @@ export const Unauthorized$outboundSchema: z.ZodType<
 > = z.instanceof(Unauthorized)
   .transform(v => v.data$)
   .pipe(z.object({
-    type: z.literal("Unauthorized").default("Unauthorized"),
+    error: z.literal("Unauthorized").default("Unauthorized"),
     detail: z.string(),
   }));
 

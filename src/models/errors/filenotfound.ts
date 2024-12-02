@@ -5,18 +5,18 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 
-export const FileNotFoundType = {
+export const FileNotFoundError = {
   FileNotFound: "FileNotFound",
 } as const;
-export type FileNotFoundType = ClosedEnum<typeof FileNotFoundType>;
+export type FileNotFoundError = ClosedEnum<typeof FileNotFoundError>;
 
 export type FileNotFoundData = {
-  type: "FileNotFound";
+  error: "FileNotFound";
   detail: string;
 };
 
 export class FileNotFound extends Error {
-  type: "FileNotFound";
+  error: "FileNotFound";
   detail: string;
 
   /** The original data that was passed to this error instance. */
@@ -29,7 +29,7 @@ export class FileNotFound extends Error {
     super(message);
     this.data$ = err;
 
-    this.type = err.type;
+    this.error = err.error;
     this.detail = err.detail;
 
     this.name = "FileNotFound";
@@ -37,24 +37,24 @@ export class FileNotFound extends Error {
 }
 
 /** @internal */
-export const FileNotFoundType$inboundSchema: z.ZodNativeEnum<
-  typeof FileNotFoundType
-> = z.nativeEnum(FileNotFoundType);
+export const FileNotFoundError$inboundSchema: z.ZodNativeEnum<
+  typeof FileNotFoundError
+> = z.nativeEnum(FileNotFoundError);
 
 /** @internal */
-export const FileNotFoundType$outboundSchema: z.ZodNativeEnum<
-  typeof FileNotFoundType
-> = FileNotFoundType$inboundSchema;
+export const FileNotFoundError$outboundSchema: z.ZodNativeEnum<
+  typeof FileNotFoundError
+> = FileNotFoundError$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FileNotFoundType$ {
-  /** @deprecated use `FileNotFoundType$inboundSchema` instead. */
-  export const inboundSchema = FileNotFoundType$inboundSchema;
-  /** @deprecated use `FileNotFoundType$outboundSchema` instead. */
-  export const outboundSchema = FileNotFoundType$outboundSchema;
+export namespace FileNotFoundError$ {
+  /** @deprecated use `FileNotFoundError$inboundSchema` instead. */
+  export const inboundSchema = FileNotFoundError$inboundSchema;
+  /** @deprecated use `FileNotFoundError$outboundSchema` instead. */
+  export const outboundSchema = FileNotFoundError$outboundSchema;
 }
 
 /** @internal */
@@ -63,7 +63,7 @@ export const FileNotFound$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("FileNotFound"),
+  error: z.literal("FileNotFound"),
   detail: z.string(),
 })
   .transform((v) => {
@@ -72,7 +72,7 @@ export const FileNotFound$inboundSchema: z.ZodType<
 
 /** @internal */
 export type FileNotFound$Outbound = {
-  type: "FileNotFound";
+  error: "FileNotFound";
   detail: string;
 };
 
@@ -84,7 +84,7 @@ export const FileNotFound$outboundSchema: z.ZodType<
 > = z.instanceof(FileNotFound)
   .transform(v => v.data$)
   .pipe(z.object({
-    type: z.literal("FileNotFound").default("FileNotFound"),
+    error: z.literal("FileNotFound").default("FileNotFound"),
     detail: z.string(),
   }));
 

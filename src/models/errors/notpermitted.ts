@@ -5,18 +5,18 @@
 import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 
-export const NotPermittedType = {
+export const NotPermittedError = {
   NotPermitted: "NotPermitted",
 } as const;
-export type NotPermittedType = ClosedEnum<typeof NotPermittedType>;
+export type NotPermittedError = ClosedEnum<typeof NotPermittedError>;
 
 export type NotPermittedData = {
-  type: "NotPermitted";
+  error: "NotPermitted";
   detail: string;
 };
 
 export class NotPermitted extends Error {
-  type: "NotPermitted";
+  error: "NotPermitted";
   detail: string;
 
   /** The original data that was passed to this error instance. */
@@ -29,7 +29,7 @@ export class NotPermitted extends Error {
     super(message);
     this.data$ = err;
 
-    this.type = err.type;
+    this.error = err.error;
     this.detail = err.detail;
 
     this.name = "NotPermitted";
@@ -37,24 +37,24 @@ export class NotPermitted extends Error {
 }
 
 /** @internal */
-export const NotPermittedType$inboundSchema: z.ZodNativeEnum<
-  typeof NotPermittedType
-> = z.nativeEnum(NotPermittedType);
+export const NotPermittedError$inboundSchema: z.ZodNativeEnum<
+  typeof NotPermittedError
+> = z.nativeEnum(NotPermittedError);
 
 /** @internal */
-export const NotPermittedType$outboundSchema: z.ZodNativeEnum<
-  typeof NotPermittedType
-> = NotPermittedType$inboundSchema;
+export const NotPermittedError$outboundSchema: z.ZodNativeEnum<
+  typeof NotPermittedError
+> = NotPermittedError$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace NotPermittedType$ {
-  /** @deprecated use `NotPermittedType$inboundSchema` instead. */
-  export const inboundSchema = NotPermittedType$inboundSchema;
-  /** @deprecated use `NotPermittedType$outboundSchema` instead. */
-  export const outboundSchema = NotPermittedType$outboundSchema;
+export namespace NotPermittedError$ {
+  /** @deprecated use `NotPermittedError$inboundSchema` instead. */
+  export const inboundSchema = NotPermittedError$inboundSchema;
+  /** @deprecated use `NotPermittedError$outboundSchema` instead. */
+  export const outboundSchema = NotPermittedError$outboundSchema;
 }
 
 /** @internal */
@@ -63,7 +63,7 @@ export const NotPermitted$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("NotPermitted"),
+  error: z.literal("NotPermitted"),
   detail: z.string(),
 })
   .transform((v) => {
@@ -72,7 +72,7 @@ export const NotPermitted$inboundSchema: z.ZodType<
 
 /** @internal */
 export type NotPermitted$Outbound = {
-  type: "NotPermitted";
+  error: "NotPermitted";
   detail: string;
 };
 
@@ -84,7 +84,7 @@ export const NotPermitted$outboundSchema: z.ZodType<
 > = z.instanceof(NotPermitted)
   .transform(v => v.data$)
   .pipe(z.object({
-    type: z.literal("NotPermitted").default("NotPermitted"),
+    error: z.literal("NotPermitted").default("NotPermitted"),
     detail: z.string(),
   }));
 

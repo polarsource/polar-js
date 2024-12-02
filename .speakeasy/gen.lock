@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 8c77dbcf9616a473577c1b831475c46b
+  docChecksum: 2d735185f93b2f2b35ae9f3c9a9e1548
   docVersion: 0.1.0
   speakeasyVersion: 1.448.2
   generationVersion: 2.467.4
-  releaseVersion: 0.17.2
-  configChecksum: f2ddedcbdbda6531eed6ed345f4371ac
+  releaseVersion: 0.17.3
+  configChecksum: 1718aa2e2a69a47dd43bb592bc9cf0fd
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -558,16 +558,16 @@ generatedFiles:
   - docs/models/components/webhooksubscriptionupdatedpayload.md
   - docs/models/components/webhooksubscriptionupdatedpayloadtype.md
   - docs/models/errors/alreadycanceledsubscription.md
-  - docs/models/errors/alreadycanceledsubscriptiontype.md
+  - docs/models/errors/alreadycanceledsubscriptionerror.md
+  - docs/models/errors/errort.md
   - docs/models/errors/filenotfound.md
-  - docs/models/errors/filenotfoundtype.md
+  - docs/models/errors/filenotfounderror.md
   - docs/models/errors/httpvalidationerror.md
   - docs/models/errors/notpermitted.md
-  - docs/models/errors/notpermittedtype.md
+  - docs/models/errors/notpermittederror.md
   - docs/models/errors/resourcenotfound.md
-  - docs/models/errors/type.md
   - docs/models/errors/unauthorized.md
-  - docs/models/errors/unauthorizedtype.md
+  - docs/models/errors/unauthorizederror.md
   - docs/models/operations/advertisementsgetrequest.md
   - docs/models/operations/advertisementslistrequest.md
   - docs/models/operations/advertisementslistresponse.md
