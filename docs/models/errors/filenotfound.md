@@ -10,7 +10,7 @@ import { FileNotFound } from "@polar-sh/sdk/models/errors";
 
 ## Fields
 
-| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `type`                                                             | [errors.FileNotFoundType](../../models/errors/filenotfoundtype.md) | :heavy_check_mark:                                                 | N/A                                                                |
-| `detail`                                                           | *string*                                                           | :heavy_check_mark:                                                 | N/A                                                                |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `error`                                                              | [errors.FileNotFoundError](../../models/errors/filenotfounderror.md) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `detail`                                                             | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
