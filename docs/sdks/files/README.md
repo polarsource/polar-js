@@ -283,6 +283,8 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
+| errors.NotPermitted        | 403                        | application/json           |
+| errors.ResourceNotFound    | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
@@ -362,6 +364,8 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
+| errors.NotPermitted        | 403                        | application/json           |
+| errors.ResourceNotFound    | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
@@ -438,6 +442,6 @@ run();
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.NotPermitted        | 403                        | application/json           |
-| errors.FileNotFound        | 404                        | application/json           |
+| errors.ResourceNotFound    | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |

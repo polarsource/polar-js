@@ -3,7 +3,6 @@
  */
 
 export * from "./alreadycanceledsubscription.js";
-export * from "./filenotfound.js";
 export * from "./httpclienterrors.js";
 export * from "./httpvalidationerror.js";
 export * from "./notpermitted.js";
