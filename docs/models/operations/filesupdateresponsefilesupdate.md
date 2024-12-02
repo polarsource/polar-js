@@ -1,6 +1,6 @@
 # FilesUpdateResponseFilesUpdate
 
-Successful Response
+File updated.
 
 
 ## Supported Types

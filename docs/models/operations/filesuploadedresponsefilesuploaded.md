@@ -1,6 +1,6 @@
 # FilesUploadedResponseFilesUploaded
 
-Successful Response
+File upload completed.
 
 
 ## Supported Types

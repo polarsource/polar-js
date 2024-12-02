@@ -119,7 +119,7 @@ export async function filesCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.FileUpload$inboundSchema),
+    M.json(201, components.FileUpload$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),
   )(response, { extraFields: responseFields });

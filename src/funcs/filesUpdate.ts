@@ -35,6 +35,8 @@ export async function filesUpdate(
 ): Promise<
   Result<
     operations.FilesUpdateResponseFilesUpdate,
+    | errors.NotPermitted
+    | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -102,7 +104,7 @@ export async function filesUpdate(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["422", "4XX", "5XX"],
+    errorCodes: ["403", "404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -117,6 +119,8 @@ export async function filesUpdate(
 
   const [result] = await M.match<
     operations.FilesUpdateResponseFilesUpdate,
+    | errors.NotPermitted
+    | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -127,6 +131,8 @@ export async function filesUpdate(
     | ConnectionError
   >(
     M.json(200, operations.FilesUpdateResponseFilesUpdate$inboundSchema),
+    M.jsonErr(403, errors.NotPermitted$inboundSchema),
+    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),
   )(response, { extraFields: responseFields });

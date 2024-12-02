@@ -18,7 +18,7 @@ export type FilesUpdateRequest = {
 };
 
 /**
- * Successful Response
+ * File updated.
  */
 export type FilesUpdateResponseFilesUpdate =
   | (components.DownloadableFileRead & { service: "downloadable" })

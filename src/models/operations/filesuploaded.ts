@@ -18,7 +18,7 @@ export type FilesUploadedRequest = {
 };
 
 /**
- * Successful Response
+ * File upload completed.
  */
 export type FilesUploadedResponseFilesUploaded =
   | (components.DownloadableFileRead & { service: "downloadable" })

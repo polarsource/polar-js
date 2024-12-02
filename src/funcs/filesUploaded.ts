@@ -35,6 +35,8 @@ export async function filesUploaded(
 ): Promise<
   Result<
     operations.FilesUploadedResponseFilesUploaded,
+    | errors.NotPermitted
+    | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -104,7 +106,7 @@ export async function filesUploaded(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["422", "4XX", "5XX"],
+    errorCodes: ["403", "404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -119,6 +121,8 @@ export async function filesUploaded(
 
   const [result] = await M.match<
     operations.FilesUploadedResponseFilesUploaded,
+    | errors.NotPermitted
+    | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -129,6 +133,8 @@ export async function filesUploaded(
     | ConnectionError
   >(
     M.json(200, operations.FilesUploadedResponseFilesUploaded$inboundSchema),
+    M.jsonErr(403, errors.NotPermitted$inboundSchema),
+    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),
   )(response, { extraFields: responseFields });

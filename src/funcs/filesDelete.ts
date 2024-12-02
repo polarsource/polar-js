@@ -37,7 +37,7 @@ export async function filesDelete(
   Result<
     void,
     | errors.NotPermitted
-    | errors.FileNotFound
+    | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -120,7 +120,7 @@ export async function filesDelete(
   const [result] = await M.match<
     void,
     | errors.NotPermitted
-    | errors.FileNotFound
+    | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -132,7 +132,7 @@ export async function filesDelete(
   >(
     M.nil(204, z.void()),
     M.jsonErr(403, errors.NotPermitted$inboundSchema),
-    M.jsonErr(404, errors.FileNotFound$inboundSchema),
+    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),
   )(response, { extraFields: responseFields });
