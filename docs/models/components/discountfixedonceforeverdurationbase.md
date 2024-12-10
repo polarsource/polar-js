@@ -6,22 +6,22 @@
 import { DiscountFixedOnceForeverDurationBase } from "@polar-sh/sdk/models/components";
 
 let value: DiscountFixedOnceForeverDurationBase = {
-  duration: "repeating",
+  duration: "once",
   type: "fixed",
-  amount: 261955,
-  currency: "Cuban Peso",
-  createdAt: new Date("2024-08-28T07:26:38.517Z"),
-  modifiedAt: new Date("2024-05-19T16:53:58.103Z"),
+  amount: 456704,
+  currency: "Armenian Dram",
+  createdAt: new Date("2023-03-28T03:08:04.092Z"),
+  modifiedAt: new Date("2023-06-21T10:43:11.807Z"),
   id: "<value>",
   metadata: {
-    "key": 378023,
+    "key": "<value>",
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2022-01-15T03:21:19.892Z"),
-  endsAt: new Date("2024-02-09T07:49:08.173Z"),
-  maxRedemptions: 964939,
-  redemptionsCount: 778520,
+  startsAt: new Date("2023-10-08T03:33:36.949Z"),
+  endsAt: new Date("2024-04-05T13:13:41.181Z"),
+  maxRedemptions: 235834,
+  redemptionsCount: 620500,
   organizationId: "<value>",
 };
 ```

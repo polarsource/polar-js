@@ -7,7 +7,7 @@
 
 ```typescript
 const value: components.ProductPriceOneTimeFixedCreate = {
-  priceAmount: 39825,
+  priceAmount: 73894,
 };
 ```
 

@@ -5,7 +5,7 @@
 ```typescript
 import { DiscountType } from "@polar-sh/sdk/models/components";
 
-let value: DiscountType = "fixed";
+let value: DiscountType = "percentage";
 ```
 
 ## Values

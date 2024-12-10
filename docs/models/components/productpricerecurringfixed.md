@@ -8,13 +8,13 @@ A recurring price for a product, i.e. a subscription.
 import { ProductPriceRecurringFixed } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringFixed = {
-  createdAt: new Date("2023-11-26T02:07:27.856Z"),
-  modifiedAt: new Date("2022-05-18T11:05:49.760Z"),
+  createdAt: new Date("2022-10-05T11:56:28.175Z"),
+  modifiedAt: new Date("2022-05-24T15:16:36.486Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
   priceCurrency: "<value>",
-  priceAmount: 610462,
+  priceAmount: 12036,
   recurringInterval: "month",
 };
 ```

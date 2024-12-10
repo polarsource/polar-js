@@ -9,23 +9,23 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "beb2725e-e459-4f24-bd7e-2855765ebb49",
+        id: "51539b48-cab3-4a43-b457-35e230b870fd",
         name: "<value>",
-        avatarUrl: "https://grown-rust.net",
+        avatarUrl: "https://sour-chapel.org",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Streich - Kiehn",
+        company: "Predovic, Greenholt and Abbott",
         blog: "<value>",
         location: "<value>",
-        email: "Isidro.Mraz@yahoo.com",
+        email: "Lauriane.Cole-Borer@yahoo.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 401428,
-      maxPage: 416692,
+      totalCount: 662360,
+      maxPage: 889439,
     },
   },
 };

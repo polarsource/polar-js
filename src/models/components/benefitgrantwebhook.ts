@@ -20,12 +20,6 @@ import {
   BenefitGrantAdsProperties$outboundSchema,
 } from "./benefitgrantadsproperties.js";
 import {
-  BenefitGrantArticlesProperties,
-  BenefitGrantArticlesProperties$inboundSchema,
-  BenefitGrantArticlesProperties$Outbound,
-  BenefitGrantArticlesProperties$outboundSchema,
-} from "./benefitgrantarticlesproperties.js";
-import {
   BenefitGrantCustomProperties,
   BenefitGrantCustomProperties$inboundSchema,
   BenefitGrantCustomProperties$Outbound,
@@ -58,7 +52,6 @@ import {
 
 export type BenefitGrantWebhookProperties =
   | BenefitGrantCustomProperties
-  | BenefitGrantArticlesProperties
   | BenefitGrantDownloadablesProperties
   | BenefitGrantAdsProperties
   | BenefitGrantLicenseKeysProperties
@@ -67,7 +60,6 @@ export type BenefitGrantWebhookProperties =
 
 export type PreviousProperties =
   | BenefitGrantCustomProperties
-  | BenefitGrantArticlesProperties
   | BenefitGrantDownloadablesProperties
   | BenefitGrantAdsProperties
   | BenefitGrantLicenseKeysProperties
@@ -121,7 +113,6 @@ export type BenefitGrantWebhook = {
   benefitId: string;
   properties:
     | BenefitGrantCustomProperties
-    | BenefitGrantArticlesProperties
     | BenefitGrantDownloadablesProperties
     | BenefitGrantAdsProperties
     | BenefitGrantLicenseKeysProperties
@@ -130,7 +121,6 @@ export type BenefitGrantWebhook = {
   benefit: Benefit;
   previousProperties?:
     | BenefitGrantCustomProperties
-    | BenefitGrantArticlesProperties
     | BenefitGrantDownloadablesProperties
     | BenefitGrantAdsProperties
     | BenefitGrantLicenseKeysProperties
@@ -147,7 +137,6 @@ export const BenefitGrantWebhookProperties$inboundSchema: z.ZodType<
   unknown
 > = z.union([
   BenefitGrantCustomProperties$inboundSchema,
-  BenefitGrantArticlesProperties$inboundSchema,
   BenefitGrantDownloadablesProperties$inboundSchema,
   BenefitGrantAdsProperties$inboundSchema,
   BenefitGrantLicenseKeysProperties$inboundSchema,
@@ -158,7 +147,6 @@ export const BenefitGrantWebhookProperties$inboundSchema: z.ZodType<
 /** @internal */
 export type BenefitGrantWebhookProperties$Outbound =
   | BenefitGrantCustomProperties$Outbound
-  | BenefitGrantArticlesProperties$Outbound
   | BenefitGrantDownloadablesProperties$Outbound
   | BenefitGrantAdsProperties$Outbound
   | BenefitGrantLicenseKeysProperties$Outbound
@@ -172,7 +160,6 @@ export const BenefitGrantWebhookProperties$outboundSchema: z.ZodType<
   BenefitGrantWebhookProperties
 > = z.union([
   BenefitGrantCustomProperties$outboundSchema,
-  BenefitGrantArticlesProperties$outboundSchema,
   BenefitGrantDownloadablesProperties$outboundSchema,
   BenefitGrantAdsProperties$outboundSchema,
   BenefitGrantLicenseKeysProperties$outboundSchema,
@@ -220,7 +207,6 @@ export const PreviousProperties$inboundSchema: z.ZodType<
   unknown
 > = z.union([
   BenefitGrantCustomProperties$inboundSchema,
-  BenefitGrantArticlesProperties$inboundSchema,
   BenefitGrantDownloadablesProperties$inboundSchema,
   BenefitGrantAdsProperties$inboundSchema,
   BenefitGrantLicenseKeysProperties$inboundSchema,
@@ -231,7 +217,6 @@ export const PreviousProperties$inboundSchema: z.ZodType<
 /** @internal */
 export type PreviousProperties$Outbound =
   | BenefitGrantCustomProperties$Outbound
-  | BenefitGrantArticlesProperties$Outbound
   | BenefitGrantDownloadablesProperties$Outbound
   | BenefitGrantAdsProperties$Outbound
   | BenefitGrantLicenseKeysProperties$Outbound
@@ -245,7 +230,6 @@ export const PreviousProperties$outboundSchema: z.ZodType<
   PreviousProperties
 > = z.union([
   BenefitGrantCustomProperties$outboundSchema,
-  BenefitGrantArticlesProperties$outboundSchema,
   BenefitGrantDownloadablesProperties$outboundSchema,
   BenefitGrantAdsProperties$outboundSchema,
   BenefitGrantLicenseKeysProperties$outboundSchema,
@@ -309,7 +293,6 @@ export const BenefitGrantWebhook$inboundSchema: z.ZodType<
   benefit_id: z.string(),
   properties: z.union([
     BenefitGrantCustomProperties$inboundSchema,
-    BenefitGrantArticlesProperties$inboundSchema,
     BenefitGrantDownloadablesProperties$inboundSchema,
     BenefitGrantAdsProperties$inboundSchema,
     BenefitGrantLicenseKeysProperties$inboundSchema,
@@ -320,7 +303,6 @@ export const BenefitGrantWebhook$inboundSchema: z.ZodType<
   previous_properties: z.nullable(
     z.union([
       BenefitGrantCustomProperties$inboundSchema,
-      BenefitGrantArticlesProperties$inboundSchema,
       BenefitGrantDownloadablesProperties$inboundSchema,
       BenefitGrantAdsProperties$inboundSchema,
       BenefitGrantLicenseKeysProperties$inboundSchema,
@@ -359,7 +341,6 @@ export type BenefitGrantWebhook$Outbound = {
   benefit_id: string;
   properties:
     | BenefitGrantCustomProperties$Outbound
-    | BenefitGrantArticlesProperties$Outbound
     | BenefitGrantDownloadablesProperties$Outbound
     | BenefitGrantAdsProperties$Outbound
     | BenefitGrantLicenseKeysProperties$Outbound
@@ -368,7 +349,6 @@ export type BenefitGrantWebhook$Outbound = {
   benefit: Benefit$Outbound;
   previous_properties?:
     | BenefitGrantCustomProperties$Outbound
-    | BenefitGrantArticlesProperties$Outbound
     | BenefitGrantDownloadablesProperties$Outbound
     | BenefitGrantAdsProperties$Outbound
     | BenefitGrantLicenseKeysProperties$Outbound
@@ -397,7 +377,6 @@ export const BenefitGrantWebhook$outboundSchema: z.ZodType<
   benefitId: z.string(),
   properties: z.union([
     BenefitGrantCustomProperties$outboundSchema,
-    BenefitGrantArticlesProperties$outboundSchema,
     BenefitGrantDownloadablesProperties$outboundSchema,
     BenefitGrantAdsProperties$outboundSchema,
     BenefitGrantLicenseKeysProperties$outboundSchema,
@@ -408,7 +387,6 @@ export const BenefitGrantWebhook$outboundSchema: z.ZodType<
   previousProperties: z.nullable(
     z.union([
       BenefitGrantCustomProperties$outboundSchema,
-      BenefitGrantArticlesProperties$outboundSchema,
       BenefitGrantDownloadablesProperties$outboundSchema,
       BenefitGrantAdsProperties$outboundSchema,
       BenefitGrantLicenseKeysProperties$outboundSchema,

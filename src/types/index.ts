@@ -9,3 +9,4 @@ export type { Result } from "./fp.js";
 export type { PageIterator, Paginator } from "./operations.js";
 export { createPageIterator } from "./operations.js";
 export { RFCDate } from "./rfcdate.js";
+export type { WebhookRecipient } from "./webhooks.js";

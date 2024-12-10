@@ -8,11 +8,11 @@ A product that a discount can be applied to.
 import { DiscountProduct } from "@polar-sh/sdk/models/components";
 
 let value: DiscountProduct = {
-  createdAt: new Date("2024-01-22T03:55:14.180Z"),
-  modifiedAt: new Date("2022-03-03T00:48:40.640Z"),
+  createdAt: new Date("2022-09-19T18:10:58.926Z"),
+  modifiedAt: new Date("2024-05-09T00:02:08.000Z"),
   id: "<value>",
   name: "<value>",
-  description: "provided monstrous unnaturally when er fat",
+  description: "hyphenation gosh huzzah until",
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",

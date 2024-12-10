@@ -8,32 +8,34 @@ Product data for a checkout link.
 import { CheckoutLinkProduct } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutLinkProduct = {
-  createdAt: new Date("2022-10-30T01:32:14.646Z"),
-  modifiedAt: new Date("2024-08-05T03:49:40.522Z"),
+  createdAt: new Date("2022-08-27T03:21:18.763Z"),
+  modifiedAt: new Date("2024-10-23T13:05:09.319Z"),
   id: "<value>",
   name: "<value>",
-  description: "underneath midst bobble against unaware um musty",
+  description:
+    "ew yahoo lest under privilege toward unto inconsequential portray",
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",
   prices: [
     {
-      createdAt: new Date("2022-09-19T18:10:58.926Z"),
-      modifiedAt: new Date("2024-05-09T00:02:08.000Z"),
+      createdAt: new Date("2022-12-17T10:47:06.589Z"),
+      modifiedAt: new Date("2023-02-05T07:00:12.804Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
       priceCurrency: "<value>",
-      priceAmount: 192970,
+      priceAmount: 645782,
+      recurringInterval: "month",
     },
   ],
   benefits: [
     {
-      createdAt: new Date("2023-02-08T13:32:10.149Z"),
-      modifiedAt: new Date("2023-11-16T11:02:08.846Z"),
+      createdAt: new Date("2024-08-07T06:17:20.997Z"),
+      modifiedAt: new Date("2023-11-17T07:53:47.712Z"),
       id: "<value>",
-      type: "ads",
-      description: "forenenst guacamole abseil ack midst",
+      type: "custom",
+      description: "till bitter outrun yet why",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
@@ -44,19 +46,19 @@ let value: CheckoutLinkProduct = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/Applications",
+      path: "/lib",
       mimeType: "<value>",
-      size: 904289,
+      size: 684681,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2022-08-20T00:33:32.523Z"),
+      lastModifiedAt: new Date("2022-05-03T10:24:27.619Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2022-01-28T21:38:59.292Z"),
+      createdAt: new Date("2023-11-24T19:50:09.793Z"),
       sizeReadable: "<value>",
-      publicUrl: "https://noteworthy-cauliflower.org",
+      publicUrl: "https://flickering-humidity.net/",
     },
   ],
 };
@@ -75,5 +77,5 @@ let value: CheckoutLinkProduct = {
 | `isArchived`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the product is archived and no longer available.                                      |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the product.                                                |
 | `prices`                                                                                      | *components.ProductPrice*[]                                                                   | :heavy_check_mark:                                                                            | List of prices for this product.                                                              |
-| `benefits`                                                                                    | *components.CheckoutLinkProductBenefits*[]                                                    | :heavy_check_mark:                                                                            | List of benefits granted by the product.                                                      |
+| `benefits`                                                                                    | [components.BenefitBase](../../models/components/benefitbase.md)[]                            | :heavy_check_mark:                                                                            | List of benefits granted by the product.                                                      |
 | `medias`                                                                                      | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]          | :heavy_check_mark:                                                                            | List of medias associated to the product.                                                     |

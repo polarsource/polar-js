@@ -8,12 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BenefitArticles,
-  BenefitArticles$inboundSchema,
-  BenefitArticles$Outbound,
-  BenefitArticles$outboundSchema,
-} from "./benefitarticles.js";
-import {
   BenefitBase,
   BenefitBase$inboundSchema,
   BenefitBase$Outbound,
@@ -37,8 +31,6 @@ import {
   ProductPrice$Outbound,
   ProductPrice$outboundSchema,
 } from "./productprice.js";
-
-export type UserSubscriptionProductBenefits = BenefitBase | BenefitArticles;
 
 export type UserSubscriptionProduct = {
   /**
@@ -80,65 +72,13 @@ export type UserSubscriptionProduct = {
   /**
    * List of benefits granted by the product.
    */
-  benefits: Array<BenefitBase | BenefitArticles>;
+  benefits: Array<BenefitBase>;
   /**
    * List of medias associated to the product.
    */
   medias: Array<ProductMediaFileRead>;
   organization: Organization;
 };
-
-/** @internal */
-export const UserSubscriptionProductBenefits$inboundSchema: z.ZodType<
-  UserSubscriptionProductBenefits,
-  z.ZodTypeDef,
-  unknown
-> = z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]);
-
-/** @internal */
-export type UserSubscriptionProductBenefits$Outbound =
-  | BenefitBase$Outbound
-  | BenefitArticles$Outbound;
-
-/** @internal */
-export const UserSubscriptionProductBenefits$outboundSchema: z.ZodType<
-  UserSubscriptionProductBenefits$Outbound,
-  z.ZodTypeDef,
-  UserSubscriptionProductBenefits
-> = z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UserSubscriptionProductBenefits$ {
-  /** @deprecated use `UserSubscriptionProductBenefits$inboundSchema` instead. */
-  export const inboundSchema = UserSubscriptionProductBenefits$inboundSchema;
-  /** @deprecated use `UserSubscriptionProductBenefits$outboundSchema` instead. */
-  export const outboundSchema = UserSubscriptionProductBenefits$outboundSchema;
-  /** @deprecated use `UserSubscriptionProductBenefits$Outbound` instead. */
-  export type Outbound = UserSubscriptionProductBenefits$Outbound;
-}
-
-export function userSubscriptionProductBenefitsToJSON(
-  userSubscriptionProductBenefits: UserSubscriptionProductBenefits,
-): string {
-  return JSON.stringify(
-    UserSubscriptionProductBenefits$outboundSchema.parse(
-      userSubscriptionProductBenefits,
-    ),
-  );
-}
-
-export function userSubscriptionProductBenefitsFromJSON(
-  jsonString: string,
-): SafeParseResult<UserSubscriptionProductBenefits, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => UserSubscriptionProductBenefits$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'UserSubscriptionProductBenefits' from JSON`,
-  );
-}
 
 /** @internal */
 export const UserSubscriptionProduct$inboundSchema: z.ZodType<
@@ -157,9 +97,7 @@ export const UserSubscriptionProduct$inboundSchema: z.ZodType<
   is_archived: z.boolean(),
   organization_id: z.string(),
   prices: z.array(ProductPrice$inboundSchema),
-  benefits: z.array(
-    z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]),
-  ),
+  benefits: z.array(BenefitBase$inboundSchema),
   medias: z.array(ProductMediaFileRead$inboundSchema),
   organization: Organization$inboundSchema,
 }).transform((v) => {
@@ -183,7 +121,7 @@ export type UserSubscriptionProduct$Outbound = {
   is_archived: boolean;
   organization_id: string;
   prices: Array<ProductPrice$Outbound>;
-  benefits: Array<BenefitBase$Outbound | BenefitArticles$Outbound>;
+  benefits: Array<BenefitBase$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
   organization: Organization$Outbound;
 };
@@ -203,9 +141,7 @@ export const UserSubscriptionProduct$outboundSchema: z.ZodType<
   isArchived: z.boolean(),
   organizationId: z.string(),
   prices: z.array(ProductPrice$outboundSchema),
-  benefits: z.array(
-    z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]),
-  ),
+  benefits: z.array(BenefitBase$outboundSchema),
   medias: z.array(ProductMediaFileRead$outboundSchema),
   organization: Organization$outboundSchema,
 }).transform((v) => {

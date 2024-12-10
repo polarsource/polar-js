@@ -8,31 +8,30 @@ import { ListResourceDiscount } from "@polar-sh/sdk/models/components";
 let value: ListResourceDiscount = {
   items: [
     {
-      duration: "repeating",
+      duration: "once",
+      durationInMonths: 294426,
       type: "fixed",
-      amount: 873613,
-      currency: "Cordoba Oro",
-      createdAt: new Date("2024-01-14T07:42:06.849Z"),
-      modifiedAt: new Date("2023-05-17T03:56:32.810Z"),
+      basisPoints: 782277,
+      createdAt: new Date("2022-06-16T18:55:28.891Z"),
+      modifiedAt: new Date("2023-04-28T16:00:32.884Z"),
       id: "<value>",
       metadata: {
-        "key": "<value>",
+        "key": 769331,
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2023-06-04T03:56:34.081Z"),
-      endsAt: new Date("2024-04-19T22:51:54.283Z"),
-      maxRedemptions: 912095,
-      redemptionsCount: 495291,
+      startsAt: new Date("2023-04-27T14:18:23.756Z"),
+      endsAt: new Date("2022-09-30T19:12:28.413Z"),
+      maxRedemptions: 80616,
+      redemptionsCount: 485819,
       organizationId: "<value>",
       products: [
         {
-          createdAt: new Date("2023-08-05T19:48:44.616Z"),
-          modifiedAt: new Date("2024-03-13T18:34:45.687Z"),
+          createdAt: new Date("2022-09-30T22:08:25.999Z"),
+          modifiedAt: new Date("2024-01-22T07:34:15.679Z"),
           id: "<value>",
           name: "<value>",
-          description:
-            "upward baptise clueless ack quaintly unlined encode always mindless underneath",
+          description: "blindly mixture yieldingly phooey",
           isRecurring: false,
           isArchived: false,
           organizationId: "<value>",
@@ -41,8 +40,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 744045,
-    maxPage: 441348,
+    totalCount: 327988,
+    maxPage: 223877,
   },
 };
 ```

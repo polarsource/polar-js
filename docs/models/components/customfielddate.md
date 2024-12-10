@@ -8,11 +8,11 @@ Schema for a custom field of type date.
 import { CustomFieldDate } from "@polar-sh/sdk/models/components";
 
 let value: CustomFieldDate = {
-  createdAt: new Date("2023-05-06T06:53:25.696Z"),
-  modifiedAt: new Date("2024-02-27T21:52:23.922Z"),
+  createdAt: new Date("2024-09-17T18:23:38.222Z"),
+  modifiedAt: new Date("2023-08-20T00:16:18.159Z"),
   id: "<value>",
   metadata: {
-    "key": false,
+    "key": 882042,
   },
   slug: "<value>",
   name: "<value>",

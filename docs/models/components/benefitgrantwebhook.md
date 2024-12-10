@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2023-03-24T09:54:57.627Z"),
-  modifiedAt: new Date("2023-01-27T07:36:10.471Z"),
+  createdAt: new Date("2024-02-22T06:13:59.813Z"),
+  modifiedAt: new Date("2023-07-18T19:51:13.460Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,24 +17,19 @@ let value: BenefitGrantWebhook = {
   benefitId: "<value>",
   properties: {},
   benefit: {
-    createdAt: new Date("2024-09-25T09:49:00.136Z"),
-    modifiedAt: new Date("2022-10-09T02:22:51.594Z"),
+    createdAt: new Date("2023-04-20T10:58:30.086Z"),
+    modifiedAt: new Date("2022-12-24T00:38:40.863Z"),
     id: "<value>",
-    description: "as along with vice mount smug quickly",
+    description:
+      "husband even voluminous satisfy encouragement openly painfully",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      prefix: "<value>",
-      expires: {
-        ttl: 639013,
-        timeframe: "month",
-      },
-      activations: {
-        limit: 435652,
-        enableUserAdmin: false,
-      },
-      limitUsage: 517018,
+      repositoryId: "<value>",
+      repositoryOwner: "polarsource",
+      repositoryName: "private_repo",
+      permission: "pull",
     },
   },
 };

@@ -10,30 +10,30 @@ let value: DiscountsListResponse = {
     items: [
       {
         duration: "forever",
-        durationInMonths: 134267,
-        type: "percentage",
-        basisPoints: 574990,
-        createdAt: new Date("2024-03-21T23:18:55.780Z"),
-        modifiedAt: new Date("2024-02-12T07:29:56.575Z"),
+        type: "fixed",
+        amount: 607380,
+        currency: "Afghani",
+        createdAt: new Date("2024-03-23T21:42:53.607Z"),
+        modifiedAt: new Date("2023-03-01T07:38:44.572Z"),
         id: "<value>",
         metadata: {
           "key": false,
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2022-11-20T15:45:49.704Z"),
-        endsAt: new Date("2024-02-13T00:23:21.664Z"),
-        maxRedemptions: 365676,
-        redemptionsCount: 395411,
+        startsAt: new Date("2024-01-30T05:20:19.928Z"),
+        endsAt: new Date("2023-06-08T11:50:26.753Z"),
+        maxRedemptions: 508633,
+        redemptionsCount: 90205,
         organizationId: "<value>",
         products: [
           {
-            createdAt: new Date("2022-09-10T17:33:40.761Z"),
-            modifiedAt: new Date("2023-01-13T00:50:37.177Z"),
+            createdAt: new Date("2023-12-12T14:27:58.846Z"),
+            modifiedAt: new Date("2023-12-04T06:25:18.097Z"),
             id: "<value>",
             name: "<value>",
             description:
-              "enlightened wide solemnly lest onto closely arcade offend poorly square",
+              "soybean very into what sundae broken within absent opposite",
             isRecurring: false,
             isArchived: false,
             organizationId: "<value>",
@@ -42,8 +42,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 830197,
-      maxPage: 842935,
+      totalCount: 413273,
+      maxPage: 133898,
     },
   },
 };

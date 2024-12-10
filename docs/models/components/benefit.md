@@ -3,31 +3,15 @@
 
 ## Supported Types
 
-### `components.BenefitArticles`
-
-```typescript
-const value: components.BenefitArticles = {
-  createdAt: new Date("2024-09-09T07:44:00.700Z"),
-  modifiedAt: new Date("2023-08-08T06:49:36.002Z"),
-  id: "<value>",
-  description: "intensely underneath what yippee forenenst galvanize",
-  selectable: false,
-  deletable: false,
-  organizationId: "<value>",
-  properties: {
-    paidArticles: false,
-  },
-};
-```
-
 ### `components.BenefitAds`
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2024-05-30T15:11:50.953Z"),
-  modifiedAt: new Date("2024-02-01T11:06:52.837Z"),
+  createdAt: new Date("2024-03-13T10:16:08.156Z"),
+  modifiedAt: new Date("2024-09-02T13:29:38.345Z"),
   id: "<value>",
-  description: "out ape solemnly around acidic pfft drat whenever trim without",
+  description:
+    "abnegate convection bogus till lasting bruised suburban splash psst before",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -39,11 +23,11 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2022-05-12T05:00:44.703Z"),
-  modifiedAt: new Date("2023-03-20T06:22:16.956Z"),
+  createdAt: new Date("2023-09-13T03:59:21.804Z"),
+  modifiedAt: new Date("2023-04-06T13:49:22.596Z"),
   id: "<value>",
   description:
-    "spattering including including since brr haunting bookend mispronounce goodwill",
+    "likewise whether whereas collectivization despite till crumble besides",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -58,10 +42,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscord = {
-  createdAt: new Date("2024-07-15T13:00:34.312Z"),
-  modifiedAt: new Date("2023-09-08T12:58:34.282Z"),
+  createdAt: new Date("2024-08-27T05:15:52.024Z"),
+  modifiedAt: new Date("2024-11-16T13:14:05.219Z"),
   id: "<value>",
-  description: "fuss indeed halt requite oh personal",
+  description: "why limited gosh inwardly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -77,10 +61,10 @@ const value: components.BenefitDiscord = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2024-01-18T06:41:20.361Z"),
-  modifiedAt: new Date("2022-03-12T09:53:29.242Z"),
+  createdAt: new Date("2022-08-29T07:55:29.814Z"),
+  modifiedAt: new Date("2024-05-14T18:51:09.710Z"),
   id: "<value>",
-  description: "quicker ew phooey",
+  description: "republican depend ha after",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -88,7 +72,7 @@ const value: components.BenefitGitHubRepository = {
     repositoryId: "<value>",
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "pull",
+    permission: "maintain",
   },
 };
 ```
@@ -97,10 +81,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2024-05-09T17:12:22.765Z"),
-  modifiedAt: new Date("2022-09-08T14:59:46.694Z"),
+  createdAt: new Date("2024-12-20T00:58:21.844Z"),
+  modifiedAt: new Date("2024-06-15T15:19:48.072Z"),
   id: "<value>",
-  description: "quicker sometimes um",
+  description: "candid gigantic boohoo now aha",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -119,25 +103,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2023-11-25T09:57:01.792Z"),
-  modifiedAt: new Date("2022-11-02T08:22:20.663Z"),
+  createdAt: new Date("2023-11-06T16:40:09.305Z"),
+  modifiedAt: new Date("2024-11-03T10:14:15.332Z"),
   id: "<value>",
-  description:
-    "lavish of editor ack including angrily venom forenenst lovable eek",
+  description: "drat corral snowplow unimpressively",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 433219,
-      timeframe: "year",
+      ttl: 254288,
+      timeframe: "month",
     },
     activations: {
-      limit: 139528,
+      limit: 816726,
       enableUserAdmin: false,
     },
-    limitUsage: 696523,
+    limitUsage: 607181,
   },
 };
 ```

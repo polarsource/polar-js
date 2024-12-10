@@ -19,7 +19,6 @@ export type UsersBenefitsGetRequest = {
  * Successful Response
  */
 export type UsersBenefitsGetResponseUsersBenefitsGet =
-  | (components.BenefitArticlesSubscriber & { type: "articles" })
   | (components.BenefitAdsSubscriber & { type: "ads" })
   | (components.BenefitDiscordSubscriber & { type: "discord" })
   | (components.BenefitCustomSubscriber & { type: "custom" })
@@ -89,11 +88,6 @@ export const UsersBenefitsGetResponseUsersBenefitsGet$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.BenefitArticlesSubscriber$inboundSchema.and(
-    z.object({ type: z.literal("articles") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
   components.BenefitAdsSubscriber$inboundSchema.and(
     z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
   ),
@@ -126,7 +120,6 @@ export const UsersBenefitsGetResponseUsersBenefitsGet$inboundSchema: z.ZodType<
 
 /** @internal */
 export type UsersBenefitsGetResponseUsersBenefitsGet$Outbound =
-  | (components.BenefitArticlesSubscriber$Outbound & { type: "articles" })
   | (components.BenefitAdsSubscriber$Outbound & { type: "ads" })
   | (components.BenefitDiscordSubscriber$Outbound & { type: "discord" })
   | (components.BenefitCustomSubscriber$Outbound & { type: "custom" })
@@ -146,11 +139,6 @@ export const UsersBenefitsGetResponseUsersBenefitsGet$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UsersBenefitsGetResponseUsersBenefitsGet
 > = z.union([
-  components.BenefitArticlesSubscriber$outboundSchema.and(
-    z.object({ type: z.literal("articles") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
   components.BenefitAdsSubscriber$outboundSchema.and(
     z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
   ),

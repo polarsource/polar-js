@@ -4,7 +4,6 @@
 
 import { ClientSDK } from "../lib/sdks.js";
 import { Advertisements } from "./advertisements.js";
-import { Articles } from "./articles.js";
 import { Benefits } from "./benefits.js";
 import { CheckoutLinks } from "./checkoutlinks.js";
 import { Checkouts } from "./checkouts.js";
@@ -48,11 +47,6 @@ export class Polar extends ClientSDK {
   private _subscriptions?: Subscriptions;
   get subscriptions(): Subscriptions {
     return (this._subscriptions ??= new Subscriptions(this._options));
-  }
-
-  private _articles?: Articles;
-  get articles(): Articles {
-    return (this._articles ??= new Articles(this._options));
   }
 
   private _advertisements?: Advertisements;

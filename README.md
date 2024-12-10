@@ -89,17 +89,189 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new Polar();
 
 async function run() {
-  const result = await polar.users.benefits.list({});
+  const result = await polar.endpointcheckoutCreatedPost({
+    data: {
+      createdAt: new Date("2024-11-12T14:26:42.882Z"),
+      modifiedAt: new Date("2023-05-28T05:08:06.235Z"),
+      id: "<value>",
+      status: "failed",
+      clientSecret: "<value>",
+      url: "https://heavy-beret.com/",
+      expiresAt: new Date("2022-02-25T02:26:48.460Z"),
+      successUrl: "https://sardonic-final.info/",
+      embedOrigin: "<value>",
+      amount: 962818,
+      taxAmount: 6400,
+      currency: "Yen",
+      subtotalAmount: 648726,
+      totalAmount: 210702,
+      productId: "<value>",
+      productPriceId: "<value>",
+      discountId: "<value>",
+      allowDiscountCodes: true,
+      isDiscountApplicable: false,
+      isFreeProductPrice: false,
+      isPaymentRequired: false,
+      isPaymentSetupRequired: false,
+      isPaymentFormRequired: false,
+      customerId: "<value>",
+      customerName: "<value>",
+      customerEmail: "Ryley_Erdman@hotmail.com",
+      customerIpAddress: "<value>",
+      customerBillingAddress: {
+        country: "South Africa",
+      },
+      customerTaxId: "<id>",
+      paymentProcessorMetadata: {},
+      metadata: {
+        "key": 18677,
+        "key1": 95370,
+      },
+      product: {
+        createdAt: new Date("2022-04-02T00:05:42.586Z"),
+        modifiedAt: new Date("2023-12-16T03:02:38.803Z"),
+        id: "<value>",
+        name: "<value>",
+        description:
+          "for embarrassment untidy long-term near honestly separate yet",
+        isRecurring: true,
+        isArchived: false,
+        organizationId: "<value>",
+        prices: [
+          {
+            createdAt: new Date("2024-11-19T15:59:15.588Z"),
+            modifiedAt: new Date("2022-11-17T00:11:23.972Z"),
+            id: "<value>",
+            isArchived: false,
+            productId: "<value>",
+            priceCurrency: "<value>",
+            minimumAmount: 363560,
+            maximumAmount: 75876,
+            presetAmount: 82334,
+          },
+        ],
+        benefits: [
+          {
+            createdAt: new Date("2023-08-22T00:47:02.059Z"),
+            modifiedAt: new Date("2023-06-04T10:32:44.101Z"),
+            id: "<value>",
+            type: "license_keys",
+            description: "within jacket unless",
+            selectable: false,
+            deletable: false,
+            organizationId: "<value>",
+          },
+        ],
+        medias: [
+          {
+            id: "<value>",
+            organizationId: "<value>",
+            name: "<value>",
+            path: "/private/var",
+            mimeType: "<value>",
+            size: 245189,
+            storageVersion: "<value>",
+            checksumEtag: "<value>",
+            checksumSha256Base64: "<value>",
+            checksumSha256Hex: "<value>",
+            lastModifiedAt: new Date("2022-11-03T15:00:03.276Z"),
+            version: "<value>",
+            isUploaded: false,
+            createdAt: new Date("2024-06-07T13:47:02.365Z"),
+            sizeReadable: "<value>",
+            publicUrl: "https://webbed-experience.name/",
+          },
+        ],
+      },
+      productPrice: {
+        createdAt: new Date("2024-02-15T09:22:19.644Z"),
+        modifiedAt: new Date("2022-12-28T20:59:29.904Z"),
+        id: "<value>",
+        isArchived: false,
+        productId: "<value>",
+        priceCurrency: "<value>",
+        minimumAmount: 417896,
+        maximumAmount: 962818,
+        presetAmount: 6400,
+        recurringInterval: "month",
+      },
+      discount: {
+        duration: "repeating",
+        type: "fixed",
+        basisPoints: 341163,
+        id: "<value>",
+        name: "<value>",
+        code: "<value>",
+      },
+      subscriptionId: "<value>",
+      attachedCustomFields: [
+        {
+          customFieldId: "<value>",
+          customField: {
+            createdAt: new Date("2022-08-19T22:18:44.316Z"),
+            modifiedAt: new Date("2023-04-29T23:39:10.699Z"),
+            id: "<value>",
+            metadata: {
+              "key": false,
+            },
+            slug: "<value>",
+            name: "<value>",
+            organizationId: "<value>",
+            properties: {
+              options: [
+                {
+                  value: "<value>",
+                  label: "<value>",
+                },
+              ],
+            },
+          },
+          order: 996863,
+          required: false,
+        },
+        {
+          customFieldId: "<value>",
+          customField: {
+            createdAt: new Date("2023-07-03T09:46:29.338Z"),
+            modifiedAt: new Date("2024-01-25T18:08:49.597Z"),
+            id: "<value>",
+            metadata: {
+              "key": false,
+            },
+            slug: "<value>",
+            name: "<value>",
+            organizationId: "<value>",
+            properties: {},
+          },
+          order: 72589,
+          required: true,
+        },
+        {
+          customFieldId: "<value>",
+          customField: {
+            createdAt: new Date("2024-07-31T13:25:31.669Z"),
+            modifiedAt: new Date("2022-11-12T09:40:10.044Z"),
+            id: "<value>",
+            metadata: {
+              "key": "<value>",
+            },
+            slug: "<value>",
+            name: "<value>",
+            organizationId: "<value>",
+            properties: {},
+          },
+          order: 161325,
+          required: true,
+        },
+      ],
+    },
+  });
 
-  for await (const page of result) {
-    // Handle the page
-    console.log(page);
-  }
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -144,18 +316,6 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [list](docs/sdks/advertisements/README.md#list) - List Campaigns
 * [get](docs/sdks/advertisements/README.md#get) - Get Campaign
 
-### [articles](docs/sdks/articles/README.md)
-
-* [list](docs/sdks/articles/README.md#list) - List Articles
-* [create](docs/sdks/articles/README.md#create) - Create Article
-* [export](docs/sdks/articles/README.md#export) - Export Articles
-* [get](docs/sdks/articles/README.md#get) - Get Article
-* [update](docs/sdks/articles/README.md#update) - Update Article
-* [delete](docs/sdks/articles/README.md#delete) - Delete Article
-* [receivers](docs/sdks/articles/README.md#receivers) - Get Article Receivers Count
-* [preview](docs/sdks/articles/README.md#preview) - Send Article Preview
-* [send](docs/sdks/articles/README.md#send) - Send Article
-
 ### [benefits](docs/sdks/benefits/README.md)
 
 * [list](docs/sdks/benefits/README.md#list) - List Benefits
@@ -175,7 +335,7 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 ### [checkouts](docs/sdks/checkouts/README.md)
 
-* [~~create~~](docs/sdks/checkouts/README.md#create) - Create Checkout :warning: **Deprecated** Use `create` instead.
+* [~~create~~](docs/sdks/checkouts/README.md#create) - Create Checkout :warning: **Deprecated** Use [create](docs/sdks/custom/README.md#create) instead.
 * [~~get~~](docs/sdks/checkouts/README.md#get) - Get Checkout :warning: **Deprecated**
 
 #### [checkouts.custom](docs/sdks/custom/README.md)
@@ -340,15 +500,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 - [`advertisementsGet`](docs/sdks/advertisements/README.md#get) - Get Campaign
 - [`advertisementsList`](docs/sdks/advertisements/README.md#list) - List Campaigns
-- [`articlesCreate`](docs/sdks/articles/README.md#create) - Create Article
-- [`articlesDelete`](docs/sdks/articles/README.md#delete) - Delete Article
-- [`articlesExport`](docs/sdks/articles/README.md#export) - Export Articles
-- [`articlesGet`](docs/sdks/articles/README.md#get) - Get Article
-- [`articlesList`](docs/sdks/articles/README.md#list) - List Articles
-- [`articlesPreview`](docs/sdks/articles/README.md#preview) - Send Article Preview
-- [`articlesReceivers`](docs/sdks/articles/README.md#receivers) - Get Article Receivers Count
-- [`articlesSend`](docs/sdks/articles/README.md#send) - Send Article
-- [`articlesUpdate`](docs/sdks/articles/README.md#update) - Update Article
 - [`benefitsCreate`](docs/sdks/benefits/README.md#create) - Create Benefit
 - [`benefitsDelete`](docs/sdks/benefits/README.md#delete) - Delete Benefit
 - [`benefitsGet`](docs/sdks/benefits/README.md#get) - Get Benefit

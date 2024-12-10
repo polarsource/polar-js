@@ -5,7 +5,7 @@
 ```typescript
 import { DiscountDuration } from "@polar-sh/sdk/models/components";
 
-let value: DiscountDuration = "once";
+let value: DiscountDuration = "forever";
 ```
 
 ## Values

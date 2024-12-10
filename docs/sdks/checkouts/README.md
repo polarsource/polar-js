@@ -5,7 +5,7 @@
 
 ### Available Operations
 
-* [~~create~~](#create) - Create Checkout :warning: **Deprecated** Use `create` instead.
+* [~~create~~](#create) - Create Checkout :warning: **Deprecated** Use [create](docs/sdks/custom/README.md#create) instead.
 * [~~get~~](#get) - Get Checkout :warning: **Deprecated**
 
 ## ~~create~~

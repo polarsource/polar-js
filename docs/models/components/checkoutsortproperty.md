@@ -5,7 +5,7 @@
 ```typescript
 import { CheckoutSortProperty } from "@polar-sh/sdk/models/components";
 
-let value: CheckoutSortProperty = "expires_at";
+let value: CheckoutSortProperty = "-expires_at";
 ```
 
 ## Values
