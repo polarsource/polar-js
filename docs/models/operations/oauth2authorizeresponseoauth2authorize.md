@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2024-10-24T21:35:04.220Z"),
-    modifiedAt: new Date("2023-11-12T18:28:30.435Z"),
+    createdAt: new Date("2024-11-26T05:48:10.660Z"),
+    modifiedAt: new Date("2024-06-27T20:05:24.919Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://unfinished-runway.net/",
-    logoUri: "https://impartial-colon.net/",
-    tosUri: "https://uneven-vibration.net",
-    policyUri: "https://pleasing-angle.com",
+    clientUri: "https://fatal-quinoa.info",
+    logoUri: "https://carefree-pneumonia.name",
+    tosUri: "https://pretty-thread.name/",
+    policyUri: "https://functional-footrest.biz/",
   },
   sub: {
     id: "<value>",
-    email: "Ressie4@yahoo.com",
-    avatarUrl: "https://nocturnal-whack.info/",
+    email: "Valentin_Schamberger37@hotmail.com",
+    avatarUrl: "https://shiny-event.biz",
   },
   scopes: [
-    "webhooks:write",
+    "license_keys:write",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2023-03-16T08:44:09.750Z"),
-    modifiedAt: new Date("2024-04-21T22:35:32.835Z"),
+    createdAt: new Date("2022-06-21T10:04:50.151Z"),
+    modifiedAt: new Date("2024-07-13T10:03:43.619Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://everlasting-dredger.biz",
-    logoUri: "https://salty-unique.net",
-    tosUri: "https://deadly-gerbil.info",
-    policyUri: "https://french-event.info",
+    clientUri: "https://obvious-dandelion.org",
+    logoUri: "https://fuzzy-husband.name/",
+    tosUri: "https://abandoned-stump.com/",
+    policyUri: "https://super-tuba.biz",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://orderly-beret.com",
+    avatarUrl: "https://awful-poetry.com/",
   },
   scopes: [
-    "products:read",
+    "organizations:write",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://robust-privilege.net",
+      avatarUrl: "https://flickering-custom.name/",
     },
   ],
 };

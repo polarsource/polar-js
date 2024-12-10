@@ -8,7 +8,7 @@ Schema to create a free recurring product price, i.e. a subscription.
 import { ProductPriceRecurringFreeCreate } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceRecurringFreeCreate = {
-  recurringInterval: "year",
+  recurringInterval: "month",
 };
 ```
 

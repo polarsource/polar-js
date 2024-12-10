@@ -9,21 +9,21 @@ let value: UsersAdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-06-06T01:32:10.356Z"),
-        modifiedAt: new Date("2024-02-17T02:28:07.481Z"),
+        createdAt: new Date("2024-09-29T22:44:12.638Z"),
+        modifiedAt: new Date("2023-05-05T01:16:52.859Z"),
         id: "<value>",
         userId: "<value>",
-        views: 954334,
-        clicks: 351936,
-        imageUrl: "https://soggy-formation.name",
-        imageUrlDark: "https://turbulent-cantaloupe.biz/",
+        views: 244498,
+        clicks: 252366,
+        imageUrl: "https://stingy-meander.name/",
+        imageUrlDark: "https://bogus-interchange.info",
         text: "<value>",
-        linkUrl: "https://impractical-replacement.name/",
+        linkUrl: "https://dead-colonialism.info",
       },
     ],
     pagination: {
-      totalCount: 487676,
-      maxPage: 545,
+      totalCount: 606217,
+      maxPage: 302802,
     },
   },
 };

@@ -5,11 +5,11 @@
 ```typescript
 import { Type } from "@polar-sh/sdk/models/components";
 
-let value: Type = "articles";
+let value: Type = "ads";
 ```
 
 ## Values
 
 ```typescript
-"articles"
+"ads"
 ```

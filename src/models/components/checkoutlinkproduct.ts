@@ -8,12 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BenefitArticles,
-  BenefitArticles$inboundSchema,
-  BenefitArticles$Outbound,
-  BenefitArticles$outboundSchema,
-} from "./benefitarticles.js";
-import {
   BenefitBase,
   BenefitBase$inboundSchema,
   BenefitBase$Outbound,
@@ -31,8 +25,6 @@ import {
   ProductPrice$Outbound,
   ProductPrice$outboundSchema,
 } from "./productprice.js";
-
-export type CheckoutLinkProductBenefits = BenefitBase | BenefitArticles;
 
 /**
  * Product data for a checkout link.
@@ -77,64 +69,12 @@ export type CheckoutLinkProduct = {
   /**
    * List of benefits granted by the product.
    */
-  benefits: Array<BenefitBase | BenefitArticles>;
+  benefits: Array<BenefitBase>;
   /**
    * List of medias associated to the product.
    */
   medias: Array<ProductMediaFileRead>;
 };
-
-/** @internal */
-export const CheckoutLinkProductBenefits$inboundSchema: z.ZodType<
-  CheckoutLinkProductBenefits,
-  z.ZodTypeDef,
-  unknown
-> = z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]);
-
-/** @internal */
-export type CheckoutLinkProductBenefits$Outbound =
-  | BenefitBase$Outbound
-  | BenefitArticles$Outbound;
-
-/** @internal */
-export const CheckoutLinkProductBenefits$outboundSchema: z.ZodType<
-  CheckoutLinkProductBenefits$Outbound,
-  z.ZodTypeDef,
-  CheckoutLinkProductBenefits
-> = z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkProductBenefits$ {
-  /** @deprecated use `CheckoutLinkProductBenefits$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkProductBenefits$inboundSchema;
-  /** @deprecated use `CheckoutLinkProductBenefits$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinkProductBenefits$outboundSchema;
-  /** @deprecated use `CheckoutLinkProductBenefits$Outbound` instead. */
-  export type Outbound = CheckoutLinkProductBenefits$Outbound;
-}
-
-export function checkoutLinkProductBenefitsToJSON(
-  checkoutLinkProductBenefits: CheckoutLinkProductBenefits,
-): string {
-  return JSON.stringify(
-    CheckoutLinkProductBenefits$outboundSchema.parse(
-      checkoutLinkProductBenefits,
-    ),
-  );
-}
-
-export function checkoutLinkProductBenefitsFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutLinkProductBenefits, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutLinkProductBenefits$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutLinkProductBenefits' from JSON`,
-  );
-}
 
 /** @internal */
 export const CheckoutLinkProduct$inboundSchema: z.ZodType<
@@ -153,9 +93,7 @@ export const CheckoutLinkProduct$inboundSchema: z.ZodType<
   is_archived: z.boolean(),
   organization_id: z.string(),
   prices: z.array(ProductPrice$inboundSchema),
-  benefits: z.array(
-    z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]),
-  ),
+  benefits: z.array(BenefitBase$inboundSchema),
   medias: z.array(ProductMediaFileRead$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
@@ -178,7 +116,7 @@ export type CheckoutLinkProduct$Outbound = {
   is_archived: boolean;
   organization_id: string;
   prices: Array<ProductPrice$Outbound>;
-  benefits: Array<BenefitBase$Outbound | BenefitArticles$Outbound>;
+  benefits: Array<BenefitBase$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
 };
 
@@ -197,9 +135,7 @@ export const CheckoutLinkProduct$outboundSchema: z.ZodType<
   isArchived: z.boolean(),
   organizationId: z.string(),
   prices: z.array(ProductPrice$outboundSchema),
-  benefits: z.array(
-    z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]),
-  ),
+  benefits: z.array(BenefitBase$outboundSchema),
   medias: z.array(ProductMediaFileRead$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
