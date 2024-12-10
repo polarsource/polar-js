@@ -6,22 +6,22 @@
 import { DiscountPercentageRepeatDurationBase } from "@polar-sh/sdk/models/components";
 
 let value: DiscountPercentageRepeatDurationBase = {
-  duration: "once",
-  durationInMonths: 866867,
+  duration: "repeating",
+  durationInMonths: 265632,
   type: "fixed",
-  basisPoints: 398054,
-  createdAt: new Date("2024-08-01T01:47:59.550Z"),
-  modifiedAt: new Date("2023-05-04T15:45:49.822Z"),
+  basisPoints: 483753,
+  createdAt: new Date("2022-10-08T16:49:02.151Z"),
+  modifiedAt: new Date("2024-06-21T19:04:10.722Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2023-05-19T04:29:44.919Z"),
-  endsAt: new Date("2024-03-13T12:12:28.416Z"),
-  maxRedemptions: 316392,
-  redemptionsCount: 906531,
+  startsAt: new Date("2022-12-07T10:47:27.448Z"),
+  endsAt: new Date("2024-05-17T04:26:46.844Z"),
+  maxRedemptions: 715143,
+  redemptionsCount: 558051,
   organizationId: "<value>",
 };
 ```

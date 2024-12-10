@@ -8,12 +8,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BenefitArticles,
-  BenefitArticles$inboundSchema,
-  BenefitArticles$Outbound,
-  BenefitArticles$outboundSchema,
-} from "./benefitarticles.js";
-import {
   BenefitBase,
   BenefitBase$inboundSchema,
   BenefitBase$Outbound,
@@ -31,8 +25,6 @@ import {
   ProductPrice$Outbound,
   ProductPrice$outboundSchema,
 } from "./productprice.js";
-
-export type CheckoutProductBenefits = BenefitBase | BenefitArticles;
 
 /**
  * Product data for a checkout session.
@@ -77,62 +69,12 @@ export type CheckoutProduct = {
   /**
    * List of benefits granted by the product.
    */
-  benefits: Array<BenefitBase | BenefitArticles>;
+  benefits: Array<BenefitBase>;
   /**
    * List of medias associated to the product.
    */
   medias: Array<ProductMediaFileRead>;
 };
-
-/** @internal */
-export const CheckoutProductBenefits$inboundSchema: z.ZodType<
-  CheckoutProductBenefits,
-  z.ZodTypeDef,
-  unknown
-> = z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]);
-
-/** @internal */
-export type CheckoutProductBenefits$Outbound =
-  | BenefitBase$Outbound
-  | BenefitArticles$Outbound;
-
-/** @internal */
-export const CheckoutProductBenefits$outboundSchema: z.ZodType<
-  CheckoutProductBenefits$Outbound,
-  z.ZodTypeDef,
-  CheckoutProductBenefits
-> = z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutProductBenefits$ {
-  /** @deprecated use `CheckoutProductBenefits$inboundSchema` instead. */
-  export const inboundSchema = CheckoutProductBenefits$inboundSchema;
-  /** @deprecated use `CheckoutProductBenefits$outboundSchema` instead. */
-  export const outboundSchema = CheckoutProductBenefits$outboundSchema;
-  /** @deprecated use `CheckoutProductBenefits$Outbound` instead. */
-  export type Outbound = CheckoutProductBenefits$Outbound;
-}
-
-export function checkoutProductBenefitsToJSON(
-  checkoutProductBenefits: CheckoutProductBenefits,
-): string {
-  return JSON.stringify(
-    CheckoutProductBenefits$outboundSchema.parse(checkoutProductBenefits),
-  );
-}
-
-export function checkoutProductBenefitsFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutProductBenefits, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutProductBenefits$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutProductBenefits' from JSON`,
-  );
-}
 
 /** @internal */
 export const CheckoutProduct$inboundSchema: z.ZodType<
@@ -151,9 +93,7 @@ export const CheckoutProduct$inboundSchema: z.ZodType<
   is_archived: z.boolean(),
   organization_id: z.string(),
   prices: z.array(ProductPrice$inboundSchema),
-  benefits: z.array(
-    z.union([BenefitBase$inboundSchema, BenefitArticles$inboundSchema]),
-  ),
+  benefits: z.array(BenefitBase$inboundSchema),
   medias: z.array(ProductMediaFileRead$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
@@ -176,7 +116,7 @@ export type CheckoutProduct$Outbound = {
   is_archived: boolean;
   organization_id: string;
   prices: Array<ProductPrice$Outbound>;
-  benefits: Array<BenefitBase$Outbound | BenefitArticles$Outbound>;
+  benefits: Array<BenefitBase$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
 };
 
@@ -195,9 +135,7 @@ export const CheckoutProduct$outboundSchema: z.ZodType<
   isArchived: z.boolean(),
   organizationId: z.string(),
   prices: z.array(ProductPrice$outboundSchema),
-  benefits: z.array(
-    z.union([BenefitBase$outboundSchema, BenefitArticles$outboundSchema]),
-  ),
+  benefits: z.array(BenefitBase$outboundSchema),
   medias: z.array(ProductMediaFileRead$outboundSchema),
 }).transform((v) => {
   return remap$(v, {

@@ -8,35 +8,32 @@ Product data for a checkout session.
 import { CheckoutProduct } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutProduct = {
-  createdAt: new Date("2022-07-11T21:16:21.517Z"),
-  modifiedAt: new Date("2022-07-23T02:36:39.393Z"),
+  createdAt: new Date("2024-09-18T19:45:40.613Z"),
+  modifiedAt: new Date("2022-11-22T00:36:57.586Z"),
   id: "<value>",
   name: "<value>",
-  description: "morning strict meh out advertisement after pushy",
+  description:
+    "retool huzzah print known instead improbable experience authentic onset flustered",
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",
   prices: [
     {
-      createdAt: new Date("2022-12-27T21:21:00.493Z"),
-      modifiedAt: new Date("2024-12-07T19:33:16.583Z"),
+      createdAt: new Date("2022-01-09T15:23:00.451Z"),
+      modifiedAt: new Date("2023-02-13T10:57:00.909Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
-      priceCurrency: "<value>",
-      minimumAmount: 726,
-      maximumAmount: 736345,
-      presetAmount: 405287,
-      recurringInterval: "month",
+      recurringInterval: "year",
     },
   ],
   benefits: [
     {
-      createdAt: new Date("2022-05-21T02:56:06.369Z"),
-      modifiedAt: new Date("2022-02-10T22:42:59.328Z"),
+      createdAt: new Date("2024-10-07T15:13:11.606Z"),
+      modifiedAt: new Date("2022-04-09T02:03:52.245Z"),
       id: "<value>",
-      type: "github_repository",
-      description: "on nor across",
+      type: "discord",
+      description: "recount venture bus",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
@@ -47,19 +44,19 @@ let value: CheckoutProduct = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/rescue",
+      path: "/opt/share",
       mimeType: "<value>",
-      size: 396772,
+      size: 519952,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2024-03-17T00:47:08.664Z"),
+      lastModifiedAt: new Date("2024-01-31T13:49:45.960Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2023-11-20T08:32:51.731Z"),
+      createdAt: new Date("2022-04-10T14:39:29.863Z"),
       sizeReadable: "<value>",
-      publicUrl: "https://aggressive-sport.com/",
+      publicUrl: "https://incomplete-opera.org/",
     },
   ],
 };
@@ -78,5 +75,5 @@ let value: CheckoutProduct = {
 | `isArchived`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the product is archived and no longer available.                                      |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the product.                                                |
 | `prices`                                                                                      | *components.ProductPrice*[]                                                                   | :heavy_check_mark:                                                                            | List of prices for this product.                                                              |
-| `benefits`                                                                                    | *components.CheckoutProductBenefits*[]                                                        | :heavy_check_mark:                                                                            | List of benefits granted by the product.                                                      |
+| `benefits`                                                                                    | [components.BenefitBase](../../models/components/benefitbase.md)[]                            | :heavy_check_mark:                                                                            | List of benefits granted by the product.                                                      |
 | `medias`                                                                                      | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]          | :heavy_check_mark:                                                                            | List of medias associated to the product.                                                     |

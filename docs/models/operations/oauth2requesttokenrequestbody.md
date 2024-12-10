@@ -11,7 +11,7 @@ const value:
     clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",
-    redirectUri: "https://negligible-makeover.net/",
+    redirectUri: "https://putrid-pantyhose.org",
   };
 ```
 

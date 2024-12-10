@@ -12,5 +12,4 @@ let value: OrganizationFeatureSettings = {};
 
 | Field                                          | Type                                           | Required                                       | Description                                    |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| `articlesEnabled`                              | *boolean*                                      | :heavy_minus_sign:                             | If this organization has articles enabled      |
 | `issueFundingEnabled`                          | *boolean*                                      | :heavy_minus_sign:                             | If this organization has issue funding enabled |

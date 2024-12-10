@@ -7,7 +7,7 @@ The permission level to grant. Read more about roles and their permissions on [G
 ```typescript
 import { BenefitGitHubRepositoryCreatePropertiesPermission } from "@polar-sh/sdk/models/components";
 
-let value: BenefitGitHubRepositoryCreatePropertiesPermission = "admin";
+let value: BenefitGitHubRepositoryCreatePropertiesPermission = "maintain";
 ```
 
 ## Values

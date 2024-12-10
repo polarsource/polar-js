@@ -4,14 +4,6 @@
 
 export * from "./advertisementsget.js";
 export * from "./advertisementslist.js";
-export * from "./articlesdelete.js";
-export * from "./articlesexport.js";
-export * from "./articlesget.js";
-export * from "./articleslist.js";
-export * from "./articlespreview.js";
-export * from "./articlesreceivers.js";
-export * from "./articlessend.js";
-export * from "./articlesupdate.js";
 export * from "./benefitsdelete.js";
 export * from "./benefitsget.js";
 export * from "./benefitsgrants.js";

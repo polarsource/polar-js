@@ -10,7 +10,6 @@ import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitsUpdateBenefitUpdate =
-  | components.BenefitArticlesUpdate
   | components.BenefitAdsUpdate
   | components.BenefitCustomUpdate
   | components.BenefitDiscordUpdate
@@ -21,7 +20,6 @@ export type BenefitsUpdateBenefitUpdate =
 export type BenefitsUpdateRequest = {
   id: string;
   requestBody:
-    | components.BenefitArticlesUpdate
     | components.BenefitAdsUpdate
     | components.BenefitCustomUpdate
     | components.BenefitDiscordUpdate
@@ -36,7 +34,6 @@ export const BenefitsUpdateBenefitUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.BenefitArticlesUpdate$inboundSchema,
   components.BenefitAdsUpdate$inboundSchema,
   components.BenefitCustomUpdate$inboundSchema,
   components.BenefitDiscordUpdate$inboundSchema,
@@ -47,7 +44,6 @@ export const BenefitsUpdateBenefitUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitsUpdateBenefitUpdate$Outbound =
-  | components.BenefitArticlesUpdate$Outbound
   | components.BenefitAdsUpdate$Outbound
   | components.BenefitCustomUpdate$Outbound
   | components.BenefitDiscordUpdate$Outbound
@@ -61,7 +57,6 @@ export const BenefitsUpdateBenefitUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitsUpdateBenefitUpdate
 > = z.union([
-  components.BenefitArticlesUpdate$outboundSchema,
   components.BenefitAdsUpdate$outboundSchema,
   components.BenefitCustomUpdate$outboundSchema,
   components.BenefitDiscordUpdate$outboundSchema,
@@ -111,7 +106,6 @@ export const BenefitsUpdateRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   RequestBody: z.union([
-    components.BenefitArticlesUpdate$inboundSchema,
     components.BenefitAdsUpdate$inboundSchema,
     components.BenefitCustomUpdate$inboundSchema,
     components.BenefitDiscordUpdate$inboundSchema,
@@ -129,7 +123,6 @@ export const BenefitsUpdateRequest$inboundSchema: z.ZodType<
 export type BenefitsUpdateRequest$Outbound = {
   id: string;
   RequestBody:
-    | components.BenefitArticlesUpdate$Outbound
     | components.BenefitAdsUpdate$Outbound
     | components.BenefitCustomUpdate$Outbound
     | components.BenefitDiscordUpdate$Outbound
@@ -146,7 +139,6 @@ export const BenefitsUpdateRequest$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   requestBody: z.union([
-    components.BenefitArticlesUpdate$outboundSchema,
     components.BenefitAdsUpdate$outboundSchema,
     components.BenefitCustomUpdate$outboundSchema,
     components.BenefitDiscordUpdate$outboundSchema,

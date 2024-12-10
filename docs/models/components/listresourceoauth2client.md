@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://fuzzy-jump.net/",
+        "https://each-decryption.net/",
       ],
       clientName: "<value>",
-      createdAt: new Date("2024-04-11T12:08:48.566Z"),
-      modifiedAt: new Date("2023-03-17T08:26:48.837Z"),
+      createdAt: new Date("2022-06-16T02:33:31.041Z"),
+      modifiedAt: new Date("2022-11-06T01:22:31.085Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 755607,
-      clientSecretExpiresAt: 727604,
+      clientIdIssuedAt: 63025,
+      clientSecretExpiresAt: 218108,
     },
   ],
   pagination: {
-    totalCount: 632474,
-    maxPage: 141629,
+    totalCount: 37808,
+    maxPage: 698339,
   },
 };
 ```

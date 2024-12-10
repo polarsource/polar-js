@@ -6,7 +6,7 @@
 import { BenefitLicenseKeyExpirationProperties } from "@polar-sh/sdk/models/components";
 
 let value: BenefitLicenseKeyExpirationProperties = {
-  ttl: 46538,
+  ttl: 7281,
   timeframe: "year",
 };
 ```

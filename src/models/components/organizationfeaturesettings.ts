@@ -10,10 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrganizationFeatureSettings = {
   /**
-   * If this organization has articles enabled
-   */
-  articlesEnabled?: boolean | undefined;
-  /**
    * If this organization has issue funding enabled
    */
   issueFundingEnabled?: boolean | undefined;
@@ -25,18 +21,15 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  articles_enabled: z.boolean().default(false),
   issue_funding_enabled: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
-    "articles_enabled": "articlesEnabled",
     "issue_funding_enabled": "issueFundingEnabled",
   });
 });
 
 /** @internal */
 export type OrganizationFeatureSettings$Outbound = {
-  articles_enabled: boolean;
   issue_funding_enabled: boolean;
 };
 
@@ -46,11 +39,9 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   OrganizationFeatureSettings
 > = z.object({
-  articlesEnabled: z.boolean().default(false),
   issueFundingEnabled: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
-    articlesEnabled: "articles_enabled",
     issueFundingEnabled: "issue_funding_enabled",
   });
 });

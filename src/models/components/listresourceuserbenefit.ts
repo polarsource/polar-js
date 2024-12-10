@@ -13,12 +13,6 @@ import {
   BenefitAdsSubscriber$outboundSchema,
 } from "./benefitadssubscriber.js";
 import {
-  BenefitArticlesSubscriber,
-  BenefitArticlesSubscriber$inboundSchema,
-  BenefitArticlesSubscriber$Outbound,
-  BenefitArticlesSubscriber$outboundSchema,
-} from "./benefitarticlessubscriber.js";
-import {
   BenefitCustomSubscriber,
   BenefitCustomSubscriber$inboundSchema,
   BenefitCustomSubscriber$Outbound,
@@ -57,7 +51,6 @@ import {
 
 export type UserBenefit =
   | (BenefitAdsSubscriber & { type: "ads" })
-  | (BenefitArticlesSubscriber & { type: "articles" })
   | (BenefitCustomSubscriber & { type: "custom" })
   | (BenefitDiscordSubscriber & { type: "discord" })
   | (BenefitDownloadablesSubscriber & { type: "downloadables" })
@@ -67,7 +60,6 @@ export type UserBenefit =
 export type ListResourceUserBenefit = {
   items: Array<
     | (BenefitAdsSubscriber & { type: "ads" })
-    | (BenefitArticlesSubscriber & { type: "articles" })
     | (BenefitCustomSubscriber & { type: "custom" })
     | (BenefitDiscordSubscriber & { type: "discord" })
     | (BenefitDownloadablesSubscriber & { type: "downloadables" })
@@ -85,11 +77,6 @@ export const UserBenefit$inboundSchema: z.ZodType<
 > = z.union([
   BenefitAdsSubscriber$inboundSchema.and(
     z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
-  ),
-  BenefitArticlesSubscriber$inboundSchema.and(
-    z.object({ type: z.literal("articles") }).transform((v) => ({
-      type: v.type,
-    })),
   ),
   BenefitCustomSubscriber$inboundSchema.and(
     z.object({ type: z.literal("custom") }).transform((v) => ({
@@ -121,7 +108,6 @@ export const UserBenefit$inboundSchema: z.ZodType<
 /** @internal */
 export type UserBenefit$Outbound =
   | (BenefitAdsSubscriber$Outbound & { type: "ads" })
-  | (BenefitArticlesSubscriber$Outbound & { type: "articles" })
   | (BenefitCustomSubscriber$Outbound & { type: "custom" })
   | (BenefitDiscordSubscriber$Outbound & { type: "discord" })
   | (BenefitDownloadablesSubscriber$Outbound & { type: "downloadables" })
@@ -136,11 +122,6 @@ export const UserBenefit$outboundSchema: z.ZodType<
 > = z.union([
   BenefitAdsSubscriber$outboundSchema.and(
     z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
-  ),
-  BenefitArticlesSubscriber$outboundSchema.and(
-    z.object({ type: z.literal("articles") }).transform((v) => ({
-      type: v.type,
-    })),
   ),
   BenefitCustomSubscriber$outboundSchema.and(
     z.object({ type: z.literal("custom") }).transform((v) => ({
@@ -209,11 +190,6 @@ export const ListResourceUserBenefit$inboundSchema: z.ZodType<
           type: v.type,
         })),
       ),
-      BenefitArticlesSubscriber$inboundSchema.and(
-        z.object({ type: z.literal("articles") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
       BenefitCustomSubscriber$inboundSchema.and(
         z.object({ type: z.literal("custom") }).transform((v) => ({
           type: v.type,
@@ -248,7 +224,6 @@ export const ListResourceUserBenefit$inboundSchema: z.ZodType<
 export type ListResourceUserBenefit$Outbound = {
   items: Array<
     | (BenefitAdsSubscriber$Outbound & { type: "ads" })
-    | (BenefitArticlesSubscriber$Outbound & { type: "articles" })
     | (BenefitCustomSubscriber$Outbound & { type: "custom" })
     | (BenefitDiscordSubscriber$Outbound & { type: "discord" })
     | (BenefitDownloadablesSubscriber$Outbound & { type: "downloadables" })
@@ -270,11 +245,6 @@ export const ListResourceUserBenefit$outboundSchema: z.ZodType<
     z.union([
       BenefitAdsSubscriber$outboundSchema.and(
         z.object({ type: z.literal("ads") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
-      BenefitArticlesSubscriber$outboundSchema.and(
-        z.object({ type: z.literal("articles") }).transform((v) => ({
           type: v.type,
         })),
       ),

@@ -6,21 +6,21 @@
 import { Organization } from "@polar-sh/sdk/models/components";
 
 let value: Organization = {
-  createdAt: new Date("2024-02-28T08:54:10.839Z"),
-  modifiedAt: new Date("2022-12-05T17:14:25.023Z"),
+  createdAt: new Date("2023-10-13T14:02:55.133Z"),
+  modifiedAt: new Date("2022-07-16T21:27:56.154Z"),
   id: "<value>",
   name: "<value>",
   slug: "<value>",
-  avatarUrl: "https://helpful-postbox.biz/",
+  avatarUrl: "https://dapper-help.net/",
   bio: "<value>",
-  company: "Schiller, Dickinson and Harris",
+  company: "Abshire and Sons",
   blog: "<value>",
   location: "<value>",
-  email: "Dee_Heathcote3@hotmail.com",
+  email: "Marilie.Huels81@yahoo.com",
   twitterUsername: "<value>",
-  pledgeMinimumAmount: 578452,
+  pledgeMinimumAmount: 674548,
   pledgeBadgeShowAmount: false,
-  defaultUpfrontSplitToContributors: 397112,
+  defaultUpfrontSplitToContributors: 277066,
   profileSettings: {},
   featureSettings: {},
 };

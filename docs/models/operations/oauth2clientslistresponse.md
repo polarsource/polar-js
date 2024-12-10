@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://quick-witted-molasses.net",
+          "https://square-deed.name/",
         ],
         clientName: "<value>",
-        createdAt: new Date("2024-10-31T15:49:47.989Z"),
-        modifiedAt: new Date("2022-02-10T05:07:51.800Z"),
+        createdAt: new Date("2022-10-23T11:23:07.532Z"),
+        modifiedAt: new Date("2022-09-15T04:47:27.045Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 147400,
-        clientSecretExpiresAt: 756287,
+        clientIdIssuedAt: 327837,
+        clientSecretExpiresAt: 63575,
       },
     ],
     pagination: {
-      totalCount: 83791,
-      maxPage: 516124,
+      totalCount: 746386,
+      maxPage: 881310,
     },
   },
 };

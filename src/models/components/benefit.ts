@@ -13,12 +13,6 @@ import {
   BenefitAds$outboundSchema,
 } from "./benefitads.js";
 import {
-  BenefitArticles,
-  BenefitArticles$inboundSchema,
-  BenefitArticles$Outbound,
-  BenefitArticles$outboundSchema,
-} from "./benefitarticles.js";
-import {
   BenefitCustom,
   BenefitCustom$inboundSchema,
   BenefitCustom$Outbound,
@@ -50,7 +44,6 @@ import {
 } from "./benefitlicensekeys.js";
 
 export type Benefit =
-  | BenefitArticles
   | BenefitAds
   | BenefitDiscord
   | BenefitGitHubRepository
@@ -61,7 +54,6 @@ export type Benefit =
 /** @internal */
 export const Benefit$inboundSchema: z.ZodType<Benefit, z.ZodTypeDef, unknown> =
   z.union([
-    BenefitArticles$inboundSchema,
     BenefitAds$inboundSchema,
     BenefitDiscord$inboundSchema,
     BenefitGitHubRepository$inboundSchema,
@@ -72,7 +64,6 @@ export const Benefit$inboundSchema: z.ZodType<Benefit, z.ZodTypeDef, unknown> =
 
 /** @internal */
 export type Benefit$Outbound =
-  | BenefitArticles$Outbound
   | BenefitAds$Outbound
   | BenefitDiscord$Outbound
   | BenefitGitHubRepository$Outbound
@@ -86,7 +77,6 @@ export const Benefit$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Benefit
 > = z.union([
-  BenefitArticles$outboundSchema,
   BenefitAds$outboundSchema,
   BenefitDiscord$outboundSchema,
   BenefitGitHubRepository$outboundSchema,

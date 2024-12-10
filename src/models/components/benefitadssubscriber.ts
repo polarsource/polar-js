@@ -27,12 +27,10 @@ import {
   Organization$outboundSchema,
 } from "./organization.js";
 
-export const BenefitAdsSubscriberType = {
+export const Type = {
   Ads: "ads",
 } as const;
-export type BenefitAdsSubscriberType = ClosedEnum<
-  typeof BenefitAdsSubscriberType
->;
+export type Type = ClosedEnum<typeof Type>;
 
 export type BenefitAdsSubscriber = {
   /**
@@ -73,24 +71,23 @@ export type BenefitAdsSubscriber = {
 };
 
 /** @internal */
-export const BenefitAdsSubscriberType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitAdsSubscriberType
-> = z.nativeEnum(BenefitAdsSubscriberType);
+export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
+  Type,
+);
 
 /** @internal */
-export const BenefitAdsSubscriberType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitAdsSubscriberType
-> = BenefitAdsSubscriberType$inboundSchema;
+export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> =
+  Type$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace BenefitAdsSubscriberType$ {
-  /** @deprecated use `BenefitAdsSubscriberType$inboundSchema` instead. */
-  export const inboundSchema = BenefitAdsSubscriberType$inboundSchema;
-  /** @deprecated use `BenefitAdsSubscriberType$outboundSchema` instead. */
-  export const outboundSchema = BenefitAdsSubscriberType$outboundSchema;
+export namespace Type$ {
+  /** @deprecated use `Type$inboundSchema` instead. */
+  export const inboundSchema = Type$inboundSchema;
+  /** @deprecated use `Type$outboundSchema` instead. */
+  export const outboundSchema = Type$outboundSchema;
 }
 
 /** @internal */

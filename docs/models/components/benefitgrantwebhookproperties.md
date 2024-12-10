@@ -41,9 +41,3 @@ const value: components.BenefitGrantAdsProperties = {
 const value: components.BenefitGrantCustomProperties = {};
 ```
 
-### `components.BenefitGrantArticlesProperties`
-
-```typescript
-const value: components.BenefitGrantArticlesProperties = {};
-```
-
