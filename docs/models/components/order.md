@@ -6,84 +6,106 @@
 import { Order } from "@polar-sh/sdk/models/components";
 
 let value: Order = {
-  createdAt: new Date("2024-04-10T01:42:23.126Z"),
-  modifiedAt: new Date("2022-12-11T18:32:09.426Z"),
+  createdAt: new Date("2024-05-21T23:12:32.595Z"),
+  modifiedAt: new Date("2023-01-13T14:31:45.263Z"),
   id: "<value>",
   metadata: {
-    "key": 517326,
+    "key": false,
   },
-  amount: 484966,
-  taxAmount: 901163,
-  currency: "Tugrik",
-  billingReason: "subscription_update",
+  amount: 735894,
+  taxAmount: 141506,
+  currency: "New Taiwan Dollar",
+  billingReason: "subscription_create",
   billingAddress: {
-    country: "Qatar",
+    country: "Kyrgyz Republic",
   },
-  userId: "<value>",
+  customerId: "<value>",
   productId: "<value>",
   productPriceId: "<value>",
   discountId: "<value>",
   subscriptionId: "<value>",
   checkoutId: "<value>",
+  customer: {
+    createdAt: new Date("2023-05-07T09:54:10.374Z"),
+    modifiedAt: new Date("2023-09-15T08:37:16.402Z"),
+    id: "<value>",
+    metadata: {
+      "key": 498180,
+    },
+    email: "Lizzie_Johnson34@hotmail.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "Austria",
+    },
+    taxId: [
+      "tw_vat",
+    ],
+    organizationId: "<value>",
+    avatarUrl: "https://gray-complication.com/",
+  },
+  userId: "<value>",
   user: {
     id: "<value>",
-    email: "Oma.Turner33@gmail.com",
+    email: "Anahi_Boyer-Stracke@hotmail.com",
     publicName: "<value>",
-    githubUsername: "<value>",
-    avatarUrl: "https://sugary-equal.com/",
   },
   product: {
-    createdAt: new Date("2022-12-28T23:20:38.785Z"),
-    modifiedAt: new Date("2024-06-11T00:18:11.711Z"),
+    createdAt: new Date("2024-04-10T01:42:23.126Z"),
+    modifiedAt: new Date("2022-12-11T18:32:09.426Z"),
     id: "<value>",
     name: "<value>",
-    description: "incidentally cop questioningly blacken",
+    description:
+      "apprehensive legitimize geez mmm forearm before substantiate mosh",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
   },
   productPrice: {
-    createdAt: new Date("2022-07-13T10:38:23.731Z"),
-    modifiedAt: new Date("2024-10-26T07:41:18.790Z"),
+    createdAt: new Date("2023-10-10T19:23:01.599Z"),
+    modifiedAt: new Date("2024-10-07T04:53:54.006Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
+    priceCurrency: "<value>",
+    priceAmount: 805264,
+    recurringInterval: "year",
   },
   discount: {
     duration: "repeating",
     type: "fixed",
-    basisPoints: 534908,
-    createdAt: new Date("2022-11-15T02:41:04.241Z"),
-    modifiedAt: new Date("2022-11-30T08:58:52.513Z"),
+    basisPoints: 873833,
+    createdAt: new Date("2024-07-03T01:03:11.378Z"),
+    modifiedAt: new Date("2022-08-23T08:43:29.864Z"),
     id: "<value>",
     metadata: {
-      "key": 921719,
+      "key": false,
     },
     name: "<value>",
     code: "<value>",
-    startsAt: new Date("2024-06-01T13:39:37.646Z"),
-    endsAt: new Date("2024-03-04T10:33:16.366Z"),
-    maxRedemptions: 559174,
-    redemptionsCount: 922299,
+    startsAt: new Date("2022-01-14T08:09:00.404Z"),
+    endsAt: new Date("2022-12-20T19:42:29.360Z"),
+    maxRedemptions: 229567,
+    redemptionsCount: 506863,
     organizationId: "<value>",
   },
   subscription: {
     metadata: {
-      "key": 873833,
+      "key": false,
     },
-    createdAt: new Date("2024-07-03T01:03:11.378Z"),
-    modifiedAt: new Date("2022-08-23T08:43:29.864Z"),
+    createdAt: new Date("2022-04-18T01:16:45.009Z"),
+    modifiedAt: new Date("2023-07-19T08:30:48.959Z"),
     id: "<value>",
-    amount: 771226,
-    currency: "Afghani",
-    recurringInterval: "month",
-    status: "incomplete_expired",
-    currentPeriodStart: new Date("2023-07-10T12:31:23.736Z"),
-    currentPeriodEnd: new Date("2024-03-18T14:11:08.034Z"),
+    amount: 938412,
+    currency: "Danish Krone",
+    recurringInterval: "year",
+    status: "past_due",
+    currentPeriodStart: new Date("2022-01-12T00:42:55.621Z"),
+    currentPeriodEnd: new Date("2023-06-06T12:07:56.121Z"),
     cancelAtPeriodEnd: false,
-    startedAt: new Date("2022-04-18T01:16:45.009Z"),
-    endedAt: new Date("2023-07-19T08:30:48.959Z"),
-    userId: "<value>",
+    startedAt: new Date("2024-02-16T19:29:46.908Z"),
+    endedAt: new Date("2022-02-18T04:43:47.150Z"),
+    customerId: "<value>",
     productId: "<value>",
     priceId: "<value>",
     discountId: "<value>",
@@ -94,26 +116,28 @@ let value: Order = {
 
 ## Fields
 
-| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Creation timestamp of the object.                                                             |
-| `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |
-| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the object.                                                                         |
-| `metadata`                                                                                    | Record<string, *components.OrderMetadata*>                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `customFieldData`                                                                             | [components.OrderCustomFieldData](../../models/components/ordercustomfielddata.md)            | :heavy_minus_sign:                                                                            | Key-value object storing custom field values.                                                 |
-| `amount`                                                                                      | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `taxAmount`                                                                                   | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `currency`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `billingReason`                                                                               | [components.OrderBillingReason](../../models/components/orderbillingreason.md)                | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `billingAddress`                                                                              | [components.Address](../../models/components/address.md)                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `userId`                                                                                      | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `productId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `productPriceId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `discountId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `subscriptionId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `checkoutId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `user`                                                                                        | [components.OrderUser](../../models/components/orderuser.md)                                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `product`                                                                                     | [components.OrderProduct](../../models/components/orderproduct.md)                            | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `productPrice`                                                                                | *components.ProductPrice*                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `discount`                                                                                    | *components.OrderDiscount*                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `subscription`                                                                                | [components.OrderSubscription](../../models/components/ordersubscription.md)                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| Field                                                                                                                   | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `createdAt`                                                                                                             | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Creation timestamp of the object.                                                                                       |
+| `modifiedAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Last modification timestamp of the object.                                                                              |
+| `id`                                                                                                                    | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the object.                                                                                                   |
+| `metadata`                                                                                                              | Record<string, *components.OrderMetadata*>                                                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `customFieldData`                                                                                                       | [components.OrderCustomFieldData](../../models/components/ordercustomfielddata.md)                                      | :heavy_minus_sign:                                                                                                      | Key-value object storing custom field values.                                                                           |
+| `amount`                                                                                                                | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `taxAmount`                                                                                                             | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `currency`                                                                                                              | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `billingReason`                                                                                                         | [components.OrderBillingReason](../../models/components/orderbillingreason.md)                                          | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `billingAddress`                                                                                                        | [components.Address](../../models/components/address.md)                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `customerId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `productId`                                                                                                             | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `productPriceId`                                                                                                        | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `discountId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `subscriptionId`                                                                                                        | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `checkoutId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `customer`                                                                                                              | [components.OrderCustomer](../../models/components/ordercustomer.md)                                                    | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| ~~`userId`~~                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. |
+| `user`                                                                                                                  | [components.OrderUser](../../models/components/orderuser.md)                                                            | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `product`                                                                                                               | [components.OrderProduct](../../models/components/orderproduct.md)                                                      | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `productPrice`                                                                                                          | *components.ProductPrice*                                                                                               | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `discount`                                                                                                              | *components.OrderDiscount*                                                                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `subscription`                                                                                                          | [components.OrderSubscription](../../models/components/ordersubscription.md)                                            | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |

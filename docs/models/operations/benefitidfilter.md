@@ -1,6 +1,6 @@
 # BenefitIDFilter
 
-Filter by given benefit ID. 
+Filter products granting specific benefit.
 
 
 ## Supported Types

@@ -37,7 +37,7 @@ export async function checkoutsCustomClientConfirm(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.CheckoutPublic,
+    components.CheckoutPublicConfirmed,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -127,7 +127,7 @@ export async function checkoutsCustomClientConfirm(
   };
 
   const [result] = await M.match<
-    components.CheckoutPublic,
+    components.CheckoutPublicConfirmed,
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -138,7 +138,7 @@ export async function checkoutsCustomClientConfirm(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.CheckoutPublic$inboundSchema),
+    M.json(200, components.CheckoutPublicConfirmed$inboundSchema),
     M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),

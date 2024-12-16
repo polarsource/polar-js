@@ -10,7 +10,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitLicenseKeyActivationProperties = {
   limit: number;
-  enableUserAdmin: boolean;
+  enableCustomerAdmin: boolean;
 };
 
 /** @internal */
@@ -20,17 +20,17 @@ export const BenefitLicenseKeyActivationProperties$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   limit: z.number().int(),
-  enable_user_admin: z.boolean(),
+  enable_customer_admin: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
-    "enable_user_admin": "enableUserAdmin",
+    "enable_customer_admin": "enableCustomerAdmin",
   });
 });
 
 /** @internal */
 export type BenefitLicenseKeyActivationProperties$Outbound = {
   limit: number;
-  enable_user_admin: boolean;
+  enable_customer_admin: boolean;
 };
 
 /** @internal */
@@ -40,10 +40,10 @@ export const BenefitLicenseKeyActivationProperties$outboundSchema: z.ZodType<
   BenefitLicenseKeyActivationProperties
 > = z.object({
   limit: z.number().int(),
-  enableUserAdmin: z.boolean(),
+  enableCustomerAdmin: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
-    enableUserAdmin: "enable_user_admin",
+    enableCustomerAdmin: "enable_customer_admin",
   });
 });
 

@@ -19,7 +19,12 @@ export type SubscriptionsListQueryParamOrganizationIDFilter =
 /**
  * Filter by product ID.
  */
-export type SubscriptionsListQueryParamProductIDFilter = string | Array<string>;
+export type ProductIDFilter = string | Array<string>;
+
+/**
+ * Filter by customer ID.
+ */
+export type CustomerIDFilter = string | Array<string>;
 
 /**
  * Filter by discount ID.
@@ -35,6 +40,10 @@ export type SubscriptionsListRequest = {
    * Filter by product ID.
    */
   productId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by customer ID.
+   */
+  customerId?: string | Array<string> | null | undefined;
   /**
    * Filter by discount ID.
    */
@@ -126,62 +135,96 @@ export function subscriptionsListQueryParamOrganizationIDFilterFromJSON(
 }
 
 /** @internal */
-export const SubscriptionsListQueryParamProductIDFilter$inboundSchema:
-  z.ZodType<SubscriptionsListQueryParamProductIDFilter, z.ZodTypeDef, unknown> =
-    z.union([z.string(), z.array(z.string())]);
+export const ProductIDFilter$inboundSchema: z.ZodType<
+  ProductIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
-export type SubscriptionsListQueryParamProductIDFilter$Outbound =
-  | string
-  | Array<string>;
+export type ProductIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const SubscriptionsListQueryParamProductIDFilter$outboundSchema:
-  z.ZodType<
-    SubscriptionsListQueryParamProductIDFilter$Outbound,
-    z.ZodTypeDef,
-    SubscriptionsListQueryParamProductIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+export const ProductIDFilter$outboundSchema: z.ZodType<
+  ProductIDFilter$Outbound,
+  z.ZodTypeDef,
+  ProductIDFilter
+> = z.union([z.string(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SubscriptionsListQueryParamProductIDFilter$ {
-  /** @deprecated use `SubscriptionsListQueryParamProductIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    SubscriptionsListQueryParamProductIDFilter$inboundSchema;
-  /** @deprecated use `SubscriptionsListQueryParamProductIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    SubscriptionsListQueryParamProductIDFilter$outboundSchema;
-  /** @deprecated use `SubscriptionsListQueryParamProductIDFilter$Outbound` instead. */
-  export type Outbound = SubscriptionsListQueryParamProductIDFilter$Outbound;
+export namespace ProductIDFilter$ {
+  /** @deprecated use `ProductIDFilter$inboundSchema` instead. */
+  export const inboundSchema = ProductIDFilter$inboundSchema;
+  /** @deprecated use `ProductIDFilter$outboundSchema` instead. */
+  export const outboundSchema = ProductIDFilter$outboundSchema;
+  /** @deprecated use `ProductIDFilter$Outbound` instead. */
+  export type Outbound = ProductIDFilter$Outbound;
 }
 
-export function subscriptionsListQueryParamProductIDFilterToJSON(
-  subscriptionsListQueryParamProductIDFilter:
-    SubscriptionsListQueryParamProductIDFilter,
+export function productIDFilterToJSON(
+  productIDFilter: ProductIDFilter,
 ): string {
-  return JSON.stringify(
-    SubscriptionsListQueryParamProductIDFilter$outboundSchema.parse(
-      subscriptionsListQueryParamProductIDFilter,
-    ),
+  return JSON.stringify(ProductIDFilter$outboundSchema.parse(productIDFilter));
+}
+
+export function productIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductIDFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductIDFilter' from JSON`,
   );
 }
 
-export function subscriptionsListQueryParamProductIDFilterFromJSON(
+/** @internal */
+export const CustomerIDFilter$inboundSchema: z.ZodType<
+  CustomerIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type CustomerIDFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const CustomerIDFilter$outboundSchema: z.ZodType<
+  CustomerIDFilter$Outbound,
+  z.ZodTypeDef,
+  CustomerIDFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerIDFilter$ {
+  /** @deprecated use `CustomerIDFilter$inboundSchema` instead. */
+  export const inboundSchema = CustomerIDFilter$inboundSchema;
+  /** @deprecated use `CustomerIDFilter$outboundSchema` instead. */
+  export const outboundSchema = CustomerIDFilter$outboundSchema;
+  /** @deprecated use `CustomerIDFilter$Outbound` instead. */
+  export type Outbound = CustomerIDFilter$Outbound;
+}
+
+export function customerIDFilterToJSON(
+  customerIDFilter: CustomerIDFilter,
+): string {
+  return JSON.stringify(
+    CustomerIDFilter$outboundSchema.parse(customerIDFilter),
+  );
+}
+
+export function customerIDFilterFromJSON(
   jsonString: string,
-): SafeParseResult<
-  SubscriptionsListQueryParamProductIDFilter,
-  SDKValidationError
-> {
+): SafeParseResult<CustomerIDFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      SubscriptionsListQueryParamProductIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'SubscriptionsListQueryParamProductIDFilter' from JSON`,
+    (x) => CustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerIDFilter' from JSON`,
   );
 }
 
@@ -242,6 +285,8 @@ export const SubscriptionsListRequest$inboundSchema: z.ZodType<
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
+    .optional(),
   discount_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   active: z.nullable(z.boolean()).optional(),
@@ -254,6 +299,7 @@ export const SubscriptionsListRequest$inboundSchema: z.ZodType<
   return remap$(v, {
     "organization_id": "organizationId",
     "product_id": "productId",
+    "customer_id": "customerId",
     "discount_id": "discountId",
   });
 });
@@ -262,6 +308,7 @@ export const SubscriptionsListRequest$inboundSchema: z.ZodType<
 export type SubscriptionsListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
+  customer_id?: string | Array<string> | null | undefined;
   discount_id?: string | Array<string> | null | undefined;
   active?: boolean | null | undefined;
   page: number;
@@ -278,6 +325,7 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodType<
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   discountId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   active: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
@@ -289,6 +337,7 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodType<
   return remap$(v, {
     organizationId: "organization_id",
     productId: "product_id",
+    customerId: "customer_id",
     discountId: "discount_id",
   });
 });

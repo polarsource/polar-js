@@ -6,42 +6,29 @@
 import { BenefitGitHubRepositorySubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGitHubRepositorySubscriber = {
-  createdAt: new Date("2022-09-05T11:26:27.176Z"),
-  modifiedAt: new Date("2024-02-11T04:44:48.079Z"),
+  createdAt: new Date("2022-12-23T16:20:25.002Z"),
+  modifiedAt: new Date("2024-03-04T19:53:24.063Z"),
   id: "<value>",
-  description: "optimistically unlike instead of",
+  description: "state hm what seemingly idolized twine off",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
-  grants: [
-    {
-      createdAt: new Date("2023-01-02T19:55:45.970Z"),
-      modifiedAt: new Date("2022-05-26T04:40:33.142Z"),
-      id: "<value>",
-      isGranted: false,
-      isRevoked: false,
-      subscriptionId: "<value>",
-      orderId: "<value>",
-      userId: "<value>",
-      benefitId: "<value>",
-    },
-  ],
   organization: {
-    createdAt: new Date("2024-12-14T21:42:23.324Z"),
-    modifiedAt: new Date("2022-10-01T22:27:32.374Z"),
+    createdAt: new Date("2022-06-08T20:49:38.293Z"),
+    modifiedAt: new Date("2022-11-02T11:04:53.043Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://flickering-director.biz/",
+    avatarUrl: "https://sniveling-marten.biz/",
     bio: "<value>",
-    company: "Schneider Group",
+    company: "Nienow, Aufderhar and Bergstrom",
     blog: "<value>",
     location: "<value>",
-    email: "Beau.Considine-Kris78@yahoo.com",
+    email: "Delphia87@gmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 737774,
+    pledgeMinimumAmount: 788551,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 26338,
+    defaultUpfrontSplitToContributors: 588907,
     profileSettings: {},
     featureSettings: {},
   },
@@ -64,6 +51,5 @@ let value: BenefitGitHubRepositorySubscriber = {
 | `selectable`                                                                                                                     | *boolean*                                                                                                                        | :heavy_check_mark:                                                                                                               | Whether the benefit is selectable when creating a product.                                                                       |
 | `deletable`                                                                                                                      | *boolean*                                                                                                                        | :heavy_check_mark:                                                                                                               | Whether the benefit is deletable.                                                                                                |
 | `organizationId`                                                                                                                 | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | The ID of the organization owning the benefit.                                                                                   |
-| `grants`                                                                                                                         | [components.BenefitGrantSubscriber](../../models/components/benefitgrantsubscriber.md)[]                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `organization`                                                                                                                   | [components.Organization](../../models/components/organization.md)                                                               | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `properties`                                                                                                                     | [components.BenefitGitHubRepositorySubscriberProperties](../../models/components/benefitgithubrepositorysubscriberproperties.md) | :heavy_check_mark:                                                                                                               | Properties available to subscribers for a benefit of type `github_repository`.                                                   |

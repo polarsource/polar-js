@@ -555,7 +555,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CheckoutPublic](../../models/components/checkoutpublic.md)\>**
+**Promise\<[components.CheckoutPublicConfirmed](../../models/components/checkoutpublicconfirmed.md)\>**
 
 ### Errors
 

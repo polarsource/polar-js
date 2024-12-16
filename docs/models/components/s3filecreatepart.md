@@ -6,9 +6,9 @@
 import { S3FileCreatePart } from "@polar-sh/sdk/models/components";
 
 let value: S3FileCreatePart = {
-  number: 935836,
-  chunkStart: 500782,
-  chunkEnd: 111203,
+  number: 589101,
+  chunkStart: 652345,
+  chunkEnd: 288489,
 };
 ```
 

@@ -7,7 +7,7 @@ import { OAuth2ClientConfigurationUpdate } from "@polar-sh/sdk/models/components
 
 let value: OAuth2ClientConfigurationUpdate = {
   redirectUris: [
-    "https://kaleidoscopic-invite.name",
+    "https://stable-possession.name",
   ],
   clientName: "<value>",
   clientId: "<id>",

@@ -11,7 +11,7 @@ const value:
     clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",
-    redirectUri: "https://putrid-pantyhose.org",
+    redirectUri: "https://oval-alligator.info/",
   };
 ```
 

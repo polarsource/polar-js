@@ -6,14 +6,14 @@
 import { BenefitLicenseKeyActivationProperties } from "@polar-sh/sdk/models/components";
 
 let value: BenefitLicenseKeyActivationProperties = {
-  limit: 428199,
-  enableUserAdmin: false,
+  limit: 849029,
+  enableCustomerAdmin: false,
 };
 ```
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `limit`            | *number*           | :heavy_check_mark: | N/A                |
-| `enableUserAdmin`  | *boolean*          | :heavy_check_mark: | N/A                |
+| Field                 | Type                  | Required              | Description           |
+| --------------------- | --------------------- | --------------------- | --------------------- |
+| `limit`               | *number*              | :heavy_check_mark:    | N/A                   |
+| `enableCustomerAdmin` | *boolean*             | :heavy_check_mark:    | N/A                   |

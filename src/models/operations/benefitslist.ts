@@ -17,7 +17,7 @@ export type BenefitsListQueryParamOrganizationIDFilter = string | Array<string>;
 /**
  * Filter by benefit type.
  */
-export type QueryParamBenefitTypeFilter =
+export type BenefitTypeFilter =
   | components.BenefitType
   | Array<components.BenefitType>;
 
@@ -109,8 +109,8 @@ export function benefitsListQueryParamOrganizationIDFilterFromJSON(
 }
 
 /** @internal */
-export const QueryParamBenefitTypeFilter$inboundSchema: z.ZodType<
-  QueryParamBenefitTypeFilter,
+export const BenefitTypeFilter$inboundSchema: z.ZodType<
+  BenefitTypeFilter,
   z.ZodTypeDef,
   unknown
 > = z.union([
@@ -119,13 +119,13 @@ export const QueryParamBenefitTypeFilter$inboundSchema: z.ZodType<
 ]);
 
 /** @internal */
-export type QueryParamBenefitTypeFilter$Outbound = string | Array<string>;
+export type BenefitTypeFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const QueryParamBenefitTypeFilter$outboundSchema: z.ZodType<
-  QueryParamBenefitTypeFilter$Outbound,
+export const BenefitTypeFilter$outboundSchema: z.ZodType<
+  BenefitTypeFilter$Outbound,
   z.ZodTypeDef,
-  QueryParamBenefitTypeFilter
+  BenefitTypeFilter
 > = z.union([
   components.BenefitType$outboundSchema,
   z.array(components.BenefitType$outboundSchema),
@@ -135,32 +135,30 @@ export const QueryParamBenefitTypeFilter$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryParamBenefitTypeFilter$ {
-  /** @deprecated use `QueryParamBenefitTypeFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamBenefitTypeFilter$inboundSchema;
-  /** @deprecated use `QueryParamBenefitTypeFilter$outboundSchema` instead. */
-  export const outboundSchema = QueryParamBenefitTypeFilter$outboundSchema;
-  /** @deprecated use `QueryParamBenefitTypeFilter$Outbound` instead. */
-  export type Outbound = QueryParamBenefitTypeFilter$Outbound;
+export namespace BenefitTypeFilter$ {
+  /** @deprecated use `BenefitTypeFilter$inboundSchema` instead. */
+  export const inboundSchema = BenefitTypeFilter$inboundSchema;
+  /** @deprecated use `BenefitTypeFilter$outboundSchema` instead. */
+  export const outboundSchema = BenefitTypeFilter$outboundSchema;
+  /** @deprecated use `BenefitTypeFilter$Outbound` instead. */
+  export type Outbound = BenefitTypeFilter$Outbound;
 }
 
-export function queryParamBenefitTypeFilterToJSON(
-  queryParamBenefitTypeFilter: QueryParamBenefitTypeFilter,
+export function benefitTypeFilterToJSON(
+  benefitTypeFilter: BenefitTypeFilter,
 ): string {
   return JSON.stringify(
-    QueryParamBenefitTypeFilter$outboundSchema.parse(
-      queryParamBenefitTypeFilter,
-    ),
+    BenefitTypeFilter$outboundSchema.parse(benefitTypeFilter),
   );
 }
 
-export function queryParamBenefitTypeFilterFromJSON(
+export function benefitTypeFilterFromJSON(
   jsonString: string,
-): SafeParseResult<QueryParamBenefitTypeFilter, SDKValidationError> {
+): SafeParseResult<BenefitTypeFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => QueryParamBenefitTypeFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamBenefitTypeFilter' from JSON`,
+    (x) => BenefitTypeFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitTypeFilter' from JSON`,
   );
 }
 

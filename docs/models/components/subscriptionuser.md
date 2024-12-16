@@ -6,10 +6,9 @@
 import { SubscriptionUser } from "@polar-sh/sdk/models/components";
 
 let value: SubscriptionUser = {
-  email: "Elvera.Gottlieb@yahoo.com",
+  id: "<value>",
+  email: "Lonny_McDermott-Wisoky@yahoo.com",
   publicName: "<value>",
-  githubUsername: "<value>",
-  avatarUrl: "https://sweet-squid.info",
 };
 ```
 
@@ -17,7 +16,6 @@ let value: SubscriptionUser = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
+| `id`               | *string*           | :heavy_check_mark: | N/A                |
 | `email`            | *string*           | :heavy_check_mark: | N/A                |
 | `publicName`       | *string*           | :heavy_check_mark: | N/A                |
-| `githubUsername`   | *string*           | :heavy_check_mark: | N/A                |
-| `avatarUrl`        | *string*           | :heavy_check_mark: | N/A                |

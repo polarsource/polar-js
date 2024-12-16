@@ -15,7 +15,7 @@ export type LicenseKeyValidate = {
   organizationId: string;
   activationId?: string | null | undefined;
   benefitId?: string | null | undefined;
-  userId?: string | null | undefined;
+  customerId?: string | null | undefined;
   incrementUsage?: number | null | undefined;
   conditions?: Conditions | undefined;
 };
@@ -74,7 +74,7 @@ export const LicenseKeyValidate$inboundSchema: z.ZodType<
   organization_id: z.string(),
   activation_id: z.nullable(z.string()).optional(),
   benefit_id: z.nullable(z.string()).optional(),
-  user_id: z.nullable(z.string()).optional(),
+  customer_id: z.nullable(z.string()).optional(),
   increment_usage: z.nullable(z.number().int()).optional(),
   conditions: z.lazy(() => Conditions$inboundSchema).optional(),
 }).transform((v) => {
@@ -82,7 +82,7 @@ export const LicenseKeyValidate$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
     "activation_id": "activationId",
     "benefit_id": "benefitId",
-    "user_id": "userId",
+    "customer_id": "customerId",
     "increment_usage": "incrementUsage",
   });
 });
@@ -93,7 +93,7 @@ export type LicenseKeyValidate$Outbound = {
   organization_id: string;
   activation_id?: string | null | undefined;
   benefit_id?: string | null | undefined;
-  user_id?: string | null | undefined;
+  customer_id?: string | null | undefined;
   increment_usage?: number | null | undefined;
   conditions?: Conditions$Outbound | undefined;
 };
@@ -108,7 +108,7 @@ export const LicenseKeyValidate$outboundSchema: z.ZodType<
   organizationId: z.string(),
   activationId: z.nullable(z.string()).optional(),
   benefitId: z.nullable(z.string()).optional(),
-  userId: z.nullable(z.string()).optional(),
+  customerId: z.nullable(z.string()).optional(),
   incrementUsage: z.nullable(z.number().int()).optional(),
   conditions: z.lazy(() => Conditions$outboundSchema).optional(),
 }).transform((v) => {
@@ -116,7 +116,7 @@ export const LicenseKeyValidate$outboundSchema: z.ZodType<
     organizationId: "organization_id",
     activationId: "activation_id",
     benefitId: "benefit_id",
-    userId: "user_id",
+    customerId: "customer_id",
     incrementUsage: "increment_usage",
   });
 });

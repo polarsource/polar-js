@@ -11,11 +11,11 @@ import { WebhookProductCreatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookProductCreatedPayload = {
   data: {
-    createdAt: new Date("2022-01-25T03:09:39.299Z"),
-    modifiedAt: new Date("2024-03-15T13:07:35.858Z"),
+    createdAt: new Date("2022-09-25T08:32:22.615Z"),
+    modifiedAt: new Date("2022-12-30T10:27:46.222Z"),
     id: "<value>",
     name: "<value>",
-    description: "towards yet whoa premise customise gah ew despite separately",
+    description: "doorpost qua recount serialize likewise",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
@@ -24,34 +24,35 @@ let value: WebhookProductCreatedPayload = {
     },
     prices: [
       {
-        createdAt: new Date("2024-02-04T21:57:43.798Z"),
-        modifiedAt: new Date("2022-10-28T23:39:35.956Z"),
+        createdAt: new Date("2022-01-26T05:11:25.370Z"),
+        modifiedAt: new Date("2022-05-27T17:47:02.462Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        priceCurrency: "<value>",
-        minimumAmount: 861406,
-        maximumAmount: 790773,
-        presetAmount: 194042,
         recurringInterval: "month",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2022-09-25T08:32:22.615Z"),
-        modifiedAt: new Date("2022-12-30T10:27:46.222Z"),
+        createdAt: new Date("2023-11-08T14:06:44.172Z"),
+        modifiedAt: new Date("2022-07-06T05:48:12.702Z"),
         id: "<value>",
-        description: "doorpost qua recount serialize likewise",
+        description:
+          "since ah especially gladly although syringe but ew except",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          archived: {
-            "key": false,
+          prefix: "<value>",
+          expires: {
+            ttl: 688899,
+            timeframe: "year",
           },
-          files: [
-            "<value>",
-          ],
+          activations: {
+            limit: 698630,
+            enableCustomerAdmin: false,
+          },
+          limitUsage: 503697,
         },
       },
     ],
@@ -60,27 +61,27 @@ let value: WebhookProductCreatedPayload = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/etc/defaults",
+        path: "/bin",
         mimeType: "<value>",
-        size: 247796,
+        size: 774353,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-03-24T12:42:40.886Z"),
+        lastModifiedAt: new Date("2023-09-07T04:04:11.659Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2022-01-26T05:11:25.370Z"),
+        createdAt: new Date("2022-04-01T09:54:32.778Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://all-story.name/",
+        publicUrl: "https://forceful-sweatshop.biz/",
       },
     ],
     attachedCustomFields: [
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2024-04-22T13:47:04.399Z"),
-          modifiedAt: new Date("2024-11-25T14:43:22.496Z"),
+          createdAt: new Date("2023-08-22T13:28:33.020Z"),
+          modifiedAt: new Date("2022-12-21T16:20:06.057Z"),
           id: "<value>",
           metadata: {
             "key": false,
@@ -90,7 +91,7 @@ let value: WebhookProductCreatedPayload = {
           organizationId: "<value>",
           properties: {},
         },
-        order: 921548,
+        order: 697401,
         required: false,
       },
     ],

@@ -5,11 +5,11 @@
 ```typescript
 import { SubscriptionSortProperty } from "@polar-sh/sdk/models/components";
 
-let value: SubscriptionSortProperty = "amount";
+let value: SubscriptionSortProperty = "current_period_end";
 ```
 
 ## Values
 
 ```typescript
-"user" | "-user" | "status" | "-status" | "started_at" | "-started_at" | "current_period_end" | "-current_period_end" | "amount" | "-amount" | "product" | "-product" | "discount" | "-discount"
+"customer" | "-customer" | "status" | "-status" | "started_at" | "-started_at" | "current_period_end" | "-current_period_end" | "amount" | "-amount" | "product" | "-product" | "discount" | "-discount"
 ```

@@ -19,7 +19,7 @@ export type LicenseKeysListQueryParamOrganizationIDFilter =
 /**
  * Filter by benefit ID.
  */
-export type LicenseKeysListQueryParamBenefitIDFilter = string | Array<string>;
+export type QueryParamBenefitIDFilter = string | Array<string>;
 
 export type LicenseKeysListRequest = {
   /**
@@ -108,63 +108,50 @@ export function licenseKeysListQueryParamOrganizationIDFilterFromJSON(
 }
 
 /** @internal */
-export const LicenseKeysListQueryParamBenefitIDFilter$inboundSchema: z.ZodType<
-  LicenseKeysListQueryParamBenefitIDFilter,
+export const QueryParamBenefitIDFilter$inboundSchema: z.ZodType<
+  QueryParamBenefitIDFilter,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
-export type LicenseKeysListQueryParamBenefitIDFilter$Outbound =
-  | string
-  | Array<string>;
+export type QueryParamBenefitIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const LicenseKeysListQueryParamBenefitIDFilter$outboundSchema: z.ZodType<
-  LicenseKeysListQueryParamBenefitIDFilter$Outbound,
+export const QueryParamBenefitIDFilter$outboundSchema: z.ZodType<
+  QueryParamBenefitIDFilter$Outbound,
   z.ZodTypeDef,
-  LicenseKeysListQueryParamBenefitIDFilter
+  QueryParamBenefitIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace LicenseKeysListQueryParamBenefitIDFilter$ {
-  /** @deprecated use `LicenseKeysListQueryParamBenefitIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    LicenseKeysListQueryParamBenefitIDFilter$inboundSchema;
-  /** @deprecated use `LicenseKeysListQueryParamBenefitIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    LicenseKeysListQueryParamBenefitIDFilter$outboundSchema;
-  /** @deprecated use `LicenseKeysListQueryParamBenefitIDFilter$Outbound` instead. */
-  export type Outbound = LicenseKeysListQueryParamBenefitIDFilter$Outbound;
+export namespace QueryParamBenefitIDFilter$ {
+  /** @deprecated use `QueryParamBenefitIDFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamBenefitIDFilter$inboundSchema;
+  /** @deprecated use `QueryParamBenefitIDFilter$outboundSchema` instead. */
+  export const outboundSchema = QueryParamBenefitIDFilter$outboundSchema;
+  /** @deprecated use `QueryParamBenefitIDFilter$Outbound` instead. */
+  export type Outbound = QueryParamBenefitIDFilter$Outbound;
 }
 
-export function licenseKeysListQueryParamBenefitIDFilterToJSON(
-  licenseKeysListQueryParamBenefitIDFilter:
-    LicenseKeysListQueryParamBenefitIDFilter,
+export function queryParamBenefitIDFilterToJSON(
+  queryParamBenefitIDFilter: QueryParamBenefitIDFilter,
 ): string {
   return JSON.stringify(
-    LicenseKeysListQueryParamBenefitIDFilter$outboundSchema.parse(
-      licenseKeysListQueryParamBenefitIDFilter,
-    ),
+    QueryParamBenefitIDFilter$outboundSchema.parse(queryParamBenefitIDFilter),
   );
 }
 
-export function licenseKeysListQueryParamBenefitIDFilterFromJSON(
+export function queryParamBenefitIDFilterFromJSON(
   jsonString: string,
-): SafeParseResult<
-  LicenseKeysListQueryParamBenefitIDFilter,
-  SDKValidationError
-> {
+): SafeParseResult<QueryParamBenefitIDFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      LicenseKeysListQueryParamBenefitIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'LicenseKeysListQueryParamBenefitIDFilter' from JSON`,
+    (x) => QueryParamBenefitIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamBenefitIDFilter' from JSON`,
   );
 }
 

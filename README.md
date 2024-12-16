@@ -348,6 +348,57 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [clientUpdate](docs/sdks/custom/README.md#clientupdate) - Update Checkout Session from Client
 * [clientConfirm](docs/sdks/custom/README.md#clientconfirm) - Confirm Checkout Session from Client
 
+### [customerPortal](docs/sdks/customerportal/README.md)
+
+
+#### [customerPortal.benefitGrants](docs/sdks/benefitgrants/README.md)
+
+* [list](docs/sdks/benefitgrants/README.md#list) - List Benefit Grants
+* [get](docs/sdks/benefitgrants/README.md#get) - Get Benefit Grant
+* [update](docs/sdks/benefitgrants/README.md#update) - Update Benefit Grant
+
+#### [customerPortal.customers](docs/sdks/polarcustomers/README.md)
+
+* [get](docs/sdks/polarcustomers/README.md#get) - Get Customer
+
+#### [customerPortal.downloadables](docs/sdks/downloadables/README.md)
+
+* [list](docs/sdks/downloadables/README.md#list) - List Downloadables
+* [get](docs/sdks/downloadables/README.md#get) - Get Downloadable
+
+#### [customerPortal.licenseKeys](docs/sdks/polarlicensekeys/README.md)
+
+* [list](docs/sdks/polarlicensekeys/README.md#list) - List License Keys
+* [get](docs/sdks/polarlicensekeys/README.md#get) - Get License Key
+* [validate](docs/sdks/polarlicensekeys/README.md#validate) - Validate License Key
+* [activate](docs/sdks/polarlicensekeys/README.md#activate) - Activate License Key
+* [deactivate](docs/sdks/polarlicensekeys/README.md#deactivate) - Deactivate License Key
+
+#### [customerPortal.orders](docs/sdks/polarorders/README.md)
+
+* [list](docs/sdks/polarorders/README.md#list) - List Orders
+* [get](docs/sdks/polarorders/README.md#get) - Get Order
+* [invoice](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
+
+#### [customerPortal.organizations](docs/sdks/polarorganizations/README.md)
+
+* [get](docs/sdks/polarorganizations/README.md#get) - Get Organization
+
+#### [customerPortal.subscriptions](docs/sdks/polarsubscriptions/README.md)
+
+* [list](docs/sdks/polarsubscriptions/README.md#list) - List Subscriptions
+* [get](docs/sdks/polarsubscriptions/README.md#get) - Get Subscription
+* [update](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
+* [cancel](docs/sdks/polarsubscriptions/README.md#cancel) - Cancel Subscription
+
+### [customers](docs/sdks/customers/README.md)
+
+* [list](docs/sdks/customers/README.md#list) - List Customers
+* [create](docs/sdks/customers/README.md#create) - Create Customer
+* [get](docs/sdks/customers/README.md#get) - Get Customer
+* [update](docs/sdks/customers/README.md#update) - Update Customer
+* [delete](docs/sdks/customers/README.md#delete) - Delete Customer
+
 ### [customFields](docs/sdks/customfields/README.md)
 
 * [list](docs/sdks/customfields/README.md#list) - List Custom Fields
@@ -437,49 +488,6 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [list](docs/sdks/subscriptions/README.md#list) - List Subscriptions
 * [export](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
 
-### [users](docs/sdks/users/README.md)
-
-
-#### [users.advertisements](docs/sdks/polaradvertisements/README.md)
-
-* [list](docs/sdks/polaradvertisements/README.md#list) - List Advertisements
-* [create](docs/sdks/polaradvertisements/README.md#create) - Create Advertisement
-* [get](docs/sdks/polaradvertisements/README.md#get) - Get Advertisement
-* [update](docs/sdks/polaradvertisements/README.md#update) - Update Advertisement
-* [delete](docs/sdks/polaradvertisements/README.md#delete) - Delete Advertisement
-* [enable](docs/sdks/polaradvertisements/README.md#enable) - Enable Advertisement
-
-#### [users.benefits](docs/sdks/polarbenefits/README.md)
-
-* [list](docs/sdks/polarbenefits/README.md#list) - List Benefits
-* [get](docs/sdks/polarbenefits/README.md#get) - Get Benefit
-
-#### [users.downloadables](docs/sdks/downloadables/README.md)
-
-* [list](docs/sdks/downloadables/README.md#list) - List Downloadables
-* [get](docs/sdks/downloadables/README.md#get) - Get Downloadable
-
-#### [users.licenseKeys](docs/sdks/polarlicensekeys/README.md)
-
-* [list](docs/sdks/polarlicensekeys/README.md#list) - List License Keys
-* [get](docs/sdks/polarlicensekeys/README.md#get) - Get License Key
-* [validate](docs/sdks/polarlicensekeys/README.md#validate) - Validate License Key
-* [activate](docs/sdks/polarlicensekeys/README.md#activate) - Activate License Key
-* [deactivate](docs/sdks/polarlicensekeys/README.md#deactivate) - Deactivate License Key
-
-#### [users.orders](docs/sdks/polarorders/README.md)
-
-* [list](docs/sdks/polarorders/README.md#list) - List Orders
-* [get](docs/sdks/polarorders/README.md#get) - Get Order
-* [invoice](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
-
-#### [users.subscriptions](docs/sdks/polarsubscriptions/README.md)
-
-* [list](docs/sdks/polarsubscriptions/README.md#list) - List Subscriptions
-* [get](docs/sdks/polarsubscriptions/README.md#get) - Get Subscription
-* [update](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
-* [cancel](docs/sdks/polarsubscriptions/README.md#cancel) - Cancel Subscription
-
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
@@ -518,6 +526,30 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`checkoutsCustomGet`](docs/sdks/custom/README.md#get) - Get Checkout Session
 - [`checkoutsCustomList`](docs/sdks/custom/README.md#list) - List Checkout Sessions
 - [`checkoutsCustomUpdate`](docs/sdks/custom/README.md#update) - Update Checkout Session
+- [`customerPortalBenefitGrantsGet`](docs/sdks/benefitgrants/README.md#get) - Get Benefit Grant
+- [`customerPortalBenefitGrantsList`](docs/sdks/benefitgrants/README.md#list) - List Benefit Grants
+- [`customerPortalBenefitGrantsUpdate`](docs/sdks/benefitgrants/README.md#update) - Update Benefit Grant
+- [`customerPortalCustomersGet`](docs/sdks/polarcustomers/README.md#get) - Get Customer
+- [`customerPortalDownloadablesGet`](docs/sdks/downloadables/README.md#get) - Get Downloadable
+- [`customerPortalDownloadablesList`](docs/sdks/downloadables/README.md#list) - List Downloadables
+- [`customerPortalLicenseKeysActivate`](docs/sdks/polarlicensekeys/README.md#activate) - Activate License Key
+- [`customerPortalLicenseKeysDeactivate`](docs/sdks/polarlicensekeys/README.md#deactivate) - Deactivate License Key
+- [`customerPortalLicenseKeysGet`](docs/sdks/polarlicensekeys/README.md#get) - Get License Key
+- [`customerPortalLicenseKeysList`](docs/sdks/polarlicensekeys/README.md#list) - List License Keys
+- [`customerPortalLicenseKeysValidate`](docs/sdks/polarlicensekeys/README.md#validate) - Validate License Key
+- [`customerPortalOrdersGet`](docs/sdks/polarorders/README.md#get) - Get Order
+- [`customerPortalOrdersInvoice`](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
+- [`customerPortalOrdersList`](docs/sdks/polarorders/README.md#list) - List Orders
+- [`customerPortalOrganizationsGet`](docs/sdks/polarorganizations/README.md#get) - Get Organization
+- [`customerPortalSubscriptionsCancel`](docs/sdks/polarsubscriptions/README.md#cancel) - Cancel Subscription
+- [`customerPortalSubscriptionsGet`](docs/sdks/polarsubscriptions/README.md#get) - Get Subscription
+- [`customerPortalSubscriptionsList`](docs/sdks/polarsubscriptions/README.md#list) - List Subscriptions
+- [`customerPortalSubscriptionsUpdate`](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
+- [`customersCreate`](docs/sdks/customers/README.md#create) - Create Customer
+- [`customersDelete`](docs/sdks/customers/README.md#delete) - Delete Customer
+- [`customersGet`](docs/sdks/customers/README.md#get) - Get Customer
+- [`customersList`](docs/sdks/customers/README.md#list) - List Customers
+- [`customersUpdate`](docs/sdks/customers/README.md#update) - Update Customer
 - [`customFieldsCreate`](docs/sdks/customfields/README.md#create) - Create Custom Field
 - [`customFieldsDelete`](docs/sdks/customfields/README.md#delete) - Delete Custom Field
 - [`customFieldsGet`](docs/sdks/customfields/README.md#get) - Get Custom Field
@@ -567,28 +599,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`repositoriesUpdate`](docs/sdks/repositories/README.md#update) - Update Repository
 - [`subscriptionsExport`](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
 - [`subscriptionsList`](docs/sdks/subscriptions/README.md#list) - List Subscriptions
-- [`usersAdvertisementsCreate`](docs/sdks/polaradvertisements/README.md#create) - Create Advertisement
-- [`usersAdvertisementsDelete`](docs/sdks/polaradvertisements/README.md#delete) - Delete Advertisement
-- [`usersAdvertisementsEnable`](docs/sdks/polaradvertisements/README.md#enable) - Enable Advertisement
-- [`usersAdvertisementsGet`](docs/sdks/polaradvertisements/README.md#get) - Get Advertisement
-- [`usersAdvertisementsList`](docs/sdks/polaradvertisements/README.md#list) - List Advertisements
-- [`usersAdvertisementsUpdate`](docs/sdks/polaradvertisements/README.md#update) - Update Advertisement
-- [`usersBenefitsGet`](docs/sdks/polarbenefits/README.md#get) - Get Benefit
-- [`usersBenefitsList`](docs/sdks/polarbenefits/README.md#list) - List Benefits
-- [`usersDownloadablesGet`](docs/sdks/downloadables/README.md#get) - Get Downloadable
-- [`usersDownloadablesList`](docs/sdks/downloadables/README.md#list) - List Downloadables
-- [`usersLicenseKeysActivate`](docs/sdks/polarlicensekeys/README.md#activate) - Activate License Key
-- [`usersLicenseKeysDeactivate`](docs/sdks/polarlicensekeys/README.md#deactivate) - Deactivate License Key
-- [`usersLicenseKeysGet`](docs/sdks/polarlicensekeys/README.md#get) - Get License Key
-- [`usersLicenseKeysList`](docs/sdks/polarlicensekeys/README.md#list) - List License Keys
-- [`usersLicenseKeysValidate`](docs/sdks/polarlicensekeys/README.md#validate) - Validate License Key
-- [`usersOrdersGet`](docs/sdks/polarorders/README.md#get) - Get Order
-- [`usersOrdersInvoice`](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
-- [`usersOrdersList`](docs/sdks/polarorders/README.md#list) - List Orders
-- [`usersSubscriptionsCancel`](docs/sdks/polarsubscriptions/README.md#cancel) - Cancel Subscription
-- [`usersSubscriptionsGet`](docs/sdks/polarsubscriptions/README.md#get) - Get Subscription
-- [`usersSubscriptionsList`](docs/sdks/polarsubscriptions/README.md#list) - List Subscriptions
-- [`usersSubscriptionsUpdate`](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
 - ~~[`checkoutsCreate`](docs/sdks/checkouts/README.md#create)~~ - Create Checkout :warning: **Deprecated** Use [`checkoutsCustomCreate`](docs/sdks/custom/README.md#create) instead.
 - ~~[`checkoutsGet`](docs/sdks/checkouts/README.md#get)~~ - Get Checkout :warning: **Deprecated**
 
@@ -615,7 +625,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.benefits.list({});
+  const result = await polar.externalOrganizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -642,7 +652,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.benefits.list({}, {
+  const result = await polar.externalOrganizations.list({}, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -684,7 +694,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.benefits.list({});
+  const result = await polar.externalOrganizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -700,24 +710,14 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-All SDK methods return a response object or throw an error. By default, an API error will throw a `errors.SDKError`.
-
-If a HTTP request fails, an operation my also throw an error from the `models/errors/httpclienterrors.ts` module:
-
-| HTTP Client Error                                    | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| RequestAbortedError                                  | HTTP request was aborted by the client               |
-| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError                                      | HTTP client was unable to make a request to a server |
-| InvalidRequestError                                  | Any input used to create a request is invalid        |
-| UnexpectedClientError                                | Unrecognised or unexpected error                     |
-
-In addition, when custom error responses are specified for an operation, the SDK may throw their associated Error type. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation. For example, the `list` method may throw the following errors:
+Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `list` method may throw the following errors:
 
 | Error Type                 | Status Code | Content Type     |
 | -------------------------- | ----------- | ---------------- |
 | errors.HTTPValidationError | 422         | application/json |
 | errors.SDKError            | 4XX, 5XX    | \*/\*            |
+
+If the method throws an error and it is not captured by the known errors, it will default to throwing a `SDKError`.
 
 ```typescript
 import { Polar } from "@polar-sh/sdk";
@@ -733,7 +733,7 @@ const polar = new Polar({
 async function run() {
   let result;
   try {
-    result = await polar.users.benefits.list({});
+    result = await polar.externalOrganizations.list({});
 
     for await (const page of result) {
       // Handle the page
@@ -741,8 +741,9 @@ async function run() {
     }
   } catch (err) {
     switch (true) {
+      // The server response does not match the expected SDK schema
       case (err instanceof SDKValidationError): {
-        // Validation errors can be pretty-printed
+        // Pretty-print will provide a human-readable multi-line error message
         console.error(err.pretty());
         // Raw value may also be inspected
         console.error(err.rawValue);
@@ -754,6 +755,7 @@ async function run() {
         return;
       }
       default: {
+        // Other errors such as network errors, see HTTPClientErrors for more details
         throw err;
       }
     }
@@ -764,7 +766,17 @@ run();
 
 ```
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+
+In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `models/errors/httpclienterrors.ts` module:
+
+| HTTP Client Error                                    | Description                                          |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| RequestAbortedError                                  | HTTP request was aborted by the client               |
+| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
+| ConnectionError                                      | HTTP client was unable to make a request to a server |
+| InvalidRequestError                                  | Any input used to create a request is invalid        |
+| UnexpectedClientError                                | Unrecognised or unexpected error                     |
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -790,7 +802,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.benefits.list({});
+  const result = await polar.externalOrganizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -814,7 +826,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.benefits.list({});
+  const result = await polar.externalOrganizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -896,7 +908,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.benefits.list({});
+  const result = await polar.externalOrganizations.list({});
 
   for await (const page of result) {
     // Handle the page

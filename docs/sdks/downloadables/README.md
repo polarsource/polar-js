@@ -1,5 +1,5 @@
 # Downloadables
-(*users.downloadables*)
+(*customerPortal.downloadables*)
 
 ## Overview
 
@@ -22,7 +22,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.downloadables.list({});
+  const result = await polar.customerPortal.downloadables.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -39,7 +39,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersDownloadablesList } from "@polar-sh/sdk/funcs/usersDownloadablesList.js";
+import { customerPortalDownloadablesList } from "@polar-sh/sdk/funcs/customerPortalDownloadablesList.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -48,7 +48,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersDownloadablesList(polar, {});
+  const res = await customerPortalDownloadablesList(polar, {});
 
   if (!res.ok) {
     throw res.error;
@@ -69,14 +69,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UsersDownloadablesListRequest](../../models/operations/usersdownloadableslistrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalDownloadablesListRequest](../../models/operations/customerportaldownloadableslistrequest.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.UsersDownloadablesListResponse](../../models/operations/usersdownloadableslistresponse.md)\>**
+**Promise\<[operations.CustomerPortalDownloadablesListResponse](../../models/operations/customerportaldownloadableslistresponse.md)\>**
 
 ### Errors
 
@@ -99,7 +99,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.downloadables.get({
+  const result = await polar.customerPortal.downloadables.get({
     token: "<value>",
   });
 
@@ -116,7 +116,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersDownloadablesGet } from "@polar-sh/sdk/funcs/usersDownloadablesGet.js";
+import { customerPortalDownloadablesGet } from "@polar-sh/sdk/funcs/customerPortalDownloadablesGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -125,7 +125,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersDownloadablesGet(polar, {
+  const res = await customerPortalDownloadablesGet(polar, {
     token: "<value>",
   });
 
@@ -146,7 +146,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UsersDownloadablesGetRequest](../../models/operations/usersdownloadablesgetrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalDownloadablesCustomerPortalDownloadablesGetRequest](../../models/operations/customerportaldownloadablescustomerportaldownloadablesgetrequest.md)     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

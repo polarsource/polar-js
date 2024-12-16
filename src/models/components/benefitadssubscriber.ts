@@ -15,22 +15,18 @@ import {
   BenefitAdsProperties$outboundSchema,
 } from "./benefitadsproperties.js";
 import {
-  BenefitGrantAds,
-  BenefitGrantAds$inboundSchema,
-  BenefitGrantAds$Outbound,
-  BenefitGrantAds$outboundSchema,
-} from "./benefitgrantads.js";
-import {
   Organization,
   Organization$inboundSchema,
   Organization$Outbound,
   Organization$outboundSchema,
 } from "./organization.js";
 
-export const Type = {
+export const BenefitAdsSubscriberType = {
   Ads: "ads",
 } as const;
-export type Type = ClosedEnum<typeof Type>;
+export type BenefitAdsSubscriberType = ClosedEnum<
+  typeof BenefitAdsSubscriberType
+>;
 
 export type BenefitAdsSubscriber = {
   /**
@@ -62,7 +58,6 @@ export type BenefitAdsSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  grants: Array<BenefitGrantAds>;
   organization: Organization;
   /**
    * Properties for a benefit of type `ads`.
@@ -71,23 +66,24 @@ export type BenefitAdsSubscriber = {
 };
 
 /** @internal */
-export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
-  Type,
-);
+export const BenefitAdsSubscriberType$inboundSchema: z.ZodNativeEnum<
+  typeof BenefitAdsSubscriberType
+> = z.nativeEnum(BenefitAdsSubscriberType);
 
 /** @internal */
-export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> =
-  Type$inboundSchema;
+export const BenefitAdsSubscriberType$outboundSchema: z.ZodNativeEnum<
+  typeof BenefitAdsSubscriberType
+> = BenefitAdsSubscriberType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Type$ {
-  /** @deprecated use `Type$inboundSchema` instead. */
-  export const inboundSchema = Type$inboundSchema;
-  /** @deprecated use `Type$outboundSchema` instead. */
-  export const outboundSchema = Type$outboundSchema;
+export namespace BenefitAdsSubscriberType$ {
+  /** @deprecated use `BenefitAdsSubscriberType$inboundSchema` instead. */
+  export const inboundSchema = BenefitAdsSubscriberType$inboundSchema;
+  /** @deprecated use `BenefitAdsSubscriberType$outboundSchema` instead. */
+  export const outboundSchema = BenefitAdsSubscriberType$outboundSchema;
 }
 
 /** @internal */
@@ -106,7 +102,6 @@ export const BenefitAdsSubscriber$inboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
-  grants: z.array(BenefitGrantAds$inboundSchema),
   organization: Organization$inboundSchema,
   properties: BenefitAdsProperties$inboundSchema,
 }).transform((v) => {
@@ -127,7 +122,6 @@ export type BenefitAdsSubscriber$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
-  grants: Array<BenefitGrantAds$Outbound>;
   organization: Organization$Outbound;
   properties: BenefitAdsProperties$Outbound;
 };
@@ -146,7 +140,6 @@ export const BenefitAdsSubscriber$outboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
-  grants: z.array(BenefitGrantAds$outboundSchema),
   organization: Organization$outboundSchema,
   properties: BenefitAdsProperties$outboundSchema,
 }).transform((v) => {

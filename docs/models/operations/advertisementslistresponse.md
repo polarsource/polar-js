@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-05-03T17:37:17.258Z"),
-        modifiedAt: new Date("2024-10-26T13:51:57.176Z"),
+        createdAt: new Date("2022-02-06T04:23:11.388Z"),
+        modifiedAt: new Date("2024-05-14T04:28:07.813Z"),
         id: "<value>",
-        imageUrl: "https://hefty-larva.name",
-        imageUrlDark: "https://sticky-filter.com/",
+        imageUrl: "https://gifted-lay.net/",
+        imageUrlDark: "https://altruistic-exasperation.com",
         text: "<value>",
-        linkUrl: "https://quiet-divine.org/",
+        linkUrl: "https://salty-dream.net",
       },
     ],
     pagination: {
-      totalCount: 772432,
-      maxPage: 115208,
+      totalCount: 633380,
+      maxPage: 660131,
     },
     dimensions: [
-      555281,
+      750430,
     ],
   },
 };

@@ -7,7 +7,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.benefits.list({});
+  const result = await polar.externalOrganizations.list({});
 
   for await (const page of result) {
     // Handle the page

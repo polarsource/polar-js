@@ -8,7 +8,7 @@
 ```typescript
 const value: components.BenefitAdsCreate = {
   description:
-    "where now conservative consequently deer onto usefully gadzooks uncomfortable",
+    "unknown like embalm furthermore optimistically unlike instead of",
   properties: {},
 };
 ```
@@ -17,7 +17,7 @@ const value: components.BenefitAdsCreate = {
 
 ```typescript
 const value: components.BenefitCustomCreate = {
-  description: "furthermore saturate aw sadly ah and poor right",
+  description: "essence coincide transparency below wholly",
   isTaxApplicable: false,
   properties: {},
 };
@@ -27,8 +27,7 @@ const value: components.BenefitCustomCreate = {
 
 ```typescript
 const value: components.BenefitDiscordCreate = {
-  description:
-    "regularly for premier cruelty than afterwards whereas now vain though",
+  description: "which dreamily aboard",
   properties: {
     guildToken: "<value>",
     roleId: "<id>",
@@ -40,8 +39,7 @@ const value: components.BenefitDiscordCreate = {
 
 ```typescript
 const value: components.BenefitDownloadablesCreate = {
-  description:
-    "inasmuch politely covenant precious mozzarella cricket help knowledgeably whoever aha",
+  description: "even pish secret institute",
   properties: {
     files: [
       "<value>",
@@ -54,11 +52,12 @@ const value: components.BenefitDownloadablesCreate = {
 
 ```typescript
 const value: components.BenefitGitHubRepositoryCreate = {
-  description: "lumpy overheard agile helpful submitter woot",
+  description:
+    "considering gadzooks viability individual specific splash lest pointless over quietly",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "admin",
+    permission: "pull",
   },
 };
 ```
@@ -67,7 +66,8 @@ const value: components.BenefitGitHubRepositoryCreate = {
 
 ```typescript
 const value: components.BenefitLicenseKeysCreate = {
-  description: "quixotic supportive patiently contrast",
+  description:
+    "synthesise seriously nor joyously through nor cheerfully neatly juvenile instead",
   properties: {},
 };
 ```

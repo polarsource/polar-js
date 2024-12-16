@@ -28,7 +28,6 @@ export type Permission = ClosedEnum<typeof Permission>;
  * Properties for a benefit of type `github_repository`.
  */
 export type BenefitGitHubRepositoryProperties = {
-  repositoryId: string | null;
   /**
    * The owner of the repository.
    */
@@ -68,13 +67,11 @@ export const BenefitGitHubRepositoryProperties$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  repository_id: z.nullable(z.string()),
   repository_owner: z.string(),
   repository_name: z.string(),
   permission: Permission$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
-    "repository_id": "repositoryId",
     "repository_owner": "repositoryOwner",
     "repository_name": "repositoryName",
   });
@@ -82,7 +79,6 @@ export const BenefitGitHubRepositoryProperties$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitGitHubRepositoryProperties$Outbound = {
-  repository_id: string | null;
   repository_owner: string;
   repository_name: string;
   permission: string;
@@ -94,13 +90,11 @@ export const BenefitGitHubRepositoryProperties$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGitHubRepositoryProperties
 > = z.object({
-  repositoryId: z.nullable(z.string()),
   repositoryOwner: z.string(),
   repositoryName: z.string(),
   permission: Permission$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
-    repositoryId: "repository_id",
     repositoryOwner: "repository_owner",
     repositoryName: "repository_name",
   });

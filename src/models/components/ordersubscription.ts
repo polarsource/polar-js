@@ -43,7 +43,7 @@ export type OrderSubscription = {
   cancelAtPeriodEnd: boolean;
   startedAt: Date | null;
   endedAt: Date | null;
-  userId: string;
+  customerId: string;
   productId: string;
   priceId: string;
   discountId: string | null;
@@ -127,7 +127,7 @@ export const OrderSubscription$inboundSchema: z.ZodType<
   ended_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  user_id: z.string(),
+  customer_id: z.string(),
   product_id: z.string(),
   price_id: z.string(),
   discount_id: z.nullable(z.string()),
@@ -142,7 +142,7 @@ export const OrderSubscription$inboundSchema: z.ZodType<
     "cancel_at_period_end": "cancelAtPeriodEnd",
     "started_at": "startedAt",
     "ended_at": "endedAt",
-    "user_id": "userId",
+    "customer_id": "customerId",
     "product_id": "productId",
     "price_id": "priceId",
     "discount_id": "discountId",
@@ -165,7 +165,7 @@ export type OrderSubscription$Outbound = {
   cancel_at_period_end: boolean;
   started_at: string | null;
   ended_at: string | null;
-  user_id: string;
+  customer_id: string;
   product_id: string;
   price_id: string;
   discount_id: string | null;
@@ -191,7 +191,7 @@ export const OrderSubscription$outboundSchema: z.ZodType<
   cancelAtPeriodEnd: z.boolean(),
   startedAt: z.nullable(z.date().transform(v => v.toISOString())),
   endedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  userId: z.string(),
+  customerId: z.string(),
   productId: z.string(),
   priceId: z.string(),
   discountId: z.nullable(z.string()),
@@ -206,7 +206,7 @@ export const OrderSubscription$outboundSchema: z.ZodType<
     cancelAtPeriodEnd: "cancel_at_period_end",
     startedAt: "started_at",
     endedAt: "ended_at",
-    userId: "user_id",
+    customerId: "customer_id",
     productId: "product_id",
     priceId: "price_id",
     discountId: "discount_id",

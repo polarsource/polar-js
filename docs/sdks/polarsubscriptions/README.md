@@ -1,5 +1,5 @@
 # PolarSubscriptions
-(*users.subscriptions*)
+(*customerPortal.subscriptions*)
 
 ## Overview
 
@@ -12,7 +12,7 @@
 
 ## list
 
-List my subscriptions.
+List subscriptions of the authenticated customer or user.
 
 ### Example Usage
 
@@ -24,7 +24,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.subscriptions.list({});
+  const result = await polar.customerPortal.subscriptions.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -41,7 +41,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersSubscriptionsList } from "@polar-sh/sdk/funcs/usersSubscriptionsList.js";
+import { customerPortalSubscriptionsList } from "@polar-sh/sdk/funcs/customerPortalSubscriptionsList.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -50,7 +50,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersSubscriptionsList(polar, {});
+  const res = await customerPortalSubscriptionsList(polar, {});
 
   if (!res.ok) {
     throw res.error;
@@ -71,14 +71,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UsersSubscriptionsListRequest](../../models/operations/userssubscriptionslistrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalSubscriptionsListRequest](../../models/operations/customerportalsubscriptionslistrequest.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.UsersSubscriptionsListResponse](../../models/operations/userssubscriptionslistresponse.md)\>**
+**Promise\<[operations.CustomerPortalSubscriptionsListResponse](../../models/operations/customerportalsubscriptionslistresponse.md)\>**
 
 ### Errors
 
@@ -89,7 +89,7 @@ run();
 
 ## get
 
-Get a subscription by ID.
+Get a subscription for the authenticated customer or user.
 
 ### Example Usage
 
@@ -101,7 +101,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.subscriptions.get({
+  const result = await polar.customerPortal.subscriptions.get({
     id: "<value>",
   });
 
@@ -118,7 +118,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersSubscriptionsGet } from "@polar-sh/sdk/funcs/usersSubscriptionsGet.js";
+import { customerPortalSubscriptionsGet } from "@polar-sh/sdk/funcs/customerPortalSubscriptionsGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -127,7 +127,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersSubscriptionsGet(polar, {
+  const res = await customerPortalSubscriptionsGet(polar, {
     id: "<value>",
   });
 
@@ -148,14 +148,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UsersSubscriptionsGetRequest](../../models/operations/userssubscriptionsgetrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalSubscriptionsGetRequest](../../models/operations/customerportalsubscriptionsgetrequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.UserSubscription](../../models/components/usersubscription.md)\>**
+**Promise\<[components.CustomerSubscription](../../models/components/customersubscription.md)\>**
 
 ### Errors
 
@@ -167,7 +167,7 @@ run();
 
 ## update
 
-Update a subscription.
+Update a subscription of the authenticated customer or user.
 
 ### Example Usage
 
@@ -179,9 +179,9 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.subscriptions.update({
+  const result = await polar.customerPortal.subscriptions.update({
     id: "<value>",
-    userSubscriptionUpdate: {
+    customerSubscriptionUpdate: {
       productPriceId: "<value>",
     },
   });
@@ -199,7 +199,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersSubscriptionsUpdate } from "@polar-sh/sdk/funcs/usersSubscriptionsUpdate.js";
+import { customerPortalSubscriptionsUpdate } from "@polar-sh/sdk/funcs/customerPortalSubscriptionsUpdate.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -208,9 +208,9 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersSubscriptionsUpdate(polar, {
+  const res = await customerPortalSubscriptionsUpdate(polar, {
     id: "<value>",
-    userSubscriptionUpdate: {
+    customerSubscriptionUpdate: {
       productPriceId: "<value>",
     },
   });
@@ -232,14 +232,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UsersSubscriptionsUpdateRequest](../../models/operations/userssubscriptionsupdaterequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalSubscriptionsUpdateRequest](../../models/operations/customerportalsubscriptionsupdaterequest.md)                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.UserSubscription](../../models/components/usersubscription.md)\>**
+**Promise\<[components.CustomerSubscription](../../models/components/customersubscription.md)\>**
 
 ### Errors
 
@@ -251,7 +251,7 @@ run();
 
 ## cancel
 
-Cancel a subscription.
+Cancel a subscription of the authenticated customer or user.
 
 ### Example Usage
 
@@ -263,7 +263,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.subscriptions.cancel({
+  const result = await polar.customerPortal.subscriptions.cancel({
     id: "<value>",
   });
 
@@ -280,7 +280,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersSubscriptionsCancel } from "@polar-sh/sdk/funcs/usersSubscriptionsCancel.js";
+import { customerPortalSubscriptionsCancel } from "@polar-sh/sdk/funcs/customerPortalSubscriptionsCancel.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -289,7 +289,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersSubscriptionsCancel(polar, {
+  const res = await customerPortalSubscriptionsCancel(polar, {
     id: "<value>",
   });
 
@@ -310,14 +310,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UsersSubscriptionsCancelRequest](../../models/operations/userssubscriptionscancelrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalSubscriptionsCancelRequest](../../models/operations/customerportalsubscriptionscancelrequest.md)                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.UserSubscription](../../models/components/usersubscription.md)\>**
+**Promise\<[components.CustomerSubscription](../../models/components/customersubscription.md)\>**
 
 ### Errors
 

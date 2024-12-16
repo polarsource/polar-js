@@ -9,6 +9,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+/**
+ * Filter by customer.
+ */
+export type QueryParamCustomerIDFilter = string | Array<string>;
+
 export type BenefitsGrantsRequest = {
   id: string;
   /**
@@ -16,13 +21,9 @@ export type BenefitsGrantsRequest = {
    */
   isGranted?: boolean | null | undefined;
   /**
-   * Filter by user ID.
+   * Filter by customer.
    */
-  userId?: string | null | undefined;
-  /**
-   * Filter by GitHub user ID. Only available for users who have linked their GitHub account on Polar.
-   */
-  githubUserId?: number | null | undefined;
+  customerId?: string | Array<string> | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -38,6 +39,54 @@ export type BenefitsGrantsResponse = {
 };
 
 /** @internal */
+export const QueryParamCustomerIDFilter$inboundSchema: z.ZodType<
+  QueryParamCustomerIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type QueryParamCustomerIDFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const QueryParamCustomerIDFilter$outboundSchema: z.ZodType<
+  QueryParamCustomerIDFilter$Outbound,
+  z.ZodTypeDef,
+  QueryParamCustomerIDFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QueryParamCustomerIDFilter$ {
+  /** @deprecated use `QueryParamCustomerIDFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamCustomerIDFilter$inboundSchema;
+  /** @deprecated use `QueryParamCustomerIDFilter$outboundSchema` instead. */
+  export const outboundSchema = QueryParamCustomerIDFilter$outboundSchema;
+  /** @deprecated use `QueryParamCustomerIDFilter$Outbound` instead. */
+  export type Outbound = QueryParamCustomerIDFilter$Outbound;
+}
+
+export function queryParamCustomerIDFilterToJSON(
+  queryParamCustomerIDFilter: QueryParamCustomerIDFilter,
+): string {
+  return JSON.stringify(
+    QueryParamCustomerIDFilter$outboundSchema.parse(queryParamCustomerIDFilter),
+  );
+}
+
+export function queryParamCustomerIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryParamCustomerIDFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryParamCustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamCustomerIDFilter' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitsGrantsRequest$inboundSchema: z.ZodType<
   BenefitsGrantsRequest,
   z.ZodTypeDef,
@@ -45,15 +94,14 @@ export const BenefitsGrantsRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   is_granted: z.nullable(z.boolean()).optional(),
-  user_id: z.nullable(z.string()).optional(),
-  github_user_id: z.nullable(z.number().int()).optional(),
+  customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
+    .optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
   return remap$(v, {
     "is_granted": "isGranted",
-    "user_id": "userId",
-    "github_user_id": "githubUserId",
+    "customer_id": "customerId",
   });
 });
 
@@ -61,8 +109,7 @@ export const BenefitsGrantsRequest$inboundSchema: z.ZodType<
 export type BenefitsGrantsRequest$Outbound = {
   id: string;
   is_granted?: boolean | null | undefined;
-  user_id?: string | null | undefined;
-  github_user_id?: number | null | undefined;
+  customer_id?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
 };
@@ -75,15 +122,13 @@ export const BenefitsGrantsRequest$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   isGranted: z.nullable(z.boolean()).optional(),
-  userId: z.nullable(z.string()).optional(),
-  githubUserId: z.nullable(z.number().int()).optional(),
+  customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
   return remap$(v, {
     isGranted: "is_granted",
-    userId: "user_id",
-    githubUserId: "github_user_id",
+    customerId: "customer_id",
   });
 });
 

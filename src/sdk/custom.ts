@@ -131,7 +131,7 @@ export class Custom extends ClientSDK {
   async clientConfirm(
     request: operations.CheckoutsCustomClientConfirmRequest,
     options?: RequestOptions,
-  ): Promise<components.CheckoutPublic> {
+  ): Promise<components.CheckoutPublicConfirmed> {
     return unwrapAsync(checkoutsCustomClientConfirm(
       this,
       request,

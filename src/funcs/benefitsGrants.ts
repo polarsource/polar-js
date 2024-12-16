@@ -79,11 +79,10 @@ export async function benefitsGrants(
   const path = pathToFunc("/v1/benefits/{id}/grants")(pathParams);
 
   const query = encodeFormQuery({
-    "github_user_id": payload.github_user_id,
+    "customer_id": payload.customer_id,
     "is_granted": payload.is_granted,
     "limit": payload.limit,
     "page": payload.page,
-    "user_id": payload.user_id,
   });
 
   const headers = new Headers({

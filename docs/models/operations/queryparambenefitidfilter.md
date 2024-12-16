@@ -1,6 +1,6 @@
 # QueryParamBenefitIDFilter
 
-Filter products granting specific benefit.
+Filter by benefit ID.
 
 
 ## Supported Types

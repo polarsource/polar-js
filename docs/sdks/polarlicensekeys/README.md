@@ -1,5 +1,5 @@
 # PolarLicenseKeys
-(*users.licenseKeys*)
+(*customerPortal.licenseKeys*)
 
 ## Overview
 
@@ -25,7 +25,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.licenseKeys.list({});
+  const result = await polar.customerPortal.licenseKeys.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -42,7 +42,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersLicenseKeysList } from "@polar-sh/sdk/funcs/usersLicenseKeysList.js";
+import { customerPortalLicenseKeysList } from "@polar-sh/sdk/funcs/customerPortalLicenseKeysList.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -51,7 +51,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersLicenseKeysList(polar, {});
+  const res = await customerPortalLicenseKeysList(polar, {});
 
   if (!res.ok) {
     throw res.error;
@@ -72,14 +72,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UsersLicenseKeysListRequest](../../models/operations/userslicensekeyslistrequest.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalLicenseKeysListRequest](../../models/operations/customerportallicensekeyslistrequest.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.UsersLicenseKeysListResponse](../../models/operations/userslicensekeyslistresponse.md)\>**
+**Promise\<[operations.CustomerPortalLicenseKeysListResponse](../../models/operations/customerportallicensekeyslistresponse.md)\>**
 
 ### Errors
 
@@ -104,7 +104,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.licenseKeys.get({
+  const result = await polar.customerPortal.licenseKeys.get({
     id: "<value>",
   });
 
@@ -121,7 +121,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersLicenseKeysGet } from "@polar-sh/sdk/funcs/usersLicenseKeysGet.js";
+import { customerPortalLicenseKeysGet } from "@polar-sh/sdk/funcs/customerPortalLicenseKeysGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -130,7 +130,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersLicenseKeysGet(polar, {
+  const res = await customerPortalLicenseKeysGet(polar, {
     id: "<value>",
   });
 
@@ -151,7 +151,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UsersLicenseKeysGetRequest](../../models/operations/userslicensekeysgetrequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalLicenseKeysGetRequest](../../models/operations/customerportallicensekeysgetrequest.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -164,7 +164,6 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.Unauthorized        | 401                        | application/json           |
 | errors.ResourceNotFound    | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
@@ -183,7 +182,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.licenseKeys.validate({
+  const result = await polar.customerPortal.licenseKeys.validate({
     key: "<key>",
     organizationId: "<value>",
   });
@@ -201,7 +200,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersLicenseKeysValidate } from "@polar-sh/sdk/funcs/usersLicenseKeysValidate.js";
+import { customerPortalLicenseKeysValidate } from "@polar-sh/sdk/funcs/customerPortalLicenseKeysValidate.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -210,7 +209,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersLicenseKeysValidate(polar, {
+  const res = await customerPortalLicenseKeysValidate(polar, {
     key: "<key>",
     organizationId: "<value>",
   });
@@ -263,7 +262,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.licenseKeys.activate({
+  const result = await polar.customerPortal.licenseKeys.activate({
     key: "<key>",
     organizationId: "<value>",
     label: "<value>",
@@ -282,7 +281,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersLicenseKeysActivate } from "@polar-sh/sdk/funcs/usersLicenseKeysActivate.js";
+import { customerPortalLicenseKeysActivate } from "@polar-sh/sdk/funcs/customerPortalLicenseKeysActivate.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -291,7 +290,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersLicenseKeysActivate(polar, {
+  const res = await customerPortalLicenseKeysActivate(polar, {
     key: "<key>",
     organizationId: "<value>",
     label: "<value>",
@@ -346,7 +345,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  await polar.users.licenseKeys.deactivate({
+  await polar.customerPortal.licenseKeys.deactivate({
     key: "<key>",
     organizationId: "<value>",
     activationId: "<value>",
@@ -364,7 +363,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersLicenseKeysDeactivate } from "@polar-sh/sdk/funcs/usersLicenseKeysDeactivate.js";
+import { customerPortalLicenseKeysDeactivate } from "@polar-sh/sdk/funcs/customerPortalLicenseKeysDeactivate.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -373,7 +372,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersLicenseKeysDeactivate(polar, {
+  const res = await customerPortalLicenseKeysDeactivate(polar, {
     key: "<key>",
     organizationId: "<value>",
     activationId: "<value>",

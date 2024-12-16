@@ -7,21 +7,21 @@ import { OrderSubscription } from "@polar-sh/sdk/models/components";
 
 let value: OrderSubscription = {
   metadata: {
-    "key": "<value>",
+    "key": 30661,
   },
-  createdAt: new Date("2024-01-13T03:31:14.357Z"),
-  modifiedAt: new Date("2023-10-12T19:07:21.514Z"),
+  createdAt: new Date("2022-09-03T22:58:32.332Z"),
+  modifiedAt: new Date("2024-11-11T05:29:07.868Z"),
   id: "<value>",
-  amount: 10063,
-  currency: "Cayman Islands Dollar",
-  recurringInterval: "year",
-  status: "incomplete",
-  currentPeriodStart: new Date("2024-08-21T22:55:59.122Z"),
-  currentPeriodEnd: new Date("2023-07-25T00:13:17.699Z"),
+  amount: 582320,
+  currency: "Bermudian Dollar (customarily known as Bermuda Dollar)",
+  recurringInterval: "month",
+  status: "active",
+  currentPeriodStart: new Date("2022-01-23T23:04:14.239Z"),
+  currentPeriodEnd: new Date("2023-03-28T03:08:04.092Z"),
   cancelAtPeriodEnd: false,
-  startedAt: new Date("2022-02-03T14:30:29.574Z"),
-  endedAt: new Date("2022-09-03T22:58:32.332Z"),
-  userId: "<value>",
+  startedAt: new Date("2023-06-21T10:43:11.807Z"),
+  endedAt: new Date("2022-09-25T01:42:10.193Z"),
+  customerId: "<value>",
   productId: "<value>",
   priceId: "<value>",
   discountId: "<value>",
@@ -46,7 +46,7 @@ let value: OrderSubscription = {
 | `cancelAtPeriodEnd`                                                                                  | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `startedAt`                                                                                          | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)        | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `endedAt`                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)        | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `userId`                                                                                             | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `customerId`                                                                                         | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `productId`                                                                                          | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `priceId`                                                                                            | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `discountId`                                                                                         | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

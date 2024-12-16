@@ -44,6 +44,12 @@ import {
   ProductPriceRecurring$outboundSchema,
 } from "./productpricerecurring.js";
 import {
+  SubscriptionCustomer,
+  SubscriptionCustomer$inboundSchema,
+  SubscriptionCustomer$Outbound,
+  SubscriptionCustomer$outboundSchema,
+} from "./subscriptioncustomer.js";
+import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
@@ -95,7 +101,7 @@ export type Subscription = {
   cancelAtPeriodEnd: boolean;
   startedAt: Date | null;
   endedAt: Date | null;
-  userId: string;
+  customerId: string;
   productId: string;
   priceId: string;
   discountId: string | null;
@@ -105,6 +111,11 @@ export type Subscription = {
    * Key-value object storing custom field values.
    */
   customFieldData?: SubscriptionCustomFieldData | undefined;
+  customer: SubscriptionCustomer;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  userId: string;
   user: SubscriptionUser;
   /**
    * A product.
@@ -303,7 +314,7 @@ export const Subscription$inboundSchema: z.ZodType<
   ended_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  user_id: z.string(),
+  customer_id: z.string(),
   product_id: z.string(),
   price_id: z.string(),
   discount_id: z.nullable(z.string()),
@@ -311,6 +322,8 @@ export const Subscription$inboundSchema: z.ZodType<
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   custom_field_data: z.lazy(() => SubscriptionCustomFieldData$inboundSchema)
     .optional(),
+  customer: SubscriptionCustomer$inboundSchema,
+  user_id: z.string(),
   user: SubscriptionUser$inboundSchema,
   product: Product$inboundSchema,
   price: ProductPriceRecurring$inboundSchema,
@@ -332,12 +345,13 @@ export const Subscription$inboundSchema: z.ZodType<
     "cancel_at_period_end": "cancelAtPeriodEnd",
     "started_at": "startedAt",
     "ended_at": "endedAt",
-    "user_id": "userId",
+    "customer_id": "customerId",
     "product_id": "productId",
     "price_id": "priceId",
     "discount_id": "discountId",
     "checkout_id": "checkoutId",
     "custom_field_data": "customFieldData",
+    "user_id": "userId",
   });
 });
 
@@ -355,13 +369,15 @@ export type Subscription$Outbound = {
   cancel_at_period_end: boolean;
   started_at: string | null;
   ended_at: string | null;
-  user_id: string;
+  customer_id: string;
   product_id: string;
   price_id: string;
   discount_id: string | null;
   checkout_id: string | null;
   metadata: { [k: string]: string | number | boolean };
   custom_field_data?: SubscriptionCustomFieldData$Outbound | undefined;
+  customer: SubscriptionCustomer$Outbound;
+  user_id: string;
   user: SubscriptionUser$Outbound;
   product: Product$Outbound;
   price: ProductPriceRecurring$Outbound;
@@ -391,7 +407,7 @@ export const Subscription$outboundSchema: z.ZodType<
   cancelAtPeriodEnd: z.boolean(),
   startedAt: z.nullable(z.date().transform(v => v.toISOString())),
   endedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  userId: z.string(),
+  customerId: z.string(),
   productId: z.string(),
   priceId: z.string(),
   discountId: z.nullable(z.string()),
@@ -399,6 +415,8 @@ export const Subscription$outboundSchema: z.ZodType<
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   customFieldData: z.lazy(() => SubscriptionCustomFieldData$outboundSchema)
     .optional(),
+  customer: SubscriptionCustomer$outboundSchema,
+  userId: z.string(),
   user: SubscriptionUser$outboundSchema,
   product: Product$outboundSchema,
   price: ProductPriceRecurring$outboundSchema,
@@ -420,12 +438,13 @@ export const Subscription$outboundSchema: z.ZodType<
     cancelAtPeriodEnd: "cancel_at_period_end",
     startedAt: "started_at",
     endedAt: "ended_at",
-    userId: "user_id",
+    customerId: "customer_id",
     productId: "product_id",
     priceId: "price_id",
     discountId: "discount_id",
     checkoutId: "checkout_id",
     customFieldData: "custom_field_data",
+    userId: "user_id",
   });
 });
 

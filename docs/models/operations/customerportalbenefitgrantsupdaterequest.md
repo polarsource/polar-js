@@ -1,0 +1,19 @@
+# CustomerPortalBenefitGrantsUpdateRequest
+
+## Example Usage
+
+```typescript
+import { CustomerPortalBenefitGrantsUpdateRequest } from "@polar-sh/sdk/models/operations";
+
+let value: CustomerPortalBenefitGrantsUpdateRequest = {
+  id: "<value>",
+  customerBenefitGrantUpdate: {},
+};
+```
+
+## Fields
+
+| Field                                   | Type                                    | Required                                | Description                             |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| `id`                                    | *string*                                | :heavy_check_mark:                      | The benefit grant ID.                   |
+| `customerBenefitGrantUpdate`            | *components.CustomerBenefitGrantUpdate* | :heavy_check_mark:                      | N/A                                     |
