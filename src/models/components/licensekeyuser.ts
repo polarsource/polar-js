@@ -10,9 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LicenseKeyUser = {
   id: string;
-  publicName: string;
   email: string;
-  avatarUrl: string | null;
+  publicName: string;
 };
 
 /** @internal */
@@ -22,22 +21,19 @@ export const LicenseKeyUser$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  public_name: z.string(),
   email: z.string(),
-  avatar_url: z.nullable(z.string()),
+  public_name: z.string(),
 }).transform((v) => {
   return remap$(v, {
     "public_name": "publicName",
-    "avatar_url": "avatarUrl",
   });
 });
 
 /** @internal */
 export type LicenseKeyUser$Outbound = {
   id: string;
-  public_name: string;
   email: string;
-  avatar_url: string | null;
+  public_name: string;
 };
 
 /** @internal */
@@ -47,13 +43,11 @@ export const LicenseKeyUser$outboundSchema: z.ZodType<
   LicenseKeyUser
 > = z.object({
   id: z.string(),
-  publicName: z.string(),
   email: z.string(),
-  avatarUrl: z.nullable(z.string()),
+  publicName: z.string(),
 }).transform((v) => {
   return remap$(v, {
     publicName: "public_name",
-    avatarUrl: "avatar_url",
   });
 });
 

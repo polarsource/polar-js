@@ -69,6 +69,7 @@ export async function ordersList(
   const path = pathToFunc("/v1/orders/")();
 
   const query = encodeFormQuery({
+    "customer_id": payload.customer_id,
     "discount_id": payload.discount_id,
     "limit": payload.limit,
     "organization_id": payload.organization_id,
@@ -76,7 +77,6 @@ export async function ordersList(
     "product_id": payload.product_id,
     "product_price_type": payload.product_price_type,
     "sorting": payload.sorting,
-    "user_id": payload.user_id,
   });
 
   const headers = new Headers({

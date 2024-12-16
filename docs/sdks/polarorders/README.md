@@ -1,5 +1,5 @@
 # PolarOrders
-(*users.orders*)
+(*customerPortal.orders*)
 
 ## Overview
 
@@ -11,7 +11,7 @@
 
 ## list
 
-List my orders.
+List orders of the authenticated customer or user.
 
 ### Example Usage
 
@@ -23,7 +23,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.orders.list({});
+  const result = await polar.customerPortal.orders.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -40,7 +40,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersOrdersList } from "@polar-sh/sdk/funcs/usersOrdersList.js";
+import { customerPortalOrdersList } from "@polar-sh/sdk/funcs/customerPortalOrdersList.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -49,7 +49,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersOrdersList(polar, {});
+  const res = await customerPortalOrdersList(polar, {});
 
   if (!res.ok) {
     throw res.error;
@@ -70,14 +70,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UsersOrdersListRequest](../../models/operations/usersorderslistrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalOrdersListRequest](../../models/operations/customerportalorderslistrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.UsersOrdersListResponse](../../models/operations/usersorderslistresponse.md)\>**
+**Promise\<[operations.CustomerPortalOrdersListResponse](../../models/operations/customerportalorderslistresponse.md)\>**
 
 ### Errors
 
@@ -88,7 +88,7 @@ run();
 
 ## get
 
-Get an order by ID.
+Get an order by ID for the authenticated customer or user.
 
 ### Example Usage
 
@@ -100,7 +100,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.orders.get({
+  const result = await polar.customerPortal.orders.get({
     id: "<value>",
   });
 
@@ -117,7 +117,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersOrdersGet } from "@polar-sh/sdk/funcs/usersOrdersGet.js";
+import { customerPortalOrdersGet } from "@polar-sh/sdk/funcs/customerPortalOrdersGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -126,7 +126,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersOrdersGet(polar, {
+  const res = await customerPortalOrdersGet(polar, {
     id: "<value>",
   });
 
@@ -147,14 +147,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UsersOrdersGetRequest](../../models/operations/usersordersgetrequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalOrdersGetRequest](../../models/operations/customerportalordersgetrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.UserOrder](../../models/components/userorder.md)\>**
+**Promise\<[components.CustomerOrder](../../models/components/customerorder.md)\>**
 
 ### Errors
 
@@ -178,7 +178,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.users.orders.invoice({
+  const result = await polar.customerPortal.orders.invoice({
     id: "<value>",
   });
 
@@ -195,7 +195,7 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { usersOrdersInvoice } from "@polar-sh/sdk/funcs/usersOrdersInvoice.js";
+import { customerPortalOrdersInvoice } from "@polar-sh/sdk/funcs/customerPortalOrdersInvoice.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -204,7 +204,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await usersOrdersInvoice(polar, {
+  const res = await customerPortalOrdersInvoice(polar, {
     id: "<value>",
   });
 
@@ -225,14 +225,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UsersOrdersInvoiceRequest](../../models/operations/usersordersinvoicerequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalOrdersInvoiceRequest](../../models/operations/customerportalordersinvoicerequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.UserOrderInvoice](../../models/components/userorderinvoice.md)\>**
+**Promise\<[components.CustomerOrderInvoice](../../models/components/customerorderinvoice.md)\>**
 
 ### Errors
 

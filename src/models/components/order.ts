@@ -43,6 +43,12 @@ import {
   OrderBillingReason$outboundSchema,
 } from "./orderbillingreason.js";
 import {
+  OrderCustomer,
+  OrderCustomer$inboundSchema,
+  OrderCustomer$Outbound,
+  OrderCustomer$outboundSchema,
+} from "./ordercustomer.js";
+import {
   OrderProduct,
   OrderProduct$inboundSchema,
   OrderProduct$Outbound,
@@ -103,12 +109,17 @@ export type Order = {
   currency: string;
   billingReason: OrderBillingReason;
   billingAddress: Address | null;
-  userId: string;
+  customerId: string;
   productId: string;
   productPriceId: string;
   discountId: string | null;
   subscriptionId: string | null;
   checkoutId: string | null;
+  customer: OrderCustomer;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  userId: string;
   user: OrderUser;
   product: OrderProduct;
   productPrice: ProductPrice;
@@ -289,12 +300,14 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     currency: z.string(),
     billing_reason: OrderBillingReason$inboundSchema,
     billing_address: z.nullable(Address$inboundSchema),
-    user_id: z.string(),
+    customer_id: z.string(),
     product_id: z.string(),
     product_price_id: z.string(),
     discount_id: z.nullable(z.string()),
     subscription_id: z.nullable(z.string()),
     checkout_id: z.nullable(z.string()),
+    customer: OrderCustomer$inboundSchema,
+    user_id: z.string(),
     user: OrderUser$inboundSchema,
     product: OrderProduct$inboundSchema,
     product_price: ProductPrice$inboundSchema,
@@ -315,12 +328,13 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       "tax_amount": "taxAmount",
       "billing_reason": "billingReason",
       "billing_address": "billingAddress",
-      "user_id": "userId",
+      "customer_id": "customerId",
       "product_id": "productId",
       "product_price_id": "productPriceId",
       "discount_id": "discountId",
       "subscription_id": "subscriptionId",
       "checkout_id": "checkoutId",
+      "user_id": "userId",
       "product_price": "productPrice",
     });
   });
@@ -337,12 +351,14 @@ export type Order$Outbound = {
   currency: string;
   billing_reason: string;
   billing_address: Address$Outbound | null;
-  user_id: string;
+  customer_id: string;
   product_id: string;
   product_price_id: string;
   discount_id: string | null;
   subscription_id: string | null;
   checkout_id: string | null;
+  customer: OrderCustomer$Outbound;
+  user_id: string;
   user: OrderUser$Outbound;
   product: OrderProduct$Outbound;
   product_price: ProductPrice$Outbound;
@@ -371,12 +387,14 @@ export const Order$outboundSchema: z.ZodType<
   currency: z.string(),
   billingReason: OrderBillingReason$outboundSchema,
   billingAddress: z.nullable(Address$outboundSchema),
-  userId: z.string(),
+  customerId: z.string(),
   productId: z.string(),
   productPriceId: z.string(),
   discountId: z.nullable(z.string()),
   subscriptionId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
+  customer: OrderCustomer$outboundSchema,
+  userId: z.string(),
   user: OrderUser$outboundSchema,
   product: OrderProduct$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
@@ -397,12 +415,13 @@ export const Order$outboundSchema: z.ZodType<
     taxAmount: "tax_amount",
     billingReason: "billing_reason",
     billingAddress: "billing_address",
-    userId: "user_id",
+    customerId: "customer_id",
     productId: "product_id",
     productPriceId: "product_price_id",
     discountId: "discount_id",
     subscriptionId: "subscription_id",
     checkoutId: "checkout_id",
+    userId: "user_id",
     productPrice: "product_price",
   });
 });

@@ -90,7 +90,11 @@ export type BenefitGrant = {
    */
   orderId: string | null;
   /**
-   * The ID of the user concerned by this grant.
+   * The ID of the customer concerned by this grant.
+   */
+  customerId: string;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   userId: string;
   /**
@@ -191,6 +195,7 @@ export const BenefitGrant$inboundSchema: z.ZodType<
   is_revoked: z.boolean(),
   subscription_id: z.nullable(z.string()),
   order_id: z.nullable(z.string()),
+  customer_id: z.string(),
   user_id: z.string(),
   benefit_id: z.string(),
   properties: z.union([
@@ -211,6 +216,7 @@ export const BenefitGrant$inboundSchema: z.ZodType<
     "is_revoked": "isRevoked",
     "subscription_id": "subscriptionId",
     "order_id": "orderId",
+    "customer_id": "customerId",
     "user_id": "userId",
     "benefit_id": "benefitId",
   });
@@ -227,6 +233,7 @@ export type BenefitGrant$Outbound = {
   is_revoked: boolean;
   subscription_id: string | null;
   order_id: string | null;
+  customer_id: string;
   user_id: string;
   benefit_id: string;
   properties:
@@ -253,6 +260,7 @@ export const BenefitGrant$outboundSchema: z.ZodType<
   isRevoked: z.boolean(),
   subscriptionId: z.nullable(z.string()),
   orderId: z.nullable(z.string()),
+  customerId: z.string(),
   userId: z.string(),
   benefitId: z.string(),
   properties: z.union([
@@ -273,6 +281,7 @@ export const BenefitGrant$outboundSchema: z.ZodType<
     isRevoked: "is_revoked",
     subscriptionId: "subscription_id",
     orderId: "order_id",
+    customerId: "customer_id",
     userId: "user_id",
     benefitId: "benefit_id",
   });

@@ -29,9 +29,7 @@ export type ExternalOrganizationNameFilter = string | Array<string>;
 /**
  * Filter by organization ID.
  */
-export type RepositoriesListQueryParamOrganizationIDFilter =
-  | string
-  | Array<string>;
+export type QueryParamOrganizationIDFilter = string | Array<string>;
 
 export type RepositoriesListRequest = {
   /**
@@ -231,66 +229,52 @@ export function externalOrganizationNameFilterFromJSON(
 }
 
 /** @internal */
-export const RepositoriesListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<
-    RepositoriesListQueryParamOrganizationIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
+export const QueryParamOrganizationIDFilter$inboundSchema: z.ZodType<
+  QueryParamOrganizationIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
-export type RepositoriesListQueryParamOrganizationIDFilter$Outbound =
-  | string
-  | Array<string>;
+export type QueryParamOrganizationIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const RepositoriesListQueryParamOrganizationIDFilter$outboundSchema:
-  z.ZodType<
-    RepositoriesListQueryParamOrganizationIDFilter$Outbound,
-    z.ZodTypeDef,
-    RepositoriesListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+export const QueryParamOrganizationIDFilter$outboundSchema: z.ZodType<
+  QueryParamOrganizationIDFilter$Outbound,
+  z.ZodTypeDef,
+  QueryParamOrganizationIDFilter
+> = z.union([z.string(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RepositoriesListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `RepositoriesListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    RepositoriesListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `RepositoriesListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    RepositoriesListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `RepositoriesListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound =
-    RepositoriesListQueryParamOrganizationIDFilter$Outbound;
+export namespace QueryParamOrganizationIDFilter$ {
+  /** @deprecated use `QueryParamOrganizationIDFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamOrganizationIDFilter$inboundSchema;
+  /** @deprecated use `QueryParamOrganizationIDFilter$outboundSchema` instead. */
+  export const outboundSchema = QueryParamOrganizationIDFilter$outboundSchema;
+  /** @deprecated use `QueryParamOrganizationIDFilter$Outbound` instead. */
+  export type Outbound = QueryParamOrganizationIDFilter$Outbound;
 }
 
-export function repositoriesListQueryParamOrganizationIDFilterToJSON(
-  repositoriesListQueryParamOrganizationIDFilter:
-    RepositoriesListQueryParamOrganizationIDFilter,
+export function queryParamOrganizationIDFilterToJSON(
+  queryParamOrganizationIDFilter: QueryParamOrganizationIDFilter,
 ): string {
   return JSON.stringify(
-    RepositoriesListQueryParamOrganizationIDFilter$outboundSchema.parse(
-      repositoriesListQueryParamOrganizationIDFilter,
+    QueryParamOrganizationIDFilter$outboundSchema.parse(
+      queryParamOrganizationIDFilter,
     ),
   );
 }
 
-export function repositoriesListQueryParamOrganizationIDFilterFromJSON(
+export function queryParamOrganizationIDFilterFromJSON(
   jsonString: string,
-): SafeParseResult<
-  RepositoriesListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
+): SafeParseResult<QueryParamOrganizationIDFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      RepositoriesListQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'RepositoriesListQueryParamOrganizationIDFilter' from JSON`,
+    (x) => QueryParamOrganizationIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamOrganizationIDFilter' from JSON`,
   );
 }
 

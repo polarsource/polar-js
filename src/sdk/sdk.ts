@@ -7,6 +7,8 @@ import { Advertisements } from "./advertisements.js";
 import { Benefits } from "./benefits.js";
 import { CheckoutLinks } from "./checkoutlinks.js";
 import { Checkouts } from "./checkouts.js";
+import { CustomerPortal } from "./customerportal.js";
+import { Customers } from "./customers.js";
 import { CustomFields } from "./customfields.js";
 import { Discounts } from "./discounts.js";
 import { ExternalOrganizations } from "./externalorganizations.js";
@@ -19,14 +21,8 @@ import { Organizations } from "./organizations.js";
 import { Products } from "./products.js";
 import { Repositories } from "./repositories.js";
 import { Subscriptions } from "./subscriptions.js";
-import { Users } from "./users.js";
 
 export class Polar extends ClientSDK {
-  private _users?: Users;
-  get users(): Users {
-    return (this._users ??= new Users(this._options));
-  }
-
   private _externalOrganizations?: ExternalOrganizations;
   get externalOrganizations(): ExternalOrganizations {
     return (this._externalOrganizations ??= new ExternalOrganizations(
@@ -107,5 +103,15 @@ export class Polar extends ClientSDK {
   private _discounts?: Discounts;
   get discounts(): Discounts {
     return (this._discounts ??= new Discounts(this._options));
+  }
+
+  private _customers?: Customers;
+  get customers(): Customers {
+    return (this._customers ??= new Customers(this._options));
+  }
+
+  private _customerPortal?: CustomerPortal;
+  get customerPortal(): CustomerPortal {
+    return (this._customerPortal ??= new CustomerPortal(this._options));
   }
 }

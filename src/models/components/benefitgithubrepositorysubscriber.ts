@@ -15,12 +15,6 @@ import {
   BenefitGitHubRepositorySubscriberProperties$outboundSchema,
 } from "./benefitgithubrepositorysubscriberproperties.js";
 import {
-  BenefitGrantSubscriber,
-  BenefitGrantSubscriber$inboundSchema,
-  BenefitGrantSubscriber$Outbound,
-  BenefitGrantSubscriber$outboundSchema,
-} from "./benefitgrantsubscriber.js";
-import {
   Organization,
   Organization$inboundSchema,
   Organization$Outbound,
@@ -64,7 +58,6 @@ export type BenefitGitHubRepositorySubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  grants: Array<BenefitGrantSubscriber>;
   organization: Organization;
   /**
    * Properties available to subscribers for a benefit of type `github_repository`.
@@ -112,7 +105,6 @@ export const BenefitGitHubRepositorySubscriber$inboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
-  grants: z.array(BenefitGrantSubscriber$inboundSchema),
   organization: Organization$inboundSchema,
   properties: BenefitGitHubRepositorySubscriberProperties$inboundSchema,
 }).transform((v) => {
@@ -133,7 +125,6 @@ export type BenefitGitHubRepositorySubscriber$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
-  grants: Array<BenefitGrantSubscriber$Outbound>;
   organization: Organization$Outbound;
   properties: BenefitGitHubRepositorySubscriberProperties$Outbound;
 };
@@ -152,7 +143,6 @@ export const BenefitGitHubRepositorySubscriber$outboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
-  grants: z.array(BenefitGrantSubscriber$outboundSchema),
   organization: Organization$outboundSchema,
   properties: BenefitGitHubRepositorySubscriberProperties$outboundSchema,
 }).transform((v) => {

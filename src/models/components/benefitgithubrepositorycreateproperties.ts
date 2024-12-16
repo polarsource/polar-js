@@ -30,15 +30,14 @@ export type BenefitGitHubRepositoryCreatePropertiesPermission = ClosedEnum<
  * Properties to create a benefit of type `github_repository`.
  */
 export type BenefitGitHubRepositoryCreateProperties = {
-  repositoryId?: string | null | undefined;
   /**
    * The owner of the repository.
    */
-  repositoryOwner?: string | null | undefined;
+  repositoryOwner: string;
   /**
    * The name of the repository.
    */
-  repositoryName?: string | null | undefined;
+  repositoryName: string;
   /**
    * The permission level to grant. Read more about roles and their permissions on [GitHub documentation](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role).
    */
@@ -74,13 +73,11 @@ export const BenefitGitHubRepositoryCreateProperties$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  repository_id: z.nullable(z.string()).optional(),
-  repository_owner: z.nullable(z.string()).optional(),
-  repository_name: z.nullable(z.string()).optional(),
+  repository_owner: z.string(),
+  repository_name: z.string(),
   permission: BenefitGitHubRepositoryCreatePropertiesPermission$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
-    "repository_id": "repositoryId",
     "repository_owner": "repositoryOwner",
     "repository_name": "repositoryName",
   });
@@ -88,9 +85,8 @@ export const BenefitGitHubRepositoryCreateProperties$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitGitHubRepositoryCreateProperties$Outbound = {
-  repository_id?: string | null | undefined;
-  repository_owner?: string | null | undefined;
-  repository_name?: string | null | undefined;
+  repository_owner: string;
+  repository_name: string;
   permission: string;
 };
 
@@ -100,13 +96,11 @@ export const BenefitGitHubRepositoryCreateProperties$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGitHubRepositoryCreateProperties
 > = z.object({
-  repositoryId: z.nullable(z.string()).optional(),
-  repositoryOwner: z.nullable(z.string()).optional(),
-  repositoryName: z.nullable(z.string()).optional(),
+  repositoryOwner: z.string(),
+  repositoryName: z.string(),
   permission: BenefitGitHubRepositoryCreatePropertiesPermission$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
-    repositoryId: "repository_id",
     repositoryOwner: "repository_owner",
     repositoryName: "repository_name",
   });

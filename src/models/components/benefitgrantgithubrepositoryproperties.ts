@@ -21,7 +21,7 @@ export type BenefitGrantGitHubRepositoryPropertiesPermission = ClosedEnum<
 >;
 
 export type BenefitGrantGitHubRepositoryProperties = {
-  repositoryId?: string | null | undefined;
+  accountId?: string | undefined;
   repositoryOwner?: string | undefined;
   repositoryName?: string | undefined;
   permission?: BenefitGrantGitHubRepositoryPropertiesPermission | undefined;
@@ -56,14 +56,14 @@ export const BenefitGrantGitHubRepositoryProperties$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  repository_id: z.nullable(z.string()).optional(),
+  account_id: z.string().optional(),
   repository_owner: z.string().optional(),
   repository_name: z.string().optional(),
   permission: BenefitGrantGitHubRepositoryPropertiesPermission$inboundSchema
     .optional(),
 }).transform((v) => {
   return remap$(v, {
-    "repository_id": "repositoryId",
+    "account_id": "accountId",
     "repository_owner": "repositoryOwner",
     "repository_name": "repositoryName",
   });
@@ -71,7 +71,7 @@ export const BenefitGrantGitHubRepositoryProperties$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitGrantGitHubRepositoryProperties$Outbound = {
-  repository_id?: string | null | undefined;
+  account_id?: string | undefined;
   repository_owner?: string | undefined;
   repository_name?: string | undefined;
   permission?: string | undefined;
@@ -83,14 +83,14 @@ export const BenefitGrantGitHubRepositoryProperties$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGrantGitHubRepositoryProperties
 > = z.object({
-  repositoryId: z.nullable(z.string()).optional(),
+  accountId: z.string().optional(),
   repositoryOwner: z.string().optional(),
   repositoryName: z.string().optional(),
   permission: BenefitGrantGitHubRepositoryPropertiesPermission$outboundSchema
     .optional(),
 }).transform((v) => {
   return remap$(v, {
-    repositoryId: "repository_id",
+    accountId: "account_id",
     repositoryOwner: "repository_owner",
     repositoryName: "repository_name",
   });

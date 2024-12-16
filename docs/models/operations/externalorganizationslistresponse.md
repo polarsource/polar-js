@@ -9,23 +9,23 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "51539b48-cab3-4a43-b457-35e230b870fd",
+        id: "6a698411-917e-49f4-bae5-8d50f61b521b",
         name: "<value>",
-        avatarUrl: "https://sour-chapel.org",
+        avatarUrl: "https://snarling-peninsula.info/",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Predovic, Greenholt and Abbott",
+        company: "Jast - Barrows",
         blog: "<value>",
         location: "<value>",
-        email: "Lauriane.Cole-Borer@yahoo.com",
+        email: "Haley17@hotmail.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 662360,
-      maxPage: 889439,
+      totalCount: 187940,
+      maxPage: 128146,
     },
   },
 };

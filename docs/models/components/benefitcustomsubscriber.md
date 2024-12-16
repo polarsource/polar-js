@@ -6,42 +6,29 @@
 import { BenefitCustomSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitCustomSubscriber = {
-  createdAt: new Date("2024-02-02T06:43:01.101Z"),
-  modifiedAt: new Date("2022-11-11T18:34:24.829Z"),
+  createdAt: new Date("2022-02-18T09:00:03.263Z"),
+  modifiedAt: new Date("2023-05-22T12:12:56.473Z"),
   id: "<value>",
-  description: "case different abnormally whenever",
+  description: "rigidly nor perfectly extremely encode gadzooks browse",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
-  grants: [
-    {
-      createdAt: new Date("2023-02-21T14:56:15.517Z"),
-      modifiedAt: new Date("2023-11-13T22:08:43.644Z"),
-      id: "<value>",
-      isGranted: false,
-      isRevoked: false,
-      subscriptionId: "<value>",
-      orderId: "<value>",
-      userId: "<value>",
-      benefitId: "<value>",
-    },
-  ],
   organization: {
-    createdAt: new Date("2024-09-06T04:09:07.638Z"),
-    modifiedAt: new Date("2022-06-23T14:19:45.415Z"),
+    createdAt: new Date("2023-05-10T07:01:19.772Z"),
+    modifiedAt: new Date("2024-07-08T05:40:38.975Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://fantastic-secret.name/",
+    avatarUrl: "https://expert-hawk.net/",
     bio: "<value>",
-    company: "Lowe, Gleason and Runolfsson",
+    company: "Kuhn - Dickinson",
     blog: "<value>",
     location: "<value>",
-    email: "Reginald.Klein5@yahoo.com",
+    email: "Pablo17@gmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 46258,
+    pledgeMinimumAmount: 408680,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 430027,
+    defaultUpfrontSplitToContributors: 182103,
     profileSettings: {},
     featureSettings: {},
   },
@@ -63,6 +50,5 @@ let value: BenefitCustomSubscriber = {
 | `selectable`                                                                                                 | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is selectable when creating a product.                                                   |
 | `deletable`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is deletable.                                                                            |
 | `organizationId`                                                                                             | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the organization owning the benefit.                                                               |
-| `grants`                                                                                                     | [components.BenefitGrantSubscriber](../../models/components/benefitgrantsubscriber.md)[]                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `organization`                                                                                               | [components.Organization](../../models/components/organization.md)                                           | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `properties`                                                                                                 | [components.BenefitCustomSubscriberProperties](../../models/components/benefitcustomsubscriberproperties.md) | :heavy_check_mark:                                                                                           | Properties available to subscribers for a benefit of type `custom`.                                          |

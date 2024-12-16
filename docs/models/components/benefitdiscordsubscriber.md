@@ -6,43 +6,29 @@
 import { BenefitDiscordSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordSubscriber = {
-  createdAt: new Date("2022-10-30T23:56:54.625Z"),
-  modifiedAt: new Date("2023-02-18T23:26:23.367Z"),
+  createdAt: new Date("2022-05-08T10:41:06.101Z"),
+  modifiedAt: new Date("2022-05-01T01:29:19.161Z"),
   id: "<value>",
-  description:
-    "tightly enormously around geez where microblog questioningly pace ugh supposing",
+  description: "phew chops gurn willfully likewise if per",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
-  grants: [
-    {
-      createdAt: new Date("2022-10-02T04:10:30.103Z"),
-      modifiedAt: new Date("2022-03-20T07:23:28.632Z"),
-      id: "<value>",
-      isGranted: false,
-      isRevoked: false,
-      subscriptionId: "<value>",
-      orderId: "<value>",
-      userId: "<value>",
-      benefitId: "<value>",
-    },
-  ],
   organization: {
-    createdAt: new Date("2023-08-11T15:42:57.717Z"),
-    modifiedAt: new Date("2022-06-08T16:53:50.445Z"),
+    createdAt: new Date("2024-09-30T00:37:08.901Z"),
+    modifiedAt: new Date("2022-02-20T19:45:58.740Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://male-quit.info",
+    avatarUrl: "https://warlike-shadowbox.com/",
     bio: "<value>",
-    company: "Paucek, MacGyver and Stamm",
+    company: "Hickle - Hammes",
     blog: "<value>",
     location: "<value>",
-    email: "Kody_Waters@yahoo.com",
+    email: "Cecilia_Cremin52@gmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 145242,
+    pledgeMinimumAmount: 847725,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 265125,
+    defaultUpfrontSplitToContributors: 760667,
     profileSettings: {},
     featureSettings: {},
   },
@@ -64,6 +50,5 @@ let value: BenefitDiscordSubscriber = {
 | `selectable`                                                                                                   | *boolean*                                                                                                      | :heavy_check_mark:                                                                                             | Whether the benefit is selectable when creating a product.                                                     |
 | `deletable`                                                                                                    | *boolean*                                                                                                      | :heavy_check_mark:                                                                                             | Whether the benefit is deletable.                                                                              |
 | `organizationId`                                                                                               | *string*                                                                                                       | :heavy_check_mark:                                                                                             | The ID of the organization owning the benefit.                                                                 |
-| `grants`                                                                                                       | [components.BenefitGrantSubscriber](../../models/components/benefitgrantsubscriber.md)[]                       | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
 | `organization`                                                                                                 | [components.Organization](../../models/components/organization.md)                                             | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
 | `properties`                                                                                                   | [components.BenefitDiscordSubscriberProperties](../../models/components/benefitdiscordsubscriberproperties.md) | :heavy_check_mark:                                                                                             | Properties available to subscribers for a benefit of type `discord`.                                           |

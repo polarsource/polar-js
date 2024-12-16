@@ -23,7 +23,7 @@ export type MetricsGetQueryParamProductIDFilter = string | Array<string>;
 /**
  * Filter by product price type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
  */
-export type MetricsGetQueryParamProductPriceTypeFilter =
+export type QueryParamProductPriceTypeFilter =
   | components.ProductPriceType
   | Array<components.ProductPriceType>;
 
@@ -175,68 +175,58 @@ export function metricsGetQueryParamProductIDFilterFromJSON(
 }
 
 /** @internal */
-export const MetricsGetQueryParamProductPriceTypeFilter$inboundSchema:
-  z.ZodType<MetricsGetQueryParamProductPriceTypeFilter, z.ZodTypeDef, unknown> =
-    z.union([
-      components.ProductPriceType$inboundSchema,
-      z.array(components.ProductPriceType$inboundSchema),
-    ]);
+export const QueryParamProductPriceTypeFilter$inboundSchema: z.ZodType<
+  QueryParamProductPriceTypeFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  components.ProductPriceType$inboundSchema,
+  z.array(components.ProductPriceType$inboundSchema),
+]);
 
 /** @internal */
-export type MetricsGetQueryParamProductPriceTypeFilter$Outbound =
-  | string
-  | Array<string>;
+export type QueryParamProductPriceTypeFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const MetricsGetQueryParamProductPriceTypeFilter$outboundSchema:
-  z.ZodType<
-    MetricsGetQueryParamProductPriceTypeFilter$Outbound,
-    z.ZodTypeDef,
-    MetricsGetQueryParamProductPriceTypeFilter
-  > = z.union([
-    components.ProductPriceType$outboundSchema,
-    z.array(components.ProductPriceType$outboundSchema),
-  ]);
+export const QueryParamProductPriceTypeFilter$outboundSchema: z.ZodType<
+  QueryParamProductPriceTypeFilter$Outbound,
+  z.ZodTypeDef,
+  QueryParamProductPriceTypeFilter
+> = z.union([
+  components.ProductPriceType$outboundSchema,
+  z.array(components.ProductPriceType$outboundSchema),
+]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace MetricsGetQueryParamProductPriceTypeFilter$ {
-  /** @deprecated use `MetricsGetQueryParamProductPriceTypeFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsGetQueryParamProductPriceTypeFilter$inboundSchema;
-  /** @deprecated use `MetricsGetQueryParamProductPriceTypeFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsGetQueryParamProductPriceTypeFilter$outboundSchema;
-  /** @deprecated use `MetricsGetQueryParamProductPriceTypeFilter$Outbound` instead. */
-  export type Outbound = MetricsGetQueryParamProductPriceTypeFilter$Outbound;
+export namespace QueryParamProductPriceTypeFilter$ {
+  /** @deprecated use `QueryParamProductPriceTypeFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamProductPriceTypeFilter$inboundSchema;
+  /** @deprecated use `QueryParamProductPriceTypeFilter$outboundSchema` instead. */
+  export const outboundSchema = QueryParamProductPriceTypeFilter$outboundSchema;
+  /** @deprecated use `QueryParamProductPriceTypeFilter$Outbound` instead. */
+  export type Outbound = QueryParamProductPriceTypeFilter$Outbound;
 }
 
-export function metricsGetQueryParamProductPriceTypeFilterToJSON(
-  metricsGetQueryParamProductPriceTypeFilter:
-    MetricsGetQueryParamProductPriceTypeFilter,
+export function queryParamProductPriceTypeFilterToJSON(
+  queryParamProductPriceTypeFilter: QueryParamProductPriceTypeFilter,
 ): string {
   return JSON.stringify(
-    MetricsGetQueryParamProductPriceTypeFilter$outboundSchema.parse(
-      metricsGetQueryParamProductPriceTypeFilter,
+    QueryParamProductPriceTypeFilter$outboundSchema.parse(
+      queryParamProductPriceTypeFilter,
     ),
   );
 }
 
-export function metricsGetQueryParamProductPriceTypeFilterFromJSON(
+export function queryParamProductPriceTypeFilterFromJSON(
   jsonString: string,
-): SafeParseResult<
-  MetricsGetQueryParamProductPriceTypeFilter,
-  SDKValidationError
-> {
+): SafeParseResult<QueryParamProductPriceTypeFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      MetricsGetQueryParamProductPriceTypeFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'MetricsGetQueryParamProductPriceTypeFilter' from JSON`,
+    (x) => QueryParamProductPriceTypeFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamProductPriceTypeFilter' from JSON`,
   );
 }
 

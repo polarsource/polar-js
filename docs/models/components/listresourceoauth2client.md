@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://each-decryption.net/",
+        "https://handsome-department.net/",
       ],
       clientName: "<value>",
-      createdAt: new Date("2022-06-16T02:33:31.041Z"),
-      modifiedAt: new Date("2022-11-06T01:22:31.085Z"),
+      createdAt: new Date("2022-05-03T08:16:14.878Z"),
+      modifiedAt: new Date("2022-06-07T11:23:10.059Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 63025,
-      clientSecretExpiresAt: 218108,
+      clientIdIssuedAt: 278510,
+      clientSecretExpiresAt: 288027,
     },
   ],
   pagination: {
-    totalCount: 37808,
-    maxPage: 698339,
+    totalCount: 846305,
+    maxPage: 791284,
   },
 };
 ```

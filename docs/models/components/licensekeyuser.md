@@ -7,9 +7,8 @@ import { LicenseKeyUser } from "@polar-sh/sdk/models/components";
 
 let value: LicenseKeyUser = {
   id: "<value>",
+  email: "Madge96@gmail.com",
   publicName: "<value>",
-  email: "Dion53@gmail.com",
-  avatarUrl: "https://shimmering-injunction.name/",
 };
 ```
 
@@ -18,6 +17,5 @@ let value: LicenseKeyUser = {
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *string*           | :heavy_check_mark: | N/A                |
-| `publicName`       | *string*           | :heavy_check_mark: | N/A                |
 | `email`            | *string*           | :heavy_check_mark: | N/A                |
-| `avatarUrl`        | *string*           | :heavy_check_mark: | N/A                |
+| `publicName`       | *string*           | :heavy_check_mark: | N/A                |

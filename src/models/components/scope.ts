@@ -30,6 +30,8 @@ export const Scope = {
   FilesWrite: "files:write",
   SubscriptionsRead: "subscriptions:read",
   SubscriptionsWrite: "subscriptions:write",
+  CustomersRead: "customers:read",
+  CustomersWrite: "customers:write",
   OrdersRead: "orders:read",
   MetricsRead: "metrics:read",
   WebhooksRead: "webhooks:read",
@@ -41,14 +43,8 @@ export const Scope = {
   RepositoriesWrite: "repositories:write",
   IssuesRead: "issues:read",
   IssuesWrite: "issues:write",
-  UserBenefitsRead: "user:benefits:read",
-  UserOrdersRead: "user:orders:read",
-  UserSubscriptionsRead: "user:subscriptions:read",
-  UserSubscriptionsWrite: "user:subscriptions:write",
-  UserDownloadablesRead: "user:downloadables:read",
-  UserLicenseKeysRead: "user:license_keys:read",
-  UserAdvertisementCampaignsRead: "user:advertisement_campaigns:read",
-  UserAdvertisementCampaignsWrite: "user:advertisement_campaigns:write",
+  CustomerPortalRead: "customer_portal:read",
+  CustomerPortalWrite: "customer_portal:write",
 } as const;
 export type Scope = ClosedEnum<typeof Scope>;
 

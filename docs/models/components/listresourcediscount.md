@@ -9,29 +9,29 @@ let value: ListResourceDiscount = {
   items: [
     {
       duration: "once",
-      durationInMonths: 294426,
-      type: "fixed",
-      basisPoints: 782277,
-      createdAt: new Date("2022-06-16T18:55:28.891Z"),
-      modifiedAt: new Date("2023-04-28T16:00:32.884Z"),
+      durationInMonths: 762643,
+      type: "percentage",
+      basisPoints: 563181,
+      createdAt: new Date("2023-01-05T14:54:34.065Z"),
+      modifiedAt: new Date("2022-06-26T03:55:13.180Z"),
       id: "<value>",
       metadata: {
-        "key": 769331,
+        "key": "<value>",
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2023-04-27T14:18:23.756Z"),
-      endsAt: new Date("2022-09-30T19:12:28.413Z"),
-      maxRedemptions: 80616,
-      redemptionsCount: 485819,
+      startsAt: new Date("2022-03-05T03:05:50.686Z"),
+      endsAt: new Date("2024-06-01T15:55:18.464Z"),
+      maxRedemptions: 743949,
+      redemptionsCount: 856729,
       organizationId: "<value>",
       products: [
         {
-          createdAt: new Date("2022-09-30T22:08:25.999Z"),
-          modifiedAt: new Date("2024-01-22T07:34:15.679Z"),
+          createdAt: new Date("2024-02-11T17:46:51.214Z"),
+          modifiedAt: new Date("2022-07-03T21:26:34.888Z"),
           id: "<value>",
           name: "<value>",
-          description: "blindly mixture yieldingly phooey",
+          description: "hence likewise highlight ouch thyme override bah zowie",
           isRecurring: false,
           isArchived: false,
           organizationId: "<value>",
@@ -40,8 +40,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 327988,
-    maxPage: 223877,
+    totalCount: 218987,
+    maxPage: 718028,
   },
 };
 ```

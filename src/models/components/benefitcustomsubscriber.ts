@@ -15,12 +15,6 @@ import {
   BenefitCustomSubscriberProperties$outboundSchema,
 } from "./benefitcustomsubscriberproperties.js";
 import {
-  BenefitGrantSubscriber,
-  BenefitGrantSubscriber$inboundSchema,
-  BenefitGrantSubscriber$Outbound,
-  BenefitGrantSubscriber$outboundSchema,
-} from "./benefitgrantsubscriber.js";
-import {
   Organization,
   Organization$inboundSchema,
   Organization$Outbound,
@@ -64,7 +58,6 @@ export type BenefitCustomSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  grants: Array<BenefitGrantSubscriber>;
   organization: Organization;
   /**
    * Properties available to subscribers for a benefit of type `custom`.
@@ -109,7 +102,6 @@ export const BenefitCustomSubscriber$inboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
-  grants: z.array(BenefitGrantSubscriber$inboundSchema),
   organization: Organization$inboundSchema,
   properties: BenefitCustomSubscriberProperties$inboundSchema,
 }).transform((v) => {
@@ -130,7 +122,6 @@ export type BenefitCustomSubscriber$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
-  grants: Array<BenefitGrantSubscriber$Outbound>;
   organization: Organization$Outbound;
   properties: BenefitCustomSubscriberProperties$Outbound;
 };
@@ -149,7 +140,6 @@ export const BenefitCustomSubscriber$outboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
-  grants: z.array(BenefitGrantSubscriber$outboundSchema),
   organization: Organization$outboundSchema,
   properties: BenefitCustomSubscriberProperties$outboundSchema,
 }).transform((v) => {

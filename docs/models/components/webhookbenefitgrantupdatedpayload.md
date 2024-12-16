@@ -11,21 +11,23 @@ import { WebhookBenefitGrantUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantUpdatedPayload = {
   data: {
-    createdAt: new Date("2023-10-19T22:57:45.544Z"),
-    modifiedAt: new Date("2023-11-27T19:52:32.797Z"),
+    createdAt: new Date("2023-08-21T18:12:26.248Z"),
+    modifiedAt: new Date("2022-03-31T12:16:51.444Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
     subscriptionId: "<value>",
     orderId: "<value>",
+    customerId: "<value>",
     userId: "<value>",
     benefitId: "<value>",
     properties: {},
     benefit: {
-      createdAt: new Date("2024-07-14T15:27:37.349Z"),
-      modifiedAt: new Date("2023-05-11T15:13:36.467Z"),
+      createdAt: new Date("2024-05-16T10:11:19.877Z"),
+      modifiedAt: new Date("2023-02-23T01:32:43.530Z"),
       id: "<value>",
-      description: "unsung aw indeed blah freezing noisily as switchboard",
+      description:
+        "request amid shady croon boohoo excepting that faint yahoo mostly",
       selectable: false,
       deletable: false,
       organizationId: "<value>",

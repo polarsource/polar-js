@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2024-11-26T05:48:10.660Z"),
-    modifiedAt: new Date("2024-06-27T20:05:24.919Z"),
+    createdAt: new Date("2022-06-26T10:20:47.612Z"),
+    modifiedAt: new Date("2023-10-21T02:29:41.820Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://fatal-quinoa.info",
-    logoUri: "https://carefree-pneumonia.name",
-    tosUri: "https://pretty-thread.name/",
-    policyUri: "https://functional-footrest.biz/",
+    clientUri: "https://grizzled-ravioli.info",
+    logoUri: "https://dull-recovery.com/",
+    tosUri: "https://mysterious-doubter.biz/",
+    policyUri: "https://cautious-pupil.name/",
   },
   sub: {
     id: "<value>",
-    email: "Valentin_Schamberger37@hotmail.com",
-    avatarUrl: "https://shiny-event.biz",
+    email: "Velma94@gmail.com",
+    avatarUrl: "https://slimy-casement.name/",
   },
   scopes: [
-    "license_keys:write",
+    "issues:read",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2022-06-21T10:04:50.151Z"),
-    modifiedAt: new Date("2024-07-13T10:03:43.619Z"),
+    createdAt: new Date("2023-07-29T23:36:52.386Z"),
+    modifiedAt: new Date("2024-11-03T14:18:38.128Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://obvious-dandelion.org",
-    logoUri: "https://fuzzy-husband.name/",
-    tosUri: "https://abandoned-stump.com/",
-    policyUri: "https://super-tuba.biz",
+    clientUri: "https://monstrous-metal.org/",
+    logoUri: "https://parallel-baseboard.biz",
+    tosUri: "https://merry-word.org/",
+    policyUri: "https://mild-apparatus.org/",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://awful-poetry.com/",
+    avatarUrl: "https://amazing-traffic.info/",
   },
   scopes: [
-    "organizations:write",
+    "orders:read",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://flickering-custom.name/",
+      avatarUrl: "https://square-vestment.name",
     },
   ],
 };

@@ -9,12 +9,6 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BenefitGrantLicenseKeys,
-  BenefitGrantLicenseKeys$inboundSchema,
-  BenefitGrantLicenseKeys$Outbound,
-  BenefitGrantLicenseKeys$outboundSchema,
-} from "./benefitgrantlicensekeys.js";
-import {
   BenefitLicenseKeysSubscriberProperties,
   BenefitLicenseKeysSubscriberProperties$inboundSchema,
   BenefitLicenseKeysSubscriberProperties$Outbound,
@@ -64,7 +58,6 @@ export type BenefitLicenseKeysSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  grants: Array<BenefitGrantLicenseKeys>;
   organization: Organization;
   properties: BenefitLicenseKeysSubscriberProperties;
 };
@@ -106,7 +99,6 @@ export const BenefitLicenseKeysSubscriber$inboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
-  grants: z.array(BenefitGrantLicenseKeys$inboundSchema),
   organization: Organization$inboundSchema,
   properties: BenefitLicenseKeysSubscriberProperties$inboundSchema,
 }).transform((v) => {
@@ -127,7 +119,6 @@ export type BenefitLicenseKeysSubscriber$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
-  grants: Array<BenefitGrantLicenseKeys$Outbound>;
   organization: Organization$Outbound;
   properties: BenefitLicenseKeysSubscriberProperties$Outbound;
 };
@@ -146,7 +137,6 @@ export const BenefitLicenseKeysSubscriber$outboundSchema: z.ZodType<
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
-  grants: z.array(BenefitGrantLicenseKeys$outboundSchema),
   organization: Organization$outboundSchema,
   properties: BenefitLicenseKeysSubscriberProperties$outboundSchema,
 }).transform((v) => {

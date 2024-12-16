@@ -22,15 +22,13 @@ export type AmountType = ClosedEnum<typeof AmountType>;
 /**
  * The type of the price.
  */
-export const ProductPriceRecurringFixedType = {
+export const Type = {
   Recurring: "recurring",
 } as const;
 /**
  * The type of the price.
  */
-export type ProductPriceRecurringFixedType = ClosedEnum<
-  typeof ProductPriceRecurringFixedType
->;
+export type Type = ClosedEnum<typeof Type>;
 
 /**
  * A recurring price for a product, i.e. a subscription.
@@ -92,24 +90,23 @@ export namespace AmountType$ {
 }
 
 /** @internal */
-export const ProductPriceRecurringFixedType$inboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceRecurringFixedType
-> = z.nativeEnum(ProductPriceRecurringFixedType);
+export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
+  Type,
+);
 
 /** @internal */
-export const ProductPriceRecurringFixedType$outboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceRecurringFixedType
-> = ProductPriceRecurringFixedType$inboundSchema;
+export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> =
+  Type$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ProductPriceRecurringFixedType$ {
-  /** @deprecated use `ProductPriceRecurringFixedType$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceRecurringFixedType$inboundSchema;
-  /** @deprecated use `ProductPriceRecurringFixedType$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceRecurringFixedType$outboundSchema;
+export namespace Type$ {
+  /** @deprecated use `Type$inboundSchema` instead. */
+  export const inboundSchema = Type$inboundSchema;
+  /** @deprecated use `Type$outboundSchema` instead. */
+  export const outboundSchema = Type$outboundSchema;
 }
 
 /** @internal */

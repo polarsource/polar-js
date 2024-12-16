@@ -6,8 +6,8 @@ import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 
 export const SubscriptionSortProperty = {
-  User: "user",
-  MinusUser: "-user",
+  Customer: "customer",
+  MinusCustomer: "-customer",
   Status: "status",
   MinusStatus: "-status",
   StartedAt: "started_at",

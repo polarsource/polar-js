@@ -9,10 +9,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionUser = {
+  id: string;
   email: string;
   publicName: string;
-  githubUsername: string | null;
-  avatarUrl: string | null;
 };
 
 /** @internal */
@@ -21,24 +20,20 @@ export const SubscriptionUser$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   email: z.string(),
   public_name: z.string(),
-  github_username: z.nullable(z.string()),
-  avatar_url: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     "public_name": "publicName",
-    "github_username": "githubUsername",
-    "avatar_url": "avatarUrl",
   });
 });
 
 /** @internal */
 export type SubscriptionUser$Outbound = {
+  id: string;
   email: string;
   public_name: string;
-  github_username: string | null;
-  avatar_url: string | null;
 };
 
 /** @internal */
@@ -47,15 +42,12 @@ export const SubscriptionUser$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SubscriptionUser
 > = z.object({
+  id: z.string(),
   email: z.string(),
   publicName: z.string(),
-  githubUsername: z.nullable(z.string()),
-  avatarUrl: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     publicName: "public_name",
-    githubUsername: "github_username",
-    avatarUrl: "avatar_url",
   });
 });
 

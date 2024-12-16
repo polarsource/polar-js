@@ -22,9 +22,7 @@ export type RepositoryNameFilter = string | Array<string>;
 /**
  * Filter by organization ID.
  */
-export type ExternalOrganizationsListQueryParamOrganizationIDFilter =
-  | string
-  | Array<string>;
+export type OrganizationIDFilter = string | Array<string>;
 
 export type ExternalOrganizationsListRequest = {
   /**
@@ -163,64 +161,50 @@ export function repositoryNameFilterFromJSON(
 }
 
 /** @internal */
-export const ExternalOrganizationsListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<
-    ExternalOrganizationsListQueryParamOrganizationIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
+export const OrganizationIDFilter$inboundSchema: z.ZodType<
+  OrganizationIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
-export type ExternalOrganizationsListQueryParamOrganizationIDFilter$Outbound =
-  | string
-  | Array<string>;
+export type OrganizationIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const ExternalOrganizationsListQueryParamOrganizationIDFilter$outboundSchema:
-  z.ZodType<
-    ExternalOrganizationsListQueryParamOrganizationIDFilter$Outbound,
-    z.ZodTypeDef,
-    ExternalOrganizationsListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+export const OrganizationIDFilter$outboundSchema: z.ZodType<
+  OrganizationIDFilter$Outbound,
+  z.ZodTypeDef,
+  OrganizationIDFilter
+> = z.union([z.string(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ExternalOrganizationsListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `ExternalOrganizationsListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    ExternalOrganizationsListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `ExternalOrganizationsListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    ExternalOrganizationsListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `ExternalOrganizationsListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound =
-    ExternalOrganizationsListQueryParamOrganizationIDFilter$Outbound;
+export namespace OrganizationIDFilter$ {
+  /** @deprecated use `OrganizationIDFilter$inboundSchema` instead. */
+  export const inboundSchema = OrganizationIDFilter$inboundSchema;
+  /** @deprecated use `OrganizationIDFilter$outboundSchema` instead. */
+  export const outboundSchema = OrganizationIDFilter$outboundSchema;
+  /** @deprecated use `OrganizationIDFilter$Outbound` instead. */
+  export type Outbound = OrganizationIDFilter$Outbound;
 }
 
-export function externalOrganizationsListQueryParamOrganizationIDFilterToJSON(
-  externalOrganizationsListQueryParamOrganizationIDFilter:
-    ExternalOrganizationsListQueryParamOrganizationIDFilter,
+export function organizationIDFilterToJSON(
+  organizationIDFilter: OrganizationIDFilter,
 ): string {
   return JSON.stringify(
-    ExternalOrganizationsListQueryParamOrganizationIDFilter$outboundSchema
-      .parse(externalOrganizationsListQueryParamOrganizationIDFilter),
+    OrganizationIDFilter$outboundSchema.parse(organizationIDFilter),
   );
 }
 
-export function externalOrganizationsListQueryParamOrganizationIDFilterFromJSON(
+export function organizationIDFilterFromJSON(
   jsonString: string,
-): SafeParseResult<
-  ExternalOrganizationsListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
+): SafeParseResult<OrganizationIDFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      ExternalOrganizationsListQueryParamOrganizationIDFilter$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'ExternalOrganizationsListQueryParamOrganizationIDFilter' from JSON`,
+    (x) => OrganizationIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrganizationIDFilter' from JSON`,
   );
 }
 
