@@ -12,6 +12,7 @@ export type LicenseKeyUser = {
   id: string;
   email: string;
   publicName: string;
+  avatarUrl?: string | null | undefined;
 };
 
 /** @internal */
@@ -23,9 +24,11 @@ export const LicenseKeyUser$inboundSchema: z.ZodType<
   id: z.string(),
   email: z.string(),
   public_name: z.string(),
+  avatar_url: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "public_name": "publicName",
+    "avatar_url": "avatarUrl",
   });
 });
 
@@ -34,6 +37,7 @@ export type LicenseKeyUser$Outbound = {
   id: string;
   email: string;
   public_name: string;
+  avatar_url?: string | null | undefined;
 };
 
 /** @internal */
@@ -45,9 +49,11 @@ export const LicenseKeyUser$outboundSchema: z.ZodType<
   id: z.string(),
   email: z.string(),
   publicName: z.string(),
+  avatarUrl: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     publicName: "public_name",
+    avatarUrl: "avatar_url",
   });
 });
 

@@ -96,6 +96,7 @@ export async function customerPortalBenefitGrantsGet(
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
     method: "GET",
+    baseURL: options?.serverURL,
     path: path,
     headers: headers,
     body: body,

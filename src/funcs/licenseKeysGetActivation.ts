@@ -99,6 +99,7 @@ export async function licenseKeysGetActivation(
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
     method: "GET",
+    baseURL: options?.serverURL,
     path: path,
     headers: headers,
     body: body,
