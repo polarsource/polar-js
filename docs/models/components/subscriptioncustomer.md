@@ -6,23 +6,23 @@
 import { SubscriptionCustomer } from "@polar-sh/sdk/models/components";
 
 let value: SubscriptionCustomer = {
-  createdAt: new Date("2022-01-31T23:15:49.640Z"),
-  modifiedAt: new Date("2022-05-05T17:36:39.027Z"),
+  createdAt: new Date("2022-04-03T13:03:56.657Z"),
+  modifiedAt: new Date("2022-07-01T08:52:15.017Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": 622789,
   },
-  email: "Euna.Mitchell@hotmail.com",
+  email: "Tre.Gerlach0@hotmail.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "United Kingdom",
+    country: "Curacao",
   },
   taxId: [
-    "mx_rfc",
+    "<id>",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://well-groomed-litter.net/",
+  avatarUrl: "https://ugly-fen.org/",
 };
 ```
 

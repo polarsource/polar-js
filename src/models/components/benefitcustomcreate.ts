@@ -36,10 +36,6 @@ export type BenefitCustomCreate = {
    */
   organizationId?: string | null | undefined;
   /**
-   * Whether the benefit is taxable.
-   */
-  isTaxApplicable: boolean;
-  /**
    * Properties for creating a benefit of type `custom`.
    */
   properties: BenefitCustomCreateProperties;
@@ -75,12 +71,10 @@ export const BenefitCustomCreate$inboundSchema: z.ZodType<
   type: z.literal("custom").optional(),
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
-  is_tax_applicable: z.boolean(),
   properties: BenefitCustomCreateProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
-    "is_tax_applicable": "isTaxApplicable",
   });
 });
 
@@ -89,7 +83,6 @@ export type BenefitCustomCreate$Outbound = {
   type: "custom";
   description: string;
   organization_id?: string | null | undefined;
-  is_tax_applicable: boolean;
   properties: BenefitCustomCreateProperties$Outbound;
 };
 
@@ -102,12 +95,10 @@ export const BenefitCustomCreate$outboundSchema: z.ZodType<
   type: z.literal("custom").default("custom"),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
-  isTaxApplicable: z.boolean(),
   properties: BenefitCustomCreateProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
-    isTaxApplicable: "is_tax_applicable",
   });
 });
 

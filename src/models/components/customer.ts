@@ -19,7 +19,7 @@ import {
   TaxIDFormat$outboundSchema,
 } from "./taxidformat.js";
 
-export type CustomerMetadata = string | number | boolean;
+export type CustomerMetadata1 = string | number | boolean;
 
 export type CustomerTaxId = string | TaxIDFormat;
 
@@ -50,50 +50,50 @@ export type Customer = {
 };
 
 /** @internal */
-export const CustomerMetadata$inboundSchema: z.ZodType<
-  CustomerMetadata,
+export const CustomerMetadata1$inboundSchema: z.ZodType<
+  CustomerMetadata1,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
 /** @internal */
-export type CustomerMetadata$Outbound = string | number | boolean;
+export type CustomerMetadata1$Outbound = string | number | boolean;
 
 /** @internal */
-export const CustomerMetadata$outboundSchema: z.ZodType<
-  CustomerMetadata$Outbound,
+export const CustomerMetadata1$outboundSchema: z.ZodType<
+  CustomerMetadata1$Outbound,
   z.ZodTypeDef,
-  CustomerMetadata
+  CustomerMetadata1
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CustomerMetadata$ {
-  /** @deprecated use `CustomerMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomerMetadata$inboundSchema;
-  /** @deprecated use `CustomerMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomerMetadata$outboundSchema;
-  /** @deprecated use `CustomerMetadata$Outbound` instead. */
-  export type Outbound = CustomerMetadata$Outbound;
+export namespace CustomerMetadata1$ {
+  /** @deprecated use `CustomerMetadata1$inboundSchema` instead. */
+  export const inboundSchema = CustomerMetadata1$inboundSchema;
+  /** @deprecated use `CustomerMetadata1$outboundSchema` instead. */
+  export const outboundSchema = CustomerMetadata1$outboundSchema;
+  /** @deprecated use `CustomerMetadata1$Outbound` instead. */
+  export type Outbound = CustomerMetadata1$Outbound;
 }
 
-export function customerMetadataToJSON(
-  customerMetadata: CustomerMetadata,
+export function customerMetadata1ToJSON(
+  customerMetadata1: CustomerMetadata1,
 ): string {
   return JSON.stringify(
-    CustomerMetadata$outboundSchema.parse(customerMetadata),
+    CustomerMetadata1$outboundSchema.parse(customerMetadata1),
   );
 }
 
-export function customerMetadataFromJSON(
+export function customerMetadata1FromJSON(
   jsonString: string,
-): SafeParseResult<CustomerMetadata, SDKValidationError> {
+): SafeParseResult<CustomerMetadata1, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CustomerMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerMetadata' from JSON`,
+    (x) => CustomerMetadata1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerMetadata1' from JSON`,
   );
 }
 

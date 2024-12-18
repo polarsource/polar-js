@@ -137,6 +137,9 @@ let value: WebhookCheckoutCreatedPayload = {
         required: false,
       },
     ],
+    customerMetadata: {
+      "key": 407183,
+    },
   },
 };
 ```

@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-01-02T15:52:46.782Z"),
-        modifiedAt: new Date("2022-12-15T08:19:24.644Z"),
+        createdAt: new Date("2023-03-22T22:06:52.162Z"),
+        modifiedAt: new Date("2023-05-28T06:39:03.949Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -19,14 +19,12 @@ let value: BenefitsGrantsResponse = {
         customerId: "<value>",
         userId: "<value>",
         benefitId: "<value>",
-        properties: {
-          advertisementCampaignId: "<id>",
-        },
+        properties: {},
       },
     ],
     pagination: {
-      totalCount: 795148,
-      maxPage: 830782,
+      totalCount: 452384,
+      maxPage: 227791,
     },
   },
 };

@@ -76,6 +76,8 @@ export type CheckoutDiscount =
   | CheckoutDiscountPercentageRepeatDuration
   | CheckoutDiscountFixedRepeatDuration;
 
+export type CustomerMetadata = string | number | boolean;
+
 /**
  * Checkout session data retrieved using an access token.
  */
@@ -192,6 +194,7 @@ export type Checkout = {
     | null;
   subscriptionId: string | null;
   attachedCustomFields: Array<AttachedCustomField>;
+  customerMetadata: { [k: string]: string | number | boolean };
 };
 
 /** @internal */
@@ -401,6 +404,54 @@ export function checkoutDiscountFromJSON(
 }
 
 /** @internal */
+export const CustomerMetadata$inboundSchema: z.ZodType<
+  CustomerMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CustomerMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CustomerMetadata$outboundSchema: z.ZodType<
+  CustomerMetadata$Outbound,
+  z.ZodTypeDef,
+  CustomerMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerMetadata$ {
+  /** @deprecated use `CustomerMetadata$inboundSchema` instead. */
+  export const inboundSchema = CustomerMetadata$inboundSchema;
+  /** @deprecated use `CustomerMetadata$outboundSchema` instead. */
+  export const outboundSchema = CustomerMetadata$outboundSchema;
+  /** @deprecated use `CustomerMetadata$Outbound` instead. */
+  export type Outbound = CustomerMetadata$Outbound;
+}
+
+export function customerMetadataToJSON(
+  customerMetadata: CustomerMetadata,
+): string {
+  return JSON.stringify(
+    CustomerMetadata$outboundSchema.parse(customerMetadata),
+  );
+}
+
+export function customerMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomerMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomerMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const Checkout$inboundSchema: z.ZodType<
   Checkout,
   z.ZodTypeDef,
@@ -456,6 +507,9 @@ export const Checkout$inboundSchema: z.ZodType<
   ),
   subscription_id: z.nullable(z.string()),
   attached_custom_fields: z.array(AttachedCustomField$inboundSchema),
+  customer_metadata: z.record(
+    z.union([z.string(), z.number().int(), z.boolean()]),
+  ),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -488,6 +542,7 @@ export const Checkout$inboundSchema: z.ZodType<
     "product_price": "productPrice",
     "subscription_id": "subscriptionId",
     "attached_custom_fields": "attachedCustomFields",
+    "customer_metadata": "customerMetadata",
   });
 });
 
@@ -536,6 +591,7 @@ export type Checkout$Outbound = {
     | null;
   subscription_id: string | null;
   attached_custom_fields: Array<AttachedCustomField$Outbound>;
+  customer_metadata: { [k: string]: string | number | boolean };
 };
 
 /** @internal */
@@ -592,6 +648,9 @@ export const Checkout$outboundSchema: z.ZodType<
   ),
   subscriptionId: z.nullable(z.string()),
   attachedCustomFields: z.array(AttachedCustomField$outboundSchema),
+  customerMetadata: z.record(
+    z.union([z.string(), z.number().int(), z.boolean()]),
+  ),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -624,6 +683,7 @@ export const Checkout$outboundSchema: z.ZodType<
     productPrice: "product_price",
     subscriptionId: "subscription_id",
     attachedCustomFields: "attached_custom_fields",
+    customerMetadata: "customer_metadata",
   });
 });
 

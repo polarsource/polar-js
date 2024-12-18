@@ -45,11 +45,11 @@ import {
 
 export type BenefitCreate =
   | (BenefitAdsCreate & { type: "ads" })
+  | (BenefitCustomCreate & { type: "custom" })
   | (BenefitDiscordCreate & { type: "discord" })
   | (BenefitDownloadablesCreate & { type: "downloadables" })
   | (BenefitGitHubRepositoryCreate & { type: "github_repository" })
-  | (BenefitLicenseKeysCreate & { type: "license_keys" })
-  | (BenefitCustomCreate & { type: "custom" });
+  | (BenefitLicenseKeysCreate & { type: "license_keys" });
 
 /** @internal */
 export const BenefitCreate$inboundSchema: z.ZodType<
@@ -59,6 +59,11 @@ export const BenefitCreate$inboundSchema: z.ZodType<
 > = z.union([
   BenefitAdsCreate$inboundSchema.and(
     z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
+  ),
+  BenefitCustomCreate$inboundSchema.and(
+    z.object({ type: z.literal("custom") }).transform((v) => ({
+      type: v.type,
+    })),
   ),
   BenefitDiscordCreate$inboundSchema.and(
     z.object({ type: z.literal("discord") }).transform((v) => ({
@@ -80,21 +85,16 @@ export const BenefitCreate$inboundSchema: z.ZodType<
       type: v.type,
     })),
   ),
-  BenefitCustomCreate$inboundSchema.and(
-    z.object({ type: z.literal("custom") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
 ]);
 
 /** @internal */
 export type BenefitCreate$Outbound =
   | (BenefitAdsCreate$Outbound & { type: "ads" })
+  | (BenefitCustomCreate$Outbound & { type: "custom" })
   | (BenefitDiscordCreate$Outbound & { type: "discord" })
   | (BenefitDownloadablesCreate$Outbound & { type: "downloadables" })
   | (BenefitGitHubRepositoryCreate$Outbound & { type: "github_repository" })
-  | (BenefitLicenseKeysCreate$Outbound & { type: "license_keys" })
-  | (BenefitCustomCreate$Outbound & { type: "custom" });
+  | (BenefitLicenseKeysCreate$Outbound & { type: "license_keys" });
 
 /** @internal */
 export const BenefitCreate$outboundSchema: z.ZodType<
@@ -104,6 +104,11 @@ export const BenefitCreate$outboundSchema: z.ZodType<
 > = z.union([
   BenefitAdsCreate$outboundSchema.and(
     z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
+  ),
+  BenefitCustomCreate$outboundSchema.and(
+    z.object({ type: z.literal("custom") }).transform((v) => ({
+      type: v.type,
+    })),
   ),
   BenefitDiscordCreate$outboundSchema.and(
     z.object({ type: z.literal("discord") }).transform((v) => ({
@@ -122,11 +127,6 @@ export const BenefitCreate$outboundSchema: z.ZodType<
   ),
   BenefitLicenseKeysCreate$outboundSchema.and(
     z.object({ type: z.literal("license_keys") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  BenefitCustomCreate$outboundSchema.and(
-    z.object({ type: z.literal("custom") }).transform((v) => ({
       type: v.type,
     })),
   ),

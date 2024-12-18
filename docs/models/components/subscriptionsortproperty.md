@@ -5,7 +5,7 @@
 ```typescript
 import { SubscriptionSortProperty } from "@polar-sh/sdk/models/components";
 
-let value: SubscriptionSortProperty = "current_period_end";
+let value: SubscriptionSortProperty = "-started_at";
 ```
 
 ## Values

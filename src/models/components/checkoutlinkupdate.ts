@@ -14,20 +14,6 @@ export type CheckoutLinkUpdateMetadata = string | number | boolean;
  * Schema to update an existing checkout link.
  */
 export type CheckoutLinkUpdate = {
-  /**
-   * Key-value object allowing you to store additional information.
-   *
-   * @remarks
-   *
-   * The key must be a string with a maximum length of **40 characters**.
-   * The value must be either:
-   *
-   * * A string with a maximum length of **500 characters**
-   * * An integer
-   * * A boolean
-   *
-   * You can store up to **50 key-value pairs**.
-   */
   metadata?: { [k: string]: string | number | boolean } | null | undefined;
   label?: string | null | undefined;
   /**

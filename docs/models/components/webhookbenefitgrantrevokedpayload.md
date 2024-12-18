@@ -11,8 +11,8 @@ import { WebhookBenefitGrantRevokedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantRevokedPayload = {
   data: {
-    createdAt: new Date("2023-05-06T20:10:59.426Z"),
-    modifiedAt: new Date("2022-01-05T21:42:02.091Z"),
+    createdAt: new Date("2023-12-24T04:08:16.291Z"),
+    modifiedAt: new Date("2023-07-27T18:43:26.946Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -23,18 +23,18 @@ let value: WebhookBenefitGrantRevokedPayload = {
     benefitId: "<value>",
     properties: {},
     benefit: {
-      createdAt: new Date("2022-02-18T22:42:20.577Z"),
-      modifiedAt: new Date("2023-07-06T19:14:17.884Z"),
+      createdAt: new Date("2024-03-18T03:12:28.184Z"),
+      modifiedAt: new Date("2024-05-25T13:47:58.818Z"),
       id: "<value>",
-      description:
-        "truly quirkily daily stock fooey meanwhile ravage likely tapioca phew",
+      description: "powerfully squeaky rim",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        note: "<value>",
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "pull",
       },
-      isTaxApplicable: false,
     },
   },
 };

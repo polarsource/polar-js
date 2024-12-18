@@ -48,6 +48,10 @@ export type OrderSubscription = {
   priceId: string;
   discountId: string | null;
   checkoutId: string | null;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  userId: string;
 };
 
 /** @internal */
@@ -132,6 +136,7 @@ export const OrderSubscription$inboundSchema: z.ZodType<
   price_id: z.string(),
   discount_id: z.nullable(z.string()),
   checkout_id: z.nullable(z.string()),
+  user_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -147,6 +152,7 @@ export const OrderSubscription$inboundSchema: z.ZodType<
     "price_id": "priceId",
     "discount_id": "discountId",
     "checkout_id": "checkoutId",
+    "user_id": "userId",
   });
 });
 
@@ -170,6 +176,7 @@ export type OrderSubscription$Outbound = {
   price_id: string;
   discount_id: string | null;
   checkout_id: string | null;
+  user_id: string;
 };
 
 /** @internal */
@@ -196,6 +203,7 @@ export const OrderSubscription$outboundSchema: z.ZodType<
   priceId: z.string(),
   discountId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
+  userId: z.string(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -211,6 +219,7 @@ export const OrderSubscription$outboundSchema: z.ZodType<
     priceId: "price_id",
     discountId: "discount_id",
     checkoutId: "checkout_id",
+    userId: "user_id",
   });
 });
 

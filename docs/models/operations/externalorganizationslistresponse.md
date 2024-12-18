@@ -9,23 +9,23 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "6a698411-917e-49f4-bae5-8d50f61b521b",
+        id: "56f8cc61-1fd5-4dee-ae2c-0c9b8900c4cb",
         name: "<value>",
-        avatarUrl: "https://snarling-peninsula.info/",
+        avatarUrl: "https://biodegradable-godparent.org/",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Jast - Barrows",
+        company: "Jones - Nitzsche",
         blog: "<value>",
         location: "<value>",
-        email: "Haley17@hotmail.com",
+        email: "Albina58@yahoo.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 187940,
-      maxPage: 128146,
+      totalCount: 832839,
+      maxPage: 186756,
     },
   },
 };

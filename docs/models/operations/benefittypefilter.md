@@ -15,7 +15,7 @@ const value: components.BenefitType = "discord";
 
 ```typescript
 const value: components.BenefitType[] = [
-  "ads",
+  "license_keys",
 ];
 ```
 

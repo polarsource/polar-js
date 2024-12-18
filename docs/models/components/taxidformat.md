@@ -9,7 +9,7 @@ Ref: https://docs.stripe.com/billing/customer/tax-ids#supported-tax-id
 ```typescript
 import { TaxIDFormat } from "@polar-sh/sdk/models/components";
 
-let value: TaxIDFormat = "ar_cuit";
+let value: TaxIDFormat = "co_nit";
 ```
 
 ## Values

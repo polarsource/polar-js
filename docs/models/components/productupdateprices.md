@@ -15,8 +15,8 @@ const value: components.ExistingProductPrice = {
 
 ```typescript
 const value: components.ProductPriceRecurringFixedCreate = {
-  priceAmount: 814625,
-  recurringInterval: "year",
+  priceAmount: 54266,
+  recurringInterval: "month",
 };
 ```
 
@@ -32,7 +32,7 @@ const value: components.ProductPriceRecurringFreeCreate = {
 
 ```typescript
 const value: components.ProductPriceOneTimeFixedCreate = {
-  priceAmount: 881543,
+  priceAmount: 228672,
 };
 ```
 

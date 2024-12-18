@@ -8,23 +8,23 @@ A customer in an organization.
 import { Customer } from "@polar-sh/sdk/models/components";
 
 let value: Customer = {
-  createdAt: new Date("2023-09-26T01:20:40.326Z"),
-  modifiedAt: new Date("2023-06-09T00:23:35.182Z"),
+  createdAt: new Date("2024-04-10T18:10:09.907Z"),
+  modifiedAt: new Date("2023-10-01T23:34:17.590Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
-  email: "Skylar31@gmail.com",
+  email: "Lavonne33@yahoo.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Israel",
+    country: "Pakistan",
   },
   taxId: [
-    "kr_brn",
+    "<id>",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://shameful-backburn.name/",
+  avatarUrl: "https://prudent-status.org",
 };
 ```
 
@@ -35,7 +35,7 @@ let value: Customer = {
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Creation timestamp of the object.                                                             |
 | `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the object.                                                                         |
-| `metadata`                                                                                    | Record<string, *components.CustomerMetadata*>                                                 | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `metadata`                                                                                    | Record<string, *components.CustomerMetadata1*>                                                | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `email`                                                                                       | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `emailVerified`                                                                               | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |

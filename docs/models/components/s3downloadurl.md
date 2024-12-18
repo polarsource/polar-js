@@ -6,8 +6,8 @@
 import { S3DownloadURL } from "@polar-sh/sdk/models/components";
 
 let value: S3DownloadURL = {
-  url: "https://pleased-monasticism.net",
-  expiresAt: new Date("2023-11-10T04:02:31.063Z"),
+  url: "https://improbable-t-shirt.name",
+  expiresAt: new Date("2024-09-16T03:39:02.618Z"),
 };
 ```
 

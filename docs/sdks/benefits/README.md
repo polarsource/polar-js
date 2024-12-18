@@ -135,7 +135,6 @@ const polar = new PolarCore({
 async function run() {
   const res = await benefitsCreate(polar, {
     description: "indolent apud formula other",
-    isTaxApplicable: false,
     properties: {},
   });
 
