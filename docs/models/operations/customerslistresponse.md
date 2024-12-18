@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-09-05T13:28:38.697Z"),
-        modifiedAt: new Date("2024-06-30T11:25:29.230Z"),
+        createdAt: new Date("2024-04-19T15:54:08.667Z"),
+        modifiedAt: new Date("2024-07-10T03:29:51.086Z"),
         id: "<value>",
         metadata: {
-          "key": 280175,
+          "key": 927802,
         },
-        email: "Katheryn_Heidenreich8@hotmail.com",
+        email: "Mia68@yahoo.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Pitcairn Islands",
+          country: "Honduras",
         },
         taxId: [
-          "id_npwp",
+          "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://oval-retrospectivity.org",
+        avatarUrl: "https://impolite-hamburger.name/",
       },
     ],
     pagination: {
-      totalCount: 790364,
-      maxPage: 310549,
+      totalCount: 115150,
+      maxPage: 112606,
     },
   },
 };

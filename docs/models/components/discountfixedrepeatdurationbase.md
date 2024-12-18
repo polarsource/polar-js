@@ -6,23 +6,23 @@
 import { DiscountFixedRepeatDurationBase } from "@polar-sh/sdk/models/components";
 
 let value: DiscountFixedRepeatDurationBase = {
-  duration: "repeating",
-  durationInMonths: 719389,
+  duration: "forever",
+  durationInMonths: 66074,
   type: "fixed",
-  amount: 254382,
-  currency: "Ethiopian Birr",
-  createdAt: new Date("2022-05-20T12:20:31.360Z"),
-  modifiedAt: new Date("2023-07-31T06:52:43.326Z"),
+  amount: 438256,
+  currency: "Cuban Peso",
+  createdAt: new Date("2023-04-10T06:02:57.106Z"),
+  modifiedAt: new Date("2023-01-28T02:27:48.178Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2022-12-14T03:17:00.431Z"),
-  endsAt: new Date("2023-11-18T20:53:13.717Z"),
-  maxRedemptions: 727544,
-  redemptionsCount: 24272,
+  startsAt: new Date("2023-04-29T17:54:19.678Z"),
+  endsAt: new Date("2022-10-16T00:41:24.184Z"),
+  maxRedemptions: 522062,
+  redemptionsCount: 35160,
   organizationId: "<value>",
 };
 ```

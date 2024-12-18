@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2022-06-26T10:20:47.612Z"),
-    modifiedAt: new Date("2023-10-21T02:29:41.820Z"),
+    createdAt: new Date("2022-09-02T11:17:12.972Z"),
+    modifiedAt: new Date("2022-05-16T04:57:49.424Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://grizzled-ravioli.info",
-    logoUri: "https://dull-recovery.com/",
-    tosUri: "https://mysterious-doubter.biz/",
-    policyUri: "https://cautious-pupil.name/",
+    clientUri: "https://wry-spirit.info",
+    logoUri: "https://arid-space.info",
+    tosUri: "https://vain-hunger.net/",
+    policyUri: "https://square-vestment.name",
   },
   sub: {
     id: "<value>",
-    email: "Velma94@gmail.com",
-    avatarUrl: "https://slimy-casement.name/",
+    email: "Ladarius28@gmail.com",
+    avatarUrl: "https://speedy-gripper.info/",
   },
   scopes: [
-    "issues:read",
+    "license_keys:write",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2023-07-29T23:36:52.386Z"),
-    modifiedAt: new Date("2024-11-03T14:18:38.128Z"),
+    createdAt: new Date("2023-03-29T06:43:43.157Z"),
+    modifiedAt: new Date("2024-12-12T17:13:53.718Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://monstrous-metal.org/",
-    logoUri: "https://parallel-baseboard.biz",
-    tosUri: "https://merry-word.org/",
-    policyUri: "https://mild-apparatus.org/",
+    clientUri: "https://uncomfortable-dredger.name/",
+    logoUri: "https://athletic-gastropod.biz/",
+    tosUri: "https://excitable-annual.net/",
+    policyUri: "https://decisive-understanding.info/",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://amazing-traffic.info/",
+    avatarUrl: "https://white-cardboard.biz",
   },
   scopes: [
-    "orders:read",
+    "metrics:read",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://square-vestment.name",
+      avatarUrl: "https://infamous-cantaloupe.name",
     },
   ],
 };

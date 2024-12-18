@@ -8,11 +8,11 @@ Schema for a custom field of type checkbox.
 import { CustomFieldCheckbox } from "@polar-sh/sdk/models/components";
 
 let value: CustomFieldCheckbox = {
-  createdAt: new Date("2024-03-04T16:30:19.849Z"),
-  modifiedAt: new Date("2023-03-14T07:57:43.423Z"),
+  createdAt: new Date("2024-08-10T23:01:34.707Z"),
+  modifiedAt: new Date("2023-05-13T18:17:15.678Z"),
   id: "<value>",
   metadata: {
-    "key": false,
+    "key": "<value>",
   },
   slug: "<value>",
   name: "<value>",

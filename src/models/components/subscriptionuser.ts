@@ -13,6 +13,7 @@ export type SubscriptionUser = {
   email: string;
   publicName: string;
   avatarUrl?: string | null | undefined;
+  githubUsername?: string | null | undefined;
 };
 
 /** @internal */
@@ -25,10 +26,12 @@ export const SubscriptionUser$inboundSchema: z.ZodType<
   email: z.string(),
   public_name: z.string(),
   avatar_url: z.nullable(z.string()).optional(),
+  github_username: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "public_name": "publicName",
     "avatar_url": "avatarUrl",
+    "github_username": "githubUsername",
   });
 });
 
@@ -38,6 +41,7 @@ export type SubscriptionUser$Outbound = {
   email: string;
   public_name: string;
   avatar_url?: string | null | undefined;
+  github_username?: string | null | undefined;
 };
 
 /** @internal */
@@ -50,10 +54,12 @@ export const SubscriptionUser$outboundSchema: z.ZodType<
   email: z.string(),
   publicName: z.string(),
   avatarUrl: z.nullable(z.string()).optional(),
+  githubUsername: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     publicName: "public_name",
     avatarUrl: "avatar_url",
+    githubUsername: "github_username",
   });
 });
 

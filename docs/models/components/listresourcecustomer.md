@@ -8,28 +8,28 @@ import { ListResourceCustomer } from "@polar-sh/sdk/models/components";
 let value: ListResourceCustomer = {
   items: [
     {
-      createdAt: new Date("2024-05-28T19:17:18.923Z"),
-      modifiedAt: new Date("2023-08-14T21:39:34.088Z"),
+      createdAt: new Date("2024-06-08T19:16:48.368Z"),
+      modifiedAt: new Date("2023-10-08T06:12:11.011Z"),
       id: "<value>",
       metadata: {
-        "key": false,
+        "key": 497351,
       },
-      email: "Garth.Durgan@yahoo.com",
+      email: "Marshall12@gmail.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Bouvet Island",
+        country: "Ecuador",
       },
       taxId: [
-        "ng_tin",
+        "kr_brn",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://naughty-citizen.name/",
+      avatarUrl: "https://joyful-skyscraper.org/",
     },
   ],
   pagination: {
-    totalCount: 771253,
-    maxPage: 413054,
+    totalCount: 18165,
+    maxPage: 146654,
   },
 };
 ```

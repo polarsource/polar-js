@@ -8,15 +8,15 @@ A pay-what-you-want price for a one-time product.
 import { ProductPriceOneTimeCustom } from "@polar-sh/sdk/models/components";
 
 let value: ProductPriceOneTimeCustom = {
-  createdAt: new Date("2024-10-10T18:19:46.748Z"),
-  modifiedAt: new Date("2022-02-20T10:10:34.700Z"),
+  createdAt: new Date("2022-03-19T16:09:31.123Z"),
+  modifiedAt: new Date("2022-11-17T21:39:15.131Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
   priceCurrency: "<value>",
-  minimumAmount: 232627,
-  maximumAmount: 348519,
-  presetAmount: 814967,
+  minimumAmount: 152354,
+  maximumAmount: 417486,
+  presetAmount: 131289,
 };
 ```
 

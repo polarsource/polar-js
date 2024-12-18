@@ -35,6 +35,8 @@ export type CheckoutPriceCreatePaymentProcessor = ClosedEnum<
   typeof CheckoutPriceCreatePaymentProcessor
 >;
 
+export type CheckoutPriceCreateCustomerMetadata = string | number | boolean;
+
 /**
  * Create a new checkout session from a product price.
  *
@@ -85,6 +87,21 @@ export type CheckoutPriceCreate = {
   customerIpAddress?: string | null | undefined;
   customerBillingAddress?: Address | null | undefined;
   customerTaxId?: string | null | undefined;
+  /**
+   * Key-value object allowing you to store additional information that'll be copied to the created customer.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  customerMetadata?: { [k: string]: string | number | boolean } | undefined;
   /**
    * ID of a subscription to upgrade. It must be on a free pricing. If checkout is successful, metadata set on this checkout will be copied to the subscription, and existing keys will be overwritten.
    */
@@ -229,6 +246,62 @@ export namespace CheckoutPriceCreatePaymentProcessor$ {
 }
 
 /** @internal */
+export const CheckoutPriceCreateCustomerMetadata$inboundSchema: z.ZodType<
+  CheckoutPriceCreateCustomerMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CheckoutPriceCreateCustomerMetadata$Outbound =
+  | string
+  | number
+  | boolean;
+
+/** @internal */
+export const CheckoutPriceCreateCustomerMetadata$outboundSchema: z.ZodType<
+  CheckoutPriceCreateCustomerMetadata$Outbound,
+  z.ZodTypeDef,
+  CheckoutPriceCreateCustomerMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutPriceCreateCustomerMetadata$ {
+  /** @deprecated use `CheckoutPriceCreateCustomerMetadata$inboundSchema` instead. */
+  export const inboundSchema =
+    CheckoutPriceCreateCustomerMetadata$inboundSchema;
+  /** @deprecated use `CheckoutPriceCreateCustomerMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    CheckoutPriceCreateCustomerMetadata$outboundSchema;
+  /** @deprecated use `CheckoutPriceCreateCustomerMetadata$Outbound` instead. */
+  export type Outbound = CheckoutPriceCreateCustomerMetadata$Outbound;
+}
+
+export function checkoutPriceCreateCustomerMetadataToJSON(
+  checkoutPriceCreateCustomerMetadata: CheckoutPriceCreateCustomerMetadata,
+): string {
+  return JSON.stringify(
+    CheckoutPriceCreateCustomerMetadata$outboundSchema.parse(
+      checkoutPriceCreateCustomerMetadata,
+    ),
+  );
+}
+
+export function checkoutPriceCreateCustomerMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutPriceCreateCustomerMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutPriceCreateCustomerMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutPriceCreateCustomerMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const CheckoutPriceCreate$inboundSchema: z.ZodType<
   CheckoutPriceCreate,
   z.ZodTypeDef,
@@ -249,6 +322,9 @@ export const CheckoutPriceCreate$inboundSchema: z.ZodType<
   customer_ip_address: z.nullable(z.string()).optional(),
   customer_billing_address: z.nullable(Address$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
+  customer_metadata: z.record(
+    z.union([z.string(), z.number().int(), z.boolean()]),
+  ).optional(),
   subscription_id: z.nullable(z.string()).optional(),
   success_url: z.nullable(z.string()).optional(),
   embed_origin: z.nullable(z.string()).optional(),
@@ -265,6 +341,7 @@ export const CheckoutPriceCreate$inboundSchema: z.ZodType<
     "customer_ip_address": "customerIpAddress",
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
+    "customer_metadata": "customerMetadata",
     "subscription_id": "subscriptionId",
     "success_url": "successUrl",
     "embed_origin": "embedOrigin",
@@ -286,6 +363,7 @@ export type CheckoutPriceCreate$Outbound = {
   customer_ip_address?: string | null | undefined;
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
+  customer_metadata?: { [k: string]: string | number | boolean } | undefined;
   subscription_id?: string | null | undefined;
   success_url?: string | null | undefined;
   embed_origin?: string | null | undefined;
@@ -313,6 +391,9 @@ export const CheckoutPriceCreate$outboundSchema: z.ZodType<
   customerIpAddress: z.nullable(z.string()).optional(),
   customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
+  customerMetadata: z.record(
+    z.union([z.string(), z.number().int(), z.boolean()]),
+  ).optional(),
   subscriptionId: z.nullable(z.string()).optional(),
   successUrl: z.nullable(z.string()).optional(),
   embedOrigin: z.nullable(z.string()).optional(),
@@ -329,6 +410,7 @@ export const CheckoutPriceCreate$outboundSchema: z.ZodType<
     customerIpAddress: "customer_ip_address",
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
+    customerMetadata: "customer_metadata",
     subscriptionId: "subscription_id",
     successUrl: "success_url",
     embedOrigin: "embed_origin",

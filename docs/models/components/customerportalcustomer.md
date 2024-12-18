@@ -6,17 +6,17 @@
 import { CustomerPortalCustomer } from "@polar-sh/sdk/models/components";
 
 let value: CustomerPortalCustomer = {
-  createdAt: new Date("2023-03-02T23:36:47.520Z"),
-  modifiedAt: new Date("2022-02-04T11:44:37.776Z"),
+  createdAt: new Date("2024-07-02T23:26:34.630Z"),
+  modifiedAt: new Date("2023-08-26T16:42:10.981Z"),
   id: "<value>",
-  email: "David44@yahoo.com",
+  email: "Heather2@yahoo.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Kiribati",
+    country: "Benin",
   },
   taxId: [
-    "ge_vat",
+    "<id>",
   ],
   oauthAccounts: {
     "key": {

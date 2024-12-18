@@ -6,15 +6,15 @@
 import { Reactions } from "@polar-sh/sdk/models/components";
 
 let value: Reactions = {
-  totalCount: 600933,
-  plusOne: 315990,
-  minusOne: 768736,
-  laugh: 90670,
-  hooray: 324786,
-  confused: 669193,
-  heart: 602932,
-  rocket: 119515,
-  eyes: 439473,
+  totalCount: 53216,
+  plusOne: 379068,
+  minusOne: 114151,
+  laugh: 561813,
+  hooray: 641594,
+  confused: 987092,
+  heart: 195138,
+  rocket: 207202,
+  eyes: 947420,
 };
 ```
 

@@ -7,7 +7,7 @@ import { SubscriptionUser } from "@polar-sh/sdk/models/components";
 
 let value: SubscriptionUser = {
   id: "<value>",
-  email: "Lonny_McDermott-Wisoky@yahoo.com",
+  email: "Ettie_Zboncak73@gmail.com",
   publicName: "<value>",
 };
 ```
@@ -20,3 +20,4 @@ let value: SubscriptionUser = {
 | `email`            | *string*           | :heavy_check_mark: | N/A                |
 | `publicName`       | *string*           | :heavy_check_mark: | N/A                |
 | `avatarUrl`        | *string*           | :heavy_minus_sign: | N/A                |
+| `githubUsername`   | *string*           | :heavy_minus_sign: | N/A                |

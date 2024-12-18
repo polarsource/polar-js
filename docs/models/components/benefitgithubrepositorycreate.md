@@ -6,7 +6,7 @@
 import { BenefitGitHubRepositoryCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGitHubRepositoryCreate = {
-  description: "mmm madly acceptable impassioned pine once till how gadzooks",
+  description: "oxidise hmph account spook meager",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",

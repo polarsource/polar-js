@@ -18,6 +18,8 @@ export type CustomFieldData = {};
 
 export type CheckoutUpdateMetadata = string | number | boolean;
 
+export type CheckoutUpdateCustomerMetadata = string | number | boolean;
+
 /**
  * Update an existing checkout session using an access token.
  */
@@ -35,8 +37,18 @@ export type CheckoutUpdate = {
   customerEmail?: string | null | undefined;
   customerBillingAddress?: Address | null | undefined;
   customerTaxId?: string | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | null | undefined;
   /**
-   * Key-value object allowing you to store additional information.
+   * ID of the discount to apply to the checkout.
+   */
+  discountId?: string | null | undefined;
+  /**
+   * Whether to allow the customer to apply discount codes. If you apply a discount through `discount_id`, it'll still be applied, but the customer won't be able to change it.
+   */
+  allowDiscountCodes?: boolean | null | undefined;
+  customerIpAddress?: string | null | undefined;
+  /**
+   * Key-value object allowing you to store additional information that'll be copied to the created customer.
    *
    * @remarks
    *
@@ -49,16 +61,10 @@ export type CheckoutUpdate = {
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
-  /**
-   * ID of the discount to apply to the checkout.
-   */
-  discountId?: string | null | undefined;
-  /**
-   * Whether to allow the customer to apply discount codes. If you apply a discount through `discount_id`, it'll still be applied, but the customer won't be able to change it.
-   */
-  allowDiscountCodes?: boolean | null | undefined;
-  customerIpAddress?: string | null | undefined;
+  customerMetadata?:
+    | { [k: string]: string | number | boolean }
+    | null
+    | undefined;
   /**
    * URL where the customer will be redirected after a successful payment.You can add the `checkout_id={CHECKOUT_ID}` query parameter to retrieve the checkout session id.
    */
@@ -164,6 +170,56 @@ export function checkoutUpdateMetadataFromJSON(
 }
 
 /** @internal */
+export const CheckoutUpdateCustomerMetadata$inboundSchema: z.ZodType<
+  CheckoutUpdateCustomerMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CheckoutUpdateCustomerMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CheckoutUpdateCustomerMetadata$outboundSchema: z.ZodType<
+  CheckoutUpdateCustomerMetadata$Outbound,
+  z.ZodTypeDef,
+  CheckoutUpdateCustomerMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutUpdateCustomerMetadata$ {
+  /** @deprecated use `CheckoutUpdateCustomerMetadata$inboundSchema` instead. */
+  export const inboundSchema = CheckoutUpdateCustomerMetadata$inboundSchema;
+  /** @deprecated use `CheckoutUpdateCustomerMetadata$outboundSchema` instead. */
+  export const outboundSchema = CheckoutUpdateCustomerMetadata$outboundSchema;
+  /** @deprecated use `CheckoutUpdateCustomerMetadata$Outbound` instead. */
+  export type Outbound = CheckoutUpdateCustomerMetadata$Outbound;
+}
+
+export function checkoutUpdateCustomerMetadataToJSON(
+  checkoutUpdateCustomerMetadata: CheckoutUpdateCustomerMetadata,
+): string {
+  return JSON.stringify(
+    CheckoutUpdateCustomerMetadata$outboundSchema.parse(
+      checkoutUpdateCustomerMetadata,
+    ),
+  );
+}
+
+export function checkoutUpdateCustomerMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutUpdateCustomerMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutUpdateCustomerMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutUpdateCustomerMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const CheckoutUpdate$inboundSchema: z.ZodType<
   CheckoutUpdate,
   z.ZodTypeDef,
@@ -183,6 +239,9 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   discount_id: z.nullable(z.string()).optional(),
   allow_discount_codes: z.nullable(z.boolean()).optional(),
   customer_ip_address: z.nullable(z.string()).optional(),
+  customer_metadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   success_url: z.nullable(z.string()).optional(),
   embed_origin: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -196,6 +255,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
     "discount_id": "discountId",
     "allow_discount_codes": "allowDiscountCodes",
     "customer_ip_address": "customerIpAddress",
+    "customer_metadata": "customerMetadata",
     "success_url": "successUrl",
     "embed_origin": "embedOrigin",
   });
@@ -214,6 +274,10 @@ export type CheckoutUpdate$Outbound = {
   discount_id?: string | null | undefined;
   allow_discount_codes?: boolean | null | undefined;
   customer_ip_address?: string | null | undefined;
+  customer_metadata?:
+    | { [k: string]: string | number | boolean }
+    | null
+    | undefined;
   success_url?: string | null | undefined;
   embed_origin?: string | null | undefined;
 };
@@ -238,6 +302,9 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   discountId: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.nullable(z.boolean()).optional(),
   customerIpAddress: z.nullable(z.string()).optional(),
+  customerMetadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   successUrl: z.nullable(z.string()).optional(),
   embedOrigin: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -251,6 +318,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
     discountId: "discount_id",
     allowDiscountCodes: "allow_discount_codes",
     customerIpAddress: "customer_ip_address",
+    customerMetadata: "customer_metadata",
     successUrl: "success_url",
     embedOrigin: "embed_origin",
   });

@@ -5,7 +5,7 @@
 ```typescript
 import { OrderBillingReason } from "@polar-sh/sdk/models/components";
 
-let value: OrderBillingReason = "subscription_update";
+let value: OrderBillingReason = "subscription_create";
 ```
 
 ## Values

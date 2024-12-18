@@ -6,23 +6,23 @@
 import { LicenseKeyCustomer } from "@polar-sh/sdk/models/components";
 
 let value: LicenseKeyCustomer = {
-  createdAt: new Date("2023-05-23T15:50:26.850Z"),
-  modifiedAt: new Date("2023-11-05T14:16:30.505Z"),
+  createdAt: new Date("2022-04-16T13:09:43.732Z"),
+  modifiedAt: new Date("2023-09-18T23:44:01.372Z"),
   id: "<value>",
   metadata: {
-    "key": 785089,
+    "key": "<value>",
   },
-  email: "Earl17@gmail.com",
+  email: "Ahmad66@yahoo.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Malawi",
+    country: "Syrian Arab Republic",
   },
   taxId: [
-    "sa_vat",
+    "<id>",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://genuine-lid.com",
+  avatarUrl: "https://unlawful-rationale.org/",
 };
 ```
 

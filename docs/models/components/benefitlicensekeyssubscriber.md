@@ -6,44 +6,43 @@
 import { BenefitLicenseKeysSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitLicenseKeysSubscriber = {
-  createdAt: new Date("2022-01-18T02:38:56.289Z"),
-  modifiedAt: new Date("2024-11-10T16:10:27.514Z"),
+  createdAt: new Date("2024-11-23T05:57:14.612Z"),
+  modifiedAt: new Date("2022-07-18T04:17:29.241Z"),
   id: "<value>",
-  description:
-    "yowza consequently collaborate oof successfully maestro finally",
+  description: "pish suddenly drat outfit splosh phew",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2022-11-08T04:29:28.682Z"),
-    modifiedAt: new Date("2023-02-08T13:32:10.149Z"),
+    createdAt: new Date("2024-09-13T17:33:20.087Z"),
+    modifiedAt: new Date("2022-10-05T01:05:42.886Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://grounded-fax.info",
+    avatarUrl: "https://soft-ravioli.net/",
     bio: "<value>",
-    company: "Aufderhar Inc",
+    company: "Baumbach, Lind and Schamberger",
     blog: "<value>",
     location: "<value>",
-    email: "Darron_Marks77@yahoo.com",
+    email: "Katrine_Altenwerth21@yahoo.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 128723,
+    pledgeMinimumAmount: 633439,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 1297,
+    defaultUpfrontSplitToContributors: 560174,
     profileSettings: {},
     featureSettings: {},
   },
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 398619,
+      ttl: 127759,
       timeframe: "day",
     },
     activations: {
-      limit: 161393,
+      limit: 391495,
       enableCustomerAdmin: false,
     },
-    limitUsage: 286719,
+    limitUsage: 265994,
   },
 };
 ```

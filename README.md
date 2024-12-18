@@ -267,6 +267,10 @@ async function run() {
           required: true,
         },
       ],
+      customerMetadata: {
+        "key": "<value>",
+        "key1": "<value>",
+      },
     },
   });
 
