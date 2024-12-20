@@ -20,5 +20,7 @@ targets:
                 token: $npm_token
         codeSamples:
             output: codeSamples.yaml
+            labelOverride:
+                fixedValue: Typescript (SDK)
             registry:
-                location: registry.speakeasyapi.dev/polar/polar/polar-oas-code-samples
+                location: registry.speakeasyapi.dev/polar/polar/polar-oas-code-samples-ts
