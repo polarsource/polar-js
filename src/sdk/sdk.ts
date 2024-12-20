@@ -9,6 +9,7 @@ import { CheckoutLinks } from "./checkoutlinks.js";
 import { Checkouts } from "./checkouts.js";
 import { CustomerPortal } from "./customerportal.js";
 import { Customers } from "./customers.js";
+import { CustomerSessions } from "./customersessions.js";
 import { CustomFields } from "./customfields.js";
 import { Discounts } from "./discounts.js";
 import { ExternalOrganizations } from "./externalorganizations.js";
@@ -113,5 +114,10 @@ export class Polar extends ClientSDK {
   private _customerPortal?: CustomerPortal;
   get customerPortal(): CustomerPortal {
     return (this._customerPortal ??= new CustomerPortal(this._options));
+  }
+
+  private _customerSessions?: CustomerSessions;
+  get customerSessions(): CustomerSessions {
+    return (this._customerSessions ??= new CustomerSessions(this._options));
   }
 }

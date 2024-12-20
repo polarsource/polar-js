@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2022-09-02T11:17:12.972Z"),
-    modifiedAt: new Date("2022-05-16T04:57:49.424Z"),
+    createdAt: new Date("2022-02-07T17:42:25.899Z"),
+    modifiedAt: new Date("2023-06-16T23:24:38.141Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://wry-spirit.info",
-    logoUri: "https://arid-space.info",
-    tosUri: "https://vain-hunger.net/",
-    policyUri: "https://square-vestment.name",
+    clientUri: "https://prickly-yak.com",
+    logoUri: "https://gleaming-account.name/",
+    tosUri: "https://infinite-heating.org",
+    policyUri: "https://fatherly-fat.biz",
   },
   sub: {
     id: "<value>",
-    email: "Ladarius28@gmail.com",
-    avatarUrl: "https://speedy-gripper.info/",
+    email: "Marcia_Gibson86@gmail.com",
+    avatarUrl: "https://flawed-tusk.com/",
   },
   scopes: [
-    "license_keys:write",
+    "admin",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2023-03-29T06:43:43.157Z"),
-    modifiedAt: new Date("2024-12-12T17:13:53.718Z"),
+    createdAt: new Date("2022-07-10T09:38:33.519Z"),
+    modifiedAt: new Date("2024-02-14T02:44:27.976Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://uncomfortable-dredger.name/",
-    logoUri: "https://athletic-gastropod.biz/",
-    tosUri: "https://excitable-annual.net/",
-    policyUri: "https://decisive-understanding.info/",
+    clientUri: "https://oval-bonfire.info",
+    logoUri: "https://delectable-encouragement.net",
+    tosUri: "https://shadowy-season.net/",
+    policyUri: "https://humiliating-octave.biz",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://white-cardboard.biz",
+    avatarUrl: "https://suburban-skeleton.info/",
   },
   scopes: [
-    "metrics:read",
+    "benefits:read",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://infamous-cantaloupe.name",
+      avatarUrl: "https://kooky-deduction.biz/",
     },
   ],
 };

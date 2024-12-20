@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-04-19T15:54:08.667Z"),
-        modifiedAt: new Date("2024-07-10T03:29:51.086Z"),
+        createdAt: new Date("2024-12-25T02:20:19.631Z"),
+        modifiedAt: new Date("2022-10-10T12:16:52.345Z"),
         id: "<value>",
         metadata: {
-          "key": 927802,
+          "key": 359870,
         },
-        email: "Mia68@yahoo.com",
+        email: "Dewayne28@yahoo.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Honduras",
+          country: "Mali",
         },
         taxId: [
           "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://impolite-hamburger.name/",
+        avatarUrl: "https://massive-bonfire.com/",
       },
     ],
     pagination: {
-      totalCount: 115150,
-      maxPage: 112606,
+      totalCount: 710705,
+      maxPage: 742004,
     },
   },
 };

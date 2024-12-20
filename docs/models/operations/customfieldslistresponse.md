@@ -9,21 +9,28 @@ let value: CustomFieldsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-12-24T05:36:28.539Z"),
-        modifiedAt: new Date("2023-08-22T02:59:30.434Z"),
+        createdAt: new Date("2024-03-02T22:52:48.220Z"),
+        modifiedAt: new Date("2023-04-04T12:26:13.360Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": 465652,
         },
         slug: "<value>",
         name: "<value>",
         organizationId: "<value>",
-        properties: {},
+        properties: {
+          options: [
+            {
+              value: "<value>",
+              label: "<value>",
+            },
+          ],
+        },
       },
     ],
     pagination: {
-      totalCount: 642514,
-      maxPage: 729191,
+      totalCount: 765596,
+      maxPage: 494410,
     },
   },
 };

@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://svelte-amendment.info",
+          "https://quarrelsome-spirit.name",
         ],
         clientName: "<value>",
-        createdAt: new Date("2024-04-04T07:16:34.900Z"),
-        modifiedAt: new Date("2023-11-26T22:09:52.331Z"),
+        createdAt: new Date("2023-12-11T12:44:47.120Z"),
+        modifiedAt: new Date("2024-12-06T12:57:36.581Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 993026,
-        clientSecretExpiresAt: 57238,
+        clientIdIssuedAt: 720296,
+        clientSecretExpiresAt: 78474,
       },
     ],
     pagination: {
-      totalCount: 161742,
-      maxPage: 319680,
+      totalCount: 716805,
+      maxPage: 973876,
     },
   },
 };
