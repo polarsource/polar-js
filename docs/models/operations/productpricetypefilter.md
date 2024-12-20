@@ -8,14 +8,14 @@ Filter by product price type. `recurring` will return orders corresponding to su
 ### `components.ProductPriceType`
 
 ```typescript
-const value: components.ProductPriceType = "recurring";
+const value: components.ProductPriceType = "one_time";
 ```
 
 ### `components.ProductPriceType[]`
 
 ```typescript
 const value: components.ProductPriceType[] = [
-  "recurring",
+  "one_time",
 ];
 ```
 

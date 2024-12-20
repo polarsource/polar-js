@@ -403,6 +403,10 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [update](docs/sdks/customers/README.md#update) - Update Customer
 * [delete](docs/sdks/customers/README.md#delete) - Delete Customer
 
+### [customerSessions](docs/sdks/customersessions/README.md)
+
+* [create](docs/sdks/customersessions/README.md#create) - Create Customer Session
+
 ### [customFields](docs/sdks/customfields/README.md)
 
 * [list](docs/sdks/customfields/README.md#list) - List Custom Fields
@@ -551,6 +555,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerPortalSubscriptionsUpdate`](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
 - [`customersCreate`](docs/sdks/customers/README.md#create) - Create Customer
 - [`customersDelete`](docs/sdks/customers/README.md#delete) - Delete Customer
+- [`customerSessionsCreate`](docs/sdks/customersessions/README.md#create) - Create Customer Session
 - [`customersGet`](docs/sdks/customers/README.md#get) - Get Customer
 - [`customersList`](docs/sdks/customers/README.md#list) - List Customers
 - [`customersUpdate`](docs/sdks/customers/README.md#update) - Update Customer

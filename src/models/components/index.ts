@@ -120,6 +120,8 @@ export * from "./customerordersortproperty.js";
 export * from "./customerordersubscription.js";
 export * from "./customerportalcustomer.js";
 export * from "./customerportaloauthaccount.js";
+export * from "./customersession.js";
+export * from "./customersessioncreate.js";
 export * from "./customersortproperty.js";
 export * from "./customersubscription.js";
 export * from "./customersubscriptionproduct.js";

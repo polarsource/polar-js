@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-12-06T11:25:38.185Z"),
-        modifiedAt: new Date("2024-10-29T13:21:33.515Z"),
+        createdAt: new Date("2023-09-10T00:03:37.019Z"),
+        modifiedAt: new Date("2024-11-20T14:19:41.572Z"),
         id: "<value>",
-        imageUrl: "https://fussy-responsibility.com",
-        imageUrlDark: "https://untrue-lieu.org",
+        imageUrl: "https://dense-programme.name/",
+        imageUrlDark: "https://chubby-monasticism.info/",
         text: "<value>",
-        linkUrl: "https://monstrous-metal.org/",
+        linkUrl: "https://frivolous-gym.biz",
       },
     ],
     pagination: {
-      totalCount: 707682,
-      maxPage: 594815,
+      totalCount: 200932,
+      maxPage: 508014,
     },
     dimensions: [
-      65709,
+      829139,
     ],
   },
 };

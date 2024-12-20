@@ -267,6 +267,12 @@ actions:
         - "lang": "typescript"
           "label": "update"
           "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerPortal.subscriptions.update({\n    id: \"<value>\",\n    customerSubscriptionUpdate: {\n      productPriceId: \"<value>\",\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/customer-sessions/"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "create"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerSessions.create({\n    customerId: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/customers/"]["get"]
     update:
       "x-codeSamples":

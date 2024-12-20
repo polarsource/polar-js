@@ -9,23 +9,23 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "56f8cc61-1fd5-4dee-ae2c-0c9b8900c4cb",
+        id: "9b8900c4-cb91-416e-b36a-70be99dd26db",
         name: "<value>",
-        avatarUrl: "https://biodegradable-godparent.org/",
+        avatarUrl: "https://joyful-procurement.net/",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Jones - Nitzsche",
+        company: "Rath - Murazik",
         blog: "<value>",
         location: "<value>",
-        email: "Albina58@yahoo.com",
+        email: "Elliot43@yahoo.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 832839,
-      maxPage: 186756,
+      totalCount: 145482,
+      maxPage: 479962,
     },
   },
 };
