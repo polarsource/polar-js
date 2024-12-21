@@ -5,43 +5,12 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const CustomerBenefitGrantLicenseKeysUpdateBenefitType = {
-  LicenseKeys: "license_keys",
-} as const;
-export type CustomerBenefitGrantLicenseKeysUpdateBenefitType = ClosedEnum<
-  typeof CustomerBenefitGrantLicenseKeysUpdateBenefitType
->;
 
 export type CustomerBenefitGrantLicenseKeysUpdate = {
   benefitType?: "license_keys" | undefined;
 };
-
-/** @internal */
-export const CustomerBenefitGrantLicenseKeysUpdateBenefitType$inboundSchema:
-  z.ZodNativeEnum<typeof CustomerBenefitGrantLicenseKeysUpdateBenefitType> = z
-    .nativeEnum(CustomerBenefitGrantLicenseKeysUpdateBenefitType);
-
-/** @internal */
-export const CustomerBenefitGrantLicenseKeysUpdateBenefitType$outboundSchema:
-  z.ZodNativeEnum<typeof CustomerBenefitGrantLicenseKeysUpdateBenefitType> =
-    CustomerBenefitGrantLicenseKeysUpdateBenefitType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantLicenseKeysUpdateBenefitType$ {
-  /** @deprecated use `CustomerBenefitGrantLicenseKeysUpdateBenefitType$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerBenefitGrantLicenseKeysUpdateBenefitType$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantLicenseKeysUpdateBenefitType$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantLicenseKeysUpdateBenefitType$outboundSchema;
-}
 
 /** @internal */
 export const CustomerBenefitGrantLicenseKeysUpdate$inboundSchema: z.ZodType<
@@ -67,7 +36,7 @@ export const CustomerBenefitGrantLicenseKeysUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerBenefitGrantLicenseKeysUpdate
 > = z.object({
-  benefitType: z.literal("license_keys").default("license_keys"),
+  benefitType: z.literal("license_keys").default("license_keys" as const),
 }).transform((v) => {
   return remap$(v, {
     benefitType: "benefit_type",

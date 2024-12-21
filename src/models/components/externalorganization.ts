@@ -7,10 +7,15 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  Platforms,
+  Platforms$inboundSchema,
+  Platforms$outboundSchema,
+} from "./platforms.js";
 
 export type ExternalOrganization = {
   id: string;
-  platform?: "github" | undefined;
+  platform: Platforms;
   name: string;
   avatarUrl: string;
   isPersonal: boolean;
@@ -31,7 +36,7 @@ export const ExternalOrganization$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  platform: z.literal("github").optional(),
+  platform: Platforms$inboundSchema,
   name: z.string(),
   avatar_url: z.string(),
   is_personal: z.boolean(),
@@ -56,7 +61,7 @@ export const ExternalOrganization$inboundSchema: z.ZodType<
 /** @internal */
 export type ExternalOrganization$Outbound = {
   id: string;
-  platform: "github";
+  platform: string;
   name: string;
   avatar_url: string;
   is_personal: boolean;
@@ -77,7 +82,7 @@ export const ExternalOrganization$outboundSchema: z.ZodType<
   ExternalOrganization
 > = z.object({
   id: z.string(),
-  platform: z.literal("github").default("github"),
+  platform: Platforms$outboundSchema,
   name: z.string(),
   avatarUrl: z.string(),
   isPersonal: z.boolean(),

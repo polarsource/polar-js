@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://quarrelsome-spirit.name",
+          "https://ajar-venom.info",
         ],
         clientName: "<value>",
-        createdAt: new Date("2023-12-11T12:44:47.120Z"),
-        modifiedAt: new Date("2024-12-06T12:57:36.581Z"),
+        createdAt: new Date("2022-11-08T16:45:59.461Z"),
+        modifiedAt: new Date("2023-06-21T14:53:55.894Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 720296,
-        clientSecretExpiresAt: 78474,
+        clientIdIssuedAt: 940297,
+        clientSecretExpiresAt: 918904,
       },
     ],
     pagination: {
-      totalCount: 716805,
-      maxPage: 973876,
+      totalCount: 817719,
+      maxPage: 223258,
     },
   },
 };

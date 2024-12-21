@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -22,40 +21,12 @@ import {
 } from "./oauth2clientpublic.js";
 import { Scope, Scope$inboundSchema, Scope$outboundSchema } from "./scope.js";
 
-export const AuthorizeResponseUserSubType = {
-  User: "user",
-} as const;
-export type AuthorizeResponseUserSubType = ClosedEnum<
-  typeof AuthorizeResponseUserSubType
->;
-
 export type AuthorizeResponseUser = {
   client: OAuth2ClientPublic;
   subType?: "user" | undefined;
   sub: AuthorizeUser | null;
   scopes: Array<Scope>;
 };
-
-/** @internal */
-export const AuthorizeResponseUserSubType$inboundSchema: z.ZodNativeEnum<
-  typeof AuthorizeResponseUserSubType
-> = z.nativeEnum(AuthorizeResponseUserSubType);
-
-/** @internal */
-export const AuthorizeResponseUserSubType$outboundSchema: z.ZodNativeEnum<
-  typeof AuthorizeResponseUserSubType
-> = AuthorizeResponseUserSubType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizeResponseUserSubType$ {
-  /** @deprecated use `AuthorizeResponseUserSubType$inboundSchema` instead. */
-  export const inboundSchema = AuthorizeResponseUserSubType$inboundSchema;
-  /** @deprecated use `AuthorizeResponseUserSubType$outboundSchema` instead. */
-  export const outboundSchema = AuthorizeResponseUserSubType$outboundSchema;
-}
 
 /** @internal */
 export const AuthorizeResponseUser$inboundSchema: z.ZodType<
@@ -88,7 +59,7 @@ export const AuthorizeResponseUser$outboundSchema: z.ZodType<
   AuthorizeResponseUser
 > = z.object({
   client: OAuth2ClientPublic$outboundSchema,
-  subType: z.literal("user").default("user"),
+  subType: z.literal("user").default("user" as const),
   sub: z.nullable(AuthorizeUser$outboundSchema),
   scopes: z.array(Scope$outboundSchema),
 }).transform((v) => {

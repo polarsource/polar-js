@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-12-25T02:20:19.631Z"),
-        modifiedAt: new Date("2022-10-10T12:16:52.345Z"),
+        createdAt: new Date("2024-11-02T16:11:07.950Z"),
+        modifiedAt: new Date("2023-09-17T16:26:01.820Z"),
         id: "<value>",
         metadata: {
-          "key": 359870,
+          "key": "<value>",
         },
-        email: "Dewayne28@yahoo.com",
+        email: "Tamia8@hotmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Mali",
+          country: "Qatar",
         },
         taxId: [
-          "<id>",
+          "ro_tin",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://massive-bonfire.com/",
+        avatarUrl: "https://cheerful-flame.net",
       },
     ],
     pagination: {
-      totalCount: 710705,
-      maxPage: 742004,
+      totalCount: 734276,
+      maxPage: 766757,
     },
   },
 };

@@ -6,7 +6,7 @@
 import { CustomerCreate } from "@polar-sh/sdk/models/components";
 
 let value: CustomerCreate = {
-  email: "Caleb.Larson71@gmail.com",
+  email: "Tierra61@gmail.com",
 };
 ```
 

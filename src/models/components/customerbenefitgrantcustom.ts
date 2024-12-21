@@ -19,6 +19,12 @@ import {
   BenefitGrantCustomProperties$Outbound,
   BenefitGrantCustomProperties$outboundSchema,
 } from "./benefitgrantcustomproperties.js";
+import {
+  CustomerPortalCustomer,
+  CustomerPortalCustomer$inboundSchema,
+  CustomerPortalCustomer$Outbound,
+  CustomerPortalCustomer$outboundSchema,
+} from "./customerportalcustomer.js";
 
 export type CustomerBenefitGrantCustom = {
   /**
@@ -41,6 +47,7 @@ export type CustomerBenefitGrantCustom = {
   orderId: string | null;
   isGranted: boolean;
   isRevoked: boolean;
+  customer: CustomerPortalCustomer;
   benefit: BenefitCustomSubscriber;
   properties: BenefitGrantCustomProperties;
 };
@@ -68,6 +75,7 @@ export const CustomerBenefitGrantCustom$inboundSchema: z.ZodType<
   order_id: z.nullable(z.string()),
   is_granted: z.boolean(),
   is_revoked: z.boolean(),
+  customer: CustomerPortalCustomer$inboundSchema,
   benefit: BenefitCustomSubscriber$inboundSchema,
   properties: BenefitGrantCustomProperties$inboundSchema,
 }).transform((v) => {
@@ -98,6 +106,7 @@ export type CustomerBenefitGrantCustom$Outbound = {
   order_id: string | null;
   is_granted: boolean;
   is_revoked: boolean;
+  customer: CustomerPortalCustomer$Outbound;
   benefit: BenefitCustomSubscriber$Outbound;
   properties: BenefitGrantCustomProperties$Outbound;
 };
@@ -119,6 +128,7 @@ export const CustomerBenefitGrantCustom$outboundSchema: z.ZodType<
   orderId: z.nullable(z.string()),
   isGranted: z.boolean(),
   isRevoked: z.boolean(),
+  customer: CustomerPortalCustomer$outboundSchema,
   benefit: BenefitCustomSubscriber$outboundSchema,
   properties: BenefitGrantCustomProperties$outboundSchema,
 }).transform((v) => {

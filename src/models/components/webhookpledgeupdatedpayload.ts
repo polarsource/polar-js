@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Pledge$Outbound,
   Pledge$outboundSchema,
 } from "./pledge.js";
-
-export const WebhookPledgeUpdatedPayloadType = {
-  PledgeUpdated: "pledge.updated",
-} as const;
-export type WebhookPledgeUpdatedPayloadType = ClosedEnum<
-  typeof WebhookPledgeUpdatedPayloadType
->;
 
 /**
  * Sent when a pledge is updated.
@@ -32,27 +24,6 @@ export type WebhookPledgeUpdatedPayload = {
   type?: "pledge.updated" | undefined;
   data: Pledge;
 };
-
-/** @internal */
-export const WebhookPledgeUpdatedPayloadType$inboundSchema: z.ZodNativeEnum<
-  typeof WebhookPledgeUpdatedPayloadType
-> = z.nativeEnum(WebhookPledgeUpdatedPayloadType);
-
-/** @internal */
-export const WebhookPledgeUpdatedPayloadType$outboundSchema: z.ZodNativeEnum<
-  typeof WebhookPledgeUpdatedPayloadType
-> = WebhookPledgeUpdatedPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookPledgeUpdatedPayloadType$ {
-  /** @deprecated use `WebhookPledgeUpdatedPayloadType$inboundSchema` instead. */
-  export const inboundSchema = WebhookPledgeUpdatedPayloadType$inboundSchema;
-  /** @deprecated use `WebhookPledgeUpdatedPayloadType$outboundSchema` instead. */
-  export const outboundSchema = WebhookPledgeUpdatedPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookPledgeUpdatedPayload$inboundSchema: z.ZodType<
@@ -76,7 +47,7 @@ export const WebhookPledgeUpdatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookPledgeUpdatedPayload
 > = z.object({
-  type: z.literal("pledge.updated").default("pledge.updated"),
+  type: z.literal("pledge.updated").default("pledge.updated" as const),
   data: Pledge$outboundSchema,
 });
 

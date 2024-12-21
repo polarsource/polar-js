@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Subscription$Outbound,
   Subscription$outboundSchema,
 } from "./subscription.js";
-
-export const WebhookSubscriptionActivePayloadType = {
-  SubscriptionActive: "subscription.active",
-} as const;
-export type WebhookSubscriptionActivePayloadType = ClosedEnum<
-  typeof WebhookSubscriptionActivePayloadType
->;
 
 /**
  * Sent when a subscription becomes active,
@@ -33,30 +25,6 @@ export type WebhookSubscriptionActivePayload = {
   type?: "subscription.active" | undefined;
   data: Subscription;
 };
-
-/** @internal */
-export const WebhookSubscriptionActivePayloadType$inboundSchema:
-  z.ZodNativeEnum<typeof WebhookSubscriptionActivePayloadType> = z.nativeEnum(
-    WebhookSubscriptionActivePayloadType,
-  );
-
-/** @internal */
-export const WebhookSubscriptionActivePayloadType$outboundSchema:
-  z.ZodNativeEnum<typeof WebhookSubscriptionActivePayloadType> =
-    WebhookSubscriptionActivePayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookSubscriptionActivePayloadType$ {
-  /** @deprecated use `WebhookSubscriptionActivePayloadType$inboundSchema` instead. */
-  export const inboundSchema =
-    WebhookSubscriptionActivePayloadType$inboundSchema;
-  /** @deprecated use `WebhookSubscriptionActivePayloadType$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookSubscriptionActivePayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookSubscriptionActivePayload$inboundSchema: z.ZodType<
@@ -80,7 +48,9 @@ export const WebhookSubscriptionActivePayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookSubscriptionActivePayload
 > = z.object({
-  type: z.literal("subscription.active").default("subscription.active"),
+  type: z.literal("subscription.active").default(
+    "subscription.active" as const,
+  ),
   data: Subscription$outboundSchema,
 });
 

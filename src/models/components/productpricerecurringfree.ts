@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,26 +12,6 @@ import {
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
-
-export const ProductPriceRecurringFreeAmountType = {
-  Free: "free",
-} as const;
-export type ProductPriceRecurringFreeAmountType = ClosedEnum<
-  typeof ProductPriceRecurringFreeAmountType
->;
-
-/**
- * The type of the price.
- */
-export const ProductPriceRecurringFreeType = {
-  Recurring: "recurring",
-} as const;
-/**
- * The type of the price.
- */
-export type ProductPriceRecurringFreeType = ClosedEnum<
-  typeof ProductPriceRecurringFreeType
->;
 
 /**
  * A free recurring price for a product, i.e. a subscription.
@@ -65,50 +44,6 @@ export type ProductPriceRecurringFree = {
   type?: "recurring" | undefined;
   recurringInterval: SubscriptionRecurringInterval;
 };
-
-/** @internal */
-export const ProductPriceRecurringFreeAmountType$inboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceRecurringFreeAmountType
-> = z.nativeEnum(ProductPriceRecurringFreeAmountType);
-
-/** @internal */
-export const ProductPriceRecurringFreeAmountType$outboundSchema:
-  z.ZodNativeEnum<typeof ProductPriceRecurringFreeAmountType> =
-    ProductPriceRecurringFreeAmountType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceRecurringFreeAmountType$ {
-  /** @deprecated use `ProductPriceRecurringFreeAmountType$inboundSchema` instead. */
-  export const inboundSchema =
-    ProductPriceRecurringFreeAmountType$inboundSchema;
-  /** @deprecated use `ProductPriceRecurringFreeAmountType$outboundSchema` instead. */
-  export const outboundSchema =
-    ProductPriceRecurringFreeAmountType$outboundSchema;
-}
-
-/** @internal */
-export const ProductPriceRecurringFreeType$inboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceRecurringFreeType
-> = z.nativeEnum(ProductPriceRecurringFreeType);
-
-/** @internal */
-export const ProductPriceRecurringFreeType$outboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceRecurringFreeType
-> = ProductPriceRecurringFreeType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceRecurringFreeType$ {
-  /** @deprecated use `ProductPriceRecurringFreeType$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceRecurringFreeType$inboundSchema;
-  /** @deprecated use `ProductPriceRecurringFreeType$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceRecurringFreeType$outboundSchema;
-}
 
 /** @internal */
 export const ProductPriceRecurringFree$inboundSchema: z.ZodType<
@@ -158,10 +93,10 @@ export const ProductPriceRecurringFree$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  amountType: z.literal("free").default("free"),
+  amountType: z.literal("free").default("free" as const),
   isArchived: z.boolean(),
   productId: z.string(),
-  type: z.literal("recurring").default("recurring"),
+  type: z.literal("recurring").default("recurring" as const),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -15,13 +14,6 @@ import {
 } from "./customfieldselectproperties.js";
 
 export type CustomFieldUpdateSelectMetadata = string | number | boolean;
-
-export const CustomFieldUpdateSelectType = {
-  Select: "select",
-} as const;
-export type CustomFieldUpdateSelectType = ClosedEnum<
-  typeof CustomFieldUpdateSelectType
->;
 
 /**
  * Schema to update a custom field of type select.
@@ -88,27 +80,6 @@ export function customFieldUpdateSelectMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldUpdateSelectType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldUpdateSelectType
-> = z.nativeEnum(CustomFieldUpdateSelectType);
-
-/** @internal */
-export const CustomFieldUpdateSelectType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldUpdateSelectType
-> = CustomFieldUpdateSelectType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdateSelectType$ {
-  /** @deprecated use `CustomFieldUpdateSelectType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdateSelectType$inboundSchema;
-  /** @deprecated use `CustomFieldUpdateSelectType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdateSelectType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldUpdateSelect$inboundSchema: z.ZodType<
   CustomFieldUpdateSelect,
   z.ZodTypeDef,
@@ -143,7 +114,7 @@ export const CustomFieldUpdateSelect$outboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("select").default("select"),
+  type: z.literal("select").default("select" as const),
   properties: z.nullable(CustomFieldSelectProperties$outboundSchema).optional(),
 });
 

@@ -97,6 +97,7 @@ async function run() {
       createdAt: new Date("2024-11-12T14:26:42.882Z"),
       modifiedAt: new Date("2023-05-28T05:08:06.235Z"),
       id: "<value>",
+      paymentProcessor: "stripe",
       status: "failed",
       clientSecret: "<value>",
       url: "https://heavy-beret.com/",

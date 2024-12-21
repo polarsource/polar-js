@@ -1,6 +1,6 @@
 # Supported JavaScript runtimes
 
-This SDK is intended to be used in JavaScript runtimes that support the following features:
+This SDK is intended to be used in JavaScript runtimes that support ECMAScript 2020 or newer. The SDK uses the following features:
 
 * [Web Fetch API][web-fetch]
 * [Web Streams API][web-streams] and in particular `ReadableStream`
