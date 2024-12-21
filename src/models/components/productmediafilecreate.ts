@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   S3FileCreateMultipart$Outbound,
   S3FileCreateMultipart$outboundSchema,
 } from "./s3filecreatemultipart.js";
-
-export const ProductMediaFileCreateService = {
-  ProductMedia: "product_media",
-} as const;
-export type ProductMediaFileCreateService = ClosedEnum<
-  typeof ProductMediaFileCreateService
->;
 
 /**
  * Schema to create a file to be used as a product media file.
@@ -41,27 +33,6 @@ export type ProductMediaFileCreate = {
   service?: "product_media" | undefined;
   version?: string | null | undefined;
 };
-
-/** @internal */
-export const ProductMediaFileCreateService$inboundSchema: z.ZodNativeEnum<
-  typeof ProductMediaFileCreateService
-> = z.nativeEnum(ProductMediaFileCreateService);
-
-/** @internal */
-export const ProductMediaFileCreateService$outboundSchema: z.ZodNativeEnum<
-  typeof ProductMediaFileCreateService
-> = ProductMediaFileCreateService$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductMediaFileCreateService$ {
-  /** @deprecated use `ProductMediaFileCreateService$inboundSchema` instead. */
-  export const inboundSchema = ProductMediaFileCreateService$inboundSchema;
-  /** @deprecated use `ProductMediaFileCreateService$outboundSchema` instead. */
-  export const outboundSchema = ProductMediaFileCreateService$outboundSchema;
-}
 
 /** @internal */
 export const ProductMediaFileCreate$inboundSchema: z.ZodType<
@@ -109,7 +80,7 @@ export const ProductMediaFileCreate$outboundSchema: z.ZodType<
   size: z.number().int(),
   checksumSha256Base64: z.nullable(z.string()).optional(),
   upload: S3FileCreateMultipart$outboundSchema,
-  service: z.literal("product_media").default("product_media"),
+  service: z.literal("product_media").default("product_media" as const),
   version: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

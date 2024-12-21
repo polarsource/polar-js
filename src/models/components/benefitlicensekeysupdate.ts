@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   BenefitLicenseKeysCreateProperties$outboundSchema,
 } from "./benefitlicensekeyscreateproperties.js";
 
-export const BenefitLicenseKeysUpdateType = {
-  LicenseKeys: "license_keys",
-} as const;
-export type BenefitLicenseKeysUpdateType = ClosedEnum<
-  typeof BenefitLicenseKeysUpdateType
->;
-
 export type BenefitLicenseKeysUpdate = {
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
@@ -29,27 +21,6 @@ export type BenefitLicenseKeysUpdate = {
   type?: "license_keys" | undefined;
   properties?: BenefitLicenseKeysCreateProperties | null | undefined;
 };
-
-/** @internal */
-export const BenefitLicenseKeysUpdateType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitLicenseKeysUpdateType
-> = z.nativeEnum(BenefitLicenseKeysUpdateType);
-
-/** @internal */
-export const BenefitLicenseKeysUpdateType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitLicenseKeysUpdateType
-> = BenefitLicenseKeysUpdateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeysUpdateType$ {
-  /** @deprecated use `BenefitLicenseKeysUpdateType$inboundSchema` instead. */
-  export const inboundSchema = BenefitLicenseKeysUpdateType$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeysUpdateType$outboundSchema` instead. */
-  export const outboundSchema = BenefitLicenseKeysUpdateType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitLicenseKeysUpdate$inboundSchema: z.ZodType<
@@ -77,7 +48,7 @@ export const BenefitLicenseKeysUpdate$outboundSchema: z.ZodType<
   BenefitLicenseKeysUpdate
 > = z.object({
   description: z.nullable(z.string()).optional(),
-  type: z.literal("license_keys").default("license_keys"),
+  type: z.literal("license_keys").default("license_keys" as const),
   properties: z.nullable(BenefitLicenseKeysCreateProperties$outboundSchema)
     .optional(),
 });

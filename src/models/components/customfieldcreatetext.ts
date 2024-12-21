@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -16,13 +15,6 @@ import {
 } from "./customfieldtextproperties.js";
 
 export type CustomFieldCreateTextMetadata = string | number | boolean;
-
-export const CustomFieldCreateTextType = {
-  Text: "text",
-} as const;
-export type CustomFieldCreateTextType = ClosedEnum<
-  typeof CustomFieldCreateTextType
->;
 
 /**
  * Schema to create a custom field of type text.
@@ -110,27 +102,6 @@ export function customFieldCreateTextMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldCreateTextType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldCreateTextType
-> = z.nativeEnum(CustomFieldCreateTextType);
-
-/** @internal */
-export const CustomFieldCreateTextType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldCreateTextType
-> = CustomFieldCreateTextType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateTextType$ {
-  /** @deprecated use `CustomFieldCreateTextType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateTextType$inboundSchema;
-  /** @deprecated use `CustomFieldCreateTextType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateTextType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldCreateText$inboundSchema: z.ZodType<
   CustomFieldCreateText,
   z.ZodTypeDef,
@@ -167,7 +138,7 @@ export const CustomFieldCreateText$outboundSchema: z.ZodType<
 > = z.object({
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
     .optional(),
-  type: z.literal("text").default("text"),
+  type: z.literal("text").default("text" as const),
   slug: z.string(),
   name: z.string(),
   organizationId: z.nullable(z.string()).optional(),

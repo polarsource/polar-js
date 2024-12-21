@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Checkout$Outbound,
   Checkout$outboundSchema,
 } from "./checkout.js";
-
-export const WebhookCheckoutUpdatedPayloadType = {
-  CheckoutUpdated: "checkout.updated",
-} as const;
-export type WebhookCheckoutUpdatedPayloadType = ClosedEnum<
-  typeof WebhookCheckoutUpdatedPayloadType
->;
 
 /**
  * Sent when a checkout is updated.
@@ -35,28 +27,6 @@ export type WebhookCheckoutUpdatedPayload = {
    */
   data: Checkout;
 };
-
-/** @internal */
-export const WebhookCheckoutUpdatedPayloadType$inboundSchema: z.ZodNativeEnum<
-  typeof WebhookCheckoutUpdatedPayloadType
-> = z.nativeEnum(WebhookCheckoutUpdatedPayloadType);
-
-/** @internal */
-export const WebhookCheckoutUpdatedPayloadType$outboundSchema: z.ZodNativeEnum<
-  typeof WebhookCheckoutUpdatedPayloadType
-> = WebhookCheckoutUpdatedPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookCheckoutUpdatedPayloadType$ {
-  /** @deprecated use `WebhookCheckoutUpdatedPayloadType$inboundSchema` instead. */
-  export const inboundSchema = WebhookCheckoutUpdatedPayloadType$inboundSchema;
-  /** @deprecated use `WebhookCheckoutUpdatedPayloadType$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookCheckoutUpdatedPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookCheckoutUpdatedPayload$inboundSchema: z.ZodType<
@@ -80,7 +50,7 @@ export const WebhookCheckoutUpdatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookCheckoutUpdatedPayload
 > = z.object({
-  type: z.literal("checkout.updated").default("checkout.updated"),
+  type: z.literal("checkout.updated").default("checkout.updated" as const),
   data: Checkout$outboundSchema,
 });
 

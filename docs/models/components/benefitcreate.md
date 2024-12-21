@@ -7,7 +7,8 @@
 
 ```typescript
 const value: components.BenefitAdsCreate = {
-  description: "search controvert mozzarella",
+  description:
+    "controvert mozzarella solemnly sinful meanwhile skyline up heating avaricious",
   properties: {},
 };
 ```
@@ -16,7 +17,8 @@ const value: components.BenefitAdsCreate = {
 
 ```typescript
 const value: components.BenefitCustomCreate = {
-  description: "fooey actual finally provided jaywalk kissingly worriedly",
+  description:
+    "hunt retool space informal minus dark while beyond untimely whenever",
   properties: {},
 };
 ```
@@ -25,7 +27,8 @@ const value: components.BenefitCustomCreate = {
 
 ```typescript
 const value: components.BenefitDiscordCreate = {
-  description: "yippee spring ugh factorize well-lit weary fearless out",
+  description:
+    "whose synthesise seriously nor joyously through nor cheerfully neatly juvenile",
   properties: {
     guildToken: "<value>",
     roleId: "<id>",
@@ -37,7 +40,7 @@ const value: components.BenefitDiscordCreate = {
 
 ```typescript
 const value: components.BenefitDownloadablesCreate = {
-  description: "naturally key whoa partial ick ack",
+  description: "a yet coolly but pick creature with",
   properties: {
     files: [
       "<value>",
@@ -50,11 +53,11 @@ const value: components.BenefitDownloadablesCreate = {
 
 ```typescript
 const value: components.BenefitGitHubRepositoryCreate = {
-  description: "once charlatan hm except though posh pleasure woot yuck",
+  description: "scholarship what shabby bloom blah along eek override absent",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "triage",
+    permission: "maintain",
   },
 };
 ```
@@ -63,8 +66,7 @@ const value: components.BenefitGitHubRepositoryCreate = {
 
 ```typescript
 const value: components.BenefitLicenseKeysCreate = {
-  description:
-    "gee barring drat frankly accomplished graffiti strictly unnaturally",
+  description: "once till how gadzooks birth pointed modulo throughout",
   properties: {},
 };
 ```

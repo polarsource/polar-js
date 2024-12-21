@@ -26,20 +26,13 @@ export type OAuth2ClientConfigurationGrantTypes = ClosedEnum<
   typeof OAuth2ClientConfigurationGrantTypes
 >;
 
-export const OAuth2ClientConfigurationResponseTypes = {
-  Code: "code",
-} as const;
-export type OAuth2ClientConfigurationResponseTypes = ClosedEnum<
-  typeof OAuth2ClientConfigurationResponseTypes
->;
-
 export type OAuth2ClientConfiguration = {
   redirectUris: Array<string>;
   tokenEndpointAuthMethod?:
     | OAuth2ClientConfigurationTokenEndpointAuthMethod
     | undefined;
   grantTypes?: Array<OAuth2ClientConfigurationGrantTypes> | undefined;
-  responseTypes?: Array<OAuth2ClientConfigurationResponseTypes> | undefined;
+  responseTypes?: Array<string> | undefined;
   scope?: string | undefined;
   clientName: string;
   clientUri?: string | null | undefined;
@@ -95,30 +88,6 @@ export namespace OAuth2ClientConfigurationGrantTypes$ {
 }
 
 /** @internal */
-export const OAuth2ClientConfigurationResponseTypes$inboundSchema:
-  z.ZodNativeEnum<typeof OAuth2ClientConfigurationResponseTypes> = z.nativeEnum(
-    OAuth2ClientConfigurationResponseTypes,
-  );
-
-/** @internal */
-export const OAuth2ClientConfigurationResponseTypes$outboundSchema:
-  z.ZodNativeEnum<typeof OAuth2ClientConfigurationResponseTypes> =
-    OAuth2ClientConfigurationResponseTypes$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OAuth2ClientConfigurationResponseTypes$ {
-  /** @deprecated use `OAuth2ClientConfigurationResponseTypes$inboundSchema` instead. */
-  export const inboundSchema =
-    OAuth2ClientConfigurationResponseTypes$inboundSchema;
-  /** @deprecated use `OAuth2ClientConfigurationResponseTypes$outboundSchema` instead. */
-  export const outboundSchema =
-    OAuth2ClientConfigurationResponseTypes$outboundSchema;
-}
-
-/** @internal */
 export const OAuth2ClientConfiguration$inboundSchema: z.ZodType<
   OAuth2ClientConfiguration,
   z.ZodTypeDef,
@@ -131,8 +100,7 @@ export const OAuth2ClientConfiguration$inboundSchema: z.ZodType<
     ),
   grant_types: z.array(OAuth2ClientConfigurationGrantTypes$inboundSchema)
     .optional(),
-  response_types: z.array(OAuth2ClientConfigurationResponseTypes$inboundSchema)
-    .optional(),
+  response_types: z.array(z.string()).optional(),
   scope: z.string().default(
     "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
   ),
@@ -182,8 +150,7 @@ export const OAuth2ClientConfiguration$outboundSchema: z.ZodType<
     ),
   grantTypes: z.array(OAuth2ClientConfigurationGrantTypes$outboundSchema)
     .optional(),
-  responseTypes: z.array(OAuth2ClientConfigurationResponseTypes$outboundSchema)
-    .optional(),
+  responseTypes: z.array(z.string()).optional(),
   scope: z.string().default(
     "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
   ),

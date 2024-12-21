@@ -9,23 +9,24 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2022-01-26T22:48:01.116Z"),
-        modifiedAt: new Date("2023-04-26T19:37:47.188Z"),
+        createdAt: new Date("2024-12-15T03:43:32.459Z"),
+        modifiedAt: new Date("2023-08-28T11:33:48.812Z"),
         id: "<value>",
-        description: "till so yuck except",
+        description:
+          "savour cap wisecrack zealous warming accurate jubilant trust pish",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          guildId: "<id>",
-          roleId: "<id>",
-          guildToken: "<value>",
+          repositoryOwner: "polarsource",
+          repositoryName: "private_repo",
+          permission: "admin",
         },
       },
     ],
     pagination: {
-      totalCount: 651972,
-      maxPage: 315542,
+      totalCount: 916878,
+      maxPage: 913945,
     },
   },
 };

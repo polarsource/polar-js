@@ -11,6 +11,7 @@ let value: Checkout = {
   createdAt: new Date("2024-10-14T04:15:01.236Z"),
   modifiedAt: new Date("2024-02-12T00:54:59.142Z"),
   id: "<value>",
+  paymentProcessor: "stripe",
   status: "open",
   clientSecret: "<value>",
   url: "https://poor-minority.biz/",

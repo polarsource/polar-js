@@ -19,6 +19,12 @@ import {
   BenefitGrantGitHubRepositoryProperties$Outbound,
   BenefitGrantGitHubRepositoryProperties$outboundSchema,
 } from "./benefitgrantgithubrepositoryproperties.js";
+import {
+  CustomerPortalCustomer,
+  CustomerPortalCustomer$inboundSchema,
+  CustomerPortalCustomer$Outbound,
+  CustomerPortalCustomer$outboundSchema,
+} from "./customerportalcustomer.js";
 
 export type CustomerBenefitGrantGitHubRepository = {
   /**
@@ -41,6 +47,7 @@ export type CustomerBenefitGrantGitHubRepository = {
   orderId: string | null;
   isGranted: boolean;
   isRevoked: boolean;
+  customer: CustomerPortalCustomer;
   benefit: BenefitGitHubRepositorySubscriber;
   properties: BenefitGrantGitHubRepositoryProperties;
 };
@@ -68,6 +75,7 @@ export const CustomerBenefitGrantGitHubRepository$inboundSchema: z.ZodType<
   order_id: z.nullable(z.string()),
   is_granted: z.boolean(),
   is_revoked: z.boolean(),
+  customer: CustomerPortalCustomer$inboundSchema,
   benefit: BenefitGitHubRepositorySubscriber$inboundSchema,
   properties: BenefitGrantGitHubRepositoryProperties$inboundSchema,
 }).transform((v) => {
@@ -98,6 +106,7 @@ export type CustomerBenefitGrantGitHubRepository$Outbound = {
   order_id: string | null;
   is_granted: boolean;
   is_revoked: boolean;
+  customer: CustomerPortalCustomer$Outbound;
   benefit: BenefitGitHubRepositorySubscriber$Outbound;
   properties: BenefitGrantGitHubRepositoryProperties$Outbound;
 };
@@ -119,6 +128,7 @@ export const CustomerBenefitGrantGitHubRepository$outboundSchema: z.ZodType<
   orderId: z.nullable(z.string()),
   isGranted: z.boolean(),
   isRevoked: z.boolean(),
+  customer: CustomerPortalCustomer$outboundSchema,
   benefit: BenefitGitHubRepositorySubscriber$outboundSchema,
   properties: BenefitGrantGitHubRepositoryProperties$outboundSchema,
 }).transform((v) => {

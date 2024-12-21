@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -16,11 +15,6 @@ import {
 } from "./customfieldtextproperties.js";
 
 export type CustomFieldTextMetadata = string | number | boolean;
-
-export const CustomFieldTextType = {
-  Text: "text",
-} as const;
-export type CustomFieldTextType = ClosedEnum<typeof CustomFieldTextType>;
 
 /**
  * Schema for a custom field of type text.
@@ -104,27 +98,6 @@ export function customFieldTextMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldTextType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldTextType
-> = z.nativeEnum(CustomFieldTextType);
-
-/** @internal */
-export const CustomFieldTextType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldTextType
-> = CustomFieldTextType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldTextType$ {
-  /** @deprecated use `CustomFieldTextType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldTextType$inboundSchema;
-  /** @deprecated use `CustomFieldTextType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldTextType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldText$inboundSchema: z.ZodType<
   CustomFieldText,
   z.ZodTypeDef,
@@ -172,7 +145,7 @@ export const CustomFieldText$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  type: z.literal("text").default("text"),
+  type: z.literal("text").default("text" as const),
   slug: z.string(),
   name: z.string(),
   organizationId: z.string(),

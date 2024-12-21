@@ -7,6 +7,7 @@ import { Repository } from "@polar-sh/sdk/models/components";
 
 let value: Repository = {
   id: "f52c0140-fb8c-4a23-ad57-60b8a4636afa",
+  platform: "github",
   isPrivate: false,
   name: "MyOrg",
   description: "entry mid custom kinase mainstream smoothly",
@@ -16,6 +17,7 @@ let value: Repository = {
   profileSettings: {},
   organization: {
     id: "c35a697c-dd99-4704-917d-9a342d482155",
+    platform: "github",
     name: "<value>",
     avatarUrl: "https://gigantic-rule.com",
     isPersonal: false,

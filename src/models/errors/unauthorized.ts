@@ -3,12 +3,6 @@
  */
 
 import * as z from "zod";
-import { ClosedEnum } from "../../types/enums.js";
-
-export const UnauthorizedError = {
-  Unauthorized: "Unauthorized",
-} as const;
-export type UnauthorizedError = ClosedEnum<typeof UnauthorizedError>;
 
 export type UnauthorizedData = {
   error: "Unauthorized";
@@ -34,27 +28,6 @@ export class Unauthorized extends Error {
 
     this.name = "Unauthorized";
   }
-}
-
-/** @internal */
-export const UnauthorizedError$inboundSchema: z.ZodNativeEnum<
-  typeof UnauthorizedError
-> = z.nativeEnum(UnauthorizedError);
-
-/** @internal */
-export const UnauthorizedError$outboundSchema: z.ZodNativeEnum<
-  typeof UnauthorizedError
-> = UnauthorizedError$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UnauthorizedError$ {
-  /** @deprecated use `UnauthorizedError$inboundSchema` instead. */
-  export const inboundSchema = UnauthorizedError$inboundSchema;
-  /** @deprecated use `UnauthorizedError$outboundSchema` instead. */
-  export const outboundSchema = UnauthorizedError$outboundSchema;
 }
 
 /** @internal */
@@ -84,7 +57,7 @@ export const Unauthorized$outboundSchema: z.ZodType<
 > = z.instanceof(Unauthorized)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("Unauthorized").default("Unauthorized"),
+    error: z.literal("Unauthorized").default("Unauthorized" as const),
     detail: z.string(),
   }));
 

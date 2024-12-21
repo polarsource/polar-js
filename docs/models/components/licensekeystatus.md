@@ -5,7 +5,7 @@
 ```typescript
 import { LicenseKeyStatus } from "@polar-sh/sdk/models/components";
 
-let value: LicenseKeyStatus = "revoked";
+let value: LicenseKeyStatus = "granted";
 ```
 
 ## Values
