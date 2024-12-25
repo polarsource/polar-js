@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Product$Outbound,
   Product$outboundSchema,
 } from "./product.js";
-
-export const WebhookProductUpdatedPayloadType = {
-  ProductUpdated: "product.updated",
-} as const;
-export type WebhookProductUpdatedPayloadType = ClosedEnum<
-  typeof WebhookProductUpdatedPayloadType
->;
 
 /**
  * Sent when a product is updated.
@@ -35,27 +27,6 @@ export type WebhookProductUpdatedPayload = {
    */
   data: Product;
 };
-
-/** @internal */
-export const WebhookProductUpdatedPayloadType$inboundSchema: z.ZodNativeEnum<
-  typeof WebhookProductUpdatedPayloadType
-> = z.nativeEnum(WebhookProductUpdatedPayloadType);
-
-/** @internal */
-export const WebhookProductUpdatedPayloadType$outboundSchema: z.ZodNativeEnum<
-  typeof WebhookProductUpdatedPayloadType
-> = WebhookProductUpdatedPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookProductUpdatedPayloadType$ {
-  /** @deprecated use `WebhookProductUpdatedPayloadType$inboundSchema` instead. */
-  export const inboundSchema = WebhookProductUpdatedPayloadType$inboundSchema;
-  /** @deprecated use `WebhookProductUpdatedPayloadType$outboundSchema` instead. */
-  export const outboundSchema = WebhookProductUpdatedPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookProductUpdatedPayload$inboundSchema: z.ZodType<
@@ -79,7 +50,7 @@ export const WebhookProductUpdatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookProductUpdatedPayload
 > = z.object({
-  type: z.literal("product.updated").default("product.updated"),
+  type: z.literal("product.updated").default("product.updated" as const),
   data: Product$outboundSchema,
 });
 

@@ -15,6 +15,7 @@ let value: Pledge = {
   type: "pay_on_completion",
   issue: {
     id: "0d204e48-64ec-4c8d-b777-3e433dc60f2d",
+    platform: "github",
     number: 938076,
     title: "<value>",
     state: "closed",
@@ -23,6 +24,7 @@ let value: Pledge = {
     funding: {},
     repository: {
       id: "363bda20-9735-48a7-bf0a-e33c7f9e02a6",
+      platform: "github",
       isPrivate: false,
       name: "MyOrg",
       description: "overconfidently energetically sharply swiftly exalted gee",
@@ -32,6 +34,7 @@ let value: Pledge = {
       profileSettings: {},
       organization: {
         id: "5dc92be4-fc49-441d-8a92-6e2034ca009a",
+        platform: "github",
         name: "<value>",
         avatarUrl: "https://exalted-fishery.info",
         isPersonal: false,

@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   BenefitLicenseKeysCreateProperties$Outbound,
   BenefitLicenseKeysCreateProperties$outboundSchema,
 } from "./benefitlicensekeyscreateproperties.js";
-
-export const BenefitLicenseKeysCreateType = {
-  LicenseKeys: "license_keys",
-} as const;
-export type BenefitLicenseKeysCreateType = ClosedEnum<
-  typeof BenefitLicenseKeysCreateType
->;
 
 export type BenefitLicenseKeysCreate = {
   type?: "license_keys" | undefined;
@@ -34,27 +26,6 @@ export type BenefitLicenseKeysCreate = {
   organizationId?: string | null | undefined;
   properties: BenefitLicenseKeysCreateProperties;
 };
-
-/** @internal */
-export const BenefitLicenseKeysCreateType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitLicenseKeysCreateType
-> = z.nativeEnum(BenefitLicenseKeysCreateType);
-
-/** @internal */
-export const BenefitLicenseKeysCreateType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitLicenseKeysCreateType
-> = BenefitLicenseKeysCreateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeysCreateType$ {
-  /** @deprecated use `BenefitLicenseKeysCreateType$inboundSchema` instead. */
-  export const inboundSchema = BenefitLicenseKeysCreateType$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeysCreateType$outboundSchema` instead. */
-  export const outboundSchema = BenefitLicenseKeysCreateType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitLicenseKeysCreate$inboundSchema: z.ZodType<
@@ -86,7 +57,7 @@ export const BenefitLicenseKeysCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitLicenseKeysCreate
 > = z.object({
-  type: z.literal("license_keys").default("license_keys"),
+  type: z.literal("license_keys").default("license_keys" as const),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   properties: BenefitLicenseKeysCreateProperties$outboundSchema,

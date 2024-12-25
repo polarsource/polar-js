@@ -14,6 +14,7 @@ let value: WebhookCheckoutCreatedPayload = {
     createdAt: new Date("2023-08-21T04:36:26.084Z"),
     modifiedAt: new Date("2023-04-10T07:48:57.030Z"),
     id: "<value>",
+    paymentProcessor: "stripe",
     status: "succeeded",
     clientSecret: "<value>",
     url: "https://unique-veto.info/",
@@ -146,7 +147,7 @@ let value: WebhookCheckoutCreatedPayload = {
 
 ## Fields
 
-| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `type`                                                                                                       | [components.WebhookCheckoutCreatedPayloadType](../../models/components/webhookcheckoutcreatedpayloadtype.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `data`                                                                                                       | [components.Checkout](../../models/components/checkout.md)                                                   | :heavy_check_mark:                                                                                           | Checkout session data retrieved using an access token.                                                       |
+| Field                                                      | Type                                                       | Required                                                   | Description                                                |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `type`                                                     | *string*                                                   | :heavy_check_mark:                                         | N/A                                                        |
+| `data`                                                     | [components.Checkout](../../models/components/checkout.md) | :heavy_check_mark:                                         | Checkout session data retrieved using an access token.     |

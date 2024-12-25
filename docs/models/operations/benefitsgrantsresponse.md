@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2022-12-04T15:27:18.312Z"),
-        modifiedAt: new Date("2022-02-02T13:50:21.161Z"),
+        createdAt: new Date("2024-06-11T09:05:14.093Z"),
+        modifiedAt: new Date("2023-05-27T23:48:56.996Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -19,12 +19,31 @@ let value: BenefitsGrantsResponse = {
         customerId: "<value>",
         userId: "<value>",
         benefitId: "<value>",
+        customer: {
+          createdAt: new Date("2022-06-15T00:22:00.811Z"),
+          modifiedAt: new Date("2023-05-13T21:04:55.089Z"),
+          id: "<value>",
+          metadata: {
+            "key": 85322,
+          },
+          email: "Vesta_Wisozk10@yahoo.com",
+          emailVerified: false,
+          name: "<value>",
+          billingAddress: {
+            country: "Christmas Island",
+          },
+          taxId: [
+            "<id>",
+          ],
+          organizationId: "<value>",
+          avatarUrl: "https://downright-giggle.com",
+        },
         properties: {},
       },
     ],
     pagination: {
-      totalCount: 428795,
-      maxPage: 99307,
+      totalCount: 947851,
+      maxPage: 762415,
     },
   },
 };

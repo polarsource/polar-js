@@ -5,11 +5,11 @@
 ```typescript
 import { TokenType } from "@polar-sh/sdk/models/components";
 
-let value: TokenType = "Bearer";
+let value: TokenType = "access_token";
 ```
 
 ## Values
 
 ```typescript
-"Bearer"
+"access_token" | "refresh_token"
 ```

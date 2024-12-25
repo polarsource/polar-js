@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,22 +12,6 @@ import {
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
-
-export const AmountType = {
-  Fixed: "fixed",
-} as const;
-export type AmountType = ClosedEnum<typeof AmountType>;
-
-/**
- * The type of the price.
- */
-export const Type = {
-  Recurring: "recurring",
-} as const;
-/**
- * The type of the price.
- */
-export type Type = ClosedEnum<typeof Type>;
 
 /**
  * A recurring price for a product, i.e. a subscription.
@@ -69,45 +52,6 @@ export type ProductPriceRecurringFixed = {
   type?: "recurring" | undefined;
   recurringInterval: SubscriptionRecurringInterval;
 };
-
-/** @internal */
-export const AmountType$inboundSchema: z.ZodNativeEnum<typeof AmountType> = z
-  .nativeEnum(AmountType);
-
-/** @internal */
-export const AmountType$outboundSchema: z.ZodNativeEnum<typeof AmountType> =
-  AmountType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AmountType$ {
-  /** @deprecated use `AmountType$inboundSchema` instead. */
-  export const inboundSchema = AmountType$inboundSchema;
-  /** @deprecated use `AmountType$outboundSchema` instead. */
-  export const outboundSchema = AmountType$outboundSchema;
-}
-
-/** @internal */
-export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
-  Type,
-);
-
-/** @internal */
-export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> =
-  Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Type$ {
-  /** @deprecated use `Type$inboundSchema` instead. */
-  export const inboundSchema = Type$inboundSchema;
-  /** @deprecated use `Type$outboundSchema` instead. */
-  export const outboundSchema = Type$outboundSchema;
-}
 
 /** @internal */
 export const ProductPriceRecurringFixed$inboundSchema: z.ZodType<
@@ -163,12 +107,12 @@ export const ProductPriceRecurringFixed$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  amountType: z.literal("fixed").default("fixed"),
+  amountType: z.literal("fixed").default("fixed" as const),
   isArchived: z.boolean(),
   productId: z.string(),
   priceCurrency: z.string(),
   priceAmount: z.number().int(),
-  type: z.literal("recurring").default("recurring"),
+  type: z.literal("recurring").default("recurring" as const),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

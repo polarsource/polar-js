@@ -175,7 +175,7 @@ export async function customerPortalBenefitGrantsList(
     >;
     "~next"?: { page: number };
   } => {
-    const page = request?.page || 0;
+    const page = request?.page ?? 1;
     const nextPage = page + 1;
     const numPages = dlv(responseData, "pagination.max_page");
     if (numPages == null || numPages <= page) {
@@ -189,7 +189,7 @@ export async function customerPortalBenefitGrantsList(
     if (!Array.isArray(results) || !results.length) {
       return { next: () => null };
     }
-    const limit = request?.limit || 0;
+    const limit = request?.limit ?? 10;
     if (results.length < limit) {
       return { next: () => null };
     }

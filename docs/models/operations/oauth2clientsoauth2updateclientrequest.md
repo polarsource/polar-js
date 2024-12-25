@@ -9,7 +9,7 @@ let value: Oauth2ClientsOauth2UpdateClientRequest = {
   clientId: "<id>",
   oAuth2ClientConfigurationUpdate: {
     redirectUris: [
-      "https://ashamed-railway.biz/",
+      "https://svelte-pecan.biz/",
     ],
     clientName: "<value>",
     clientId: "<id>",

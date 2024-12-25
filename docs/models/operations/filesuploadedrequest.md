@@ -9,10 +9,10 @@ let value: FilesUploadedRequest = {
   id: "<value>",
   fileUploadCompleted: {
     id: "<id>",
-    path: "/usr/include",
+    path: "/private/tmp",
     parts: [
       {
-        number: 440191,
+        number: 864317,
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
       },

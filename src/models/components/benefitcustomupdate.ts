@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   BenefitCustomProperties$outboundSchema,
 } from "./benefitcustomproperties.js";
 
-export const BenefitCustomUpdateType = {
-  Custom: "custom",
-} as const;
-export type BenefitCustomUpdateType = ClosedEnum<
-  typeof BenefitCustomUpdateType
->;
-
 export type BenefitCustomUpdate = {
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
@@ -29,27 +21,6 @@ export type BenefitCustomUpdate = {
   type?: "custom" | undefined;
   properties?: BenefitCustomProperties | null | undefined;
 };
-
-/** @internal */
-export const BenefitCustomUpdateType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitCustomUpdateType
-> = z.nativeEnum(BenefitCustomUpdateType);
-
-/** @internal */
-export const BenefitCustomUpdateType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitCustomUpdateType
-> = BenefitCustomUpdateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustomUpdateType$ {
-  /** @deprecated use `BenefitCustomUpdateType$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustomUpdateType$inboundSchema;
-  /** @deprecated use `BenefitCustomUpdateType$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustomUpdateType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitCustomUpdate$inboundSchema: z.ZodType<
@@ -76,7 +47,7 @@ export const BenefitCustomUpdate$outboundSchema: z.ZodType<
   BenefitCustomUpdate
 > = z.object({
   description: z.nullable(z.string()).optional(),
-  type: z.literal("custom").default("custom"),
+  type: z.literal("custom").default("custom" as const),
   properties: z.nullable(BenefitCustomProperties$outboundSchema).optional(),
 });
 

@@ -20,6 +20,7 @@ let value: WebhookPledgeCreatedPayload = {
     type: "pay_on_completion",
     issue: {
       id: "066e9be7-04de-454e-95a4-18e93ac58a2f",
+      platform: "github",
       number: 979665,
       title: "<value>",
       state: "open",
@@ -28,6 +29,7 @@ let value: WebhookPledgeCreatedPayload = {
       funding: {},
       repository: {
         id: "20366ea6-f95b-47ee-9584-afd51f6457ff",
+        platform: "github",
         isPrivate: false,
         name: "MyOrg",
         description: "knottily ugh per though scratchy",
@@ -37,6 +39,7 @@ let value: WebhookPledgeCreatedPayload = {
         profileSettings: {},
         organization: {
           id: "8a17d9f4-1a1c-448c-8c7f-744b6604dcb0",
+          platform: "github",
           name: "<value>",
           avatarUrl: "https://liquid-thorn.info/",
           isPersonal: false,
@@ -77,7 +80,7 @@ let value: WebhookPledgeCreatedPayload = {
 
 ## Fields
 
-| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                   | [components.WebhookPledgeCreatedPayloadType](../../models/components/webhookpledgecreatedpayloadtype.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
-| `data`                                                                                                   | [components.Pledge](../../models/components/pledge.md)                                                   | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| Field                                                  | Type                                                   | Required                                               | Description                                            |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| `type`                                                 | *string*                                               | :heavy_check_mark:                                     | N/A                                                    |
+| `data`                                                 | [components.Pledge](../../models/components/pledge.md) | :heavy_check_mark:                                     | N/A                                                    |

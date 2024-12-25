@@ -26,22 +26,13 @@ export type OAuth2ClientConfigurationUpdateGrantTypes = ClosedEnum<
   typeof OAuth2ClientConfigurationUpdateGrantTypes
 >;
 
-export const OAuth2ClientConfigurationUpdateResponseTypes = {
-  Code: "code",
-} as const;
-export type OAuth2ClientConfigurationUpdateResponseTypes = ClosedEnum<
-  typeof OAuth2ClientConfigurationUpdateResponseTypes
->;
-
 export type OAuth2ClientConfigurationUpdate = {
   redirectUris: Array<string>;
   tokenEndpointAuthMethod?:
     | OAuth2ClientConfigurationUpdateTokenEndpointAuthMethod
     | undefined;
   grantTypes?: Array<OAuth2ClientConfigurationUpdateGrantTypes> | undefined;
-  responseTypes?:
-    | Array<OAuth2ClientConfigurationUpdateResponseTypes>
-    | undefined;
+  responseTypes?: Array<string> | undefined;
   scope?: string | undefined;
   clientName: string;
   clientUri?: string | null | undefined;
@@ -100,29 +91,6 @@ export namespace OAuth2ClientConfigurationUpdateGrantTypes$ {
 }
 
 /** @internal */
-export const OAuth2ClientConfigurationUpdateResponseTypes$inboundSchema:
-  z.ZodNativeEnum<typeof OAuth2ClientConfigurationUpdateResponseTypes> = z
-    .nativeEnum(OAuth2ClientConfigurationUpdateResponseTypes);
-
-/** @internal */
-export const OAuth2ClientConfigurationUpdateResponseTypes$outboundSchema:
-  z.ZodNativeEnum<typeof OAuth2ClientConfigurationUpdateResponseTypes> =
-    OAuth2ClientConfigurationUpdateResponseTypes$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OAuth2ClientConfigurationUpdateResponseTypes$ {
-  /** @deprecated use `OAuth2ClientConfigurationUpdateResponseTypes$inboundSchema` instead. */
-  export const inboundSchema =
-    OAuth2ClientConfigurationUpdateResponseTypes$inboundSchema;
-  /** @deprecated use `OAuth2ClientConfigurationUpdateResponseTypes$outboundSchema` instead. */
-  export const outboundSchema =
-    OAuth2ClientConfigurationUpdateResponseTypes$outboundSchema;
-}
-
-/** @internal */
 export const OAuth2ClientConfigurationUpdate$inboundSchema: z.ZodType<
   OAuth2ClientConfigurationUpdate,
   z.ZodTypeDef,
@@ -134,9 +102,7 @@ export const OAuth2ClientConfigurationUpdate$inboundSchema: z.ZodType<
       .default("client_secret_post"),
   grant_types: z.array(OAuth2ClientConfigurationUpdateGrantTypes$inboundSchema)
     .optional(),
-  response_types: z.array(
-    OAuth2ClientConfigurationUpdateResponseTypes$inboundSchema,
-  ).optional(),
+  response_types: z.array(z.string()).optional(),
   scope: z.string().default(
     "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
   ),
@@ -188,9 +154,7 @@ export const OAuth2ClientConfigurationUpdate$outboundSchema: z.ZodType<
       .default("client_secret_post"),
   grantTypes: z.array(OAuth2ClientConfigurationUpdateGrantTypes$outboundSchema)
     .optional(),
-  responseTypes: z.array(
-    OAuth2ClientConfigurationUpdateResponseTypes$outboundSchema,
-  ).optional(),
+  responseTypes: z.array(z.string()).optional(),
   scope: z.string().default(
     "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
   ),
