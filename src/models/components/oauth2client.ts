@@ -24,16 +24,11 @@ export const GrantTypes = {
 } as const;
 export type GrantTypes = ClosedEnum<typeof GrantTypes>;
 
-export const ResponseTypes = {
-  Code: "code",
-} as const;
-export type ResponseTypes = ClosedEnum<typeof ResponseTypes>;
-
 export type OAuth2Client = {
   redirectUris: Array<string>;
   tokenEndpointAuthMethod?: TokenEndpointAuthMethod | undefined;
   grantTypes?: Array<GrantTypes> | undefined;
-  responseTypes?: Array<ResponseTypes> | undefined;
+  responseTypes?: Array<string> | undefined;
   scope?: string | undefined;
   clientName: string;
   clientUri?: string | null | undefined;
@@ -95,27 +90,6 @@ export namespace GrantTypes$ {
 }
 
 /** @internal */
-export const ResponseTypes$inboundSchema: z.ZodNativeEnum<
-  typeof ResponseTypes
-> = z.nativeEnum(ResponseTypes);
-
-/** @internal */
-export const ResponseTypes$outboundSchema: z.ZodNativeEnum<
-  typeof ResponseTypes
-> = ResponseTypes$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ResponseTypes$ {
-  /** @deprecated use `ResponseTypes$inboundSchema` instead. */
-  export const inboundSchema = ResponseTypes$inboundSchema;
-  /** @deprecated use `ResponseTypes$outboundSchema` instead. */
-  export const outboundSchema = ResponseTypes$outboundSchema;
-}
-
-/** @internal */
 export const OAuth2Client$inboundSchema: z.ZodType<
   OAuth2Client,
   z.ZodTypeDef,
@@ -126,7 +100,7 @@ export const OAuth2Client$inboundSchema: z.ZodType<
     "client_secret_post",
   ),
   grant_types: z.array(GrantTypes$inboundSchema).optional(),
-  response_types: z.array(ResponseTypes$inboundSchema).optional(),
+  response_types: z.array(z.string()).optional(),
   scope: z.string().default(
     "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
   ),
@@ -194,7 +168,7 @@ export const OAuth2Client$outboundSchema: z.ZodType<
     "client_secret_post",
   ),
   grantTypes: z.array(GrantTypes$outboundSchema).optional(),
-  responseTypes: z.array(ResponseTypes$outboundSchema).optional(),
+  responseTypes: z.array(z.string()).optional(),
   scope: z.string().default(
     "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
   ),

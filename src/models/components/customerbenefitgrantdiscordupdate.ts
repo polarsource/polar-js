@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -15,40 +14,10 @@ import {
   CustomerBenefitGrantDiscordPropertiesUpdate$outboundSchema,
 } from "./customerbenefitgrantdiscordpropertiesupdate.js";
 
-export const CustomerBenefitGrantDiscordUpdateBenefitType = {
-  Discord: "discord",
-} as const;
-export type CustomerBenefitGrantDiscordUpdateBenefitType = ClosedEnum<
-  typeof CustomerBenefitGrantDiscordUpdateBenefitType
->;
-
 export type CustomerBenefitGrantDiscordUpdate = {
   benefitType?: "discord" | undefined;
   properties: CustomerBenefitGrantDiscordPropertiesUpdate;
 };
-
-/** @internal */
-export const CustomerBenefitGrantDiscordUpdateBenefitType$inboundSchema:
-  z.ZodNativeEnum<typeof CustomerBenefitGrantDiscordUpdateBenefitType> = z
-    .nativeEnum(CustomerBenefitGrantDiscordUpdateBenefitType);
-
-/** @internal */
-export const CustomerBenefitGrantDiscordUpdateBenefitType$outboundSchema:
-  z.ZodNativeEnum<typeof CustomerBenefitGrantDiscordUpdateBenefitType> =
-    CustomerBenefitGrantDiscordUpdateBenefitType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantDiscordUpdateBenefitType$ {
-  /** @deprecated use `CustomerBenefitGrantDiscordUpdateBenefitType$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerBenefitGrantDiscordUpdateBenefitType$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDiscordUpdateBenefitType$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantDiscordUpdateBenefitType$outboundSchema;
-}
 
 /** @internal */
 export const CustomerBenefitGrantDiscordUpdate$inboundSchema: z.ZodType<
@@ -76,7 +45,7 @@ export const CustomerBenefitGrantDiscordUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerBenefitGrantDiscordUpdate
 > = z.object({
-  benefitType: z.literal("discord").default("discord"),
+  benefitType: z.literal("discord").default("discord" as const),
   properties: CustomerBenefitGrantDiscordPropertiesUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

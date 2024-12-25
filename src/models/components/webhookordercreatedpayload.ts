@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Order$Outbound,
   Order$outboundSchema,
 } from "./order.js";
-
-export const WebhookOrderCreatedPayloadType = {
-  OrderCreated: "order.created",
-} as const;
-export type WebhookOrderCreatedPayloadType = ClosedEnum<
-  typeof WebhookOrderCreatedPayloadType
->;
 
 /**
  * Sent when a new order is created.
@@ -32,27 +24,6 @@ export type WebhookOrderCreatedPayload = {
   type?: "order.created" | undefined;
   data: Order;
 };
-
-/** @internal */
-export const WebhookOrderCreatedPayloadType$inboundSchema: z.ZodNativeEnum<
-  typeof WebhookOrderCreatedPayloadType
-> = z.nativeEnum(WebhookOrderCreatedPayloadType);
-
-/** @internal */
-export const WebhookOrderCreatedPayloadType$outboundSchema: z.ZodNativeEnum<
-  typeof WebhookOrderCreatedPayloadType
-> = WebhookOrderCreatedPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookOrderCreatedPayloadType$ {
-  /** @deprecated use `WebhookOrderCreatedPayloadType$inboundSchema` instead. */
-  export const inboundSchema = WebhookOrderCreatedPayloadType$inboundSchema;
-  /** @deprecated use `WebhookOrderCreatedPayloadType$outboundSchema` instead. */
-  export const outboundSchema = WebhookOrderCreatedPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookOrderCreatedPayload$inboundSchema: z.ZodType<
@@ -76,7 +47,7 @@ export const WebhookOrderCreatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookOrderCreatedPayload
 > = z.object({
-  type: z.literal("order.created").default("order.created"),
+  type: z.literal("order.created").default("order.created" as const),
   data: Order$outboundSchema,
 });
 

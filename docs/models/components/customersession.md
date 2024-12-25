@@ -8,30 +8,30 @@ A customer session that can be used to authenticate as a customer.
 import { CustomerSession } from "@polar-sh/sdk/models/components";
 
 let value: CustomerSession = {
-  createdAt: new Date("2023-02-02T05:55:21.427Z"),
-  modifiedAt: new Date("2023-04-22T14:18:59.007Z"),
+  createdAt: new Date("2022-09-02T17:34:26.813Z"),
+  modifiedAt: new Date("2024-01-05T04:06:45.165Z"),
   id: "<value>",
   token: "<value>",
-  expiresAt: new Date("2024-12-07T04:48:23.043Z"),
+  expiresAt: new Date("2024-05-20T00:02:58.462Z"),
   customerId: "<value>",
   customer: {
-    createdAt: new Date("2023-08-31T05:51:37.577Z"),
-    modifiedAt: new Date("2024-06-02T04:49:52.259Z"),
+    createdAt: new Date("2023-03-25T04:03:25.121Z"),
+    modifiedAt: new Date("2022-12-16T02:34:06.572Z"),
     id: "<value>",
     metadata: {
       "key": false,
     },
-    email: "Araceli34@yahoo.com",
+    email: "Sarai.Bechtelar@gmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Tonga",
+      country: "Faroe Islands",
     },
     taxId: [
-      "sv_nit",
+      "vn_tin",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://staid-awareness.net/",
+    avatarUrl: "https://untimely-extension.net",
   },
 };
 ```

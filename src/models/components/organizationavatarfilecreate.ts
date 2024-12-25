@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   S3FileCreateMultipart$Outbound,
   S3FileCreateMultipart$outboundSchema,
 } from "./s3filecreatemultipart.js";
-
-export const OrganizationAvatarFileCreateService = {
-  OrganizationAvatar: "organization_avatar",
-} as const;
-export type OrganizationAvatarFileCreateService = ClosedEnum<
-  typeof OrganizationAvatarFileCreateService
->;
 
 /**
  * Schema to create a file to be used as an organization avatar.
@@ -41,29 +33,6 @@ export type OrganizationAvatarFileCreate = {
   service?: "organization_avatar" | undefined;
   version?: string | null | undefined;
 };
-
-/** @internal */
-export const OrganizationAvatarFileCreateService$inboundSchema: z.ZodNativeEnum<
-  typeof OrganizationAvatarFileCreateService
-> = z.nativeEnum(OrganizationAvatarFileCreateService);
-
-/** @internal */
-export const OrganizationAvatarFileCreateService$outboundSchema:
-  z.ZodNativeEnum<typeof OrganizationAvatarFileCreateService> =
-    OrganizationAvatarFileCreateService$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationAvatarFileCreateService$ {
-  /** @deprecated use `OrganizationAvatarFileCreateService$inboundSchema` instead. */
-  export const inboundSchema =
-    OrganizationAvatarFileCreateService$inboundSchema;
-  /** @deprecated use `OrganizationAvatarFileCreateService$outboundSchema` instead. */
-  export const outboundSchema =
-    OrganizationAvatarFileCreateService$outboundSchema;
-}
 
 /** @internal */
 export const OrganizationAvatarFileCreate$inboundSchema: z.ZodType<
@@ -111,7 +80,9 @@ export const OrganizationAvatarFileCreate$outboundSchema: z.ZodType<
   size: z.number().int(),
   checksumSha256Base64: z.nullable(z.string()).optional(),
   upload: S3FileCreateMultipart$outboundSchema,
-  service: z.literal("organization_avatar").default("organization_avatar"),
+  service: z.literal("organization_avatar").default(
+    "organization_avatar" as const,
+  ),
   version: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

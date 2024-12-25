@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Benefit$Outbound,
   Benefit$outboundSchema,
 } from "./benefit.js";
-
-export const WebhookBenefitUpdatedPayloadType = {
-  BenefitUpdated: "benefit.updated",
-} as const;
-export type WebhookBenefitUpdatedPayloadType = ClosedEnum<
-  typeof WebhookBenefitUpdatedPayloadType
->;
 
 /**
  * Sent when a benefit is updated.
@@ -32,27 +24,6 @@ export type WebhookBenefitUpdatedPayload = {
   type?: "benefit.updated" | undefined;
   data: Benefit;
 };
-
-/** @internal */
-export const WebhookBenefitUpdatedPayloadType$inboundSchema: z.ZodNativeEnum<
-  typeof WebhookBenefitUpdatedPayloadType
-> = z.nativeEnum(WebhookBenefitUpdatedPayloadType);
-
-/** @internal */
-export const WebhookBenefitUpdatedPayloadType$outboundSchema: z.ZodNativeEnum<
-  typeof WebhookBenefitUpdatedPayloadType
-> = WebhookBenefitUpdatedPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookBenefitUpdatedPayloadType$ {
-  /** @deprecated use `WebhookBenefitUpdatedPayloadType$inboundSchema` instead. */
-  export const inboundSchema = WebhookBenefitUpdatedPayloadType$inboundSchema;
-  /** @deprecated use `WebhookBenefitUpdatedPayloadType$outboundSchema` instead. */
-  export const outboundSchema = WebhookBenefitUpdatedPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookBenefitUpdatedPayload$inboundSchema: z.ZodType<
@@ -76,7 +47,7 @@ export const WebhookBenefitUpdatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookBenefitUpdatedPayload
 > = z.object({
-  type: z.literal("benefit.updated").default("benefit.updated"),
+  type: z.literal("benefit.updated").default("benefit.updated" as const),
   data: Benefit$outboundSchema,
 });
 

@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Benefit$Outbound,
   Benefit$outboundSchema,
 } from "./benefit.js";
-
-export const WebhookBenefitCreatedPayloadType = {
-  BenefitCreated: "benefit.created",
-} as const;
-export type WebhookBenefitCreatedPayloadType = ClosedEnum<
-  typeof WebhookBenefitCreatedPayloadType
->;
 
 /**
  * Sent when a new benefit is created.
@@ -32,27 +24,6 @@ export type WebhookBenefitCreatedPayload = {
   type?: "benefit.created" | undefined;
   data: Benefit;
 };
-
-/** @internal */
-export const WebhookBenefitCreatedPayloadType$inboundSchema: z.ZodNativeEnum<
-  typeof WebhookBenefitCreatedPayloadType
-> = z.nativeEnum(WebhookBenefitCreatedPayloadType);
-
-/** @internal */
-export const WebhookBenefitCreatedPayloadType$outboundSchema: z.ZodNativeEnum<
-  typeof WebhookBenefitCreatedPayloadType
-> = WebhookBenefitCreatedPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookBenefitCreatedPayloadType$ {
-  /** @deprecated use `WebhookBenefitCreatedPayloadType$inboundSchema` instead. */
-  export const inboundSchema = WebhookBenefitCreatedPayloadType$inboundSchema;
-  /** @deprecated use `WebhookBenefitCreatedPayloadType$outboundSchema` instead. */
-  export const outboundSchema = WebhookBenefitCreatedPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookBenefitCreatedPayload$inboundSchema: z.ZodType<
@@ -76,7 +47,7 @@ export const WebhookBenefitCreatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookBenefitCreatedPayload
 > = z.object({
-  type: z.literal("benefit.created").default("benefit.created"),
+  type: z.literal("benefit.created").default("benefit.created" as const),
   data: Benefit$outboundSchema,
 });
 

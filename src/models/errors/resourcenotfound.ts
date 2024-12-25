@@ -3,12 +3,6 @@
  */
 
 import * as z from "zod";
-import { ClosedEnum } from "../../types/enums.js";
-
-export const ErrorT = {
-  ResourceNotFound: "ResourceNotFound",
-} as const;
-export type ErrorT = ClosedEnum<typeof ErrorT>;
 
 export type ResourceNotFoundData = {
   error: "ResourceNotFound";
@@ -34,25 +28,6 @@ export class ResourceNotFound extends Error {
 
     this.name = "ResourceNotFound";
   }
-}
-
-/** @internal */
-export const ErrorT$inboundSchema: z.ZodNativeEnum<typeof ErrorT> = z
-  .nativeEnum(ErrorT);
-
-/** @internal */
-export const ErrorT$outboundSchema: z.ZodNativeEnum<typeof ErrorT> =
-  ErrorT$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ErrorT$ {
-  /** @deprecated use `ErrorT$inboundSchema` instead. */
-  export const inboundSchema = ErrorT$inboundSchema;
-  /** @deprecated use `ErrorT$outboundSchema` instead. */
-  export const outboundSchema = ErrorT$outboundSchema;
 }
 
 /** @internal */
@@ -82,7 +57,7 @@ export const ResourceNotFound$outboundSchema: z.ZodType<
 > = z.instanceof(ResourceNotFound)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("ResourceNotFound").default("ResourceNotFound"),
+    error: z.literal("ResourceNotFound").default("ResourceNotFound" as const),
     detail: z.string(),
   }));
 

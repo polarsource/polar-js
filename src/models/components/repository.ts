@@ -20,6 +20,11 @@ import {
   Organization$outboundSchema,
 } from "./organization.js";
 import {
+  Platforms,
+  Platforms$inboundSchema,
+  Platforms$outboundSchema,
+} from "./platforms.js";
+import {
   RepositoryProfileSettings,
   RepositoryProfileSettings$inboundSchema,
   RepositoryProfileSettings$Outbound,
@@ -28,7 +33,7 @@ import {
 
 export type Repository = {
   id: string;
-  platform?: "github" | undefined;
+  platform: Platforms;
   isPrivate: boolean;
   name: string;
   description: string | null;
@@ -50,7 +55,7 @@ export const Repository$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  platform: z.literal("github").optional(),
+  platform: Platforms$inboundSchema,
   is_private: z.boolean(),
   name: z.string(),
   description: z.nullable(z.string()),
@@ -71,7 +76,7 @@ export const Repository$inboundSchema: z.ZodType<
 /** @internal */
 export type Repository$Outbound = {
   id: string;
-  platform: "github";
+  platform: string;
   is_private: boolean;
   name: string;
   description: string | null;
@@ -90,7 +95,7 @@ export const Repository$outboundSchema: z.ZodType<
   Repository
 > = z.object({
   id: z.string(),
-  platform: z.literal("github").default("github"),
+  platform: Platforms$outboundSchema,
   isPrivate: z.boolean(),
   name: z.string(),
   description: z.nullable(z.string()),

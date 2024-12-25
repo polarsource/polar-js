@@ -5,17 +5,8 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType = {
-  RefreshToken: "refresh_token",
-} as const;
-export type Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType =
-  ClosedEnum<
-    typeof Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType
-  >;
 
 export type Onev11oauth21tokenPostXComponentsRefreshTokenRequest = {
   grantType?: "refresh_token" | undefined;
@@ -23,34 +14,6 @@ export type Onev11oauth21tokenPostXComponentsRefreshTokenRequest = {
   clientSecret: string;
   refreshToken: string;
 };
-
-/** @internal */
-export const Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType
-  > = z.nativeEnum(
-    Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType,
-  );
-
-/** @internal */
-export const Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType
-  > =
-    Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType$ {
-  /** @deprecated use `Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType$inboundSchema` instead. */
-  export const inboundSchema =
-    Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType$inboundSchema;
-  /** @deprecated use `Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType$outboundSchema` instead. */
-  export const outboundSchema =
-    Onev11oauth21tokenPostXComponentsRefreshTokenRequestGrantType$outboundSchema;
-}
 
 /** @internal */
 export const Onev11oauth21tokenPostXComponentsRefreshTokenRequest$inboundSchema:
@@ -87,7 +50,7 @@ export const Onev11oauth21tokenPostXComponentsRefreshTokenRequest$outboundSchema
     z.ZodTypeDef,
     Onev11oauth21tokenPostXComponentsRefreshTokenRequest
   > = z.object({
-    grantType: z.literal("refresh_token").default("refresh_token"),
+    grantType: z.literal("refresh_token").default("refresh_token" as const),
     clientId: z.string(),
     clientSecret: z.string(),
     refreshToken: z.string(),

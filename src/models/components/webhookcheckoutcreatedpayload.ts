@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Checkout$Outbound,
   Checkout$outboundSchema,
 } from "./checkout.js";
-
-export const WebhookCheckoutCreatedPayloadType = {
-  CheckoutCreated: "checkout.created",
-} as const;
-export type WebhookCheckoutCreatedPayloadType = ClosedEnum<
-  typeof WebhookCheckoutCreatedPayloadType
->;
 
 /**
  * Sent when a new checkout is created.
@@ -35,28 +27,6 @@ export type WebhookCheckoutCreatedPayload = {
    */
   data: Checkout;
 };
-
-/** @internal */
-export const WebhookCheckoutCreatedPayloadType$inboundSchema: z.ZodNativeEnum<
-  typeof WebhookCheckoutCreatedPayloadType
-> = z.nativeEnum(WebhookCheckoutCreatedPayloadType);
-
-/** @internal */
-export const WebhookCheckoutCreatedPayloadType$outboundSchema: z.ZodNativeEnum<
-  typeof WebhookCheckoutCreatedPayloadType
-> = WebhookCheckoutCreatedPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookCheckoutCreatedPayloadType$ {
-  /** @deprecated use `WebhookCheckoutCreatedPayloadType$inboundSchema` instead. */
-  export const inboundSchema = WebhookCheckoutCreatedPayloadType$inboundSchema;
-  /** @deprecated use `WebhookCheckoutCreatedPayloadType$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookCheckoutCreatedPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookCheckoutCreatedPayload$inboundSchema: z.ZodType<
@@ -80,7 +50,7 @@ export const WebhookCheckoutCreatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookCheckoutCreatedPayload
 > = z.object({
-  type: z.literal("checkout.created").default("checkout.created"),
+  type: z.literal("checkout.created").default("checkout.created" as const),
   data: Checkout$outboundSchema,
 });
 

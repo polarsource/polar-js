@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-09-10T00:03:37.019Z"),
-        modifiedAt: new Date("2024-11-20T14:19:41.572Z"),
+        createdAt: new Date("2024-06-01T03:35:11.920Z"),
+        modifiedAt: new Date("2022-06-16T15:19:22.874Z"),
         id: "<value>",
-        imageUrl: "https://dense-programme.name/",
-        imageUrlDark: "https://chubby-monasticism.info/",
+        imageUrl: "https://gifted-soliloquy.biz",
+        imageUrlDark: "https://regal-season.org",
         text: "<value>",
-        linkUrl: "https://frivolous-gym.biz",
+        linkUrl: "https://milky-precedent.net",
       },
     ],
     pagination: {
-      totalCount: 200932,
-      maxPage: 508014,
+      totalCount: 460423,
+      maxPage: 228869,
     },
     dimensions: [
-      829139,
+      218081,
     ],
   },
 };

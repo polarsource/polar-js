@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -15,13 +14,6 @@ import {
 } from "./customfieldtextproperties.js";
 
 export type CustomFieldUpdateTextMetadata = string | number | boolean;
-
-export const CustomFieldUpdateTextType = {
-  Text: "text",
-} as const;
-export type CustomFieldUpdateTextType = ClosedEnum<
-  typeof CustomFieldUpdateTextType
->;
 
 /**
  * Schema to update a custom field of type text.
@@ -85,27 +77,6 @@ export function customFieldUpdateTextMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldUpdateTextType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldUpdateTextType
-> = z.nativeEnum(CustomFieldUpdateTextType);
-
-/** @internal */
-export const CustomFieldUpdateTextType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldUpdateTextType
-> = CustomFieldUpdateTextType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdateTextType$ {
-  /** @deprecated use `CustomFieldUpdateTextType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdateTextType$inboundSchema;
-  /** @deprecated use `CustomFieldUpdateTextType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdateTextType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldUpdateText$inboundSchema: z.ZodType<
   CustomFieldUpdateText,
   z.ZodTypeDef,
@@ -140,7 +111,7 @@ export const CustomFieldUpdateText$outboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("text").default("text"),
+  type: z.literal("text").default("text" as const),
   properties: z.nullable(CustomFieldTextProperties$outboundSchema).optional(),
 });
 

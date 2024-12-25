@@ -5,43 +5,12 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const CustomerBenefitGrantAdsUpdateBenefitType = {
-  Ads: "ads",
-} as const;
-export type CustomerBenefitGrantAdsUpdateBenefitType = ClosedEnum<
-  typeof CustomerBenefitGrantAdsUpdateBenefitType
->;
 
 export type CustomerBenefitGrantAdsUpdate = {
   benefitType?: "ads" | undefined;
 };
-
-/** @internal */
-export const CustomerBenefitGrantAdsUpdateBenefitType$inboundSchema:
-  z.ZodNativeEnum<typeof CustomerBenefitGrantAdsUpdateBenefitType> = z
-    .nativeEnum(CustomerBenefitGrantAdsUpdateBenefitType);
-
-/** @internal */
-export const CustomerBenefitGrantAdsUpdateBenefitType$outboundSchema:
-  z.ZodNativeEnum<typeof CustomerBenefitGrantAdsUpdateBenefitType> =
-    CustomerBenefitGrantAdsUpdateBenefitType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantAdsUpdateBenefitType$ {
-  /** @deprecated use `CustomerBenefitGrantAdsUpdateBenefitType$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerBenefitGrantAdsUpdateBenefitType$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantAdsUpdateBenefitType$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantAdsUpdateBenefitType$outboundSchema;
-}
 
 /** @internal */
 export const CustomerBenefitGrantAdsUpdate$inboundSchema: z.ZodType<
@@ -67,7 +36,7 @@ export const CustomerBenefitGrantAdsUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerBenefitGrantAdsUpdate
 > = z.object({
-  benefitType: z.literal("ads").default("ads"),
+  benefitType: z.literal("ads").default("ads" as const),
 }).transform((v) => {
   return remap$(v, {
     benefitType: "benefit_type",

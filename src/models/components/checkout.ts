@@ -55,6 +55,11 @@ import {
   CheckoutStatus$outboundSchema,
 } from "./checkoutstatus.js";
 import {
+  PaymentProcessor,
+  PaymentProcessor$inboundSchema,
+  PaymentProcessor$outboundSchema,
+} from "./paymentprocessor.js";
+import {
   ProductPrice,
   ProductPrice$inboundSchema,
   ProductPrice$Outbound,
@@ -98,7 +103,7 @@ export type Checkout = {
    * Key-value object storing custom field values.
    */
   customFieldData?: CheckoutCustomFieldData | undefined;
-  paymentProcessor?: "stripe" | undefined;
+  paymentProcessor: PaymentProcessor;
   status: CheckoutStatus;
   /**
    * Client secret used to update and complete the checkout session from the client.
@@ -464,7 +469,7 @@ export const Checkout$inboundSchema: z.ZodType<
   id: z.string(),
   custom_field_data: z.lazy(() => CheckoutCustomFieldData$inboundSchema)
     .optional(),
-  payment_processor: z.literal("stripe").optional(),
+  payment_processor: PaymentProcessor$inboundSchema,
   status: CheckoutStatus$inboundSchema,
   client_secret: z.string(),
   url: z.string(),
@@ -552,7 +557,7 @@ export type Checkout$Outbound = {
   modified_at: string | null;
   id: string;
   custom_field_data?: CheckoutCustomFieldData$Outbound | undefined;
-  payment_processor: "stripe";
+  payment_processor: string;
   status: string;
   client_secret: string;
   url: string;
@@ -605,7 +610,7 @@ export const Checkout$outboundSchema: z.ZodType<
   id: z.string(),
   customFieldData: z.lazy(() => CheckoutCustomFieldData$outboundSchema)
     .optional(),
-  paymentProcessor: z.literal("stripe").default("stripe"),
+  paymentProcessor: PaymentProcessor$outboundSchema,
   status: CheckoutStatus$outboundSchema,
   clientSecret: z.string(),
   url: z.string(),

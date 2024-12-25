@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   BenefitGrantWebhook$Outbound,
   BenefitGrantWebhook$outboundSchema,
 } from "./benefitgrantwebhook.js";
-
-export const WebhookBenefitGrantRevokedPayloadType = {
-  BenefitGrantRevoked: "benefit_grant.revoked",
-} as const;
-export type WebhookBenefitGrantRevokedPayloadType = ClosedEnum<
-  typeof WebhookBenefitGrantRevokedPayloadType
->;
 
 /**
  * Sent when a new benefit grant is revoked.
@@ -32,30 +24,6 @@ export type WebhookBenefitGrantRevokedPayload = {
   type?: "benefit_grant.revoked" | undefined;
   data: BenefitGrantWebhook;
 };
-
-/** @internal */
-export const WebhookBenefitGrantRevokedPayloadType$inboundSchema:
-  z.ZodNativeEnum<typeof WebhookBenefitGrantRevokedPayloadType> = z.nativeEnum(
-    WebhookBenefitGrantRevokedPayloadType,
-  );
-
-/** @internal */
-export const WebhookBenefitGrantRevokedPayloadType$outboundSchema:
-  z.ZodNativeEnum<typeof WebhookBenefitGrantRevokedPayloadType> =
-    WebhookBenefitGrantRevokedPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookBenefitGrantRevokedPayloadType$ {
-  /** @deprecated use `WebhookBenefitGrantRevokedPayloadType$inboundSchema` instead. */
-  export const inboundSchema =
-    WebhookBenefitGrantRevokedPayloadType$inboundSchema;
-  /** @deprecated use `WebhookBenefitGrantRevokedPayloadType$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookBenefitGrantRevokedPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookBenefitGrantRevokedPayload$inboundSchema: z.ZodType<
@@ -79,7 +47,9 @@ export const WebhookBenefitGrantRevokedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookBenefitGrantRevokedPayload
 > = z.object({
-  type: z.literal("benefit_grant.revoked").default("benefit_grant.revoked"),
+  type: z.literal("benefit_grant.revoked").default(
+    "benefit_grant.revoked" as const,
+  ),
   data: BenefitGrantWebhook$outboundSchema,
 });
 

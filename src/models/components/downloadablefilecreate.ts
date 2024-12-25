@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   S3FileCreateMultipart$Outbound,
   S3FileCreateMultipart$outboundSchema,
 } from "./s3filecreatemultipart.js";
-
-export const DownloadableFileCreateService = {
-  Downloadable: "downloadable",
-} as const;
-export type DownloadableFileCreateService = ClosedEnum<
-  typeof DownloadableFileCreateService
->;
 
 /**
  * Schema to create a file to be associated with the downloadables benefit.
@@ -35,27 +27,6 @@ export type DownloadableFileCreate = {
   service?: "downloadable" | undefined;
   version?: string | null | undefined;
 };
-
-/** @internal */
-export const DownloadableFileCreateService$inboundSchema: z.ZodNativeEnum<
-  typeof DownloadableFileCreateService
-> = z.nativeEnum(DownloadableFileCreateService);
-
-/** @internal */
-export const DownloadableFileCreateService$outboundSchema: z.ZodNativeEnum<
-  typeof DownloadableFileCreateService
-> = DownloadableFileCreateService$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DownloadableFileCreateService$ {
-  /** @deprecated use `DownloadableFileCreateService$inboundSchema` instead. */
-  export const inboundSchema = DownloadableFileCreateService$inboundSchema;
-  /** @deprecated use `DownloadableFileCreateService$outboundSchema` instead. */
-  export const outboundSchema = DownloadableFileCreateService$outboundSchema;
-}
 
 /** @internal */
 export const DownloadableFileCreate$inboundSchema: z.ZodType<
@@ -103,7 +74,7 @@ export const DownloadableFileCreate$outboundSchema: z.ZodType<
   size: z.number().int(),
   checksumSha256Base64: z.nullable(z.string()).optional(),
   upload: S3FileCreateMultipart$outboundSchema,
-  service: z.literal("downloadable").default("downloadable"),
+  service: z.literal("downloadable").default("downloadable" as const),
   version: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

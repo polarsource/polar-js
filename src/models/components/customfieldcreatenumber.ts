@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -16,13 +15,6 @@ import {
 } from "./customfieldnumberproperties.js";
 
 export type CustomFieldCreateNumberMetadata = string | number | boolean;
-
-export const CustomFieldCreateNumberType = {
-  Number: "number",
-} as const;
-export type CustomFieldCreateNumberType = ClosedEnum<
-  typeof CustomFieldCreateNumberType
->;
 
 /**
  * Schema to create a custom field of type number.
@@ -113,27 +105,6 @@ export function customFieldCreateNumberMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldCreateNumberType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldCreateNumberType
-> = z.nativeEnum(CustomFieldCreateNumberType);
-
-/** @internal */
-export const CustomFieldCreateNumberType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldCreateNumberType
-> = CustomFieldCreateNumberType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateNumberType$ {
-  /** @deprecated use `CustomFieldCreateNumberType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateNumberType$inboundSchema;
-  /** @deprecated use `CustomFieldCreateNumberType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateNumberType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldCreateNumber$inboundSchema: z.ZodType<
   CustomFieldCreateNumber,
   z.ZodTypeDef,
@@ -170,7 +141,7 @@ export const CustomFieldCreateNumber$outboundSchema: z.ZodType<
 > = z.object({
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
     .optional(),
-  type: z.literal("number").default("number"),
+  type: z.literal("number").default("number" as const),
   slug: z.string(),
   name: z.string(),
   organizationId: z.nullable(z.string()).optional(),
