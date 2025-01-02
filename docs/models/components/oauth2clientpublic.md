@@ -6,14 +6,14 @@
 import { OAuth2ClientPublic } from "@polar-sh/sdk/models/components";
 
 let value: OAuth2ClientPublic = {
-  createdAt: new Date("2022-03-17T04:26:37.100Z"),
-  modifiedAt: new Date("2023-01-22T08:53:03.092Z"),
+  createdAt: new Date("2025-05-03T03:06:38.832Z"),
+  modifiedAt: new Date("2024-06-27T17:40:06.266Z"),
   clientId: "<id>",
   clientName: "<value>",
-  clientUri: "https://snappy-cannon.com/",
-  logoUri: "https://formal-status.net/",
-  tosUri: "https://formal-farmer.name",
-  policyUri: "https://idealistic-language.org",
+  clientUri: "https://immense-premium.net",
+  logoUri: "https://terrible-moment.name",
+  tosUri: "https://victorious-league.info/",
+  policyUri: "https://courteous-doing.biz",
 };
 ```
 

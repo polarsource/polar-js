@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Pledge$Outbound,
   Pledge$outboundSchema,
 } from "./pledge.js";
-
-export const WebhookPledgeCreatedPayloadType = {
-  PledgeCreated: "pledge.created",
-} as const;
-export type WebhookPledgeCreatedPayloadType = ClosedEnum<
-  typeof WebhookPledgeCreatedPayloadType
->;
 
 /**
  * Sent when a new pledge is created. Note that this does mean that the pledge has been paid yet.
@@ -32,27 +24,6 @@ export type WebhookPledgeCreatedPayload = {
   type?: "pledge.created" | undefined;
   data: Pledge;
 };
-
-/** @internal */
-export const WebhookPledgeCreatedPayloadType$inboundSchema: z.ZodNativeEnum<
-  typeof WebhookPledgeCreatedPayloadType
-> = z.nativeEnum(WebhookPledgeCreatedPayloadType);
-
-/** @internal */
-export const WebhookPledgeCreatedPayloadType$outboundSchema: z.ZodNativeEnum<
-  typeof WebhookPledgeCreatedPayloadType
-> = WebhookPledgeCreatedPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookPledgeCreatedPayloadType$ {
-  /** @deprecated use `WebhookPledgeCreatedPayloadType$inboundSchema` instead. */
-  export const inboundSchema = WebhookPledgeCreatedPayloadType$inboundSchema;
-  /** @deprecated use `WebhookPledgeCreatedPayloadType$outboundSchema` instead. */
-  export const outboundSchema = WebhookPledgeCreatedPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookPledgeCreatedPayload$inboundSchema: z.ZodType<
@@ -76,7 +47,7 @@ export const WebhookPledgeCreatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookPledgeCreatedPayload
 > = z.object({
-  type: z.literal("pledge.created").default("pledge.created"),
+  type: z.literal("pledge.created").default("pledge.created" as const),
   data: Pledge$outboundSchema,
 });
 

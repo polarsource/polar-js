@@ -7,9 +7,9 @@ import { MetricsGetRequest } from "@polar-sh/sdk/models/operations";
 import { RFCDate } from "@polar-sh/sdk/types";
 
 let value: MetricsGetRequest = {
-  startDate: new RFCDate("2022-04-16"),
-  endDate: new RFCDate("2022-06-28"),
-  interval: "year",
+  startDate: new RFCDate("2025-10-12"),
+  endDate: new RFCDate("2025-11-13"),
+  interval: "month",
 };
 ```
 

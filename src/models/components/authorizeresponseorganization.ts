@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -22,13 +21,6 @@ import {
 } from "./oauth2clientpublic.js";
 import { Scope, Scope$inboundSchema, Scope$outboundSchema } from "./scope.js";
 
-export const AuthorizeResponseOrganizationSubType = {
-  Organization: "organization",
-} as const;
-export type AuthorizeResponseOrganizationSubType = ClosedEnum<
-  typeof AuthorizeResponseOrganizationSubType
->;
-
 export type AuthorizeResponseOrganization = {
   client: OAuth2ClientPublic;
   subType?: "organization" | undefined;
@@ -36,30 +28,6 @@ export type AuthorizeResponseOrganization = {
   scopes: Array<Scope>;
   organizations: Array<AuthorizeOrganization>;
 };
-
-/** @internal */
-export const AuthorizeResponseOrganizationSubType$inboundSchema:
-  z.ZodNativeEnum<typeof AuthorizeResponseOrganizationSubType> = z.nativeEnum(
-    AuthorizeResponseOrganizationSubType,
-  );
-
-/** @internal */
-export const AuthorizeResponseOrganizationSubType$outboundSchema:
-  z.ZodNativeEnum<typeof AuthorizeResponseOrganizationSubType> =
-    AuthorizeResponseOrganizationSubType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizeResponseOrganizationSubType$ {
-  /** @deprecated use `AuthorizeResponseOrganizationSubType$inboundSchema` instead. */
-  export const inboundSchema =
-    AuthorizeResponseOrganizationSubType$inboundSchema;
-  /** @deprecated use `AuthorizeResponseOrganizationSubType$outboundSchema` instead. */
-  export const outboundSchema =
-    AuthorizeResponseOrganizationSubType$outboundSchema;
-}
 
 /** @internal */
 export const AuthorizeResponseOrganization$inboundSchema: z.ZodType<
@@ -94,7 +62,7 @@ export const AuthorizeResponseOrganization$outboundSchema: z.ZodType<
   AuthorizeResponseOrganization
 > = z.object({
   client: OAuth2ClientPublic$outboundSchema,
-  subType: z.literal("organization").default("organization"),
+  subType: z.literal("organization").default("organization" as const),
   sub: z.nullable(AuthorizeOrganization$outboundSchema),
   scopes: z.array(Scope$outboundSchema),
   organizations: z.array(AuthorizeOrganization$outboundSchema),

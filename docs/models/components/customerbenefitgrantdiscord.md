@@ -6,41 +6,61 @@
 import { CustomerBenefitGrantDiscord } from "@polar-sh/sdk/models/components";
 
 let value: CustomerBenefitGrantDiscord = {
-  createdAt: new Date("2023-08-31T00:49:01.651Z"),
-  modifiedAt: new Date("2024-02-02T12:36:51.052Z"),
+  createdAt: new Date("2024-02-04T22:44:09.809Z"),
+  modifiedAt: new Date("2025-02-01T20:11:50.129Z"),
   id: "<value>",
-  grantedAt: new Date("2024-10-26T12:43:46.379Z"),
-  revokedAt: new Date("2024-09-14T17:53:29.108Z"),
+  grantedAt: new Date("2025-06-25T06:53:42.834Z"),
+  revokedAt: new Date("2023-07-18T04:09:50.300Z"),
   customerId: "<value>",
   benefitId: "<value>",
   subscriptionId: "<value>",
   orderId: "<value>",
   isGranted: false,
   isRevoked: false,
-  benefit: {
-    createdAt: new Date("2023-10-18T05:26:12.523Z"),
-    modifiedAt: new Date("2023-09-19T01:12:09.442Z"),
+  customer: {
+    createdAt: new Date("2024-11-16T06:19:22.427Z"),
+    modifiedAt: new Date("2023-06-24T21:14:12.329Z"),
     id: "<value>",
-    description: "manage what cutover",
+    email: "Janis_Murazik39@gmail.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "Ukraine",
+    },
+    taxId: [
+      "<id>",
+    ],
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
+  },
+  benefit: {
+    createdAt: new Date("2024-07-16T16:35:31.351Z"),
+    modifiedAt: new Date("2023-03-21T03:43:40.209Z"),
+    id: "<value>",
+    description: "boastfully until hence",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     organization: {
-      createdAt: new Date("2024-11-24T15:15:39.142Z"),
-      modifiedAt: new Date("2024-05-19T00:29:31.464Z"),
+      createdAt: new Date("2024-08-21T21:47:18.524Z"),
+      modifiedAt: new Date("2025-08-19T03:07:08.900Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://shiny-instance.com",
+      avatarUrl: "https://rusty-tusk.biz/",
       bio: "<value>",
-      company: "Johns and Sons",
+      company: "Yost - Beatty",
       blog: "<value>",
       location: "<value>",
-      email: "Carole.Kuhlman31@gmail.com",
+      email: "Santino_Dare72@gmail.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 633911,
+      pledgeMinimumAmount: 501792,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 920081,
+      defaultUpfrontSplitToContributors: 893477,
       profileSettings: {},
       featureSettings: {},
     },
@@ -67,5 +87,6 @@ let value: CustomerBenefitGrantDiscord = {
 | `orderId`                                                                                            | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `isGranted`                                                                                          | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `isRevoked`                                                                                          | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `customer`                                                                                           | [components.CustomerPortalCustomer](../../models/components/customerportalcustomer.md)               | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `benefit`                                                                                            | [components.BenefitDiscordSubscriber](../../models/components/benefitdiscordsubscriber.md)           | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `properties`                                                                                         | [components.BenefitGrantDiscordProperties](../../models/components/benefitgrantdiscordproperties.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

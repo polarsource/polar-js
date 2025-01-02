@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Subscription$Outbound,
   Subscription$outboundSchema,
 } from "./subscription.js";
-
-export const WebhookSubscriptionUpdatedPayloadType = {
-  SubscriptionUpdated: "subscription.updated",
-} as const;
-export type WebhookSubscriptionUpdatedPayloadType = ClosedEnum<
-  typeof WebhookSubscriptionUpdatedPayloadType
->;
 
 /**
  * Sent when a subscription is updated. This event fires for all changes to the subscription, including renewals.
@@ -36,30 +28,6 @@ export type WebhookSubscriptionUpdatedPayload = {
   type?: "subscription.updated" | undefined;
   data: Subscription;
 };
-
-/** @internal */
-export const WebhookSubscriptionUpdatedPayloadType$inboundSchema:
-  z.ZodNativeEnum<typeof WebhookSubscriptionUpdatedPayloadType> = z.nativeEnum(
-    WebhookSubscriptionUpdatedPayloadType,
-  );
-
-/** @internal */
-export const WebhookSubscriptionUpdatedPayloadType$outboundSchema:
-  z.ZodNativeEnum<typeof WebhookSubscriptionUpdatedPayloadType> =
-    WebhookSubscriptionUpdatedPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookSubscriptionUpdatedPayloadType$ {
-  /** @deprecated use `WebhookSubscriptionUpdatedPayloadType$inboundSchema` instead. */
-  export const inboundSchema =
-    WebhookSubscriptionUpdatedPayloadType$inboundSchema;
-  /** @deprecated use `WebhookSubscriptionUpdatedPayloadType$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookSubscriptionUpdatedPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookSubscriptionUpdatedPayload$inboundSchema: z.ZodType<
@@ -83,7 +51,9 @@ export const WebhookSubscriptionUpdatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookSubscriptionUpdatedPayload
 > = z.object({
-  type: z.literal("subscription.updated").default("subscription.updated"),
+  type: z.literal("subscription.updated").default(
+    "subscription.updated" as const,
+  ),
   data: Subscription$outboundSchema,
 });
 

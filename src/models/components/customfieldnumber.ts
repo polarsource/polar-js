@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -16,11 +15,6 @@ import {
 } from "./customfieldnumberproperties.js";
 
 export type CustomFieldNumberMetadata = string | number | boolean;
-
-export const CustomFieldNumberType = {
-  Number: "number",
-} as const;
-export type CustomFieldNumberType = ClosedEnum<typeof CustomFieldNumberType>;
 
 /**
  * Schema for a custom field of type number.
@@ -104,27 +98,6 @@ export function customFieldNumberMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldNumberType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldNumberType
-> = z.nativeEnum(CustomFieldNumberType);
-
-/** @internal */
-export const CustomFieldNumberType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldNumberType
-> = CustomFieldNumberType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldNumberType$ {
-  /** @deprecated use `CustomFieldNumberType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldNumberType$inboundSchema;
-  /** @deprecated use `CustomFieldNumberType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldNumberType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldNumber$inboundSchema: z.ZodType<
   CustomFieldNumber,
   z.ZodTypeDef,
@@ -172,7 +145,7 @@ export const CustomFieldNumber$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  type: z.literal("number").default("number"),
+  type: z.literal("number").default("number" as const),
   slug: z.string(),
   name: z.string(),
   organizationId: z.string(),

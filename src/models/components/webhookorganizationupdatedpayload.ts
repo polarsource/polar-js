@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Organization$Outbound,
   Organization$outboundSchema,
 } from "./organization.js";
-
-export const WebhookOrganizationUpdatedPayloadType = {
-  OrganizationUpdated: "organization.updated",
-} as const;
-export type WebhookOrganizationUpdatedPayloadType = ClosedEnum<
-  typeof WebhookOrganizationUpdatedPayloadType
->;
 
 /**
  * Sent when a organization is updated.
@@ -32,30 +24,6 @@ export type WebhookOrganizationUpdatedPayload = {
   type?: "organization.updated" | undefined;
   data: Organization;
 };
-
-/** @internal */
-export const WebhookOrganizationUpdatedPayloadType$inboundSchema:
-  z.ZodNativeEnum<typeof WebhookOrganizationUpdatedPayloadType> = z.nativeEnum(
-    WebhookOrganizationUpdatedPayloadType,
-  );
-
-/** @internal */
-export const WebhookOrganizationUpdatedPayloadType$outboundSchema:
-  z.ZodNativeEnum<typeof WebhookOrganizationUpdatedPayloadType> =
-    WebhookOrganizationUpdatedPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookOrganizationUpdatedPayloadType$ {
-  /** @deprecated use `WebhookOrganizationUpdatedPayloadType$inboundSchema` instead. */
-  export const inboundSchema =
-    WebhookOrganizationUpdatedPayloadType$inboundSchema;
-  /** @deprecated use `WebhookOrganizationUpdatedPayloadType$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookOrganizationUpdatedPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookOrganizationUpdatedPayload$inboundSchema: z.ZodType<
@@ -79,7 +47,9 @@ export const WebhookOrganizationUpdatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookOrganizationUpdatedPayload
 > = z.object({
-  type: z.literal("organization.updated").default("organization.updated"),
+  type: z.literal("organization.updated").default(
+    "organization.updated" as const,
+  ),
   data: Organization$outboundSchema,
 });
 

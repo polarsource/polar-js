@@ -11,8 +11,8 @@ import { WebhookBenefitGrantRevokedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantRevokedPayload = {
   data: {
-    createdAt: new Date("2023-12-24T04:08:16.291Z"),
-    modifiedAt: new Date("2023-07-27T18:43:26.946Z"),
+    createdAt: new Date("2024-07-23T11:07:08.116Z"),
+    modifiedAt: new Date("2025-11-01T00:31:03.453Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -21,20 +21,38 @@ let value: WebhookBenefitGrantRevokedPayload = {
     customerId: "<value>",
     userId: "<value>",
     benefitId: "<value>",
+    customer: {
+      createdAt: new Date("2024-04-24T08:05:27.539Z"),
+      modifiedAt: new Date("2025-08-26T11:17:42.321Z"),
+      id: "<value>",
+      metadata: {
+        "key": 405335,
+      },
+      email: "Stewart_Fritsch24@yahoo.com",
+      emailVerified: false,
+      name: "<value>",
+      billingAddress: {
+        country: "British Indian Ocean Territory (Chagos Archipelago)",
+      },
+      taxId: [
+        "rs_pib",
+      ],
+      organizationId: "<value>",
+      avatarUrl: "https://incomparable-seagull.com/",
+    },
     properties: {},
     benefit: {
-      createdAt: new Date("2024-03-18T03:12:28.184Z"),
-      modifiedAt: new Date("2024-05-25T13:47:58.818Z"),
+      createdAt: new Date("2024-08-18T14:57:12.197Z"),
+      modifiedAt: new Date("2025-09-07T18:38:25.731Z"),
       id: "<value>",
-      description: "powerfully squeaky rim",
+      description: "faithfully individual gadzooks",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        repositoryOwner: "polarsource",
-        repositoryName: "private_repo",
-        permission: "pull",
+        note: "<value>",
       },
+      isTaxApplicable: false,
     },
   },
 };
@@ -42,7 +60,7 @@ let value: WebhookBenefitGrantRevokedPayload = {
 
 ## Fields
 
-| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                               | [components.WebhookBenefitGrantRevokedPayloadType](../../models/components/webhookbenefitgrantrevokedpayloadtype.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `data`                                                                                                               | [components.BenefitGrantWebhook](../../models/components/benefitgrantwebhook.md)                                     | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `type`                                                                           | *string*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              |
+| `data`                                                                           | [components.BenefitGrantWebhook](../../models/components/benefitgrantwebhook.md) | :heavy_check_mark:                                                               | N/A                                                                              |

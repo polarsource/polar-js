@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -20,13 +19,6 @@ import {
   Organization$Outbound,
   Organization$outboundSchema,
 } from "./organization.js";
-
-export const BenefitCustomSubscriberType = {
-  Custom: "custom",
-} as const;
-export type BenefitCustomSubscriberType = ClosedEnum<
-  typeof BenefitCustomSubscriberType
->;
 
 export type BenefitCustomSubscriber = {
   /**
@@ -64,27 +56,6 @@ export type BenefitCustomSubscriber = {
    */
   properties: BenefitCustomSubscriberProperties;
 };
-
-/** @internal */
-export const BenefitCustomSubscriberType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitCustomSubscriberType
-> = z.nativeEnum(BenefitCustomSubscriberType);
-
-/** @internal */
-export const BenefitCustomSubscriberType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitCustomSubscriberType
-> = BenefitCustomSubscriberType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustomSubscriberType$ {
-  /** @deprecated use `BenefitCustomSubscriberType$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustomSubscriberType$inboundSchema;
-  /** @deprecated use `BenefitCustomSubscriberType$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustomSubscriberType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitCustomSubscriber$inboundSchema: z.ZodType<
@@ -135,7 +106,7 @@ export const BenefitCustomSubscriber$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  type: z.literal("custom").default("custom"),
+  type: z.literal("custom").default("custom" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

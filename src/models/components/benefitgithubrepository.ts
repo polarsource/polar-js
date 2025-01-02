@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   BenefitGitHubRepositoryProperties$Outbound,
   BenefitGitHubRepositoryProperties$outboundSchema,
 } from "./benefitgithubrepositoryproperties.js";
-
-export const BenefitGitHubRepositoryType = {
-  GithubRepository: "github_repository",
-} as const;
-export type BenefitGitHubRepositoryType = ClosedEnum<
-  typeof BenefitGitHubRepositoryType
->;
 
 /**
  * A benefit of type `github_repository`.
@@ -64,27 +56,6 @@ export type BenefitGitHubRepository = {
    */
   properties: BenefitGitHubRepositoryProperties;
 };
-
-/** @internal */
-export const BenefitGitHubRepositoryType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitGitHubRepositoryType
-> = z.nativeEnum(BenefitGitHubRepositoryType);
-
-/** @internal */
-export const BenefitGitHubRepositoryType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitGitHubRepositoryType
-> = BenefitGitHubRepositoryType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositoryType$ {
-  /** @deprecated use `BenefitGitHubRepositoryType$inboundSchema` instead. */
-  export const inboundSchema = BenefitGitHubRepositoryType$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryType$outboundSchema` instead. */
-  export const outboundSchema = BenefitGitHubRepositoryType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitGitHubRepository$inboundSchema: z.ZodType<
@@ -133,7 +104,7 @@ export const BenefitGitHubRepository$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  type: z.literal("github_repository").default("github_repository"),
+  type: z.literal("github_repository").default("github_repository" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

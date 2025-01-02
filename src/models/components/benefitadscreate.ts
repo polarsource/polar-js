@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,11 +13,6 @@ import {
   BenefitAdsProperties$Outbound,
   BenefitAdsProperties$outboundSchema,
 } from "./benefitadsproperties.js";
-
-export const BenefitAdsCreateType = {
-  Ads: "ads",
-} as const;
-export type BenefitAdsCreateType = ClosedEnum<typeof BenefitAdsCreateType>;
 
 export type BenefitAdsCreate = {
   type?: "ads" | undefined;
@@ -35,27 +29,6 @@ export type BenefitAdsCreate = {
    */
   properties: BenefitAdsProperties;
 };
-
-/** @internal */
-export const BenefitAdsCreateType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitAdsCreateType
-> = z.nativeEnum(BenefitAdsCreateType);
-
-/** @internal */
-export const BenefitAdsCreateType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitAdsCreateType
-> = BenefitAdsCreateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitAdsCreateType$ {
-  /** @deprecated use `BenefitAdsCreateType$inboundSchema` instead. */
-  export const inboundSchema = BenefitAdsCreateType$inboundSchema;
-  /** @deprecated use `BenefitAdsCreateType$outboundSchema` instead. */
-  export const outboundSchema = BenefitAdsCreateType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitAdsCreate$inboundSchema: z.ZodType<
@@ -87,7 +60,7 @@ export const BenefitAdsCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitAdsCreate
 > = z.object({
-  type: z.literal("ads").default("ads"),
+  type: z.literal("ads").default("ads" as const),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   properties: BenefitAdsProperties$outboundSchema,

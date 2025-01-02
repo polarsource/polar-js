@@ -5,16 +5,8 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const DownloadableFileReadService = {
-  Downloadable: "downloadable",
-} as const;
-export type DownloadableFileReadService = ClosedEnum<
-  typeof DownloadableFileReadService
->;
 
 /**
  * File to be associated with the downloadables benefit.
@@ -40,27 +32,6 @@ export type DownloadableFileRead = {
   createdAt: Date;
   sizeReadable: string;
 };
-
-/** @internal */
-export const DownloadableFileReadService$inboundSchema: z.ZodNativeEnum<
-  typeof DownloadableFileReadService
-> = z.nativeEnum(DownloadableFileReadService);
-
-/** @internal */
-export const DownloadableFileReadService$outboundSchema: z.ZodNativeEnum<
-  typeof DownloadableFileReadService
-> = DownloadableFileReadService$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DownloadableFileReadService$ {
-  /** @deprecated use `DownloadableFileReadService$inboundSchema` instead. */
-  export const inboundSchema = DownloadableFileReadService$inboundSchema;
-  /** @deprecated use `DownloadableFileReadService$outboundSchema` instead. */
-  export const outboundSchema = DownloadableFileReadService$outboundSchema;
-}
 
 /** @internal */
 export const DownloadableFileRead$inboundSchema: z.ZodType<
@@ -139,7 +110,7 @@ export const DownloadableFileRead$outboundSchema: z.ZodType<
   checksumSha256Hex: z.nullable(z.string()),
   lastModifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   version: z.nullable(z.string()),
-  service: z.literal("downloadable").default("downloadable"),
+  service: z.literal("downloadable").default("downloadable" as const),
   isUploaded: z.boolean(),
   createdAt: z.date().transform(v => v.toISOString()),
   sizeReadable: z.string(),

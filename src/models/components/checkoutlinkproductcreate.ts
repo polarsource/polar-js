@@ -5,24 +5,10 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutLinkProductCreateMetadata = string | number | boolean;
-
-/**
- * Payment processor to use. Currently only Stripe is supported.
- */
-export const CheckoutLinkProductCreatePaymentProcessor = {
-  Stripe: "stripe",
-} as const;
-/**
- * Payment processor to use. Currently only Stripe is supported.
- */
-export type CheckoutLinkProductCreatePaymentProcessor = ClosedEnum<
-  typeof CheckoutLinkProductCreatePaymentProcessor
->;
 
 export type CheckoutLinkProductCreate = {
   /**
@@ -121,29 +107,6 @@ export function checkoutLinkProductCreateMetadataFromJSON(
 }
 
 /** @internal */
-export const CheckoutLinkProductCreatePaymentProcessor$inboundSchema:
-  z.ZodNativeEnum<typeof CheckoutLinkProductCreatePaymentProcessor> = z
-    .nativeEnum(CheckoutLinkProductCreatePaymentProcessor);
-
-/** @internal */
-export const CheckoutLinkProductCreatePaymentProcessor$outboundSchema:
-  z.ZodNativeEnum<typeof CheckoutLinkProductCreatePaymentProcessor> =
-    CheckoutLinkProductCreatePaymentProcessor$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkProductCreatePaymentProcessor$ {
-  /** @deprecated use `CheckoutLinkProductCreatePaymentProcessor$inboundSchema` instead. */
-  export const inboundSchema =
-    CheckoutLinkProductCreatePaymentProcessor$inboundSchema;
-  /** @deprecated use `CheckoutLinkProductCreatePaymentProcessor$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutLinkProductCreatePaymentProcessor$outboundSchema;
-}
-
-/** @internal */
 export const CheckoutLinkProductCreate$inboundSchema: z.ZodType<
   CheckoutLinkProductCreate,
   z.ZodTypeDef,
@@ -186,7 +149,7 @@ export const CheckoutLinkProductCreate$outboundSchema: z.ZodType<
 > = z.object({
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
     .optional(),
-  paymentProcessor: z.literal("stripe").default("stripe"),
+  paymentProcessor: z.literal("stripe").default("stripe" as const),
   label: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.boolean().default(true),
   discountId: z.nullable(z.string()).optional(),

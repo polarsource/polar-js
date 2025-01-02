@@ -5,14 +5,8 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const GrantType = {
-  AuthorizationCode: "authorization_code",
-} as const;
-export type GrantType = ClosedEnum<typeof GrantType>;
 
 export type Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest = {
   grantType?: "authorization_code" | undefined;
@@ -21,25 +15,6 @@ export type Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest = {
   code: string;
   redirectUri: string;
 };
-
-/** @internal */
-export const GrantType$inboundSchema: z.ZodNativeEnum<typeof GrantType> = z
-  .nativeEnum(GrantType);
-
-/** @internal */
-export const GrantType$outboundSchema: z.ZodNativeEnum<typeof GrantType> =
-  GrantType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GrantType$ {
-  /** @deprecated use `GrantType$inboundSchema` instead. */
-  export const inboundSchema = GrantType$inboundSchema;
-  /** @deprecated use `GrantType$outboundSchema` instead. */
-  export const outboundSchema = GrantType$outboundSchema;
-}
 
 /** @internal */
 export const Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$inboundSchema:
@@ -79,7 +54,9 @@ export const Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$outb
     z.ZodTypeDef,
     Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest
   > = z.object({
-    grantType: z.literal("authorization_code").default("authorization_code"),
+    grantType: z.literal("authorization_code").default(
+      "authorization_code" as const,
+    ),
     clientId: z.string(),
     clientSecret: z.string(),
     code: z.string(),

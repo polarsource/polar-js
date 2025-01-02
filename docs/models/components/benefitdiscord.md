@@ -10,8 +10,8 @@ Use it to automatically invite your backers to a Discord server.
 import { BenefitDiscord } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscord = {
-  createdAt: new Date("2022-11-20T15:45:49.704Z"),
-  modifiedAt: new Date("2024-02-13T00:23:21.664Z"),
+  createdAt: new Date("2023-11-20T15:45:49.704Z"),
+  modifiedAt: new Date("2025-02-12T00:23:21.664Z"),
   id: "<value>",
   description: "monasticism ugh and slide thongs",
   selectable: false,
@@ -32,7 +32,7 @@ let value: BenefitDiscord = {
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Creation timestamp of the object.                                                             |
 | `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the benefit.                                                                        |
-| `type`                                                                                        | [components.BenefitDiscordType](../../models/components/benefitdiscordtype.md)                | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `description`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | The description of the benefit.                                                               |
 | `selectable`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is selectable when creating a product.                                    |
 | `deletable`                                                                                   | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is deletable.                                                             |

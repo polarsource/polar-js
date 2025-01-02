@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,11 +13,6 @@ import {
   BenefitDiscordProperties$Outbound,
   BenefitDiscordProperties$outboundSchema,
 } from "./benefitdiscordproperties.js";
-
-export const BenefitDiscordType = {
-  Discord: "discord",
-} as const;
-export type BenefitDiscordType = ClosedEnum<typeof BenefitDiscordType>;
 
 /**
  * A benefit of type `discord`.
@@ -62,27 +56,6 @@ export type BenefitDiscord = {
    */
   properties: BenefitDiscordProperties;
 };
-
-/** @internal */
-export const BenefitDiscordType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitDiscordType
-> = z.nativeEnum(BenefitDiscordType);
-
-/** @internal */
-export const BenefitDiscordType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitDiscordType
-> = BenefitDiscordType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDiscordType$ {
-  /** @deprecated use `BenefitDiscordType$inboundSchema` instead. */
-  export const inboundSchema = BenefitDiscordType$inboundSchema;
-  /** @deprecated use `BenefitDiscordType$outboundSchema` instead. */
-  export const outboundSchema = BenefitDiscordType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitDiscord$inboundSchema: z.ZodType<
@@ -131,7 +104,7 @@ export const BenefitDiscord$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  type: z.literal("discord").default("discord"),
+  type: z.literal("discord").default("discord" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

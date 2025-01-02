@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2022-12-04T15:27:18.312Z"),
-        modifiedAt: new Date("2022-02-02T13:50:21.161Z"),
+        createdAt: new Date("2025-09-25T11:00:47.759Z"),
+        modifiedAt: new Date("2024-07-26T07:43:54.459Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -19,12 +19,33 @@ let value: BenefitsGrantsResponse = {
         customerId: "<value>",
         userId: "<value>",
         benefitId: "<value>",
-        properties: {},
+        customer: {
+          createdAt: new Date("2025-01-21T21:27:26.400Z"),
+          modifiedAt: new Date("2024-07-11T13:24:15.441Z"),
+          id: "<value>",
+          metadata: {
+            "key": 980995,
+          },
+          email: "Maxime45@yahoo.com",
+          emailVerified: false,
+          name: "<value>",
+          billingAddress: {
+            country: "United Arab Emirates",
+          },
+          taxId: [
+            "<id>",
+          ],
+          organizationId: "<value>",
+          avatarUrl: "https://kosher-aftermath.info/",
+        },
+        properties: {
+          advertisementCampaignId: "<id>",
+        },
       },
     ],
     pagination: {
-      totalCount: 428795,
-      maxPage: 99307,
+      totalCount: 883267,
+      maxPage: 963239,
     },
   },
 };

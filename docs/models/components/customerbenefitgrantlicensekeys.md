@@ -6,55 +6,76 @@
 import { CustomerBenefitGrantLicenseKeys } from "@polar-sh/sdk/models/components";
 
 let value: CustomerBenefitGrantLicenseKeys = {
-  createdAt: new Date("2024-07-08T23:51:54.681Z"),
-  modifiedAt: new Date("2022-01-25T17:10:29.427Z"),
+  createdAt: new Date("2024-08-06T08:14:46.348Z"),
+  modifiedAt: new Date("2023-03-01T08:59:33.586Z"),
   id: "<value>",
-  grantedAt: new Date("2023-06-27T19:14:57.655Z"),
-  revokedAt: new Date("2022-03-21T17:23:21.308Z"),
+  grantedAt: new Date("2023-06-02T13:52:45.545Z"),
+  revokedAt: new Date("2025-09-26T07:23:43.790Z"),
   customerId: "<value>",
   benefitId: "<value>",
   subscriptionId: "<value>",
   orderId: "<value>",
   isGranted: false,
   isRevoked: false,
-  benefit: {
-    createdAt: new Date("2022-06-09T23:08:32.328Z"),
-    modifiedAt: new Date("2023-05-25T23:05:32.713Z"),
+  customer: {
+    createdAt: new Date("2025-08-17T20:38:44.628Z"),
+    modifiedAt: new Date("2025-06-13T01:35:49.200Z"),
     id: "<value>",
-    description: "limply near underneath midst",
+    email: "Ford54@yahoo.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "Kazakhstan",
+    },
+    taxId: [
+      "<id>",
+    ],
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
+  },
+  benefit: {
+    createdAt: new Date("2024-04-05T15:03:35.148Z"),
+    modifiedAt: new Date("2023-08-14T01:50:08.497Z"),
+    id: "<value>",
+    description:
+      "priesthood individual entomb psst jaggedly kissingly forenenst marathon um",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     organization: {
-      createdAt: new Date("2022-09-30T10:42:40.243Z"),
-      modifiedAt: new Date("2024-06-17T16:49:17.447Z"),
+      createdAt: new Date("2023-04-14T20:13:02.673Z"),
+      modifiedAt: new Date("2024-05-09T07:01:19.772Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://adolescent-citizen.info/",
+      avatarUrl: "https://insecure-digestive.info",
       bio: "<value>",
-      company: "Nolan - Donnelly",
+      company: "Bayer, Kuhn and Dickinson",
       blog: "<value>",
       location: "<value>",
-      email: "Adele.Hansen98@yahoo.com",
+      email: "Pablo17@gmail.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 898686,
+      pledgeMinimumAmount: 408680,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 686368,
+      defaultUpfrontSplitToContributors: 182103,
       profileSettings: {},
       featureSettings: {},
     },
     properties: {
       prefix: "<value>",
       expires: {
-        ttl: 958567,
-        timeframe: "day",
+        ttl: 611180,
+        timeframe: "month",
       },
       activations: {
-        limit: 878661,
+        limit: 388671,
         enableCustomerAdmin: false,
       },
-      limitUsage: 577773,
+      limitUsage: 31468,
     },
   },
   properties: {},
@@ -76,5 +97,6 @@ let value: CustomerBenefitGrantLicenseKeys = {
 | `orderId`                                                                                                    | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `isGranted`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `isRevoked`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `customer`                                                                                                   | [components.CustomerPortalCustomer](../../models/components/customerportalcustomer.md)                       | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `benefit`                                                                                                    | [components.BenefitLicenseKeysSubscriber](../../models/components/benefitlicensekeyssubscriber.md)           | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `properties`                                                                                                 | [components.BenefitGrantLicenseKeysProperties](../../models/components/benefitgrantlicensekeysproperties.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

@@ -6,8 +6,8 @@
 import { SubscriptionCustomer } from "@polar-sh/sdk/models/components";
 
 let value: SubscriptionCustomer = {
-  createdAt: new Date("2022-04-03T13:03:56.657Z"),
-  modifiedAt: new Date("2022-07-01T08:52:15.017Z"),
+  createdAt: new Date("2023-04-03T13:03:56.657Z"),
+  modifiedAt: new Date("2023-07-01T08:52:15.017Z"),
   id: "<value>",
   metadata: {
     "key": 622789,

@@ -9,30 +9,31 @@ let value: DiscountsListResponse = {
   result: {
     items: [
       {
-        duration: "repeating",
-        durationInMonths: 364171,
+        duration: "once",
+        durationInMonths: 610935,
         type: "fixed",
-        basisPoints: 466235,
-        createdAt: new Date("2024-11-17T08:36:55.539Z"),
-        modifiedAt: new Date("2023-04-23T13:46:31.465Z"),
+        basisPoints: 584575,
+        createdAt: new Date("2024-09-07T16:45:09.899Z"),
+        modifiedAt: new Date("2025-03-14T14:49:55.703Z"),
         id: "<value>",
         metadata: {
-          "key": false,
+          "key": "<value>",
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2024-09-23T23:11:43.932Z"),
-        endsAt: new Date("2024-03-29T05:10:24.186Z"),
-        maxRedemptions: 202049,
-        redemptionsCount: 425149,
+        startsAt: new Date("2024-04-18T19:47:29.352Z"),
+        endsAt: new Date("2024-09-26T16:42:50.105Z"),
+        maxRedemptions: 8088,
+        redemptionsCount: 271660,
         organizationId: "<value>",
         products: [
           {
-            createdAt: new Date("2023-12-08T23:04:13.096Z"),
-            modifiedAt: new Date("2022-10-09T10:28:05.599Z"),
+            createdAt: new Date("2024-06-16T19:37:34.527Z"),
+            modifiedAt: new Date("2023-07-17T20:04:23.072Z"),
             id: "<value>",
             name: "<value>",
-            description: "jovially armchair collaborate pfft",
+            description:
+              "democratize immaculate packaging for boohoo gosh terrorise official",
             isRecurring: false,
             isArchived: false,
             organizationId: "<value>",
@@ -41,8 +42,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 171866,
-      maxPage: 689614,
+      totalCount: 50203,
+      maxPage: 884662,
     },
   },
 };

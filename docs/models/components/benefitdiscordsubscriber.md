@@ -6,29 +6,30 @@
 import { BenefitDiscordSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordSubscriber = {
-  createdAt: new Date("2023-09-17T22:29:19.829Z"),
-  modifiedAt: new Date("2023-12-05T14:41:27.048Z"),
+  createdAt: new Date("2024-04-09T18:38:17.654Z"),
+  modifiedAt: new Date("2023-09-01T12:05:57.701Z"),
   id: "<value>",
-  description: "blah citizen sprinkles across against",
+  description:
+    "ick stupendous inasmuch transparency oddly yahoo before needily",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2023-09-16T07:37:16.955Z"),
-    modifiedAt: new Date("2024-05-17T05:06:11.950Z"),
+    createdAt: new Date("2024-02-29T20:44:05.346Z"),
+    modifiedAt: new Date("2023-04-17T06:23:06.840Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://puny-ravioli.net/",
+    avatarUrl: "https://impractical-academics.com/",
     bio: "<value>",
-    company: "Nitzsche - Crona",
+    company: "Runolfsson - Towne",
     blog: "<value>",
     location: "<value>",
-    email: "Titus3@gmail.com",
+    email: "Addie.Grant10@hotmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 857502,
+    pledgeMinimumAmount: 550268,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 457552,
+    defaultUpfrontSplitToContributors: 306875,
     profileSettings: {},
     featureSettings: {},
   },
@@ -45,7 +46,7 @@ let value: BenefitDiscordSubscriber = {
 | `createdAt`                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                  | :heavy_check_mark:                                                                                             | Creation timestamp of the object.                                                                              |
 | `modifiedAt`                                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                  | :heavy_check_mark:                                                                                             | Last modification timestamp of the object.                                                                     |
 | `id`                                                                                                           | *string*                                                                                                       | :heavy_check_mark:                                                                                             | The ID of the benefit.                                                                                         |
-| `type`                                                                                                         | [components.BenefitDiscordSubscriberType](../../models/components/benefitdiscordsubscribertype.md)             | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
+| `type`                                                                                                         | *string*                                                                                                       | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
 | `description`                                                                                                  | *string*                                                                                                       | :heavy_check_mark:                                                                                             | The description of the benefit.                                                                                |
 | `selectable`                                                                                                   | *boolean*                                                                                                      | :heavy_check_mark:                                                                                             | Whether the benefit is selectable when creating a product.                                                     |
 | `deletable`                                                                                                    | *boolean*                                                                                                      | :heavy_check_mark:                                                                                             | Whether the benefit is deletable.                                                                              |

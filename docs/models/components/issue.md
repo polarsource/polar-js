@@ -7,14 +7,16 @@ import { Issue } from "@polar-sh/sdk/models/components";
 
 let value: Issue = {
   id: "03b2937d-4a71-45df-ad25-d8cc157fe616",
+  platform: "github",
   number: 904398,
   title: "<value>",
   state: "open",
-  issueCreatedAt: new Date("2022-12-05T12:21:44.955Z"),
+  issueCreatedAt: new Date("2023-12-05T12:21:44.955Z"),
   needsConfirmationSolved: false,
   funding: {},
   repository: {
     id: "a8327ccf-660d-4ac7-9e01-61193aed31ff",
+    platform: "github",
     isPrivate: false,
     name: "MyOrg",
     description: "beyond political inasmuch deduction cop ack",
@@ -24,6 +26,7 @@ let value: Issue = {
     profileSettings: {},
     organization: {
       id: "5a060d2a-42e9-4e4d-8f6e-55ff3d5fde94",
+      platform: "github",
       name: "<value>",
       avatarUrl: "https://reckless-release.biz",
       isPersonal: false,
@@ -37,8 +40,8 @@ let value: Issue = {
       organizationId: "<value>",
     },
     internalOrganization: {
-      createdAt: new Date("2022-05-14T15:19:31.084Z"),
-      modifiedAt: new Date("2023-11-22T11:58:20.036Z"),
+      createdAt: new Date("2023-05-14T15:19:31.084Z"),
+      modifiedAt: new Date("2024-11-21T11:58:20.036Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",

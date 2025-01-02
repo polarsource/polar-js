@@ -6,29 +6,29 @@
 import { BenefitAdsSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitAdsSubscriber = {
-  createdAt: new Date("2022-06-29T12:28:45.551Z"),
-  modifiedAt: new Date("2024-08-30T16:46:15.289Z"),
+  createdAt: new Date("2024-09-05T05:04:08.077Z"),
+  modifiedAt: new Date("2023-04-25T11:53:31.235Z"),
   id: "<value>",
-  description: "embed stir-fry mmm infatuated until gosh",
+  description: "helpful gee because",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2024-04-13T22:58:10.181Z"),
-    modifiedAt: new Date("2023-02-17T17:56:53.516Z"),
+    createdAt: new Date("2024-01-05T09:56:17.090Z"),
+    modifiedAt: new Date("2023-09-30T17:15:44.718Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://tight-flight.com/",
+    avatarUrl: "https://babyish-jazz.name",
     bio: "<value>",
-    company: "Bauch Group",
+    company: "Waelchi, Adams and McClure",
     blog: "<value>",
     location: "<value>",
-    email: "Jessy.Reilly30@gmail.com",
+    email: "Kailyn92@yahoo.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 747290,
+    pledgeMinimumAmount: 755343,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 879775,
+    defaultUpfrontSplitToContributors: 524457,
     profileSettings: {},
     featureSettings: {},
   },
@@ -43,7 +43,7 @@ let value: BenefitAdsSubscriber = {
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Creation timestamp of the object.                                                             |
 | `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the benefit.                                                                        |
-| `type`                                                                                        | [components.BenefitAdsSubscriberType](../../models/components/benefitadssubscribertype.md)    | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `description`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | The description of the benefit.                                                               |
 | `selectable`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is selectable when creating a product.                                    |
 | `deletable`                                                                                   | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is deletable.                                                             |

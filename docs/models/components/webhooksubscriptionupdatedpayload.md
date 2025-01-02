@@ -15,18 +15,18 @@ import { WebhookSubscriptionUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookSubscriptionUpdatedPayload = {
   data: {
-    createdAt: new Date("2024-12-04T08:48:14.783Z"),
-    modifiedAt: new Date("2023-05-09T01:09:28.036Z"),
+    createdAt: new Date("2025-12-04T08:48:14.783Z"),
+    modifiedAt: new Date("2024-05-08T01:09:28.036Z"),
     id: "<value>",
     amount: 227129,
     currency: "Pound Sterling",
     recurringInterval: "year",
     status: "incomplete_expired",
-    currentPeriodStart: new Date("2023-02-22T02:51:06.328Z"),
-    currentPeriodEnd: new Date("2023-06-09T12:27:33.773Z"),
+    currentPeriodStart: new Date("2024-02-22T02:51:06.328Z"),
+    currentPeriodEnd: new Date("2024-06-08T12:27:33.773Z"),
     cancelAtPeriodEnd: false,
-    startedAt: new Date("2023-09-23T07:43:22.108Z"),
-    endedAt: new Date("2024-12-27T17:25:33.535Z"),
+    startedAt: new Date("2024-09-22T07:43:22.108Z"),
+    endedAt: new Date("2025-12-27T17:25:33.535Z"),
     customerId: "<value>",
     productId: "<value>",
     priceId: "<value>",
@@ -36,8 +36,8 @@ let value: WebhookSubscriptionUpdatedPayload = {
       "key": "<value>",
     },
     customer: {
-      createdAt: new Date("2023-01-23T08:27:25.525Z"),
-      modifiedAt: new Date("2022-10-16T03:05:22.272Z"),
+      createdAt: new Date("2024-01-23T08:27:25.525Z"),
+      modifiedAt: new Date("2023-10-16T03:05:22.272Z"),
       id: "<value>",
       metadata: {
         "key": 100804,
@@ -61,8 +61,8 @@ let value: WebhookSubscriptionUpdatedPayload = {
       publicName: "<value>",
     },
     product: {
-      createdAt: new Date("2024-04-02T09:01:37.891Z"),
-      modifiedAt: new Date("2022-11-12T11:10:45.405Z"),
+      createdAt: new Date("2025-04-02T09:01:37.891Z"),
+      modifiedAt: new Date("2023-11-12T11:10:45.405Z"),
       id: "<value>",
       name: "<value>",
       description: "sweet for badly incidentally whereas beneath",
@@ -74,8 +74,8 @@ let value: WebhookSubscriptionUpdatedPayload = {
       },
       prices: [
         {
-          createdAt: new Date("2023-06-16T10:56:54.092Z"),
-          modifiedAt: new Date("2024-01-19T18:40:42.345Z"),
+          createdAt: new Date("2024-06-15T10:56:54.092Z"),
+          modifiedAt: new Date("2025-01-18T18:40:42.345Z"),
           id: "<value>",
           isArchived: false,
           productId: "<value>",
@@ -85,8 +85,8 @@ let value: WebhookSubscriptionUpdatedPayload = {
       ],
       benefits: [
         {
-          createdAt: new Date("2024-04-06T11:35:34.778Z"),
-          modifiedAt: new Date("2024-02-28T02:36:07.300Z"),
+          createdAt: new Date("2025-04-06T11:35:34.778Z"),
+          modifiedAt: new Date("2025-02-27T02:36:07.300Z"),
           id: "<value>",
           description: "overburden mountain wrongly plan psst promptly ha",
           selectable: false,
@@ -107,10 +107,10 @@ let value: WebhookSubscriptionUpdatedPayload = {
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
           checksumSha256Hex: "<value>",
-          lastModifiedAt: new Date("2023-12-27T17:49:51.811Z"),
+          lastModifiedAt: new Date("2024-12-26T17:49:51.811Z"),
           version: "<value>",
           isUploaded: false,
-          createdAt: new Date("2024-07-22T01:12:42.157Z"),
+          createdAt: new Date("2025-07-22T01:12:42.157Z"),
           sizeReadable: "<value>",
           publicUrl: "https://smart-overcoat.org/",
         },
@@ -119,8 +119,8 @@ let value: WebhookSubscriptionUpdatedPayload = {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2022-06-19T02:07:21.588Z"),
-            modifiedAt: new Date("2022-12-09T02:01:52.269Z"),
+            createdAt: new Date("2023-06-19T02:07:21.588Z"),
+            modifiedAt: new Date("2023-12-09T02:01:52.269Z"),
             id: "<value>",
             metadata: {
               "key": "<value>",
@@ -136,8 +136,8 @@ let value: WebhookSubscriptionUpdatedPayload = {
       ],
     },
     price: {
-      createdAt: new Date("2024-01-04T23:23:29.876Z"),
-      modifiedAt: new Date("2022-08-26T03:38:10.416Z"),
+      createdAt: new Date("2025-01-03T23:23:29.876Z"),
+      modifiedAt: new Date("2023-08-26T03:38:10.416Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
@@ -148,16 +148,16 @@ let value: WebhookSubscriptionUpdatedPayload = {
       durationInMonths: 649373,
       type: "percentage",
       basisPoints: 283557,
-      createdAt: new Date("2022-11-10T14:49:35.672Z"),
-      modifiedAt: new Date("2022-12-10T12:12:48.348Z"),
+      createdAt: new Date("2023-11-10T14:49:35.672Z"),
+      modifiedAt: new Date("2023-12-10T12:12:48.348Z"),
       id: "<value>",
       metadata: {
         "key": "<value>",
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2024-09-15T12:11:57.238Z"),
-      endsAt: new Date("2024-07-29T19:18:16.265Z"),
+      startsAt: new Date("2025-09-15T12:11:57.238Z"),
+      endsAt: new Date("2025-07-29T19:18:16.265Z"),
       maxRedemptions: 461639,
       redemptionsCount: 367251,
       organizationId: "<value>",
@@ -168,7 +168,7 @@ let value: WebhookSubscriptionUpdatedPayload = {
 
 ## Fields
 
-| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                               | [components.WebhookSubscriptionUpdatedPayloadType](../../models/components/webhooksubscriptionupdatedpayloadtype.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `data`                                                                                                               | [components.Subscription](../../models/components/subscription.md)                                                   | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `type`                                                             | *string*                                                           | :heavy_check_mark:                                                 | N/A                                                                |
+| `data`                                                             | [components.Subscription](../../models/components/subscription.md) | :heavy_check_mark:                                                 | N/A                                                                |

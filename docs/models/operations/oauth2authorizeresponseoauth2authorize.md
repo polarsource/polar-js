@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2022-02-07T17:42:25.899Z"),
-    modifiedAt: new Date("2023-06-16T23:24:38.141Z"),
+    createdAt: new Date("2025-01-06T17:59:23.766Z"),
+    modifiedAt: new Date("2023-02-17T03:45:50.562Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://prickly-yak.com",
-    logoUri: "https://gleaming-account.name/",
-    tosUri: "https://infinite-heating.org",
-    policyUri: "https://fatherly-fat.biz",
+    clientUri: "https://all-postbox.net",
+    logoUri: "https://hard-to-find-department.org/",
+    tosUri: "https://slushy-offset.com/",
+    policyUri: "https://fatal-strait.biz/",
   },
   sub: {
     id: "<value>",
-    email: "Marcia_Gibson86@gmail.com",
-    avatarUrl: "https://flawed-tusk.com/",
+    email: "Lolita.Goyette@hotmail.com",
+    avatarUrl: "https://well-groomed-packaging.org/",
   },
   scopes: [
-    "admin",
+    "license_keys:read",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2022-07-10T09:38:33.519Z"),
-    modifiedAt: new Date("2024-02-14T02:44:27.976Z"),
+    createdAt: new Date("2024-07-13T06:25:35.667Z"),
+    modifiedAt: new Date("2023-06-30T02:24:12.549Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://oval-bonfire.info",
-    logoUri: "https://delectable-encouragement.net",
-    tosUri: "https://shadowy-season.net/",
-    policyUri: "https://humiliating-octave.biz",
+    clientUri: "https://critical-haircut.info",
+    logoUri: "https://experienced-aircraft.name/",
+    tosUri: "https://best-league.com/",
+    policyUri: "https://shrill-freezing.org",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://suburban-skeleton.info/",
+    avatarUrl: "https://ultimate-perfection.com/",
   },
   scopes: [
-    "benefits:read",
+    "products:write",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://kooky-deduction.biz/",
+      avatarUrl: "https://posh-reconsideration.name",
     },
   ],
 };

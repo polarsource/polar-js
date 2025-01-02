@@ -11,8 +11,8 @@ import { WebhookOrderCreatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookOrderCreatedPayload = {
   data: {
-    createdAt: new Date("2022-09-26T09:34:22.320Z"),
-    modifiedAt: new Date("2022-08-26T05:41:30.450Z"),
+    createdAt: new Date("2023-09-26T09:34:22.320Z"),
+    modifiedAt: new Date("2023-08-26T05:41:30.450Z"),
     id: "<value>",
     metadata: {
       "key": "<value>",
@@ -31,8 +31,8 @@ let value: WebhookOrderCreatedPayload = {
     subscriptionId: "<value>",
     checkoutId: "<value>",
     customer: {
-      createdAt: new Date("2024-07-14T06:45:23.144Z"),
-      modifiedAt: new Date("2022-06-02T10:10:05.991Z"),
+      createdAt: new Date("2025-07-14T06:45:23.144Z"),
+      modifiedAt: new Date("2023-06-02T10:10:05.991Z"),
       id: "<value>",
       metadata: {
         "key": 842855,
@@ -56,8 +56,8 @@ let value: WebhookOrderCreatedPayload = {
       publicName: "<value>",
     },
     product: {
-      createdAt: new Date("2023-02-18T15:18:08.947Z"),
-      modifiedAt: new Date("2024-06-06T01:32:10.356Z"),
+      createdAt: new Date("2024-02-18T15:18:08.947Z"),
+      modifiedAt: new Date("2025-06-06T01:32:10.356Z"),
       id: "<value>",
       name: "<value>",
       description: "formal aw cutover bah hunt during up er",
@@ -66,8 +66,8 @@ let value: WebhookOrderCreatedPayload = {
       organizationId: "<value>",
     },
     productPrice: {
-      createdAt: new Date("2023-10-20T19:59:57.420Z"),
-      modifiedAt: new Date("2024-11-21T15:56:29.957Z"),
+      createdAt: new Date("2024-10-19T19:59:57.420Z"),
+      modifiedAt: new Date("2025-11-21T15:56:29.957Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
@@ -82,16 +82,16 @@ let value: WebhookOrderCreatedPayload = {
       durationInMonths: 532669,
       type: "fixed",
       basisPoints: 316542,
-      createdAt: new Date("2023-05-05T18:39:05.975Z"),
-      modifiedAt: new Date("2023-04-20T15:40:09.196Z"),
+      createdAt: new Date("2024-05-04T18:39:05.975Z"),
+      modifiedAt: new Date("2024-04-19T15:40:09.196Z"),
       id: "<value>",
       metadata: {
         "key": 914971,
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2024-03-12T23:47:56.593Z"),
-      endsAt: new Date("2024-03-08T09:23:45.816Z"),
+      startsAt: new Date("2025-03-12T23:47:56.593Z"),
+      endsAt: new Date("2025-03-08T09:23:45.816Z"),
       maxRedemptions: 289913,
       redemptionsCount: 577710,
       organizationId: "<value>",
@@ -100,18 +100,18 @@ let value: WebhookOrderCreatedPayload = {
       metadata: {
         "key": false,
       },
-      createdAt: new Date("2024-05-21T23:12:32.595Z"),
-      modifiedAt: new Date("2023-01-13T14:31:45.263Z"),
+      createdAt: new Date("2025-05-21T23:12:32.595Z"),
+      modifiedAt: new Date("2024-01-13T14:31:45.263Z"),
       id: "<value>",
       amount: 770873,
       currency: "Solomon Islands Dollar",
       recurringInterval: "month",
       status: "unpaid",
-      currentPeriodStart: new Date("2023-04-29T16:31:11.826Z"),
-      currentPeriodEnd: new Date("2023-06-18T02:32:25.611Z"),
+      currentPeriodStart: new Date("2024-04-28T16:31:11.826Z"),
+      currentPeriodEnd: new Date("2024-06-17T02:32:25.611Z"),
       cancelAtPeriodEnd: false,
-      startedAt: new Date("2023-05-07T09:54:10.374Z"),
-      endedAt: new Date("2023-09-15T08:37:16.402Z"),
+      startedAt: new Date("2024-05-06T09:54:10.374Z"),
+      endedAt: new Date("2024-09-14T08:37:16.402Z"),
       customerId: "<value>",
       productId: "<value>",
       priceId: "<value>",
@@ -125,7 +125,7 @@ let value: WebhookOrderCreatedPayload = {
 
 ## Fields
 
-| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `type`                                                                                                 | [components.WebhookOrderCreatedPayloadType](../../models/components/webhookordercreatedpayloadtype.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `data`                                                                                                 | [components.Order](../../models/components/order.md)                                                   | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| Field                                                | Type                                                 | Required                                             | Description                                          |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `type`                                               | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
+| `data`                                               | [components.Order](../../models/components/order.md) | :heavy_check_mark:                                   | N/A                                                  |

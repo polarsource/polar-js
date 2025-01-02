@@ -5,14 +5,8 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const Service = {
-  ProductMedia: "product_media",
-} as const;
-export type Service = ClosedEnum<typeof Service>;
 
 /**
  * File to be used as a product media file.
@@ -39,25 +33,6 @@ export type ProductMediaFileRead = {
   sizeReadable: string;
   publicUrl: string;
 };
-
-/** @internal */
-export const Service$inboundSchema: z.ZodNativeEnum<typeof Service> = z
-  .nativeEnum(Service);
-
-/** @internal */
-export const Service$outboundSchema: z.ZodNativeEnum<typeof Service> =
-  Service$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Service$ {
-  /** @deprecated use `Service$inboundSchema` instead. */
-  export const inboundSchema = Service$inboundSchema;
-  /** @deprecated use `Service$outboundSchema` instead. */
-  export const outboundSchema = Service$outboundSchema;
-}
 
 /** @internal */
 export const ProductMediaFileRead$inboundSchema: z.ZodType<
@@ -139,7 +114,7 @@ export const ProductMediaFileRead$outboundSchema: z.ZodType<
   checksumSha256Hex: z.nullable(z.string()),
   lastModifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   version: z.nullable(z.string()),
-  service: z.literal("product_media").default("product_media"),
+  service: z.literal("product_media").default("product_media" as const),
   isUploaded: z.boolean(),
   createdAt: z.date().transform(v => v.toISOString()),
   sizeReadable: z.string(),

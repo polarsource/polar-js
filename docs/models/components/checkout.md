@@ -8,13 +8,14 @@ Checkout session data retrieved using an access token.
 import { Checkout } from "@polar-sh/sdk/models/components";
 
 let value: Checkout = {
-  createdAt: new Date("2024-10-14T04:15:01.236Z"),
-  modifiedAt: new Date("2024-02-12T00:54:59.142Z"),
+  createdAt: new Date("2025-10-14T04:15:01.236Z"),
+  modifiedAt: new Date("2025-02-11T00:54:59.142Z"),
   id: "<value>",
+  paymentProcessor: "stripe",
   status: "open",
   clientSecret: "<value>",
   url: "https://poor-minority.biz/",
-  expiresAt: new Date("2024-10-20T21:33:54.006Z"),
+  expiresAt: new Date("2025-10-20T21:33:54.006Z"),
   successUrl: "https://musty-mountain.net",
   embedOrigin: "<value>",
   amount: 311945,
@@ -44,8 +45,8 @@ let value: Checkout = {
     "key": 179603,
   },
   product: {
-    createdAt: new Date("2022-01-28T01:08:57.377Z"),
-    modifiedAt: new Date("2022-03-15T16:56:03.501Z"),
+    createdAt: new Date("2023-01-28T01:08:57.377Z"),
+    modifiedAt: new Date("2023-03-15T16:56:03.501Z"),
     id: "<value>",
     name: "<value>",
     description: "how prejudge cutover for clear-cut consequently bouncy abaft",
@@ -54,8 +55,8 @@ let value: Checkout = {
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2024-05-10T12:39:43.913Z"),
-        modifiedAt: new Date("2022-11-05T18:37:43.326Z"),
+        createdAt: new Date("2025-05-10T12:39:43.913Z"),
+        modifiedAt: new Date("2023-11-05T18:37:43.326Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
@@ -63,8 +64,8 @@ let value: Checkout = {
     ],
     benefits: [
       {
-        createdAt: new Date("2023-10-05T16:55:58.841Z"),
-        modifiedAt: new Date("2022-03-12T02:16:45.552Z"),
+        createdAt: new Date("2024-10-04T16:55:58.841Z"),
+        modifiedAt: new Date("2023-03-12T02:16:45.552Z"),
         id: "<value>",
         type: "discord",
         description:
@@ -86,18 +87,18 @@ let value: Checkout = {
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2022-02-18T21:28:55.099Z"),
+        lastModifiedAt: new Date("2023-02-18T21:28:55.099Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2024-05-26T13:49:51.412Z"),
+        createdAt: new Date("2025-05-26T13:49:51.412Z"),
         sizeReadable: "<value>",
         publicUrl: "https://minty-executor.name/",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2022-02-08T18:10:24.636Z"),
-    modifiedAt: new Date("2023-04-17T17:18:20.768Z"),
+    createdAt: new Date("2023-02-08T18:10:24.636Z"),
+    modifiedAt: new Date("2024-04-16T17:18:20.768Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
@@ -121,8 +122,8 @@ let value: Checkout = {
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2023-05-16T18:35:52.926Z"),
-        modifiedAt: new Date("2024-08-24T17:13:02.117Z"),
+        createdAt: new Date("2024-05-15T18:35:52.926Z"),
+        modifiedAt: new Date("2025-08-24T17:13:02.117Z"),
         id: "<value>",
         metadata: {
           "key": 724168,

@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2024-01-24T22:04:15.259Z"),
-  modifiedAt: new Date("2023-07-05T22:22:10.952Z"),
+  createdAt: new Date("2024-04-14T02:50:28.988Z"),
+  modifiedAt: new Date("2024-07-01T02:28:44.314Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -16,20 +16,38 @@ let value: BenefitGrantWebhook = {
   customerId: "<value>",
   userId: "<value>",
   benefitId: "<value>",
+  customer: {
+    createdAt: new Date("2024-05-05T20:10:59.426Z"),
+    modifiedAt: new Date("2023-01-05T21:42:02.091Z"),
+    id: "<value>",
+    metadata: {
+      "key": 257393,
+    },
+    email: "Joana.Barrows@gmail.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "Algeria",
+    },
+    taxId: [
+      "<id>",
+    ],
+    organizationId: "<value>",
+    avatarUrl: "https://kooky-cassava.com",
+  },
   properties: {},
   benefit: {
-    createdAt: new Date("2023-07-02T02:28:44.314Z"),
-    modifiedAt: new Date("2023-05-06T20:10:59.426Z"),
+    createdAt: new Date("2023-01-29T04:09:01.525Z"),
+    modifiedAt: new Date("2024-11-28T01:49:49.888Z"),
     id: "<value>",
-    description: "abaft commonly before",
+    description: "lively an unto",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      guildId: "<id>",
-      roleId: "<id>",
-      guildToken: "<value>",
+      note: "<value>",
     },
+    isTaxApplicable: false,
   },
 };
 ```
@@ -50,6 +68,7 @@ let value: BenefitGrantWebhook = {
 | `customerId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the customer concerned by this grant.                                                                         |
 | ~~`userId`~~                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. |
 | `benefitId`                                                                                                             | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the benefit concerned by this grant.                                                                          |
+| `customer`                                                                                                              | [components.Customer](../../models/components/customer.md)                                                              | :heavy_check_mark:                                                                                                      | A customer in an organization.                                                                                          |
 | `properties`                                                                                                            | *components.BenefitGrantWebhookProperties*                                                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `benefit`                                                                                                               | *components.Benefit*                                                                                                    | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `previousProperties`                                                                                                    | *components.PreviousProperties*                                                                                         | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |

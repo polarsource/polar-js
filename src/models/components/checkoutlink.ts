@@ -38,6 +38,11 @@ import {
   DiscountPercentageRepeatDurationBase$outboundSchema,
 } from "./discountpercentagerepeatdurationbase.js";
 import {
+  PaymentProcessor,
+  PaymentProcessor$inboundSchema,
+  PaymentProcessor$outboundSchema,
+} from "./paymentprocessor.js";
+import {
   ProductPrice,
   ProductPrice$inboundSchema,
   ProductPrice$Outbound,
@@ -69,7 +74,7 @@ export type CheckoutLink = {
    */
   id: string;
   metadata: { [k: string]: string | number | boolean };
-  paymentProcessor?: "stripe" | undefined;
+  paymentProcessor: PaymentProcessor;
   /**
    * Client secret used to access the checkout link.
    */
@@ -234,7 +239,7 @@ export const CheckoutLink$inboundSchema: z.ZodType<
   ),
   id: z.string(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  payment_processor: z.literal("stripe").optional(),
+  payment_processor: PaymentProcessor$inboundSchema,
   client_secret: z.string(),
   success_url: z.nullable(z.string()),
   label: z.nullable(z.string()),
@@ -274,7 +279,7 @@ export type CheckoutLink$Outbound = {
   modified_at: string | null;
   id: string;
   metadata: { [k: string]: string | number | boolean };
-  payment_processor: "stripe";
+  payment_processor: string;
   client_secret: string;
   success_url: string | null;
   label: string | null;
@@ -303,7 +308,7 @@ export const CheckoutLink$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  paymentProcessor: z.literal("stripe").default("stripe"),
+  paymentProcessor: PaymentProcessor$outboundSchema,
   clientSecret: z.string(),
   successUrl: z.nullable(z.string()),
   label: z.nullable(z.string()),

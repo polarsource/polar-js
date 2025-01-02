@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -16,13 +15,6 @@ import {
 } from "./customfieldcheckboxproperties.js";
 
 export type CustomFieldCheckboxMetadata = string | number | boolean;
-
-export const CustomFieldCheckboxType = {
-  Checkbox: "checkbox",
-} as const;
-export type CustomFieldCheckboxType = ClosedEnum<
-  typeof CustomFieldCheckboxType
->;
 
 /**
  * Schema for a custom field of type checkbox.
@@ -108,27 +100,6 @@ export function customFieldCheckboxMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldCheckboxType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldCheckboxType
-> = z.nativeEnum(CustomFieldCheckboxType);
-
-/** @internal */
-export const CustomFieldCheckboxType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldCheckboxType
-> = CustomFieldCheckboxType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCheckboxType$ {
-  /** @deprecated use `CustomFieldCheckboxType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCheckboxType$inboundSchema;
-  /** @deprecated use `CustomFieldCheckboxType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCheckboxType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldCheckbox$inboundSchema: z.ZodType<
   CustomFieldCheckbox,
   z.ZodTypeDef,
@@ -176,7 +147,7 @@ export const CustomFieldCheckbox$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  type: z.literal("checkbox").default("checkbox"),
+  type: z.literal("checkbox").default("checkbox" as const),
   slug: z.string(),
   name: z.string(),
   organizationId: z.string(),

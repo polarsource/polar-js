@@ -5,43 +5,12 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const CustomerBenefitGrantDownloadablesUpdateBenefitType = {
-  Downloadables: "downloadables",
-} as const;
-export type CustomerBenefitGrantDownloadablesUpdateBenefitType = ClosedEnum<
-  typeof CustomerBenefitGrantDownloadablesUpdateBenefitType
->;
 
 export type CustomerBenefitGrantDownloadablesUpdate = {
   benefitType?: "downloadables" | undefined;
 };
-
-/** @internal */
-export const CustomerBenefitGrantDownloadablesUpdateBenefitType$inboundSchema:
-  z.ZodNativeEnum<typeof CustomerBenefitGrantDownloadablesUpdateBenefitType> = z
-    .nativeEnum(CustomerBenefitGrantDownloadablesUpdateBenefitType);
-
-/** @internal */
-export const CustomerBenefitGrantDownloadablesUpdateBenefitType$outboundSchema:
-  z.ZodNativeEnum<typeof CustomerBenefitGrantDownloadablesUpdateBenefitType> =
-    CustomerBenefitGrantDownloadablesUpdateBenefitType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantDownloadablesUpdateBenefitType$ {
-  /** @deprecated use `CustomerBenefitGrantDownloadablesUpdateBenefitType$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerBenefitGrantDownloadablesUpdateBenefitType$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDownloadablesUpdateBenefitType$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantDownloadablesUpdateBenefitType$outboundSchema;
-}
 
 /** @internal */
 export const CustomerBenefitGrantDownloadablesUpdate$inboundSchema: z.ZodType<
@@ -67,7 +36,7 @@ export const CustomerBenefitGrantDownloadablesUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerBenefitGrantDownloadablesUpdate
 > = z.object({
-  benefitType: z.literal("downloadables").default("downloadables"),
+  benefitType: z.literal("downloadables").default("downloadables" as const),
 }).transform((v) => {
   return remap$(v, {
     benefitType: "benefit_type",

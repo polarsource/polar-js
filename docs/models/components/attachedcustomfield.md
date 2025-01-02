@@ -10,8 +10,8 @@ import { AttachedCustomField } from "@polar-sh/sdk/models/components";
 let value: AttachedCustomField = {
   customFieldId: "<value>",
   customField: {
-    createdAt: new Date("2024-02-06T18:51:30.654Z"),
-    modifiedAt: new Date("2022-12-26T04:21:26.793Z"),
+    createdAt: new Date("2025-02-05T18:51:30.654Z"),
+    modifiedAt: new Date("2023-12-26T04:21:26.793Z"),
     id: "<value>",
     metadata: {
       "key": false,

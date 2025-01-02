@@ -5,16 +5,8 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const OrganizationAvatarFileReadService = {
-  OrganizationAvatar: "organization_avatar",
-} as const;
-export type OrganizationAvatarFileReadService = ClosedEnum<
-  typeof OrganizationAvatarFileReadService
->;
 
 /**
  * File to be used as an organization avatar.
@@ -41,28 +33,6 @@ export type OrganizationAvatarFileRead = {
   sizeReadable: string;
   publicUrl: string;
 };
-
-/** @internal */
-export const OrganizationAvatarFileReadService$inboundSchema: z.ZodNativeEnum<
-  typeof OrganizationAvatarFileReadService
-> = z.nativeEnum(OrganizationAvatarFileReadService);
-
-/** @internal */
-export const OrganizationAvatarFileReadService$outboundSchema: z.ZodNativeEnum<
-  typeof OrganizationAvatarFileReadService
-> = OrganizationAvatarFileReadService$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationAvatarFileReadService$ {
-  /** @deprecated use `OrganizationAvatarFileReadService$inboundSchema` instead. */
-  export const inboundSchema = OrganizationAvatarFileReadService$inboundSchema;
-  /** @deprecated use `OrganizationAvatarFileReadService$outboundSchema` instead. */
-  export const outboundSchema =
-    OrganizationAvatarFileReadService$outboundSchema;
-}
 
 /** @internal */
 export const OrganizationAvatarFileRead$inboundSchema: z.ZodType<
@@ -144,7 +114,9 @@ export const OrganizationAvatarFileRead$outboundSchema: z.ZodType<
   checksumSha256Hex: z.nullable(z.string()),
   lastModifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   version: z.nullable(z.string()),
-  service: z.literal("organization_avatar").default("organization_avatar"),
+  service: z.literal("organization_avatar").default(
+    "organization_avatar" as const,
+  ),
   isUploaded: z.boolean(),
   createdAt: z.date().transform(v => v.toISOString()),
   sizeReadable: z.string(),

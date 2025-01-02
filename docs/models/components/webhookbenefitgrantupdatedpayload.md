@@ -11,8 +11,8 @@ import { WebhookBenefitGrantUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantUpdatedPayload = {
   data: {
-    createdAt: new Date("2022-06-07T00:46:55.861Z"),
-    modifiedAt: new Date("2024-04-14T16:09:06.266Z"),
+    createdAt: new Date("2023-02-14T12:50:16.034Z"),
+    modifiedAt: new Date("2025-01-12T05:08:56.049Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -21,17 +21,41 @@ let value: WebhookBenefitGrantUpdatedPayload = {
     customerId: "<value>",
     userId: "<value>",
     benefitId: "<value>",
-    properties: {},
+    customer: {
+      createdAt: new Date("2023-06-06T06:43:30.345Z"),
+      modifiedAt: new Date("2024-05-18T10:41:19.543Z"),
+      id: "<value>",
+      metadata: {
+        "key": false,
+      },
+      email: "Leonardo19@hotmail.com",
+      emailVerified: false,
+      name: "<value>",
+      billingAddress: {
+        country: "Saint Pierre and Miquelon",
+      },
+      taxId: [
+        "si_tin",
+      ],
+      organizationId: "<value>",
+      avatarUrl: "https://mysterious-taxicab.net/",
+    },
+    properties: {
+      advertisementCampaignId: "<id>",
+    },
     benefit: {
-      createdAt: new Date("2023-05-05T22:17:51.096Z"),
-      modifiedAt: new Date("2022-06-03T12:45:41.057Z"),
+      createdAt: new Date("2024-09-19T18:25:13.476Z"),
+      modifiedAt: new Date("2023-12-22T03:37:10.516Z"),
       id: "<value>",
       description:
-        "inasmuch ectoderm where oof planula forenenst eminent inasmuch",
+        "wearily empty idolized after phooey preside because midwife",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
-      properties: {},
+      properties: {
+        note: "<value>",
+      },
+      isTaxApplicable: false,
     },
   },
 };
@@ -39,7 +63,7 @@ let value: WebhookBenefitGrantUpdatedPayload = {
 
 ## Fields
 
-| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                               | [components.WebhookBenefitGrantUpdatedPayloadType](../../models/components/webhookbenefitgrantupdatedpayloadtype.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `data`                                                                                                               | [components.BenefitGrantWebhook](../../models/components/benefitgrantwebhook.md)                                     | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `type`                                                                           | *string*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              |
+| `data`                                                                           | [components.BenefitGrantWebhook](../../models/components/benefitgrantwebhook.md) | :heavy_check_mark:                                                               | N/A                                                                              |

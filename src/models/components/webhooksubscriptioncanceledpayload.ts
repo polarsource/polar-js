@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,13 +12,6 @@ import {
   Subscription$Outbound,
   Subscription$outboundSchema,
 } from "./subscription.js";
-
-export const WebhookSubscriptionCanceledPayloadType = {
-  SubscriptionCanceled: "subscription.canceled",
-} as const;
-export type WebhookSubscriptionCanceledPayloadType = ClosedEnum<
-  typeof WebhookSubscriptionCanceledPayloadType
->;
 
 /**
  * Sent when a subscription is canceled by the user.
@@ -33,30 +25,6 @@ export type WebhookSubscriptionCanceledPayload = {
   type?: "subscription.canceled" | undefined;
   data: Subscription;
 };
-
-/** @internal */
-export const WebhookSubscriptionCanceledPayloadType$inboundSchema:
-  z.ZodNativeEnum<typeof WebhookSubscriptionCanceledPayloadType> = z.nativeEnum(
-    WebhookSubscriptionCanceledPayloadType,
-  );
-
-/** @internal */
-export const WebhookSubscriptionCanceledPayloadType$outboundSchema:
-  z.ZodNativeEnum<typeof WebhookSubscriptionCanceledPayloadType> =
-    WebhookSubscriptionCanceledPayloadType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookSubscriptionCanceledPayloadType$ {
-  /** @deprecated use `WebhookSubscriptionCanceledPayloadType$inboundSchema` instead. */
-  export const inboundSchema =
-    WebhookSubscriptionCanceledPayloadType$inboundSchema;
-  /** @deprecated use `WebhookSubscriptionCanceledPayloadType$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookSubscriptionCanceledPayloadType$outboundSchema;
-}
 
 /** @internal */
 export const WebhookSubscriptionCanceledPayload$inboundSchema: z.ZodType<
@@ -80,7 +48,9 @@ export const WebhookSubscriptionCanceledPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookSubscriptionCanceledPayload
 > = z.object({
-  type: z.literal("subscription.canceled").default("subscription.canceled"),
+  type: z.literal("subscription.canceled").default(
+    "subscription.canceled" as const,
+  ),
   data: Subscription$outboundSchema,
 });
 

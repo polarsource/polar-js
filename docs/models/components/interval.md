@@ -5,7 +5,7 @@
 ```typescript
 import { Interval } from "@polar-sh/sdk/models/components";
 
-let value: Interval = "day";
+let value: Interval = "year";
 ```
 
 ## Values

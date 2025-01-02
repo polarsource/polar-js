@@ -8,27 +8,19 @@ import { ListResourceBenefit } from "@polar-sh/sdk/models/components";
 let value: ListResourceBenefit = {
   items: [
     {
-      createdAt: new Date("2023-09-16T09:06:29.012Z"),
-      modifiedAt: new Date("2024-01-28T04:45:11.023Z"),
+      createdAt: new Date("2025-11-24T23:28:20.095Z"),
+      modifiedAt: new Date("2024-02-29T02:47:26.443Z"),
       id: "<value>",
-      description:
-        "cumbersome drag battle briskly nor tame bravely fill essence",
+      description: "fill essence coincide",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
-      properties: {
-        archived: {
-          "key": false,
-        },
-        files: [
-          "<value>",
-        ],
-      },
+      properties: {},
     },
   ],
   pagination: {
-    totalCount: 355674,
-    maxPage: 805165,
+    totalCount: 479035,
+    maxPage: 480043,
   },
 };
 ```

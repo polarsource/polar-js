@@ -8,8 +8,8 @@ A product.
 import { Product } from "@polar-sh/sdk/models/components";
 
 let value: Product = {
-  createdAt: new Date("2022-12-27T12:47:58.923Z"),
-  modifiedAt: new Date("2022-01-22T13:58:08.292Z"),
+  createdAt: new Date("2023-12-27T12:47:58.923Z"),
+  modifiedAt: new Date("2023-01-22T13:58:08.292Z"),
   id: "<value>",
   name: "<value>",
   description: "self-reliant yowza nor",
@@ -21,8 +21,8 @@ let value: Product = {
   },
   prices: [
     {
-      createdAt: new Date("2024-10-04T09:52:26.411Z"),
-      modifiedAt: new Date("2023-03-28T03:25:20.607Z"),
+      createdAt: new Date("2025-10-04T09:52:26.411Z"),
+      modifiedAt: new Date("2024-03-27T03:25:20.607Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
@@ -32,8 +32,8 @@ let value: Product = {
   ],
   benefits: [
     {
-      createdAt: new Date("2024-12-21T18:06:07.641Z"),
-      modifiedAt: new Date("2022-08-06T23:39:39.226Z"),
+      createdAt: new Date("2025-12-21T18:06:07.641Z"),
+      modifiedAt: new Date("2023-08-06T23:39:39.226Z"),
       id: "<value>",
       description:
         "despite energetically quixotic efface kissingly tensely gah supposing",
@@ -66,10 +66,10 @@ let value: Product = {
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2022-07-02T12:43:21.651Z"),
+      lastModifiedAt: new Date("2023-07-02T12:43:21.651Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2024-07-21T21:55:28.560Z"),
+      createdAt: new Date("2025-07-21T21:55:28.560Z"),
       sizeReadable: "<value>",
       publicUrl: "https://fluffy-gift.org",
     },
@@ -78,8 +78,8 @@ let value: Product = {
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2023-11-05T07:45:54.269Z"),
-        modifiedAt: new Date("2022-08-31T18:04:39.587Z"),
+        createdAt: new Date("2024-11-04T07:45:54.269Z"),
+        modifiedAt: new Date("2023-08-31T18:04:39.587Z"),
         id: "<value>",
         metadata: {
           "key": "<value>",

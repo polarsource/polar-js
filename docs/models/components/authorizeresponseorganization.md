@@ -7,28 +7,28 @@ import { AuthorizeResponseOrganization } from "@polar-sh/sdk/models/components";
 
 let value: AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2023-12-14T04:05:55.302Z"),
-    modifiedAt: new Date("2023-08-10T23:06:38.424Z"),
+    createdAt: new Date("2024-07-18T14:44:10.552Z"),
+    modifiedAt: new Date("2025-02-01T06:43:01.101Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://deficient-countess.name/",
-    logoUri: "https://ambitious-fowl.net/",
-    tosUri: "https://stable-possession.name",
-    policyUri: "https://dual-metabolite.name/",
+    clientUri: "https://concrete-meadow.org/",
+    logoUri: "https://little-elevation.net/",
+    tosUri: "https://decent-zen.net/",
+    policyUri: "https://stale-yin.biz",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://oblong-brace.name/",
+    avatarUrl: "https://grounded-rawhide.net",
   },
   scopes: [
-    "organizations:read",
+    "customer_portal:write",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://circular-thunderbolt.name/",
+      avatarUrl: "https://acceptable-representation.name/",
     },
   ],
 };
@@ -36,10 +36,10 @@ let value: AuthorizeResponseOrganization = {
 
 ## Fields
 
-| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `client`                                                                                                           | [components.OAuth2ClientPublic](../../models/components/oauth2clientpublic.md)                                     | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
-| `subType`                                                                                                          | [components.AuthorizeResponseOrganizationSubType](../../models/components/authorizeresponseorganizationsubtype.md) | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
-| `sub`                                                                                                              | [components.AuthorizeOrganization](../../models/components/authorizeorganization.md)                               | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
-| `scopes`                                                                                                           | [components.Scope](../../models/components/scope.md)[]                                                             | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
-| `organizations`                                                                                                    | [components.AuthorizeOrganization](../../models/components/authorizeorganization.md)[]                             | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `client`                                                                               | [components.OAuth2ClientPublic](../../models/components/oauth2clientpublic.md)         | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `subType`                                                                              | *string*                                                                               | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `sub`                                                                                  | [components.AuthorizeOrganization](../../models/components/authorizeorganization.md)   | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `scopes`                                                                               | [components.Scope](../../models/components/scope.md)[]                                 | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `organizations`                                                                        | [components.AuthorizeOrganization](../../models/components/authorizeorganization.md)[] | :heavy_check_mark:                                                                     | N/A                                                                                    |

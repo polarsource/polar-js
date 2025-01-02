@@ -11,18 +11,18 @@ import { WebhookSubscriptionCreatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookSubscriptionCreatedPayload = {
   data: {
-    createdAt: new Date("2023-02-21T08:43:45.283Z"),
-    modifiedAt: new Date("2023-09-07T06:05:32.228Z"),
+    createdAt: new Date("2024-02-21T08:43:45.283Z"),
+    modifiedAt: new Date("2024-09-06T06:05:32.228Z"),
     id: "<value>",
     amount: 668218,
     currency: "Pound Sterling",
     recurringInterval: "month",
     status: "trialing",
-    currentPeriodStart: new Date("2022-12-05T03:31:10.013Z"),
-    currentPeriodEnd: new Date("2024-10-29T15:13:36.657Z"),
+    currentPeriodStart: new Date("2023-12-05T03:31:10.013Z"),
+    currentPeriodEnd: new Date("2025-10-29T15:13:36.657Z"),
     cancelAtPeriodEnd: false,
-    startedAt: new Date("2024-08-31T12:55:25.056Z"),
-    endedAt: new Date("2024-07-31T21:36:43.500Z"),
+    startedAt: new Date("2025-08-31T12:55:25.056Z"),
+    endedAt: new Date("2025-07-31T21:36:43.500Z"),
     customerId: "<value>",
     productId: "<value>",
     priceId: "<value>",
@@ -32,8 +32,8 @@ let value: WebhookSubscriptionCreatedPayload = {
       "key": 344289,
     },
     customer: {
-      createdAt: new Date("2023-08-25T12:55:52.067Z"),
-      modifiedAt: new Date("2024-06-12T11:40:46.096Z"),
+      createdAt: new Date("2024-08-24T12:55:52.067Z"),
+      modifiedAt: new Date("2025-06-12T11:40:46.096Z"),
       id: "<value>",
       metadata: {
         "key": "<value>",
@@ -57,8 +57,8 @@ let value: WebhookSubscriptionCreatedPayload = {
       publicName: "<value>",
     },
     product: {
-      createdAt: new Date("2023-09-13T16:15:37.701Z"),
-      modifiedAt: new Date("2022-07-23T15:43:25.483Z"),
+      createdAt: new Date("2024-09-12T16:15:37.701Z"),
+      modifiedAt: new Date("2023-07-23T15:43:25.483Z"),
       id: "<value>",
       name: "<value>",
       description: "against so immense",
@@ -70,8 +70,8 @@ let value: WebhookSubscriptionCreatedPayload = {
       },
       prices: [
         {
-          createdAt: new Date("2023-04-03T14:57:04.115Z"),
-          modifiedAt: new Date("2024-05-06T14:43:32.754Z"),
+          createdAt: new Date("2024-04-02T14:57:04.115Z"),
+          modifiedAt: new Date("2025-05-06T14:43:32.754Z"),
           id: "<value>",
           isArchived: false,
           productId: "<value>",
@@ -81,8 +81,8 @@ let value: WebhookSubscriptionCreatedPayload = {
       ],
       benefits: [
         {
-          createdAt: new Date("2022-10-12T06:39:45.765Z"),
-          modifiedAt: new Date("2024-04-10T23:31:39.054Z"),
+          createdAt: new Date("2023-10-12T06:39:45.765Z"),
+          modifiedAt: new Date("2025-04-10T23:31:39.054Z"),
           id: "<value>",
           description: "probable than boo yum huzzah outside",
           selectable: false,
@@ -114,10 +114,10 @@ let value: WebhookSubscriptionCreatedPayload = {
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
           checksumSha256Hex: "<value>",
-          lastModifiedAt: new Date("2022-02-28T21:24:26.026Z"),
+          lastModifiedAt: new Date("2023-02-28T21:24:26.026Z"),
           version: "<value>",
           isUploaded: false,
-          createdAt: new Date("2023-03-11T06:14:35.072Z"),
+          createdAt: new Date("2024-03-10T06:14:35.072Z"),
           sizeReadable: "<value>",
           publicUrl: "https://sunny-premier.org/",
         },
@@ -126,8 +126,8 @@ let value: WebhookSubscriptionCreatedPayload = {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2024-04-29T02:57:40.478Z"),
-            modifiedAt: new Date("2024-12-25T16:18:25.276Z"),
+            createdAt: new Date("2025-04-29T02:57:40.478Z"),
+            modifiedAt: new Date("2025-12-25T16:18:25.276Z"),
             id: "<value>",
             metadata: {
               "key": 37129,
@@ -143,8 +143,8 @@ let value: WebhookSubscriptionCreatedPayload = {
       ],
     },
     price: {
-      createdAt: new Date("2024-06-21T12:36:00.354Z"),
-      modifiedAt: new Date("2024-08-07T06:48:26.335Z"),
+      createdAt: new Date("2025-06-21T12:36:00.354Z"),
+      modifiedAt: new Date("2025-08-07T06:48:26.335Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
@@ -160,16 +160,16 @@ let value: WebhookSubscriptionCreatedPayload = {
       type: "fixed",
       amount: 665872,
       currency: "Iranian Rial",
-      createdAt: new Date("2024-04-21T22:35:32.835Z"),
-      modifiedAt: new Date("2023-08-02T09:00:29.309Z"),
+      createdAt: new Date("2025-04-21T22:35:32.835Z"),
+      modifiedAt: new Date("2024-08-01T09:00:29.309Z"),
       id: "<value>",
       metadata: {
         "key": "<value>",
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2022-10-25T08:26:08.475Z"),
-      endsAt: new Date("2022-10-10T19:59:22.296Z"),
+      startsAt: new Date("2023-10-25T08:26:08.475Z"),
+      endsAt: new Date("2023-10-10T19:59:22.296Z"),
       maxRedemptions: 532320,
       redemptionsCount: 703189,
       organizationId: "<value>",
@@ -180,7 +180,7 @@ let value: WebhookSubscriptionCreatedPayload = {
 
 ## Fields
 
-| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                               | [components.WebhookSubscriptionCreatedPayloadType](../../models/components/webhooksubscriptioncreatedpayloadtype.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `data`                                                                                                               | [components.Subscription](../../models/components/subscription.md)                                                   | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `type`                                                             | *string*                                                           | :heavy_check_mark:                                                 | N/A                                                                |
+| `data`                                                             | [components.Subscription](../../models/components/subscription.md) | :heavy_check_mark:                                                 | N/A                                                                |

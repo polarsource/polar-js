@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -20,13 +19,6 @@ import {
   Organization$Outbound,
   Organization$outboundSchema,
 } from "./organization.js";
-
-export const BenefitAdsSubscriberType = {
-  Ads: "ads",
-} as const;
-export type BenefitAdsSubscriberType = ClosedEnum<
-  typeof BenefitAdsSubscriberType
->;
 
 export type BenefitAdsSubscriber = {
   /**
@@ -64,27 +56,6 @@ export type BenefitAdsSubscriber = {
    */
   properties: BenefitAdsProperties;
 };
-
-/** @internal */
-export const BenefitAdsSubscriberType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitAdsSubscriberType
-> = z.nativeEnum(BenefitAdsSubscriberType);
-
-/** @internal */
-export const BenefitAdsSubscriberType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitAdsSubscriberType
-> = BenefitAdsSubscriberType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitAdsSubscriberType$ {
-  /** @deprecated use `BenefitAdsSubscriberType$inboundSchema` instead. */
-  export const inboundSchema = BenefitAdsSubscriberType$inboundSchema;
-  /** @deprecated use `BenefitAdsSubscriberType$outboundSchema` instead. */
-  export const outboundSchema = BenefitAdsSubscriberType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitAdsSubscriber$inboundSchema: z.ZodType<
@@ -135,7 +106,7 @@ export const BenefitAdsSubscriber$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  type: z.literal("ads").default("ads"),
+  type: z.literal("ads").default("ads" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

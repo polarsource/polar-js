@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   BenefitDownloadablesCreateProperties$Outbound,
   BenefitDownloadablesCreateProperties$outboundSchema,
 } from "./benefitdownloadablescreateproperties.js";
-
-export const BenefitDownloadablesCreateType = {
-  Downloadables: "downloadables",
-} as const;
-export type BenefitDownloadablesCreateType = ClosedEnum<
-  typeof BenefitDownloadablesCreateType
->;
 
 export type BenefitDownloadablesCreate = {
   type?: "downloadables" | undefined;
@@ -34,27 +26,6 @@ export type BenefitDownloadablesCreate = {
   organizationId?: string | null | undefined;
   properties: BenefitDownloadablesCreateProperties;
 };
-
-/** @internal */
-export const BenefitDownloadablesCreateType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitDownloadablesCreateType
-> = z.nativeEnum(BenefitDownloadablesCreateType);
-
-/** @internal */
-export const BenefitDownloadablesCreateType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitDownloadablesCreateType
-> = BenefitDownloadablesCreateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadablesCreateType$ {
-  /** @deprecated use `BenefitDownloadablesCreateType$inboundSchema` instead. */
-  export const inboundSchema = BenefitDownloadablesCreateType$inboundSchema;
-  /** @deprecated use `BenefitDownloadablesCreateType$outboundSchema` instead. */
-  export const outboundSchema = BenefitDownloadablesCreateType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitDownloadablesCreate$inboundSchema: z.ZodType<
@@ -86,7 +57,7 @@ export const BenefitDownloadablesCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitDownloadablesCreate
 > = z.object({
-  type: z.literal("downloadables").default("downloadables"),
+  type: z.literal("downloadables").default("downloadables" as const),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   properties: BenefitDownloadablesCreateProperties$outboundSchema,

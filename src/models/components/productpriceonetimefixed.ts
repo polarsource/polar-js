@@ -5,29 +5,8 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const ProductPriceOneTimeFixedAmountType = {
-  Fixed: "fixed",
-} as const;
-export type ProductPriceOneTimeFixedAmountType = ClosedEnum<
-  typeof ProductPriceOneTimeFixedAmountType
->;
-
-/**
- * The type of the price.
- */
-export const ProductPriceOneTimeFixedType = {
-  OneTime: "one_time",
-} as const;
-/**
- * The type of the price.
- */
-export type ProductPriceOneTimeFixedType = ClosedEnum<
-  typeof ProductPriceOneTimeFixedType
->;
 
 /**
  * A one-time price for a product.
@@ -67,49 +46,6 @@ export type ProductPriceOneTimeFixed = {
    */
   type?: "one_time" | undefined;
 };
-
-/** @internal */
-export const ProductPriceOneTimeFixedAmountType$inboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceOneTimeFixedAmountType
-> = z.nativeEnum(ProductPriceOneTimeFixedAmountType);
-
-/** @internal */
-export const ProductPriceOneTimeFixedAmountType$outboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceOneTimeFixedAmountType
-> = ProductPriceOneTimeFixedAmountType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceOneTimeFixedAmountType$ {
-  /** @deprecated use `ProductPriceOneTimeFixedAmountType$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceOneTimeFixedAmountType$inboundSchema;
-  /** @deprecated use `ProductPriceOneTimeFixedAmountType$outboundSchema` instead. */
-  export const outboundSchema =
-    ProductPriceOneTimeFixedAmountType$outboundSchema;
-}
-
-/** @internal */
-export const ProductPriceOneTimeFixedType$inboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceOneTimeFixedType
-> = z.nativeEnum(ProductPriceOneTimeFixedType);
-
-/** @internal */
-export const ProductPriceOneTimeFixedType$outboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceOneTimeFixedType
-> = ProductPriceOneTimeFixedType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceOneTimeFixedType$ {
-  /** @deprecated use `ProductPriceOneTimeFixedType$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceOneTimeFixedType$inboundSchema;
-  /** @deprecated use `ProductPriceOneTimeFixedType$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceOneTimeFixedType$outboundSchema;
-}
 
 /** @internal */
 export const ProductPriceOneTimeFixed$inboundSchema: z.ZodType<
@@ -162,12 +98,12 @@ export const ProductPriceOneTimeFixed$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  amountType: z.literal("fixed").default("fixed"),
+  amountType: z.literal("fixed").default("fixed" as const),
   isArchived: z.boolean(),
   productId: z.string(),
   priceCurrency: z.string(),
   priceAmount: z.number().int(),
-  type: z.literal("one_time").default("one_time"),
+  type: z.literal("one_time").default("one_time" as const),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

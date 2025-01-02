@@ -97,6 +97,7 @@ async function run() {
       createdAt: new Date("2024-11-12T14:26:42.882Z"),
       modifiedAt: new Date("2023-05-28T05:08:06.235Z"),
       id: "<value>",
+      paymentProcessor: "stripe",
       status: "failed",
       clientSecret: "<value>",
       url: "https://heavy-beret.com/",
@@ -142,8 +143,8 @@ async function run() {
         organizationId: "<value>",
         prices: [
           {
-            createdAt: new Date("2024-11-19T15:59:15.588Z"),
-            modifiedAt: new Date("2022-11-17T00:11:23.972Z"),
+            createdAt: new Date("2025-11-19T15:59:15.588Z"),
+            modifiedAt: new Date("2023-11-17T00:11:23.972Z"),
             id: "<value>",
             isArchived: false,
             productId: "<value>",
@@ -187,8 +188,8 @@ async function run() {
         ],
       },
       productPrice: {
-        createdAt: new Date("2024-02-15T09:22:19.644Z"),
-        modifiedAt: new Date("2022-12-28T20:59:29.904Z"),
+        createdAt: new Date("2025-02-14T09:22:19.644Z"),
+        modifiedAt: new Date("2023-12-28T20:59:29.904Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
@@ -211,8 +212,8 @@ async function run() {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2022-08-19T22:18:44.316Z"),
-            modifiedAt: new Date("2023-04-29T23:39:10.699Z"),
+            createdAt: new Date("2023-08-19T22:18:44.316Z"),
+            modifiedAt: new Date("2024-04-28T23:39:10.699Z"),
             id: "<value>",
             metadata: {
               "key": false,
@@ -235,8 +236,8 @@ async function run() {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2023-07-03T09:46:29.338Z"),
-            modifiedAt: new Date("2024-01-25T18:08:49.597Z"),
+            createdAt: new Date("2024-07-02T09:46:29.338Z"),
+            modifiedAt: new Date("2025-01-24T18:08:49.597Z"),
             id: "<value>",
             metadata: {
               "key": false,
@@ -252,8 +253,8 @@ async function run() {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2024-07-31T13:25:31.669Z"),
-            modifiedAt: new Date("2022-11-12T09:40:10.044Z"),
+            createdAt: new Date("2025-07-31T13:25:31.669Z"),
+            modifiedAt: new Date("2023-11-12T09:40:10.044Z"),
             id: "<value>",
             metadata: {
               "key": "<value>",

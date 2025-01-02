@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -16,13 +15,6 @@ import {
 } from "./customfieldselectproperties.js";
 
 export type CustomFieldCreateSelectMetadata = string | number | boolean;
-
-export const CustomFieldCreateSelectType = {
-  Select: "select",
-} as const;
-export type CustomFieldCreateSelectType = ClosedEnum<
-  typeof CustomFieldCreateSelectType
->;
 
 /**
  * Schema to create a custom field of type select.
@@ -113,27 +105,6 @@ export function customFieldCreateSelectMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldCreateSelectType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldCreateSelectType
-> = z.nativeEnum(CustomFieldCreateSelectType);
-
-/** @internal */
-export const CustomFieldCreateSelectType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldCreateSelectType
-> = CustomFieldCreateSelectType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateSelectType$ {
-  /** @deprecated use `CustomFieldCreateSelectType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateSelectType$inboundSchema;
-  /** @deprecated use `CustomFieldCreateSelectType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateSelectType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldCreateSelect$inboundSchema: z.ZodType<
   CustomFieldCreateSelect,
   z.ZodTypeDef,
@@ -170,7 +141,7 @@ export const CustomFieldCreateSelect$outboundSchema: z.ZodType<
 > = z.object({
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
     .optional(),
-  type: z.literal("select").default("select"),
+  type: z.literal("select").default("select" as const),
   slug: z.string(),
   name: z.string(),
   organizationId: z.nullable(z.string()).optional(),

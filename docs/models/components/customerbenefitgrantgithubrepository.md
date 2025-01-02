@@ -6,42 +6,61 @@
 import { CustomerBenefitGrantGitHubRepository } from "@polar-sh/sdk/models/components";
 
 let value: CustomerBenefitGrantGitHubRepository = {
-  createdAt: new Date("2024-05-17T20:32:17.192Z"),
-  modifiedAt: new Date("2024-09-24T21:01:28.984Z"),
+  createdAt: new Date("2025-12-07T19:04:25.764Z"),
+  modifiedAt: new Date("2024-01-27T07:29:07.482Z"),
   id: "<value>",
-  grantedAt: new Date("2023-09-15T18:42:51.260Z"),
-  revokedAt: new Date("2024-10-01T16:38:34.857Z"),
+  grantedAt: new Date("2024-05-03T23:37:31.406Z"),
+  revokedAt: new Date("2025-01-02T08:17:22.976Z"),
   customerId: "<value>",
   benefitId: "<value>",
   subscriptionId: "<value>",
   orderId: "<value>",
   isGranted: false,
   isRevoked: false,
-  benefit: {
-    createdAt: new Date("2023-04-03T00:06:33.908Z"),
-    modifiedAt: new Date("2024-06-08T19:18:02.881Z"),
+  customer: {
+    createdAt: new Date("2024-04-07T14:26:13.023Z"),
+    modifiedAt: new Date("2023-09-20T00:09:09.421Z"),
     id: "<value>",
-    description:
-      "fencing parsnip playfully convection unbearably supposing bleakly plumber marten",
+    email: "Dorthy.McKenzie78@gmail.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "Uruguay",
+    },
+    taxId: [
+      "tw_vat",
+    ],
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
+  },
+  benefit: {
+    createdAt: new Date("2025-08-28T23:23:26.430Z"),
+    modifiedAt: new Date("2025-08-28T06:03:19.788Z"),
+    id: "<value>",
+    description: "throughout for furthermore whopping dramatic glum",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     organization: {
-      createdAt: new Date("2022-07-17T08:42:37.234Z"),
-      modifiedAt: new Date("2024-04-07T08:49:58.108Z"),
+      createdAt: new Date("2023-09-19T18:10:58.926Z"),
+      modifiedAt: new Date("2025-05-09T00:02:08.000Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://agreeable-baseboard.com",
+      avatarUrl: "https://focused-fundraising.name/",
       bio: "<value>",
-      company: "Gorczany - Pagac",
+      company: "Hammes Inc",
       blog: "<value>",
       location: "<value>",
-      email: "Savanna10@yahoo.com",
+      email: "Alaina.Kovacek@yahoo.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 302321,
+      pledgeMinimumAmount: 839519,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 783395,
+      defaultUpfrontSplitToContributors: 774747,
       profileSettings: {},
       featureSettings: {},
     },
@@ -69,5 +88,6 @@ let value: CustomerBenefitGrantGitHubRepository = {
 | `orderId`                                                                                                              | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `isGranted`                                                                                                            | *boolean*                                                                                                              | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `isRevoked`                                                                                                            | *boolean*                                                                                                              | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `customer`                                                                                                             | [components.CustomerPortalCustomer](../../models/components/customerportalcustomer.md)                                 | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `benefit`                                                                                                              | [components.BenefitGitHubRepositorySubscriber](../../models/components/benefitgithubrepositorysubscriber.md)           | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `properties`                                                                                                           | [components.BenefitGrantGitHubRepositoryProperties](../../models/components/benefitgrantgithubrepositoryproperties.md) | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |

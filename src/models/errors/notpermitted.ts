@@ -3,12 +3,6 @@
  */
 
 import * as z from "zod";
-import { ClosedEnum } from "../../types/enums.js";
-
-export const NotPermittedError = {
-  NotPermitted: "NotPermitted",
-} as const;
-export type NotPermittedError = ClosedEnum<typeof NotPermittedError>;
 
 export type NotPermittedData = {
   error: "NotPermitted";
@@ -34,27 +28,6 @@ export class NotPermitted extends Error {
 
     this.name = "NotPermitted";
   }
-}
-
-/** @internal */
-export const NotPermittedError$inboundSchema: z.ZodNativeEnum<
-  typeof NotPermittedError
-> = z.nativeEnum(NotPermittedError);
-
-/** @internal */
-export const NotPermittedError$outboundSchema: z.ZodNativeEnum<
-  typeof NotPermittedError
-> = NotPermittedError$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NotPermittedError$ {
-  /** @deprecated use `NotPermittedError$inboundSchema` instead. */
-  export const inboundSchema = NotPermittedError$inboundSchema;
-  /** @deprecated use `NotPermittedError$outboundSchema` instead. */
-  export const outboundSchema = NotPermittedError$outboundSchema;
 }
 
 /** @internal */
@@ -84,7 +57,7 @@ export const NotPermitted$outboundSchema: z.ZodType<
 > = z.instanceof(NotPermitted)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("NotPermitted").default("NotPermitted"),
+    error: z.literal("NotPermitted").default("NotPermitted" as const),
     detail: z.string(),
   }));
 

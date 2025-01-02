@@ -6,41 +6,61 @@
 import { CustomerBenefitGrantCustom } from "@polar-sh/sdk/models/components";
 
 let value: CustomerBenefitGrantCustom = {
-  createdAt: new Date("2023-06-25T00:22:07.985Z"),
-  modifiedAt: new Date("2023-09-08T14:21:20.970Z"),
+  createdAt: new Date("2024-06-15T18:30:15.527Z"),
+  modifiedAt: new Date("2025-03-27T12:26:38.918Z"),
   id: "<value>",
-  grantedAt: new Date("2024-05-23T09:35:37.185Z"),
-  revokedAt: new Date("2024-08-12T20:17:45.476Z"),
+  grantedAt: new Date("2025-04-26T21:53:34.696Z"),
+  revokedAt: new Date("2023-01-14T06:47:19.215Z"),
   customerId: "<value>",
   benefitId: "<value>",
   subscriptionId: "<value>",
   orderId: "<value>",
   isGranted: false,
   isRevoked: false,
-  benefit: {
-    createdAt: new Date("2024-04-17T01:09:14.302Z"),
-    modifiedAt: new Date("2022-10-11T20:38:52.127Z"),
+  customer: {
+    createdAt: new Date("2023-02-11T11:01:25.106Z"),
+    modifiedAt: new Date("2024-06-07T09:44:26.832Z"),
     id: "<value>",
-    description: "anesthetize unto agile",
+    email: "Cristopher26@hotmail.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "Saint Lucia",
+    },
+    taxId: [
+      "ca_pst_bc",
+    ],
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
+  },
+  benefit: {
+    createdAt: new Date("2025-09-10T13:02:30.656Z"),
+    modifiedAt: new Date("2023-03-04T10:48:40.423Z"),
+    id: "<value>",
+    description: "ew monasticism failing whether crazy vainly broken er",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     organization: {
-      createdAt: new Date("2022-05-13T16:31:23.365Z"),
-      modifiedAt: new Date("2023-08-19T04:22:02.080Z"),
+      createdAt: new Date("2025-11-13T10:52:23.813Z"),
+      modifiedAt: new Date("2025-10-14T18:51:40.332Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://legal-consistency.info",
+      avatarUrl: "https://perfumed-vestment.info",
       bio: "<value>",
-      company: "Schneider - Littel",
+      company: "Kessler Inc",
       blog: "<value>",
       location: "<value>",
-      email: "Bruce_Mann70@yahoo.com",
+      email: "Kevin54@hotmail.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 377797,
+      pledgeMinimumAmount: 459436,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 372038,
+      defaultUpfrontSplitToContributors: 625192,
       profileSettings: {},
       featureSettings: {},
     },
@@ -67,5 +87,6 @@ let value: CustomerBenefitGrantCustom = {
 | `orderId`                                                                                          | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `isGranted`                                                                                        | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `isRevoked`                                                                                        | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `customer`                                                                                         | [components.CustomerPortalCustomer](../../models/components/customerportalcustomer.md)             | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `benefit`                                                                                          | [components.BenefitCustomSubscriber](../../models/components/benefitcustomsubscriber.md)           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `properties`                                                                                       | [components.BenefitGrantCustomProperties](../../models/components/benefitgrantcustomproperties.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |

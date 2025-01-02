@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   BenefitGitHubRepositoryCreateProperties$outboundSchema,
 } from "./benefitgithubrepositorycreateproperties.js";
 
-export const BenefitGitHubRepositoryUpdateType = {
-  GithubRepository: "github_repository",
-} as const;
-export type BenefitGitHubRepositoryUpdateType = ClosedEnum<
-  typeof BenefitGitHubRepositoryUpdateType
->;
-
 export type BenefitGitHubRepositoryUpdate = {
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
@@ -29,28 +21,6 @@ export type BenefitGitHubRepositoryUpdate = {
   type?: "github_repository" | undefined;
   properties?: BenefitGitHubRepositoryCreateProperties | null | undefined;
 };
-
-/** @internal */
-export const BenefitGitHubRepositoryUpdateType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitGitHubRepositoryUpdateType
-> = z.nativeEnum(BenefitGitHubRepositoryUpdateType);
-
-/** @internal */
-export const BenefitGitHubRepositoryUpdateType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitGitHubRepositoryUpdateType
-> = BenefitGitHubRepositoryUpdateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositoryUpdateType$ {
-  /** @deprecated use `BenefitGitHubRepositoryUpdateType$inboundSchema` instead. */
-  export const inboundSchema = BenefitGitHubRepositoryUpdateType$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryUpdateType$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGitHubRepositoryUpdateType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitGitHubRepositoryUpdate$inboundSchema: z.ZodType<
@@ -81,7 +51,7 @@ export const BenefitGitHubRepositoryUpdate$outboundSchema: z.ZodType<
   BenefitGitHubRepositoryUpdate
 > = z.object({
   description: z.nullable(z.string()).optional(),
-  type: z.literal("github_repository").default("github_repository"),
+  type: z.literal("github_repository").default("github_repository" as const),
   properties: z.nullable(BenefitGitHubRepositoryCreateProperties$outboundSchema)
     .optional(),
 });

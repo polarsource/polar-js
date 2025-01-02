@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -16,13 +15,6 @@ import {
 } from "./customfielddateproperties.js";
 
 export type CustomFieldCreateDateMetadata = string | number | boolean;
-
-export const CustomFieldCreateDateType = {
-  Date: "date",
-} as const;
-export type CustomFieldCreateDateType = ClosedEnum<
-  typeof CustomFieldCreateDateType
->;
 
 /**
  * Schema to create a custom field of type date.
@@ -110,27 +102,6 @@ export function customFieldCreateDateMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldCreateDateType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldCreateDateType
-> = z.nativeEnum(CustomFieldCreateDateType);
-
-/** @internal */
-export const CustomFieldCreateDateType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldCreateDateType
-> = CustomFieldCreateDateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateDateType$ {
-  /** @deprecated use `CustomFieldCreateDateType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateDateType$inboundSchema;
-  /** @deprecated use `CustomFieldCreateDateType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateDateType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldCreateDate$inboundSchema: z.ZodType<
   CustomFieldCreateDate,
   z.ZodTypeDef,
@@ -167,7 +138,7 @@ export const CustomFieldCreateDate$outboundSchema: z.ZodType<
 > = z.object({
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
     .optional(),
-  type: z.literal("date").default("date"),
+  type: z.literal("date").default("date" as const),
   slug: z.string(),
   name: z.string(),
   organizationId: z.nullable(z.string()).optional(),

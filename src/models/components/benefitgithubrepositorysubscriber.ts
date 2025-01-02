@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -20,13 +19,6 @@ import {
   Organization$Outbound,
   Organization$outboundSchema,
 } from "./organization.js";
-
-export const BenefitGitHubRepositorySubscriberType = {
-  GithubRepository: "github_repository",
-} as const;
-export type BenefitGitHubRepositorySubscriberType = ClosedEnum<
-  typeof BenefitGitHubRepositorySubscriberType
->;
 
 export type BenefitGitHubRepositorySubscriber = {
   /**
@@ -64,30 +56,6 @@ export type BenefitGitHubRepositorySubscriber = {
    */
   properties: BenefitGitHubRepositorySubscriberProperties;
 };
-
-/** @internal */
-export const BenefitGitHubRepositorySubscriberType$inboundSchema:
-  z.ZodNativeEnum<typeof BenefitGitHubRepositorySubscriberType> = z.nativeEnum(
-    BenefitGitHubRepositorySubscriberType,
-  );
-
-/** @internal */
-export const BenefitGitHubRepositorySubscriberType$outboundSchema:
-  z.ZodNativeEnum<typeof BenefitGitHubRepositorySubscriberType> =
-    BenefitGitHubRepositorySubscriberType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositorySubscriberType$ {
-  /** @deprecated use `BenefitGitHubRepositorySubscriberType$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitGitHubRepositorySubscriberType$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositorySubscriberType$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGitHubRepositorySubscriberType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitGitHubRepositorySubscriber$inboundSchema: z.ZodType<
@@ -138,7 +106,7 @@ export const BenefitGitHubRepositorySubscriber$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  type: z.literal("github_repository").default("github_repository"),
+  type: z.literal("github_repository").default("github_repository" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

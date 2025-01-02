@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -15,13 +14,6 @@ import {
 } from "./customfieldnumberproperties.js";
 
 export type CustomFieldUpdateNumberMetadata = string | number | boolean;
-
-export const CustomFieldUpdateNumberType = {
-  Number: "number",
-} as const;
-export type CustomFieldUpdateNumberType = ClosedEnum<
-  typeof CustomFieldUpdateNumberType
->;
 
 /**
  * Schema to update a custom field of type number.
@@ -88,27 +80,6 @@ export function customFieldUpdateNumberMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldUpdateNumberType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldUpdateNumberType
-> = z.nativeEnum(CustomFieldUpdateNumberType);
-
-/** @internal */
-export const CustomFieldUpdateNumberType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldUpdateNumberType
-> = CustomFieldUpdateNumberType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdateNumberType$ {
-  /** @deprecated use `CustomFieldUpdateNumberType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdateNumberType$inboundSchema;
-  /** @deprecated use `CustomFieldUpdateNumberType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdateNumberType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldUpdateNumber$inboundSchema: z.ZodType<
   CustomFieldUpdateNumber,
   z.ZodTypeDef,
@@ -143,7 +114,7 @@ export const CustomFieldUpdateNumber$outboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("number").default("number"),
+  type: z.literal("number").default("number" as const),
   properties: z.nullable(CustomFieldNumberProperties$outboundSchema).optional(),
 });
 
