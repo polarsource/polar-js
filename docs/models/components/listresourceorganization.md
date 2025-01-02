@@ -8,28 +8,28 @@ import { ListResourceOrganization } from "@polar-sh/sdk/models/components";
 let value: ListResourceOrganization = {
   items: [
     {
-      createdAt: new Date("2023-05-07T10:50:37.185Z"),
-      modifiedAt: new Date("2024-07-27T08:56:13.386Z"),
+      createdAt: new Date("2023-11-24T07:53:06.544Z"),
+      modifiedAt: new Date("2023-01-08T04:54:12.583Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://plump-statue.net/",
+      avatarUrl: "https://any-council.com/",
       bio: "<value>",
-      company: "Bechtelar - Gorczany",
+      company: "Frami - Schmeler",
       blog: "<value>",
       location: "<value>",
-      email: "Alena_Lebsack37@gmail.com",
+      email: "Winfield_Stroman77@gmail.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 569306,
+      pledgeMinimumAmount: 257324,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 752367,
+      defaultUpfrontSplitToContributors: 664425,
       profileSettings: {},
       featureSettings: {},
     },
   ],
   pagination: {
-    totalCount: 694952,
-    maxPage: 856985,
+    totalCount: 563154,
+    maxPage: 505663,
   },
 };
 ```

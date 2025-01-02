@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   BenefitDownloadablesCreateProperties$outboundSchema,
 } from "./benefitdownloadablescreateproperties.js";
 
-export const BenefitDownloadablesUpdateType = {
-  Downloadables: "downloadables",
-} as const;
-export type BenefitDownloadablesUpdateType = ClosedEnum<
-  typeof BenefitDownloadablesUpdateType
->;
-
 export type BenefitDownloadablesUpdate = {
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
@@ -29,27 +21,6 @@ export type BenefitDownloadablesUpdate = {
   type?: "downloadables" | undefined;
   properties?: BenefitDownloadablesCreateProperties | null | undefined;
 };
-
-/** @internal */
-export const BenefitDownloadablesUpdateType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitDownloadablesUpdateType
-> = z.nativeEnum(BenefitDownloadablesUpdateType);
-
-/** @internal */
-export const BenefitDownloadablesUpdateType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitDownloadablesUpdateType
-> = BenefitDownloadablesUpdateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadablesUpdateType$ {
-  /** @deprecated use `BenefitDownloadablesUpdateType$inboundSchema` instead. */
-  export const inboundSchema = BenefitDownloadablesUpdateType$inboundSchema;
-  /** @deprecated use `BenefitDownloadablesUpdateType$outboundSchema` instead. */
-  export const outboundSchema = BenefitDownloadablesUpdateType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitDownloadablesUpdate$inboundSchema: z.ZodType<
@@ -77,7 +48,7 @@ export const BenefitDownloadablesUpdate$outboundSchema: z.ZodType<
   BenefitDownloadablesUpdate
 > = z.object({
   description: z.nullable(z.string()).optional(),
-  type: z.literal("downloadables").default("downloadables"),
+  type: z.literal("downloadables").default("downloadables" as const),
   properties: z.nullable(BenefitDownloadablesCreateProperties$outboundSchema)
     .optional(),
 });

@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -21,19 +20,6 @@ export type CheckoutProductCreateMetadata = string | number | boolean;
  * Key-value object storing custom field values.
  */
 export type CheckoutProductCreateCustomFieldData = {};
-
-/**
- * Payment processor to use. Currently only Stripe is supported.
- */
-export const CheckoutProductCreatePaymentProcessor = {
-  Stripe: "stripe",
-} as const;
-/**
- * Payment processor to use. Currently only Stripe is supported.
- */
-export type CheckoutProductCreatePaymentProcessor = ClosedEnum<
-  typeof CheckoutProductCreatePaymentProcessor
->;
 
 export type CheckoutProductCreateCustomerMetadata = string | number | boolean;
 
@@ -65,10 +51,6 @@ export type CheckoutProductCreate = {
    * Key-value object storing custom field values.
    */
   customFieldData?: CheckoutProductCreateCustomFieldData | undefined;
-  /**
-   * Payment processor to use. Currently only Stripe is supported.
-   */
-  paymentProcessor?: "stripe" | undefined;
   /**
    * ID of the discount to apply to the checkout.
    */
@@ -224,30 +206,6 @@ export function checkoutProductCreateCustomFieldDataFromJSON(
 }
 
 /** @internal */
-export const CheckoutProductCreatePaymentProcessor$inboundSchema:
-  z.ZodNativeEnum<typeof CheckoutProductCreatePaymentProcessor> = z.nativeEnum(
-    CheckoutProductCreatePaymentProcessor,
-  );
-
-/** @internal */
-export const CheckoutProductCreatePaymentProcessor$outboundSchema:
-  z.ZodNativeEnum<typeof CheckoutProductCreatePaymentProcessor> =
-    CheckoutProductCreatePaymentProcessor$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutProductCreatePaymentProcessor$ {
-  /** @deprecated use `CheckoutProductCreatePaymentProcessor$inboundSchema` instead. */
-  export const inboundSchema =
-    CheckoutProductCreatePaymentProcessor$inboundSchema;
-  /** @deprecated use `CheckoutProductCreatePaymentProcessor$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutProductCreatePaymentProcessor$outboundSchema;
-}
-
-/** @internal */
 export const CheckoutProductCreateCustomerMetadata$inboundSchema: z.ZodType<
   CheckoutProductCreateCustomerMetadata,
   z.ZodTypeDef,
@@ -314,7 +272,6 @@ export const CheckoutProductCreate$inboundSchema: z.ZodType<
   custom_field_data: z.lazy(() =>
     CheckoutProductCreateCustomFieldData$inboundSchema
   ).optional(),
-  payment_processor: z.literal("stripe").optional(),
   discount_id: z.nullable(z.string()).optional(),
   allow_discount_codes: z.boolean().default(true),
   amount: z.nullable(z.number().int()).optional(),
@@ -334,7 +291,6 @@ export const CheckoutProductCreate$inboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     "custom_field_data": "customFieldData",
-    "payment_processor": "paymentProcessor",
     "discount_id": "discountId",
     "allow_discount_codes": "allowDiscountCodes",
     "customer_id": "customerId",
@@ -355,7 +311,6 @@ export const CheckoutProductCreate$inboundSchema: z.ZodType<
 export type CheckoutProductCreate$Outbound = {
   metadata?: { [k: string]: string | number | boolean } | undefined;
   custom_field_data?: CheckoutProductCreateCustomFieldData$Outbound | undefined;
-  payment_processor: "stripe";
   discount_id?: string | null | undefined;
   allow_discount_codes: boolean;
   amount?: number | null | undefined;
@@ -383,7 +338,6 @@ export const CheckoutProductCreate$outboundSchema: z.ZodType<
   customFieldData: z.lazy(() =>
     CheckoutProductCreateCustomFieldData$outboundSchema
   ).optional(),
-  paymentProcessor: z.literal("stripe").default("stripe"),
   discountId: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.boolean().default(true),
   amount: z.nullable(z.number().int()).optional(),
@@ -403,7 +357,6 @@ export const CheckoutProductCreate$outboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     customFieldData: "custom_field_data",
-    paymentProcessor: "payment_processor",
     discountId: "discount_id",
     allowDiscountCodes: "allow_discount_codes",
     customerId: "customer_id",

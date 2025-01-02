@@ -6,29 +6,29 @@
 import { BenefitCustomSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitCustomSubscriber = {
-  createdAt: new Date("2022-07-06T20:36:46.094Z"),
-  modifiedAt: new Date("2022-12-20T03:37:12.994Z"),
+  createdAt: new Date("2025-07-22T10:55:03.530Z"),
+  modifiedAt: new Date("2025-10-03T13:31:02.987Z"),
   id: "<value>",
-  description: "republican beautifully barring",
+  description: "stunt emotional guilt wheel mmm",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2023-02-15T00:23:15.198Z"),
-    modifiedAt: new Date("2023-09-24T14:39:14.681Z"),
+    createdAt: new Date("2023-04-16T20:46:36.695Z"),
+    modifiedAt: new Date("2024-08-10T20:52:01.499Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://scientific-cornet.org/",
+    avatarUrl: "https://unlawful-hydrant.name",
     bio: "<value>",
-    company: "Jerde - Fahey",
+    company: "Leannon and Sons",
     blog: "<value>",
     location: "<value>",
-    email: "Gaston_Sporer47@yahoo.com",
+    email: "Taya.Stroman@hotmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 872293,
+    pledgeMinimumAmount: 94273,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 419384,
+    defaultUpfrontSplitToContributors: 499308,
     profileSettings: {},
     featureSettings: {},
   },
@@ -45,7 +45,7 @@ let value: BenefitCustomSubscriber = {
 | `createdAt`                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                | :heavy_check_mark:                                                                                           | Creation timestamp of the object.                                                                            |
 | `modifiedAt`                                                                                                 | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                | :heavy_check_mark:                                                                                           | Last modification timestamp of the object.                                                                   |
 | `id`                                                                                                         | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The ID of the benefit.                                                                                       |
-| `type`                                                                                                       | [components.BenefitCustomSubscriberType](../../models/components/benefitcustomsubscribertype.md)             | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `type`                                                                                                       | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `description`                                                                                                | *string*                                                                                                     | :heavy_check_mark:                                                                                           | The description of the benefit.                                                                              |
 | `selectable`                                                                                                 | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is selectable when creating a product.                                                   |
 | `deletable`                                                                                                  | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | Whether the benefit is deletable.                                                                            |

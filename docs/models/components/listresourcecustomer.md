@@ -8,28 +8,28 @@ import { ListResourceCustomer } from "@polar-sh/sdk/models/components";
 let value: ListResourceCustomer = {
   items: [
     {
-      createdAt: new Date("2024-06-08T19:16:48.368Z"),
-      modifiedAt: new Date("2023-10-08T06:12:11.011Z"),
+      createdAt: new Date("2025-05-29T02:01:29.899Z"),
+      modifiedAt: new Date("2024-06-08T02:59:50.162Z"),
       id: "<value>",
       metadata: {
-        "key": 497351,
+        "key": "<value>",
       },
-      email: "Marshall12@gmail.com",
+      email: "Rebeka.Kuvalis@gmail.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Ecuador",
+        country: "Botswana",
       },
       taxId: [
-        "kr_brn",
+        "<id>",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://joyful-skyscraper.org/",
+      avatarUrl: "https://winged-birdcage.name/",
     },
   ],
   pagination: {
-    totalCount: 18165,
-    maxPage: 146654,
+    totalCount: 920860,
+    maxPage: 76856,
   },
 };
 ```

@@ -5,14 +5,8 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const TokenType = {
-  Bearer: "Bearer",
-} as const;
-export type TokenType = ClosedEnum<typeof TokenType>;
 
 export type TokenResponse = {
   accessToken: string;
@@ -22,25 +16,6 @@ export type TokenResponse = {
   scope: string;
   idToken: string;
 };
-
-/** @internal */
-export const TokenType$inboundSchema: z.ZodNativeEnum<typeof TokenType> = z
-  .nativeEnum(TokenType);
-
-/** @internal */
-export const TokenType$outboundSchema: z.ZodNativeEnum<typeof TokenType> =
-  TokenType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenType$ {
-  /** @deprecated use `TokenType$inboundSchema` instead. */
-  export const inboundSchema = TokenType$inboundSchema;
-  /** @deprecated use `TokenType$outboundSchema` instead. */
-  export const outboundSchema = TokenType$outboundSchema;
-}
 
 /** @internal */
 export const TokenResponse$inboundSchema: z.ZodType<
@@ -81,7 +56,7 @@ export const TokenResponse$outboundSchema: z.ZodType<
   TokenResponse
 > = z.object({
   accessToken: z.string(),
-  tokenType: z.literal("Bearer").default("Bearer"),
+  tokenType: z.literal("Bearer").default("Bearer" as const),
   expiresIn: z.number().int(),
   refreshToken: z.nullable(z.string()),
   scope: z.string(),

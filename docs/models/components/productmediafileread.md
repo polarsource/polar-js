@@ -18,10 +18,10 @@ let value: ProductMediaFileRead = {
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-03-01T15:52:51.579Z"),
+  lastModifiedAt: new Date("2025-03-01T15:52:51.579Z"),
   version: "<value>",
   isUploaded: false,
-  createdAt: new Date("2023-11-30T18:58:30.709Z"),
+  createdAt: new Date("2024-11-29T18:58:30.709Z"),
   sizeReadable: "<value>",
   publicUrl: "https://wobbly-tackle.net",
 };
@@ -43,7 +43,7 @@ let value: ProductMediaFileRead = {
 | `checksumSha256Hex`                                                                           | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `lastModifiedAt`                                                                              | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `version`                                                                                     | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `service`                                                                                     | [components.Service](../../models/components/service.md)                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `service`                                                                                     | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `isUploaded`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `sizeReadable`                                                                                | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |

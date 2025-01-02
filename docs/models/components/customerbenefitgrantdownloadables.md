@@ -6,42 +6,61 @@
 import { CustomerBenefitGrantDownloadables } from "@polar-sh/sdk/models/components";
 
 let value: CustomerBenefitGrantDownloadables = {
-  createdAt: new Date("2024-01-07T21:12:58.857Z"),
-  modifiedAt: new Date("2024-10-28T12:14:30.511Z"),
+  createdAt: new Date("2023-03-18T07:56:55.620Z"),
+  modifiedAt: new Date("2024-03-08T04:01:27.021Z"),
   id: "<value>",
-  grantedAt: new Date("2024-01-27T14:58:29.591Z"),
-  revokedAt: new Date("2023-09-06T06:23:05.578Z"),
+  grantedAt: new Date("2023-05-17T22:22:57.707Z"),
+  revokedAt: new Date("2025-12-15T04:27:45.463Z"),
   customerId: "<value>",
   benefitId: "<value>",
   subscriptionId: "<value>",
   orderId: "<value>",
   isGranted: false,
   isRevoked: false,
-  benefit: {
-    createdAt: new Date("2022-06-22T06:14:18.657Z"),
-    modifiedAt: new Date("2024-10-06T12:45:51.755Z"),
+  customer: {
+    createdAt: new Date("2023-09-16T22:12:23.409Z"),
+    modifiedAt: new Date("2024-02-04T10:48:51.582Z"),
     id: "<value>",
-    description:
-      "conservation reassemble blacken boastfully until hence cafe scale populist ick",
+    email: "Karine_Kub35@gmail.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "Bermuda",
+    },
+    taxId: [
+      "eu_vat",
+    ],
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
+  },
+  benefit: {
+    createdAt: new Date("2025-08-15T11:30:59.577Z"),
+    modifiedAt: new Date("2024-11-10T04:29:42.756Z"),
+    id: "<value>",
+    description: "into unless video upwardly till ouch tuber soon",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     organization: {
-      createdAt: new Date("2022-10-27T02:34:14.358Z"),
-      modifiedAt: new Date("2024-11-24T10:53:11.837Z"),
+      createdAt: new Date("2023-09-24T10:58:44.754Z"),
+      modifiedAt: new Date("2023-11-09T16:56:29.548Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://sparse-sideboard.name/",
+      avatarUrl: "https://judicious-premier.com/",
       bio: "<value>",
-      company: "McLaughlin, Mills and Connelly",
+      company: "Collins, Balistreri and Jacobson",
       blog: "<value>",
       location: "<value>",
-      email: "Candido.Hamill@hotmail.com",
+      email: "Faustino_Ondricka@hotmail.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 844540,
+      pledgeMinimumAmount: 163795,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 496921,
+      defaultUpfrontSplitToContributors: 887499,
       profileSettings: {},
       featureSettings: {},
     },
@@ -70,5 +89,6 @@ let value: CustomerBenefitGrantDownloadables = {
 | `orderId`                                                                                                        | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `isGranted`                                                                                                      | *boolean*                                                                                                        | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `isRevoked`                                                                                                      | *boolean*                                                                                                        | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `customer`                                                                                                       | [components.CustomerPortalCustomer](../../models/components/customerportalcustomer.md)                           | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `benefit`                                                                                                        | [components.BenefitDownloadablesSubscriber](../../models/components/benefitdownloadablessubscriber.md)           | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `properties`                                                                                                     | [components.BenefitGrantDownloadablesProperties](../../models/components/benefitgrantdownloadablesproperties.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |

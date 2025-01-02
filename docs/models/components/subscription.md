@@ -6,18 +6,18 @@
 import { Subscription } from "@polar-sh/sdk/models/components";
 
 let value: Subscription = {
-  createdAt: new Date("2022-12-15T22:38:22.380Z"),
-  modifiedAt: new Date("2022-07-04T06:48:36.981Z"),
+  createdAt: new Date("2023-12-15T22:38:22.380Z"),
+  modifiedAt: new Date("2023-07-04T06:48:36.981Z"),
   id: "<value>",
   amount: 556133,
   currency: "Dalasi",
   recurringInterval: "year",
   status: "unpaid",
-  currentPeriodStart: new Date("2023-11-11T15:47:28.185Z"),
-  currentPeriodEnd: new Date("2023-11-08T18:38:53.264Z"),
+  currentPeriodStart: new Date("2024-11-10T15:47:28.185Z"),
+  currentPeriodEnd: new Date("2024-11-07T18:38:53.264Z"),
   cancelAtPeriodEnd: false,
-  startedAt: new Date("2024-12-15T23:23:51.945Z"),
-  endedAt: new Date("2024-08-30T11:05:45.637Z"),
+  startedAt: new Date("2025-12-15T23:23:51.945Z"),
+  endedAt: new Date("2025-08-30T11:05:45.637Z"),
   customerId: "<value>",
   productId: "<value>",
   priceId: "<value>",
@@ -27,8 +27,8 @@ let value: Subscription = {
     "key": false,
   },
   customer: {
-    createdAt: new Date("2022-12-10T16:41:14.824Z"),
-    modifiedAt: new Date("2023-02-05T15:08:18.944Z"),
+    createdAt: new Date("2023-12-10T16:41:14.824Z"),
+    modifiedAt: new Date("2024-02-05T15:08:18.944Z"),
     id: "<value>",
     metadata: {
       "key": "<value>",
@@ -52,8 +52,8 @@ let value: Subscription = {
     publicName: "<value>",
   },
   product: {
-    createdAt: new Date("2022-11-24T10:19:41.436Z"),
-    modifiedAt: new Date("2022-10-07T13:11:52.112Z"),
+    createdAt: new Date("2023-11-24T10:19:41.436Z"),
+    modifiedAt: new Date("2023-10-07T13:11:52.112Z"),
     id: "<value>",
     name: "<value>",
     description:
@@ -66,8 +66,8 @@ let value: Subscription = {
     },
     prices: [
       {
-        createdAt: new Date("2024-12-13T16:03:43.381Z"),
-        modifiedAt: new Date("2022-02-03T08:20:20.613Z"),
+        createdAt: new Date("2025-12-13T16:03:43.381Z"),
+        modifiedAt: new Date("2023-02-03T08:20:20.613Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
@@ -76,8 +76,8 @@ let value: Subscription = {
     ],
     benefits: [
       {
-        createdAt: new Date("2022-02-16T10:20:38.020Z"),
-        modifiedAt: new Date("2022-09-07T14:29:56.720Z"),
+        createdAt: new Date("2023-02-16T10:20:38.020Z"),
+        modifiedAt: new Date("2023-09-07T14:29:56.720Z"),
         id: "<value>",
         description: "nervous save uncommon likewise separately content",
         selectable: false,
@@ -98,10 +98,10 @@ let value: Subscription = {
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2022-11-23T21:03:26.961Z"),
+        lastModifiedAt: new Date("2023-11-23T21:03:26.961Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2024-08-03T08:45:30.623Z"),
+        createdAt: new Date("2025-08-03T08:45:30.623Z"),
         sizeReadable: "<value>",
         publicUrl: "https://guilty-steak.net",
       },
@@ -110,8 +110,8 @@ let value: Subscription = {
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2024-07-17T15:34:53.162Z"),
-          modifiedAt: new Date("2023-03-31T05:51:52.889Z"),
+          createdAt: new Date("2025-07-17T15:34:53.162Z"),
+          modifiedAt: new Date("2024-03-30T05:51:52.889Z"),
           id: "<value>",
           metadata: {
             "key": "<value>",
@@ -127,8 +127,8 @@ let value: Subscription = {
     ],
   },
   price: {
-    createdAt: new Date("2023-01-19T21:32:01.817Z"),
-    modifiedAt: new Date("2024-10-05T00:47:16.247Z"),
+    createdAt: new Date("2024-01-19T21:32:01.817Z"),
+    modifiedAt: new Date("2025-10-05T00:47:16.247Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
@@ -140,16 +140,16 @@ let value: Subscription = {
     duration: "once",
     type: "percentage",
     basisPoints: 546868,
-    createdAt: new Date("2023-01-08T18:00:36.094Z"),
-    modifiedAt: new Date("2022-03-17T04:22:16.108Z"),
+    createdAt: new Date("2024-01-08T18:00:36.094Z"),
+    modifiedAt: new Date("2023-03-17T04:22:16.108Z"),
     id: "<value>",
     metadata: {
       "key": "<value>",
     },
     name: "<value>",
     code: "<value>",
-    startsAt: new Date("2023-01-28T08:24:34.111Z"),
-    endsAt: new Date("2023-04-22T21:58:29.328Z"),
+    startsAt: new Date("2024-01-28T08:24:34.111Z"),
+    endsAt: new Date("2024-04-21T21:58:29.328Z"),
     maxRedemptions: 590927,
     redemptionsCount: 722392,
     organizationId: "<value>",

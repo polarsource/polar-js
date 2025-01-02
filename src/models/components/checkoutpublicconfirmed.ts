@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -57,6 +56,11 @@ import {
   Organization$outboundSchema,
 } from "./organization.js";
 import {
+  PaymentProcessor,
+  PaymentProcessor$inboundSchema,
+  PaymentProcessor$outboundSchema,
+} from "./paymentprocessor.js";
+import {
   ProductPrice,
   ProductPrice$inboundSchema,
   ProductPrice$Outbound,
@@ -67,11 +71,6 @@ import {
  * Key-value object storing custom field values.
  */
 export type CheckoutPublicConfirmedCustomFieldData = {};
-
-export const Status = {
-  Confirmed: "confirmed",
-} as const;
-export type Status = ClosedEnum<typeof Status>;
 
 export type CheckoutPublicConfirmedPaymentProcessorMetadata = {};
 
@@ -106,7 +105,7 @@ export type CheckoutPublicConfirmed = {
    * Key-value object storing custom field values.
    */
   customFieldData?: CheckoutPublicConfirmedCustomFieldData | undefined;
-  paymentProcessor?: "stripe" | undefined;
+  paymentProcessor: PaymentProcessor;
   status?: "confirmed" | undefined;
   /**
    * Client secret used to update and complete the checkout session from the client.
@@ -259,25 +258,6 @@ export function checkoutPublicConfirmedCustomFieldDataFromJSON(
 }
 
 /** @internal */
-export const Status$inboundSchema: z.ZodNativeEnum<typeof Status> = z
-  .nativeEnum(Status);
-
-/** @internal */
-export const Status$outboundSchema: z.ZodNativeEnum<typeof Status> =
-  Status$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Status$ {
-  /** @deprecated use `Status$inboundSchema` instead. */
-  export const inboundSchema = Status$inboundSchema;
-  /** @deprecated use `Status$outboundSchema` instead. */
-  export const outboundSchema = Status$outboundSchema;
-}
-
-/** @internal */
 export const CheckoutPublicConfirmedPaymentProcessorMetadata$inboundSchema:
   z.ZodType<
     CheckoutPublicConfirmedPaymentProcessorMetadata,
@@ -417,7 +397,7 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
   custom_field_data: z.lazy(() =>
     CheckoutPublicConfirmedCustomFieldData$inboundSchema
   ).optional(),
-  payment_processor: z.literal("stripe").optional(),
+  payment_processor: PaymentProcessor$inboundSchema,
   status: z.literal("confirmed").optional(),
   client_secret: z.string(),
   url: z.string(),
@@ -503,7 +483,7 @@ export type CheckoutPublicConfirmed$Outbound = {
   custom_field_data?:
     | CheckoutPublicConfirmedCustomFieldData$Outbound
     | undefined;
-  payment_processor: "stripe";
+  payment_processor: string;
   status: "confirmed";
   client_secret: string;
   url: string;
@@ -557,8 +537,8 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
   customFieldData: z.lazy(() =>
     CheckoutPublicConfirmedCustomFieldData$outboundSchema
   ).optional(),
-  paymentProcessor: z.literal("stripe").default("stripe"),
-  status: z.literal("confirmed").default("confirmed"),
+  paymentProcessor: PaymentProcessor$outboundSchema,
+  status: z.literal("confirmed").default("confirmed" as const),
   clientSecret: z.string(),
   url: z.string(),
   expiresAt: z.date().transform(v => v.toISOString()),

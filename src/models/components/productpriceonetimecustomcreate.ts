@@ -5,23 +5,8 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const ProductPriceOneTimeCustomCreateType = {
-  OneTime: "one_time",
-} as const;
-export type ProductPriceOneTimeCustomCreateType = ClosedEnum<
-  typeof ProductPriceOneTimeCustomCreateType
->;
-
-export const ProductPriceOneTimeCustomCreateAmountType = {
-  Custom: "custom",
-} as const;
-export type ProductPriceOneTimeCustomCreateAmountType = ClosedEnum<
-  typeof ProductPriceOneTimeCustomCreateAmountType
->;
 
 /**
  * Schema to create a pay-what-you-want price for a one-time product.
@@ -46,52 +31,6 @@ export type ProductPriceOneTimeCustomCreate = {
    */
   presetAmount?: number | null | undefined;
 };
-
-/** @internal */
-export const ProductPriceOneTimeCustomCreateType$inboundSchema: z.ZodNativeEnum<
-  typeof ProductPriceOneTimeCustomCreateType
-> = z.nativeEnum(ProductPriceOneTimeCustomCreateType);
-
-/** @internal */
-export const ProductPriceOneTimeCustomCreateType$outboundSchema:
-  z.ZodNativeEnum<typeof ProductPriceOneTimeCustomCreateType> =
-    ProductPriceOneTimeCustomCreateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceOneTimeCustomCreateType$ {
-  /** @deprecated use `ProductPriceOneTimeCustomCreateType$inboundSchema` instead. */
-  export const inboundSchema =
-    ProductPriceOneTimeCustomCreateType$inboundSchema;
-  /** @deprecated use `ProductPriceOneTimeCustomCreateType$outboundSchema` instead. */
-  export const outboundSchema =
-    ProductPriceOneTimeCustomCreateType$outboundSchema;
-}
-
-/** @internal */
-export const ProductPriceOneTimeCustomCreateAmountType$inboundSchema:
-  z.ZodNativeEnum<typeof ProductPriceOneTimeCustomCreateAmountType> = z
-    .nativeEnum(ProductPriceOneTimeCustomCreateAmountType);
-
-/** @internal */
-export const ProductPriceOneTimeCustomCreateAmountType$outboundSchema:
-  z.ZodNativeEnum<typeof ProductPriceOneTimeCustomCreateAmountType> =
-    ProductPriceOneTimeCustomCreateAmountType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceOneTimeCustomCreateAmountType$ {
-  /** @deprecated use `ProductPriceOneTimeCustomCreateAmountType$inboundSchema` instead. */
-  export const inboundSchema =
-    ProductPriceOneTimeCustomCreateAmountType$inboundSchema;
-  /** @deprecated use `ProductPriceOneTimeCustomCreateAmountType$outboundSchema` instead. */
-  export const outboundSchema =
-    ProductPriceOneTimeCustomCreateAmountType$outboundSchema;
-}
 
 /** @internal */
 export const ProductPriceOneTimeCustomCreate$inboundSchema: z.ZodType<
@@ -131,8 +70,8 @@ export const ProductPriceOneTimeCustomCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPriceOneTimeCustomCreate
 > = z.object({
-  type: z.literal("one_time").default("one_time"),
-  amountType: z.literal("custom").default("custom"),
+  type: z.literal("one_time").default("one_time" as const),
+  amountType: z.literal("custom").default("custom" as const),
   priceCurrency: z.string().default("usd"),
   minimumAmount: z.nullable(z.number().int()).optional(),
   maximumAmount: z.nullable(z.number().int()).optional(),

@@ -14,18 +14,16 @@ import {
   SubType$outboundSchema,
 } from "./subtype.js";
 
-export const IntrospectTokenResponseTokenType = {
+export const TokenType = {
   AccessToken: "access_token",
   RefreshToken: "refresh_token",
 } as const;
-export type IntrospectTokenResponseTokenType = ClosedEnum<
-  typeof IntrospectTokenResponseTokenType
->;
+export type TokenType = ClosedEnum<typeof TokenType>;
 
 export type IntrospectTokenResponse = {
   active: boolean;
   clientId: string;
-  tokenType: IntrospectTokenResponseTokenType;
+  tokenType: TokenType;
   scope: string;
   subType: SubType;
   sub: string;
@@ -36,24 +34,22 @@ export type IntrospectTokenResponse = {
 };
 
 /** @internal */
-export const IntrospectTokenResponseTokenType$inboundSchema: z.ZodNativeEnum<
-  typeof IntrospectTokenResponseTokenType
-> = z.nativeEnum(IntrospectTokenResponseTokenType);
+export const TokenType$inboundSchema: z.ZodNativeEnum<typeof TokenType> = z
+  .nativeEnum(TokenType);
 
 /** @internal */
-export const IntrospectTokenResponseTokenType$outboundSchema: z.ZodNativeEnum<
-  typeof IntrospectTokenResponseTokenType
-> = IntrospectTokenResponseTokenType$inboundSchema;
+export const TokenType$outboundSchema: z.ZodNativeEnum<typeof TokenType> =
+  TokenType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace IntrospectTokenResponseTokenType$ {
-  /** @deprecated use `IntrospectTokenResponseTokenType$inboundSchema` instead. */
-  export const inboundSchema = IntrospectTokenResponseTokenType$inboundSchema;
-  /** @deprecated use `IntrospectTokenResponseTokenType$outboundSchema` instead. */
-  export const outboundSchema = IntrospectTokenResponseTokenType$outboundSchema;
+export namespace TokenType$ {
+  /** @deprecated use `TokenType$inboundSchema` instead. */
+  export const inboundSchema = TokenType$inboundSchema;
+  /** @deprecated use `TokenType$outboundSchema` instead. */
+  export const outboundSchema = TokenType$outboundSchema;
 }
 
 /** @internal */
@@ -64,7 +60,7 @@ export const IntrospectTokenResponse$inboundSchema: z.ZodType<
 > = z.object({
   active: z.boolean(),
   client_id: z.string(),
-  token_type: IntrospectTokenResponseTokenType$inboundSchema,
+  token_type: TokenType$inboundSchema,
   scope: z.string(),
   sub_type: SubType$inboundSchema,
   sub: z.string(),
@@ -102,7 +98,7 @@ export const IntrospectTokenResponse$outboundSchema: z.ZodType<
 > = z.object({
   active: z.boolean(),
   clientId: z.string(),
-  tokenType: IntrospectTokenResponseTokenType$outboundSchema,
+  tokenType: TokenType$outboundSchema,
   scope: z.string(),
   subType: SubType$outboundSchema,
   sub: z.string(),

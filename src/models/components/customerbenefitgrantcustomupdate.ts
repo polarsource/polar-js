@@ -5,43 +5,12 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const CustomerBenefitGrantCustomUpdateBenefitType = {
-  Custom: "custom",
-} as const;
-export type CustomerBenefitGrantCustomUpdateBenefitType = ClosedEnum<
-  typeof CustomerBenefitGrantCustomUpdateBenefitType
->;
 
 export type CustomerBenefitGrantCustomUpdate = {
   benefitType?: "custom" | undefined;
 };
-
-/** @internal */
-export const CustomerBenefitGrantCustomUpdateBenefitType$inboundSchema:
-  z.ZodNativeEnum<typeof CustomerBenefitGrantCustomUpdateBenefitType> = z
-    .nativeEnum(CustomerBenefitGrantCustomUpdateBenefitType);
-
-/** @internal */
-export const CustomerBenefitGrantCustomUpdateBenefitType$outboundSchema:
-  z.ZodNativeEnum<typeof CustomerBenefitGrantCustomUpdateBenefitType> =
-    CustomerBenefitGrantCustomUpdateBenefitType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantCustomUpdateBenefitType$ {
-  /** @deprecated use `CustomerBenefitGrantCustomUpdateBenefitType$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerBenefitGrantCustomUpdateBenefitType$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantCustomUpdateBenefitType$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantCustomUpdateBenefitType$outboundSchema;
-}
 
 /** @internal */
 export const CustomerBenefitGrantCustomUpdate$inboundSchema: z.ZodType<
@@ -67,7 +36,7 @@ export const CustomerBenefitGrantCustomUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerBenefitGrantCustomUpdate
 > = z.object({
-  benefitType: z.literal("custom").default("custom"),
+  benefitType: z.literal("custom").default("custom" as const),
 }).transform((v) => {
   return remap$(v, {
     benefitType: "benefit_type",

@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-09-10T00:03:37.019Z"),
-        modifiedAt: new Date("2024-11-20T14:19:41.572Z"),
+        createdAt: new Date("2023-07-02T16:15:14.675Z"),
+        modifiedAt: new Date("2025-04-12T07:16:10.826Z"),
         id: "<value>",
-        imageUrl: "https://dense-programme.name/",
-        imageUrlDark: "https://chubby-monasticism.info/",
+        imageUrl: "https://stale-zen.net",
+        imageUrlDark: "https://rundown-reward.info",
         text: "<value>",
-        linkUrl: "https://frivolous-gym.biz",
+        linkUrl: "https://elastic-airbus.net/",
       },
     ],
     pagination: {
-      totalCount: 200932,
-      maxPage: 508014,
+      totalCount: 349556,
+      maxPage: 758592,
     },
     dimensions: [
-      829139,
+      130229,
     ],
   },
 };

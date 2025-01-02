@@ -9,23 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "9b8900c4-cb91-416e-b36a-70be99dd26db",
+        id: "133a344f-fd77-4572-942e-b2650b752748",
+        platform: "github",
         name: "<value>",
-        avatarUrl: "https://joyful-procurement.net/",
+        avatarUrl: "https://instructive-numeracy.org/",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Rath - Murazik",
+        company: "Hansen - Nolan",
         blog: "<value>",
         location: "<value>",
-        email: "Elliot43@yahoo.com",
+        email: "Darian_Schuster32@hotmail.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 145482,
-      maxPage: 479962,
+      totalCount: 429518,
+      maxPage: 543484,
     },
   },
 };

@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   BenefitDownloadablesProperties$Outbound,
   BenefitDownloadablesProperties$outboundSchema,
 } from "./benefitdownloadablesproperties.js";
-
-export const BenefitDownloadablesType = {
-  Downloadables: "downloadables",
-} as const;
-export type BenefitDownloadablesType = ClosedEnum<
-  typeof BenefitDownloadablesType
->;
 
 export type BenefitDownloadables = {
   /**
@@ -54,27 +46,6 @@ export type BenefitDownloadables = {
   organizationId: string;
   properties: BenefitDownloadablesProperties;
 };
-
-/** @internal */
-export const BenefitDownloadablesType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitDownloadablesType
-> = z.nativeEnum(BenefitDownloadablesType);
-
-/** @internal */
-export const BenefitDownloadablesType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitDownloadablesType
-> = BenefitDownloadablesType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadablesType$ {
-  /** @deprecated use `BenefitDownloadablesType$inboundSchema` instead. */
-  export const inboundSchema = BenefitDownloadablesType$inboundSchema;
-  /** @deprecated use `BenefitDownloadablesType$outboundSchema` instead. */
-  export const outboundSchema = BenefitDownloadablesType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitDownloadables$inboundSchema: z.ZodType<
@@ -123,7 +94,7 @@ export const BenefitDownloadables$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  type: z.literal("downloadables").default("downloadables"),
+  type: z.literal("downloadables").default("downloadables" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

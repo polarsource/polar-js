@@ -9,16 +9,16 @@ let value: Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest = {
   clientId: "<id>",
   clientSecret: "<value>",
   code: "<value>",
-  redirectUri: "https://severe-gray.net/",
+  redirectUri: "https://portly-tarragon.com/",
 };
 ```
 
 ## Fields
 
-| Field                                                        | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `grantType`                                                  | [components.GrantType](../../models/components/granttype.md) | :heavy_check_mark:                                           | N/A                                                          |
-| `clientId`                                                   | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
-| `clientSecret`                                               | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
-| `code`                                                       | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
-| `redirectUri`                                                | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `grantType`        | *string*           | :heavy_check_mark: | N/A                |
+| `clientId`         | *string*           | :heavy_check_mark: | N/A                |
+| `clientSecret`     | *string*           | :heavy_check_mark: | N/A                |
+| `code`             | *string*           | :heavy_check_mark: | N/A                |
+| `redirectUri`      | *string*           | :heavy_check_mark: | N/A                |

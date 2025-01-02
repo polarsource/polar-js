@@ -7,15 +7,15 @@ import { OAuth2Client } from "@polar-sh/sdk/models/components";
 
 let value: OAuth2Client = {
   redirectUris: [
-    "https://infinite-interchange.biz",
+    "https://electric-birdcage.org",
   ],
   clientName: "<value>",
-  createdAt: new Date("2024-06-05T11:34:22.007Z"),
-  modifiedAt: new Date("2022-05-13T05:58:14.604Z"),
+  createdAt: new Date("2023-03-07T19:06:15.685Z"),
+  modifiedAt: new Date("2025-04-03T01:12:40.733Z"),
   clientId: "<id>",
   clientSecret: "<value>",
-  clientIdIssuedAt: 171088,
-  clientSecretExpiresAt: 999957,
+  clientIdIssuedAt: 929426,
+  clientSecretExpiresAt: 107129,
 };
 ```
 
@@ -26,7 +26,7 @@ let value: OAuth2Client = {
 | `redirectUris`                                                                                | *string*[]                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `tokenEndpointAuthMethod`                                                                     | [components.TokenEndpointAuthMethod](../../models/components/tokenendpointauthmethod.md)      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `grantTypes`                                                                                  | [components.GrantTypes](../../models/components/granttypes.md)[]                              | :heavy_minus_sign:                                                                            | N/A                                                                                           |
-| `responseTypes`                                                                               | [components.ResponseTypes](../../models/components/responsetypes.md)[]                        | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `responseTypes`                                                                               | *string*[]                                                                                    | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `scope`                                                                                       | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
 | `clientName`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `clientUri`                                                                                   | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |

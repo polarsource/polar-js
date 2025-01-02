@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -13,20 +12,6 @@ import {
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
-
-export const ProductPriceRecurringFixedCreateType = {
-  Recurring: "recurring",
-} as const;
-export type ProductPriceRecurringFixedCreateType = ClosedEnum<
-  typeof ProductPriceRecurringFixedCreateType
->;
-
-export const ProductPriceRecurringFixedCreateAmountType = {
-  Fixed: "fixed",
-} as const;
-export type ProductPriceRecurringFixedCreateAmountType = ClosedEnum<
-  typeof ProductPriceRecurringFixedCreateAmountType
->;
 
 /**
  * Schema to create a recurring product price, i.e. a subscription.
@@ -44,53 +29,6 @@ export type ProductPriceRecurringFixedCreate = {
   priceCurrency?: string | undefined;
   recurringInterval: SubscriptionRecurringInterval;
 };
-
-/** @internal */
-export const ProductPriceRecurringFixedCreateType$inboundSchema:
-  z.ZodNativeEnum<typeof ProductPriceRecurringFixedCreateType> = z.nativeEnum(
-    ProductPriceRecurringFixedCreateType,
-  );
-
-/** @internal */
-export const ProductPriceRecurringFixedCreateType$outboundSchema:
-  z.ZodNativeEnum<typeof ProductPriceRecurringFixedCreateType> =
-    ProductPriceRecurringFixedCreateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceRecurringFixedCreateType$ {
-  /** @deprecated use `ProductPriceRecurringFixedCreateType$inboundSchema` instead. */
-  export const inboundSchema =
-    ProductPriceRecurringFixedCreateType$inboundSchema;
-  /** @deprecated use `ProductPriceRecurringFixedCreateType$outboundSchema` instead. */
-  export const outboundSchema =
-    ProductPriceRecurringFixedCreateType$outboundSchema;
-}
-
-/** @internal */
-export const ProductPriceRecurringFixedCreateAmountType$inboundSchema:
-  z.ZodNativeEnum<typeof ProductPriceRecurringFixedCreateAmountType> = z
-    .nativeEnum(ProductPriceRecurringFixedCreateAmountType);
-
-/** @internal */
-export const ProductPriceRecurringFixedCreateAmountType$outboundSchema:
-  z.ZodNativeEnum<typeof ProductPriceRecurringFixedCreateAmountType> =
-    ProductPriceRecurringFixedCreateAmountType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceRecurringFixedCreateAmountType$ {
-  /** @deprecated use `ProductPriceRecurringFixedCreateAmountType$inboundSchema` instead. */
-  export const inboundSchema =
-    ProductPriceRecurringFixedCreateAmountType$inboundSchema;
-  /** @deprecated use `ProductPriceRecurringFixedCreateAmountType$outboundSchema` instead. */
-  export const outboundSchema =
-    ProductPriceRecurringFixedCreateAmountType$outboundSchema;
-}
 
 /** @internal */
 export const ProductPriceRecurringFixedCreate$inboundSchema: z.ZodType<
@@ -127,8 +65,8 @@ export const ProductPriceRecurringFixedCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPriceRecurringFixedCreate
 > = z.object({
-  type: z.literal("recurring").default("recurring"),
-  amountType: z.literal("fixed").default("fixed"),
+  type: z.literal("recurring").default("recurring" as const),
+  amountType: z.literal("fixed").default("fixed" as const),
   priceAmount: z.number().int(),
   priceCurrency: z.string().default("usd"),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,

@@ -49,6 +49,12 @@ import {
   BenefitGrantLicenseKeysProperties$Outbound,
   BenefitGrantLicenseKeysProperties$outboundSchema,
 } from "./benefitgrantlicensekeysproperties.js";
+import {
+  Customer,
+  Customer$inboundSchema,
+  Customer$Outbound,
+  Customer$outboundSchema,
+} from "./customer.js";
 
 export type BenefitGrantWebhookProperties =
   | BenefitGrantCustomProperties
@@ -115,6 +121,10 @@ export type BenefitGrantWebhook = {
    * The ID of the benefit concerned by this grant.
    */
   benefitId: string;
+  /**
+   * A customer in an organization.
+   */
+  customer: Customer;
   properties:
     | BenefitGrantCustomProperties
     | BenefitGrantDownloadablesProperties
@@ -296,6 +306,7 @@ export const BenefitGrantWebhook$inboundSchema: z.ZodType<
   customer_id: z.string(),
   user_id: z.string(),
   benefit_id: z.string(),
+  customer: Customer$inboundSchema,
   properties: z.union([
     BenefitGrantCustomProperties$inboundSchema,
     BenefitGrantDownloadablesProperties$inboundSchema,
@@ -346,6 +357,7 @@ export type BenefitGrantWebhook$Outbound = {
   customer_id: string;
   user_id: string;
   benefit_id: string;
+  customer: Customer$Outbound;
   properties:
     | BenefitGrantCustomProperties$Outbound
     | BenefitGrantDownloadablesProperties$Outbound
@@ -383,6 +395,7 @@ export const BenefitGrantWebhook$outboundSchema: z.ZodType<
   customerId: z.string(),
   userId: z.string(),
   benefitId: z.string(),
+  customer: Customer$outboundSchema,
   properties: z.union([
     BenefitGrantCustomProperties$outboundSchema,
     BenefitGrantDownloadablesProperties$outboundSchema,

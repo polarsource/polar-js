@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://quarrelsome-spirit.name",
+          "https://wasteful-tool.net/",
         ],
         clientName: "<value>",
-        createdAt: new Date("2023-12-11T12:44:47.120Z"),
-        modifiedAt: new Date("2024-12-06T12:57:36.581Z"),
+        createdAt: new Date("2023-09-02T16:34:40.356Z"),
+        modifiedAt: new Date("2023-11-10T10:11:55.405Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 720296,
-        clientSecretExpiresAt: 78474,
+        clientIdIssuedAt: 829019,
+        clientSecretExpiresAt: 652211,
       },
     ],
     pagination: {
-      totalCount: 716805,
-      maxPage: 973876,
+      totalCount: 245939,
+      maxPage: 869122,
     },
   },
 };

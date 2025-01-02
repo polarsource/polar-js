@@ -11,8 +11,8 @@ import { WebhookPledgeUpdatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookPledgeUpdatedPayload = {
   data: {
-    createdAt: new Date("2022-09-23T07:10:05.509Z"),
-    modifiedAt: new Date("2024-11-11T12:54:59.231Z"),
+    createdAt: new Date("2023-09-23T07:10:05.509Z"),
+    modifiedAt: new Date("2025-11-11T12:54:59.231Z"),
     id: "<value>",
     amount: 164347,
     currency: "Nakfa",
@@ -20,14 +20,16 @@ let value: WebhookPledgeUpdatedPayload = {
     type: "pay_on_completion",
     issue: {
       id: "4b0ed1cf-79a4-4a76-9ece-d09ba4601893",
+      platform: "github",
       number: 472077,
       title: "<value>",
       state: "open",
-      issueCreatedAt: new Date("2022-06-06T04:52:00.062Z"),
+      issueCreatedAt: new Date("2023-06-06T04:52:00.062Z"),
       needsConfirmationSolved: false,
       funding: {},
       repository: {
         id: "9fa1d619-365a-4613-b8c0-919d37c22ebb",
+        platform: "github",
         isPrivate: false,
         name: "MyOrg",
         description: "volleyball fast pish except entire queasily reasoning",
@@ -37,6 +39,7 @@ let value: WebhookPledgeUpdatedPayload = {
         profileSettings: {},
         organization: {
           id: "63d61b49-9f34-4eb7-ab66-284a6dc29b81",
+          platform: "github",
           name: "<value>",
           avatarUrl: "https://golden-moment.biz/",
           isPersonal: false,
@@ -50,8 +53,8 @@ let value: WebhookPledgeUpdatedPayload = {
           organizationId: "<value>",
         },
         internalOrganization: {
-          createdAt: new Date("2023-07-21T15:47:00.097Z"),
-          modifiedAt: new Date("2022-10-08T06:27:13.427Z"),
+          createdAt: new Date("2024-07-20T15:47:00.097Z"),
+          modifiedAt: new Date("2023-10-08T06:27:13.427Z"),
           id: "<value>",
           name: "<value>",
           slug: "<value>",
@@ -77,7 +80,7 @@ let value: WebhookPledgeUpdatedPayload = {
 
 ## Fields
 
-| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                   | [components.WebhookPledgeUpdatedPayloadType](../../models/components/webhookpledgeupdatedpayloadtype.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
-| `data`                                                                                                   | [components.Pledge](../../models/components/pledge.md)                                                   | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| Field                                                  | Type                                                   | Required                                               | Description                                            |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| `type`                                                 | *string*                                               | :heavy_check_mark:                                     | N/A                                                    |
+| `data`                                                 | [components.Pledge](../../models/components/pledge.md) | :heavy_check_mark:                                     | N/A                                                    |

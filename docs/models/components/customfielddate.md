@@ -8,8 +8,8 @@ Schema for a custom field of type date.
 import { CustomFieldDate } from "@polar-sh/sdk/models/components";
 
 let value: CustomFieldDate = {
-  createdAt: new Date("2023-03-16T18:43:47.673Z"),
-  modifiedAt: new Date("2024-10-15T12:04:53.187Z"),
+  createdAt: new Date("2024-03-15T18:43:47.673Z"),
+  modifiedAt: new Date("2025-10-15T12:04:53.187Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
@@ -29,7 +29,7 @@ let value: CustomFieldDate = {
 | `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the object.                                                                         |
 | `metadata`                                                                                    | Record<string, *components.CustomFieldDateMetadata*>                                          | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `type`                                                                                        | [components.CustomFieldDateType](../../models/components/customfielddatetype.md)              | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `slug`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | Identifier of the custom field. It'll be used as key when storing the value.                  |
 | `name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | Name of the custom field.                                                                     |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the custom field.                                           |

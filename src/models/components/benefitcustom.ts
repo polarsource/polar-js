@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,11 +13,6 @@ import {
   BenefitCustomProperties$Outbound,
   BenefitCustomProperties$outboundSchema,
 } from "./benefitcustomproperties.js";
-
-export const BenefitCustomType = {
-  Custom: "custom",
-} as const;
-export type BenefitCustomType = ClosedEnum<typeof BenefitCustomType>;
 
 /**
  * A benefit of type `custom`.
@@ -66,27 +60,6 @@ export type BenefitCustom = {
    */
   isTaxApplicable: boolean;
 };
-
-/** @internal */
-export const BenefitCustomType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitCustomType
-> = z.nativeEnum(BenefitCustomType);
-
-/** @internal */
-export const BenefitCustomType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitCustomType
-> = BenefitCustomType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustomType$ {
-  /** @deprecated use `BenefitCustomType$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustomType$inboundSchema;
-  /** @deprecated use `BenefitCustomType$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustomType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitCustom$inboundSchema: z.ZodType<
@@ -138,7 +111,7 @@ export const BenefitCustom$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  type: z.literal("custom").default("custom"),
+  type: z.literal("custom").default("custom" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

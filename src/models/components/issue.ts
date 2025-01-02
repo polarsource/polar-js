@@ -32,6 +32,11 @@ import {
   Label$outboundSchema,
 } from "./label.js";
 import {
+  Platforms,
+  Platforms$inboundSchema,
+  Platforms$outboundSchema,
+} from "./platforms.js";
+import {
   Reactions,
   Reactions$inboundSchema,
   Reactions$Outbound,
@@ -47,7 +52,7 @@ import { State, State$inboundSchema, State$outboundSchema } from "./state.js";
 
 export type Issue = {
   id: string;
-  platform?: "github" | undefined;
+  platform: Platforms;
   /**
    * GitHub #number
    */
@@ -109,7 +114,7 @@ export type Issue = {
 export const Issue$inboundSchema: z.ZodType<Issue, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string(),
-    platform: z.literal("github").optional(),
+    platform: Platforms$inboundSchema,
     number: z.number().int(),
     title: z.string(),
     body: z.nullable(z.string()).optional(),
@@ -153,7 +158,7 @@ export const Issue$inboundSchema: z.ZodType<Issue, z.ZodTypeDef, unknown> = z
 /** @internal */
 export type Issue$Outbound = {
   id: string;
-  platform: "github";
+  platform: string;
   number: number;
   title: string;
   body?: string | null | undefined;
@@ -182,7 +187,7 @@ export const Issue$outboundSchema: z.ZodType<
   Issue
 > = z.object({
   id: z.string(),
-  platform: z.literal("github").default("github"),
+  platform: Platforms$outboundSchema,
   number: z.number().int(),
   title: z.string(),
   body: z.nullable(z.string()).optional(),

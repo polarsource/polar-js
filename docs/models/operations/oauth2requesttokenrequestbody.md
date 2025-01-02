@@ -11,7 +11,7 @@ const value:
     clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",
-    redirectUri: "https://raw-waist.com",
+    redirectUri: "https://sugary-agreement.org",
   };
 ```
 

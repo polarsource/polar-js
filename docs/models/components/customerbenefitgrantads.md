@@ -6,42 +6,61 @@
 import { CustomerBenefitGrantAds } from "@polar-sh/sdk/models/components";
 
 let value: CustomerBenefitGrantAds = {
-  createdAt: new Date("2024-03-08T08:22:27.702Z"),
-  modifiedAt: new Date("2022-03-15T06:42:11.490Z"),
+  createdAt: new Date("2025-10-18T00:02:52.345Z"),
+  modifiedAt: new Date("2024-06-02T00:04:32.797Z"),
   id: "<value>",
-  grantedAt: new Date("2024-02-21T14:44:41.629Z"),
-  revokedAt: new Date("2022-03-18T07:56:55.620Z"),
+  grantedAt: new Date("2023-09-09T04:56:49.668Z"),
+  revokedAt: new Date("2025-01-05T08:25:05.244Z"),
   customerId: "<value>",
   benefitId: "<value>",
   subscriptionId: "<value>",
   orderId: "<value>",
   isGranted: false,
   isRevoked: false,
-  benefit: {
-    createdAt: new Date("2023-03-09T04:01:27.021Z"),
-    modifiedAt: new Date("2022-05-17T22:22:57.707Z"),
+  customer: {
+    createdAt: new Date("2023-10-21T07:37:15.037Z"),
+    modifiedAt: new Date("2025-09-30T01:11:06.941Z"),
     id: "<value>",
-    description:
-      "remark offset major doubtfully whether jealously immediately spew section fearless",
+    email: "Ova21@yahoo.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "Bouvet Island",
+    },
+    taxId: [
+      "<id>",
+    ],
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
+  },
+  benefit: {
+    createdAt: new Date("2024-02-10T10:02:23.518Z"),
+    modifiedAt: new Date("2025-09-24T08:55:04.735Z"),
+    id: "<value>",
+    description: "supposing abaft uh-huh quickly",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     organization: {
-      createdAt: new Date("2024-04-18T15:52:30.847Z"),
-      modifiedAt: new Date("2022-09-24T10:58:44.754Z"),
+      createdAt: new Date("2025-11-12T10:24:01.727Z"),
+      modifiedAt: new Date("2025-05-01T10:55:39.996Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://intent-hutch.net/",
+      avatarUrl: "https://dim-toaster.com",
       bio: "<value>",
-      company: "Spinka - Collins",
+      company: "Connelly, Hettinger and Hegmann",
       blog: "<value>",
       location: "<value>",
-      email: "Gudrun66@gmail.com",
+      email: "Myles26@gmail.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 516918,
+      pledgeMinimumAmount: 564777,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 589391,
+      defaultUpfrontSplitToContributors: 411312,
       profileSettings: {},
       featureSettings: {},
     },
@@ -68,5 +87,6 @@ let value: CustomerBenefitGrantAds = {
 | `orderId`                                                                                     | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `isGranted`                                                                                   | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `isRevoked`                                                                                   | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `customer`                                                                                    | [components.CustomerPortalCustomer](../../models/components/customerportalcustomer.md)        | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `benefit`                                                                                     | [components.BenefitAdsSubscriber](../../models/components/benefitadssubscriber.md)            | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `properties`                                                                                  | [components.BenefitGrantAdsProperties](../../models/components/benefitgrantadsproperties.md)  | :heavy_check_mark:                                                                            | N/A                                                                                           |

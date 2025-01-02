@@ -19,6 +19,12 @@ import {
   BenefitGrantDownloadablesProperties$Outbound,
   BenefitGrantDownloadablesProperties$outboundSchema,
 } from "./benefitgrantdownloadablesproperties.js";
+import {
+  CustomerPortalCustomer,
+  CustomerPortalCustomer$inboundSchema,
+  CustomerPortalCustomer$Outbound,
+  CustomerPortalCustomer$outboundSchema,
+} from "./customerportalcustomer.js";
 
 export type CustomerBenefitGrantDownloadables = {
   /**
@@ -41,6 +47,7 @@ export type CustomerBenefitGrantDownloadables = {
   orderId: string | null;
   isGranted: boolean;
   isRevoked: boolean;
+  customer: CustomerPortalCustomer;
   benefit: BenefitDownloadablesSubscriber;
   properties: BenefitGrantDownloadablesProperties;
 };
@@ -68,6 +75,7 @@ export const CustomerBenefitGrantDownloadables$inboundSchema: z.ZodType<
   order_id: z.nullable(z.string()),
   is_granted: z.boolean(),
   is_revoked: z.boolean(),
+  customer: CustomerPortalCustomer$inboundSchema,
   benefit: BenefitDownloadablesSubscriber$inboundSchema,
   properties: BenefitGrantDownloadablesProperties$inboundSchema,
 }).transform((v) => {
@@ -98,6 +106,7 @@ export type CustomerBenefitGrantDownloadables$Outbound = {
   order_id: string | null;
   is_granted: boolean;
   is_revoked: boolean;
+  customer: CustomerPortalCustomer$Outbound;
   benefit: BenefitDownloadablesSubscriber$Outbound;
   properties: BenefitGrantDownloadablesProperties$Outbound;
 };
@@ -119,6 +128,7 @@ export const CustomerBenefitGrantDownloadables$outboundSchema: z.ZodType<
   orderId: z.nullable(z.string()),
   isGranted: z.boolean(),
   isRevoked: z.boolean(),
+  customer: CustomerPortalCustomer$outboundSchema,
   benefit: BenefitDownloadablesSubscriber$outboundSchema,
   properties: BenefitGrantDownloadablesProperties$outboundSchema,
 }).transform((v) => {

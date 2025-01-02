@@ -32,6 +32,7 @@ export type CustomerSession = {
   id: string;
   token: string;
   expiresAt: Date;
+  customerPortalUrl: string;
   customerId: string;
   /**
    * A customer in an organization.
@@ -52,6 +53,7 @@ export const CustomerSession$inboundSchema: z.ZodType<
   id: z.string(),
   token: z.string(),
   expires_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  customer_portal_url: z.string(),
   customer_id: z.string(),
   customer: Customer$inboundSchema,
 }).transform((v) => {
@@ -59,6 +61,7 @@ export const CustomerSession$inboundSchema: z.ZodType<
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
     "expires_at": "expiresAt",
+    "customer_portal_url": "customerPortalUrl",
     "customer_id": "customerId",
   });
 });
@@ -70,6 +73,7 @@ export type CustomerSession$Outbound = {
   id: string;
   token: string;
   expires_at: string;
+  customer_portal_url: string;
   customer_id: string;
   customer: Customer$Outbound;
 };
@@ -85,6 +89,7 @@ export const CustomerSession$outboundSchema: z.ZodType<
   id: z.string(),
   token: z.string(),
   expiresAt: z.date().transform(v => v.toISOString()),
+  customerPortalUrl: z.string(),
   customerId: z.string(),
   customer: Customer$outboundSchema,
 }).transform((v) => {
@@ -92,6 +97,7 @@ export const CustomerSession$outboundSchema: z.ZodType<
     createdAt: "created_at",
     modifiedAt: "modified_at",
     expiresAt: "expires_at",
+    customerPortalUrl: "customer_portal_url",
     customerId: "customer_id",
   });
 });

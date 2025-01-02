@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   BenefitDiscordCreateProperties$Outbound,
   BenefitDiscordCreateProperties$outboundSchema,
 } from "./benefitdiscordcreateproperties.js";
-
-export const BenefitDiscordCreateType = {
-  Discord: "discord",
-} as const;
-export type BenefitDiscordCreateType = ClosedEnum<
-  typeof BenefitDiscordCreateType
->;
 
 export type BenefitDiscordCreate = {
   type?: "discord" | undefined;
@@ -37,27 +29,6 @@ export type BenefitDiscordCreate = {
    */
   properties: BenefitDiscordCreateProperties;
 };
-
-/** @internal */
-export const BenefitDiscordCreateType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitDiscordCreateType
-> = z.nativeEnum(BenefitDiscordCreateType);
-
-/** @internal */
-export const BenefitDiscordCreateType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitDiscordCreateType
-> = BenefitDiscordCreateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDiscordCreateType$ {
-  /** @deprecated use `BenefitDiscordCreateType$inboundSchema` instead. */
-  export const inboundSchema = BenefitDiscordCreateType$inboundSchema;
-  /** @deprecated use `BenefitDiscordCreateType$outboundSchema` instead. */
-  export const outboundSchema = BenefitDiscordCreateType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitDiscordCreate$inboundSchema: z.ZodType<
@@ -89,7 +60,7 @@ export const BenefitDiscordCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitDiscordCreate
 > = z.object({
-  type: z.literal("discord").default("discord"),
+  type: z.literal("discord").default("discord" as const),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   properties: BenefitDiscordCreateProperties$outboundSchema,

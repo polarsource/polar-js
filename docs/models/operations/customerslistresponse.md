@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-12-25T02:20:19.631Z"),
-        modifiedAt: new Date("2022-10-10T12:16:52.345Z"),
+        createdAt: new Date("2025-09-25T21:09:30.950Z"),
+        modifiedAt: new Date("2025-10-30T14:04:55.140Z"),
         id: "<value>",
         metadata: {
-          "key": 359870,
+          "key": 291293,
         },
-        email: "Dewayne28@yahoo.com",
+        email: "Shane_Schmitt81@gmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Mali",
+          country: "Ghana",
         },
         taxId: [
-          "<id>",
+          "pe_ruc",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://massive-bonfire.com/",
+        avatarUrl: "https://smoggy-basket.net",
       },
     ],
     pagination: {
-      totalCount: 710705,
-      maxPage: 742004,
+      totalCount: 85912,
+      maxPage: 822406,
     },
   },
 };

@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://minor-grandpa.name",
+        "https://sniveling-pepper.net/",
       ],
       clientName: "<value>",
-      createdAt: new Date("2022-06-09T04:26:57.182Z"),
-      modifiedAt: new Date("2022-10-18T13:51:15.254Z"),
+      createdAt: new Date("2025-01-02T03:01:54.888Z"),
+      modifiedAt: new Date("2024-05-10T08:04:00.367Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 306682,
-      clientSecretExpiresAt: 515159,
+      clientIdIssuedAt: 277082,
+      clientSecretExpiresAt: 55600,
     },
   ],
   pagination: {
-    totalCount: 695511,
-    maxPage: 287202,
+    totalCount: 307936,
+    maxPage: 46258,
   },
 };
 ```

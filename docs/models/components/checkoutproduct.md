@@ -8,8 +8,8 @@ Product data for a checkout session.
 import { CheckoutProduct } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutProduct = {
-  createdAt: new Date("2024-09-08T08:13:49.082Z"),
-  modifiedAt: new Date("2024-11-26T16:52:15.770Z"),
+  createdAt: new Date("2025-09-08T08:13:49.082Z"),
+  modifiedAt: new Date("2025-11-26T16:52:15.770Z"),
   id: "<value>",
   name: "<value>",
   description: "nor sizzling cheerfully hungrily accessorise fly gadzooks",
@@ -18,8 +18,8 @@ let value: CheckoutProduct = {
   organizationId: "<value>",
   prices: [
     {
-      createdAt: new Date("2023-12-11T07:51:38.823Z"),
-      modifiedAt: new Date("2023-10-21T00:43:02.657Z"),
+      createdAt: new Date("2024-12-10T07:51:38.823Z"),
+      modifiedAt: new Date("2024-10-20T00:43:02.657Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
@@ -29,8 +29,8 @@ let value: CheckoutProduct = {
   ],
   benefits: [
     {
-      createdAt: new Date("2024-11-21T04:42:37.776Z"),
-      modifiedAt: new Date("2022-01-19T11:47:32.986Z"),
+      createdAt: new Date("2025-11-21T04:42:37.776Z"),
+      modifiedAt: new Date("2023-01-19T11:47:32.986Z"),
       id: "<value>",
       type: "downloadables",
       description:
@@ -52,10 +52,10 @@ let value: CheckoutProduct = {
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2022-05-27T05:59:26.925Z"),
+      lastModifiedAt: new Date("2023-05-27T05:59:26.925Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2022-04-17T02:19:52.263Z"),
+      createdAt: new Date("2023-04-17T02:19:52.263Z"),
       sizeReadable: "<value>",
       publicUrl: "https://palatable-permafrost.info/",
     },

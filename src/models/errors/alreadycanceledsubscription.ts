@@ -3,14 +3,6 @@
  */
 
 import * as z from "zod";
-import { ClosedEnum } from "../../types/enums.js";
-
-export const AlreadyCanceledSubscriptionError = {
-  AlreadyCanceledSubscription: "AlreadyCanceledSubscription",
-} as const;
-export type AlreadyCanceledSubscriptionError = ClosedEnum<
-  typeof AlreadyCanceledSubscriptionError
->;
 
 export type AlreadyCanceledSubscriptionData = {
   error: "AlreadyCanceledSubscription";
@@ -36,27 +28,6 @@ export class AlreadyCanceledSubscription extends Error {
 
     this.name = "AlreadyCanceledSubscription";
   }
-}
-
-/** @internal */
-export const AlreadyCanceledSubscriptionError$inboundSchema: z.ZodNativeEnum<
-  typeof AlreadyCanceledSubscriptionError
-> = z.nativeEnum(AlreadyCanceledSubscriptionError);
-
-/** @internal */
-export const AlreadyCanceledSubscriptionError$outboundSchema: z.ZodNativeEnum<
-  typeof AlreadyCanceledSubscriptionError
-> = AlreadyCanceledSubscriptionError$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AlreadyCanceledSubscriptionError$ {
-  /** @deprecated use `AlreadyCanceledSubscriptionError$inboundSchema` instead. */
-  export const inboundSchema = AlreadyCanceledSubscriptionError$inboundSchema;
-  /** @deprecated use `AlreadyCanceledSubscriptionError$outboundSchema` instead. */
-  export const outboundSchema = AlreadyCanceledSubscriptionError$outboundSchema;
 }
 
 /** @internal */
@@ -87,7 +58,7 @@ export const AlreadyCanceledSubscription$outboundSchema: z.ZodType<
   .transform(v => v.data$)
   .pipe(z.object({
     error: z.literal("AlreadyCanceledSubscription").default(
-      "AlreadyCanceledSubscription",
+      "AlreadyCanceledSubscription" as const,
     ),
     detail: z.string(),
   }));

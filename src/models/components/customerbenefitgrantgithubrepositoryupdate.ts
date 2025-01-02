@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -15,42 +14,10 @@ import {
   CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$outboundSchema,
 } from "./customerbenefitgrantgithubrepositorypropertiesupdate.js";
 
-export const CustomerBenefitGrantGitHubRepositoryUpdateBenefitType = {
-  GithubRepository: "github_repository",
-} as const;
-export type CustomerBenefitGrantGitHubRepositoryUpdateBenefitType = ClosedEnum<
-  typeof CustomerBenefitGrantGitHubRepositoryUpdateBenefitType
->;
-
 export type CustomerBenefitGrantGitHubRepositoryUpdate = {
   benefitType?: "github_repository" | undefined;
   properties: CustomerBenefitGrantGitHubRepositoryPropertiesUpdate;
 };
-
-/** @internal */
-export const CustomerBenefitGrantGitHubRepositoryUpdateBenefitType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof CustomerBenefitGrantGitHubRepositoryUpdateBenefitType
-  > = z.nativeEnum(CustomerBenefitGrantGitHubRepositoryUpdateBenefitType);
-
-/** @internal */
-export const CustomerBenefitGrantGitHubRepositoryUpdateBenefitType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof CustomerBenefitGrantGitHubRepositoryUpdateBenefitType
-  > = CustomerBenefitGrantGitHubRepositoryUpdateBenefitType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantGitHubRepositoryUpdateBenefitType$ {
-  /** @deprecated use `CustomerBenefitGrantGitHubRepositoryUpdateBenefitType$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerBenefitGrantGitHubRepositoryUpdateBenefitType$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantGitHubRepositoryUpdateBenefitType$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantGitHubRepositoryUpdateBenefitType$outboundSchema;
-}
 
 /** @internal */
 export const CustomerBenefitGrantGitHubRepositoryUpdate$inboundSchema:
@@ -78,7 +45,9 @@ export const CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema:
     z.ZodTypeDef,
     CustomerBenefitGrantGitHubRepositoryUpdate
   > = z.object({
-    benefitType: z.literal("github_repository").default("github_repository"),
+    benefitType: z.literal("github_repository").default(
+      "github_repository" as const,
+    ),
     properties:
       CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$outboundSchema,
   }).transform((v) => {

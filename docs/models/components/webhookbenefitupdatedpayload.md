@@ -11,8 +11,8 @@ import { WebhookBenefitUpdatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookBenefitUpdatedPayload = {
   data: {
-    createdAt: new Date("2024-12-13T15:58:07.576Z"),
-    modifiedAt: new Date("2023-10-15T13:29:16.655Z"),
+    createdAt: new Date("2025-12-13T15:58:07.576Z"),
+    modifiedAt: new Date("2024-10-14T13:29:16.655Z"),
     id: "<value>",
     description: "yeast mallard croon",
     selectable: false,
@@ -32,7 +32,7 @@ let value: WebhookBenefitUpdatedPayload = {
 
 ## Fields
 
-| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                     | [components.WebhookBenefitUpdatedPayloadType](../../models/components/webhookbenefitupdatedpayloadtype.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `data`                                                                                                     | *components.Benefit*                                                                                       | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| Field                | Type                 | Required             | Description          |
+| -------------------- | -------------------- | -------------------- | -------------------- |
+| `type`               | *string*             | :heavy_check_mark:   | N/A                  |
+| `data`               | *components.Benefit* | :heavy_check_mark:   | N/A                  |

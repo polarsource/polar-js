@@ -6,43 +6,43 @@
 import { BenefitLicenseKeysSubscriber } from "@polar-sh/sdk/models/components";
 
 let value: BenefitLicenseKeysSubscriber = {
-  createdAt: new Date("2024-11-23T05:57:14.612Z"),
-  modifiedAt: new Date("2022-07-18T04:17:29.241Z"),
+  createdAt: new Date("2024-12-26T03:56:08.116Z"),
+  modifiedAt: new Date("2023-09-18T14:12:48.441Z"),
   id: "<value>",
-  description: "pish suddenly drat outfit splosh phew",
+  description: "improbable quarterly testify ah",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2024-09-13T17:33:20.087Z"),
-    modifiedAt: new Date("2022-10-05T01:05:42.886Z"),
+    createdAt: new Date("2023-11-26T17:52:56.229Z"),
+    modifiedAt: new Date("2025-08-25T03:30:05.569Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://soft-ravioli.net/",
+    avatarUrl: "https://talkative-intervention.biz/",
     bio: "<value>",
-    company: "Baumbach, Lind and Schamberger",
+    company: "Gottlieb LLC",
     blog: "<value>",
     location: "<value>",
-    email: "Katrine_Altenwerth21@yahoo.com",
+    email: "Kristopher.Mosciski@yahoo.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 633439,
+    pledgeMinimumAmount: 769488,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 560174,
+    defaultUpfrontSplitToContributors: 904183,
     profileSettings: {},
     featureSettings: {},
   },
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 127759,
+      ttl: 24532,
       timeframe: "day",
     },
     activations: {
-      limit: 391495,
+      limit: 491462,
       enableCustomerAdmin: false,
     },
-    limitUsage: 265994,
+    limitUsage: 131744,
   },
 };
 ```
@@ -54,7 +54,7 @@ let value: BenefitLicenseKeysSubscriber = {
 | `createdAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                          | :heavy_check_mark:                                                                                                     | Creation timestamp of the object.                                                                                      |
 | `modifiedAt`                                                                                                           | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                          | :heavy_check_mark:                                                                                                     | Last modification timestamp of the object.                                                                             |
 | `id`                                                                                                                   | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | The ID of the benefit.                                                                                                 |
-| `type`                                                                                                                 | [components.BenefitLicenseKeysSubscriberType](../../models/components/benefitlicensekeyssubscribertype.md)             | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `type`                                                                                                                 | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `description`                                                                                                          | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | The description of the benefit.                                                                                        |
 | `selectable`                                                                                                           | *boolean*                                                                                                              | :heavy_check_mark:                                                                                                     | Whether the benefit is selectable when creating a product.                                                             |
 | `deletable`                                                                                                            | *boolean*                                                                                                              | :heavy_check_mark:                                                                                                     | Whether the benefit is deletable.                                                                                      |

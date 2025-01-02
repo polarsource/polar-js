@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -15,13 +14,6 @@ import {
 } from "./customfieldcheckboxproperties.js";
 
 export type CustomFieldUpdateCheckboxMetadata = string | number | boolean;
-
-export const CustomFieldUpdateCheckboxType = {
-  Checkbox: "checkbox",
-} as const;
-export type CustomFieldUpdateCheckboxType = ClosedEnum<
-  typeof CustomFieldUpdateCheckboxType
->;
 
 /**
  * Schema to update a custom field of type checkbox.
@@ -89,27 +81,6 @@ export function customFieldUpdateCheckboxMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldUpdateCheckboxType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldUpdateCheckboxType
-> = z.nativeEnum(CustomFieldUpdateCheckboxType);
-
-/** @internal */
-export const CustomFieldUpdateCheckboxType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldUpdateCheckboxType
-> = CustomFieldUpdateCheckboxType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdateCheckboxType$ {
-  /** @deprecated use `CustomFieldUpdateCheckboxType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdateCheckboxType$inboundSchema;
-  /** @deprecated use `CustomFieldUpdateCheckboxType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdateCheckboxType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldUpdateCheckbox$inboundSchema: z.ZodType<
   CustomFieldUpdateCheckbox,
   z.ZodTypeDef,
@@ -145,7 +116,7 @@ export const CustomFieldUpdateCheckbox$outboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("checkbox").default("checkbox"),
+  type: z.literal("checkbox").default("checkbox" as const),
   properties: z.nullable(CustomFieldCheckboxProperties$outboundSchema)
     .optional(),
 });

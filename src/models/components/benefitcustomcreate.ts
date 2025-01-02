@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,13 +13,6 @@ import {
   BenefitCustomCreateProperties$Outbound,
   BenefitCustomCreateProperties$outboundSchema,
 } from "./benefitcustomcreateproperties.js";
-
-export const BenefitCustomCreateType = {
-  Custom: "custom",
-} as const;
-export type BenefitCustomCreateType = ClosedEnum<
-  typeof BenefitCustomCreateType
->;
 
 /**
  * Schema to create a benefit of type `custom`.
@@ -40,27 +32,6 @@ export type BenefitCustomCreate = {
    */
   properties: BenefitCustomCreateProperties;
 };
-
-/** @internal */
-export const BenefitCustomCreateType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitCustomCreateType
-> = z.nativeEnum(BenefitCustomCreateType);
-
-/** @internal */
-export const BenefitCustomCreateType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitCustomCreateType
-> = BenefitCustomCreateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustomCreateType$ {
-  /** @deprecated use `BenefitCustomCreateType$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustomCreateType$inboundSchema;
-  /** @deprecated use `BenefitCustomCreateType$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustomCreateType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitCustomCreate$inboundSchema: z.ZodType<
@@ -92,7 +63,7 @@ export const BenefitCustomCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitCustomCreate
 > = z.object({
-  type: z.literal("custom").default("custom"),
+  type: z.literal("custom").default("custom" as const),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   properties: BenefitCustomCreateProperties$outboundSchema,

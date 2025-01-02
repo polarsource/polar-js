@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -14,11 +13,6 @@ import {
   BenefitLicenseKeysProperties$Outbound,
   BenefitLicenseKeysProperties$outboundSchema,
 } from "./benefitlicensekeysproperties.js";
-
-export const BenefitLicenseKeysType = {
-  LicenseKeys: "license_keys",
-} as const;
-export type BenefitLicenseKeysType = ClosedEnum<typeof BenefitLicenseKeysType>;
 
 export type BenefitLicenseKeys = {
   /**
@@ -52,27 +46,6 @@ export type BenefitLicenseKeys = {
   organizationId: string;
   properties: BenefitLicenseKeysProperties;
 };
-
-/** @internal */
-export const BenefitLicenseKeysType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitLicenseKeysType
-> = z.nativeEnum(BenefitLicenseKeysType);
-
-/** @internal */
-export const BenefitLicenseKeysType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitLicenseKeysType
-> = BenefitLicenseKeysType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeysType$ {
-  /** @deprecated use `BenefitLicenseKeysType$inboundSchema` instead. */
-  export const inboundSchema = BenefitLicenseKeysType$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeysType$outboundSchema` instead. */
-  export const outboundSchema = BenefitLicenseKeysType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitLicenseKeys$inboundSchema: z.ZodType<
@@ -121,7 +94,7 @@ export const BenefitLicenseKeys$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  type: z.literal("license_keys").default("license_keys"),
+  type: z.literal("license_keys").default("license_keys" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

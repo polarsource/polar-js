@@ -16,15 +16,15 @@ let value: ListResourceDownloadableRead = {
         name: "<value>",
         path: "/usr/ports",
         mimeType: "<value>",
-        size: 421550,
+        size: 322813,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2022-09-30T15:10:49.815Z"),
+        lastModifiedAt: new Date("2025-07-08T07:53:48.135Z"),
         download: {
-          url: "https://superb-apricot.info/",
-          expiresAt: new Date("2022-08-01T01:58:51.711Z"),
+          url: "https://plump-following.name/",
+          expiresAt: new Date("2023-07-30T08:59:41.027Z"),
         },
         version: "<value>",
         isUploaded: false,
@@ -34,8 +34,8 @@ let value: ListResourceDownloadableRead = {
     },
   ],
   pagination: {
-    totalCount: 785555,
-    maxPage: 14482,
+    totalCount: 836386,
+    maxPage: 797594,
   },
 };
 ```

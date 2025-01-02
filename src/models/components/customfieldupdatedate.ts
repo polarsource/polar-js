@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -15,13 +14,6 @@ import {
 } from "./customfielddateproperties.js";
 
 export type CustomFieldUpdateDateMetadata = string | number | boolean;
-
-export const CustomFieldUpdateDateType = {
-  Date: "date",
-} as const;
-export type CustomFieldUpdateDateType = ClosedEnum<
-  typeof CustomFieldUpdateDateType
->;
 
 /**
  * Schema to update a custom field of type date.
@@ -85,27 +77,6 @@ export function customFieldUpdateDateMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldUpdateDateType$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldUpdateDateType
-> = z.nativeEnum(CustomFieldUpdateDateType);
-
-/** @internal */
-export const CustomFieldUpdateDateType$outboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldUpdateDateType
-> = CustomFieldUpdateDateType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdateDateType$ {
-  /** @deprecated use `CustomFieldUpdateDateType$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdateDateType$inboundSchema;
-  /** @deprecated use `CustomFieldUpdateDateType$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdateDateType$outboundSchema;
-}
-
-/** @internal */
 export const CustomFieldUpdateDate$inboundSchema: z.ZodType<
   CustomFieldUpdateDate,
   z.ZodTypeDef,
@@ -140,7 +111,7 @@ export const CustomFieldUpdateDate$outboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("date").default("date"),
+  type: z.literal("date").default("date" as const),
   properties: z.nullable(CustomFieldDateProperties$outboundSchema).optional(),
 });
 

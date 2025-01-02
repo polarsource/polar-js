@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -20,13 +19,6 @@ import {
   Organization$Outbound,
   Organization$outboundSchema,
 } from "./organization.js";
-
-export const BenefitDownloadablesSubscriberType = {
-  Downloadables: "downloadables",
-} as const;
-export type BenefitDownloadablesSubscriberType = ClosedEnum<
-  typeof BenefitDownloadablesSubscriberType
->;
 
 export type BenefitDownloadablesSubscriber = {
   /**
@@ -61,28 +53,6 @@ export type BenefitDownloadablesSubscriber = {
   organization: Organization;
   properties: BenefitDownloadablesSubscriberProperties;
 };
-
-/** @internal */
-export const BenefitDownloadablesSubscriberType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitDownloadablesSubscriberType
-> = z.nativeEnum(BenefitDownloadablesSubscriberType);
-
-/** @internal */
-export const BenefitDownloadablesSubscriberType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitDownloadablesSubscriberType
-> = BenefitDownloadablesSubscriberType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadablesSubscriberType$ {
-  /** @deprecated use `BenefitDownloadablesSubscriberType$inboundSchema` instead. */
-  export const inboundSchema = BenefitDownloadablesSubscriberType$inboundSchema;
-  /** @deprecated use `BenefitDownloadablesSubscriberType$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitDownloadablesSubscriberType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitDownloadablesSubscriber$inboundSchema: z.ZodType<
@@ -133,7 +103,7 @@ export const BenefitDownloadablesSubscriber$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  type: z.literal("downloadables").default("downloadables"),
+  type: z.literal("downloadables").default("downloadables" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

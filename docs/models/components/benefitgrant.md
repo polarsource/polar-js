@@ -6,8 +6,8 @@
 import { BenefitGrant } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrant = {
-  createdAt: new Date("2024-06-21T06:25:46.648Z"),
-  modifiedAt: new Date("2024-05-01T03:28:56.356Z"),
+  createdAt: new Date("2025-08-12T07:47:19.008Z"),
+  modifiedAt: new Date("2023-08-27T23:28:28.119Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -16,7 +16,28 @@ let value: BenefitGrant = {
   customerId: "<value>",
   userId: "<value>",
   benefitId: "<value>",
-  properties: {},
+  customer: {
+    createdAt: new Date("2025-11-25T18:02:23.702Z"),
+    modifiedAt: new Date("2023-03-29T08:13:52.389Z"),
+    id: "<value>",
+    metadata: {
+      "key": false,
+    },
+    email: "Beverly43@gmail.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "New Caledonia",
+    },
+    taxId: [
+      "<id>",
+    ],
+    organizationId: "<value>",
+    avatarUrl: "https://flimsy-pulse.biz",
+  },
+  properties: {
+    advertisementCampaignId: "<id>",
+  },
 };
 ```
 
@@ -36,4 +57,5 @@ let value: BenefitGrant = {
 | `customerId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the customer concerned by this grant.                                                                         |
 | ~~`userId`~~                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. |
 | `benefitId`                                                                                                             | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the benefit concerned by this grant.                                                                          |
+| `customer`                                                                                                              | [components.Customer](../../models/components/customer.md)                                                              | :heavy_check_mark:                                                                                                      | A customer in an organization.                                                                                          |
 | `properties`                                                                                                            | *components.Properties*                                                                                                 | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |

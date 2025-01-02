@@ -7,6 +7,7 @@ import { ExternalOrganization } from "@polar-sh/sdk/models/components";
 
 let value: ExternalOrganization = {
   id: "5282f82b-1c72-40f4-8f88-1fb812658108",
+  platform: "github",
   name: "<value>",
   avatarUrl: "https://huge-bar.info/",
   isPersonal: false,

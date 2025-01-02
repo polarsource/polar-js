@@ -8,8 +8,8 @@ import { ListResourceCustomField } from "@polar-sh/sdk/models/components";
 let value: ListResourceCustomField = {
   items: [
     {
-      createdAt: new Date("2024-07-13T15:18:15.743Z"),
-      modifiedAt: new Date("2022-04-13T08:13:23.724Z"),
+      createdAt: new Date("2023-08-07T11:34:37.599Z"),
+      modifiedAt: new Date("2023-05-30T14:52:38.641Z"),
       id: "<value>",
       metadata: {
         "key": "<value>",
@@ -17,19 +17,12 @@ let value: ListResourceCustomField = {
       slug: "<value>",
       name: "<value>",
       organizationId: "<value>",
-      properties: {
-        options: [
-          {
-            value: "<value>",
-            label: "<value>",
-          },
-        ],
-      },
+      properties: {},
     },
   ],
   pagination: {
-    totalCount: 817785,
-    maxPage: 441969,
+    totalCount: 619134,
+    maxPage: 98946,
   },
 };
 ```

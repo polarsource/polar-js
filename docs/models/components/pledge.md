@@ -6,8 +6,8 @@
 import { Pledge } from "@polar-sh/sdk/models/components";
 
 let value: Pledge = {
-  createdAt: new Date("2022-09-05T01:19:12.734Z"),
-  modifiedAt: new Date("2022-12-19T07:07:14.338Z"),
+  createdAt: new Date("2023-09-05T01:19:12.734Z"),
+  modifiedAt: new Date("2023-12-19T07:07:14.338Z"),
   id: "<value>",
   amount: 2770,
   currency: "Swedish Krona",
@@ -15,14 +15,16 @@ let value: Pledge = {
   type: "pay_on_completion",
   issue: {
     id: "0d204e48-64ec-4c8d-b777-3e433dc60f2d",
+    platform: "github",
     number: 938076,
     title: "<value>",
     state: "closed",
-    issueCreatedAt: new Date("2022-12-30T04:23:53.970Z"),
+    issueCreatedAt: new Date("2023-12-30T04:23:53.970Z"),
     needsConfirmationSolved: false,
     funding: {},
     repository: {
       id: "363bda20-9735-48a7-bf0a-e33c7f9e02a6",
+      platform: "github",
       isPrivate: false,
       name: "MyOrg",
       description: "overconfidently energetically sharply swiftly exalted gee",
@@ -32,6 +34,7 @@ let value: Pledge = {
       profileSettings: {},
       organization: {
         id: "5dc92be4-fc49-441d-8a92-6e2034ca009a",
+        platform: "github",
         name: "<value>",
         avatarUrl: "https://exalted-fishery.info",
         isPersonal: false,
@@ -45,8 +48,8 @@ let value: Pledge = {
         organizationId: "<value>",
       },
       internalOrganization: {
-        createdAt: new Date("2023-07-24T11:55:05.448Z"),
-        modifiedAt: new Date("2023-12-25T23:57:09.287Z"),
+        createdAt: new Date("2024-07-23T11:55:05.448Z"),
+        modifiedAt: new Date("2024-12-24T23:57:09.287Z"),
         id: "<value>",
         name: "<value>",
         slug: "<value>",

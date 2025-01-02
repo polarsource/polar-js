@@ -5,7 +5,6 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -20,13 +19,6 @@ import {
   Organization$Outbound,
   Organization$outboundSchema,
 } from "./organization.js";
-
-export const BenefitDiscordSubscriberType = {
-  Discord: "discord",
-} as const;
-export type BenefitDiscordSubscriberType = ClosedEnum<
-  typeof BenefitDiscordSubscriberType
->;
 
 export type BenefitDiscordSubscriber = {
   /**
@@ -64,27 +56,6 @@ export type BenefitDiscordSubscriber = {
    */
   properties: BenefitDiscordSubscriberProperties;
 };
-
-/** @internal */
-export const BenefitDiscordSubscriberType$inboundSchema: z.ZodNativeEnum<
-  typeof BenefitDiscordSubscriberType
-> = z.nativeEnum(BenefitDiscordSubscriberType);
-
-/** @internal */
-export const BenefitDiscordSubscriberType$outboundSchema: z.ZodNativeEnum<
-  typeof BenefitDiscordSubscriberType
-> = BenefitDiscordSubscriberType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDiscordSubscriberType$ {
-  /** @deprecated use `BenefitDiscordSubscriberType$inboundSchema` instead. */
-  export const inboundSchema = BenefitDiscordSubscriberType$inboundSchema;
-  /** @deprecated use `BenefitDiscordSubscriberType$outboundSchema` instead. */
-  export const outboundSchema = BenefitDiscordSubscriberType$outboundSchema;
-}
 
 /** @internal */
 export const BenefitDiscordSubscriber$inboundSchema: z.ZodType<
@@ -135,7 +106,7 @@ export const BenefitDiscordSubscriber$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  type: z.literal("discord").default("discord"),
+  type: z.literal("discord").default("discord" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

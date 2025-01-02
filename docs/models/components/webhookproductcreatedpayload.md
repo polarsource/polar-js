@@ -11,8 +11,8 @@ import { WebhookProductCreatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookProductCreatedPayload = {
   data: {
-    createdAt: new Date("2022-04-04T21:52:52.496Z"),
-    modifiedAt: new Date("2024-06-06T08:49:54.446Z"),
+    createdAt: new Date("2023-04-04T21:52:52.496Z"),
+    modifiedAt: new Date("2025-06-06T08:49:54.446Z"),
     id: "<value>",
     name: "<value>",
     description:
@@ -25,8 +25,8 @@ let value: WebhookProductCreatedPayload = {
     },
     prices: [
       {
-        createdAt: new Date("2024-12-29T15:39:22.988Z"),
-        modifiedAt: new Date("2024-01-31T14:39:50.524Z"),
+        createdAt: new Date("2025-12-29T15:39:22.988Z"),
+        modifiedAt: new Date("2025-01-30T14:39:50.524Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
@@ -36,8 +36,8 @@ let value: WebhookProductCreatedPayload = {
     ],
     benefits: [
       {
-        createdAt: new Date("2023-11-01T12:23:46.032Z"),
-        modifiedAt: new Date("2024-11-27T23:07:28.367Z"),
+        createdAt: new Date("2024-10-31T12:23:46.032Z"),
+        modifiedAt: new Date("2025-11-27T23:07:28.367Z"),
         id: "<value>",
         description: "and minus confute pish",
         selectable: false,
@@ -62,10 +62,10 @@ let value: WebhookProductCreatedPayload = {
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-05-26T12:06:04.723Z"),
+        lastModifiedAt: new Date("2025-05-26T12:06:04.723Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2022-06-27T17:44:33.524Z"),
+        createdAt: new Date("2023-06-27T17:44:33.524Z"),
         sizeReadable: "<value>",
         publicUrl: "https://understated-tune-up.biz/",
       },
@@ -74,8 +74,8 @@ let value: WebhookProductCreatedPayload = {
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2024-07-30T07:22:19.737Z"),
-          modifiedAt: new Date("2023-10-26T12:11:28.317Z"),
+          createdAt: new Date("2025-07-30T07:22:19.737Z"),
+          modifiedAt: new Date("2024-10-25T12:11:28.317Z"),
           id: "<value>",
           metadata: {
             "key": 575838,
@@ -95,7 +95,7 @@ let value: WebhookProductCreatedPayload = {
 
 ## Fields
 
-| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                     | [components.WebhookProductCreatedPayloadType](../../models/components/webhookproductcreatedpayloadtype.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `data`                                                                                                     | [components.Product](../../models/components/product.md)                                                   | :heavy_check_mark:                                                                                         | A product.                                                                                                 |
+| Field                                                    | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `type`                                                   | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `data`                                                   | [components.Product](../../models/components/product.md) | :heavy_check_mark:                                       | A product.                                               |
