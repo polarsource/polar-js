@@ -6,53 +6,55 @@
 import { CustomerSubscription } from "@polar-sh/sdk/models/components";
 
 let value: CustomerSubscription = {
-  createdAt: new Date("2024-09-23T07:45:05.288Z"),
-  modifiedAt: new Date("2023-07-08T20:56:24.426Z"),
+  createdAt: new Date("2025-11-05T00:11:06.002Z"),
+  modifiedAt: new Date("2025-06-30T11:37:55.414Z"),
   id: "<value>",
-  amount: 951614,
-  currency: "Yuan Renminbi",
+  amount: 451522,
+  currency: "Kip",
   recurringInterval: "month",
-  status: "trialing",
-  currentPeriodStart: new Date("2024-04-21T14:18:59.007Z"),
-  currentPeriodEnd: new Date("2025-12-07T04:48:23.043Z"),
+  status: "active",
+  currentPeriodStart: new Date("2023-06-05T02:07:02.116Z"),
+  currentPeriodEnd: new Date("2023-10-24T23:58:31.091Z"),
   cancelAtPeriodEnd: false,
-  startedAt: new Date("2024-08-30T05:51:37.577Z"),
-  endedAt: new Date("2025-06-02T04:49:52.259Z"),
+  canceledAt: new Date("2023-07-22T20:54:17.146Z"),
+  startedAt: new Date("2025-08-23T11:21:19.841Z"),
+  endsAt: new Date("2025-01-26T05:03:14.787Z"),
+  endedAt: new Date("2023-05-27T03:14:14.894Z"),
   customerId: "<value>",
   productId: "<value>",
   priceId: "<value>",
   discountId: "<value>",
   checkoutId: "<value>",
+  customerCancellationReason: "switched_service",
+  customerCancellationComment: "<value>",
   userId: "<value>",
   product: {
-    createdAt: new Date("2025-04-22T19:20:53.019Z"),
-    modifiedAt: new Date("2024-03-16T20:09:33.162Z"),
+    createdAt: new Date("2023-12-23T21:42:12.315Z"),
+    modifiedAt: new Date("2023-01-17T09:03:28.369Z"),
     id: "<value>",
     name: "<value>",
-    description: "tough reboot terribly",
+    description:
+      "atop rarely advancement sorrowful harvest awkwardly sizzling forenenst",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2023-04-26T00:53:32.713Z"),
-        modifiedAt: new Date("2023-03-14T09:10:45.829Z"),
+        createdAt: new Date("2023-01-12T14:50:02.595Z"),
+        modifiedAt: new Date("2024-06-28T23:12:27.155Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        priceCurrency: "<value>",
-        minimumAmount: 383981,
-        maximumAmount: 925252,
-        presetAmount: 226263,
+        recurringInterval: "year",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2024-04-07T18:37:14.280Z"),
-        modifiedAt: new Date("2024-12-04T06:57:20.808Z"),
+        createdAt: new Date("2023-10-21T06:32:36.312Z"),
+        modifiedAt: new Date("2023-07-04T16:50:18.446Z"),
         id: "<value>",
         type: "discord",
-        description: "descriptive seemingly allegation",
+        description: "pantyhose who sardonic",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -63,52 +65,49 @@ let value: CustomerSubscription = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/opt/include",
+        path: "/srv",
         mimeType: "<value>",
-        size: 306995,
+        size: 65709,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-04-17T22:12:43.442Z"),
+        lastModifiedAt: new Date("2023-09-02T11:17:12.972Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2025-02-15T18:50:40.902Z"),
+        createdAt: new Date("2023-05-16T04:57:49.424Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://lone-seafood.biz/",
+        publicUrl: "https://wry-spirit.info",
       },
     ],
     organization: {
-      createdAt: new Date("2025-08-04T14:21:14.678Z"),
-      modifiedAt: new Date("2025-10-19T12:33:56.667Z"),
+      createdAt: new Date("2024-07-17T18:36:12.171Z"),
+      modifiedAt: new Date("2023-02-15T06:35:32.210Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://clean-parsnip.name/",
+      avatarUrl: "https://husky-alb.org",
       bio: "<value>",
-      company: "Schmitt, Kuvalis and Bernhard",
+      company: "Padberg LLC",
       blog: "<value>",
       location: "<value>",
-      email: "Isidro_Welch@gmail.com",
+      email: "Vilma_Carroll@hotmail.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 80782,
+      pledgeMinimumAmount: 73988,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 249688,
+      defaultUpfrontSplitToContributors: 285710,
       profileSettings: {},
       featureSettings: {},
     },
   },
   price: {
-    createdAt: new Date("2023-07-09T02:51:12.374Z"),
-    modifiedAt: new Date("2025-01-12T04:38:24.107Z"),
+    createdAt: new Date("2025-05-07T15:08:34.450Z"),
+    modifiedAt: new Date("2024-03-10T10:40:48.230Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
     priceCurrency: "<value>",
-    minimumAmount: 117649,
-    maximumAmount: 894127,
-    presetAmount: 626437,
-    recurringInterval: "year",
+    priceAmount: 369207,
   },
 };
 ```
@@ -127,13 +126,17 @@ let value: CustomerSubscription = {
 | `currentPeriodStart`                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `currentPeriodEnd`                                                                                                      | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `cancelAtPeriodEnd`                                                                                                     | *boolean*                                                                                                               | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `canceledAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `startedAt`                                                                                                             | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `endsAt`                                                                                                                | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `endedAt`                                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `customerId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `productId`                                                                                                             | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `priceId`                                                                                                               | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `discountId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `checkoutId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `customerCancellationReason`                                                                                            | [components.CustomerCancellationReason](../../models/components/customercancellationreason.md)                          | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `customerCancellationComment`                                                                                           | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | ~~`userId`~~                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. |
 | `product`                                                                                                               | [components.CustomerSubscriptionProduct](../../models/components/customersubscriptionproduct.md)                        | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `price`                                                                                                                 | *components.ProductPrice*                                                                                               | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |

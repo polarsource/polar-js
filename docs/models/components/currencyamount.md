@@ -6,8 +6,8 @@
 import { CurrencyAmount } from "@polar-sh/sdk/models/components";
 
 let value: CurrencyAmount = {
-  currency: "Ouguiya",
-  amount: 137414,
+  currency: "Pa'anga",
+  amount: 90551,
 };
 ```
 

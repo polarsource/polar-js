@@ -11,8 +11,8 @@ import { WebhookBenefitGrantRevokedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantRevokedPayload = {
   data: {
-    createdAt: new Date("2024-07-23T11:07:08.116Z"),
-    modifiedAt: new Date("2025-11-01T00:31:03.453Z"),
+    createdAt: new Date("2024-06-25T03:10:41.430Z"),
+    modifiedAt: new Date("2024-10-09T23:45:54.454Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,37 +22,41 @@ let value: WebhookBenefitGrantRevokedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2024-04-24T08:05:27.539Z"),
-      modifiedAt: new Date("2025-08-26T11:17:42.321Z"),
+      createdAt: new Date("2025-01-15T03:45:37.920Z"),
+      modifiedAt: new Date("2025-08-01T16:15:19.431Z"),
       id: "<value>",
       metadata: {
-        "key": 405335,
+        "key": "<value>",
       },
-      email: "Stewart_Fritsch24@yahoo.com",
+      email: "Anais.Weber@yahoo.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "British Indian Ocean Territory (Chagos Archipelago)",
+        country: "Costa Rica",
       },
       taxId: [
-        "rs_pib",
+        "my_itn",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://incomparable-seagull.com/",
+      avatarUrl: "https://probable-cop-out.biz",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2024-08-18T14:57:12.197Z"),
-      modifiedAt: new Date("2025-09-07T18:38:25.731Z"),
+      createdAt: new Date("2024-07-01T07:01:17.052Z"),
+      modifiedAt: new Date("2025-01-05T16:42:23.865Z"),
       id: "<value>",
-      description: "faithfully individual gadzooks",
+      description: "telescope woot shallow ready likely rare bog versus mmm",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        note: "<value>",
+        archived: {
+          "key": false,
+        },
+        files: [
+          "<value>",
+        ],
       },
-      isTaxApplicable: false,
     },
   },
 };

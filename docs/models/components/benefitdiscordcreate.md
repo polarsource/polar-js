@@ -6,7 +6,7 @@
 import { BenefitDiscordCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDiscordCreate = {
-  description: "who fat iridescence yahoo deer weary out ape solemnly around",
+  description: "amongst supposing elastic",
   properties: {
     guildToken: "<value>",
     roleId: "<id>",

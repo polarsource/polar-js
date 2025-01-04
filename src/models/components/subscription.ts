@@ -8,6 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  CustomerCancellationReason,
+  CustomerCancellationReason$inboundSchema,
+  CustomerCancellationReason$outboundSchema,
+} from "./customercancellationreason.js";
+import {
   DiscountFixedOnceForeverDurationBase,
   DiscountFixedOnceForeverDurationBase$inboundSchema,
   DiscountFixedOnceForeverDurationBase$Outbound,
@@ -99,13 +104,17 @@ export type Subscription = {
   currentPeriodStart: Date;
   currentPeriodEnd: Date | null;
   cancelAtPeriodEnd: boolean;
+  canceledAt: Date | null;
   startedAt: Date | null;
+  endsAt: Date | null;
   endedAt: Date | null;
   customerId: string;
   productId: string;
   priceId: string;
   discountId: string | null;
   checkoutId: string | null;
+  customerCancellationReason: CustomerCancellationReason | null;
+  customerCancellationComment: string | null;
   metadata: { [k: string]: string | number | boolean };
   /**
    * Key-value object storing custom field values.
@@ -308,7 +317,13 @@ export const Subscription$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   cancel_at_period_end: z.boolean(),
+  canceled_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
   started_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
+  ends_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   ended_at: z.nullable(
@@ -319,6 +334,10 @@ export const Subscription$inboundSchema: z.ZodType<
   price_id: z.string(),
   discount_id: z.nullable(z.string()),
   checkout_id: z.nullable(z.string()),
+  customer_cancellation_reason: z.nullable(
+    CustomerCancellationReason$inboundSchema,
+  ),
+  customer_cancellation_comment: z.nullable(z.string()),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   custom_field_data: z.lazy(() => SubscriptionCustomFieldData$inboundSchema)
     .optional(),
@@ -343,13 +362,17 @@ export const Subscription$inboundSchema: z.ZodType<
     "current_period_start": "currentPeriodStart",
     "current_period_end": "currentPeriodEnd",
     "cancel_at_period_end": "cancelAtPeriodEnd",
+    "canceled_at": "canceledAt",
     "started_at": "startedAt",
+    "ends_at": "endsAt",
     "ended_at": "endedAt",
     "customer_id": "customerId",
     "product_id": "productId",
     "price_id": "priceId",
     "discount_id": "discountId",
     "checkout_id": "checkoutId",
+    "customer_cancellation_reason": "customerCancellationReason",
+    "customer_cancellation_comment": "customerCancellationComment",
     "custom_field_data": "customFieldData",
     "user_id": "userId",
   });
@@ -367,13 +390,17 @@ export type Subscription$Outbound = {
   current_period_start: string;
   current_period_end: string | null;
   cancel_at_period_end: boolean;
+  canceled_at: string | null;
   started_at: string | null;
+  ends_at: string | null;
   ended_at: string | null;
   customer_id: string;
   product_id: string;
   price_id: string;
   discount_id: string | null;
   checkout_id: string | null;
+  customer_cancellation_reason: string | null;
+  customer_cancellation_comment: string | null;
   metadata: { [k: string]: string | number | boolean };
   custom_field_data?: SubscriptionCustomFieldData$Outbound | undefined;
   customer: SubscriptionCustomer$Outbound;
@@ -405,13 +432,19 @@ export const Subscription$outboundSchema: z.ZodType<
   currentPeriodStart: z.date().transform(v => v.toISOString()),
   currentPeriodEnd: z.nullable(z.date().transform(v => v.toISOString())),
   cancelAtPeriodEnd: z.boolean(),
+  canceledAt: z.nullable(z.date().transform(v => v.toISOString())),
   startedAt: z.nullable(z.date().transform(v => v.toISOString())),
+  endsAt: z.nullable(z.date().transform(v => v.toISOString())),
   endedAt: z.nullable(z.date().transform(v => v.toISOString())),
   customerId: z.string(),
   productId: z.string(),
   priceId: z.string(),
   discountId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
+  customerCancellationReason: z.nullable(
+    CustomerCancellationReason$outboundSchema,
+  ),
+  customerCancellationComment: z.nullable(z.string()),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   customFieldData: z.lazy(() => SubscriptionCustomFieldData$outboundSchema)
     .optional(),
@@ -436,13 +469,17 @@ export const Subscription$outboundSchema: z.ZodType<
     currentPeriodStart: "current_period_start",
     currentPeriodEnd: "current_period_end",
     cancelAtPeriodEnd: "cancel_at_period_end",
+    canceledAt: "canceled_at",
     startedAt: "started_at",
+    endsAt: "ends_at",
     endedAt: "ended_at",
     customerId: "customer_id",
     productId: "product_id",
     priceId: "price_id",
     discountId: "discount_id",
     checkoutId: "checkout_id",
+    customerCancellationReason: "customer_cancellation_reason",
+    customerCancellationComment: "customer_cancellation_comment",
     customFieldData: "custom_field_data",
     userId: "user_id",
   });

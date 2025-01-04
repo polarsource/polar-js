@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2024-04-14T02:50:28.988Z"),
-  modifiedAt: new Date("2024-07-01T02:28:44.314Z"),
+  createdAt: new Date("2023-08-06T10:10:02.781Z"),
+  modifiedAt: new Date("2025-10-05T14:29:25.570Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,37 +17,41 @@ let value: BenefitGrantWebhook = {
   userId: "<value>",
   benefitId: "<value>",
   customer: {
-    createdAt: new Date("2024-05-05T20:10:59.426Z"),
-    modifiedAt: new Date("2023-01-05T21:42:02.091Z"),
+    createdAt: new Date("2023-06-18T11:45:58.503Z"),
+    modifiedAt: new Date("2024-11-06T21:24:07.521Z"),
     id: "<value>",
     metadata: {
-      "key": 257393,
+      "key": "<value>",
     },
-    email: "Joana.Barrows@gmail.com",
+    email: "Ephraim60@hotmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Algeria",
+      country: "Marshall Islands",
     },
     taxId: [
-      "<id>",
+      "si_tin",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://kooky-cassava.com",
+    avatarUrl: "https://grizzled-allegation.name/",
   },
   properties: {},
   benefit: {
-    createdAt: new Date("2023-01-29T04:09:01.525Z"),
-    modifiedAt: new Date("2024-11-28T01:49:49.888Z"),
+    createdAt: new Date("2025-12-23T20:58:10.313Z"),
+    modifiedAt: new Date("2024-05-12T23:16:37.259Z"),
     id: "<value>",
-    description: "lively an unto",
+    description: "plain strident legislature timely the towards whenever oh",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      note: "<value>",
+      archived: {
+        "key": false,
+      },
+      files: [
+        "<value>",
+      ],
     },
-    isTaxApplicable: false,
   },
 };
 ```

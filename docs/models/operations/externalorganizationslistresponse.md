@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "133a344f-fd77-4572-942e-b2650b752748",
+        id: "222879f9-343c-471d-b69f-98ee7aa4290d",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://instructive-numeracy.org/",
+        avatarUrl: "https://velvety-vein.info",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Hansen - Nolan",
+        company: "Wiza, Stehr and O'Keefe",
         blog: "<value>",
         location: "<value>",
-        email: "Darian_Schuster32@hotmail.com",
+        email: "Nash12@yahoo.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 429518,
-      maxPage: 543484,
+      totalCount: 394467,
+      maxPage: 951520,
     },
   },
 };

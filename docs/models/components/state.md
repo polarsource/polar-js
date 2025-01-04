@@ -5,7 +5,7 @@
 ```typescript
 import { State } from "@polar-sh/sdk/models/components";
 
-let value: State = "open";
+let value: State = "closed";
 ```
 
 ## Values

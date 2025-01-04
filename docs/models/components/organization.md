@@ -6,21 +6,21 @@
 import { Organization } from "@polar-sh/sdk/models/components";
 
 let value: Organization = {
-  createdAt: new Date("2023-04-04T03:54:32.981Z"),
-  modifiedAt: new Date("2023-12-19T23:19:10.766Z"),
+  createdAt: new Date("2023-07-28T17:27:23.627Z"),
+  modifiedAt: new Date("2024-09-10T01:48:22.048Z"),
   id: "<value>",
   name: "<value>",
   slug: "<value>",
-  avatarUrl: "https://tinted-derby.info",
+  avatarUrl: "https://scratchy-restaurant.biz",
   bio: "<value>",
-  company: "Runolfsdottir Group",
+  company: "Cole, Gottlieb and Koss",
   blog: "<value>",
   location: "<value>",
-  email: "Beverly_Johns@gmail.com",
+  email: "Eleazar81@yahoo.com",
   twitterUsername: "<value>",
-  pledgeMinimumAmount: 706786,
+  pledgeMinimumAmount: 346327,
   pledgeBadgeShowAmount: false,
-  defaultUpfrontSplitToContributors: 545201,
+  defaultUpfrontSplitToContributors: 554644,
   profileSettings: {},
   featureSettings: {},
 };

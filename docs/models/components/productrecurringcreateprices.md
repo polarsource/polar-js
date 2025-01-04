@@ -10,7 +10,7 @@ List of available prices for this product.
 ```typescript
 const value: components.ProductPriceRecurringFixedCreate[] = [
   {
-    priceAmount: 590100,
+    priceAmount: 490627,
     recurringInterval: "year",
   },
 ];
@@ -21,7 +21,7 @@ const value: components.ProductPriceRecurringFixedCreate[] = [
 ```typescript
 const value: components.ProductPriceRecurringFreeCreate[] = [
   {
-    recurringInterval: "month",
+    recurringInterval: "year",
   },
 ];
 ```

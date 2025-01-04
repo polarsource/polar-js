@@ -8,21 +8,21 @@
 ```typescript
 const value: components.DiscountFixedOnceForeverDurationBase = {
   duration: "forever",
-  type: "percentage",
-  amount: 627735,
-  currency: "Iranian Rial",
-  createdAt: new Date("2024-04-01T16:39:35.905Z"),
-  modifiedAt: new Date("2025-06-07T16:17:56.157Z"),
+  type: "fixed",
+  amount: 810839,
+  currency: "Lempira",
+  createdAt: new Date("2023-08-20T18:06:25.013Z"),
+  modifiedAt: new Date("2023-03-07T02:00:55.358Z"),
   id: "<value>",
   metadata: {
-    "key": 211455,
+    "key": false,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2023-03-07T02:00:55.358Z"),
-  endsAt: new Date("2025-08-18T03:00:36.748Z"),
-  maxRedemptions: 918547,
-  redemptionsCount: 120120,
+  startsAt: new Date("2025-10-03T17:26:45.068Z"),
+  endsAt: new Date("2023-05-12T15:38:28.577Z"),
+  maxRedemptions: 334474,
+  redemptionsCount: 175372,
   organizationId: "<value>",
 };
 ```
@@ -31,23 +31,23 @@ const value: components.DiscountFixedOnceForeverDurationBase = {
 
 ```typescript
 const value: components.DiscountFixedRepeatDurationBase = {
-  duration: "forever",
-  durationInMonths: 175372,
+  duration: "once",
+  durationInMonths: 899867,
   type: "fixed",
-  amount: 899867,
-  currency: "Aruban Guilder",
-  createdAt: new Date("2025-12-10T14:41:41.611Z"),
-  modifiedAt: new Date("2023-04-16T17:02:36.383Z"),
+  amount: 980486,
+  currency: "Bahraini Dinar",
+  createdAt: new Date("2025-08-04T08:43:55.043Z"),
+  modifiedAt: new Date("2024-09-12T21:22:35.898Z"),
   id: "<value>",
   metadata: {
-    "key": false,
+    "key": 342342,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2024-09-12T21:22:35.898Z"),
-  endsAt: new Date("2024-02-08T05:42:05.758Z"),
-  maxRedemptions: 342342,
-  redemptionsCount: 757364,
+  startsAt: new Date("2025-04-10T01:42:23.126Z"),
+  endsAt: new Date("2023-12-11T18:32:09.426Z"),
+  maxRedemptions: 657319,
+  redemptionsCount: 517326,
   organizationId: "<value>",
 };
 ```
@@ -56,21 +56,21 @@ const value: components.DiscountFixedRepeatDurationBase = {
 
 ```typescript
 const value: components.DiscountPercentageOnceForeverDurationBase = {
-  duration: "once",
+  duration: "forever",
   type: "percentage",
-  basisPoints: 517326,
-  createdAt: new Date("2024-06-15T12:32:10.789Z"),
-  modifiedAt: new Date("2025-09-14T16:10:11.053Z"),
+  basisPoints: 554645,
+  createdAt: new Date("2025-06-25T05:46:03.384Z"),
+  modifiedAt: new Date("2025-03-06T05:29:10.468Z"),
   id: "<value>",
   metadata: {
-    "key": 826862,
+    "key": "<value>",
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-03-06T05:29:10.468Z"),
-  endsAt: new Date("2023-02-12T06:12:35.281Z"),
-  maxRedemptions: 773110,
-  redemptionsCount: 216870,
+  startsAt: new Date("2025-04-27T07:53:12.556Z"),
+  endsAt: new Date("2023-08-26T16:33:18.210Z"),
+  maxRedemptions: 903150,
+  redemptionsCount: 42924,
   organizationId: "<value>",
 };
 ```
@@ -79,22 +79,22 @@ const value: components.DiscountPercentageOnceForeverDurationBase = {
 
 ```typescript
 const value: components.DiscountPercentageRepeatDurationBase = {
-  duration: "repeating",
-  durationInMonths: 42924,
+  duration: "once",
+  durationInMonths: 99733,
   type: "fixed",
-  basisPoints: 99733,
-  createdAt: new Date("2024-06-05T05:53:46.089Z"),
-  modifiedAt: new Date("2025-06-17T17:52:12.552Z"),
+  basisPoints: 820023,
+  createdAt: new Date("2023-11-23T19:31:13.111Z"),
+  modifiedAt: new Date("2023-06-15T10:11:29.540Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2023-06-15T10:11:29.540Z"),
-  endsAt: new Date("2023-12-28T23:20:38.785Z"),
-  maxRedemptions: 813880,
-  redemptionsCount: 140384,
+  startsAt: new Date("2025-06-11T00:18:11.711Z"),
+  endsAt: new Date("2023-06-03T20:39:34.653Z"),
+  maxRedemptions: 227362,
+  redemptionsCount: 68852,
   organizationId: "<value>",
 };
 ```

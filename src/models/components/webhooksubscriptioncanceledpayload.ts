@@ -14,10 +14,10 @@ import {
 } from "./subscription.js";
 
 /**
- * Sent when a subscription is canceled by the user.
+ * Sent when a subscription is canceled.
  *
  * @remarks
- * They might still have access until the end of the current period.
+ * Customers might still have access until the end of the current period.
  *
  * **Discord & Slack support:** Full
  */
