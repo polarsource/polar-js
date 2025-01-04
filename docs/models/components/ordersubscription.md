@@ -7,25 +7,29 @@ import { OrderSubscription } from "@polar-sh/sdk/models/components";
 
 let value: OrderSubscription = {
   metadata: {
-    "key": 397919,
+    "key": 5310,
   },
-  createdAt: new Date("2025-04-28T20:28:23.222Z"),
-  modifiedAt: new Date("2023-06-04T11:44:43.665Z"),
+  createdAt: new Date("2023-01-13T10:41:07.081Z"),
+  modifiedAt: new Date("2024-07-14T07:10:40.441Z"),
   id: "<value>",
-  amount: 967338,
-  currency: "Trinidad and Tobago Dollar",
+  amount: 83291,
+  currency: "Australian Dollar",
   recurringInterval: "year",
-  status: "incomplete",
-  currentPeriodStart: new Date("2025-02-07T03:18:25.211Z"),
-  currentPeriodEnd: new Date("2025-09-27T23:01:52.690Z"),
+  status: "unpaid",
+  currentPeriodStart: new Date("2023-06-16T14:55:27.064Z"),
+  currentPeriodEnd: new Date("2023-01-01T17:28:17.780Z"),
   cancelAtPeriodEnd: false,
-  startedAt: new Date("2024-07-28T22:28:30.659Z"),
-  endedAt: new Date("2024-01-24T05:31:46.968Z"),
+  canceledAt: new Date("2025-10-29T01:37:46.884Z"),
+  startedAt: new Date("2023-11-02T01:04:07.129Z"),
+  endsAt: new Date("2023-07-23T17:51:01.964Z"),
+  endedAt: new Date("2025-01-27T21:25:45.366Z"),
   customerId: "<value>",
   productId: "<value>",
   priceId: "<value>",
   discountId: "<value>",
   checkoutId: "<value>",
+  customerCancellationReason: "customer_service",
+  customerCancellationComment: "<value>",
   userId: "<value>",
 };
 ```
@@ -45,11 +49,15 @@ let value: OrderSubscription = {
 | `currentPeriodStart`                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `currentPeriodEnd`                                                                                                      | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `cancelAtPeriodEnd`                                                                                                     | *boolean*                                                                                                               | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `canceledAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `startedAt`                                                                                                             | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `endsAt`                                                                                                                | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `endedAt`                                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `customerId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `productId`                                                                                                             | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `priceId`                                                                                                               | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `discountId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `checkoutId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `customerCancellationReason`                                                                                            | [components.CustomerCancellationReason](../../models/components/customercancellationreason.md)                          | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `customerCancellationComment`                                                                                           | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | ~~`userId`~~                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. |

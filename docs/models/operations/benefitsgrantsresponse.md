@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-09-25T11:00:47.759Z"),
-        modifiedAt: new Date("2024-07-26T07:43:54.459Z"),
+        createdAt: new Date("2025-02-20T19:17:02.763Z"),
+        modifiedAt: new Date("2024-10-22T04:57:04.113Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -20,32 +20,30 @@ let value: BenefitsGrantsResponse = {
         userId: "<value>",
         benefitId: "<value>",
         customer: {
-          createdAt: new Date("2025-01-21T21:27:26.400Z"),
-          modifiedAt: new Date("2024-07-11T13:24:15.441Z"),
+          createdAt: new Date("2024-02-03T21:16:09.204Z"),
+          modifiedAt: new Date("2023-09-07T18:14:29.053Z"),
           id: "<value>",
           metadata: {
-            "key": 980995,
+            "key": false,
           },
-          email: "Maxime45@yahoo.com",
+          email: "Grayce.Goyette@hotmail.com",
           emailVerified: false,
           name: "<value>",
           billingAddress: {
-            country: "United Arab Emirates",
+            country: "Bosnia and Herzegovina",
           },
           taxId: [
             "<id>",
           ],
           organizationId: "<value>",
-          avatarUrl: "https://kosher-aftermath.info/",
+          avatarUrl: "https://darling-complication.com/",
         },
-        properties: {
-          advertisementCampaignId: "<id>",
-        },
+        properties: {},
       },
     ],
     pagination: {
-      totalCount: 883267,
-      maxPage: 963239,
+      totalCount: 565691,
+      maxPage: 992192,
     },
   },
 };

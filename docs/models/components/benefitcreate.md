@@ -8,7 +8,7 @@
 ```typescript
 const value: components.BenefitAdsCreate = {
   description:
-    "controvert mozzarella solemnly sinful meanwhile skyline up heating avaricious",
+    "design merit spook numeric round apropos separate impish whenever viability",
   properties: {},
 };
 ```
@@ -17,8 +17,7 @@ const value: components.BenefitAdsCreate = {
 
 ```typescript
 const value: components.BenefitCustomCreate = {
-  description:
-    "hunt retool space informal minus dark while beyond untimely whenever",
+  description: "blacken thump recount concerning eek essence although flawed",
   properties: {},
 };
 ```
@@ -27,8 +26,7 @@ const value: components.BenefitCustomCreate = {
 
 ```typescript
 const value: components.BenefitDiscordCreate = {
-  description:
-    "whose synthesise seriously nor joyously through nor cheerfully neatly juvenile",
+  description: "avaricious aw bitterly lost whoa woot psst liberalize besmirch",
   properties: {
     guildToken: "<value>",
     roleId: "<id>",
@@ -40,7 +38,7 @@ const value: components.BenefitDiscordCreate = {
 
 ```typescript
 const value: components.BenefitDownloadablesCreate = {
-  description: "a yet coolly but pick creature with",
+  description: "from ick meanwhile likewise excitedly",
   properties: {
     files: [
       "<value>",
@@ -53,11 +51,12 @@ const value: components.BenefitDownloadablesCreate = {
 
 ```typescript
 const value: components.BenefitGitHubRepositoryCreate = {
-  description: "scholarship what shabby bloom blah along eek override absent",
+  description:
+    "before blindly gee limply swath properly anenst unconscious whose",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "maintain",
+    permission: "admin",
   },
 };
 ```
@@ -66,7 +65,7 @@ const value: components.BenefitGitHubRepositoryCreate = {
 
 ```typescript
 const value: components.BenefitLicenseKeysCreate = {
-  description: "once till how gadzooks birth pointed modulo throughout",
+  description: "pish live spring starboard near",
   properties: {},
 };
 ```

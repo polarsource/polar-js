@@ -36,6 +36,7 @@ export async function customerPortalSubscriptionsUpdate(
 ): Promise<
   Result<
     components.CustomerSubscription,
+    | errors.AlreadyCanceledSubscription
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -110,7 +111,7 @@ export async function customerPortalSubscriptionsUpdate(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["404", "422", "4XX", "5XX"],
+    errorCodes: ["403", "404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -125,6 +126,7 @@ export async function customerPortalSubscriptionsUpdate(
 
   const [result] = await M.match<
     components.CustomerSubscription,
+    | errors.AlreadyCanceledSubscription
     | errors.ResourceNotFound
     | errors.HTTPValidationError
     | SDKError
@@ -136,6 +138,7 @@ export async function customerPortalSubscriptionsUpdate(
     | ConnectionError
   >(
     M.json(200, components.CustomerSubscription$inboundSchema),
+    M.jsonErr(403, errors.AlreadyCanceledSubscription$inboundSchema),
     M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail(["4XX", "5XX"]),

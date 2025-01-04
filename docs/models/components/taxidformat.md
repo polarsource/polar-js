@@ -9,7 +9,7 @@ Ref: https://docs.stripe.com/billing/customer/tax-ids#supported-tax-id
 ```typescript
 import { TaxIDFormat } from "@polar-sh/sdk/models/components";
 
-let value: TaxIDFormat = "co_nit";
+let value: TaxIDFormat = "ca_pst_mb";
 ```
 
 ## Values

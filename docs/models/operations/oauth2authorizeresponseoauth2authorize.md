@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2025-01-06T17:59:23.766Z"),
-    modifiedAt: new Date("2023-02-17T03:45:50.562Z"),
+    createdAt: new Date("2023-04-12T22:50:54.198Z"),
+    modifiedAt: new Date("2023-06-20T08:26:29.394Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://all-postbox.net",
-    logoUri: "https://hard-to-find-department.org/",
-    tosUri: "https://slushy-offset.com/",
-    policyUri: "https://fatal-strait.biz/",
+    clientUri: "https://damp-alligator.net/",
+    logoUri: "https://alienated-fencing.name",
+    tosUri: "https://decent-bathhouse.com/",
+    policyUri: "https://precious-doubter.biz",
   },
   sub: {
     id: "<value>",
-    email: "Lolita.Goyette@hotmail.com",
-    avatarUrl: "https://well-groomed-packaging.org/",
+    email: "Javon.Pagac@yahoo.com",
+    avatarUrl: "https://querulous-fencing.name",
   },
   scopes: [
-    "license_keys:read",
+    "admin",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2024-07-13T06:25:35.667Z"),
-    modifiedAt: new Date("2023-06-30T02:24:12.549Z"),
+    createdAt: new Date("2025-07-17T08:39:28.965Z"),
+    modifiedAt: new Date("2025-11-09T20:22:05.742Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://critical-haircut.info",
-    logoUri: "https://experienced-aircraft.name/",
-    tosUri: "https://best-league.com/",
-    policyUri: "https://shrill-freezing.org",
+    clientUri: "https://assured-sticker.org",
+    logoUri: "https://self-reliant-availability.net/",
+    tosUri: "https://wide-eyed-hovel.info",
+    policyUri: "https://menacing-singing.org/",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://ultimate-perfection.com/",
+    avatarUrl: "https://realistic-operating.name/",
   },
   scopes: [
-    "products:write",
+    "webhooks:read",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://posh-reconsideration.name",
+      avatarUrl: "https://celebrated-programme.net",
     },
   ],
 };

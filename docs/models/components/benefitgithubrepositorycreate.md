@@ -7,11 +7,11 @@ import { BenefitGitHubRepositoryCreate } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGitHubRepositoryCreate = {
   description:
-    "cannon graffiti valiantly pfft concerned char notwithstanding yuck inside finally",
+    "furthermore pulse notwithstanding incidentally interestingly gape notwithstanding onto fortunately per",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "maintain",
+    permission: "push",
   },
 };
 ```

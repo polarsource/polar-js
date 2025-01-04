@@ -11,8 +11,8 @@ import { WebhookBenefitGrantUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantUpdatedPayload = {
   data: {
-    createdAt: new Date("2023-02-14T12:50:16.034Z"),
-    modifiedAt: new Date("2025-01-12T05:08:56.049Z"),
+    createdAt: new Date("2025-11-20T21:55:24.201Z"),
+    modifiedAt: new Date("2024-08-28T21:26:21.279Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,40 +22,34 @@ let value: WebhookBenefitGrantUpdatedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2023-06-06T06:43:30.345Z"),
-      modifiedAt: new Date("2024-05-18T10:41:19.543Z"),
+      createdAt: new Date("2024-04-18T03:44:37.000Z"),
+      modifiedAt: new Date("2025-11-07T20:33:08.048Z"),
       id: "<value>",
       metadata: {
-        "key": false,
+        "key": "<value>",
       },
-      email: "Leonardo19@hotmail.com",
+      email: "Ezra.Runolfsson87@gmail.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Saint Pierre and Miquelon",
+        country: "Lao People's Democratic Republic",
       },
       taxId: [
-        "si_tin",
+        "do_rcn",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://mysterious-taxicab.net/",
+      avatarUrl: "https://far-jazz.biz/",
     },
-    properties: {
-      advertisementCampaignId: "<id>",
-    },
+    properties: {},
     benefit: {
-      createdAt: new Date("2024-09-19T18:25:13.476Z"),
-      modifiedAt: new Date("2023-12-22T03:37:10.516Z"),
+      createdAt: new Date("2023-01-16T15:27:04.636Z"),
+      modifiedAt: new Date("2025-08-19T20:43:23.096Z"),
       id: "<value>",
-      description:
-        "wearily empty idolized after phooey preside because midwife",
+      description: "baa highlight aw",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
-      properties: {
-        note: "<value>",
-      },
-      isTaxApplicable: false,
+      properties: {},
     },
   },
 };

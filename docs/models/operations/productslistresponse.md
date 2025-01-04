@@ -9,36 +9,49 @@ let value: ProductsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-10-01T21:33:32.957Z"),
-        modifiedAt: new Date("2025-09-28T16:24:17.935Z"),
+        createdAt: new Date("2024-03-26T12:43:43.871Z"),
+        modifiedAt: new Date("2025-07-16T06:38:50.927Z"),
         id: "<value>",
         name: "<value>",
-        description: "against depend although offensively alliance",
+        description: "amnesty swath likewise zowie",
         isRecurring: false,
         isArchived: false,
         organizationId: "<value>",
         metadata: {
-          "key": false,
+          "key": "<value>",
         },
         prices: [
           {
-            createdAt: new Date("2025-07-11T05:15:47.275Z"),
-            modifiedAt: new Date("2023-06-21T05:44:00.806Z"),
+            createdAt: new Date("2023-10-31T16:41:22.925Z"),
+            modifiedAt: new Date("2023-07-14T23:16:31.297Z"),
             id: "<value>",
             isArchived: false,
             productId: "<value>",
+            priceCurrency: "<value>",
+            minimumAmount: 605091,
+            maximumAmount: 456372,
+            presetAmount: 157070,
+            recurringInterval: "year",
           },
         ],
         benefits: [
           {
-            createdAt: new Date("2025-08-05T04:22:38.604Z"),
-            modifiedAt: new Date("2024-01-28T21:34:54.077Z"),
+            createdAt: new Date("2025-01-30T09:06:03.992Z"),
+            modifiedAt: new Date("2023-10-04T08:23:30.297Z"),
             id: "<value>",
-            description: "because fencing maul but from",
+            description:
+              "unlined infinite remorseful unused lobotomise for down",
             selectable: false,
             deletable: false,
             organizationId: "<value>",
-            properties: {},
+            properties: {
+              archived: {
+                "key": false,
+              },
+              files: [
+                "<value>",
+              ],
+            },
           },
         ],
         medias: [
@@ -46,27 +59,27 @@ let value: ProductsListResponse = {
             id: "<value>",
             organizationId: "<value>",
             name: "<value>",
-            path: "/proc",
+            path: "/usr/lib",
             mimeType: "<value>",
-            size: 90205,
+            size: 974257,
             storageVersion: "<value>",
             checksumEtag: "<value>",
             checksumSha256Base64: "<value>",
             checksumSha256Hex: "<value>",
-            lastModifiedAt: new Date("2024-12-11T14:27:58.846Z"),
+            lastModifiedAt: new Date("2024-07-01T20:45:28.973Z"),
             version: "<value>",
             isUploaded: false,
-            createdAt: new Date("2024-12-03T06:25:18.097Z"),
+            createdAt: new Date("2023-10-09T19:48:17.819Z"),
             sizeReadable: "<value>",
-            publicUrl: "https://authorized-cook.name",
+            publicUrl: "https://courageous-tray.net",
           },
         ],
         attachedCustomFields: [
           {
             customFieldId: "<value>",
             customField: {
-              createdAt: new Date("2024-03-30T16:46:12.008Z"),
-              modifiedAt: new Date("2023-01-30T13:17:24.903Z"),
+              createdAt: new Date("2023-04-18T01:10:45.728Z"),
+              modifiedAt: new Date("2025-10-12T04:57:23.597Z"),
               id: "<value>",
               metadata: {
                 "key": false,
@@ -76,15 +89,15 @@ let value: ProductsListResponse = {
               organizationId: "<value>",
               properties: {},
             },
-            order: 290128,
+            order: 251343,
             required: false,
           },
         ],
       },
     ],
     pagination: {
-      totalCount: 364789,
-      maxPage: 455531,
+      totalCount: 171866,
+      maxPage: 689614,
     },
   },
 };

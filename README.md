@@ -496,6 +496,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 * [list](docs/sdks/subscriptions/README.md#list) - List Subscriptions
 * [export](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
+* [update](docs/sdks/subscriptions/README.md#update) - Update Subscription
+* [revoke](docs/sdks/subscriptions/README.md#revoke) - Revoke Subscription
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -609,6 +611,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`repositoriesUpdate`](docs/sdks/repositories/README.md#update) - Update Repository
 - [`subscriptionsExport`](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
 - [`subscriptionsList`](docs/sdks/subscriptions/README.md#list) - List Subscriptions
+- [`subscriptionsRevoke`](docs/sdks/subscriptions/README.md#revoke) - Revoke Subscription
+- [`subscriptionsUpdate`](docs/sdks/subscriptions/README.md#update) - Update Subscription
 - ~~[`checkoutsCreate`](docs/sdks/checkouts/README.md#create)~~ - Create Checkout :warning: **Deprecated** Use [`checkoutsCustomCreate`](docs/sdks/custom/README.md#create) instead.
 - ~~[`checkoutsGet`](docs/sdks/checkouts/README.md#get)~~ - Get Checkout :warning: **Deprecated**
 

@@ -8,51 +8,36 @@ import { ListResourceProduct } from "@polar-sh/sdk/models/components";
 let value: ListResourceProduct = {
   items: [
     {
-      createdAt: new Date("2024-12-06T19:21:30.268Z"),
-      modifiedAt: new Date("2024-09-19T16:28:52.728Z"),
+      createdAt: new Date("2025-08-17T05:40:50.868Z"),
+      modifiedAt: new Date("2025-07-11T02:45:47.122Z"),
       id: "<value>",
       name: "<value>",
-      description: "of editor ack including angrily venom",
+      description: "plait indeed aggravating pfft flint whenever hourly",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",
       metadata: {
-        "key": "<value>",
+        "key": 716527,
       },
       prices: [
         {
-          createdAt: new Date("2024-10-13T16:24:24.825Z"),
-          modifiedAt: new Date("2025-10-12T17:44:21.842Z"),
+          createdAt: new Date("2024-04-12T07:56:40.102Z"),
+          modifiedAt: new Date("2025-09-27T03:10:10.233Z"),
           id: "<value>",
           isArchived: false,
           productId: "<value>",
-          priceCurrency: "<value>",
-          priceAmount: 238015,
-          recurringInterval: "month",
         },
       ],
       benefits: [
         {
-          createdAt: new Date("2025-02-15T06:40:47.027Z"),
-          modifiedAt: new Date("2024-08-02T00:03:08.625Z"),
+          createdAt: new Date("2023-07-25T04:11:45.005Z"),
+          modifiedAt: new Date("2025-01-19T08:30:25.562Z"),
           id: "<value>",
-          description:
-            "behold pace blank waft tabletop jealously liberalize monthly",
+          description: "ostrich aboard pfft so finally",
           selectable: false,
           deletable: false,
           organizationId: "<value>",
-          properties: {
-            prefix: "<value>",
-            expires: {
-              ttl: 711557,
-              timeframe: "month",
-            },
-            activations: {
-              limit: 459197,
-              enableCustomerAdmin: false,
-            },
-            limitUsage: 940490,
-          },
+          properties: {},
         },
       ],
       medias: [
@@ -60,52 +45,45 @@ let value: ListResourceProduct = {
           id: "<value>",
           organizationId: "<value>",
           name: "<value>",
-          path: "/opt",
+          path: "/usr/bin",
           mimeType: "<value>",
-          size: 172985,
+          size: 841379,
           storageVersion: "<value>",
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
           checksumSha256Hex: "<value>",
-          lastModifiedAt: new Date("2024-06-01T09:57:43.473Z"),
+          lastModifiedAt: new Date("2023-01-05T21:26:12.181Z"),
           version: "<value>",
           isUploaded: false,
-          createdAt: new Date("2024-12-16T05:46:11.787Z"),
+          createdAt: new Date("2023-05-27T00:18:28.805Z"),
           sizeReadable: "<value>",
-          publicUrl: "https://clumsy-event.org/",
+          publicUrl: "https://worthwhile-habit.biz/",
         },
       ],
       attachedCustomFields: [
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2023-09-01T05:45:21.778Z"),
-            modifiedAt: new Date("2024-10-23T10:08:12.461Z"),
+            createdAt: new Date("2025-09-14T21:16:21.107Z"),
+            modifiedAt: new Date("2025-06-07T00:39:37.430Z"),
             id: "<value>",
             metadata: {
-              "key": 523055,
+              "key": 539696,
             },
             slug: "<value>",
             name: "<value>",
             organizationId: "<value>",
-            properties: {
-              options: [
-                {
-                  value: "<value>",
-                  label: "<value>",
-                },
-              ],
-            },
+            properties: {},
           },
-          order: 759383,
+          order: 777154,
           required: false,
         },
       ],
     },
   ],
   pagination: {
-    totalCount: 24739,
-    maxPage: 191117,
+    totalCount: 318150,
+    maxPage: 639855,
   },
 };
 ```

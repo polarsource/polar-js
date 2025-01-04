@@ -5,7 +5,7 @@
 ```typescript
 import { CustomerSortProperty } from "@polar-sh/sdk/models/components";
 
-let value: CustomerSortProperty = "-created_at";
+let value: CustomerSortProperty = "-email";
 ```
 
 ## Values

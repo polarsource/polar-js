@@ -9,30 +9,24 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-02-01T21:53:59.428Z"),
-        modifiedAt: new Date("2023-04-20T02:33:09.911Z"),
+        createdAt: new Date("2024-07-28T20:15:39.685Z"),
+        modifiedAt: new Date("2024-05-18T12:53:51.974Z"),
         id: "<value>",
-        description: "except furthermore stranger than",
+        description:
+          "faint ferociously beyond qua surprisingly provided whenever",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          prefix: "<value>",
-          expires: {
-            ttl: 745815,
-            timeframe: "day",
-          },
-          activations: {
-            limit: 220474,
-            enableCustomerAdmin: false,
-          },
-          limitUsage: 361381,
+          guildId: "<id>",
+          roleId: "<id>",
+          guildToken: "<value>",
         },
       },
     ],
     pagination: {
-      totalCount: 552589,
-      maxPage: 336087,
+      totalCount: 840462,
+      maxPage: 420339,
     },
   },
 };
