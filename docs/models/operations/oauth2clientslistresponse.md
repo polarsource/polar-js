@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://wasteful-tool.net/",
+          "https://educated-cassava.com",
         ],
         clientName: "<value>",
-        createdAt: new Date("2023-09-02T16:34:40.356Z"),
-        modifiedAt: new Date("2023-11-10T10:11:55.405Z"),
+        createdAt: new Date("2025-07-16T02:55:22.729Z"),
+        modifiedAt: new Date("2023-10-11T06:26:54.883Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 829019,
-        clientSecretExpiresAt: 652211,
+        clientIdIssuedAt: 617665,
+        clientSecretExpiresAt: 354461,
       },
     ],
     pagination: {
-      totalCount: 245939,
-      maxPage: 869122,
+      totalCount: 440396,
+      maxPage: 855174,
     },
   },
 };

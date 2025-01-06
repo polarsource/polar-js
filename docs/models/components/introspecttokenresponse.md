@@ -14,8 +14,8 @@ let value: IntrospectTokenResponse = {
   sub: "<value>",
   aud: "<value>",
   iss: "<value>",
-  exp: 566826,
-  iat: 946161,
+  exp: 786086,
+  iat: 706471,
 };
 ```
 

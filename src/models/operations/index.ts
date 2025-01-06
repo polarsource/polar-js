@@ -82,3 +82,5 @@ export * from "./repositorieslist.js";
 export * from "./repositoriesupdate.js";
 export * from "./subscriptionsexport.js";
 export * from "./subscriptionslist.js";
+export * from "./subscriptionsrevoke.js";
+export * from "./subscriptionsupdate.js";

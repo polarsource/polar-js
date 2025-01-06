@@ -9,7 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalSubscriptionsGetRequest = {
   /**
-   * The subscription ID.
+   * Customer subscription ID.
    */
   id: string;
 };

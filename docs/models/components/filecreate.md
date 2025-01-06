@@ -9,13 +9,13 @@
 const value: components.DownloadableFileCreate = {
   name: "<value>",
   mimeType: "<value>",
-  size: 104080,
+  size: 541842,
   upload: {
     parts: [
       {
-        number: 175216,
-        chunkStart: 752959,
-        chunkEnd: 534786,
+        number: 637070,
+        chunkStart: 92130,
+        chunkEnd: 139432,
       },
     ],
   },
@@ -28,13 +28,13 @@ const value: components.DownloadableFileCreate = {
 const value: components.OrganizationAvatarFileCreate = {
   name: "<value>",
   mimeType: "<value>",
-  size: 639968,
+  size: 32442,
   upload: {
     parts: [
       {
-        number: 816753,
-        chunkStart: 583827,
-        chunkEnd: 313949,
+        number: 162408,
+        chunkStart: 222577,
+        chunkEnd: 690703,
       },
     ],
   },
@@ -47,13 +47,13 @@ const value: components.OrganizationAvatarFileCreate = {
 const value: components.ProductMediaFileCreate = {
   name: "<value>",
   mimeType: "<value>",
-  size: 523250,
+  size: 65214,
   upload: {
     parts: [
       {
-        number: 130391,
-        chunkStart: 272077,
-        chunkEnd: 655131,
+        number: 687407,
+        chunkStart: 405428,
+        chunkEnd: 142953,
       },
     ],
   },

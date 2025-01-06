@@ -11,8 +11,8 @@ import { WebhookBenefitGrantCreatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantCreatedPayload = {
   data: {
-    createdAt: new Date("2025-10-16T21:05:49.513Z"),
-    modifiedAt: new Date("2024-10-12T05:48:42.839Z"),
+    createdAt: new Date("2025-08-14T07:37:23.995Z"),
+    modifiedAt: new Date("2023-05-15T01:02:04.729Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,39 +22,37 @@ let value: WebhookBenefitGrantCreatedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2023-05-12T18:50:06.377Z"),
-      modifiedAt: new Date("2024-07-04T08:33:29.105Z"),
+      createdAt: new Date("2023-11-02T18:45:39.253Z"),
+      modifiedAt: new Date("2024-11-27T14:24:37.887Z"),
       id: "<value>",
       metadata: {
         "key": "<value>",
       },
-      email: "Maci40@hotmail.com",
+      email: "Maybell.Hane15@gmail.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Bosnia and Herzegovina",
+        country: "Burundi",
       },
       taxId: [
-        "is_vat",
+        "om_vat",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://mysterious-runway.org",
+      avatarUrl: "https://old-finding.com",
     },
-    properties: {
-      advertisementCampaignId: "<id>",
-    },
+    properties: {},
     benefit: {
-      createdAt: new Date("2024-02-06T21:53:27.255Z"),
-      modifiedAt: new Date("2023-02-16T14:34:47.648Z"),
+      createdAt: new Date("2025-05-02T02:33:58.780Z"),
+      modifiedAt: new Date("2024-08-02T04:04:19.829Z"),
       id: "<value>",
-      description: "gadzooks testing adult under curse meager",
+      description: "yowza behind before pillbox",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        repositoryOwner: "polarsource",
-        repositoryName: "private_repo",
-        permission: "pull",
+        guildId: "<id>",
+        roleId: "<id>",
+        guildToken: "<value>",
       },
     },
   },

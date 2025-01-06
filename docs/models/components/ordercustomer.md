@@ -6,23 +6,23 @@
 import { OrderCustomer } from "@polar-sh/sdk/models/components";
 
 let value: OrderCustomer = {
-  createdAt: new Date("2025-02-03T06:34:29.704Z"),
-  modifiedAt: new Date("2024-03-02T22:41:02.174Z"),
+  createdAt: new Date("2025-06-04T02:09:29.897Z"),
+  modifiedAt: new Date("2023-02-25T21:41:46.505Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": 502453,
   },
-  email: "Brice_Walsh42@hotmail.com",
+  email: "Caleigh98@gmail.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Guatemala",
+    country: "Botswana",
   },
   taxId: [
-    "my_sst",
+    "cl_tin",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://tricky-skean.org",
+  avatarUrl: "https://small-creator.name/",
 };
 ```
 

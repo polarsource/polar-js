@@ -6,23 +6,23 @@
 import { LicenseKeyCustomer } from "@polar-sh/sdk/models/components";
 
 let value: LicenseKeyCustomer = {
-  createdAt: new Date("2024-08-21T10:14:28.976Z"),
-  modifiedAt: new Date("2023-08-18T13:45:43.796Z"),
+  createdAt: new Date("2024-09-09T05:55:09.703Z"),
+  modifiedAt: new Date("2024-01-05T14:54:34.065Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
-  email: "Elwin_DAmore@hotmail.com",
+  email: "Anastasia_Roberts70@gmail.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Tuvalu",
+    country: "Russian Federation",
   },
   taxId: [
-    "no_vat",
+    "br_cnpj",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://enchanting-aftermath.org",
+  avatarUrl: "https://unsightly-order.info",
 };
 ```
 
