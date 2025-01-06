@@ -3,45 +3,50 @@
  */
 
 import * as z from "zod";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  CustomerSubscriptionCancel,
+  CustomerSubscriptionCancel$inboundSchema,
+  CustomerSubscriptionCancel$Outbound,
+  CustomerSubscriptionCancel$outboundSchema,
+} from "./customersubscriptioncancel.js";
+import {
+  CustomerSubscriptionUpdatePrice,
+  CustomerSubscriptionUpdatePrice$inboundSchema,
+  CustomerSubscriptionUpdatePrice$Outbound,
+  CustomerSubscriptionUpdatePrice$outboundSchema,
+} from "./customersubscriptionupdateprice.js";
 
-export type CustomerSubscriptionUpdate = {
-  productPriceId: string;
-};
+export type CustomerSubscriptionUpdate =
+  | CustomerSubscriptionUpdatePrice
+  | CustomerSubscriptionCancel;
 
 /** @internal */
 export const CustomerSubscriptionUpdate$inboundSchema: z.ZodType<
   CustomerSubscriptionUpdate,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  product_price_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "product_price_id": "productPriceId",
-  });
-});
+> = z.union([
+  CustomerSubscriptionUpdatePrice$inboundSchema,
+  CustomerSubscriptionCancel$inboundSchema,
+]);
 
 /** @internal */
-export type CustomerSubscriptionUpdate$Outbound = {
-  product_price_id: string;
-};
+export type CustomerSubscriptionUpdate$Outbound =
+  | CustomerSubscriptionUpdatePrice$Outbound
+  | CustomerSubscriptionCancel$Outbound;
 
 /** @internal */
 export const CustomerSubscriptionUpdate$outboundSchema: z.ZodType<
   CustomerSubscriptionUpdate$Outbound,
   z.ZodTypeDef,
   CustomerSubscriptionUpdate
-> = z.object({
-  productPriceId: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    productPriceId: "product_price_id",
-  });
-});
+> = z.union([
+  CustomerSubscriptionUpdatePrice$outboundSchema,
+  CustomerSubscriptionCancel$outboundSchema,
+]);
 
 /**
  * @internal

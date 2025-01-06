@@ -6,84 +6,100 @@
 import { Subscription } from "@polar-sh/sdk/models/components";
 
 let value: Subscription = {
-  createdAt: new Date("2023-12-15T22:38:22.380Z"),
-  modifiedAt: new Date("2023-07-04T06:48:36.981Z"),
+  createdAt: new Date("2025-01-12T23:20:57.411Z"),
+  modifiedAt: new Date("2023-12-17T12:54:38.255Z"),
   id: "<value>",
-  amount: 556133,
-  currency: "Dalasi",
+  amount: 196451,
+  currency: "Philippine Peso",
   recurringInterval: "year",
-  status: "unpaid",
-  currentPeriodStart: new Date("2024-11-10T15:47:28.185Z"),
-  currentPeriodEnd: new Date("2024-11-07T18:38:53.264Z"),
+  status: "incomplete",
+  currentPeriodStart: new Date("2024-12-05T12:17:59.943Z"),
+  currentPeriodEnd: new Date("2024-04-30T09:19:55.343Z"),
   cancelAtPeriodEnd: false,
-  startedAt: new Date("2025-12-15T23:23:51.945Z"),
-  endedAt: new Date("2025-08-30T11:05:45.637Z"),
+  canceledAt: new Date("2025-09-11T07:18:01.119Z"),
+  startedAt: new Date("2023-12-19T08:01:26.303Z"),
+  endsAt: new Date("2024-06-03T16:57:26.286Z"),
+  endedAt: new Date("2024-07-18T04:26:02.056Z"),
   customerId: "<value>",
   productId: "<value>",
   priceId: "<value>",
   discountId: "<value>",
   checkoutId: "<value>",
+  customerCancellationReason: "low_quality",
+  customerCancellationComment: "<value>",
   metadata: {
     "key": false,
   },
   customer: {
-    createdAt: new Date("2023-12-10T16:41:14.824Z"),
-    modifiedAt: new Date("2024-02-05T15:08:18.944Z"),
+    createdAt: new Date("2025-06-29T04:50:59.216Z"),
+    modifiedAt: new Date("2023-03-05T11:14:44.230Z"),
     id: "<value>",
     metadata: {
       "key": "<value>",
     },
-    email: "Yolanda.Carroll@yahoo.com",
+    email: "Vern_Wintheiser@gmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Comoros",
+      country: "Grenada",
     },
     taxId: [
-      "my_itn",
+      "<id>",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://far-off-bandwidth.biz/",
+    avatarUrl: "https://hateful-tenement.org",
   },
   userId: "<value>",
   user: {
     id: "<value>",
-    email: "Clemens.Beatty13@gmail.com",
+    email: "Clement44@gmail.com",
     publicName: "<value>",
   },
   product: {
-    createdAt: new Date("2023-11-24T10:19:41.436Z"),
-    modifiedAt: new Date("2023-10-07T13:11:52.112Z"),
+    createdAt: new Date("2023-09-01T02:51:33.474Z"),
+    modifiedAt: new Date("2024-06-25T08:44:09.618Z"),
     id: "<value>",
     name: "<value>",
     description:
-      "beneath lumpy per firm table restfully intent arrogantly inquisitively",
+      "around glaring untrue suspension expatiate whether inexperienced palate geez afterwards",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     metadata: {
-      "key": 657862,
+      "key": "<value>",
     },
     prices: [
       {
-        createdAt: new Date("2025-12-13T16:03:43.381Z"),
-        modifiedAt: new Date("2023-02-03T08:20:20.613Z"),
+        createdAt: new Date("2024-11-19T15:10:01.179Z"),
+        modifiedAt: new Date("2025-04-23T16:31:49.440Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        recurringInterval: "month",
+        recurringInterval: "year",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2023-02-16T10:20:38.020Z"),
-        modifiedAt: new Date("2023-09-07T14:29:56.720Z"),
+        createdAt: new Date("2025-02-28T11:16:40.701Z"),
+        modifiedAt: new Date("2025-12-08T23:54:11.569Z"),
         id: "<value>",
-        description: "nervous save uncommon likewise separately content",
+        description:
+          "whereas tomatillo disloyal jovially cleverly wrong abnegate convection bogus till",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
-        properties: {},
+        properties: {
+          prefix: "<value>",
+          expires: {
+            ttl: 470321,
+            timeframe: "day",
+          },
+          activations: {
+            limit: 240292,
+            enableCustomerAdmin: false,
+          },
+          limitUsage: 763140,
+        },
       },
     ],
     medias: [
@@ -91,67 +107,75 @@ let value: Subscription = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/home",
+        path: "/usr/share",
         mimeType: "<value>",
-        size: 481042,
+        size: 562066,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2023-11-23T21:03:26.961Z"),
+        lastModifiedAt: new Date("2024-05-15T00:28:36.090Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2025-08-03T08:45:30.623Z"),
+        createdAt: new Date("2024-10-15T10:02:08.477Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://guilty-steak.net",
+        publicUrl: "https://nimble-heartbeat.info/",
       },
     ],
     attachedCustomFields: [
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2025-07-17T15:34:53.162Z"),
-          modifiedAt: new Date("2024-03-30T05:51:52.889Z"),
+          createdAt: new Date("2023-04-12T18:21:29.910Z"),
+          modifiedAt: new Date("2023-07-02T12:43:21.651Z"),
           id: "<value>",
           metadata: {
-            "key": "<value>",
+            "key": false,
           },
           slug: "<value>",
           name: "<value>",
           organizationId: "<value>",
-          properties: {},
+          properties: {
+            options: [
+              {
+                value: "<value>",
+                label: "<value>",
+              },
+            ],
+          },
         },
-        order: 840641,
+        order: 771078,
         required: false,
       },
     ],
   },
   price: {
-    createdAt: new Date("2024-01-19T21:32:01.817Z"),
-    modifiedAt: new Date("2025-10-05T00:47:16.247Z"),
+    createdAt: new Date("2024-02-18T11:40:55.217Z"),
+    modifiedAt: new Date("2025-10-11T22:12:04.430Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
     priceCurrency: "<value>",
-    priceAmount: 960767,
+    priceAmount: 818078,
     recurringInterval: "year",
   },
   discount: {
     duration: "once",
-    type: "percentage",
-    basisPoints: 546868,
-    createdAt: new Date("2024-01-08T18:00:36.094Z"),
-    modifiedAt: new Date("2023-03-17T04:22:16.108Z"),
+    type: "fixed",
+    amount: 672627,
+    currency: "Somoni",
+    createdAt: new Date("2025-07-23T13:07:53.786Z"),
+    modifiedAt: new Date("2023-02-05T22:08:14.307Z"),
     id: "<value>",
     metadata: {
       "key": "<value>",
     },
     name: "<value>",
     code: "<value>",
-    startsAt: new Date("2024-01-28T08:24:34.111Z"),
-    endsAt: new Date("2024-04-21T21:58:29.328Z"),
-    maxRedemptions: 590927,
-    redemptionsCount: 722392,
+    startsAt: new Date("2024-01-07T15:32:38.599Z"),
+    endsAt: new Date("2023-07-26T20:24:43.477Z"),
+    maxRedemptions: 802976,
+    redemptionsCount: 767466,
     organizationId: "<value>",
   },
 };
@@ -171,13 +195,17 @@ let value: Subscription = {
 | `currentPeriodStart`                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `currentPeriodEnd`                                                                                                      | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `cancelAtPeriodEnd`                                                                                                     | *boolean*                                                                                                               | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `canceledAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `startedAt`                                                                                                             | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `endsAt`                                                                                                                | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `endedAt`                                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `customerId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `productId`                                                                                                             | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `priceId`                                                                                                               | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `discountId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `checkoutId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `customerCancellationReason`                                                                                            | [components.CustomerCancellationReason](../../models/components/customercancellationreason.md)                          | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `customerCancellationComment`                                                                                           | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `metadata`                                                                                                              | Record<string, *components.Metadata*>                                                                                   | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `customFieldData`                                                                                                       | [components.SubscriptionCustomFieldData](../../models/components/subscriptioncustomfielddata.md)                        | :heavy_minus_sign:                                                                                                      | Key-value object storing custom field values.                                                                           |
 | `customer`                                                                                                              | [components.SubscriptionCustomer](../../models/components/subscriptioncustomer.md)                                      | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |

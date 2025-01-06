@@ -7,15 +7,13 @@ import { CustomerPortalSubscriptionsUpdateRequest } from "@polar-sh/sdk/models/o
 
 let value: CustomerPortalSubscriptionsUpdateRequest = {
   id: "<value>",
-  customerSubscriptionUpdate: {
-    productPriceId: "<value>",
-  },
+  customerSubscriptionUpdate: {},
 };
 ```
 
 ## Fields
 
-| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `id`                                                                                           | *string*                                                                                       | :heavy_check_mark:                                                                             | The subscription ID.                                                                           |
-| `customerSubscriptionUpdate`                                                                   | [components.CustomerSubscriptionUpdate](../../models/components/customersubscriptionupdate.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| Field                                   | Type                                    | Required                                | Description                             |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| `id`                                    | *string*                                | :heavy_check_mark:                      | Customer subscription ID.               |
+| `customerSubscriptionUpdate`            | *components.CustomerSubscriptionUpdate* | :heavy_check_mark:                      | N/A                                     |

@@ -6,10 +6,10 @@
 import { BenefitDownloadables } from "@polar-sh/sdk/models/components";
 
 let value: BenefitDownloadables = {
-  createdAt: new Date("2025-04-09T14:25:36.451Z"),
-  modifiedAt: new Date("2024-01-08T06:10:49.913Z"),
+  createdAt: new Date("2024-02-22T02:51:06.328Z"),
+  modifiedAt: new Date("2024-06-08T12:27:33.773Z"),
   id: "<value>",
-  description: "pleasing foolishly why beside commonly intently prime hm",
+  description: "indeed sour jovially forceful synergy not home",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

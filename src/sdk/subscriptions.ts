@@ -4,7 +4,10 @@
 
 import { subscriptionsExport } from "../funcs/subscriptionsExport.js";
 import { subscriptionsList } from "../funcs/subscriptionsList.js";
+import { subscriptionsRevoke } from "../funcs/subscriptionsRevoke.js";
+import { subscriptionsUpdate } from "../funcs/subscriptionsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
@@ -40,6 +43,40 @@ export class Subscriptions extends ClientSDK {
     options?: RequestOptions,
   ): Promise<any> {
     return unwrapAsync(subscriptionsExport(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Subscription
+   *
+   * @remarks
+   * Update a subscription.
+   */
+  async update(
+    request: operations.SubscriptionsUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<components.Subscription> {
+    return unwrapAsync(subscriptionsUpdate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Revoke Subscription
+   *
+   * @remarks
+   * Revoke a subscription, i.e cancel immediately.
+   */
+  async revoke(
+    request: operations.SubscriptionsRevokeRequest,
+    options?: RequestOptions,
+  ): Promise<components.Subscription> {
+    return unwrapAsync(subscriptionsRevoke(
       this,
       request,
       options,

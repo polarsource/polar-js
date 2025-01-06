@@ -7,11 +7,10 @@
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2025-01-07T04:47:03.376Z"),
-  modifiedAt: new Date("2025-06-27T00:21:02.962Z"),
+  createdAt: new Date("2023-04-22T00:10:50.995Z"),
+  modifiedAt: new Date("2024-06-13T22:00:04.745Z"),
   id: "<value>",
-  description:
-    "psst before anguished emergent upward rival inasmuch uh-huh the",
+  description: "likewise pace fall ick incidentally",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -23,10 +22,11 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2023-04-28T14:26:46.798Z"),
-  modifiedAt: new Date("2023-01-10T22:18:51.218Z"),
+  createdAt: new Date("2024-05-12T18:21:47.587Z"),
+  modifiedAt: new Date("2025-08-06T06:31:20.354Z"),
   id: "<value>",
-  description: "besides even forenenst lazily",
+  description:
+    "license cheerfully repeatedly replicate jell black till transcend before rarely",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -41,11 +41,11 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscord = {
-  createdAt: new Date("2023-12-18T12:57:11.461Z"),
-  modifiedAt: new Date("2023-03-23T05:46:16.749Z"),
+  createdAt: new Date("2023-03-08T04:13:18.822Z"),
+  modifiedAt: new Date("2024-11-04T18:43:09.812Z"),
   id: "<value>",
   description:
-    "inwardly whereas officially annex superficial fluctuate candid gigantic boohoo",
+    "moralise which whenever exasperation cap seemingly deep from supposing drowse",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -61,11 +61,10 @@ const value: components.BenefitDiscord = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2023-08-10T08:31:29.759Z"),
-  modifiedAt: new Date("2025-01-30T07:41:55.322Z"),
+  createdAt: new Date("2023-05-25T05:31:24.787Z"),
+  modifiedAt: new Date("2023-02-12T23:23:38.484Z"),
   id: "<value>",
-  description:
-    "below certification drat corral snowplow unimpressively chubby rout unhappy",
+  description: "conservation throughout shoulder",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -81,10 +80,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2023-03-16T21:31:12.259Z"),
-  modifiedAt: new Date("2024-07-02T21:47:04.955Z"),
+  createdAt: new Date("2024-08-11T13:13:07.788Z"),
+  modifiedAt: new Date("2025-12-08T19:51:14.504Z"),
   id: "<value>",
-  description: "celsius along upward than acidly",
+  description: "duh dispense aha coincide oh correctly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -103,24 +102,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2024-08-06T04:09:31.431Z"),
-  modifiedAt: new Date("2025-10-30T06:52:10.521Z"),
+  createdAt: new Date("2025-07-21T06:55:08.065Z"),
+  modifiedAt: new Date("2024-09-22T04:32:44.047Z"),
   id: "<value>",
-  description: "um mid bloom redound grounded about mature minority",
+  description: "geez leap respectful geez fathom brr up sin",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 169678,
+      ttl: 539537,
       timeframe: "year",
     },
     activations: {
-      limit: 417030,
+      limit: 463895,
       enableCustomerAdmin: false,
     },
-    limitUsage: 426819,
+    limitUsage: 683980,
   },
 };
 ```

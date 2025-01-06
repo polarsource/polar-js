@@ -12,6 +12,6 @@ const value: string = "<value>";
 ### `components.TaxIDFormat`
 
 ```typescript
-const value: components.TaxIDFormat = "mx_rfc";
+const value: components.TaxIDFormat = "nz_gst";
 ```
 

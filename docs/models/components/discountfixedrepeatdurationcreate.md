@@ -9,10 +9,10 @@ for a certain number of months.
 import { DiscountFixedRepeatDurationCreate } from "@polar-sh/sdk/models/components";
 
 let value: DiscountFixedRepeatDurationCreate = {
-  duration: "repeating",
-  durationInMonths: 621066,
-  type: "fixed",
-  amount: 856289,
+  duration: "forever",
+  durationInMonths: 296892,
+  type: "percentage",
+  amount: 753129,
   name: "<value>",
 };
 ```

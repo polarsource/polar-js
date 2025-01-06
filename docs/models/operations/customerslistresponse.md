@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-09-25T21:09:30.950Z"),
-        modifiedAt: new Date("2025-10-30T14:04:55.140Z"),
+        createdAt: new Date("2023-04-26T22:31:28.319Z"),
+        modifiedAt: new Date("2023-03-22T14:18:41.379Z"),
         id: "<value>",
         metadata: {
-          "key": 291293,
+          "key": "<value>",
         },
-        email: "Shane_Schmitt81@gmail.com",
+        email: "Jovany4@gmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Ghana",
+          country: "Mauritius",
         },
         taxId: [
-          "pe_ruc",
+          "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://smoggy-basket.net",
+        avatarUrl: "https://formal-department.org",
       },
     ],
     pagination: {
-      totalCount: 85912,
-      maxPage: 822406,
+      totalCount: 748730,
+      maxPage: 493295,
     },
   },
 };

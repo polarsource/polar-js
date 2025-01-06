@@ -6,8 +6,8 @@
 import { BenefitGrant } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrant = {
-  createdAt: new Date("2025-08-12T07:47:19.008Z"),
-  modifiedAt: new Date("2023-08-27T23:28:28.119Z"),
+  createdAt: new Date("2023-08-13T02:52:46.079Z"),
+  modifiedAt: new Date("2023-08-30T12:58:44.895Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,27 +17,25 @@ let value: BenefitGrant = {
   userId: "<value>",
   benefitId: "<value>",
   customer: {
-    createdAt: new Date("2025-11-25T18:02:23.702Z"),
-    modifiedAt: new Date("2023-03-29T08:13:52.389Z"),
+    createdAt: new Date("2024-08-30T05:09:59.751Z"),
+    modifiedAt: new Date("2024-01-19T07:23:01.540Z"),
     id: "<value>",
     metadata: {
-      "key": false,
+      "key": 37098,
     },
-    email: "Beverly43@gmail.com",
+    email: "Omari_Feest2@gmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "New Caledonia",
+      country: "Heard Island and McDonald Islands",
     },
     taxId: [
       "<id>",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://flimsy-pulse.biz",
+    avatarUrl: "https://powerless-strait.net/",
   },
-  properties: {
-    advertisementCampaignId: "<id>",
-  },
+  properties: {},
 };
 ```
 

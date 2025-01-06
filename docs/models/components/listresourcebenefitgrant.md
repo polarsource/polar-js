@@ -8,8 +8,8 @@ import { ListResourceBenefitGrant } from "@polar-sh/sdk/models/components";
 let value: ListResourceBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2024-10-09T22:41:15.933Z"),
-      modifiedAt: new Date("2023-10-30T11:14:17.437Z"),
+      createdAt: new Date("2025-09-30T14:09:22.071Z"),
+      modifiedAt: new Date("2025-01-25T02:10:29.931Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
@@ -19,30 +19,32 @@ let value: ListResourceBenefitGrant = {
       userId: "<value>",
       benefitId: "<value>",
       customer: {
-        createdAt: new Date("2023-01-25T13:17:01.010Z"),
-        modifiedAt: new Date("2025-01-21T08:21:59.543Z"),
+        createdAt: new Date("2025-01-22T04:47:20.654Z"),
+        modifiedAt: new Date("2025-01-28T02:45:28.314Z"),
         id: "<value>",
         metadata: {
-          "key": 724231,
+          "key": "<value>",
         },
-        email: "Justina_Considine22@gmail.com",
+        email: "Terrell19@hotmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Burkina Faso",
+          country: "Nepal",
         },
         taxId: [
           "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://overcooked-seafood.biz",
+        avatarUrl: "https://ecstatic-plastic.info",
       },
-      properties: {},
+      properties: {
+        advertisementCampaignId: "<id>",
+      },
     },
   ],
   pagination: {
-    totalCount: 898908,
-    maxPage: 533956,
+    totalCount: 97759,
+    maxPage: 952546,
   },
 };
 ```

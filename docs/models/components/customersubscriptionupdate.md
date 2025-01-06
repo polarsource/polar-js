@@ -1,17 +1,19 @@
 # CustomerSubscriptionUpdate
 
-## Example Usage
+
+## Supported Types
+
+### `components.CustomerSubscriptionUpdatePrice`
 
 ```typescript
-import { CustomerSubscriptionUpdate } from "@polar-sh/sdk/models/components";
-
-let value: CustomerSubscriptionUpdate = {
+const value: components.CustomerSubscriptionUpdatePrice = {
   productPriceId: "<value>",
 };
 ```
 
-## Fields
+### `components.CustomerSubscriptionCancel`
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `productPriceId`   | *string*           | :heavy_check_mark: | N/A                |
+```typescript
+const value: components.CustomerSubscriptionCancel = {};
+```
+
