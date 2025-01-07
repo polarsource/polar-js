@@ -10,6 +10,11 @@ import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
+ * Filter by product ID.
+ */
+export type QueryParamProductIDFilter = string | Array<string>;
+
+/**
  * Filter by organization ID.
  */
 export type ProductsListQueryParamOrganizationIDFilter = string | Array<string>;
@@ -20,6 +25,10 @@ export type ProductsListQueryParamOrganizationIDFilter = string | Array<string>;
 export type BenefitIDFilter = string | Array<string>;
 
 export type ProductsListRequest = {
+  /**
+   * Filter by product ID.
+   */
+  id?: string | Array<string> | null | undefined;
   /**
    * Filter by organization ID.
    */
@@ -57,6 +66,54 @@ export type ProductsListRequest = {
 export type ProductsListResponse = {
   result: components.ListResourceProduct;
 };
+
+/** @internal */
+export const QueryParamProductIDFilter$inboundSchema: z.ZodType<
+  QueryParamProductIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type QueryParamProductIDFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const QueryParamProductIDFilter$outboundSchema: z.ZodType<
+  QueryParamProductIDFilter$Outbound,
+  z.ZodTypeDef,
+  QueryParamProductIDFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QueryParamProductIDFilter$ {
+  /** @deprecated use `QueryParamProductIDFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamProductIDFilter$inboundSchema;
+  /** @deprecated use `QueryParamProductIDFilter$outboundSchema` instead. */
+  export const outboundSchema = QueryParamProductIDFilter$outboundSchema;
+  /** @deprecated use `QueryParamProductIDFilter$Outbound` instead. */
+  export type Outbound = QueryParamProductIDFilter$Outbound;
+}
+
+export function queryParamProductIDFilterToJSON(
+  queryParamProductIDFilter: QueryParamProductIDFilter,
+): string {
+  return JSON.stringify(
+    QueryParamProductIDFilter$outboundSchema.parse(queryParamProductIDFilter),
+  );
+}
+
+export function queryParamProductIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryParamProductIDFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryParamProductIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamProductIDFilter' from JSON`,
+  );
+}
 
 /** @internal */
 export const ProductsListQueryParamOrganizationIDFilter$inboundSchema:
@@ -170,6 +227,7 @@ export const ProductsListRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   query: z.nullable(z.string()).optional(),
@@ -191,6 +249,7 @@ export const ProductsListRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ProductsListRequest$Outbound = {
+  id?: string | Array<string> | null | undefined;
   organization_id?: string | Array<string> | null | undefined;
   query?: string | null | undefined;
   is_archived?: boolean | null | undefined;
@@ -207,6 +266,7 @@ export const ProductsListRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductsListRequest
 > = z.object({
+  id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   query: z.nullable(z.string()).optional(),
