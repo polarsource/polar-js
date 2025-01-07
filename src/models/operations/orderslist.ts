@@ -17,7 +17,7 @@ export type OrdersListQueryParamOrganizationIDFilter = string | Array<string>;
 /**
  * Filter by product ID.
  */
-export type QueryParamProductIDFilter = string | Array<string>;
+export type OrdersListQueryParamProductIDFilter = string | Array<string>;
 
 /**
  * Filter by product price type. `recurring` will return orders corresponding to subscriptions creations or renewals. `one_time` will return orders corresponding to one-time purchases.
@@ -141,50 +141,57 @@ export function ordersListQueryParamOrganizationIDFilterFromJSON(
 }
 
 /** @internal */
-export const QueryParamProductIDFilter$inboundSchema: z.ZodType<
-  QueryParamProductIDFilter,
+export const OrdersListQueryParamProductIDFilter$inboundSchema: z.ZodType<
+  OrdersListQueryParamProductIDFilter,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
-export type QueryParamProductIDFilter$Outbound = string | Array<string>;
+export type OrdersListQueryParamProductIDFilter$Outbound =
+  | string
+  | Array<string>;
 
 /** @internal */
-export const QueryParamProductIDFilter$outboundSchema: z.ZodType<
-  QueryParamProductIDFilter$Outbound,
+export const OrdersListQueryParamProductIDFilter$outboundSchema: z.ZodType<
+  OrdersListQueryParamProductIDFilter$Outbound,
   z.ZodTypeDef,
-  QueryParamProductIDFilter
+  OrdersListQueryParamProductIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryParamProductIDFilter$ {
-  /** @deprecated use `QueryParamProductIDFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamProductIDFilter$inboundSchema;
-  /** @deprecated use `QueryParamProductIDFilter$outboundSchema` instead. */
-  export const outboundSchema = QueryParamProductIDFilter$outboundSchema;
-  /** @deprecated use `QueryParamProductIDFilter$Outbound` instead. */
-  export type Outbound = QueryParamProductIDFilter$Outbound;
+export namespace OrdersListQueryParamProductIDFilter$ {
+  /** @deprecated use `OrdersListQueryParamProductIDFilter$inboundSchema` instead. */
+  export const inboundSchema =
+    OrdersListQueryParamProductIDFilter$inboundSchema;
+  /** @deprecated use `OrdersListQueryParamProductIDFilter$outboundSchema` instead. */
+  export const outboundSchema =
+    OrdersListQueryParamProductIDFilter$outboundSchema;
+  /** @deprecated use `OrdersListQueryParamProductIDFilter$Outbound` instead. */
+  export type Outbound = OrdersListQueryParamProductIDFilter$Outbound;
 }
 
-export function queryParamProductIDFilterToJSON(
-  queryParamProductIDFilter: QueryParamProductIDFilter,
+export function ordersListQueryParamProductIDFilterToJSON(
+  ordersListQueryParamProductIDFilter: OrdersListQueryParamProductIDFilter,
 ): string {
   return JSON.stringify(
-    QueryParamProductIDFilter$outboundSchema.parse(queryParamProductIDFilter),
+    OrdersListQueryParamProductIDFilter$outboundSchema.parse(
+      ordersListQueryParamProductIDFilter,
+    ),
   );
 }
 
-export function queryParamProductIDFilterFromJSON(
+export function ordersListQueryParamProductIDFilterFromJSON(
   jsonString: string,
-): SafeParseResult<QueryParamProductIDFilter, SDKValidationError> {
+): SafeParseResult<OrdersListQueryParamProductIDFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => QueryParamProductIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamProductIDFilter' from JSON`,
+    (x) =>
+      OrdersListQueryParamProductIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrdersListQueryParamProductIDFilter' from JSON`,
   );
 }
 

@@ -70,6 +70,7 @@ export async function productsList(
 
   const query = encodeFormQuery({
     "benefit_id": payload.benefit_id,
+    "id": payload.id,
     "is_archived": payload.is_archived,
     "is_recurring": payload.is_recurring,
     "limit": payload.limit,
