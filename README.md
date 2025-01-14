@@ -17,7 +17,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage [
 
 Polar API: Polar HTTP and Webhooks API
 
-Read the docs at https://docs.polar.sh/api
+Read the docs at https://docs.polar.sh/api-reference
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
