@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-09-27T18:33:14.332Z"),
-        modifiedAt: new Date("2023-02-03T22:19:42.582Z"),
+        createdAt: new Date("2023-11-07T04:20:42.318Z"),
+        modifiedAt: new Date("2024-01-05T00:44:03.803Z"),
         id: "<value>",
-        imageUrl: "https://celebrated-haircut.info/",
-        imageUrlDark: "https://sorrowful-follower.info/",
+        imageUrl: "https://self-assured-mentor.com/",
+        imageUrlDark: "https://gaseous-release.info",
         text: "<value>",
-        linkUrl: "https://foolish-help.info/",
+        linkUrl: "https://dense-marimba.biz/",
       },
     ],
     pagination: {
-      totalCount: 515170,
-      maxPage: 708899,
+      totalCount: 382070,
+      maxPage: 785567,
     },
     dimensions: [
-      111771,
+      555985,
     ],
   },
 };

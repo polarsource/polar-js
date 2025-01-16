@@ -10,19 +10,19 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2023-04-12T22:50:54.198Z"),
-    modifiedAt: new Date("2023-06-20T08:26:29.394Z"),
+    createdAt: new Date("2025-08-19T11:27:16.475Z"),
+    modifiedAt: new Date("2025-01-24T02:09:42.913Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://damp-alligator.net/",
-    logoUri: "https://alienated-fencing.name",
-    tosUri: "https://decent-bathhouse.com/",
-    policyUri: "https://precious-doubter.biz",
+    clientUri: "https://buzzing-papa.name/",
+    logoUri: "https://nifty-willow.org",
+    tosUri: "https://squiggly-rubric.org/",
+    policyUri: "https://vast-giant.net/",
   },
   sub: {
     id: "<value>",
-    email: "Javon.Pagac@yahoo.com",
-    avatarUrl: "https://querulous-fencing.name",
+    email: "Frank_Pfannerstill39@yahoo.com",
+    avatarUrl: "https://impolite-hamburger.name/",
   },
   scopes: [
     "admin",
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2025-07-17T08:39:28.965Z"),
-    modifiedAt: new Date("2025-11-09T20:22:05.742Z"),
+    createdAt: new Date("2023-05-04T10:00:03.073Z"),
+    modifiedAt: new Date("2023-07-10T04:52:57.046Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://assured-sticker.org",
-    logoUri: "https://self-reliant-availability.net/",
-    tosUri: "https://wide-eyed-hovel.info",
-    policyUri: "https://menacing-singing.org/",
+    clientUri: "https://defensive-accompanist.biz/",
+    logoUri: "https://yellow-handover.org",
+    tosUri: "https://warped-affect.com/",
+    policyUri: "https://twin-mentor.com/",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://realistic-operating.name/",
+    avatarUrl: "https://damp-ghost.com",
   },
   scopes: [
-    "webhooks:read",
+    "issues:write",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://celebrated-programme.net",
+      avatarUrl: "https://unaware-colonialism.biz/",
     },
   ],
 };

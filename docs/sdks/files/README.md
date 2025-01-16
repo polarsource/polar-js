@@ -207,11 +207,7 @@ async function run() {
       id: "<id>",
       path: "/sys",
       parts: [
-        {
-          number: 606865,
-          checksumEtag: "<value>",
-          checksumSha256Base64: "<value>",
-        },
+
       ],
     },
   });
@@ -244,11 +240,7 @@ async function run() {
       id: "<id>",
       path: "/sys",
       parts: [
-        {
-          number: 173116,
-          checksumEtag: "<value>",
-          checksumSha256Base64: "<value>",
-        },
+  
       ],
     },
   });

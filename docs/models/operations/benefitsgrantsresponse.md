@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-02-20T19:17:02.763Z"),
-        modifiedAt: new Date("2024-10-22T04:57:04.113Z"),
+        createdAt: new Date("2024-02-24T16:19:54.015Z"),
+        modifiedAt: new Date("2023-08-13T04:05:41.912Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -20,30 +20,30 @@ let value: BenefitsGrantsResponse = {
         userId: "<value>",
         benefitId: "<value>",
         customer: {
-          createdAt: new Date("2024-02-03T21:16:09.204Z"),
-          modifiedAt: new Date("2023-09-07T18:14:29.053Z"),
+          createdAt: new Date("2023-08-15T19:08:33.127Z"),
+          modifiedAt: new Date("2024-05-17T14:12:14.525Z"),
           id: "<value>",
           metadata: {
-            "key": false,
+            "key": "<value>",
           },
-          email: "Grayce.Goyette@hotmail.com",
+          email: "Joaquin_Jacobson@gmail.com",
           emailVerified: false,
           name: "<value>",
           billingAddress: {
-            country: "Bosnia and Herzegovina",
+            country: "Ecuador",
           },
           taxId: [
-            "<id>",
+            "ca_bn",
           ],
           organizationId: "<value>",
-          avatarUrl: "https://darling-complication.com/",
+          avatarUrl: "https://slow-cinder.com",
         },
         properties: {},
       },
     ],
     pagination: {
-      totalCount: 565691,
-      maxPage: 992192,
+      totalCount: 956054,
+      maxPage: 251343,
     },
   },
 };

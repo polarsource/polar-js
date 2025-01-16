@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-04-26T22:31:28.319Z"),
-        modifiedAt: new Date("2023-03-22T14:18:41.379Z"),
+        createdAt: new Date("2023-08-14T16:24:33.635Z"),
+        modifiedAt: new Date("2023-09-11T15:13:22.763Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": 74838,
         },
-        email: "Jovany4@gmail.com",
+        email: "Hailey_Kling91@hotmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Mauritius",
+          country: "Mali",
         },
         taxId: [
           "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://formal-department.org",
+        avatarUrl: "https://monstrous-ruin.net/",
       },
     ],
     pagination: {
-      totalCount: 748730,
-      maxPage: 493295,
+      totalCount: 733953,
+      maxPage: 203411,
     },
   },
 };

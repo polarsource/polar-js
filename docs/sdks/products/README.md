@@ -27,7 +27,7 @@ const polar = new Polar({
 async function run() {
   const result = await polar.products.list({
     organizationId: [
-      "<value>",
+
     ],
   });
 
@@ -57,7 +57,7 @@ const polar = new PolarCore({
 async function run() {
   const res = await productsList(polar, {
     organizationId: [
-      "<value>",
+  
     ],
   });
 
@@ -361,7 +361,7 @@ async function run() {
     id: "<value>",
     productBenefitsUpdate: {
       benefits: [
-        "<value>",
+
       ],
     },
   });
@@ -392,7 +392,7 @@ async function run() {
     id: "<value>",
     productBenefitsUpdate: {
       benefits: [
-        "<value>",
+  
       ],
     },
   });

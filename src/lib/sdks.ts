@@ -135,7 +135,10 @@ export class ClientSDK {
 
     const secQuery: string[] = [];
     for (const [k, v] of Object.entries(security?.queryParams || {})) {
-      secQuery.push(encodeForm(k, v, { charEncoding: "percent" }));
+      const q = encodeForm(k, v, { charEncoding: "percent" });
+      if (typeof q !== "undefined") {
+        secQuery.push(q);
+      }
     }
     if (secQuery.length) {
       finalQuery += `&${secQuery.join("&")}`;

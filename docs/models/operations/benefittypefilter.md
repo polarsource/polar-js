@@ -8,7 +8,7 @@ Filter by benefit type.
 ### `components.BenefitType`
 
 ```typescript
-const value: components.BenefitType = "downloadables";
+const value: components.BenefitType = "github_repository";
 ```
 
 ### `components.BenefitType[]`
