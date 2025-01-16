@@ -8,11 +8,11 @@ import { ListResourceCustomerBenefitGrant } from "@polar-sh/sdk/models/component
 let value: ListResourceCustomerBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2023-05-16T08:17:04.872Z"),
-      modifiedAt: new Date("2025-07-24T03:18:16.802Z"),
+      createdAt: new Date("2023-10-12T17:10:03.363Z"),
+      modifiedAt: new Date("2024-03-18T18:54:22.824Z"),
       id: "<value>",
-      grantedAt: new Date("2023-10-12T17:10:03.363Z"),
-      revokedAt: new Date("2024-03-18T18:54:22.824Z"),
+      grantedAt: new Date("2023-02-21T23:25:35.025Z"),
+      revokedAt: new Date("2023-06-13T11:03:06.616Z"),
       customerId: "<value>",
       benefitId: "<value>",
       subscriptionId: "<value>",
@@ -20,17 +20,17 @@ let value: ListResourceCustomerBenefitGrant = {
       isGranted: false,
       isRevoked: false,
       customer: {
-        createdAt: new Date("2023-02-21T23:25:35.025Z"),
-        modifiedAt: new Date("2023-06-13T11:03:06.616Z"),
+        createdAt: new Date("2023-01-02T23:04:43.120Z"),
+        modifiedAt: new Date("2024-01-30T14:22:07.592Z"),
         id: "<value>",
-        email: "Floyd17@gmail.com",
+        email: "Kira_Daniel@hotmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Saint Barthelemy",
+          country: "Bosnia and Herzegovina",
         },
         taxId: [
-          "<id>",
+          "jp_cn",
         ],
         oauthAccounts: {
           "key": {
@@ -40,45 +40,42 @@ let value: ListResourceCustomerBenefitGrant = {
         },
       },
       benefit: {
-        createdAt: new Date("2023-05-06T06:29:10.335Z"),
-        modifiedAt: new Date("2025-03-24T10:54:04.717Z"),
+        createdAt: new Date("2024-05-29T19:48:45.859Z"),
+        modifiedAt: new Date("2025-07-06T11:20:32.944Z"),
         id: "<value>",
-        description:
-          "electrify vice massage academics victorious while courageously",
+        description: "ack into phew where indeed strong",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         organization: {
-          createdAt: new Date("2025-08-28T21:07:54.290Z"),
-          modifiedAt: new Date("2023-01-16T15:16:57.052Z"),
+          createdAt: new Date("2025-03-01T08:59:39.201Z"),
+          modifiedAt: new Date("2025-01-17T14:16:00.694Z"),
           id: "<value>",
           name: "<value>",
           slug: "<value>",
-          avatarUrl: "https://straight-publication.com",
+          avatarUrl: "https://confused-swordfish.com/",
           bio: "<value>",
-          company: "Casper Inc",
+          company: "Schneider, Raynor and Considine",
           blog: "<value>",
           location: "<value>",
-          email: "Gabrielle17@yahoo.com",
+          email: "Braden51@yahoo.com",
           twitterUsername: "<value>",
-          pledgeMinimumAmount: 483254,
+          pledgeMinimumAmount: 310389,
           pledgeBadgeShowAmount: false,
-          defaultUpfrontSplitToContributors: 496357,
+          defaultUpfrontSplitToContributors: 175010,
           profileSettings: {},
           featureSettings: {},
         },
         properties: {
-          activeFiles: [
-            "<value>",
-          ],
+          note: "<value>",
         },
       },
       properties: {},
     },
   ],
   pagination: {
-    totalCount: 953563,
-    maxPage: 267807,
+    totalCount: 907566,
+    maxPage: 483254,
   },
 };
 ```

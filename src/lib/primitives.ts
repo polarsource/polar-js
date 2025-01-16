@@ -120,3 +120,17 @@ export function abortSignalAny(signals: AbortSignal[]): AbortSignal {
 
   return result;
 }
+
+export function compactMap<T>(
+  values: Record<string, T | undefined>,
+): Record<string, T> {
+  const out: Record<string, T> = {};
+
+  for (const [k, v] of Object.entries(values)) {
+    if (typeof v !== "undefined") {
+      out[k] = v;
+    }
+  }
+
+  return out;
+}

@@ -5,6 +5,7 @@
 import { PolarCore } from "../core.js";
 import { encodeBodyForm } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
@@ -63,10 +64,10 @@ export async function oauth2Revoke(
 
   const path = pathToFunc("/v1/oauth2/revoke")();
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     "Content-Type": "application/x-www-form-urlencoded",
     Accept: "application/json",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.accessToken);
   const securityInput = secConfig == null ? {} : { accessToken: secConfig };
@@ -121,7 +122,8 @@ export async function oauth2Revoke(
     | ConnectionError
   >(
     M.json(200, components.RevokeTokenResponse$inboundSchema),
-    M.fail(["4XX", "5XX"]),
+    M.fail("4XX"),
+    M.fail("5XX"),
   )(response);
   if (!result.ok) {
     return result;

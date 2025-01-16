@@ -22,6 +22,10 @@ export type CustomersListRequest = {
    */
   organizationId?: string | Array<string> | null | undefined;
   /**
+   * Filter by exact email.
+   */
+  email?: string | null | undefined;
+  /**
    * Filter by name or email.
    */
   query?: string | null | undefined;
@@ -37,6 +41,10 @@ export type CustomersListRequest = {
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
   sorting?: Array<components.CustomerSortProperty> | null | undefined;
+  /**
+   * Filter by metadata key-value pairs. It uses the `deepObject` style, e.g. `?metadata[key]=value`.
+   */
+  metadata?: { [k: string]: components.MetadataQuery } | null | undefined;
 };
 
 export type CustomersListResponse = {
@@ -114,11 +122,15 @@ export const CustomersListRequest$inboundSchema: z.ZodType<
 > = z.object({
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  email: z.nullable(z.string()).optional(),
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(components.CustomerSortProperty$inboundSchema))
     .optional(),
+  metadata: z.nullable(
+    z.record(z.lazy(() => components.MetadataQuery$inboundSchema)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -128,10 +140,15 @@ export const CustomersListRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type CustomersListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
+  email?: string | null | undefined;
   query?: string | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
+  metadata?:
+    | { [k: string]: components.MetadataQuery$Outbound }
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -142,11 +159,15 @@ export const CustomersListRequest$outboundSchema: z.ZodType<
 > = z.object({
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  email: z.nullable(z.string()).optional(),
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(components.CustomerSortProperty$outboundSchema))
     .optional(),
+  metadata: z.nullable(
+    z.record(z.lazy(() => components.MetadataQuery$outboundSchema)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
