@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: a763dedc54f07ecb9fdc984eedcc8bad
+  docChecksum: 6a2cce224bbe05f5d22c6c1b4716e9d3
   docVersion: 0.1.0
-  speakeasyVersion: 1.468.8
-  generationVersion: 2.493.19
-  releaseVersion: 0.21.1
-  configChecksum: faa1cae82dd3d2b92e26a26531ef3633
+  speakeasyVersion: 1.469.0
+  generationVersion: 2.493.21
+  releaseVersion: 0.21.2
+  configChecksum: 0819d3b90a2e563f816e930a7fe6be58
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.18.15
+    core: 3.18.16
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.0
@@ -152,10 +152,8 @@ generatedFiles:
   - docs/models/components/checkoutpublicconfirmed.md
   - docs/models/components/checkoutpublicconfirmedcustomfielddata.md
   - docs/models/components/checkoutpublicconfirmeddiscount.md
-  - docs/models/components/checkoutpublicconfirmedpaymentprocessormetadata.md
   - docs/models/components/checkoutpubliccustomfielddata.md
   - docs/models/components/checkoutpublicdiscount.md
-  - docs/models/components/checkoutpublicpaymentprocessormetadata.md
   - docs/models/components/checkoutsortproperty.md
   - docs/models/components/checkoutstatus.md
   - docs/models/components/checkoutupdate.md
@@ -384,7 +382,6 @@ generatedFiles:
   - docs/models/components/organizationupdate.md
   - docs/models/components/pagination.md
   - docs/models/components/paymentprocessor.md
-  - docs/models/components/paymentprocessormetadata.md
   - docs/models/components/permission.md
   - docs/models/components/platforms.md
   - docs/models/components/pledge.md

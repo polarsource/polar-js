@@ -40,7 +40,9 @@ let value: ListResourceCheckout = {
         country: "Ethiopia",
       },
       customerTaxId: "<id>",
-      paymentProcessorMetadata: {},
+      paymentProcessorMetadata: {
+        "key": "<value>",
+      },
       metadata: {
         "key": 813932,
       },

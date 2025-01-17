@@ -72,8 +72,6 @@ import {
  */
 export type CheckoutPublicConfirmedCustomFieldData = {};
 
-export type CheckoutPublicConfirmedPaymentProcessorMetadata = {};
-
 export type CheckoutPublicConfirmedDiscount =
   | CheckoutDiscountPercentageOnceForeverDuration
   | CheckoutDiscountFixedOnceForeverDuration
@@ -186,7 +184,7 @@ export type CheckoutPublicConfirmed = {
   customerIpAddress: string | null;
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
-  paymentProcessorMetadata: CheckoutPublicConfirmedPaymentProcessorMetadata;
+  paymentProcessorMetadata: { [k: string]: string };
   /**
    * Product data for a checkout session.
    */
@@ -254,68 +252,6 @@ export function checkoutPublicConfirmedCustomFieldDataFromJSON(
     (x) =>
       CheckoutPublicConfirmedCustomFieldData$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'CheckoutPublicConfirmedCustomFieldData' from JSON`,
-  );
-}
-
-/** @internal */
-export const CheckoutPublicConfirmedPaymentProcessorMetadata$inboundSchema:
-  z.ZodType<
-    CheckoutPublicConfirmedPaymentProcessorMetadata,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({});
-
-/** @internal */
-export type CheckoutPublicConfirmedPaymentProcessorMetadata$Outbound = {};
-
-/** @internal */
-export const CheckoutPublicConfirmedPaymentProcessorMetadata$outboundSchema:
-  z.ZodType<
-    CheckoutPublicConfirmedPaymentProcessorMetadata$Outbound,
-    z.ZodTypeDef,
-    CheckoutPublicConfirmedPaymentProcessorMetadata
-  > = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutPublicConfirmedPaymentProcessorMetadata$ {
-  /** @deprecated use `CheckoutPublicConfirmedPaymentProcessorMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    CheckoutPublicConfirmedPaymentProcessorMetadata$inboundSchema;
-  /** @deprecated use `CheckoutPublicConfirmedPaymentProcessorMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutPublicConfirmedPaymentProcessorMetadata$outboundSchema;
-  /** @deprecated use `CheckoutPublicConfirmedPaymentProcessorMetadata$Outbound` instead. */
-  export type Outbound =
-    CheckoutPublicConfirmedPaymentProcessorMetadata$Outbound;
-}
-
-export function checkoutPublicConfirmedPaymentProcessorMetadataToJSON(
-  checkoutPublicConfirmedPaymentProcessorMetadata:
-    CheckoutPublicConfirmedPaymentProcessorMetadata,
-): string {
-  return JSON.stringify(
-    CheckoutPublicConfirmedPaymentProcessorMetadata$outboundSchema.parse(
-      checkoutPublicConfirmedPaymentProcessorMetadata,
-    ),
-  );
-}
-
-export function checkoutPublicConfirmedPaymentProcessorMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CheckoutPublicConfirmedPaymentProcessorMetadata,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CheckoutPublicConfirmedPaymentProcessorMetadata$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CheckoutPublicConfirmedPaymentProcessorMetadata' from JSON`,
   );
 }
 
@@ -424,9 +360,7 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
   customer_ip_address: z.nullable(z.string()),
   customer_billing_address: z.nullable(Address$inboundSchema),
   customer_tax_id: z.nullable(z.string()),
-  payment_processor_metadata: z.lazy(() =>
-    CheckoutPublicConfirmedPaymentProcessorMetadata$inboundSchema
-  ),
+  payment_processor_metadata: z.record(z.string()),
   product: CheckoutProduct$inboundSchema,
   product_price: ProductPrice$inboundSchema,
   discount: z.nullable(
@@ -510,8 +444,7 @@ export type CheckoutPublicConfirmed$Outbound = {
   customer_ip_address: string | null;
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
-  payment_processor_metadata:
-    CheckoutPublicConfirmedPaymentProcessorMetadata$Outbound;
+  payment_processor_metadata: { [k: string]: string };
   product: CheckoutProduct$Outbound;
   product_price: ProductPrice$Outbound;
   discount:
@@ -564,9 +497,7 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
   customerIpAddress: z.nullable(z.string()),
   customerBillingAddress: z.nullable(Address$outboundSchema),
   customerTaxId: z.nullable(z.string()),
-  paymentProcessorMetadata: z.lazy(() =>
-    CheckoutPublicConfirmedPaymentProcessorMetadata$outboundSchema
-  ),
+  paymentProcessorMetadata: z.record(z.string()),
   product: CheckoutProduct$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
   discount: z.nullable(

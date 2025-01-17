@@ -71,8 +71,6 @@ import {
  */
 export type CheckoutCustomFieldData = {};
 
-export type PaymentProcessorMetadata = {};
-
 export type CheckoutMetadata = string | number | boolean;
 
 export type CheckoutDiscount =
@@ -184,7 +182,7 @@ export type Checkout = {
   customerIpAddress: string | null;
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
-  paymentProcessorMetadata: PaymentProcessorMetadata;
+  paymentProcessorMetadata: { [k: string]: string };
   metadata: { [k: string]: string | number | boolean };
   /**
    * Product data for a checkout session.
@@ -247,54 +245,6 @@ export function checkoutCustomFieldDataFromJSON(
     jsonString,
     (x) => CheckoutCustomFieldData$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'CheckoutCustomFieldData' from JSON`,
-  );
-}
-
-/** @internal */
-export const PaymentProcessorMetadata$inboundSchema: z.ZodType<
-  PaymentProcessorMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type PaymentProcessorMetadata$Outbound = {};
-
-/** @internal */
-export const PaymentProcessorMetadata$outboundSchema: z.ZodType<
-  PaymentProcessorMetadata$Outbound,
-  z.ZodTypeDef,
-  PaymentProcessorMetadata
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentProcessorMetadata$ {
-  /** @deprecated use `PaymentProcessorMetadata$inboundSchema` instead. */
-  export const inboundSchema = PaymentProcessorMetadata$inboundSchema;
-  /** @deprecated use `PaymentProcessorMetadata$outboundSchema` instead. */
-  export const outboundSchema = PaymentProcessorMetadata$outboundSchema;
-  /** @deprecated use `PaymentProcessorMetadata$Outbound` instead. */
-  export type Outbound = PaymentProcessorMetadata$Outbound;
-}
-
-export function paymentProcessorMetadataToJSON(
-  paymentProcessorMetadata: PaymentProcessorMetadata,
-): string {
-  return JSON.stringify(
-    PaymentProcessorMetadata$outboundSchema.parse(paymentProcessorMetadata),
-  );
-}
-
-export function paymentProcessorMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<PaymentProcessorMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => PaymentProcessorMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'PaymentProcessorMetadata' from JSON`,
   );
 }
 
@@ -496,9 +446,7 @@ export const Checkout$inboundSchema: z.ZodType<
   customer_ip_address: z.nullable(z.string()),
   customer_billing_address: z.nullable(Address$inboundSchema),
   customer_tax_id: z.nullable(z.string()),
-  payment_processor_metadata: z.lazy(() =>
-    PaymentProcessorMetadata$inboundSchema
-  ),
+  payment_processor_metadata: z.record(z.string()),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   product: CheckoutProduct$inboundSchema,
   product_price: ProductPrice$inboundSchema,
@@ -584,7 +532,7 @@ export type Checkout$Outbound = {
   customer_ip_address: string | null;
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
-  payment_processor_metadata: PaymentProcessorMetadata$Outbound;
+  payment_processor_metadata: { [k: string]: string };
   metadata: { [k: string]: string | number | boolean };
   product: CheckoutProduct$Outbound;
   product_price: ProductPrice$Outbound;
@@ -637,9 +585,7 @@ export const Checkout$outboundSchema: z.ZodType<
   customerIpAddress: z.nullable(z.string()),
   customerBillingAddress: z.nullable(Address$outboundSchema),
   customerTaxId: z.nullable(z.string()),
-  paymentProcessorMetadata: z.lazy(() =>
-    PaymentProcessorMetadata$outboundSchema
-  ),
+  paymentProcessorMetadata: z.record(z.string()),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   product: CheckoutProduct$outboundSchema,
   productPrice: ProductPrice$outboundSchema,

@@ -43,7 +43,9 @@ let value: WebhookCheckoutCreatedPayload = {
       country: "United States of America",
     },
     customerTaxId: "<id>",
-    paymentProcessorMetadata: {},
+    paymentProcessorMetadata: {
+      "key": "<value>",
+    },
     metadata: {
       "key": 414662,
     },

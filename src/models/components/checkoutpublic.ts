@@ -77,8 +77,6 @@ import {
  */
 export type CheckoutPublicCustomFieldData = {};
 
-export type CheckoutPublicPaymentProcessorMetadata = {};
-
 export type CheckoutPublicDiscount =
   | CheckoutDiscountPercentageOnceForeverDuration
   | CheckoutDiscountFixedOnceForeverDuration
@@ -186,7 +184,7 @@ export type CheckoutPublic = {
   customerIpAddress: string | null;
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
-  paymentProcessorMetadata: CheckoutPublicPaymentProcessorMetadata;
+  paymentProcessorMetadata: { [k: string]: string };
   /**
    * Product data for a checkout session.
    */
@@ -249,60 +247,6 @@ export function checkoutPublicCustomFieldDataFromJSON(
     jsonString,
     (x) => CheckoutPublicCustomFieldData$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'CheckoutPublicCustomFieldData' from JSON`,
-  );
-}
-
-/** @internal */
-export const CheckoutPublicPaymentProcessorMetadata$inboundSchema: z.ZodType<
-  CheckoutPublicPaymentProcessorMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type CheckoutPublicPaymentProcessorMetadata$Outbound = {};
-
-/** @internal */
-export const CheckoutPublicPaymentProcessorMetadata$outboundSchema: z.ZodType<
-  CheckoutPublicPaymentProcessorMetadata$Outbound,
-  z.ZodTypeDef,
-  CheckoutPublicPaymentProcessorMetadata
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutPublicPaymentProcessorMetadata$ {
-  /** @deprecated use `CheckoutPublicPaymentProcessorMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    CheckoutPublicPaymentProcessorMetadata$inboundSchema;
-  /** @deprecated use `CheckoutPublicPaymentProcessorMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutPublicPaymentProcessorMetadata$outboundSchema;
-  /** @deprecated use `CheckoutPublicPaymentProcessorMetadata$Outbound` instead. */
-  export type Outbound = CheckoutPublicPaymentProcessorMetadata$Outbound;
-}
-
-export function checkoutPublicPaymentProcessorMetadataToJSON(
-  checkoutPublicPaymentProcessorMetadata:
-    CheckoutPublicPaymentProcessorMetadata,
-): string {
-  return JSON.stringify(
-    CheckoutPublicPaymentProcessorMetadata$outboundSchema.parse(
-      checkoutPublicPaymentProcessorMetadata,
-    ),
-  );
-}
-
-export function checkoutPublicPaymentProcessorMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutPublicPaymentProcessorMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CheckoutPublicPaymentProcessorMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutPublicPaymentProcessorMetadata' from JSON`,
   );
 }
 
@@ -408,9 +352,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   customer_ip_address: z.nullable(z.string()),
   customer_billing_address: z.nullable(Address$inboundSchema),
   customer_tax_id: z.nullable(z.string()),
-  payment_processor_metadata: z.lazy(() =>
-    CheckoutPublicPaymentProcessorMetadata$inboundSchema
-  ),
+  payment_processor_metadata: z.record(z.string()),
   product: CheckoutProduct$inboundSchema,
   product_price: ProductPrice$inboundSchema,
   discount: z.nullable(
@@ -490,7 +432,7 @@ export type CheckoutPublic$Outbound = {
   customer_ip_address: string | null;
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
-  payment_processor_metadata: CheckoutPublicPaymentProcessorMetadata$Outbound;
+  payment_processor_metadata: { [k: string]: string };
   product: CheckoutProduct$Outbound;
   product_price: ProductPrice$Outbound;
   discount:
@@ -541,9 +483,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   customerIpAddress: z.nullable(z.string()),
   customerBillingAddress: z.nullable(Address$outboundSchema),
   customerTaxId: z.nullable(z.string()),
-  paymentProcessorMetadata: z.lazy(() =>
-    CheckoutPublicPaymentProcessorMetadata$outboundSchema
-  ),
+  paymentProcessorMetadata: z.record(z.string()),
   product: CheckoutProduct$outboundSchema,
   productPrice: ProductPrice$outboundSchema,
   discount: z.nullable(
