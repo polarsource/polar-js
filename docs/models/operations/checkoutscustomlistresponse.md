@@ -41,7 +41,9 @@ let value: CheckoutsCustomListResponse = {
           country: "Qatar",
         },
         customerTaxId: "<id>",
-        paymentProcessorMetadata: {},
+        paymentProcessorMetadata: {
+          "key": "<value>",
+        },
         metadata: {
           "key": false,
         },
