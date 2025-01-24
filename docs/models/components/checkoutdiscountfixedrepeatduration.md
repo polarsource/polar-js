@@ -9,11 +9,11 @@ for a certain number of months.
 import { CheckoutDiscountFixedRepeatDuration } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutDiscountFixedRepeatDuration = {
-  duration: "once",
-  durationInMonths: 115484,
-  type: "percentage",
-  amount: 974257,
-  currency: "Zambian Kwacha",
+  duration: "repeating",
+  durationInMonths: 245367,
+  type: "fixed",
+  amount: 557369,
+  currency: "Trinidad and Tobago Dollar",
   id: "<value>",
   name: "<value>",
   code: "<value>",

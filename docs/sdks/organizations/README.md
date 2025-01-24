@@ -24,7 +24,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.organizations.list({});
+  const result = await polar.organizations.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -50,7 +53,10 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await organizationsList(polar, {});
+  const res = await organizationsList(polar, {
+    page: 1,
+    limit: 10,
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -260,7 +266,10 @@ const polar = new Polar({
 async function run() {
   const result = await polar.organizations.update({
     id: "<value>",
-    organizationUpdate: {},
+    organizationUpdate: {
+      pledgeBadgeShowAmount: false,
+      pledgeMinimumAmount: 2000,
+    },
   });
 
   // Handle the result
@@ -287,7 +296,10 @@ const polar = new PolarCore({
 async function run() {
   const res = await organizationsUpdate(polar, {
     id: "<value>",
-    organizationUpdate: {},
+    organizationUpdate: {
+      pledgeBadgeShowAmount: false,
+      pledgeMinimumAmount: 2000,
+    },
   });
 
   if (!res.ok) {

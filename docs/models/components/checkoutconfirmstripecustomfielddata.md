@@ -1,14 +1,29 @@
 # CheckoutConfirmStripeCustomFieldData
 
-## Example Usage
+
+## Supported Types
+
+### `string`
 
 ```typescript
-import { CheckoutConfirmStripeCustomFieldData } from "@polar-sh/sdk/models/components";
-
-let value: CheckoutConfirmStripeCustomFieldData = {};
+const value: string = "<value>";
 ```
 
-## Fields
+### `number`
 
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |
+```typescript
+const value: number = 147103;
+```
+
+### `boolean`
+
+```typescript
+const value: boolean = false;
+```
+
+### `Date`
+
+```typescript
+const value: Date = new Date("2023-03-01T11:08:43.866Z");
+```
+

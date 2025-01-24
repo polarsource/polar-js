@@ -9,29 +9,29 @@ let value: DiscountsListResponse = {
   result: {
     items: [
       {
-        duration: "once",
+        duration: "forever",
         type: "percentage",
-        basisPoints: 435130,
-        createdAt: new Date("2023-03-21T03:17:26.002Z"),
-        modifiedAt: new Date("2025-02-18T11:59:52.074Z"),
+        basisPoints: 479872,
+        createdAt: new Date("2025-06-23T02:08:54.250Z"),
+        modifiedAt: new Date("2025-10-15T23:00:41.227Z"),
         id: "<value>",
         metadata: {
-          "key": 385407,
+          "key": false,
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2024-08-28T00:26:15.207Z"),
-        endsAt: new Date("2023-12-25T03:14:41.243Z"),
-        maxRedemptions: 238315,
-        redemptionsCount: 907673,
+        startsAt: new Date("2025-01-09T21:14:51.292Z"),
+        endsAt: new Date("2025-02-10T10:40:30.475Z"),
+        maxRedemptions: 129275,
+        redemptionsCount: 272187,
         organizationId: "<value>",
         products: [
           {
-            createdAt: new Date("2025-05-31T19:26:40.800Z"),
-            modifiedAt: new Date("2023-12-31T22:04:58.038Z"),
+            createdAt: new Date("2024-05-16T08:55:14.295Z"),
+            modifiedAt: new Date("2024-04-09T14:14:15.442Z"),
             id: "<value>",
             name: "<value>",
-            description: "than generously bonnet rag wilt",
+            description: "below hovel exhaust bench",
             isRecurring: false,
             isArchived: false,
             organizationId: "<value>",
@@ -40,8 +40,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 946912,
-      maxPage: 712252,
+      totalCount: 89722,
+      maxPage: 282358,
     },
   },
 };

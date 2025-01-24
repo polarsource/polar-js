@@ -21,7 +21,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({});
+  const result = await polar.externalOrganizations.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -47,7 +50,10 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await externalOrganizationsList(polar, {});
+  const res = await externalOrganizationsList(polar, {
+    page: 1,
+    limit: 10,
+  });
 
   if (!res.ok) {
     throw res.error;

@@ -19,9 +19,26 @@ import {
   TaxIDFormat$outboundSchema,
 } from "./taxidformat.js";
 
+export type CustomerCreateMetadata = string | number | boolean;
+
 export type CustomerCreateTaxId = string | TaxIDFormat;
 
 export type CustomerCreate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   email: string;
   name?: string | null | undefined;
   billingAddress?: Address | null | undefined;
@@ -31,6 +48,54 @@ export type CustomerCreate = {
    */
   organizationId?: string | null | undefined;
 };
+
+/** @internal */
+export const CustomerCreateMetadata$inboundSchema: z.ZodType<
+  CustomerCreateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CustomerCreateMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CustomerCreateMetadata$outboundSchema: z.ZodType<
+  CustomerCreateMetadata$Outbound,
+  z.ZodTypeDef,
+  CustomerCreateMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerCreateMetadata$ {
+  /** @deprecated use `CustomerCreateMetadata$inboundSchema` instead. */
+  export const inboundSchema = CustomerCreateMetadata$inboundSchema;
+  /** @deprecated use `CustomerCreateMetadata$outboundSchema` instead. */
+  export const outboundSchema = CustomerCreateMetadata$outboundSchema;
+  /** @deprecated use `CustomerCreateMetadata$Outbound` instead. */
+  export type Outbound = CustomerCreateMetadata$Outbound;
+}
+
+export function customerCreateMetadataToJSON(
+  customerCreateMetadata: CustomerCreateMetadata,
+): string {
+  return JSON.stringify(
+    CustomerCreateMetadata$outboundSchema.parse(customerCreateMetadata),
+  );
+}
+
+export function customerCreateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomerCreateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomerCreateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerCreateMetadata' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerCreateTaxId$inboundSchema: z.ZodType<
@@ -86,6 +151,8 @@ export const CustomerCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   email: z.string(),
   name: z.nullable(z.string()).optional(),
   billing_address: z.nullable(Address$inboundSchema).optional(),
@@ -102,6 +169,7 @@ export const CustomerCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerCreate$Outbound = {
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   email: string;
   name?: string | null | undefined;
   billing_address?: Address$Outbound | null | undefined;
@@ -115,6 +183,8 @@ export const CustomerCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerCreate
 > = z.object({
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   email: z.string(),
   name: z.nullable(z.string()).optional(),
   billingAddress: z.nullable(Address$outboundSchema).optional(),

@@ -26,7 +26,7 @@ const polar = new Polar({
 async function run() {
   const result = await polar.checkouts.create({
     productPriceId: "<value>",
-    successUrl: "http://limp-pastry.org",
+    successUrl: "https://probable-heating.com/",
   });
 
   // Handle the result
@@ -53,7 +53,7 @@ const polar = new PolarCore({
 async function run() {
   const res = await checkoutsCreate(polar, {
     productPriceId: "<value>",
-    successUrl: "http://limp-pastry.org",
+    successUrl: "https://probable-heating.com/",
   });
 
   if (!res.ok) {

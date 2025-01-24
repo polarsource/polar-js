@@ -11,8 +11,8 @@ import { WebhookBenefitGrantCreatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantCreatedPayload = {
   data: {
-    createdAt: new Date("2025-08-14T07:37:23.995Z"),
-    modifiedAt: new Date("2023-05-15T01:02:04.729Z"),
+    createdAt: new Date("2025-05-21T11:56:40.869Z"),
+    modifiedAt: new Date("2023-11-30T15:26:27.741Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,37 +22,44 @@ let value: WebhookBenefitGrantCreatedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2023-11-02T18:45:39.253Z"),
-      modifiedAt: new Date("2024-11-27T14:24:37.887Z"),
+      createdAt: new Date("2024-01-25T14:14:38.916Z"),
+      modifiedAt: new Date("2023-08-10T04:34:18.047Z"),
       id: "<value>",
       metadata: {
-        "key": "<value>",
+        "key": 409843,
       },
-      email: "Maybell.Hane15@gmail.com",
+      email: "Deborah32@gmail.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Burundi",
+        country: "Mayotte",
       },
       taxId: [
-        "om_vat",
+        "us_ein",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://old-finding.com",
+      avatarUrl: "https://uneven-minority.info/",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2025-05-02T02:33:58.780Z"),
-      modifiedAt: new Date("2024-08-02T04:04:19.829Z"),
+      createdAt: new Date("2024-09-11T12:12:50.008Z"),
+      modifiedAt: new Date("2023-10-03T21:04:24.953Z"),
       id: "<value>",
-      description: "yowza behind before pillbox",
+      description: "during arrange faithfully individual gadzooks lonely hm",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        guildId: "<id>",
-        roleId: "<id>",
-        guildToken: "<value>",
+        prefix: "<value>",
+        expires: {
+          ttl: 587817,
+          timeframe: "month",
+        },
+        activations: {
+          limit: 329503,
+          enableCustomerAdmin: false,
+        },
+        limitUsage: 265973,
       },
     },
   },

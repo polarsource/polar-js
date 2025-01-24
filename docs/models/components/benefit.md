@@ -7,10 +7,10 @@
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2023-04-22T00:10:50.995Z"),
-  modifiedAt: new Date("2024-06-13T22:00:04.745Z"),
+  createdAt: new Date("2025-07-09T15:47:57.182Z"),
+  modifiedAt: new Date("2024-12-26T02:08:18.453Z"),
   id: "<value>",
-  description: "likewise pace fall ick incidentally",
+  description: "flickering in vamoose",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -22,11 +22,10 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2024-05-12T18:21:47.587Z"),
-  modifiedAt: new Date("2025-08-06T06:31:20.354Z"),
+  createdAt: new Date("2025-06-22T09:30:18.789Z"),
+  modifiedAt: new Date("2024-10-28T02:02:29.593Z"),
   id: "<value>",
-  description:
-    "license cheerfully repeatedly replicate jell black till transcend before rarely",
+  description: "whenever happily likewise pace fall ick",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -41,11 +40,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscord = {
-  createdAt: new Date("2023-03-08T04:13:18.822Z"),
-  modifiedAt: new Date("2024-11-04T18:43:09.812Z"),
+  createdAt: new Date("2023-05-26T22:19:48.108Z"),
+  modifiedAt: new Date("2025-10-02T23:49:35.521Z"),
   id: "<value>",
-  description:
-    "moralise which whenever exasperation cap seemingly deep from supposing drowse",
+  description: "well-off license cheerfully",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -61,10 +59,10 @@ const value: components.BenefitDiscord = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2023-05-25T05:31:24.787Z"),
-  modifiedAt: new Date("2023-02-12T23:23:38.484Z"),
+  createdAt: new Date("2023-04-02T13:11:18.964Z"),
+  modifiedAt: new Date("2025-10-24T02:05:02.156Z"),
   id: "<value>",
-  description: "conservation throughout shoulder",
+  description: "vacation separately utter",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -80,10 +78,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2024-08-11T13:13:07.788Z"),
-  modifiedAt: new Date("2025-12-08T19:51:14.504Z"),
+  createdAt: new Date("2025-08-31T01:35:36.933Z"),
+  modifiedAt: new Date("2025-02-07T13:51:36.415Z"),
   id: "<value>",
-  description: "duh dispense aha coincide oh correctly",
+  description: "till transcend before",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -102,24 +100,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2025-07-21T06:55:08.065Z"),
-  modifiedAt: new Date("2024-09-22T04:32:44.047Z"),
+  createdAt: new Date("2024-02-23T07:01:12.546Z"),
+  modifiedAt: new Date("2025-08-28T12:47:14.840Z"),
   id: "<value>",
-  description: "geez leap respectful geez fathom brr up sin",
+  description: "ick moralise which whenever",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 539537,
-      timeframe: "year",
+      ttl: 166324,
+      timeframe: "month",
     },
     activations: {
-      limit: 463895,
+      limit: 413768,
       enableCustomerAdmin: false,
     },
-    limitUsage: 683980,
+    limitUsage: 151486,
   },
 };
 ```

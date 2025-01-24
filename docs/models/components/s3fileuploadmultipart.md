@@ -7,14 +7,14 @@ import { S3FileUploadMultipart } from "@polar-sh/sdk/models/components";
 
 let value: S3FileUploadMultipart = {
   id: "<id>",
-  path: "/home",
+  path: "/etc",
   parts: [
     {
-      number: 318122,
-      chunkStart: 946068,
-      chunkEnd: 228555,
-      url: "https://clear-cut-dream.biz",
-      expiresAt: new Date("2025-02-15T11:29:47.688Z"),
+      number: 139432,
+      chunkStart: 32442,
+      chunkEnd: 162408,
+      url: "https://rotating-baseboard.net/",
+      expiresAt: new Date("2024-03-20T08:23:26.056Z"),
     },
   ],
 };

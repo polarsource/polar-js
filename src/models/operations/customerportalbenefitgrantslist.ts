@@ -38,12 +38,12 @@ export type CheckoutIDFilter = string | Array<string>;
 /**
  * Filter by order ID.
  */
-export type OrderIDFilter = string | Array<string>;
+export type QueryParamOrderIDFilter = string | Array<string>;
 
 /**
  * Filter by subscription ID.
  */
-export type SubscriptionIDFilter = string | Array<string>;
+export type QueryParamSubscriptionIDFilter = string | Array<string>;
 
 export type CustomerPortalBenefitGrantsListRequest = {
   /**
@@ -324,94 +324,100 @@ export function checkoutIDFilterFromJSON(
 }
 
 /** @internal */
-export const OrderIDFilter$inboundSchema: z.ZodType<
-  OrderIDFilter,
+export const QueryParamOrderIDFilter$inboundSchema: z.ZodType<
+  QueryParamOrderIDFilter,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
-export type OrderIDFilter$Outbound = string | Array<string>;
+export type QueryParamOrderIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const OrderIDFilter$outboundSchema: z.ZodType<
-  OrderIDFilter$Outbound,
+export const QueryParamOrderIDFilter$outboundSchema: z.ZodType<
+  QueryParamOrderIDFilter$Outbound,
   z.ZodTypeDef,
-  OrderIDFilter
+  QueryParamOrderIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace OrderIDFilter$ {
-  /** @deprecated use `OrderIDFilter$inboundSchema` instead. */
-  export const inboundSchema = OrderIDFilter$inboundSchema;
-  /** @deprecated use `OrderIDFilter$outboundSchema` instead. */
-  export const outboundSchema = OrderIDFilter$outboundSchema;
-  /** @deprecated use `OrderIDFilter$Outbound` instead. */
-  export type Outbound = OrderIDFilter$Outbound;
+export namespace QueryParamOrderIDFilter$ {
+  /** @deprecated use `QueryParamOrderIDFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamOrderIDFilter$inboundSchema;
+  /** @deprecated use `QueryParamOrderIDFilter$outboundSchema` instead. */
+  export const outboundSchema = QueryParamOrderIDFilter$outboundSchema;
+  /** @deprecated use `QueryParamOrderIDFilter$Outbound` instead. */
+  export type Outbound = QueryParamOrderIDFilter$Outbound;
 }
 
-export function orderIDFilterToJSON(orderIDFilter: OrderIDFilter): string {
-  return JSON.stringify(OrderIDFilter$outboundSchema.parse(orderIDFilter));
-}
-
-export function orderIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<OrderIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrderIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrderIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const SubscriptionIDFilter$inboundSchema: z.ZodType<
-  SubscriptionIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
-export type SubscriptionIDFilter$Outbound = string | Array<string>;
-
-/** @internal */
-export const SubscriptionIDFilter$outboundSchema: z.ZodType<
-  SubscriptionIDFilter$Outbound,
-  z.ZodTypeDef,
-  SubscriptionIDFilter
-> = z.union([z.string(), z.array(z.string())]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionIDFilter$ {
-  /** @deprecated use `SubscriptionIDFilter$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionIDFilter$inboundSchema;
-  /** @deprecated use `SubscriptionIDFilter$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionIDFilter$outboundSchema;
-  /** @deprecated use `SubscriptionIDFilter$Outbound` instead. */
-  export type Outbound = SubscriptionIDFilter$Outbound;
-}
-
-export function subscriptionIDFilterToJSON(
-  subscriptionIDFilter: SubscriptionIDFilter,
+export function queryParamOrderIDFilterToJSON(
+  queryParamOrderIDFilter: QueryParamOrderIDFilter,
 ): string {
   return JSON.stringify(
-    SubscriptionIDFilter$outboundSchema.parse(subscriptionIDFilter),
+    QueryParamOrderIDFilter$outboundSchema.parse(queryParamOrderIDFilter),
   );
 }
 
-export function subscriptionIDFilterFromJSON(
+export function queryParamOrderIDFilterFromJSON(
   jsonString: string,
-): SafeParseResult<SubscriptionIDFilter, SDKValidationError> {
+): SafeParseResult<QueryParamOrderIDFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SubscriptionIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionIDFilter' from JSON`,
+    (x) => QueryParamOrderIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamOrderIDFilter' from JSON`,
+  );
+}
+
+/** @internal */
+export const QueryParamSubscriptionIDFilter$inboundSchema: z.ZodType<
+  QueryParamSubscriptionIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type QueryParamSubscriptionIDFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const QueryParamSubscriptionIDFilter$outboundSchema: z.ZodType<
+  QueryParamSubscriptionIDFilter$Outbound,
+  z.ZodTypeDef,
+  QueryParamSubscriptionIDFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QueryParamSubscriptionIDFilter$ {
+  /** @deprecated use `QueryParamSubscriptionIDFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamSubscriptionIDFilter$inboundSchema;
+  /** @deprecated use `QueryParamSubscriptionIDFilter$outboundSchema` instead. */
+  export const outboundSchema = QueryParamSubscriptionIDFilter$outboundSchema;
+  /** @deprecated use `QueryParamSubscriptionIDFilter$Outbound` instead. */
+  export type Outbound = QueryParamSubscriptionIDFilter$Outbound;
+}
+
+export function queryParamSubscriptionIDFilterToJSON(
+  queryParamSubscriptionIDFilter: QueryParamSubscriptionIDFilter,
+): string {
+  return JSON.stringify(
+    QueryParamSubscriptionIDFilter$outboundSchema.parse(
+      queryParamSubscriptionIDFilter,
+    ),
+  );
+}
+
+export function queryParamSubscriptionIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryParamSubscriptionIDFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryParamSubscriptionIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamSubscriptionIDFilter' from JSON`,
   );
 }
 

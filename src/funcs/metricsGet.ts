@@ -61,6 +61,7 @@ export async function metricsGet(
   const path = pathToFunc("/v1/metrics/")();
 
   const query = encodeFormQuery({
+    "customer_id": payload.customer_id,
     "end_date": payload.end_date,
     "interval": payload.interval,
     "organization_id": payload.organization_id,

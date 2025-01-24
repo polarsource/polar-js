@@ -8,21 +8,21 @@ Checkout session data retrieved using the client secret.
 import { CheckoutPublic } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutPublic = {
-  createdAt: new Date("2023-05-15T15:39:25.865Z"),
-  modifiedAt: new Date("2024-01-21T08:41:14.953Z"),
+  createdAt: new Date("2025-07-14T08:01:25.320Z"),
+  modifiedAt: new Date("2025-03-11T20:25:17.588Z"),
   id: "<value>",
   paymentProcessor: "stripe",
-  status: "failed",
+  status: "confirmed",
   clientSecret: "<value>",
-  url: "https://shameful-swath.biz",
-  expiresAt: new Date("2025-05-15T18:42:19.653Z"),
-  successUrl: "https://orderly-louse.info/",
+  url: "https://spirited-apricot.net",
+  expiresAt: new Date("2025-02-26T12:25:03.923Z"),
+  successUrl: "https://variable-inspection.biz/",
   embedOrigin: "<value>",
-  amount: 209169,
-  taxAmount: 427526,
-  currency: "Pa'anga",
-  subtotalAmount: 730704,
-  totalAmount: 440603,
+  amount: 448226,
+  taxAmount: 833781,
+  currency: "Egyptian Pound",
+  subtotalAmount: 914093,
+  totalAmount: 64739,
   productId: "<value>",
   productPriceId: "<value>",
   discountId: "<value>",
@@ -34,22 +34,21 @@ let value: CheckoutPublic = {
   isPaymentFormRequired: false,
   customerId: "<value>",
   customerName: "<value>",
-  customerEmail: "Ozella4@hotmail.com",
+  customerEmail: "<value>",
   customerIpAddress: "<value>",
   customerBillingAddress: {
-    country: "Kenya",
+    country: "Belize",
   },
   customerTaxId: "<id>",
   paymentProcessorMetadata: {
     "key": "<value>",
   },
   product: {
-    createdAt: new Date("2023-09-20T02:00:34.942Z"),
-    modifiedAt: new Date("2024-05-06T06:07:52.343Z"),
+    createdAt: new Date("2024-10-18T20:37:12.120Z"),
+    modifiedAt: new Date("2024-07-12T17:41:56.779Z"),
     id: "<value>",
     name: "<value>",
-    description:
-      "gadzooks where furiously awkwardly hubris annually thyme aw t-shirt",
+    description: "where furiously awkwardly hubris annually thyme aw t-shirt",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
@@ -172,7 +171,7 @@ let value: CheckoutPublic = {
 | `createdAt`                                                                                                                                                                | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                              | :heavy_check_mark:                                                                                                                                                         | Creation timestamp of the object.                                                                                                                                          |
 | `modifiedAt`                                                                                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                              | :heavy_check_mark:                                                                                                                                                         | Last modification timestamp of the object.                                                                                                                                 |
 | `id`                                                                                                                                                                       | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | The ID of the object.                                                                                                                                                      |
-| `customFieldData`                                                                                                                                                          | [components.CheckoutPublicCustomFieldData](../../models/components/checkoutpubliccustomfielddata.md)                                                                       | :heavy_minus_sign:                                                                                                                                                         | Key-value object storing custom field values.                                                                                                                              |
+| `customFieldData`                                                                                                                                                          | Record<string, *components.CheckoutPublicCustomFieldData*>                                                                                                                 | :heavy_minus_sign:                                                                                                                                                         | Key-value object storing custom field values.                                                                                                                              |
 | `paymentProcessor`                                                                                                                                                         | [components.PaymentProcessor](../../models/components/paymentprocessor.md)                                                                                                 | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `status`                                                                                                                                                                   | [components.CheckoutStatus](../../models/components/checkoutstatus.md)                                                                                                     | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `clientSecret`                                                                                                                                                             | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | Client secret used to update and complete the checkout session from the client.                                                                                            |
@@ -195,8 +194,8 @@ let value: CheckoutPublic = {
 | `isPaymentSetupRequired`                                                                                                                                                   | *boolean*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                         | Whether the checkout requires setting up a payment method, regardless of the amount, e.g. subscriptions that have first free cycles.                                       |
 | `isPaymentFormRequired`                                                                                                                                                    | *boolean*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                         | Whether the checkout requires a payment form, whether because of a payment or payment method setup.                                                                        |
 | `customerId`                                                                                                                                                               | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
-| `customerName`                                                                                                                                                             | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
-| `customerEmail`                                                                                                                                                            | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
+| `customerName`                                                                                                                                                             | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | Name of the customer.                                                                                                                                                      |
+| `customerEmail`                                                                                                                                                            | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | Email address of the customer.                                                                                                                                             |
 | `customerIpAddress`                                                                                                                                                        | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `customerBillingAddress`                                                                                                                                                   | [components.Address](../../models/components/address.md)                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `customerTaxId`                                                                                                                                                            | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |

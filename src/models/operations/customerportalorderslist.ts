@@ -33,7 +33,9 @@ export type CustomerPortalOrdersListQueryParamProductPriceTypeFilter =
 /**
  * Filter by subscription ID.
  */
-export type QueryParamSubscriptionIDFilter = string | Array<string>;
+export type CustomerPortalOrdersListQueryParamSubscriptionIDFilter =
+  | string
+  | Array<string>;
 
 export type CustomerPortalOrdersListRequest = {
   /**
@@ -274,52 +276,65 @@ export function customerPortalOrdersListQueryParamProductPriceTypeFilterFromJSON
 }
 
 /** @internal */
-export const QueryParamSubscriptionIDFilter$inboundSchema: z.ZodType<
-  QueryParamSubscriptionIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
+export const CustomerPortalOrdersListQueryParamSubscriptionIDFilter$inboundSchema:
+  z.ZodType<
+    CustomerPortalOrdersListQueryParamSubscriptionIDFilter,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
-export type QueryParamSubscriptionIDFilter$Outbound = string | Array<string>;
+export type CustomerPortalOrdersListQueryParamSubscriptionIDFilter$Outbound =
+  | string
+  | Array<string>;
 
 /** @internal */
-export const QueryParamSubscriptionIDFilter$outboundSchema: z.ZodType<
-  QueryParamSubscriptionIDFilter$Outbound,
-  z.ZodTypeDef,
-  QueryParamSubscriptionIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+export const CustomerPortalOrdersListQueryParamSubscriptionIDFilter$outboundSchema:
+  z.ZodType<
+    CustomerPortalOrdersListQueryParamSubscriptionIDFilter$Outbound,
+    z.ZodTypeDef,
+    CustomerPortalOrdersListQueryParamSubscriptionIDFilter
+  > = z.union([z.string(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryParamSubscriptionIDFilter$ {
-  /** @deprecated use `QueryParamSubscriptionIDFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamSubscriptionIDFilter$inboundSchema;
-  /** @deprecated use `QueryParamSubscriptionIDFilter$outboundSchema` instead. */
-  export const outboundSchema = QueryParamSubscriptionIDFilter$outboundSchema;
-  /** @deprecated use `QueryParamSubscriptionIDFilter$Outbound` instead. */
-  export type Outbound = QueryParamSubscriptionIDFilter$Outbound;
+export namespace CustomerPortalOrdersListQueryParamSubscriptionIDFilter$ {
+  /** @deprecated use `CustomerPortalOrdersListQueryParamSubscriptionIDFilter$inboundSchema` instead. */
+  export const inboundSchema =
+    CustomerPortalOrdersListQueryParamSubscriptionIDFilter$inboundSchema;
+  /** @deprecated use `CustomerPortalOrdersListQueryParamSubscriptionIDFilter$outboundSchema` instead. */
+  export const outboundSchema =
+    CustomerPortalOrdersListQueryParamSubscriptionIDFilter$outboundSchema;
+  /** @deprecated use `CustomerPortalOrdersListQueryParamSubscriptionIDFilter$Outbound` instead. */
+  export type Outbound =
+    CustomerPortalOrdersListQueryParamSubscriptionIDFilter$Outbound;
 }
 
-export function queryParamSubscriptionIDFilterToJSON(
-  queryParamSubscriptionIDFilter: QueryParamSubscriptionIDFilter,
+export function customerPortalOrdersListQueryParamSubscriptionIDFilterToJSON(
+  customerPortalOrdersListQueryParamSubscriptionIDFilter:
+    CustomerPortalOrdersListQueryParamSubscriptionIDFilter,
 ): string {
   return JSON.stringify(
-    QueryParamSubscriptionIDFilter$outboundSchema.parse(
-      queryParamSubscriptionIDFilter,
+    CustomerPortalOrdersListQueryParamSubscriptionIDFilter$outboundSchema.parse(
+      customerPortalOrdersListQueryParamSubscriptionIDFilter,
     ),
   );
 }
 
-export function queryParamSubscriptionIDFilterFromJSON(
+export function customerPortalOrdersListQueryParamSubscriptionIDFilterFromJSON(
   jsonString: string,
-): SafeParseResult<QueryParamSubscriptionIDFilter, SDKValidationError> {
+): SafeParseResult<
+  CustomerPortalOrdersListQueryParamSubscriptionIDFilter,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => QueryParamSubscriptionIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamSubscriptionIDFilter' from JSON`,
+    (x) =>
+      CustomerPortalOrdersListQueryParamSubscriptionIDFilter$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'CustomerPortalOrdersListQueryParamSubscriptionIDFilter' from JSON`,
   );
 }
 

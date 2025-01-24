@@ -7,9 +7,9 @@ import { MetricsGetRequest } from "@polar-sh/sdk/models/operations";
 import { RFCDate } from "@polar-sh/sdk/types";
 
 let value: MetricsGetRequest = {
-  startDate: new RFCDate("2025-01-30"),
-  endDate: new RFCDate("2024-04-02"),
-  interval: "hour",
+  startDate: new RFCDate("2025-09-01"),
+  endDate: new RFCDate("2023-03-21"),
+  interval: "year",
 };
 ```
 
@@ -23,3 +23,4 @@ let value: MetricsGetRequest = {
 | `organizationId`                                                                                                                                                                  | *operations.MetricsGetQueryParamOrganizationIDFilter*                                                                                                                             | :heavy_minus_sign:                                                                                                                                                                | Filter by organization ID.                                                                                                                                                        |
 | `productId`                                                                                                                                                                       | *operations.MetricsGetQueryParamProductIDFilter*                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                | Filter by product ID.                                                                                                                                                             |
 | `productPriceType`                                                                                                                                                                | *operations.QueryParamProductPriceTypeFilter*                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                | Filter by product price type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases. |
+| `customerId`                                                                                                                                                                      | *operations.MetricsGetQueryParamCustomerIDFilter*                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                | Filter by customer ID.                                                                                                                                                            |

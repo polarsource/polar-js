@@ -180,7 +180,7 @@ const polar = new Polar({
 async function run() {
   const result = await polar.oauth2.revoke({
     token: "<value>",
-    clientId: "<value>",
+    clientId: "<id>",
     clientSecret: "<value>",
   });
 
@@ -208,7 +208,7 @@ const polar = new PolarCore({
 async function run() {
   const res = await oauth2Revoke(polar, {
     token: "<value>",
-    clientId: "<value>",
+    clientId: "<id>",
     clientSecret: "<value>",
   });
 
@@ -260,7 +260,7 @@ const polar = new Polar({
 async function run() {
   const result = await polar.oauth2.introspect({
     token: "<value>",
-    clientId: "<value>",
+    clientId: "<id>",
     clientSecret: "<value>",
   });
 
@@ -288,7 +288,7 @@ const polar = new PolarCore({
 async function run() {
   const res = await oauth2Introspect(polar, {
     token: "<value>",
-    clientId: "<value>",
+    clientId: "<id>",
     clientSecret: "<value>",
   });
 

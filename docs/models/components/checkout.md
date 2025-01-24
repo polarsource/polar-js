@@ -8,21 +8,21 @@ Checkout session data retrieved using an access token.
 import { Checkout } from "@polar-sh/sdk/models/components";
 
 let value: Checkout = {
-  createdAt: new Date("2025-10-14T04:15:01.236Z"),
-  modifiedAt: new Date("2025-02-11T00:54:59.142Z"),
+  createdAt: new Date("2023-11-14T22:12:04.968Z"),
+  modifiedAt: new Date("2024-11-08T08:16:40.240Z"),
   id: "<value>",
   paymentProcessor: "stripe",
-  status: "open",
+  status: "confirmed",
   clientSecret: "<value>",
-  url: "https://poor-minority.biz/",
-  expiresAt: new Date("2025-10-20T21:33:54.006Z"),
-  successUrl: "https://musty-mountain.net",
+  url: "https://frightened-metal.name/",
+  expiresAt: new Date("2024-09-21T11:03:04.845Z"),
+  successUrl: "https://qualified-hose.org",
   embedOrigin: "<value>",
-  amount: 311945,
-  taxAmount: 398221,
-  currency: "Cape Verde Escudo",
-  subtotalAmount: 186193,
-  totalAmount: 944373,
+  amount: 367562,
+  taxAmount: 435865,
+  currency: "US Dollar",
+  subtotalAmount: 806194,
+  totalAmount: 703889,
   productId: "<value>",
   productPriceId: "<value>",
   discountId: "<value>",
@@ -34,44 +34,47 @@ let value: Checkout = {
   isPaymentFormRequired: false,
   customerId: "<value>",
   customerName: "<value>",
-  customerEmail: "Jennifer.Funk43@hotmail.com",
+  customerEmail: "<value>",
   customerIpAddress: "<value>",
   customerBillingAddress: {
-    country: "Paraguay",
+    country: "Bermuda",
   },
   customerTaxId: "<id>",
   paymentProcessorMetadata: {
     "key": "<value>",
   },
   metadata: {
-    "key": 179603,
+    "key": false,
   },
   product: {
-    createdAt: new Date("2023-01-28T01:08:57.377Z"),
-    modifiedAt: new Date("2023-03-15T16:56:03.501Z"),
+    createdAt: new Date("2025-02-21T19:24:11.316Z"),
+    modifiedAt: new Date("2025-12-30T17:40:17.979Z"),
     id: "<value>",
     name: "<value>",
-    description: "how prejudge cutover for clear-cut consequently bouncy abaft",
+    description: "metal within phooey presume",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2025-05-10T12:39:43.913Z"),
-        modifiedAt: new Date("2023-11-05T18:37:43.326Z"),
+        createdAt: new Date("2024-11-12T03:22:04.343Z"),
+        modifiedAt: new Date("2024-09-24T15:25:14.861Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
+        priceCurrency: "<value>",
+        priceAmount: 237893,
+        recurringInterval: "year",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2024-10-04T16:55:58.841Z"),
-        modifiedAt: new Date("2023-03-12T02:16:45.552Z"),
+        createdAt: new Date("2024-11-03T21:45:37.821Z"),
+        modifiedAt: new Date("2024-08-10T01:17:06.903Z"),
         id: "<value>",
-        type: "discord",
+        type: "github_repository",
         description:
-          "ack incidentally challenge vol department brightly resort duh redact indeed",
+          "meh instead technician inasmuch sympathetically disappointment nor until",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -82,39 +85,33 @@ let value: Checkout = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/home",
+        path: "/opt/include",
         mimeType: "<value>",
-        size: 459856,
+        size: 565421,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2023-02-18T21:28:55.099Z"),
+        lastModifiedAt: new Date("2023-07-20T20:59:34.122Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2025-05-26T13:49:51.412Z"),
+        createdAt: new Date("2023-06-08T18:04:31.662Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://minty-executor.name/",
+        publicUrl: "https://happy-go-lucky-tusk.net/",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2023-02-08T18:10:24.636Z"),
-    modifiedAt: new Date("2024-04-16T17:18:20.768Z"),
+    createdAt: new Date("2023-04-02T10:20:37.470Z"),
+    modifiedAt: new Date("2024-08-28T04:52:14.624Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
-    priceCurrency: "<value>",
-    minimumAmount: 510017,
-    maximumAmount: 536178,
-    presetAmount: 681393,
   },
   discount: {
-    duration: "once",
-    durationInMonths: 392676,
-    type: "percentage",
-    amount: 187131,
-    currency: "Uzbekistan Sum",
+    duration: "repeating",
+    type: "fixed",
+    basisPoints: 240829,
     id: "<value>",
     name: "<value>",
     code: "<value>",
@@ -124,23 +121,23 @@ let value: Checkout = {
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2024-05-15T18:35:52.926Z"),
-        modifiedAt: new Date("2025-08-24T17:13:02.117Z"),
+        createdAt: new Date("2023-01-19T00:09:53.916Z"),
+        modifiedAt: new Date("2025-10-15T18:20:20.936Z"),
         id: "<value>",
         metadata: {
-          "key": 724168,
+          "key": false,
         },
         slug: "<value>",
         name: "<value>",
         organizationId: "<value>",
         properties: {},
       },
-      order: 399025,
+      order: 785153,
       required: false,
     },
   ],
   customerMetadata: {
-    "key": false,
+    "key": "<value>",
   },
 };
 ```
@@ -152,7 +149,7 @@ let value: Checkout = {
 | `createdAt`                                                                                                                                                                | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                              | :heavy_check_mark:                                                                                                                                                         | Creation timestamp of the object.                                                                                                                                          |
 | `modifiedAt`                                                                                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                              | :heavy_check_mark:                                                                                                                                                         | Last modification timestamp of the object.                                                                                                                                 |
 | `id`                                                                                                                                                                       | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | The ID of the object.                                                                                                                                                      |
-| `customFieldData`                                                                                                                                                          | [components.CheckoutCustomFieldData](../../models/components/checkoutcustomfielddata.md)                                                                                   | :heavy_minus_sign:                                                                                                                                                         | Key-value object storing custom field values.                                                                                                                              |
+| `customFieldData`                                                                                                                                                          | Record<string, *components.CheckoutCustomFieldData*>                                                                                                                       | :heavy_minus_sign:                                                                                                                                                         | Key-value object storing custom field values.                                                                                                                              |
 | `paymentProcessor`                                                                                                                                                         | [components.PaymentProcessor](../../models/components/paymentprocessor.md)                                                                                                 | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `status`                                                                                                                                                                   | [components.CheckoutStatus](../../models/components/checkoutstatus.md)                                                                                                     | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `clientSecret`                                                                                                                                                             | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | Client secret used to update and complete the checkout session from the client.                                                                                            |
@@ -175,8 +172,8 @@ let value: Checkout = {
 | `isPaymentSetupRequired`                                                                                                                                                   | *boolean*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                         | Whether the checkout requires setting up a payment method, regardless of the amount, e.g. subscriptions that have first free cycles.                                       |
 | `isPaymentFormRequired`                                                                                                                                                    | *boolean*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                         | Whether the checkout requires a payment form, whether because of a payment or payment method setup.                                                                        |
 | `customerId`                                                                                                                                                               | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
-| `customerName`                                                                                                                                                             | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
-| `customerEmail`                                                                                                                                                            | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
+| `customerName`                                                                                                                                                             | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | Name of the customer.                                                                                                                                                      |
+| `customerEmail`                                                                                                                                                            | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | Email address of the customer.                                                                                                                                             |
 | `customerIpAddress`                                                                                                                                                        | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `customerBillingAddress`                                                                                                                                                   | [components.Address](../../models/components/address.md)                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `customerTaxId`                                                                                                                                                            | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |

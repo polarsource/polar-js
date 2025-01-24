@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalSubscriptionsUpdateRequest = {
   /**
-   * Customer subscription ID.
+   * The subscription ID.
    */
   id: string;
   customerSubscriptionUpdate: components.CustomerSubscriptionUpdate;

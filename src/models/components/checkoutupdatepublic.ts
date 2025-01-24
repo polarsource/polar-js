@@ -14,7 +14,11 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 
-export type CheckoutUpdatePublicCustomFieldData = {};
+export type CheckoutUpdatePublicCustomFieldData =
+  | string
+  | number
+  | boolean
+  | Date;
 
 /**
  * Update an existing checkout session using the client secret.
@@ -23,7 +27,10 @@ export type CheckoutUpdatePublic = {
   /**
    * Key-value object storing custom field values.
    */
-  customFieldData?: CheckoutUpdatePublicCustomFieldData | null | undefined;
+  customFieldData?:
+    | { [k: string]: string | number | boolean | Date }
+    | null
+    | undefined;
   /**
    * ID of the product price to checkout. Must correspond to a price linked to the same product.
    */
@@ -44,17 +51,31 @@ export const CheckoutUpdatePublicCustomFieldData$inboundSchema: z.ZodType<
   CheckoutUpdatePublicCustomFieldData,
   z.ZodTypeDef,
   unknown
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.string().datetime({ offset: true }).transform(v => new Date(v)),
+]);
 
 /** @internal */
-export type CheckoutUpdatePublicCustomFieldData$Outbound = {};
+export type CheckoutUpdatePublicCustomFieldData$Outbound =
+  | string
+  | number
+  | boolean
+  | string;
 
 /** @internal */
 export const CheckoutUpdatePublicCustomFieldData$outboundSchema: z.ZodType<
   CheckoutUpdatePublicCustomFieldData$Outbound,
   z.ZodTypeDef,
   CheckoutUpdatePublicCustomFieldData
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.date().transform(v => v.toISOString()),
+]);
 
 /**
  * @internal
@@ -99,7 +120,14 @@ export const CheckoutUpdatePublic$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   custom_field_data: z.nullable(
-    z.lazy(() => CheckoutUpdatePublicCustomFieldData$inboundSchema),
+    z.record(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.string().datetime({ offset: true }).transform(v => new Date(v)),
+      ]),
+    ),
   ).optional(),
   product_price_id: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
@@ -123,7 +151,7 @@ export const CheckoutUpdatePublic$inboundSchema: z.ZodType<
 /** @internal */
 export type CheckoutUpdatePublic$Outbound = {
   custom_field_data?:
-    | CheckoutUpdatePublicCustomFieldData$Outbound
+    | { [k: string]: string | number | boolean | string }
     | null
     | undefined;
   product_price_id?: string | null | undefined;
@@ -142,7 +170,14 @@ export const CheckoutUpdatePublic$outboundSchema: z.ZodType<
   CheckoutUpdatePublic
 > = z.object({
   customFieldData: z.nullable(
-    z.lazy(() => CheckoutUpdatePublicCustomFieldData$outboundSchema),
+    z.record(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.date().transform(v => v.toISOString()),
+      ]),
+    ),
   ).optional(),
   productPriceId: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),

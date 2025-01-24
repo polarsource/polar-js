@@ -8,57 +8,62 @@ import { Metrics } from "@polar-sh/sdk/models/components";
 let value: Metrics = {
   orders: {
     slug: "<value>",
-    displayName: "Raymundo_Bashirian67",
-    type: "scalar",
+    displayName: "Cora31",
+    type: "currency",
   },
   revenue: {
     slug: "<value>",
-    displayName: "Granville_Harris",
+    displayName: "Hector14",
+    type: "scalar",
+  },
+  cumulativeRevenue: {
+    slug: "<value>",
+    displayName: "Hermann.Yundt",
     type: "scalar",
   },
   averageOrderValue: {
     slug: "<value>",
-    displayName: "Sabina_Medhurst",
-    type: "scalar",
+    displayName: "Travon6",
+    type: "currency",
   },
   oneTimeProducts: {
     slug: "<value>",
-    displayName: "Kathlyn_Schaden83",
+    displayName: "Glenda.Okuneva27",
     type: "currency",
   },
   oneTimeProductsRevenue: {
     slug: "<value>",
-    displayName: "Kody_Haley",
-    type: "currency",
+    displayName: "Zane_Bednar30",
+    type: "scalar",
   },
   newSubscriptions: {
     slug: "<value>",
-    displayName: "Foster_Corkery",
-    type: "scalar",
+    displayName: "Cedrick_Hills79",
+    type: "currency",
   },
   newSubscriptionsRevenue: {
     slug: "<value>",
-    displayName: "Xavier13",
+    displayName: "Manuel29",
     type: "currency",
   },
   renewedSubscriptions: {
     slug: "<value>",
-    displayName: "Ian_Berge",
-    type: "scalar",
+    displayName: "Kristy.Will",
+    type: "currency",
   },
   renewedSubscriptionsRevenue: {
     slug: "<value>",
-    displayName: "Magdalen51",
-    type: "scalar",
+    displayName: "Elmo.Medhurst32",
+    type: "currency",
   },
   activeSubscriptions: {
     slug: "<value>",
-    displayName: "Ana.Haag7",
+    displayName: "Otho.Von",
     type: "currency",
   },
   monthlyRecurringRevenue: {
     slug: "<value>",
-    displayName: "Fredy.Schimmel",
+    displayName: "Sidney_Shanahan34",
     type: "scalar",
   },
 };
@@ -70,6 +75,7 @@ let value: Metrics = {
 | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
 | `orders`                                               | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `revenue`                                              | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
+| `cumulativeRevenue`                                    | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `averageOrderValue`                                    | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `oneTimeProducts`                                      | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `oneTimeProductsRevenue`                               | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |

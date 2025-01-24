@@ -57,6 +57,7 @@ export function collectExtraKeys<
 >(
   obj: ZodObject<Shape, "strip", Catchall>,
   extrasKey: K,
+  optional: boolean,
 ): ZodEffects<
   typeof obj,
   & output<ZodObject<Shape, "strict">>
@@ -79,6 +80,10 @@ export function collectExtraKeys<
 
       extras[key] = v;
       delete val[key];
+    }
+
+    if (optional && Object.keys(extras).length === 0) {
+      return val;
     }
 
     return { ...val, [extrasKey]: extras };

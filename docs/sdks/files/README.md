@@ -25,7 +25,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.files.list({});
+  const result = await polar.files.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -51,7 +54,10 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await filesList(polar, {});
+  const res = await filesList(polar, {
+    page: 1,
+    limit: 10,
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -207,7 +213,21 @@ async function run() {
       id: "<id>",
       path: "/sys",
       parts: [
-
+        {
+          number: 173116,
+          checksumEtag: "<value>",
+          checksumSha256Base64: "<value>",
+        },
+        {
+          number: 894030,
+          checksumEtag: "<value>",
+          checksumSha256Base64: "<value>",
+        },
+        {
+          number: 673715,
+          checksumEtag: "<value>",
+          checksumSha256Base64: "<value>",
+        },
       ],
     },
   });
@@ -240,7 +260,21 @@ async function run() {
       id: "<id>",
       path: "/sys",
       parts: [
-  
+        {
+          number: 173116,
+          checksumEtag: "<value>",
+          checksumSha256Base64: "<value>",
+        },
+        {
+          number: 894030,
+          checksumEtag: "<value>",
+          checksumSha256Base64: "<value>",
+        },
+        {
+          number: 673715,
+          checksumEtag: "<value>",
+          checksumSha256Base64: "<value>",
+        },
       ],
     },
   });

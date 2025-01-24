@@ -11,45 +11,47 @@ import { WebhookProductCreatedPayload } from "@polar-sh/sdk/models/components";
 
 let value: WebhookProductCreatedPayload = {
   data: {
-    createdAt: new Date("2024-02-14T09:32:18.526Z"),
-    modifiedAt: new Date("2025-02-14T23:31:39.572Z"),
+    createdAt: new Date("2025-04-15T22:56:43.340Z"),
+    modifiedAt: new Date("2023-03-15T16:23:33.604Z"),
     id: "<value>",
     name: "<value>",
-    description: "ugh nautical barring",
+    description: "gerbil angelic acquire",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     metadata: {
-      "key": "<value>",
+      "key": false,
     },
     prices: [
       {
-        createdAt: new Date("2025-05-07T05:17:18.959Z"),
-        modifiedAt: new Date("2023-10-09T09:21:08.294Z"),
+        createdAt: new Date("2023-06-20T15:33:11.008Z"),
+        modifiedAt: new Date("2024-06-06T08:35:22.530Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        priceCurrency: "<value>",
-        priceAmount: 538752,
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2025-05-13T16:28:56.418Z"),
-        modifiedAt: new Date("2024-06-27T14:07:37.604Z"),
+        createdAt: new Date("2025-10-20T05:24:13.548Z"),
+        modifiedAt: new Date("2023-01-11T03:14:09.247Z"),
         id: "<value>",
         description:
-          "airbrush happily short-term galoshes unimpressively cook solemnly etch scorpion hence",
+          "eyeliner dependent likely shocked yahoo however gadzooks pliers drat",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          archived: {
-            "key": false,
+          prefix: "<value>",
+          expires: {
+            ttl: 979665,
+            timeframe: "year",
           },
-          files: [
-            "<value>",
-          ],
+          activations: {
+            limit: 483774,
+            enableCustomerAdmin: false,
+          },
+          limitUsage: 165853,
         },
       },
     ],
@@ -58,37 +60,44 @@ let value: WebhookProductCreatedPayload = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/var/log",
+        path: "/Applications",
         mimeType: "<value>",
-        size: 258750,
+        size: 237875,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2023-08-06T04:23:14.951Z"),
+        lastModifiedAt: new Date("2024-03-17T21:26:22.971Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2023-09-25T03:38:49.818Z"),
+        createdAt: new Date("2024-04-17T12:27:46.530Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://soft-hope.com",
+        publicUrl: "https://primary-hovercraft.org",
       },
     ],
     attachedCustomFields: [
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2023-05-26T06:05:41.394Z"),
-          modifiedAt: new Date("2025-07-22T03:49:19.507Z"),
+          createdAt: new Date("2023-12-20T15:19:35.871Z"),
+          modifiedAt: new Date("2025-01-27T16:14:29.110Z"),
           id: "<value>",
           metadata: {
-            "key": false,
+            "key": 881168,
           },
           slug: "<value>",
           name: "<value>",
           organizationId: "<value>",
-          properties: {},
+          properties: {
+            options: [
+              {
+                value: "<value>",
+                label: "<value>",
+              },
+            ],
+          },
         },
-        order: 938076,
+        order: 896512,
         required: false,
       },
     ],
