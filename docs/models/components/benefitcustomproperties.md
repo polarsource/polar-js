@@ -5,7 +5,7 @@ Properties for a benefit of type `custom`.
 ## Example Usage
 
 ```typescript
-import { BenefitCustomProperties } from "@polar-sh/sdk/models/components";
+import { BenefitCustomProperties } from "@polar-sh/sdk/models/components/benefitcustomproperties.js";
 
 let value: BenefitCustomProperties = {
   note: "<value>",

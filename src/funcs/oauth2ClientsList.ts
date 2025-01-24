@@ -18,10 +18,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  Oauth2ClientsListRequest,
+  Oauth2ClientsListRequest$outboundSchema,
+  Oauth2ClientsListResponse,
+  Oauth2ClientsListResponse$inboundSchema,
+} from "../models/operations/oauth2clientslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -38,13 +46,13 @@ import {
  */
 export async function oauth2ClientsList(
   client: PolarCore,
-  request: operations.Oauth2ClientsListRequest,
+  request: Oauth2ClientsListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.Oauth2ClientsListResponse,
-      | errors.HTTPValidationError
+      Oauth2ClientsListResponse,
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -58,7 +66,7 @@ export async function oauth2ClientsList(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.Oauth2ClientsListRequest$outboundSchema.parse(value),
+    (value) => Oauth2ClientsListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -126,8 +134,8 @@ export async function oauth2ClientsList(
   };
 
   const [result, raw] = await M.match<
-    operations.Oauth2ClientsListResponse,
-    | errors.HTTPValidationError
+    Oauth2ClientsListResponse,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -136,10 +144,8 @@ export async function oauth2ClientsList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.Oauth2ClientsListResponse$inboundSchema, {
-      key: "Result",
-    }),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, Oauth2ClientsListResponse$inboundSchema, { key: "Result" }),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -152,8 +158,8 @@ export async function oauth2ClientsList(
   ): {
     next: Paginator<
       Result<
-        operations.Oauth2ClientsListResponse,
-        | errors.HTTPValidationError
+        Oauth2ClientsListResponse,
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

@@ -5,7 +5,7 @@ File to be used as a product media file.
 ## Example Usage
 
 ```typescript
-import { ProductMediaFileRead } from "@polar-sh/sdk/models/components";
+import { ProductMediaFileRead } from "@polar-sh/sdk/models/components/productmediafileread.js";
 
 let value: ProductMediaFileRead = {
   id: "<value>",

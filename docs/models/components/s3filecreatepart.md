@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { S3FileCreatePart } from "@polar-sh/sdk/models/components";
+import { S3FileCreatePart } from "@polar-sh/sdk/models/components/s3filecreatepart.js";
 
 let value: S3FileCreatePart = {
   number: 772726,

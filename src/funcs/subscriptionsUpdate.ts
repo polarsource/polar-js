@@ -10,7 +10,14 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  Subscription,
+  Subscription$inboundSchema,
+} from "../models/components/subscription.js";
+import {
+  AlreadyCanceledSubscription,
+  AlreadyCanceledSubscription$inboundSchema,
+} from "../models/errors/alreadycanceledsubscription.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -18,10 +25,20 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  SubscriptionsUpdateRequest,
+  SubscriptionsUpdateRequest$outboundSchema,
+} from "../models/operations/subscriptionsupdate.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -32,14 +49,14 @@ import { Result } from "../types/fp.js";
  */
 export async function subscriptionsUpdate(
   client: PolarCore,
-  request: operations.SubscriptionsUpdateRequest,
+  request: SubscriptionsUpdateRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.Subscription,
-    | errors.AlreadyCanceledSubscription
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    Subscription,
+    | AlreadyCanceledSubscription
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -51,8 +68,7 @@ export async function subscriptionsUpdate(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.SubscriptionsUpdateRequest$outboundSchema.parse(value),
+    (value) => SubscriptionsUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -124,10 +140,10 @@ export async function subscriptionsUpdate(
   };
 
   const [result] = await M.match<
-    components.Subscription,
-    | errors.AlreadyCanceledSubscription
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    Subscription,
+    | AlreadyCanceledSubscription
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -136,10 +152,10 @@ export async function subscriptionsUpdate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.Subscription$inboundSchema),
-    M.jsonErr(403, errors.AlreadyCanceledSubscription$inboundSchema),
-    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, Subscription$inboundSchema),
+    M.jsonErr(403, AlreadyCanceledSubscription$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

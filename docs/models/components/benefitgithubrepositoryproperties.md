@@ -5,7 +5,7 @@ Properties for a benefit of type `github_repository`.
 ## Example Usage
 
 ```typescript
-import { BenefitGitHubRepositoryProperties } from "@polar-sh/sdk/models/components";
+import { BenefitGitHubRepositoryProperties } from "@polar-sh/sdk/models/components/benefitgithubrepositoryproperties.js";
 
 let value: BenefitGitHubRepositoryProperties = {
   repositoryOwner: "polarsource",

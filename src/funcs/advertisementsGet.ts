@@ -10,7 +10,10 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  AdvertisementCampaign,
+  AdvertisementCampaign$inboundSchema,
+} from "../models/components/advertisementcampaign.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -18,10 +21,20 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  AdvertisementsGetRequest,
+  AdvertisementsGetRequest$outboundSchema,
+} from "../models/operations/advertisementsget.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -32,13 +45,13 @@ import { Result } from "../types/fp.js";
  */
 export async function advertisementsGet(
   client: PolarCore,
-  request: operations.AdvertisementsGetRequest,
+  request: AdvertisementsGetRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.AdvertisementCampaign,
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    AdvertisementCampaign,
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -50,7 +63,7 @@ export async function advertisementsGet(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.AdvertisementsGetRequest$outboundSchema.parse(value),
+    (value) => AdvertisementsGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -119,9 +132,9 @@ export async function advertisementsGet(
   };
 
   const [result] = await M.match<
-    components.AdvertisementCampaign,
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    AdvertisementCampaign,
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -130,9 +143,9 @@ export async function advertisementsGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.AdvertisementCampaign$inboundSchema),
-    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, AdvertisementCampaign$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

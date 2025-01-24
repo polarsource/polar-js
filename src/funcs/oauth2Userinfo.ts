@@ -17,7 +17,10 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  Oauth2UserinfoResponseOauth2Userinfo,
+  Oauth2UserinfoResponseOauth2Userinfo$inboundSchema,
+} from "../models/operations/oauth2userinfo.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -31,7 +34,7 @@ export async function oauth2Userinfo(
   options?: RequestOptions,
 ): Promise<
   Result<
-    operations.Oauth2UserinfoResponseOauth2Userinfo,
+    Oauth2UserinfoResponseOauth2Userinfo,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -89,7 +92,7 @@ export async function oauth2Userinfo(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.Oauth2UserinfoResponseOauth2Userinfo,
+    Oauth2UserinfoResponseOauth2Userinfo,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -98,7 +101,7 @@ export async function oauth2Userinfo(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.Oauth2UserinfoResponseOauth2Userinfo$inboundSchema),
+    M.json(200, Oauth2UserinfoResponseOauth2Userinfo$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response);

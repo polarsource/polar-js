@@ -10,7 +10,11 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import { Refund, Refund$inboundSchema } from "../models/components/refund.js";
+import {
+  RefundCreate,
+  RefundCreate$outboundSchema,
+} from "../models/components/refundcreate.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -18,7 +22,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
+import {
+  RefundAmountTooHigh,
+  RefundAmountTooHigh$inboundSchema,
+} from "../models/errors/refundamounttoohigh.js";
+import {
+  RefundedAlready,
+  RefundedAlready$inboundSchema,
+} from "../models/errors/refundedalready.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import { Result } from "../types/fp.js";
@@ -31,14 +46,14 @@ import { Result } from "../types/fp.js";
  */
 export async function refundsCreate(
   client: PolarCore,
-  request: components.RefundCreate,
+  request: RefundCreate,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.Refund | undefined,
-    | errors.RefundAmountTooHigh
-    | errors.RefundedAlready
-    | errors.HTTPValidationError
+    Refund | undefined,
+    | RefundAmountTooHigh
+    | RefundedAlready
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -50,7 +65,7 @@ export async function refundsCreate(
 > {
   const parsed = safeParse(
     request,
-    (value) => components.RefundCreate$outboundSchema.parse(value),
+    (value) => RefundCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -113,10 +128,10 @@ export async function refundsCreate(
   };
 
   const [result] = await M.match<
-    components.Refund | undefined,
-    | errors.RefundAmountTooHigh
-    | errors.RefundedAlready
-    | errors.HTTPValidationError
+    Refund | undefined,
+    | RefundAmountTooHigh
+    | RefundedAlready
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -125,11 +140,11 @@ export async function refundsCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.Refund$inboundSchema.optional()),
-    M.nil(201, components.Refund$inboundSchema.optional()),
-    M.jsonErr(400, errors.RefundAmountTooHigh$inboundSchema),
-    M.jsonErr(403, errors.RefundedAlready$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, Refund$inboundSchema.optional()),
+    M.nil(201, Refund$inboundSchema.optional()),
+    M.jsonErr(400, RefundAmountTooHigh$inboundSchema),
+    M.jsonErr(403, RefundedAlready$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

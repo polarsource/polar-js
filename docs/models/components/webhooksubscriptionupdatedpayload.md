@@ -11,7 +11,7 @@ To listen specifically for renewals, you can listen to `order.created` events an
 ## Example Usage
 
 ```typescript
-import { WebhookSubscriptionUpdatedPayload } from "@polar-sh/sdk/models/components";
+import { WebhookSubscriptionUpdatedPayload } from "@polar-sh/sdk/models/components/webhooksubscriptionupdatedpayload.js";
 
 let value: WebhookSubscriptionUpdatedPayload = {
   data: {

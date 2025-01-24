@@ -5,8 +5,12 @@
 import { refundsCreate } from "../funcs/refundsCreate.js";
 import { refundsList } from "../funcs/refundsList.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { Refund } from "../models/components/refund.js";
+import { RefundCreate } from "../models/components/refundcreate.js";
+import {
+  RefundsListRequest,
+  RefundsListResponse,
+} from "../models/operations/refundslist.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -18,9 +22,9 @@ export class Refunds extends ClientSDK {
    * List products.
    */
   async list(
-    request: operations.RefundsListRequest,
+    request: RefundsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.RefundsListResponse, { page: number }>> {
+  ): Promise<PageIterator<RefundsListResponse, { page: number }>> {
     return unwrapResultIterator(refundsList(
       this,
       request,
@@ -35,9 +39,9 @@ export class Refunds extends ClientSDK {
    * Create a refund.
    */
   async create(
-    request: components.RefundCreate,
+    request: RefundCreate,
     options?: RequestOptions,
-  ): Promise<components.Refund | undefined> {
+  ): Promise<Refund | undefined> {
     return unwrapAsync(refundsCreate(
       this,
       request,

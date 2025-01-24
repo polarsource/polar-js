@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest } from "@polar-sh/sdk/models/components";
+import { Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest } from "@polar-sh/sdk/models/components/onev11oauth21tokenpostxcomponentsauthorizationcodetokenrequest.js";
 
 let value: Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest = {
   clientId: "<id>",

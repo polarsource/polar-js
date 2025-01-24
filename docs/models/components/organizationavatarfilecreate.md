@@ -5,7 +5,7 @@ Schema to create a file to be used as an organization avatar.
 ## Example Usage
 
 ```typescript
-import { OrganizationAvatarFileCreate } from "@polar-sh/sdk/models/components";
+import { OrganizationAvatarFileCreate } from "@polar-sh/sdk/models/components/organizationavatarfilecreate.js";
 
 let value: OrganizationAvatarFileCreate = {
   name: "<value>",

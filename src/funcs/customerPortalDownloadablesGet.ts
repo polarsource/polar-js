@@ -18,10 +18,16 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  CustomerPortalDownloadablesCustomerPortalDownloadablesGetRequest,
+  CustomerPortalDownloadablesCustomerPortalDownloadablesGetRequest$outboundSchema,
+} from "../models/operations/customerportaldownloadablescustomerportaldownloadablesget.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -29,13 +35,12 @@ import { Result } from "../types/fp.js";
  */
 export async function customerPortalDownloadablesGet(
   client: PolarCore,
-  request:
-    operations.CustomerPortalDownloadablesCustomerPortalDownloadablesGetRequest,
+  request: CustomerPortalDownloadablesCustomerPortalDownloadablesGetRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
     any | undefined,
-    | errors.HTTPValidationError
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -48,8 +53,7 @@ export async function customerPortalDownloadablesGet(
   const parsed = safeParse(
     request,
     (value) =>
-      operations
-        .CustomerPortalDownloadablesCustomerPortalDownloadablesGetRequest$outboundSchema
+      CustomerPortalDownloadablesCustomerPortalDownloadablesGetRequest$outboundSchema
         .parse(value),
     "Input validation failed",
   );
@@ -123,7 +127,7 @@ export async function customerPortalDownloadablesGet(
 
   const [result] = await M.match<
     any | undefined,
-    | errors.HTTPValidationError
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -135,7 +139,7 @@ export async function customerPortalDownloadablesGet(
     M.json(200, z.any().optional()),
     M.nil(302, z.any().optional()),
     M.fail([400, 404, 410, "4XX"]),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {

@@ -5,7 +5,7 @@ A recurring price for a product, i.e. a subscription.
 ## Example Usage
 
 ```typescript
-import { ProductPriceRecurringFixed } from "@polar-sh/sdk/models/components";
+import { ProductPriceRecurringFixed } from "@polar-sh/sdk/models/components/productpricerecurringfixed.js";
 
 let value: ProductPriceRecurringFixed = {
   createdAt: new Date("2023-12-03T06:19:58.290Z"),

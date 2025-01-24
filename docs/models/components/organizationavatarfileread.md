@@ -5,7 +5,7 @@ File to be used as an organization avatar.
 ## Example Usage
 
 ```typescript
-import { OrganizationAvatarFileRead } from "@polar-sh/sdk/models/components";
+import { OrganizationAvatarFileRead } from "@polar-sh/sdk/models/components/organizationavatarfileread.js";
 
 let value: OrganizationAvatarFileRead = {
   id: "<value>",

@@ -7,7 +7,7 @@ Ref: https://docs.stripe.com/billing/customer/tax-ids#supported-tax-id
 ## Example Usage
 
 ```typescript
-import { TaxIDFormat } from "@polar-sh/sdk/models/components";
+import { TaxIDFormat } from "@polar-sh/sdk/models/components/taxidformat.js";
 
 let value: TaxIDFormat = "gb_vat";
 ```

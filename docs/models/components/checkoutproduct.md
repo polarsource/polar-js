@@ -5,7 +5,7 @@ Product data for a checkout session.
 ## Example Usage
 
 ```typescript
-import { CheckoutProduct } from "@polar-sh/sdk/models/components";
+import { CheckoutProduct } from "@polar-sh/sdk/models/components/checkoutproduct.js";
 
 let value: CheckoutProduct = {
   createdAt: new Date("2024-05-16T02:48:20.581Z"),

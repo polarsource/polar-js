@@ -6,26 +6,61 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  BenefitAdsUpdate,
+  BenefitAdsUpdate$inboundSchema,
+  BenefitAdsUpdate$Outbound,
+  BenefitAdsUpdate$outboundSchema,
+} from "../components/benefitadsupdate.js";
+import {
+  BenefitCustomUpdate,
+  BenefitCustomUpdate$inboundSchema,
+  BenefitCustomUpdate$Outbound,
+  BenefitCustomUpdate$outboundSchema,
+} from "../components/benefitcustomupdate.js";
+import {
+  BenefitDiscordUpdate,
+  BenefitDiscordUpdate$inboundSchema,
+  BenefitDiscordUpdate$Outbound,
+  BenefitDiscordUpdate$outboundSchema,
+} from "../components/benefitdiscordupdate.js";
+import {
+  BenefitDownloadablesUpdate,
+  BenefitDownloadablesUpdate$inboundSchema,
+  BenefitDownloadablesUpdate$Outbound,
+  BenefitDownloadablesUpdate$outboundSchema,
+} from "../components/benefitdownloadablesupdate.js";
+import {
+  BenefitGitHubRepositoryUpdate,
+  BenefitGitHubRepositoryUpdate$inboundSchema,
+  BenefitGitHubRepositoryUpdate$Outbound,
+  BenefitGitHubRepositoryUpdate$outboundSchema,
+} from "../components/benefitgithubrepositoryupdate.js";
+import {
+  BenefitLicenseKeysUpdate,
+  BenefitLicenseKeysUpdate$inboundSchema,
+  BenefitLicenseKeysUpdate$Outbound,
+  BenefitLicenseKeysUpdate$outboundSchema,
+} from "../components/benefitlicensekeysupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitsUpdateBenefitUpdate =
-  | components.BenefitAdsUpdate
-  | components.BenefitCustomUpdate
-  | components.BenefitDiscordUpdate
-  | components.BenefitGitHubRepositoryUpdate
-  | components.BenefitDownloadablesUpdate
-  | components.BenefitLicenseKeysUpdate;
+  | BenefitAdsUpdate
+  | BenefitCustomUpdate
+  | BenefitDiscordUpdate
+  | BenefitGitHubRepositoryUpdate
+  | BenefitDownloadablesUpdate
+  | BenefitLicenseKeysUpdate;
 
 export type BenefitsUpdateRequest = {
   id: string;
   requestBody:
-    | components.BenefitAdsUpdate
-    | components.BenefitCustomUpdate
-    | components.BenefitDiscordUpdate
-    | components.BenefitGitHubRepositoryUpdate
-    | components.BenefitDownloadablesUpdate
-    | components.BenefitLicenseKeysUpdate;
+    | BenefitAdsUpdate
+    | BenefitCustomUpdate
+    | BenefitDiscordUpdate
+    | BenefitGitHubRepositoryUpdate
+    | BenefitDownloadablesUpdate
+    | BenefitLicenseKeysUpdate;
 };
 
 /** @internal */
@@ -34,22 +69,22 @@ export const BenefitsUpdateBenefitUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.BenefitAdsUpdate$inboundSchema,
-  components.BenefitCustomUpdate$inboundSchema,
-  components.BenefitDiscordUpdate$inboundSchema,
-  components.BenefitGitHubRepositoryUpdate$inboundSchema,
-  components.BenefitDownloadablesUpdate$inboundSchema,
-  components.BenefitLicenseKeysUpdate$inboundSchema,
+  BenefitAdsUpdate$inboundSchema,
+  BenefitCustomUpdate$inboundSchema,
+  BenefitDiscordUpdate$inboundSchema,
+  BenefitGitHubRepositoryUpdate$inboundSchema,
+  BenefitDownloadablesUpdate$inboundSchema,
+  BenefitLicenseKeysUpdate$inboundSchema,
 ]);
 
 /** @internal */
 export type BenefitsUpdateBenefitUpdate$Outbound =
-  | components.BenefitAdsUpdate$Outbound
-  | components.BenefitCustomUpdate$Outbound
-  | components.BenefitDiscordUpdate$Outbound
-  | components.BenefitGitHubRepositoryUpdate$Outbound
-  | components.BenefitDownloadablesUpdate$Outbound
-  | components.BenefitLicenseKeysUpdate$Outbound;
+  | BenefitAdsUpdate$Outbound
+  | BenefitCustomUpdate$Outbound
+  | BenefitDiscordUpdate$Outbound
+  | BenefitGitHubRepositoryUpdate$Outbound
+  | BenefitDownloadablesUpdate$Outbound
+  | BenefitLicenseKeysUpdate$Outbound;
 
 /** @internal */
 export const BenefitsUpdateBenefitUpdate$outboundSchema: z.ZodType<
@@ -57,12 +92,12 @@ export const BenefitsUpdateBenefitUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitsUpdateBenefitUpdate
 > = z.union([
-  components.BenefitAdsUpdate$outboundSchema,
-  components.BenefitCustomUpdate$outboundSchema,
-  components.BenefitDiscordUpdate$outboundSchema,
-  components.BenefitGitHubRepositoryUpdate$outboundSchema,
-  components.BenefitDownloadablesUpdate$outboundSchema,
-  components.BenefitLicenseKeysUpdate$outboundSchema,
+  BenefitAdsUpdate$outboundSchema,
+  BenefitCustomUpdate$outboundSchema,
+  BenefitDiscordUpdate$outboundSchema,
+  BenefitGitHubRepositoryUpdate$outboundSchema,
+  BenefitDownloadablesUpdate$outboundSchema,
+  BenefitLicenseKeysUpdate$outboundSchema,
 ]);
 
 /**
@@ -106,12 +141,12 @@ export const BenefitsUpdateRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   RequestBody: z.union([
-    components.BenefitAdsUpdate$inboundSchema,
-    components.BenefitCustomUpdate$inboundSchema,
-    components.BenefitDiscordUpdate$inboundSchema,
-    components.BenefitGitHubRepositoryUpdate$inboundSchema,
-    components.BenefitDownloadablesUpdate$inboundSchema,
-    components.BenefitLicenseKeysUpdate$inboundSchema,
+    BenefitAdsUpdate$inboundSchema,
+    BenefitCustomUpdate$inboundSchema,
+    BenefitDiscordUpdate$inboundSchema,
+    BenefitGitHubRepositoryUpdate$inboundSchema,
+    BenefitDownloadablesUpdate$inboundSchema,
+    BenefitLicenseKeysUpdate$inboundSchema,
   ]),
 }).transform((v) => {
   return remap$(v, {
@@ -123,12 +158,12 @@ export const BenefitsUpdateRequest$inboundSchema: z.ZodType<
 export type BenefitsUpdateRequest$Outbound = {
   id: string;
   RequestBody:
-    | components.BenefitAdsUpdate$Outbound
-    | components.BenefitCustomUpdate$Outbound
-    | components.BenefitDiscordUpdate$Outbound
-    | components.BenefitGitHubRepositoryUpdate$Outbound
-    | components.BenefitDownloadablesUpdate$Outbound
-    | components.BenefitLicenseKeysUpdate$Outbound;
+    | BenefitAdsUpdate$Outbound
+    | BenefitCustomUpdate$Outbound
+    | BenefitDiscordUpdate$Outbound
+    | BenefitGitHubRepositoryUpdate$Outbound
+    | BenefitDownloadablesUpdate$Outbound
+    | BenefitLicenseKeysUpdate$Outbound;
 };
 
 /** @internal */
@@ -139,12 +174,12 @@ export const BenefitsUpdateRequest$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   requestBody: z.union([
-    components.BenefitAdsUpdate$outboundSchema,
-    components.BenefitCustomUpdate$outboundSchema,
-    components.BenefitDiscordUpdate$outboundSchema,
-    components.BenefitGitHubRepositoryUpdate$outboundSchema,
-    components.BenefitDownloadablesUpdate$outboundSchema,
-    components.BenefitLicenseKeysUpdate$outboundSchema,
+    BenefitAdsUpdate$outboundSchema,
+    BenefitCustomUpdate$outboundSchema,
+    BenefitDiscordUpdate$outboundSchema,
+    BenefitGitHubRepositoryUpdate$outboundSchema,
+    BenefitDownloadablesUpdate$outboundSchema,
+    BenefitLicenseKeysUpdate$outboundSchema,
   ]),
 }).transform((v) => {
   return remap$(v, {

@@ -18,10 +18,16 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  Oauth2ClientsOauth2UpdateClientRequest,
+  Oauth2ClientsOauth2UpdateClientRequest$outboundSchema,
+} from "../models/operations/oauth2clientsoauth2updateclient.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -32,12 +38,12 @@ import { Result } from "../types/fp.js";
  */
 export async function oauth2ClientsUpdate(
   client: PolarCore,
-  request: operations.Oauth2ClientsOauth2UpdateClientRequest,
+  request: Oauth2ClientsOauth2UpdateClientRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
     any,
-    | errors.HTTPValidationError
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -50,9 +56,7 @@ export async function oauth2ClientsUpdate(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.Oauth2ClientsOauth2UpdateClientRequest$outboundSchema.parse(
-        value,
-      ),
+      Oauth2ClientsOauth2UpdateClientRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -125,7 +129,7 @@ export async function oauth2ClientsUpdate(
 
   const [result] = await M.match<
     any,
-    | errors.HTTPValidationError
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -135,7 +139,7 @@ export async function oauth2ClientsUpdate(
     | ConnectionError
   >(
     M.json(200, z.any()),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

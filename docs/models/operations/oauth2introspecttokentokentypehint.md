@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Oauth2IntrospectTokenTokenTypeHint } from "@polar-sh/sdk/models/operations";
+import { Oauth2IntrospectTokenTokenTypeHint } from "@polar-sh/sdk/models/operations/oauth2introspecttoken.js";
 
 let value: Oauth2IntrospectTokenTokenTypeHint = "refresh_token";
 ```

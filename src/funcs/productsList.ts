@@ -18,10 +18,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  ProductsListRequest,
+  ProductsListRequest$outboundSchema,
+  ProductsListResponse,
+  ProductsListResponse$inboundSchema,
+} from "../models/operations/productslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -38,13 +46,13 @@ import {
  */
 export async function productsList(
   client: PolarCore,
-  request: operations.ProductsListRequest,
+  request: ProductsListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.ProductsListResponse,
-      | errors.HTTPValidationError
+      ProductsListResponse,
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -58,7 +66,7 @@ export async function productsList(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.ProductsListRequest$outboundSchema.parse(value),
+    (value) => ProductsListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -133,8 +141,8 @@ export async function productsList(
   };
 
   const [result, raw] = await M.match<
-    operations.ProductsListResponse,
-    | errors.HTTPValidationError
+    ProductsListResponse,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -143,10 +151,8 @@ export async function productsList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.ProductsListResponse$inboundSchema, {
-      key: "Result",
-    }),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, ProductsListResponse$inboundSchema, { key: "Result" }),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -159,8 +165,8 @@ export async function productsList(
   ): {
     next: Paginator<
       Result<
-        operations.ProductsListResponse,
-        | errors.HTTPValidationError
+        ProductsListResponse,
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

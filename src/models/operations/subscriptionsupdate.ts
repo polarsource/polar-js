@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  SubscriptionUpdate,
+  SubscriptionUpdate$inboundSchema,
+  SubscriptionUpdate$Outbound,
+  SubscriptionUpdate$outboundSchema,
+} from "../components/subscriptionupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionsUpdateRequest = {
@@ -14,7 +19,7 @@ export type SubscriptionsUpdateRequest = {
    * The subscription ID.
    */
   id: string;
-  subscriptionUpdate: components.SubscriptionUpdate;
+  subscriptionUpdate: SubscriptionUpdate;
 };
 
 /** @internal */
@@ -24,7 +29,7 @@ export const SubscriptionsUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  SubscriptionUpdate: components.SubscriptionUpdate$inboundSchema,
+  SubscriptionUpdate: SubscriptionUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "SubscriptionUpdate": "subscriptionUpdate",
@@ -34,7 +39,7 @@ export const SubscriptionsUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type SubscriptionsUpdateRequest$Outbound = {
   id: string;
-  SubscriptionUpdate: components.SubscriptionUpdate$Outbound;
+  SubscriptionUpdate: SubscriptionUpdate$Outbound;
 };
 
 /** @internal */
@@ -44,7 +49,7 @@ export const SubscriptionsUpdateRequest$outboundSchema: z.ZodType<
   SubscriptionsUpdateRequest
 > = z.object({
   id: z.string(),
-  subscriptionUpdate: components.SubscriptionUpdate$outboundSchema,
+  subscriptionUpdate: SubscriptionUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     subscriptionUpdate: "SubscriptionUpdate",

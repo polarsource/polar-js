@@ -18,10 +18,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  CustomerPortalBenefitGrantsListRequest,
+  CustomerPortalBenefitGrantsListRequest$outboundSchema,
+  CustomerPortalBenefitGrantsListResponse,
+  CustomerPortalBenefitGrantsListResponse$inboundSchema,
+} from "../models/operations/customerportalbenefitgrantslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -38,13 +46,13 @@ import {
  */
 export async function customerPortalBenefitGrantsList(
   client: PolarCore,
-  request: operations.CustomerPortalBenefitGrantsListRequest,
+  request: CustomerPortalBenefitGrantsListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.CustomerPortalBenefitGrantsListResponse,
-      | errors.HTTPValidationError
+      CustomerPortalBenefitGrantsListResponse,
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -59,9 +67,7 @@ export async function customerPortalBenefitGrantsList(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.CustomerPortalBenefitGrantsListRequest$outboundSchema.parse(
-        value,
-      ),
+      CustomerPortalBenefitGrantsListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -136,8 +142,8 @@ export async function customerPortalBenefitGrantsList(
   };
 
   const [result, raw] = await M.match<
-    operations.CustomerPortalBenefitGrantsListResponse,
-    | errors.HTTPValidationError
+    CustomerPortalBenefitGrantsListResponse,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -146,12 +152,10 @@ export async function customerPortalBenefitGrantsList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(
-      200,
-      operations.CustomerPortalBenefitGrantsListResponse$inboundSchema,
-      { key: "Result" },
-    ),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, CustomerPortalBenefitGrantsListResponse$inboundSchema, {
+      key: "Result",
+    }),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -164,8 +168,8 @@ export async function customerPortalBenefitGrantsList(
   ): {
     next: Paginator<
       Result<
-        operations.CustomerPortalBenefitGrantsListResponse,
-        | errors.HTTPValidationError
+        CustomerPortalBenefitGrantsListResponse,
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

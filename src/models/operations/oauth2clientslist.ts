@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ListResourceOAuth2Client,
+  ListResourceOAuth2Client$inboundSchema,
+  ListResourceOAuth2Client$Outbound,
+  ListResourceOAuth2Client$outboundSchema,
+} from "../components/listresourceoauth2client.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Oauth2ClientsListRequest = {
@@ -21,7 +26,7 @@ export type Oauth2ClientsListRequest = {
 };
 
 export type Oauth2ClientsListResponse = {
-  result: components.ListResourceOAuth2Client;
+  result: ListResourceOAuth2Client;
 };
 
 /** @internal */
@@ -87,7 +92,7 @@ export const Oauth2ClientsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceOAuth2Client$inboundSchema,
+  Result: ListResourceOAuth2Client$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -96,7 +101,7 @@ export const Oauth2ClientsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type Oauth2ClientsListResponse$Outbound = {
-  Result: components.ListResourceOAuth2Client$Outbound;
+  Result: ListResourceOAuth2Client$Outbound;
 };
 
 /** @internal */
@@ -105,7 +110,7 @@ export const Oauth2ClientsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Oauth2ClientsListResponse
 > = z.object({
-  result: components.ListResourceOAuth2Client$outboundSchema,
+  result: ListResourceOAuth2Client$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

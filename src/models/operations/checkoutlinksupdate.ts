@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CheckoutLinkUpdate,
+  CheckoutLinkUpdate$inboundSchema,
+  CheckoutLinkUpdate$Outbound,
+  CheckoutLinkUpdate$outboundSchema,
+} from "../components/checkoutlinkupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutLinksUpdateRequest = {
@@ -14,7 +19,7 @@ export type CheckoutLinksUpdateRequest = {
    * The checkout link ID.
    */
   id: string;
-  checkoutLinkUpdate: components.CheckoutLinkUpdate;
+  checkoutLinkUpdate: CheckoutLinkUpdate;
 };
 
 /** @internal */
@@ -24,7 +29,7 @@ export const CheckoutLinksUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  CheckoutLinkUpdate: components.CheckoutLinkUpdate$inboundSchema,
+  CheckoutLinkUpdate: CheckoutLinkUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "CheckoutLinkUpdate": "checkoutLinkUpdate",
@@ -34,7 +39,7 @@ export const CheckoutLinksUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type CheckoutLinksUpdateRequest$Outbound = {
   id: string;
-  CheckoutLinkUpdate: components.CheckoutLinkUpdate$Outbound;
+  CheckoutLinkUpdate: CheckoutLinkUpdate$Outbound;
 };
 
 /** @internal */
@@ -44,7 +49,7 @@ export const CheckoutLinksUpdateRequest$outboundSchema: z.ZodType<
   CheckoutLinksUpdateRequest
 > = z.object({
   id: z.string(),
-  checkoutLinkUpdate: components.CheckoutLinkUpdate$outboundSchema,
+  checkoutLinkUpdate: CheckoutLinkUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     checkoutLinkUpdate: "CheckoutLinkUpdate",

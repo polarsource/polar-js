@@ -22,10 +22,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  CustomersListRequest,
+  CustomersListRequest$outboundSchema,
+  CustomersListResponse,
+  CustomersListResponse$inboundSchema,
+} from "../models/operations/customerslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -42,13 +50,13 @@ import {
  */
 export async function customersList(
   client: PolarCore,
-  request: operations.CustomersListRequest,
+  request: CustomersListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.CustomersListResponse,
-      | errors.HTTPValidationError
+      CustomersListResponse,
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -62,7 +70,7 @@ export async function customersList(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.CustomersListRequest$outboundSchema.parse(value),
+    (value) => CustomersListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -139,8 +147,8 @@ export async function customersList(
   };
 
   const [result, raw] = await M.match<
-    operations.CustomersListResponse,
-    | errors.HTTPValidationError
+    CustomersListResponse,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -149,10 +157,8 @@ export async function customersList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.CustomersListResponse$inboundSchema, {
-      key: "Result",
-    }),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, CustomersListResponse$inboundSchema, { key: "Result" }),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -165,8 +171,8 @@ export async function customersList(
   ): {
     next: Paginator<
       Result<
-        operations.CustomersListResponse,
-        | errors.HTTPValidationError
+        CustomersListResponse,
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

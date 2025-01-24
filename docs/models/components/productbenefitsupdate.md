@@ -5,7 +5,7 @@ Schema to update the benefits granted by a product.
 ## Example Usage
 
 ```typescript
-import { ProductBenefitsUpdate } from "@polar-sh/sdk/models/components";
+import { ProductBenefitsUpdate } from "@polar-sh/sdk/models/components/productbenefitsupdate.js";
 
 let value: ProductBenefitsUpdate = {
   benefits: [

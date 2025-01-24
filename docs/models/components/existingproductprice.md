@@ -7,7 +7,7 @@ Useful when updating a product if you want to keep an existing price.
 ## Example Usage
 
 ```typescript
-import { ExistingProductPrice } from "@polar-sh/sdk/models/components";
+import { ExistingProductPrice } from "@polar-sh/sdk/models/components/existingproductprice.js";
 
 let value: ExistingProductPrice = {
   id: "<value>",

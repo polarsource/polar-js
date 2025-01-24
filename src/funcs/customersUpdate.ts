@@ -10,7 +10,10 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  Customer,
+  Customer$inboundSchema,
+} from "../models/components/customer.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -18,10 +21,20 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  CustomersUpdateRequest,
+  CustomersUpdateRequest$outboundSchema,
+} from "../models/operations/customersupdate.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -32,13 +45,13 @@ import { Result } from "../types/fp.js";
  */
 export async function customersUpdate(
   client: PolarCore,
-  request: operations.CustomersUpdateRequest,
+  request: CustomersUpdateRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.Customer,
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    Customer,
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -50,7 +63,7 @@ export async function customersUpdate(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.CustomersUpdateRequest$outboundSchema.parse(value),
+    (value) => CustomersUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -120,9 +133,9 @@ export async function customersUpdate(
   };
 
   const [result] = await M.match<
-    components.Customer,
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    Customer,
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -131,9 +144,9 @@ export async function customersUpdate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.Customer$inboundSchema),
-    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, Customer$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

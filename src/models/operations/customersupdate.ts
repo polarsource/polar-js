@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CustomerUpdate,
+  CustomerUpdate$inboundSchema,
+  CustomerUpdate$Outbound,
+  CustomerUpdate$outboundSchema,
+} from "../components/customerupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomersUpdateRequest = {
@@ -14,7 +19,7 @@ export type CustomersUpdateRequest = {
    * The customer ID.
    */
   id: string;
-  customerUpdate: components.CustomerUpdate;
+  customerUpdate: CustomerUpdate;
 };
 
 /** @internal */
@@ -24,7 +29,7 @@ export const CustomersUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  CustomerUpdate: components.CustomerUpdate$inboundSchema,
+  CustomerUpdate: CustomerUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "CustomerUpdate": "customerUpdate",
@@ -34,7 +39,7 @@ export const CustomersUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type CustomersUpdateRequest$Outbound = {
   id: string;
-  CustomerUpdate: components.CustomerUpdate$Outbound;
+  CustomerUpdate: CustomerUpdate$Outbound;
 };
 
 /** @internal */
@@ -44,7 +49,7 @@ export const CustomersUpdateRequest$outboundSchema: z.ZodType<
   CustomersUpdateRequest
 > = z.object({
   id: z.string(),
-  customerUpdate: components.CustomerUpdate$outboundSchema,
+  customerUpdate: CustomerUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     customerUpdate: "CustomerUpdate",

@@ -5,7 +5,7 @@ Properties available to subscribers for a benefit of type `discord`.
 ## Example Usage
 
 ```typescript
-import { BenefitDiscordSubscriberProperties } from "@polar-sh/sdk/models/components";
+import { BenefitDiscordSubscriberProperties } from "@polar-sh/sdk/models/components/benefitdiscordsubscriberproperties.js";
 
 let value: BenefitDiscordSubscriberProperties = {
   guildId: "<id>",

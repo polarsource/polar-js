@@ -5,7 +5,7 @@ A pay-what-you-want price for a one-time product.
 ## Example Usage
 
 ```typescript
-import { ProductPriceOneTimeCustom } from "@polar-sh/sdk/models/components";
+import { ProductPriceOneTimeCustom } from "@polar-sh/sdk/models/components/productpriceonetimecustom.js";
 
 let value: ProductPriceOneTimeCustom = {
   createdAt: new Date("2023-09-21T01:29:35.775Z"),

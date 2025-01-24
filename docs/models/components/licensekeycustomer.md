@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { LicenseKeyCustomer } from "@polar-sh/sdk/models/components";
+import { LicenseKeyCustomer } from "@polar-sh/sdk/models/components/licensekeycustomer.js";
 
 let value: LicenseKeyCustomer = {
   createdAt: new Date("2025-01-25T16:20:59.036Z"),

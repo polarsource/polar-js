@@ -10,7 +10,14 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  Checkout,
+  Checkout$inboundSchema,
+} from "../models/components/checkout.js";
+import {
+  CheckoutCreate,
+  CheckoutCreate$outboundSchema,
+} from "../models/components/checkoutcreate.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -18,7 +25,10 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import { Result } from "../types/fp.js";
@@ -31,12 +41,12 @@ import { Result } from "../types/fp.js";
  */
 export async function checkoutsCustomCreate(
   client: PolarCore,
-  request: components.CheckoutCreate,
+  request: CheckoutCreate,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.Checkout,
-    | errors.HTTPValidationError
+    Checkout,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -48,7 +58,7 @@ export async function checkoutsCustomCreate(
 > {
   const parsed = safeParse(
     request,
-    (value) => components.CheckoutCreate$outboundSchema.parse(value),
+    (value) => CheckoutCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -111,8 +121,8 @@ export async function checkoutsCustomCreate(
   };
 
   const [result] = await M.match<
-    components.Checkout,
-    | errors.HTTPValidationError
+    Checkout,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -121,8 +131,8 @@ export async function checkoutsCustomCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(201, components.Checkout$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(201, Checkout$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

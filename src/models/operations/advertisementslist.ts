@@ -6,7 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  AdvertisementCampaignListResource,
+  AdvertisementCampaignListResource$inboundSchema,
+  AdvertisementCampaignListResource$Outbound,
+  AdvertisementCampaignListResource$outboundSchema,
+} from "../components/advertisementcampaignlistresource.js";
+import {
+  AdvertisementSortProperty,
+  AdvertisementSortProperty$inboundSchema,
+  AdvertisementSortProperty$outboundSchema,
+} from "../components/advertisementsortproperty.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AdvertisementsListRequest = {
@@ -22,11 +32,11 @@ export type AdvertisementsListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.AdvertisementSortProperty> | null | undefined;
+  sorting?: Array<AdvertisementSortProperty> | null | undefined;
 };
 
 export type AdvertisementsListResponse = {
-  result: components.AdvertisementCampaignListResource;
+  result: AdvertisementCampaignListResource;
 };
 
 /** @internal */
@@ -38,9 +48,8 @@ export const AdvertisementsListRequest$inboundSchema: z.ZodType<
   benefit_id: z.string(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.AdvertisementSortProperty$inboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(AdvertisementSortProperty$inboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "benefit_id": "benefitId",
@@ -64,9 +73,8 @@ export const AdvertisementsListRequest$outboundSchema: z.ZodType<
   benefitId: z.string(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.AdvertisementSortProperty$outboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(AdvertisementSortProperty$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     benefitId: "benefit_id",
@@ -110,7 +118,7 @@ export const AdvertisementsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.AdvertisementCampaignListResource$inboundSchema,
+  Result: AdvertisementCampaignListResource$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -119,7 +127,7 @@ export const AdvertisementsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AdvertisementsListResponse$Outbound = {
-  Result: components.AdvertisementCampaignListResource$Outbound;
+  Result: AdvertisementCampaignListResource$Outbound;
 };
 
 /** @internal */
@@ -128,7 +136,7 @@ export const AdvertisementsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AdvertisementsListResponse
 > = z.object({
-  result: components.AdvertisementCampaignListResource$outboundSchema,
+  result: AdvertisementCampaignListResource$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

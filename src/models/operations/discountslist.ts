@@ -6,7 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  DiscountSortProperty,
+  DiscountSortProperty$inboundSchema,
+  DiscountSortProperty$outboundSchema,
+} from "../components/discountsortproperty.js";
+import {
+  ListResourceDiscount,
+  ListResourceDiscount$inboundSchema,
+  ListResourceDiscount$Outbound,
+  ListResourceDiscount$outboundSchema,
+} from "../components/listresourcediscount.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -36,11 +46,11 @@ export type DiscountsListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.DiscountSortProperty> | null | undefined;
+  sorting?: Array<DiscountSortProperty> | null | undefined;
 };
 
 export type DiscountsListResponse = {
-  result: components.ListResourceDiscount;
+  result: ListResourceDiscount;
 };
 
 /** @internal */
@@ -117,8 +127,7 @@ export const DiscountsListRequest$inboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.DiscountSortProperty$inboundSchema))
-    .optional(),
+  sorting: z.nullable(z.array(DiscountSortProperty$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -145,8 +154,7 @@ export const DiscountsListRequest$outboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.DiscountSortProperty$outboundSchema))
-    .optional(),
+  sorting: z.nullable(z.array(DiscountSortProperty$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
@@ -190,7 +198,7 @@ export const DiscountsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceDiscount$inboundSchema,
+  Result: ListResourceDiscount$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -199,7 +207,7 @@ export const DiscountsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type DiscountsListResponse$Outbound = {
-  Result: components.ListResourceDiscount$Outbound;
+  Result: ListResourceDiscount$Outbound;
 };
 
 /** @internal */
@@ -208,7 +216,7 @@ export const DiscountsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DiscountsListResponse
 > = z.object({
-  result: components.ListResourceDiscount$outboundSchema,
+  result: ListResourceDiscount$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

@@ -7,7 +7,7 @@ Use it to grant any kind of benefit that doesn't fit in the other types.
 ## Example Usage
 
 ```typescript
-import { BenefitCustom } from "@polar-sh/sdk/models/components";
+import { BenefitCustom } from "@polar-sh/sdk/models/components/benefitcustom.js";
 
 let value: BenefitCustom = {
   createdAt: new Date("2023-11-28T23:36:29.114Z"),

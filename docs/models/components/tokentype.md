@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { TokenType } from "@polar-sh/sdk/models/components";
+import { TokenType } from "@polar-sh/sdk/models/components/introspecttokenresponse.js";
 
 let value: TokenType = "access_token";
 ```

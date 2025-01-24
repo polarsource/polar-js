@@ -5,7 +5,7 @@ File to be associated with the downloadables benefit.
 ## Example Usage
 
 ```typescript
-import { DownloadableFileRead } from "@polar-sh/sdk/models/components";
+import { DownloadableFileRead } from "@polar-sh/sdk/models/components/downloadablefileread.js";
 
 let value: DownloadableFileRead = {
   id: "<value>",

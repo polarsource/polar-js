@@ -8,8 +8,15 @@ import { checkoutLinksGet } from "../funcs/checkoutLinksGet.js";
 import { checkoutLinksList } from "../funcs/checkoutLinksList.js";
 import { checkoutLinksUpdate } from "../funcs/checkoutLinksUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { CheckoutLink } from "../models/components/checkoutlink.js";
+import { CheckoutLinkCreate } from "../models/components/checkoutlinkcreate.js";
+import { CheckoutLinksDeleteRequest } from "../models/operations/checkoutlinksdelete.js";
+import { CheckoutLinksGetRequest } from "../models/operations/checkoutlinksget.js";
+import {
+  CheckoutLinksListRequest,
+  CheckoutLinksListResponse,
+} from "../models/operations/checkoutlinkslist.js";
+import { CheckoutLinksUpdateRequest } from "../models/operations/checkoutlinksupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -21,11 +28,9 @@ export class CheckoutLinks extends ClientSDK {
    * List checkout links.
    */
   async list(
-    request: operations.CheckoutLinksListRequest,
+    request: CheckoutLinksListRequest,
     options?: RequestOptions,
-  ): Promise<
-    PageIterator<operations.CheckoutLinksListResponse, { page: number }>
-  > {
+  ): Promise<PageIterator<CheckoutLinksListResponse, { page: number }>> {
     return unwrapResultIterator(checkoutLinksList(
       this,
       request,
@@ -40,9 +45,9 @@ export class CheckoutLinks extends ClientSDK {
    * Create a checkout link.
    */
   async create(
-    request: components.CheckoutLinkCreate,
+    request: CheckoutLinkCreate,
     options?: RequestOptions,
-  ): Promise<components.CheckoutLink> {
+  ): Promise<CheckoutLink> {
     return unwrapAsync(checkoutLinksCreate(
       this,
       request,
@@ -57,9 +62,9 @@ export class CheckoutLinks extends ClientSDK {
    * Get a checkout link by ID.
    */
   async get(
-    request: operations.CheckoutLinksGetRequest,
+    request: CheckoutLinksGetRequest,
     options?: RequestOptions,
-  ): Promise<components.CheckoutLink> {
+  ): Promise<CheckoutLink> {
     return unwrapAsync(checkoutLinksGet(
       this,
       request,
@@ -74,9 +79,9 @@ export class CheckoutLinks extends ClientSDK {
    * Update a checkout link.
    */
   async update(
-    request: operations.CheckoutLinksUpdateRequest,
+    request: CheckoutLinksUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.CheckoutLink> {
+  ): Promise<CheckoutLink> {
     return unwrapAsync(checkoutLinksUpdate(
       this,
       request,
@@ -91,7 +96,7 @@ export class CheckoutLinks extends ClientSDK {
    * Delete a checkout link.
    */
   async delete(
-    request: operations.CheckoutLinksDeleteRequest,
+    request: CheckoutLinksDeleteRequest,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(checkoutLinksDelete(

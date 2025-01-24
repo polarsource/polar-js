@@ -5,7 +5,7 @@ Schema to create a custom field of type text.
 ## Example Usage
 
 ```typescript
-import { CustomFieldCreateText } from "@polar-sh/sdk/models/components";
+import { CustomFieldCreateText } from "@polar-sh/sdk/models/components/customfieldcreatetext.js";
 
 let value: CustomFieldCreateText = {
   slug: "<value>",

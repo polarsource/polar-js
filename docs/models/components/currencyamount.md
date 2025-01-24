@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CurrencyAmount } from "@polar-sh/sdk/models/components";
+import { CurrencyAmount } from "@polar-sh/sdk/models/components/currencyamount.js";
 
 let value: CurrencyAmount = {
   currency: "Ouguiya",

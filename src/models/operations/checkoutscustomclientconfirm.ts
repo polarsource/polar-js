@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CheckoutConfirmStripe,
+  CheckoutConfirmStripe$inboundSchema,
+  CheckoutConfirmStripe$Outbound,
+  CheckoutConfirmStripe$outboundSchema,
+} from "../components/checkoutconfirmstripe.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutsCustomClientConfirmRequest = {
@@ -14,7 +19,7 @@ export type CheckoutsCustomClientConfirmRequest = {
    * The checkout session client secret.
    */
   clientSecret: string;
-  checkoutConfirmStripe: components.CheckoutConfirmStripe;
+  checkoutConfirmStripe: CheckoutConfirmStripe;
 };
 
 /** @internal */
@@ -24,7 +29,7 @@ export const CheckoutsCustomClientConfirmRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   client_secret: z.string(),
-  CheckoutConfirmStripe: components.CheckoutConfirmStripe$inboundSchema,
+  CheckoutConfirmStripe: CheckoutConfirmStripe$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "client_secret": "clientSecret",
@@ -35,7 +40,7 @@ export const CheckoutsCustomClientConfirmRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type CheckoutsCustomClientConfirmRequest$Outbound = {
   client_secret: string;
-  CheckoutConfirmStripe: components.CheckoutConfirmStripe$Outbound;
+  CheckoutConfirmStripe: CheckoutConfirmStripe$Outbound;
 };
 
 /** @internal */
@@ -45,7 +50,7 @@ export const CheckoutsCustomClientConfirmRequest$outboundSchema: z.ZodType<
   CheckoutsCustomClientConfirmRequest
 > = z.object({
   clientSecret: z.string(),
-  checkoutConfirmStripe: components.CheckoutConfirmStripe$outboundSchema,
+  checkoutConfirmStripe: CheckoutConfirmStripe$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     clientSecret: "client_secret",

@@ -17,10 +17,26 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
+import {
+  NotPermitted,
+  NotPermitted$inboundSchema,
+} from "../models/errors/notpermitted.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  FilesUpdateRequest,
+  FilesUpdateRequest$outboundSchema,
+  FilesUpdateResponseFilesUpdate,
+  FilesUpdateResponseFilesUpdate$inboundSchema,
+} from "../models/operations/filesupdate.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -31,14 +47,14 @@ import { Result } from "../types/fp.js";
  */
 export async function filesUpdate(
   client: PolarCore,
-  request: operations.FilesUpdateRequest,
+  request: FilesUpdateRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
-    operations.FilesUpdateResponseFilesUpdate,
-    | errors.NotPermitted
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    FilesUpdateResponseFilesUpdate,
+    | NotPermitted
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -50,7 +66,7 @@ export async function filesUpdate(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.FilesUpdateRequest$outboundSchema.parse(value),
+    (value) => FilesUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -120,10 +136,10 @@ export async function filesUpdate(
   };
 
   const [result] = await M.match<
-    operations.FilesUpdateResponseFilesUpdate,
-    | errors.NotPermitted
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    FilesUpdateResponseFilesUpdate,
+    | NotPermitted
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -132,10 +148,10 @@ export async function filesUpdate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.FilesUpdateResponseFilesUpdate$inboundSchema),
-    M.jsonErr(403, errors.NotPermitted$inboundSchema),
-    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, FilesUpdateResponseFilesUpdate$inboundSchema),
+    M.jsonErr(403, NotPermitted$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

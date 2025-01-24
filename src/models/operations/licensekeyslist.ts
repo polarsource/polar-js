@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ListResourceLicenseKeyRead,
+  ListResourceLicenseKeyRead$inboundSchema,
+  ListResourceLicenseKeyRead$Outbound,
+  ListResourceLicenseKeyRead$outboundSchema,
+} from "../components/listresourcelicensekeyread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -41,7 +46,7 @@ export type LicenseKeysListRequest = {
 };
 
 export type LicenseKeysListResponse = {
-  result: components.ListResourceLicenseKeyRead;
+  result: ListResourceLicenseKeyRead;
 };
 
 /** @internal */
@@ -236,7 +241,7 @@ export const LicenseKeysListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceLicenseKeyRead$inboundSchema,
+  Result: ListResourceLicenseKeyRead$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -245,7 +250,7 @@ export const LicenseKeysListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type LicenseKeysListResponse$Outbound = {
-  Result: components.ListResourceLicenseKeyRead$Outbound;
+  Result: ListResourceLicenseKeyRead$Outbound;
 };
 
 /** @internal */
@@ -254,7 +259,7 @@ export const LicenseKeysListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   LicenseKeysListResponse
 > = z.object({
-  result: components.ListResourceLicenseKeyRead$outboundSchema,
+  result: ListResourceLicenseKeyRead$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

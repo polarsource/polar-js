@@ -6,7 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ListResourceSubscription,
+  ListResourceSubscription$inboundSchema,
+  ListResourceSubscription$Outbound,
+  ListResourceSubscription$outboundSchema,
+} from "../components/listresourcesubscription.js";
+import {
+  SubscriptionSortProperty,
+  SubscriptionSortProperty$inboundSchema,
+  SubscriptionSortProperty$outboundSchema,
+} from "../components/subscriptionsortproperty.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -63,11 +73,11 @@ export type SubscriptionsListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.SubscriptionSortProperty> | null | undefined;
+  sorting?: Array<SubscriptionSortProperty> | null | undefined;
 };
 
 export type SubscriptionsListResponse = {
-  result: components.ListResourceSubscription;
+  result: ListResourceSubscription;
 };
 
 /** @internal */
@@ -292,9 +302,8 @@ export const SubscriptionsListRequest$inboundSchema: z.ZodType<
   active: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.SubscriptionSortProperty$inboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(SubscriptionSortProperty$inboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -330,9 +339,8 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodType<
   active: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.SubscriptionSortProperty$outboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(SubscriptionSortProperty$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
@@ -379,7 +387,7 @@ export const SubscriptionsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceSubscription$inboundSchema,
+  Result: ListResourceSubscription$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -388,7 +396,7 @@ export const SubscriptionsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type SubscriptionsListResponse$Outbound = {
-  Result: components.ListResourceSubscription$Outbound;
+  Result: ListResourceSubscription$Outbound;
 };
 
 /** @internal */
@@ -397,7 +405,7 @@ export const SubscriptionsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SubscriptionsListResponse
 > = z.object({
-  result: components.ListResourceSubscription$outboundSchema,
+  result: ListResourceSubscription$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

@@ -10,7 +10,10 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  IntrospectTokenResponse,
+  IntrospectTokenResponse$inboundSchema,
+} from "../models/components/introspecttokenresponse.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -20,7 +23,10 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  Oauth2IntrospectTokenIntrospectTokenRequest,
+  Oauth2IntrospectTokenIntrospectTokenRequest$outboundSchema,
+} from "../models/operations/oauth2introspecttoken.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -31,11 +37,11 @@ import { Result } from "../types/fp.js";
  */
 export async function oauth2Introspect(
   client: PolarCore,
-  request: operations.Oauth2IntrospectTokenIntrospectTokenRequest,
+  request: Oauth2IntrospectTokenIntrospectTokenRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.IntrospectTokenResponse,
+    IntrospectTokenResponse,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -48,8 +54,7 @@ export async function oauth2Introspect(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.Oauth2IntrospectTokenIntrospectTokenRequest$outboundSchema
-        .parse(value),
+      Oauth2IntrospectTokenIntrospectTokenRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -111,7 +116,7 @@ export async function oauth2Introspect(
   const response = doResult.value;
 
   const [result] = await M.match<
-    components.IntrospectTokenResponse,
+    IntrospectTokenResponse,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -120,7 +125,7 @@ export async function oauth2Introspect(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.IntrospectTokenResponse$inboundSchema),
+    M.json(200, IntrospectTokenResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response);

@@ -6,8 +6,13 @@ import { customerPortalBenefitGrantsGet } from "../funcs/customerPortalBenefitGr
 import { customerPortalBenefitGrantsList } from "../funcs/customerPortalBenefitGrantsList.js";
 import { customerPortalBenefitGrantsUpdate } from "../funcs/customerPortalBenefitGrantsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { CustomerBenefitGrant } from "../models/components/customerbenefitgrant.js";
+import { CustomerPortalBenefitGrantsGetRequest } from "../models/operations/customerportalbenefitgrantsget.js";
+import {
+  CustomerPortalBenefitGrantsListRequest,
+  CustomerPortalBenefitGrantsListResponse,
+} from "../models/operations/customerportalbenefitgrantslist.js";
+import { CustomerPortalBenefitGrantsUpdateRequest } from "../models/operations/customerportalbenefitgrantsupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -19,13 +24,10 @@ export class BenefitGrants extends ClientSDK {
    * List benefits grants of the authenticated customer or user.
    */
   async list(
-    request: operations.CustomerPortalBenefitGrantsListRequest,
+    request: CustomerPortalBenefitGrantsListRequest,
     options?: RequestOptions,
   ): Promise<
-    PageIterator<
-      operations.CustomerPortalBenefitGrantsListResponse,
-      { page: number }
-    >
+    PageIterator<CustomerPortalBenefitGrantsListResponse, { page: number }>
   > {
     return unwrapResultIterator(customerPortalBenefitGrantsList(
       this,
@@ -41,9 +43,9 @@ export class BenefitGrants extends ClientSDK {
    * Get a benefit grant by ID for the authenticated customer or user.
    */
   async get(
-    request: operations.CustomerPortalBenefitGrantsGetRequest,
+    request: CustomerPortalBenefitGrantsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomerBenefitGrant> {
+  ): Promise<CustomerBenefitGrant> {
     return unwrapAsync(customerPortalBenefitGrantsGet(
       this,
       request,
@@ -58,9 +60,9 @@ export class BenefitGrants extends ClientSDK {
    * Update a benefit grant for the authenticated customer or user.
    */
   async update(
-    request: operations.CustomerPortalBenefitGrantsUpdateRequest,
+    request: CustomerPortalBenefitGrantsUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomerBenefitGrant> {
+  ): Promise<CustomerBenefitGrant> {
     return unwrapAsync(customerPortalBenefitGrantsUpdate(
       this,
       request,

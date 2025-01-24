@@ -18,10 +18,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  BenefitsListRequest,
+  BenefitsListRequest$outboundSchema,
+  BenefitsListResponse,
+  BenefitsListResponse$inboundSchema,
+} from "../models/operations/benefitslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -38,13 +46,13 @@ import {
  */
 export async function benefitsList(
   client: PolarCore,
-  request: operations.BenefitsListRequest,
+  request: BenefitsListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.BenefitsListResponse,
-      | errors.HTTPValidationError
+      BenefitsListResponse,
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -58,7 +66,7 @@ export async function benefitsList(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.BenefitsListRequest$outboundSchema.parse(value),
+    (value) => BenefitsListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -128,8 +136,8 @@ export async function benefitsList(
   };
 
   const [result, raw] = await M.match<
-    operations.BenefitsListResponse,
-    | errors.HTTPValidationError
+    BenefitsListResponse,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -138,10 +146,8 @@ export async function benefitsList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.BenefitsListResponse$inboundSchema, {
-      key: "Result",
-    }),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, BenefitsListResponse$inboundSchema, { key: "Result" }),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -154,8 +160,8 @@ export async function benefitsList(
   ): {
     next: Paginator<
       Result<
-        operations.BenefitsListResponse,
-        | errors.HTTPValidationError
+        BenefitsListResponse,
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

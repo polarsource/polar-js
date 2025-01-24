@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CustomFieldsDeleteRequest } from "@polar-sh/sdk/models/operations";
+import { CustomFieldsDeleteRequest } from "@polar-sh/sdk/models/operations/customfieldsdelete.js";
 
 let value: CustomFieldsDeleteRequest = {
   id: "<value>",

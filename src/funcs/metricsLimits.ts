@@ -8,7 +8,10 @@ import { compactMap } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  MetricsLimits,
+  MetricsLimits$inboundSchema,
+} from "../models/components/metricslimits.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -31,7 +34,7 @@ export async function metricsLimits(
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.MetricsLimits,
+    MetricsLimits,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -89,7 +92,7 @@ export async function metricsLimits(
   const response = doResult.value;
 
   const [result] = await M.match<
-    components.MetricsLimits,
+    MetricsLimits,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -98,7 +101,7 @@ export async function metricsLimits(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.MetricsLimits$inboundSchema),
+    M.json(200, MetricsLimits$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response);

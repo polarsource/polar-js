@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ListResourceBenefitGrant,
+  ListResourceBenefitGrant$inboundSchema,
+  ListResourceBenefitGrant$Outbound,
+  ListResourceBenefitGrant$outboundSchema,
+} from "../components/listresourcebenefitgrant.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -35,7 +40,7 @@ export type BenefitsGrantsRequest = {
 };
 
 export type BenefitsGrantsResponse = {
-  result: components.ListResourceBenefitGrant;
+  result: ListResourceBenefitGrant;
 };
 
 /** @internal */
@@ -169,7 +174,7 @@ export const BenefitsGrantsResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceBenefitGrant$inboundSchema,
+  Result: ListResourceBenefitGrant$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -178,7 +183,7 @@ export const BenefitsGrantsResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitsGrantsResponse$Outbound = {
-  Result: components.ListResourceBenefitGrant$Outbound;
+  Result: ListResourceBenefitGrant$Outbound;
 };
 
 /** @internal */
@@ -187,7 +192,7 @@ export const BenefitsGrantsResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitsGrantsResponse
 > = z.object({
-  result: components.ListResourceBenefitGrant$outboundSchema,
+  result: ListResourceBenefitGrant$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

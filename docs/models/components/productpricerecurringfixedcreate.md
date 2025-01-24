@@ -5,7 +5,7 @@ Schema to create a recurring product price, i.e. a subscription.
 ## Example Usage
 
 ```typescript
-import { ProductPriceRecurringFixedCreate } from "@polar-sh/sdk/models/components";
+import { ProductPriceRecurringFixedCreate } from "@polar-sh/sdk/models/components/productpricerecurringfixedcreate.js";
 
 let value: ProductPriceRecurringFixedCreate = {
   priceAmount: 750407,

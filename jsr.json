@@ -2,7 +2,7 @@
 
 {
   "name": "@polar-sh/sdk",
-  "version": "0.21.3",
+  "version": "0.22.0",
   "exports": {
     ".": "./src/index.ts",    
     "./models/errors": "./src/models/errors/index.ts",    

@@ -18,10 +18,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  CheckoutLinksListRequest,
+  CheckoutLinksListRequest$outboundSchema,
+  CheckoutLinksListResponse,
+  CheckoutLinksListResponse$inboundSchema,
+} from "../models/operations/checkoutlinkslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -38,13 +46,13 @@ import {
  */
 export async function checkoutLinksList(
   client: PolarCore,
-  request: operations.CheckoutLinksListRequest,
+  request: CheckoutLinksListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.CheckoutLinksListResponse,
-      | errors.HTTPValidationError
+      CheckoutLinksListResponse,
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -58,7 +66,7 @@ export async function checkoutLinksList(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.CheckoutLinksListRequest$outboundSchema.parse(value),
+    (value) => CheckoutLinksListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -129,8 +137,8 @@ export async function checkoutLinksList(
   };
 
   const [result, raw] = await M.match<
-    operations.CheckoutLinksListResponse,
-    | errors.HTTPValidationError
+    CheckoutLinksListResponse,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -139,10 +147,8 @@ export async function checkoutLinksList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.CheckoutLinksListResponse$inboundSchema, {
-      key: "Result",
-    }),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, CheckoutLinksListResponse$inboundSchema, { key: "Result" }),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -155,8 +161,8 @@ export async function checkoutLinksList(
   ): {
     next: Paginator<
       Result<
-        operations.CheckoutLinksListResponse,
-        | errors.HTTPValidationError
+        CheckoutLinksListResponse,
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

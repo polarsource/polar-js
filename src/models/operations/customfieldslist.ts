@@ -6,7 +6,22 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CustomFieldSortProperty,
+  CustomFieldSortProperty$inboundSchema,
+  CustomFieldSortProperty$outboundSchema,
+} from "../components/customfieldsortproperty.js";
+import {
+  CustomFieldType,
+  CustomFieldType$inboundSchema,
+  CustomFieldType$outboundSchema,
+} from "../components/customfieldtype.js";
+import {
+  ListResourceCustomField,
+  ListResourceCustomField$inboundSchema,
+  ListResourceCustomField$Outbound,
+  ListResourceCustomField$outboundSchema,
+} from "../components/listresourcecustomfield.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -19,9 +34,7 @@ export type CustomFieldsListQueryParamOrganizationIDFilter =
 /**
  * Filter by custom field type.
  */
-export type CustomFieldTypeFilter =
-  | components.CustomFieldType
-  | Array<components.CustomFieldType>;
+export type CustomFieldTypeFilter = CustomFieldType | Array<CustomFieldType>;
 
 export type CustomFieldsListRequest = {
   /**
@@ -35,11 +48,7 @@ export type CustomFieldsListRequest = {
   /**
    * Filter by custom field type.
    */
-  typeFilter?:
-    | components.CustomFieldType
-    | Array<components.CustomFieldType>
-    | null
-    | undefined;
+  typeFilter?: CustomFieldType | Array<CustomFieldType> | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -51,11 +60,11 @@ export type CustomFieldsListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.CustomFieldSortProperty> | null | undefined;
+  sorting?: Array<CustomFieldSortProperty> | null | undefined;
 };
 
 export type CustomFieldsListResponse = {
-  result: components.ListResourceCustomField;
+  result: ListResourceCustomField;
 };
 
 /** @internal */
@@ -128,8 +137,8 @@ export const CustomFieldTypeFilter$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.CustomFieldType$inboundSchema,
-  z.array(components.CustomFieldType$inboundSchema),
+  CustomFieldType$inboundSchema,
+  z.array(CustomFieldType$inboundSchema),
 ]);
 
 /** @internal */
@@ -141,8 +150,8 @@ export const CustomFieldTypeFilter$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomFieldTypeFilter
 > = z.union([
-  components.CustomFieldType$outboundSchema,
-  z.array(components.CustomFieldType$outboundSchema),
+  CustomFieldType$outboundSchema,
+  z.array(CustomFieldType$outboundSchema),
 ]);
 
 /**
@@ -187,13 +196,13 @@ export const CustomFieldsListRequest$inboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   type_filter: z.nullable(
     z.union([
-      components.CustomFieldType$inboundSchema,
-      z.array(components.CustomFieldType$inboundSchema),
+      CustomFieldType$inboundSchema,
+      z.array(CustomFieldType$inboundSchema),
     ]),
   ).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.CustomFieldSortProperty$inboundSchema))
+  sorting: z.nullable(z.array(CustomFieldSortProperty$inboundSchema))
     .optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -223,15 +232,14 @@ export const CustomFieldsListRequest$outboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   typeFilter: z.nullable(
     z.union([
-      components.CustomFieldType$outboundSchema,
-      z.array(components.CustomFieldType$outboundSchema),
+      CustomFieldType$outboundSchema,
+      z.array(CustomFieldType$outboundSchema),
     ]),
   ).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.CustomFieldSortProperty$outboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(CustomFieldSortProperty$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
@@ -276,7 +284,7 @@ export const CustomFieldsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceCustomField$inboundSchema,
+  Result: ListResourceCustomField$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -285,7 +293,7 @@ export const CustomFieldsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomFieldsListResponse$Outbound = {
-  Result: components.ListResourceCustomField$Outbound;
+  Result: ListResourceCustomField$Outbound;
 };
 
 /** @internal */
@@ -294,7 +302,7 @@ export const CustomFieldsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomFieldsListResponse
 > = z.object({
-  result: components.ListResourceCustomField$outboundSchema,
+  result: ListResourceCustomField$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

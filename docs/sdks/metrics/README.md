@@ -16,7 +16,7 @@ Get metrics about your orders and subscriptions.
 
 ```typescript
 import { Polar } from "@polar-sh/sdk";
-import { RFCDate } from "@polar-sh/sdk/types";
+import { RFCDate } from "@polar-sh/sdk/types/rfcdate.js";
 
 const polar = new Polar({
   accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
@@ -43,7 +43,7 @@ The standalone function version of this method:
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
 import { metricsGet } from "@polar-sh/sdk/funcs/metricsGet.js";
-import { RFCDate } from "@polar-sh/sdk/types";
+import { RFCDate } from "@polar-sh/sdk/types/rfcdate.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

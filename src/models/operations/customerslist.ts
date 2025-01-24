@@ -6,7 +6,23 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  MetadataQuery,
+  MetadataQuery$inboundSchema,
+  MetadataQuery$Outbound,
+  MetadataQuery$outboundSchema,
+} from "../components/customerslist.js";
+import {
+  CustomerSortProperty,
+  CustomerSortProperty$inboundSchema,
+  CustomerSortProperty$outboundSchema,
+} from "../components/customersortproperty.js";
+import {
+  ListResourceCustomer,
+  ListResourceCustomer$inboundSchema,
+  ListResourceCustomer$Outbound,
+  ListResourceCustomer$outboundSchema,
+} from "../components/listresourcecustomer.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -40,15 +56,15 @@ export type CustomersListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.CustomerSortProperty> | null | undefined;
+  sorting?: Array<CustomerSortProperty> | null | undefined;
   /**
    * Filter by metadata key-value pairs. It uses the `deepObject` style, e.g. `?metadata[key]=value`.
    */
-  metadata?: { [k: string]: components.MetadataQuery } | null | undefined;
+  metadata?: { [k: string]: MetadataQuery } | null | undefined;
 };
 
 export type CustomersListResponse = {
-  result: components.ListResourceCustomer;
+  result: ListResourceCustomer;
 };
 
 /** @internal */
@@ -126,11 +142,9 @@ export const CustomersListRequest$inboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.CustomerSortProperty$inboundSchema))
+  sorting: z.nullable(z.array(CustomerSortProperty$inboundSchema)).optional(),
+  metadata: z.nullable(z.record(z.lazy(() => MetadataQuery$inboundSchema)))
     .optional(),
-  metadata: z.nullable(
-    z.record(z.lazy(() => components.MetadataQuery$inboundSchema)),
-  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -145,10 +159,7 @@ export type CustomersListRequest$Outbound = {
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
-  metadata?:
-    | { [k: string]: components.MetadataQuery$Outbound }
-    | null
-    | undefined;
+  metadata?: { [k: string]: MetadataQuery$Outbound } | null | undefined;
 };
 
 /** @internal */
@@ -163,11 +174,9 @@ export const CustomersListRequest$outboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.CustomerSortProperty$outboundSchema))
+  sorting: z.nullable(z.array(CustomerSortProperty$outboundSchema)).optional(),
+  metadata: z.nullable(z.record(z.lazy(() => MetadataQuery$outboundSchema)))
     .optional(),
-  metadata: z.nullable(
-    z.record(z.lazy(() => components.MetadataQuery$outboundSchema)),
-  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
@@ -211,7 +220,7 @@ export const CustomersListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceCustomer$inboundSchema,
+  Result: ListResourceCustomer$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -220,7 +229,7 @@ export const CustomersListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomersListResponse$Outbound = {
-  Result: components.ListResourceCustomer$Outbound;
+  Result: ListResourceCustomer$Outbound;
 };
 
 /** @internal */
@@ -229,7 +238,7 @@ export const CustomersListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomersListResponse
 > = z.object({
-  result: components.ListResourceCustomer$outboundSchema,
+  result: ListResourceCustomer$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

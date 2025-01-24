@@ -7,7 +7,7 @@ Sent when a new pledge is created. Note that this does mean that the pledge has 
 ## Example Usage
 
 ```typescript
-import { WebhookPledgeCreatedPayload } from "@polar-sh/sdk/models/components";
+import { WebhookPledgeCreatedPayload } from "@polar-sh/sdk/models/components/webhookpledgecreatedpayload.js";
 
 let value: WebhookPledgeCreatedPayload = {
   data: {

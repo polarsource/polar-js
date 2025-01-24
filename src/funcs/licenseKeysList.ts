@@ -18,10 +18,26 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  Unauthorized,
+  Unauthorized$inboundSchema,
+} from "../models/errors/unauthorized.js";
+import {
+  LicenseKeysListRequest,
+  LicenseKeysListRequest$outboundSchema,
+  LicenseKeysListResponse,
+  LicenseKeysListResponse$inboundSchema,
+} from "../models/operations/licensekeyslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -38,15 +54,15 @@ import {
  */
 export async function licenseKeysList(
   client: PolarCore,
-  request: operations.LicenseKeysListRequest,
+  request: LicenseKeysListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.LicenseKeysListResponse,
-      | errors.Unauthorized
-      | errors.ResourceNotFound
-      | errors.HTTPValidationError
+      LicenseKeysListResponse,
+      | Unauthorized
+      | ResourceNotFound
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -60,7 +76,7 @@ export async function licenseKeysList(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.LicenseKeysListRequest$outboundSchema.parse(value),
+    (value) => LicenseKeysListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -130,10 +146,10 @@ export async function licenseKeysList(
   };
 
   const [result, raw] = await M.match<
-    operations.LicenseKeysListResponse,
-    | errors.Unauthorized
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    LicenseKeysListResponse,
+    | Unauthorized
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -142,12 +158,10 @@ export async function licenseKeysList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.LicenseKeysListResponse$inboundSchema, {
-      key: "Result",
-    }),
-    M.jsonErr(401, errors.Unauthorized$inboundSchema),
-    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, LicenseKeysListResponse$inboundSchema, { key: "Result" }),
+    M.jsonErr(401, Unauthorized$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -160,10 +174,10 @@ export async function licenseKeysList(
   ): {
     next: Paginator<
       Result<
-        operations.LicenseKeysListResponse,
-        | errors.Unauthorized
-        | errors.ResourceNotFound
-        | errors.HTTPValidationError
+        LicenseKeysListResponse,
+        | Unauthorized
+        | ResourceNotFound
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

@@ -5,7 +5,7 @@ Schema for a fixed amount discount that is applied once or forever.
 ## Example Usage
 
 ```typescript
-import { DiscountFixedOnceForeverDuration } from "@polar-sh/sdk/models/components";
+import { DiscountFixedOnceForeverDuration } from "@polar-sh/sdk/models/components/discountfixedonceforeverduration.js";
 
 let value: DiscountFixedOnceForeverDuration = {
   duration: "forever",

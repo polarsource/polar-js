@@ -8,8 +8,17 @@ import { customerPortalLicenseKeysGet } from "../funcs/customerPortalLicenseKeys
 import { customerPortalLicenseKeysList } from "../funcs/customerPortalLicenseKeysList.js";
 import { customerPortalLicenseKeysValidate } from "../funcs/customerPortalLicenseKeysValidate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { LicenseKeyActivate } from "../models/components/licensekeyactivate.js";
+import { LicenseKeyActivationRead } from "../models/components/licensekeyactivationread.js";
+import { LicenseKeyDeactivate } from "../models/components/licensekeydeactivate.js";
+import { LicenseKeyValidate } from "../models/components/licensekeyvalidate.js";
+import { LicenseKeyWithActivations } from "../models/components/licensekeywithactivations.js";
+import { ValidatedLicenseKey } from "../models/components/validatedlicensekey.js";
+import { CustomerPortalLicenseKeysGetRequest } from "../models/operations/customerportallicensekeysget.js";
+import {
+  CustomerPortalLicenseKeysListRequest,
+  CustomerPortalLicenseKeysListResponse,
+} from "../models/operations/customerportallicensekeyslist.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -18,13 +27,10 @@ export class PolarLicenseKeys extends ClientSDK {
    * List License Keys
    */
   async list(
-    request: operations.CustomerPortalLicenseKeysListRequest,
+    request: CustomerPortalLicenseKeysListRequest,
     options?: RequestOptions,
   ): Promise<
-    PageIterator<
-      operations.CustomerPortalLicenseKeysListResponse,
-      { page: number }
-    >
+    PageIterator<CustomerPortalLicenseKeysListResponse, { page: number }>
   > {
     return unwrapResultIterator(customerPortalLicenseKeysList(
       this,
@@ -40,9 +46,9 @@ export class PolarLicenseKeys extends ClientSDK {
    * Get a license key.
    */
   async get(
-    request: operations.CustomerPortalLicenseKeysGetRequest,
+    request: CustomerPortalLicenseKeysGetRequest,
     options?: RequestOptions,
-  ): Promise<components.LicenseKeyWithActivations> {
+  ): Promise<LicenseKeyWithActivations> {
     return unwrapAsync(customerPortalLicenseKeysGet(
       this,
       request,
@@ -57,9 +63,9 @@ export class PolarLicenseKeys extends ClientSDK {
    * Validate a license key.
    */
   async validate(
-    request: components.LicenseKeyValidate,
+    request: LicenseKeyValidate,
     options?: RequestOptions,
-  ): Promise<components.ValidatedLicenseKey> {
+  ): Promise<ValidatedLicenseKey> {
     return unwrapAsync(customerPortalLicenseKeysValidate(
       this,
       request,
@@ -74,9 +80,9 @@ export class PolarLicenseKeys extends ClientSDK {
    * Activate a license key instance.
    */
   async activate(
-    request: components.LicenseKeyActivate,
+    request: LicenseKeyActivate,
     options?: RequestOptions,
-  ): Promise<components.LicenseKeyActivationRead> {
+  ): Promise<LicenseKeyActivationRead> {
     return unwrapAsync(customerPortalLicenseKeysActivate(
       this,
       request,
@@ -91,7 +97,7 @@ export class PolarLicenseKeys extends ClientSDK {
    * Deactivate a license key instance.
    */
   async deactivate(
-    request: components.LicenseKeyDeactivate,
+    request: LicenseKeyDeactivate,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(customerPortalLicenseKeysDeactivate(

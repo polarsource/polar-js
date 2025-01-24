@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CheckoutsCustomUpdateRequest } from "@polar-sh/sdk/models/operations";
+import { CheckoutsCustomUpdateRequest } from "@polar-sh/sdk/models/operations/checkoutscustomupdate.js";
 
 let value: CheckoutsCustomUpdateRequest = {
   id: "<value>",

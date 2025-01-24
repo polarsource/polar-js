@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { RefundAmountTooHigh } from "@polar-sh/sdk/models/errors";
+import { RefundAmountTooHigh } from "@polar-sh/sdk/models/errors/refundamounttoohigh.js";
 
 // No examples available for this model
 ```

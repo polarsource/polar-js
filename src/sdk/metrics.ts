@@ -5,8 +5,9 @@
 import { metricsGet } from "../funcs/metricsGet.js";
 import { metricsLimits } from "../funcs/metricsLimits.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { MetricsLimits } from "../models/components/metricslimits.js";
+import { MetricsResponse } from "../models/components/metricsresponse.js";
+import { MetricsGetRequest } from "../models/operations/metricsget.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Metrics extends ClientSDK {
@@ -17,9 +18,9 @@ export class Metrics extends ClientSDK {
    * Get metrics about your orders and subscriptions.
    */
   async get(
-    request: operations.MetricsGetRequest,
+    request: MetricsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.MetricsResponse> {
+  ): Promise<MetricsResponse> {
     return unwrapAsync(metricsGet(
       this,
       request,
@@ -35,7 +36,7 @@ export class Metrics extends ClientSDK {
    */
   async limits(
     options?: RequestOptions,
-  ): Promise<components.MetricsLimits> {
+  ): Promise<MetricsLimits> {
     return unwrapAsync(metricsLimits(
       this,
       options,

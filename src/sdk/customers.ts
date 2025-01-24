@@ -8,8 +8,15 @@ import { customersGet } from "../funcs/customersGet.js";
 import { customersList } from "../funcs/customersList.js";
 import { customersUpdate } from "../funcs/customersUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { Customer } from "../models/components/customer.js";
+import { CustomerCreate } from "../models/components/customercreate.js";
+import { CustomersDeleteRequest } from "../models/operations/customersdelete.js";
+import { CustomersGetRequest } from "../models/operations/customersget.js";
+import {
+  CustomersListRequest,
+  CustomersListResponse,
+} from "../models/operations/customerslist.js";
+import { CustomersUpdateRequest } from "../models/operations/customersupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -21,9 +28,9 @@ export class Customers extends ClientSDK {
    * List customers.
    */
   async list(
-    request: operations.CustomersListRequest,
+    request: CustomersListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.CustomersListResponse, { page: number }>> {
+  ): Promise<PageIterator<CustomersListResponse, { page: number }>> {
     return unwrapResultIterator(customersList(
       this,
       request,
@@ -38,9 +45,9 @@ export class Customers extends ClientSDK {
    * Create a customer.
    */
   async create(
-    request: components.CustomerCreate,
+    request: CustomerCreate,
     options?: RequestOptions,
-  ): Promise<components.Customer> {
+  ): Promise<Customer> {
     return unwrapAsync(customersCreate(
       this,
       request,
@@ -55,9 +62,9 @@ export class Customers extends ClientSDK {
    * Get a customer by ID.
    */
   async get(
-    request: operations.CustomersGetRequest,
+    request: CustomersGetRequest,
     options?: RequestOptions,
-  ): Promise<components.Customer> {
+  ): Promise<Customer> {
     return unwrapAsync(customersGet(
       this,
       request,
@@ -72,9 +79,9 @@ export class Customers extends ClientSDK {
    * Update a customer.
    */
   async update(
-    request: operations.CustomersUpdateRequest,
+    request: CustomersUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.Customer> {
+  ): Promise<Customer> {
     return unwrapAsync(customersUpdate(
       this,
       request,
@@ -91,7 +98,7 @@ export class Customers extends ClientSDK {
    * Immediately cancels any active subscriptions and revokes any active benefits.
    */
   async delete(
-    request: operations.CustomersDeleteRequest,
+    request: CustomersDeleteRequest,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(customersDelete(

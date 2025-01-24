@@ -5,7 +5,7 @@ Schema to attach a custom field to a resource.
 ## Example Usage
 
 ```typescript
-import { AttachedCustomFieldCreate } from "@polar-sh/sdk/models/components";
+import { AttachedCustomFieldCreate } from "@polar-sh/sdk/models/components/attachedcustomfieldcreate.js";
 
 let value: AttachedCustomFieldCreate = {
   customFieldId: "<value>",

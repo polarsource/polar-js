@@ -18,10 +18,20 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  CustomersDeleteRequest,
+  CustomersDeleteRequest$outboundSchema,
+} from "../models/operations/customersdelete.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -34,13 +44,13 @@ import { Result } from "../types/fp.js";
  */
 export async function customersDelete(
   client: PolarCore,
-  request: operations.CustomersDeleteRequest,
+  request: CustomersDeleteRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
     void,
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -52,7 +62,7 @@ export async function customersDelete(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.CustomersDeleteRequest$outboundSchema.parse(value),
+    (value) => CustomersDeleteRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -122,8 +132,8 @@ export async function customersDelete(
 
   const [result] = await M.match<
     void,
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -133,8 +143,8 @@ export async function customersDelete(
     | ConnectionError
   >(
     M.nil(204, z.void()),
-    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

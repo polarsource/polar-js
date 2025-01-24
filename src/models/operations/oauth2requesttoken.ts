@@ -5,17 +5,27 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest,
+  Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$inboundSchema,
+  Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$Outbound,
+  Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$outboundSchema,
+} from "../components/onev11oauth21tokenpostxcomponentsauthorizationcodetokenrequest.js";
+import {
+  Onev11oauth21tokenPostXComponentsRefreshTokenRequest,
+  Onev11oauth21tokenPostXComponentsRefreshTokenRequest$inboundSchema,
+  Onev11oauth21tokenPostXComponentsRefreshTokenRequest$Outbound,
+  Onev11oauth21tokenPostXComponentsRefreshTokenRequest$outboundSchema,
+} from "../components/onev11oauth21tokenpostxcomponentsrefreshtokenrequest.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Oauth2RequestTokenRequestBody =
-  | (components.Onev11oauth21tokenPostXComponentsRefreshTokenRequest & {
+  | (Onev11oauth21tokenPostXComponentsRefreshTokenRequest & {
     grantType: "refresh_token";
   })
-  | (
-    & components.Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest
-    & { grantType: "authorization_code" }
-  );
+  | (Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest & {
+    grantType: "authorization_code";
+  });
 
 /** @internal */
 export const Oauth2RequestTokenRequestBody$inboundSchema: z.ZodType<
@@ -23,14 +33,12 @@ export const Oauth2RequestTokenRequestBody$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.Onev11oauth21tokenPostXComponentsRefreshTokenRequest$inboundSchema
-    .and(
-      z.object({ grant_type: z.literal("refresh_token") }).transform((v) => ({
-        grantType: v.grant_type,
-      })),
-    ),
-  components
-    .Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$inboundSchema
+  Onev11oauth21tokenPostXComponentsRefreshTokenRequest$inboundSchema.and(
+    z.object({ grant_type: z.literal("refresh_token") }).transform((v) => ({
+      grantType: v.grant_type,
+    })),
+  ),
+  Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$inboundSchema
     .and(
       z.object({ grant_type: z.literal("authorization_code") }).transform((
         v,
@@ -40,14 +48,12 @@ export const Oauth2RequestTokenRequestBody$inboundSchema: z.ZodType<
 
 /** @internal */
 export type Oauth2RequestTokenRequestBody$Outbound =
-  | (
-    & components.Onev11oauth21tokenPostXComponentsRefreshTokenRequest$Outbound
-    & { grant_type: "refresh_token" }
-  )
-  | (
-    & components.Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$Outbound
-    & { grant_type: "authorization_code" }
-  );
+  | (Onev11oauth21tokenPostXComponentsRefreshTokenRequest$Outbound & {
+    grant_type: "refresh_token";
+  })
+  | (Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$Outbound & {
+    grant_type: "authorization_code";
+  });
 
 /** @internal */
 export const Oauth2RequestTokenRequestBody$outboundSchema: z.ZodType<
@@ -55,14 +61,12 @@ export const Oauth2RequestTokenRequestBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Oauth2RequestTokenRequestBody
 > = z.union([
-  components.Onev11oauth21tokenPostXComponentsRefreshTokenRequest$outboundSchema
-    .and(
-      z.object({ grantType: z.literal("refresh_token") }).transform((v) => ({
-        grant_type: v.grantType,
-      })),
-    ),
-  components
-    .Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$outboundSchema
+  Onev11oauth21tokenPostXComponentsRefreshTokenRequest$outboundSchema.and(
+    z.object({ grantType: z.literal("refresh_token") }).transform((v) => ({
+      grant_type: v.grantType,
+    })),
+  ),
+  Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest$outboundSchema
     .and(
       z.object({ grantType: z.literal("authorization_code") }).transform((
         v,

@@ -8,7 +8,7 @@ to the resulting order and/or subscription.
 ## Example Usage
 
 ```typescript
-import { CheckoutProductCreate } from "@polar-sh/sdk/models/components";
+import { CheckoutProductCreate } from "@polar-sh/sdk/models/components/checkoutproductcreate.js";
 
 let value: CheckoutProductCreate = {
   productId: "<value>",

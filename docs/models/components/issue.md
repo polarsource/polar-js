@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Issue } from "@polar-sh/sdk/models/components";
+import { Issue } from "@polar-sh/sdk/models/components/issue.js";
 
 let value: Issue = {
   id: "a861729b-f462-4edc-9083-1c3883700e6e",

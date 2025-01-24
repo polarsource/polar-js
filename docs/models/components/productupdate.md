@@ -5,7 +5,7 @@ Schema to update a product.
 ## Example Usage
 
 ```typescript
-import { ProductUpdate } from "@polar-sh/sdk/models/components";
+import { ProductUpdate } from "@polar-sh/sdk/models/components/productupdate.js";
 
 let value: ProductUpdate = {};
 ```

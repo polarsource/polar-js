@@ -6,12 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  OAuth2ClientConfigurationUpdate,
+  OAuth2ClientConfigurationUpdate$inboundSchema,
+  OAuth2ClientConfigurationUpdate$Outbound,
+  OAuth2ClientConfigurationUpdate$outboundSchema,
+} from "../components/oauth2clientconfigurationupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Oauth2ClientsOauth2UpdateClientRequest = {
   clientId: string;
-  oAuth2ClientConfigurationUpdate: components.OAuth2ClientConfigurationUpdate;
+  oAuth2ClientConfigurationUpdate: OAuth2ClientConfigurationUpdate;
 };
 
 /** @internal */
@@ -22,7 +27,7 @@ export const Oauth2ClientsOauth2UpdateClientRequest$inboundSchema: z.ZodType<
 > = z.object({
   client_id: z.string(),
   OAuth2ClientConfigurationUpdate:
-    components.OAuth2ClientConfigurationUpdate$inboundSchema,
+    OAuth2ClientConfigurationUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "client_id": "clientId",
@@ -33,8 +38,7 @@ export const Oauth2ClientsOauth2UpdateClientRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type Oauth2ClientsOauth2UpdateClientRequest$Outbound = {
   client_id: string;
-  OAuth2ClientConfigurationUpdate:
-    components.OAuth2ClientConfigurationUpdate$Outbound;
+  OAuth2ClientConfigurationUpdate: OAuth2ClientConfigurationUpdate$Outbound;
 };
 
 /** @internal */
@@ -45,7 +49,7 @@ export const Oauth2ClientsOauth2UpdateClientRequest$outboundSchema: z.ZodType<
 > = z.object({
   clientId: z.string(),
   oAuth2ClientConfigurationUpdate:
-    components.OAuth2ClientConfigurationUpdate$outboundSchema,
+    OAuth2ClientConfigurationUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     clientId: "client_id",

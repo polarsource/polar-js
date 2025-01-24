@@ -5,7 +5,7 @@ Properties for a benefit of type `discord`.
 ## Example Usage
 
 ```typescript
-import { BenefitDiscordProperties } from "@polar-sh/sdk/models/components";
+import { BenefitDiscordProperties } from "@polar-sh/sdk/models/components/benefitdiscordproperties.js";
 
 let value: BenefitDiscordProperties = {
   guildId: "<id>",

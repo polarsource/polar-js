@@ -5,7 +5,7 @@ A customer in an organization.
 ## Example Usage
 
 ```typescript
-import { Customer } from "@polar-sh/sdk/models/components";
+import { Customer } from "@polar-sh/sdk/models/components/customer.js";
 
 let value: Customer = {
   createdAt: new Date("2023-10-12T16:33:35.819Z"),

@@ -11,7 +11,10 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  OAuth2ClientConfiguration,
+  OAuth2ClientConfiguration$outboundSchema,
+} from "../models/components/oauth2clientconfiguration.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -19,7 +22,10 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import { Result } from "../types/fp.js";
@@ -32,12 +38,12 @@ import { Result } from "../types/fp.js";
  */
 export async function oauth2ClientsCreate(
   client: PolarCore,
-  request: components.OAuth2ClientConfiguration,
+  request: OAuth2ClientConfiguration,
   options?: RequestOptions,
 ): Promise<
   Result<
     any,
-    | errors.HTTPValidationError
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -49,7 +55,7 @@ export async function oauth2ClientsCreate(
 > {
   const parsed = safeParse(
     request,
-    (value) => components.OAuth2ClientConfiguration$outboundSchema.parse(value),
+    (value) => OAuth2ClientConfiguration$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -113,7 +119,7 @@ export async function oauth2ClientsCreate(
 
   const [result] = await M.match<
     any,
-    | errors.HTTPValidationError
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -123,7 +129,7 @@ export async function oauth2ClientsCreate(
     | ConnectionError
   >(
     M.json(200, z.any()),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

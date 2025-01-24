@@ -7,7 +7,7 @@ Sent when a new order is created.
 ## Example Usage
 
 ```typescript
-import { WebhookOrderCreatedPayload } from "@polar-sh/sdk/models/components";
+import { WebhookOrderCreatedPayload } from "@polar-sh/sdk/models/components/webhookordercreatedpayload.js";
 
 let value: WebhookOrderCreatedPayload = {
   data: {

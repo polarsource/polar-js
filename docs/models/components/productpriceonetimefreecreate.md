@@ -5,7 +5,7 @@ Schema to create a free one-time product price.
 ## Example Usage
 
 ```typescript
-import { ProductPriceOneTimeFreeCreate } from "@polar-sh/sdk/models/components";
+import { ProductPriceOneTimeFreeCreate } from "@polar-sh/sdk/models/components/productpriceonetimefreecreate.js";
 
 let value: ProductPriceOneTimeFreeCreate = {};
 ```

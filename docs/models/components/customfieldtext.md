@@ -5,7 +5,7 @@ Schema for a custom field of type text.
 ## Example Usage
 
 ```typescript
-import { CustomFieldText } from "@polar-sh/sdk/models/components";
+import { CustomFieldText } from "@polar-sh/sdk/models/components/customfieldtext.js";
 
 let value: CustomFieldText = {
   createdAt: new Date("2024-06-29T03:22:56.921Z"),

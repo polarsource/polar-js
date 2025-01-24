@@ -7,8 +7,14 @@ import { subscriptionsList } from "../funcs/subscriptionsList.js";
 import { subscriptionsRevoke } from "../funcs/subscriptionsRevoke.js";
 import { subscriptionsUpdate } from "../funcs/subscriptionsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { Subscription } from "../models/components/subscription.js";
+import { SubscriptionsExportRequest } from "../models/operations/subscriptionsexport.js";
+import {
+  SubscriptionsListRequest,
+  SubscriptionsListResponse,
+} from "../models/operations/subscriptionslist.js";
+import { SubscriptionsRevokeRequest } from "../models/operations/subscriptionsrevoke.js";
+import { SubscriptionsUpdateRequest } from "../models/operations/subscriptionsupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -20,11 +26,9 @@ export class Subscriptions extends ClientSDK {
    * List subscriptions.
    */
   async list(
-    request: operations.SubscriptionsListRequest,
+    request: SubscriptionsListRequest,
     options?: RequestOptions,
-  ): Promise<
-    PageIterator<operations.SubscriptionsListResponse, { page: number }>
-  > {
+  ): Promise<PageIterator<SubscriptionsListResponse, { page: number }>> {
     return unwrapResultIterator(subscriptionsList(
       this,
       request,
@@ -39,7 +43,7 @@ export class Subscriptions extends ClientSDK {
    * Export subscriptions as a CSV file.
    */
   async export(
-    request: operations.SubscriptionsExportRequest,
+    request: SubscriptionsExportRequest,
     options?: RequestOptions,
   ): Promise<any> {
     return unwrapAsync(subscriptionsExport(
@@ -56,9 +60,9 @@ export class Subscriptions extends ClientSDK {
    * Update a subscription.
    */
   async update(
-    request: operations.SubscriptionsUpdateRequest,
+    request: SubscriptionsUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.Subscription> {
+  ): Promise<Subscription> {
     return unwrapAsync(subscriptionsUpdate(
       this,
       request,
@@ -73,9 +77,9 @@ export class Subscriptions extends ClientSDK {
    * Revoke a subscription, i.e cancel immediately.
    */
   async revoke(
-    request: operations.SubscriptionsRevokeRequest,
+    request: SubscriptionsRevokeRequest,
     options?: RequestOptions,
-  ): Promise<components.Subscription> {
+  ): Promise<Subscription> {
     return unwrapAsync(subscriptionsRevoke(
       this,
       request,

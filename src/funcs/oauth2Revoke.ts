@@ -10,7 +10,10 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  RevokeTokenResponse,
+  RevokeTokenResponse$inboundSchema,
+} from "../models/components/revoketokenresponse.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -20,7 +23,10 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  Oauth2RevokeTokenRevokeTokenRequest,
+  Oauth2RevokeTokenRevokeTokenRequest$outboundSchema,
+} from "../models/operations/oauth2revoketoken.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -31,11 +37,11 @@ import { Result } from "../types/fp.js";
  */
 export async function oauth2Revoke(
   client: PolarCore,
-  request: operations.Oauth2RevokeTokenRevokeTokenRequest,
+  request: Oauth2RevokeTokenRevokeTokenRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.RevokeTokenResponse,
+    RevokeTokenResponse,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -47,10 +53,7 @@ export async function oauth2Revoke(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.Oauth2RevokeTokenRevokeTokenRequest$outboundSchema.parse(
-        value,
-      ),
+    (value) => Oauth2RevokeTokenRevokeTokenRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -112,7 +115,7 @@ export async function oauth2Revoke(
   const response = doResult.value;
 
   const [result] = await M.match<
-    components.RevokeTokenResponse,
+    RevokeTokenResponse,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -121,7 +124,7 @@ export async function oauth2Revoke(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.RevokeTokenResponse$inboundSchema),
+    M.json(200, RevokeTokenResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response);

@@ -5,7 +5,7 @@ Information about a metric.
 ## Example Usage
 
 ```typescript
-import { Metric } from "@polar-sh/sdk/models/components";
+import { Metric } from "@polar-sh/sdk/models/components/metric.js";
 
 let value: Metric = {
   slug: "<value>",

@@ -7,7 +7,7 @@ Sent when a new subscription is created.
 ## Example Usage
 
 ```typescript
-import { WebhookSubscriptionCreatedPayload } from "@polar-sh/sdk/models/components";
+import { WebhookSubscriptionCreatedPayload } from "@polar-sh/sdk/models/components/webhooksubscriptioncreatedpayload.js";
 
 let value: WebhookSubscriptionCreatedPayload = {
   data: {

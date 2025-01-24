@@ -7,7 +7,7 @@ Sent when a new checkout is created.
 ## Example Usage
 
 ```typescript
-import { WebhookCheckoutCreatedPayload } from "@polar-sh/sdk/models/components";
+import { WebhookCheckoutCreatedPayload } from "@polar-sh/sdk/models/components/webhookcheckoutcreatedpayload.js";
 
 let value: WebhookCheckoutCreatedPayload = {
   data: {

@@ -5,7 +5,7 @@ Date interval limit to get metrics for a given interval.
 ## Example Usage
 
 ```typescript
-import { MetricsIntervalLimit } from "@polar-sh/sdk/models/components";
+import { MetricsIntervalLimit } from "@polar-sh/sdk/models/components/metricsintervallimit.js";
 
 let value: MetricsIntervalLimit = {
   maxDays: 885675,

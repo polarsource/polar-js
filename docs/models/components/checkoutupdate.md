@@ -5,7 +5,7 @@ Update an existing checkout session using an access token.
 ## Example Usage
 
 ```typescript
-import { CheckoutUpdate } from "@polar-sh/sdk/models/components";
+import { CheckoutUpdate } from "@polar-sh/sdk/models/components/checkoutupdate.js";
 
 let value: CheckoutUpdate = {};
 ```

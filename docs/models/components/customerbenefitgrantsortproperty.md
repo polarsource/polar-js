@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CustomerBenefitGrantSortProperty } from "@polar-sh/sdk/models/components";
+import { CustomerBenefitGrantSortProperty } from "@polar-sh/sdk/models/components/customerbenefitgrantsortproperty.js";
 
 let value: CustomerBenefitGrantSortProperty = "organization";
 ```

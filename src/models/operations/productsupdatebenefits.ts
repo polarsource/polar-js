@@ -6,12 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ProductBenefitsUpdate,
+  ProductBenefitsUpdate$inboundSchema,
+  ProductBenefitsUpdate$Outbound,
+  ProductBenefitsUpdate$outboundSchema,
+} from "../components/productbenefitsupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ProductsUpdateBenefitsRequest = {
   id: string;
-  productBenefitsUpdate: components.ProductBenefitsUpdate;
+  productBenefitsUpdate: ProductBenefitsUpdate;
 };
 
 /** @internal */
@@ -21,7 +26,7 @@ export const ProductsUpdateBenefitsRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  ProductBenefitsUpdate: components.ProductBenefitsUpdate$inboundSchema,
+  ProductBenefitsUpdate: ProductBenefitsUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "ProductBenefitsUpdate": "productBenefitsUpdate",
@@ -31,7 +36,7 @@ export const ProductsUpdateBenefitsRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type ProductsUpdateBenefitsRequest$Outbound = {
   id: string;
-  ProductBenefitsUpdate: components.ProductBenefitsUpdate$Outbound;
+  ProductBenefitsUpdate: ProductBenefitsUpdate$Outbound;
 };
 
 /** @internal */
@@ -41,7 +46,7 @@ export const ProductsUpdateBenefitsRequest$outboundSchema: z.ZodType<
   ProductsUpdateBenefitsRequest
 > = z.object({
   id: z.string(),
-  productBenefitsUpdate: components.ProductBenefitsUpdate$outboundSchema,
+  productBenefitsUpdate: ProductBenefitsUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     productBenefitsUpdate: "ProductBenefitsUpdate",

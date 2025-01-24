@@ -7,7 +7,7 @@ Use it to automatically invite your backers to a private GitHub repository.
 ## Example Usage
 
 ```typescript
-import { BenefitGitHubRepository } from "@polar-sh/sdk/models/components";
+import { BenefitGitHubRepository } from "@polar-sh/sdk/models/components/benefitgithubrepository.js";
 
 let value: BenefitGitHubRepository = {
   createdAt: new Date("2024-01-25T11:54:38.359Z"),

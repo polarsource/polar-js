@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { S3DownloadURL } from "@polar-sh/sdk/models/components";
+import { S3DownloadURL } from "@polar-sh/sdk/models/components/s3downloadurl.js";
 
 let value: S3DownloadURL = {
   url: "https://ignorant-expense.info/",

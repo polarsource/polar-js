@@ -5,7 +5,7 @@ Schema to create a one-time product price.
 ## Example Usage
 
 ```typescript
-import { ProductPriceOneTimeFixedCreate } from "@polar-sh/sdk/models/components";
+import { ProductPriceOneTimeFixedCreate } from "@polar-sh/sdk/models/components/productpriceonetimefixedcreate.js";
 
 let value: ProductPriceOneTimeFixedCreate = {
   priceAmount: 910478,

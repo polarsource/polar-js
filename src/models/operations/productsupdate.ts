@@ -6,12 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ProductUpdate,
+  ProductUpdate$inboundSchema,
+  ProductUpdate$Outbound,
+  ProductUpdate$outboundSchema,
+} from "../components/productupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ProductsUpdateRequest = {
   id: string;
-  productUpdate: components.ProductUpdate;
+  productUpdate: ProductUpdate;
 };
 
 /** @internal */
@@ -21,7 +26,7 @@ export const ProductsUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  ProductUpdate: components.ProductUpdate$inboundSchema,
+  ProductUpdate: ProductUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "ProductUpdate": "productUpdate",
@@ -31,7 +36,7 @@ export const ProductsUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type ProductsUpdateRequest$Outbound = {
   id: string;
-  ProductUpdate: components.ProductUpdate$Outbound;
+  ProductUpdate: ProductUpdate$Outbound;
 };
 
 /** @internal */
@@ -41,7 +46,7 @@ export const ProductsUpdateRequest$outboundSchema: z.ZodType<
   ProductsUpdateRequest
 > = z.object({
   id: z.string(),
-  productUpdate: components.ProductUpdate$outboundSchema,
+  productUpdate: ProductUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     productUpdate: "ProductUpdate",

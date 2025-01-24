@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Unauthorized } from "@polar-sh/sdk/models/errors";
+import { Unauthorized } from "@polar-sh/sdk/models/errors/unauthorized.js";
 
 // No examples available for this model
 ```

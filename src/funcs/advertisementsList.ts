@@ -18,10 +18,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  AdvertisementsListRequest,
+  AdvertisementsListRequest$outboundSchema,
+  AdvertisementsListResponse,
+  AdvertisementsListResponse$inboundSchema,
+} from "../models/operations/advertisementslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -38,13 +46,13 @@ import {
  */
 export async function advertisementsList(
   client: PolarCore,
-  request: operations.AdvertisementsListRequest,
+  request: AdvertisementsListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.AdvertisementsListResponse,
-      | errors.HTTPValidationError
+      AdvertisementsListResponse,
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -58,7 +66,7 @@ export async function advertisementsList(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.AdvertisementsListRequest$outboundSchema.parse(value),
+    (value) => AdvertisementsListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -128,8 +136,8 @@ export async function advertisementsList(
   };
 
   const [result, raw] = await M.match<
-    operations.AdvertisementsListResponse,
-    | errors.HTTPValidationError
+    AdvertisementsListResponse,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -138,10 +146,8 @@ export async function advertisementsList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.AdvertisementsListResponse$inboundSchema, {
-      key: "Result",
-    }),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, AdvertisementsListResponse$inboundSchema, { key: "Result" }),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -154,8 +160,8 @@ export async function advertisementsList(
   ): {
     next: Paginator<
       Result<
-        operations.AdvertisementsListResponse,
-        | errors.HTTPValidationError
+        AdvertisementsListResponse,
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError
