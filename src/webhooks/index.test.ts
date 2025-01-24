@@ -1,8 +1,8 @@
 import { randomUUID } from "crypto";
 import { Webhook } from "standardwebhooks"
-import { validateEvent, WebhookVerificationError } from ".";
-import { SDKValidationError } from "../models/errors";
-import { WebhookCheckoutCreatedPayload$inboundSchema } from "../models/components";
+import { validateEvent, WebhookVerificationError } from "./index.js";
+import { WebhookCheckoutCreatedPayload$inboundSchema } from "../models/components/webhookcheckoutcreatedpayload.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 
 
 const ORGANIZATION_ID = randomUUID().toString();

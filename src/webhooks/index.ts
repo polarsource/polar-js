@@ -1,25 +1,25 @@
 import { Webhook, WebhookVerificationError as _WebhookVerificationError } from "standardwebhooks"
 import {
-    WebhookBenefitCreatedPayload$inboundSchema,
-    WebhookBenefitGrantCreatedPayload$inboundSchema,
-    WebhookBenefitGrantRevokedPayload$inboundSchema,
-    WebhookBenefitGrantUpdatedPayload$inboundSchema,
-    WebhookBenefitUpdatedPayload$inboundSchema,
-    WebhookCheckoutCreatedPayload$inboundSchema,
-    WebhookCheckoutUpdatedPayload$inboundSchema,
-    WebhookOrderCreatedPayload$inboundSchema,
-    WebhookOrganizationUpdatedPayload$inboundSchema,
-    WebhookPledgeCreatedPayload$inboundSchema,
-    WebhookPledgeUpdatedPayload$inboundSchema,
-    WebhookProductCreatedPayload$inboundSchema,
-    WebhookProductUpdatedPayload$inboundSchema,
-    WebhookSubscriptionActivePayload$inboundSchema,
-    WebhookSubscriptionCanceledPayload$inboundSchema,
-    WebhookSubscriptionCreatedPayload$inboundSchema,
-    WebhookSubscriptionRevokedPayload$inboundSchema,
-    WebhookSubscriptionUpdatedPayload$inboundSchema,
-} from '../models/components'
-import { SDKValidationError } from "../models/errors";
+    WebhookBenefitCreatedPayload$inboundSchema
+} from '../models/components/webhookbenefitcreatedpayload.js'
+import { WebhookBenefitGrantCreatedPayload$inboundSchema } from "../models/components/webhookbenefitgrantcreatedpayload.js";
+import { WebhookBenefitGrantRevokedPayload$inboundSchema } from "../models/components/webhookbenefitgrantrevokedpayload.js";
+import { WebhookBenefitGrantUpdatedPayload$inboundSchema } from "../models/components/webhookbenefitgrantupdatedpayload.js";
+import { WebhookBenefitUpdatedPayload$inboundSchema } from "../models/components/webhookbenefitupdatedpayload.js";
+import { WebhookCheckoutCreatedPayload$inboundSchema } from "../models/components/webhookcheckoutcreatedpayload.js";
+import { WebhookCheckoutUpdatedPayload$inboundSchema } from "../models/components/webhookcheckoutupdatedpayload.js";
+import { WebhookOrderCreatedPayload$inboundSchema } from "../models/components/webhookordercreatedpayload.js";
+import { WebhookOrganizationUpdatedPayload$inboundSchema } from "../models/components/webhookorganizationupdatedpayload.js";
+import { WebhookPledgeCreatedPayload$inboundSchema } from "../models/components/webhookpledgecreatedpayload.js";
+import { WebhookPledgeUpdatedPayload$inboundSchema } from "../models/components/webhookpledgeupdatedpayload.js";
+import { WebhookProductCreatedPayload$inboundSchema } from "../models/components/webhookproductcreatedpayload.js";
+import { WebhookProductUpdatedPayload$inboundSchema } from "../models/components/webhookproductupdatedpayload.js";
+import { WebhookSubscriptionActivePayload$inboundSchema } from "../models/components/webhooksubscriptionactivepayload.js";
+import { WebhookSubscriptionCanceledPayload$inboundSchema } from "../models/components/webhooksubscriptioncanceledpayload.js";
+import { WebhookSubscriptionCreatedPayload$inboundSchema } from "../models/components/webhooksubscriptioncreatedpayload.js";
+import { WebhookSubscriptionRevokedPayload$inboundSchema } from "../models/components/webhooksubscriptionrevokedpayload.js";
+import { WebhookSubscriptionUpdatedPayload$inboundSchema } from "../models/components/webhooksubscriptionupdatedpayload.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 
 
 class WebhookVerificationError extends Error {
