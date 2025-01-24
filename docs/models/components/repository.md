@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Repository } from "@polar-sh/sdk/models/components";
+import { Repository } from "@polar-sh/sdk/models/components/repository.js";
 
 let value: Repository = {
   id: "60633615-6de4-4492-b506-18af33fd9d3d",

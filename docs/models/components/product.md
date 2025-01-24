@@ -5,7 +5,7 @@ A product.
 ## Example Usage
 
 ```typescript
-import { Product } from "@polar-sh/sdk/models/components";
+import { Product } from "@polar-sh/sdk/models/components/product.js";
 
 let value: Product = {
   createdAt: new Date("2024-04-01T23:01:50.436Z"),

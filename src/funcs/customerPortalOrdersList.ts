@@ -18,10 +18,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  CustomerPortalOrdersListRequest,
+  CustomerPortalOrdersListRequest$outboundSchema,
+  CustomerPortalOrdersListResponse,
+  CustomerPortalOrdersListResponse$inboundSchema,
+} from "../models/operations/customerportalorderslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -38,13 +46,13 @@ import {
  */
 export async function customerPortalOrdersList(
   client: PolarCore,
-  request: operations.CustomerPortalOrdersListRequest,
+  request: CustomerPortalOrdersListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.CustomerPortalOrdersListResponse,
-      | errors.HTTPValidationError
+      CustomerPortalOrdersListResponse,
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -58,8 +66,7 @@ export async function customerPortalOrdersList(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.CustomerPortalOrdersListRequest$outboundSchema.parse(value),
+    (value) => CustomerPortalOrdersListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -133,8 +140,8 @@ export async function customerPortalOrdersList(
   };
 
   const [result, raw] = await M.match<
-    operations.CustomerPortalOrdersListResponse,
-    | errors.HTTPValidationError
+    CustomerPortalOrdersListResponse,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -143,10 +150,10 @@ export async function customerPortalOrdersList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.CustomerPortalOrdersListResponse$inboundSchema, {
+    M.json(200, CustomerPortalOrdersListResponse$inboundSchema, {
       key: "Result",
     }),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -159,8 +166,8 @@ export async function customerPortalOrdersList(
   ): {
     next: Paginator<
       Result<
-        operations.CustomerPortalOrdersListResponse,
-        | errors.HTTPValidationError
+        CustomerPortalOrdersListResponse,
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

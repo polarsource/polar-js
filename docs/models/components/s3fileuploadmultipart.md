@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { S3FileUploadMultipart } from "@polar-sh/sdk/models/components";
+import { S3FileUploadMultipart } from "@polar-sh/sdk/models/components/s3fileuploadmultipart.js";
 
 let value: S3FileUploadMultipart = {
   id: "<id>",

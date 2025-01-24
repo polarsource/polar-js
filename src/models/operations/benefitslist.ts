@@ -6,7 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  BenefitType,
+  BenefitType$inboundSchema,
+  BenefitType$outboundSchema,
+} from "../components/benefittype.js";
+import {
+  ListResourceBenefit,
+  ListResourceBenefit$inboundSchema,
+  ListResourceBenefit$Outbound,
+  ListResourceBenefit$outboundSchema,
+} from "../components/listresourcebenefit.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -17,9 +27,7 @@ export type BenefitsListQueryParamOrganizationIDFilter = string | Array<string>;
 /**
  * Filter by benefit type.
  */
-export type BenefitTypeFilter =
-  | components.BenefitType
-  | Array<components.BenefitType>;
+export type BenefitTypeFilter = BenefitType | Array<BenefitType>;
 
 export type BenefitsListRequest = {
   /**
@@ -29,11 +37,7 @@ export type BenefitsListRequest = {
   /**
    * Filter by benefit type.
    */
-  typeFilter?:
-    | components.BenefitType
-    | Array<components.BenefitType>
-    | null
-    | undefined;
+  typeFilter?: BenefitType | Array<BenefitType> | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -45,7 +49,7 @@ export type BenefitsListRequest = {
 };
 
 export type BenefitsListResponse = {
-  result: components.ListResourceBenefit;
+  result: ListResourceBenefit;
 };
 
 /** @internal */
@@ -113,10 +117,7 @@ export const BenefitTypeFilter$inboundSchema: z.ZodType<
   BenefitTypeFilter,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  components.BenefitType$inboundSchema,
-  z.array(components.BenefitType$inboundSchema),
-]);
+> = z.union([BenefitType$inboundSchema, z.array(BenefitType$inboundSchema)]);
 
 /** @internal */
 export type BenefitTypeFilter$Outbound = string | Array<string>;
@@ -126,10 +127,7 @@ export const BenefitTypeFilter$outboundSchema: z.ZodType<
   BenefitTypeFilter$Outbound,
   z.ZodTypeDef,
   BenefitTypeFilter
-> = z.union([
-  components.BenefitType$outboundSchema,
-  z.array(components.BenefitType$outboundSchema),
-]);
+> = z.union([BenefitType$outboundSchema, z.array(BenefitType$outboundSchema)]);
 
 /**
  * @internal
@@ -171,10 +169,7 @@ export const BenefitsListRequest$inboundSchema: z.ZodType<
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   type_filter: z.nullable(
-    z.union([
-      components.BenefitType$inboundSchema,
-      z.array(components.BenefitType$inboundSchema),
-    ]),
+    z.union([BenefitType$inboundSchema, z.array(BenefitType$inboundSchema)]),
   ).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
@@ -202,10 +197,7 @@ export const BenefitsListRequest$outboundSchema: z.ZodType<
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   typeFilter: z.nullable(
-    z.union([
-      components.BenefitType$outboundSchema,
-      z.array(components.BenefitType$outboundSchema),
-    ]),
+    z.union([BenefitType$outboundSchema, z.array(BenefitType$outboundSchema)]),
   ).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
@@ -253,7 +245,7 @@ export const BenefitsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceBenefit$inboundSchema,
+  Result: ListResourceBenefit$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -262,7 +254,7 @@ export const BenefitsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitsListResponse$Outbound = {
-  Result: components.ListResourceBenefit$Outbound;
+  Result: ListResourceBenefit$Outbound;
 };
 
 /** @internal */
@@ -271,7 +263,7 @@ export const BenefitsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitsListResponse
 > = z.object({
-  result: components.ListResourceBenefit$outboundSchema,
+  result: ListResourceBenefit$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

@@ -5,8 +5,8 @@ Date limits to get metrics.
 ## Example Usage
 
 ```typescript
-import { MetricsLimits } from "@polar-sh/sdk/models/components";
-import { RFCDate } from "@polar-sh/sdk/types";
+import { MetricsLimits } from "@polar-sh/sdk/models/components/metricslimits.js";
+import { RFCDate } from "@polar-sh/sdk/types/rfcdate.js";
 
 let value: MetricsLimits = {
   minDate: new RFCDate("2024-06-06"),

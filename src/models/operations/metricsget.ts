@@ -7,7 +7,16 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
-import * as components from "../components/index.js";
+import {
+  Interval,
+  Interval$inboundSchema,
+  Interval$outboundSchema,
+} from "../components/interval.js";
+import {
+  ProductPriceType,
+  ProductPriceType$inboundSchema,
+  ProductPriceType$outboundSchema,
+} from "../components/productpricetype.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -24,8 +33,8 @@ export type MetricsGetQueryParamProductIDFilter = string | Array<string>;
  * Filter by product price type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
  */
 export type QueryParamProductPriceTypeFilter =
-  | components.ProductPriceType
-  | Array<components.ProductPriceType>;
+  | ProductPriceType
+  | Array<ProductPriceType>;
 
 /**
  * Filter by customer ID.
@@ -44,7 +53,7 @@ export type MetricsGetRequest = {
   /**
    * Interval between two timestamps.
    */
-  interval: components.Interval;
+  interval: Interval;
   /**
    * Filter by organization ID.
    */
@@ -57,8 +66,8 @@ export type MetricsGetRequest = {
    * Filter by product price type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
    */
   productPriceType?:
-    | components.ProductPriceType
-    | Array<components.ProductPriceType>
+    | ProductPriceType
+    | Array<ProductPriceType>
     | null
     | undefined;
   /**
@@ -189,8 +198,8 @@ export const QueryParamProductPriceTypeFilter$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.ProductPriceType$inboundSchema,
-  z.array(components.ProductPriceType$inboundSchema),
+  ProductPriceType$inboundSchema,
+  z.array(ProductPriceType$inboundSchema),
 ]);
 
 /** @internal */
@@ -202,8 +211,8 @@ export const QueryParamProductPriceTypeFilter$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   QueryParamProductPriceTypeFilter
 > = z.union([
-  components.ProductPriceType$outboundSchema,
-  z.array(components.ProductPriceType$outboundSchema),
+  ProductPriceType$outboundSchema,
+  z.array(ProductPriceType$outboundSchema),
 ]);
 
 /**
@@ -302,14 +311,14 @@ export const MetricsGetRequest$inboundSchema: z.ZodType<
 > = z.object({
   start_date: z.string().transform(v => new RFCDate(v)),
   end_date: z.string().transform(v => new RFCDate(v)),
-  interval: components.Interval$inboundSchema,
+  interval: Interval$inboundSchema,
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   product_price_type: z.nullable(
     z.union([
-      components.ProductPriceType$inboundSchema,
-      z.array(components.ProductPriceType$inboundSchema),
+      ProductPriceType$inboundSchema,
+      z.array(ProductPriceType$inboundSchema),
     ]),
   ).optional(),
   customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
@@ -344,14 +353,14 @@ export const MetricsGetRequest$outboundSchema: z.ZodType<
 > = z.object({
   startDate: z.instanceof(RFCDate).transform(v => v.toString()),
   endDate: z.instanceof(RFCDate).transform(v => v.toString()),
-  interval: components.Interval$outboundSchema,
+  interval: Interval$outboundSchema,
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   productPriceType: z.nullable(
     z.union([
-      components.ProductPriceType$outboundSchema,
-      z.array(components.ProductPriceType$outboundSchema),
+      ProductPriceType$outboundSchema,
+      z.array(ProductPriceType$outboundSchema),
     ]),
   ).optional(),
   customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),

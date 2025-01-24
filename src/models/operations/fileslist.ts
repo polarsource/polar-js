@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ListResourceFileRead,
+  ListResourceFileRead$inboundSchema,
+  ListResourceFileRead$Outbound,
+  ListResourceFileRead$outboundSchema,
+} from "../components/listresourcefileread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type FilesListRequest = {
@@ -26,7 +31,7 @@ export type FilesListRequest = {
 };
 
 export type FilesListResponse = {
-  result: components.ListResourceFileRead;
+  result: ListResourceFileRead;
 };
 
 /** @internal */
@@ -106,7 +111,7 @@ export const FilesListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceFileRead$inboundSchema,
+  Result: ListResourceFileRead$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -115,7 +120,7 @@ export const FilesListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type FilesListResponse$Outbound = {
-  Result: components.ListResourceFileRead$Outbound;
+  Result: ListResourceFileRead$Outbound;
 };
 
 /** @internal */
@@ -124,7 +129,7 @@ export const FilesListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FilesListResponse
 > = z.object({
-  result: components.ListResourceFileRead$outboundSchema,
+  result: ListResourceFileRead$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

@@ -5,7 +5,7 @@ Schema to update an existing checkout link.
 ## Example Usage
 
 ```typescript
-import { CheckoutLinkUpdate } from "@polar-sh/sdk/models/components";
+import { CheckoutLinkUpdate } from "@polar-sh/sdk/models/components/checkoutlinkupdate.js";
 
 let value: CheckoutLinkUpdate = {};
 ```

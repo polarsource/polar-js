@@ -5,7 +5,7 @@ Schema to create a pay-what-you-want price for a one-time product.
 ## Example Usage
 
 ```typescript
-import { ProductPriceOneTimeCustomCreate } from "@polar-sh/sdk/models/components";
+import { ProductPriceOneTimeCustomCreate } from "@polar-sh/sdk/models/components/productpriceonetimecustomcreate.js";
 
 let value: ProductPriceOneTimeCustomCreate = {};
 ```

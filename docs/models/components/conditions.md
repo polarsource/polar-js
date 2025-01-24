@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Conditions } from "@polar-sh/sdk/models/components";
+import { Conditions } from "@polar-sh/sdk/models/components/licensekeyvalidate.js";
 
 let value: Conditions = {};
 ```

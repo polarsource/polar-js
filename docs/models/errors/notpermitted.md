@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NotPermitted } from "@polar-sh/sdk/models/errors";
+import { NotPermitted } from "@polar-sh/sdk/models/errors/notpermitted.js";
 
 // No examples available for this model
 ```

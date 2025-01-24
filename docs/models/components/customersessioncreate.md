@@ -5,7 +5,7 @@ Schema for creating a customer session.
 ## Example Usage
 
 ```typescript
-import { CustomerSessionCreate } from "@polar-sh/sdk/models/components";
+import { CustomerSessionCreate } from "@polar-sh/sdk/models/components/customersessioncreate.js";
 
 let value: CustomerSessionCreate = {
   customerId: "<value>",

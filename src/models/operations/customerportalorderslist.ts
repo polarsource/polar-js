@@ -6,7 +6,22 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CustomerOrderSortProperty,
+  CustomerOrderSortProperty$inboundSchema,
+  CustomerOrderSortProperty$outboundSchema,
+} from "../components/customerordersortproperty.js";
+import {
+  ListResourceCustomerOrder,
+  ListResourceCustomerOrder$inboundSchema,
+  ListResourceCustomerOrder$Outbound,
+  ListResourceCustomerOrder$outboundSchema,
+} from "../components/listresourcecustomerorder.js";
+import {
+  ProductPriceType,
+  ProductPriceType$inboundSchema,
+  ProductPriceType$outboundSchema,
+} from "../components/productpricetype.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -27,8 +42,8 @@ export type CustomerPortalOrdersListQueryParamProductIDFilter =
  * Filter by product price type. `recurring` will return orders corresponding to subscriptions creations or renewals. `one_time` will return orders corresponding to one-time purchases.
  */
 export type CustomerPortalOrdersListQueryParamProductPriceTypeFilter =
-  | components.ProductPriceType
-  | Array<components.ProductPriceType>;
+  | ProductPriceType
+  | Array<ProductPriceType>;
 
 /**
  * Filter by subscription ID.
@@ -50,8 +65,8 @@ export type CustomerPortalOrdersListRequest = {
    * Filter by product price type. `recurring` will return orders corresponding to subscriptions creations or renewals. `one_time` will return orders corresponding to one-time purchases.
    */
   productPriceType?:
-    | components.ProductPriceType
-    | Array<components.ProductPriceType>
+    | ProductPriceType
+    | Array<ProductPriceType>
     | null
     | undefined;
   /**
@@ -73,11 +88,11 @@ export type CustomerPortalOrdersListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.CustomerOrderSortProperty> | null | undefined;
+  sorting?: Array<CustomerOrderSortProperty> | null | undefined;
 };
 
 export type CustomerPortalOrdersListResponse = {
-  result: components.ListResourceCustomerOrder;
+  result: ListResourceCustomerOrder;
 };
 
 /** @internal */
@@ -214,8 +229,8 @@ export const CustomerPortalOrdersListQueryParamProductPriceTypeFilter$inboundSch
     z.ZodTypeDef,
     unknown
   > = z.union([
-    components.ProductPriceType$inboundSchema,
-    z.array(components.ProductPriceType$inboundSchema),
+    ProductPriceType$inboundSchema,
+    z.array(ProductPriceType$inboundSchema),
   ]);
 
 /** @internal */
@@ -230,8 +245,8 @@ export const CustomerPortalOrdersListQueryParamProductPriceTypeFilter$outboundSc
     z.ZodTypeDef,
     CustomerPortalOrdersListQueryParamProductPriceTypeFilter
   > = z.union([
-    components.ProductPriceType$outboundSchema,
-    z.array(components.ProductPriceType$outboundSchema),
+    ProductPriceType$outboundSchema,
+    z.array(ProductPriceType$outboundSchema),
   ]);
 
 /**
@@ -349,8 +364,8 @@ export const CustomerPortalOrdersListRequest$inboundSchema: z.ZodType<
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   product_price_type: z.nullable(
     z.union([
-      components.ProductPriceType$inboundSchema,
-      z.array(components.ProductPriceType$inboundSchema),
+      ProductPriceType$inboundSchema,
+      z.array(ProductPriceType$inboundSchema),
     ]),
   ).optional(),
   subscription_id: z.nullable(z.union([z.string(), z.array(z.string())]))
@@ -358,9 +373,8 @@ export const CustomerPortalOrdersListRequest$inboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.CustomerOrderSortProperty$inboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(CustomerOrderSortProperty$inboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -393,8 +407,8 @@ export const CustomerPortalOrdersListRequest$outboundSchema: z.ZodType<
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   productPriceType: z.nullable(
     z.union([
-      components.ProductPriceType$outboundSchema,
-      z.array(components.ProductPriceType$outboundSchema),
+      ProductPriceType$outboundSchema,
+      z.array(ProductPriceType$outboundSchema),
     ]),
   ).optional(),
   subscriptionId: z.nullable(z.union([z.string(), z.array(z.string())]))
@@ -402,9 +416,8 @@ export const CustomerPortalOrdersListRequest$outboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.CustomerOrderSortProperty$outboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(CustomerOrderSortProperty$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
@@ -453,7 +466,7 @@ export const CustomerPortalOrdersListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceCustomerOrder$inboundSchema,
+  Result: ListResourceCustomerOrder$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -462,7 +475,7 @@ export const CustomerPortalOrdersListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerPortalOrdersListResponse$Outbound = {
-  Result: components.ListResourceCustomerOrder$Outbound;
+  Result: ListResourceCustomerOrder$Outbound;
 };
 
 /** @internal */
@@ -471,7 +484,7 @@ export const CustomerPortalOrdersListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerPortalOrdersListResponse
 > = z.object({
-  result: components.ListResourceCustomerOrder$outboundSchema,
+  result: ListResourceCustomerOrder$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

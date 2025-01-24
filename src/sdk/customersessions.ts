@@ -4,7 +4,8 @@
 
 import { customerSessionsCreate } from "../funcs/customerSessionsCreate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
+import { CustomerSession } from "../models/components/customersession.js";
+import { CustomerSessionCreate } from "../models/components/customersessioncreate.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class CustomerSessions extends ClientSDK {
@@ -15,9 +16,9 @@ export class CustomerSessions extends ClientSDK {
    * Create a customer session.
    */
   async create(
-    request: components.CustomerSessionCreate,
+    request: CustomerSessionCreate,
     options?: RequestOptions,
-  ): Promise<components.CustomerSession> {
+  ): Promise<CustomerSession> {
     return unwrapAsync(customerSessionsCreate(
       this,
       request,

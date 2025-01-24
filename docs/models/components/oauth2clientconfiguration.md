@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { OAuth2ClientConfiguration } from "@polar-sh/sdk/models/components";
+import { OAuth2ClientConfiguration } from "@polar-sh/sdk/models/components/oauth2clientconfiguration.js";
 
 let value: OAuth2ClientConfiguration = {
   redirectUris: [

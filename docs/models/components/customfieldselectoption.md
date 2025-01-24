@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CustomFieldSelectOption } from "@polar-sh/sdk/models/components";
+import { CustomFieldSelectOption } from "@polar-sh/sdk/models/components/customfieldselectoption.js";
 
 let value: CustomFieldSelectOption = {
   value: "<value>",

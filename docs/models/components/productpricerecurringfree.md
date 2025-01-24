@@ -5,7 +5,7 @@ A free recurring price for a product, i.e. a subscription.
 ## Example Usage
 
 ```typescript
-import { ProductPriceRecurringFree } from "@polar-sh/sdk/models/components";
+import { ProductPriceRecurringFree } from "@polar-sh/sdk/models/components/productpricerecurringfree.js";
 
 let value: ProductPriceRecurringFree = {
   createdAt: new Date("2024-03-06T08:56:27.585Z"),

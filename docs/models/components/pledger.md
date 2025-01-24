@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Pledger } from "@polar-sh/sdk/models/components";
+import { Pledger } from "@polar-sh/sdk/models/components/pledger.js";
 
 let value: Pledger = {
   name: "<value>",

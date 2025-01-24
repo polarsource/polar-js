@@ -17,7 +17,10 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  Oauth2AuthorizeResponseOauth2Authorize,
+  Oauth2AuthorizeResponseOauth2Authorize$inboundSchema,
+} from "../models/operations/oauth2authorize.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -28,7 +31,7 @@ export async function oauth2Authorize(
   options?: RequestOptions,
 ): Promise<
   Result<
-    operations.Oauth2AuthorizeResponseOauth2Authorize,
+    Oauth2AuthorizeResponseOauth2Authorize,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -86,7 +89,7 @@ export async function oauth2Authorize(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.Oauth2AuthorizeResponseOauth2Authorize,
+    Oauth2AuthorizeResponseOauth2Authorize,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -95,10 +98,7 @@ export async function oauth2Authorize(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(
-      200,
-      operations.Oauth2AuthorizeResponseOauth2Authorize$inboundSchema,
-    ),
+    M.json(200, Oauth2AuthorizeResponseOauth2Authorize$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response);

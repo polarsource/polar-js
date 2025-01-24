@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Interval } from "@polar-sh/sdk/models/components";
+import { Interval } from "@polar-sh/sdk/models/components/interval.js";
 
 let value: Interval = "hour";
 ```

@@ -5,7 +5,7 @@ A pay-what-you-want recurring price for a product, i.e. a subscription.
 ## Example Usage
 
 ```typescript
-import { ProductPriceRecurringCustom } from "@polar-sh/sdk/models/components";
+import { ProductPriceRecurringCustom } from "@polar-sh/sdk/models/components/productpricerecurringcustom.js";
 
 let value: ProductPriceRecurringCustom = {
   createdAt: new Date("2024-04-16T17:18:20.768Z"),

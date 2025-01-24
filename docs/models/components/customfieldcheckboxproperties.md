@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CustomFieldCheckboxProperties } from "@polar-sh/sdk/models/components";
+import { CustomFieldCheckboxProperties } from "@polar-sh/sdk/models/components/customfieldcheckboxproperties.js";
 
 let value: CustomFieldCheckboxProperties = {};
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BenefitGitHubRepositorySubscriber } from "@polar-sh/sdk/models/components";
+import { BenefitGitHubRepositorySubscriber } from "@polar-sh/sdk/models/components/benefitgithubrepositorysubscriber.js";
 
 let value: BenefitGitHubRepositorySubscriber = {
   createdAt: new Date("2023-02-14T04:34:11.014Z"),

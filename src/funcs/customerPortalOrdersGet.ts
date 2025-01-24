@@ -10,7 +10,10 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  CustomerOrder,
+  CustomerOrder$inboundSchema,
+} from "../models/components/customerorder.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -18,10 +21,20 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  CustomerPortalOrdersGetRequest,
+  CustomerPortalOrdersGetRequest$outboundSchema,
+} from "../models/operations/customerportalordersget.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -32,13 +45,13 @@ import { Result } from "../types/fp.js";
  */
 export async function customerPortalOrdersGet(
   client: PolarCore,
-  request: operations.CustomerPortalOrdersGetRequest,
+  request: CustomerPortalOrdersGetRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.CustomerOrder,
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    CustomerOrder,
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -50,8 +63,7 @@ export async function customerPortalOrdersGet(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.CustomerPortalOrdersGetRequest$outboundSchema.parse(value),
+    (value) => CustomerPortalOrdersGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -120,9 +132,9 @@ export async function customerPortalOrdersGet(
   };
 
   const [result] = await M.match<
-    components.CustomerOrder,
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    CustomerOrder,
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -131,9 +143,9 @@ export async function customerPortalOrdersGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.CustomerOrder$inboundSchema),
-    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, CustomerOrder$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

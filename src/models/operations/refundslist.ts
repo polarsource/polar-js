@@ -6,7 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ListResourceRefund,
+  ListResourceRefund$inboundSchema,
+  ListResourceRefund$Outbound,
+  ListResourceRefund$outboundSchema,
+} from "../components/listresourcerefund.js";
+import {
+  RefundSortProperty,
+  RefundSortProperty$inboundSchema,
+  RefundSortProperty$outboundSchema,
+} from "../components/refundsortproperty.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -70,11 +80,11 @@ export type RefundsListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.RefundSortProperty> | null | undefined;
+  sorting?: Array<RefundSortProperty> | null | undefined;
 };
 
 export type RefundsListResponse = {
-  result: components.ListResourceRefund;
+  result: ListResourceRefund;
 };
 
 /** @internal */
@@ -347,8 +357,7 @@ export const RefundsListRequest$inboundSchema: z.ZodType<
   succeeded: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.RefundSortProperty$inboundSchema))
-    .optional(),
+  sorting: z.nullable(z.array(RefundSortProperty$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -387,8 +396,7 @@ export const RefundsListRequest$outboundSchema: z.ZodType<
   succeeded: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.RefundSortProperty$outboundSchema))
-    .optional(),
+  sorting: z.nullable(z.array(RefundSortProperty$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
@@ -435,7 +443,7 @@ export const RefundsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceRefund$inboundSchema,
+  Result: ListResourceRefund$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -444,7 +452,7 @@ export const RefundsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type RefundsListResponse$Outbound = {
-  Result: components.ListResourceRefund$Outbound;
+  Result: ListResourceRefund$Outbound;
 };
 
 /** @internal */
@@ -453,7 +461,7 @@ export const RefundsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RefundsListResponse
 > = z.object({
-  result: components.ListResourceRefund$outboundSchema,
+  result: ListResourceRefund$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

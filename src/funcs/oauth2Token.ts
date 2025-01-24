@@ -10,7 +10,10 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  TokenResponse,
+  TokenResponse$inboundSchema,
+} from "../models/components/tokenresponse.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -20,7 +23,10 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  Oauth2RequestTokenRequestBody,
+  Oauth2RequestTokenRequestBody$outboundSchema,
+} from "../models/operations/oauth2requesttoken.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -31,11 +37,11 @@ import { Result } from "../types/fp.js";
  */
 export async function oauth2Token(
   client: PolarCore,
-  request: operations.Oauth2RequestTokenRequestBody,
+  request: Oauth2RequestTokenRequestBody,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.TokenResponse,
+    TokenResponse,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -47,8 +53,7 @@ export async function oauth2Token(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.Oauth2RequestTokenRequestBody$outboundSchema.parse(value),
+    (value) => Oauth2RequestTokenRequestBody$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -110,7 +115,7 @@ export async function oauth2Token(
   const response = doResult.value;
 
   const [result] = await M.match<
-    components.TokenResponse,
+    TokenResponse,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -119,7 +124,7 @@ export async function oauth2Token(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.TokenResponse$inboundSchema),
+    M.json(200, TokenResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response);

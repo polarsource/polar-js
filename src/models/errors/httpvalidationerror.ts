@@ -3,14 +3,19 @@
  */
 
 import * as z from "zod";
-import * as components from "../components/index.js";
+import {
+  ValidationError,
+  ValidationError$inboundSchema,
+  ValidationError$Outbound,
+  ValidationError$outboundSchema,
+} from "../components/validationerror.js";
 
 export type HTTPValidationErrorData = {
-  detail?: Array<components.ValidationError> | undefined;
+  detail?: Array<ValidationError> | undefined;
 };
 
 export class HTTPValidationError extends Error {
-  detail?: Array<components.ValidationError> | undefined;
+  detail?: Array<ValidationError> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: HTTPValidationErrorData;
@@ -34,7 +39,7 @@ export const HTTPValidationError$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  detail: z.array(components.ValidationError$inboundSchema).optional(),
+  detail: z.array(ValidationError$inboundSchema).optional(),
 })
   .transform((v) => {
     return new HTTPValidationError(v);
@@ -42,7 +47,7 @@ export const HTTPValidationError$inboundSchema: z.ZodType<
 
 /** @internal */
 export type HTTPValidationError$Outbound = {
-  detail?: Array<components.ValidationError$Outbound> | undefined;
+  detail?: Array<ValidationError$Outbound> | undefined;
 };
 
 /** @internal */
@@ -53,7 +58,7 @@ export const HTTPValidationError$outboundSchema: z.ZodType<
 > = z.instanceof(HTTPValidationError)
   .transform(v => v.data$)
   .pipe(z.object({
-    detail: z.array(components.ValidationError$outboundSchema).optional(),
+    detail: z.array(ValidationError$outboundSchema).optional(),
   }));
 
 /**

@@ -6,7 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CustomerSubscriptionSortProperty,
+  CustomerSubscriptionSortProperty$inboundSchema,
+  CustomerSubscriptionSortProperty$outboundSchema,
+} from "../components/customersubscriptionsortproperty.js";
+import {
+  ListResourceCustomerSubscription,
+  ListResourceCustomerSubscription$inboundSchema,
+  ListResourceCustomerSubscription$Outbound,
+  ListResourceCustomerSubscription$outboundSchema,
+} from "../components/listresourcecustomersubscription.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -51,14 +61,11 @@ export type CustomerPortalSubscriptionsListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?:
-    | Array<components.CustomerSubscriptionSortProperty>
-    | null
-    | undefined;
+  sorting?: Array<CustomerSubscriptionSortProperty> | null | undefined;
 };
 
 export type CustomerPortalSubscriptionsListResponse = {
-  result: components.ListResourceCustomerSubscription;
+  result: ListResourceCustomerSubscription;
 };
 
 /** @internal */
@@ -198,9 +205,8 @@ export const CustomerPortalSubscriptionsListRequest$inboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.CustomerSubscriptionSortProperty$inboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(CustomerSubscriptionSortProperty$inboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -232,9 +238,8 @@ export const CustomerPortalSubscriptionsListRequest$outboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.CustomerSubscriptionSortProperty$outboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(CustomerSubscriptionSortProperty$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
@@ -285,7 +290,7 @@ export const CustomerPortalSubscriptionsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceCustomerSubscription$inboundSchema,
+  Result: ListResourceCustomerSubscription$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -294,7 +299,7 @@ export const CustomerPortalSubscriptionsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerPortalSubscriptionsListResponse$Outbound = {
-  Result: components.ListResourceCustomerSubscription$Outbound;
+  Result: ListResourceCustomerSubscription$Outbound;
 };
 
 /** @internal */
@@ -303,7 +308,7 @@ export const CustomerPortalSubscriptionsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerPortalSubscriptionsListResponse
 > = z.object({
-  result: components.ListResourceCustomerSubscription$outboundSchema,
+  result: ListResourceCustomerSubscription$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

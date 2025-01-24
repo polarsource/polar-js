@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BenefitGitHubRepositoryCreate } from "@polar-sh/sdk/models/components";
+import { BenefitGitHubRepositoryCreate } from "@polar-sh/sdk/models/components/benefitgithubrepositorycreate.js";
 
 let value: BenefitGitHubRepositoryCreate = {
   description: "over equally lecture fuss indeed halt requite",

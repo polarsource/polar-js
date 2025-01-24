@@ -10,7 +10,10 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  LicenseKeyWithActivations,
+  LicenseKeyWithActivations$inboundSchema,
+} from "../models/components/licensekeywithactivations.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -18,10 +21,24 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  Unauthorized,
+  Unauthorized$inboundSchema,
+} from "../models/errors/unauthorized.js";
+import {
+  LicenseKeysGetRequest,
+  LicenseKeysGetRequest$outboundSchema,
+} from "../models/operations/licensekeysget.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -32,14 +49,14 @@ import { Result } from "../types/fp.js";
  */
 export async function licenseKeysGet(
   client: PolarCore,
-  request: operations.LicenseKeysGetRequest,
+  request: LicenseKeysGetRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.LicenseKeyWithActivations,
-    | errors.Unauthorized
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    LicenseKeyWithActivations,
+    | Unauthorized
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -51,7 +68,7 @@ export async function licenseKeysGet(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.LicenseKeysGetRequest$outboundSchema.parse(value),
+    (value) => LicenseKeysGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -120,10 +137,10 @@ export async function licenseKeysGet(
   };
 
   const [result] = await M.match<
-    components.LicenseKeyWithActivations,
-    | errors.Unauthorized
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    LicenseKeyWithActivations,
+    | Unauthorized
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -132,10 +149,10 @@ export async function licenseKeysGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.LicenseKeyWithActivations$inboundSchema),
-    M.jsonErr(401, errors.Unauthorized$inboundSchema),
-    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, LicenseKeyWithActivations$inboundSchema),
+    M.jsonErr(401, Unauthorized$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

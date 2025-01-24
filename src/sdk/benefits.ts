@@ -9,8 +9,19 @@ import { benefitsGrants } from "../funcs/benefitsGrants.js";
 import { benefitsList } from "../funcs/benefitsList.js";
 import { benefitsUpdate } from "../funcs/benefitsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { Benefit } from "../models/components/benefit.js";
+import { BenefitCreate } from "../models/components/benefitcreate.js";
+import { BenefitsDeleteRequest } from "../models/operations/benefitsdelete.js";
+import { BenefitsGetRequest } from "../models/operations/benefitsget.js";
+import {
+  BenefitsGrantsRequest,
+  BenefitsGrantsResponse,
+} from "../models/operations/benefitsgrants.js";
+import {
+  BenefitsListRequest,
+  BenefitsListResponse,
+} from "../models/operations/benefitslist.js";
+import { BenefitsUpdateRequest } from "../models/operations/benefitsupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -22,9 +33,9 @@ export class Benefits extends ClientSDK {
    * List benefits.
    */
   async list(
-    request: operations.BenefitsListRequest,
+    request: BenefitsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.BenefitsListResponse, { page: number }>> {
+  ): Promise<PageIterator<BenefitsListResponse, { page: number }>> {
     return unwrapResultIterator(benefitsList(
       this,
       request,
@@ -39,9 +50,9 @@ export class Benefits extends ClientSDK {
    * Create a benefit.
    */
   async create(
-    request: components.BenefitCreate,
+    request: BenefitCreate,
     options?: RequestOptions,
-  ): Promise<components.Benefit> {
+  ): Promise<Benefit> {
     return unwrapAsync(benefitsCreate(
       this,
       request,
@@ -56,9 +67,9 @@ export class Benefits extends ClientSDK {
    * Get a benefit by ID.
    */
   async get(
-    request: operations.BenefitsGetRequest,
+    request: BenefitsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.Benefit> {
+  ): Promise<Benefit> {
     return unwrapAsync(benefitsGet(
       this,
       request,
@@ -73,9 +84,9 @@ export class Benefits extends ClientSDK {
    * Update a benefit.
    */
   async update(
-    request: operations.BenefitsUpdateRequest,
+    request: BenefitsUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.Benefit> {
+  ): Promise<Benefit> {
     return unwrapAsync(benefitsUpdate(
       this,
       request,
@@ -94,7 +105,7 @@ export class Benefits extends ClientSDK {
    * > Users will lose access to the benefit.
    */
   async delete(
-    request: operations.BenefitsDeleteRequest,
+    request: BenefitsDeleteRequest,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(benefitsDelete(
@@ -113,11 +124,9 @@ export class Benefits extends ClientSDK {
    * It's especially useful to check if a user has been granted a benefit.
    */
   async grants(
-    request: operations.BenefitsGrantsRequest,
+    request: BenefitsGrantsRequest,
     options?: RequestOptions,
-  ): Promise<
-    PageIterator<operations.BenefitsGrantsResponse, { page: number }>
-  > {
+  ): Promise<PageIterator<BenefitsGrantsResponse, { page: number }>> {
     return unwrapResultIterator(benefitsGrants(
       this,
       request,

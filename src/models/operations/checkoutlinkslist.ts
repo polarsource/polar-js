@@ -6,7 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CheckoutLinkSortProperty,
+  CheckoutLinkSortProperty$inboundSchema,
+  CheckoutLinkSortProperty$outboundSchema,
+} from "../components/checkoutlinksortproperty.js";
+import {
+  ListResourceCheckoutLink,
+  ListResourceCheckoutLink$inboundSchema,
+  ListResourceCheckoutLink$Outbound,
+  ListResourceCheckoutLink$outboundSchema,
+} from "../components/listresourcecheckoutlink.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -41,11 +51,11 @@ export type CheckoutLinksListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.CheckoutLinkSortProperty> | null | undefined;
+  sorting?: Array<CheckoutLinkSortProperty> | null | undefined;
 };
 
 export type CheckoutLinksListResponse = {
-  result: components.ListResourceCheckoutLink;
+  result: ListResourceCheckoutLink;
 };
 
 /** @internal */
@@ -183,9 +193,8 @@ export const CheckoutLinksListRequest$inboundSchema: z.ZodType<
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.CheckoutLinkSortProperty$inboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(CheckoutLinkSortProperty$inboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -213,9 +222,8 @@ export const CheckoutLinksListRequest$outboundSchema: z.ZodType<
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.CheckoutLinkSortProperty$outboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(CheckoutLinkSortProperty$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
@@ -260,7 +268,7 @@ export const CheckoutLinksListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceCheckoutLink$inboundSchema,
+  Result: ListResourceCheckoutLink$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -269,7 +277,7 @@ export const CheckoutLinksListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutLinksListResponse$Outbound = {
-  Result: components.ListResourceCheckoutLink$Outbound;
+  Result: ListResourceCheckoutLink$Outbound;
 };
 
 /** @internal */
@@ -278,7 +286,7 @@ export const CheckoutLinksListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutLinksListResponse
 > = z.object({
-  result: components.ListResourceCheckoutLink$outboundSchema,
+  result: ListResourceCheckoutLink$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

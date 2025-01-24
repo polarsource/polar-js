@@ -5,7 +5,7 @@ The permission level to grant. Read more about roles and their permissions on [G
 ## Example Usage
 
 ```typescript
-import { Permission } from "@polar-sh/sdk/models/components";
+import { Permission } from "@polar-sh/sdk/models/components/benefitgithubrepositoryproperties.js";
 
 let value: Permission = "push";
 ```

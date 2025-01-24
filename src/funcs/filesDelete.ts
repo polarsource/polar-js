@@ -18,10 +18,24 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
+import {
+  NotPermitted,
+  NotPermitted$inboundSchema,
+} from "../models/errors/notpermitted.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  FilesDeleteRequest,
+  FilesDeleteRequest$outboundSchema,
+} from "../models/operations/filesdelete.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -32,14 +46,14 @@ import { Result } from "../types/fp.js";
  */
 export async function filesDelete(
   client: PolarCore,
-  request: operations.FilesDeleteRequest,
+  request: FilesDeleteRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
     void,
-    | errors.NotPermitted
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    | NotPermitted
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -51,7 +65,7 @@ export async function filesDelete(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.FilesDeleteRequest$outboundSchema.parse(value),
+    (value) => FilesDeleteRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -121,9 +135,9 @@ export async function filesDelete(
 
   const [result] = await M.match<
     void,
-    | errors.NotPermitted
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    | NotPermitted
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -133,9 +147,9 @@ export async function filesDelete(
     | ConnectionError
   >(
     M.nil(204, z.void()),
-    M.jsonErr(403, errors.NotPermitted$inboundSchema),
-    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.jsonErr(403, NotPermitted$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

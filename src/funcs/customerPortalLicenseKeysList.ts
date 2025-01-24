@@ -18,10 +18,26 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  Unauthorized,
+  Unauthorized$inboundSchema,
+} from "../models/errors/unauthorized.js";
+import {
+  CustomerPortalLicenseKeysListRequest,
+  CustomerPortalLicenseKeysListRequest$outboundSchema,
+  CustomerPortalLicenseKeysListResponse,
+  CustomerPortalLicenseKeysListResponse$inboundSchema,
+} from "../models/operations/customerportallicensekeyslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -35,15 +51,15 @@ import {
  */
 export async function customerPortalLicenseKeysList(
   client: PolarCore,
-  request: operations.CustomerPortalLicenseKeysListRequest,
+  request: CustomerPortalLicenseKeysListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.CustomerPortalLicenseKeysListResponse,
-      | errors.Unauthorized
-      | errors.ResourceNotFound
-      | errors.HTTPValidationError
+      CustomerPortalLicenseKeysListResponse,
+      | Unauthorized
+      | ResourceNotFound
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -57,10 +73,7 @@ export async function customerPortalLicenseKeysList(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.CustomerPortalLicenseKeysListRequest$outboundSchema.parse(
-        value,
-      ),
+    (value) => CustomerPortalLicenseKeysListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -130,10 +143,10 @@ export async function customerPortalLicenseKeysList(
   };
 
   const [result, raw] = await M.match<
-    operations.CustomerPortalLicenseKeysListResponse,
-    | errors.Unauthorized
-    | errors.ResourceNotFound
-    | errors.HTTPValidationError
+    CustomerPortalLicenseKeysListResponse,
+    | Unauthorized
+    | ResourceNotFound
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -142,14 +155,12 @@ export async function customerPortalLicenseKeysList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(
-      200,
-      operations.CustomerPortalLicenseKeysListResponse$inboundSchema,
-      { key: "Result" },
-    ),
-    M.jsonErr(401, errors.Unauthorized$inboundSchema),
-    M.jsonErr(404, errors.ResourceNotFound$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, CustomerPortalLicenseKeysListResponse$inboundSchema, {
+      key: "Result",
+    }),
+    M.jsonErr(401, Unauthorized$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -162,10 +173,10 @@ export async function customerPortalLicenseKeysList(
   ): {
     next: Paginator<
       Result<
-        operations.CustomerPortalLicenseKeysListResponse,
-        | errors.Unauthorized
-        | errors.ResourceNotFound
-        | errors.HTTPValidationError
+        CustomerPortalLicenseKeysListResponse,
+        | Unauthorized
+        | ResourceNotFound
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

@@ -6,8 +6,13 @@ import { repositoriesGet } from "../funcs/repositoriesGet.js";
 import { repositoriesList } from "../funcs/repositoriesList.js";
 import { repositoriesUpdate } from "../funcs/repositoriesUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { Repository } from "../models/components/repository.js";
+import { RepositoriesGetRequest } from "../models/operations/repositoriesget.js";
+import {
+  RepositoriesListRequest,
+  RepositoriesListResponse,
+} from "../models/operations/repositorieslist.js";
+import { RepositoriesUpdateRequest } from "../models/operations/repositoriesupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -19,11 +24,9 @@ export class Repositories extends ClientSDK {
    * List repositories.
    */
   async list(
-    request: operations.RepositoriesListRequest,
+    request: RepositoriesListRequest,
     options?: RequestOptions,
-  ): Promise<
-    PageIterator<operations.RepositoriesListResponse, { page: number }>
-  > {
+  ): Promise<PageIterator<RepositoriesListResponse, { page: number }>> {
     return unwrapResultIterator(repositoriesList(
       this,
       request,
@@ -38,9 +41,9 @@ export class Repositories extends ClientSDK {
    * Get a repository by ID.
    */
   async get(
-    request: operations.RepositoriesGetRequest,
+    request: RepositoriesGetRequest,
     options?: RequestOptions,
-  ): Promise<components.Repository> {
+  ): Promise<Repository> {
     return unwrapAsync(repositoriesGet(
       this,
       request,
@@ -55,9 +58,9 @@ export class Repositories extends ClientSDK {
    * Update a repository.
    */
   async update(
-    request: operations.RepositoriesUpdateRequest,
+    request: RepositoriesUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.Repository> {
+  ): Promise<Repository> {
     return unwrapAsync(repositoriesUpdate(
       this,
       request,

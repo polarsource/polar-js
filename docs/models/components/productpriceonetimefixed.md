@@ -5,7 +5,7 @@ A one-time price for a product.
 ## Example Usage
 
 ```typescript
-import { ProductPriceOneTimeFixed } from "@polar-sh/sdk/models/components";
+import { ProductPriceOneTimeFixed } from "@polar-sh/sdk/models/components/productpriceonetimefixed.js";
 
 let value: ProductPriceOneTimeFixed = {
   createdAt: new Date("2023-12-26T04:21:26.793Z"),

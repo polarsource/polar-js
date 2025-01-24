@@ -5,7 +5,7 @@ Date interval limits to get metrics for each interval.
 ## Example Usage
 
 ```typescript
-import { MetricsIntervalsLimits } from "@polar-sh/sdk/models/components";
+import { MetricsIntervalsLimits } from "@polar-sh/sdk/models/components/metricsintervalslimits.js";
 
 let value: MetricsIntervalsLimits = {
   hour: {

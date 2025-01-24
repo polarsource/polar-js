@@ -8,8 +8,14 @@ import { oauth2ClientsGet } from "../funcs/oauth2ClientsGet.js";
 import { oauth2ClientsList } from "../funcs/oauth2ClientsList.js";
 import { oauth2ClientsUpdate } from "../funcs/oauth2ClientsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { OAuth2ClientConfiguration } from "../models/components/oauth2clientconfiguration.js";
+import {
+  Oauth2ClientsListRequest,
+  Oauth2ClientsListResponse,
+} from "../models/operations/oauth2clientslist.js";
+import { Oauth2ClientsOauth2DeleteClientRequest } from "../models/operations/oauth2clientsoauth2deleteclient.js";
+import { Oauth2ClientsOauth2GetClientRequest } from "../models/operations/oauth2clientsoauth2getclient.js";
+import { Oauth2ClientsOauth2UpdateClientRequest } from "../models/operations/oauth2clientsoauth2updateclient.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -21,11 +27,9 @@ export class Clients extends ClientSDK {
    * List OAuth2 clients.
    */
   async list(
-    request: operations.Oauth2ClientsListRequest,
+    request: Oauth2ClientsListRequest,
     options?: RequestOptions,
-  ): Promise<
-    PageIterator<operations.Oauth2ClientsListResponse, { page: number }>
-  > {
+  ): Promise<PageIterator<Oauth2ClientsListResponse, { page: number }>> {
     return unwrapResultIterator(oauth2ClientsList(
       this,
       request,
@@ -40,7 +44,7 @@ export class Clients extends ClientSDK {
    * Create an OAuth2 client.
    */
   async create(
-    request: components.OAuth2ClientConfiguration,
+    request: OAuth2ClientConfiguration,
     options?: RequestOptions,
   ): Promise<any> {
     return unwrapAsync(oauth2ClientsCreate(
@@ -57,7 +61,7 @@ export class Clients extends ClientSDK {
    * Get an OAuth2 client by Client ID.
    */
   async get(
-    request: operations.Oauth2ClientsOauth2GetClientRequest,
+    request: Oauth2ClientsOauth2GetClientRequest,
     options?: RequestOptions,
   ): Promise<any> {
     return unwrapAsync(oauth2ClientsGet(
@@ -74,7 +78,7 @@ export class Clients extends ClientSDK {
    * Update an OAuth2 client.
    */
   async update(
-    request: operations.Oauth2ClientsOauth2UpdateClientRequest,
+    request: Oauth2ClientsOauth2UpdateClientRequest,
     options?: RequestOptions,
   ): Promise<any> {
     return unwrapAsync(oauth2ClientsUpdate(
@@ -91,7 +95,7 @@ export class Clients extends ClientSDK {
    * Delete an OAuth2 client.
    */
   async delete(
-    request: operations.Oauth2ClientsOauth2DeleteClientRequest,
+    request: Oauth2ClientsOauth2DeleteClientRequest,
     options?: RequestOptions,
   ): Promise<any> {
     return unwrapAsync(oauth2ClientsDelete(

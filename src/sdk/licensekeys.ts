@@ -7,8 +7,16 @@ import { licenseKeysGetActivation } from "../funcs/licenseKeysGetActivation.js";
 import { licenseKeysList } from "../funcs/licenseKeysList.js";
 import { licenseKeysUpdate } from "../funcs/licenseKeysUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { LicenseKeyActivationRead } from "../models/components/licensekeyactivationread.js";
+import { LicenseKeyRead } from "../models/components/licensekeyread.js";
+import { LicenseKeyWithActivations } from "../models/components/licensekeywithactivations.js";
+import { LicenseKeysGetRequest } from "../models/operations/licensekeysget.js";
+import { LicenseKeysGetActivationRequest } from "../models/operations/licensekeysgetactivation.js";
+import {
+  LicenseKeysListRequest,
+  LicenseKeysListResponse,
+} from "../models/operations/licensekeyslist.js";
+import { LicenseKeysUpdateRequest } from "../models/operations/licensekeysupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -20,11 +28,9 @@ export class LicenseKeys extends ClientSDK {
    * Get license keys connected to the given organization & filters.
    */
   async list(
-    request: operations.LicenseKeysListRequest,
+    request: LicenseKeysListRequest,
     options?: RequestOptions,
-  ): Promise<
-    PageIterator<operations.LicenseKeysListResponse, { page: number }>
-  > {
+  ): Promise<PageIterator<LicenseKeysListResponse, { page: number }>> {
     return unwrapResultIterator(licenseKeysList(
       this,
       request,
@@ -39,9 +45,9 @@ export class LicenseKeys extends ClientSDK {
    * Get a license key.
    */
   async get(
-    request: operations.LicenseKeysGetRequest,
+    request: LicenseKeysGetRequest,
     options?: RequestOptions,
-  ): Promise<components.LicenseKeyWithActivations> {
+  ): Promise<LicenseKeyWithActivations> {
     return unwrapAsync(licenseKeysGet(
       this,
       request,
@@ -56,9 +62,9 @@ export class LicenseKeys extends ClientSDK {
    * Update a license key.
    */
   async update(
-    request: operations.LicenseKeysUpdateRequest,
+    request: LicenseKeysUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.LicenseKeyRead> {
+  ): Promise<LicenseKeyRead> {
     return unwrapAsync(licenseKeysUpdate(
       this,
       request,
@@ -73,9 +79,9 @@ export class LicenseKeys extends ClientSDK {
    * Get a license key activation.
    */
   async getActivation(
-    request: operations.LicenseKeysGetActivationRequest,
+    request: LicenseKeysGetActivationRequest,
     options?: RequestOptions,
-  ): Promise<components.LicenseKeyActivationRead> {
+  ): Promise<LicenseKeyActivationRead> {
     return unwrapAsync(licenseKeysGetActivation(
       this,
       request,

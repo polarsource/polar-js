@@ -7,8 +7,14 @@ import { customerPortalSubscriptionsGet } from "../funcs/customerPortalSubscript
 import { customerPortalSubscriptionsList } from "../funcs/customerPortalSubscriptionsList.js";
 import { customerPortalSubscriptionsUpdate } from "../funcs/customerPortalSubscriptionsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { CustomerSubscription } from "../models/components/customersubscription.js";
+import { CustomerPortalSubscriptionsCancelRequest } from "../models/operations/customerportalsubscriptionscancel.js";
+import { CustomerPortalSubscriptionsGetRequest } from "../models/operations/customerportalsubscriptionsget.js";
+import {
+  CustomerPortalSubscriptionsListRequest,
+  CustomerPortalSubscriptionsListResponse,
+} from "../models/operations/customerportalsubscriptionslist.js";
+import { CustomerPortalSubscriptionsUpdateRequest } from "../models/operations/customerportalsubscriptionsupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -20,13 +26,10 @@ export class PolarSubscriptions extends ClientSDK {
    * List subscriptions of the authenticated customer or user.
    */
   async list(
-    request: operations.CustomerPortalSubscriptionsListRequest,
+    request: CustomerPortalSubscriptionsListRequest,
     options?: RequestOptions,
   ): Promise<
-    PageIterator<
-      operations.CustomerPortalSubscriptionsListResponse,
-      { page: number }
-    >
+    PageIterator<CustomerPortalSubscriptionsListResponse, { page: number }>
   > {
     return unwrapResultIterator(customerPortalSubscriptionsList(
       this,
@@ -42,9 +45,9 @@ export class PolarSubscriptions extends ClientSDK {
    * Get a subscription for the authenticated customer or user.
    */
   async get(
-    request: operations.CustomerPortalSubscriptionsGetRequest,
+    request: CustomerPortalSubscriptionsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomerSubscription> {
+  ): Promise<CustomerSubscription> {
     return unwrapAsync(customerPortalSubscriptionsGet(
       this,
       request,
@@ -59,9 +62,9 @@ export class PolarSubscriptions extends ClientSDK {
    * Update a subscription of the authenticated customer or user.
    */
   async update(
-    request: operations.CustomerPortalSubscriptionsUpdateRequest,
+    request: CustomerPortalSubscriptionsUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomerSubscription> {
+  ): Promise<CustomerSubscription> {
     return unwrapAsync(customerPortalSubscriptionsUpdate(
       this,
       request,
@@ -76,9 +79,9 @@ export class PolarSubscriptions extends ClientSDK {
    * Cancel a subscription of the authenticated customer or user.
    */
   async cancel(
-    request: operations.CustomerPortalSubscriptionsCancelRequest,
+    request: CustomerPortalSubscriptionsCancelRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomerSubscription> {
+  ): Promise<CustomerSubscription> {
     return unwrapAsync(customerPortalSubscriptionsCancel(
       this,
       request,

@@ -5,7 +5,7 @@ Schema for a custom field of type number.
 ## Example Usage
 
 ```typescript
-import { CustomFieldNumber } from "@polar-sh/sdk/models/components";
+import { CustomFieldNumber } from "@polar-sh/sdk/models/components/customfieldnumber.js";
 
 let value: CustomFieldNumber = {
   createdAt: new Date("2023-07-28T01:45:34.109Z"),

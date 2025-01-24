@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CustomerSubscriptionUpdate,
+  CustomerSubscriptionUpdate$inboundSchema,
+  CustomerSubscriptionUpdate$Outbound,
+  CustomerSubscriptionUpdate$outboundSchema,
+} from "../components/customersubscriptionupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalSubscriptionsUpdateRequest = {
@@ -14,7 +19,7 @@ export type CustomerPortalSubscriptionsUpdateRequest = {
    * The subscription ID.
    */
   id: string;
-  customerSubscriptionUpdate: components.CustomerSubscriptionUpdate;
+  customerSubscriptionUpdate: CustomerSubscriptionUpdate;
 };
 
 /** @internal */
@@ -24,8 +29,7 @@ export const CustomerPortalSubscriptionsUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  CustomerSubscriptionUpdate:
-    components.CustomerSubscriptionUpdate$inboundSchema,
+  CustomerSubscriptionUpdate: CustomerSubscriptionUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "CustomerSubscriptionUpdate": "customerSubscriptionUpdate",
@@ -35,7 +39,7 @@ export const CustomerPortalSubscriptionsUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type CustomerPortalSubscriptionsUpdateRequest$Outbound = {
   id: string;
-  CustomerSubscriptionUpdate: components.CustomerSubscriptionUpdate$Outbound;
+  CustomerSubscriptionUpdate: CustomerSubscriptionUpdate$Outbound;
 };
 
 /** @internal */
@@ -45,8 +49,7 @@ export const CustomerPortalSubscriptionsUpdateRequest$outboundSchema: z.ZodType<
   CustomerPortalSubscriptionsUpdateRequest
 > = z.object({
   id: z.string(),
-  customerSubscriptionUpdate:
-    components.CustomerSubscriptionUpdate$outboundSchema,
+  customerSubscriptionUpdate: CustomerSubscriptionUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     customerSubscriptionUpdate: "CustomerSubscriptionUpdate",

@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ListResourceDownloadableRead,
+  ListResourceDownloadableRead$inboundSchema,
+  ListResourceDownloadableRead$Outbound,
+  ListResourceDownloadableRead$outboundSchema,
+} from "../components/listresourcedownloadableread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -43,7 +48,7 @@ export type CustomerPortalDownloadablesListRequest = {
 };
 
 export type CustomerPortalDownloadablesListResponse = {
-  result: components.ListResourceDownloadableRead;
+  result: ListResourceDownloadableRead;
 };
 
 /** @internal */
@@ -257,7 +262,7 @@ export const CustomerPortalDownloadablesListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceDownloadableRead$inboundSchema,
+  Result: ListResourceDownloadableRead$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -266,7 +271,7 @@ export const CustomerPortalDownloadablesListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerPortalDownloadablesListResponse$Outbound = {
-  Result: components.ListResourceDownloadableRead$Outbound;
+  Result: ListResourceDownloadableRead$Outbound;
 };
 
 /** @internal */
@@ -275,7 +280,7 @@ export const CustomerPortalDownloadablesListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerPortalDownloadablesListResponse
 > = z.object({
-  result: components.ListResourceDownloadableRead$outboundSchema,
+  result: ListResourceDownloadableRead$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

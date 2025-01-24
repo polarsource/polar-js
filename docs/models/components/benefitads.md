@@ -7,7 +7,7 @@ Use it so your backers can display ads on your README, website, etc.
 ## Example Usage
 
 ```typescript
-import { BenefitAds } from "@polar-sh/sdk/models/components";
+import { BenefitAds } from "@polar-sh/sdk/models/components/benefitads.js";
 
 let value: BenefitAds = {
   createdAt: new Date("2023-06-27T15:10:04.073Z"),

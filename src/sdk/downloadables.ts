@@ -5,7 +5,11 @@
 import { customerPortalDownloadablesGet } from "../funcs/customerPortalDownloadablesGet.js";
 import { customerPortalDownloadablesList } from "../funcs/customerPortalDownloadablesList.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as operations from "../models/operations/index.js";
+import { CustomerPortalDownloadablesCustomerPortalDownloadablesGetRequest } from "../models/operations/customerportaldownloadablescustomerportaldownloadablesget.js";
+import {
+  CustomerPortalDownloadablesListRequest,
+  CustomerPortalDownloadablesListResponse,
+} from "../models/operations/customerportaldownloadableslist.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -14,13 +18,10 @@ export class Downloadables extends ClientSDK {
    * List Downloadables
    */
   async list(
-    request: operations.CustomerPortalDownloadablesListRequest,
+    request: CustomerPortalDownloadablesListRequest,
     options?: RequestOptions,
   ): Promise<
-    PageIterator<
-      operations.CustomerPortalDownloadablesListResponse,
-      { page: number }
-    >
+    PageIterator<CustomerPortalDownloadablesListResponse, { page: number }>
   > {
     return unwrapResultIterator(customerPortalDownloadablesList(
       this,
@@ -33,8 +34,7 @@ export class Downloadables extends ClientSDK {
    * Get Downloadable
    */
   async get(
-    request:
-      operations.CustomerPortalDownloadablesCustomerPortalDownloadablesGetRequest,
+    request: CustomerPortalDownloadablesCustomerPortalDownloadablesGetRequest,
     options?: RequestOptions,
   ): Promise<any | undefined> {
     return unwrapAsync(customerPortalDownloadablesGet(

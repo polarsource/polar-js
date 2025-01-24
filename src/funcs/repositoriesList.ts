@@ -18,10 +18,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  RepositoriesListRequest,
+  RepositoriesListRequest$outboundSchema,
+  RepositoriesListResponse,
+  RepositoriesListResponse$inboundSchema,
+} from "../models/operations/repositorieslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -38,13 +46,13 @@ import {
  */
 export async function repositoriesList(
   client: PolarCore,
-  request: operations.RepositoriesListRequest,
+  request: RepositoriesListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.RepositoriesListResponse,
-      | errors.HTTPValidationError
+      RepositoriesListResponse,
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -58,7 +66,7 @@ export async function repositoriesList(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.RepositoriesListRequest$outboundSchema.parse(value),
+    (value) => RepositoriesListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -132,8 +140,8 @@ export async function repositoriesList(
   };
 
   const [result, raw] = await M.match<
-    operations.RepositoriesListResponse,
-    | errors.HTTPValidationError
+    RepositoriesListResponse,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -142,10 +150,8 @@ export async function repositoriesList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.RepositoriesListResponse$inboundSchema, {
-      key: "Result",
-    }),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, RepositoriesListResponse$inboundSchema, { key: "Result" }),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -158,8 +164,8 @@ export async function repositoriesList(
   ): {
     next: Paginator<
       Result<
-        operations.RepositoriesListResponse,
-        | errors.HTTPValidationError
+        RepositoriesListResponse,
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

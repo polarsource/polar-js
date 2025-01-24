@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CheckoutLinkSortProperty } from "@polar-sh/sdk/models/components";
+import { CheckoutLinkSortProperty } from "@polar-sh/sdk/models/components/checkoutlinksortproperty.js";
 
 let value: CheckoutLinkSortProperty = "-created_at";
 ```

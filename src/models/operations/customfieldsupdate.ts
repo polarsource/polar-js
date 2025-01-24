@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CustomFieldUpdate,
+  CustomFieldUpdate$inboundSchema,
+  CustomFieldUpdate$Outbound,
+  CustomFieldUpdate$outboundSchema,
+} from "../components/customfieldupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldsUpdateRequest = {
@@ -14,7 +19,7 @@ export type CustomFieldsUpdateRequest = {
    * The custom field ID.
    */
   id: string;
-  customFieldUpdate: components.CustomFieldUpdate;
+  customFieldUpdate: CustomFieldUpdate;
 };
 
 /** @internal */
@@ -24,7 +29,7 @@ export const CustomFieldsUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  CustomFieldUpdate: components.CustomFieldUpdate$inboundSchema,
+  CustomFieldUpdate: CustomFieldUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "CustomFieldUpdate": "customFieldUpdate",
@@ -34,7 +39,7 @@ export const CustomFieldsUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type CustomFieldsUpdateRequest$Outbound = {
   id: string;
-  CustomFieldUpdate: components.CustomFieldUpdate$Outbound;
+  CustomFieldUpdate: CustomFieldUpdate$Outbound;
 };
 
 /** @internal */
@@ -44,7 +49,7 @@ export const CustomFieldsUpdateRequest$outboundSchema: z.ZodType<
   CustomFieldsUpdateRequest
 > = z.object({
   id: z.string(),
-  customFieldUpdate: components.CustomFieldUpdate$outboundSchema,
+  customFieldUpdate: CustomFieldUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     customFieldUpdate: "CustomFieldUpdate",

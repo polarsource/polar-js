@@ -6,7 +6,22 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ListResourceOrder,
+  ListResourceOrder$inboundSchema,
+  ListResourceOrder$Outbound,
+  ListResourceOrder$outboundSchema,
+} from "../components/listresourceorder.js";
+import {
+  OrderSortProperty,
+  OrderSortProperty$inboundSchema,
+  OrderSortProperty$outboundSchema,
+} from "../components/ordersortproperty.js";
+import {
+  ProductPriceType,
+  ProductPriceType$inboundSchema,
+  ProductPriceType$outboundSchema,
+} from "../components/productpricetype.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -22,9 +37,7 @@ export type OrdersListQueryParamProductIDFilter = string | Array<string>;
 /**
  * Filter by product price type. `recurring` will return orders corresponding to subscriptions creations or renewals. `one_time` will return orders corresponding to one-time purchases.
  */
-export type ProductPriceTypeFilter =
-  | components.ProductPriceType
-  | Array<components.ProductPriceType>;
+export type ProductPriceTypeFilter = ProductPriceType | Array<ProductPriceType>;
 
 /**
  * Filter by discount ID.
@@ -49,8 +62,8 @@ export type OrdersListRequest = {
    * Filter by product price type. `recurring` will return orders corresponding to subscriptions creations or renewals. `one_time` will return orders corresponding to one-time purchases.
    */
   productPriceType?:
-    | components.ProductPriceType
-    | Array<components.ProductPriceType>
+    | ProductPriceType
+    | Array<ProductPriceType>
     | null
     | undefined;
   /**
@@ -72,11 +85,11 @@ export type OrdersListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.OrderSortProperty> | null | undefined;
+  sorting?: Array<OrderSortProperty> | null | undefined;
 };
 
 export type OrdersListResponse = {
-  result: components.ListResourceOrder;
+  result: ListResourceOrder;
 };
 
 /** @internal */
@@ -201,8 +214,8 @@ export const ProductPriceTypeFilter$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.ProductPriceType$inboundSchema,
-  z.array(components.ProductPriceType$inboundSchema),
+  ProductPriceType$inboundSchema,
+  z.array(ProductPriceType$inboundSchema),
 ]);
 
 /** @internal */
@@ -214,8 +227,8 @@ export const ProductPriceTypeFilter$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPriceTypeFilter
 > = z.union([
-  components.ProductPriceType$outboundSchema,
-  z.array(components.ProductPriceType$outboundSchema),
+  ProductPriceType$outboundSchema,
+  z.array(ProductPriceType$outboundSchema),
 ]);
 
 /**
@@ -363,8 +376,8 @@ export const OrdersListRequest$inboundSchema: z.ZodType<
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   product_price_type: z.nullable(
     z.union([
-      components.ProductPriceType$inboundSchema,
-      z.array(components.ProductPriceType$inboundSchema),
+      ProductPriceType$inboundSchema,
+      z.array(ProductPriceType$inboundSchema),
     ]),
   ).optional(),
   discount_id: z.nullable(z.union([z.string(), z.array(z.string())]))
@@ -373,8 +386,7 @@ export const OrdersListRequest$inboundSchema: z.ZodType<
     .optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.OrderSortProperty$inboundSchema))
-    .optional(),
+  sorting: z.nullable(z.array(OrderSortProperty$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -408,16 +420,15 @@ export const OrdersListRequest$outboundSchema: z.ZodType<
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   productPriceType: z.nullable(
     z.union([
-      components.ProductPriceType$outboundSchema,
-      z.array(components.ProductPriceType$outboundSchema),
+      ProductPriceType$outboundSchema,
+      z.array(ProductPriceType$outboundSchema),
     ]),
   ).optional(),
   discountId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.OrderSortProperty$outboundSchema))
-    .optional(),
+  sorting: z.nullable(z.array(OrderSortProperty$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
@@ -465,7 +476,7 @@ export const OrdersListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceOrder$inboundSchema,
+  Result: ListResourceOrder$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -474,7 +485,7 @@ export const OrdersListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type OrdersListResponse$Outbound = {
-  Result: components.ListResourceOrder$Outbound;
+  Result: ListResourceOrder$Outbound;
 };
 
 /** @internal */
@@ -483,7 +494,7 @@ export const OrdersListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   OrdersListResponse
 > = z.object({
-  result: components.ListResourceOrder$outboundSchema,
+  result: ListResourceOrder$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

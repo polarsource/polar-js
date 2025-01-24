@@ -6,7 +6,30 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  DownloadableFileRead,
+  DownloadableFileRead$inboundSchema,
+  DownloadableFileRead$Outbound,
+  DownloadableFileRead$outboundSchema,
+} from "../components/downloadablefileread.js";
+import {
+  FileUploadCompleted,
+  FileUploadCompleted$inboundSchema,
+  FileUploadCompleted$Outbound,
+  FileUploadCompleted$outboundSchema,
+} from "../components/fileuploadcompleted.js";
+import {
+  OrganizationAvatarFileRead,
+  OrganizationAvatarFileRead$inboundSchema,
+  OrganizationAvatarFileRead$Outbound,
+  OrganizationAvatarFileRead$outboundSchema,
+} from "../components/organizationavatarfileread.js";
+import {
+  ProductMediaFileRead,
+  ProductMediaFileRead$inboundSchema,
+  ProductMediaFileRead$Outbound,
+  ProductMediaFileRead$outboundSchema,
+} from "../components/productmediafileread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type FilesUploadedRequest = {
@@ -14,18 +37,16 @@ export type FilesUploadedRequest = {
    * The file ID.
    */
   id: string;
-  fileUploadCompleted: components.FileUploadCompleted;
+  fileUploadCompleted: FileUploadCompleted;
 };
 
 /**
  * File upload completed.
  */
 export type FilesUploadedResponseFilesUploaded =
-  | (components.DownloadableFileRead & { service: "downloadable" })
-  | (components.ProductMediaFileRead & { service: "product_media" })
-  | (components.OrganizationAvatarFileRead & {
-    service: "organization_avatar";
-  });
+  | (DownloadableFileRead & { service: "downloadable" })
+  | (ProductMediaFileRead & { service: "product_media" })
+  | (OrganizationAvatarFileRead & { service: "organization_avatar" });
 
 /** @internal */
 export const FilesUploadedRequest$inboundSchema: z.ZodType<
@@ -34,7 +55,7 @@ export const FilesUploadedRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  FileUploadCompleted: components.FileUploadCompleted$inboundSchema,
+  FileUploadCompleted: FileUploadCompleted$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "FileUploadCompleted": "fileUploadCompleted",
@@ -44,7 +65,7 @@ export const FilesUploadedRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type FilesUploadedRequest$Outbound = {
   id: string;
-  FileUploadCompleted: components.FileUploadCompleted$Outbound;
+  FileUploadCompleted: FileUploadCompleted$Outbound;
 };
 
 /** @internal */
@@ -54,7 +75,7 @@ export const FilesUploadedRequest$outboundSchema: z.ZodType<
   FilesUploadedRequest
 > = z.object({
   id: z.string(),
-  fileUploadCompleted: components.FileUploadCompleted$outboundSchema,
+  fileUploadCompleted: FileUploadCompleted$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     fileUploadCompleted: "FileUploadCompleted",
@@ -98,17 +119,17 @@ export const FilesUploadedResponseFilesUploaded$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  components.DownloadableFileRead$inboundSchema.and(
+  DownloadableFileRead$inboundSchema.and(
     z.object({ service: z.literal("downloadable") }).transform((v) => ({
       service: v.service,
     })),
   ),
-  components.ProductMediaFileRead$inboundSchema.and(
+  ProductMediaFileRead$inboundSchema.and(
     z.object({ service: z.literal("product_media") }).transform((v) => ({
       service: v.service,
     })),
   ),
-  components.OrganizationAvatarFileRead$inboundSchema.and(
+  OrganizationAvatarFileRead$inboundSchema.and(
     z.object({ service: z.literal("organization_avatar") }).transform((v) => ({
       service: v.service,
     })),
@@ -117,11 +138,9 @@ export const FilesUploadedResponseFilesUploaded$inboundSchema: z.ZodType<
 
 /** @internal */
 export type FilesUploadedResponseFilesUploaded$Outbound =
-  | (components.DownloadableFileRead$Outbound & { service: "downloadable" })
-  | (components.ProductMediaFileRead$Outbound & { service: "product_media" })
-  | (components.OrganizationAvatarFileRead$Outbound & {
-    service: "organization_avatar";
-  });
+  | (DownloadableFileRead$Outbound & { service: "downloadable" })
+  | (ProductMediaFileRead$Outbound & { service: "product_media" })
+  | (OrganizationAvatarFileRead$Outbound & { service: "organization_avatar" });
 
 /** @internal */
 export const FilesUploadedResponseFilesUploaded$outboundSchema: z.ZodType<
@@ -129,17 +148,17 @@ export const FilesUploadedResponseFilesUploaded$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FilesUploadedResponseFilesUploaded
 > = z.union([
-  components.DownloadableFileRead$outboundSchema.and(
+  DownloadableFileRead$outboundSchema.and(
     z.object({ service: z.literal("downloadable") }).transform((v) => ({
       service: v.service,
     })),
   ),
-  components.ProductMediaFileRead$outboundSchema.and(
+  ProductMediaFileRead$outboundSchema.and(
     z.object({ service: z.literal("product_media") }).transform((v) => ({
       service: v.service,
     })),
   ),
-  components.OrganizationAvatarFileRead$outboundSchema.and(
+  OrganizationAvatarFileRead$outboundSchema.and(
     z.object({ service: z.literal("organization_avatar") }).transform((v) => ({
       service: v.service,
     })),

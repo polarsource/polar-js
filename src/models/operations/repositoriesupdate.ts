@@ -6,12 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  RepositoryUpdate,
+  RepositoryUpdate$inboundSchema,
+  RepositoryUpdate$Outbound,
+  RepositoryUpdate$outboundSchema,
+} from "../components/repositoryupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type RepositoriesUpdateRequest = {
   id: string;
-  repositoryUpdate: components.RepositoryUpdate;
+  repositoryUpdate: RepositoryUpdate;
 };
 
 /** @internal */
@@ -21,7 +26,7 @@ export const RepositoriesUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  RepositoryUpdate: components.RepositoryUpdate$inboundSchema,
+  RepositoryUpdate: RepositoryUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "RepositoryUpdate": "repositoryUpdate",
@@ -31,7 +36,7 @@ export const RepositoriesUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type RepositoriesUpdateRequest$Outbound = {
   id: string;
-  RepositoryUpdate: components.RepositoryUpdate$Outbound;
+  RepositoryUpdate: RepositoryUpdate$Outbound;
 };
 
 /** @internal */
@@ -41,7 +46,7 @@ export const RepositoriesUpdateRequest$outboundSchema: z.ZodType<
   RepositoriesUpdateRequest
 > = z.object({
   id: z.string(),
-  repositoryUpdate: components.RepositoryUpdate$outboundSchema,
+  repositoryUpdate: RepositoryUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     repositoryUpdate: "RepositoryUpdate",

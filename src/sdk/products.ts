@@ -8,8 +8,15 @@ import { productsList } from "../funcs/productsList.js";
 import { productsUpdate } from "../funcs/productsUpdate.js";
 import { productsUpdateBenefits } from "../funcs/productsUpdateBenefits.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { Product } from "../models/components/product.js";
+import { ProductCreate } from "../models/components/productcreate.js";
+import { ProductsGetRequest } from "../models/operations/productsget.js";
+import {
+  ProductsListRequest,
+  ProductsListResponse,
+} from "../models/operations/productslist.js";
+import { ProductsUpdateRequest } from "../models/operations/productsupdate.js";
+import { ProductsUpdateBenefitsRequest } from "../models/operations/productsupdatebenefits.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -21,9 +28,9 @@ export class Products extends ClientSDK {
    * List products.
    */
   async list(
-    request: operations.ProductsListRequest,
+    request: ProductsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.ProductsListResponse, { page: number }>> {
+  ): Promise<PageIterator<ProductsListResponse, { page: number }>> {
     return unwrapResultIterator(productsList(
       this,
       request,
@@ -38,9 +45,9 @@ export class Products extends ClientSDK {
    * Create a product.
    */
   async create(
-    request: components.ProductCreate,
+    request: ProductCreate,
     options?: RequestOptions,
-  ): Promise<components.Product> {
+  ): Promise<Product> {
     return unwrapAsync(productsCreate(
       this,
       request,
@@ -55,9 +62,9 @@ export class Products extends ClientSDK {
    * Get a product by ID.
    */
   async get(
-    request: operations.ProductsGetRequest,
+    request: ProductsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.Product> {
+  ): Promise<Product> {
     return unwrapAsync(productsGet(
       this,
       request,
@@ -72,9 +79,9 @@ export class Products extends ClientSDK {
    * Update a product.
    */
   async update(
-    request: operations.ProductsUpdateRequest,
+    request: ProductsUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.Product> {
+  ): Promise<Product> {
     return unwrapAsync(productsUpdate(
       this,
       request,
@@ -89,9 +96,9 @@ export class Products extends ClientSDK {
    * Update benefits granted by a product.
    */
   async updateBenefits(
-    request: operations.ProductsUpdateBenefitsRequest,
+    request: ProductsUpdateBenefitsRequest,
     options?: RequestOptions,
-  ): Promise<components.Product> {
+  ): Promise<Product> {
     return unwrapAsync(productsUpdateBenefits(
       this,
       request,

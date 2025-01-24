@@ -73,6 +73,9 @@ yarn add @polar-sh/sdk zod
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
 ```
+
+> [!NOTE]
+> This package is published with CommonJS and ES Modules (ESM) support.
 <!-- End SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->
@@ -752,10 +755,8 @@ If the method throws an error and it is not captured by the known errors, it wil
 
 ```typescript
 import { Polar } from "@polar-sh/sdk";
-import {
-  HTTPValidationError,
-  SDKValidationError,
-} from "@polar-sh/sdk/models/errors";
+import { HTTPValidationError } from "@polar-sh/sdk/models/errors/httpvalidationerror.js";
+import { SDKValidationError } from "@polar-sh/sdk/models/errors/sdkvalidationerror.js";
 
 const polar = new Polar({
   accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",

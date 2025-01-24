@@ -5,7 +5,7 @@ A free one-time price for a product.
 ## Example Usage
 
 ```typescript
-import { ProductPriceOneTimeFree } from "@polar-sh/sdk/models/components";
+import { ProductPriceOneTimeFree } from "@polar-sh/sdk/models/components/productpriceonetimefree.js";
 
 let value: ProductPriceOneTimeFree = {
   createdAt: new Date("2024-10-09T17:14:50.945Z"),

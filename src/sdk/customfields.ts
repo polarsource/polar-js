@@ -8,8 +8,15 @@ import { customFieldsGet } from "../funcs/customFieldsGet.js";
 import { customFieldsList } from "../funcs/customFieldsList.js";
 import { customFieldsUpdate } from "../funcs/customFieldsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { CustomField } from "../models/components/customfield.js";
+import { CustomFieldCreate } from "../models/components/customfieldcreate.js";
+import { CustomFieldsDeleteRequest } from "../models/operations/customfieldsdelete.js";
+import { CustomFieldsGetRequest } from "../models/operations/customfieldsget.js";
+import {
+  CustomFieldsListRequest,
+  CustomFieldsListResponse,
+} from "../models/operations/customfieldslist.js";
+import { CustomFieldsUpdateRequest } from "../models/operations/customfieldsupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -21,11 +28,9 @@ export class CustomFields extends ClientSDK {
    * List custom fields.
    */
   async list(
-    request: operations.CustomFieldsListRequest,
+    request: CustomFieldsListRequest,
     options?: RequestOptions,
-  ): Promise<
-    PageIterator<operations.CustomFieldsListResponse, { page: number }>
-  > {
+  ): Promise<PageIterator<CustomFieldsListResponse, { page: number }>> {
     return unwrapResultIterator(customFieldsList(
       this,
       request,
@@ -40,9 +45,9 @@ export class CustomFields extends ClientSDK {
    * Create a custom field.
    */
   async create(
-    request: components.CustomFieldCreate,
+    request: CustomFieldCreate,
     options?: RequestOptions,
-  ): Promise<components.CustomField> {
+  ): Promise<CustomField> {
     return unwrapAsync(customFieldsCreate(
       this,
       request,
@@ -57,9 +62,9 @@ export class CustomFields extends ClientSDK {
    * Get a custom field by ID.
    */
   async get(
-    request: operations.CustomFieldsGetRequest,
+    request: CustomFieldsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomField> {
+  ): Promise<CustomField> {
     return unwrapAsync(customFieldsGet(
       this,
       request,
@@ -74,9 +79,9 @@ export class CustomFields extends ClientSDK {
    * Update a custom field.
    */
   async update(
-    request: operations.CustomFieldsUpdateRequest,
+    request: CustomFieldsUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomField> {
+  ): Promise<CustomField> {
     return unwrapAsync(customFieldsUpdate(
       this,
       request,
@@ -91,7 +96,7 @@ export class CustomFields extends ClientSDK {
    * Delete a custom field.
    */
   async delete(
-    request: operations.CustomFieldsDeleteRequest,
+    request: CustomFieldsDeleteRequest,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(customFieldsDelete(

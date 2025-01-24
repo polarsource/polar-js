@@ -7,7 +7,7 @@ Sent when a benefit is updated.
 ## Example Usage
 
 ```typescript
-import { WebhookBenefitUpdatedPayload } from "@polar-sh/sdk/models/components";
+import { WebhookBenefitUpdatedPayload } from "@polar-sh/sdk/models/components/webhookbenefitupdatedpayload.js";
 
 let value: WebhookBenefitUpdatedPayload = {
   data: {

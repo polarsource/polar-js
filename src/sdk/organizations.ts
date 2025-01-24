@@ -7,8 +7,14 @@ import { organizationsGet } from "../funcs/organizationsGet.js";
 import { organizationsList } from "../funcs/organizationsList.js";
 import { organizationsUpdate } from "../funcs/organizationsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { Organization } from "../models/components/organization.js";
+import { OrganizationCreate } from "../models/components/organizationcreate.js";
+import { OrganizationsGetRequest } from "../models/operations/organizationsget.js";
+import {
+  OrganizationsListRequest,
+  OrganizationsListResponse,
+} from "../models/operations/organizationslist.js";
+import { OrganizationsUpdateRequest } from "../models/operations/organizationsupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -20,11 +26,9 @@ export class Organizations extends ClientSDK {
    * List organizations.
    */
   async list(
-    request: operations.OrganizationsListRequest,
+    request: OrganizationsListRequest,
     options?: RequestOptions,
-  ): Promise<
-    PageIterator<operations.OrganizationsListResponse, { page: number }>
-  > {
+  ): Promise<PageIterator<OrganizationsListResponse, { page: number }>> {
     return unwrapResultIterator(organizationsList(
       this,
       request,
@@ -39,9 +43,9 @@ export class Organizations extends ClientSDK {
    * Create an organization.
    */
   async create(
-    request: components.OrganizationCreate,
+    request: OrganizationCreate,
     options?: RequestOptions,
-  ): Promise<components.Organization> {
+  ): Promise<Organization> {
     return unwrapAsync(organizationsCreate(
       this,
       request,
@@ -56,9 +60,9 @@ export class Organizations extends ClientSDK {
    * Get an organization by ID.
    */
   async get(
-    request: operations.OrganizationsGetRequest,
+    request: OrganizationsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.Organization> {
+  ): Promise<Organization> {
     return unwrapAsync(organizationsGet(
       this,
       request,
@@ -73,9 +77,9 @@ export class Organizations extends ClientSDK {
    * Update an organization.
    */
   async update(
-    request: operations.OrganizationsUpdateRequest,
+    request: OrganizationsUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.Organization> {
+  ): Promise<Organization> {
     return unwrapAsync(organizationsUpdate(
       this,
       request,

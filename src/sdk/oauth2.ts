@@ -8,8 +8,14 @@ import { oauth2Revoke } from "../funcs/oauth2Revoke.js";
 import { oauth2Token } from "../funcs/oauth2Token.js";
 import { oauth2Userinfo } from "../funcs/oauth2Userinfo.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { IntrospectTokenResponse } from "../models/components/introspecttokenresponse.js";
+import { RevokeTokenResponse } from "../models/components/revoketokenresponse.js";
+import { TokenResponse } from "../models/components/tokenresponse.js";
+import { Oauth2AuthorizeResponseOauth2Authorize } from "../models/operations/oauth2authorize.js";
+import { Oauth2IntrospectTokenIntrospectTokenRequest } from "../models/operations/oauth2introspecttoken.js";
+import { Oauth2RequestTokenRequestBody } from "../models/operations/oauth2requesttoken.js";
+import { Oauth2RevokeTokenRevokeTokenRequest } from "../models/operations/oauth2revoketoken.js";
+import { Oauth2UserinfoResponseOauth2Userinfo } from "../models/operations/oauth2userinfo.js";
 import { unwrapAsync } from "../types/fp.js";
 import { Clients } from "./clients.js";
 
@@ -24,7 +30,7 @@ export class Oauth2 extends ClientSDK {
    */
   async authorize(
     options?: RequestOptions,
-  ): Promise<operations.Oauth2AuthorizeResponseOauth2Authorize> {
+  ): Promise<Oauth2AuthorizeResponseOauth2Authorize> {
     return unwrapAsync(oauth2Authorize(
       this,
       options,
@@ -38,9 +44,9 @@ export class Oauth2 extends ClientSDK {
    * Request an access token using a valid grant.
    */
   async token(
-    request: operations.Oauth2RequestTokenRequestBody,
+    request: Oauth2RequestTokenRequestBody,
     options?: RequestOptions,
-  ): Promise<components.TokenResponse> {
+  ): Promise<TokenResponse> {
     return unwrapAsync(oauth2Token(
       this,
       request,
@@ -55,9 +61,9 @@ export class Oauth2 extends ClientSDK {
    * Revoke an access token or a refresh token.
    */
   async revoke(
-    request: operations.Oauth2RevokeTokenRevokeTokenRequest,
+    request: Oauth2RevokeTokenRevokeTokenRequest,
     options?: RequestOptions,
-  ): Promise<components.RevokeTokenResponse> {
+  ): Promise<RevokeTokenResponse> {
     return unwrapAsync(oauth2Revoke(
       this,
       request,
@@ -72,9 +78,9 @@ export class Oauth2 extends ClientSDK {
    * Get information about an access token.
    */
   async introspect(
-    request: operations.Oauth2IntrospectTokenIntrospectTokenRequest,
+    request: Oauth2IntrospectTokenIntrospectTokenRequest,
     options?: RequestOptions,
-  ): Promise<components.IntrospectTokenResponse> {
+  ): Promise<IntrospectTokenResponse> {
     return unwrapAsync(oauth2Introspect(
       this,
       request,
@@ -90,7 +96,7 @@ export class Oauth2 extends ClientSDK {
    */
   async userinfo(
     options?: RequestOptions,
-  ): Promise<operations.Oauth2UserinfoResponseOauth2Userinfo> {
+  ): Promise<Oauth2UserinfoResponseOauth2Userinfo> {
     return unwrapAsync(oauth2Userinfo(
       this,
       options,

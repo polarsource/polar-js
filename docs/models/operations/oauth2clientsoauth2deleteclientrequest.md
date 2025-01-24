@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Oauth2ClientsOauth2DeleteClientRequest } from "@polar-sh/sdk/models/operations";
+import { Oauth2ClientsOauth2DeleteClientRequest } from "@polar-sh/sdk/models/operations/oauth2clientsoauth2deleteclient.js";
 
 let value: Oauth2ClientsOauth2DeleteClientRequest = {
   clientId: "<id>",

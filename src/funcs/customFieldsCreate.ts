@@ -10,7 +10,14 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import * as components from "../models/components/index.js";
+import {
+  CustomField,
+  CustomField$inboundSchema,
+} from "../models/components/customfield.js";
+import {
+  CustomFieldCreate,
+  CustomFieldCreate$outboundSchema,
+} from "../models/components/customfieldcreate.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -18,7 +25,10 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import { Result } from "../types/fp.js";
@@ -31,12 +41,12 @@ import { Result } from "../types/fp.js";
  */
 export async function customFieldsCreate(
   client: PolarCore,
-  request: components.CustomFieldCreate,
+  request: CustomFieldCreate,
   options?: RequestOptions,
 ): Promise<
   Result<
-    components.CustomField,
-    | errors.HTTPValidationError
+    CustomField,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -48,7 +58,7 @@ export async function customFieldsCreate(
 > {
   const parsed = safeParse(
     request,
-    (value) => components.CustomFieldCreate$outboundSchema.parse(value),
+    (value) => CustomFieldCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -111,8 +121,8 @@ export async function customFieldsCreate(
   };
 
   const [result] = await M.match<
-    components.CustomField,
-    | errors.HTTPValidationError
+    CustomField,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -121,8 +131,8 @@ export async function customFieldsCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(201, components.CustomField$inboundSchema),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(201, CustomField$inboundSchema),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

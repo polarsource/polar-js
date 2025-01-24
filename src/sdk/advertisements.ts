@@ -5,8 +5,12 @@
 import { advertisementsGet } from "../funcs/advertisementsGet.js";
 import { advertisementsList } from "../funcs/advertisementsList.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { AdvertisementCampaign } from "../models/components/advertisementcampaign.js";
+import { AdvertisementsGetRequest } from "../models/operations/advertisementsget.js";
+import {
+  AdvertisementsListRequest,
+  AdvertisementsListResponse,
+} from "../models/operations/advertisementslist.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -18,11 +22,9 @@ export class Advertisements extends ClientSDK {
    * List active advertisement campaigns for a benefit.
    */
   async list(
-    request: operations.AdvertisementsListRequest,
+    request: AdvertisementsListRequest,
     options?: RequestOptions,
-  ): Promise<
-    PageIterator<operations.AdvertisementsListResponse, { page: number }>
-  > {
+  ): Promise<PageIterator<AdvertisementsListResponse, { page: number }>> {
     return unwrapResultIterator(advertisementsList(
       this,
       request,
@@ -37,9 +39,9 @@ export class Advertisements extends ClientSDK {
    * Get an advertisement campaign by ID.
    */
   async get(
-    request: operations.AdvertisementsGetRequest,
+    request: AdvertisementsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.AdvertisementCampaign> {
+  ): Promise<AdvertisementCampaign> {
     return unwrapAsync(advertisementsGet(
       this,
       request,

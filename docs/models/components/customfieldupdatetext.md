@@ -5,7 +5,7 @@ Schema to update a custom field of type text.
 ## Example Usage
 
 ```typescript
-import { CustomFieldUpdateText } from "@polar-sh/sdk/models/components";
+import { CustomFieldUpdateText } from "@polar-sh/sdk/models/components/customfieldupdatetext.js";
 
 let value: CustomFieldUpdateText = {};
 ```

@@ -18,10 +18,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  FilesListRequest,
+  FilesListRequest$outboundSchema,
+  FilesListResponse,
+  FilesListResponse$inboundSchema,
+} from "../models/operations/fileslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -38,13 +46,13 @@ import {
  */
 export async function filesList(
   client: PolarCore,
-  request: operations.FilesListRequest,
+  request: FilesListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.FilesListResponse,
-      | errors.HTTPValidationError
+      FilesListResponse,
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -58,7 +66,7 @@ export async function filesList(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.FilesListRequest$outboundSchema.parse(value),
+    (value) => FilesListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -128,8 +136,8 @@ export async function filesList(
   };
 
   const [result, raw] = await M.match<
-    operations.FilesListResponse,
-    | errors.HTTPValidationError
+    FilesListResponse,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -138,8 +146,8 @@ export async function filesList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.FilesListResponse$inboundSchema, { key: "Result" }),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, FilesListResponse$inboundSchema, { key: "Result" }),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -152,8 +160,8 @@ export async function filesList(
   ): {
     next: Paginator<
       Result<
-        operations.FilesListResponse,
-        | errors.HTTPValidationError
+        FilesListResponse,
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

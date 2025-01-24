@@ -6,15 +6,28 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ListResourceRepository,
+  ListResourceRepository$inboundSchema,
+  ListResourceRepository$Outbound,
+  ListResourceRepository$outboundSchema,
+} from "../components/listresourcerepository.js";
+import {
+  Platforms,
+  Platforms$inboundSchema,
+  Platforms$outboundSchema,
+} from "../components/platforms.js";
+import {
+  RepositorySortProperty,
+  RepositorySortProperty$inboundSchema,
+  RepositorySortProperty$outboundSchema,
+} from "../components/repositorysortproperty.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by platform.
  */
-export type QueryParamPlatformFilter =
-  | components.Platforms
-  | Array<components.Platforms>;
+export type QueryParamPlatformFilter = Platforms | Array<Platforms>;
 
 /**
  * Filter by name.
@@ -35,11 +48,7 @@ export type RepositoriesListRequest = {
   /**
    * Filter by platform.
    */
-  platform?:
-    | components.Platforms
-    | Array<components.Platforms>
-    | null
-    | undefined;
+  platform?: Platforms | Array<Platforms> | null | undefined;
   /**
    * Filter by name.
    */
@@ -67,11 +76,11 @@ export type RepositoriesListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.RepositorySortProperty> | null | undefined;
+  sorting?: Array<RepositorySortProperty> | null | undefined;
 };
 
 export type RepositoriesListResponse = {
-  result: components.ListResourceRepository;
+  result: ListResourceRepository;
 };
 
 /** @internal */
@@ -79,10 +88,7 @@ export const QueryParamPlatformFilter$inboundSchema: z.ZodType<
   QueryParamPlatformFilter,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  components.Platforms$inboundSchema,
-  z.array(components.Platforms$inboundSchema),
-]);
+> = z.union([Platforms$inboundSchema, z.array(Platforms$inboundSchema)]);
 
 /** @internal */
 export type QueryParamPlatformFilter$Outbound = string | Array<string>;
@@ -92,10 +98,7 @@ export const QueryParamPlatformFilter$outboundSchema: z.ZodType<
   QueryParamPlatformFilter$Outbound,
   z.ZodTypeDef,
   QueryParamPlatformFilter
-> = z.union([
-  components.Platforms$outboundSchema,
-  z.array(components.Platforms$outboundSchema),
-]);
+> = z.union([Platforms$outboundSchema, z.array(Platforms$outboundSchema)]);
 
 /**
  * @internal
@@ -285,10 +288,7 @@ export const RepositoriesListRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   platform: z.nullable(
-    z.union([
-      components.Platforms$inboundSchema,
-      z.array(components.Platforms$inboundSchema),
-    ]),
+    z.union([Platforms$inboundSchema, z.array(Platforms$inboundSchema)]),
   ).optional(),
   name: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   external_organization_name: z.nullable(
@@ -299,8 +299,7 @@ export const RepositoriesListRequest$inboundSchema: z.ZodType<
     .optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.RepositorySortProperty$inboundSchema))
-    .optional(),
+  sorting: z.nullable(z.array(RepositorySortProperty$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "external_organization_name": "externalOrganizationName",
@@ -328,10 +327,7 @@ export const RepositoriesListRequest$outboundSchema: z.ZodType<
   RepositoriesListRequest
 > = z.object({
   platform: z.nullable(
-    z.union([
-      components.Platforms$outboundSchema,
-      z.array(components.Platforms$outboundSchema),
-    ]),
+    z.union([Platforms$outboundSchema, z.array(Platforms$outboundSchema)]),
   ).optional(),
   name: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   externalOrganizationName: z.nullable(
@@ -342,7 +338,7 @@ export const RepositoriesListRequest$outboundSchema: z.ZodType<
     .optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.RepositorySortProperty$outboundSchema))
+  sorting: z.nullable(z.array(RepositorySortProperty$outboundSchema))
     .optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -389,7 +385,7 @@ export const RepositoriesListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceRepository$inboundSchema,
+  Result: ListResourceRepository$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -398,7 +394,7 @@ export const RepositoriesListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type RepositoriesListResponse$Outbound = {
-  Result: components.ListResourceRepository$Outbound;
+  Result: ListResourceRepository$Outbound;
 };
 
 /** @internal */
@@ -407,7 +403,7 @@ export const RepositoriesListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RepositoriesListResponse
 > = z.object({
-  result: components.ListResourceRepository$outboundSchema,
+  result: ListResourceRepository$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

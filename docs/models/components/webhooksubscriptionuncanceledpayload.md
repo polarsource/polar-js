@@ -7,7 +7,7 @@ Sent when a subscription is uncanceled.
 ## Example Usage
 
 ```typescript
-import { WebhookSubscriptionUncanceledPayload } from "@polar-sh/sdk/models/components";
+import { WebhookSubscriptionUncanceledPayload } from "@polar-sh/sdk/models/components/webhooksubscriptionuncanceledpayload.js";
 
 let value: WebhookSubscriptionUncanceledPayload = {
   data: {

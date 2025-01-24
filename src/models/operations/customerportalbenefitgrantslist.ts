@@ -6,15 +6,28 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  BenefitType,
+  BenefitType$inboundSchema,
+  BenefitType$outboundSchema,
+} from "../components/benefittype.js";
+import {
+  CustomerBenefitGrantSortProperty,
+  CustomerBenefitGrantSortProperty$inboundSchema,
+  CustomerBenefitGrantSortProperty$outboundSchema,
+} from "../components/customerbenefitgrantsortproperty.js";
+import {
+  ListResourceCustomerBenefitGrant,
+  ListResourceCustomerBenefitGrant$inboundSchema,
+  ListResourceCustomerBenefitGrant$Outbound,
+  ListResourceCustomerBenefitGrant$outboundSchema,
+} from "../components/listresourcecustomerbenefitgrant.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by benefit type.
  */
-export type QueryParamBenefitTypeFilter =
-  | components.BenefitType
-  | Array<components.BenefitType>;
+export type QueryParamBenefitTypeFilter = BenefitType | Array<BenefitType>;
 
 /**
  * Filter by benefit ID.
@@ -49,11 +62,7 @@ export type CustomerPortalBenefitGrantsListRequest = {
   /**
    * Filter by benefit type.
    */
-  typeFilter?:
-    | components.BenefitType
-    | Array<components.BenefitType>
-    | null
-    | undefined;
+  typeFilter?: BenefitType | Array<BenefitType> | null | undefined;
   /**
    * Filter by benefit ID.
    */
@@ -85,14 +94,11 @@ export type CustomerPortalBenefitGrantsListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?:
-    | Array<components.CustomerBenefitGrantSortProperty>
-    | null
-    | undefined;
+  sorting?: Array<CustomerBenefitGrantSortProperty> | null | undefined;
 };
 
 export type CustomerPortalBenefitGrantsListResponse = {
-  result: components.ListResourceCustomerBenefitGrant;
+  result: ListResourceCustomerBenefitGrant;
 };
 
 /** @internal */
@@ -100,10 +106,7 @@ export const QueryParamBenefitTypeFilter$inboundSchema: z.ZodType<
   QueryParamBenefitTypeFilter,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  components.BenefitType$inboundSchema,
-  z.array(components.BenefitType$inboundSchema),
-]);
+> = z.union([BenefitType$inboundSchema, z.array(BenefitType$inboundSchema)]);
 
 /** @internal */
 export type QueryParamBenefitTypeFilter$Outbound = string | Array<string>;
@@ -113,10 +116,7 @@ export const QueryParamBenefitTypeFilter$outboundSchema: z.ZodType<
   QueryParamBenefitTypeFilter$Outbound,
   z.ZodTypeDef,
   QueryParamBenefitTypeFilter
-> = z.union([
-  components.BenefitType$outboundSchema,
-  z.array(components.BenefitType$outboundSchema),
-]);
+> = z.union([BenefitType$outboundSchema, z.array(BenefitType$outboundSchema)]);
 
 /**
  * @internal
@@ -428,10 +428,7 @@ export const CustomerPortalBenefitGrantsListRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type_filter: z.nullable(
-    z.union([
-      components.BenefitType$inboundSchema,
-      z.array(components.BenefitType$inboundSchema),
-    ]),
+    z.union([BenefitType$inboundSchema, z.array(BenefitType$inboundSchema)]),
   ).optional(),
   benefit_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
@@ -443,9 +440,8 @@ export const CustomerPortalBenefitGrantsListRequest$inboundSchema: z.ZodType<
     .optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.CustomerBenefitGrantSortProperty$inboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(CustomerBenefitGrantSortProperty$inboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "type_filter": "typeFilter",
@@ -477,10 +473,7 @@ export const CustomerPortalBenefitGrantsListRequest$outboundSchema: z.ZodType<
   CustomerPortalBenefitGrantsListRequest
 > = z.object({
   typeFilter: z.nullable(
-    z.union([
-      components.BenefitType$outboundSchema,
-      z.array(components.BenefitType$outboundSchema),
-    ]),
+    z.union([BenefitType$outboundSchema, z.array(BenefitType$outboundSchema)]),
   ).optional(),
   benefitId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
@@ -491,9 +484,8 @@ export const CustomerPortalBenefitGrantsListRequest$outboundSchema: z.ZodType<
     .optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.CustomerBenefitGrantSortProperty$outboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(CustomerBenefitGrantSortProperty$outboundSchema))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     typeFilter: "type_filter",
@@ -548,7 +540,7 @@ export const CustomerPortalBenefitGrantsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceCustomerBenefitGrant$inboundSchema,
+  Result: ListResourceCustomerBenefitGrant$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -557,7 +549,7 @@ export const CustomerPortalBenefitGrantsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerPortalBenefitGrantsListResponse$Outbound = {
-  Result: components.ListResourceCustomerBenefitGrant$Outbound;
+  Result: ListResourceCustomerBenefitGrant$Outbound;
 };
 
 /** @internal */
@@ -566,7 +558,7 @@ export const CustomerPortalBenefitGrantsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerPortalBenefitGrantsListResponse
 > = z.object({
-  result: components.ListResourceCustomerBenefitGrant$outboundSchema,
+  result: ListResourceCustomerBenefitGrant$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

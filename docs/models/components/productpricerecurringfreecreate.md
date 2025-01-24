@@ -5,7 +5,7 @@ Schema to create a free recurring product price, i.e. a subscription.
 ## Example Usage
 
 ```typescript
-import { ProductPriceRecurringFreeCreate } from "@polar-sh/sdk/models/components";
+import { ProductPriceRecurringFreeCreate } from "@polar-sh/sdk/models/components/productpricerecurringfreecreate.js";
 
 let value: ProductPriceRecurringFreeCreate = {
   recurringInterval: "month",

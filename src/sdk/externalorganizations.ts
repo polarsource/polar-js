@@ -4,7 +4,10 @@
 
 import { externalOrganizationsList } from "../funcs/externalOrganizationsList.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as operations from "../models/operations/index.js";
+import {
+  ExternalOrganizationsListRequest,
+  ExternalOrganizationsListResponse,
+} from "../models/operations/externalorganizationslist.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class ExternalOrganizations extends ClientSDK {
@@ -15,10 +18,10 @@ export class ExternalOrganizations extends ClientSDK {
    * List external organizations.
    */
   async list(
-    request: operations.ExternalOrganizationsListRequest,
+    request: ExternalOrganizationsListRequest,
     options?: RequestOptions,
   ): Promise<
-    PageIterator<operations.ExternalOrganizationsListResponse, { page: number }>
+    PageIterator<ExternalOrganizationsListResponse, { page: number }>
   > {
     return unwrapResultIterator(externalOrganizationsList(
       this,

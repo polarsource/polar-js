@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ResourceNotFound } from "@polar-sh/sdk/models/errors";
+import { ResourceNotFound } from "@polar-sh/sdk/models/errors/resourcenotfound.js";
 
 // No examples available for this model
 ```

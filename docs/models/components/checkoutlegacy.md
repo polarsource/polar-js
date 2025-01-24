@@ -5,7 +5,7 @@ A checkout session.
 ## Example Usage
 
 ```typescript
-import { CheckoutLegacy } from "@polar-sh/sdk/models/components";
+import { CheckoutLegacy } from "@polar-sh/sdk/models/components/checkoutlegacy.js";
 
 let value: CheckoutLegacy = {
   id: "<id>",

@@ -6,12 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  LicenseKeyUpdate,
+  LicenseKeyUpdate$inboundSchema,
+  LicenseKeyUpdate$Outbound,
+  LicenseKeyUpdate$outboundSchema,
+} from "../components/licensekeyupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LicenseKeysUpdateRequest = {
   id: string;
-  licenseKeyUpdate: components.LicenseKeyUpdate;
+  licenseKeyUpdate: LicenseKeyUpdate;
 };
 
 /** @internal */
@@ -21,7 +26,7 @@ export const LicenseKeysUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  LicenseKeyUpdate: components.LicenseKeyUpdate$inboundSchema,
+  LicenseKeyUpdate: LicenseKeyUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "LicenseKeyUpdate": "licenseKeyUpdate",
@@ -31,7 +36,7 @@ export const LicenseKeysUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type LicenseKeysUpdateRequest$Outbound = {
   id: string;
-  LicenseKeyUpdate: components.LicenseKeyUpdate$Outbound;
+  LicenseKeyUpdate: LicenseKeyUpdate$Outbound;
 };
 
 /** @internal */
@@ -41,7 +46,7 @@ export const LicenseKeysUpdateRequest$outboundSchema: z.ZodType<
   LicenseKeysUpdateRequest
 > = z.object({
   id: z.string(),
-  licenseKeyUpdate: components.LicenseKeyUpdate$outboundSchema,
+  licenseKeyUpdate: LicenseKeyUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     licenseKeyUpdate: "LicenseKeyUpdate",

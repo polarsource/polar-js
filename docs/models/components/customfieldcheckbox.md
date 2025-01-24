@@ -5,7 +5,7 @@ Schema for a custom field of type checkbox.
 ## Example Usage
 
 ```typescript
-import { CustomFieldCheckbox } from "@polar-sh/sdk/models/components";
+import { CustomFieldCheckbox } from "@polar-sh/sdk/models/components/customfieldcheckbox.js";
 
 let value: CustomFieldCheckbox = {
   createdAt: new Date("2025-04-28T08:32:27.742Z"),

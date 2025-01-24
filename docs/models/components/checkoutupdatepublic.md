@@ -5,7 +5,7 @@ Update an existing checkout session using the client secret.
 ## Example Usage
 
 ```typescript
-import { CheckoutUpdatePublic } from "@polar-sh/sdk/models/components";
+import { CheckoutUpdatePublic } from "@polar-sh/sdk/models/components/checkoutupdatepublic.js";
 
 let value: CheckoutUpdatePublic = {};
 ```

@@ -3,8 +3,8 @@
 ## Example Usage
 
 ```typescript
-import { MetricsGetRequest } from "@polar-sh/sdk/models/operations";
-import { RFCDate } from "@polar-sh/sdk/types";
+import { MetricsGetRequest } from "@polar-sh/sdk/models/operations/metricsget.js";
+import { RFCDate } from "@polar-sh/sdk/types/rfcdate.js";
 
 let value: MetricsGetRequest = {
   startDate: new RFCDate("2025-09-01"),

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { RepositoriesListResponse } from "@polar-sh/sdk/models/operations";
+import { RepositoriesListResponse } from "@polar-sh/sdk/models/operations/repositorieslist.js";
 
 let value: RepositoriesListResponse = {
   result: {

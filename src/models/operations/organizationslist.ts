@@ -6,7 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ListResourceOrganization,
+  ListResourceOrganization$inboundSchema,
+  ListResourceOrganization$Outbound,
+  ListResourceOrganization$outboundSchema,
+} from "../components/listresourceorganization.js";
+import {
+  OrganizationSortProperty,
+  OrganizationSortProperty$inboundSchema,
+  OrganizationSortProperty$outboundSchema,
+} from "../components/organizationsortproperty.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrganizationsListRequest = {
@@ -25,11 +35,11 @@ export type OrganizationsListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.OrganizationSortProperty> | null | undefined;
+  sorting?: Array<OrganizationSortProperty> | null | undefined;
 };
 
 export type OrganizationsListResponse = {
-  result: components.ListResourceOrganization;
+  result: ListResourceOrganization;
 };
 
 /** @internal */
@@ -41,9 +51,8 @@ export const OrganizationsListRequest$inboundSchema: z.ZodType<
   slug: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.OrganizationSortProperty$inboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(OrganizationSortProperty$inboundSchema))
+    .optional(),
 });
 
 /** @internal */
@@ -63,9 +72,8 @@ export const OrganizationsListRequest$outboundSchema: z.ZodType<
   slug: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(
-    z.array(components.OrganizationSortProperty$outboundSchema),
-  ).optional(),
+  sorting: z.nullable(z.array(OrganizationSortProperty$outboundSchema))
+    .optional(),
 });
 
 /**
@@ -105,7 +113,7 @@ export const OrganizationsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceOrganization$inboundSchema,
+  Result: ListResourceOrganization$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -114,7 +122,7 @@ export const OrganizationsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type OrganizationsListResponse$Outbound = {
-  Result: components.ListResourceOrganization$Outbound;
+  Result: ListResourceOrganization$Outbound;
 };
 
 /** @internal */
@@ -123,7 +131,7 @@ export const OrganizationsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   OrganizationsListResponse
 > = z.object({
-  result: components.ListResourceOrganization$outboundSchema,
+  result: ListResourceOrganization$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

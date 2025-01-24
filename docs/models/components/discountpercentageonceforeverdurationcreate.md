@@ -5,7 +5,7 @@ Schema to create a percentage discount that is applied once or forever.
 ## Example Usage
 
 ```typescript
-import { DiscountPercentageOnceForeverDurationCreate } from "@polar-sh/sdk/models/components";
+import { DiscountPercentageOnceForeverDurationCreate } from "@polar-sh/sdk/models/components/discountpercentageonceforeverdurationcreate.js";
 
 let value: DiscountPercentageOnceForeverDurationCreate = {
   duration: "forever",

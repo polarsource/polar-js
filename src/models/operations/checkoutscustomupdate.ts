@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CheckoutUpdate,
+  CheckoutUpdate$inboundSchema,
+  CheckoutUpdate$Outbound,
+  CheckoutUpdate$outboundSchema,
+} from "../components/checkoutupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutsCustomUpdateRequest = {
@@ -14,7 +19,7 @@ export type CheckoutsCustomUpdateRequest = {
    * The checkout session ID.
    */
   id: string;
-  checkoutUpdate: components.CheckoutUpdate;
+  checkoutUpdate: CheckoutUpdate;
 };
 
 /** @internal */
@@ -24,7 +29,7 @@ export const CheckoutsCustomUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  CheckoutUpdate: components.CheckoutUpdate$inboundSchema,
+  CheckoutUpdate: CheckoutUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "CheckoutUpdate": "checkoutUpdate",
@@ -34,7 +39,7 @@ export const CheckoutsCustomUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type CheckoutsCustomUpdateRequest$Outbound = {
   id: string;
-  CheckoutUpdate: components.CheckoutUpdate$Outbound;
+  CheckoutUpdate: CheckoutUpdate$Outbound;
 };
 
 /** @internal */
@@ -44,7 +49,7 @@ export const CheckoutsCustomUpdateRequest$outboundSchema: z.ZodType<
   CheckoutsCustomUpdateRequest
 > = z.object({
   id: z.string(),
-  checkoutUpdate: components.CheckoutUpdate$outboundSchema,
+  checkoutUpdate: CheckoutUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     checkoutUpdate: "CheckoutUpdate",

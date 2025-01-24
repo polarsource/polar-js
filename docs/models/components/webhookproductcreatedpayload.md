@@ -7,7 +7,7 @@ Sent when a new product is created.
 ## Example Usage
 
 ```typescript
-import { WebhookProductCreatedPayload } from "@polar-sh/sdk/models/components";
+import { WebhookProductCreatedPayload } from "@polar-sh/sdk/models/components/webhookproductcreatedpayload.js";
 
 let value: WebhookProductCreatedPayload = {
   data: {

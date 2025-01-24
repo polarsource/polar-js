@@ -5,7 +5,7 @@ Schema to create a custom field of type select.
 ## Example Usage
 
 ```typescript
-import { CustomFieldCreateSelect } from "@polar-sh/sdk/models/components";
+import { CustomFieldCreateSelect } from "@polar-sh/sdk/models/components/customfieldcreateselect.js";
 
 let value: CustomFieldCreateSelect = {
   slug: "<value>",

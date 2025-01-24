@@ -5,7 +5,7 @@ Properties for a benefit of type `ads`.
 ## Example Usage
 
 ```typescript
-import { BenefitAdsProperties } from "@polar-sh/sdk/models/components";
+import { BenefitAdsProperties } from "@polar-sh/sdk/models/components/benefitadsproperties.js";
 
 let value: BenefitAdsProperties = {};
 ```

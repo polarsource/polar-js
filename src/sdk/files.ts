@@ -8,8 +8,21 @@ import { filesList } from "../funcs/filesList.js";
 import { filesUpdate } from "../funcs/filesUpdate.js";
 import { filesUploaded } from "../funcs/filesUploaded.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { FileCreate } from "../models/components/filecreate.js";
+import { FileUpload } from "../models/components/fileupload.js";
+import { FilesDeleteRequest } from "../models/operations/filesdelete.js";
+import {
+  FilesListRequest,
+  FilesListResponse,
+} from "../models/operations/fileslist.js";
+import {
+  FilesUpdateRequest,
+  FilesUpdateResponseFilesUpdate,
+} from "../models/operations/filesupdate.js";
+import {
+  FilesUploadedRequest,
+  FilesUploadedResponseFilesUploaded,
+} from "../models/operations/filesuploaded.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -21,9 +34,9 @@ export class Files extends ClientSDK {
    * List files.
    */
   async list(
-    request: operations.FilesListRequest,
+    request: FilesListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.FilesListResponse, { page: number }>> {
+  ): Promise<PageIterator<FilesListResponse, { page: number }>> {
     return unwrapResultIterator(filesList(
       this,
       request,
@@ -38,9 +51,9 @@ export class Files extends ClientSDK {
    * Create a file.
    */
   async create(
-    request: components.FileCreate,
+    request: FileCreate,
     options?: RequestOptions,
-  ): Promise<components.FileUpload> {
+  ): Promise<FileUpload> {
     return unwrapAsync(filesCreate(
       this,
       request,
@@ -55,9 +68,9 @@ export class Files extends ClientSDK {
    * Complete a file upload.
    */
   async uploaded(
-    request: operations.FilesUploadedRequest,
+    request: FilesUploadedRequest,
     options?: RequestOptions,
-  ): Promise<operations.FilesUploadedResponseFilesUploaded> {
+  ): Promise<FilesUploadedResponseFilesUploaded> {
     return unwrapAsync(filesUploaded(
       this,
       request,
@@ -72,9 +85,9 @@ export class Files extends ClientSDK {
    * Update a file.
    */
   async update(
-    request: operations.FilesUpdateRequest,
+    request: FilesUpdateRequest,
     options?: RequestOptions,
-  ): Promise<operations.FilesUpdateResponseFilesUpdate> {
+  ): Promise<FilesUpdateResponseFilesUpdate> {
     return unwrapAsync(filesUpdate(
       this,
       request,
@@ -89,7 +102,7 @@ export class Files extends ClientSDK {
    * Delete a file.
    */
   async delete(
-    request: operations.FilesDeleteRequest,
+    request: FilesDeleteRequest,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(filesDelete(

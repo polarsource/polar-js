@@ -10,8 +10,19 @@ import { checkoutsCustomGet } from "../funcs/checkoutsCustomGet.js";
 import { checkoutsCustomList } from "../funcs/checkoutsCustomList.js";
 import { checkoutsCustomUpdate } from "../funcs/checkoutsCustomUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { Checkout } from "../models/components/checkout.js";
+import { CheckoutCreate } from "../models/components/checkoutcreate.js";
+import { CheckoutPublic } from "../models/components/checkoutpublic.js";
+import { CheckoutPublicConfirmed } from "../models/components/checkoutpublicconfirmed.js";
+import { CheckoutsCustomClientConfirmRequest } from "../models/operations/checkoutscustomclientconfirm.js";
+import { CheckoutsCustomClientGetRequest } from "../models/operations/checkoutscustomclientget.js";
+import { CheckoutsCustomClientUpdateRequest } from "../models/operations/checkoutscustomclientupdate.js";
+import { CheckoutsCustomGetRequest } from "../models/operations/checkoutscustomget.js";
+import {
+  CheckoutsCustomListRequest,
+  CheckoutsCustomListResponse,
+} from "../models/operations/checkoutscustomlist.js";
+import { CheckoutsCustomUpdateRequest } from "../models/operations/checkoutscustomupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -23,11 +34,9 @@ export class Custom extends ClientSDK {
    * List checkout sessions.
    */
   async list(
-    request: operations.CheckoutsCustomListRequest,
+    request: CheckoutsCustomListRequest,
     options?: RequestOptions,
-  ): Promise<
-    PageIterator<operations.CheckoutsCustomListResponse, { page: number }>
-  > {
+  ): Promise<PageIterator<CheckoutsCustomListResponse, { page: number }>> {
     return unwrapResultIterator(checkoutsCustomList(
       this,
       request,
@@ -42,9 +51,9 @@ export class Custom extends ClientSDK {
    * Create a checkout session.
    */
   async create(
-    request: components.CheckoutCreate,
+    request: CheckoutCreate,
     options?: RequestOptions,
-  ): Promise<components.Checkout> {
+  ): Promise<Checkout> {
     return unwrapAsync(checkoutsCustomCreate(
       this,
       request,
@@ -59,9 +68,9 @@ export class Custom extends ClientSDK {
    * Get a checkout session by ID.
    */
   async get(
-    request: operations.CheckoutsCustomGetRequest,
+    request: CheckoutsCustomGetRequest,
     options?: RequestOptions,
-  ): Promise<components.Checkout> {
+  ): Promise<Checkout> {
     return unwrapAsync(checkoutsCustomGet(
       this,
       request,
@@ -76,9 +85,9 @@ export class Custom extends ClientSDK {
    * Update a checkout session.
    */
   async update(
-    request: operations.CheckoutsCustomUpdateRequest,
+    request: CheckoutsCustomUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.Checkout> {
+  ): Promise<Checkout> {
     return unwrapAsync(checkoutsCustomUpdate(
       this,
       request,
@@ -93,9 +102,9 @@ export class Custom extends ClientSDK {
    * Get a checkout session by client secret.
    */
   async clientGet(
-    request: operations.CheckoutsCustomClientGetRequest,
+    request: CheckoutsCustomClientGetRequest,
     options?: RequestOptions,
-  ): Promise<components.CheckoutPublic> {
+  ): Promise<CheckoutPublic> {
     return unwrapAsync(checkoutsCustomClientGet(
       this,
       request,
@@ -110,9 +119,9 @@ export class Custom extends ClientSDK {
    * Update a checkout session by client secret.
    */
   async clientUpdate(
-    request: operations.CheckoutsCustomClientUpdateRequest,
+    request: CheckoutsCustomClientUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.CheckoutPublic> {
+  ): Promise<CheckoutPublic> {
     return unwrapAsync(checkoutsCustomClientUpdate(
       this,
       request,
@@ -129,9 +138,9 @@ export class Custom extends ClientSDK {
    * Orders and subscriptions will be processed.
    */
   async clientConfirm(
-    request: operations.CheckoutsCustomClientConfirmRequest,
+    request: CheckoutsCustomClientConfirmRequest,
     options?: RequestOptions,
-  ): Promise<components.CheckoutPublicConfirmed> {
+  ): Promise<CheckoutPublicConfirmed> {
     return unwrapAsync(checkoutsCustomClientConfirm(
       this,
       request,

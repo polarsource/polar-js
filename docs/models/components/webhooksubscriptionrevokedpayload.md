@@ -8,7 +8,7 @@ Happens when the subscription is canceled, or payment is past due.
 ## Example Usage
 
 ```typescript
-import { WebhookSubscriptionRevokedPayload } from "@polar-sh/sdk/models/components";
+import { WebhookSubscriptionRevokedPayload } from "@polar-sh/sdk/models/components/webhooksubscriptionrevokedpayload.js";
 
 let value: WebhookSubscriptionRevokedPayload = {
   data: {

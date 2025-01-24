@@ -5,7 +5,7 @@ Schema to update a custom field of type checkbox.
 ## Example Usage
 
 ```typescript
-import { CustomFieldUpdateCheckbox } from "@polar-sh/sdk/models/components";
+import { CustomFieldUpdateCheckbox } from "@polar-sh/sdk/models/components/customfieldupdatecheckbox.js";
 
 let value: CustomFieldUpdateCheckbox = {};
 ```

@@ -5,7 +5,7 @@ Schema to create a one-time product.
 ## Example Usage
 
 ```typescript
-import { ProductOneTimeCreate } from "@polar-sh/sdk/models/components";
+import { ProductOneTimeCreate } from "@polar-sh/sdk/models/components/productonetimecreate.js";
 
 let value: ProductOneTimeCreate = {
   name: "<value>",

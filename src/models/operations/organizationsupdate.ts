@@ -6,12 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  OrganizationUpdate,
+  OrganizationUpdate$inboundSchema,
+  OrganizationUpdate$Outbound,
+  OrganizationUpdate$outboundSchema,
+} from "../components/organizationupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrganizationsUpdateRequest = {
   id: string;
-  organizationUpdate: components.OrganizationUpdate;
+  organizationUpdate: OrganizationUpdate;
 };
 
 /** @internal */
@@ -21,7 +26,7 @@ export const OrganizationsUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  OrganizationUpdate: components.OrganizationUpdate$inboundSchema,
+  OrganizationUpdate: OrganizationUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "OrganizationUpdate": "organizationUpdate",
@@ -31,7 +36,7 @@ export const OrganizationsUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type OrganizationsUpdateRequest$Outbound = {
   id: string;
-  OrganizationUpdate: components.OrganizationUpdate$Outbound;
+  OrganizationUpdate: OrganizationUpdate$Outbound;
 };
 
 /** @internal */
@@ -41,7 +46,7 @@ export const OrganizationsUpdateRequest$outboundSchema: z.ZodType<
   OrganizationsUpdateRequest
 > = z.object({
   id: z.string(),
-  organizationUpdate: components.OrganizationUpdate$outboundSchema,
+  organizationUpdate: OrganizationUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     organizationUpdate: "OrganizationUpdate",

@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CheckoutUpdatePublic,
+  CheckoutUpdatePublic$inboundSchema,
+  CheckoutUpdatePublic$Outbound,
+  CheckoutUpdatePublic$outboundSchema,
+} from "../components/checkoutupdatepublic.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutsCustomClientUpdateRequest = {
@@ -14,7 +19,7 @@ export type CheckoutsCustomClientUpdateRequest = {
    * The checkout session client secret.
    */
   clientSecret: string;
-  checkoutUpdatePublic: components.CheckoutUpdatePublic;
+  checkoutUpdatePublic: CheckoutUpdatePublic;
 };
 
 /** @internal */
@@ -24,7 +29,7 @@ export const CheckoutsCustomClientUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   client_secret: z.string(),
-  CheckoutUpdatePublic: components.CheckoutUpdatePublic$inboundSchema,
+  CheckoutUpdatePublic: CheckoutUpdatePublic$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "client_secret": "clientSecret",
@@ -35,7 +40,7 @@ export const CheckoutsCustomClientUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type CheckoutsCustomClientUpdateRequest$Outbound = {
   client_secret: string;
-  CheckoutUpdatePublic: components.CheckoutUpdatePublic$Outbound;
+  CheckoutUpdatePublic: CheckoutUpdatePublic$Outbound;
 };
 
 /** @internal */
@@ -45,7 +50,7 @@ export const CheckoutsCustomClientUpdateRequest$outboundSchema: z.ZodType<
   CheckoutsCustomClientUpdateRequest
 > = z.object({
   clientSecret: z.string(),
-  checkoutUpdatePublic: components.CheckoutUpdatePublic$outboundSchema,
+  checkoutUpdatePublic: CheckoutUpdatePublic$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     clientSecret: "client_secret",

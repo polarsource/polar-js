@@ -5,7 +5,7 @@ Schema to create a benefit of type `custom`.
 ## Example Usage
 
 ```typescript
-import { BenefitCustomCreate } from "@polar-sh/sdk/models/components";
+import { BenefitCustomCreate } from "@polar-sh/sdk/models/components/benefitcustomcreate.js";
 
 let value: BenefitCustomCreate = {
   description: "wire majestically yet",

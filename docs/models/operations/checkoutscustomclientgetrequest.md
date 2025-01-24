@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { CheckoutsCustomClientGetRequest } from "@polar-sh/sdk/models/operations";
+import { CheckoutsCustomClientGetRequest } from "@polar-sh/sdk/models/operations/checkoutscustomclientget.js";
 
 let value: CheckoutsCustomClientGetRequest = {
   clientSecret: "<value>",

@@ -4,8 +4,8 @@
 
 import { customerPortalCustomersGet } from "../funcs/customerPortalCustomersGet.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { CustomerPortalCustomer } from "../models/components/customerportalcustomer.js";
+import { CustomerPortalCustomersGetRequest } from "../models/operations/customerportalcustomersget.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class PolarCustomers extends ClientSDK {
@@ -16,9 +16,9 @@ export class PolarCustomers extends ClientSDK {
    * Get a customer by ID for the authenticated customer or user.
    */
   async get(
-    request: operations.CustomerPortalCustomersGetRequest,
+    request: CustomerPortalCustomersGetRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomerPortalCustomer> {
+  ): Promise<CustomerPortalCustomer> {
     return unwrapAsync(customerPortalCustomersGet(
       this,
       request,

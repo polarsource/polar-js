@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  CustomerBenefitGrantUpdate,
+  CustomerBenefitGrantUpdate$inboundSchema,
+  CustomerBenefitGrantUpdate$Outbound,
+  CustomerBenefitGrantUpdate$outboundSchema,
+} from "../components/customerbenefitgrantupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalBenefitGrantsUpdateRequest = {
@@ -14,7 +19,7 @@ export type CustomerPortalBenefitGrantsUpdateRequest = {
    * The benefit grant ID.
    */
   id: string;
-  customerBenefitGrantUpdate: components.CustomerBenefitGrantUpdate;
+  customerBenefitGrantUpdate: CustomerBenefitGrantUpdate;
 };
 
 /** @internal */
@@ -24,8 +29,7 @@ export const CustomerPortalBenefitGrantsUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  CustomerBenefitGrantUpdate:
-    components.CustomerBenefitGrantUpdate$inboundSchema,
+  CustomerBenefitGrantUpdate: CustomerBenefitGrantUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "CustomerBenefitGrantUpdate": "customerBenefitGrantUpdate",
@@ -35,7 +39,7 @@ export const CustomerPortalBenefitGrantsUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type CustomerPortalBenefitGrantsUpdateRequest$Outbound = {
   id: string;
-  CustomerBenefitGrantUpdate: components.CustomerBenefitGrantUpdate$Outbound;
+  CustomerBenefitGrantUpdate: CustomerBenefitGrantUpdate$Outbound;
 };
 
 /** @internal */
@@ -45,8 +49,7 @@ export const CustomerPortalBenefitGrantsUpdateRequest$outboundSchema: z.ZodType<
   CustomerPortalBenefitGrantsUpdateRequest
 > = z.object({
   id: z.string(),
-  customerBenefitGrantUpdate:
-    components.CustomerBenefitGrantUpdate$outboundSchema,
+  customerBenefitGrantUpdate: CustomerBenefitGrantUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     customerBenefitGrantUpdate: "CustomerBenefitGrantUpdate",

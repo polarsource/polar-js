@@ -18,10 +18,18 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import * as errors from "../models/errors/index.js";
+import {
+  HTTPValidationError,
+  HTTPValidationError$inboundSchema,
+} from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
+import {
+  OrganizationsListRequest,
+  OrganizationsListRequest$outboundSchema,
+  OrganizationsListResponse,
+  OrganizationsListResponse$inboundSchema,
+} from "../models/operations/organizationslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -38,13 +46,13 @@ import {
  */
 export async function organizationsList(
   client: PolarCore,
-  request: operations.OrganizationsListRequest,
+  request: OrganizationsListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      operations.OrganizationsListResponse,
-      | errors.HTTPValidationError
+      OrganizationsListResponse,
+      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -58,7 +66,7 @@ export async function organizationsList(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.OrganizationsListRequest$outboundSchema.parse(value),
+    (value) => OrganizationsListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -128,8 +136,8 @@ export async function organizationsList(
   };
 
   const [result, raw] = await M.match<
-    operations.OrganizationsListResponse,
-    | errors.HTTPValidationError
+    OrganizationsListResponse,
+    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -138,10 +146,8 @@ export async function organizationsList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.OrganizationsListResponse$inboundSchema, {
-      key: "Result",
-    }),
-    M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
+    M.json(200, OrganizationsListResponse$inboundSchema, { key: "Result" }),
+    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
@@ -154,8 +160,8 @@ export async function organizationsList(
   ): {
     next: Paginator<
       Result<
-        operations.OrganizationsListResponse,
-        | errors.HTTPValidationError
+        OrganizationsListResponse,
+        | HTTPValidationError
         | SDKError
         | SDKValidationError
         | UnexpectedClientError

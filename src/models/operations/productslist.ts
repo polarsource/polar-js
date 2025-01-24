@@ -6,7 +6,17 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  ListResourceProduct,
+  ListResourceProduct$inboundSchema,
+  ListResourceProduct$Outbound,
+  ListResourceProduct$outboundSchema,
+} from "../components/listresourceproduct.js";
+import {
+  ProductSortProperty,
+  ProductSortProperty$inboundSchema,
+  ProductSortProperty$outboundSchema,
+} from "../components/productsortproperty.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -60,11 +70,11 @@ export type ProductsListRequest = {
   /**
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
-  sorting?: Array<components.ProductSortProperty> | null | undefined;
+  sorting?: Array<ProductSortProperty> | null | undefined;
 };
 
 export type ProductsListResponse = {
-  result: components.ListResourceProduct;
+  result: ListResourceProduct;
 };
 
 /** @internal */
@@ -236,8 +246,7 @@ export const ProductsListRequest$inboundSchema: z.ZodType<
   benefit_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.ProductSortProperty$inboundSchema))
-    .optional(),
+  sorting: z.nullable(z.array(ProductSortProperty$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -275,8 +284,7 @@ export const ProductsListRequest$outboundSchema: z.ZodType<
   benefitId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(components.ProductSortProperty$outboundSchema))
-    .optional(),
+  sorting: z.nullable(z.array(ProductSortProperty$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
@@ -323,7 +331,7 @@ export const ProductsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.ListResourceProduct$inboundSchema,
+  Result: ListResourceProduct$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",
@@ -332,7 +340,7 @@ export const ProductsListResponse$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ProductsListResponse$Outbound = {
-  Result: components.ListResourceProduct$Outbound;
+  Result: ListResourceProduct$Outbound;
 };
 
 /** @internal */
@@ -341,7 +349,7 @@ export const ProductsListResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductsListResponse
 > = z.object({
-  result: components.ListResourceProduct$outboundSchema,
+  result: ListResourceProduct$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     result: "Result",

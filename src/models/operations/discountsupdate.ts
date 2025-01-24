@@ -6,7 +6,12 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  DiscountUpdate,
+  DiscountUpdate$inboundSchema,
+  DiscountUpdate$Outbound,
+  DiscountUpdate$outboundSchema,
+} from "../components/discountupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DiscountsUpdateRequest = {
@@ -14,7 +19,7 @@ export type DiscountsUpdateRequest = {
    * The discount ID.
    */
   id: string;
-  discountUpdate: components.DiscountUpdate;
+  discountUpdate: DiscountUpdate;
 };
 
 /** @internal */
@@ -24,7 +29,7 @@ export const DiscountsUpdateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  DiscountUpdate: components.DiscountUpdate$inboundSchema,
+  DiscountUpdate: DiscountUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "DiscountUpdate": "discountUpdate",
@@ -34,7 +39,7 @@ export const DiscountsUpdateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type DiscountsUpdateRequest$Outbound = {
   id: string;
-  DiscountUpdate: components.DiscountUpdate$Outbound;
+  DiscountUpdate: DiscountUpdate$Outbound;
 };
 
 /** @internal */
@@ -44,7 +49,7 @@ export const DiscountsUpdateRequest$outboundSchema: z.ZodType<
   DiscountsUpdateRequest
 > = z.object({
   id: z.string(),
-  discountUpdate: components.DiscountUpdate$outboundSchema,
+  discountUpdate: DiscountUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     discountUpdate: "DiscountUpdate",

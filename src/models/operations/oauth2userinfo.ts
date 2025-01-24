@@ -5,40 +5,45 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
+import {
+  UserInfoOrganization,
+  UserInfoOrganization$inboundSchema,
+  UserInfoOrganization$Outbound,
+  UserInfoOrganization$outboundSchema,
+} from "../components/userinfoorganization.js";
+import {
+  UserInfoUser,
+  UserInfoUser$inboundSchema,
+  UserInfoUser$Outbound,
+  UserInfoUser$outboundSchema,
+} from "../components/userinfouser.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Successful Response
  */
 export type Oauth2UserinfoResponseOauth2Userinfo =
-  | components.UserInfoOrganization
-  | components.UserInfoUser;
+  | UserInfoOrganization
+  | UserInfoUser;
 
 /** @internal */
 export const Oauth2UserinfoResponseOauth2Userinfo$inboundSchema: z.ZodType<
   Oauth2UserinfoResponseOauth2Userinfo,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  components.UserInfoOrganization$inboundSchema,
-  components.UserInfoUser$inboundSchema,
-]);
+> = z.union([UserInfoOrganization$inboundSchema, UserInfoUser$inboundSchema]);
 
 /** @internal */
 export type Oauth2UserinfoResponseOauth2Userinfo$Outbound =
-  | components.UserInfoOrganization$Outbound
-  | components.UserInfoUser$Outbound;
+  | UserInfoOrganization$Outbound
+  | UserInfoUser$Outbound;
 
 /** @internal */
 export const Oauth2UserinfoResponseOauth2Userinfo$outboundSchema: z.ZodType<
   Oauth2UserinfoResponseOauth2Userinfo$Outbound,
   z.ZodTypeDef,
   Oauth2UserinfoResponseOauth2Userinfo
-> = z.union([
-  components.UserInfoOrganization$outboundSchema,
-  components.UserInfoUser$outboundSchema,
-]);
+> = z.union([UserInfoOrganization$outboundSchema, UserInfoUser$outboundSchema]);
 
 /**
  * @internal

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DiscountFixedOnceForeverDurationBase } from "@polar-sh/sdk/models/components";
+import { DiscountFixedOnceForeverDurationBase } from "@polar-sh/sdk/models/components/discountfixedonceforeverdurationbase.js";
 
 let value: DiscountFixedOnceForeverDurationBase = {
   duration: "repeating",

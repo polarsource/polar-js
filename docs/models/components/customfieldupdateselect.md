@@ -5,7 +5,7 @@ Schema to update a custom field of type select.
 ## Example Usage
 
 ```typescript
-import { CustomFieldUpdateSelect } from "@polar-sh/sdk/models/components";
+import { CustomFieldUpdateSelect } from "@polar-sh/sdk/models/components/customfieldupdateselect.js";
 
 let value: CustomFieldUpdateSelect = {};
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { PledgeType } from "@polar-sh/sdk/models/components";
+import { PledgeType } from "@polar-sh/sdk/models/components/pledgetype.js";
 
 let value: PledgeType = "pay_on_completion";
 ```

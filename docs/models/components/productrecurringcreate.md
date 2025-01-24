@@ -5,7 +5,7 @@ Schema to create a recurring product, i.e. a subscription.
 ## Example Usage
 
 ```typescript
-import { ProductRecurringCreate } from "@polar-sh/sdk/models/components";
+import { ProductRecurringCreate } from "@polar-sh/sdk/models/components/productrecurringcreate.js";
 
 let value: ProductRecurringCreate = {
   name: "<value>",

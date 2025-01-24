@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Oauth2RevokeTokenRevokeTokenRequest } from "@polar-sh/sdk/models/operations";
+import { Oauth2RevokeTokenRevokeTokenRequest } from "@polar-sh/sdk/models/operations/oauth2revoketoken.js";
 
 let value: Oauth2RevokeTokenRevokeTokenRequest = {
   token: "<value>",

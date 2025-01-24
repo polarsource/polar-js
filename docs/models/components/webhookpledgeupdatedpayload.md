@@ -7,7 +7,7 @@ Sent when a pledge is updated.
 ## Example Usage
 
 ```typescript
-import { WebhookPledgeUpdatedPayload } from "@polar-sh/sdk/models/components";
+import { WebhookPledgeUpdatedPayload } from "@polar-sh/sdk/models/components/webhookpledgeupdatedpayload.js";
 
 let value: WebhookPledgeUpdatedPayload = {
   data: {

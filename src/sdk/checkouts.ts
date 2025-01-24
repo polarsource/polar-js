@@ -5,8 +5,9 @@
 import { checkoutsCreate } from "../funcs/checkoutsCreate.js";
 import { checkoutsGet } from "../funcs/checkoutsGet.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { CheckoutLegacy } from "../models/components/checkoutlegacy.js";
+import { CheckoutLegacyCreate } from "../models/components/checkoutlegacycreate.js";
+import { CheckoutsGetRequest } from "../models/operations/checkoutsget.js";
 import { unwrapAsync } from "../types/fp.js";
 import { Custom } from "./custom.js";
 
@@ -25,9 +26,9 @@ export class Checkouts extends ClientSDK {
    * @deprecated method: This API is deprecated. We recommend you to use the new custom checkout API, which is more flexible and powerful. Please refer to the documentation for more information.. Use create instead.
    */
   async create(
-    request: components.CheckoutLegacyCreate,
+    request: CheckoutLegacyCreate,
     options?: RequestOptions,
-  ): Promise<components.CheckoutLegacy> {
+  ): Promise<CheckoutLegacy> {
     return unwrapAsync(checkoutsCreate(
       this,
       request,
@@ -44,9 +45,9 @@ export class Checkouts extends ClientSDK {
    * @deprecated method: This API is deprecated. We recommend you to use the new custom checkout API, which is more flexible and powerful. Please refer to the documentation for more information..
    */
   async get(
-    request: operations.CheckoutsGetRequest,
+    request: CheckoutsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.CheckoutLegacy> {
+  ): Promise<CheckoutLegacy> {
     return unwrapAsync(checkoutsGet(
       this,
       request,

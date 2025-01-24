@@ -8,8 +8,15 @@ import { discountsGet } from "../funcs/discountsGet.js";
 import { discountsList } from "../funcs/discountsList.js";
 import { discountsUpdate } from "../funcs/discountsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
+import { Discount } from "../models/components/discount.js";
+import { DiscountCreate } from "../models/components/discountcreate.js";
+import { DiscountsDeleteRequest } from "../models/operations/discountsdelete.js";
+import { DiscountsGetRequest } from "../models/operations/discountsget.js";
+import {
+  DiscountsListRequest,
+  DiscountsListResponse,
+} from "../models/operations/discountslist.js";
+import { DiscountsUpdateRequest } from "../models/operations/discountsupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -21,9 +28,9 @@ export class Discounts extends ClientSDK {
    * List discounts.
    */
   async list(
-    request: operations.DiscountsListRequest,
+    request: DiscountsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<operations.DiscountsListResponse, { page: number }>> {
+  ): Promise<PageIterator<DiscountsListResponse, { page: number }>> {
     return unwrapResultIterator(discountsList(
       this,
       request,
@@ -38,9 +45,9 @@ export class Discounts extends ClientSDK {
    * Create a discount.
    */
   async create(
-    request: components.DiscountCreate,
+    request: DiscountCreate,
     options?: RequestOptions,
-  ): Promise<components.Discount> {
+  ): Promise<Discount> {
     return unwrapAsync(discountsCreate(
       this,
       request,
@@ -55,9 +62,9 @@ export class Discounts extends ClientSDK {
    * Get a discount by ID.
    */
   async get(
-    request: operations.DiscountsGetRequest,
+    request: DiscountsGetRequest,
     options?: RequestOptions,
-  ): Promise<components.Discount> {
+  ): Promise<Discount> {
     return unwrapAsync(discountsGet(
       this,
       request,
@@ -72,9 +79,9 @@ export class Discounts extends ClientSDK {
    * Update a discount.
    */
   async update(
-    request: operations.DiscountsUpdateRequest,
+    request: DiscountsUpdateRequest,
     options?: RequestOptions,
-  ): Promise<components.Discount> {
+  ): Promise<Discount> {
     return unwrapAsync(discountsUpdate(
       this,
       request,
@@ -89,7 +96,7 @@ export class Discounts extends ClientSDK {
    * Delete a discount.
    */
   async delete(
-    request: operations.DiscountsDeleteRequest,
+    request: DiscountsDeleteRequest,
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(discountsDelete(

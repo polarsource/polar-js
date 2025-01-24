@@ -5,7 +5,7 @@ Checkout session data retrieved using an access token.
 ## Example Usage
 
 ```typescript
-import { Checkout } from "@polar-sh/sdk/models/components";
+import { Checkout } from "@polar-sh/sdk/models/components/checkout.js";
 
 let value: Checkout = {
   createdAt: new Date("2023-11-14T22:12:04.968Z"),
