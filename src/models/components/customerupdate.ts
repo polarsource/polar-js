@@ -19,14 +19,65 @@ import {
   TaxIDFormat$outboundSchema,
 } from "./taxidformat.js";
 
+export type CustomerUpdateMetadata = string | number | boolean;
+
 export type CustomerUpdateTaxId = string | TaxIDFormat;
 
 export type CustomerUpdate = {
+  metadata?: { [k: string]: string | number | boolean } | null | undefined;
   email?: string | null | undefined;
   name?: string | null | undefined;
   billingAddress?: Address | null | undefined;
   taxId?: Array<string | TaxIDFormat> | null | undefined;
 };
+
+/** @internal */
+export const CustomerUpdateMetadata$inboundSchema: z.ZodType<
+  CustomerUpdateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/** @internal */
+export type CustomerUpdateMetadata$Outbound = string | number | boolean;
+
+/** @internal */
+export const CustomerUpdateMetadata$outboundSchema: z.ZodType<
+  CustomerUpdateMetadata$Outbound,
+  z.ZodTypeDef,
+  CustomerUpdateMetadata
+> = z.union([z.string(), z.number().int(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerUpdateMetadata$ {
+  /** @deprecated use `CustomerUpdateMetadata$inboundSchema` instead. */
+  export const inboundSchema = CustomerUpdateMetadata$inboundSchema;
+  /** @deprecated use `CustomerUpdateMetadata$outboundSchema` instead. */
+  export const outboundSchema = CustomerUpdateMetadata$outboundSchema;
+  /** @deprecated use `CustomerUpdateMetadata$Outbound` instead. */
+  export type Outbound = CustomerUpdateMetadata$Outbound;
+}
+
+export function customerUpdateMetadataToJSON(
+  customerUpdateMetadata: CustomerUpdateMetadata,
+): string {
+  return JSON.stringify(
+    CustomerUpdateMetadata$outboundSchema.parse(customerUpdateMetadata),
+  );
+}
+
+export function customerUpdateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomerUpdateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomerUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerUpdateMetadata' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerUpdateTaxId$inboundSchema: z.ZodType<
@@ -82,6 +133,9 @@ export const CustomerUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   email: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
   billing_address: z.nullable(Address$inboundSchema).optional(),
@@ -96,6 +150,7 @@ export const CustomerUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerUpdate$Outbound = {
+  metadata?: { [k: string]: string | number | boolean } | null | undefined;
   email?: string | null | undefined;
   name?: string | null | undefined;
   billing_address?: Address$Outbound | null | undefined;
@@ -108,6 +163,9 @@ export const CustomerUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerUpdate
 > = z.object({
+  metadata: z.nullable(
+    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  ).optional(),
   email: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
   billingAddress: z.nullable(Address$outboundSchema).optional(),

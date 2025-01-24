@@ -14,7 +14,7 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 
-export type CustomFieldData = {};
+export type CheckoutUpdateCustomFieldData = string | number | boolean | Date;
 
 export type CheckoutUpdateMetadata = string | number | boolean;
 
@@ -27,7 +27,10 @@ export type CheckoutUpdate = {
   /**
    * Key-value object storing custom field values.
    */
-  customFieldData?: CustomFieldData | null | undefined;
+  customFieldData?:
+    | { [k: string]: string | number | boolean | Date }
+    | null
+    | undefined;
   /**
    * ID of the product price to checkout. Must correspond to a price linked to the same product.
    */
@@ -76,48 +79,66 @@ export type CheckoutUpdate = {
 };
 
 /** @internal */
-export const CustomFieldData$inboundSchema: z.ZodType<
-  CustomFieldData,
+export const CheckoutUpdateCustomFieldData$inboundSchema: z.ZodType<
+  CheckoutUpdateCustomFieldData,
   z.ZodTypeDef,
   unknown
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.string().datetime({ offset: true }).transform(v => new Date(v)),
+]);
 
 /** @internal */
-export type CustomFieldData$Outbound = {};
+export type CheckoutUpdateCustomFieldData$Outbound =
+  | string
+  | number
+  | boolean
+  | string;
 
 /** @internal */
-export const CustomFieldData$outboundSchema: z.ZodType<
-  CustomFieldData$Outbound,
+export const CheckoutUpdateCustomFieldData$outboundSchema: z.ZodType<
+  CheckoutUpdateCustomFieldData$Outbound,
   z.ZodTypeDef,
-  CustomFieldData
-> = z.object({});
+  CheckoutUpdateCustomFieldData
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.date().transform(v => v.toISOString()),
+]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CustomFieldData$ {
-  /** @deprecated use `CustomFieldData$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldData$inboundSchema;
-  /** @deprecated use `CustomFieldData$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldData$outboundSchema;
-  /** @deprecated use `CustomFieldData$Outbound` instead. */
-  export type Outbound = CustomFieldData$Outbound;
+export namespace CheckoutUpdateCustomFieldData$ {
+  /** @deprecated use `CheckoutUpdateCustomFieldData$inboundSchema` instead. */
+  export const inboundSchema = CheckoutUpdateCustomFieldData$inboundSchema;
+  /** @deprecated use `CheckoutUpdateCustomFieldData$outboundSchema` instead. */
+  export const outboundSchema = CheckoutUpdateCustomFieldData$outboundSchema;
+  /** @deprecated use `CheckoutUpdateCustomFieldData$Outbound` instead. */
+  export type Outbound = CheckoutUpdateCustomFieldData$Outbound;
 }
 
-export function customFieldDataToJSON(
-  customFieldData: CustomFieldData,
+export function checkoutUpdateCustomFieldDataToJSON(
+  checkoutUpdateCustomFieldData: CheckoutUpdateCustomFieldData,
 ): string {
-  return JSON.stringify(CustomFieldData$outboundSchema.parse(customFieldData));
+  return JSON.stringify(
+    CheckoutUpdateCustomFieldData$outboundSchema.parse(
+      checkoutUpdateCustomFieldData,
+    ),
+  );
 }
 
-export function customFieldDataFromJSON(
+export function checkoutUpdateCustomFieldDataFromJSON(
   jsonString: string,
-): SafeParseResult<CustomFieldData, SDKValidationError> {
+): SafeParseResult<CheckoutUpdateCustomFieldData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CustomFieldData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldData' from JSON`,
+    (x) => CheckoutUpdateCustomFieldData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutUpdateCustomFieldData' from JSON`,
   );
 }
 
@@ -225,8 +246,16 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  custom_field_data: z.nullable(z.lazy(() => CustomFieldData$inboundSchema))
-    .optional(),
+  custom_field_data: z.nullable(
+    z.record(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.string().datetime({ offset: true }).transform(v => new Date(v)),
+      ]),
+    ),
+  ).optional(),
   product_price_id: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
   customer_name: z.nullable(z.string()).optional(),
@@ -263,7 +292,10 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutUpdate$Outbound = {
-  custom_field_data?: CustomFieldData$Outbound | null | undefined;
+  custom_field_data?:
+    | { [k: string]: string | number | boolean | string }
+    | null
+    | undefined;
   product_price_id?: string | null | undefined;
   amount?: number | null | undefined;
   customer_name?: string | null | undefined;
@@ -288,8 +320,16 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutUpdate
 > = z.object({
-  customFieldData: z.nullable(z.lazy(() => CustomFieldData$outboundSchema))
-    .optional(),
+  customFieldData: z.nullable(
+    z.record(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.date().transform(v => v.toISOString()),
+      ]),
+    ),
+  ).optional(),
   productPriceId: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
   customerName: z.nullable(z.string()).optional(),

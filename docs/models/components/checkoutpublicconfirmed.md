@@ -11,20 +11,20 @@ right after the checkout.
 import { CheckoutPublicConfirmed } from "@polar-sh/sdk/models/components";
 
 let value: CheckoutPublicConfirmed = {
-  createdAt: new Date("2024-11-04T14:16:30.505Z"),
-  modifiedAt: new Date("2024-07-07T15:12:48.113Z"),
+  createdAt: new Date("2023-11-05T01:06:59.977Z"),
+  modifiedAt: new Date("2024-09-21T18:02:02.726Z"),
   id: "<value>",
   paymentProcessor: "stripe",
   clientSecret: "<value>",
-  url: "https://aching-earth.name",
-  expiresAt: new Date("2024-08-13T15:13:08.843Z"),
-  successUrl: "https://defensive-resolve.name/",
+  url: "https://caring-complication.net",
+  expiresAt: new Date("2024-08-09T02:59:50.633Z"),
+  successUrl: "https://substantial-monasticism.biz",
   embedOrigin: "<value>",
-  amount: 639968,
-  taxAmount: 816753,
-  currency: "Rufiyaa",
-  subtotalAmount: 313949,
-  totalAmount: 523250,
+  amount: 523250,
+  taxAmount: 130391,
+  currency: "Euro",
+  subtotalAmount: 655131,
+  totalAmount: 41111,
   productId: "<value>",
   productPriceId: "<value>",
   discountId: "<value>",
@@ -36,44 +36,44 @@ let value: CheckoutPublicConfirmed = {
   isPaymentFormRequired: false,
   customerId: "<value>",
   customerName: "<value>",
-  customerEmail: "Donnell88@gmail.com",
+  customerEmail: "<value>",
   customerIpAddress: "<value>",
   customerBillingAddress: {
-    country: "Trinidad and Tobago",
+    country: "Afghanistan",
   },
   customerTaxId: "<id>",
   paymentProcessorMetadata: {
     "key": "<value>",
   },
   product: {
-    createdAt: new Date("2023-08-25T03:30:03.482Z"),
-    modifiedAt: new Date("2025-04-07T02:31:07.916Z"),
+    createdAt: new Date("2025-08-30T05:33:10.904Z"),
+    modifiedAt: new Date("2025-11-22T21:42:18.565Z"),
     id: "<value>",
     name: "<value>",
-    description: "cop vivaciously yippee tame ouch nervously",
+    description:
+      "mmm word lean from quarrel finally altruistic inside sensitize lest",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2025-03-06T13:27:13.872Z"),
-        modifiedAt: new Date("2023-01-29T12:41:56.507Z"),
+        createdAt: new Date("2025-01-27T00:03:50.601Z"),
+        modifiedAt: new Date("2023-06-16T02:33:31.041Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
         priceCurrency: "<value>",
-        minimumAmount: 676702,
-        maximumAmount: 324393,
-        presetAmount: 879364,
+        priceAmount: 281986,
+        recurringInterval: "month",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2023-06-07T04:12:06.961Z"),
-        modifiedAt: new Date("2023-02-03T14:02:44.437Z"),
+        createdAt: new Date("2023-08-28T01:07:17.997Z"),
+        modifiedAt: new Date("2023-02-11T10:30:57.987Z"),
         id: "<value>",
-        type: "custom",
-        description: "sensitize lest aside circa mid zowie coolly",
+        type: "downloadables",
+        description: "for at that before exalted nervous",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -84,57 +84,55 @@ let value: CheckoutPublicConfirmed = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/Library",
+        path: "/sys",
         mimeType: "<value>",
-        size: 997814,
+        size: 513534,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2023-04-19T08:31:46.576Z"),
+        lastModifiedAt: new Date("2025-05-07T05:20:25.129Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2024-08-04T09:00:15.814Z"),
+        createdAt: new Date("2025-08-30T05:42:17.674Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://talkative-vein.org",
+        publicUrl: "https://winged-flu.info/",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2024-07-23T19:21:21.783Z"),
-    modifiedAt: new Date("2025-03-17T16:35:25.913Z"),
+    createdAt: new Date("2025-03-18T12:35:36.869Z"),
+    modifiedAt: new Date("2023-07-16T02:04:19.627Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
-    priceCurrency: "<value>",
-    priceAmount: 476668,
+    recurringInterval: "month",
   },
   discount: {
     duration: "repeating",
-    durationInMonths: 829115,
-    type: "percentage",
-    amount: 601560,
-    currency: "Libyan Dinar",
+    type: "fixed",
+    amount: 83016,
+    currency: "Nuevo Sol",
     id: "<value>",
     name: "<value>",
     code: "<value>",
   },
   organization: {
-    createdAt: new Date("2025-05-07T05:20:25.129Z"),
-    modifiedAt: new Date("2025-08-30T05:42:17.674Z"),
+    createdAt: new Date("2023-08-29T03:05:26.969Z"),
+    modifiedAt: new Date("2024-08-24T17:05:53.201Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://winged-flu.info/",
+    avatarUrl: "https://squeaky-wedding.com/",
     bio: "<value>",
-    company: "Sporer LLC",
+    company: "Kuhn, Bechtelar and Lebsack",
     blog: "<value>",
     location: "<value>",
-    email: "Hailey.Schmitt@gmail.com",
+    email: "Silas.Rosenbaum@yahoo.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 219095,
+    pledgeMinimumAmount: 181522,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 549008,
+    defaultUpfrontSplitToContributors: 197770,
     profileSettings: {},
     featureSettings: {},
   },
@@ -142,8 +140,8 @@ let value: CheckoutPublicConfirmed = {
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2025-05-15T23:00:36.400Z"),
-        modifiedAt: new Date("2025-12-12T05:49:53.787Z"),
+        createdAt: new Date("2025-03-25T02:31:03.835Z"),
+        modifiedAt: new Date("2025-10-31T01:35:05.241Z"),
         id: "<value>",
         metadata: {
           "key": "<value>",
@@ -153,7 +151,7 @@ let value: CheckoutPublicConfirmed = {
         organizationId: "<value>",
         properties: {},
       },
-      order: 841413,
+      order: 547940,
       required: false,
     },
   ],
@@ -168,7 +166,7 @@ let value: CheckoutPublicConfirmed = {
 | `createdAt`                                                                                                                                                                | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                              | :heavy_check_mark:                                                                                                                                                         | Creation timestamp of the object.                                                                                                                                          |
 | `modifiedAt`                                                                                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                              | :heavy_check_mark:                                                                                                                                                         | Last modification timestamp of the object.                                                                                                                                 |
 | `id`                                                                                                                                                                       | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | The ID of the object.                                                                                                                                                      |
-| `customFieldData`                                                                                                                                                          | [components.CheckoutPublicConfirmedCustomFieldData](../../models/components/checkoutpublicconfirmedcustomfielddata.md)                                                     | :heavy_minus_sign:                                                                                                                                                         | Key-value object storing custom field values.                                                                                                                              |
+| `customFieldData`                                                                                                                                                          | Record<string, *components.CheckoutPublicConfirmedCustomFieldData*>                                                                                                        | :heavy_minus_sign:                                                                                                                                                         | Key-value object storing custom field values.                                                                                                                              |
 | `paymentProcessor`                                                                                                                                                         | [components.PaymentProcessor](../../models/components/paymentprocessor.md)                                                                                                 | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `status`                                                                                                                                                                   | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `clientSecret`                                                                                                                                                             | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | Client secret used to update and complete the checkout session from the client.                                                                                            |
@@ -191,8 +189,8 @@ let value: CheckoutPublicConfirmed = {
 | `isPaymentSetupRequired`                                                                                                                                                   | *boolean*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                         | Whether the checkout requires setting up a payment method, regardless of the amount, e.g. subscriptions that have first free cycles.                                       |
 | `isPaymentFormRequired`                                                                                                                                                    | *boolean*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                         | Whether the checkout requires a payment form, whether because of a payment or payment method setup.                                                                        |
 | `customerId`                                                                                                                                                               | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
-| `customerName`                                                                                                                                                             | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
-| `customerEmail`                                                                                                                                                            | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
+| `customerName`                                                                                                                                                             | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | Name of the customer.                                                                                                                                                      |
+| `customerEmail`                                                                                                                                                            | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | Email address of the customer.                                                                                                                                             |
 | `customerIpAddress`                                                                                                                                                        | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `customerBillingAddress`                                                                                                                                                   | [components.Address](../../models/components/address.md)                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `customerTaxId`                                                                                                                                                            | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |

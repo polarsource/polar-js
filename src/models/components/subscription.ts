@@ -73,10 +73,7 @@ import {
 
 export type Metadata = string | number | boolean;
 
-/**
- * Key-value object storing custom field values.
- */
-export type SubscriptionCustomFieldData = {};
+export type CustomFieldData = string | number | boolean | Date;
 
 export type SubscriptionDiscount =
   | DiscountPercentageOnceForeverDurationBase
@@ -119,7 +116,9 @@ export type Subscription = {
   /**
    * Key-value object storing custom field values.
    */
-  customFieldData?: SubscriptionCustomFieldData | undefined;
+  customFieldData?:
+    | { [k: string]: string | number | boolean | Date }
+    | undefined;
   customer: SubscriptionCustomer;
   /**
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -184,52 +183,58 @@ export function metadataFromJSON(
 }
 
 /** @internal */
-export const SubscriptionCustomFieldData$inboundSchema: z.ZodType<
-  SubscriptionCustomFieldData,
+export const CustomFieldData$inboundSchema: z.ZodType<
+  CustomFieldData,
   z.ZodTypeDef,
   unknown
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.string().datetime({ offset: true }).transform(v => new Date(v)),
+]);
 
 /** @internal */
-export type SubscriptionCustomFieldData$Outbound = {};
+export type CustomFieldData$Outbound = string | number | boolean | string;
 
 /** @internal */
-export const SubscriptionCustomFieldData$outboundSchema: z.ZodType<
-  SubscriptionCustomFieldData$Outbound,
+export const CustomFieldData$outboundSchema: z.ZodType<
+  CustomFieldData$Outbound,
   z.ZodTypeDef,
-  SubscriptionCustomFieldData
-> = z.object({});
+  CustomFieldData
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.date().transform(v => v.toISOString()),
+]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SubscriptionCustomFieldData$ {
-  /** @deprecated use `SubscriptionCustomFieldData$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionCustomFieldData$inboundSchema;
-  /** @deprecated use `SubscriptionCustomFieldData$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionCustomFieldData$outboundSchema;
-  /** @deprecated use `SubscriptionCustomFieldData$Outbound` instead. */
-  export type Outbound = SubscriptionCustomFieldData$Outbound;
+export namespace CustomFieldData$ {
+  /** @deprecated use `CustomFieldData$inboundSchema` instead. */
+  export const inboundSchema = CustomFieldData$inboundSchema;
+  /** @deprecated use `CustomFieldData$outboundSchema` instead. */
+  export const outboundSchema = CustomFieldData$outboundSchema;
+  /** @deprecated use `CustomFieldData$Outbound` instead. */
+  export type Outbound = CustomFieldData$Outbound;
 }
 
-export function subscriptionCustomFieldDataToJSON(
-  subscriptionCustomFieldData: SubscriptionCustomFieldData,
+export function customFieldDataToJSON(
+  customFieldData: CustomFieldData,
 ): string {
-  return JSON.stringify(
-    SubscriptionCustomFieldData$outboundSchema.parse(
-      subscriptionCustomFieldData,
-    ),
-  );
+  return JSON.stringify(CustomFieldData$outboundSchema.parse(customFieldData));
 }
 
-export function subscriptionCustomFieldDataFromJSON(
+export function customFieldDataFromJSON(
   jsonString: string,
-): SafeParseResult<SubscriptionCustomFieldData, SDKValidationError> {
+): SafeParseResult<CustomFieldData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SubscriptionCustomFieldData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionCustomFieldData' from JSON`,
+    (x) => CustomFieldData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomFieldData' from JSON`,
   );
 }
 
@@ -339,8 +344,14 @@ export const Subscription$inboundSchema: z.ZodType<
   ),
   customer_cancellation_comment: z.nullable(z.string()),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  custom_field_data: z.lazy(() => SubscriptionCustomFieldData$inboundSchema)
-    .optional(),
+  custom_field_data: z.record(
+    z.union([
+      z.string(),
+      z.number().int(),
+      z.boolean(),
+      z.string().datetime({ offset: true }).transform(v => new Date(v)),
+    ]),
+  ).optional(),
   customer: SubscriptionCustomer$inboundSchema,
   user_id: z.string(),
   user: SubscriptionUser$inboundSchema,
@@ -402,7 +413,9 @@ export type Subscription$Outbound = {
   customer_cancellation_reason: string | null;
   customer_cancellation_comment: string | null;
   metadata: { [k: string]: string | number | boolean };
-  custom_field_data?: SubscriptionCustomFieldData$Outbound | undefined;
+  custom_field_data?:
+    | { [k: string]: string | number | boolean | string }
+    | undefined;
   customer: SubscriptionCustomer$Outbound;
   user_id: string;
   user: SubscriptionUser$Outbound;
@@ -446,8 +459,14 @@ export const Subscription$outboundSchema: z.ZodType<
   ),
   customerCancellationComment: z.nullable(z.string()),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  customFieldData: z.lazy(() => SubscriptionCustomFieldData$outboundSchema)
-    .optional(),
+  customFieldData: z.record(
+    z.union([
+      z.string(),
+      z.number().int(),
+      z.boolean(),
+      z.date().transform(v => v.toISOString()),
+    ]),
+  ).optional(),
   customer: SubscriptionCustomer$outboundSchema,
   userId: z.string(),
   user: SubscriptionUser$outboundSchema,

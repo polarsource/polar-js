@@ -24,6 +24,8 @@ const polar = new Polar({
 async function run() {
   const result = await polar.advertisements.list({
     benefitId: "<value>",
+    page: 1,
+    limit: 10,
   });
 
   for await (const page of result) {
@@ -52,6 +54,8 @@ const polar = new PolarCore({
 async function run() {
   const res = await advertisementsList(polar, {
     benefitId: "<value>",
+    page: 1,
+    limit: 10,
   });
 
   if (!res.ok) {

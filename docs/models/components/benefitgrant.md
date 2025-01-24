@@ -6,8 +6,8 @@
 import { BenefitGrant } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrant = {
-  createdAt: new Date("2023-08-13T02:52:46.079Z"),
-  modifiedAt: new Date("2023-08-30T12:58:44.895Z"),
+  createdAt: new Date("2023-03-19T05:59:03.453Z"),
+  modifiedAt: new Date("2023-06-22T14:17:51.378Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,23 +17,23 @@ let value: BenefitGrant = {
   userId: "<value>",
   benefitId: "<value>",
   customer: {
-    createdAt: new Date("2024-08-30T05:09:59.751Z"),
-    modifiedAt: new Date("2024-01-19T07:23:01.540Z"),
+    createdAt: new Date("2023-03-19T07:53:48.439Z"),
+    modifiedAt: new Date("2023-02-07T21:51:31.204Z"),
     id: "<value>",
     metadata: {
-      "key": 37098,
+      "key": false,
     },
-    email: "Omari_Feest2@gmail.com",
+    email: "Haven95@hotmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Heard Island and McDonald Islands",
+      country: "Grenada",
     },
     taxId: [
-      "<id>",
+      "ad_nrt",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://powerless-strait.net/",
+    avatarUrl: "https://miserly-birdcage.org",
   },
   properties: {},
 };

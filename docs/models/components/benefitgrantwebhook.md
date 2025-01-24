@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2023-08-06T10:10:02.781Z"),
-  modifiedAt: new Date("2025-10-05T14:29:25.570Z"),
+  createdAt: new Date("2023-12-10T02:20:53.161Z"),
+  modifiedAt: new Date("2025-10-09T21:09:28.886Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,30 +17,30 @@ let value: BenefitGrantWebhook = {
   userId: "<value>",
   benefitId: "<value>",
   customer: {
-    createdAt: new Date("2023-06-18T11:45:58.503Z"),
-    modifiedAt: new Date("2024-11-06T21:24:07.521Z"),
+    createdAt: new Date("2025-11-17T19:14:12.440Z"),
+    modifiedAt: new Date("2023-04-19T07:38:24.051Z"),
     id: "<value>",
     metadata: {
-      "key": "<value>",
+      "key": false,
     },
-    email: "Ephraim60@hotmail.com",
+    email: "Lonie_Goodwin49@yahoo.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Marshall Islands",
+      country: "Macao",
     },
     taxId: [
-      "si_tin",
+      "th_vat",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://grizzled-allegation.name/",
+    avatarUrl: "https://moral-insolence.biz",
   },
   properties: {},
   benefit: {
-    createdAt: new Date("2025-12-23T20:58:10.313Z"),
-    modifiedAt: new Date("2024-05-12T23:16:37.259Z"),
+    createdAt: new Date("2025-08-04T11:28:23.616Z"),
+    modifiedAt: new Date("2023-09-05T15:15:22.959Z"),
     id: "<value>",
-    description: "plain strident legislature timely the towards whenever oh",
+    description: "ew malfunction supplier",
     selectable: false,
     deletable: false,
     organizationId: "<value>",

@@ -24,7 +24,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.licenseKeys.list({});
+  const result = await polar.licenseKeys.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -50,7 +53,10 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await licenseKeysList(polar, {});
+  const res = await licenseKeysList(polar, {
+    page: 1,
+    limit: 10,
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -184,7 +190,9 @@ const polar = new Polar({
 async function run() {
   const result = await polar.licenseKeys.update({
     id: "<value>",
-    licenseKeyUpdate: {},
+    licenseKeyUpdate: {
+      usage: 0,
+    },
   });
 
   // Handle the result
@@ -211,7 +219,9 @@ const polar = new PolarCore({
 async function run() {
   const res = await licenseKeysUpdate(polar, {
     id: "<value>",
-    licenseKeyUpdate: {},
+    licenseKeyUpdate: {
+      usage: 0,
+    },
   });
 
   if (!res.ok) {

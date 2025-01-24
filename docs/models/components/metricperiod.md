@@ -6,18 +6,19 @@
 import { MetricPeriod } from "@polar-sh/sdk/models/components";
 
 let value: MetricPeriod = {
-  timestamp: new Date("2024-04-16T22:55:39.869Z"),
-  orders: 634386,
-  revenue: 637086,
-  averageOrderValue: 643394,
-  oneTimeProducts: 306043,
-  oneTimeProductsRevenue: 864742,
-  newSubscriptions: 593604,
-  newSubscriptionsRevenue: 388445,
-  renewedSubscriptions: 322274,
-  renewedSubscriptionsRevenue: 113684,
-  activeSubscriptions: 610243,
-  monthlyRecurringRevenue: 782608,
+  timestamp: new Date("2023-12-18T18:34:43.583Z"),
+  orders: 392307,
+  revenue: 575206,
+  cumulativeRevenue: 690546,
+  averageOrderValue: 464706,
+  oneTimeProducts: 787769,
+  oneTimeProductsRevenue: 632007,
+  newSubscriptions: 595870,
+  newSubscriptionsRevenue: 145395,
+  renewedSubscriptions: 171314,
+  renewedSubscriptionsRevenue: 313287,
+  activeSubscriptions: 962475,
+  monthlyRecurringRevenue: 76210,
 };
 ```
 
@@ -28,6 +29,7 @@ let value: MetricPeriod = {
 | `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Timestamp of this period data.                                                                |
 | `orders`                                                                                      | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `revenue`                                                                                     | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `cumulativeRevenue`                                                                           | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `averageOrderValue`                                                                           | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `oneTimeProducts`                                                                             | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `oneTimeProductsRevenue`                                                                      | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |

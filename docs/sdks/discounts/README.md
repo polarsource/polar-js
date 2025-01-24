@@ -25,7 +25,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.discounts.list({});
+  const result = await polar.discounts.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -51,7 +54,10 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await discountsList(polar, {});
+  const res = await discountsList(polar, {
+    page: 1,
+    limit: 10,
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -107,6 +113,7 @@ async function run() {
     durationInMonths: 417458,
     type: "fixed",
     amount: 69025,
+    currency: "usd",
     name: "<value>",
   });
 
@@ -137,6 +144,7 @@ async function run() {
     durationInMonths: 417458,
     type: "fixed",
     amount: 69025,
+    currency: "usd",
     name: "<value>",
   });
 
@@ -267,7 +275,9 @@ const polar = new Polar({
 async function run() {
   const result = await polar.discounts.update({
     id: "<value>",
-    discountUpdate: {},
+    discountUpdate: {
+      currency: "usd",
+    },
   });
 
   // Handle the result
@@ -294,7 +304,9 @@ const polar = new PolarCore({
 async function run() {
   const res = await discountsUpdate(polar, {
     id: "<value>",
-    discountUpdate: {},
+    discountUpdate: {
+      currency: "usd",
+    },
   });
 
   if (!res.ok) {

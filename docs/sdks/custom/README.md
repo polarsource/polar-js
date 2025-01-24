@@ -27,7 +27,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.checkouts.custom.list({});
+  const result = await polar.checkouts.custom.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -53,7 +56,10 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await checkoutsCustomList(polar, {});
+  const res = await checkoutsCustomList(polar, {
+    page: 1,
+    limit: 10,
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -105,6 +111,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.checkouts.custom.create({
+    allowDiscountCodes: true,
     productId: "<value>",
   });
 
@@ -131,6 +138,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await checkoutsCustomCreate(polar, {
+    allowDiscountCodes: true,
     productId: "<value>",
   });
 

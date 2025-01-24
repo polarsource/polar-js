@@ -27,6 +27,11 @@ export type QueryParamProductPriceTypeFilter =
   | components.ProductPriceType
   | Array<components.ProductPriceType>;
 
+/**
+ * Filter by customer ID.
+ */
+export type MetricsGetQueryParamCustomerIDFilter = string | Array<string>;
+
 export type MetricsGetRequest = {
   /**
    * Start date.
@@ -56,6 +61,10 @@ export type MetricsGetRequest = {
     | Array<components.ProductPriceType>
     | null
     | undefined;
+  /**
+   * Filter by customer ID.
+   */
+  customerId?: string | Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -231,6 +240,61 @@ export function queryParamProductPriceTypeFilterFromJSON(
 }
 
 /** @internal */
+export const MetricsGetQueryParamCustomerIDFilter$inboundSchema: z.ZodType<
+  MetricsGetQueryParamCustomerIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type MetricsGetQueryParamCustomerIDFilter$Outbound =
+  | string
+  | Array<string>;
+
+/** @internal */
+export const MetricsGetQueryParamCustomerIDFilter$outboundSchema: z.ZodType<
+  MetricsGetQueryParamCustomerIDFilter$Outbound,
+  z.ZodTypeDef,
+  MetricsGetQueryParamCustomerIDFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsGetQueryParamCustomerIDFilter$ {
+  /** @deprecated use `MetricsGetQueryParamCustomerIDFilter$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsGetQueryParamCustomerIDFilter$inboundSchema;
+  /** @deprecated use `MetricsGetQueryParamCustomerIDFilter$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsGetQueryParamCustomerIDFilter$outboundSchema;
+  /** @deprecated use `MetricsGetQueryParamCustomerIDFilter$Outbound` instead. */
+  export type Outbound = MetricsGetQueryParamCustomerIDFilter$Outbound;
+}
+
+export function metricsGetQueryParamCustomerIDFilterToJSON(
+  metricsGetQueryParamCustomerIDFilter: MetricsGetQueryParamCustomerIDFilter,
+): string {
+  return JSON.stringify(
+    MetricsGetQueryParamCustomerIDFilter$outboundSchema.parse(
+      metricsGetQueryParamCustomerIDFilter,
+    ),
+  );
+}
+
+export function metricsGetQueryParamCustomerIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsGetQueryParamCustomerIDFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsGetQueryParamCustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsGetQueryParamCustomerIDFilter' from JSON`,
+  );
+}
+
+/** @internal */
 export const MetricsGetRequest$inboundSchema: z.ZodType<
   MetricsGetRequest,
   z.ZodTypeDef,
@@ -248,6 +312,8 @@ export const MetricsGetRequest$inboundSchema: z.ZodType<
       z.array(components.ProductPriceType$inboundSchema),
     ]),
   ).optional(),
+  customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_date": "startDate",
@@ -255,6 +321,7 @@ export const MetricsGetRequest$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
     "product_id": "productId",
     "product_price_type": "productPriceType",
+    "customer_id": "customerId",
   });
 });
 
@@ -266,6 +333,7 @@ export type MetricsGetRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
   product_price_type?: string | Array<string> | null | undefined;
+  customer_id?: string | Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -286,6 +354,7 @@ export const MetricsGetRequest$outboundSchema: z.ZodType<
       z.array(components.ProductPriceType$outboundSchema),
     ]),
   ).optional(),
+  customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
 }).transform((v) => {
   return remap$(v, {
     startDate: "start_date",
@@ -293,6 +362,7 @@ export const MetricsGetRequest$outboundSchema: z.ZodType<
     organizationId: "organization_id",
     productId: "product_id",
     productPriceType: "product_price_type",
+    customerId: "customer_id",
   });
 });
 

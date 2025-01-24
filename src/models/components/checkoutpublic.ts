@@ -72,10 +72,7 @@ import {
   ProductPrice$outboundSchema,
 } from "./productprice.js";
 
-/**
- * Key-value object storing custom field values.
- */
-export type CheckoutPublicCustomFieldData = {};
+export type CheckoutPublicCustomFieldData = string | number | boolean | Date;
 
 export type CheckoutPublicDiscount =
   | CheckoutDiscountPercentageOnceForeverDuration
@@ -102,7 +99,9 @@ export type CheckoutPublic = {
   /**
    * Key-value object storing custom field values.
    */
-  customFieldData?: CheckoutPublicCustomFieldData | undefined;
+  customFieldData?:
+    | { [k: string]: string | number | boolean | Date }
+    | undefined;
   paymentProcessor: PaymentProcessor;
   status: CheckoutStatus;
   /**
@@ -179,7 +178,13 @@ export type CheckoutPublic = {
    */
   isPaymentFormRequired: boolean;
   customerId: string | null;
+  /**
+   * Name of the customer.
+   */
   customerName: string | null;
+  /**
+   * Email address of the customer.
+   */
   customerEmail: string | null;
   customerIpAddress: string | null;
   customerBillingAddress: Address | null;
@@ -205,17 +210,31 @@ export const CheckoutPublicCustomFieldData$inboundSchema: z.ZodType<
   CheckoutPublicCustomFieldData,
   z.ZodTypeDef,
   unknown
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.string().datetime({ offset: true }).transform(v => new Date(v)),
+]);
 
 /** @internal */
-export type CheckoutPublicCustomFieldData$Outbound = {};
+export type CheckoutPublicCustomFieldData$Outbound =
+  | string
+  | number
+  | boolean
+  | string;
 
 /** @internal */
 export const CheckoutPublicCustomFieldData$outboundSchema: z.ZodType<
   CheckoutPublicCustomFieldData$Outbound,
   z.ZodTypeDef,
   CheckoutPublicCustomFieldData
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.date().transform(v => v.toISOString()),
+]);
 
 /**
  * @internal
@@ -323,8 +342,14 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  custom_field_data: z.lazy(() => CheckoutPublicCustomFieldData$inboundSchema)
-    .optional(),
+  custom_field_data: z.record(
+    z.union([
+      z.string(),
+      z.number().int(),
+      z.boolean(),
+      z.string().datetime({ offset: true }).transform(v => new Date(v)),
+    ]),
+  ).optional(),
   payment_processor: PaymentProcessor$inboundSchema,
   status: CheckoutStatus$inboundSchema,
   client_secret: z.string(),
@@ -404,7 +429,9 @@ export type CheckoutPublic$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  custom_field_data?: CheckoutPublicCustomFieldData$Outbound | undefined;
+  custom_field_data?:
+    | { [k: string]: string | number | boolean | string }
+    | undefined;
   payment_processor: string;
   status: string;
   client_secret: string;
@@ -454,8 +481,14 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  customFieldData: z.lazy(() => CheckoutPublicCustomFieldData$outboundSchema)
-    .optional(),
+  customFieldData: z.record(
+    z.union([
+      z.string(),
+      z.number().int(),
+      z.boolean(),
+      z.date().transform(v => v.toISOString()),
+    ]),
+  ).optional(),
   paymentProcessor: PaymentProcessor$outboundSchema,
   status: CheckoutStatus$outboundSchema,
   clientSecret: z.string(),

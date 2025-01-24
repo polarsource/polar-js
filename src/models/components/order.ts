@@ -75,10 +75,7 @@ import {
 
 export type OrderMetadata = string | number | boolean;
 
-/**
- * Key-value object storing custom field values.
- */
-export type OrderCustomFieldData = {};
+export type OrderCustomFieldData = string | number | boolean | Date;
 
 export type OrderDiscount =
   | DiscountPercentageOnceForeverDurationBase
@@ -103,9 +100,20 @@ export type Order = {
   /**
    * Key-value object storing custom field values.
    */
-  customFieldData?: OrderCustomFieldData | undefined;
+  customFieldData?:
+    | { [k: string]: string | number | boolean | Date }
+    | undefined;
+  status: string;
   amount: number;
   taxAmount: number;
+  /**
+   * Amount refunded
+   */
+  refundedAmount: number;
+  /**
+   * Sales tax refunded
+   */
+  refundedTaxAmount: number;
   currency: string;
   billingReason: OrderBillingReason;
   billingAddress: Address | null;
@@ -181,17 +189,27 @@ export const OrderCustomFieldData$inboundSchema: z.ZodType<
   OrderCustomFieldData,
   z.ZodTypeDef,
   unknown
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.string().datetime({ offset: true }).transform(v => new Date(v)),
+]);
 
 /** @internal */
-export type OrderCustomFieldData$Outbound = {};
+export type OrderCustomFieldData$Outbound = string | number | boolean | string;
 
 /** @internal */
 export const OrderCustomFieldData$outboundSchema: z.ZodType<
   OrderCustomFieldData$Outbound,
   z.ZodTypeDef,
   OrderCustomFieldData
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.date().transform(v => v.toISOString()),
+]);
 
 /**
  * @internal
@@ -293,10 +311,19 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     ),
     id: z.string(),
     metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-    custom_field_data: z.lazy(() => OrderCustomFieldData$inboundSchema)
-      .optional(),
+    custom_field_data: z.record(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.string().datetime({ offset: true }).transform(v => new Date(v)),
+      ]),
+    ).optional(),
+    status: z.string(),
     amount: z.number().int(),
     tax_amount: z.number().int(),
+    refunded_amount: z.number().int(),
+    refunded_tax_amount: z.number().int(),
     currency: z.string(),
     billing_reason: OrderBillingReason$inboundSchema,
     billing_address: z.nullable(Address$inboundSchema),
@@ -326,6 +353,8 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       "modified_at": "modifiedAt",
       "custom_field_data": "customFieldData",
       "tax_amount": "taxAmount",
+      "refunded_amount": "refundedAmount",
+      "refunded_tax_amount": "refundedTaxAmount",
       "billing_reason": "billingReason",
       "billing_address": "billingAddress",
       "customer_id": "customerId",
@@ -345,9 +374,14 @@ export type Order$Outbound = {
   modified_at: string | null;
   id: string;
   metadata: { [k: string]: string | number | boolean };
-  custom_field_data?: OrderCustomFieldData$Outbound | undefined;
+  custom_field_data?:
+    | { [k: string]: string | number | boolean | string }
+    | undefined;
+  status: string;
   amount: number;
   tax_amount: number;
+  refunded_amount: number;
+  refunded_tax_amount: number;
   currency: string;
   billing_reason: string;
   billing_address: Address$Outbound | null;
@@ -381,9 +415,19 @@ export const Order$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  customFieldData: z.lazy(() => OrderCustomFieldData$outboundSchema).optional(),
+  customFieldData: z.record(
+    z.union([
+      z.string(),
+      z.number().int(),
+      z.boolean(),
+      z.date().transform(v => v.toISOString()),
+    ]),
+  ).optional(),
+  status: z.string(),
   amount: z.number().int(),
   taxAmount: z.number().int(),
+  refundedAmount: z.number().int(),
+  refundedTaxAmount: z.number().int(),
   currency: z.string(),
   billingReason: OrderBillingReason$outboundSchema,
   billingAddress: z.nullable(Address$outboundSchema),
@@ -413,6 +457,8 @@ export const Order$outboundSchema: z.ZodType<
     modifiedAt: "modified_at",
     customFieldData: "custom_field_data",
     taxAmount: "tax_amount",
+    refundedAmount: "refunded_amount",
+    refundedTaxAmount: "refunded_tax_amount",
     billingReason: "billing_reason",
     billingAddress: "billing_address",
     customerId: "customer_id",

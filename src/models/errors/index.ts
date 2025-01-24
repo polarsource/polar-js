@@ -6,6 +6,8 @@ export * from "./alreadycanceledsubscription.js";
 export * from "./httpclienterrors.js";
 export * from "./httpvalidationerror.js";
 export * from "./notpermitted.js";
+export * from "./refundamounttoohigh.js";
+export * from "./refundedalready.js";
 export * from "./resourcenotfound.js";
 export * from "./sdkerror.js";
 export * from "./sdkvalidationerror.js";

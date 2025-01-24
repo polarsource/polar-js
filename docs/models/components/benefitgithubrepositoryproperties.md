@@ -10,7 +10,7 @@ import { BenefitGitHubRepositoryProperties } from "@polar-sh/sdk/models/componen
 let value: BenefitGitHubRepositoryProperties = {
   repositoryOwner: "polarsource",
   repositoryName: "private_repo",
-  permission: "triage",
+  permission: "pull",
 };
 ```
 

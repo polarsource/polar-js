@@ -94,14 +94,14 @@ const polar = new Polar();
 async function run() {
   const result = await polar.endpointcheckoutCreatedPost({
     data: {
-      createdAt: new Date("2024-11-12T14:26:42.882Z"),
-      modifiedAt: new Date("2023-05-28T05:08:06.235Z"),
+      createdAt: new Date("2025-11-12T14:26:42.882Z"),
+      modifiedAt: new Date("2024-05-27T05:08:06.235Z"),
       id: "<value>",
       paymentProcessor: "stripe",
       status: "failed",
       clientSecret: "<value>",
       url: "https://heavy-beret.com/",
-      expiresAt: new Date("2022-02-25T02:26:48.460Z"),
+      expiresAt: new Date("2023-02-25T02:26:48.460Z"),
       successUrl: "https://sardonic-final.info/",
       embedOrigin: "<value>",
       amount: 962818,
@@ -120,47 +120,38 @@ async function run() {
       isPaymentFormRequired: false,
       customerId: "<value>",
       customerName: "<value>",
-      customerEmail: "Ryley_Erdman@hotmail.com",
+      customerEmail: "<value>",
       customerIpAddress: "<value>",
       customerBillingAddress: {
-        country: "South Africa",
+        country: "Solomon Islands",
       },
       customerTaxId: "<id>",
-      paymentProcessorMetadata: {},
+      paymentProcessorMetadata: {
+        "key": "<value>",
+        "key1": "<value>",
+        "key2": "<value>",
+      },
       metadata: {
-        "key": 18677,
-        "key1": 95370,
+        "key": "<value>",
       },
       product: {
-        createdAt: new Date("2022-04-02T00:05:42.586Z"),
-        modifiedAt: new Date("2023-12-16T03:02:38.803Z"),
+        createdAt: new Date("2024-11-17T19:11:13.132Z"),
+        modifiedAt: new Date("2024-02-27T04:46:39.621Z"),
         id: "<value>",
         name: "<value>",
-        description:
-          "for embarrassment untidy long-term near honestly separate yet",
-        isRecurring: true,
-        isArchived: false,
+        description: "border opposite overload interior shady",
+        isRecurring: false,
+        isArchived: true,
         organizationId: "<value>",
-        prices: [
-          {
-            createdAt: new Date("2025-11-19T15:59:15.588Z"),
-            modifiedAt: new Date("2023-11-17T00:11:23.972Z"),
-            id: "<value>",
-            isArchived: false,
-            productId: "<value>",
-            priceCurrency: "<value>",
-            minimumAmount: 363560,
-            maximumAmount: 75876,
-            presetAmount: 82334,
-          },
-        ],
+        prices: [],
         benefits: [
           {
-            createdAt: new Date("2023-08-22T00:47:02.059Z"),
-            modifiedAt: new Date("2023-06-04T10:32:44.101Z"),
+            createdAt: new Date("2025-08-24T18:28:03.144Z"),
+            modifiedAt: new Date("2023-10-21T11:52:11.842Z"),
             id: "<value>",
-            type: "license_keys",
-            description: "within jacket unless",
+            type: "ads",
+            description:
+              "certainly these restfully geez who countess happily gym",
             selectable: false,
             deletable: false,
             organizationId: "<value>",
@@ -171,38 +162,55 @@ async function run() {
             id: "<value>",
             organizationId: "<value>",
             name: "<value>",
-            path: "/private/var",
+            path: "/private/tmp",
             mimeType: "<value>",
-            size: 245189,
+            size: 486328,
             storageVersion: "<value>",
             checksumEtag: "<value>",
             checksumSha256Base64: "<value>",
             checksumSha256Hex: "<value>",
-            lastModifiedAt: new Date("2022-11-03T15:00:03.276Z"),
+            lastModifiedAt: new Date("2023-09-26T17:28:00.673Z"),
+            version: "<value>",
+            isUploaded: true,
+            createdAt: new Date("2025-05-06T18:54:29.001Z"),
+            sizeReadable: "<value>",
+            publicUrl: "https://forsaken-underpants.biz",
+          },
+          {
+            id: "<value>",
+            organizationId: "<value>",
+            name: "<value>",
+            path: "/Users",
+            mimeType: "<value>",
+            size: 796127,
+            storageVersion: "<value>",
+            checksumEtag: "<value>",
+            checksumSha256Base64: "<value>",
+            checksumSha256Hex: "<value>",
+            lastModifiedAt: new Date("2023-09-05T18:42:07.313Z"),
             version: "<value>",
             isUploaded: false,
-            createdAt: new Date("2024-06-07T13:47:02.365Z"),
+            createdAt: new Date("2025-10-05T11:55:07.194Z"),
             sizeReadable: "<value>",
-            publicUrl: "https://webbed-experience.name/",
+            publicUrl: "https://quick-witted-markup.org/",
           },
         ],
       },
       productPrice: {
-        createdAt: new Date("2025-02-14T09:22:19.644Z"),
-        modifiedAt: new Date("2023-12-28T20:59:29.904Z"),
+        createdAt: new Date("2025-11-19T15:59:15.588Z"),
+        modifiedAt: new Date("2023-11-17T00:11:23.972Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
         priceCurrency: "<value>",
-        minimumAmount: 417896,
-        maximumAmount: 962818,
-        presetAmount: 6400,
-        recurringInterval: "month",
+        minimumAmount: 363560,
+        maximumAmount: 75876,
+        presetAmount: 82334,
       },
       discount: {
         duration: "repeating",
-        type: "fixed",
-        basisPoints: 341163,
+        type: "percentage",
+        basisPoints: 416143,
         id: "<value>",
         name: "<value>",
         code: "<value>",
@@ -212,49 +220,8 @@ async function run() {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2023-08-19T22:18:44.316Z"),
-            modifiedAt: new Date("2024-04-28T23:39:10.699Z"),
-            id: "<value>",
-            metadata: {
-              "key": false,
-            },
-            slug: "<value>",
-            name: "<value>",
-            organizationId: "<value>",
-            properties: {
-              options: [
-                {
-                  value: "<value>",
-                  label: "<value>",
-                },
-              ],
-            },
-          },
-          order: 996863,
-          required: false,
-        },
-        {
-          customFieldId: "<value>",
-          customField: {
-            createdAt: new Date("2024-07-02T09:46:29.338Z"),
-            modifiedAt: new Date("2025-01-24T18:08:49.597Z"),
-            id: "<value>",
-            metadata: {
-              "key": false,
-            },
-            slug: "<value>",
-            name: "<value>",
-            organizationId: "<value>",
-            properties: {},
-          },
-          order: 72589,
-          required: true,
-        },
-        {
-          customFieldId: "<value>",
-          customField: {
-            createdAt: new Date("2025-07-31T13:25:31.669Z"),
-            modifiedAt: new Date("2023-11-12T09:40:10.044Z"),
+            createdAt: new Date("2024-06-03T08:42:54.736Z"),
+            modifiedAt: new Date("2025-02-14T09:22:19.644Z"),
             id: "<value>",
             metadata: {
               "key": "<value>",
@@ -264,13 +231,47 @@ async function run() {
             organizationId: "<value>",
             properties: {},
           },
-          order: 161325,
+          order: 169862,
+          required: true,
+        },
+        {
+          customFieldId: "<value>",
+          customField: {
+            createdAt: new Date("2025-11-21T05:56:48.487Z"),
+            modifiedAt: new Date("2023-01-08T00:22:16.025Z"),
+            id: "<value>",
+            metadata: {
+              "key": 648726,
+            },
+            slug: "<value>",
+            name: "<value>",
+            organizationId: "<value>",
+            properties: {},
+          },
+          order: 918364,
+          required: true,
+        },
+        {
+          customFieldId: "<value>",
+          customField: {
+            createdAt: new Date("2024-04-28T23:39:10.699Z"),
+            modifiedAt: new Date("2025-04-20T22:18:45.464Z"),
+            id: "<value>",
+            metadata: {
+              "key": 500372,
+            },
+            slug: "<value>",
+            name: "<value>",
+            organizationId: "<value>",
+            properties: {},
+          },
+          order: 187532,
           required: true,
         },
       ],
       customerMetadata: {
         "key": "<value>",
-        "key1": "<value>",
+        "key1": 790078,
       },
     },
   });
@@ -486,6 +487,11 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [update](docs/sdks/products/README.md#update) - Update Product
 * [updateBenefits](docs/sdks/products/README.md#updatebenefits) - Update Product Benefits
 
+### [refunds](docs/sdks/refunds/README.md)
+
+* [list](docs/sdks/refunds/README.md#list) - List Refunds
+* [create](docs/sdks/refunds/README.md#create) - Create Refund
+
 ### [repositories](docs/sdks/repositories/README.md)
 
 * [list](docs/sdks/repositories/README.md#list) - List Repositories
@@ -606,6 +612,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`productsList`](docs/sdks/products/README.md#list) - List Products
 - [`productsUpdate`](docs/sdks/products/README.md#update) - Update Product
 - [`productsUpdateBenefits`](docs/sdks/products/README.md#updatebenefits) - Update Product Benefits
+- [`refundsCreate`](docs/sdks/refunds/README.md#create) - Create Refund
+- [`refundsList`](docs/sdks/refunds/README.md#list) - List Refunds
 - [`repositoriesGet`](docs/sdks/repositories/README.md#get) - Get Repository
 - [`repositoriesList`](docs/sdks/repositories/README.md#list) - List Repositories
 - [`repositoriesUpdate`](docs/sdks/repositories/README.md#update) - Update Repository
@@ -639,7 +647,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({});
+  const result = await polar.externalOrganizations.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -666,7 +677,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({}, {
+  const result = await polar.externalOrganizations.list({
+    page: 1,
+    limit: 10,
+  }, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -708,7 +722,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({});
+  const result = await polar.externalOrganizations.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -747,7 +764,10 @@ const polar = new Polar({
 async function run() {
   let result;
   try {
-    result = await polar.externalOrganizations.list({});
+    result = await polar.externalOrganizations.list({
+      page: 1,
+      limit: 10,
+    });
 
     for await (const page of result) {
       // Handle the page
@@ -816,7 +836,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({});
+  const result = await polar.externalOrganizations.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -840,7 +863,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({});
+  const result = await polar.externalOrganizations.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -922,7 +948,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({});
+  const result = await polar.externalOrganizations.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page

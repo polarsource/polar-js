@@ -14,7 +14,11 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 
-export type CheckoutConfirmStripeCustomFieldData = {};
+export type CheckoutConfirmStripeCustomFieldData =
+  | string
+  | number
+  | boolean
+  | Date;
 
 /**
  * Confirm a checkout session using a Stripe confirmation token.
@@ -23,7 +27,10 @@ export type CheckoutConfirmStripe = {
   /**
    * Key-value object storing custom field values.
    */
-  customFieldData?: CheckoutConfirmStripeCustomFieldData | null | undefined;
+  customFieldData?:
+    | { [k: string]: string | number | boolean | Date }
+    | null
+    | undefined;
   /**
    * ID of the product price to checkout. Must correspond to a price linked to the same product.
    */
@@ -48,17 +55,31 @@ export const CheckoutConfirmStripeCustomFieldData$inboundSchema: z.ZodType<
   CheckoutConfirmStripeCustomFieldData,
   z.ZodTypeDef,
   unknown
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.string().datetime({ offset: true }).transform(v => new Date(v)),
+]);
 
 /** @internal */
-export type CheckoutConfirmStripeCustomFieldData$Outbound = {};
+export type CheckoutConfirmStripeCustomFieldData$Outbound =
+  | string
+  | number
+  | boolean
+  | string;
 
 /** @internal */
 export const CheckoutConfirmStripeCustomFieldData$outboundSchema: z.ZodType<
   CheckoutConfirmStripeCustomFieldData$Outbound,
   z.ZodTypeDef,
   CheckoutConfirmStripeCustomFieldData
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.date().transform(v => v.toISOString()),
+]);
 
 /**
  * @internal
@@ -103,7 +124,14 @@ export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   custom_field_data: z.nullable(
-    z.lazy(() => CheckoutConfirmStripeCustomFieldData$inboundSchema),
+    z.record(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.string().datetime({ offset: true }).transform(v => new Date(v)),
+      ]),
+    ),
   ).optional(),
   product_price_id: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
@@ -129,7 +157,7 @@ export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
 /** @internal */
 export type CheckoutConfirmStripe$Outbound = {
   custom_field_data?:
-    | CheckoutConfirmStripeCustomFieldData$Outbound
+    | { [k: string]: string | number | boolean | string }
     | null
     | undefined;
   product_price_id?: string | null | undefined;
@@ -149,7 +177,14 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
   CheckoutConfirmStripe
 > = z.object({
   customFieldData: z.nullable(
-    z.lazy(() => CheckoutConfirmStripeCustomFieldData$outboundSchema),
+    z.record(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.date().transform(v => v.toISOString()),
+      ]),
+    ),
   ).optional(),
   productPriceId: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),

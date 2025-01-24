@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-08-14T16:24:33.635Z"),
-        modifiedAt: new Date("2023-09-11T15:13:22.763Z"),
+        createdAt: new Date("2024-07-25T13:11:02.187Z"),
+        modifiedAt: new Date("2023-11-25T16:13:50.771Z"),
         id: "<value>",
         metadata: {
-          "key": 74838,
+          "key": "<value>",
         },
-        email: "Hailey_Kling91@hotmail.com",
+        email: "Allene.Marks97@yahoo.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Mali",
+          country: "Cyprus",
         },
         taxId: [
-          "<id>",
+          "ph_tin",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://monstrous-ruin.net/",
+        avatarUrl: "https://unaware-information.com/",
       },
     ],
     pagination: {
-      totalCount: 733953,
-      maxPage: 203411,
+      totalCount: 721823,
+      maxPage: 263671,
     },
   },
 };

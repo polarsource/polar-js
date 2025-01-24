@@ -1,14 +1,29 @@
 # CheckoutUpdatePublicCustomFieldData
 
-## Example Usage
+
+## Supported Types
+
+### `string`
 
 ```typescript
-import { CheckoutUpdatePublicCustomFieldData } from "@polar-sh/sdk/models/components";
-
-let value: CheckoutUpdatePublicCustomFieldData = {};
+const value: string = "<value>";
 ```
 
-## Fields
+### `number`
 
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |
+```typescript
+const value: number = 875223;
+```
+
+### `boolean`
+
+```typescript
+const value: boolean = false;
+```
+
+### `Date`
+
+```typescript
+const value: Date = new Date("2024-04-24T14:16:21.503Z");
+```
+

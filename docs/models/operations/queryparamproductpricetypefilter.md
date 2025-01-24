@@ -8,14 +8,14 @@ Filter by product price type. `recurring` will filter data corresponding to subs
 ### `components.ProductPriceType`
 
 ```typescript
-const value: components.ProductPriceType = "one_time";
+const value: components.ProductPriceType = "recurring";
 ```
 
 ### `components.ProductPriceType[]`
 
 ```typescript
 const value: components.ProductPriceType[] = [
-  "recurring",
+  "one_time",
 ];
 ```
 

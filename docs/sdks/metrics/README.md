@@ -24,8 +24,8 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.metrics.get({
-    startDate: new RFCDate("2024-02-07"),
-    endDate: new RFCDate("2022-04-09"),
+    startDate: new RFCDate("2025-02-06"),
+    endDate: new RFCDate("2024-09-04"),
     interval: "week",
   });
 
@@ -53,8 +53,8 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await metricsGet(polar, {
-    startDate: new RFCDate("2024-02-07"),
-    endDate: new RFCDate("2022-04-09"),
+    startDate: new RFCDate("2025-02-06"),
+    endDate: new RFCDate("2024-09-04"),
     interval: "week",
   });
 

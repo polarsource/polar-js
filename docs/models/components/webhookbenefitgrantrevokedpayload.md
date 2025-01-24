@@ -11,8 +11,8 @@ import { WebhookBenefitGrantRevokedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantRevokedPayload = {
   data: {
-    createdAt: new Date("2024-06-25T03:10:41.430Z"),
-    modifiedAt: new Date("2024-10-09T23:45:54.454Z"),
+    createdAt: new Date("2023-01-31T08:54:12.797Z"),
+    modifiedAt: new Date("2023-11-30T13:55:43.213Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,40 +22,37 @@ let value: WebhookBenefitGrantRevokedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2025-01-15T03:45:37.920Z"),
-      modifiedAt: new Date("2025-08-01T16:15:19.431Z"),
+      createdAt: new Date("2024-07-24T19:25:22.088Z"),
+      modifiedAt: new Date("2024-12-13T17:59:25.488Z"),
       id: "<value>",
       metadata: {
-        "key": "<value>",
+        "key": 204283,
       },
-      email: "Anais.Weber@yahoo.com",
+      email: "Nia.Stiedemann@yahoo.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Costa Rica",
+        country: "Gabon",
       },
       taxId: [
-        "my_itn",
+        "br_cpf",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://probable-cop-out.biz",
+      avatarUrl: "https://antique-gown.name",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2024-07-01T07:01:17.052Z"),
-      modifiedAt: new Date("2025-01-05T16:42:23.865Z"),
+      createdAt: new Date("2023-02-12T12:36:40.948Z"),
+      modifiedAt: new Date("2025-08-08T09:47:23.975Z"),
       id: "<value>",
-      description: "telescope woot shallow ready likely rare bog versus mmm",
+      description: "mmm cycle though",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        archived: {
-          "key": false,
-        },
-        files: [
-          "<value>",
-        ],
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "admin",
       },
     },
   },

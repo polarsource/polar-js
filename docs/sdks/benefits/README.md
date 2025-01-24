@@ -26,7 +26,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.benefits.list({});
+  const result = await polar.benefits.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -52,7 +55,10 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await benefitsList(polar, {});
+  const res = await benefitsList(polar, {
+    page: 1,
+    limit: 10,
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -429,6 +435,8 @@ const polar = new Polar({
 async function run() {
   const result = await polar.benefits.grants({
     id: "<value>",
+    page: 1,
+    limit: 10,
   });
 
   for await (const page of result) {
@@ -457,6 +465,8 @@ const polar = new PolarCore({
 async function run() {
   const res = await benefitsGrants(polar, {
     id: "<value>",
+    page: 1,
+    limit: 10,
   });
 
   if (!res.ok) {

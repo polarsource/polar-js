@@ -16,10 +16,11 @@ import {
 
 export type CheckoutProductCreateMetadata = string | number | boolean;
 
-/**
- * Key-value object storing custom field values.
- */
-export type CheckoutProductCreateCustomFieldData = {};
+export type CheckoutProductCreateCustomFieldData =
+  | string
+  | number
+  | boolean
+  | Date;
 
 export type CheckoutProductCreateCustomerMetadata = string | number | boolean;
 
@@ -50,7 +51,9 @@ export type CheckoutProductCreate = {
   /**
    * Key-value object storing custom field values.
    */
-  customFieldData?: CheckoutProductCreateCustomFieldData | undefined;
+  customFieldData?:
+    | { [k: string]: string | number | boolean | Date }
+    | undefined;
   /**
    * ID of the discount to apply to the checkout.
    */
@@ -157,17 +160,31 @@ export const CheckoutProductCreateCustomFieldData$inboundSchema: z.ZodType<
   CheckoutProductCreateCustomFieldData,
   z.ZodTypeDef,
   unknown
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.string().datetime({ offset: true }).transform(v => new Date(v)),
+]);
 
 /** @internal */
-export type CheckoutProductCreateCustomFieldData$Outbound = {};
+export type CheckoutProductCreateCustomFieldData$Outbound =
+  | string
+  | number
+  | boolean
+  | string;
 
 /** @internal */
 export const CheckoutProductCreateCustomFieldData$outboundSchema: z.ZodType<
   CheckoutProductCreateCustomFieldData$Outbound,
   z.ZodTypeDef,
   CheckoutProductCreateCustomFieldData
-> = z.object({});
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.boolean(),
+  z.date().transform(v => v.toISOString()),
+]);
 
 /**
  * @internal
@@ -269,8 +286,13 @@ export const CheckoutProductCreate$inboundSchema: z.ZodType<
 > = z.object({
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
     .optional(),
-  custom_field_data: z.lazy(() =>
-    CheckoutProductCreateCustomFieldData$inboundSchema
+  custom_field_data: z.record(
+    z.union([
+      z.string(),
+      z.number().int(),
+      z.boolean(),
+      z.string().datetime({ offset: true }).transform(v => new Date(v)),
+    ]),
   ).optional(),
   discount_id: z.nullable(z.string()).optional(),
   allow_discount_codes: z.boolean().default(true),
@@ -310,7 +332,9 @@ export const CheckoutProductCreate$inboundSchema: z.ZodType<
 /** @internal */
 export type CheckoutProductCreate$Outbound = {
   metadata?: { [k: string]: string | number | boolean } | undefined;
-  custom_field_data?: CheckoutProductCreateCustomFieldData$Outbound | undefined;
+  custom_field_data?:
+    | { [k: string]: string | number | boolean | string }
+    | undefined;
   discount_id?: string | null | undefined;
   allow_discount_codes: boolean;
   amount?: number | null | undefined;
@@ -335,8 +359,13 @@ export const CheckoutProductCreate$outboundSchema: z.ZodType<
 > = z.object({
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
     .optional(),
-  customFieldData: z.lazy(() =>
-    CheckoutProductCreateCustomFieldData$outboundSchema
+  customFieldData: z.record(
+    z.union([
+      z.string(),
+      z.number().int(),
+      z.boolean(),
+      z.date().transform(v => v.toISOString()),
+    ]),
   ).optional(),
   discountId: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.boolean().default(true),

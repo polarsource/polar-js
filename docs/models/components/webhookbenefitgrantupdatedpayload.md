@@ -11,8 +11,8 @@ import { WebhookBenefitGrantUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantUpdatedPayload = {
   data: {
-    createdAt: new Date("2025-11-20T21:55:24.201Z"),
-    modifiedAt: new Date("2024-08-28T21:26:21.279Z"),
+    createdAt: new Date("2025-05-02T02:33:58.780Z"),
+    modifiedAt: new Date("2024-08-02T04:04:19.829Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,34 +22,38 @@ let value: WebhookBenefitGrantUpdatedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2024-04-18T03:44:37.000Z"),
-      modifiedAt: new Date("2025-11-07T20:33:08.048Z"),
+      createdAt: new Date("2023-08-02T13:20:36.630Z"),
+      modifiedAt: new Date("2025-06-11T08:28:20.086Z"),
       id: "<value>",
       metadata: {
         "key": "<value>",
       },
-      email: "Ezra.Runolfsson87@gmail.com",
+      email: "Allison.Osinski@yahoo.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Lao People's Democratic Republic",
+        country: "Tunisia",
       },
       taxId: [
-        "do_rcn",
+        "<id>",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://far-jazz.biz/",
+      avatarUrl: "https://courteous-duffel.net/",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2023-01-16T15:27:04.636Z"),
-      modifiedAt: new Date("2025-08-19T20:43:23.096Z"),
+      createdAt: new Date("2023-03-27T21:45:07.077Z"),
+      modifiedAt: new Date("2023-08-10T13:13:59.220Z"),
       id: "<value>",
-      description: "baa highlight aw",
+      description: "bewail whose masterpiece why rarely splurge electrify",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
-      properties: {},
+      properties: {
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "pull",
+      },
     },
   },
 };

@@ -26,6 +26,10 @@ export type Metrics = {
   /**
    * Information about a metric.
    */
+  cumulativeRevenue: Metric;
+  /**
+   * Information about a metric.
+   */
   averageOrderValue: Metric;
   /**
    * Information about a metric.
@@ -66,6 +70,7 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
   z.object({
     orders: Metric$inboundSchema,
     revenue: Metric$inboundSchema,
+    cumulative_revenue: Metric$inboundSchema,
     average_order_value: Metric$inboundSchema,
     one_time_products: Metric$inboundSchema,
     one_time_products_revenue: Metric$inboundSchema,
@@ -77,6 +82,7 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
     monthly_recurring_revenue: Metric$inboundSchema,
   }).transform((v) => {
     return remap$(v, {
+      "cumulative_revenue": "cumulativeRevenue",
       "average_order_value": "averageOrderValue",
       "one_time_products": "oneTimeProducts",
       "one_time_products_revenue": "oneTimeProductsRevenue",
@@ -93,6 +99,7 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
 export type Metrics$Outbound = {
   orders: Metric$Outbound;
   revenue: Metric$Outbound;
+  cumulative_revenue: Metric$Outbound;
   average_order_value: Metric$Outbound;
   one_time_products: Metric$Outbound;
   one_time_products_revenue: Metric$Outbound;
@@ -112,6 +119,7 @@ export const Metrics$outboundSchema: z.ZodType<
 > = z.object({
   orders: Metric$outboundSchema,
   revenue: Metric$outboundSchema,
+  cumulativeRevenue: Metric$outboundSchema,
   averageOrderValue: Metric$outboundSchema,
   oneTimeProducts: Metric$outboundSchema,
   oneTimeProductsRevenue: Metric$outboundSchema,
@@ -123,6 +131,7 @@ export const Metrics$outboundSchema: z.ZodType<
   monthlyRecurringRevenue: Metric$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
+    cumulativeRevenue: "cumulative_revenue",
     averageOrderValue: "average_order_value",
     oneTimeProducts: "one_time_products",
     oneTimeProductsRevenue: "one_time_products_revenue",

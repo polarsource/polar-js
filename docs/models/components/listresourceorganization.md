@@ -8,28 +8,28 @@ import { ListResourceOrganization } from "@polar-sh/sdk/models/components";
 let value: ListResourceOrganization = {
   items: [
     {
-      createdAt: new Date("2023-12-04T11:57:18.685Z"),
-      modifiedAt: new Date("2023-02-20T16:46:58.778Z"),
+      createdAt: new Date("2025-10-10T06:09:21.767Z"),
+      modifiedAt: new Date("2025-01-08T03:33:41.666Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://emotional-pressure.biz/",
+      avatarUrl: "https://sudden-hepatitis.net/",
       bio: "<value>",
-      company: "Smitham - Beier",
+      company: "Weissnat Group",
       blog: "<value>",
       location: "<value>",
-      email: "Tobin.Macejkovic@hotmail.com",
+      email: "Clemmie.Feil69@gmail.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 278273,
+      pledgeMinimumAmount: 235453,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 1469,
+      defaultUpfrontSplitToContributors: 197388,
       profileSettings: {},
       featureSettings: {},
     },
   ],
   pagination: {
-    totalCount: 482868,
-    maxPage: 894109,
+    totalCount: 398687,
+    maxPage: 958594,
   },
 };
 ```

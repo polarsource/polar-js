@@ -15,6 +15,7 @@ export type MetricPeriod = {
   timestamp: Date;
   orders: number;
   revenue: number;
+  cumulativeRevenue: number;
   averageOrderValue: number;
   oneTimeProducts: number;
   oneTimeProductsRevenue: number;
@@ -35,6 +36,7 @@ export const MetricPeriod$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   orders: z.number().int(),
   revenue: z.number().int(),
+  cumulative_revenue: z.number().int(),
   average_order_value: z.number().int(),
   one_time_products: z.number().int(),
   one_time_products_revenue: z.number().int(),
@@ -46,6 +48,7 @@ export const MetricPeriod$inboundSchema: z.ZodType<
   monthly_recurring_revenue: z.number().int(),
 }).transform((v) => {
   return remap$(v, {
+    "cumulative_revenue": "cumulativeRevenue",
     "average_order_value": "averageOrderValue",
     "one_time_products": "oneTimeProducts",
     "one_time_products_revenue": "oneTimeProductsRevenue",
@@ -63,6 +66,7 @@ export type MetricPeriod$Outbound = {
   timestamp: string;
   orders: number;
   revenue: number;
+  cumulative_revenue: number;
   average_order_value: number;
   one_time_products: number;
   one_time_products_revenue: number;
@@ -83,6 +87,7 @@ export const MetricPeriod$outboundSchema: z.ZodType<
   timestamp: z.date().transform(v => v.toISOString()),
   orders: z.number().int(),
   revenue: z.number().int(),
+  cumulativeRevenue: z.number().int(),
   averageOrderValue: z.number().int(),
   oneTimeProducts: z.number().int(),
   oneTimeProductsRevenue: z.number().int(),
@@ -94,6 +99,7 @@ export const MetricPeriod$outboundSchema: z.ZodType<
   monthlyRecurringRevenue: z.number().int(),
 }).transform((v) => {
   return remap$(v, {
+    cumulativeRevenue: "cumulative_revenue",
     averageOrderValue: "average_order_value",
     oneTimeProducts: "one_time_products",
     oneTimeProductsRevenue: "one_time_products_revenue",

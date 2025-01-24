@@ -5,7 +5,7 @@
 ```typescript
 import { CustomerBenefitGrantSortProperty } from "@polar-sh/sdk/models/components";
 
-let value: CustomerBenefitGrantSortProperty = "-type";
+let value: CustomerBenefitGrantSortProperty = "organization";
 ```
 
 ## Values

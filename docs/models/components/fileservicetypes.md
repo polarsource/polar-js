@@ -5,7 +5,7 @@
 ```typescript
 import { FileServiceTypes } from "@polar-sh/sdk/models/components";
 
-let value: FileServiceTypes = "downloadable";
+let value: FileServiceTypes = "product_media";
 ```
 
 ## Values

@@ -25,7 +25,10 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.oauth2.clients.list({});
+  const result = await polar.oauth2.clients.list({
+    page: 1,
+    limit: 10,
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -51,7 +54,10 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await oauth2ClientsList(polar, {});
+  const res = await oauth2ClientsList(polar, {
+    page: 1,
+    limit: 10,
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -104,8 +110,10 @@ const polar = new Polar({
 async function run() {
   const result = await polar.oauth2.clients.create({
     redirectUris: [
-
+      "https://inferior-chainstay.com",
     ],
+    tokenEndpointAuthMethod: "client_secret_post",
+    scope: "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read refunds:read refunds:write metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
     clientName: "<value>",
   });
 
@@ -133,8 +141,10 @@ const polar = new PolarCore({
 async function run() {
   const res = await oauth2ClientsCreate(polar, {
     redirectUris: [
-  
+      "https://inferior-chainstay.com",
     ],
+    tokenEndpointAuthMethod: "client_secret_post",
+    scope: "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read refunds:read refunds:write metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
     clientName: "<value>",
   });
 
@@ -186,7 +196,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.oauth2.clients.get({
-    clientId: "<value>",
+    clientId: "<id>",
   });
 
   // Handle the result
@@ -212,7 +222,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await oauth2ClientsGet(polar, {
-    clientId: "<value>",
+    clientId: "<id>",
   });
 
   if (!res.ok) {
@@ -263,13 +273,17 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.oauth2.clients.update({
-    clientId: "<value>",
+    clientId: "<id>",
     oAuth2ClientConfigurationUpdate: {
       redirectUris: [
-
+        "https://grown-worth.name",
+        "https://worthwhile-avalanche.org/",
+        "https://general-digit.com/",
       ],
+      tokenEndpointAuthMethod: "client_secret_post",
+      scope: "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read refunds:read refunds:write metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
       clientName: "<value>",
-      clientId: "<value>",
+      clientId: "<id>",
     },
   });
 
@@ -296,13 +310,17 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await oauth2ClientsUpdate(polar, {
-    clientId: "<value>",
+    clientId: "<id>",
     oAuth2ClientConfigurationUpdate: {
       redirectUris: [
-  
+        "https://grown-worth.name",
+        "https://worthwhile-avalanche.org/",
+        "https://general-digit.com/",
       ],
+      tokenEndpointAuthMethod: "client_secret_post",
+      scope: "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read refunds:read refunds:write metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
       clientName: "<value>",
-      clientId: "<value>",
+      clientId: "<id>",
     },
   });
 
@@ -354,7 +372,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.oauth2.clients.delete({
-    clientId: "<value>",
+    clientId: "<id>",
   });
 
   // Handle the result
@@ -380,7 +398,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await oauth2ClientsDelete(polar, {
-    clientId: "<value>",
+    clientId: "<id>",
   });
 
   if (!res.ok) {

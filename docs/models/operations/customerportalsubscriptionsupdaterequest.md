@@ -15,5 +15,5 @@ let value: CustomerPortalSubscriptionsUpdateRequest = {
 
 | Field                                   | Type                                    | Required                                | Description                             |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| `id`                                    | *string*                                | :heavy_check_mark:                      | Customer subscription ID.               |
+| `id`                                    | *string*                                | :heavy_check_mark:                      | The subscription ID.                    |
 | `customerSubscriptionUpdate`            | *components.CustomerSubscriptionUpdate* | :heavy_check_mark:                      | N/A                                     |

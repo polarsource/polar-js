@@ -77,6 +77,7 @@ export * from "./productsget.js";
 export * from "./productslist.js";
 export * from "./productsupdate.js";
 export * from "./productsupdatebenefits.js";
+export * from "./refundslist.js";
 export * from "./repositoriesget.js";
 export * from "./repositorieslist.js";
 export * from "./repositoriesupdate.js";

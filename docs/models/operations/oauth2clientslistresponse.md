@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://unsung-monocle.info/",
+          "https://educated-cassava.com",
         ],
         clientName: "<value>",
-        createdAt: new Date("2023-08-05T15:41:47.092Z"),
-        modifiedAt: new Date("2025-09-27T13:25:44.103Z"),
+        createdAt: new Date("2025-07-16T02:55:22.729Z"),
+        modifiedAt: new Date("2023-10-11T06:26:54.883Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 204810,
-        clientSecretExpiresAt: 65329,
+        clientIdIssuedAt: 617665,
+        clientSecretExpiresAt: 354461,
       },
     ],
     pagination: {
-      totalCount: 630536,
-      maxPage: 277094,
+      totalCount: 440396,
+      maxPage: 855174,
     },
   },
 };

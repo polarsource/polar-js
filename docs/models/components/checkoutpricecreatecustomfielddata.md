@@ -1,16 +1,29 @@
 # CheckoutPriceCreateCustomFieldData
 
-Key-value object storing custom field values.
 
-## Example Usage
+## Supported Types
+
+### `string`
 
 ```typescript
-import { CheckoutPriceCreateCustomFieldData } from "@polar-sh/sdk/models/components";
-
-let value: CheckoutPriceCreateCustomFieldData = {};
+const value: string = "<value>";
 ```
 
-## Fields
+### `number`
 
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |
+```typescript
+const value: number = 766089;
+```
+
+### `boolean`
+
+```typescript
+const value: boolean = false;
+```
+
+### `Date`
+
+```typescript
+const value: Date = new Date("2025-02-21T18:03:33.984Z");
+```
+

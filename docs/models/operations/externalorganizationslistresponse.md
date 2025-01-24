@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "30c5c2a0-90bc-4653-ad7c-9224d5eab407",
+        id: "222879f9-343c-471d-b69f-98ee7aa4290d",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://well-groomed-packaging.org/",
+        avatarUrl: "https://velvety-vein.info",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Langosh, Cruickshank and O'Conner",
+        company: "Wiza, Stehr and O'Keefe",
         blog: "<value>",
         location: "<value>",
-        email: "Gust.Kunde@gmail.com",
+        email: "Nash12@yahoo.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 451749,
-      maxPage: 63815,
+      totalCount: 394467,
+      maxPage: 951520,
     },
   },
 };
