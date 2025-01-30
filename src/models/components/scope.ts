@@ -26,6 +26,8 @@ export const Scope = {
   ProductsWrite: "products:write",
   BenefitsRead: "benefits:read",
   BenefitsWrite: "benefits:write",
+  EventsRead: "events:read",
+  EventsWrite: "events:write",
   FilesRead: "files:read",
   FilesWrite: "files:write",
   SubscriptionsRead: "subscriptions:read",

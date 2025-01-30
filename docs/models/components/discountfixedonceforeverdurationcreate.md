@@ -8,9 +8,9 @@ Schema to create a fixed amount discount that is applied once or forever.
 import { DiscountFixedOnceForeverDurationCreate } from "@polar-sh/sdk/models/components/discountfixedonceforeverdurationcreate.js";
 
 let value: DiscountFixedOnceForeverDurationCreate = {
-  duration: "once",
+  duration: "forever",
   type: "percentage",
-  amount: 507331,
+  amount: 610598,
   name: "<value>",
 };
 ```

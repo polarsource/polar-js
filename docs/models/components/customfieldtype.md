@@ -5,7 +5,7 @@
 ```typescript
 import { CustomFieldType } from "@polar-sh/sdk/models/components/customfieldtype.js";
 
-let value: CustomFieldType = "date";
+let value: CustomFieldType = "select";
 ```
 
 ## Values

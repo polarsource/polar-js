@@ -11,23 +11,28 @@ import { WebhookOrganizationUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookOrganizationUpdatedPayload = {
   data: {
-    createdAt: new Date("2025-07-05T16:31:28.816Z"),
-    modifiedAt: new Date("2024-05-11T02:12:06.108Z"),
+    createdAt: new Date("2025-01-12T05:08:56.049Z"),
+    modifiedAt: new Date("2023-06-06T06:43:30.345Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://crushing-numeric.biz/",
+    avatarUrl: "https://rare-tapioca.name/",
     bio: "<value>",
-    company: "Nicolas - Bartoletti",
+    company: "Krajcik - Orn",
     blog: "<value>",
     location: "<value>",
-    email: "Carmelo.Ruecker@gmail.com",
+    email: "Moshe_Ledner@gmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 140083,
+    pledgeMinimumAmount: 894165,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 746936,
+    defaultUpfrontSplitToContributors: 704152,
     profileSettings: {},
     featureSettings: {},
+    subscriptionSettings: {
+      allowMultipleSubscriptions: false,
+      allowCustomerUpdates: false,
+      prorationBehavior: "prorate",
+    },
   },
 };
 ```

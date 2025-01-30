@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2023-04-12T22:50:54.198Z"),
-    modifiedAt: new Date("2023-06-20T08:26:29.394Z"),
+    createdAt: new Date("2023-02-08T12:10:47.638Z"),
+    modifiedAt: new Date("2025-07-10T00:34:37.878Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://damp-alligator.net/",
-    logoUri: "https://alienated-fencing.name",
-    tosUri: "https://decent-bathhouse.com/",
-    policyUri: "https://precious-doubter.biz",
+    clientUri: "https://hot-blowgun.org/",
+    logoUri: "https://unaware-colonialism.biz/",
+    tosUri: "https://corny-charm.org/",
+    policyUri: "https://heavenly-developmental.org/",
   },
   sub: {
     id: "<value>",
-    email: "Javon.Pagac@yahoo.com",
-    avatarUrl: "https://querulous-fencing.name",
+    email: "Ewell.Veum@yahoo.com",
+    avatarUrl: "https://definite-nightlife.info/",
   },
   scopes: [
-    "admin",
+    "organizations:read",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2025-07-17T08:39:28.965Z"),
-    modifiedAt: new Date("2025-11-09T20:22:05.742Z"),
+    createdAt: new Date("2024-09-21T14:30:07.308Z"),
+    modifiedAt: new Date("2025-01-01T06:51:40.408Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://assured-sticker.org",
-    logoUri: "https://self-reliant-availability.net/",
-    tosUri: "https://wide-eyed-hovel.info",
-    policyUri: "https://menacing-singing.org/",
+    clientUri: "https://faint-legend.info",
+    logoUri: "https://long-middle.name",
+    tosUri: "https://unlined-willow.biz",
+    policyUri: "https://kooky-premise.net/",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://realistic-operating.name/",
+    avatarUrl: "https://monumental-innovation.net/",
   },
   scopes: [
-    "webhooks:read",
+    "events:write",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://celebrated-programme.net",
+      avatarUrl: "https://superb-plastic.info",
     },
   ],
 };

@@ -3,12 +3,14 @@
  */
 
 import { subscriptionsExport } from "../funcs/subscriptionsExport.js";
+import { subscriptionsGet } from "../funcs/subscriptionsGet.js";
 import { subscriptionsList } from "../funcs/subscriptionsList.js";
 import { subscriptionsRevoke } from "../funcs/subscriptionsRevoke.js";
 import { subscriptionsUpdate } from "../funcs/subscriptionsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { Subscription } from "../models/components/subscription.js";
 import { SubscriptionsExportRequest } from "../models/operations/subscriptionsexport.js";
+import { SubscriptionsGetRequest } from "../models/operations/subscriptionsget.js";
 import {
   SubscriptionsListRequest,
   SubscriptionsListResponse,
@@ -47,6 +49,23 @@ export class Subscriptions extends ClientSDK {
     options?: RequestOptions,
   ): Promise<any> {
     return unwrapAsync(subscriptionsExport(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Subscription
+   *
+   * @remarks
+   * Get a subscription by ID.
+   */
+  async get(
+    request: SubscriptionsGetRequest,
+    options?: RequestOptions,
+  ): Promise<Subscription> {
+    return unwrapAsync(subscriptionsGet(
       this,
       request,
       options,

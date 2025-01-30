@@ -7,7 +7,7 @@ import { BenefitDownloadablesCreate } from "@polar-sh/sdk/models/components/bene
 
 let value: BenefitDownloadablesCreate = {
   description:
-    "overconfidently punctually anneal although amongst supposing elastic",
+    "pomelo hourly boldly stabilise midwife whereas incidentally great",
   properties: {
     files: [
       "<value>",

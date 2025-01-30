@@ -8,31 +8,31 @@ A customer session that can be used to authenticate as a customer.
 import { CustomerSession } from "@polar-sh/sdk/models/components/customersession.js";
 
 let value: CustomerSession = {
-  createdAt: new Date("2025-01-18T07:26:54.119Z"),
-  modifiedAt: new Date("2023-05-12T18:42:21.049Z"),
+  createdAt: new Date("2025-10-04T02:51:01.618Z"),
+  modifiedAt: new Date("2025-06-15T05:16:58.669Z"),
   id: "<value>",
   token: "<value>",
-  expiresAt: new Date("2024-02-29T05:46:31.262Z"),
-  customerPortalUrl: "https://exotic-viability.com/",
+  expiresAt: new Date("2023-09-02T16:34:40.356Z"),
+  customerPortalUrl: "https://svelte-pecan.biz/",
   customerId: "<value>",
   customer: {
-    createdAt: new Date("2024-08-26T14:28:00.674Z"),
-    modifiedAt: new Date("2024-11-28T11:57:24.137Z"),
+    createdAt: new Date("2025-08-10T13:22:12.445Z"),
+    modifiedAt: new Date("2025-09-17T22:21:07.335Z"),
     id: "<value>",
     metadata: {
-      "key": 243014,
+      "key": 984631,
     },
-    email: "Cecilia42@hotmail.com",
+    email: "Ryan.Wilderman9@yahoo.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Monaco",
+      country: "New Caledonia",
     },
     taxId: [
-      "do_rcn",
+      "au_arn",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://blushing-density.info",
+    avatarUrl: "https://spiffy-lift.info/",
   },
 };
 ```

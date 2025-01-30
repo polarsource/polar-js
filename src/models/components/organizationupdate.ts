@@ -19,6 +19,12 @@ import {
   OrganizationProfileSettings$Outbound,
   OrganizationProfileSettings$outboundSchema,
 } from "./organizationprofilesettings.js";
+import {
+  OrganizationSubscriptionSettings,
+  OrganizationSubscriptionSettings$inboundSchema,
+  OrganizationSubscriptionSettings$Outbound,
+  OrganizationSubscriptionSettings$outboundSchema,
+} from "./organizationsubscriptionsettings.js";
 
 export type OrganizationUpdate = {
   name?: string | null | undefined;
@@ -32,6 +38,7 @@ export type OrganizationUpdate = {
   perUserMonthlySpendingLimit?: number | null | undefined;
   profileSettings?: OrganizationProfileSettings | null | undefined;
   featureSettings?: OrganizationFeatureSettings | null | undefined;
+  subscriptionSettings?: OrganizationSubscriptionSettings | null | undefined;
 };
 
 /** @internal */
@@ -54,6 +61,9 @@ export const OrganizationUpdate$inboundSchema: z.ZodType<
     .optional(),
   feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema)
     .optional(),
+  subscription_settings: z.nullable(
+    OrganizationSubscriptionSettings$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "avatar_url": "avatarUrl",
@@ -67,6 +77,7 @@ export const OrganizationUpdate$inboundSchema: z.ZodType<
     "per_user_monthly_spending_limit": "perUserMonthlySpendingLimit",
     "profile_settings": "profileSettings",
     "feature_settings": "featureSettings",
+    "subscription_settings": "subscriptionSettings",
   });
 });
 
@@ -83,6 +94,10 @@ export type OrganizationUpdate$Outbound = {
   per_user_monthly_spending_limit?: number | null | undefined;
   profile_settings?: OrganizationProfileSettings$Outbound | null | undefined;
   feature_settings?: OrganizationFeatureSettings$Outbound | null | undefined;
+  subscription_settings?:
+    | OrganizationSubscriptionSettings$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -104,6 +119,9 @@ export const OrganizationUpdate$outboundSchema: z.ZodType<
     .optional(),
   featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema)
     .optional(),
+  subscriptionSettings: z.nullable(
+    OrganizationSubscriptionSettings$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     avatarUrl: "avatar_url",
@@ -116,6 +134,7 @@ export const OrganizationUpdate$outboundSchema: z.ZodType<
     perUserMonthlySpendingLimit: "per_user_monthly_spending_limit",
     profileSettings: "profile_settings",
     featureSettings: "feature_settings",
+    subscriptionSettings: "subscription_settings",
   });
 });
 

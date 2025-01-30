@@ -10,8 +10,8 @@ let value: LicenseKeyActivationBase = {
   licenseKeyId: "<value>",
   label: "<value>",
   meta: {},
-  createdAt: new Date("2025-04-09T16:36:06.881Z"),
-  modifiedAt: new Date("2023-03-10T18:18:16.044Z"),
+  createdAt: new Date("2024-12-02T14:44:34.345Z"),
+  modifiedAt: new Date("2024-08-12T03:13:38.266Z"),
 };
 ```
 

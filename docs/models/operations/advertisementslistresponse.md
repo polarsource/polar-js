@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-09-27T18:33:14.332Z"),
-        modifiedAt: new Date("2023-02-03T22:19:42.582Z"),
+        createdAt: new Date("2023-05-04T10:00:03.073Z"),
+        modifiedAt: new Date("2023-07-10T04:52:57.046Z"),
         id: "<value>",
-        imageUrl: "https://celebrated-haircut.info/",
-        imageUrlDark: "https://sorrowful-follower.info/",
+        imageUrl: "https://defensive-accompanist.biz/",
+        imageUrlDark: "https://yellow-handover.org",
         text: "<value>",
-        linkUrl: "https://foolish-help.info/",
+        linkUrl: "https://warped-affect.com/",
       },
     ],
     pagination: {
-      totalCount: 515170,
-      maxPage: 708899,
+      totalCount: 362069,
+      maxPage: 875316,
     },
     dimensions: [
-      111771,
+      566925,
     ],
   },
 };

@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "222879f9-343c-471d-b69f-98ee7aa4290d",
+        id: "21545138-f664-48da-bffd-0c9bf3585d80",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://velvety-vein.info",
+        avatarUrl: "https://ripe-lamp.name",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Wiza, Stehr and O'Keefe",
+        company: "Kiehn, Price and Stokes",
         blog: "<value>",
         location: "<value>",
-        email: "Nash12@yahoo.com",
+        email: "Kristian_Zemlak18@gmail.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 394467,
-      maxPage: 951520,
+      totalCount: 453638,
+      maxPage: 19151,
     },
   },
 };

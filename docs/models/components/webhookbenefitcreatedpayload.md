@@ -11,19 +11,17 @@ import { WebhookBenefitCreatedPayload } from "@polar-sh/sdk/models/components/we
 
 let value: WebhookBenefitCreatedPayload = {
   data: {
-    createdAt: new Date("2025-08-22T02:08:23.621Z"),
-    modifiedAt: new Date("2023-02-11T18:35:59.936Z"),
+    createdAt: new Date("2024-09-19T18:25:13.476Z"),
+    modifiedAt: new Date("2023-12-22T03:37:10.516Z"),
     id: "<value>",
-    description:
-      "fooey meanwhile ravage likely tapioca phew strict pointless whoever",
+    description: "wearily empty idolized after phooey preside because midwife",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      guildId: "<id>",
-      roleId: "<id>",
-      guildToken: "<value>",
+      note: "<value>",
     },
+    isTaxApplicable: false,
   },
 };
 ```
