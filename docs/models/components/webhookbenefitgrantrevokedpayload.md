@@ -11,8 +11,8 @@ import { WebhookBenefitGrantRevokedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantRevokedPayload = {
   data: {
-    createdAt: new Date("2023-01-31T08:54:12.797Z"),
-    modifiedAt: new Date("2023-11-30T13:55:43.213Z"),
+    createdAt: new Date("2025-03-23T13:46:19.980Z"),
+    modifiedAt: new Date("2023-06-21T20:48:34.925Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,38 +22,37 @@ let value: WebhookBenefitGrantRevokedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2024-07-24T19:25:22.088Z"),
-      modifiedAt: new Date("2024-12-13T17:59:25.488Z"),
+      createdAt: new Date("2024-08-07T21:56:49.330Z"),
+      modifiedAt: new Date("2024-06-25T03:10:41.430Z"),
       id: "<value>",
       metadata: {
-        "key": 204283,
+        "key": 679888,
       },
-      email: "Nia.Stiedemann@yahoo.com",
+      email: "Darby_Beer@hotmail.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Gabon",
+        country: "Vietnam",
       },
       taxId: [
-        "br_cpf",
+        "ca_qst",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://antique-gown.name",
+      avatarUrl: "https://profitable-piglet.name",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2023-02-12T12:36:40.948Z"),
-      modifiedAt: new Date("2025-08-08T09:47:23.975Z"),
+      createdAt: new Date("2023-09-22T15:26:38.721Z"),
+      modifiedAt: new Date("2025-03-14T08:40:19.035Z"),
       id: "<value>",
-      description: "mmm cycle though",
+      description: "creative yieldingly hidden probe emphasise signature",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        repositoryOwner: "polarsource",
-        repositoryName: "private_repo",
-        permission: "admin",
+        note: "<value>",
       },
+      isTaxApplicable: false,
     },
   },
 };

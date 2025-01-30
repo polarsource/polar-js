@@ -6,7 +6,7 @@
 import { BenefitAdsCreate } from "@polar-sh/sdk/models/components/benefitadscreate.js";
 
 let value: BenefitAdsCreate = {
-  description: "oxygenate forenenst uproot",
+  description: "instead carelessly quicker ew",
   properties: {},
 };
 ```

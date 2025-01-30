@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components/benefitgrantwebhook.js";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2023-12-10T02:20:53.161Z"),
-  modifiedAt: new Date("2025-10-09T21:09:28.886Z"),
+  createdAt: new Date("2023-03-27T21:45:07.077Z"),
+  modifiedAt: new Date("2023-08-10T13:13:59.220Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,41 +17,34 @@ let value: BenefitGrantWebhook = {
   userId: "<value>",
   benefitId: "<value>",
   customer: {
-    createdAt: new Date("2025-11-17T19:14:12.440Z"),
-    modifiedAt: new Date("2023-04-19T07:38:24.051Z"),
+    createdAt: new Date("2024-11-09T13:55:58.405Z"),
+    modifiedAt: new Date("2023-04-18T13:26:30.410Z"),
     id: "<value>",
     metadata: {
       "key": false,
     },
-    email: "Lonie_Goodwin49@yahoo.com",
+    email: "Dustin.Pacocha67@yahoo.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Macao",
+      country: "Turks and Caicos Islands",
     },
     taxId: [
-      "th_vat",
+      "<id>",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://moral-insolence.biz",
+    avatarUrl: "https://excitable-typeface.biz",
   },
   properties: {},
   benefit: {
-    createdAt: new Date("2025-08-04T11:28:23.616Z"),
-    modifiedAt: new Date("2023-09-05T15:15:22.959Z"),
+    createdAt: new Date("2024-06-09T09:24:09.197Z"),
+    modifiedAt: new Date("2024-10-29T06:49:47.105Z"),
     id: "<value>",
-    description: "ew malfunction supplier",
+    description: "since woot drat baa gift matter despite generously polyester",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
-    properties: {
-      archived: {
-        "key": false,
-      },
-      files: [
-        "<value>",
-      ],
-    },
+    properties: {},
   },
 };
 ```

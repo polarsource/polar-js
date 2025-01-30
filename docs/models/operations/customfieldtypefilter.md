@@ -8,7 +8,7 @@ Filter by custom field type.
 ### `components.CustomFieldType`
 
 ```typescript
-const value: components.CustomFieldType = "text";
+const value: components.CustomFieldType = "number";
 ```
 
 ### `components.CustomFieldType[]`

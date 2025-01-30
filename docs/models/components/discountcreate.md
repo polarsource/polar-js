@@ -8,8 +8,8 @@
 ```typescript
 const value: components.DiscountFixedOnceForeverDurationCreate = {
   duration: "repeating",
-  type: "fixed",
-  amount: 200931,
+  type: "percentage",
+  amount: 5162,
   name: "<value>",
 };
 ```
@@ -19,9 +19,9 @@ const value: components.DiscountFixedOnceForeverDurationCreate = {
 ```typescript
 const value: components.DiscountFixedRepeatDurationCreate = {
   duration: "forever",
-  durationInMonths: 531209,
+  durationInMonths: 29745,
   type: "percentage",
-  amount: 5736,
+  amount: 240039,
   name: "<value>",
 };
 ```
@@ -30,9 +30,9 @@ const value: components.DiscountFixedRepeatDurationCreate = {
 
 ```typescript
 const value: components.DiscountPercentageOnceForeverDurationCreate = {
-  duration: "repeating",
-  type: "percentage",
-  basisPoints: 939645,
+  duration: "once",
+  type: "fixed",
+  basisPoints: 867773,
   name: "<value>",
 };
 ```
@@ -41,10 +41,10 @@ const value: components.DiscountPercentageOnceForeverDurationCreate = {
 
 ```typescript
 const value: components.DiscountPercentageRepeatDurationCreate = {
-  duration: "repeating",
-  durationInMonths: 366259,
+  duration: "once",
+  durationInMonths: 742122,
   type: "percentage",
-  basisPoints: 369720,
+  basisPoints: 862722,
   name: "<value>",
 };
 ```

@@ -19,6 +19,12 @@ import {
   OrganizationProfileSettings$Outbound,
   OrganizationProfileSettings$outboundSchema,
 } from "./organizationprofilesettings.js";
+import {
+  OrganizationSubscriptionSettings,
+  OrganizationSubscriptionSettings$inboundSchema,
+  OrganizationSubscriptionSettings$Outbound,
+  OrganizationSubscriptionSettings$outboundSchema,
+} from "./organizationsubscriptionsettings.js";
 
 export type Organization = {
   /**
@@ -53,6 +59,7 @@ export type Organization = {
    * Settings for the organization features
    */
   featureSettings: OrganizationFeatureSettings | null;
+  subscriptionSettings: OrganizationSubscriptionSettings;
 };
 
 /** @internal */
@@ -80,6 +87,7 @@ export const Organization$inboundSchema: z.ZodType<
   default_upfront_split_to_contributors: z.nullable(z.number().int()),
   profile_settings: z.nullable(OrganizationProfileSettings$inboundSchema),
   feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema),
+  subscription_settings: OrganizationSubscriptionSettings$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -92,6 +100,7 @@ export const Organization$inboundSchema: z.ZodType<
       "defaultUpfrontSplitToContributors",
     "profile_settings": "profileSettings",
     "feature_settings": "featureSettings",
+    "subscription_settings": "subscriptionSettings",
   });
 });
 
@@ -114,6 +123,7 @@ export type Organization$Outbound = {
   default_upfront_split_to_contributors: number | null;
   profile_settings: OrganizationProfileSettings$Outbound | null;
   feature_settings: OrganizationFeatureSettings$Outbound | null;
+  subscription_settings: OrganizationSubscriptionSettings$Outbound;
 };
 
 /** @internal */
@@ -139,6 +149,7 @@ export const Organization$outboundSchema: z.ZodType<
   defaultUpfrontSplitToContributors: z.nullable(z.number().int()),
   profileSettings: z.nullable(OrganizationProfileSettings$outboundSchema),
   featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema),
+  subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -150,6 +161,7 @@ export const Organization$outboundSchema: z.ZodType<
     defaultUpfrontSplitToContributors: "default_upfront_split_to_contributors",
     profileSettings: "profile_settings",
     featureSettings: "feature_settings",
+    subscriptionSettings: "subscription_settings",
   });
 });
 

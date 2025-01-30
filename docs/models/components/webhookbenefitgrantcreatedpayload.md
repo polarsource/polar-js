@@ -11,8 +11,8 @@ import { WebhookBenefitGrantCreatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantCreatedPayload = {
   data: {
-    createdAt: new Date("2025-05-21T11:56:40.869Z"),
-    modifiedAt: new Date("2023-11-30T15:26:27.741Z"),
+    createdAt: new Date("2023-01-27T04:21:32.515Z"),
+    modifiedAt: new Date("2024-07-31T01:27:54.563Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,44 +22,37 @@ let value: WebhookBenefitGrantCreatedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2024-01-25T14:14:38.916Z"),
-      modifiedAt: new Date("2023-08-10T04:34:18.047Z"),
+      createdAt: new Date("2025-07-18T04:39:34.513Z"),
+      modifiedAt: new Date("2025-08-20T17:57:58.889Z"),
       id: "<value>",
       metadata: {
-        "key": 409843,
+        "key": false,
       },
-      email: "Deborah32@gmail.com",
+      email: "Jamison_Streich86@yahoo.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Mayotte",
+        country: "Bermuda",
       },
       taxId: [
-        "us_ein",
+        "tw_vat",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://uneven-minority.info/",
+      avatarUrl: "https://motionless-pantyhose.com",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2024-09-11T12:12:50.008Z"),
-      modifiedAt: new Date("2023-10-03T21:04:24.953Z"),
+      createdAt: new Date("2025-08-23T07:44:41.190Z"),
+      modifiedAt: new Date("2024-06-14T14:48:41.077Z"),
       id: "<value>",
-      description: "during arrange faithfully individual gadzooks lonely hm",
+      description: "yowza how yowza even chiffonier mould atop",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        prefix: "<value>",
-        expires: {
-          ttl: 587817,
-          timeframe: "month",
-        },
-        activations: {
-          limit: 329503,
-          enableCustomerAdmin: false,
-        },
-        limitUsage: 265973,
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "maintain",
       },
     },
   },

@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-07-25T13:11:02.187Z"),
-        modifiedAt: new Date("2023-11-25T16:13:50.771Z"),
+        createdAt: new Date("2025-08-25T00:50:34.161Z"),
+        modifiedAt: new Date("2023-04-08T15:48:04.523Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": false,
         },
-        email: "Allene.Marks97@yahoo.com",
+        email: "Merl_Hoeger@gmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Cyprus",
+          country: "Congo",
         },
         taxId: [
-          "ph_tin",
+          "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://unaware-information.com/",
+        avatarUrl: "https://tangible-fishery.org",
       },
     ],
     pagination: {
-      totalCount: 721823,
-      maxPage: 263671,
+      totalCount: 946912,
+      maxPage: 712252,
     },
   },
 };

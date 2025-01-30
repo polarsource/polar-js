@@ -11,7 +11,7 @@ const value:
     clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",
-    redirectUri: "https://gleaming-countess.com/",
+    redirectUri: "https://lighthearted-venom.info/",
   };
 ```
 

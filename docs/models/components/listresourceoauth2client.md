@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://colossal-sanity.biz",
+        "https://meager-unblinking.biz",
       ],
       clientName: "<value>",
-      createdAt: new Date("2025-03-14T06:20:25.850Z"),
-      modifiedAt: new Date("2024-03-19T14:44:48.293Z"),
+      createdAt: new Date("2025-07-22T16:47:45.821Z"),
+      modifiedAt: new Date("2023-07-10T22:43:26.452Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 747629,
-      clientSecretExpiresAt: 900339,
+      clientIdIssuedAt: 261955,
+      clientSecretExpiresAt: 204898,
     },
   ],
   pagination: {
-    totalCount: 596143,
-    maxPage: 163928,
+    totalCount: 885320,
+    maxPage: 793526,
   },
 };
 ```

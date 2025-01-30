@@ -505,6 +505,7 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 * [list](docs/sdks/subscriptions/README.md#list) - List Subscriptions
 * [export](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
+* [get](docs/sdks/subscriptions/README.md#get) - Get Subscription
 * [update](docs/sdks/subscriptions/README.md#update) - Update Subscription
 * [revoke](docs/sdks/subscriptions/README.md#revoke) - Revoke Subscription
 
@@ -621,6 +622,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`repositoriesList`](docs/sdks/repositories/README.md#list) - List Repositories
 - [`repositoriesUpdate`](docs/sdks/repositories/README.md#update) - Update Repository
 - [`subscriptionsExport`](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
+- [`subscriptionsGet`](docs/sdks/subscriptions/README.md#get) - Get Subscription
 - [`subscriptionsList`](docs/sdks/subscriptions/README.md#list) - List Subscriptions
 - [`subscriptionsRevoke`](docs/sdks/subscriptions/README.md#revoke) - Revoke Subscription
 - [`subscriptionsUpdate`](docs/sdks/subscriptions/README.md#update) - Update Subscription

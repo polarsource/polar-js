@@ -13,12 +13,19 @@ import {
   OrganizationFeatureSettings$Outbound,
   OrganizationFeatureSettings$outboundSchema,
 } from "./organizationfeaturesettings.js";
+import {
+  OrganizationSubscriptionSettings,
+  OrganizationSubscriptionSettings$inboundSchema,
+  OrganizationSubscriptionSettings$Outbound,
+  OrganizationSubscriptionSettings$outboundSchema,
+} from "./organizationsubscriptionsettings.js";
 
 export type OrganizationCreate = {
   name: string;
   slug: string;
   avatarUrl?: string | null | undefined;
   featureSettings?: OrganizationFeatureSettings | null | undefined;
+  subscriptionSettings?: OrganizationSubscriptionSettings | null | undefined;
 };
 
 /** @internal */
@@ -32,10 +39,14 @@ export const OrganizationCreate$inboundSchema: z.ZodType<
   avatar_url: z.nullable(z.string()).optional(),
   feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema)
     .optional(),
+  subscription_settings: z.nullable(
+    OrganizationSubscriptionSettings$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "avatar_url": "avatarUrl",
     "feature_settings": "featureSettings",
+    "subscription_settings": "subscriptionSettings",
   });
 });
 
@@ -45,6 +56,10 @@ export type OrganizationCreate$Outbound = {
   slug: string;
   avatar_url?: string | null | undefined;
   feature_settings?: OrganizationFeatureSettings$Outbound | null | undefined;
+  subscription_settings?:
+    | OrganizationSubscriptionSettings$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -58,10 +73,14 @@ export const OrganizationCreate$outboundSchema: z.ZodType<
   avatarUrl: z.nullable(z.string()).optional(),
   featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema)
     .optional(),
+  subscriptionSettings: z.nullable(
+    OrganizationSubscriptionSettings$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     avatarUrl: "avatar_url",
     featureSettings: "feature_settings",
+    subscriptionSettings: "subscription_settings",
   });
 });
 

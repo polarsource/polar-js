@@ -138,8 +138,8 @@ export async function customerPortalDownloadablesGet(
   >(
     M.json(200, z.any().optional()),
     M.nil(302, z.any().optional()),
-    M.fail([400, 404, 410, "4XX"]),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
+    M.fail([400, 404, 410, "4XX"]),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {

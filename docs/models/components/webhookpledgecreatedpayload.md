@@ -71,6 +71,11 @@ let value: WebhookPledgeCreatedPayload = {
           defaultUpfrontSplitToContributors: 52571,
           profileSettings: {},
           featureSettings: {},
+          subscriptionSettings: {
+            allowMultipleSubscriptions: false,
+            allowCustomerUpdates: false,
+            prorationBehavior: "prorate",
+          },
         },
       },
       pledgeBadgeCurrentlyEmbedded: false,

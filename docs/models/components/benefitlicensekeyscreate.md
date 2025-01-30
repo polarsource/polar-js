@@ -6,8 +6,7 @@
 import { BenefitLicenseKeysCreate } from "@polar-sh/sdk/models/components/benefitlicensekeyscreate.js";
 
 let value: BenefitLicenseKeysCreate = {
-  description:
-    "furthermore pulse notwithstanding incidentally interestingly gape notwithstanding onto fortunately per",
+  description: "amidst lid if at sport optimal",
   properties: {},
 };
 ```

@@ -6,23 +6,23 @@
 import { LicenseKeyCustomer } from "@polar-sh/sdk/models/components/licensekeycustomer.js";
 
 let value: LicenseKeyCustomer = {
-  createdAt: new Date("2025-01-25T16:20:59.036Z"),
-  modifiedAt: new Date("2025-02-16T21:44:50.548Z"),
+  createdAt: new Date("2024-11-05T16:01:51.588Z"),
+  modifiedAt: new Date("2025-04-14T18:31:45.123Z"),
   id: "<value>",
   metadata: {
-    "key": 39686,
+    "key": false,
   },
-  email: "Unique_Farrell@yahoo.com",
+  email: "Tamia.Schoen50@gmail.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Qatar",
+    country: "Suriname",
   },
   taxId: [
     "<id>",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://rough-forage.name",
+  avatarUrl: "https://inferior-asset.info",
 };
 ```
 

@@ -8,28 +8,28 @@ import { ListResourceCustomer } from "@polar-sh/sdk/models/components/listresour
 let value: ListResourceCustomer = {
   items: [
     {
-      createdAt: new Date("2023-05-07T03:52:19.100Z"),
-      modifiedAt: new Date("2025-10-02T20:36:49.150Z"),
+      createdAt: new Date("2024-03-27T22:50:15.785Z"),
+      modifiedAt: new Date("2023-04-13T11:45:19.275Z"),
       id: "<value>",
       metadata: {
         "key": false,
       },
-      email: "Rod.Rath@gmail.com",
+      email: "Manley.Ankunding@gmail.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Mauritius",
+        country: "Montserrat",
       },
       taxId: [
-        "ca_pst_sk",
+        "<id>",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://functional-chiffonier.name",
+      avatarUrl: "https://minty-circumference.info/",
     },
   ],
   pagination: {
-    totalCount: 524410,
-    maxPage: 291533,
+    totalCount: 886518,
+    maxPage: 575198,
   },
 };
 ```

@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-02-20T19:17:02.763Z"),
-        modifiedAt: new Date("2024-10-22T04:57:04.113Z"),
+        createdAt: new Date("2023-11-04T01:43:26.070Z"),
+        modifiedAt: new Date("2025-10-21T04:47:53.381Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -20,30 +20,30 @@ let value: BenefitsGrantsResponse = {
         userId: "<value>",
         benefitId: "<value>",
         customer: {
-          createdAt: new Date("2024-02-03T21:16:09.204Z"),
-          modifiedAt: new Date("2023-09-07T18:14:29.053Z"),
+          createdAt: new Date("2024-08-25T12:31:12.659Z"),
+          modifiedAt: new Date("2023-09-13T01:01:31.367Z"),
           id: "<value>",
           metadata: {
-            "key": false,
+            "key": 500943,
           },
-          email: "Grayce.Goyette@hotmail.com",
+          email: "Alexis.Robel@gmail.com",
           emailVerified: false,
           name: "<value>",
           billingAddress: {
-            country: "Bosnia and Herzegovina",
+            country: "Saint Lucia",
           },
           taxId: [
-            "<id>",
+            "ru_inn",
           ],
           organizationId: "<value>",
-          avatarUrl: "https://darling-complication.com/",
+          avatarUrl: "https://close-antelope.info/",
         },
         properties: {},
       },
     ],
     pagination: {
-      totalCount: 565691,
-      maxPage: 992192,
+      totalCount: 737905,
+      maxPage: 451768,
     },
   },
 };

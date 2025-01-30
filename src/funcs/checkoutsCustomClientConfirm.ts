@@ -15,6 +15,10 @@ import {
   CheckoutPublicConfirmed$inboundSchema,
 } from "../models/components/checkoutpublicconfirmed.js";
 import {
+  AlreadyActiveSubscriptionError,
+  AlreadyActiveSubscriptionError$inboundSchema,
+} from "../models/errors/alreadyactivesubscriptionerror.js";
+import {
   ConnectionError,
   InvalidRequestError,
   RequestAbortedError,
@@ -52,6 +56,7 @@ export async function checkoutsCustomClientConfirm(
 ): Promise<
   Result<
     CheckoutPublicConfirmed,
+    | AlreadyActiveSubscriptionError
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -125,7 +130,7 @@ export async function checkoutsCustomClientConfirm(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["404", "422", "4XX", "5XX"],
+    errorCodes: ["403", "404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -140,6 +145,7 @@ export async function checkoutsCustomClientConfirm(
 
   const [result] = await M.match<
     CheckoutPublicConfirmed,
+    | AlreadyActiveSubscriptionError
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -151,6 +157,7 @@ export async function checkoutsCustomClientConfirm(
     | ConnectionError
   >(
     M.json(200, CheckoutPublicConfirmed$inboundSchema),
+    M.jsonErr(403, AlreadyActiveSubscriptionError$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
