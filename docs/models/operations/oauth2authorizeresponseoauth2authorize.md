@@ -10,19 +10,19 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2023-02-08T12:10:47.638Z"),
-    modifiedAt: new Date("2025-07-10T00:34:37.878Z"),
+    createdAt: new Date("2025-03-29T05:10:24.186Z"),
+    modifiedAt: new Date("2023-08-10T10:42:10.674Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://hot-blowgun.org/",
-    logoUri: "https://unaware-colonialism.biz/",
-    tosUri: "https://corny-charm.org/",
-    policyUri: "https://heavenly-developmental.org/",
+    clientUri: "https://punctual-discourse.com/",
+    logoUri: "https://peaceful-passport.name/",
+    tosUri: "https://guilty-godfather.biz/",
+    policyUri: "https://lavish-cellar.com/",
   },
   sub: {
     id: "<value>",
-    email: "Ewell.Veum@yahoo.com",
-    avatarUrl: "https://definite-nightlife.info/",
+    email: "Alyson_Rohan49@yahoo.com",
+    avatarUrl: "https://courageous-tray.net",
   },
   scopes: [
     "organizations:read",
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2024-09-21T14:30:07.308Z"),
-    modifiedAt: new Date("2025-01-01T06:51:40.408Z"),
+    createdAt: new Date("2023-04-18T01:10:45.728Z"),
+    modifiedAt: new Date("2025-10-12T04:57:23.597Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://faint-legend.info",
-    logoUri: "https://long-middle.name",
-    tosUri: "https://unlined-willow.biz",
-    policyUri: "https://kooky-premise.net/",
+    clientUri: "https://failing-commodity.net",
+    logoUri: "https://far-fowl.info",
+    tosUri: "https://fatal-mathematics.net/",
+    policyUri: "https://flowery-trick.name/",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://monumental-innovation.net/",
+    avatarUrl: "https://grumpy-knickers.com/",
   },
   scopes: [
-    "events:write",
+    "profile",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://superb-plastic.info",
+      avatarUrl: "https://sick-instruction.org",
     },
   ],
 };

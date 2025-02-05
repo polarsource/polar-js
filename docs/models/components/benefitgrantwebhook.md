@@ -44,7 +44,10 @@ let value: BenefitGrantWebhook = {
     selectable: false,
     deletable: false,
     organizationId: "<value>",
-    properties: {},
+    properties: {
+      imageHeight: 400,
+      imageWidth: 400,
+    },
   },
 };
 ```

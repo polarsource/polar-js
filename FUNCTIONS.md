@@ -30,10 +30,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await externalOrganizationsList(polar, {
-    page: 1,
-    limit: 10,
-  });
+  const res = await externalOrganizationsList(polar, {});
 
   switch (true) {
     case res.ok:

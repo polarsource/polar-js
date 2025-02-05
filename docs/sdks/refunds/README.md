@@ -22,10 +22,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.refunds.list({
-    page: 1,
-    limit: 10,
-  });
+  const result = await polar.refunds.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -51,10 +48,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await refundsList(polar, {
-    page: 1,
-    limit: 10,
-  });
+  const res = await refundsList(polar, {});
 
   if (!res.ok) {
     throw res.error;
@@ -109,7 +103,6 @@ async function run() {
     orderId: "<value>",
     reason: "customer_request",
     amount: 638424,
-    revokeBenefits: false,
   });
 
   // Handle the result
@@ -138,7 +131,6 @@ async function run() {
     orderId: "<value>",
     reason: "customer_request",
     amount: 638424,
-    revokeBenefits: false,
   });
 
   if (!res.ok) {

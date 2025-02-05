@@ -27,10 +27,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.checkouts.custom.list({
-    page: 1,
-    limit: 10,
-  });
+  const result = await polar.checkouts.custom.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -56,10 +53,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await checkoutsCustomList(polar, {
-    page: 1,
-    limit: 10,
-  });
+  const res = await checkoutsCustomList(polar, {});
 
   if (!res.ok) {
     throw res.error;

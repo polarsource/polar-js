@@ -25,10 +25,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.oauth2.clients.list({
-    page: 1,
-    limit: 10,
-  });
+  const result = await polar.oauth2.clients.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -54,10 +51,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await oauth2ClientsList(polar, {
-    page: 1,
-    limit: 10,
-  });
+  const res = await oauth2ClientsList(polar, {});
 
   if (!res.ok) {
     throw res.error;
@@ -112,8 +106,6 @@ async function run() {
     redirectUris: [
       "https://inferior-chainstay.com",
     ],
-    tokenEndpointAuthMethod: "client_secret_post",
-    scope: "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read refunds:read refunds:write metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
     clientName: "<value>",
   });
 
@@ -143,8 +135,6 @@ async function run() {
     redirectUris: [
       "https://inferior-chainstay.com",
     ],
-    tokenEndpointAuthMethod: "client_secret_post",
-    scope: "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read refunds:read refunds:write metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
     clientName: "<value>",
   });
 
@@ -280,8 +270,6 @@ async function run() {
         "https://worthwhile-avalanche.org/",
         "https://general-digit.com/",
       ],
-      tokenEndpointAuthMethod: "client_secret_post",
-      scope: "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read refunds:read refunds:write metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
       clientName: "<value>",
       clientId: "<id>",
     },
@@ -317,8 +305,6 @@ async function run() {
         "https://worthwhile-avalanche.org/",
         "https://general-digit.com/",
       ],
-      tokenEndpointAuthMethod: "client_secret_post",
-      scope: "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read refunds:read refunds:write metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write",
       clientName: "<value>",
       clientId: "<id>",
     },

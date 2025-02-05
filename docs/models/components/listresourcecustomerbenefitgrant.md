@@ -64,7 +64,9 @@ let value: ListResourceCustomerBenefitGrant = {
           pledgeBadgeShowAmount: false,
           defaultUpfrontSplitToContributors: 82393,
           profileSettings: {},
-          featureSettings: {},
+          featureSettings: {
+            issueFundingEnabled: false,
+          },
           subscriptionSettings: {
             allowMultipleSubscriptions: false,
             allowCustomerUpdates: false,

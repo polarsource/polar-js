@@ -9,21 +9,21 @@ let value: OrganizationsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-01-14T14:36:00.166Z"),
-        modifiedAt: new Date("2024-02-13T05:07:31.431Z"),
+        createdAt: new Date("2024-01-18T10:27:53.946Z"),
+        modifiedAt: new Date("2024-03-13T11:39:05.439Z"),
         id: "<value>",
         name: "<value>",
         slug: "<value>",
-        avatarUrl: "https://lavish-markup.org",
+        avatarUrl: "https://foolish-help.info/",
         bio: "<value>",
-        company: "Mertz - Pagac",
+        company: "Quitzon Group",
         blog: "<value>",
         location: "<value>",
-        email: "Kyleigh_Grant@gmail.com",
+        email: "Carleton82@gmail.com",
         twitterUsername: "<value>",
-        pledgeMinimumAmount: 728871,
+        pledgeMinimumAmount: 23823,
         pledgeBadgeShowAmount: false,
-        defaultUpfrontSplitToContributors: 440191,
+        defaultUpfrontSplitToContributors: 325000,
         profileSettings: {},
         featureSettings: {},
         subscriptionSettings: {
@@ -34,8 +34,8 @@ let value: OrganizationsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 474816,
-      maxPage: 53613,
+      totalCount: 153222,
+      maxPage: 171654,
     },
   },
 };

@@ -22,7 +22,7 @@ let value: AuthorizeResponseOrganization = {
     avatarUrl: "https://dark-nerve.org/",
   },
   scopes: [
-    "benefits:read",
+    "benefits:write",
   ],
   organizations: [
     {

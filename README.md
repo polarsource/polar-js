@@ -428,6 +428,12 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [update](docs/sdks/discounts/README.md#update) - Update Discount
 * [delete](docs/sdks/discounts/README.md#delete) - Delete Discount
 
+### [events](docs/sdks/events/README.md)
+
+* [list](docs/sdks/events/README.md#list) - List Events
+* [get](docs/sdks/events/README.md#get) - Get Event
+* [ingest](docs/sdks/events/README.md#ingest) - Ingest Events
+
 ### [externalOrganizations](docs/sdks/externalorganizations/README.md)
 
 * [list](docs/sdks/externalorganizations/README.md#list) - List External Organizations
@@ -446,6 +452,15 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [get](docs/sdks/licensekeys/README.md#get) - Get License Key
 * [update](docs/sdks/licensekeys/README.md#update) - Update License Key
 * [getActivation](docs/sdks/licensekeys/README.md#getactivation) - Get Activation
+
+### [meters](docs/sdks/meters/README.md)
+
+* [list](docs/sdks/meters/README.md#list) - List Meters
+* [create](docs/sdks/meters/README.md#create) - Create Meter
+* [get](docs/sdks/meters/README.md#get) - Get Meter
+* [update](docs/sdks/meters/README.md#update) - Update Meter
+* [events](docs/sdks/meters/README.md#events) - Get Meter Events
+* [quantities](docs/sdks/meters/README.md#quantities) - Get Meter Quantities
 
 ### [metrics](docs/sdks/metrics/README.md)
 
@@ -582,6 +597,9 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`discountsGet`](docs/sdks/discounts/README.md#get) - Get Discount
 - [`discountsList`](docs/sdks/discounts/README.md#list) - List Discounts
 - [`discountsUpdate`](docs/sdks/discounts/README.md#update) - Update Discount
+- [`eventsGet`](docs/sdks/events/README.md#get) - Get Event
+- [`eventsIngest`](docs/sdks/events/README.md#ingest) - Ingest Events
+- [`eventsList`](docs/sdks/events/README.md#list) - List Events
 - [`externalOrganizationsList`](docs/sdks/externalorganizations/README.md#list) - List External Organizations
 - [`filesCreate`](docs/sdks/files/README.md#create) - Create File
 - [`filesDelete`](docs/sdks/files/README.md#delete) - Delete File
@@ -592,6 +610,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`licenseKeysGetActivation`](docs/sdks/licensekeys/README.md#getactivation) - Get Activation
 - [`licenseKeysList`](docs/sdks/licensekeys/README.md#list) - List License Keys
 - [`licenseKeysUpdate`](docs/sdks/licensekeys/README.md#update) - Update License Key
+- [`metersCreate`](docs/sdks/meters/README.md#create) - Create Meter
+- [`metersEvents`](docs/sdks/meters/README.md#events) - Get Meter Events
+- [`metersGet`](docs/sdks/meters/README.md#get) - Get Meter
+- [`metersList`](docs/sdks/meters/README.md#list) - List Meters
+- [`metersQuantities`](docs/sdks/meters/README.md#quantities) - Get Meter Quantities
+- [`metersUpdate`](docs/sdks/meters/README.md#update) - Update Meter
 - [`metricsGet`](docs/sdks/metrics/README.md#get) - Get Metrics
 - [`metricsLimits`](docs/sdks/metrics/README.md#limits) - Get Metrics Limits
 - [`oauth2Authorize`](docs/sdks/oauth2/README.md#authorize) - Authorize
@@ -652,10 +676,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    page: 1,
-    limit: 10,
-  });
+  const result = await polar.externalOrganizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -682,10 +703,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    page: 1,
-    limit: 10,
-  }, {
+  const result = await polar.externalOrganizations.list({}, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -727,10 +745,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    page: 1,
-    limit: 10,
-  });
+  const result = await polar.externalOrganizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -767,10 +782,7 @@ const polar = new Polar({
 async function run() {
   let result;
   try {
-    result = await polar.externalOrganizations.list({
-      page: 1,
-      limit: 10,
-    });
+    result = await polar.externalOrganizations.list({});
 
     for await (const page of result) {
       // Handle the page
@@ -839,10 +851,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    page: 1,
-    limit: 10,
-  });
+  const result = await polar.externalOrganizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -866,10 +875,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    page: 1,
-    limit: 10,
-  });
+  const result = await polar.externalOrganizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -951,10 +957,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    page: 1,
-    limit: 10,
-  });
+  const result = await polar.externalOrganizations.list({});
 
   for await (const page of result) {
     // Handle the page

@@ -23,10 +23,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.repositories.list({
-    page: 1,
-    limit: 10,
-  });
+  const result = await polar.repositories.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -52,10 +49,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await repositoriesList(polar, {
-    page: 1,
-    limit: 10,
-  });
+  const res = await repositoriesList(polar, {});
 
   if (!res.ok) {
     throw res.error;

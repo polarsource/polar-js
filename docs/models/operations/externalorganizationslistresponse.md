@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "21545138-f664-48da-bffd-0c9bf3585d80",
+        id: "d727515f-ef91-4323-8e36-10fc62f68144",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://ripe-lamp.name",
+        avatarUrl: "https://diligent-alliance.org",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Kiehn, Price and Stokes",
+        company: "Reichert, Spinka and Crist",
         blog: "<value>",
         location: "<value>",
-        email: "Kristian_Zemlak18@gmail.com",
+        email: "Salvatore_Hand@gmail.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 453638,
-      maxPage: 19151,
+      totalCount: 95287,
+      maxPage: 365272,
     },
   },
 };

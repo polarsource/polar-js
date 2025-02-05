@@ -9,19 +9,22 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-05-01T12:37:32.096Z"),
-        modifiedAt: new Date("2024-07-08T00:24:34.770Z"),
+        createdAt: new Date("2025-07-11T04:58:53.619Z"),
+        modifiedAt: new Date("2024-05-22T08:02:04.970Z"),
         id: "<value>",
-        description: "collaborate pfft nor",
+        description: "proofread schlep hotfoot",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
-        properties: {},
+        properties: {
+          note: "<value>",
+        },
+        isTaxApplicable: false,
       },
     ],
     pagination: {
-      totalCount: 262400,
-      maxPage: 558907,
+      totalCount: 173996,
+      maxPage: 670567,
     },
   },
 };
