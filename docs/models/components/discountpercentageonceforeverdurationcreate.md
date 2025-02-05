@@ -8,9 +8,9 @@ Schema to create a percentage discount that is applied once or forever.
 import { DiscountPercentageOnceForeverDurationCreate } from "@polar-sh/sdk/models/components/discountpercentageonceforeverdurationcreate.js";
 
 let value: DiscountPercentageOnceForeverDurationCreate = {
-  duration: "repeating",
+  duration: "forever",
   type: "fixed",
-  basisPoints: 371996,
+  basisPoints: 294050,
   name: "<value>",
 };
 ```

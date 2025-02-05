@@ -9,31 +9,32 @@ let value: DiscountsListResponse = {
   result: {
     items: [
       {
-        duration: "forever",
-        durationInMonths: 432668,
-        type: "fixed",
-        amount: 524576,
-        currency: "Saint Helena Pound",
-        createdAt: new Date("2025-04-27T00:34:32.428Z"),
-        modifiedAt: new Date("2025-03-15T09:53:44.348Z"),
+        duration: "repeating",
+        durationInMonths: 53999,
+        type: "percentage",
+        amount: 365539,
+        currency: "CFA Franc BEAC",
+        createdAt: new Date("2023-11-14T14:51:03.070Z"),
+        modifiedAt: new Date("2025-11-27T23:06:00.390Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": false,
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2023-03-22T05:40:31.125Z"),
-        endsAt: new Date("2023-07-05T06:38:06.989Z"),
-        maxRedemptions: 9914,
-        redemptionsCount: 755787,
+        startsAt: new Date("2023-08-20T01:03:14.805Z"),
+        endsAt: new Date("2025-09-10T04:35:18.843Z"),
+        maxRedemptions: 310675,
+        redemptionsCount: 442312,
         organizationId: "<value>",
         products: [
           {
-            createdAt: new Date("2023-08-13T04:54:32.640Z"),
-            modifiedAt: new Date("2024-04-22T05:47:56.110Z"),
+            createdAt: new Date("2024-04-20T12:22:07.487Z"),
+            modifiedAt: new Date("2023-06-28T21:12:27.512Z"),
             id: "<value>",
             name: "<value>",
-            description: "with vice mount",
+            description:
+              "properly emphasise outdo meh victoriously scared descendant",
             isRecurring: false,
             isArchived: false,
             organizationId: "<value>",
@@ -42,8 +43,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 200628,
-      maxPage: 638376,
+      totalCount: 436394,
+      maxPage: 29070,
     },
   },
 };

@@ -6,7 +6,7 @@
 import { Filter } from "@polar-sh/sdk/models/components/filter.js";
 
 let value: Filter = {
-  conjunction: "or",
+  conjunction: "and",
   clauses: [],
 };
 ```

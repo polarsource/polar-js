@@ -11,9 +11,9 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  CheckoutLegacy,
-  CheckoutLegacy$inboundSchema,
-} from "../models/components/checkoutlegacy.js";
+  Checkout,
+  Checkout$inboundSchema,
+} from "../models/components/checkout.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -25,6 +25,10 @@ import {
   HTTPValidationError,
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
@@ -34,12 +38,10 @@ import {
 import { Result } from "../types/fp.js";
 
 /**
- * Get Checkout
+ * Get Checkout Session
  *
  * @remarks
- * Get an active checkout session by ID.
- *
- * @deprecated method: This API is deprecated. We recommend you to use the new custom checkout API, which is more flexible and powerful. Please refer to the documentation for more information..
+ * Get a checkout session by ID.
  */
 export async function checkoutsGet(
   client: PolarCore,
@@ -47,7 +49,8 @@ export async function checkoutsGet(
   options?: RequestOptions,
 ): Promise<
   Result<
-    CheckoutLegacy,
+    Checkout,
+    | ResourceNotFound
     | HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -115,7 +118,7 @@ export async function checkoutsGet(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["422", "4XX", "5XX"],
+    errorCodes: ["404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -129,7 +132,8 @@ export async function checkoutsGet(
   };
 
   const [result] = await M.match<
-    CheckoutLegacy,
+    Checkout,
+    | ResourceNotFound
     | HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -139,7 +143,8 @@ export async function checkoutsGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, CheckoutLegacy$inboundSchema),
+    M.json(200, Checkout$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

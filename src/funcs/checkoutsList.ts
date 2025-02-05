@@ -25,11 +25,11 @@ import {
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
-  CheckoutsCustomListRequest,
-  CheckoutsCustomListRequest$outboundSchema,
-  CheckoutsCustomListResponse,
-  CheckoutsCustomListResponse$inboundSchema,
-} from "../models/operations/checkoutscustomlist.js";
+  CheckoutsListRequest,
+  CheckoutsListRequest$outboundSchema,
+  CheckoutsListResponse,
+  CheckoutsListResponse$inboundSchema,
+} from "../models/operations/checkoutslist.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -44,14 +44,14 @@ import {
  * @remarks
  * List checkout sessions.
  */
-export async function checkoutsCustomList(
+export async function checkoutsList(
   client: PolarCore,
-  request: CheckoutsCustomListRequest,
+  request: CheckoutsListRequest,
   options?: RequestOptions,
 ): Promise<
   PageIterator<
     Result<
-      CheckoutsCustomListResponse,
+      CheckoutsListResponse,
       | HTTPValidationError
       | SDKError
       | SDKValidationError
@@ -66,7 +66,7 @@ export async function checkoutsCustomList(
 > {
   const parsed = safeParse(
     request,
-    (value) => CheckoutsCustomListRequest$outboundSchema.parse(value),
+    (value) => CheckoutsListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -75,7 +75,7 @@ export async function checkoutsCustomList(
   const payload = parsed.value;
   const body = null;
 
-  const path = pathToFunc("/v1/checkouts/custom/")();
+  const path = pathToFunc("/v1/checkouts/")();
 
   const query = encodeFormQuery({
     "limit": payload.limit,
@@ -94,7 +94,7 @@ export async function checkoutsCustomList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
-    operationID: "checkouts:custom:list",
+    operationID: "checkouts:list",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -137,7 +137,7 @@ export async function checkoutsCustomList(
   };
 
   const [result, raw] = await M.match<
-    CheckoutsCustomListResponse,
+    CheckoutsListResponse,
     | HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -147,7 +147,7 @@ export async function checkoutsCustomList(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, CheckoutsCustomListResponse$inboundSchema, { key: "Result" }),
+    M.json(200, CheckoutsListResponse$inboundSchema, { key: "Result" }),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
@@ -161,7 +161,7 @@ export async function checkoutsCustomList(
   ): {
     next: Paginator<
       Result<
-        CheckoutsCustomListResponse,
+        CheckoutsListResponse,
         | HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -194,7 +194,7 @@ export async function checkoutsCustomList(
     }
 
     const nextVal = () =>
-      checkoutsCustomList(
+      checkoutsList(
         client,
         {
           ...request,

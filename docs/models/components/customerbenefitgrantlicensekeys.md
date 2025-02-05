@@ -6,11 +6,11 @@
 import { CustomerBenefitGrantLicenseKeys } from "@polar-sh/sdk/models/components/customerbenefitgrantlicensekeys.js";
 
 let value: CustomerBenefitGrantLicenseKeys = {
-  createdAt: new Date("2025-11-11T15:10:16.010Z"),
-  modifiedAt: new Date("2025-12-14T21:14:15.864Z"),
+  createdAt: new Date("2024-08-23T15:56:27.872Z"),
+  modifiedAt: new Date("2024-12-18T00:35:32.011Z"),
   id: "<value>",
-  grantedAt: new Date("2024-09-25T22:20:08.593Z"),
-  revokedAt: new Date("2023-01-16T16:38:44.010Z"),
+  grantedAt: new Date("2023-09-01T09:43:12.235Z"),
+  revokedAt: new Date("2025-10-04T08:43:33.671Z"),
   customerId: "<value>",
   benefitId: "<value>",
   subscriptionId: "<value>",
@@ -18,17 +18,17 @@ let value: CustomerBenefitGrantLicenseKeys = {
   isGranted: false,
   isRevoked: false,
   customer: {
-    createdAt: new Date("2025-07-09T12:36:53.974Z"),
-    modifiedAt: new Date("2025-03-16T05:56:53.673Z"),
+    createdAt: new Date("2025-07-31T06:29:37.217Z"),
+    modifiedAt: new Date("2025-05-12T17:01:01.281Z"),
     id: "<value>",
-    email: "Nikita54@gmail.com",
+    email: "Clemmie_Schowalter40@gmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Italy",
+      country: "Timor-Leste",
     },
     taxId: [
-      "jp_trn",
+      "<id>",
     ],
     oauthAccounts: {
       "key": {
@@ -38,30 +38,30 @@ let value: CustomerBenefitGrantLicenseKeys = {
     },
   },
   benefit: {
-    createdAt: new Date("2024-07-23T05:39:52.689Z"),
-    modifiedAt: new Date("2025-07-24T01:28:50.568Z"),
+    createdAt: new Date("2023-11-24T13:29:30.071Z"),
+    modifiedAt: new Date("2023-11-26T17:52:56.229Z"),
     id: "<value>",
     description:
-      "because pivot toward postbox mmm excluding next nauseate majestic switchboard",
+      "inside keenly since pillbox chiffonier charlatan supposing abaft uh-huh quickly",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     organization: {
-      createdAt: new Date("2023-08-04T22:15:19.791Z"),
-      modifiedAt: new Date("2024-09-15T04:48:18.076Z"),
+      createdAt: new Date("2025-11-12T10:24:01.727Z"),
+      modifiedAt: new Date("2025-05-01T10:55:39.996Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://obedient-curl.biz",
+      avatarUrl: "https://dim-toaster.com",
       bio: "<value>",
-      company: "Rogahn, McLaughlin and Grady",
+      company: "Connelly, Hettinger and Hegmann",
       blog: "<value>",
       location: "<value>",
-      email: "Madelynn73@gmail.com",
+      email: "Myles26@gmail.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 927475,
+      pledgeMinimumAmount: 564777,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 261712,
+      defaultUpfrontSplitToContributors: 411312,
       profileSettings: {},
       featureSettings: {},
       subscriptionSettings: {
@@ -73,14 +73,14 @@ let value: CustomerBenefitGrantLicenseKeys = {
     properties: {
       prefix: "<value>",
       expires: {
-        ttl: 919617,
+        ttl: 104466,
         timeframe: "year",
       },
       activations: {
-        limit: 453969,
+        limit: 927286,
         enableCustomerAdmin: false,
       },
-      limitUsage: 965818,
+      limitUsage: 218555,
     },
   },
   properties: {},

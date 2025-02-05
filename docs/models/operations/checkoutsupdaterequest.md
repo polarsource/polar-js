@@ -1,11 +1,11 @@
-# CheckoutsCustomUpdateRequest
+# CheckoutsUpdateRequest
 
 ## Example Usage
 
 ```typescript
-import { CheckoutsCustomUpdateRequest } from "@polar-sh/sdk/models/operations/checkoutscustomupdate.js";
+import { CheckoutsUpdateRequest } from "@polar-sh/sdk/models/operations/checkoutsupdate.js";
 
-let value: CheckoutsCustomUpdateRequest = {
+let value: CheckoutsUpdateRequest = {
   id: "<value>",
   checkoutUpdate: {},
 };

@@ -11,7 +11,7 @@ const value:
     clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",
-    redirectUri: "https://small-trolley.net",
+    redirectUri: "https://decent-bathhouse.com/",
   };
 ```
 

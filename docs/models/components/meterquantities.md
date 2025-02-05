@@ -8,8 +8,8 @@ import { MeterQuantities } from "@polar-sh/sdk/models/components/meterquantities
 let value: MeterQuantities = {
   quantities: [
     {
-      timestamp: new Date("2025-10-01T21:33:32.957Z"),
-      quantity: 9139.45,
+      timestamp: new Date("2025-02-01T06:48:50.620Z"),
+      quantity: 2458.04,
     },
   ],
 };

@@ -8,30 +8,30 @@ import { ListResourceDiscount } from "@polar-sh/sdk/models/components/listresour
 let value: ListResourceDiscount = {
   items: [
     {
-      duration: "repeating",
+      duration: "once",
       type: "fixed",
-      amount: 845300,
-      currency: "Czech Koruna",
-      createdAt: new Date("2024-06-18T16:36:45.826Z"),
-      modifiedAt: new Date("2025-03-11T15:36:59.646Z"),
+      amount: 314769,
+      currency: "Hryvnia",
+      createdAt: new Date("2023-12-12T21:18:05.566Z"),
+      modifiedAt: new Date("2025-06-20T13:02:49.294Z"),
       id: "<value>",
       metadata: {
-        "key": false,
+        "key": "<value>",
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2024-03-16T08:24:56.079Z"),
-      endsAt: new Date("2024-07-01T09:39:28.718Z"),
-      maxRedemptions: 29572,
-      redemptionsCount: 344026,
+      startsAt: new Date("2025-11-06T07:58:52.676Z"),
+      endsAt: new Date("2023-03-01T13:04:14.388Z"),
+      maxRedemptions: 262883,
+      redemptionsCount: 24886,
       organizationId: "<value>",
       products: [
         {
-          createdAt: new Date("2023-10-14T16:34:12.050Z"),
-          modifiedAt: new Date("2024-03-03T12:22:36.931Z"),
+          createdAt: new Date("2025-11-17T10:52:20.252Z"),
+          modifiedAt: new Date("2023-02-26T15:31:31.267Z"),
           id: "<value>",
           name: "<value>",
-          description: "colorless phew spellcheck fisherman tentacle",
+          description: "throughout supposing scrabble queasily haversack",
           isRecurring: false,
           isArchived: false,
           organizationId: "<value>",
@@ -40,8 +40,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 803942,
-    maxPage: 517842,
+    totalCount: 840168,
+    maxPage: 390200,
   },
 };
 ```

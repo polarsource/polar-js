@@ -3,7 +3,7 @@
  */
 
 import { PolarCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -11,9 +11,13 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  Checkout,
-  Checkout$inboundSchema,
-} from "../models/components/checkout.js";
+  CheckoutPublic,
+  CheckoutPublic$inboundSchema,
+} from "../models/components/checkoutpublic.js";
+import {
+  AlreadyActiveSubscriptionError,
+  AlreadyActiveSubscriptionError$inboundSchema,
+} from "../models/errors/alreadyactivesubscriptionerror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -32,24 +36,25 @@ import {
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
-  CheckoutsCustomGetRequest,
-  CheckoutsCustomGetRequest$outboundSchema,
-} from "../models/operations/checkoutscustomget.js";
+  CheckoutsClientUpdateRequest,
+  CheckoutsClientUpdateRequest$outboundSchema,
+} from "../models/operations/checkoutsclientupdate.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Checkout Session
+ * Update Checkout Session from Client
  *
  * @remarks
- * Get a checkout session by ID.
+ * Update a checkout session by client secret.
  */
-export async function checkoutsCustomGet(
+export async function checkoutsClientUpdate(
   client: PolarCore,
-  request: CheckoutsCustomGetRequest,
+  request: CheckoutsClientUpdateRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
-    Checkout,
+    CheckoutPublic,
+    | AlreadyActiveSubscriptionError
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -63,25 +68,28 @@ export async function checkoutsCustomGet(
 > {
   const parsed = safeParse(
     request,
-    (value) => CheckoutsCustomGetRequest$outboundSchema.parse(value),
+    (value) => CheckoutsClientUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return parsed;
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload.CheckoutUpdatePublic, {
+    explode: true,
+  });
 
   const pathParams = {
-    id: encodeSimple("id", payload.id, {
+    client_secret: encodeSimple("client_secret", payload.client_secret, {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path = pathToFunc("/v1/checkouts/custom/{id}")(pathParams);
+  const path = pathToFunc("/v1/checkouts/client/{client_secret}")(pathParams);
 
   const headers = new Headers(compactMap({
+    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -90,7 +98,7 @@ export async function checkoutsCustomGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
-    operationID: "checkouts:custom:get",
+    operationID: "checkouts:client_update",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -104,7 +112,7 @@ export async function checkoutsCustomGet(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "GET",
+    method: "PATCH",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -118,7 +126,7 @@ export async function checkoutsCustomGet(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["404", "422", "4XX", "5XX"],
+    errorCodes: ["403", "404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -132,7 +140,8 @@ export async function checkoutsCustomGet(
   };
 
   const [result] = await M.match<
-    Checkout,
+    CheckoutPublic,
+    | AlreadyActiveSubscriptionError
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -143,7 +152,8 @@ export async function checkoutsCustomGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, Checkout$inboundSchema),
+    M.json(200, CheckoutPublic$inboundSchema),
+    M.jsonErr(403, AlreadyActiveSubscriptionError$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),

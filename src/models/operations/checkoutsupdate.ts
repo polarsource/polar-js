@@ -14,7 +14,7 @@ import {
 } from "../components/checkoutupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type CheckoutsCustomUpdateRequest = {
+export type CheckoutsUpdateRequest = {
   /**
    * The checkout session ID.
    */
@@ -23,8 +23,8 @@ export type CheckoutsCustomUpdateRequest = {
 };
 
 /** @internal */
-export const CheckoutsCustomUpdateRequest$inboundSchema: z.ZodType<
-  CheckoutsCustomUpdateRequest,
+export const CheckoutsUpdateRequest$inboundSchema: z.ZodType<
+  CheckoutsUpdateRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -37,16 +37,16 @@ export const CheckoutsCustomUpdateRequest$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type CheckoutsCustomUpdateRequest$Outbound = {
+export type CheckoutsUpdateRequest$Outbound = {
   id: string;
   CheckoutUpdate: CheckoutUpdate$Outbound;
 };
 
 /** @internal */
-export const CheckoutsCustomUpdateRequest$outboundSchema: z.ZodType<
-  CheckoutsCustomUpdateRequest$Outbound,
+export const CheckoutsUpdateRequest$outboundSchema: z.ZodType<
+  CheckoutsUpdateRequest$Outbound,
   z.ZodTypeDef,
-  CheckoutsCustomUpdateRequest
+  CheckoutsUpdateRequest
 > = z.object({
   id: z.string(),
   checkoutUpdate: CheckoutUpdate$outboundSchema,
@@ -60,31 +60,29 @@ export const CheckoutsCustomUpdateRequest$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CheckoutsCustomUpdateRequest$ {
-  /** @deprecated use `CheckoutsCustomUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = CheckoutsCustomUpdateRequest$inboundSchema;
-  /** @deprecated use `CheckoutsCustomUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = CheckoutsCustomUpdateRequest$outboundSchema;
-  /** @deprecated use `CheckoutsCustomUpdateRequest$Outbound` instead. */
-  export type Outbound = CheckoutsCustomUpdateRequest$Outbound;
+export namespace CheckoutsUpdateRequest$ {
+  /** @deprecated use `CheckoutsUpdateRequest$inboundSchema` instead. */
+  export const inboundSchema = CheckoutsUpdateRequest$inboundSchema;
+  /** @deprecated use `CheckoutsUpdateRequest$outboundSchema` instead. */
+  export const outboundSchema = CheckoutsUpdateRequest$outboundSchema;
+  /** @deprecated use `CheckoutsUpdateRequest$Outbound` instead. */
+  export type Outbound = CheckoutsUpdateRequest$Outbound;
 }
 
-export function checkoutsCustomUpdateRequestToJSON(
-  checkoutsCustomUpdateRequest: CheckoutsCustomUpdateRequest,
+export function checkoutsUpdateRequestToJSON(
+  checkoutsUpdateRequest: CheckoutsUpdateRequest,
 ): string {
   return JSON.stringify(
-    CheckoutsCustomUpdateRequest$outboundSchema.parse(
-      checkoutsCustomUpdateRequest,
-    ),
+    CheckoutsUpdateRequest$outboundSchema.parse(checkoutsUpdateRequest),
   );
 }
 
-export function checkoutsCustomUpdateRequestFromJSON(
+export function checkoutsUpdateRequestFromJSON(
   jsonString: string,
-): SafeParseResult<CheckoutsCustomUpdateRequest, SDKValidationError> {
+): SafeParseResult<CheckoutsUpdateRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CheckoutsCustomUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutsCustomUpdateRequest' from JSON`,
+    (x) => CheckoutsUpdateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutsUpdateRequest' from JSON`,
   );
 }

@@ -9,21 +9,21 @@ let value: OrganizationsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-01-18T10:27:53.946Z"),
-        modifiedAt: new Date("2024-03-13T11:39:05.439Z"),
+        createdAt: new Date("2025-06-27T14:30:01.915Z"),
+        modifiedAt: new Date("2024-12-15T19:44:40.318Z"),
         id: "<value>",
         name: "<value>",
         slug: "<value>",
-        avatarUrl: "https://foolish-help.info/",
+        avatarUrl: "https://troubled-term.name/",
         bio: "<value>",
-        company: "Quitzon Group",
+        company: "Lubowitz, Stiedemann and Gutmann",
         blog: "<value>",
         location: "<value>",
-        email: "Carleton82@gmail.com",
+        email: "Francesco_Crist75@hotmail.com",
         twitterUsername: "<value>",
-        pledgeMinimumAmount: 23823,
+        pledgeMinimumAmount: 469513,
         pledgeBadgeShowAmount: false,
-        defaultUpfrontSplitToContributors: 325000,
+        defaultUpfrontSplitToContributors: 784207,
         profileSettings: {},
         featureSettings: {},
         subscriptionSettings: {
@@ -34,8 +34,8 @@ let value: OrganizationsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 153222,
-      maxPage: 171654,
+      totalCount: 418870,
+      maxPage: 176942,
     },
   },
 };

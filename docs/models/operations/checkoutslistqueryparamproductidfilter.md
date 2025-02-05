@@ -1,6 +1,6 @@
-# CheckoutsCustomListQueryParamOrganizationIDFilter
+# CheckoutsListQueryParamProductIDFilter
 
-Filter by organization ID.
+Filter by product ID.
 
 
 ## Supported Types

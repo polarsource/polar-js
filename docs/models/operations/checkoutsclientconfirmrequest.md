@@ -1,11 +1,11 @@
-# CheckoutsCustomClientConfirmRequest
+# CheckoutsClientConfirmRequest
 
 ## Example Usage
 
 ```typescript
-import { CheckoutsCustomClientConfirmRequest } from "@polar-sh/sdk/models/operations/checkoutscustomclientconfirm.js";
+import { CheckoutsClientConfirmRequest } from "@polar-sh/sdk/models/operations/checkoutsclientconfirm.js";
 
-let value: CheckoutsCustomClientConfirmRequest = {
+let value: CheckoutsClientConfirmRequest = {
   clientSecret: "<value>",
   checkoutConfirmStripe: {},
 };

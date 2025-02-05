@@ -8,31 +8,31 @@ A customer session that can be used to authenticate as a customer.
 import { CustomerSession } from "@polar-sh/sdk/models/components/customersession.js";
 
 let value: CustomerSession = {
-  createdAt: new Date("2025-10-04T02:51:01.618Z"),
-  modifiedAt: new Date("2025-06-15T05:16:58.669Z"),
+  createdAt: new Date("2024-11-29T23:44:32.134Z"),
+  modifiedAt: new Date("2023-10-14T18:21:15.353Z"),
   id: "<value>",
   token: "<value>",
-  expiresAt: new Date("2023-09-02T16:34:40.356Z"),
-  customerPortalUrl: "https://svelte-pecan.biz/",
+  expiresAt: new Date("2024-08-14T13:06:25.159Z"),
+  customerPortalUrl: "https://filthy-airmail.biz",
   customerId: "<value>",
   customer: {
-    createdAt: new Date("2025-08-10T13:22:12.445Z"),
-    modifiedAt: new Date("2025-09-17T22:21:07.335Z"),
+    createdAt: new Date("2025-10-28T00:46:45.109Z"),
+    modifiedAt: new Date("2023-01-23T11:33:34.208Z"),
     id: "<value>",
     metadata: {
-      "key": 984631,
+      "key": "<value>",
     },
-    email: "Ryan.Wilderman9@yahoo.com",
+    email: "Meghan.McKenzie-Bogisich78@gmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "New Caledonia",
+      country: "Falkland Islands (Malvinas)",
     },
     taxId: [
-      "au_arn",
+      "do_rcn",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://spiffy-lift.info/",
+    avatarUrl: "https://stale-sonar.name",
   },
 };
 ```
