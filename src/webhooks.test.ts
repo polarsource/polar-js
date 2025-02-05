@@ -1,9 +1,9 @@
 import { randomUUID } from "crypto";
 import { Webhook } from "standardwebhooks"
-import { validateEvent, WebhookVerificationError } from "./index.js";
-import { WebhookCheckoutCreatedPayload$inboundSchema } from "../models/components/webhookcheckoutcreatedpayload.js";
-import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 
+import { WebhookCheckoutCreatedPayload$inboundSchema } from "./models/components/webhookcheckoutcreatedpayload.js";
+import { SDKValidationError } from "./models/errors/sdkvalidationerror.js";
+import { validateEvent, WebhookVerificationError } from "./webhooks.js";
 
 const ORGANIZATION_ID = randomUUID().toString();
 const PRODUCT_ID = randomUUID().toString();
@@ -76,6 +76,7 @@ const checkoutCreated = {
         attached_custom_fields: [],
         custom_field_data: {},
         payment_processor: 'stripe',
+        customer_metadata: {},
     }
 };
 

@@ -1,2 +1,3 @@
-src/webhooks/
+src/webhooks.ts
+src/webhooks.test.ts
 jest.config.js
