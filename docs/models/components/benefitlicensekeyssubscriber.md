@@ -6,29 +6,29 @@
 import { BenefitLicenseKeysSubscriber } from "@polar-sh/sdk/models/components/benefitlicensekeyssubscriber.js";
 
 let value: BenefitLicenseKeysSubscriber = {
-  createdAt: new Date("2025-11-12T13:13:35.041Z"),
-  modifiedAt: new Date("2024-07-14T16:45:43.480Z"),
+  createdAt: new Date("2023-10-24T05:28:30.875Z"),
+  modifiedAt: new Date("2024-09-02T17:41:59.365Z"),
   id: "<value>",
-  description: "impressive spook submitter cinder outside towards",
+  description: "tusk beyond jazz provided monstrous unnaturally",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2024-03-24T14:39:48.268Z"),
-    modifiedAt: new Date("2025-06-13T13:52:47.549Z"),
+    createdAt: new Date("2023-08-24T15:31:37.773Z"),
+    modifiedAt: new Date("2023-06-07T08:38:35.544Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://splendid-lifestyle.org/",
+    avatarUrl: "https://unique-draft.org",
     bio: "<value>",
-    company: "Hodkiewicz - Price",
+    company: "Ziemann, Cruickshank and Treutel",
     blog: "<value>",
     location: "<value>",
-    email: "Javier_Lowe@hotmail.com",
+    email: "Margarita.Von@gmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 955483,
+    pledgeMinimumAmount: 952572,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 765342,
+    defaultUpfrontSplitToContributors: 278866,
     profileSettings: {},
     featureSettings: {},
     subscriptionSettings: {
@@ -40,14 +40,14 @@ let value: BenefitLicenseKeysSubscriber = {
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 991044,
-      timeframe: "day",
+      ttl: 319942,
+      timeframe: "year",
     },
     activations: {
-      limit: 194607,
+      limit: 684106,
       enableCustomerAdmin: false,
     },
-    limitUsage: 114036,
+    limitUsage: 771406,
   },
 };
 ```

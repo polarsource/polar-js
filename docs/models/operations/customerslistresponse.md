@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-12-15T11:06:40.873Z"),
-        modifiedAt: new Date("2025-04-18T04:27:12.304Z"),
+        createdAt: new Date("2023-03-19T06:56:52.426Z"),
+        modifiedAt: new Date("2024-08-26T02:17:15.307Z"),
         id: "<value>",
         metadata: {
-          "key": 832553,
+          "key": "<value>",
         },
-        email: "Josefa.Casper98@hotmail.com",
+        email: "Tyson18@gmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "New Caledonia",
+          country: "France",
         },
         taxId: [
-          "eu_vat",
+          "jp_cn",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://minor-interior.name/",
+        avatarUrl: "https://accurate-fencing.biz",
       },
     ],
     pagination: {
-      totalCount: 63522,
-      maxPage: 229557,
+      totalCount: 781770,
+      maxPage: 389060,
     },
   },
 };

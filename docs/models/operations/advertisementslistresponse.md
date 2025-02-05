@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-02-07T20:02:50.033Z"),
-        modifiedAt: new Date("2025-03-02T22:52:48.220Z"),
+        createdAt: new Date("2024-07-14T01:14:05.609Z"),
+        modifiedAt: new Date("2023-03-11T12:23:21.693Z"),
         id: "<value>",
-        imageUrl: "https://monumental-innovation.net/",
-        imageUrlDark: "https://remorseful-smog.net/",
+        imageUrl: "https://mushy-volleyball.org",
+        imageUrlDark: "https://honored-perp.info/",
         text: "<value>",
-        linkUrl: "https://livid-insolence.org/",
+        linkUrl: "https://wilted-bookcase.name",
       },
     ],
     pagination: {
-      totalCount: 435743,
-      maxPage: 913584,
+      totalCount: 677590,
+      maxPage: 219370,
     },
     dimensions: [
-      909641,
+      586095,
     ],
   },
 };

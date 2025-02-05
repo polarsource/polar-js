@@ -5,7 +5,7 @@
 ```typescript
 import { TokenTypeHint } from "@polar-sh/sdk/models/operations/oauth2revoketoken.js";
 
-let value: TokenTypeHint = "access_token";
+let value: TokenTypeHint = "refresh_token";
 ```
 
 ## Values

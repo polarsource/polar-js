@@ -10,13 +10,13 @@ import { OrganizationAvatarFileCreate } from "@polar-sh/sdk/models/components/or
 let value: OrganizationAvatarFileCreate = {
   name: "<value>",
   mimeType: "<value>",
-  size: 550329,
+  size: 756985,
   upload: {
     parts: [
       {
-        number: 124065,
-        chunkStart: 786178,
-        chunkEnd: 511956,
+        number: 303546,
+        chunkStart: 733471,
+        chunkEnd: 366561,
       },
     ],
   },

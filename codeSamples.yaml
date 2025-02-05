@@ -81,48 +81,48 @@ actions:
         - "lang": "typescript"
           "label": "Typescript (SDK)"
           "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkoutLinks.update({\n    id: \"<value>\",\n    checkoutLinkUpdate: {},\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
-  - target: $["paths"]["/v1/checkouts/custom/"]["get"]
+  - target: $["paths"]["/v1/checkouts/"]["get"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.custom.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
-  - target: $["paths"]["/v1/checkouts/custom/"]["post"]
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+  - target: $["paths"]["/v1/checkouts/"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.custom.create({\n    allowDiscountCodes: true,\n    productId: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
-  - target: $["paths"]["/v1/checkouts/custom/client/{client_secret}"]["get"]
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.create({\n    allowDiscountCodes: true,\n    productId: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/checkouts/client/{client_secret}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.custom.clientGet({\n    clientSecret: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
-  - target: $["paths"]["/v1/checkouts/custom/client/{client_secret}"]["patch"]
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.clientGet({\n    clientSecret: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/checkouts/client/{client_secret}"]["patch"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.custom.clientUpdate({\n    clientSecret: \"<value>\",\n    checkoutUpdatePublic: {},\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
-  - target: $["paths"]["/v1/checkouts/custom/client/{client_secret}/confirm"]["post"]
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.clientUpdate({\n    clientSecret: \"<value>\",\n    checkoutUpdatePublic: {},\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/checkouts/client/{client_secret}/confirm"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.custom.clientConfirm({\n    clientSecret: \"<value>\",\n    checkoutConfirmStripe: {},\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
-  - target: $["paths"]["/v1/checkouts/custom/{id}"]["get"]
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.clientConfirm({\n    clientSecret: \"<value>\",\n    checkoutConfirmStripe: {},\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/checkouts/{id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.custom.get({\n    id: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
-  - target: $["paths"]["/v1/checkouts/custom/{id}"]["patch"]
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.get({\n    id: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/checkouts/{id}"]["patch"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.custom.update({\n    id: \"<value>\",\n    checkoutUpdate: {},\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.update({\n    id: \"<value>\",\n    checkoutUpdate: {},\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/custom-fields/"]["get"]
     update:
       "x-codeSamples":

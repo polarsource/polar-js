@@ -11,13 +11,13 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  CheckoutLegacy,
-  CheckoutLegacy$inboundSchema,
-} from "../models/components/checkoutlegacy.js";
+  Checkout,
+  Checkout$inboundSchema,
+} from "../models/components/checkout.js";
 import {
-  CheckoutLegacyCreate,
-  CheckoutLegacyCreate$outboundSchema,
-} from "../models/components/checkoutlegacycreate.js";
+  CheckoutCreate,
+  CheckoutCreate$outboundSchema,
+} from "../models/components/checkoutcreate.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -34,20 +34,18 @@ import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Create Checkout
+ * Create Checkout Session
  *
  * @remarks
  * Create a checkout session.
- *
- * @deprecated method: This API is deprecated. We recommend you to use the new custom checkout API, which is more flexible and powerful. Please refer to the documentation for more information.. Use create instead.
  */
 export async function checkoutsCreate(
   client: PolarCore,
-  request: CheckoutLegacyCreate,
+  request: CheckoutCreate,
   options?: RequestOptions,
 ): Promise<
   Result<
-    CheckoutLegacy,
+    Checkout,
     | HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -60,7 +58,7 @@ export async function checkoutsCreate(
 > {
   const parsed = safeParse(
     request,
-    (value) => CheckoutLegacyCreate$outboundSchema.parse(value),
+    (value) => CheckoutCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -123,7 +121,7 @@ export async function checkoutsCreate(
   };
 
   const [result] = await M.match<
-    CheckoutLegacy,
+    Checkout,
     | HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -133,7 +131,7 @@ export async function checkoutsCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(201, CheckoutLegacy$inboundSchema),
+    M.json(201, Checkout$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

@@ -3,7 +3,7 @@
  */
 
 import { PolarCore } from "../core.js";
-import { encodeJSON } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -15,9 +15,9 @@ import {
   Checkout$inboundSchema,
 } from "../models/components/checkout.js";
 import {
-  CheckoutCreate,
-  CheckoutCreate$outboundSchema,
-} from "../models/components/checkoutcreate.js";
+  AlreadyActiveSubscriptionError,
+  AlreadyActiveSubscriptionError$inboundSchema,
+} from "../models/errors/alreadyactivesubscriptionerror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -29,23 +29,33 @@ import {
   HTTPValidationError,
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
+import {
+  CheckoutsUpdateRequest,
+  CheckoutsUpdateRequest$outboundSchema,
+} from "../models/operations/checkoutsupdate.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Create Checkout Session
+ * Update Checkout Session
  *
  * @remarks
- * Create a checkout session.
+ * Update a checkout session.
  */
-export async function checkoutsCustomCreate(
+export async function checkoutsUpdate(
   client: PolarCore,
-  request: CheckoutCreate,
+  request: CheckoutsUpdateRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
     Checkout,
+    | AlreadyActiveSubscriptionError
+    | ResourceNotFound
     | HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -58,16 +68,23 @@ export async function checkoutsCustomCreate(
 > {
   const parsed = safeParse(
     request,
-    (value) => CheckoutCreate$outboundSchema.parse(value),
+    (value) => CheckoutsUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return parsed;
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload, { explode: true });
+  const body = encodeJSON("body", payload.CheckoutUpdate, { explode: true });
 
-  const path = pathToFunc("/v1/checkouts/custom/")();
+  const pathParams = {
+    id: encodeSimple("id", payload.id, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+  };
+
+  const path = pathToFunc("/v1/checkouts/{id}")(pathParams);
 
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
@@ -79,7 +96,7 @@ export async function checkoutsCustomCreate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
-    operationID: "checkouts:custom:create",
+    operationID: "checkouts:update",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -93,7 +110,7 @@ export async function checkoutsCustomCreate(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "POST",
+    method: "PATCH",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -107,7 +124,7 @@ export async function checkoutsCustomCreate(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["422", "4XX", "5XX"],
+    errorCodes: ["403", "404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -122,6 +139,8 @@ export async function checkoutsCustomCreate(
 
   const [result] = await M.match<
     Checkout,
+    | AlreadyActiveSubscriptionError
+    | ResourceNotFound
     | HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -131,7 +150,9 @@ export async function checkoutsCustomCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(201, Checkout$inboundSchema),
+    M.json(200, Checkout$inboundSchema),
+    M.jsonErr(403, AlreadyActiveSubscriptionError$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

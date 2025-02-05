@@ -3,7 +3,7 @@
  */
 
 import { PolarCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -11,9 +11,13 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  CheckoutPublic,
-  CheckoutPublic$inboundSchema,
-} from "../models/components/checkoutpublic.js";
+  CheckoutPublicConfirmed,
+  CheckoutPublicConfirmed$inboundSchema,
+} from "../models/components/checkoutpublicconfirmed.js";
+import {
+  AlreadyActiveSubscriptionError,
+  AlreadyActiveSubscriptionError$inboundSchema,
+} from "../models/errors/alreadyactivesubscriptionerror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -32,24 +36,27 @@ import {
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
-  CheckoutsCustomClientGetRequest,
-  CheckoutsCustomClientGetRequest$outboundSchema,
-} from "../models/operations/checkoutscustomclientget.js";
+  CheckoutsClientConfirmRequest,
+  CheckoutsClientConfirmRequest$outboundSchema,
+} from "../models/operations/checkoutsclientconfirm.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Checkout Session from Client
+ * Confirm Checkout Session from Client
  *
  * @remarks
- * Get a checkout session by client secret.
+ * Confirm a checkout session by client secret.
+ *
+ * Orders and subscriptions will be processed.
  */
-export async function checkoutsCustomClientGet(
+export async function checkoutsClientConfirm(
   client: PolarCore,
-  request: CheckoutsCustomClientGetRequest,
+  request: CheckoutsClientConfirmRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
-    CheckoutPublic,
+    CheckoutPublicConfirmed,
+    | AlreadyActiveSubscriptionError
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -63,14 +70,16 @@ export async function checkoutsCustomClientGet(
 > {
   const parsed = safeParse(
     request,
-    (value) => CheckoutsCustomClientGetRequest$outboundSchema.parse(value),
+    (value) => CheckoutsClientConfirmRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return parsed;
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload.CheckoutConfirmStripe, {
+    explode: true,
+  });
 
   const pathParams = {
     client_secret: encodeSimple("client_secret", payload.client_secret, {
@@ -79,11 +88,12 @@ export async function checkoutsCustomClientGet(
     }),
   };
 
-  const path = pathToFunc("/v1/checkouts/custom/client/{client_secret}")(
+  const path = pathToFunc("/v1/checkouts/client/{client_secret}/confirm")(
     pathParams,
   );
 
   const headers = new Headers(compactMap({
+    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -92,7 +102,7 @@ export async function checkoutsCustomClientGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
-    operationID: "checkouts:custom:client_get",
+    operationID: "checkouts:client_confirm",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -106,7 +116,7 @@ export async function checkoutsCustomClientGet(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "GET",
+    method: "POST",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -120,7 +130,7 @@ export async function checkoutsCustomClientGet(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["404", "422", "4XX", "5XX"],
+    errorCodes: ["403", "404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -134,7 +144,8 @@ export async function checkoutsCustomClientGet(
   };
 
   const [result] = await M.match<
-    CheckoutPublic,
+    CheckoutPublicConfirmed,
+    | AlreadyActiveSubscriptionError
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -145,7 +156,8 @@ export async function checkoutsCustomClientGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, CheckoutPublic$inboundSchema),
+    M.json(200, CheckoutPublicConfirmed$inboundSchema),
+    M.jsonErr(403, AlreadyActiveSubscriptionError$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),

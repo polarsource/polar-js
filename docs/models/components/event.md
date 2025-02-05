@@ -7,12 +7,12 @@ import { Event } from "@polar-sh/sdk/models/components/event.js";
 
 let value: Event = {
   metadata: {
-    "key": "<value>",
+    "key": 429753,
   },
   id: "<value>",
-  timestamp: new Date("2024-07-18T18:53:24.110Z"),
+  timestamp: new Date("2024-05-10T19:30:11.410Z"),
   name: "<value>",
-  source: "user",
+  source: "system",
   organizationId: "<value>",
   customerId: "<value>",
   externalCustomerId: "<id>",

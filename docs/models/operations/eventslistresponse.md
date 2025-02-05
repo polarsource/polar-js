@@ -10,20 +10,20 @@ let value: EventsListResponse = {
     items: [
       {
         metadata: {
-          "key": false,
+          "key": "<value>",
         },
         id: "<value>",
-        timestamp: new Date("2024-10-08T23:12:56.036Z"),
+        timestamp: new Date("2025-04-22T20:02:07.778Z"),
         name: "<value>",
-        source: "user",
+        source: "system",
         organizationId: "<value>",
         customerId: "<value>",
         externalCustomerId: "<id>",
       },
     ],
     pagination: {
-      totalCount: 598626,
-      maxPage: 232318,
+      totalCount: 148673,
+      maxPage: 290460,
     },
   },
 };

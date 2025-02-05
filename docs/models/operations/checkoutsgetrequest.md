@@ -6,12 +6,12 @@
 import { CheckoutsGetRequest } from "@polar-sh/sdk/models/operations/checkoutsget.js";
 
 let value: CheckoutsGetRequest = {
-  id: "<id>",
+  id: "<value>",
 };
 ```
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *string*           | :heavy_check_mark: | N/A                |
+| Field                    | Type                     | Required                 | Description              |
+| ------------------------ | ------------------------ | ------------------------ | ------------------------ |
+| `id`                     | *string*                 | :heavy_check_mark:       | The checkout session ID. |

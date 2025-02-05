@@ -9,8 +9,8 @@ let value: Meter = {
   metadata: {
     "key": false,
   },
-  createdAt: new Date("2023-08-30T15:22:03.927Z"),
-  modifiedAt: new Date("2024-02-01T01:45:50.315Z"),
+  createdAt: new Date("2023-03-28T00:11:16.408Z"),
+  modifiedAt: new Date("2025-02-24T14:49:29.759Z"),
   id: "<value>",
   name: "<value>",
   filter: {

@@ -12,7 +12,7 @@ const value: string = "<value>";
 ### `number`
 
 ```typescript
-const value: number = 750737;
+const value: number = 340087;
 ```
 
 ### `boolean`

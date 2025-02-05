@@ -344,18 +344,13 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 ### [checkouts](docs/sdks/checkouts/README.md)
 
-* [~~create~~](docs/sdks/checkouts/README.md#create) - Create Checkout :warning: **Deprecated** Use [create](docs/sdks/custom/README.md#create) instead.
-* [~~get~~](docs/sdks/checkouts/README.md#get) - Get Checkout :warning: **Deprecated**
-
-#### [checkouts.custom](docs/sdks/custom/README.md)
-
-* [list](docs/sdks/custom/README.md#list) - List Checkout Sessions
-* [create](docs/sdks/custom/README.md#create) - Create Checkout Session
-* [get](docs/sdks/custom/README.md#get) - Get Checkout Session
-* [update](docs/sdks/custom/README.md#update) - Update Checkout Session
-* [clientGet](docs/sdks/custom/README.md#clientget) - Get Checkout Session from Client
-* [clientUpdate](docs/sdks/custom/README.md#clientupdate) - Update Checkout Session from Client
-* [clientConfirm](docs/sdks/custom/README.md#clientconfirm) - Confirm Checkout Session from Client
+* [list](docs/sdks/checkouts/README.md#list) - List Checkout Sessions
+* [create](docs/sdks/checkouts/README.md#create) - Create Checkout Session
+* [get](docs/sdks/checkouts/README.md#get) - Get Checkout Session
+* [update](docs/sdks/checkouts/README.md#update) - Update Checkout Session
+* [clientGet](docs/sdks/checkouts/README.md#clientget) - Get Checkout Session from Client
+* [clientUpdate](docs/sdks/checkouts/README.md#clientupdate) - Update Checkout Session from Client
+* [clientConfirm](docs/sdks/checkouts/README.md#clientconfirm) - Confirm Checkout Session from Client
 
 ### [customerPortal](docs/sdks/customerportal/README.md)
 
@@ -555,13 +550,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`checkoutLinksGet`](docs/sdks/checkoutlinks/README.md#get) - Get Checkout Link
 - [`checkoutLinksList`](docs/sdks/checkoutlinks/README.md#list) - List Checkout Links
 - [`checkoutLinksUpdate`](docs/sdks/checkoutlinks/README.md#update) - Update Checkout Link
-- [`checkoutsCustomClientConfirm`](docs/sdks/custom/README.md#clientconfirm) - Confirm Checkout Session from Client
-- [`checkoutsCustomClientGet`](docs/sdks/custom/README.md#clientget) - Get Checkout Session from Client
-- [`checkoutsCustomClientUpdate`](docs/sdks/custom/README.md#clientupdate) - Update Checkout Session from Client
-- [`checkoutsCustomCreate`](docs/sdks/custom/README.md#create) - Create Checkout Session
-- [`checkoutsCustomGet`](docs/sdks/custom/README.md#get) - Get Checkout Session
-- [`checkoutsCustomList`](docs/sdks/custom/README.md#list) - List Checkout Sessions
-- [`checkoutsCustomUpdate`](docs/sdks/custom/README.md#update) - Update Checkout Session
+- [`checkoutsClientConfirm`](docs/sdks/checkouts/README.md#clientconfirm) - Confirm Checkout Session from Client
+- [`checkoutsClientGet`](docs/sdks/checkouts/README.md#clientget) - Get Checkout Session from Client
+- [`checkoutsClientUpdate`](docs/sdks/checkouts/README.md#clientupdate) - Update Checkout Session from Client
+- [`checkoutsCreate`](docs/sdks/checkouts/README.md#create) - Create Checkout Session
+- [`checkoutsGet`](docs/sdks/checkouts/README.md#get) - Get Checkout Session
+- [`checkoutsList`](docs/sdks/checkouts/README.md#list) - List Checkout Sessions
+- [`checkoutsUpdate`](docs/sdks/checkouts/README.md#update) - Update Checkout Session
 - [`customerPortalBenefitGrantsGet`](docs/sdks/benefitgrants/README.md#get) - Get Benefit Grant
 - [`customerPortalBenefitGrantsList`](docs/sdks/benefitgrants/README.md#list) - List Benefit Grants
 - [`customerPortalBenefitGrantsUpdate`](docs/sdks/benefitgrants/README.md#update) - Update Benefit Grant
@@ -650,8 +645,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`subscriptionsList`](docs/sdks/subscriptions/README.md#list) - List Subscriptions
 - [`subscriptionsRevoke`](docs/sdks/subscriptions/README.md#revoke) - Revoke Subscription
 - [`subscriptionsUpdate`](docs/sdks/subscriptions/README.md#update) - Update Subscription
-- ~~[`checkoutsCreate`](docs/sdks/checkouts/README.md#create)~~ - Create Checkout :warning: **Deprecated** Use [`checkoutsCustomCreate`](docs/sdks/custom/README.md#create) instead.
-- ~~[`checkoutsGet`](docs/sdks/checkouts/README.md#get)~~ - Get Checkout :warning: **Deprecated**
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->

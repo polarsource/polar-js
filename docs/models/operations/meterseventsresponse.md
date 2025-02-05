@@ -10,10 +10,10 @@ let value: MetersEventsResponse = {
     items: [
       {
         metadata: {
-          "key": false,
+          "key": 800965,
         },
         id: "<value>",
-        timestamp: new Date("2024-04-25T23:55:35.873Z"),
+        timestamp: new Date("2023-04-14T01:43:46.701Z"),
         name: "<value>",
         source: "system",
         organizationId: "<value>",
@@ -22,8 +22,8 @@ let value: MetersEventsResponse = {
       },
     ],
     pagination: {
-      totalCount: 423,
-      maxPage: 785188,
+      totalCount: 848252,
+      maxPage: 362405,
     },
   },
 };
