@@ -12,9 +12,11 @@ import { Customers } from "./customers.js";
 import { CustomerSessions } from "./customersessions.js";
 import { CustomFields } from "./customfields.js";
 import { Discounts } from "./discounts.js";
+import { Events } from "./events.js";
 import { ExternalOrganizations } from "./externalorganizations.js";
 import { Files } from "./files.js";
 import { LicenseKeys } from "./licensekeys.js";
+import { Meters } from "./meters.js";
 import { Metrics } from "./metrics.js";
 import { Oauth2 } from "./oauth2.js";
 import { Orders } from "./orders.js";
@@ -125,5 +127,15 @@ export class Polar extends ClientSDK {
   private _customerSessions?: CustomerSessions;
   get customerSessions(): CustomerSessions {
     return (this._customerSessions ??= new CustomerSessions(this._options));
+  }
+
+  private _events?: Events;
+  get events(): Events {
+    return (this._events ??= new Events(this._options));
+  }
+
+  private _meters?: Meters;
+  get meters(): Meters {
+    return (this._meters ??= new Meters(this._options));
   }
 }

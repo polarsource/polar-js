@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-05-04T10:00:03.073Z"),
-        modifiedAt: new Date("2023-07-10T04:52:57.046Z"),
+        createdAt: new Date("2025-02-07T20:02:50.033Z"),
+        modifiedAt: new Date("2025-03-02T22:52:48.220Z"),
         id: "<value>",
-        imageUrl: "https://defensive-accompanist.biz/",
-        imageUrlDark: "https://yellow-handover.org",
+        imageUrl: "https://monumental-innovation.net/",
+        imageUrlDark: "https://remorseful-smog.net/",
         text: "<value>",
-        linkUrl: "https://warped-affect.com/",
+        linkUrl: "https://livid-insolence.org/",
       },
     ],
     pagination: {
-      totalCount: 362069,
-      maxPage: 875316,
+      totalCount: 435743,
+      maxPage: 913584,
     },
     dimensions: [
-      566925,
+      909641,
     ],
   },
 };

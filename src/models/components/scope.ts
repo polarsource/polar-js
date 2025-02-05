@@ -28,6 +28,8 @@ export const Scope = {
   BenefitsWrite: "benefits:write",
   EventsRead: "events:read",
   EventsWrite: "events:write",
+  MetersRead: "meters:read",
+  MetersWrite: "meters:write",
   FilesRead: "files:read",
   FilesWrite: "files:write",
   SubscriptionsRead: "subscriptions:read",

@@ -25,10 +25,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.products.list({
-    page: 1,
-    limit: 10,
-  });
+  const result = await polar.products.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -54,10 +51,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await productsList(polar, {
-    page: 1,
-    limit: 10,
-  });
+  const res = await productsList(polar, {});
 
   if (!res.ok) {
     throw res.error;
@@ -144,6 +138,7 @@ async function run() {
     prices: [
       {
         priceAmount: 89964,
+        priceCurrency: "usd",
         recurringInterval: "year",
       },
     ],

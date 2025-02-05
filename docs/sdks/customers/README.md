@@ -25,10 +25,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.customers.list({
-    page: 1,
-    limit: 10,
-  });
+  const result = await polar.customers.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -54,10 +51,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await customersList(polar, {
-    page: 1,
-    limit: 10,
-  });
+  const res = await customersList(polar, {});
 
   if (!res.ok) {
     throw res.error;

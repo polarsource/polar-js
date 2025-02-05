@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-11-04T01:43:26.070Z"),
-        modifiedAt: new Date("2025-10-21T04:47:53.381Z"),
+        createdAt: new Date("2024-02-24T13:40:14.894Z"),
+        modifiedAt: new Date("2025-06-24T03:29:30.577Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -20,30 +20,30 @@ let value: BenefitsGrantsResponse = {
         userId: "<value>",
         benefitId: "<value>",
         customer: {
-          createdAt: new Date("2024-08-25T12:31:12.659Z"),
-          modifiedAt: new Date("2023-09-13T01:01:31.367Z"),
+          createdAt: new Date("2024-09-21T04:25:18.763Z"),
+          modifiedAt: new Date("2025-06-08T18:22:37.952Z"),
           id: "<value>",
           metadata: {
-            "key": 500943,
+            "key": 361690,
           },
-          email: "Alexis.Robel@gmail.com",
+          email: "Rafael74@yahoo.com",
           emailVerified: false,
           name: "<value>",
           billingAddress: {
-            country: "Saint Lucia",
+            country: "Saint Vincent and the Grenadines",
           },
           taxId: [
-            "ru_inn",
+            "ua_vat",
           ],
           organizationId: "<value>",
-          avatarUrl: "https://close-antelope.info/",
+          avatarUrl: "https://spotless-entry.org/",
         },
         properties: {},
       },
     ],
     pagination: {
-      totalCount: 737905,
-      maxPage: 451768,
+      totalCount: 734579,
+      maxPage: 334548,
     },
   },
 };

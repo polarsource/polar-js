@@ -8,15 +8,15 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import {
-  Interval,
-  Interval$inboundSchema,
-  Interval$outboundSchema,
-} from "../components/interval.js";
-import {
   ProductPriceType,
   ProductPriceType$inboundSchema,
   ProductPriceType$outboundSchema,
 } from "../components/productpricetype.js";
+import {
+  TimeInterval,
+  TimeInterval$inboundSchema,
+  TimeInterval$outboundSchema,
+} from "../components/timeinterval.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -53,7 +53,7 @@ export type MetricsGetRequest = {
   /**
    * Interval between two timestamps.
    */
-  interval: Interval;
+  interval: TimeInterval;
   /**
    * Filter by organization ID.
    */
@@ -311,7 +311,7 @@ export const MetricsGetRequest$inboundSchema: z.ZodType<
 > = z.object({
   start_date: z.string().transform(v => new RFCDate(v)),
   end_date: z.string().transform(v => new RFCDate(v)),
-  interval: Interval$inboundSchema,
+  interval: TimeInterval$inboundSchema,
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
@@ -353,7 +353,7 @@ export const MetricsGetRequest$outboundSchema: z.ZodType<
 > = z.object({
   startDate: z.instanceof(RFCDate).transform(v => v.toString()),
   endDate: z.instanceof(RFCDate).transform(v => v.toString()),
-  interval: Interval$outboundSchema,
+  interval: TimeInterval$outboundSchema,
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),

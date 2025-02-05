@@ -15,7 +15,7 @@ const value: components.CustomFieldType = "number";
 
 ```typescript
 const value: components.CustomFieldType[] = [
-  "date",
+  "number",
 ];
 ```
 

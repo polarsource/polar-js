@@ -8,7 +8,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.advertisements.list({\n    benefitId: \"<value>\",\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.advertisements.list({\n    benefitId: \"<value>\",\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/advertisements/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -20,7 +20,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.benefits.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.benefits.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/benefits/"]["post"]
     update:
       "x-codeSamples":
@@ -50,19 +50,19 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.benefits.grants({\n    id: \"<value>\",\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.benefits.grants({\n    id: \"<value>\",\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/checkout-links/"]["get"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkoutLinks.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkoutLinks.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/checkout-links/"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkoutLinks.create({\n    productId: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkoutLinks.create({\n    allowDiscountCodes: true,\n    productId: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/checkout-links/{id}"]["delete"]
     update:
       "x-codeSamples":
@@ -86,7 +86,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.custom.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.custom.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/checkouts/custom/"]["post"]
     update:
       "x-codeSamples":
@@ -128,7 +128,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customFields.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customFields.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/custom-fields/"]["post"]
     update:
       "x-codeSamples":
@@ -158,7 +158,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerPortal.benefitGrants.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerPortal.benefitGrants.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/customer-portal/benefit-grants/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -182,7 +182,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerPortal.downloadables.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerPortal.downloadables.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/customer-portal/downloadables/{token}"]["get"]
     update:
       "x-codeSamples":
@@ -194,7 +194,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerPortal.licenseKeys.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerPortal.licenseKeys.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/customer-portal/license-keys/activate"]["post"]
     update:
       "x-codeSamples":
@@ -224,7 +224,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerPortal.orders.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerPortal.orders.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/customer-portal/orders/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -248,7 +248,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerPortal.subscriptions.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customerPortal.subscriptions.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/customer-portal/subscriptions/{id}"]["delete"]
     update:
       "x-codeSamples":
@@ -278,7 +278,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customers.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customers.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/customers/"]["post"]
     update:
       "x-codeSamples":
@@ -308,7 +308,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.discounts.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.discounts.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/discounts/"]["post"]
     update:
       "x-codeSamples":
@@ -332,19 +332,37 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.discounts.update({\n    id: \"<value>\",\n    discountUpdate: {\n      currency: \"usd\",\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.discounts.update({\n    id: \"<value>\",\n    discountUpdate: {},\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/events/"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.events.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+  - target: $["paths"]["/v1/events/ingest"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.events.ingest({\n    events: [\n      {\n        name: \"<value>\",\n        customerId: \"<value>\",\n      },\n      {\n        name: \"<value>\",\n        externalCustomerId: \"<id>\",\n      },\n    ],\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/events/{id}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.events.get({\n    id: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/external_organizations/"]["get"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.externalOrganizations.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.externalOrganizations.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/files/"]["get"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.files.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.files.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/files/"]["post"]
     update:
       "x-codeSamples":
@@ -374,7 +392,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.licenseKeys.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.licenseKeys.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/license-keys/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -386,13 +404,49 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.licenseKeys.update({\n    id: \"<value>\",\n    licenseKeyUpdate: {\n      usage: 0,\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.licenseKeys.update({\n    id: \"<value>\",\n    licenseKeyUpdate: {},\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/license-keys/{id}/activations/{activation_id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
           "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.licenseKeys.getActivation({\n    id: \"<value>\",\n    activationId: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/meters/"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.meters.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+  - target: $["paths"]["/v1/meters/"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.meters.create({\n    name: \"<value>\",\n    filter: {\n      conjunction: \"and\",\n      clauses: [\n\n      ],\n    },\n    aggregation: {\n      func: \"sum\",\n      property: \"<value>\",\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/meters/{id}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.meters.get({\n    id: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/meters/{id}"]["patch"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.meters.update({\n    id: \"<value>\",\n    meterUpdate: {},\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+  - target: $["paths"]["/v1/meters/{id}/events"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.meters.events({\n    id: \"<value>\",\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+  - target: $["paths"]["/v1/meters/{id}/quantities"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "typescript"
+          "label": "Typescript (SDK)"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.meters.quantities({\n    id: \"<value>\",\n    startTimestamp: new Date(\"2023-09-17T00:45:34.608Z\"),\n    endTimestamp: new Date(\"2023-07-21T18:11:39.069Z\"),\n    interval: \"hour\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/metrics/"]["get"]
     update:
       "x-codeSamples":
@@ -410,7 +464,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.oauth2.clients.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.oauth2.clients.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/oauth2/authorize"]["get"]
     update:
       "x-codeSamples":
@@ -428,7 +482,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.oauth2.clients.create({\n    redirectUris: [\n      \"https://inferior-chainstay.com\",\n    ],\n    tokenEndpointAuthMethod: \"client_secret_post\",\n    scope: \"openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write events:read events:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read refunds:read refunds:write metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write\",\n    clientName: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.oauth2.clients.create({\n    redirectUris: [\n      \"https://inferior-chainstay.com\",\n    ],\n    clientName: \"<value>\",\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/oauth2/register/{client_id}"]["delete"]
     update:
       "x-codeSamples":
@@ -446,7 +500,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.oauth2.clients.update({\n    clientId: \"<id>\",\n    oAuth2ClientConfigurationUpdate: {\n      redirectUris: [\n        \"https://grown-worth.name\",\n        \"https://worthwhile-avalanche.org/\",\n        \"https://general-digit.com/\",\n      ],\n      tokenEndpointAuthMethod: \"client_secret_post\",\n      scope: \"openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write products:read products:write benefits:read benefits:write events:read events:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write customer_sessions:write orders:read refunds:read refunds:write metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write\",\n      clientName: \"<value>\",\n      clientId: \"<id>\",\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.oauth2.clients.update({\n    clientId: \"<id>\",\n    oAuth2ClientConfigurationUpdate: {\n      redirectUris: [\n        \"https://grown-worth.name\",\n        \"https://worthwhile-avalanche.org/\",\n        \"https://general-digit.com/\",\n      ],\n      clientName: \"<value>\",\n      clientId: \"<id>\",\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/oauth2/revoke"]["post"]
     update:
       "x-codeSamples":
@@ -470,7 +524,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.orders.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.orders.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/orders/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -488,7 +542,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.organizations.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.organizations.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/organizations/"]["post"]
     update:
       "x-codeSamples":
@@ -506,13 +560,13 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.organizations.update({\n    id: \"<value>\",\n    organizationUpdate: {\n      pledgeBadgeShowAmount: false,\n      pledgeMinimumAmount: 2000,\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.organizations.update({\n    id: \"<value>\",\n    organizationUpdate: {},\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/products/"]["get"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.products.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.products.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/products/"]["post"]
     update:
       "x-codeSamples":
@@ -542,19 +596,19 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.refunds.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.refunds.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/refunds/"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.refunds.create({\n    orderId: \"<value>\",\n    reason: \"customer_request\",\n    amount: 638424,\n    revokeBenefits: false,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.refunds.create({\n    orderId: \"<value>\",\n    reason: \"customer_request\",\n    amount: 638424,\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/repositories/"]["get"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.repositories.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.repositories.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/repositories/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -572,7 +626,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.subscriptions.list({\n    page: 1,\n    limit: 10,\n  });\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.subscriptions.list({});\n\n  for await (const page of result) {\n    // Handle the page\n    console.log(page);\n  }\n}\n\nrun();"
   - target: $["paths"]["/v1/subscriptions/export"]["get"]
     update:
       "x-codeSamples":
@@ -656,19 +710,19 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.endpointorganizationUpdatedPost({\n    data: {\n      createdAt: new Date(\"2023-08-12T18:45:04.236Z\"),\n      modifiedAt: new Date(\"2025-12-29T16:35:25.119Z\"),\n      id: \"<value>\",\n      name: \"<value>\",\n      slug: \"<value>\",\n      avatarUrl: \"https://devoted-bump.net\",\n      bio: \"<value>\",\n      company: \"Torp, Kuhlman and Howell\",\n      blog: \"<value>\",\n      location: \"<value>\",\n      email: \"Dock_Friesen57@yahoo.com\",\n      twitterUsername: \"<value>\",\n      pledgeMinimumAmount: 105265,\n      pledgeBadgeShowAmount: true,\n      defaultUpfrontSplitToContributors: 907160,\n      profileSettings: {},\n      featureSettings: {\n        issueFundingEnabled: false,\n      },\n      subscriptionSettings: {\n        allowMultipleSubscriptions: false,\n        allowCustomerUpdates: true,\n        prorationBehavior: \"prorate\",\n      },\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.endpointorganizationUpdatedPost({\n    data: {\n      createdAt: new Date(\"2023-08-12T18:45:04.236Z\"),\n      modifiedAt: new Date(\"2025-12-29T16:35:25.119Z\"),\n      id: \"<value>\",\n      name: \"<value>\",\n      slug: \"<value>\",\n      avatarUrl: \"https://devoted-bump.net\",\n      bio: \"<value>\",\n      company: \"Torp, Kuhlman and Howell\",\n      blog: \"<value>\",\n      location: \"<value>\",\n      email: \"Dock_Friesen57@yahoo.com\",\n      twitterUsername: \"<value>\",\n      pledgeMinimumAmount: 105265,\n      pledgeBadgeShowAmount: true,\n      defaultUpfrontSplitToContributors: 907160,\n      profileSettings: {},\n      featureSettings: {},\n      subscriptionSettings: {\n        allowMultipleSubscriptions: false,\n        allowCustomerUpdates: true,\n        prorationBehavior: \"prorate\",\n      },\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["pledge.created"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.endpointpledgeCreatedPost({\n    data: {\n      createdAt: new Date(\"2025-03-12T00:19:41.487Z\"),\n      modifiedAt: new Date(\"2023-04-19T01:42:59.169Z\"),\n      id: \"<value>\",\n      amount: 330877,\n      currency: \"Jamaican Dollar\",\n      state: \"disputed\",\n      type: \"pay_directly\",\n      issue: {\n        id: \"66524b69-aa0b-47ac-bb9a-0cee5d3a9110\",\n        platform: \"github\",\n        number: 280857,\n        title: \"<value>\",\n        state: \"open\",\n        issueCreatedAt: new Date(\"2024-02-26T00:33:35.289Z\"),\n        needsConfirmationSolved: false,\n        funding: {},\n        repository: {\n          id: \"356e14cb-87a4-484c-bcfa-ebfe50487706\",\n          platform: \"github\",\n          isPrivate: true,\n          name: \"MyOrg\",\n          description: \"different premium tinderbox peter under often buzzing hastily\",\n          stars: 1337,\n          license: \"<value>\",\n          homepage: \"<value>\",\n          profileSettings: {},\n          organization: {\n            id: \"29159f56-74c0-464d-b598-8d5bc3b9cdda\",\n            platform: \"github\",\n            name: \"<value>\",\n            avatarUrl: \"https://frightened-poppy.com/\",\n            isPersonal: false,\n            bio: \"<value>\",\n            prettyName: \"<value>\",\n            company: \"Bailey - Towne\",\n            blog: \"<value>\",\n            location: \"<value>\",\n            email: \"Cortez_Stehr70@yahoo.com\",\n            twitterUsername: \"<value>\",\n            organizationId: \"<value>\",\n          },\n          internalOrganization: {\n            createdAt: new Date(\"2025-01-03T15:27:13.109Z\"),\n            modifiedAt: new Date(\"2024-02-15T22:10:17.041Z\"),\n            id: \"<value>\",\n            name: \"<value>\",\n            slug: \"<value>\",\n            avatarUrl: \"https://hard-to-find-thyme.org\",\n            bio: \"<value>\",\n            company: \"Schinner - Wiegand\",\n            blog: \"<value>\",\n            location: \"<value>\",\n            email: \"Pearline_Brekke@hotmail.com\",\n            twitterUsername: \"<value>\",\n            pledgeMinimumAmount: 273260,\n            pledgeBadgeShowAmount: false,\n            defaultUpfrontSplitToContributors: 976949,\n            profileSettings: {},\n            featureSettings: {\n              issueFundingEnabled: false,\n            },\n            subscriptionSettings: {\n              allowMultipleSubscriptions: true,\n              allowCustomerUpdates: true,\n              prorationBehavior: \"invoice\",\n            },\n          },\n        },\n        pledgeBadgeCurrentlyEmbedded: false,\n      },\n      authedCanAdminSender: false,\n      authedCanAdminReceived: false,\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.endpointpledgeCreatedPost({\n    data: {\n      createdAt: new Date(\"2025-03-12T00:19:41.487Z\"),\n      modifiedAt: new Date(\"2023-04-19T01:42:59.169Z\"),\n      id: \"<value>\",\n      amount: 330877,\n      currency: \"Jamaican Dollar\",\n      state: \"disputed\",\n      type: \"pay_directly\",\n      issue: {\n        id: \"66524b69-aa0b-47ac-bb9a-0cee5d3a9110\",\n        platform: \"github\",\n        number: 280857,\n        title: \"<value>\",\n        state: \"open\",\n        issueCreatedAt: new Date(\"2024-02-26T00:33:35.289Z\"),\n        needsConfirmationSolved: false,\n        funding: {},\n        repository: {\n          id: \"356e14cb-87a4-484c-bcfa-ebfe50487706\",\n          platform: \"github\",\n          isPrivate: true,\n          name: \"MyOrg\",\n          description: \"different premium tinderbox peter under often buzzing hastily\",\n          stars: 1337,\n          license: \"<value>\",\n          homepage: \"<value>\",\n          profileSettings: {},\n          organization: {\n            id: \"29159f56-74c0-464d-b598-8d5bc3b9cdda\",\n            platform: \"github\",\n            name: \"<value>\",\n            avatarUrl: \"https://frightened-poppy.com/\",\n            isPersonal: false,\n            bio: \"<value>\",\n            prettyName: \"<value>\",\n            company: \"Bailey - Towne\",\n            blog: \"<value>\",\n            location: \"<value>\",\n            email: \"Cortez_Stehr70@yahoo.com\",\n            twitterUsername: \"<value>\",\n            organizationId: \"<value>\",\n          },\n          internalOrganization: {\n            createdAt: new Date(\"2025-01-03T15:27:13.109Z\"),\n            modifiedAt: new Date(\"2024-02-15T22:10:17.041Z\"),\n            id: \"<value>\",\n            name: \"<value>\",\n            slug: \"<value>\",\n            avatarUrl: \"https://hard-to-find-thyme.org\",\n            bio: \"<value>\",\n            company: \"Schinner - Wiegand\",\n            blog: \"<value>\",\n            location: \"<value>\",\n            email: \"Pearline_Brekke@hotmail.com\",\n            twitterUsername: \"<value>\",\n            pledgeMinimumAmount: 273260,\n            pledgeBadgeShowAmount: false,\n            defaultUpfrontSplitToContributors: 976949,\n            profileSettings: {},\n            featureSettings: {},\n            subscriptionSettings: {\n              allowMultipleSubscriptions: true,\n              allowCustomerUpdates: true,\n              prorationBehavior: \"invoice\",\n            },\n          },\n        },\n        pledgeBadgeCurrentlyEmbedded: false,\n      },\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["pledge.updated"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.endpointpledgeUpdatedPost({\n    data: {\n      createdAt: new Date(\"2024-11-29T00:10:39.674Z\"),\n      modifiedAt: new Date(\"2025-10-02T21:42:49.754Z\"),\n      id: \"<value>\",\n      amount: 634567,\n      currency: \"Singapore Dollar\",\n      state: \"refunded\",\n      type: \"pay_on_completion\",\n      issue: {\n        id: \"d2e1349d-085a-441c-abf4-379a1f21d0da\",\n        platform: \"github\",\n        number: 218372,\n        title: \"<value>\",\n        state: \"closed\",\n        issueCreatedAt: new Date(\"2024-08-12T14:08:31.083Z\"),\n        needsConfirmationSolved: true,\n        funding: {},\n        repository: {\n          id: \"814bd7c6-3412-4f11-b523-7b38c659f44a\",\n          platform: \"github\",\n          isPrivate: false,\n          name: \"MyOrg\",\n          description: \"hm however microchip\",\n          stars: 1337,\n          license: \"<value>\",\n          homepage: \"<value>\",\n          profileSettings: {},\n          organization: {\n            id: \"3ddd5cc2-de10-41ef-baa1-7551cf671cc3\",\n            platform: \"github\",\n            name: \"<value>\",\n            avatarUrl: \"https://gummy-interviewer.biz\",\n            isPersonal: false,\n            bio: \"<value>\",\n            prettyName: \"<value>\",\n            company: \"Ferry - Tremblay\",\n            blog: \"<value>\",\n            location: \"<value>\",\n            email: \"Reggie_Crist@yahoo.com\",\n            twitterUsername: \"<value>\",\n            organizationId: \"<value>\",\n          },\n          internalOrganization: {\n            createdAt: new Date(\"2025-12-13T11:00:39.217Z\"),\n            modifiedAt: new Date(\"2025-12-02T09:51:26.214Z\"),\n            id: \"<value>\",\n            name: \"<value>\",\n            slug: \"<value>\",\n            avatarUrl: \"https://memorable-numeracy.com/\",\n            bio: \"<value>\",\n            company: \"Schuster - Crooks\",\n            blog: \"<value>\",\n            location: \"<value>\",\n            email: \"Tatum.Block37@yahoo.com\",\n            twitterUsername: \"<value>\",\n            pledgeMinimumAmount: 653584,\n            pledgeBadgeShowAmount: false,\n            defaultUpfrontSplitToContributors: 175899,\n            profileSettings: {},\n            featureSettings: {\n              issueFundingEnabled: false,\n            },\n            subscriptionSettings: {\n              allowMultipleSubscriptions: false,\n              allowCustomerUpdates: true,\n              prorationBehavior: \"invoice\",\n            },\n          },\n        },\n        pledgeBadgeCurrentlyEmbedded: true,\n      },\n      authedCanAdminSender: false,\n      authedCanAdminReceived: false,\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.endpointpledgeUpdatedPost({\n    data: {\n      createdAt: new Date(\"2024-11-29T00:10:39.674Z\"),\n      modifiedAt: new Date(\"2025-10-02T21:42:49.754Z\"),\n      id: \"<value>\",\n      amount: 634567,\n      currency: \"Singapore Dollar\",\n      state: \"refunded\",\n      type: \"pay_on_completion\",\n      issue: {\n        id: \"d2e1349d-085a-441c-abf4-379a1f21d0da\",\n        platform: \"github\",\n        number: 218372,\n        title: \"<value>\",\n        state: \"closed\",\n        issueCreatedAt: new Date(\"2024-08-12T14:08:31.083Z\"),\n        needsConfirmationSolved: true,\n        funding: {},\n        repository: {\n          id: \"814bd7c6-3412-4f11-b523-7b38c659f44a\",\n          platform: \"github\",\n          isPrivate: false,\n          name: \"MyOrg\",\n          description: \"hm however microchip\",\n          stars: 1337,\n          license: \"<value>\",\n          homepage: \"<value>\",\n          profileSettings: {},\n          organization: {\n            id: \"3ddd5cc2-de10-41ef-baa1-7551cf671cc3\",\n            platform: \"github\",\n            name: \"<value>\",\n            avatarUrl: \"https://gummy-interviewer.biz\",\n            isPersonal: false,\n            bio: \"<value>\",\n            prettyName: \"<value>\",\n            company: \"Ferry - Tremblay\",\n            blog: \"<value>\",\n            location: \"<value>\",\n            email: \"Reggie_Crist@yahoo.com\",\n            twitterUsername: \"<value>\",\n            organizationId: \"<value>\",\n          },\n          internalOrganization: {\n            createdAt: new Date(\"2025-12-13T11:00:39.217Z\"),\n            modifiedAt: new Date(\"2025-12-02T09:51:26.214Z\"),\n            id: \"<value>\",\n            name: \"<value>\",\n            slug: \"<value>\",\n            avatarUrl: \"https://memorable-numeracy.com/\",\n            bio: \"<value>\",\n            company: \"Schuster - Crooks\",\n            blog: \"<value>\",\n            location: \"<value>\",\n            email: \"Tatum.Block37@yahoo.com\",\n            twitterUsername: \"<value>\",\n            pledgeMinimumAmount: 653584,\n            pledgeBadgeShowAmount: false,\n            defaultUpfrontSplitToContributors: 175899,\n            profileSettings: {},\n            featureSettings: {},\n            subscriptionSettings: {\n              allowMultipleSubscriptions: false,\n              allowCustomerUpdates: true,\n              prorationBehavior: \"invoice\",\n            },\n          },\n        },\n        pledgeBadgeCurrentlyEmbedded: true,\n      },\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["product.created"]["post"]
     update:
       "x-codeSamples":
@@ -698,7 +752,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.endpointsubscriptionActivePost({\n    data: {\n      createdAt: new Date(\"2023-09-17T11:03:44.679Z\"),\n      modifiedAt: new Date(\"2025-07-24T20:02:17.426Z\"),\n      id: \"<value>\",\n      amount: 116760,\n      currency: \"Quetzal\",\n      recurringInterval: \"month\",\n      status: \"incomplete\",\n      currentPeriodStart: new Date(\"2023-08-25T00:14:50.252Z\"),\n      currentPeriodEnd: new Date(\"2023-12-10T18:25:01.577Z\"),\n      cancelAtPeriodEnd: false,\n      canceledAt: new Date(\"2024-07-05T14:07:23.099Z\"),\n      startedAt: new Date(\"2024-06-30T08:12:48.355Z\"),\n      endsAt: new Date(\"2023-06-29T07:42:54.895Z\"),\n      endedAt: new Date(\"2025-10-30T02:51:06.576Z\"),\n      customerId: \"<value>\",\n      productId: \"<value>\",\n      priceId: \"<value>\",\n      discountId: \"<value>\",\n      checkoutId: \"<value>\",\n      customerCancellationReason: \"switched_service\",\n      customerCancellationComment: \"<value>\",\n      metadata: {\n        \"key\": true,\n        \"key1\": \"<value>\",\n        \"key2\": 615212,\n      },\n      customer: {\n        createdAt: new Date(\"2023-04-25T08:49:41.567Z\"),\n        modifiedAt: new Date(\"2025-09-05T08:50:11.879Z\"),\n        id: \"<value>\",\n        metadata: {\n\n        },\n        email: \"Felicia87@hotmail.com\",\n        emailVerified: true,\n        name: \"<value>\",\n        billingAddress: {\n          country: \"Cuba\",\n        },\n        taxId: [\n          \"pe_ruc\",\n          \"tr_tin\",\n        ],\n        organizationId: \"<value>\",\n        avatarUrl: \"https://steel-zebra.biz/\",\n      },\n      userId: \"<value>\",\n      user: {\n        id: \"<value>\",\n        email: \"Raven_Feil@gmail.com\",\n        publicName: \"<value>\",\n      },\n      product: {\n        createdAt: new Date(\"2024-08-26T12:17:17.429Z\"),\n        modifiedAt: new Date(\"2025-06-15T18:12:34.300Z\"),\n        id: \"<value>\",\n        name: \"<value>\",\n        description: \"during boo place enchanting\",\n        isRecurring: false,\n        isArchived: false,\n        organizationId: \"<value>\",\n        metadata: {\n\n        },\n        prices: [\n          {\n            createdAt: new Date(\"2023-05-08T23:16:06.519Z\"),\n            modifiedAt: new Date(\"2023-12-23T21:06:29.057Z\"),\n            id: \"<value>\",\n            isArchived: false,\n            productId: \"<value>\",\n            recurringInterval: \"month\",\n          },\n        ],\n        benefits: [\n          {\n            createdAt: new Date(\"2023-08-25T00:14:50.252Z\"),\n            modifiedAt: new Date(\"2023-12-10T18:25:01.577Z\"),\n            id: \"<value>\",\n            description: \"repeat catalyst wiggly table while amidst during\",\n            selectable: false,\n            deletable: false,\n            organizationId: \"<value>\",\n            properties: {},\n          },\n          {\n            createdAt: new Date(\"2023-06-02T05:19:01.352Z\"),\n            modifiedAt: new Date(\"2023-07-07T22:15:53.860Z\"),\n            id: \"<value>\",\n            description: \"until below barring\",\n            selectable: false,\n            deletable: false,\n            organizationId: \"<value>\",\n            properties: {},\n          },\n        ],\n        medias: [\n          {\n            id: \"<value>\",\n            organizationId: \"<value>\",\n            name: \"<value>\",\n            path: \"/media\",\n            mimeType: \"<value>\",\n            size: 931655,\n            storageVersion: \"<value>\",\n            checksumEtag: \"<value>\",\n            checksumSha256Base64: \"<value>\",\n            checksumSha256Hex: \"<value>\",\n            lastModifiedAt: new Date(\"2023-06-07T17:40:48.757Z\"),\n            version: \"<value>\",\n            isUploaded: false,\n            createdAt: new Date(\"2024-07-27T18:04:02.928Z\"),\n            sizeReadable: \"<value>\",\n            publicUrl: \"https://remorseful-hamburger.name\",\n          },\n        ],\n        attachedCustomFields: [\n          {\n            customFieldId: \"<value>\",\n            customField: {\n              createdAt: new Date(\"2024-03-04T01:17:37.967Z\"),\n              modifiedAt: new Date(\"2023-06-12T20:00:04.431Z\"),\n              id: \"<value>\",\n              metadata: {\n                \"key\": \"<value>\",\n              },\n              slug: \"<value>\",\n              name: \"<value>\",\n              organizationId: \"<value>\",\n              properties: {},\n            },\n            order: 769742,\n            required: false,\n          },\n          {\n            customFieldId: \"<value>\",\n            customField: {\n              createdAt: new Date(\"2023-06-14T23:00:03.799Z\"),\n              modifiedAt: new Date(\"2024-02-09T05:47:51.810Z\"),\n              id: \"<value>\",\n              metadata: {\n                \"key\": \"<value>\",\n              },\n              slug: \"<value>\",\n              name: \"<value>\",\n              organizationId: \"<value>\",\n              properties: {},\n            },\n            order: 61975,\n            required: false,\n          },\n          {\n            customFieldId: \"<value>\",\n            customField: {\n              createdAt: new Date(\"2025-02-15T09:26:15.001Z\"),\n              modifiedAt: new Date(\"2025-12-17T07:08:38.057Z\"),\n              id: \"<value>\",\n              metadata: {\n                \"key\": false,\n              },\n              slug: \"<value>\",\n              name: \"<value>\",\n              organizationId: \"<value>\",\n              properties: {\n                options: [\n                  {\n                    value: \"<value>\",\n                    label: \"<value>\",\n                  },\n                ],\n              },\n            },\n            order: 531803,\n            required: true,\n          },\n        ],\n      },\n      price: {\n        createdAt: new Date(\"2025-09-06T01:15:07.788Z\"),\n        modifiedAt: new Date(\"2024-06-24T14:24:29.896Z\"),\n        id: \"<value>\",\n        isArchived: false,\n        productId: \"<value>\",\n        priceCurrency: \"<value>\",\n        minimumAmount: 135533,\n        maximumAmount: 811194,\n        presetAmount: 58418,\n        recurringInterval: \"month\",\n      },\n      discount: {\n        duration: \"repeating\",\n        type: \"percentage\",\n        basisPoints: 722311,\n        createdAt: new Date(\"2025-09-04T07:15:12.730Z\"),\n        modifiedAt: new Date(\"2025-10-06T11:12:50.335Z\"),\n        id: \"<value>\",\n        metadata: {\n          \"key\": \"<value>\",\n        },\n        name: \"<value>\",\n        code: \"<value>\",\n        startsAt: new Date(\"2025-11-16T18:30:55.860Z\"),\n        endsAt: new Date(\"2025-02-08T03:34:15.957Z\"),\n        maxRedemptions: 692583,\n        redemptionsCount: 78638,\n        organizationId: \"<value>\",\n      },\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.endpointsubscriptionActivePost({\n    data: {\n      createdAt: new Date(\"2023-09-17T11:03:44.679Z\"),\n      modifiedAt: new Date(\"2025-07-24T20:02:17.426Z\"),\n      id: \"<value>\",\n      amount: 116760,\n      currency: \"Quetzal\",\n      recurringInterval: \"month\",\n      status: \"incomplete\",\n      currentPeriodStart: new Date(\"2023-08-25T00:14:50.252Z\"),\n      currentPeriodEnd: new Date(\"2023-12-10T18:25:01.577Z\"),\n      cancelAtPeriodEnd: false,\n      canceledAt: new Date(\"2024-07-05T14:07:23.099Z\"),\n      startedAt: new Date(\"2024-06-30T08:12:48.355Z\"),\n      endsAt: new Date(\"2023-06-29T07:42:54.895Z\"),\n      endedAt: new Date(\"2025-10-30T02:51:06.576Z\"),\n      customerId: \"<value>\",\n      productId: \"<value>\",\n      priceId: \"<value>\",\n      discountId: \"<value>\",\n      checkoutId: \"<value>\",\n      customerCancellationReason: \"switched_service\",\n      customerCancellationComment: \"<value>\",\n      metadata: {\n        \"key\": true,\n        \"key1\": \"<value>\",\n        \"key2\": 615212,\n      },\n      customer: {\n        createdAt: new Date(\"2023-04-25T08:49:41.567Z\"),\n        modifiedAt: new Date(\"2025-09-05T08:50:11.879Z\"),\n        id: \"<value>\",\n        metadata: {\n\n        },\n        email: \"Felicia87@hotmail.com\",\n        emailVerified: true,\n        name: \"<value>\",\n        billingAddress: {\n          country: \"Cuba\",\n        },\n        taxId: [\n          \"pe_ruc\",\n          \"tr_tin\",\n        ],\n        organizationId: \"<value>\",\n        avatarUrl: \"https://steel-zebra.biz/\",\n      },\n      userId: \"<value>\",\n      user: {\n        id: \"<value>\",\n        email: \"Raven_Feil@gmail.com\",\n        publicName: \"<value>\",\n      },\n      product: {\n        createdAt: new Date(\"2024-08-26T12:17:17.429Z\"),\n        modifiedAt: new Date(\"2025-06-15T18:12:34.300Z\"),\n        id: \"<value>\",\n        name: \"<value>\",\n        description: \"during boo place enchanting\",\n        isRecurring: false,\n        isArchived: false,\n        organizationId: \"<value>\",\n        metadata: {\n\n        },\n        prices: [\n          {\n            createdAt: new Date(\"2023-05-08T23:16:06.519Z\"),\n            modifiedAt: new Date(\"2023-12-23T21:06:29.057Z\"),\n            id: \"<value>\",\n            isArchived: false,\n            productId: \"<value>\",\n            recurringInterval: \"month\",\n          },\n        ],\n        benefits: [\n          {\n            createdAt: new Date(\"2023-08-25T00:14:50.252Z\"),\n            modifiedAt: new Date(\"2023-12-10T18:25:01.577Z\"),\n            id: \"<value>\",\n            description: \"repeat catalyst wiggly table while amidst during\",\n            selectable: false,\n            deletable: false,\n            organizationId: \"<value>\",\n            properties: {\n              imageHeight: 400,\n              imageWidth: 400,\n            },\n          },\n          {\n            createdAt: new Date(\"2023-06-02T05:19:01.352Z\"),\n            modifiedAt: new Date(\"2023-07-07T22:15:53.860Z\"),\n            id: \"<value>\",\n            description: \"until below barring\",\n            selectable: false,\n            deletable: false,\n            organizationId: \"<value>\",\n            properties: {\n              imageHeight: 400,\n              imageWidth: 400,\n            },\n          },\n        ],\n        medias: [\n          {\n            id: \"<value>\",\n            organizationId: \"<value>\",\n            name: \"<value>\",\n            path: \"/media\",\n            mimeType: \"<value>\",\n            size: 931655,\n            storageVersion: \"<value>\",\n            checksumEtag: \"<value>\",\n            checksumSha256Base64: \"<value>\",\n            checksumSha256Hex: \"<value>\",\n            lastModifiedAt: new Date(\"2023-06-07T17:40:48.757Z\"),\n            version: \"<value>\",\n            isUploaded: false,\n            createdAt: new Date(\"2024-07-27T18:04:02.928Z\"),\n            sizeReadable: \"<value>\",\n            publicUrl: \"https://remorseful-hamburger.name\",\n          },\n        ],\n        attachedCustomFields: [\n          {\n            customFieldId: \"<value>\",\n            customField: {\n              createdAt: new Date(\"2024-03-04T01:17:37.967Z\"),\n              modifiedAt: new Date(\"2023-06-12T20:00:04.431Z\"),\n              id: \"<value>\",\n              metadata: {\n                \"key\": \"<value>\",\n              },\n              slug: \"<value>\",\n              name: \"<value>\",\n              organizationId: \"<value>\",\n              properties: {},\n            },\n            order: 769742,\n            required: false,\n          },\n          {\n            customFieldId: \"<value>\",\n            customField: {\n              createdAt: new Date(\"2023-06-14T23:00:03.799Z\"),\n              modifiedAt: new Date(\"2024-02-09T05:47:51.810Z\"),\n              id: \"<value>\",\n              metadata: {\n                \"key\": \"<value>\",\n              },\n              slug: \"<value>\",\n              name: \"<value>\",\n              organizationId: \"<value>\",\n              properties: {},\n            },\n            order: 61975,\n            required: false,\n          },\n          {\n            customFieldId: \"<value>\",\n            customField: {\n              createdAt: new Date(\"2025-02-15T09:26:15.001Z\"),\n              modifiedAt: new Date(\"2025-12-17T07:08:38.057Z\"),\n              id: \"<value>\",\n              metadata: {\n                \"key\": false,\n              },\n              slug: \"<value>\",\n              name: \"<value>\",\n              organizationId: \"<value>\",\n              properties: {\n                options: [\n                  {\n                    value: \"<value>\",\n                    label: \"<value>\",\n                  },\n                ],\n              },\n            },\n            order: 531803,\n            required: true,\n          },\n        ],\n      },\n      price: {\n        createdAt: new Date(\"2025-09-06T01:15:07.788Z\"),\n        modifiedAt: new Date(\"2024-06-24T14:24:29.896Z\"),\n        id: \"<value>\",\n        isArchived: false,\n        productId: \"<value>\",\n        priceCurrency: \"<value>\",\n        minimumAmount: 135533,\n        maximumAmount: 811194,\n        presetAmount: 58418,\n        recurringInterval: \"month\",\n      },\n      discount: {\n        duration: \"repeating\",\n        type: \"percentage\",\n        basisPoints: 722311,\n        createdAt: new Date(\"2025-09-04T07:15:12.730Z\"),\n        modifiedAt: new Date(\"2025-10-06T11:12:50.335Z\"),\n        id: \"<value>\",\n        metadata: {\n          \"key\": \"<value>\",\n        },\n        name: \"<value>\",\n        code: \"<value>\",\n        startsAt: new Date(\"2025-11-16T18:30:55.860Z\"),\n        endsAt: new Date(\"2025-02-08T03:34:15.957Z\"),\n        maxRedemptions: 692583,\n        redemptionsCount: 78638,\n        organizationId: \"<value>\",\n      },\n    },\n  });\n\n  // Handle the result\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["subscription.canceled"]["post"]
     update:
       "x-codeSamples":
