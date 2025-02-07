@@ -46,7 +46,7 @@ export type CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter =
 /**
  * Filter by checkout ID.
  */
-export type CheckoutIDFilter = string | Array<string>;
+export type QueryParamCheckoutIDFilter = string | Array<string>;
 
 /**
  * Filter by order ID.
@@ -276,50 +276,50 @@ export function customerPortalBenefitGrantsListQueryParamOrganizationIDFilterFro
 }
 
 /** @internal */
-export const CheckoutIDFilter$inboundSchema: z.ZodType<
-  CheckoutIDFilter,
+export const QueryParamCheckoutIDFilter$inboundSchema: z.ZodType<
+  QueryParamCheckoutIDFilter,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
-export type CheckoutIDFilter$Outbound = string | Array<string>;
+export type QueryParamCheckoutIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const CheckoutIDFilter$outboundSchema: z.ZodType<
-  CheckoutIDFilter$Outbound,
+export const QueryParamCheckoutIDFilter$outboundSchema: z.ZodType<
+  QueryParamCheckoutIDFilter$Outbound,
   z.ZodTypeDef,
-  CheckoutIDFilter
+  QueryParamCheckoutIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CheckoutIDFilter$ {
-  /** @deprecated use `CheckoutIDFilter$inboundSchema` instead. */
-  export const inboundSchema = CheckoutIDFilter$inboundSchema;
-  /** @deprecated use `CheckoutIDFilter$outboundSchema` instead. */
-  export const outboundSchema = CheckoutIDFilter$outboundSchema;
-  /** @deprecated use `CheckoutIDFilter$Outbound` instead. */
-  export type Outbound = CheckoutIDFilter$Outbound;
+export namespace QueryParamCheckoutIDFilter$ {
+  /** @deprecated use `QueryParamCheckoutIDFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamCheckoutIDFilter$inboundSchema;
+  /** @deprecated use `QueryParamCheckoutIDFilter$outboundSchema` instead. */
+  export const outboundSchema = QueryParamCheckoutIDFilter$outboundSchema;
+  /** @deprecated use `QueryParamCheckoutIDFilter$Outbound` instead. */
+  export type Outbound = QueryParamCheckoutIDFilter$Outbound;
 }
 
-export function checkoutIDFilterToJSON(
-  checkoutIDFilter: CheckoutIDFilter,
+export function queryParamCheckoutIDFilterToJSON(
+  queryParamCheckoutIDFilter: QueryParamCheckoutIDFilter,
 ): string {
   return JSON.stringify(
-    CheckoutIDFilter$outboundSchema.parse(checkoutIDFilter),
+    QueryParamCheckoutIDFilter$outboundSchema.parse(queryParamCheckoutIDFilter),
   );
 }
 
-export function checkoutIDFilterFromJSON(
+export function queryParamCheckoutIDFilterFromJSON(
   jsonString: string,
-): SafeParseResult<CheckoutIDFilter, SDKValidationError> {
+): SafeParseResult<QueryParamCheckoutIDFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CheckoutIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutIDFilter' from JSON`,
+    (x) => QueryParamCheckoutIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamCheckoutIDFilter' from JSON`,
   );
 }
 

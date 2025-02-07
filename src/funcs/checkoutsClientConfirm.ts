@@ -15,9 +15,9 @@ import {
   CheckoutPublicConfirmed$inboundSchema,
 } from "../models/components/checkoutpublicconfirmed.js";
 import {
-  AlreadyActiveSubscriptionError,
-  AlreadyActiveSubscriptionError$inboundSchema,
-} from "../models/errors/alreadyactivesubscriptionerror.js";
+  CheckoutForbiddenError,
+  CheckoutForbiddenError$inboundSchema,
+} from "../models/errors/checkoutforbiddenerror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -29,6 +29,10 @@ import {
   HTTPValidationError,
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
+import {
+  PaymentError,
+  PaymentError$inboundSchema,
+} from "../models/errors/paymenterror.js";
 import {
   ResourceNotFound,
   ResourceNotFound$inboundSchema,
@@ -56,7 +60,8 @@ export async function checkoutsClientConfirm(
 ): Promise<
   Result<
     CheckoutPublicConfirmed,
-    | AlreadyActiveSubscriptionError
+    | PaymentError
+    | CheckoutForbiddenError
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -130,7 +135,7 @@ export async function checkoutsClientConfirm(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["403", "404", "422", "4XX", "5XX"],
+    errorCodes: ["400", "403", "404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -145,7 +150,8 @@ export async function checkoutsClientConfirm(
 
   const [result] = await M.match<
     CheckoutPublicConfirmed,
-    | AlreadyActiveSubscriptionError
+    | PaymentError
+    | CheckoutForbiddenError
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -157,7 +163,8 @@ export async function checkoutsClientConfirm(
     | ConnectionError
   >(
     M.json(200, CheckoutPublicConfirmed$inboundSchema),
-    M.jsonErr(403, AlreadyActiveSubscriptionError$inboundSchema),
+    M.jsonErr(400, PaymentError$inboundSchema),
+    M.jsonErr(403, CheckoutForbiddenError$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),

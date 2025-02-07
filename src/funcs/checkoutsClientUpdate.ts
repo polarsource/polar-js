@@ -15,9 +15,9 @@ import {
   CheckoutPublic$inboundSchema,
 } from "../models/components/checkoutpublic.js";
 import {
-  AlreadyActiveSubscriptionError,
-  AlreadyActiveSubscriptionError$inboundSchema,
-} from "../models/errors/alreadyactivesubscriptionerror.js";
+  CheckoutForbiddenError,
+  CheckoutForbiddenError$inboundSchema,
+} from "../models/errors/checkoutforbiddenerror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -54,7 +54,7 @@ export async function checkoutsClientUpdate(
 ): Promise<
   Result<
     CheckoutPublic,
-    | AlreadyActiveSubscriptionError
+    | CheckoutForbiddenError
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -141,7 +141,7 @@ export async function checkoutsClientUpdate(
 
   const [result] = await M.match<
     CheckoutPublic,
-    | AlreadyActiveSubscriptionError
+    | CheckoutForbiddenError
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -153,7 +153,7 @@ export async function checkoutsClientUpdate(
     | ConnectionError
   >(
     M.json(200, CheckoutPublic$inboundSchema),
-    M.jsonErr(403, AlreadyActiveSubscriptionError$inboundSchema),
+    M.jsonErr(403, CheckoutForbiddenError$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
