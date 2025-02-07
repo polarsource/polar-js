@@ -49,6 +49,11 @@ export type QueryParamDiscountIDFilter = string | Array<string>;
  */
 export type OrdersListQueryParamCustomerIDFilter = string | Array<string>;
 
+/**
+ * Filter by checkout ID.
+ */
+export type CheckoutIDFilter = string | Array<string>;
+
 export type OrdersListRequest = {
   /**
    * Filter by organization ID.
@@ -74,6 +79,10 @@ export type OrdersListRequest = {
    * Filter by customer ID.
    */
   customerId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by checkout ID.
+   */
+  checkoutId?: string | Array<string> | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -366,6 +375,54 @@ export function ordersListQueryParamCustomerIDFilterFromJSON(
 }
 
 /** @internal */
+export const CheckoutIDFilter$inboundSchema: z.ZodType<
+  CheckoutIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type CheckoutIDFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const CheckoutIDFilter$outboundSchema: z.ZodType<
+  CheckoutIDFilter$Outbound,
+  z.ZodTypeDef,
+  CheckoutIDFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutIDFilter$ {
+  /** @deprecated use `CheckoutIDFilter$inboundSchema` instead. */
+  export const inboundSchema = CheckoutIDFilter$inboundSchema;
+  /** @deprecated use `CheckoutIDFilter$outboundSchema` instead. */
+  export const outboundSchema = CheckoutIDFilter$outboundSchema;
+  /** @deprecated use `CheckoutIDFilter$Outbound` instead. */
+  export type Outbound = CheckoutIDFilter$Outbound;
+}
+
+export function checkoutIDFilterToJSON(
+  checkoutIDFilter: CheckoutIDFilter,
+): string {
+  return JSON.stringify(
+    CheckoutIDFilter$outboundSchema.parse(checkoutIDFilter),
+  );
+}
+
+export function checkoutIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutIDFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutIDFilter' from JSON`,
+  );
+}
+
+/** @internal */
 export const OrdersListRequest$inboundSchema: z.ZodType<
   OrdersListRequest,
   z.ZodTypeDef,
@@ -384,6 +441,8 @@ export const OrdersListRequest$inboundSchema: z.ZodType<
     .optional(),
   customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  checkout_id: z.nullable(z.union([z.string(), z.array(z.string())]))
+    .optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(OrderSortProperty$inboundSchema)).optional(),
@@ -394,6 +453,7 @@ export const OrdersListRequest$inboundSchema: z.ZodType<
     "product_price_type": "productPriceType",
     "discount_id": "discountId",
     "customer_id": "customerId",
+    "checkout_id": "checkoutId",
   });
 });
 
@@ -404,6 +464,7 @@ export type OrdersListRequest$Outbound = {
   product_price_type?: string | Array<string> | null | undefined;
   discount_id?: string | Array<string> | null | undefined;
   customer_id?: string | Array<string> | null | undefined;
+  checkout_id?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -426,6 +487,7 @@ export const OrdersListRequest$outboundSchema: z.ZodType<
   ).optional(),
   discountId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  checkoutId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(OrderSortProperty$outboundSchema)).optional(),
@@ -436,6 +498,7 @@ export const OrdersListRequest$outboundSchema: z.ZodType<
     productPriceType: "product_price_type",
     discountId: "discount_id",
     customerId: "customer_id",
+    checkoutId: "checkout_id",
   });
 });
 
