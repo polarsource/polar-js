@@ -90,6 +90,7 @@ export async function advertisementsGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "advertisements:get",
     oAuth2Scopes: [],
 

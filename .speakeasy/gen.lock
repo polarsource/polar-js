@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 1d16e42c5101a8ace1b3749240665b77
+  docChecksum: b749f95930d5fdcbf41ee38908b723e6
   docVersion: 0.1.0
-  speakeasyVersion: 1.487.0
-  generationVersion: 2.506.0
-  releaseVersion: 0.25.0
-  configChecksum: e42cb90084a634f7bf5f755b90bf6c81
+  speakeasyVersion: 1.493.0
+  generationVersion: 2.512.4
+  releaseVersion: 0.25.1
+  configChecksum: ba8a041632b2a927cfd22fcfb0cda252
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -21,7 +21,7 @@ features:
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
     errorUnions: 0.1.1
-    globalSecurity: 2.82.12
+    globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
@@ -54,6 +54,7 @@ generatedFiles:
   - docs/models/components/attachedcustomfield.md
   - docs/models/components/attachedcustomfieldcreate.md
   - docs/models/components/author.md
+  - docs/models/components/authorizationcodetokenrequest.md
   - docs/models/components/authorizeorganization.md
   - docs/models/components/authorizeresponseorganization.md
   - docs/models/components/authorizeresponseuser.md
@@ -315,6 +316,8 @@ generatedFiles:
   - docs/models/components/func.md
   - docs/models/components/funding.md
   - docs/models/components/granttypes.md
+  - docs/models/components/introspecttokenrequest.md
+  - docs/models/components/introspecttokenrequesttokentypehint.md
   - docs/models/components/introspecttokenresponse.md
   - docs/models/components/issue.md
   - docs/models/components/label.md
@@ -388,8 +391,6 @@ generatedFiles:
   - docs/models/components/oauth2clientconfigurationupdategranttypes.md
   - docs/models/components/oauth2clientconfigurationupdatetokenendpointauthmethod.md
   - docs/models/components/oauth2clientpublic.md
-  - docs/models/components/onev11oauth21tokenpostxcomponentsauthorizationcodetokenrequest.md
-  - docs/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequest.md
   - docs/models/components/order.md
   - docs/models/components/orderbillingreason.md
   - docs/models/components/ordercustomer.md
@@ -457,6 +458,7 @@ generatedFiles:
   - docs/models/components/properties.md
   - docs/models/components/propertyaggregation.md
   - docs/models/components/reactions.md
+  - docs/models/components/refreshtokenrequest.md
   - docs/models/components/refund.md
   - docs/models/components/refundcreate.md
   - docs/models/components/refundcreatemetadata.md
@@ -469,6 +471,7 @@ generatedFiles:
   - docs/models/components/repositoryprofilesettingsupdate.md
   - docs/models/components/repositorysortproperty.md
   - docs/models/components/repositoryupdate.md
+  - docs/models/components/revoketokenrequest.md
   - docs/models/components/revoketokenresponse.md
   - docs/models/components/s3downloadurl.md
   - docs/models/components/s3filecreatemultipart.md
@@ -499,6 +502,7 @@ generatedFiles:
   - docs/models/components/tokenendpointauthmethod.md
   - docs/models/components/tokenresponse.md
   - docs/models/components/tokentype.md
+  - docs/models/components/tokentypehint.md
   - docs/models/components/userinfoorganization.md
   - docs/models/components/userinfouser.md
   - docs/models/components/validatedlicensekey.md
@@ -662,10 +666,7 @@ generatedFiles:
   - docs/models/operations/oauth2clientsoauth2deleteclientrequest.md
   - docs/models/operations/oauth2clientsoauth2getclientrequest.md
   - docs/models/operations/oauth2clientsoauth2updateclientrequest.md
-  - docs/models/operations/oauth2introspecttokenintrospecttokenrequest.md
-  - docs/models/operations/oauth2introspecttokentokentypehint.md
   - docs/models/operations/oauth2requesttokenrequestbody.md
-  - docs/models/operations/oauth2revoketokenrevoketokenrequest.md
   - docs/models/operations/oauth2userinforesponseoauth2userinfo.md
   - docs/models/operations/orderidfilter.md
   - docs/models/operations/ordersgetrequest.md
@@ -722,7 +723,6 @@ generatedFiles:
   - docs/models/operations/subscriptionslistresponse.md
   - docs/models/operations/subscriptionsrevokerequest.md
   - docs/models/operations/subscriptionsupdaterequest.md
-  - docs/models/operations/tokentypehint.md
   - docs/sdks/advertisements/README.md
   - docs/sdks/benefitgrants/README.md
   - docs/sdks/benefits/README.md
@@ -894,6 +894,7 @@ generatedFiles:
   - src/models/components/attachedcustomfield.ts
   - src/models/components/attachedcustomfieldcreate.ts
   - src/models/components/author.ts
+  - src/models/components/authorizationcodetokenrequest.ts
   - src/models/components/authorizeorganization.ts
   - src/models/components/authorizeresponseorganization.ts
   - src/models/components/authorizeresponseuser.ts
@@ -1084,6 +1085,7 @@ generatedFiles:
   - src/models/components/filterconjunction.ts
   - src/models/components/filteroperator.ts
   - src/models/components/funding.ts
+  - src/models/components/introspecttokenrequest.ts
   - src/models/components/introspecttokenresponse.ts
   - src/models/components/issue.ts
   - src/models/components/label.ts
@@ -1139,8 +1141,6 @@ generatedFiles:
   - src/models/components/oauth2clientconfiguration.ts
   - src/models/components/oauth2clientconfigurationupdate.ts
   - src/models/components/oauth2clientpublic.ts
-  - src/models/components/onev11oauth21tokenpostxcomponentsauthorizationcodetokenrequest.ts
-  - src/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequest.ts
   - src/models/components/order.ts
   - src/models/components/orderbillingreason.ts
   - src/models/components/ordercustomer.ts
@@ -1192,6 +1192,7 @@ generatedFiles:
   - src/models/components/productupdate.ts
   - src/models/components/propertyaggregation.ts
   - src/models/components/reactions.ts
+  - src/models/components/refreshtokenrequest.ts
   - src/models/components/refund.ts
   - src/models/components/refundcreate.ts
   - src/models/components/refundreason.ts
@@ -1202,6 +1203,7 @@ generatedFiles:
   - src/models/components/repositoryprofilesettingsupdate.ts
   - src/models/components/repositorysortproperty.ts
   - src/models/components/repositoryupdate.ts
+  - src/models/components/revoketokenrequest.ts
   - src/models/components/revoketokenresponse.ts
   - src/models/components/s3downloadurl.ts
   - src/models/components/s3filecreatemultipart.ts
@@ -1333,9 +1335,7 @@ generatedFiles:
   - src/models/operations/oauth2clientsoauth2deleteclient.ts
   - src/models/operations/oauth2clientsoauth2getclient.ts
   - src/models/operations/oauth2clientsoauth2updateclient.ts
-  - src/models/operations/oauth2introspecttoken.ts
   - src/models/operations/oauth2requesttoken.ts
-  - src/models/operations/oauth2revoketoken.ts
   - src/models/operations/oauth2userinfo.ts
   - src/models/operations/ordersget.ts
   - src/models/operations/ordersinvoice.ts
@@ -2785,7 +2785,7 @@ examples:
           limit: 10
       responses:
         "200":
-          application/json: {"items": [{"metadata": {"key": true, "key1": "<value>"}, "id": "<value>", "timestamp": "2023-06-17T12:14:27.999Z", "name": "<value>", "source": "user", "organization_id": "<value>", "customer_id": "<value>", "external_customer_id": "<id>"}, {"metadata": {"key": "<value>", "key1": true}, "id": "<value>", "timestamp": "2023-03-17T01:57:00.187Z", "name": "<value>", "source": "user", "organization_id": "<value>", "customer_id": "<value>", "external_customer_id": "<id>"}, {"metadata": {"key": 7468, "key1": "<value>"}, "id": "<value>", "timestamp": "2024-02-08T01:09:52.088Z", "name": "<value>", "source": "system", "organization_id": "<value>", "customer_id": "<value>", "external_customer_id": "<id>"}], "pagination": {"total_count": 73227, "max_page": 931165}}
+          application/json: {"items": [{"metadata": {"key": true, "key1": "<value>"}, "id": "<value>", "timestamp": "2023-06-17T12:14:27.999Z", "name": "<value>", "source": "user", "organization_id": "<value>", "customer_id": "<value>", "customer": {"created_at": "2025-04-22T08:39:55.981Z", "modified_at": "2024-08-22T19:26:20.850Z", "id": "<value>", "metadata": {"key": "<value>", "key1": "<value>"}, "email": "Lorna_Auer8@gmail.com", "email_verified": false, "name": "<value>", "billing_address": {"country": "Liberia"}, "tax_id": ["<id>", "<id>"], "organization_id": "<value>", "avatar_url": "https://lovely-bench.org/"}, "external_customer_id": "<id>"}, {"metadata": {"key": "<value>", "key1": true}, "id": "<value>", "timestamp": "2023-03-17T01:57:00.187Z", "name": "<value>", "source": "user", "organization_id": "<value>", "customer_id": "<value>", "customer": {"created_at": "2024-09-13T22:04:07.138Z", "modified_at": "2025-08-18T13:00:42.665Z", "id": "<value>", "metadata": {"key": "<value>"}, "email": "Sabrina.Treutel91@gmail.com", "email_verified": true, "name": "<value>", "billing_address": {"country": "Tokelau"}, "tax_id": [], "organization_id": "<value>", "avatar_url": "https://instructive-hospitalization.info/"}, "external_customer_id": "<id>"}, {"metadata": {"key": 7468, "key1": "<value>"}, "id": "<value>", "timestamp": "2024-02-08T01:09:52.088Z", "name": "<value>", "source": "system", "organization_id": "<value>", "customer_id": "<value>", "customer": {"created_at": "2023-04-24T08:24:21.019Z", "modified_at": "2024-07-28T04:00:22.486Z", "id": "<value>", "metadata": {"key": 863466, "key1": "<value>", "key2": 113486}, "email": "Tatyana_Murphy91@gmail.com", "email_verified": false, "name": "<value>", "billing_address": {"country": "Mauritius"}, "tax_id": ["za_vat", "<id>", "<id>"], "organization_id": "<value>", "avatar_url": "https://tasty-sarong.com/"}, "external_customer_id": "<id>"}], "pagination": {"total_count": 73227, "max_page": 931165}}
         "422":
           application/json: {}
   events:get:
@@ -2795,7 +2795,7 @@ examples:
           id: "<value>"
       responses:
         "200":
-          application/json: {"metadata": {"key": 544221, "key1": 969961}, "id": "<value>", "timestamp": "2024-05-17T00:32:02.244Z", "name": "<value>", "source": "system", "organization_id": "<value>", "customer_id": "<value>", "external_customer_id": "<id>"}
+          application/json: {"metadata": {"key": 544221, "key1": 969961}, "id": "<value>", "timestamp": "2024-05-17T00:32:02.244Z", "name": "<value>", "source": "system", "organization_id": "<value>", "customer_id": "<value>", "customer": {"created_at": "2025-02-06T13:54:48.821Z", "modified_at": "2024-09-04T11:33:52.011Z", "id": "<value>", "metadata": {"key": 969961, "key1": 450824}, "email": "Creola_Kessler7@gmail.com", "email_verified": true, "name": "<value>", "billing_address": {"country": "Benin"}, "tax_id": ["eu_vat", "mx_rfc"], "organization_id": "<value>", "avatar_url": "https://glorious-fellow.biz"}, "external_customer_id": "<id>"}
         "404":
           application/json: {"detail": "<value>"}
         "422":

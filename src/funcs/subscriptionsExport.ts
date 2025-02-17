@@ -79,6 +79,7 @@ export async function subscriptionsExport(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "subscriptions:export",
     oAuth2Scopes: [],
 

@@ -83,6 +83,7 @@ export async function customerPortalDownloadablesGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID:
       "customer_portal:downloadables:customer_portal.downloadables.get",
     oAuth2Scopes: [],

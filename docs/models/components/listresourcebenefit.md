@@ -8,31 +8,23 @@ import { ListResourceBenefit } from "@polar-sh/sdk/models/components/listresourc
 let value: ListResourceBenefit = {
   items: [
     {
-      createdAt: new Date("2024-01-26T17:35:59.486Z"),
-      modifiedAt: new Date("2024-08-12T22:20:42.028Z"),
+      createdAt: new Date("2025-10-07T05:53:02.445Z"),
+      modifiedAt: new Date("2025-03-08T18:33:30.754Z"),
       id: "<value>",
-      description:
-        "too drat connect providence hmph gnash stuff tarragon design merit",
+      description: "pfft nor equate",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        prefix: "<value>",
-        expires: {
-          ttl: 271465,
-          timeframe: "month",
-        },
-        activations: {
-          limit: 654297,
-          enableCustomerAdmin: false,
-        },
-        limitUsage: 725592,
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "push",
       },
     },
   ],
   pagination: {
-    totalCount: 295726,
-    maxPage: 47255,
+    totalCount: 157014,
+    maxPage: 241568,
   },
 };
 ```

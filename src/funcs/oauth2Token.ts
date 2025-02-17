@@ -77,6 +77,7 @@ export async function oauth2Token(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "oauth2:request_token",
     oAuth2Scopes: [],
 

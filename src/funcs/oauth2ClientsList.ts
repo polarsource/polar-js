@@ -91,6 +91,7 @@ export async function oauth2ClientsList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "oauth2:clients:list",
     oAuth2Scopes: [],
 

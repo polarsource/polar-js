@@ -6,7 +6,7 @@
 import { BenefitDiscordCreate } from "@polar-sh/sdk/models/components/benefitdiscordcreate.js";
 
 let value: BenefitDiscordCreate = {
-  description: "amongst supposing elastic",
+  description: "times true obstruct",
   properties: {
     guildToken: "<value>",
     roleId: "<id>",

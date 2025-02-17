@@ -87,6 +87,7 @@ export async function checkoutLinksDelete(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "checkout-links:delete",
     oAuth2Scopes: [],
 

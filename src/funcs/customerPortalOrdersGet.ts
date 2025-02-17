@@ -90,6 +90,7 @@ export async function customerPortalOrdersGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "customer_portal:orders:get",
     oAuth2Scopes: [],
 

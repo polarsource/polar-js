@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://far-flung-heartache.info/",
+          "https://gleaming-countess.com/",
         ],
         clientName: "<value>",
-        createdAt: new Date("2025-10-02T16:17:12.780Z"),
-        modifiedAt: new Date("2025-01-12T12:44:08.199Z"),
+        createdAt: new Date("2025-08-10T01:54:29.277Z"),
+        modifiedAt: new Date("2024-08-12T05:31:21.644Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 319975,
-        clientSecretExpiresAt: 765552,
+        clientIdIssuedAt: 736936,
+        clientSecretExpiresAt: 217602,
       },
     ],
     pagination: {
-      totalCount: 442657,
-      maxPage: 589402,
+      totalCount: 124657,
+      maxPage: 155878,
     },
   },
 };

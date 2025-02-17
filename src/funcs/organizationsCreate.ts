@@ -79,6 +79,7 @@ export async function organizationsCreate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "organizations:create",
     oAuth2Scopes: [],
 

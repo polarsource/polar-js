@@ -107,6 +107,7 @@ export async function checkoutsClientConfirm(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "checkouts:client_confirm",
     oAuth2Scopes: [],
 

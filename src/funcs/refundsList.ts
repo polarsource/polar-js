@@ -98,6 +98,7 @@ export async function refundsList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "refunds:list",
     oAuth2Scopes: [],
 

@@ -81,6 +81,7 @@ export async function customerPortalLicenseKeysDeactivate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "customer_portal:license_keys:deactivate",
     oAuth2Scopes: [],
 

@@ -95,6 +95,7 @@ export async function subscriptionsRevoke(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "subscriptions:revoke",
     oAuth2Scopes: [],
 

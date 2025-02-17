@@ -79,6 +79,7 @@ export async function checkoutsCreate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "checkouts:create",
     oAuth2Scopes: [],
 

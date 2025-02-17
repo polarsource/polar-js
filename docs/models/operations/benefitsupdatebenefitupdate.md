@@ -28,7 +28,7 @@ const value: components.BenefitGitHubRepositoryUpdate = {
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "maintain",
+    permission: "push",
   },
 };
 ```

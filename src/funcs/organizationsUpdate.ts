@@ -98,6 +98,7 @@ export async function organizationsUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "organizations:update",
     oAuth2Scopes: [],
 

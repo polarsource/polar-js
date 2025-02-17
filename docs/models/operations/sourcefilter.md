@@ -8,7 +8,7 @@ Filter by event source.
 ### `components.EventSource`
 
 ```typescript
-const value: components.EventSource = "user";
+const value: components.EventSource = "system";
 ```
 
 ### `components.EventSource[]`

@@ -76,6 +76,7 @@ export async function metersCreate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "meters:create",
     oAuth2Scopes: [],
 

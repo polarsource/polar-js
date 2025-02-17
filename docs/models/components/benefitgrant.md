@@ -6,8 +6,8 @@
 import { BenefitGrant } from "@polar-sh/sdk/models/components/benefitgrant.js";
 
 let value: BenefitGrant = {
-  createdAt: new Date("2023-08-13T02:52:46.079Z"),
-  modifiedAt: new Date("2023-08-30T12:58:44.895Z"),
+  createdAt: new Date("2023-11-29T20:23:25.480Z"),
+  modifiedAt: new Date("2025-09-21T18:48:07.068Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,23 +17,23 @@ let value: BenefitGrant = {
   userId: "<value>",
   benefitId: "<value>",
   customer: {
-    createdAt: new Date("2024-08-30T05:09:59.751Z"),
-    modifiedAt: new Date("2024-01-19T07:23:01.540Z"),
+    createdAt: new Date("2025-01-09T08:46:46.908Z"),
+    modifiedAt: new Date("2023-09-01T05:45:21.778Z"),
     id: "<value>",
     metadata: {
-      "key": 37098,
+      "key": 660240,
     },
-    email: "Omari_Feest2@gmail.com",
+    email: "Noble_Dicki49@yahoo.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Heard Island and McDonald Islands",
+      country: "France",
     },
     taxId: [
       "<id>",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://powerless-strait.net/",
+    avatarUrl: "https://zesty-mouser.name",
   },
   properties: {},
 };

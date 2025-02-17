@@ -96,6 +96,7 @@ export async function productsUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "products:update",
     oAuth2Scopes: [],
 

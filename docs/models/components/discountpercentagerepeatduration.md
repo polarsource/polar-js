@@ -9,31 +9,30 @@ for a certain number of months.
 import { DiscountPercentageRepeatDuration } from "@polar-sh/sdk/models/components/discountpercentagerepeatduration.js";
 
 let value: DiscountPercentageRepeatDuration = {
-  duration: "forever",
-  durationInMonths: 842114,
+  duration: "once",
+  durationInMonths: 669828,
   type: "percentage",
-  basisPoints: 76002,
-  createdAt: new Date("2025-05-29T15:48:13.106Z"),
-  modifiedAt: new Date("2025-07-15T18:24:29.781Z"),
+  basisPoints: 939456,
+  createdAt: new Date("2023-01-28T18:11:01.832Z"),
+  modifiedAt: new Date("2025-07-15T05:59:42.148Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-04-24T09:01:08.745Z"),
-  endsAt: new Date("2025-12-11T00:30:42.283Z"),
-  maxRedemptions: 790733,
-  redemptionsCount: 397879,
+  startsAt: new Date("2023-12-10T11:19:22.816Z"),
+  endsAt: new Date("2025-03-24T22:43:16.000Z"),
+  maxRedemptions: 368239,
+  redemptionsCount: 56515,
   organizationId: "<value>",
   products: [
     {
-      createdAt: new Date("2025-02-25T15:09:11.481Z"),
-      modifiedAt: new Date("2023-11-17T05:21:02.494Z"),
+      createdAt: new Date("2025-03-25T14:19:00.405Z"),
+      modifiedAt: new Date("2024-09-02T05:10:29.477Z"),
       id: "<value>",
       name: "<value>",
-      description:
-        "planula mozzarella though irresponsible hubris ack attribute underneath",
+      description: "dally gym yahoo neat although an",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",

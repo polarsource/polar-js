@@ -8,21 +8,22 @@ import { ListResourceProduct } from "@polar-sh/sdk/models/components/listresourc
 let value: ListResourceProduct = {
   items: [
     {
-      createdAt: new Date("2025-08-17T05:40:50.868Z"),
-      modifiedAt: new Date("2025-07-11T02:45:47.122Z"),
+      createdAt: new Date("2023-09-17T18:54:14.686Z"),
+      modifiedAt: new Date("2024-07-10T22:33:01.695Z"),
       id: "<value>",
       name: "<value>",
-      description: "plait indeed aggravating pfft flint whenever hourly",
+      description:
+        "exactly terrorise aboard why fooey save an tempting outside vastly",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",
       metadata: {
-        "key": 716527,
+        "key": 216998,
       },
       prices: [
         {
-          createdAt: new Date("2024-04-12T07:56:40.102Z"),
-          modifiedAt: new Date("2025-09-27T03:10:10.233Z"),
+          createdAt: new Date("2024-11-29T23:53:33.954Z"),
+          modifiedAt: new Date("2024-03-01T14:51:30.829Z"),
           id: "<value>",
           isArchived: false,
           productId: "<value>",
@@ -30,16 +31,20 @@ let value: ListResourceProduct = {
       ],
       benefits: [
         {
-          createdAt: new Date("2023-07-25T04:11:45.005Z"),
-          modifiedAt: new Date("2025-01-19T08:30:25.562Z"),
+          createdAt: new Date("2023-01-18T01:14:03.818Z"),
+          modifiedAt: new Date("2023-06-08T14:30:43.169Z"),
           id: "<value>",
-          description: "ostrich aboard pfft so finally",
+          description: "aha underneath the plus roughly",
           selectable: false,
           deletable: false,
           organizationId: "<value>",
           properties: {
-            imageHeight: 400,
-            imageWidth: 400,
+            archived: {
+              "key": false,
+            },
+            files: [
+              "<value>",
+            ],
           },
         },
       ],
@@ -48,45 +53,45 @@ let value: ListResourceProduct = {
           id: "<value>",
           organizationId: "<value>",
           name: "<value>",
-          path: "/usr/bin",
+          path: "/Library",
           mimeType: "<value>",
-          size: 841379,
+          size: 164590,
           storageVersion: "<value>",
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
           checksumSha256Hex: "<value>",
-          lastModifiedAt: new Date("2023-01-05T21:26:12.181Z"),
+          lastModifiedAt: new Date("2025-08-29T14:19:53.281Z"),
           version: "<value>",
           isUploaded: false,
-          createdAt: new Date("2023-05-27T00:18:28.805Z"),
+          createdAt: new Date("2023-03-16T23:12:57.117Z"),
           sizeReadable: "<value>",
-          publicUrl: "https://worthwhile-habit.biz/",
+          publicUrl: "https://tough-summary.name",
         },
       ],
       attachedCustomFields: [
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2025-09-14T21:16:21.107Z"),
-            modifiedAt: new Date("2025-06-07T00:39:37.430Z"),
+            createdAt: new Date("2025-05-24T17:00:00.920Z"),
+            modifiedAt: new Date("2023-02-28T23:10:12.238Z"),
             id: "<value>",
             metadata: {
-              "key": 539696,
+              "key": 439160,
             },
             slug: "<value>",
             name: "<value>",
             organizationId: "<value>",
             properties: {},
           },
-          order: 777154,
+          order: 750407,
           required: false,
         },
       ],
     },
   ],
   pagination: {
-    totalCount: 318150,
-    maxPage: 639855,
+    totalCount: 23768,
+    maxPage: 386785,
   },
 };
 ```

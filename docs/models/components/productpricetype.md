@@ -5,7 +5,7 @@
 ```typescript
 import { ProductPriceType } from "@polar-sh/sdk/models/components/productpricetype.js";
 
-let value: ProductPriceType = "one_time";
+let value: ProductPriceType = "recurring";
 ```
 
 ## Values

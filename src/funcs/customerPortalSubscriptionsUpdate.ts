@@ -99,6 +99,7 @@ export async function customerPortalSubscriptionsUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "customer_portal:subscriptions:update",
     oAuth2Scopes: [],
 

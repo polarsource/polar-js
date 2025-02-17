@@ -101,6 +101,7 @@ export async function licenseKeysGetActivation(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "license_keys:get_activation",
     oAuth2Scopes: [],
 

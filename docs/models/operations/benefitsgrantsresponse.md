@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-12-12T16:47:35.521Z"),
-        modifiedAt: new Date("2023-12-07T08:29:54.913Z"),
+        createdAt: new Date("2024-02-23T17:59:07.811Z"),
+        modifiedAt: new Date("2025-05-10T23:33:33.951Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -20,30 +20,30 @@ let value: BenefitsGrantsResponse = {
         userId: "<value>",
         benefitId: "<value>",
         customer: {
-          createdAt: new Date("2025-03-23T12:44:05.239Z"),
-          modifiedAt: new Date("2024-06-19T21:50:51.021Z"),
+          createdAt: new Date("2024-09-01T08:37:51.173Z"),
+          modifiedAt: new Date("2025-08-19T11:27:16.475Z"),
           id: "<value>",
           metadata: {
-            "key": "<value>",
+            "key": false,
           },
-          email: "Katlynn55@gmail.com",
+          email: "Bailee55@gmail.com",
           emailVerified: false,
           name: "<value>",
           billingAddress: {
-            country: "Panama",
+            country: "Wallis and Futuna",
           },
           taxId: [
             "<id>",
           ],
           organizationId: "<value>",
-          avatarUrl: "https://proud-lox.net/",
+          avatarUrl: "https://snoopy-spring.info",
         },
         properties: {},
       },
     ],
     pagination: {
-      totalCount: 987633,
-      maxPage: 981642,
+      totalCount: 376776,
+      maxPage: 713325,
     },
   },
 };

@@ -79,6 +79,7 @@ export async function benefitsCreate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "benefits:create",
     oAuth2Scopes: [],
 

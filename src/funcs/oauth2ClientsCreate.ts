@@ -76,6 +76,7 @@ export async function oauth2ClientsCreate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "oauth2:clients:oauth2:create_client",
     oAuth2Scopes: [],
 

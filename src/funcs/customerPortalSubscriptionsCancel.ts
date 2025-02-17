@@ -96,6 +96,7 @@ export async function customerPortalSubscriptionsCancel(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "customer_portal:subscriptions:cancel",
     oAuth2Scopes: [],
 

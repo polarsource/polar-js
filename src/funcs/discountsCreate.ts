@@ -79,6 +79,7 @@ export async function discountsCreate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "discounts:create",
     oAuth2Scopes: [],
 

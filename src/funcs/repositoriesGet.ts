@@ -90,6 +90,7 @@ export async function repositoriesGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "repositories:get",
     oAuth2Scopes: [],
 

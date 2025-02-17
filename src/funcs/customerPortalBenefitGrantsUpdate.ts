@@ -101,6 +101,7 @@ export async function customerPortalBenefitGrantsUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "customer_portal:benefit-grants:update",
     oAuth2Scopes: [],
 

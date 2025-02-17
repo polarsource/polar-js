@@ -10,20 +10,39 @@ let value: EventsListResponse = {
     items: [
       {
         metadata: {
-          "key": "<value>",
+          "key": 960433,
         },
         id: "<value>",
-        timestamp: new Date("2025-04-22T20:02:07.778Z"),
+        timestamp: new Date("2024-03-03T05:31:49.356Z"),
         name: "<value>",
-        source: "system",
+        source: "user",
         organizationId: "<value>",
         customerId: "<value>",
+        customer: {
+          createdAt: new Date("2025-10-26T07:59:26.802Z"),
+          modifiedAt: new Date("2023-02-10T22:13:56.169Z"),
+          id: "<value>",
+          metadata: {
+            "key": 259862,
+          },
+          email: "Johnson80@gmail.com",
+          emailVerified: false,
+          name: "<value>",
+          billingAddress: {
+            country: "Aruba",
+          },
+          taxId: [
+            "<id>",
+          ],
+          organizationId: "<value>",
+          avatarUrl: "https://important-comparison.com/",
+        },
         externalCustomerId: "<id>",
       },
     ],
     pagination: {
-      totalCount: 148673,
-      maxPage: 290460,
+      totalCount: 646967,
+      maxPage: 533996,
     },
   },
 };

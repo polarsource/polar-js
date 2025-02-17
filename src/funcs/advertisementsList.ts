@@ -93,6 +93,7 @@ export async function advertisementsList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "advertisements:list",
     oAuth2Scopes: [],
 

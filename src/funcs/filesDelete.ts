@@ -92,6 +92,7 @@ export async function filesDelete(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "files:delete",
     oAuth2Scopes: [],
 

@@ -11,6 +11,10 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
+  RevokeTokenRequest,
+  RevokeTokenRequest$outboundSchema,
+} from "../models/components/revoketokenrequest.js";
+import {
   RevokeTokenResponse,
   RevokeTokenResponse$inboundSchema,
 } from "../models/components/revoketokenresponse.js";
@@ -23,10 +27,6 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import {
-  Oauth2RevokeTokenRevokeTokenRequest,
-  Oauth2RevokeTokenRevokeTokenRequest$outboundSchema,
-} from "../models/operations/oauth2revoketoken.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -37,7 +37,7 @@ import { Result } from "../types/fp.js";
  */
 export async function oauth2Revoke(
   client: PolarCore,
-  request: Oauth2RevokeTokenRevokeTokenRequest,
+  request: RevokeTokenRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
@@ -53,7 +53,7 @@ export async function oauth2Revoke(
 > {
   const parsed = safeParse(
     request,
-    (value) => Oauth2RevokeTokenRevokeTokenRequest$outboundSchema.parse(value),
+    (value) => RevokeTokenRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -77,6 +77,7 @@ export async function oauth2Revoke(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "oauth2:revoke_token",
     oAuth2Scopes: [],
 

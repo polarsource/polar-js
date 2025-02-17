@@ -95,6 +95,7 @@ export async function customFieldsList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "custom-fields:list",
     oAuth2Scopes: [],
 

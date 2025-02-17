@@ -90,6 +90,7 @@ export async function customFieldsGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "custom-fields:get",
     oAuth2Scopes: [],
 

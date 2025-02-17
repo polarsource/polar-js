@@ -15,7 +15,7 @@ export const TokenTypeHint = {
 } as const;
 export type TokenTypeHint = ClosedEnum<typeof TokenTypeHint>;
 
-export type Oauth2RevokeTokenRevokeTokenRequest = {
+export type RevokeTokenRequest = {
   token: string;
   tokenTypeHint?: TokenTypeHint | null | undefined;
   clientId: string;
@@ -44,8 +44,8 @@ export namespace TokenTypeHint$ {
 }
 
 /** @internal */
-export const Oauth2RevokeTokenRevokeTokenRequest$inboundSchema: z.ZodType<
-  Oauth2RevokeTokenRevokeTokenRequest,
+export const RevokeTokenRequest$inboundSchema: z.ZodType<
+  RevokeTokenRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -62,7 +62,7 @@ export const Oauth2RevokeTokenRevokeTokenRequest$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type Oauth2RevokeTokenRevokeTokenRequest$Outbound = {
+export type RevokeTokenRequest$Outbound = {
   token: string;
   token_type_hint?: string | null | undefined;
   client_id: string;
@@ -70,10 +70,10 @@ export type Oauth2RevokeTokenRevokeTokenRequest$Outbound = {
 };
 
 /** @internal */
-export const Oauth2RevokeTokenRevokeTokenRequest$outboundSchema: z.ZodType<
-  Oauth2RevokeTokenRevokeTokenRequest$Outbound,
+export const RevokeTokenRequest$outboundSchema: z.ZodType<
+  RevokeTokenRequest$Outbound,
   z.ZodTypeDef,
-  Oauth2RevokeTokenRevokeTokenRequest
+  RevokeTokenRequest
 > = z.object({
   token: z.string(),
   tokenTypeHint: z.nullable(TokenTypeHint$outboundSchema).optional(),
@@ -91,34 +91,29 @@ export const Oauth2RevokeTokenRevokeTokenRequest$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Oauth2RevokeTokenRevokeTokenRequest$ {
-  /** @deprecated use `Oauth2RevokeTokenRevokeTokenRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    Oauth2RevokeTokenRevokeTokenRequest$inboundSchema;
-  /** @deprecated use `Oauth2RevokeTokenRevokeTokenRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    Oauth2RevokeTokenRevokeTokenRequest$outboundSchema;
-  /** @deprecated use `Oauth2RevokeTokenRevokeTokenRequest$Outbound` instead. */
-  export type Outbound = Oauth2RevokeTokenRevokeTokenRequest$Outbound;
+export namespace RevokeTokenRequest$ {
+  /** @deprecated use `RevokeTokenRequest$inboundSchema` instead. */
+  export const inboundSchema = RevokeTokenRequest$inboundSchema;
+  /** @deprecated use `RevokeTokenRequest$outboundSchema` instead. */
+  export const outboundSchema = RevokeTokenRequest$outboundSchema;
+  /** @deprecated use `RevokeTokenRequest$Outbound` instead. */
+  export type Outbound = RevokeTokenRequest$Outbound;
 }
 
-export function oauth2RevokeTokenRevokeTokenRequestToJSON(
-  oauth2RevokeTokenRevokeTokenRequest: Oauth2RevokeTokenRevokeTokenRequest,
+export function revokeTokenRequestToJSON(
+  revokeTokenRequest: RevokeTokenRequest,
 ): string {
   return JSON.stringify(
-    Oauth2RevokeTokenRevokeTokenRequest$outboundSchema.parse(
-      oauth2RevokeTokenRevokeTokenRequest,
-    ),
+    RevokeTokenRequest$outboundSchema.parse(revokeTokenRequest),
   );
 }
 
-export function oauth2RevokeTokenRevokeTokenRequestFromJSON(
+export function revokeTokenRequestFromJSON(
   jsonString: string,
-): SafeParseResult<Oauth2RevokeTokenRevokeTokenRequest, SDKValidationError> {
+): SafeParseResult<RevokeTokenRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      Oauth2RevokeTokenRevokeTokenRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Oauth2RevokeTokenRevokeTokenRequest' from JSON`,
+    (x) => RevokeTokenRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RevokeTokenRequest' from JSON`,
   );
 }

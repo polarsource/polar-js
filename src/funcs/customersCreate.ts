@@ -79,6 +79,7 @@ export async function customersCreate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "customers:create",
     oAuth2Scopes: [],
 

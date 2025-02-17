@@ -84,6 +84,7 @@ export async function customerPortalLicenseKeysValidate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "customer_portal:license_keys:validate",
     oAuth2Scopes: [],
 

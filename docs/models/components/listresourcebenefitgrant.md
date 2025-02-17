@@ -8,8 +8,8 @@ import { ListResourceBenefitGrant } from "@polar-sh/sdk/models/components/listre
 let value: ListResourceBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2025-09-30T14:09:22.071Z"),
-      modifiedAt: new Date("2025-01-25T02:10:29.931Z"),
+      createdAt: new Date("2024-09-10T02:19:49.014Z"),
+      modifiedAt: new Date("2024-02-02T03:58:47.126Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
@@ -19,32 +19,30 @@ let value: ListResourceBenefitGrant = {
       userId: "<value>",
       benefitId: "<value>",
       customer: {
-        createdAt: new Date("2025-01-22T04:47:20.654Z"),
-        modifiedAt: new Date("2025-01-28T02:45:28.314Z"),
+        createdAt: new Date("2023-11-03T12:49:32.184Z"),
+        modifiedAt: new Date("2024-06-08T00:28:28.491Z"),
         id: "<value>",
         metadata: {
           "key": "<value>",
         },
-        email: "Terrell19@hotmail.com",
+        email: "Ignatius52@yahoo.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Nepal",
+          country: "Germany",
         },
         taxId: [
           "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://ecstatic-plastic.info",
+        avatarUrl: "https://happy-community.info",
       },
-      properties: {
-        advertisementCampaignId: "<id>",
-      },
+      properties: {},
     },
   ],
   pagination: {
-    totalCount: 97759,
-    maxPage: 952546,
+    totalCount: 126514,
+    maxPage: 122101,
   },
 };
 ```

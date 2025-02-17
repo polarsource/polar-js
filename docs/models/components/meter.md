@@ -7,17 +7,20 @@ import { Meter } from "@polar-sh/sdk/models/components/meter.js";
 
 let value: Meter = {
   metadata: {
-    "key": false,
+    "key": "<value>",
   },
-  createdAt: new Date("2023-03-28T00:11:16.408Z"),
-  modifiedAt: new Date("2025-02-24T14:49:29.759Z"),
+  createdAt: new Date("2023-01-26T16:13:32.465Z"),
+  modifiedAt: new Date("2024-06-19T18:06:49.644Z"),
   id: "<value>",
   name: "<value>",
   filter: {
     conjunction: "or",
     clauses: [],
   },
-  aggregation: {},
+  aggregation: {
+    func: "sum",
+    property: "<value>",
+  },
   organizationId: "<value>",
 };
 ```
