@@ -103,6 +103,7 @@ export async function metersList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "meters:list",
     oAuth2Scopes: [],
 

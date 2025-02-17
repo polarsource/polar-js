@@ -97,6 +97,7 @@ export async function customerPortalSubscriptionsList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "customer_portal:subscriptions:list",
     oAuth2Scopes: [],
 

@@ -6,29 +6,30 @@
 import { BenefitLicenseKeysSubscriber } from "@polar-sh/sdk/models/components/benefitlicensekeyssubscriber.js";
 
 let value: BenefitLicenseKeysSubscriber = {
-  createdAt: new Date("2023-10-24T05:28:30.875Z"),
-  modifiedAt: new Date("2024-09-02T17:41:59.365Z"),
+  createdAt: new Date("2025-09-17T04:38:05.058Z"),
+  modifiedAt: new Date("2023-08-01T17:02:23.069Z"),
   id: "<value>",
-  description: "tusk beyond jazz provided monstrous unnaturally",
+  description:
+    "what inconsequential optimistically excepting which battle lest slow mechanically times",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2023-08-24T15:31:37.773Z"),
-    modifiedAt: new Date("2023-06-07T08:38:35.544Z"),
+    createdAt: new Date("2025-04-09T16:23:40.595Z"),
+    modifiedAt: new Date("2025-12-26T22:45:57.487Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://unique-draft.org",
+    avatarUrl: "https://unpleasant-babushka.net/",
     bio: "<value>",
-    company: "Ziemann, Cruickshank and Treutel",
+    company: "Von, Farrell and D'Amore",
     blog: "<value>",
     location: "<value>",
-    email: "Margarita.Von@gmail.com",
+    email: "Vaughn25@yahoo.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 952572,
+    pledgeMinimumAmount: 771406,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 278866,
+    defaultUpfrontSplitToContributors: 13063,
     profileSettings: {},
     featureSettings: {},
     subscriptionSettings: {
@@ -40,14 +41,14 @@ let value: BenefitLicenseKeysSubscriber = {
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 319942,
-      timeframe: "year",
+      ttl: 530903,
+      timeframe: "month",
     },
     activations: {
-      limit: 684106,
+      limit: 785318,
       enableCustomerAdmin: false,
     },
-    limitUsage: 771406,
+    limitUsage: 355921,
   },
 };
 ```

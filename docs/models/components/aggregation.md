@@ -40,7 +40,7 @@ const value: components.PropertyAggregation = {
 
 ```typescript
 const value: components.PropertyAggregation = {
-  func: "avg",
+  func: "max",
   property: "<value>",
 };
 ```

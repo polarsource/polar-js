@@ -94,6 +94,7 @@ export async function discountsList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "discounts:list",
     oAuth2Scopes: [],
 

@@ -96,6 +96,7 @@ export async function licenseKeysUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "license_keys:update",
     oAuth2Scopes: [],
 

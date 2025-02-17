@@ -52,6 +52,7 @@ export async function oauth2Authorize(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "oauth2:authorize",
     oAuth2Scopes: [],
 

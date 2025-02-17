@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-03-19T06:56:52.426Z"),
-        modifiedAt: new Date("2024-08-26T02:17:15.307Z"),
+        createdAt: new Date("2025-10-15T23:00:41.227Z"),
+        modifiedAt: new Date("2025-03-23T08:39:37.206Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": false,
         },
-        email: "Tyson18@gmail.com",
+        email: "Braxton.Koch16@hotmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "France",
+          country: "Portugal",
         },
         taxId: [
-          "jp_cn",
+          "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://accurate-fencing.biz",
+        avatarUrl: "https://helpful-trolley.biz",
       },
     ],
     pagination: {
-      totalCount: 781770,
-      maxPage: 389060,
+      totalCount: 968944,
+      maxPage: 852730,
     },
   },
 };

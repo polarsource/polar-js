@@ -79,6 +79,7 @@ export async function filesCreate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "files:create",
     oAuth2Scopes: [],
 

@@ -8,28 +8,28 @@ import { ListResourceCustomer } from "@polar-sh/sdk/models/components/listresour
 let value: ListResourceCustomer = {
   items: [
     {
-      createdAt: new Date("2023-05-07T03:52:19.100Z"),
-      modifiedAt: new Date("2025-10-02T20:36:49.150Z"),
+      createdAt: new Date("2023-01-16T03:49:13.516Z"),
+      modifiedAt: new Date("2025-10-12T04:07:38.112Z"),
       id: "<value>",
       metadata: {
-        "key": false,
+        "key": "<value>",
       },
-      email: "Rod.Rath@gmail.com",
+      email: "Claudie.Weissnat@gmail.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Mauritius",
+        country: "Malawi",
       },
       taxId: [
-        "ca_pst_sk",
+        "<id>",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://functional-chiffonier.name",
+      avatarUrl: "https://scared-legislature.org",
     },
   ],
   pagination: {
-    totalCount: 524410,
-    maxPage: 291533,
+    totalCount: 660797,
+    maxPage: 493496,
   },
 };
 ```

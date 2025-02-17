@@ -9,19 +9,19 @@ import { MetricsIntervalsLimits } from "@polar-sh/sdk/models/components/metricsi
 
 let value: MetricsIntervalsLimits = {
   hour: {
-    maxDays: 637086,
+    maxDays: 929429,
   },
   day: {
-    maxDays: 643394,
+    maxDays: 744543,
   },
   week: {
-    maxDays: 306043,
+    maxDays: 546010,
   },
   month: {
-    maxDays: 864742,
+    maxDays: 209465,
   },
   year: {
-    maxDays: 593604,
+    maxDays: 6356,
   },
 };
 ```

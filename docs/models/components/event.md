@@ -7,14 +7,33 @@ import { Event } from "@polar-sh/sdk/models/components/event.js";
 
 let value: Event = {
   metadata: {
-    "key": 429753,
+    "key": "<value>",
   },
   id: "<value>",
-  timestamp: new Date("2024-05-10T19:30:11.410Z"),
+  timestamp: new Date("2025-02-24T14:49:29.759Z"),
   name: "<value>",
-  source: "system",
+  source: "user",
   organizationId: "<value>",
   customerId: "<value>",
+  customer: {
+    createdAt: new Date("2024-03-04T05:44:49.104Z"),
+    modifiedAt: new Date("2023-02-17T14:20:03.646Z"),
+    id: "<value>",
+    metadata: {
+      "key": false,
+    },
+    email: "Terrence.Hodkiewicz43@gmail.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "Montenegro",
+    },
+    taxId: [
+      "co_nit",
+    ],
+    organizationId: "<value>",
+    avatarUrl: "https://closed-disclosure.net/",
+  },
   externalCustomerId: "<id>",
 };
 ```
@@ -30,4 +49,5 @@ let value: Event = {
 | `source`                                                                                      | [components.EventSource](../../models/components/eventsource.md)                              | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the event.                                                  |
 | `customerId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | ID of the customer in your Polar organization associated with the event.                      |
+| `customer`                                                                                    | [components.Customer](../../models/components/customer.md)                                    | :heavy_check_mark:                                                                            | The customer associated with the event.                                                       |
 | `externalCustomerId`                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | ID of the customer in your system associated with the event.                                  |

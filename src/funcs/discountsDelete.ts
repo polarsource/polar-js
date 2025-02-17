@@ -87,6 +87,7 @@ export async function discountsDelete(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "discounts:delete",
     oAuth2Scopes: [],
 

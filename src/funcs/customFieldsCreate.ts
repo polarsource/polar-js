@@ -79,6 +79,7 @@ export async function customFieldsCreate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "custom-fields:create",
     oAuth2Scopes: [],
 

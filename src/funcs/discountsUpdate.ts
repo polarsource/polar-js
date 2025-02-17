@@ -91,6 +91,7 @@ export async function discountsUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "discounts:update",
     oAuth2Scopes: [],
 

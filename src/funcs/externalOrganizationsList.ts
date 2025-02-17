@@ -95,6 +95,7 @@ export async function externalOrganizationsList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "external_organizations:list",
     oAuth2Scopes: [],
 

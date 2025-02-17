@@ -8,13 +8,13 @@ import { oauth2Revoke } from "../funcs/oauth2Revoke.js";
 import { oauth2Token } from "../funcs/oauth2Token.js";
 import { oauth2Userinfo } from "../funcs/oauth2Userinfo.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import { IntrospectTokenRequest } from "../models/components/introspecttokenrequest.js";
 import { IntrospectTokenResponse } from "../models/components/introspecttokenresponse.js";
+import { RevokeTokenRequest } from "../models/components/revoketokenrequest.js";
 import { RevokeTokenResponse } from "../models/components/revoketokenresponse.js";
 import { TokenResponse } from "../models/components/tokenresponse.js";
 import { Oauth2AuthorizeResponseOauth2Authorize } from "../models/operations/oauth2authorize.js";
-import { Oauth2IntrospectTokenIntrospectTokenRequest } from "../models/operations/oauth2introspecttoken.js";
 import { Oauth2RequestTokenRequestBody } from "../models/operations/oauth2requesttoken.js";
-import { Oauth2RevokeTokenRevokeTokenRequest } from "../models/operations/oauth2revoketoken.js";
 import { Oauth2UserinfoResponseOauth2Userinfo } from "../models/operations/oauth2userinfo.js";
 import { unwrapAsync } from "../types/fp.js";
 import { Clients } from "./clients.js";
@@ -61,7 +61,7 @@ export class Oauth2 extends ClientSDK {
    * Revoke an access token or a refresh token.
    */
   async revoke(
-    request: Oauth2RevokeTokenRevokeTokenRequest,
+    request: RevokeTokenRequest,
     options?: RequestOptions,
   ): Promise<RevokeTokenResponse> {
     return unwrapAsync(oauth2Revoke(
@@ -78,7 +78,7 @@ export class Oauth2 extends ClientSDK {
    * Get information about an access token.
    */
   async introspect(
-    request: Oauth2IntrospectTokenIntrospectTokenRequest,
+    request: IntrospectTokenRequest,
     options?: RequestOptions,
   ): Promise<IntrospectTokenResponse> {
     return unwrapAsync(oauth2Introspect(

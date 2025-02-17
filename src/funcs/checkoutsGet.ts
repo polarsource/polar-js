@@ -90,6 +90,7 @@ export async function checkoutsGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "checkouts:get",
     oAuth2Scopes: [],
 

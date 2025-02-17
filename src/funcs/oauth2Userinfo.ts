@@ -55,6 +55,7 @@ export async function oauth2Userinfo(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "oauth2:userinfo",
     oAuth2Scopes: [],
 

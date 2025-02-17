@@ -5,7 +5,7 @@
 ```typescript
 import { TimeInterval } from "@polar-sh/sdk/models/components/timeinterval.js";
 
-let value: TimeInterval = "hour";
+let value: TimeInterval = "year";
 ```
 
 ## Values

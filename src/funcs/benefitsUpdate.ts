@@ -96,6 +96,7 @@ export async function benefitsUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "benefits:update",
     oAuth2Scopes: [],
 

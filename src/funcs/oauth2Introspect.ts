@@ -11,6 +11,10 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
+  IntrospectTokenRequest,
+  IntrospectTokenRequest$outboundSchema,
+} from "../models/components/introspecttokenrequest.js";
+import {
   IntrospectTokenResponse,
   IntrospectTokenResponse$inboundSchema,
 } from "../models/components/introspecttokenresponse.js";
@@ -23,10 +27,6 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import {
-  Oauth2IntrospectTokenIntrospectTokenRequest,
-  Oauth2IntrospectTokenIntrospectTokenRequest$outboundSchema,
-} from "../models/operations/oauth2introspecttoken.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -37,7 +37,7 @@ import { Result } from "../types/fp.js";
  */
 export async function oauth2Introspect(
   client: PolarCore,
-  request: Oauth2IntrospectTokenIntrospectTokenRequest,
+  request: IntrospectTokenRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
@@ -53,8 +53,7 @@ export async function oauth2Introspect(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      Oauth2IntrospectTokenIntrospectTokenRequest$outboundSchema.parse(value),
+    (value) => IntrospectTokenRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -78,6 +77,7 @@ export async function oauth2Introspect(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "oauth2:introspect_token",
     oAuth2Scopes: [],
 

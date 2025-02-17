@@ -17,12 +17,31 @@ let value: ListResourceEvent = {
       source: "system",
       organizationId: "<value>",
       customerId: "<value>",
+      customer: {
+        createdAt: new Date("2025-06-16T07:11:59.696Z"),
+        modifiedAt: new Date("2025-06-14T17:40:30.188Z"),
+        id: "<value>",
+        metadata: {
+          "key": 467406,
+        },
+        email: "Izaiah66@yahoo.com",
+        emailVerified: false,
+        name: "<value>",
+        billingAddress: {
+          country: "Canada",
+        },
+        taxId: [
+          "ro_tin",
+        ],
+        organizationId: "<value>",
+        avatarUrl: "https://quarrelsome-spirit.name",
+      },
       externalCustomerId: "<id>",
     },
   ],
   pagination: {
-    totalCount: 818705,
-    maxPage: 817278,
+    totalCount: 647383,
+    maxPage: 976771,
   },
 };
 ```

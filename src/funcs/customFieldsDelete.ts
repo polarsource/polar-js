@@ -87,6 +87,7 @@ export async function customFieldsDelete(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "custom-fields:delete",
     oAuth2Scopes: [],
 

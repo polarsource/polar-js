@@ -93,6 +93,7 @@ export async function benefitsList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "benefits:list",
     oAuth2Scopes: [],
 

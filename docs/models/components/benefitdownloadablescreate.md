@@ -6,8 +6,7 @@
 import { BenefitDownloadablesCreate } from "@polar-sh/sdk/models/components/benefitdownloadablescreate.js";
 
 let value: BenefitDownloadablesCreate = {
-  description:
-    "pomelo hourly boldly stabilise midwife whereas incidentally great",
+  description: "uselessly yowza whoever shallow fit lock huzzah",
   properties: {
     files: [
       "<value>",

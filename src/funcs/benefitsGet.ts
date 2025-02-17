@@ -90,6 +90,7 @@ export async function benefitsGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "benefits:get",
     oAuth2Scopes: [],
 

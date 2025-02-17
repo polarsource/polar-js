@@ -1,11 +1,11 @@
-# Oauth2RevokeTokenRevokeTokenRequest
+# RevokeTokenRequest
 
 ## Example Usage
 
 ```typescript
-import { Oauth2RevokeTokenRevokeTokenRequest } from "@polar-sh/sdk/models/operations/oauth2revoketoken.js";
+import { RevokeTokenRequest } from "@polar-sh/sdk/models/components/revoketokenrequest.js";
 
-let value: Oauth2RevokeTokenRevokeTokenRequest = {
+let value: RevokeTokenRequest = {
   token: "<value>",
   clientId: "<id>",
   clientSecret: "<value>",
@@ -17,6 +17,6 @@ let value: Oauth2RevokeTokenRevokeTokenRequest = {
 | Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
 | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | `token`                                                              | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
-| `tokenTypeHint`                                                      | [operations.TokenTypeHint](../../models/operations/tokentypehint.md) | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `tokenTypeHint`                                                      | [components.TokenTypeHint](../../models/components/tokentypehint.md) | :heavy_minus_sign:                                                   | N/A                                                                  |
 | `clientId`                                                           | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
 | `clientSecret`                                                       | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |

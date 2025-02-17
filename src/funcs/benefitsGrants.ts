@@ -107,6 +107,7 @@ export async function benefitsGrants(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "benefits:grants",
     oAuth2Scopes: [],
 

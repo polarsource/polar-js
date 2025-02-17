@@ -79,6 +79,7 @@ export async function eventsIngest(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "events:ingest",
     oAuth2Scopes: [],
 

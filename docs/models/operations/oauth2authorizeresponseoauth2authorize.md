@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2025-04-29T08:16:33.102Z"),
-    modifiedAt: new Date("2023-11-09T21:59:58.532Z"),
+    createdAt: new Date("2024-03-25T15:09:55.576Z"),
+    modifiedAt: new Date("2024-07-18T15:02:31.096Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://compassionate-intellect.net",
-    logoUri: "https://mild-intent.com/",
-    tosUri: "https://both-rim.info/",
-    policyUri: "https://smooth-pepper.info/",
+    clientUri: "https://chilly-bourgeoisie.com",
+    logoUri: "https://damp-alligator.net/",
+    tosUri: "https://alienated-fencing.name",
+    policyUri: "https://decent-bathhouse.com/",
   },
   sub: {
     id: "<value>",
-    email: "Jaylon_Johnston@gmail.com",
-    avatarUrl: "https://unlawful-bin.name/",
+    email: "Lolita47@yahoo.com",
+    avatarUrl: "https://gleaming-roundabout.info",
   },
   scopes: [
-    "customer_portal:read",
+    "subscriptions:write",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2025-09-27T18:33:14.332Z"),
-    modifiedAt: new Date("2023-02-03T22:19:42.582Z"),
+    createdAt: new Date("2024-12-20T07:15:53.081Z"),
+    modifiedAt: new Date("2023-12-23T08:13:29.025Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://celebrated-haircut.info/",
-    logoUri: "https://sorrowful-follower.info/",
-    tosUri: "https://foolish-help.info/",
-    policyUri: "https://scaly-cannon.com",
+    clientUri: "https://candid-stay.org",
+    logoUri: "https://assured-sticker.org",
+    tosUri: "https://self-reliant-availability.net/",
+    policyUri: "https://wide-eyed-hovel.info",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://bustling-coil.com/",
+    avatarUrl: "https://menacing-singing.org/",
   },
   scopes: [
-    "license_keys:read",
+    "openid",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://alienated-fencing.name",
+      avatarUrl: "https://possible-numeric.net",
     },
   ],
 };

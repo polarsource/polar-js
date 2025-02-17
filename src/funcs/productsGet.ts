@@ -90,6 +90,7 @@ export async function productsGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "products:get",
     oAuth2Scopes: [],
 

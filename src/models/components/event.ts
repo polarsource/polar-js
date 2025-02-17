@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  Customer,
+  Customer$inboundSchema,
+  Customer$Outbound,
+  Customer$outboundSchema,
+} from "./customer.js";
+import {
   EventSource,
   EventSource$inboundSchema,
   EventSource$outboundSchema,
@@ -38,6 +44,10 @@ export type Event = {
    * ID of the customer in your Polar organization associated with the event.
    */
   customerId: string | null;
+  /**
+   * The customer associated with the event.
+   */
+  customer: Customer | null;
   /**
    * ID of the customer in your system associated with the event.
    */
@@ -100,6 +110,7 @@ export const Event$inboundSchema: z.ZodType<Event, z.ZodTypeDef, unknown> = z
     source: EventSource$inboundSchema,
     organization_id: z.string(),
     customer_id: z.nullable(z.string()),
+    customer: z.nullable(Customer$inboundSchema),
     external_customer_id: z.nullable(z.string()),
   }).transform((v) => {
     return remap$(v, {
@@ -118,6 +129,7 @@ export type Event$Outbound = {
   source: string;
   organization_id: string;
   customer_id: string | null;
+  customer: Customer$Outbound | null;
   external_customer_id: string | null;
 };
 
@@ -134,6 +146,7 @@ export const Event$outboundSchema: z.ZodType<
   source: EventSource$outboundSchema,
   organizationId: z.string(),
   customerId: z.nullable(z.string()),
+  customer: z.nullable(Customer$outboundSchema),
   externalCustomerId: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {

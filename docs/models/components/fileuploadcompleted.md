@@ -7,10 +7,10 @@ import { FileUploadCompleted } from "@polar-sh/sdk/models/components/fileuploadc
 
 let value: FileUploadCompleted = {
   id: "<id>",
-  path: "/opt/sbin",
+  path: "/home/user",
   parts: [
     {
-      number: 125830,
+      number: 226158,
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
     },

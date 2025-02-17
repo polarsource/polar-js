@@ -90,6 +90,7 @@ export async function discountsGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "discounts:get",
     oAuth2Scopes: [],
 

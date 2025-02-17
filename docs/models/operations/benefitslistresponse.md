@@ -9,31 +9,26 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-02-19T01:11:58.352Z"),
-        modifiedAt: new Date("2025-07-23T17:59:18.862Z"),
+        createdAt: new Date("2024-01-03T21:20:38.344Z"),
+        modifiedAt: new Date("2025-09-10T07:57:41.624Z"),
         id: "<value>",
-        description:
-          "excluding reproachfully slump mmm indeed requirement unwieldy mmm till",
+        description: "shady that voluntarily behind machine",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          prefix: "<value>",
-          expires: {
-            ttl: 232193,
-            timeframe: "year",
+          archived: {
+            "key": false,
           },
-          activations: {
-            limit: 48324,
-            enableCustomerAdmin: false,
-          },
-          limitUsage: 283012,
+          files: [
+            "<value>",
+          ],
         },
       },
     ],
     pagination: {
-      totalCount: 336707,
-      maxPage: 280695,
+      totalCount: 140896,
+      maxPage: 182943,
     },
   },
 };

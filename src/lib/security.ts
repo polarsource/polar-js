@@ -4,7 +4,6 @@
 
 import { Security } from "../models/components/security.js";
 import { env } from "./env.js";
-
 type OAuth2PasswordFlow = {
   username: string;
   password?: string | undefined;

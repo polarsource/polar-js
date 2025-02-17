@@ -103,6 +103,7 @@ export async function licenseKeysList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "license_keys:list",
     oAuth2Scopes: [],
 

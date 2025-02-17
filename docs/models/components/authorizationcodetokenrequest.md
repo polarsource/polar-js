@@ -1,11 +1,11 @@
-# Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest
+# AuthorizationCodeTokenRequest
 
 ## Example Usage
 
 ```typescript
-import { Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest } from "@polar-sh/sdk/models/components/onev11oauth21tokenpostxcomponentsauthorizationcodetokenrequest.js";
+import { AuthorizationCodeTokenRequest } from "@polar-sh/sdk/models/components/authorizationcodetokenrequest.js";
 
-let value: Onev11oauth21tokenPostXComponentsAuthorizationCodeTokenRequest = {
+let value: AuthorizationCodeTokenRequest = {
   clientId: "<id>",
   clientSecret: "<value>",
   code: "<value>",

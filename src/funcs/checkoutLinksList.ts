@@ -94,6 +94,7 @@ export async function checkoutLinksList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "checkout-links:list",
     oAuth2Scopes: [],
 

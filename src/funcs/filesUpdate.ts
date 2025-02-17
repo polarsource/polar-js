@@ -94,6 +94,7 @@ export async function filesUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "files:update",
     oAuth2Scopes: [],
 

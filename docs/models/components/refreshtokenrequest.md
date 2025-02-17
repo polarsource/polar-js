@@ -1,11 +1,11 @@
-# Onev11oauth21tokenPostXComponentsRefreshTokenRequest
+# RefreshTokenRequest
 
 ## Example Usage
 
 ```typescript
-import { Onev11oauth21tokenPostXComponentsRefreshTokenRequest } from "@polar-sh/sdk/models/components/onev11oauth21tokenpostxcomponentsrefreshtokenrequest.js";
+import { RefreshTokenRequest } from "@polar-sh/sdk/models/components/refreshtokenrequest.js";
 
-let value: Onev11oauth21tokenPostXComponentsRefreshTokenRequest = {
+let value: RefreshTokenRequest = {
   clientId: "<id>",
   clientSecret: "<value>",
   refreshToken: "<value>",

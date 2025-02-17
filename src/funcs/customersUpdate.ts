@@ -91,6 +91,7 @@ export async function customersUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "customers:update",
     oAuth2Scopes: [],
 

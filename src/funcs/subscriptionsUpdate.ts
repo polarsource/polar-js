@@ -98,6 +98,7 @@ export async function subscriptionsUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "subscriptions:update",
     oAuth2Scopes: [],
 

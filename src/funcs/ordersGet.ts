@@ -87,6 +87,7 @@ export async function ordersGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "orders:get",
     oAuth2Scopes: [],
 

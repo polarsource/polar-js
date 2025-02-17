@@ -8,11 +8,11 @@ import { ListResourceCustomerBenefitGrant } from "@polar-sh/sdk/models/component
 let value: ListResourceCustomerBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2023-02-21T23:25:35.025Z"),
-      modifiedAt: new Date("2023-06-13T11:03:06.616Z"),
+      createdAt: new Date("2023-06-18T23:13:24.033Z"),
+      modifiedAt: new Date("2024-04-06T11:06:58.417Z"),
       id: "<value>",
-      grantedAt: new Date("2023-01-02T23:04:43.120Z"),
-      revokedAt: new Date("2024-01-30T14:22:07.592Z"),
+      grantedAt: new Date("2024-06-07T05:46:10.028Z"),
+      revokedAt: new Date("2025-01-12T22:28:31.850Z"),
       customerId: "<value>",
       benefitId: "<value>",
       subscriptionId: "<value>",
@@ -20,14 +20,14 @@ let value: ListResourceCustomerBenefitGrant = {
       isGranted: false,
       isRevoked: false,
       customer: {
-        createdAt: new Date("2025-06-07T12:19:55.464Z"),
-        modifiedAt: new Date("2024-09-23T01:16:34.405Z"),
+        createdAt: new Date("2023-11-08T19:50:53.693Z"),
+        modifiedAt: new Date("2024-12-08T15:11:52.881Z"),
         id: "<value>",
-        email: "Chanelle11@hotmail.com",
+        email: "Norwood8@gmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Lithuania",
+          country: "Ghana",
         },
         taxId: [
           "<id>",
@@ -40,29 +40,30 @@ let value: ListResourceCustomerBenefitGrant = {
         },
       },
       benefit: {
-        createdAt: new Date("2025-07-06T11:20:32.944Z"),
-        modifiedAt: new Date("2024-06-24T05:24:09.981Z"),
+        createdAt: new Date("2024-07-05T23:05:24.871Z"),
+        modifiedAt: new Date("2023-05-14T13:28:32.287Z"),
         id: "<value>",
-        description: "unless fearless rosy swim woot",
+        description:
+          "irresponsible hubris ack attribute underneath taxicab quirkily woot",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         organization: {
-          createdAt: new Date("2023-12-13T12:05:42.154Z"),
-          modifiedAt: new Date("2023-11-29T20:53:48.144Z"),
+          createdAt: new Date("2023-11-22T09:26:52.208Z"),
+          modifiedAt: new Date("2025-01-04T18:27:37.711Z"),
           id: "<value>",
           name: "<value>",
           slug: "<value>",
-          avatarUrl: "https://yellow-pantyhose.net",
+          avatarUrl: "https://some-grass.biz",
           bio: "<value>",
-          company: "Parker, Corkery and Collins",
+          company: "Lesch - Morissette",
           blog: "<value>",
           location: "<value>",
-          email: "Adriana_Schneider@hotmail.com",
+          email: "Milo91@hotmail.com",
           twitterUsername: "<value>",
-          pledgeMinimumAmount: 123486,
+          pledgeMinimumAmount: 111913,
           pledgeBadgeShowAmount: false,
-          defaultUpfrontSplitToContributors: 462247,
+          defaultUpfrontSplitToContributors: 836578,
           profileSettings: {},
           featureSettings: {
             issueFundingEnabled: false,
@@ -83,8 +84,8 @@ let value: ListResourceCustomerBenefitGrant = {
     },
   ],
   pagination: {
-    totalCount: 371870,
-    maxPage: 517246,
+    totalCount: 711897,
+    maxPage: 487429,
   },
 };
 ```

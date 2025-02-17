@@ -8,6 +8,7 @@ import { SecurityState } from "../lib/security.js";
 import { WebhookRecipient } from "../types/webhooks.js";
 
 export type HookContext = {
+  baseURL: string | URL;
   operationID: string;
   oAuth2Scopes?: string[];
   webhookRecipient?: WebhookRecipient;

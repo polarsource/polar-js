@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "d007de3c-6a52-4b40-9f61-cd4a1633f08a",
+        id: "fd6a9a48-1362-4228-a79f-9343c71d69f9",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://standard-commodity.name/",
+        avatarUrl: "https://unlined-impact.net",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Smitham, Kassulke and Parker",
+        company: "Gulgowski, Cruickshank and Marks",
         blog: "<value>",
         location: "<value>",
-        email: "Mack.Labadie@yahoo.com",
+        email: "Rene_Quitzon@gmail.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 156726,
-      maxPage: 159487,
+      totalCount: 674818,
+      maxPage: 974576,
     },
   },
 };

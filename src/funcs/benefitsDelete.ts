@@ -96,6 +96,7 @@ export async function benefitsDelete(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "benefits:delete",
     oAuth2Scopes: [],
 

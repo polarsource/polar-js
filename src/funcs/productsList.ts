@@ -98,6 +98,7 @@ export async function productsList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "products:list",
     oAuth2Scopes: [],
 

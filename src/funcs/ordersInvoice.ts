@@ -90,6 +90,7 @@ export async function ordersInvoice(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "orders:invoice",
     oAuth2Scopes: [],
 
