@@ -6,7 +6,7 @@
 import { BenefitLicenseKeysCreate } from "@polar-sh/sdk/models/components/benefitlicensekeyscreate.js";
 
 let value: BenefitLicenseKeysCreate = {
-  description: "stabilise midwife whereas",
+  description: "gee recompense eggplant midst crumble",
   properties: {},
 };
 ```

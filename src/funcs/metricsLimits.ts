@@ -21,6 +21,7 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -29,10 +30,10 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Get the interval limits for the metrics endpoint.
  */
-export async function metricsLimits(
+export function metricsLimits(
   client: PolarCore,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     MetricsLimits,
     | SDKError
@@ -43,6 +44,30 @@ export async function metricsLimits(
     | RequestTimeoutError
     | ConnectionError
   >
+> {
+  return new APIPromise($do(
+    client,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      MetricsLimits,
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
 > {
   const path = pathToFunc("/v1/metrics/limits")();
 
@@ -77,7 +102,7 @@ export async function metricsLimits(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -88,7 +113,7 @@ export async function metricsLimits(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -107,8 +132,8 @@ export async function metricsLimits(
     M.fail("5XX"),
   )(response);
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

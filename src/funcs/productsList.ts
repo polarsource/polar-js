@@ -30,6 +30,7 @@ import {
   ProductsListResponse,
   ProductsListResponse$inboundSchema,
 } from "../models/operations/productslist.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -44,11 +45,11 @@ import {
  * @remarks
  * List products.
  */
-export async function productsList(
+export function productsList(
   client: PolarCore,
   request: ProductsListRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   PageIterator<
     Result<
       ProductsListResponse,
@@ -64,13 +65,43 @@ export async function productsList(
     { page: number }
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: ProductsListRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    PageIterator<
+      Result<
+        ProductsListResponse,
+        | HTTPValidationError
+        | SDKError
+        | SDKValidationError
+        | UnexpectedClientError
+        | InvalidRequestError
+        | RequestAbortedError
+        | RequestTimeoutError
+        | ConnectionError
+      >,
+      { page: number }
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => ProductsListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return haltIterator(parsed);
+    return [haltIterator(parsed), { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -122,7 +153,7 @@ export async function productsList(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return haltIterator(requestRes);
+    return [haltIterator(requestRes), { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -133,7 +164,7 @@ export async function productsList(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return haltIterator(doResult);
+    return [haltIterator(doResult), { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -158,7 +189,11 @@ export async function productsList(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return haltIterator(result);
+    return [haltIterator(result), {
+      status: "complete",
+      request: req,
+      response,
+    }];
   }
 
   const nextFunc = (
@@ -212,5 +247,9 @@ export async function productsList(
   };
 
   const page = { ...result, ...nextFunc(raw) };
-  return { ...page, ...createPageIterator(page, (v) => !v.ok) };
+  return [{ ...page, ...createPageIterator(page, (v) => !v.ok) }, {
+    status: "complete",
+    request: req,
+    response,
+  }];
 }

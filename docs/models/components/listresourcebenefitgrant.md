@@ -8,8 +8,8 @@ import { ListResourceBenefitGrant } from "@polar-sh/sdk/models/components/listre
 let value: ListResourceBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2024-09-10T02:19:49.014Z"),
-      modifiedAt: new Date("2024-02-02T03:58:47.126Z"),
+      createdAt: new Date("2024-09-07T12:14:03.053Z"),
+      modifiedAt: new Date("2025-06-28T22:00:04.593Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
@@ -19,30 +19,32 @@ let value: ListResourceBenefitGrant = {
       userId: "<value>",
       benefitId: "<value>",
       customer: {
-        createdAt: new Date("2023-11-03T12:49:32.184Z"),
-        modifiedAt: new Date("2024-06-08T00:28:28.491Z"),
+        createdAt: new Date("2025-12-26T11:07:58.955Z"),
+        modifiedAt: new Date("2023-06-19T01:02:39.961Z"),
         id: "<value>",
         metadata: {
           "key": "<value>",
         },
-        email: "Ignatius52@yahoo.com",
+        email: "Alfreda.Hodkiewicz@yahoo.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Germany",
+          country: "Fiji",
         },
         taxId: [
           "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://happy-community.info",
+        avatarUrl: "https://soft-nucleotidase.biz",
       },
-      properties: {},
+      properties: {
+        advertisementCampaignId: "<id>",
+      },
     },
   ],
   pagination: {
-    totalCount: 126514,
-    maxPage: 122101,
+    totalCount: 157859,
+    maxPage: 878283,
   },
 };
 ```

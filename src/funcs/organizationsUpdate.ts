@@ -39,6 +39,7 @@ import {
   OrganizationsUpdateRequest,
   OrganizationsUpdateRequest$outboundSchema,
 } from "../models/operations/organizationsupdate.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -47,11 +48,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Update an organization.
  */
-export async function organizationsUpdate(
+export function organizationsUpdate(
   client: PolarCore,
   request: OrganizationsUpdateRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     Organization,
     | NotPermitted
@@ -66,13 +67,42 @@ export async function organizationsUpdate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: OrganizationsUpdateRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      Organization,
+      | NotPermitted
+      | ResourceNotFound
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => OrganizationsUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload.OrganizationUpdate, {
@@ -121,7 +151,7 @@ export async function organizationsUpdate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -132,7 +162,7 @@ export async function organizationsUpdate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -161,8 +191,8 @@ export async function organizationsUpdate(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

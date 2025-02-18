@@ -14,6 +14,12 @@ import {
   BenefitBase$outboundSchema,
 } from "./benefitbase.js";
 import {
+  LegacyRecurringProductPrice,
+  LegacyRecurringProductPrice$inboundSchema,
+  LegacyRecurringProductPrice$Outbound,
+  LegacyRecurringProductPrice$outboundSchema,
+} from "./legacyrecurringproductprice.js";
+import {
   Organization,
   Organization$inboundSchema,
   Organization$Outbound,
@@ -31,6 +37,15 @@ import {
   ProductPrice$Outbound,
   ProductPrice$outboundSchema,
 } from "./productprice.js";
+import {
+  SubscriptionRecurringInterval,
+  SubscriptionRecurringInterval$inboundSchema,
+  SubscriptionRecurringInterval$outboundSchema,
+} from "./subscriptionrecurringinterval.js";
+
+export type CustomerSubscriptionProductPrices =
+  | LegacyRecurringProductPrice
+  | ProductPrice;
 
 export type CustomerSubscriptionProduct = {
   /**
@@ -54,7 +69,11 @@ export type CustomerSubscriptionProduct = {
    */
   description: string | null;
   /**
-   * Whether the product is a subscription tier.
+   * The recurring interval of the product. If `None`, the product is a one-time purchase.
+   */
+  recurringInterval: SubscriptionRecurringInterval | null;
+  /**
+   * Whether the product is a subscription.
    */
   isRecurring: boolean;
   /**
@@ -68,7 +87,7 @@ export type CustomerSubscriptionProduct = {
   /**
    * List of prices for this product.
    */
-  prices: Array<ProductPrice>;
+  prices: Array<LegacyRecurringProductPrice | ProductPrice>;
   /**
    * List of benefits granted by the product.
    */
@@ -79,6 +98,65 @@ export type CustomerSubscriptionProduct = {
   medias: Array<ProductMediaFileRead>;
   organization: Organization;
 };
+
+/** @internal */
+export const CustomerSubscriptionProductPrices$inboundSchema: z.ZodType<
+  CustomerSubscriptionProductPrices,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
+
+/** @internal */
+export type CustomerSubscriptionProductPrices$Outbound =
+  | LegacyRecurringProductPrice$Outbound
+  | ProductPrice$Outbound;
+
+/** @internal */
+export const CustomerSubscriptionProductPrices$outboundSchema: z.ZodType<
+  CustomerSubscriptionProductPrices$Outbound,
+  z.ZodTypeDef,
+  CustomerSubscriptionProductPrices
+> = z.union([
+  LegacyRecurringProductPrice$outboundSchema,
+  ProductPrice$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerSubscriptionProductPrices$ {
+  /** @deprecated use `CustomerSubscriptionProductPrices$inboundSchema` instead. */
+  export const inboundSchema = CustomerSubscriptionProductPrices$inboundSchema;
+  /** @deprecated use `CustomerSubscriptionProductPrices$outboundSchema` instead. */
+  export const outboundSchema =
+    CustomerSubscriptionProductPrices$outboundSchema;
+  /** @deprecated use `CustomerSubscriptionProductPrices$Outbound` instead. */
+  export type Outbound = CustomerSubscriptionProductPrices$Outbound;
+}
+
+export function customerSubscriptionProductPricesToJSON(
+  customerSubscriptionProductPrices: CustomerSubscriptionProductPrices,
+): string {
+  return JSON.stringify(
+    CustomerSubscriptionProductPrices$outboundSchema.parse(
+      customerSubscriptionProductPrices,
+    ),
+  );
+}
+
+export function customerSubscriptionProductPricesFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomerSubscriptionProductPrices, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomerSubscriptionProductPrices$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerSubscriptionProductPrices' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerSubscriptionProduct$inboundSchema: z.ZodType<
@@ -93,10 +171,16 @@ export const CustomerSubscriptionProduct$inboundSchema: z.ZodType<
   id: z.string(),
   name: z.string(),
   description: z.nullable(z.string()),
+  recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
   is_recurring: z.boolean(),
   is_archived: z.boolean(),
   organization_id: z.string(),
-  prices: z.array(ProductPrice$inboundSchema),
+  prices: z.array(
+    z.union([
+      LegacyRecurringProductPrice$inboundSchema,
+      ProductPrice$inboundSchema,
+    ]),
+  ),
   benefits: z.array(BenefitBase$inboundSchema),
   medias: z.array(ProductMediaFileRead$inboundSchema),
   organization: Organization$inboundSchema,
@@ -104,6 +188,7 @@ export const CustomerSubscriptionProduct$inboundSchema: z.ZodType<
   return remap$(v, {
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
+    "recurring_interval": "recurringInterval",
     "is_recurring": "isRecurring",
     "is_archived": "isArchived",
     "organization_id": "organizationId",
@@ -117,10 +202,11 @@ export type CustomerSubscriptionProduct$Outbound = {
   id: string;
   name: string;
   description: string | null;
+  recurring_interval: string | null;
   is_recurring: boolean;
   is_archived: boolean;
   organization_id: string;
-  prices: Array<ProductPrice$Outbound>;
+  prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
   benefits: Array<BenefitBase$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
   organization: Organization$Outbound;
@@ -137,10 +223,16 @@ export const CustomerSubscriptionProduct$outboundSchema: z.ZodType<
   id: z.string(),
   name: z.string(),
   description: z.nullable(z.string()),
+  recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
   isRecurring: z.boolean(),
   isArchived: z.boolean(),
   organizationId: z.string(),
-  prices: z.array(ProductPrice$outboundSchema),
+  prices: z.array(
+    z.union([
+      LegacyRecurringProductPrice$outboundSchema,
+      ProductPrice$outboundSchema,
+    ]),
+  ),
   benefits: z.array(BenefitBase$outboundSchema),
   medias: z.array(ProductMediaFileRead$outboundSchema),
   organization: Organization$outboundSchema,
@@ -148,6 +240,7 @@ export const CustomerSubscriptionProduct$outboundSchema: z.ZodType<
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
+    recurringInterval: "recurring_interval",
     isRecurring: "is_recurring",
     isArchived: "is_archived",
     organizationId: "organization_id",

@@ -5,7 +5,7 @@
 ```typescript
 import { Timeframe } from "@polar-sh/sdk/models/components/benefitlicensekeyexpirationproperties.js";
 
-let value: Timeframe = "month";
+let value: Timeframe = "day";
 ```
 
 ## Values

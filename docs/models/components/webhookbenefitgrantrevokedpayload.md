@@ -11,8 +11,8 @@ import { WebhookBenefitGrantRevokedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantRevokedPayload = {
   data: {
-    createdAt: new Date("2025-03-23T13:46:19.980Z"),
-    modifiedAt: new Date("2023-06-21T20:48:34.925Z"),
+    createdAt: new Date("2025-04-08T16:45:39.314Z"),
+    modifiedAt: new Date("2023-09-03T13:00:02.802Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,37 +22,48 @@ let value: WebhookBenefitGrantRevokedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2024-08-07T21:56:49.330Z"),
-      modifiedAt: new Date("2024-06-25T03:10:41.430Z"),
+      createdAt: new Date("2023-08-21T00:23:22.376Z"),
+      modifiedAt: new Date("2025-01-19T23:07:05.447Z"),
       id: "<value>",
       metadata: {
-        "key": 679888,
+        "key": false,
       },
-      email: "Darby_Beer@hotmail.com",
+      email: "Isidro.Dach63@hotmail.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Vietnam",
+        country: "Uruguay",
       },
       taxId: [
-        "ca_qst",
+        "<id>",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://profitable-piglet.name",
+      avatarUrl: "https://glass-reach.info",
     },
-    properties: {},
+    properties: {
+      advertisementCampaignId: "<id>",
+    },
     benefit: {
-      createdAt: new Date("2023-09-22T15:26:38.721Z"),
-      modifiedAt: new Date("2025-03-14T08:40:19.035Z"),
+      createdAt: new Date("2024-10-15T08:57:15.593Z"),
+      modifiedAt: new Date("2023-06-29T15:57:49.931Z"),
       id: "<value>",
-      description: "creative yieldingly hidden probe emphasise signature",
+      description:
+        "cooperative questionable atop up obesity easily eek fine and stigmatize",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        note: "<value>",
+        prefix: "<value>",
+        expires: {
+          ttl: 61840,
+          timeframe: "month",
+        },
+        activations: {
+          limit: 681766,
+          enableCustomerAdmin: false,
+        },
+        limitUsage: 375389,
       },
-      isTaxApplicable: false,
     },
   },
 };

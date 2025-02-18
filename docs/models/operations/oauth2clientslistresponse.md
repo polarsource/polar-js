@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://gleaming-countess.com/",
+          "https://better-confusion.name",
         ],
         clientName: "<value>",
-        createdAt: new Date("2025-08-10T01:54:29.277Z"),
-        modifiedAt: new Date("2024-08-12T05:31:21.644Z"),
+        createdAt: new Date("2023-02-17T16:18:20.036Z"),
+        modifiedAt: new Date("2025-06-06T21:50:54.193Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 736936,
-        clientSecretExpiresAt: 217602,
+        clientIdIssuedAt: 392352,
+        clientSecretExpiresAt: 75613,
       },
     ],
     pagination: {
-      totalCount: 124657,
-      maxPage: 155878,
+      totalCount: 841363,
+      maxPage: 68594,
     },
   },
 };

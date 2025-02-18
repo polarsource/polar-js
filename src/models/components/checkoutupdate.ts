@@ -32,7 +32,13 @@ export type CheckoutUpdate = {
     | null
     | undefined;
   /**
-   * ID of the product price to checkout. Must correspond to a price linked to the same product.
+   * ID of the product to checkout. Must be present in the checkout's product list.
+   */
+  productId?: string | null | undefined;
+  /**
+   * ID of the product price to checkout. Must correspond to a price present in the checkout's product list.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   productPriceId?: string | null | undefined;
   amount?: number | null | undefined;
@@ -256,6 +262,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
       ]),
     ),
   ).optional(),
+  product_id: z.nullable(z.string()).optional(),
   product_price_id: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
   customer_name: z.nullable(z.string()).optional(),
@@ -276,6 +283,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     "custom_field_data": "customFieldData",
+    "product_id": "productId",
     "product_price_id": "productPriceId",
     "customer_name": "customerName",
     "customer_email": "customerEmail",
@@ -296,6 +304,7 @@ export type CheckoutUpdate$Outbound = {
     | { [k: string]: string | number | boolean | string }
     | null
     | undefined;
+  product_id?: string | null | undefined;
   product_price_id?: string | null | undefined;
   amount?: number | null | undefined;
   customer_name?: string | null | undefined;
@@ -330,6 +339,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
       ]),
     ),
   ).optional(),
+  productId: z.nullable(z.string()).optional(),
   productPriceId: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
   customerName: z.nullable(z.string()).optional(),
@@ -350,6 +360,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     customFieldData: "custom_field_data",
+    productId: "product_id",
     productPriceId: "product_price_id",
     customerName: "customer_name",
     customerEmail: "customer_email",

@@ -7,6 +7,11 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  SubscriptionRecurringInterval,
+  SubscriptionRecurringInterval$inboundSchema,
+  SubscriptionRecurringInterval$outboundSchema,
+} from "./subscriptionrecurringinterval.js";
 
 /**
  * A product that a discount can be applied to.
@@ -33,7 +38,11 @@ export type DiscountProduct = {
    */
   description: string | null;
   /**
-   * Whether the product is a subscription tier.
+   * The recurring interval of the product. If `None`, the product is a one-time purchase.
+   */
+  recurringInterval: SubscriptionRecurringInterval | null;
+  /**
+   * Whether the product is a subscription.
    */
   isRecurring: boolean;
   /**
@@ -59,6 +68,7 @@ export const DiscountProduct$inboundSchema: z.ZodType<
   id: z.string(),
   name: z.string(),
   description: z.nullable(z.string()),
+  recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
   is_recurring: z.boolean(),
   is_archived: z.boolean(),
   organization_id: z.string(),
@@ -66,6 +76,7 @@ export const DiscountProduct$inboundSchema: z.ZodType<
   return remap$(v, {
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
+    "recurring_interval": "recurringInterval",
     "is_recurring": "isRecurring",
     "is_archived": "isArchived",
     "organization_id": "organizationId",
@@ -79,6 +90,7 @@ export type DiscountProduct$Outbound = {
   id: string;
   name: string;
   description: string | null;
+  recurring_interval: string | null;
   is_recurring: boolean;
   is_archived: boolean;
   organization_id: string;
@@ -95,6 +107,7 @@ export const DiscountProduct$outboundSchema: z.ZodType<
   id: z.string(),
   name: z.string(),
   description: z.nullable(z.string()),
+  recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
   isRecurring: z.boolean(),
   isArchived: z.boolean(),
   organizationId: z.string(),
@@ -102,6 +115,7 @@ export const DiscountProduct$outboundSchema: z.ZodType<
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
+    recurringInterval: "recurring_interval",
     isRecurring: "is_recurring",
     isArchived: "is_archived",
     organizationId: "organization_id",

@@ -8,11 +8,11 @@ import { ListResourceCustomerBenefitGrant } from "@polar-sh/sdk/models/component
 let value: ListResourceCustomerBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2023-06-18T23:13:24.033Z"),
-      modifiedAt: new Date("2024-04-06T11:06:58.417Z"),
+      createdAt: new Date("2025-11-25T07:30:04.232Z"),
+      modifiedAt: new Date("2023-04-18T08:47:11.414Z"),
       id: "<value>",
-      grantedAt: new Date("2024-06-07T05:46:10.028Z"),
-      revokedAt: new Date("2025-01-12T22:28:31.850Z"),
+      grantedAt: new Date("2025-03-01T08:18:06.425Z"),
+      revokedAt: new Date("2025-08-06T14:32:01.697Z"),
       customerId: "<value>",
       benefitId: "<value>",
       subscriptionId: "<value>",
@@ -20,17 +20,17 @@ let value: ListResourceCustomerBenefitGrant = {
       isGranted: false,
       isRevoked: false,
       customer: {
-        createdAt: new Date("2023-11-08T19:50:53.693Z"),
-        modifiedAt: new Date("2024-12-08T15:11:52.881Z"),
+        createdAt: new Date("2023-12-31T03:03:22.852Z"),
+        modifiedAt: new Date("2024-09-16T00:32:08.173Z"),
         id: "<value>",
-        email: "Norwood8@gmail.com",
+        email: "Ethyl.Pfannerstill@gmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Ghana",
+          country: "Uganda",
         },
         taxId: [
-          "<id>",
+          "ad_nrt",
         ],
         oauthAccounts: {
           "key": {
@@ -40,30 +40,29 @@ let value: ListResourceCustomerBenefitGrant = {
         },
       },
       benefit: {
-        createdAt: new Date("2024-07-05T23:05:24.871Z"),
-        modifiedAt: new Date("2023-05-14T13:28:32.287Z"),
+        createdAt: new Date("2024-09-28T19:26:25.236Z"),
+        modifiedAt: new Date("2024-03-14T04:01:44.816Z"),
         id: "<value>",
-        description:
-          "irresponsible hubris ack attribute underneath taxicab quirkily woot",
+        description: "monstrous unnaturally when er fat despite cleaner",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         organization: {
-          createdAt: new Date("2023-11-22T09:26:52.208Z"),
-          modifiedAt: new Date("2025-01-04T18:27:37.711Z"),
+          createdAt: new Date("2025-05-30T14:10:56.971Z"),
+          modifiedAt: new Date("2023-11-15T11:44:33.303Z"),
           id: "<value>",
           name: "<value>",
           slug: "<value>",
-          avatarUrl: "https://some-grass.biz",
+          avatarUrl: "https://firsthand-stranger.net",
           bio: "<value>",
-          company: "Lesch - Morissette",
+          company: "Hickle, Torphy and Stokes",
           blog: "<value>",
           location: "<value>",
-          email: "Milo91@hotmail.com",
+          email: "Cale_Welch7@yahoo.com",
           twitterUsername: "<value>",
-          pledgeMinimumAmount: 111913,
+          pledgeMinimumAmount: 460636,
           pledgeBadgeShowAmount: false,
-          defaultUpfrontSplitToContributors: 836578,
+          defaultUpfrontSplitToContributors: 913009,
           profileSettings: {},
           featureSettings: {
             issueFundingEnabled: false,
@@ -75,17 +74,24 @@ let value: ListResourceCustomerBenefitGrant = {
           },
         },
         properties: {
-          activeFiles: [
-            "<value>",
-          ],
+          prefix: "<value>",
+          expires: {
+            ttl: 999386,
+            timeframe: "month",
+          },
+          activations: {
+            limit: 882230,
+            enableCustomerAdmin: false,
+          },
+          limitUsage: 812025,
         },
       },
       properties: {},
     },
   ],
   pagination: {
-    totalCount: 711897,
-    maxPage: 487429,
+    totalCount: 538609,
+    maxPage: 90450,
   },
 };
 ```

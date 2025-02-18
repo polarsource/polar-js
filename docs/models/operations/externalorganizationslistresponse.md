@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "fd6a9a48-1362-4228-a79f-9343c71d69f9",
+        id: "6ebb2ec0-e8bd-435c-85ad-c9e46cca29f4",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://unlined-impact.net",
+        avatarUrl: "https://personal-attraction.org/",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Gulgowski, Cruickshank and Marks",
+        company: "Turcotte, O'Connell and Bartell",
         blog: "<value>",
         location: "<value>",
-        email: "Rene_Quitzon@gmail.com",
+        email: "Ari.Bednar@yahoo.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 674818,
-      maxPage: 974576,
+      totalCount: 776876,
+      maxPage: 783242,
     },
   },
 };

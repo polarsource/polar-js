@@ -7,10 +7,10 @@
 
 ```typescript
 const value: components.BenefitAds = {
-  createdAt: new Date("2025-07-09T15:47:57.182Z"),
-  modifiedAt: new Date("2024-12-26T02:08:18.453Z"),
+  createdAt: new Date("2023-10-17T11:33:47.639Z"),
+  modifiedAt: new Date("2024-06-01T18:46:06.050Z"),
   id: "<value>",
-  description: "flickering in vamoose",
+  description: "drat than sailor eventually phew violently quaff plus extent",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -22,10 +22,11 @@ const value: components.BenefitAds = {
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2025-06-22T09:30:18.789Z"),
-  modifiedAt: new Date("2024-10-28T02:02:29.593Z"),
+  createdAt: new Date("2024-09-23T22:45:24.894Z"),
+  modifiedAt: new Date("2024-04-12T12:32:02.752Z"),
   id: "<value>",
-  description: "whenever happily likewise pace fall ick",
+  description:
+    "whose coast bracelet hierarchy ashamed difficult faraway edible ah twine",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -40,10 +41,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscord = {
-  createdAt: new Date("2023-05-26T22:19:48.108Z"),
-  modifiedAt: new Date("2025-10-02T23:49:35.521Z"),
+  createdAt: new Date("2023-09-01T17:18:42.245Z"),
+  modifiedAt: new Date("2024-08-29T16:22:03.727Z"),
   id: "<value>",
-  description: "well-off license cheerfully",
+  description: "snarling wash by",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -59,17 +60,17 @@ const value: components.BenefitDiscord = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2023-04-02T13:11:18.964Z"),
-  modifiedAt: new Date("2025-10-24T02:05:02.156Z"),
+  createdAt: new Date("2025-12-13T10:35:27.310Z"),
+  modifiedAt: new Date("2025-08-26T16:08:40.356Z"),
   id: "<value>",
-  description: "vacation separately utter",
+  description: "ha heroine suffice the keenly loftily seafood jive boo",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "maintain",
+    permission: "push",
   },
 };
 ```
@@ -78,10 +79,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2025-08-31T01:35:36.933Z"),
-  modifiedAt: new Date("2025-02-07T13:51:36.415Z"),
+  createdAt: new Date("2025-08-13T16:15:24.093Z"),
+  modifiedAt: new Date("2024-05-06T07:36:48.931Z"),
   id: "<value>",
-  description: "till transcend before",
+  description: "married regularly whose",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -100,24 +101,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2024-02-23T07:01:12.546Z"),
-  modifiedAt: new Date("2025-08-28T12:47:14.840Z"),
+  createdAt: new Date("2025-05-21T14:19:47.902Z"),
+  modifiedAt: new Date("2024-03-03T04:56:31.434Z"),
   id: "<value>",
-  description: "ick moralise which whenever",
+  description: "out viciously dally kaleidoscopic round doting when",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 166324,
+      ttl: 5938,
       timeframe: "month",
     },
     activations: {
-      limit: 413768,
+      limit: 337581,
       enableCustomerAdmin: false,
     },
-    limitUsage: 151486,
+    limitUsage: 609164,
   },
 };
 ```

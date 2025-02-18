@@ -9,7 +9,7 @@ let value: EventsIngest = {
   events: [
     {
       name: "<value>",
-      customerId: "<value>",
+      externalCustomerId: "<id>",
     },
   ],
 };

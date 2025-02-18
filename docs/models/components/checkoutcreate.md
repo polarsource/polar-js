@@ -3,6 +3,16 @@
 
 ## Supported Types
 
+### `components.CheckoutProductsCreate`
+
+```typescript
+const value: components.CheckoutProductsCreate = {
+  products: [
+    "<value>",
+  ],
+};
+```
+
 ### `components.CheckoutProductCreate`
 
 ```typescript

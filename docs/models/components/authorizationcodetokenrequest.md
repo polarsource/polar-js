@@ -9,7 +9,7 @@ let value: AuthorizationCodeTokenRequest = {
   clientId: "<id>",
   clientSecret: "<value>",
   code: "<value>",
-  redirectUri: "https://left-emergent.info",
+  redirectUri: "https://self-assured-dividend.net/",
 };
 ```
 

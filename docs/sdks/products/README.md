@@ -104,9 +104,10 @@ const polar = new Polar({
 async function run() {
   const result = await polar.products.create({
     name: "<value>",
+    recurringInterval: "month",
     prices: [
       {
-        recurringInterval: "month",
+        priceCurrency: "usd",
       },
     ],
   });
@@ -135,11 +136,10 @@ const polar = new PolarCore({
 async function run() {
   const res = await productsCreate(polar, {
     name: "<value>",
+    recurringInterval: "month",
     prices: [
       {
-        priceAmount: 89964,
         priceCurrency: "usd",
-        recurringInterval: "year",
       },
     ],
   });

@@ -8,45 +8,125 @@ Checkout link data.
 import { CheckoutLink } from "@polar-sh/sdk/models/components/checkoutlink.js";
 
 let value: CheckoutLink = {
-  createdAt: new Date("2024-02-10T15:00:52.531Z"),
-  modifiedAt: new Date("2025-06-20T15:53:40.277Z"),
+  createdAt: new Date("2025-02-06T22:48:59.434Z"),
+  modifiedAt: new Date("2024-02-25T00:02:22.663Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
   paymentProcessor: "stripe",
   clientSecret: "<value>",
-  successUrl: "https://feline-operating.org/",
+  successUrl: "https://lighthearted-juggernaut.name",
   label: "<value>",
   allowDiscountCodes: false,
+  discountId: "<value>",
+  organizationId: "<value>",
+  products: [
+    {
+      createdAt: new Date("2023-10-20T03:35:56.352Z"),
+      modifiedAt: new Date("2023-09-29T19:29:55.645Z"),
+      id: "<value>",
+      name: "<value>",
+      description: "onto scrape beside crafty chasuble via",
+      recurringInterval: "month",
+      isRecurring: false,
+      isArchived: false,
+      organizationId: "<value>",
+      prices: [
+        {
+          createdAt: new Date("2024-06-13T15:30:19.597Z"),
+          modifiedAt: new Date("2024-06-28T00:09:50.341Z"),
+          id: "<value>",
+          isArchived: false,
+          productId: "<value>",
+          recurringInterval: "year",
+        },
+      ],
+      benefits: [
+        {
+          createdAt: new Date("2023-10-21T12:24:46.268Z"),
+          modifiedAt: new Date("2025-05-22T22:32:55.689Z"),
+          id: "<value>",
+          type: "github_repository",
+          description: "more duh at pivot powerfully if pike sheathe",
+          selectable: false,
+          deletable: false,
+          organizationId: "<value>",
+        },
+      ],
+      medias: [
+        {
+          id: "<value>",
+          organizationId: "<value>",
+          name: "<value>",
+          path: "/home",
+          mimeType: "<value>",
+          size: 371996,
+          storageVersion: "<value>",
+          checksumEtag: "<value>",
+          checksumSha256Base64: "<value>",
+          checksumSha256Hex: "<value>",
+          lastModifiedAt: new Date("2025-11-23T07:05:25.095Z"),
+          version: "<value>",
+          isUploaded: false,
+          createdAt: new Date("2024-06-14T06:33:23.545Z"),
+          sizeReadable: "<value>",
+          publicUrl: "https://whispered-premeditation.net/",
+        },
+      ],
+    },
+  ],
+  discount: {
+    duration: "once",
+    durationInMonths: 983496,
+    type: "fixed",
+    amount: 665969,
+    currency: "Australian Dollar",
+    createdAt: new Date("2023-01-16T16:45:02.911Z"),
+    modifiedAt: new Date("2023-01-11T21:25:09.426Z"),
+    id: "<value>",
+    metadata: {
+      "key": false,
+    },
+    name: "<value>",
+    code: "<value>",
+    startsAt: new Date("2024-05-21T12:42:34.435Z"),
+    endsAt: new Date("2024-10-21T19:47:23.356Z"),
+    maxRedemptions: 141320,
+    redemptionsCount: 487733,
+    organizationId: "<value>",
+  },
   productId: "<value>",
   productPriceId: "<value>",
-  discountId: "<value>",
   product: {
-    createdAt: new Date("2025-06-20T17:08:39.320Z"),
-    modifiedAt: new Date("2023-08-09T05:10:15.962Z"),
+    createdAt: new Date("2024-07-22T14:36:15.153Z"),
+    modifiedAt: new Date("2023-06-17T07:07:59.245Z"),
     id: "<value>",
     name: "<value>",
-    description: "verbally merrily legend punctually amid joyously gee hateful",
+    description: "scaffold openly phew chops gurn willfully",
+    recurringInterval: "year",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2023-01-18T18:59:13.114Z"),
-        modifiedAt: new Date("2025-10-05T21:58:09.997Z"),
+        createdAt: new Date("2024-05-28T06:31:27.160Z"),
+        modifiedAt: new Date("2023-04-12T18:14:54.281Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
+        type: "recurring",
+        recurringInterval: "month",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2025-08-28T00:21:29.394Z"),
-        modifiedAt: new Date("2023-08-14T05:05:54.788Z"),
+        createdAt: new Date("2025-12-08T19:52:42.080Z"),
+        modifiedAt: new Date("2023-03-11T10:13:39.147Z"),
         id: "<value>",
-        type: "discord",
-        description: "bulky inwardly importance",
+        type: "custom",
+        description:
+          "outflank versus huzzah ouch bravely bootleg ravioli and sweetly secret",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -59,51 +139,33 @@ let value: CheckoutLink = {
         name: "<value>",
         path: "/opt/lib",
         mimeType: "<value>",
-        size: 549457,
+        size: 468227,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-12-02T06:03:57.837Z"),
+        lastModifiedAt: new Date("2023-08-18T11:54:29.631Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2023-03-06T13:25:23.485Z"),
+        createdAt: new Date("2023-11-01T18:46:59.188Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://complete-hose.org",
+        publicUrl: "https://golden-quart.name",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2024-04-08T15:05:07.991Z"),
-    modifiedAt: new Date("2023-03-08T04:36:01.401Z"),
+    createdAt: new Date("2023-12-17T10:47:06.589Z"),
+    modifiedAt: new Date("2024-02-05T07:00:12.804Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
+    recurringInterval: "year",
     priceCurrency: "<value>",
-    priceAmount: 286276,
-    recurringInterval: "month",
+    minimumAmount: 61822,
+    maximumAmount: 866115,
+    presetAmount: 625300,
   },
-  discount: {
-    duration: "forever",
-    durationInMonths: 749283,
-    type: "percentage",
-    amount: 437621,
-    currency: "Norwegian Krone",
-    createdAt: new Date("2023-03-07T20:02:10.765Z"),
-    modifiedAt: new Date("2024-06-04T22:39:17.784Z"),
-    id: "<value>",
-    metadata: {
-      "key": false,
-    },
-    name: "<value>",
-    code: "<value>",
-    startsAt: new Date("2024-10-11T03:17:54.906Z"),
-    endsAt: new Date("2024-02-16T02:40:03.243Z"),
-    maxRedemptions: 89246,
-    redemptionsCount: 498586,
-    organizationId: "<value>",
-  },
-  url: "https://blind-lobster.info",
+  url: "https://failing-cinder.name/",
 };
 ```
 
@@ -120,10 +182,12 @@ let value: CheckoutLink = {
 | `successUrl`                                                                                                                                                               | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | URL where the customer will be redirected after a successful payment.                                                                                                      |
 | `label`                                                                                                                                                                    | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | Optional label to distinguish links internally                                                                                                                             |
 | `allowDiscountCodes`                                                                                                                                                       | *boolean*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                         | Whether to allow the customer to apply discount codes. If you apply a discount through `discount_id`, it'll still be applied, but the customer won't be able to change it. |
-| `productId`                                                                                                                                                                | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | ID of the product to checkout.                                                                                                                                             |
-| `productPriceId`                                                                                                                                                           | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | ID of the product price to checkout. First available price will be selected unless an explicit price ID is set.                                                            |
 | `discountId`                                                                                                                                                               | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | ID of the discount to apply to the checkout. If the discount is not applicable anymore when opening the checkout link, it'll be ignored.                                   |
-| `product`                                                                                                                                                                  | [components.CheckoutLinkProduct](../../models/components/checkoutlinkproduct.md)                                                                                           | :heavy_check_mark:                                                                                                                                                         | Product data for a checkout link.                                                                                                                                          |
-| `productPrice`                                                                                                                                                             | *components.ProductPrice*                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
+| `organizationId`                                                                                                                                                           | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | The organization ID.                                                                                                                                                       |
+| `products`                                                                                                                                                                 | [components.CheckoutLinkProduct](../../models/components/checkoutlinkproduct.md)[]                                                                                         | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `discount`                                                                                                                                                                 | *components.CheckoutLinkDiscount*                                                                                                                                          | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
+| ~~`productId`~~                                                                                                                                                            | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                    |
+| ~~`productPriceId`~~                                                                                                                                                       | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                    |
+| `product`                                                                                                                                                                  | [components.CheckoutLinkProduct](../../models/components/checkoutlinkproduct.md)                                                                                           | :heavy_check_mark:                                                                                                                                                         | Product data for a checkout link.                                                                                                                                          |
+| ~~`productPrice`~~                                                                                                                                                         | *components.CheckoutLinkProductPrice*                                                                                                                                      | :heavy_check_mark:                                                                                                                                                         | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                    |
 | `url`                                                                                                                                                                      | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |

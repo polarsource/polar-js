@@ -39,6 +39,7 @@ import {
   CustomerPortalBenefitGrantsUpdateRequest,
   CustomerPortalBenefitGrantsUpdateRequest$outboundSchema,
 } from "../models/operations/customerportalbenefitgrantsupdate.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -47,11 +48,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Update a benefit grant for the authenticated customer or user.
  */
-export async function customerPortalBenefitGrantsUpdate(
+export function customerPortalBenefitGrantsUpdate(
   client: PolarCore,
   request: CustomerPortalBenefitGrantsUpdateRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     CustomerBenefitGrant,
     | NotPermitted
@@ -66,6 +67,35 @@ export async function customerPortalBenefitGrantsUpdate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: CustomerPortalBenefitGrantsUpdateRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      CustomerBenefitGrant,
+      | NotPermitted
+      | ResourceNotFound
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -73,7 +103,7 @@ export async function customerPortalBenefitGrantsUpdate(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload.CustomerBenefitGrantUpdate, {
@@ -124,7 +154,7 @@ export async function customerPortalBenefitGrantsUpdate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -135,7 +165,7 @@ export async function customerPortalBenefitGrantsUpdate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -164,8 +194,8 @@ export async function customerPortalBenefitGrantsUpdate(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

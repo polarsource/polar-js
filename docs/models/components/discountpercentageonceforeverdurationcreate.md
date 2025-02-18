@@ -9,8 +9,8 @@ import { DiscountPercentageOnceForeverDurationCreate } from "@polar-sh/sdk/model
 
 let value: DiscountPercentageOnceForeverDurationCreate = {
   duration: "once",
-  type: "fixed",
-  basisPoints: 973264,
+  type: "percentage",
+  basisPoints: 567352,
   name: "<value>",
 };
 ```

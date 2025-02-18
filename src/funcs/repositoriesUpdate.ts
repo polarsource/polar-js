@@ -39,6 +39,7 @@ import {
   RepositoriesUpdateRequest,
   RepositoriesUpdateRequest$outboundSchema,
 } from "../models/operations/repositoriesupdate.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -47,11 +48,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Update a repository.
  */
-export async function repositoriesUpdate(
+export function repositoriesUpdate(
   client: PolarCore,
   request: RepositoriesUpdateRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     Repository,
     | NotPermitted
@@ -66,13 +67,42 @@ export async function repositoriesUpdate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: RepositoriesUpdateRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      Repository,
+      | NotPermitted
+      | ResourceNotFound
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => RepositoriesUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload.RepositoryUpdate, { explode: true });
@@ -119,7 +149,7 @@ export async function repositoriesUpdate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -130,7 +160,7 @@ export async function repositoriesUpdate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -159,8 +189,8 @@ export async function repositoriesUpdate(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

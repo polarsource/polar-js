@@ -39,6 +39,7 @@ import {
   CustomerPortalSubscriptionsUpdateRequest,
   CustomerPortalSubscriptionsUpdateRequest$outboundSchema,
 } from "../models/operations/customerportalsubscriptionsupdate.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -47,11 +48,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Update a subscription of the authenticated customer or user.
  */
-export async function customerPortalSubscriptionsUpdate(
+export function customerPortalSubscriptionsUpdate(
   client: PolarCore,
   request: CustomerPortalSubscriptionsUpdateRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     CustomerSubscription,
     | AlreadyCanceledSubscription
@@ -66,6 +67,35 @@ export async function customerPortalSubscriptionsUpdate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: CustomerPortalSubscriptionsUpdateRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      CustomerSubscription,
+      | AlreadyCanceledSubscription
+      | ResourceNotFound
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -73,7 +103,7 @@ export async function customerPortalSubscriptionsUpdate(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload.CustomerSubscriptionUpdate, {
@@ -122,7 +152,7 @@ export async function customerPortalSubscriptionsUpdate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -133,7 +163,7 @@ export async function customerPortalSubscriptionsUpdate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -162,8 +192,8 @@ export async function customerPortalSubscriptionsUpdate(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

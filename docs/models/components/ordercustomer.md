@@ -6,23 +6,23 @@
 import { OrderCustomer } from "@polar-sh/sdk/models/components/ordercustomer.js";
 
 let value: OrderCustomer = {
-  createdAt: new Date("2023-01-06T19:40:31.772Z"),
-  modifiedAt: new Date("2023-01-13T10:41:07.081Z"),
+  createdAt: new Date("2024-04-17T15:48:23.052Z"),
+  modifiedAt: new Date("2025-01-07T04:47:03.376Z"),
   id: "<value>",
   metadata: {
-    "key": 83291,
+    "key": false,
   },
-  email: "Virgil.Corwin94@gmail.com",
+  email: "Alexane80@hotmail.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Christmas Island",
+    country: "Liechtenstein",
   },
   taxId: [
-    "br_cnpj",
+    "ca_bn",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://witty-paintwork.name/",
+  avatarUrl: "https://clear-coin.net",
 };
 ```
 

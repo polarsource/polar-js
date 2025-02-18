@@ -6,23 +6,23 @@
 import { SubscriptionCustomer } from "@polar-sh/sdk/models/components/subscriptioncustomer.js";
 
 let value: SubscriptionCustomer = {
-  createdAt: new Date("2025-09-24T12:05:45.626Z"),
-  modifiedAt: new Date("2024-08-08T17:42:00.248Z"),
+  createdAt: new Date("2023-06-02T21:32:40.622Z"),
+  modifiedAt: new Date("2025-06-01T03:55:56.938Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
-  email: "Modesta32@yahoo.com",
+  email: "Eldora_OReilly@yahoo.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Mali",
+    country: "Bermuda",
   },
   taxId: [
-    "ru_kpp",
+    "<id>",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://insidious-cassava.name",
+  avatarUrl: "https://trim-fit.org",
 };
 ```
 

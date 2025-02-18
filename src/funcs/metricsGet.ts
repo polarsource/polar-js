@@ -31,6 +31,7 @@ import {
   MetricsGetRequest,
   MetricsGetRequest$outboundSchema,
 } from "../models/operations/metricsget.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -39,11 +40,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Get metrics about your orders and subscriptions.
  */
-export async function metricsGet(
+export function metricsGet(
   client: PolarCore,
   request: MetricsGetRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     MetricsResponse,
     | HTTPValidationError
@@ -56,13 +57,40 @@ export async function metricsGet(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: MetricsGetRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      MetricsResponse,
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => MetricsGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -70,12 +98,12 @@ export async function metricsGet(
   const path = pathToFunc("/v1/metrics/")();
 
   const query = encodeFormQuery({
+    "billing_type": payload.billing_type,
     "customer_id": payload.customer_id,
     "end_date": payload.end_date,
     "interval": payload.interval,
     "organization_id": payload.organization_id,
     "product_id": payload.product_id,
-    "product_price_type": payload.product_price_type,
     "start_date": payload.start_date,
   });
 
@@ -112,7 +140,7 @@ export async function metricsGet(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -123,7 +151,7 @@ export async function metricsGet(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -148,8 +176,8 @@ export async function metricsGet(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

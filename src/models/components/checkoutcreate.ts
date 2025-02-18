@@ -18,8 +18,17 @@ import {
   CheckoutProductCreate$Outbound,
   CheckoutProductCreate$outboundSchema,
 } from "./checkoutproductcreate.js";
+import {
+  CheckoutProductsCreate,
+  CheckoutProductsCreate$inboundSchema,
+  CheckoutProductsCreate$Outbound,
+  CheckoutProductsCreate$outboundSchema,
+} from "./checkoutproductscreate.js";
 
-export type CheckoutCreate = CheckoutProductCreate | CheckoutPriceCreate;
+export type CheckoutCreate =
+  | CheckoutProductsCreate
+  | CheckoutProductCreate
+  | CheckoutPriceCreate;
 
 /** @internal */
 export const CheckoutCreate$inboundSchema: z.ZodType<
@@ -27,12 +36,14 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  CheckoutProductsCreate$inboundSchema,
   CheckoutProductCreate$inboundSchema,
   CheckoutPriceCreate$inboundSchema,
 ]);
 
 /** @internal */
 export type CheckoutCreate$Outbound =
+  | CheckoutProductsCreate$Outbound
   | CheckoutProductCreate$Outbound
   | CheckoutPriceCreate$Outbound;
 
@@ -42,6 +53,7 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutCreate
 > = z.union([
+  CheckoutProductsCreate$outboundSchema,
   CheckoutProductCreate$outboundSchema,
   CheckoutPriceCreate$outboundSchema,
 ]);

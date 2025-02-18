@@ -7,19 +7,28 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ProductPriceOneTime,
-  ProductPriceOneTime$inboundSchema,
-  ProductPriceOneTime$Outbound,
-  ProductPriceOneTime$outboundSchema,
-} from "./productpriceonetime.js";
+  ProductPriceCustom,
+  ProductPriceCustom$inboundSchema,
+  ProductPriceCustom$Outbound,
+  ProductPriceCustom$outboundSchema,
+} from "./productpricecustom.js";
 import {
-  ProductPriceRecurring,
-  ProductPriceRecurring$inboundSchema,
-  ProductPriceRecurring$Outbound,
-  ProductPriceRecurring$outboundSchema,
-} from "./productpricerecurring.js";
+  ProductPriceFixed,
+  ProductPriceFixed$inboundSchema,
+  ProductPriceFixed$Outbound,
+  ProductPriceFixed$outboundSchema,
+} from "./productpricefixed.js";
+import {
+  ProductPriceFree,
+  ProductPriceFree$inboundSchema,
+  ProductPriceFree$Outbound,
+  ProductPriceFree$outboundSchema,
+} from "./productpricefree.js";
 
-export type ProductPrice = ProductPriceRecurring | ProductPriceOneTime;
+export type ProductPrice =
+  | ProductPriceFree
+  | ProductPriceFixed
+  | ProductPriceCustom;
 
 /** @internal */
 export const ProductPrice$inboundSchema: z.ZodType<
@@ -27,14 +36,16 @@ export const ProductPrice$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  ProductPriceRecurring$inboundSchema,
-  ProductPriceOneTime$inboundSchema,
+  ProductPriceFree$inboundSchema,
+  ProductPriceFixed$inboundSchema,
+  ProductPriceCustom$inboundSchema,
 ]);
 
 /** @internal */
 export type ProductPrice$Outbound =
-  | ProductPriceRecurring$Outbound
-  | ProductPriceOneTime$Outbound;
+  | ProductPriceFree$Outbound
+  | ProductPriceFixed$Outbound
+  | ProductPriceCustom$Outbound;
 
 /** @internal */
 export const ProductPrice$outboundSchema: z.ZodType<
@@ -42,8 +53,9 @@ export const ProductPrice$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPrice
 > = z.union([
-  ProductPriceRecurring$outboundSchema,
-  ProductPriceOneTime$outboundSchema,
+  ProductPriceFree$outboundSchema,
+  ProductPriceFixed$outboundSchema,
+  ProductPriceCustom$outboundSchema,
 ]);
 
 /**

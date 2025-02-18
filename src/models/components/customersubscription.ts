@@ -19,6 +19,12 @@ import {
   CustomerSubscriptionProduct$outboundSchema,
 } from "./customersubscriptionproduct.js";
 import {
+  LegacyRecurringProductPrice,
+  LegacyRecurringProductPrice$inboundSchema,
+  LegacyRecurringProductPrice$Outbound,
+  LegacyRecurringProductPrice$outboundSchema,
+} from "./legacyrecurringproductprice.js";
+import {
   ProductPrice,
   ProductPrice$inboundSchema,
   ProductPrice$Outbound,
@@ -34,6 +40,10 @@ import {
   SubscriptionStatus$inboundSchema,
   SubscriptionStatus$outboundSchema,
 } from "./subscriptionstatus.js";
+
+export type CustomerSubscriptionPrice =
+  | LegacyRecurringProductPrice
+  | ProductPrice;
 
 export type CustomerSubscription = {
   /**
@@ -71,8 +81,64 @@ export type CustomerSubscription = {
    */
   userId: string;
   product: CustomerSubscriptionProduct;
-  price: ProductPrice;
+  price: LegacyRecurringProductPrice | ProductPrice;
 };
+
+/** @internal */
+export const CustomerSubscriptionPrice$inboundSchema: z.ZodType<
+  CustomerSubscriptionPrice,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
+
+/** @internal */
+export type CustomerSubscriptionPrice$Outbound =
+  | LegacyRecurringProductPrice$Outbound
+  | ProductPrice$Outbound;
+
+/** @internal */
+export const CustomerSubscriptionPrice$outboundSchema: z.ZodType<
+  CustomerSubscriptionPrice$Outbound,
+  z.ZodTypeDef,
+  CustomerSubscriptionPrice
+> = z.union([
+  LegacyRecurringProductPrice$outboundSchema,
+  ProductPrice$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerSubscriptionPrice$ {
+  /** @deprecated use `CustomerSubscriptionPrice$inboundSchema` instead. */
+  export const inboundSchema = CustomerSubscriptionPrice$inboundSchema;
+  /** @deprecated use `CustomerSubscriptionPrice$outboundSchema` instead. */
+  export const outboundSchema = CustomerSubscriptionPrice$outboundSchema;
+  /** @deprecated use `CustomerSubscriptionPrice$Outbound` instead. */
+  export type Outbound = CustomerSubscriptionPrice$Outbound;
+}
+
+export function customerSubscriptionPriceToJSON(
+  customerSubscriptionPrice: CustomerSubscriptionPrice,
+): string {
+  return JSON.stringify(
+    CustomerSubscriptionPrice$outboundSchema.parse(customerSubscriptionPrice),
+  );
+}
+
+export function customerSubscriptionPriceFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomerSubscriptionPrice, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomerSubscriptionPrice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerSubscriptionPrice' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerSubscription$inboundSchema: z.ZodType<
@@ -119,7 +185,10 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
   customer_cancellation_comment: z.nullable(z.string()),
   user_id: z.string(),
   product: CustomerSubscriptionProduct$inboundSchema,
-  price: ProductPrice$inboundSchema,
+  price: z.union([
+    LegacyRecurringProductPrice$inboundSchema,
+    ProductPrice$inboundSchema,
+  ]),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -168,7 +237,7 @@ export type CustomerSubscription$Outbound = {
   customer_cancellation_comment: string | null;
   user_id: string;
   product: CustomerSubscriptionProduct$Outbound;
-  price: ProductPrice$Outbound;
+  price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
 };
 
 /** @internal */
@@ -202,7 +271,10 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
   customerCancellationComment: z.nullable(z.string()),
   userId: z.string(),
   product: CustomerSubscriptionProduct$outboundSchema,
-  price: ProductPrice$outboundSchema,
+  price: z.union([
+    LegacyRecurringProductPrice$outboundSchema,
+    ProductPrice$outboundSchema,
+  ]),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

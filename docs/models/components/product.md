@@ -8,42 +8,45 @@ A product.
 import { Product } from "@polar-sh/sdk/models/components/product.js";
 
 let value: Product = {
-  createdAt: new Date("2024-04-01T23:01:50.436Z"),
-  modifiedAt: new Date("2024-03-14T21:57:18.934Z"),
+  createdAt: new Date("2023-05-16T09:46:19.201Z"),
+  modifiedAt: new Date("2024-05-22T11:55:09.881Z"),
   id: "<value>",
   name: "<value>",
-  description: "very slope whenever scarcely spew ick fondly aside",
+  description:
+    "vulgarise yum near emphasize overload stiff unto excepting insidious please",
+  recurringInterval: "year",
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",
   metadata: {
-    "key": false,
+    "key": 90969,
   },
   prices: [
     {
-      createdAt: new Date("2023-07-02T17:58:13.883Z"),
-      modifiedAt: new Date("2023-07-09T06:36:49.077Z"),
+      createdAt: new Date("2025-02-17T17:07:55.792Z"),
+      modifiedAt: new Date("2024-07-07T14:30:14.002Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
-      priceCurrency: "<value>",
-      priceAmount: 481553,
+      type: "one_time",
       recurringInterval: "month",
+      priceCurrency: "<value>",
+      priceAmount: 722151,
     },
   ],
   benefits: [
     {
-      createdAt: new Date("2024-04-12T13:07:34.313Z"),
-      modifiedAt: new Date("2023-01-27T21:42:49.165Z"),
+      createdAt: new Date("2025-12-21T12:53:01.858Z"),
+      modifiedAt: new Date("2025-07-15T12:42:19.873Z"),
       id: "<value>",
-      description: "till crumble besides even forenenst lazily",
+      description: "deployment circa trolley from deduction yummy pish",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        note: "<value>",
+        imageHeight: 400,
+        imageWidth: 400,
       },
-      isTaxApplicable: false,
     },
   ],
   medias: [
@@ -51,37 +54,37 @@ let value: Product = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/net",
+      path: "/media",
       mimeType: "<value>",
-      size: 74124,
+      size: 371935,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2025-07-14T12:57:06.598Z"),
+      lastModifiedAt: new Date("2025-11-01T03:26:54.317Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2025-04-25T16:14:24.819Z"),
+      createdAt: new Date("2025-03-09T07:16:52.030Z"),
       sizeReadable: "<value>",
-      publicUrl: "https://wordy-bell.net",
+      publicUrl: "https://sour-casket.info",
     },
   ],
   attachedCustomFields: [
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2024-02-08T23:37:33.565Z"),
-        modifiedAt: new Date("2023-08-29T07:55:29.814Z"),
+        createdAt: new Date("2023-09-14T01:05:30.071Z"),
+        modifiedAt: new Date("2023-06-05T11:40:35.040Z"),
         id: "<value>",
         metadata: {
-          "key": false,
+          "key": 381639,
         },
         slug: "<value>",
         name: "<value>",
         organizationId: "<value>",
         properties: {},
       },
-      order: 144240,
+      order: 947309,
       required: false,
     },
   ],
@@ -90,18 +93,19 @@ let value: Product = {
 
 ## Fields
 
-| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Creation timestamp of the object.                                                             |
-| `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |
-| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the product.                                                                        |
-| `name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | The name of the product.                                                                      |
-| `description`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | The description of the product.                                                               |
-| `isRecurring`                                                                                 | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the product is a subscription tier.                                                   |
-| `isArchived`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the product is archived and no longer available.                                      |
-| `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the product.                                                |
-| `metadata`                                                                                    | Record<string, *components.ProductMetadata*>                                                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `prices`                                                                                      | *components.ProductPrice*[]                                                                   | :heavy_check_mark:                                                                            | List of prices for this product.                                                              |
-| `benefits`                                                                                    | *components.Benefit*[]                                                                        | :heavy_check_mark:                                                                            | List of benefits granted by the product.                                                      |
-| `medias`                                                                                      | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]          | :heavy_check_mark:                                                                            | List of medias associated to the product.                                                     |
-| `attachedCustomFields`                                                                        | [components.AttachedCustomField](../../models/components/attachedcustomfield.md)[]            | :heavy_check_mark:                                                                            | List of custom fields attached to the product.                                                |
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `createdAt`                                                                                          | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)        | :heavy_check_mark:                                                                                   | Creation timestamp of the object.                                                                    |
+| `modifiedAt`                                                                                         | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)        | :heavy_check_mark:                                                                                   | Last modification timestamp of the object.                                                           |
+| `id`                                                                                                 | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the product.                                                                               |
+| `name`                                                                                               | *string*                                                                                             | :heavy_check_mark:                                                                                   | The name of the product.                                                                             |
+| `description`                                                                                        | *string*                                                                                             | :heavy_check_mark:                                                                                   | The description of the product.                                                                      |
+| `recurringInterval`                                                                                  | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md) | :heavy_check_mark:                                                                                   | The recurring interval of the product. If `None`, the product is a one-time purchase.                |
+| `isRecurring`                                                                                        | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | Whether the product is a subscription.                                                               |
+| `isArchived`                                                                                         | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | Whether the product is archived and no longer available.                                             |
+| `organizationId`                                                                                     | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the organization owning the product.                                                       |
+| `metadata`                                                                                           | Record<string, *components.ProductMetadata*>                                                         | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `prices`                                                                                             | *components.Prices*[]                                                                                | :heavy_check_mark:                                                                                   | List of prices for this product.                                                                     |
+| `benefits`                                                                                           | *components.Benefit*[]                                                                               | :heavy_check_mark:                                                                                   | List of benefits granted by the product.                                                             |
+| `medias`                                                                                             | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]                 | :heavy_check_mark:                                                                                   | List of medias associated to the product.                                                            |
+| `attachedCustomFields`                                                                               | [components.AttachedCustomField](../../models/components/attachedcustomfield.md)[]                   | :heavy_check_mark:                                                                                   | List of custom fields attached to the product.                                                       |

@@ -41,7 +41,7 @@ export type CustomerPortalOrdersListQueryParamProductIDFilter =
 /**
  * Filter by product price type. `recurring` will return orders corresponding to subscriptions creations or renewals. `one_time` will return orders corresponding to one-time purchases.
  */
-export type CustomerPortalOrdersListQueryParamProductPriceTypeFilter =
+export type QueryParamProductPriceTypeFilter =
   | ProductPriceType
   | Array<ProductPriceType>;
 
@@ -223,70 +223,58 @@ export function customerPortalOrdersListQueryParamProductIDFilterFromJSON(
 }
 
 /** @internal */
-export const CustomerPortalOrdersListQueryParamProductPriceTypeFilter$inboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersListQueryParamProductPriceTypeFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([
-    ProductPriceType$inboundSchema,
-    z.array(ProductPriceType$inboundSchema),
-  ]);
+export const QueryParamProductPriceTypeFilter$inboundSchema: z.ZodType<
+  QueryParamProductPriceTypeFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  ProductPriceType$inboundSchema,
+  z.array(ProductPriceType$inboundSchema),
+]);
 
 /** @internal */
-export type CustomerPortalOrdersListQueryParamProductPriceTypeFilter$Outbound =
-  | string
-  | Array<string>;
+export type QueryParamProductPriceTypeFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const CustomerPortalOrdersListQueryParamProductPriceTypeFilter$outboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersListQueryParamProductPriceTypeFilter$Outbound,
-    z.ZodTypeDef,
-    CustomerPortalOrdersListQueryParamProductPriceTypeFilter
-  > = z.union([
-    ProductPriceType$outboundSchema,
-    z.array(ProductPriceType$outboundSchema),
-  ]);
+export const QueryParamProductPriceTypeFilter$outboundSchema: z.ZodType<
+  QueryParamProductPriceTypeFilter$Outbound,
+  z.ZodTypeDef,
+  QueryParamProductPriceTypeFilter
+> = z.union([
+  ProductPriceType$outboundSchema,
+  z.array(ProductPriceType$outboundSchema),
+]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CustomerPortalOrdersListQueryParamProductPriceTypeFilter$ {
-  /** @deprecated use `CustomerPortalOrdersListQueryParamProductPriceTypeFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersListQueryParamProductPriceTypeFilter$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListQueryParamProductPriceTypeFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersListQueryParamProductPriceTypeFilter$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListQueryParamProductPriceTypeFilter$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalOrdersListQueryParamProductPriceTypeFilter$Outbound;
+export namespace QueryParamProductPriceTypeFilter$ {
+  /** @deprecated use `QueryParamProductPriceTypeFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamProductPriceTypeFilter$inboundSchema;
+  /** @deprecated use `QueryParamProductPriceTypeFilter$outboundSchema` instead. */
+  export const outboundSchema = QueryParamProductPriceTypeFilter$outboundSchema;
+  /** @deprecated use `QueryParamProductPriceTypeFilter$Outbound` instead. */
+  export type Outbound = QueryParamProductPriceTypeFilter$Outbound;
 }
 
-export function customerPortalOrdersListQueryParamProductPriceTypeFilterToJSON(
-  customerPortalOrdersListQueryParamProductPriceTypeFilter:
-    CustomerPortalOrdersListQueryParamProductPriceTypeFilter,
+export function queryParamProductPriceTypeFilterToJSON(
+  queryParamProductPriceTypeFilter: QueryParamProductPriceTypeFilter,
 ): string {
   return JSON.stringify(
-    CustomerPortalOrdersListQueryParamProductPriceTypeFilter$outboundSchema
-      .parse(customerPortalOrdersListQueryParamProductPriceTypeFilter),
+    QueryParamProductPriceTypeFilter$outboundSchema.parse(
+      queryParamProductPriceTypeFilter,
+    ),
   );
 }
 
-export function customerPortalOrdersListQueryParamProductPriceTypeFilterFromJSON(
+export function queryParamProductPriceTypeFilterFromJSON(
   jsonString: string,
-): SafeParseResult<
-  CustomerPortalOrdersListQueryParamProductPriceTypeFilter,
-  SDKValidationError
-> {
+): SafeParseResult<QueryParamProductPriceTypeFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      CustomerPortalOrdersListQueryParamProductPriceTypeFilter$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersListQueryParamProductPriceTypeFilter' from JSON`,
+    (x) => QueryParamProductPriceTypeFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamProductPriceTypeFilter' from JSON`,
   );
 }
 

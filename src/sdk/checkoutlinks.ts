@@ -9,7 +9,7 @@ import { checkoutLinksList } from "../funcs/checkoutLinksList.js";
 import { checkoutLinksUpdate } from "../funcs/checkoutLinksUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { CheckoutLink } from "../models/components/checkoutlink.js";
-import { CheckoutLinkCreate } from "../models/components/checkoutlinkcreate.js";
+import { CheckoutLinksCreateCheckoutLinkCreate } from "../models/operations/checkoutlinkscreate.js";
 import { CheckoutLinksDeleteRequest } from "../models/operations/checkoutlinksdelete.js";
 import { CheckoutLinksGetRequest } from "../models/operations/checkoutlinksget.js";
 import {
@@ -45,7 +45,7 @@ export class CheckoutLinks extends ClientSDK {
    * Create a checkout link.
    */
   async create(
-    request: CheckoutLinkCreate,
+    request: CheckoutLinksCreateCheckoutLinkCreate,
     options?: RequestOptions,
   ): Promise<CheckoutLink> {
     return unwrapAsync(checkoutLinksCreate(

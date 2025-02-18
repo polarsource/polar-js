@@ -9,30 +9,32 @@ let value: DiscountsListResponse = {
   result: {
     items: [
       {
-        duration: "repeating",
-        type: "percentage",
-        amount: 594788,
-        currency: "Dong",
-        createdAt: new Date("2024-03-09T08:42:18.565Z"),
-        modifiedAt: new Date("2023-01-06T23:31:21.587Z"),
+        duration: "once",
+        durationInMonths: 885829,
+        type: "fixed",
+        basisPoints: 435040,
+        createdAt: new Date("2025-08-01T12:48:52.738Z"),
+        modifiedAt: new Date("2023-11-28T03:21:01.284Z"),
         id: "<value>",
         metadata: {
           "key": "<value>",
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2025-03-04T12:35:03.563Z"),
-        endsAt: new Date("2023-10-12T06:28:55.012Z"),
-        maxRedemptions: 585158,
-        redemptionsCount: 439622,
+        startsAt: new Date("2024-12-23T02:23:53.289Z"),
+        endsAt: new Date("2025-11-06T19:30:28.000Z"),
+        maxRedemptions: 628304,
+        redemptionsCount: 90307,
         organizationId: "<value>",
         products: [
           {
-            createdAt: new Date("2023-09-12T10:08:53.512Z"),
-            modifiedAt: new Date("2025-03-25T20:12:46.170Z"),
+            createdAt: new Date("2025-04-01T00:05:10.720Z"),
+            modifiedAt: new Date("2023-01-07T12:06:56.751Z"),
             id: "<value>",
             name: "<value>",
-            description: "yippee ick yet",
+            description:
+              "incandescence grandson gah after moralise enthusiastically worldly",
+            recurringInterval: "year",
             isRecurring: false,
             isArchived: false,
             organizationId: "<value>",
@@ -41,8 +43,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 479872,
-      maxPage: 824900,
+      totalCount: 521909,
+      maxPage: 944272,
     },
   },
 };

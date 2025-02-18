@@ -10,39 +10,39 @@ let value: MetersEventsResponse = {
     items: [
       {
         metadata: {
-          "key": 582725,
+          "key": 865706,
         },
         id: "<value>",
-        timestamp: new Date("2023-03-30T17:49:29.666Z"),
+        timestamp: new Date("2023-08-06T09:59:37.931Z"),
         name: "<value>",
-        source: "user",
+        source: "system",
         organizationId: "<value>",
         customerId: "<value>",
         customer: {
-          createdAt: new Date("2025-11-24T15:40:34.778Z"),
-          modifiedAt: new Date("2024-08-12T20:22:46.865Z"),
+          createdAt: new Date("2023-05-25T12:19:30.904Z"),
+          modifiedAt: new Date("2024-06-17T13:04:54.840Z"),
           id: "<value>",
           metadata: {
-            "key": false,
+            "key": 479084,
           },
-          email: "Austin_Leffler@yahoo.com",
+          email: "Albert.OKeefe71@hotmail.com",
           emailVerified: false,
           name: "<value>",
           billingAddress: {
-            country: "Paraguay",
+            country: "Japan",
           },
           taxId: [
-            "bh_vat",
+            "br_cnpj",
           ],
           organizationId: "<value>",
-          avatarUrl: "https://austere-chow.biz/",
+          avatarUrl: "https://handy-swath.net",
         },
         externalCustomerId: "<id>",
       },
     ],
     pagination: {
-      totalCount: 415183,
-      maxPage: 500841,
+      totalCount: 174206,
+      maxPage: 926245,
     },
   },
 };

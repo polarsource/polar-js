@@ -8,28 +8,28 @@ import { ListResourceCustomer } from "@polar-sh/sdk/models/components/listresour
 let value: ListResourceCustomer = {
   items: [
     {
-      createdAt: new Date("2023-01-16T03:49:13.516Z"),
-      modifiedAt: new Date("2025-10-12T04:07:38.112Z"),
+      createdAt: new Date("2025-09-17T04:38:05.058Z"),
+      modifiedAt: new Date("2023-08-01T17:02:23.069Z"),
       id: "<value>",
       metadata: {
-        "key": "<value>",
+        "key": false,
       },
-      email: "Claudie.Weissnat@gmail.com",
+      email: "Tyreek32@gmail.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Malawi",
+        country: "Spain",
       },
       taxId: [
-        "<id>",
+        "jp_trn",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://scared-legislature.org",
+      avatarUrl: "https://unsteady-median.info/",
     },
   ],
   pagination: {
-    totalCount: 660797,
-    maxPage: 493496,
+    totalCount: 559499,
+    maxPage: 104466,
   },
 };
 ```

@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2024-03-25T15:09:55.576Z"),
-    modifiedAt: new Date("2024-07-18T15:02:31.096Z"),
+    createdAt: new Date("2023-07-04T05:11:18.697Z"),
+    modifiedAt: new Date("2023-01-01T11:08:29.712Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://chilly-bourgeoisie.com",
-    logoUri: "https://damp-alligator.net/",
-    tosUri: "https://alienated-fencing.name",
-    policyUri: "https://decent-bathhouse.com/",
+    clientUri: "https://growing-edge.name",
+    logoUri: "https://polished-accelerator.info/",
+    tosUri: "https://dreary-fibre.com",
+    policyUri: "https://impolite-habit.info",
   },
   sub: {
     id: "<value>",
-    email: "Lolita47@yahoo.com",
-    avatarUrl: "https://gleaming-roundabout.info",
+    email: "Ivy_Kunde47@hotmail.com",
+    avatarUrl: "https://upset-fledgling.com",
   },
   scopes: [
-    "subscriptions:write",
+    "external_organizations:read",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2024-12-20T07:15:53.081Z"),
-    modifiedAt: new Date("2023-12-23T08:13:29.025Z"),
+    createdAt: new Date("2023-12-23T07:27:41.103Z"),
+    modifiedAt: new Date("2024-08-23T07:45:01.641Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://candid-stay.org",
-    logoUri: "https://assured-sticker.org",
-    tosUri: "https://self-reliant-availability.net/",
-    policyUri: "https://wide-eyed-hovel.info",
+    clientUri: "https://live-embarrassment.org",
+    logoUri: "https://second-hand-adrenalin.com",
+    tosUri: "https://soulful-characterization.org",
+    policyUri: "https://stable-pasta.info",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://menacing-singing.org/",
+    avatarUrl: "https://warmhearted-edge.biz/",
   },
   scopes: [
-    "openid",
+    "issues:write",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://possible-numeric.net",
+      avatarUrl: "https://well-made-someplace.biz",
     },
   ],
 };

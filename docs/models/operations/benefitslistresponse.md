@@ -9,26 +9,24 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-01-03T21:20:38.344Z"),
-        modifiedAt: new Date("2025-09-10T07:57:41.624Z"),
+        createdAt: new Date("2025-11-21T21:28:12.872Z"),
+        modifiedAt: new Date("2024-05-05T09:10:53.396Z"),
         id: "<value>",
-        description: "shady that voluntarily behind machine",
+        description:
+          "handy synergy biodegrade onto dereference barring shush truthfully",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          archived: {
-            "key": false,
-          },
-          files: [
-            "<value>",
-          ],
+          guildId: "<id>",
+          roleId: "<id>",
+          guildToken: "<value>",
         },
       },
     ],
     pagination: {
-      totalCount: 140896,
-      maxPage: 182943,
+      totalCount: 393626,
+      maxPage: 140596,
     },
   },
 };

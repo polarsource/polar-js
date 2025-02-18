@@ -39,6 +39,7 @@ import {
   CustomerPortalSubscriptionsCancelRequest,
   CustomerPortalSubscriptionsCancelRequest$outboundSchema,
 } from "../models/operations/customerportalsubscriptionscancel.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -47,11 +48,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Cancel a subscription of the authenticated customer or user.
  */
-export async function customerPortalSubscriptionsCancel(
+export function customerPortalSubscriptionsCancel(
   client: PolarCore,
   request: CustomerPortalSubscriptionsCancelRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     CustomerSubscription,
     | AlreadyCanceledSubscription
@@ -66,6 +67,35 @@ export async function customerPortalSubscriptionsCancel(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: CustomerPortalSubscriptionsCancelRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      CustomerSubscription,
+      | AlreadyCanceledSubscription
+      | ResourceNotFound
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -73,7 +103,7 @@ export async function customerPortalSubscriptionsCancel(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -119,7 +149,7 @@ export async function customerPortalSubscriptionsCancel(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -130,7 +160,7 @@ export async function customerPortalSubscriptionsCancel(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -159,8 +189,8 @@ export async function customerPortalSubscriptionsCancel(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

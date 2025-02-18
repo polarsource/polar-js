@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components/benefitgrantwebhook.js";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2023-03-27T21:45:07.077Z"),
-  modifiedAt: new Date("2023-08-10T13:13:59.220Z"),
+  createdAt: new Date("2024-02-09T00:05:44.146Z"),
+  modifiedAt: new Date("2024-12-04T15:42:27.623Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,36 +17,40 @@ let value: BenefitGrantWebhook = {
   userId: "<value>",
   benefitId: "<value>",
   customer: {
-    createdAt: new Date("2024-11-09T13:55:58.405Z"),
-    modifiedAt: new Date("2023-04-18T13:26:30.410Z"),
+    createdAt: new Date("2023-06-06T03:35:17.126Z"),
+    modifiedAt: new Date("2023-11-13T20:42:37.829Z"),
     id: "<value>",
     metadata: {
       "key": false,
     },
-    email: "Dustin.Pacocha67@yahoo.com",
+    email: "Larue.Brekke95@hotmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Turks and Caicos Islands",
+      country: "Kuwait",
     },
     taxId: [
-      "<id>",
+      "ca_qst",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://excitable-typeface.biz",
+    avatarUrl: "https://magnificent-distinction.org/",
   },
   properties: {},
   benefit: {
-    createdAt: new Date("2024-06-09T09:24:09.197Z"),
-    modifiedAt: new Date("2024-10-29T06:49:47.105Z"),
+    createdAt: new Date("2023-01-10T11:10:36.870Z"),
+    modifiedAt: new Date("2024-11-20T07:15:29.281Z"),
     id: "<value>",
-    description: "since woot drat baa gift matter despite generously polyester",
+    description: "design horde though whether",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      imageHeight: 400,
-      imageWidth: 400,
+      archived: {
+        "key": false,
+      },
+      files: [
+        "<value>",
+      ],
     },
   },
 };

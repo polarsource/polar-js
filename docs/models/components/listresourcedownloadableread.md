@@ -14,17 +14,17 @@ let value: ListResourceDownloadableRead = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/Library",
+        path: "/var/yp",
         mimeType: "<value>",
-        size: 38962,
+        size: 740060,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2025-04-12T13:54:50.989Z"),
+        lastModifiedAt: new Date("2024-02-03T18:19:11.088Z"),
         download: {
-          url: "https://ignorant-expense.info/",
-          expiresAt: new Date("2025-09-19T23:23:51.226Z"),
+          url: "https://carefree-swanling.name",
+          expiresAt: new Date("2023-03-31T10:39:08.699Z"),
         },
         version: "<value>",
         isUploaded: false,
@@ -34,8 +34,8 @@ let value: ListResourceDownloadableRead = {
     },
   ],
   pagination: {
-    totalCount: 912745,
-    maxPage: 805401,
+    totalCount: 596759,
+    maxPage: 623733,
   },
 };
 ```

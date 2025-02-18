@@ -11,5 +11,5 @@ let value: CheckoutLinkSortProperty = "-created_at";
 ## Values
 
 ```typescript
-"created_at" | "-created_at"
+"created_at" | "-created_at" | "label" | "-label" | "success_url" | "-success_url" | "allow_discount_codes" | "-allow_discount_codes"
 ```

@@ -13,13 +13,13 @@ import {
   SubscriptionCancel$outboundSchema,
 } from "./subscriptioncancel.js";
 import {
-  SubscriptionUpdatePrice,
-  SubscriptionUpdatePrice$inboundSchema,
-  SubscriptionUpdatePrice$Outbound,
-  SubscriptionUpdatePrice$outboundSchema,
-} from "./subscriptionupdateprice.js";
+  SubscriptionUpdateProduct,
+  SubscriptionUpdateProduct$inboundSchema,
+  SubscriptionUpdateProduct$Outbound,
+  SubscriptionUpdateProduct$outboundSchema,
+} from "./subscriptionupdateproduct.js";
 
-export type SubscriptionUpdate = SubscriptionUpdatePrice | SubscriptionCancel;
+export type SubscriptionUpdate = SubscriptionUpdateProduct | SubscriptionCancel;
 
 /** @internal */
 export const SubscriptionUpdate$inboundSchema: z.ZodType<
@@ -27,13 +27,13 @@ export const SubscriptionUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  SubscriptionUpdatePrice$inboundSchema,
+  SubscriptionUpdateProduct$inboundSchema,
   SubscriptionCancel$inboundSchema,
 ]);
 
 /** @internal */
 export type SubscriptionUpdate$Outbound =
-  | SubscriptionUpdatePrice$Outbound
+  | SubscriptionUpdateProduct$Outbound
   | SubscriptionCancel$Outbound;
 
 /** @internal */
@@ -42,7 +42,7 @@ export const SubscriptionUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SubscriptionUpdate
 > = z.union([
-  SubscriptionUpdatePrice$outboundSchema,
+  SubscriptionUpdateProduct$outboundSchema,
   SubscriptionCancel$outboundSchema,
 ]);
 

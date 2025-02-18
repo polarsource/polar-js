@@ -6,21 +6,21 @@
 import { Organization } from "@polar-sh/sdk/models/components/organization.js";
 
 let value: Organization = {
-  createdAt: new Date("2023-10-15T17:45:40.614Z"),
-  modifiedAt: new Date("2023-11-21T08:44:57.483Z"),
+  createdAt: new Date("2025-03-07T15:05:08.285Z"),
+  modifiedAt: new Date("2025-10-27T07:44:33.910Z"),
   id: "<value>",
   name: "<value>",
   slug: "<value>",
-  avatarUrl: "https://first-kit.biz",
+  avatarUrl: "https://grandiose-coin.info",
   bio: "<value>",
-  company: "Fay Group",
+  company: "Sanford LLC",
   blog: "<value>",
   location: "<value>",
-  email: "Gerry11@hotmail.com",
+  email: "Rashad36@gmail.com",
   twitterUsername: "<value>",
-  pledgeMinimumAmount: 279972,
+  pledgeMinimumAmount: 138708,
   pledgeBadgeShowAmount: false,
-  defaultUpfrontSplitToContributors: 565242,
+  defaultUpfrontSplitToContributors: 524880,
   profileSettings: {},
   featureSettings: {},
   subscriptionSettings: {

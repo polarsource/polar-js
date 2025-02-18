@@ -36,6 +36,7 @@ import {
 } from "../models/errors/refundedalready.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -44,11 +45,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Create a refund.
  */
-export async function refundsCreate(
+export function refundsCreate(
   client: PolarCore,
   request: RefundCreate,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     Refund | undefined,
     | RefundAmountTooHigh
@@ -63,13 +64,42 @@ export async function refundsCreate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: RefundCreate,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      Refund | undefined,
+      | RefundAmountTooHigh
+      | RefundedAlready
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => RefundCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload, { explode: true });
@@ -109,7 +139,7 @@ export async function refundsCreate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -120,7 +150,7 @@ export async function refundsCreate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -150,8 +180,8 @@ export async function refundsCreate(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }
