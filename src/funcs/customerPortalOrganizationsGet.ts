@@ -11,9 +11,9 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  Organization,
-  Organization$inboundSchema,
-} from "../models/components/organization.js";
+  CustomerOrganization,
+  CustomerOrganization$inboundSchema,
+} from "../models/components/customerorganization.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -35,6 +35,7 @@ import {
   CustomerPortalOrganizationsGetRequest,
   CustomerPortalOrganizationsGetRequest$outboundSchema,
 } from "../models/operations/customerportalorganizationsget.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -43,13 +44,13 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Get a customer portal's organization by slug.
  */
-export async function customerPortalOrganizationsGet(
+export function customerPortalOrganizationsGet(
   client: PolarCore,
   request: CustomerPortalOrganizationsGetRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
-    Organization,
+    CustomerOrganization,
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -61,6 +62,34 @@ export async function customerPortalOrganizationsGet(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: CustomerPortalOrganizationsGetRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      CustomerOrganization,
+      | ResourceNotFound
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -68,7 +97,7 @@ export async function customerPortalOrganizationsGet(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -116,7 +145,7 @@ export async function customerPortalOrganizationsGet(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -127,7 +156,7 @@ export async function customerPortalOrganizationsGet(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -136,7 +165,7 @@ export async function customerPortalOrganizationsGet(
   };
 
   const [result] = await M.match<
-    Organization,
+    CustomerOrganization,
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -147,15 +176,15 @@ export async function customerPortalOrganizationsGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, Organization$inboundSchema),
+    M.json(200, CustomerOrganization$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

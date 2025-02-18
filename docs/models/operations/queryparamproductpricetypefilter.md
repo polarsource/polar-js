@@ -1,6 +1,6 @@
 # QueryParamProductPriceTypeFilter
 
-Filter by product price type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
+Filter by product price type. `recurring` will return orders corresponding to subscriptions creations or renewals. `one_time` will return orders corresponding to one-time purchases.
 
 
 ## Supported Types
@@ -15,7 +15,7 @@ const value: components.ProductPriceType = "recurring";
 
 ```typescript
 const value: components.ProductPriceType[] = [
-  "recurring",
+  "one_time",
 ];
 ```
 

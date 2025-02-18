@@ -30,6 +30,7 @@ import {
   AdvertisementsListResponse,
   AdvertisementsListResponse$inboundSchema,
 } from "../models/operations/advertisementslist.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 import {
   createPageIterator,
@@ -44,11 +45,11 @@ import {
  * @remarks
  * List active advertisement campaigns for a benefit.
  */
-export async function advertisementsList(
+export function advertisementsList(
   client: PolarCore,
   request: AdvertisementsListRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   PageIterator<
     Result<
       AdvertisementsListResponse,
@@ -64,13 +65,43 @@ export async function advertisementsList(
     { page: number }
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: AdvertisementsListRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    PageIterator<
+      Result<
+        AdvertisementsListResponse,
+        | HTTPValidationError
+        | SDKError
+        | SDKValidationError
+        | UnexpectedClientError
+        | InvalidRequestError
+        | RequestAbortedError
+        | RequestTimeoutError
+        | ConnectionError
+      >,
+      { page: number }
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => AdvertisementsListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return haltIterator(parsed);
+    return [haltIterator(parsed), { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -117,7 +148,7 @@ export async function advertisementsList(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return haltIterator(requestRes);
+    return [haltIterator(requestRes), { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -128,7 +159,7 @@ export async function advertisementsList(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return haltIterator(doResult);
+    return [haltIterator(doResult), { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -153,7 +184,11 @@ export async function advertisementsList(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return haltIterator(result);
+    return [haltIterator(result), {
+      status: "complete",
+      request: req,
+      response,
+    }];
   }
 
   const nextFunc = (
@@ -207,5 +242,9 @@ export async function advertisementsList(
   };
 
   const page = { ...result, ...nextFunc(raw) };
-  return { ...page, ...createPageIterator(page, (v) => !v.ok) };
+  return [{ ...page, ...createPageIterator(page, (v) => !v.ok) }, {
+    status: "complete",
+    request: req,
+    response,
+  }];
 }

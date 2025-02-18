@@ -35,6 +35,7 @@ import {
   CustomersUpdateRequest,
   CustomersUpdateRequest$outboundSchema,
 } from "../models/operations/customersupdate.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -43,11 +44,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Update a customer.
  */
-export async function customersUpdate(
+export function customersUpdate(
   client: PolarCore,
   request: CustomersUpdateRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     Customer,
     | ResourceNotFound
@@ -61,13 +62,41 @@ export async function customersUpdate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: CustomersUpdateRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      Customer,
+      | ResourceNotFound
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => CustomersUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload.CustomerUpdate, { explode: true });
@@ -114,7 +143,7 @@ export async function customersUpdate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -125,7 +154,7 @@ export async function customersUpdate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -152,8 +181,8 @@ export async function customersUpdate(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

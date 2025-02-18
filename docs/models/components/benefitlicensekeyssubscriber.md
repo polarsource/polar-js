@@ -6,30 +6,29 @@
 import { BenefitLicenseKeysSubscriber } from "@polar-sh/sdk/models/components/benefitlicensekeyssubscriber.js";
 
 let value: BenefitLicenseKeysSubscriber = {
-  createdAt: new Date("2025-09-17T04:38:05.058Z"),
-  modifiedAt: new Date("2023-08-01T17:02:23.069Z"),
+  createdAt: new Date("2024-11-11T13:52:42.697Z"),
+  modifiedAt: new Date("2023-05-09T03:26:26.188Z"),
   id: "<value>",
-  description:
-    "what inconsequential optimistically excepting which battle lest slow mechanically times",
+  description: "phew pish now now huddle greedily on",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2025-04-09T16:23:40.595Z"),
-    modifiedAt: new Date("2025-12-26T22:45:57.487Z"),
+    createdAt: new Date("2025-12-24T08:32:45.268Z"),
+    modifiedAt: new Date("2023-03-04T17:36:29.889Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://unpleasant-babushka.net/",
+    avatarUrl: "https://gleaming-account.name/",
     bio: "<value>",
-    company: "Von, Farrell and D'Amore",
+    company: "Johnston Inc",
     blog: "<value>",
     location: "<value>",
-    email: "Vaughn25@yahoo.com",
+    email: "Leopoldo26@hotmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 771406,
+    pledgeMinimumAmount: 637764,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 13063,
+    defaultUpfrontSplitToContributors: 261646,
     profileSettings: {},
     featureSettings: {},
     subscriptionSettings: {
@@ -41,14 +40,14 @@ let value: BenefitLicenseKeysSubscriber = {
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 530903,
-      timeframe: "month",
+      ttl: 860632,
+      timeframe: "year",
     },
     activations: {
-      limit: 785318,
+      limit: 24896,
       enableCustomerAdmin: false,
     },
-    limitUsage: 355921,
+    limitUsage: 276086,
   },
 };
 ```

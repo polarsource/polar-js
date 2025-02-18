@@ -8,10 +8,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import {
-  ProductPriceType,
-  ProductPriceType$inboundSchema,
-  ProductPriceType$outboundSchema,
-} from "../components/productpricetype.js";
+  ProductBillingType,
+  ProductBillingType$inboundSchema,
+  ProductBillingType$outboundSchema,
+} from "../components/productbillingtype.js";
 import {
   TimeInterval,
   TimeInterval$inboundSchema,
@@ -30,11 +30,11 @@ export type MetricsGetQueryParamOrganizationIDFilter = string | Array<string>;
 export type MetricsGetQueryParamProductIDFilter = string | Array<string>;
 
 /**
- * Filter by product price type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
+ * Filter by billing type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
  */
-export type QueryParamProductPriceTypeFilter =
-  | ProductPriceType
-  | Array<ProductPriceType>;
+export type ProductBillingTypeFilter =
+  | ProductBillingType
+  | Array<ProductBillingType>;
 
 /**
  * Filter by customer ID.
@@ -63,11 +63,11 @@ export type MetricsGetRequest = {
    */
   productId?: string | Array<string> | null | undefined;
   /**
-   * Filter by product price type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
+   * Filter by billing type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
    */
-  productPriceType?:
-    | ProductPriceType
-    | Array<ProductPriceType>
+  billingType?:
+    | ProductBillingType
+    | Array<ProductBillingType>
     | null
     | undefined;
   /**
@@ -193,58 +193,56 @@ export function metricsGetQueryParamProductIDFilterFromJSON(
 }
 
 /** @internal */
-export const QueryParamProductPriceTypeFilter$inboundSchema: z.ZodType<
-  QueryParamProductPriceTypeFilter,
+export const ProductBillingTypeFilter$inboundSchema: z.ZodType<
+  ProductBillingTypeFilter,
   z.ZodTypeDef,
   unknown
 > = z.union([
-  ProductPriceType$inboundSchema,
-  z.array(ProductPriceType$inboundSchema),
+  ProductBillingType$inboundSchema,
+  z.array(ProductBillingType$inboundSchema),
 ]);
 
 /** @internal */
-export type QueryParamProductPriceTypeFilter$Outbound = string | Array<string>;
+export type ProductBillingTypeFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const QueryParamProductPriceTypeFilter$outboundSchema: z.ZodType<
-  QueryParamProductPriceTypeFilter$Outbound,
+export const ProductBillingTypeFilter$outboundSchema: z.ZodType<
+  ProductBillingTypeFilter$Outbound,
   z.ZodTypeDef,
-  QueryParamProductPriceTypeFilter
+  ProductBillingTypeFilter
 > = z.union([
-  ProductPriceType$outboundSchema,
-  z.array(ProductPriceType$outboundSchema),
+  ProductBillingType$outboundSchema,
+  z.array(ProductBillingType$outboundSchema),
 ]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryParamProductPriceTypeFilter$ {
-  /** @deprecated use `QueryParamProductPriceTypeFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamProductPriceTypeFilter$inboundSchema;
-  /** @deprecated use `QueryParamProductPriceTypeFilter$outboundSchema` instead. */
-  export const outboundSchema = QueryParamProductPriceTypeFilter$outboundSchema;
-  /** @deprecated use `QueryParamProductPriceTypeFilter$Outbound` instead. */
-  export type Outbound = QueryParamProductPriceTypeFilter$Outbound;
+export namespace ProductBillingTypeFilter$ {
+  /** @deprecated use `ProductBillingTypeFilter$inboundSchema` instead. */
+  export const inboundSchema = ProductBillingTypeFilter$inboundSchema;
+  /** @deprecated use `ProductBillingTypeFilter$outboundSchema` instead. */
+  export const outboundSchema = ProductBillingTypeFilter$outboundSchema;
+  /** @deprecated use `ProductBillingTypeFilter$Outbound` instead. */
+  export type Outbound = ProductBillingTypeFilter$Outbound;
 }
 
-export function queryParamProductPriceTypeFilterToJSON(
-  queryParamProductPriceTypeFilter: QueryParamProductPriceTypeFilter,
+export function productBillingTypeFilterToJSON(
+  productBillingTypeFilter: ProductBillingTypeFilter,
 ): string {
   return JSON.stringify(
-    QueryParamProductPriceTypeFilter$outboundSchema.parse(
-      queryParamProductPriceTypeFilter,
-    ),
+    ProductBillingTypeFilter$outboundSchema.parse(productBillingTypeFilter),
   );
 }
 
-export function queryParamProductPriceTypeFilterFromJSON(
+export function productBillingTypeFilterFromJSON(
   jsonString: string,
-): SafeParseResult<QueryParamProductPriceTypeFilter, SDKValidationError> {
+): SafeParseResult<ProductBillingTypeFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => QueryParamProductPriceTypeFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamProductPriceTypeFilter' from JSON`,
+    (x) => ProductBillingTypeFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductBillingTypeFilter' from JSON`,
   );
 }
 
@@ -315,10 +313,10 @@ export const MetricsGetRequest$inboundSchema: z.ZodType<
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  product_price_type: z.nullable(
+  billing_type: z.nullable(
     z.union([
-      ProductPriceType$inboundSchema,
-      z.array(ProductPriceType$inboundSchema),
+      ProductBillingType$inboundSchema,
+      z.array(ProductBillingType$inboundSchema),
     ]),
   ).optional(),
   customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
@@ -329,7 +327,7 @@ export const MetricsGetRequest$inboundSchema: z.ZodType<
     "end_date": "endDate",
     "organization_id": "organizationId",
     "product_id": "productId",
-    "product_price_type": "productPriceType",
+    "billing_type": "billingType",
     "customer_id": "customerId",
   });
 });
@@ -341,7 +339,7 @@ export type MetricsGetRequest$Outbound = {
   interval: string;
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
-  product_price_type?: string | Array<string> | null | undefined;
+  billing_type?: string | Array<string> | null | undefined;
   customer_id?: string | Array<string> | null | undefined;
 };
 
@@ -357,10 +355,10 @@ export const MetricsGetRequest$outboundSchema: z.ZodType<
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  productPriceType: z.nullable(
+  billingType: z.nullable(
     z.union([
-      ProductPriceType$outboundSchema,
-      z.array(ProductPriceType$outboundSchema),
+      ProductBillingType$outboundSchema,
+      z.array(ProductBillingType$outboundSchema),
     ]),
   ).optional(),
   customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
@@ -370,7 +368,7 @@ export const MetricsGetRequest$outboundSchema: z.ZodType<
     endDate: "end_date",
     organizationId: "organization_id",
     productId: "product_id",
-    productPriceType: "product_price_type",
+    billingType: "billing_type",
     customerId: "customer_id",
   });
 });

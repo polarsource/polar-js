@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-09-06T20:33:57.388Z"),
-        modifiedAt: new Date("2023-03-29T04:02:08.271Z"),
+        createdAt: new Date("2023-03-27T08:21:58.735Z"),
+        modifiedAt: new Date("2025-09-11T09:59:17.332Z"),
         id: "<value>",
-        imageUrl: "https://winding-tinderbox.com",
-        imageUrlDark: "https://celebrated-haircut.info/",
+        imageUrl: "https://slight-clamp.net/",
+        imageUrlDark: "https://acceptable-sarong.name/",
         text: "<value>",
-        linkUrl: "https://sorrowful-follower.info/",
+        linkUrl: "https://pastel-department.biz",
       },
     ],
     pagination: {
-      totalCount: 297223,
-      maxPage: 286550,
+      totalCount: 7413,
+      maxPage: 912082,
     },
     dimensions: [
-      419990,
+      438866,
     ],
   },
 };

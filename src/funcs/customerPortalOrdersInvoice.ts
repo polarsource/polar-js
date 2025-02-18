@@ -35,6 +35,7 @@ import {
   CustomerPortalOrdersInvoiceRequest,
   CustomerPortalOrdersInvoiceRequest$outboundSchema,
 } from "../models/operations/customerportalordersinvoice.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -43,11 +44,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Get an order's invoice data.
  */
-export async function customerPortalOrdersInvoice(
+export function customerPortalOrdersInvoice(
   client: PolarCore,
   request: CustomerPortalOrdersInvoiceRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     CustomerOrderInvoice,
     | ResourceNotFound
@@ -61,13 +62,41 @@ export async function customerPortalOrdersInvoice(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: CustomerPortalOrdersInvoiceRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      CustomerOrderInvoice,
+      | ResourceNotFound
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => CustomerPortalOrdersInvoiceRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -115,7 +144,7 @@ export async function customerPortalOrdersInvoice(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -126,7 +155,7 @@ export async function customerPortalOrdersInvoice(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -153,8 +182,8 @@ export async function customerPortalOrdersInvoice(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

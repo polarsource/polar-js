@@ -8,14 +8,14 @@ Filter by custom field type.
 ### `components.CustomFieldType`
 
 ```typescript
-const value: components.CustomFieldType = "date";
+const value: components.CustomFieldType = "checkbox";
 ```
 
 ### `components.CustomFieldType[]`
 
 ```typescript
 const value: components.CustomFieldType[] = [
-  "select",
+  "date",
 ];
 ```
 

@@ -20,11 +20,21 @@ import {
   CustomerOrderSubscription$outboundSchema,
 } from "./customerordersubscription.js";
 import {
+  LegacyRecurringProductPrice,
+  LegacyRecurringProductPrice$inboundSchema,
+  LegacyRecurringProductPrice$Outbound,
+  LegacyRecurringProductPrice$outboundSchema,
+} from "./legacyrecurringproductprice.js";
+import {
   ProductPrice,
   ProductPrice$inboundSchema,
   ProductPrice$Outbound,
   ProductPrice$outboundSchema,
 } from "./productprice.js";
+
+export type CustomerOrderProductPrice =
+  | LegacyRecurringProductPrice
+  | ProductPrice;
 
 export type CustomerOrder = {
   /**
@@ -48,9 +58,65 @@ export type CustomerOrder = {
    */
   userId: string;
   product: CustomerOrderProduct;
-  productPrice: ProductPrice;
+  productPrice: LegacyRecurringProductPrice | ProductPrice;
   subscription: CustomerOrderSubscription | null;
 };
+
+/** @internal */
+export const CustomerOrderProductPrice$inboundSchema: z.ZodType<
+  CustomerOrderProductPrice,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
+
+/** @internal */
+export type CustomerOrderProductPrice$Outbound =
+  | LegacyRecurringProductPrice$Outbound
+  | ProductPrice$Outbound;
+
+/** @internal */
+export const CustomerOrderProductPrice$outboundSchema: z.ZodType<
+  CustomerOrderProductPrice$Outbound,
+  z.ZodTypeDef,
+  CustomerOrderProductPrice
+> = z.union([
+  LegacyRecurringProductPrice$outboundSchema,
+  ProductPrice$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerOrderProductPrice$ {
+  /** @deprecated use `CustomerOrderProductPrice$inboundSchema` instead. */
+  export const inboundSchema = CustomerOrderProductPrice$inboundSchema;
+  /** @deprecated use `CustomerOrderProductPrice$outboundSchema` instead. */
+  export const outboundSchema = CustomerOrderProductPrice$outboundSchema;
+  /** @deprecated use `CustomerOrderProductPrice$Outbound` instead. */
+  export type Outbound = CustomerOrderProductPrice$Outbound;
+}
+
+export function customerOrderProductPriceToJSON(
+  customerOrderProductPrice: CustomerOrderProductPrice,
+): string {
+  return JSON.stringify(
+    CustomerOrderProductPrice$outboundSchema.parse(customerOrderProductPrice),
+  );
+}
+
+export function customerOrderProductPriceFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomerOrderProductPrice, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomerOrderProductPrice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerOrderProductPrice' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerOrder$inboundSchema: z.ZodType<
@@ -72,7 +138,10 @@ export const CustomerOrder$inboundSchema: z.ZodType<
   subscription_id: z.nullable(z.string()),
   user_id: z.string(),
   product: CustomerOrderProduct$inboundSchema,
-  product_price: ProductPrice$inboundSchema,
+  product_price: z.union([
+    LegacyRecurringProductPrice$inboundSchema,
+    ProductPrice$inboundSchema,
+  ]),
   subscription: z.nullable(CustomerOrderSubscription$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
@@ -102,7 +171,7 @@ export type CustomerOrder$Outbound = {
   subscription_id: string | null;
   user_id: string;
   product: CustomerOrderProduct$Outbound;
-  product_price: ProductPrice$Outbound;
+  product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   subscription: CustomerOrderSubscription$Outbound | null;
 };
 
@@ -124,7 +193,10 @@ export const CustomerOrder$outboundSchema: z.ZodType<
   subscriptionId: z.nullable(z.string()),
   userId: z.string(),
   product: CustomerOrderProduct$outboundSchema,
-  productPrice: ProductPrice$outboundSchema,
+  productPrice: z.union([
+    LegacyRecurringProductPrice$outboundSchema,
+    ProductPrice$outboundSchema,
+  ]),
   subscription: z.nullable(CustomerOrderSubscription$outboundSchema),
 }).transform((v) => {
   return remap$(v, {

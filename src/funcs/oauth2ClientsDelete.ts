@@ -28,6 +28,7 @@ import {
   Oauth2ClientsOauth2DeleteClientRequest,
   Oauth2ClientsOauth2DeleteClientRequest$outboundSchema,
 } from "../models/operations/oauth2clientsoauth2deleteclient.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -36,11 +37,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Delete an OAuth2 client.
  */
-export async function oauth2ClientsDelete(
+export function oauth2ClientsDelete(
   client: PolarCore,
   request: Oauth2ClientsOauth2DeleteClientRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     any,
     | HTTPValidationError
@@ -53,6 +54,33 @@ export async function oauth2ClientsDelete(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: Oauth2ClientsOauth2DeleteClientRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      any,
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -60,7 +88,7 @@ export async function oauth2ClientsDelete(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -106,7 +134,7 @@ export async function oauth2ClientsDelete(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -117,7 +145,7 @@ export async function oauth2ClientsDelete(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -142,8 +170,8 @@ export async function oauth2ClientsDelete(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

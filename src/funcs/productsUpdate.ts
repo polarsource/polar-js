@@ -39,6 +39,7 @@ import {
   ProductsUpdateRequest,
   ProductsUpdateRequest$outboundSchema,
 } from "../models/operations/productsupdate.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -47,11 +48,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Update a product.
  */
-export async function productsUpdate(
+export function productsUpdate(
   client: PolarCore,
   request: ProductsUpdateRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     Product,
     | NotPermitted
@@ -66,13 +67,42 @@ export async function productsUpdate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: ProductsUpdateRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      Product,
+      | NotPermitted
+      | ResourceNotFound
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => ProductsUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload.ProductUpdate, { explode: true });
@@ -119,7 +149,7 @@ export async function productsUpdate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -130,7 +160,7 @@ export async function productsUpdate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -159,8 +189,8 @@ export async function productsUpdate(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

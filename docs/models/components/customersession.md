@@ -8,31 +8,31 @@ A customer session that can be used to authenticate as a customer.
 import { CustomerSession } from "@polar-sh/sdk/models/components/customersession.js";
 
 let value: CustomerSession = {
-  createdAt: new Date("2024-11-29T23:44:32.134Z"),
-  modifiedAt: new Date("2023-10-14T18:21:15.353Z"),
+  createdAt: new Date("2023-10-27T08:26:38.601Z"),
+  modifiedAt: new Date("2025-11-07T05:30:16.112Z"),
   id: "<value>",
   token: "<value>",
-  expiresAt: new Date("2024-08-14T13:06:25.159Z"),
-  customerPortalUrl: "https://filthy-airmail.biz",
+  expiresAt: new Date("2023-12-07T05:12:12.503Z"),
+  customerPortalUrl: "https://whole-postbox.net",
   customerId: "<value>",
   customer: {
-    createdAt: new Date("2025-10-28T00:46:45.109Z"),
-    modifiedAt: new Date("2023-01-23T11:33:34.208Z"),
+    createdAt: new Date("2025-05-08T14:16:36.701Z"),
+    modifiedAt: new Date("2024-12-13T07:57:37.315Z"),
     id: "<value>",
     metadata: {
-      "key": "<value>",
+      "key": 233989,
     },
-    email: "Meghan.McKenzie-Bogisich78@gmail.com",
+    email: "Luna.Hirthe85@hotmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Falkland Islands (Malvinas)",
+      country: "Malaysia",
     },
     taxId: [
-      "do_rcn",
+      "<id>",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://stale-sonar.name",
+    avatarUrl: "https://puzzled-rosemary.name",
   },
 };
 ```

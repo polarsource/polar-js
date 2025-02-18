@@ -10,39 +10,39 @@ let value: EventsListResponse = {
     items: [
       {
         metadata: {
-          "key": 960433,
+          "key": 191286,
         },
         id: "<value>",
-        timestamp: new Date("2024-03-03T05:31:49.356Z"),
+        timestamp: new Date("2023-01-01T04:22:41.062Z"),
         name: "<value>",
         source: "user",
         organizationId: "<value>",
         customerId: "<value>",
         customer: {
-          createdAt: new Date("2025-10-26T07:59:26.802Z"),
-          modifiedAt: new Date("2023-02-10T22:13:56.169Z"),
+          createdAt: new Date("2023-11-08T02:54:24.733Z"),
+          modifiedAt: new Date("2024-12-01T03:37:52.235Z"),
           id: "<value>",
           metadata: {
-            "key": 259862,
+            "key": 863280,
           },
-          email: "Johnson80@gmail.com",
+          email: "Kenton_Padberg95@gmail.com",
           emailVerified: false,
           name: "<value>",
           billingAddress: {
-            country: "Aruba",
+            country: "Oman",
           },
           taxId: [
-            "<id>",
+            "jp_cn",
           ],
           organizationId: "<value>",
-          avatarUrl: "https://important-comparison.com/",
+          avatarUrl: "https://hairy-illusion.com/",
         },
         externalCustomerId: "<id>",
       },
     ],
     pagination: {
-      totalCount: 646967,
-      maxPage: 533996,
+      totalCount: 318753,
+      maxPage: 69708,
     },
   },
 };

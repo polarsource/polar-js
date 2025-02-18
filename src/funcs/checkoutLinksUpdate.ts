@@ -35,6 +35,7 @@ import {
   CheckoutLinksUpdateRequest,
   CheckoutLinksUpdateRequest$outboundSchema,
 } from "../models/operations/checkoutlinksupdate.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -43,11 +44,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Update a checkout link.
  */
-export async function checkoutLinksUpdate(
+export function checkoutLinksUpdate(
   client: PolarCore,
   request: CheckoutLinksUpdateRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     CheckoutLink,
     | ResourceNotFound
@@ -61,13 +62,41 @@ export async function checkoutLinksUpdate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: CheckoutLinksUpdateRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      CheckoutLink,
+      | ResourceNotFound
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => CheckoutLinksUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload.CheckoutLinkUpdate, {
@@ -116,7 +145,7 @@ export async function checkoutLinksUpdate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -127,7 +156,7 @@ export async function checkoutLinksUpdate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -154,8 +183,8 @@ export async function checkoutLinksUpdate(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

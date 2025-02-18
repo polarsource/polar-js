@@ -38,6 +38,12 @@ import {
   DiscountPercentageRepeatDurationBase$outboundSchema,
 } from "./discountpercentagerepeatdurationbase.js";
 import {
+  LegacyRecurringProductPrice,
+  LegacyRecurringProductPrice$inboundSchema,
+  LegacyRecurringProductPrice$Outbound,
+  LegacyRecurringProductPrice$outboundSchema,
+} from "./legacyrecurringproductprice.js";
+import {
   OrderBillingReason,
   OrderBillingReason$inboundSchema,
   OrderBillingReason$outboundSchema,
@@ -76,6 +82,8 @@ import {
 export type OrderMetadata = string | number | boolean;
 
 export type OrderCustomFieldData = string | number | boolean | Date;
+
+export type OrderProductPrice = LegacyRecurringProductPrice | ProductPrice;
 
 export type OrderDiscount =
   | DiscountPercentageOnceForeverDurationBase
@@ -130,7 +138,7 @@ export type Order = {
   userId: string;
   user: OrderUser;
   product: OrderProduct;
-  productPrice: ProductPrice;
+  productPrice: LegacyRecurringProductPrice | ProductPrice;
   discount:
     | DiscountPercentageOnceForeverDurationBase
     | DiscountFixedOnceForeverDurationBase
@@ -243,6 +251,62 @@ export function orderCustomFieldDataFromJSON(
 }
 
 /** @internal */
+export const OrderProductPrice$inboundSchema: z.ZodType<
+  OrderProductPrice,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
+
+/** @internal */
+export type OrderProductPrice$Outbound =
+  | LegacyRecurringProductPrice$Outbound
+  | ProductPrice$Outbound;
+
+/** @internal */
+export const OrderProductPrice$outboundSchema: z.ZodType<
+  OrderProductPrice$Outbound,
+  z.ZodTypeDef,
+  OrderProductPrice
+> = z.union([
+  LegacyRecurringProductPrice$outboundSchema,
+  ProductPrice$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OrderProductPrice$ {
+  /** @deprecated use `OrderProductPrice$inboundSchema` instead. */
+  export const inboundSchema = OrderProductPrice$inboundSchema;
+  /** @deprecated use `OrderProductPrice$outboundSchema` instead. */
+  export const outboundSchema = OrderProductPrice$outboundSchema;
+  /** @deprecated use `OrderProductPrice$Outbound` instead. */
+  export type Outbound = OrderProductPrice$Outbound;
+}
+
+export function orderProductPriceToJSON(
+  orderProductPrice: OrderProductPrice,
+): string {
+  return JSON.stringify(
+    OrderProductPrice$outboundSchema.parse(orderProductPrice),
+  );
+}
+
+export function orderProductPriceFromJSON(
+  jsonString: string,
+): SafeParseResult<OrderProductPrice, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrderProductPrice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrderProductPrice' from JSON`,
+  );
+}
+
+/** @internal */
 export const OrderDiscount$inboundSchema: z.ZodType<
   OrderDiscount,
   z.ZodTypeDef,
@@ -337,7 +401,10 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     user_id: z.string(),
     user: OrderUser$inboundSchema,
     product: OrderProduct$inboundSchema,
-    product_price: ProductPrice$inboundSchema,
+    product_price: z.union([
+      LegacyRecurringProductPrice$inboundSchema,
+      ProductPrice$inboundSchema,
+    ]),
     discount: z.nullable(
       z.union([
         DiscountPercentageOnceForeverDurationBase$inboundSchema,
@@ -395,7 +462,7 @@ export type Order$Outbound = {
   user_id: string;
   user: OrderUser$Outbound;
   product: OrderProduct$Outbound;
-  product_price: ProductPrice$Outbound;
+  product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   discount:
     | DiscountPercentageOnceForeverDurationBase$Outbound
     | DiscountFixedOnceForeverDurationBase$Outbound
@@ -441,7 +508,10 @@ export const Order$outboundSchema: z.ZodType<
   userId: z.string(),
   user: OrderUser$outboundSchema,
   product: OrderProduct$outboundSchema,
-  productPrice: ProductPrice$outboundSchema,
+  productPrice: z.union([
+    LegacyRecurringProductPrice$outboundSchema,
+    ProductPrice$outboundSchema,
+  ]),
   discount: z.nullable(
     z.union([
       DiscountPercentageOnceForeverDurationBase$outboundSchema,

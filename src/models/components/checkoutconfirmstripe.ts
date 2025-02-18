@@ -31,7 +31,13 @@ export type CheckoutConfirmStripe = {
     | { [k: string]: string | number | boolean | Date }
     | undefined;
   /**
-   * ID of the product price to checkout. Must correspond to a price linked to the same product.
+   * ID of the product to checkout. Must be present in the checkout's product list.
+   */
+  productId?: string | null | undefined;
+  /**
+   * ID of the product price to checkout. Must correspond to a price present in the checkout's product list.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   productPriceId?: string | null | undefined;
   amount?: number | null | undefined;
@@ -130,6 +136,7 @@ export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
       z.string().datetime({ offset: true }).transform(v => new Date(v)),
     ]),
   ).optional(),
+  product_id: z.nullable(z.string()).optional(),
   product_price_id: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
   customer_name: z.nullable(z.string()).optional(),
@@ -141,6 +148,7 @@ export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     "custom_field_data": "customFieldData",
+    "product_id": "productId",
     "product_price_id": "productPriceId",
     "customer_name": "customerName",
     "customer_email": "customerEmail",
@@ -156,6 +164,7 @@ export type CheckoutConfirmStripe$Outbound = {
   custom_field_data?:
     | { [k: string]: string | number | boolean | string }
     | undefined;
+  product_id?: string | null | undefined;
   product_price_id?: string | null | undefined;
   amount?: number | null | undefined;
   customer_name?: string | null | undefined;
@@ -180,6 +189,7 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
       z.date().transform(v => v.toISOString()),
     ]),
   ).optional(),
+  productId: z.nullable(z.string()).optional(),
   productPriceId: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
   customerName: z.nullable(z.string()).optional(),
@@ -191,6 +201,7 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     customFieldData: "custom_field_data",
+    productId: "product_id",
     productPriceId: "product_price_id",
     customerName: "customer_name",
     customerEmail: "customer_email",

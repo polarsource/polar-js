@@ -38,6 +38,12 @@ import {
   DiscountPercentageRepeatDurationBase$outboundSchema,
 } from "./discountpercentagerepeatdurationbase.js";
 import {
+  LegacyRecurringProductPrice,
+  LegacyRecurringProductPrice$inboundSchema,
+  LegacyRecurringProductPrice$Outbound,
+  LegacyRecurringProductPrice$outboundSchema,
+} from "./legacyrecurringproductprice.js";
+import {
   PaymentProcessor,
   PaymentProcessor$inboundSchema,
   PaymentProcessor$outboundSchema,
@@ -56,6 +62,13 @@ export type CheckoutLinkDiscount =
   | DiscountFixedOnceForeverDurationBase
   | DiscountPercentageRepeatDurationBase
   | DiscountFixedRepeatDurationBase;
+
+/**
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
+export type CheckoutLinkProductPrice =
+  | LegacyRecurringProductPrice
+  | ProductPrice;
 
 /**
  * Checkout link data.
@@ -92,28 +105,36 @@ export type CheckoutLink = {
    */
   allowDiscountCodes: boolean;
   /**
-   * ID of the product to checkout.
-   */
-  productId: string;
-  /**
-   * ID of the product price to checkout. First available price will be selected unless an explicit price ID is set.
-   */
-  productPriceId: string | null;
-  /**
    * ID of the discount to apply to the checkout. If the discount is not applicable anymore when opening the checkout link, it'll be ignored.
    */
   discountId: string | null;
   /**
-   * Product data for a checkout link.
+   * The organization ID.
    */
-  product: CheckoutLinkProduct;
-  productPrice: ProductPrice | null;
+  organizationId: string;
+  products: Array<CheckoutLinkProduct>;
   discount:
     | DiscountPercentageOnceForeverDurationBase
     | DiscountFixedOnceForeverDurationBase
     | DiscountPercentageRepeatDurationBase
     | DiscountFixedRepeatDurationBase
     | null;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  productId: string;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  productPriceId: string;
+  /**
+   * Product data for a checkout link.
+   */
+  product: CheckoutLinkProduct;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  productPrice: LegacyRecurringProductPrice | ProductPrice;
   url: string;
 };
 
@@ -228,6 +249,62 @@ export function checkoutLinkDiscountFromJSON(
 }
 
 /** @internal */
+export const CheckoutLinkProductPrice$inboundSchema: z.ZodType<
+  CheckoutLinkProductPrice,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
+
+/** @internal */
+export type CheckoutLinkProductPrice$Outbound =
+  | LegacyRecurringProductPrice$Outbound
+  | ProductPrice$Outbound;
+
+/** @internal */
+export const CheckoutLinkProductPrice$outboundSchema: z.ZodType<
+  CheckoutLinkProductPrice$Outbound,
+  z.ZodTypeDef,
+  CheckoutLinkProductPrice
+> = z.union([
+  LegacyRecurringProductPrice$outboundSchema,
+  ProductPrice$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutLinkProductPrice$ {
+  /** @deprecated use `CheckoutLinkProductPrice$inboundSchema` instead. */
+  export const inboundSchema = CheckoutLinkProductPrice$inboundSchema;
+  /** @deprecated use `CheckoutLinkProductPrice$outboundSchema` instead. */
+  export const outboundSchema = CheckoutLinkProductPrice$outboundSchema;
+  /** @deprecated use `CheckoutLinkProductPrice$Outbound` instead. */
+  export type Outbound = CheckoutLinkProductPrice$Outbound;
+}
+
+export function checkoutLinkProductPriceToJSON(
+  checkoutLinkProductPrice: CheckoutLinkProductPrice,
+): string {
+  return JSON.stringify(
+    CheckoutLinkProductPrice$outboundSchema.parse(checkoutLinkProductPrice),
+  );
+}
+
+export function checkoutLinkProductPriceFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLinkProductPrice, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLinkProductPrice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLinkProductPrice' from JSON`,
+  );
+}
+
+/** @internal */
 export const CheckoutLink$inboundSchema: z.ZodType<
   CheckoutLink,
   z.ZodTypeDef,
@@ -244,11 +321,9 @@ export const CheckoutLink$inboundSchema: z.ZodType<
   success_url: z.nullable(z.string()),
   label: z.nullable(z.string()),
   allow_discount_codes: z.boolean(),
-  product_id: z.string(),
-  product_price_id: z.nullable(z.string()),
   discount_id: z.nullable(z.string()),
-  product: CheckoutLinkProduct$inboundSchema,
-  product_price: z.nullable(ProductPrice$inboundSchema),
+  organization_id: z.string(),
+  products: z.array(CheckoutLinkProduct$inboundSchema),
   discount: z.nullable(
     z.union([
       DiscountPercentageOnceForeverDurationBase$inboundSchema,
@@ -257,6 +332,13 @@ export const CheckoutLink$inboundSchema: z.ZodType<
       DiscountFixedRepeatDurationBase$inboundSchema,
     ]),
   ),
+  product_id: z.string(),
+  product_price_id: z.string(),
+  product: CheckoutLinkProduct$inboundSchema,
+  product_price: z.union([
+    LegacyRecurringProductPrice$inboundSchema,
+    ProductPrice$inboundSchema,
+  ]),
   url: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -266,9 +348,10 @@ export const CheckoutLink$inboundSchema: z.ZodType<
     "client_secret": "clientSecret",
     "success_url": "successUrl",
     "allow_discount_codes": "allowDiscountCodes",
+    "discount_id": "discountId",
+    "organization_id": "organizationId",
     "product_id": "productId",
     "product_price_id": "productPriceId",
-    "discount_id": "discountId",
     "product_price": "productPrice",
   });
 });
@@ -284,17 +367,19 @@ export type CheckoutLink$Outbound = {
   success_url: string | null;
   label: string | null;
   allow_discount_codes: boolean;
-  product_id: string;
-  product_price_id: string | null;
   discount_id: string | null;
-  product: CheckoutLinkProduct$Outbound;
-  product_price: ProductPrice$Outbound | null;
+  organization_id: string;
+  products: Array<CheckoutLinkProduct$Outbound>;
   discount:
     | DiscountPercentageOnceForeverDurationBase$Outbound
     | DiscountFixedOnceForeverDurationBase$Outbound
     | DiscountPercentageRepeatDurationBase$Outbound
     | DiscountFixedRepeatDurationBase$Outbound
     | null;
+  product_id: string;
+  product_price_id: string;
+  product: CheckoutLinkProduct$Outbound;
+  product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   url: string;
 };
 
@@ -313,11 +398,9 @@ export const CheckoutLink$outboundSchema: z.ZodType<
   successUrl: z.nullable(z.string()),
   label: z.nullable(z.string()),
   allowDiscountCodes: z.boolean(),
-  productId: z.string(),
-  productPriceId: z.nullable(z.string()),
   discountId: z.nullable(z.string()),
-  product: CheckoutLinkProduct$outboundSchema,
-  productPrice: z.nullable(ProductPrice$outboundSchema),
+  organizationId: z.string(),
+  products: z.array(CheckoutLinkProduct$outboundSchema),
   discount: z.nullable(
     z.union([
       DiscountPercentageOnceForeverDurationBase$outboundSchema,
@@ -326,6 +409,13 @@ export const CheckoutLink$outboundSchema: z.ZodType<
       DiscountFixedRepeatDurationBase$outboundSchema,
     ]),
   ),
+  productId: z.string(),
+  productPriceId: z.string(),
+  product: CheckoutLinkProduct$outboundSchema,
+  productPrice: z.union([
+    LegacyRecurringProductPrice$outboundSchema,
+    ProductPrice$outboundSchema,
+  ]),
   url: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -335,9 +425,10 @@ export const CheckoutLink$outboundSchema: z.ZodType<
     clientSecret: "client_secret",
     successUrl: "success_url",
     allowDiscountCodes: "allow_discount_codes",
+    discountId: "discount_id",
+    organizationId: "organization_id",
     productId: "product_id",
     productPriceId: "product_price_id",
-    discountId: "discount_id",
     productPrice: "product_price",
   });
 });

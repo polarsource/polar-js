@@ -9,39 +9,39 @@ let value: ListResourceEvent = {
   items: [
     {
       metadata: {
-        "key": 618463,
+        "key": false,
       },
       id: "<value>",
-      timestamp: new Date("2023-07-24T03:40:16.074Z"),
+      timestamp: new Date("2025-04-15T01:30:51.901Z"),
       name: "<value>",
-      source: "system",
+      source: "user",
       organizationId: "<value>",
       customerId: "<value>",
       customer: {
-        createdAt: new Date("2025-06-16T07:11:59.696Z"),
-        modifiedAt: new Date("2025-06-14T17:40:30.188Z"),
+        createdAt: new Date("2025-07-23T04:37:56.095Z"),
+        modifiedAt: new Date("2023-05-15T11:47:05.174Z"),
         id: "<value>",
         metadata: {
-          "key": 467406,
+          "key": "<value>",
         },
-        email: "Izaiah66@yahoo.com",
+        email: "Brenda.Nikolaus@hotmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Canada",
+          country: "Democratic People's Republic of Korea",
         },
         taxId: [
-          "ro_tin",
+          "au_arn",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://quarrelsome-spirit.name",
+        avatarUrl: "https://obvious-meatloaf.biz/",
       },
       externalCustomerId: "<id>",
     },
   ],
   pagination: {
-    totalCount: 647383,
-    maxPage: 976771,
+    totalCount: 92965,
+    maxPage: 209551,
   },
 };
 ```

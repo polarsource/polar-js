@@ -21,6 +21,7 @@ import {
   Oauth2UserinfoResponseOauth2Userinfo,
   Oauth2UserinfoResponseOauth2Userinfo$inboundSchema,
 } from "../models/operations/oauth2userinfo.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -29,10 +30,10 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Get information about the authenticated user.
  */
-export async function oauth2Userinfo(
+export function oauth2Userinfo(
   client: PolarCore,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     Oauth2UserinfoResponseOauth2Userinfo,
     | SDKError
@@ -43,6 +44,30 @@ export async function oauth2Userinfo(
     | RequestTimeoutError
     | ConnectionError
   >
+> {
+  return new APIPromise($do(
+    client,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      Oauth2UserinfoResponseOauth2Userinfo,
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
 > {
   const path = pathToFunc("/v1/oauth2/userinfo")();
 
@@ -77,7 +102,7 @@ export async function oauth2Userinfo(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -88,7 +113,7 @@ export async function oauth2Userinfo(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -107,8 +132,8 @@ export async function oauth2Userinfo(
     M.fail("5XX"),
   )(response);
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

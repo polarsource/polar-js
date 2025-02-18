@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://far-flung-step-mother.biz",
+        "https://pointed-disk.info",
       ],
       clientName: "<value>",
-      createdAt: new Date("2023-10-15T02:28:08.072Z"),
-      modifiedAt: new Date("2023-08-13T13:39:26.566Z"),
+      createdAt: new Date("2025-03-31T16:33:43.233Z"),
+      modifiedAt: new Date("2024-02-07T00:53:43.703Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 885320,
-      clientSecretExpiresAt: 793526,
+      clientIdIssuedAt: 8073,
+      clientSecretExpiresAt: 105518,
     },
   ],
   pagination: {
-    totalCount: 450484,
-    maxPage: 378023,
+    totalCount: 285340,
+    maxPage: 393170,
   },
 };
 ```

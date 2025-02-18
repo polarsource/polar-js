@@ -29,6 +29,8 @@ export type CheckoutPriceCreateCustomerMetadata = string | number | boolean;
  *
  * @remarks
  *
+ * **Deprecated**: Use `CheckoutProductsCreate` instead.
+ *
  * Metadata set on the checkout will be copied
  * to the resulting order and/or subscription.
  */

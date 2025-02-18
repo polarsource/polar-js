@@ -7,21 +7,21 @@ import { DiscountPercentageRepeatDurationBase } from "@polar-sh/sdk/models/compo
 
 let value: DiscountPercentageRepeatDurationBase = {
   duration: "forever",
-  durationInMonths: 753240,
+  durationInMonths: 588158,
   type: "fixed",
-  basisPoints: 620500,
-  createdAt: new Date("2024-12-02T00:37:24.524Z"),
-  modifiedAt: new Date("2025-11-05T14:24:14.692Z"),
+  basisPoints: 998527,
+  createdAt: new Date("2023-05-25T04:58:30.125Z"),
+  modifiedAt: new Date("2025-03-22T10:05:33.577Z"),
   id: "<value>",
   metadata: {
     "key": false,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-07-18T18:52:26.316Z"),
-  endsAt: new Date("2024-06-21T12:00:18.977Z"),
-  maxRedemptions: 185348,
-  redemptionsCount: 995816,
+  startsAt: new Date("2024-02-13T20:49:34.820Z"),
+  endsAt: new Date("2023-08-04T17:59:47.205Z"),
+  maxRedemptions: 98759,
+  redemptionsCount: 748606,
   organizationId: "<value>",
 };
 ```

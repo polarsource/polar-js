@@ -5,7 +5,7 @@
 ```typescript
 import { CustomerCancellationReason } from "@polar-sh/sdk/models/components/customercancellationreason.js";
 
-let value: CustomerCancellationReason = "too_complex";
+let value: CustomerCancellationReason = "missing_features";
 ```
 
 ## Values

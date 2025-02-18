@@ -10,10 +10,10 @@ Use it to automatically invite your backers to a private GitHub repository.
 import { BenefitGitHubRepository } from "@polar-sh/sdk/models/components/benefitgithubrepository.js";
 
 let value: BenefitGitHubRepository = {
-  createdAt: new Date("2024-01-25T11:54:38.359Z"),
-  modifiedAt: new Date("2023-02-18T01:45:26.469Z"),
+  createdAt: new Date("2025-12-17T17:51:01.747Z"),
+  modifiedAt: new Date("2023-12-25T20:13:46.460Z"),
   id: "<value>",
-  description: "enlightened aha reiterate besides",
+  description: "meh viability victoriously ha lest sate blah beyond",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

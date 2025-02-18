@@ -39,6 +39,7 @@ import {
   LicenseKeysGetRequest,
   LicenseKeysGetRequest$outboundSchema,
 } from "../models/operations/licensekeysget.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -47,11 +48,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Get a license key.
  */
-export async function licenseKeysGet(
+export function licenseKeysGet(
   client: PolarCore,
   request: LicenseKeysGetRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     LicenseKeyWithActivations,
     | Unauthorized
@@ -66,13 +67,42 @@ export async function licenseKeysGet(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: LicenseKeysGetRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      LicenseKeyWithActivations,
+      | Unauthorized
+      | ResourceNotFound
+      | HTTPValidationError
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => LicenseKeysGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -118,7 +148,7 @@ export async function licenseKeysGet(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -129,7 +159,7 @@ export async function licenseKeysGet(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -158,8 +188,8 @@ export async function licenseKeysGet(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

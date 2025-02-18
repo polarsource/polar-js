@@ -27,6 +27,7 @@ import {
   Oauth2RequestTokenRequestBody,
   Oauth2RequestTokenRequestBody$outboundSchema,
 } from "../models/operations/oauth2requesttoken.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -35,11 +36,11 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Request an access token using a valid grant.
  */
-export async function oauth2Token(
+export function oauth2Token(
   client: PolarCore,
   request: Oauth2RequestTokenRequestBody,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     TokenResponse,
     | SDKError
@@ -51,13 +52,39 @@ export async function oauth2Token(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: PolarCore,
+  request: Oauth2RequestTokenRequestBody,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      TokenResponse,
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => Oauth2RequestTokenRequestBody$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
 
@@ -100,7 +127,7 @@ export async function oauth2Token(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -111,7 +138,7 @@ export async function oauth2Token(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -130,8 +157,8 @@ export async function oauth2Token(
     M.fail("5XX"),
   )(response);
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

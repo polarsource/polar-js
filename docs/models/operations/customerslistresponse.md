@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-10-15T23:00:41.227Z"),
-        modifiedAt: new Date("2025-03-23T08:39:37.206Z"),
+        createdAt: new Date("2025-08-24T09:08:13.827Z"),
+        modifiedAt: new Date("2025-11-14T10:02:56.411Z"),
         id: "<value>",
         metadata: {
-          "key": false,
+          "key": 439430,
         },
-        email: "Braxton.Koch16@hotmail.com",
+        email: "Lizeth40@hotmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Portugal",
+          country: "Bhutan",
         },
         taxId: [
           "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://helpful-trolley.biz",
+        avatarUrl: "https://frank-scenario.org",
       },
     ],
     pagination: {
-      totalCount: 968944,
-      maxPage: 852730,
+      totalCount: 631083,
+      maxPage: 654466,
     },
   },
 };

@@ -11,40 +11,23 @@ const value: components.ExistingProductPrice = {
 };
 ```
 
-### `components.ProductPriceRecurringFixedCreate`
+### `components.ProductPriceFixedCreate`
 
 ```typescript
-const value: components.ProductPriceRecurringFixedCreate = {
-  priceAmount: 704284,
-  recurringInterval: "year",
+const value: components.ProductPriceFixedCreate = {
+  priceAmount: 31712,
 };
 ```
 
-### `components.ProductPriceRecurringFreeCreate`
+### `components.ProductPriceCustomCreate`
 
 ```typescript
-const value: components.ProductPriceRecurringFreeCreate = {
-  recurringInterval: "month",
-};
+const value: components.ProductPriceCustomCreate = {};
 ```
 
-### `components.ProductPriceOneTimeFixedCreate`
+### `components.ProductPriceFreeCreate`
 
 ```typescript
-const value: components.ProductPriceOneTimeFixedCreate = {
-  priceAmount: 133223,
-};
-```
-
-### `components.ProductPriceOneTimeCustomCreate`
-
-```typescript
-const value: components.ProductPriceOneTimeCustomCreate = {};
-```
-
-### `components.ProductPriceOneTimeFreeCreate`
-
-```typescript
-const value: components.ProductPriceOneTimeFreeCreate = {};
+const value: components.ProductPriceFreeCreate = {};
 ```
 

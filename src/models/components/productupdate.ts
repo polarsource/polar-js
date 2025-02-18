@@ -20,45 +20,36 @@ import {
   ExistingProductPrice$outboundSchema,
 } from "./existingproductprice.js";
 import {
-  ProductPriceOneTimeCustomCreate,
-  ProductPriceOneTimeCustomCreate$inboundSchema,
-  ProductPriceOneTimeCustomCreate$Outbound,
-  ProductPriceOneTimeCustomCreate$outboundSchema,
-} from "./productpriceonetimecustomcreate.js";
+  ProductPriceCustomCreate,
+  ProductPriceCustomCreate$inboundSchema,
+  ProductPriceCustomCreate$Outbound,
+  ProductPriceCustomCreate$outboundSchema,
+} from "./productpricecustomcreate.js";
 import {
-  ProductPriceOneTimeFixedCreate,
-  ProductPriceOneTimeFixedCreate$inboundSchema,
-  ProductPriceOneTimeFixedCreate$Outbound,
-  ProductPriceOneTimeFixedCreate$outboundSchema,
-} from "./productpriceonetimefixedcreate.js";
+  ProductPriceFixedCreate,
+  ProductPriceFixedCreate$inboundSchema,
+  ProductPriceFixedCreate$Outbound,
+  ProductPriceFixedCreate$outboundSchema,
+} from "./productpricefixedcreate.js";
 import {
-  ProductPriceOneTimeFreeCreate,
-  ProductPriceOneTimeFreeCreate$inboundSchema,
-  ProductPriceOneTimeFreeCreate$Outbound,
-  ProductPriceOneTimeFreeCreate$outboundSchema,
-} from "./productpriceonetimefreecreate.js";
+  ProductPriceFreeCreate,
+  ProductPriceFreeCreate$inboundSchema,
+  ProductPriceFreeCreate$Outbound,
+  ProductPriceFreeCreate$outboundSchema,
+} from "./productpricefreecreate.js";
 import {
-  ProductPriceRecurringFixedCreate,
-  ProductPriceRecurringFixedCreate$inboundSchema,
-  ProductPriceRecurringFixedCreate$Outbound,
-  ProductPriceRecurringFixedCreate$outboundSchema,
-} from "./productpricerecurringfixedcreate.js";
-import {
-  ProductPriceRecurringFreeCreate,
-  ProductPriceRecurringFreeCreate$inboundSchema,
-  ProductPriceRecurringFreeCreate$Outbound,
-  ProductPriceRecurringFreeCreate$outboundSchema,
-} from "./productpricerecurringfreecreate.js";
+  SubscriptionRecurringInterval,
+  SubscriptionRecurringInterval$inboundSchema,
+  SubscriptionRecurringInterval$outboundSchema,
+} from "./subscriptionrecurringinterval.js";
 
 export type ProductUpdateMetadata = string | number | boolean;
 
 export type ProductUpdatePrices =
   | ExistingProductPrice
-  | ProductPriceOneTimeFreeCreate
-  | ProductPriceRecurringFreeCreate
-  | ProductPriceOneTimeFixedCreate
-  | ProductPriceRecurringFixedCreate
-  | ProductPriceOneTimeCustomCreate;
+  | ProductPriceFreeCreate
+  | ProductPriceFixedCreate
+  | ProductPriceCustomCreate;
 
 /**
  * Schema to update a product.
@@ -71,6 +62,10 @@ export type ProductUpdate = {
    */
   description?: string | null | undefined;
   /**
+   * The recurring interval of the product. If `None`, the product is a one-time purchase. **Can only be set on legacy recurring products. Once set, it can't be changed.**
+   */
+  recurringInterval?: SubscriptionRecurringInterval | null | undefined;
+  /**
    * Whether the product is archived. If `true`, the product won't be available for purchase anymore. Existing customers will still have access to their benefits, and subscriptions will continue normally.
    */
   isArchived?: boolean | null | undefined;
@@ -80,11 +75,9 @@ export type ProductUpdate = {
   prices?:
     | Array<
       | ExistingProductPrice
-      | ProductPriceOneTimeFreeCreate
-      | ProductPriceRecurringFreeCreate
-      | ProductPriceOneTimeFixedCreate
-      | ProductPriceRecurringFixedCreate
-      | ProductPriceOneTimeCustomCreate
+      | ProductPriceFreeCreate
+      | ProductPriceFixedCreate
+      | ProductPriceCustomCreate
     >
     | null
     | undefined;
@@ -150,21 +143,17 @@ export const ProductUpdatePrices$inboundSchema: z.ZodType<
   unknown
 > = z.union([
   ExistingProductPrice$inboundSchema,
-  ProductPriceOneTimeFreeCreate$inboundSchema,
-  ProductPriceRecurringFreeCreate$inboundSchema,
-  ProductPriceOneTimeFixedCreate$inboundSchema,
-  ProductPriceRecurringFixedCreate$inboundSchema,
-  ProductPriceOneTimeCustomCreate$inboundSchema,
+  ProductPriceFreeCreate$inboundSchema,
+  ProductPriceFixedCreate$inboundSchema,
+  ProductPriceCustomCreate$inboundSchema,
 ]);
 
 /** @internal */
 export type ProductUpdatePrices$Outbound =
   | ExistingProductPrice$Outbound
-  | ProductPriceOneTimeFreeCreate$Outbound
-  | ProductPriceRecurringFreeCreate$Outbound
-  | ProductPriceOneTimeFixedCreate$Outbound
-  | ProductPriceRecurringFixedCreate$Outbound
-  | ProductPriceOneTimeCustomCreate$Outbound;
+  | ProductPriceFreeCreate$Outbound
+  | ProductPriceFixedCreate$Outbound
+  | ProductPriceCustomCreate$Outbound;
 
 /** @internal */
 export const ProductUpdatePrices$outboundSchema: z.ZodType<
@@ -173,11 +162,9 @@ export const ProductUpdatePrices$outboundSchema: z.ZodType<
   ProductUpdatePrices
 > = z.union([
   ExistingProductPrice$outboundSchema,
-  ProductPriceOneTimeFreeCreate$outboundSchema,
-  ProductPriceRecurringFreeCreate$outboundSchema,
-  ProductPriceOneTimeFixedCreate$outboundSchema,
-  ProductPriceRecurringFixedCreate$outboundSchema,
-  ProductPriceOneTimeCustomCreate$outboundSchema,
+  ProductPriceFreeCreate$outboundSchema,
+  ProductPriceFixedCreate$outboundSchema,
+  ProductPriceCustomCreate$outboundSchema,
 ]);
 
 /**
@@ -222,16 +209,16 @@ export const ProductUpdate$inboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
+  recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema)
+    .optional(),
   is_archived: z.nullable(z.boolean()).optional(),
   prices: z.nullable(
     z.array(
       z.union([
         ExistingProductPrice$inboundSchema,
-        ProductPriceOneTimeFreeCreate$inboundSchema,
-        ProductPriceRecurringFreeCreate$inboundSchema,
-        ProductPriceOneTimeFixedCreate$inboundSchema,
-        ProductPriceRecurringFixedCreate$inboundSchema,
-        ProductPriceOneTimeCustomCreate$inboundSchema,
+        ProductPriceFreeCreate$inboundSchema,
+        ProductPriceFixedCreate$inboundSchema,
+        ProductPriceCustomCreate$inboundSchema,
       ]),
     ),
   ).optional(),
@@ -241,6 +228,7 @@ export const ProductUpdate$inboundSchema: z.ZodType<
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "recurring_interval": "recurringInterval",
     "is_archived": "isArchived",
     "attached_custom_fields": "attachedCustomFields",
   });
@@ -251,15 +239,14 @@ export type ProductUpdate$Outbound = {
   metadata?: { [k: string]: string | number | boolean } | null | undefined;
   name?: string | null | undefined;
   description?: string | null | undefined;
+  recurring_interval?: string | null | undefined;
   is_archived?: boolean | null | undefined;
   prices?:
     | Array<
       | ExistingProductPrice$Outbound
-      | ProductPriceOneTimeFreeCreate$Outbound
-      | ProductPriceRecurringFreeCreate$Outbound
-      | ProductPriceOneTimeFixedCreate$Outbound
-      | ProductPriceRecurringFixedCreate$Outbound
-      | ProductPriceOneTimeCustomCreate$Outbound
+      | ProductPriceFreeCreate$Outbound
+      | ProductPriceFixedCreate$Outbound
+      | ProductPriceCustomCreate$Outbound
     >
     | null
     | undefined;
@@ -281,16 +268,16 @@ export const ProductUpdate$outboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
+  recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema)
+    .optional(),
   isArchived: z.nullable(z.boolean()).optional(),
   prices: z.nullable(
     z.array(
       z.union([
         ExistingProductPrice$outboundSchema,
-        ProductPriceOneTimeFreeCreate$outboundSchema,
-        ProductPriceRecurringFreeCreate$outboundSchema,
-        ProductPriceOneTimeFixedCreate$outboundSchema,
-        ProductPriceRecurringFixedCreate$outboundSchema,
-        ProductPriceOneTimeCustomCreate$outboundSchema,
+        ProductPriceFreeCreate$outboundSchema,
+        ProductPriceFixedCreate$outboundSchema,
+        ProductPriceCustomCreate$outboundSchema,
       ]),
     ),
   ).optional(),
@@ -300,6 +287,7 @@ export const ProductUpdate$outboundSchema: z.ZodType<
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
+    recurringInterval: "recurring_interval",
     isArchived: "is_archived",
     attachedCustomFields: "attached_custom_fields",
   });

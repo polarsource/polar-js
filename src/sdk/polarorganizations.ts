@@ -4,7 +4,7 @@
 
 import { customerPortalOrganizationsGet } from "../funcs/customerPortalOrganizationsGet.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import { Organization } from "../models/components/organization.js";
+import { CustomerOrganization } from "../models/components/customerorganization.js";
 import { CustomerPortalOrganizationsGetRequest } from "../models/operations/customerportalorganizationsget.js";
 import { unwrapAsync } from "../types/fp.js";
 
@@ -18,7 +18,7 @@ export class PolarOrganizations extends ClientSDK {
   async get(
     request: CustomerPortalOrganizationsGetRequest,
     options?: RequestOptions,
-  ): Promise<Organization> {
+  ): Promise<CustomerOrganization> {
     return unwrapAsync(customerPortalOrganizationsGet(
       this,
       request,

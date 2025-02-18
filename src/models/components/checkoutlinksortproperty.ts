@@ -8,6 +8,12 @@ import { ClosedEnum } from "../../types/enums.js";
 export const CheckoutLinkSortProperty = {
   CreatedAt: "created_at",
   MinusCreatedAt: "-created_at",
+  Label: "label",
+  MinusLabel: "-label",
+  SuccessUrl: "success_url",
+  MinusSuccessUrl: "-success_url",
+  AllowDiscountCodes: "allow_discount_codes",
+  MinusAllowDiscountCodes: "-allow_discount_codes",
 } as const;
 export type CheckoutLinkSortProperty = ClosedEnum<
   typeof CheckoutLinkSortProperty

@@ -50,6 +50,12 @@ import {
   CheckoutProduct$outboundSchema,
 } from "./checkoutproduct.js";
 import {
+  LegacyRecurringProductPrice,
+  LegacyRecurringProductPrice$inboundSchema,
+  LegacyRecurringProductPrice$Outbound,
+  LegacyRecurringProductPrice$outboundSchema,
+} from "./legacyrecurringproductprice.js";
+import {
   Organization,
   Organization$inboundSchema,
   Organization$Outbound,
@@ -72,6 +78,13 @@ export type CheckoutPublicConfirmedCustomFieldData =
   | number
   | boolean
   | Date;
+
+/**
+ * Price of the selected product.
+ */
+export type CheckoutPublicConfirmedProductPrice =
+  | LegacyRecurringProductPrice
+  | ProductPrice;
 
 export type CheckoutPublicConfirmedDiscount =
   | CheckoutDiscountPercentageOnceForeverDuration
@@ -195,10 +208,17 @@ export type CheckoutPublicConfirmed = {
   customerTaxId: string | null;
   paymentProcessorMetadata: { [k: string]: string };
   /**
+   * List of products available to select.
+   */
+  products: Array<CheckoutProduct>;
+  /**
    * Product data for a checkout session.
    */
   product: CheckoutProduct;
-  productPrice: ProductPrice;
+  /**
+   * Price of the selected product.
+   */
+  productPrice: LegacyRecurringProductPrice | ProductPrice;
   discount:
     | CheckoutDiscountPercentageOnceForeverDuration
     | CheckoutDiscountFixedOnceForeverDuration
@@ -275,6 +295,67 @@ export function checkoutPublicConfirmedCustomFieldDataFromJSON(
     (x) =>
       CheckoutPublicConfirmedCustomFieldData$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'CheckoutPublicConfirmedCustomFieldData' from JSON`,
+  );
+}
+
+/** @internal */
+export const CheckoutPublicConfirmedProductPrice$inboundSchema: z.ZodType<
+  CheckoutPublicConfirmedProductPrice,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
+
+/** @internal */
+export type CheckoutPublicConfirmedProductPrice$Outbound =
+  | LegacyRecurringProductPrice$Outbound
+  | ProductPrice$Outbound;
+
+/** @internal */
+export const CheckoutPublicConfirmedProductPrice$outboundSchema: z.ZodType<
+  CheckoutPublicConfirmedProductPrice$Outbound,
+  z.ZodTypeDef,
+  CheckoutPublicConfirmedProductPrice
+> = z.union([
+  LegacyRecurringProductPrice$outboundSchema,
+  ProductPrice$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutPublicConfirmedProductPrice$ {
+  /** @deprecated use `CheckoutPublicConfirmedProductPrice$inboundSchema` instead. */
+  export const inboundSchema =
+    CheckoutPublicConfirmedProductPrice$inboundSchema;
+  /** @deprecated use `CheckoutPublicConfirmedProductPrice$outboundSchema` instead. */
+  export const outboundSchema =
+    CheckoutPublicConfirmedProductPrice$outboundSchema;
+  /** @deprecated use `CheckoutPublicConfirmedProductPrice$Outbound` instead. */
+  export type Outbound = CheckoutPublicConfirmedProductPrice$Outbound;
+}
+
+export function checkoutPublicConfirmedProductPriceToJSON(
+  checkoutPublicConfirmedProductPrice: CheckoutPublicConfirmedProductPrice,
+): string {
+  return JSON.stringify(
+    CheckoutPublicConfirmedProductPrice$outboundSchema.parse(
+      checkoutPublicConfirmedProductPrice,
+    ),
+  );
+}
+
+export function checkoutPublicConfirmedProductPriceFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutPublicConfirmedProductPrice, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutPublicConfirmedProductPrice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutPublicConfirmedProductPrice' from JSON`,
   );
 }
 
@@ -389,8 +470,12 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
   customer_billing_address: z.nullable(Address$inboundSchema),
   customer_tax_id: z.nullable(z.string()),
   payment_processor_metadata: z.record(z.string()),
+  products: z.array(CheckoutProduct$inboundSchema),
   product: CheckoutProduct$inboundSchema,
-  product_price: ProductPrice$inboundSchema,
+  product_price: z.union([
+    LegacyRecurringProductPrice$inboundSchema,
+    ProductPrice$inboundSchema,
+  ]),
   discount: z.nullable(
     z.union([
       CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
@@ -473,8 +558,9 @@ export type CheckoutPublicConfirmed$Outbound = {
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
   payment_processor_metadata: { [k: string]: string };
+  products: Array<CheckoutProduct$Outbound>;
   product: CheckoutProduct$Outbound;
-  product_price: ProductPrice$Outbound;
+  product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   discount:
     | CheckoutDiscountPercentageOnceForeverDuration$Outbound
     | CheckoutDiscountFixedOnceForeverDuration$Outbound
@@ -531,8 +617,12 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
   customerBillingAddress: z.nullable(Address$outboundSchema),
   customerTaxId: z.nullable(z.string()),
   paymentProcessorMetadata: z.record(z.string()),
+  products: z.array(CheckoutProduct$outboundSchema),
   product: CheckoutProduct$outboundSchema,
-  productPrice: ProductPrice$outboundSchema,
+  productPrice: z.union([
+    LegacyRecurringProductPrice$outboundSchema,
+    ProductPrice$outboundSchema,
+  ]),
   discount: z.nullable(
     z.union([
       CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,

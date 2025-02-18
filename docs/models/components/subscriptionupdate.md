@@ -3,11 +3,11 @@
 
 ## Supported Types
 
-### `components.SubscriptionUpdatePrice`
+### `components.SubscriptionUpdateProduct`
 
 ```typescript
-const value: components.SubscriptionUpdatePrice = {
-  productPriceId: "<value>",
+const value: components.SubscriptionUpdateProduct = {
+  productId: "<value>",
 };
 ```
 

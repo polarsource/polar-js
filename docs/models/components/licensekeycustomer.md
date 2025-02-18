@@ -6,23 +6,23 @@
 import { LicenseKeyCustomer } from "@polar-sh/sdk/models/components/licensekeycustomer.js";
 
 let value: LicenseKeyCustomer = {
-  createdAt: new Date("2024-11-21T10:29:11.218Z"),
-  modifiedAt: new Date("2024-02-10T00:05:41.151Z"),
+  createdAt: new Date("2024-04-30T17:04:34.452Z"),
+  modifiedAt: new Date("2023-12-27T03:00:57.232Z"),
   id: "<value>",
   metadata: {
     "key": false,
   },
-  email: "Lauren_Bogisich@hotmail.com",
+  email: "Flossie_Schulist@yahoo.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Bouvet Island",
+    country: "Benin",
   },
   taxId: [
-    "is_vat",
+    "eu_oss_vat",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://dramatic-tune-up.name",
+  avatarUrl: "https://severe-celsius.net/",
 };
 ```
 

@@ -10,7 +10,7 @@ const value: components.AuthorizationCodeTokenRequest = {
   clientId: "<id>",
   clientSecret: "<value>",
   code: "<value>",
-  redirectUri: "https://celebrated-programme.net",
+  redirectUri: "https://phony-grouper.name",
 };
 ```
 

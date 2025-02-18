@@ -8,30 +8,31 @@ import { ListResourceDiscount } from "@polar-sh/sdk/models/components/listresour
 let value: ListResourceDiscount = {
   items: [
     {
-      duration: "repeating",
+      duration: "once",
       type: "fixed",
-      amount: 485972,
-      currency: "Lempira",
-      createdAt: new Date("2024-11-27T02:55:43.193Z"),
-      modifiedAt: new Date("2024-03-16T02:10:36.135Z"),
+      amount: 696024,
+      currency: "Somoni",
+      createdAt: new Date("2023-07-18T04:09:50.300Z"),
+      modifiedAt: new Date("2024-11-16T06:19:22.427Z"),
       id: "<value>",
       metadata: {
-        "key": false,
+        "key": "<value>",
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2025-08-18T17:37:40.864Z"),
-      endsAt: new Date("2024-06-20T17:53:47.217Z"),
-      maxRedemptions: 652552,
-      redemptionsCount: 295537,
+      startsAt: new Date("2023-05-03T20:47:05.431Z"),
+      endsAt: new Date("2024-05-31T04:27:17.611Z"),
+      maxRedemptions: 861044,
+      redemptionsCount: 627706,
       organizationId: "<value>",
       products: [
         {
-          createdAt: new Date("2024-11-16T10:35:42.718Z"),
-          modifiedAt: new Date("2024-11-27T05:20:13.228Z"),
+          createdAt: new Date("2025-01-16T23:19:27.050Z"),
+          modifiedAt: new Date("2024-03-06T21:50:32.713Z"),
           id: "<value>",
           name: "<value>",
-          description: "both worth bin needy distorted eek boohoo",
+          description: "tribe even zealous under axe",
+          recurringInterval: "month",
           isRecurring: false,
           isArchived: false,
           organizationId: "<value>",
@@ -40,8 +41,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 464473,
-    maxPage: 375553,
+    totalCount: 869340,
+    maxPage: 275420,
   },
 };
 ```

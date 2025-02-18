@@ -8,10 +8,10 @@ import { ListResourceBenefit } from "@polar-sh/sdk/models/components/listresourc
 let value: ListResourceBenefit = {
   items: [
     {
-      createdAt: new Date("2025-10-07T05:53:02.445Z"),
-      modifiedAt: new Date("2025-03-08T18:33:30.754Z"),
+      createdAt: new Date("2023-06-27T16:29:17.550Z"),
+      modifiedAt: new Date("2023-06-12T02:29:30.253Z"),
       id: "<value>",
-      description: "pfft nor equate",
+      description: "geez shadowy pomelo hourly boldly stabilise midwife",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
@@ -23,8 +23,8 @@ let value: ListResourceBenefit = {
     },
   ],
   pagination: {
-    totalCount: 157014,
-    maxPage: 241568,
+    totalCount: 81790,
+    maxPage: 862357,
   },
 };
 ```

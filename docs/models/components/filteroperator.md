@@ -5,7 +5,7 @@
 ```typescript
 import { FilterOperator } from "@polar-sh/sdk/models/components/filteroperator.js";
 
-let value: FilterOperator = "gte";
+let value: FilterOperator = "gt";
 ```
 
 ## Values
