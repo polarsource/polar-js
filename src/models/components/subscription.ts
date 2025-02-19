@@ -125,7 +125,7 @@ export type Subscription = {
    * Key-value object storing custom field values.
    */
   customFieldData?:
-    | { [k: string]: string | number | boolean | Date }
+    | { [k: string]: string | number | boolean | Date | null }
     | undefined;
   customer: SubscriptionCustomer;
   /**
@@ -402,12 +402,14 @@ export const Subscription$inboundSchema: z.ZodType<
   customer_cancellation_comment: z.nullable(z.string()),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   custom_field_data: z.record(
-    z.union([
-      z.string(),
-      z.number().int(),
-      z.boolean(),
-      z.string().datetime({ offset: true }).transform(v => new Date(v)),
-    ]),
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.string().datetime({ offset: true }).transform(v => new Date(v)),
+      ]),
+    ),
   ).optional(),
   customer: SubscriptionCustomer$inboundSchema,
   user_id: z.string(),
@@ -474,7 +476,7 @@ export type Subscription$Outbound = {
   customer_cancellation_comment: string | null;
   metadata: { [k: string]: string | number | boolean };
   custom_field_data?:
-    | { [k: string]: string | number | boolean | string }
+    | { [k: string]: string | number | boolean | string | null }
     | undefined;
   customer: SubscriptionCustomer$Outbound;
   user_id: string;
@@ -520,12 +522,14 @@ export const Subscription$outboundSchema: z.ZodType<
   customerCancellationComment: z.nullable(z.string()),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   customFieldData: z.record(
-    z.union([
-      z.string(),
-      z.number().int(),
-      z.boolean(),
-      z.date().transform(v => v.toISOString()),
-    ]),
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.date().transform(v => v.toISOString()),
+      ]),
+    ),
   ).optional(),
   customer: SubscriptionCustomer$outboundSchema,
   userId: z.string(),

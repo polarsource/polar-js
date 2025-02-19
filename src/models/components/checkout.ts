@@ -109,7 +109,7 @@ export type Checkout = {
    * Key-value object storing custom field values.
    */
   customFieldData?:
-    | { [k: string]: string | number | boolean | Date }
+    | { [k: string]: string | number | boolean | Date | null }
     | undefined;
   paymentProcessor: PaymentProcessor;
   status: CheckoutStatus;
@@ -511,12 +511,14 @@ export const Checkout$inboundSchema: z.ZodType<
   ),
   id: z.string(),
   custom_field_data: z.record(
-    z.union([
-      z.string(),
-      z.number().int(),
-      z.boolean(),
-      z.string().datetime({ offset: true }).transform(v => new Date(v)),
-    ]),
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.string().datetime({ offset: true }).transform(v => new Date(v)),
+      ]),
+    ),
   ).optional(),
   payment_processor: PaymentProcessor$inboundSchema,
   status: CheckoutStatus$inboundSchema,
@@ -608,7 +610,7 @@ export type Checkout$Outbound = {
   modified_at: string | null;
   id: string;
   custom_field_data?:
-    | { [k: string]: string | number | boolean | string }
+    | { [k: string]: string | number | boolean | string | null }
     | undefined;
   payment_processor: string;
   status: string;
@@ -663,12 +665,14 @@ export const Checkout$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
   customFieldData: z.record(
-    z.union([
-      z.string(),
-      z.number().int(),
-      z.boolean(),
-      z.date().transform(v => v.toISOString()),
-    ]),
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.date().transform(v => v.toISOString()),
+      ]),
+    ),
   ).optional(),
   paymentProcessor: PaymentProcessor$outboundSchema,
   status: CheckoutStatus$outboundSchema,

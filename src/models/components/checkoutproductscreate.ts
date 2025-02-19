@@ -53,7 +53,7 @@ export type CheckoutProductsCreate = {
    * Key-value object storing custom field values.
    */
   customFieldData?:
-    | { [k: string]: string | number | boolean | Date }
+    | { [k: string]: string | number | boolean | Date | null }
     | undefined;
   /**
    * ID of the discount to apply to the checkout.
@@ -289,12 +289,14 @@ export const CheckoutProductsCreate$inboundSchema: z.ZodType<
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
     .optional(),
   custom_field_data: z.record(
-    z.union([
-      z.string(),
-      z.number().int(),
-      z.boolean(),
-      z.string().datetime({ offset: true }).transform(v => new Date(v)),
-    ]),
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.string().datetime({ offset: true }).transform(v => new Date(v)),
+      ]),
+    ),
   ).optional(),
   discount_id: z.nullable(z.string()).optional(),
   allow_discount_codes: z.boolean().default(true),
@@ -334,7 +336,7 @@ export const CheckoutProductsCreate$inboundSchema: z.ZodType<
 export type CheckoutProductsCreate$Outbound = {
   metadata?: { [k: string]: string | number | boolean } | undefined;
   custom_field_data?:
-    | { [k: string]: string | number | boolean | string }
+    | { [k: string]: string | number | boolean | string | null }
     | undefined;
   discount_id?: string | null | undefined;
   allow_discount_codes: boolean;
@@ -361,12 +363,14 @@ export const CheckoutProductsCreate$outboundSchema: z.ZodType<
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
     .optional(),
   customFieldData: z.record(
-    z.union([
-      z.string(),
-      z.number().int(),
-      z.boolean(),
-      z.date().transform(v => v.toISOString()),
-    ]),
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.date().transform(v => v.toISOString()),
+      ]),
+    ),
   ).optional(),
   discountId: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.boolean().default(true),

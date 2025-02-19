@@ -28,7 +28,7 @@ export type CustomerUpdate = {
   email?: string | null | undefined;
   name?: string | null | undefined;
   billingAddress?: Address | null | undefined;
-  taxId?: Array<string | TaxIDFormat> | null | undefined;
+  taxId?: Array<string | TaxIDFormat | null> | null | undefined;
 };
 
 /** @internal */
@@ -139,8 +139,9 @@ export const CustomerUpdate$inboundSchema: z.ZodType<
   email: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
   billing_address: z.nullable(Address$inboundSchema).optional(),
-  tax_id: z.nullable(z.array(z.union([z.string(), TaxIDFormat$inboundSchema])))
-    .optional(),
+  tax_id: z.nullable(
+    z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "billing_address": "billingAddress",
@@ -154,7 +155,7 @@ export type CustomerUpdate$Outbound = {
   email?: string | null | undefined;
   name?: string | null | undefined;
   billing_address?: Address$Outbound | null | undefined;
-  tax_id?: Array<string | string> | null | undefined;
+  tax_id?: Array<string | string | null> | null | undefined;
 };
 
 /** @internal */
@@ -169,8 +170,9 @@ export const CustomerUpdate$outboundSchema: z.ZodType<
   email: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
   billingAddress: z.nullable(Address$outboundSchema).optional(),
-  taxId: z.nullable(z.array(z.union([z.string(), TaxIDFormat$outboundSchema])))
-    .optional(),
+  taxId: z.nullable(
+    z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     billingAddress: "billing_address",
