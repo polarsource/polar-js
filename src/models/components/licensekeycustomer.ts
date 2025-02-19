@@ -41,7 +41,7 @@ export type LicenseKeyCustomer = {
   emailVerified: boolean;
   name: string | null;
   billingAddress: Address | null;
-  taxId: Array<string | TaxIDFormat> | null;
+  taxId: Array<string | TaxIDFormat | null> | null;
   organizationId: string;
   avatarUrl: string;
 };
@@ -158,7 +158,9 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodType<
   email_verified: z.boolean(),
   name: z.nullable(z.string()),
   billing_address: z.nullable(Address$inboundSchema),
-  tax_id: z.nullable(z.array(z.union([z.string(), TaxIDFormat$inboundSchema]))),
+  tax_id: z.nullable(
+    z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
+  ),
   organization_id: z.string(),
   avatar_url: z.string(),
 }).transform((v) => {
@@ -183,7 +185,7 @@ export type LicenseKeyCustomer$Outbound = {
   email_verified: boolean;
   name: string | null;
   billing_address: Address$Outbound | null;
-  tax_id: Array<string | string> | null;
+  tax_id: Array<string | string | null> | null;
   organization_id: string;
   avatar_url: string;
 };
@@ -202,7 +204,9 @@ export const LicenseKeyCustomer$outboundSchema: z.ZodType<
   emailVerified: z.boolean(),
   name: z.nullable(z.string()),
   billingAddress: z.nullable(Address$outboundSchema),
-  taxId: z.nullable(z.array(z.union([z.string(), TaxIDFormat$outboundSchema]))),
+  taxId: z.nullable(
+    z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
+  ),
   organizationId: z.string(),
   avatarUrl: z.string(),
 }).transform((v) => {

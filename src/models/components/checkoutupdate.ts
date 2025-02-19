@@ -28,7 +28,7 @@ export type CheckoutUpdate = {
    * Key-value object storing custom field values.
    */
   customFieldData?:
-    | { [k: string]: string | number | boolean | Date }
+    | { [k: string]: string | number | boolean | Date | null }
     | null
     | undefined;
   /**
@@ -254,12 +254,14 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
 > = z.object({
   custom_field_data: z.nullable(
     z.record(
-      z.union([
-        z.string(),
-        z.number().int(),
-        z.boolean(),
-        z.string().datetime({ offset: true }).transform(v => new Date(v)),
-      ]),
+      z.nullable(
+        z.union([
+          z.string(),
+          z.number().int(),
+          z.boolean(),
+          z.string().datetime({ offset: true }).transform(v => new Date(v)),
+        ]),
+      ),
     ),
   ).optional(),
   product_id: z.nullable(z.string()).optional(),
@@ -301,7 +303,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
 /** @internal */
 export type CheckoutUpdate$Outbound = {
   custom_field_data?:
-    | { [k: string]: string | number | boolean | string }
+    | { [k: string]: string | number | boolean | string | null }
     | null
     | undefined;
   product_id?: string | null | undefined;
@@ -331,12 +333,14 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
 > = z.object({
   customFieldData: z.nullable(
     z.record(
-      z.union([
-        z.string(),
-        z.number().int(),
-        z.boolean(),
-        z.date().transform(v => v.toISOString()),
-      ]),
+      z.nullable(
+        z.union([
+          z.string(),
+          z.number().int(),
+          z.boolean(),
+          z.date().transform(v => v.toISOString()),
+        ]),
+      ),
     ),
   ).optional(),
   productId: z.nullable(z.string()).optional(),

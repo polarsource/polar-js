@@ -42,7 +42,7 @@ export type CustomerCreate = {
   email: string;
   name?: string | null | undefined;
   billingAddress?: Address | null | undefined;
-  taxId?: Array<string | TaxIDFormat> | null | undefined;
+  taxId?: Array<string | TaxIDFormat | null> | null | undefined;
   /**
    * The ID of the organization owning the customer. **Required unless you use an organization token.**
    */
@@ -156,8 +156,9 @@ export const CustomerCreate$inboundSchema: z.ZodType<
   email: z.string(),
   name: z.nullable(z.string()).optional(),
   billing_address: z.nullable(Address$inboundSchema).optional(),
-  tax_id: z.nullable(z.array(z.union([z.string(), TaxIDFormat$inboundSchema])))
-    .optional(),
+  tax_id: z.nullable(
+    z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
+  ).optional(),
   organization_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -173,7 +174,7 @@ export type CustomerCreate$Outbound = {
   email: string;
   name?: string | null | undefined;
   billing_address?: Address$Outbound | null | undefined;
-  tax_id?: Array<string | string> | null | undefined;
+  tax_id?: Array<string | string | null> | null | undefined;
   organization_id?: string | null | undefined;
 };
 
@@ -188,8 +189,9 @@ export const CustomerCreate$outboundSchema: z.ZodType<
   email: z.string(),
   name: z.nullable(z.string()).optional(),
   billingAddress: z.nullable(Address$outboundSchema).optional(),
-  taxId: z.nullable(z.array(z.union([z.string(), TaxIDFormat$outboundSchema])))
-    .optional(),
+  taxId: z.nullable(
+    z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
+  ).optional(),
   organizationId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

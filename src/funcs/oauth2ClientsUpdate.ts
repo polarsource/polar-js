@@ -114,7 +114,7 @@ async function $do(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
-    baseURL: options?.serverURL ?? "",
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "oauth2:clients:oauth2:update_client",
     oAuth2Scopes: [],
 

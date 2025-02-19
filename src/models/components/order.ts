@@ -109,7 +109,7 @@ export type Order = {
    * Key-value object storing custom field values.
    */
   customFieldData?:
-    | { [k: string]: string | number | boolean | Date }
+    | { [k: string]: string | number | boolean | Date | null }
     | undefined;
   status: string;
   amount: number;
@@ -376,12 +376,14 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     id: z.string(),
     metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
     custom_field_data: z.record(
-      z.union([
-        z.string(),
-        z.number().int(),
-        z.boolean(),
-        z.string().datetime({ offset: true }).transform(v => new Date(v)),
-      ]),
+      z.nullable(
+        z.union([
+          z.string(),
+          z.number().int(),
+          z.boolean(),
+          z.string().datetime({ offset: true }).transform(v => new Date(v)),
+        ]),
+      ),
     ).optional(),
     status: z.string(),
     amount: z.number().int(),
@@ -442,7 +444,7 @@ export type Order$Outbound = {
   id: string;
   metadata: { [k: string]: string | number | boolean };
   custom_field_data?:
-    | { [k: string]: string | number | boolean | string }
+    | { [k: string]: string | number | boolean | string | null }
     | undefined;
   status: string;
   amount: number;
@@ -483,12 +485,14 @@ export const Order$outboundSchema: z.ZodType<
   id: z.string(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   customFieldData: z.record(
-    z.union([
-      z.string(),
-      z.number().int(),
-      z.boolean(),
-      z.date().transform(v => v.toISOString()),
-    ]),
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.date().transform(v => v.toISOString()),
+      ]),
+    ),
   ).optional(),
   status: z.string(),
   amount: z.number().int(),
