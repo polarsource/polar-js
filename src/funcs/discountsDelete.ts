@@ -40,6 +40,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Delete a discount.
+ *
+ * **Scopes**: `discounts:write`
  */
 export function discountsDelete(
   client: PolarCore,

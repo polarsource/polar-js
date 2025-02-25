@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get quantities of a meter over a time period.
+ *
+ * **Scopes**: `meters:read` `meters:write`
  */
 export function metersQuantities(
   client: PolarCore,

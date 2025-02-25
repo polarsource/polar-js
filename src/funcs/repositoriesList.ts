@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List repositories.
+ *
+ * **Scopes**: `repositories:read` `repositories:write`
  */
 export function repositoriesList(
   client: PolarCore,

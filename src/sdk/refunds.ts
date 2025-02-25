@@ -20,6 +20,8 @@ export class Refunds extends ClientSDK {
    *
    * @remarks
    * List products.
+   *
+   * **Scopes**: `refunds:read` `refunds:write`
    */
   async list(
     request: RefundsListRequest,
@@ -37,6 +39,8 @@ export class Refunds extends ClientSDK {
    *
    * @remarks
    * Create a refund.
+   *
+   * **Scopes**: `refunds:write`
    */
   async create(
     request: RefundCreate,

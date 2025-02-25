@@ -52,6 +52,8 @@ import {
  *
  * @remarks
  * Get license keys connected to the given organization & filters.
+ *
+ * **Scopes**: `license_keys:read` `license_keys:write`
  */
 export function licenseKeysList(
   client: PolarCore,

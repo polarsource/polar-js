@@ -26,6 +26,8 @@ export class Discounts extends ClientSDK {
    *
    * @remarks
    * List discounts.
+   *
+   * **Scopes**: `discounts:read` `discounts:write`
    */
   async list(
     request: DiscountsListRequest,
@@ -43,6 +45,8 @@ export class Discounts extends ClientSDK {
    *
    * @remarks
    * Create a discount.
+   *
+   * **Scopes**: `discounts:write`
    */
   async create(
     request: DiscountCreate,
@@ -60,6 +64,8 @@ export class Discounts extends ClientSDK {
    *
    * @remarks
    * Get a discount by ID.
+   *
+   * **Scopes**: `discounts:read` `discounts:write`
    */
   async get(
     request: DiscountsGetRequest,
@@ -77,6 +83,8 @@ export class Discounts extends ClientSDK {
    *
    * @remarks
    * Update a discount.
+   *
+   * **Scopes**: `discounts:write`
    */
   async update(
     request: DiscountsUpdateRequest,
@@ -94,6 +102,8 @@ export class Discounts extends ClientSDK {
    *
    * @remarks
    * Delete a discount.
+   *
+   * **Scopes**: `discounts:write`
    */
   async delete(
     request: DiscountsDeleteRequest,

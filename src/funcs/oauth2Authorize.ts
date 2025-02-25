@@ -26,6 +26,9 @@ import { Result } from "../types/fp.js";
 
 /**
  * Authorize
+ *
+ * @remarks
+ * **Scopes**:
  */
 export function oauth2Authorize(
   client: PolarCore,

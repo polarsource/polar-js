@@ -40,6 +40,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get a meter by ID.
+ *
+ * **Scopes**: `meters:read` `meters:write`
  */
 export function metersGet(
   client: PolarCore,

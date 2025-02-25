@@ -29,6 +29,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get the interval limits for the metrics endpoint.
+ *
+ * **Scopes**: `metrics:read`
  */
 export function metricsLimits(
   client: PolarCore,

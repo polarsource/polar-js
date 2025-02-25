@@ -3,12 +3,10 @@
  */
 
 import { PolarCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
-import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
-import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
+import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
   CustomerPortalCustomer,
@@ -21,20 +19,9 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
-import {
-  HTTPValidationError,
-  HTTPValidationError$inboundSchema,
-} from "../models/errors/httpvalidationerror.js";
-import {
-  ResourceNotFound,
-  ResourceNotFound$inboundSchema,
-} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import {
-  CustomerPortalCustomersGetRequest,
-  CustomerPortalCustomersGetRequest$outboundSchema,
-} from "../models/operations/customerportalcustomersget.js";
+import { CustomerPortalCustomersGetSecurity } from "../models/operations/customerportalcustomersget.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
@@ -42,17 +29,17 @@ import { Result } from "../types/fp.js";
  * Get Customer
  *
  * @remarks
- * Get a customer by ID for the authenticated customer or user.
+ * Get authenticated customer.
+ *
+ * **Scopes**: `customer_portal:read` `customer_portal:write`
  */
 export function customerPortalCustomersGet(
   client: PolarCore,
-  request: CustomerPortalCustomersGetRequest,
+  security: CustomerPortalCustomersGetSecurity,
   options?: RequestOptions,
 ): APIPromise<
   Result<
     CustomerPortalCustomer,
-    | ResourceNotFound
-    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -64,21 +51,19 @@ export function customerPortalCustomersGet(
 > {
   return new APIPromise($do(
     client,
-    request,
+    security,
     options,
   ));
 }
 
 async function $do(
   client: PolarCore,
-  request: CustomerPortalCustomersGetRequest,
+  security: CustomerPortalCustomersGetSecurity,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
       CustomerPortalCustomer,
-      | ResourceNotFound
-      | HTTPValidationError
       | SDKError
       | SDKValidationError
       | UnexpectedClientError
@@ -90,33 +75,21 @@ async function $do(
     APICall,
   ]
 > {
-  const parsed = safeParse(
-    request,
-    (value) => CustomerPortalCustomersGetRequest$outboundSchema.parse(value),
-    "Input validation failed",
-  );
-  if (!parsed.ok) {
-    return [parsed, { status: "invalid" }];
-  }
-  const payload = parsed.value;
-  const body = null;
-
-  const pathParams = {
-    id: encodeSimple("id", payload.id, {
-      explode: false,
-      charEncoding: "percent",
-    }),
-  };
-
-  const path = pathToFunc("/v1/customer-portal/customers/{id}")(pathParams);
+  const path = pathToFunc("/v1/customer-portal/customers/me")();
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
   }));
 
-  const secConfig = await extractSecurity(client._options.accessToken);
-  const securityInput = secConfig == null ? {} : { accessToken: secConfig };
-  const requestSecurity = resolveGlobalSecurity(securityInput);
+  const requestSecurity = resolveSecurity(
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.customerSession,
+      },
+    ],
+  );
 
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
@@ -125,7 +98,7 @@ async function $do(
 
     resolvedSecurity: requestSecurity,
 
-    securitySource: client._options.accessToken,
+    securitySource: security,
     retryConfig: options?.retries
       || client._options.retryConfig
       || { strategy: "none" },
@@ -138,7 +111,6 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
-    body: body,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
@@ -148,7 +120,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["404", "422", "4XX", "5XX"],
+    errorCodes: ["4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -157,14 +129,8 @@ async function $do(
   }
   const response = doResult.value;
 
-  const responseFields = {
-    HttpMeta: { Response: response, Request: req },
-  };
-
   const [result] = await M.match<
     CustomerPortalCustomer,
-    | ResourceNotFound
-    | HTTPValidationError
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -174,11 +140,9 @@ async function $do(
     | ConnectionError
   >(
     M.json(200, CustomerPortalCustomer$inboundSchema),
-    M.jsonErr(404, ResourceNotFound$inboundSchema),
-    M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
-  )(response, { extraFields: responseFields });
+  )(response);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
   }

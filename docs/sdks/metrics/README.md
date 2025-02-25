@@ -12,6 +12,8 @@
 
 Get metrics about your orders and subscriptions.
 
+**Scopes**: `metrics:read`
+
 ### Example Usage
 
 ```typescript
@@ -94,6 +96,8 @@ run();
 ## limits
 
 Get the interval limits for the metrics endpoint.
+
+**Scopes**: `metrics:read`
 
 ### Example Usage
 

@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get a benefit by ID.
+ *
+ * **Scopes**: `benefits:read` `benefits:write`
  */
 export function benefitsGet(
   client: PolarCore,

@@ -47,6 +47,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a subscription.
+ *
+ * **Scopes**: `subscriptions:write`
  */
 export function subscriptionsUpdate(
   client: PolarCore,

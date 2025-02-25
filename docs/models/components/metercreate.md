@@ -12,7 +12,7 @@ let value: MeterCreate = {
     clauses: [],
   },
   aggregation: {
-    func: "min",
+    func: "avg",
     property: "<value>",
   },
 };

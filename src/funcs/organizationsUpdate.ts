@@ -47,6 +47,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update an organization.
+ *
+ * **Scopes**: `organizations:write`
  */
 export function organizationsUpdate(
   client: PolarCore,

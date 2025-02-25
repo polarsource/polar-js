@@ -14,6 +14,10 @@ import {
 } from "../components/listresourcelicensekeyread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type CustomerPortalLicenseKeysListSecurity = {
+  customerSession: string;
+};
+
 /**
  * Filter by organization ID.
  */
@@ -43,6 +47,73 @@ export type CustomerPortalLicenseKeysListRequest = {
 export type CustomerPortalLicenseKeysListResponse = {
   result: ListResourceLicenseKeyRead;
 };
+
+/** @internal */
+export const CustomerPortalLicenseKeysListSecurity$inboundSchema: z.ZodType<
+  CustomerPortalLicenseKeysListSecurity,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  customer_session: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    "customer_session": "customerSession",
+  });
+});
+
+/** @internal */
+export type CustomerPortalLicenseKeysListSecurity$Outbound = {
+  customer_session: string;
+};
+
+/** @internal */
+export const CustomerPortalLicenseKeysListSecurity$outboundSchema: z.ZodType<
+  CustomerPortalLicenseKeysListSecurity$Outbound,
+  z.ZodTypeDef,
+  CustomerPortalLicenseKeysListSecurity
+> = z.object({
+  customerSession: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    customerSession: "customer_session",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerPortalLicenseKeysListSecurity$ {
+  /** @deprecated use `CustomerPortalLicenseKeysListSecurity$inboundSchema` instead. */
+  export const inboundSchema =
+    CustomerPortalLicenseKeysListSecurity$inboundSchema;
+  /** @deprecated use `CustomerPortalLicenseKeysListSecurity$outboundSchema` instead. */
+  export const outboundSchema =
+    CustomerPortalLicenseKeysListSecurity$outboundSchema;
+  /** @deprecated use `CustomerPortalLicenseKeysListSecurity$Outbound` instead. */
+  export type Outbound = CustomerPortalLicenseKeysListSecurity$Outbound;
+}
+
+export function customerPortalLicenseKeysListSecurityToJSON(
+  customerPortalLicenseKeysListSecurity: CustomerPortalLicenseKeysListSecurity,
+): string {
+  return JSON.stringify(
+    CustomerPortalLicenseKeysListSecurity$outboundSchema.parse(
+      customerPortalLicenseKeysListSecurity,
+    ),
+  );
+}
+
+export function customerPortalLicenseKeysListSecurityFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomerPortalLicenseKeysListSecurity, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CustomerPortalLicenseKeysListSecurity$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerPortalLicenseKeysListSecurity' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$inboundSchema:

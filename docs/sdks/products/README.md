@@ -15,6 +15,8 @@
 
 List products.
 
+**Scopes**: `products:read` `products:write`
+
 ### Example Usage
 
 ```typescript
@@ -91,6 +93,8 @@ run();
 ## create
 
 Create a product.
+
+**Scopes**: `products:write`
 
 ### Example Usage
 
@@ -181,6 +185,8 @@ run();
 
 Get a product by ID.
 
+**Scopes**: `products:read` `products:write`
+
 ### Example Usage
 
 ```typescript
@@ -258,6 +264,8 @@ run();
 ## update
 
 Update a product.
+
+**Scopes**: `products:write`
 
 ### Example Usage
 
@@ -339,6 +347,8 @@ run();
 ## updateBenefits
 
 Update benefits granted by a product.
+
+**Scopes**: `products:write`
 
 ### Example Usage
 

@@ -48,6 +48,8 @@ import {
  *
  * @remarks
  * List customers.
+ *
+ * **Scopes**: `customers:read` `customers:write`
  */
 export function customersList(
   client: PolarCore,

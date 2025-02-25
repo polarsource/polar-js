@@ -7,12 +7,19 @@ import { customerPortalBenefitGrantsList } from "../funcs/customerPortalBenefitG
 import { customerPortalBenefitGrantsUpdate } from "../funcs/customerPortalBenefitGrantsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { CustomerBenefitGrant } from "../models/components/customerbenefitgrant.js";
-import { CustomerPortalBenefitGrantsGetRequest } from "../models/operations/customerportalbenefitgrantsget.js";
+import {
+  CustomerPortalBenefitGrantsGetRequest,
+  CustomerPortalBenefitGrantsGetSecurity,
+} from "../models/operations/customerportalbenefitgrantsget.js";
 import {
   CustomerPortalBenefitGrantsListRequest,
   CustomerPortalBenefitGrantsListResponse,
+  CustomerPortalBenefitGrantsListSecurity,
 } from "../models/operations/customerportalbenefitgrantslist.js";
-import { CustomerPortalBenefitGrantsUpdateRequest } from "../models/operations/customerportalbenefitgrantsupdate.js";
+import {
+  CustomerPortalBenefitGrantsUpdateRequest,
+  CustomerPortalBenefitGrantsUpdateSecurity,
+} from "../models/operations/customerportalbenefitgrantsupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -21,9 +28,12 @@ export class BenefitGrants extends ClientSDK {
    * List Benefit Grants
    *
    * @remarks
-   * List benefits grants of the authenticated customer or user.
+   * List benefits grants of the authenticated customer.
+   *
+   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async list(
+    security: CustomerPortalBenefitGrantsListSecurity,
     request: CustomerPortalBenefitGrantsListRequest,
     options?: RequestOptions,
   ): Promise<
@@ -31,6 +41,7 @@ export class BenefitGrants extends ClientSDK {
   > {
     return unwrapResultIterator(customerPortalBenefitGrantsList(
       this,
+      security,
       request,
       options,
     ));
@@ -40,14 +51,18 @@ export class BenefitGrants extends ClientSDK {
    * Get Benefit Grant
    *
    * @remarks
-   * Get a benefit grant by ID for the authenticated customer or user.
+   * Get a benefit grant by ID for the authenticated customer.
+   *
+   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async get(
+    security: CustomerPortalBenefitGrantsGetSecurity,
     request: CustomerPortalBenefitGrantsGetRequest,
     options?: RequestOptions,
   ): Promise<CustomerBenefitGrant> {
     return unwrapAsync(customerPortalBenefitGrantsGet(
       this,
+      security,
       request,
       options,
     ));
@@ -57,14 +72,18 @@ export class BenefitGrants extends ClientSDK {
    * Update Benefit Grant
    *
    * @remarks
-   * Update a benefit grant for the authenticated customer or user.
+   * Update a benefit grant for the authenticated customer.
+   *
+   * **Scopes**: `customer_portal:write`
    */
   async update(
+    security: CustomerPortalBenefitGrantsUpdateSecurity,
     request: CustomerPortalBenefitGrantsUpdateRequest,
     options?: RequestOptions,
   ): Promise<CustomerBenefitGrant> {
     return unwrapAsync(customerPortalBenefitGrantsUpdate(
       this,
+      security,
       request,
       options,
     ));

@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List checkout links.
+ *
+ * **Scopes**: `checkout_links:read` `checkout_links:write`
  */
 export function checkoutLinksList(
   client: PolarCore,

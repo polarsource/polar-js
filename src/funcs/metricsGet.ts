@@ -39,6 +39,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get metrics about your orders and subscriptions.
+ *
+ * **Scopes**: `metrics:read`
  */
 export function metricsGet(
   client: PolarCore,

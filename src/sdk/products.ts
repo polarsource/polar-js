@@ -26,6 +26,8 @@ export class Products extends ClientSDK {
    *
    * @remarks
    * List products.
+   *
+   * **Scopes**: `products:read` `products:write`
    */
   async list(
     request: ProductsListRequest,
@@ -43,6 +45,8 @@ export class Products extends ClientSDK {
    *
    * @remarks
    * Create a product.
+   *
+   * **Scopes**: `products:write`
    */
   async create(
     request: ProductCreate,
@@ -60,6 +64,8 @@ export class Products extends ClientSDK {
    *
    * @remarks
    * Get a product by ID.
+   *
+   * **Scopes**: `products:read` `products:write`
    */
   async get(
     request: ProductsGetRequest,
@@ -77,6 +83,8 @@ export class Products extends ClientSDK {
    *
    * @remarks
    * Update a product.
+   *
+   * **Scopes**: `products:write`
    */
   async update(
     request: ProductsUpdateRequest,
@@ -94,6 +102,8 @@ export class Products extends ClientSDK {
    *
    * @remarks
    * Update benefits granted by a product.
+   *
+   * **Scopes**: `products:write`
    */
   async updateBenefits(
     request: ProductsUpdateBenefitsRequest,

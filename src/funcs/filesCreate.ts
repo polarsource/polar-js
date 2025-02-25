@@ -39,6 +39,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a file.
+ *
+ * **Scopes**: `files:write`
  */
 export function filesCreate(
   client: PolarCore,

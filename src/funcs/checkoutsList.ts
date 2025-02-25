@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List checkout sessions.
+ *
+ * **Scopes**: `checkouts:read` `checkouts:write`
  */
 export function checkoutsList(
   client: PolarCore,

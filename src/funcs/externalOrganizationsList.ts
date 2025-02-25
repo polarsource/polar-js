@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List external organizations.
+ *
+ * **Scopes**: `external_organizations:read`
  */
 export function externalOrganizationsList(
   client: PolarCore,

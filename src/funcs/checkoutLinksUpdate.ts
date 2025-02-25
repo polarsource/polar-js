@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a checkout link.
+ *
+ * **Scopes**: `checkout_links:write`
  */
 export function checkoutLinksUpdate(
   client: PolarCore,

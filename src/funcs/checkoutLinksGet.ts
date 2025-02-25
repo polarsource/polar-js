@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get a checkout link by ID.
+ *
+ * **Scopes**: `checkout_links:read` `checkout_links:write`
  */
 export function checkoutLinksGet(
   client: PolarCore,

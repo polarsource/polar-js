@@ -10,7 +10,7 @@ const value: components.AuthorizationCodeTokenRequest = {
   clientId: "<id>",
   clientSecret: "<value>",
   code: "<value>",
-  redirectUri: "https://phony-grouper.name",
+  redirectUri: "https://grounded-sprinkles.name",
 };
 ```
 

@@ -9,28 +9,28 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-08-24T09:08:13.827Z"),
-        modifiedAt: new Date("2025-11-14T10:02:56.411Z"),
+        createdAt: new Date("2023-12-22T23:10:42.147Z"),
+        modifiedAt: new Date("2024-03-05T11:11:45.978Z"),
         id: "<value>",
         metadata: {
-          "key": 439430,
+          "key": 961541,
         },
-        email: "Lizeth40@hotmail.com",
+        email: "Brett_Bauch@gmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Bhutan",
+          country: "Latvia",
         },
         taxId: [
           "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://frank-scenario.org",
+        avatarUrl: "https://rewarding-lady.biz/",
       },
     ],
     pagination: {
-      totalCount: 631083,
-      maxPage: 654466,
+      totalCount: 751116,
+      maxPage: 794385,
     },
   },
 };

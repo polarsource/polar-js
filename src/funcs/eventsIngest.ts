@@ -39,6 +39,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Ingest batch of events.
+ *
+ * **Scopes**: `events:write`
  */
 export function eventsIngest(
   client: PolarCore,

@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List subscriptions.
+ *
+ * **Scopes**: `subscriptions:read` `subscriptions:write`
  */
 export function subscriptionsList(
   client: PolarCore,

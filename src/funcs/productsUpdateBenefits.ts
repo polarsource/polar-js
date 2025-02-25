@@ -47,6 +47,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update benefits granted by a product.
+ *
+ * **Scopes**: `products:write`
  */
 export function productsUpdateBenefits(
   client: PolarCore,

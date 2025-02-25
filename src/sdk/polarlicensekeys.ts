@@ -14,10 +14,14 @@ import { LicenseKeyDeactivate } from "../models/components/licensekeydeactivate.
 import { LicenseKeyValidate } from "../models/components/licensekeyvalidate.js";
 import { LicenseKeyWithActivations } from "../models/components/licensekeywithactivations.js";
 import { ValidatedLicenseKey } from "../models/components/validatedlicensekey.js";
-import { CustomerPortalLicenseKeysGetRequest } from "../models/operations/customerportallicensekeysget.js";
+import {
+  CustomerPortalLicenseKeysGetRequest,
+  CustomerPortalLicenseKeysGetSecurity,
+} from "../models/operations/customerportallicensekeysget.js";
 import {
   CustomerPortalLicenseKeysListRequest,
   CustomerPortalLicenseKeysListResponse,
+  CustomerPortalLicenseKeysListSecurity,
 } from "../models/operations/customerportallicensekeyslist.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
@@ -25,8 +29,12 @@ import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 export class PolarLicenseKeys extends ClientSDK {
   /**
    * List License Keys
+   *
+   * @remarks
+   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async list(
+    security: CustomerPortalLicenseKeysListSecurity,
     request: CustomerPortalLicenseKeysListRequest,
     options?: RequestOptions,
   ): Promise<
@@ -34,6 +42,7 @@ export class PolarLicenseKeys extends ClientSDK {
   > {
     return unwrapResultIterator(customerPortalLicenseKeysList(
       this,
+      security,
       request,
       options,
     ));
@@ -44,13 +53,17 @@ export class PolarLicenseKeys extends ClientSDK {
    *
    * @remarks
    * Get a license key.
+   *
+   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async get(
+    security: CustomerPortalLicenseKeysGetSecurity,
     request: CustomerPortalLicenseKeysGetRequest,
     options?: RequestOptions,
   ): Promise<LicenseKeyWithActivations> {
     return unwrapAsync(customerPortalLicenseKeysGet(
       this,
+      security,
       request,
       options,
     ));

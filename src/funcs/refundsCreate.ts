@@ -44,6 +44,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a refund.
+ *
+ * **Scopes**: `refunds:write`
  */
 export function refundsCreate(
   client: PolarCore,

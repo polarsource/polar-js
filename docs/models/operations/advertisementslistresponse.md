@@ -9,21 +9,21 @@ let value: AdvertisementsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-03-27T08:21:58.735Z"),
-        modifiedAt: new Date("2025-09-11T09:59:17.332Z"),
+        createdAt: new Date("2025-08-30T02:29:01.777Z"),
+        modifiedAt: new Date("2023-10-15T09:45:27.346Z"),
         id: "<value>",
-        imageUrl: "https://slight-clamp.net/",
-        imageUrlDark: "https://acceptable-sarong.name/",
+        imageUrl: "https://nocturnal-maintainer.org",
+        imageUrlDark: "https://black-flint.com/",
         text: "<value>",
-        linkUrl: "https://pastel-department.biz",
+        linkUrl: "https://writhing-signature.net",
       },
     ],
     pagination: {
-      totalCount: 7413,
-      maxPage: 912082,
+      totalCount: 645225,
+      maxPage: 575514,
     },
     dimensions: [
-      438866,
+      567790,
     ],
   },
 };

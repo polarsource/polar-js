@@ -10,39 +10,39 @@ let value: EventsListResponse = {
     items: [
       {
         metadata: {
-          "key": 191286,
+          "key": "<value>",
         },
         id: "<value>",
-        timestamp: new Date("2023-01-01T04:22:41.062Z"),
+        timestamp: new Date("2023-12-08T02:02:02.919Z"),
         name: "<value>",
-        source: "user",
+        source: "system",
         organizationId: "<value>",
         customerId: "<value>",
         customer: {
-          createdAt: new Date("2023-11-08T02:54:24.733Z"),
-          modifiedAt: new Date("2024-12-01T03:37:52.235Z"),
+          createdAt: new Date("2025-08-05T09:48:47.610Z"),
+          modifiedAt: new Date("2025-10-18T08:58:01.123Z"),
           id: "<value>",
           metadata: {
-            "key": 863280,
+            "key": "<value>",
           },
-          email: "Kenton_Padberg95@gmail.com",
+          email: "Kenny.Lehner@hotmail.com",
           emailVerified: false,
           name: "<value>",
           billingAddress: {
-            country: "Oman",
+            country: "Iceland",
           },
           taxId: [
-            "jp_cn",
+            "<id>",
           ],
           organizationId: "<value>",
-          avatarUrl: "https://hairy-illusion.com/",
+          avatarUrl: "https://bulky-baseboard.org/",
         },
         externalCustomerId: "<id>",
       },
     ],
     pagination: {
-      totalCount: 318753,
-      maxPage: 69708,
+      totalCount: 219152,
+      maxPage: 960608,
     },
   },
 };

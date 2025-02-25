@@ -48,6 +48,8 @@ import { Result } from "../types/fp.js";
  * > [!WARNING]
  * > Every grants associated with the benefit will be revoked.
  * > Users will lose access to the benefit.
+ *
+ * **Scopes**: `benefits:write`
  */
 export function benefitsDelete(
   client: PolarCore,

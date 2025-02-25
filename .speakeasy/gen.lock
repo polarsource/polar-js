@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 3da720c5c3d53c438906e7abbdfa65f3
+  docChecksum: f5cb5eb99a0c2e74687939feb495b787
   docVersion: 0.1.0
-  speakeasyVersion: 1.495.1
-  generationVersion: 2.515.4
-  releaseVersion: 0.26.1
-  configChecksum: 9c4e99647720a7d0812177e1bb32f699
+  speakeasyVersion: 1.503.0
+  generationVersion: 2.526.1
+  releaseVersion: 0.27.0
+  configChecksum: 9058b2656c4f8b6be051cf2d4825a5ba
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.20.0
+    core: 3.21.1
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.0
@@ -26,6 +26,8 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
     groups: 2.81.2
+    mcpServer: 0.3.0
+    methodSecurity: 2.82.6
     nameOverrides: 2.81.2
     nullables: 0.1.1
     pagination: 2.82.8
@@ -209,8 +211,10 @@ generatedFiles:
   - docs/models/components/customerordersortproperty.md
   - docs/models/components/customerordersubscription.md
   - docs/models/components/customerorganization.md
+  - docs/models/components/customerpaymentmethodcreate.md
   - docs/models/components/customerportalcustomer.md
   - docs/models/components/customerportalcustomertaxid.md
+  - docs/models/components/customerportalcustomerupdate.md
   - docs/models/components/customerportaloauthaccount.md
   - docs/models/components/customerproduct.md
   - docs/models/components/customerproductprices.md
@@ -338,6 +342,7 @@ generatedFiles:
   - docs/models/components/introspecttokenrequesttokentypehint.md
   - docs/models/components/introspecttokenresponse.md
   - docs/models/components/issue.md
+  - docs/models/components/items.md
   - docs/models/components/label.md
   - docs/models/components/legacyrecurringproductprice.md
   - docs/models/components/legacyrecurringproductpricecustom.md
@@ -382,6 +387,7 @@ generatedFiles:
   - docs/models/components/listresourcerefund.md
   - docs/models/components/listresourcerepository.md
   - docs/models/components/listresourcesubscription.md
+  - docs/models/components/listresourceunionpaymentmethodcardpaymentmethodgeneric.md
   - docs/models/components/loc.md
   - docs/models/components/meta.md
   - docs/models/components/metadata.md
@@ -439,6 +445,9 @@ generatedFiles:
   - docs/models/components/organizationsubscriptionsettings.md
   - docs/models/components/organizationupdate.md
   - docs/models/components/pagination.md
+  - docs/models/components/paymentmethodcard.md
+  - docs/models/components/paymentmethodcarddata.md
+  - docs/models/components/paymentmethodgeneric.md
   - docs/models/components/paymentprocessor.md
   - docs/models/components/permission.md
   - docs/models/components/platforms.md
@@ -590,36 +599,57 @@ generatedFiles:
   - docs/models/operations/checkoutsupdaterequest.md
   - docs/models/operations/customeridfilter.md
   - docs/models/operations/customerportalbenefitgrantsgetrequest.md
+  - docs/models/operations/customerportalbenefitgrantsgetsecurity.md
   - docs/models/operations/customerportalbenefitgrantslistqueryparambenefitidfilter.md
   - docs/models/operations/customerportalbenefitgrantslistqueryparamorganizationidfilter.md
   - docs/models/operations/customerportalbenefitgrantslistrequest.md
   - docs/models/operations/customerportalbenefitgrantslistresponse.md
+  - docs/models/operations/customerportalbenefitgrantslistsecurity.md
   - docs/models/operations/customerportalbenefitgrantsupdaterequest.md
-  - docs/models/operations/customerportalcustomersgetrequest.md
+  - docs/models/operations/customerportalbenefitgrantsupdatesecurity.md
+  - docs/models/operations/customerportalcustomersaddpaymentmethodresponsecustomerportalcustomersaddpaymentmethod.md
+  - docs/models/operations/customerportalcustomersaddpaymentmethodsecurity.md
+  - docs/models/operations/customerportalcustomersdeletepaymentmethodrequest.md
+  - docs/models/operations/customerportalcustomersdeletepaymentmethodsecurity.md
+  - docs/models/operations/customerportalcustomersgetpaymentmethodsrequest.md
+  - docs/models/operations/customerportalcustomersgetpaymentmethodsresponse.md
+  - docs/models/operations/customerportalcustomersgetpaymentmethodssecurity.md
+  - docs/models/operations/customerportalcustomersgetsecurity.md
+  - docs/models/operations/customerportalcustomersupdatesecurity.md
   - docs/models/operations/customerportaldownloadablescustomerportaldownloadablesgetrequest.md
   - docs/models/operations/customerportaldownloadableslistqueryparambenefitidfilter.md
   - docs/models/operations/customerportaldownloadableslistqueryparamorganizationidfilter.md
   - docs/models/operations/customerportaldownloadableslistrequest.md
   - docs/models/operations/customerportaldownloadableslistresponse.md
+  - docs/models/operations/customerportaldownloadableslistsecurity.md
   - docs/models/operations/customerportallicensekeysgetrequest.md
+  - docs/models/operations/customerportallicensekeysgetsecurity.md
   - docs/models/operations/customerportallicensekeyslistqueryparamorganizationidfilter.md
   - docs/models/operations/customerportallicensekeyslistrequest.md
   - docs/models/operations/customerportallicensekeyslistresponse.md
+  - docs/models/operations/customerportallicensekeyslistsecurity.md
   - docs/models/operations/customerportalordersgetrequest.md
+  - docs/models/operations/customerportalordersgetsecurity.md
   - docs/models/operations/customerportalordersinvoicerequest.md
+  - docs/models/operations/customerportalordersinvoicesecurity.md
   - docs/models/operations/customerportalorderslistqueryparamorganizationidfilter.md
   - docs/models/operations/customerportalorderslistqueryparamproductidfilter.md
   - docs/models/operations/customerportalorderslistqueryparamsubscriptionidfilter.md
   - docs/models/operations/customerportalorderslistrequest.md
   - docs/models/operations/customerportalorderslistresponse.md
+  - docs/models/operations/customerportalorderslistsecurity.md
   - docs/models/operations/customerportalorganizationsgetrequest.md
   - docs/models/operations/customerportalsubscriptionscancelrequest.md
+  - docs/models/operations/customerportalsubscriptionscancelsecurity.md
   - docs/models/operations/customerportalsubscriptionsgetrequest.md
+  - docs/models/operations/customerportalsubscriptionsgetsecurity.md
   - docs/models/operations/customerportalsubscriptionslistqueryparamorganizationidfilter.md
   - docs/models/operations/customerportalsubscriptionslistqueryparamproductidfilter.md
   - docs/models/operations/customerportalsubscriptionslistrequest.md
   - docs/models/operations/customerportalsubscriptionslistresponse.md
+  - docs/models/operations/customerportalsubscriptionslistsecurity.md
   - docs/models/operations/customerportalsubscriptionsupdaterequest.md
+  - docs/models/operations/customerportalsubscriptionsupdatesecurity.md
   - docs/models/operations/customersdeleterequest.md
   - docs/models/operations/customersgetrequest.md
   - docs/models/operations/customerslistqueryparamorganizationidfilter.md
@@ -803,7 +833,11 @@ generatedFiles:
   - src/funcs/customerPortalBenefitGrantsGet.ts
   - src/funcs/customerPortalBenefitGrantsList.ts
   - src/funcs/customerPortalBenefitGrantsUpdate.ts
+  - src/funcs/customerPortalCustomersAddPaymentMethod.ts
+  - src/funcs/customerPortalCustomersDeletePaymentMethod.ts
   - src/funcs/customerPortalCustomersGet.ts
+  - src/funcs/customerPortalCustomersGetPaymentMethods.ts
+  - src/funcs/customerPortalCustomersUpdate.ts
   - src/funcs/customerPortalDownloadablesGet.ts
   - src/funcs/customerPortalDownloadablesList.ts
   - src/funcs/customerPortalLicenseKeysActivate.ts
@@ -902,6 +936,111 @@ generatedFiles:
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
+  - src/mcp-server/build.mts
+  - src/mcp-server/cli.ts
+  - src/mcp-server/cli/start/command.ts
+  - src/mcp-server/cli/start/impl.ts
+  - src/mcp-server/console-logger.ts
+  - src/mcp-server/mcp-server.ts
+  - src/mcp-server/resources.ts
+  - src/mcp-server/scopes.ts
+  - src/mcp-server/server.ts
+  - src/mcp-server/shared.ts
+  - src/mcp-server/tools.ts
+  - src/mcp-server/tools/advertisementsGet.ts
+  - src/mcp-server/tools/advertisementsList.ts
+  - src/mcp-server/tools/benefitsCreate.ts
+  - src/mcp-server/tools/benefitsDelete.ts
+  - src/mcp-server/tools/benefitsGet.ts
+  - src/mcp-server/tools/benefitsGrants.ts
+  - src/mcp-server/tools/benefitsList.ts
+  - src/mcp-server/tools/benefitsUpdate.ts
+  - src/mcp-server/tools/checkoutLinksCreate.ts
+  - src/mcp-server/tools/checkoutLinksDelete.ts
+  - src/mcp-server/tools/checkoutLinksGet.ts
+  - src/mcp-server/tools/checkoutLinksList.ts
+  - src/mcp-server/tools/checkoutLinksUpdate.ts
+  - src/mcp-server/tools/checkoutsClientConfirm.ts
+  - src/mcp-server/tools/checkoutsClientGet.ts
+  - src/mcp-server/tools/checkoutsClientUpdate.ts
+  - src/mcp-server/tools/checkoutsCreate.ts
+  - src/mcp-server/tools/checkoutsGet.ts
+  - src/mcp-server/tools/checkoutsList.ts
+  - src/mcp-server/tools/checkoutsUpdate.ts
+  - src/mcp-server/tools/customFieldsCreate.ts
+  - src/mcp-server/tools/customFieldsDelete.ts
+  - src/mcp-server/tools/customFieldsGet.ts
+  - src/mcp-server/tools/customFieldsList.ts
+  - src/mcp-server/tools/customFieldsUpdate.ts
+  - src/mcp-server/tools/customerPortalDownloadablesGet.ts
+  - src/mcp-server/tools/customerPortalLicenseKeysActivate.ts
+  - src/mcp-server/tools/customerPortalLicenseKeysDeactivate.ts
+  - src/mcp-server/tools/customerPortalLicenseKeysValidate.ts
+  - src/mcp-server/tools/customerPortalOrganizationsGet.ts
+  - src/mcp-server/tools/customerSessionsCreate.ts
+  - src/mcp-server/tools/customersCreate.ts
+  - src/mcp-server/tools/customersDelete.ts
+  - src/mcp-server/tools/customersGet.ts
+  - src/mcp-server/tools/customersList.ts
+  - src/mcp-server/tools/customersUpdate.ts
+  - src/mcp-server/tools/discountsCreate.ts
+  - src/mcp-server/tools/discountsDelete.ts
+  - src/mcp-server/tools/discountsGet.ts
+  - src/mcp-server/tools/discountsList.ts
+  - src/mcp-server/tools/discountsUpdate.ts
+  - src/mcp-server/tools/eventsGet.ts
+  - src/mcp-server/tools/eventsIngest.ts
+  - src/mcp-server/tools/eventsList.ts
+  - src/mcp-server/tools/externalOrganizationsList.ts
+  - src/mcp-server/tools/filesCreate.ts
+  - src/mcp-server/tools/filesDelete.ts
+  - src/mcp-server/tools/filesList.ts
+  - src/mcp-server/tools/filesUpdate.ts
+  - src/mcp-server/tools/filesUploaded.ts
+  - src/mcp-server/tools/licenseKeysGet.ts
+  - src/mcp-server/tools/licenseKeysGetActivation.ts
+  - src/mcp-server/tools/licenseKeysList.ts
+  - src/mcp-server/tools/licenseKeysUpdate.ts
+  - src/mcp-server/tools/metersCreate.ts
+  - src/mcp-server/tools/metersEvents.ts
+  - src/mcp-server/tools/metersGet.ts
+  - src/mcp-server/tools/metersList.ts
+  - src/mcp-server/tools/metersQuantities.ts
+  - src/mcp-server/tools/metersUpdate.ts
+  - src/mcp-server/tools/metricsGet.ts
+  - src/mcp-server/tools/metricsLimits.ts
+  - src/mcp-server/tools/oauth2Authorize.ts
+  - src/mcp-server/tools/oauth2ClientsCreate.ts
+  - src/mcp-server/tools/oauth2ClientsDelete.ts
+  - src/mcp-server/tools/oauth2ClientsGet.ts
+  - src/mcp-server/tools/oauth2ClientsList.ts
+  - src/mcp-server/tools/oauth2ClientsUpdate.ts
+  - src/mcp-server/tools/oauth2Introspect.ts
+  - src/mcp-server/tools/oauth2Revoke.ts
+  - src/mcp-server/tools/oauth2Token.ts
+  - src/mcp-server/tools/oauth2Userinfo.ts
+  - src/mcp-server/tools/ordersGet.ts
+  - src/mcp-server/tools/ordersInvoice.ts
+  - src/mcp-server/tools/ordersList.ts
+  - src/mcp-server/tools/organizationsCreate.ts
+  - src/mcp-server/tools/organizationsGet.ts
+  - src/mcp-server/tools/organizationsList.ts
+  - src/mcp-server/tools/organizationsUpdate.ts
+  - src/mcp-server/tools/productsCreate.ts
+  - src/mcp-server/tools/productsGet.ts
+  - src/mcp-server/tools/productsList.ts
+  - src/mcp-server/tools/productsUpdate.ts
+  - src/mcp-server/tools/productsUpdateBenefits.ts
+  - src/mcp-server/tools/refundsCreate.ts
+  - src/mcp-server/tools/refundsList.ts
+  - src/mcp-server/tools/repositoriesGet.ts
+  - src/mcp-server/tools/repositoriesList.ts
+  - src/mcp-server/tools/repositoriesUpdate.ts
+  - src/mcp-server/tools/subscriptionsExport.ts
+  - src/mcp-server/tools/subscriptionsGet.ts
+  - src/mcp-server/tools/subscriptionsList.ts
+  - src/mcp-server/tools/subscriptionsRevoke.ts
+  - src/mcp-server/tools/subscriptionsUpdate.ts
   - src/models/components/address.ts
   - src/models/components/advertisementcampaign.ts
   - src/models/components/advertisementcampaignlistresource.ts
@@ -1021,7 +1160,9 @@ generatedFiles:
   - src/models/components/customerordersortproperty.ts
   - src/models/components/customerordersubscription.ts
   - src/models/components/customerorganization.ts
+  - src/models/components/customerpaymentmethodcreate.ts
   - src/models/components/customerportalcustomer.ts
+  - src/models/components/customerportalcustomerupdate.ts
   - src/models/components/customerportaloauthaccount.ts
   - src/models/components/customerproduct.ts
   - src/models/components/customersession.ts
@@ -1146,6 +1287,7 @@ generatedFiles:
   - src/models/components/listresourcerefund.ts
   - src/models/components/listresourcerepository.ts
   - src/models/components/listresourcesubscription.ts
+  - src/models/components/listresourceunionpaymentmethodcardpaymentmethodgeneric.ts
   - src/models/components/meter.ts
   - src/models/components/metercreate.ts
   - src/models/components/meterquantities.ts
@@ -1183,6 +1325,9 @@ generatedFiles:
   - src/models/components/organizationsubscriptionsettings.ts
   - src/models/components/organizationupdate.ts
   - src/models/components/pagination.ts
+  - src/models/components/paymentmethodcard.ts
+  - src/models/components/paymentmethodcarddata.ts
+  - src/models/components/paymentmethodgeneric.ts
   - src/models/components/paymentprocessor.ts
   - src/models/components/platforms.ts
   - src/models/components/pledge.ts
@@ -1304,7 +1449,11 @@ generatedFiles:
   - src/models/operations/customerportalbenefitgrantsget.ts
   - src/models/operations/customerportalbenefitgrantslist.ts
   - src/models/operations/customerportalbenefitgrantsupdate.ts
+  - src/models/operations/customerportalcustomersaddpaymentmethod.ts
+  - src/models/operations/customerportalcustomersdeletepaymentmethod.ts
   - src/models/operations/customerportalcustomersget.ts
+  - src/models/operations/customerportalcustomersgetpaymentmethods.ts
+  - src/models/operations/customerportalcustomersupdate.ts
   - src/models/operations/customerportaldownloadablescustomerportaldownloadablesget.ts
   - src/models/operations/customerportaldownloadableslist.ts
   - src/models/operations/customerportallicensekeysget.ts
@@ -2976,5 +3125,24 @@ examples:
           application/json: {}
         "400":
           application/json: {"detail": "<value>"}
+  customer_portal:customers:update:
+    speakeasy-default-customer-portal:customers:update:
+      requestBody:
+        application/json: {}
+  customer_portal:customers:get_payment_methods:
+    speakeasy-default-customer-portal:customers:get-payment-methods:
+      parameters:
+        query:
+          page: 1
+          limit: 10
+  customer_portal:customers:add_payment_method:
+    speakeasy-default-customer-portal:customers:add-payment-method:
+      requestBody:
+        application/json: {"confirmation_token_id": "<id>", "set_default": false, "return_url": "https://slight-digestive.info"}
+  customer_portal:customers:delete_payment_method:
+    speakeasy-default-customer-portal:customers:delete-payment-method:
+      parameters:
+        path:
+          id: "<id>"
 examplesVersion: 1.0.0
 generatedTests: {}

@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List benefits.
+ *
+ * **Scopes**: `benefits:read` `benefits:write`
  */
 export function benefitsList(
   client: PolarCore,

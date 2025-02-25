@@ -39,6 +39,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a benefit.
+ *
+ * **Scopes**: `benefits:write`
  */
 export function benefitsCreate(
   client: PolarCore,

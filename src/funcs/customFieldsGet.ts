@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get a custom field by ID.
+ *
+ * **Scopes**: `custom_fields:read` `custom_fields:write`
  */
 export function customFieldsGet(
   client: PolarCore,

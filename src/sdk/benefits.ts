@@ -31,6 +31,8 @@ export class Benefits extends ClientSDK {
    *
    * @remarks
    * List benefits.
+   *
+   * **Scopes**: `benefits:read` `benefits:write`
    */
   async list(
     request: BenefitsListRequest,
@@ -48,6 +50,8 @@ export class Benefits extends ClientSDK {
    *
    * @remarks
    * Create a benefit.
+   *
+   * **Scopes**: `benefits:write`
    */
   async create(
     request: BenefitCreate,
@@ -65,6 +69,8 @@ export class Benefits extends ClientSDK {
    *
    * @remarks
    * Get a benefit by ID.
+   *
+   * **Scopes**: `benefits:read` `benefits:write`
    */
   async get(
     request: BenefitsGetRequest,
@@ -82,6 +88,8 @@ export class Benefits extends ClientSDK {
    *
    * @remarks
    * Update a benefit.
+   *
+   * **Scopes**: `benefits:write`
    */
   async update(
     request: BenefitsUpdateRequest,
@@ -103,6 +111,8 @@ export class Benefits extends ClientSDK {
    * > [!WARNING]
    * > Every grants associated with the benefit will be revoked.
    * > Users will lose access to the benefit.
+   *
+   * **Scopes**: `benefits:write`
    */
   async delete(
     request: BenefitsDeleteRequest,
@@ -122,6 +132,8 @@ export class Benefits extends ClientSDK {
    * List the individual grants for a benefit.
    *
    * It's especially useful to check if a user has been granted a benefit.
+   *
+   * **Scopes**: `benefits:read` `benefits:write`
    */
   async grants(
     request: BenefitsGrantsRequest,

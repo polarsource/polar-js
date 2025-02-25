@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get a customer by ID.
+ *
+ * **Scopes**: `customers:read` `customers:write`
  */
 export function customersGet(
   client: PolarCore,

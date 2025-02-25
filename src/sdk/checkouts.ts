@@ -32,6 +32,8 @@ export class Checkouts extends ClientSDK {
    *
    * @remarks
    * List checkout sessions.
+   *
+   * **Scopes**: `checkouts:read` `checkouts:write`
    */
   async list(
     request: CheckoutsListRequest,
@@ -49,6 +51,8 @@ export class Checkouts extends ClientSDK {
    *
    * @remarks
    * Create a checkout session.
+   *
+   * **Scopes**: `checkouts:write`
    */
   async create(
     request: CheckoutCreate,
@@ -66,6 +70,8 @@ export class Checkouts extends ClientSDK {
    *
    * @remarks
    * Get a checkout session by ID.
+   *
+   * **Scopes**: `checkouts:read` `checkouts:write`
    */
   async get(
     request: CheckoutsGetRequest,
@@ -83,6 +89,8 @@ export class Checkouts extends ClientSDK {
    *
    * @remarks
    * Update a checkout session.
+   *
+   * **Scopes**: `checkouts:write`
    */
   async update(
     request: CheckoutsUpdateRequest,
@@ -136,6 +144,8 @@ export class Checkouts extends ClientSDK {
    * Confirm a checkout session by client secret.
    *
    * Orders and subscriptions will be processed.
+   *
+   * **Scopes**:
    */
   async clientConfirm(
     request: CheckoutsClientConfirmRequest,

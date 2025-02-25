@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get a discount by ID.
+ *
+ * **Scopes**: `discounts:read` `discounts:write`
  */
 export function discountsGet(
   client: PolarCore,

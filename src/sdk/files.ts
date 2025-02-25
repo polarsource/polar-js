@@ -32,6 +32,8 @@ export class Files extends ClientSDK {
    *
    * @remarks
    * List files.
+   *
+   * **Scopes**: `files:write`
    */
   async list(
     request: FilesListRequest,
@@ -49,6 +51,8 @@ export class Files extends ClientSDK {
    *
    * @remarks
    * Create a file.
+   *
+   * **Scopes**: `files:write`
    */
   async create(
     request: FileCreate,
@@ -66,6 +70,8 @@ export class Files extends ClientSDK {
    *
    * @remarks
    * Complete a file upload.
+   *
+   * **Scopes**: `files:write`
    */
   async uploaded(
     request: FilesUploadedRequest,
@@ -83,6 +89,8 @@ export class Files extends ClientSDK {
    *
    * @remarks
    * Update a file.
+   *
+   * **Scopes**: `files:write`
    */
   async update(
     request: FilesUpdateRequest,
@@ -100,6 +108,8 @@ export class Files extends ClientSDK {
    *
    * @remarks
    * Delete a file.
+   *
+   * **Scopes**: `files:write`
    */
   async delete(
     request: FilesDeleteRequest,

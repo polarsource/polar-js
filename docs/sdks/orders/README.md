@@ -13,6 +13,8 @@
 
 List orders.
 
+**Scopes**: `orders:read`
+
 ### Example Usage
 
 ```typescript
@@ -89,6 +91,8 @@ run();
 ## get
 
 Get an order by ID.
+
+**Scopes**: `orders:read`
 
 ### Example Usage
 
@@ -167,6 +171,8 @@ run();
 ## invoice
 
 Get an order's invoice data.
+
+**Scopes**: `orders:read`
 
 ### Example Usage
 

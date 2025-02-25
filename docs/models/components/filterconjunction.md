@@ -5,7 +5,7 @@
 ```typescript
 import { FilterConjunction } from "@polar-sh/sdk/models/components/filterconjunction.js";
 
-let value: FilterConjunction = "or";
+let value: FilterConjunction = "and";
 ```
 
 ## Values

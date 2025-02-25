@@ -47,6 +47,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a license key.
+ *
+ * **Scopes**: `license_keys:write`
  */
 export function licenseKeysUpdate(
   client: PolarCore,

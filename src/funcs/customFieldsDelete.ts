@@ -40,6 +40,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Delete a custom field.
+ *
+ * **Scopes**: `custom_fields:write`
  */
 export function customFieldsDelete(
   client: PolarCore,

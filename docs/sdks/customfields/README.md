@@ -15,6 +15,8 @@
 
 List custom fields.
 
+**Scopes**: `custom_fields:read` `custom_fields:write`
+
 ### Example Usage
 
 ```typescript
@@ -91,6 +93,8 @@ run();
 ## create
 
 Create a custom field.
+
+**Scopes**: `custom_fields:write`
 
 ### Example Usage
 
@@ -173,6 +177,8 @@ run();
 
 Get a custom field by ID.
 
+**Scopes**: `custom_fields:read` `custom_fields:write`
+
 ### Example Usage
 
 ```typescript
@@ -250,6 +256,8 @@ run();
 ## update
 
 Update a custom field.
+
+**Scopes**: `custom_fields:write`
 
 ### Example Usage
 
@@ -330,6 +338,8 @@ run();
 ## delete
 
 Delete a custom field.
+
+**Scopes**: `custom_fields:write`
 
 ### Example Usage
 

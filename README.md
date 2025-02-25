@@ -76,6 +76,57 @@ yarn add @polar-sh/sdk zod
 
 > [!NOTE]
 > This package is published with CommonJS and ES Modules (ESM) support.
+
+
+### Model Context Protocol (MCP) Server
+
+This SDK is also an installable MCP server where the various SDK methods are
+exposed as tools that can be invoked by AI applications.
+
+> Node.js v20 or greater is required to run the MCP server.
+
+<details>
+<summary>Claude installation steps</summary>
+
+Add the following server definition to your `claude_desktop_config.json` file:
+
+```json
+{
+  "mcpServers": {
+    "Polar": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "@polar-sh/sdk",
+        "--",
+        "mcp", "start",
+        "--access-token", "..."
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Cursor installation steps</summary>
+
+Go to `Cursor Settings > Features > MCP Servers > Add new MCP server` and use the following settings:
+
+- Name: Polar
+- Type: `command`
+- Command:
+```sh
+npx -y --package @polar-sh/sdk -- mcp start --access-token ... 
+```
+
+</details>
+
+For a full list of server arguments, run:
+
+```sh
+npx -y --package @polar-sh/sdk -- mcp start --help
+```
 <!-- End SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->
@@ -645,6 +696,10 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 #### [customerPortal.customers](docs/sdks/polarcustomers/README.md)
 
 * [get](docs/sdks/polarcustomers/README.md#get) - Get Customer
+* [update](docs/sdks/polarcustomers/README.md#update) - Update Customer
+* [getPaymentMethods](docs/sdks/polarcustomers/README.md#getpaymentmethods) - Get Customer Payment Methods
+* [addPaymentMethod](docs/sdks/polarcustomers/README.md#addpaymentmethod) - Add Customer Payment Method
+* [deletePaymentMethod](docs/sdks/polarcustomers/README.md#deletepaymentmethod) - Delete Customer Payment Method
 
 #### [customerPortal.downloadables](docs/sdks/downloadables/README.md)
 
@@ -841,7 +896,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerPortalBenefitGrantsGet`](docs/sdks/benefitgrants/README.md#get) - Get Benefit Grant
 - [`customerPortalBenefitGrantsList`](docs/sdks/benefitgrants/README.md#list) - List Benefit Grants
 - [`customerPortalBenefitGrantsUpdate`](docs/sdks/benefitgrants/README.md#update) - Update Benefit Grant
+- [`customerPortalCustomersAddPaymentMethod`](docs/sdks/polarcustomers/README.md#addpaymentmethod) - Add Customer Payment Method
+- [`customerPortalCustomersDeletePaymentMethod`](docs/sdks/polarcustomers/README.md#deletepaymentmethod) - Delete Customer Payment Method
 - [`customerPortalCustomersGet`](docs/sdks/polarcustomers/README.md#get) - Get Customer
+- [`customerPortalCustomersGetPaymentMethods`](docs/sdks/polarcustomers/README.md#getpaymentmethods) - Get Customer Payment Methods
+- [`customerPortalCustomersUpdate`](docs/sdks/polarcustomers/README.md#update) - Update Customer
 - [`customerPortalDownloadablesGet`](docs/sdks/downloadables/README.md#get) - Get Downloadable
 - [`customerPortalDownloadablesList`](docs/sdks/downloadables/README.md#list) - List Downloadables
 - [`customerPortalLicenseKeysActivate`](docs/sdks/polarlicensekeys/README.md#activate) - Activate License Key
@@ -1232,6 +1291,29 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.externalOrganizations.list({});
+
+  for await (const page of result) {
+    // Handle the page
+    console.log(page);
+  }
+}
+
+run();
+
+```
+
+### Per-Operation Security Schemes
+
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar();
+
+async function run() {
+  const result = await polar.customerPortal.benefitGrants.list({
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {});
 
   for await (const page of result) {
     // Handle the page

@@ -26,6 +26,8 @@ export class Subscriptions extends ClientSDK {
    *
    * @remarks
    * List subscriptions.
+   *
+   * **Scopes**: `subscriptions:read` `subscriptions:write`
    */
   async list(
     request: SubscriptionsListRequest,
@@ -43,6 +45,8 @@ export class Subscriptions extends ClientSDK {
    *
    * @remarks
    * Export subscriptions as a CSV file.
+   *
+   * **Scopes**: `subscriptions:read` `subscriptions:write`
    */
   async export(
     request: SubscriptionsExportRequest,
@@ -60,6 +64,8 @@ export class Subscriptions extends ClientSDK {
    *
    * @remarks
    * Get a subscription by ID.
+   *
+   * **Scopes**: `subscriptions:write`
    */
   async get(
     request: SubscriptionsGetRequest,
@@ -77,6 +83,8 @@ export class Subscriptions extends ClientSDK {
    *
    * @remarks
    * Update a subscription.
+   *
+   * **Scopes**: `subscriptions:write`
    */
   async update(
     request: SubscriptionsUpdateRequest,
@@ -94,6 +102,8 @@ export class Subscriptions extends ClientSDK {
    *
    * @remarks
    * Revoke a subscription, i.e cancel immediately.
+   *
+   * **Scopes**: `subscriptions:write`
    */
   async revoke(
     request: SubscriptionsRevokeRequest,

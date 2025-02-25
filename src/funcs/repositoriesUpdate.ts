@@ -47,6 +47,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a repository.
+ *
+ * **Scopes**: `repositories:write`
  */
 export function repositoriesUpdate(
   client: PolarCore,

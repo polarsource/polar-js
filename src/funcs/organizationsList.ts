@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List organizations.
+ *
+ * **Scopes**: `organizations:read` `organizations:write`
  */
 export function organizationsList(
   client: PolarCore,

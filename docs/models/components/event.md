@@ -7,32 +7,32 @@ import { Event } from "@polar-sh/sdk/models/components/event.js";
 
 let value: Event = {
   metadata: {
-    "key": 295816,
+    "key": false,
   },
   id: "<value>",
-  timestamp: new Date("2023-02-23T01:56:49.955Z"),
+  timestamp: new Date("2025-03-12T20:49:07.256Z"),
   name: "<value>",
   source: "system",
   organizationId: "<value>",
   customerId: "<value>",
   customer: {
-    createdAt: new Date("2025-06-09T16:32:01.402Z"),
-    modifiedAt: new Date("2024-08-25T13:48:26.011Z"),
+    createdAt: new Date("2025-08-30T22:32:53.523Z"),
+    modifiedAt: new Date("2025-05-20T04:09:40.373Z"),
     id: "<value>",
     metadata: {
-      "key": false,
+      "key": "<value>",
     },
-    email: "Brock_Medhurst@gmail.com",
+    email: "Karli34@hotmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Botswana",
+      country: "Guernsey",
     },
     taxId: [
-      "<id>",
+      "sa_vat",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://gigantic-euphonium.name",
+    avatarUrl: "https://pertinent-traffic.biz",
   },
   externalCustomerId: "<id>",
 };

@@ -15,6 +15,8 @@
 
 List subscriptions.
 
+**Scopes**: `subscriptions:read` `subscriptions:write`
+
 ### Example Usage
 
 ```typescript
@@ -92,6 +94,8 @@ run();
 
 Export subscriptions as a CSV file.
 
+**Scopes**: `subscriptions:read` `subscriptions:write`
+
 ### Example Usage
 
 ```typescript
@@ -164,6 +168,8 @@ run();
 ## get
 
 Get a subscription by ID.
+
+**Scopes**: `subscriptions:write`
 
 ### Example Usage
 
@@ -242,6 +248,8 @@ run();
 ## update
 
 Update a subscription.
+
+**Scopes**: `subscriptions:write`
 
 ### Example Usage
 
@@ -323,6 +331,8 @@ run();
 ## revoke
 
 Revoke a subscription, i.e cancel immediately.
+
+**Scopes**: `subscriptions:write`
 
 ### Example Usage
 

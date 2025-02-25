@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List custom fields.
+ *
+ * **Scopes**: `custom_fields:read` `custom_fields:write`
  */
 export function customFieldsList(
   client: PolarCore,

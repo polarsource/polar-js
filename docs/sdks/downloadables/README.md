@@ -10,19 +10,19 @@
 
 ## list
 
-List Downloadables
+**Scopes**: `customer_portal:read` `customer_portal:write`
 
 ### Example Usage
 
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new Polar();
 
 async function run() {
-  const result = await polar.customerPortal.downloadables.list({});
+  const result = await polar.customerPortal.downloadables.list({
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {});
 
   for await (const page of result) {
     // Handle the page
@@ -43,12 +43,12 @@ import { customerPortalDownloadablesList } from "@polar-sh/sdk/funcs/customerPor
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new PolarCore();
 
 async function run() {
-  const res = await customerPortalDownloadablesList(polar, {});
+  const res = await customerPortalDownloadablesList(polar, {
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {});
 
   if (!res.ok) {
     throw res.error;
@@ -70,6 +70,7 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [operations.CustomerPortalDownloadablesListRequest](../../models/operations/customerportaldownloadableslistrequest.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.CustomerPortalDownloadablesListSecurity](../../models/operations/customerportaldownloadableslistsecurity.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

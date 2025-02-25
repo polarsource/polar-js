@@ -15,6 +15,8 @@
 
 List files.
 
+**Scopes**: `files:write`
+
 ### Example Usage
 
 ```typescript
@@ -91,6 +93,8 @@ run();
 ## create
 
 Create a file.
+
+**Scopes**: `files:write`
 
 ### Example Usage
 
@@ -190,6 +194,8 @@ run();
 ## uploaded
 
 Complete a file upload.
+
+**Scopes**: `files:write`
 
 ### Example Usage
 
@@ -312,6 +318,8 @@ run();
 
 Update a file.
 
+**Scopes**: `files:write`
+
 ### Example Usage
 
 ```typescript
@@ -392,6 +400,8 @@ run();
 ## delete
 
 Delete a file.
+
+**Scopes**: `files:write`
 
 ### Example Usage
 

@@ -9,11 +9,11 @@ let value: CustomFieldsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-09-07T23:08:19.669Z"),
-        modifiedAt: new Date("2024-07-15T02:36:01.008Z"),
+        createdAt: new Date("2023-12-18T08:36:34.657Z"),
+        modifiedAt: new Date("2025-07-22T03:53:22.451Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": 15071,
         },
         slug: "<value>",
         name: "<value>",
@@ -22,8 +22,8 @@ let value: CustomFieldsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 356361,
-      maxPage: 103848,
+      totalCount: 954586,
+      maxPage: 125912,
     },
   },
 };

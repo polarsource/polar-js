@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get a product by ID.
+ *
+ * **Scopes**: `products:read` `products:write`
  */
 export function productsGet(
   client: PolarCore,

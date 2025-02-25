@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a customer.
+ *
+ * **Scopes**: `customers:write`
  */
 export function customersUpdate(
   client: PolarCore,

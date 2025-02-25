@@ -50,6 +50,8 @@ import {
  * List the individual grants for a benefit.
  *
  * It's especially useful to check if a user has been granted a benefit.
+ *
+ * **Scopes**: `benefits:read` `benefits:write`
  */
 export function benefitsGrants(
   client: PolarCore,

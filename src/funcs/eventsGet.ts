@@ -40,6 +40,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get an event by ID.
+ *
+ * **Scopes**: `events:read` `events:write`
  */
 export function eventsGet(
   client: PolarCore,

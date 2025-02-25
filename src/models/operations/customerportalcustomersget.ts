@@ -3,70 +3,77 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type CustomerPortalCustomersGetRequest = {
-  /**
-   * The customer ID.
-   */
-  id: string;
+export type CustomerPortalCustomersGetSecurity = {
+  customerSession: string;
 };
 
 /** @internal */
-export const CustomerPortalCustomersGetRequest$inboundSchema: z.ZodType<
-  CustomerPortalCustomersGetRequest,
+export const CustomerPortalCustomersGetSecurity$inboundSchema: z.ZodType<
+  CustomerPortalCustomersGetSecurity,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string(),
+  customer_session: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    "customer_session": "customerSession",
+  });
 });
 
 /** @internal */
-export type CustomerPortalCustomersGetRequest$Outbound = {
-  id: string;
+export type CustomerPortalCustomersGetSecurity$Outbound = {
+  customer_session: string;
 };
 
 /** @internal */
-export const CustomerPortalCustomersGetRequest$outboundSchema: z.ZodType<
-  CustomerPortalCustomersGetRequest$Outbound,
+export const CustomerPortalCustomersGetSecurity$outboundSchema: z.ZodType<
+  CustomerPortalCustomersGetSecurity$Outbound,
   z.ZodTypeDef,
-  CustomerPortalCustomersGetRequest
+  CustomerPortalCustomersGetSecurity
 > = z.object({
-  id: z.string(),
+  customerSession: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    customerSession: "customer_session",
+  });
 });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CustomerPortalCustomersGetRequest$ {
-  /** @deprecated use `CustomerPortalCustomersGetRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalCustomersGetRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomersGetRequest$outboundSchema` instead. */
+export namespace CustomerPortalCustomersGetSecurity$ {
+  /** @deprecated use `CustomerPortalCustomersGetSecurity$inboundSchema` instead. */
+  export const inboundSchema = CustomerPortalCustomersGetSecurity$inboundSchema;
+  /** @deprecated use `CustomerPortalCustomersGetSecurity$outboundSchema` instead. */
   export const outboundSchema =
-    CustomerPortalCustomersGetRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomersGetRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalCustomersGetRequest$Outbound;
+    CustomerPortalCustomersGetSecurity$outboundSchema;
+  /** @deprecated use `CustomerPortalCustomersGetSecurity$Outbound` instead. */
+  export type Outbound = CustomerPortalCustomersGetSecurity$Outbound;
 }
 
-export function customerPortalCustomersGetRequestToJSON(
-  customerPortalCustomersGetRequest: CustomerPortalCustomersGetRequest,
+export function customerPortalCustomersGetSecurityToJSON(
+  customerPortalCustomersGetSecurity: CustomerPortalCustomersGetSecurity,
 ): string {
   return JSON.stringify(
-    CustomerPortalCustomersGetRequest$outboundSchema.parse(
-      customerPortalCustomersGetRequest,
+    CustomerPortalCustomersGetSecurity$outboundSchema.parse(
+      customerPortalCustomersGetSecurity,
     ),
   );
 }
 
-export function customerPortalCustomersGetRequestFromJSON(
+export function customerPortalCustomersGetSecurityFromJSON(
   jsonString: string,
-): SafeParseResult<CustomerPortalCustomersGetRequest, SDKValidationError> {
+): SafeParseResult<CustomerPortalCustomersGetSecurity, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CustomerPortalCustomersGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalCustomersGetRequest' from JSON`,
+    (x) =>
+      CustomerPortalCustomersGetSecurity$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerPortalCustomersGetSecurity' from JSON`,
   );
 }

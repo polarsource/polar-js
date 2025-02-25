@@ -23,6 +23,8 @@ export class Events extends ClientSDK {
    *
    * @remarks
    * List events.
+   *
+   * **Scopes**: `events:read` `events:write`
    */
   async list(
     request: EventsListRequest,
@@ -40,6 +42,8 @@ export class Events extends ClientSDK {
    *
    * @remarks
    * Get an event by ID.
+   *
+   * **Scopes**: `events:read` `events:write`
    */
   async get(
     request: EventsGetRequest,
@@ -57,6 +61,8 @@ export class Events extends ClientSDK {
    *
    * @remarks
    * Ingest batch of events.
+   *
+   * **Scopes**: `events:write`
    */
   async ingest(
     request: EventsIngest,

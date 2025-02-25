@@ -26,6 +26,8 @@ export class LicenseKeys extends ClientSDK {
    *
    * @remarks
    * Get license keys connected to the given organization & filters.
+   *
+   * **Scopes**: `license_keys:read` `license_keys:write`
    */
   async list(
     request: LicenseKeysListRequest,
@@ -43,6 +45,8 @@ export class LicenseKeys extends ClientSDK {
    *
    * @remarks
    * Get a license key.
+   *
+   * **Scopes**: `license_keys:read` `license_keys:write`
    */
   async get(
     request: LicenseKeysGetRequest,
@@ -60,6 +64,8 @@ export class LicenseKeys extends ClientSDK {
    *
    * @remarks
    * Update a license key.
+   *
+   * **Scopes**: `license_keys:write`
    */
   async update(
     request: LicenseKeysUpdateRequest,
@@ -77,6 +83,8 @@ export class LicenseKeys extends ClientSDK {
    *
    * @remarks
    * Get a license key activation.
+   *
+   * **Scopes**: `license_keys:read` `license_keys:write`
    */
   async getActivation(
     request: LicenseKeysGetActivationRequest,
