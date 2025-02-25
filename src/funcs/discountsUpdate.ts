@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a discount.
+ *
+ * **Scopes**: `discounts:write`
  */
 export function discountsUpdate(
   client: PolarCore,

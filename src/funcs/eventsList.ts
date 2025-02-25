@@ -48,6 +48,8 @@ import {
  *
  * @remarks
  * List events.
+ *
+ * **Scopes**: `events:read` `events:write`
  */
 export function eventsList(
   client: PolarCore,

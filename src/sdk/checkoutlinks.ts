@@ -26,6 +26,8 @@ export class CheckoutLinks extends ClientSDK {
    *
    * @remarks
    * List checkout links.
+   *
+   * **Scopes**: `checkout_links:read` `checkout_links:write`
    */
   async list(
     request: CheckoutLinksListRequest,
@@ -43,6 +45,8 @@ export class CheckoutLinks extends ClientSDK {
    *
    * @remarks
    * Create a checkout link.
+   *
+   * **Scopes**: `checkout_links:write`
    */
   async create(
     request: CheckoutLinksCreateCheckoutLinkCreate,
@@ -60,6 +64,8 @@ export class CheckoutLinks extends ClientSDK {
    *
    * @remarks
    * Get a checkout link by ID.
+   *
+   * **Scopes**: `checkout_links:read` `checkout_links:write`
    */
   async get(
     request: CheckoutLinksGetRequest,
@@ -77,6 +83,8 @@ export class CheckoutLinks extends ClientSDK {
    *
    * @remarks
    * Update a checkout link.
+   *
+   * **Scopes**: `checkout_links:write`
    */
   async update(
     request: CheckoutLinksUpdateRequest,
@@ -94,6 +102,8 @@ export class CheckoutLinks extends ClientSDK {
    *
    * @remarks
    * Delete a checkout link.
+   *
+   * **Scopes**: `checkout_links:write`
    */
   async delete(
     request: CheckoutLinksDeleteRequest,

@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get a repository by ID.
+ *
+ * **Scopes**: `repositories:read` `repositories:write`
  */
 export function repositoriesGet(
   client: PolarCore,

@@ -12,6 +12,8 @@
 
 List products.
 
+**Scopes**: `refunds:read` `refunds:write`
+
 ### Example Usage
 
 ```typescript
@@ -88,6 +90,8 @@ run();
 ## create
 
 Create a refund.
+
+**Scopes**: `refunds:write`
 
 ### Example Usage
 

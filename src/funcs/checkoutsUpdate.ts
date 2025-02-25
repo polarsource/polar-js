@@ -47,6 +47,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a checkout session.
+ *
+ * **Scopes**: `checkouts:write`
  */
 export function checkoutsUpdate(
   client: PolarCore,

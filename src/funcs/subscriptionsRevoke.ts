@@ -47,6 +47,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Revoke a subscription, i.e cancel immediately.
+ *
+ * **Scopes**: `subscriptions:write`
  */
 export function subscriptionsRevoke(
   client: PolarCore,

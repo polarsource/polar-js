@@ -40,6 +40,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get an order by ID.
+ *
+ * **Scopes**: `orders:read`
  */
 export function ordersGet(
   client: PolarCore,

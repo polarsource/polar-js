@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get an organization by ID.
+ *
+ * **Scopes**: `organizations:read` `organizations:write`
  */
 export function organizationsGet(
   client: PolarCore,

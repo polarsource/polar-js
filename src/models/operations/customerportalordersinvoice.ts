@@ -3,9 +3,14 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+
+export type CustomerPortalOrdersInvoiceSecurity = {
+  customerSession: string;
+};
 
 export type CustomerPortalOrdersInvoiceRequest = {
   /**
@@ -13,6 +18,73 @@ export type CustomerPortalOrdersInvoiceRequest = {
    */
   id: string;
 };
+
+/** @internal */
+export const CustomerPortalOrdersInvoiceSecurity$inboundSchema: z.ZodType<
+  CustomerPortalOrdersInvoiceSecurity,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  customer_session: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    "customer_session": "customerSession",
+  });
+});
+
+/** @internal */
+export type CustomerPortalOrdersInvoiceSecurity$Outbound = {
+  customer_session: string;
+};
+
+/** @internal */
+export const CustomerPortalOrdersInvoiceSecurity$outboundSchema: z.ZodType<
+  CustomerPortalOrdersInvoiceSecurity$Outbound,
+  z.ZodTypeDef,
+  CustomerPortalOrdersInvoiceSecurity
+> = z.object({
+  customerSession: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    customerSession: "customer_session",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerPortalOrdersInvoiceSecurity$ {
+  /** @deprecated use `CustomerPortalOrdersInvoiceSecurity$inboundSchema` instead. */
+  export const inboundSchema =
+    CustomerPortalOrdersInvoiceSecurity$inboundSchema;
+  /** @deprecated use `CustomerPortalOrdersInvoiceSecurity$outboundSchema` instead. */
+  export const outboundSchema =
+    CustomerPortalOrdersInvoiceSecurity$outboundSchema;
+  /** @deprecated use `CustomerPortalOrdersInvoiceSecurity$Outbound` instead. */
+  export type Outbound = CustomerPortalOrdersInvoiceSecurity$Outbound;
+}
+
+export function customerPortalOrdersInvoiceSecurityToJSON(
+  customerPortalOrdersInvoiceSecurity: CustomerPortalOrdersInvoiceSecurity,
+): string {
+  return JSON.stringify(
+    CustomerPortalOrdersInvoiceSecurity$outboundSchema.parse(
+      customerPortalOrdersInvoiceSecurity,
+    ),
+  );
+}
+
+export function customerPortalOrdersInvoiceSecurityFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomerPortalOrdersInvoiceSecurity, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CustomerPortalOrdersInvoiceSecurity$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerPortalOrdersInvoiceSecurity' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerPortalOrdersInvoiceRequest$inboundSchema: z.ZodType<

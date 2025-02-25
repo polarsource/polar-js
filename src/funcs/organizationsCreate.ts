@@ -39,6 +39,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create an organization.
+ *
+ * **Scopes**: `organizations:write`
  */
 export function organizationsCreate(
   client: PolarCore,

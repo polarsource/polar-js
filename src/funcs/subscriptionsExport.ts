@@ -36,6 +36,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Export subscriptions as a CSV file.
+ *
+ * **Scopes**: `subscriptions:read` `subscriptions:write`
  */
 export function subscriptionsExport(
   client: PolarCore,

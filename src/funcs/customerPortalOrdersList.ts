@@ -9,7 +9,7 @@ import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
-import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
+import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
   ConnectionError,
@@ -29,6 +29,7 @@ import {
   CustomerPortalOrdersListRequest$outboundSchema,
   CustomerPortalOrdersListResponse,
   CustomerPortalOrdersListResponse$inboundSchema,
+  CustomerPortalOrdersListSecurity,
 } from "../models/operations/customerportalorderslist.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -43,10 +44,13 @@ import {
  * List Orders
  *
  * @remarks
- * List orders of the authenticated customer or user.
+ * List orders of the authenticated customer.
+ *
+ * **Scopes**: `customer_portal:read` `customer_portal:write`
  */
 export function customerPortalOrdersList(
   client: PolarCore,
+  security: CustomerPortalOrdersListSecurity,
   request: CustomerPortalOrdersListRequest,
   options?: RequestOptions,
 ): APIPromise<
@@ -67,6 +71,7 @@ export function customerPortalOrdersList(
 > {
   return new APIPromise($do(
     client,
+    security,
     request,
     options,
   ));
@@ -74,6 +79,7 @@ export function customerPortalOrdersList(
 
 async function $do(
   client: PolarCore,
+  security: CustomerPortalOrdersListSecurity,
   request: CustomerPortalOrdersListRequest,
   options?: RequestOptions,
 ): Promise<
@@ -123,9 +129,15 @@ async function $do(
     Accept: "application/json",
   }));
 
-  const secConfig = await extractSecurity(client._options.accessToken);
-  const securityInput = secConfig == null ? {} : { accessToken: secConfig };
-  const requestSecurity = resolveGlobalSecurity(securityInput);
+  const requestSecurity = resolveSecurity(
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.customerSession,
+      },
+    ],
+  );
 
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
@@ -134,7 +146,7 @@ async function $do(
 
     resolvedSecurity: requestSecurity,
 
-    securitySource: client._options.accessToken,
+    securitySource: security,
     retryConfig: options?.retries
       || client._options.retryConfig
       || { strategy: "none" },
@@ -237,6 +249,7 @@ async function $do(
     const nextVal = () =>
       customerPortalOrdersList(
         client,
+        security,
         {
           ...request,
           page: nextPage,

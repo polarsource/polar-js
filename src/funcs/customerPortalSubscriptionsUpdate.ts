@@ -8,7 +8,7 @@ import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
-import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
+import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
   CustomerSubscription,
@@ -38,6 +38,7 @@ import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
   CustomerPortalSubscriptionsUpdateRequest,
   CustomerPortalSubscriptionsUpdateRequest$outboundSchema,
+  CustomerPortalSubscriptionsUpdateSecurity,
 } from "../models/operations/customerportalsubscriptionsupdate.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -46,10 +47,13 @@ import { Result } from "../types/fp.js";
  * Update Subscription
  *
  * @remarks
- * Update a subscription of the authenticated customer or user.
+ * Update a subscription of the authenticated customer.
+ *
+ * **Scopes**: `customer_portal:write`
  */
 export function customerPortalSubscriptionsUpdate(
   client: PolarCore,
+  security: CustomerPortalSubscriptionsUpdateSecurity,
   request: CustomerPortalSubscriptionsUpdateRequest,
   options?: RequestOptions,
 ): APIPromise<
@@ -69,6 +73,7 @@ export function customerPortalSubscriptionsUpdate(
 > {
   return new APIPromise($do(
     client,
+    security,
     request,
     options,
   ));
@@ -76,6 +81,7 @@ export function customerPortalSubscriptionsUpdate(
 
 async function $do(
   client: PolarCore,
+  security: CustomerPortalSubscriptionsUpdateSecurity,
   request: CustomerPortalSubscriptionsUpdateRequest,
   options?: RequestOptions,
 ): Promise<
@@ -124,9 +130,15 @@ async function $do(
     Accept: "application/json",
   }));
 
-  const secConfig = await extractSecurity(client._options.accessToken);
-  const securityInput = secConfig == null ? {} : { accessToken: secConfig };
-  const requestSecurity = resolveGlobalSecurity(securityInput);
+  const requestSecurity = resolveSecurity(
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.customerSession,
+      },
+    ],
+  );
 
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
@@ -135,7 +147,7 @@ async function $do(
 
     resolvedSecurity: requestSecurity,
 
-    securitySource: client._options.accessToken,
+    securitySource: security,
     retryConfig: options?.retries
       || client._options.retryConfig
       || { strategy: "none" },

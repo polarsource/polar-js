@@ -9,39 +9,39 @@ let value: ListResourceEvent = {
   items: [
     {
       metadata: {
-        "key": false,
+        "key": 270279,
       },
       id: "<value>",
-      timestamp: new Date("2025-04-15T01:30:51.901Z"),
+      timestamp: new Date("2023-10-06T00:10:21.444Z"),
       name: "<value>",
       source: "user",
       organizationId: "<value>",
       customerId: "<value>",
       customer: {
-        createdAt: new Date("2025-07-23T04:37:56.095Z"),
-        modifiedAt: new Date("2023-05-15T11:47:05.174Z"),
+        createdAt: new Date("2025-01-05T15:25:48.435Z"),
+        modifiedAt: new Date("2023-02-09T05:05:40.460Z"),
         id: "<value>",
         metadata: {
           "key": "<value>",
         },
-        email: "Brenda.Nikolaus@hotmail.com",
+        email: "Kacie.Lowe56@gmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Democratic People's Republic of Korea",
+          country: "Turkey",
         },
         taxId: [
-          "au_arn",
+          "is_vat",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://obvious-meatloaf.biz/",
+        avatarUrl: "https://pink-designation.com",
       },
       externalCustomerId: "<id>",
     },
   ],
   pagination: {
-    totalCount: 92965,
-    maxPage: 209551,
+    totalCount: 889946,
+    maxPage: 391395,
   },
 };
 ```

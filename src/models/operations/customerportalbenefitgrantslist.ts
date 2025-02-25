@@ -24,6 +24,10 @@ import {
 } from "../components/listresourcecustomerbenefitgrant.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type CustomerPortalBenefitGrantsListSecurity = {
+  customerSession: string;
+};
+
 /**
  * Filter by benefit type.
  */
@@ -100,6 +104,79 @@ export type CustomerPortalBenefitGrantsListRequest = {
 export type CustomerPortalBenefitGrantsListResponse = {
   result: ListResourceCustomerBenefitGrant;
 };
+
+/** @internal */
+export const CustomerPortalBenefitGrantsListSecurity$inboundSchema: z.ZodType<
+  CustomerPortalBenefitGrantsListSecurity,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  customer_session: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    "customer_session": "customerSession",
+  });
+});
+
+/** @internal */
+export type CustomerPortalBenefitGrantsListSecurity$Outbound = {
+  customer_session: string;
+};
+
+/** @internal */
+export const CustomerPortalBenefitGrantsListSecurity$outboundSchema: z.ZodType<
+  CustomerPortalBenefitGrantsListSecurity$Outbound,
+  z.ZodTypeDef,
+  CustomerPortalBenefitGrantsListSecurity
+> = z.object({
+  customerSession: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    customerSession: "customer_session",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerPortalBenefitGrantsListSecurity$ {
+  /** @deprecated use `CustomerPortalBenefitGrantsListSecurity$inboundSchema` instead. */
+  export const inboundSchema =
+    CustomerPortalBenefitGrantsListSecurity$inboundSchema;
+  /** @deprecated use `CustomerPortalBenefitGrantsListSecurity$outboundSchema` instead. */
+  export const outboundSchema =
+    CustomerPortalBenefitGrantsListSecurity$outboundSchema;
+  /** @deprecated use `CustomerPortalBenefitGrantsListSecurity$Outbound` instead. */
+  export type Outbound = CustomerPortalBenefitGrantsListSecurity$Outbound;
+}
+
+export function customerPortalBenefitGrantsListSecurityToJSON(
+  customerPortalBenefitGrantsListSecurity:
+    CustomerPortalBenefitGrantsListSecurity,
+): string {
+  return JSON.stringify(
+    CustomerPortalBenefitGrantsListSecurity$outboundSchema.parse(
+      customerPortalBenefitGrantsListSecurity,
+    ),
+  );
+}
+
+export function customerPortalBenefitGrantsListSecurityFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CustomerPortalBenefitGrantsListSecurity,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CustomerPortalBenefitGrantsListSecurity$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CustomerPortalBenefitGrantsListSecurity' from JSON`,
+  );
+}
 
 /** @internal */
 export const QueryParamBenefitTypeFilter$inboundSchema: z.ZodType<

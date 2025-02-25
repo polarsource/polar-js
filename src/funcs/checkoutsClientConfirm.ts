@@ -53,6 +53,8 @@ import { Result } from "../types/fp.js";
  * Confirm a checkout session by client secret.
  *
  * Orders and subscriptions will be processed.
+ *
+ * **Scopes**:
  */
 export function checkoutsClientConfirm(
   client: PolarCore,

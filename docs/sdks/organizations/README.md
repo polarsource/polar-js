@@ -14,6 +14,8 @@
 
 List organizations.
 
+**Scopes**: `organizations:read` `organizations:write`
+
 ### Example Usage
 
 ```typescript
@@ -90,6 +92,8 @@ run();
 ## create
 
 Create an organization.
+
+**Scopes**: `organizations:write`
 
 ### Example Usage
 
@@ -170,6 +174,8 @@ run();
 
 Get an organization by ID.
 
+**Scopes**: `organizations:read` `organizations:write`
+
 ### Example Usage
 
 ```typescript
@@ -247,6 +253,8 @@ run();
 ## update
 
 Update an organization.
+
+**Scopes**: `organizations:write`
 
 ### Example Usage
 

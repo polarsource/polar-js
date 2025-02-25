@@ -44,6 +44,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Delete a file.
+ *
+ * **Scopes**: `files:write`
  */
 export function filesDelete(
   client: PolarCore,

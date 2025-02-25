@@ -36,6 +36,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a meter.
+ *
+ * **Scopes**: `meters:write`
  */
 export function metersCreate(
   client: PolarCore,

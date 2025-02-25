@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a custom field.
+ *
+ * **Scopes**: `custom_fields:write`
  */
 export function customFieldsUpdate(
   client: PolarCore,

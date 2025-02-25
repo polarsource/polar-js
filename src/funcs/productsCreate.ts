@@ -39,6 +39,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a product.
+ *
+ * **Scopes**: `products:write`
  */
 export function productsCreate(
   client: PolarCore,

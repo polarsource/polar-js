@@ -8,13 +8,23 @@ import { customerPortalSubscriptionsList } from "../funcs/customerPortalSubscrip
 import { customerPortalSubscriptionsUpdate } from "../funcs/customerPortalSubscriptionsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { CustomerSubscription } from "../models/components/customersubscription.js";
-import { CustomerPortalSubscriptionsCancelRequest } from "../models/operations/customerportalsubscriptionscancel.js";
-import { CustomerPortalSubscriptionsGetRequest } from "../models/operations/customerportalsubscriptionsget.js";
+import {
+  CustomerPortalSubscriptionsCancelRequest,
+  CustomerPortalSubscriptionsCancelSecurity,
+} from "../models/operations/customerportalsubscriptionscancel.js";
+import {
+  CustomerPortalSubscriptionsGetRequest,
+  CustomerPortalSubscriptionsGetSecurity,
+} from "../models/operations/customerportalsubscriptionsget.js";
 import {
   CustomerPortalSubscriptionsListRequest,
   CustomerPortalSubscriptionsListResponse,
+  CustomerPortalSubscriptionsListSecurity,
 } from "../models/operations/customerportalsubscriptionslist.js";
-import { CustomerPortalSubscriptionsUpdateRequest } from "../models/operations/customerportalsubscriptionsupdate.js";
+import {
+  CustomerPortalSubscriptionsUpdateRequest,
+  CustomerPortalSubscriptionsUpdateSecurity,
+} from "../models/operations/customerportalsubscriptionsupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -23,9 +33,12 @@ export class PolarSubscriptions extends ClientSDK {
    * List Subscriptions
    *
    * @remarks
-   * List subscriptions of the authenticated customer or user.
+   * List subscriptions of the authenticated customer.
+   *
+   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async list(
+    security: CustomerPortalSubscriptionsListSecurity,
     request: CustomerPortalSubscriptionsListRequest,
     options?: RequestOptions,
   ): Promise<
@@ -33,6 +46,7 @@ export class PolarSubscriptions extends ClientSDK {
   > {
     return unwrapResultIterator(customerPortalSubscriptionsList(
       this,
+      security,
       request,
       options,
     ));
@@ -42,14 +56,18 @@ export class PolarSubscriptions extends ClientSDK {
    * Get Subscription
    *
    * @remarks
-   * Get a subscription for the authenticated customer or user.
+   * Get a subscription for the authenticated customer.
+   *
+   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async get(
+    security: CustomerPortalSubscriptionsGetSecurity,
     request: CustomerPortalSubscriptionsGetRequest,
     options?: RequestOptions,
   ): Promise<CustomerSubscription> {
     return unwrapAsync(customerPortalSubscriptionsGet(
       this,
+      security,
       request,
       options,
     ));
@@ -59,14 +77,18 @@ export class PolarSubscriptions extends ClientSDK {
    * Update Subscription
    *
    * @remarks
-   * Update a subscription of the authenticated customer or user.
+   * Update a subscription of the authenticated customer.
+   *
+   * **Scopes**: `customer_portal:write`
    */
   async update(
+    security: CustomerPortalSubscriptionsUpdateSecurity,
     request: CustomerPortalSubscriptionsUpdateRequest,
     options?: RequestOptions,
   ): Promise<CustomerSubscription> {
     return unwrapAsync(customerPortalSubscriptionsUpdate(
       this,
+      security,
       request,
       options,
     ));
@@ -76,14 +98,18 @@ export class PolarSubscriptions extends ClientSDK {
    * Cancel Subscription
    *
    * @remarks
-   * Cancel a subscription of the authenticated customer or user.
+   * Cancel a subscription of the authenticated customer.
+   *
+   * **Scopes**: `customer_portal:write`
    */
   async cancel(
+    security: CustomerPortalSubscriptionsCancelSecurity,
     request: CustomerPortalSubscriptionsCancelRequest,
     options?: RequestOptions,
   ): Promise<CustomerSubscription> {
     return unwrapAsync(customerPortalSubscriptionsCancel(
       this,
+      security,
       request,
       options,
     ));

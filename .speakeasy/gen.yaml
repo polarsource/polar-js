@@ -18,7 +18,7 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
 typescript:
-  version: 0.26.1
+  version: 0.27.0
   additionalDependencies:
     dependencies:
       standardwebhooks: ^1.0.0
@@ -33,6 +33,7 @@ typescript:
   clientServerStatusCodesAsErrors: true
   defaultErrorName: SDKError
   enableCustomCodeRegions: false
+  enableMCPServer: true
   enableReactQuery: false
   enumFormat: union
   envVarPrefix: POLAR

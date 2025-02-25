@@ -16,6 +16,8 @@ export class ExternalOrganizations extends ClientSDK {
    *
    * @remarks
    * List external organizations.
+   *
+   * **Scopes**: `external_organizations:read`
    */
   async list(
     request: ExternalOrganizationsListRequest,

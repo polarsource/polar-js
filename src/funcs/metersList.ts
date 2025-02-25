@@ -48,6 +48,8 @@ import {
  *
  * @remarks
  * List meters.
+ *
+ * **Scopes**: `meters:read` `meters:write`
  */
 export function metersList(
   client: PolarCore,

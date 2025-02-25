@@ -13,6 +13,8 @@
 
 List repositories.
 
+**Scopes**: `repositories:read` `repositories:write`
+
 ### Example Usage
 
 ```typescript
@@ -89,6 +91,8 @@ run();
 ## get
 
 Get a repository by ID.
+
+**Scopes**: `repositories:read` `repositories:write`
 
 ### Example Usage
 
@@ -167,6 +171,8 @@ run();
 ## update
 
 Update a repository.
+
+**Scopes**: `repositories:write`
 
 ### Example Usage
 

@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List products.
+ *
+ * **Scopes**: `refunds:read` `refunds:write`
  */
 export function refundsList(
   client: PolarCore,

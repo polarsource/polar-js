@@ -15,6 +15,8 @@
 
 List checkout links.
 
+**Scopes**: `checkout_links:read` `checkout_links:write`
+
 ### Example Usage
 
 ```typescript
@@ -91,6 +93,8 @@ run();
 ## create
 
 Create a checkout link.
+
+**Scopes**: `checkout_links:write`
 
 ### Example Usage
 
@@ -171,6 +175,8 @@ run();
 
 Get a checkout link by ID.
 
+**Scopes**: `checkout_links:read` `checkout_links:write`
+
 ### Example Usage
 
 ```typescript
@@ -248,6 +254,8 @@ run();
 ## update
 
 Update a checkout link.
+
+**Scopes**: `checkout_links:write`
 
 ### Example Usage
 
@@ -328,6 +336,8 @@ run();
 ## delete
 
 Delete a checkout link.
+
+**Scopes**: `checkout_links:write`
 
 ### Example Usage
 

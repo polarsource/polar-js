@@ -13,6 +13,8 @@
 
 List events.
 
+**Scopes**: `events:read` `events:write`
+
 ### Example Usage
 
 ```typescript
@@ -89,6 +91,8 @@ run();
 ## get
 
 Get an event by ID.
+
+**Scopes**: `events:read` `events:write`
 
 ### Example Usage
 
@@ -167,6 +171,8 @@ run();
 ## ingest
 
 Ingest batch of events.
+
+**Scopes**: `events:write`
 
 ### Example Usage
 

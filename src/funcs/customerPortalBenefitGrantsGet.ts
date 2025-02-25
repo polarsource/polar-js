@@ -8,7 +8,7 @@ import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
-import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
+import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
   CustomerBenefitGrant,
@@ -34,6 +34,7 @@ import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
   CustomerPortalBenefitGrantsGetRequest,
   CustomerPortalBenefitGrantsGetRequest$outboundSchema,
+  CustomerPortalBenefitGrantsGetSecurity,
 } from "../models/operations/customerportalbenefitgrantsget.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -42,10 +43,13 @@ import { Result } from "../types/fp.js";
  * Get Benefit Grant
  *
  * @remarks
- * Get a benefit grant by ID for the authenticated customer or user.
+ * Get a benefit grant by ID for the authenticated customer.
+ *
+ * **Scopes**: `customer_portal:read` `customer_portal:write`
  */
 export function customerPortalBenefitGrantsGet(
   client: PolarCore,
+  security: CustomerPortalBenefitGrantsGetSecurity,
   request: CustomerPortalBenefitGrantsGetRequest,
   options?: RequestOptions,
 ): APIPromise<
@@ -64,6 +68,7 @@ export function customerPortalBenefitGrantsGet(
 > {
   return new APIPromise($do(
     client,
+    security,
     request,
     options,
   ));
@@ -71,6 +76,7 @@ export function customerPortalBenefitGrantsGet(
 
 async function $do(
   client: PolarCore,
+  security: CustomerPortalBenefitGrantsGetSecurity,
   request: CustomerPortalBenefitGrantsGetRequest,
   options?: RequestOptions,
 ): Promise<
@@ -117,9 +123,15 @@ async function $do(
     Accept: "application/json",
   }));
 
-  const secConfig = await extractSecurity(client._options.accessToken);
-  const securityInput = secConfig == null ? {} : { accessToken: secConfig };
-  const requestSecurity = resolveGlobalSecurity(securityInput);
+  const requestSecurity = resolveSecurity(
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.customerSession,
+      },
+    ],
+  );
 
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
@@ -128,7 +140,7 @@ async function $do(
 
     resolvedSecurity: requestSecurity,
 
-    securitySource: client._options.accessToken,
+    securitySource: security,
     retryConfig: options?.retries
       || client._options.retryConfig
       || { strategy: "none" },

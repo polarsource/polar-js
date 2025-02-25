@@ -39,6 +39,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a checkout link.
+ *
+ * **Scopes**: `checkout_links:write`
  */
 export function checkoutLinksCreate(
   client: PolarCore,

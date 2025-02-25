@@ -14,6 +14,10 @@ import {
 } from "../components/listresourcedownloadableread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type CustomerPortalDownloadablesListSecurity = {
+  customerSession: string;
+};
+
 /**
  * Filter by organization ID.
  */
@@ -50,6 +54,79 @@ export type CustomerPortalDownloadablesListRequest = {
 export type CustomerPortalDownloadablesListResponse = {
   result: ListResourceDownloadableRead;
 };
+
+/** @internal */
+export const CustomerPortalDownloadablesListSecurity$inboundSchema: z.ZodType<
+  CustomerPortalDownloadablesListSecurity,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  customer_session: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    "customer_session": "customerSession",
+  });
+});
+
+/** @internal */
+export type CustomerPortalDownloadablesListSecurity$Outbound = {
+  customer_session: string;
+};
+
+/** @internal */
+export const CustomerPortalDownloadablesListSecurity$outboundSchema: z.ZodType<
+  CustomerPortalDownloadablesListSecurity$Outbound,
+  z.ZodTypeDef,
+  CustomerPortalDownloadablesListSecurity
+> = z.object({
+  customerSession: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    customerSession: "customer_session",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerPortalDownloadablesListSecurity$ {
+  /** @deprecated use `CustomerPortalDownloadablesListSecurity$inboundSchema` instead. */
+  export const inboundSchema =
+    CustomerPortalDownloadablesListSecurity$inboundSchema;
+  /** @deprecated use `CustomerPortalDownloadablesListSecurity$outboundSchema` instead. */
+  export const outboundSchema =
+    CustomerPortalDownloadablesListSecurity$outboundSchema;
+  /** @deprecated use `CustomerPortalDownloadablesListSecurity$Outbound` instead. */
+  export type Outbound = CustomerPortalDownloadablesListSecurity$Outbound;
+}
+
+export function customerPortalDownloadablesListSecurityToJSON(
+  customerPortalDownloadablesListSecurity:
+    CustomerPortalDownloadablesListSecurity,
+): string {
+  return JSON.stringify(
+    CustomerPortalDownloadablesListSecurity$outboundSchema.parse(
+      customerPortalDownloadablesListSecurity,
+    ),
+  );
+}
+
+export function customerPortalDownloadablesListSecurityFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CustomerPortalDownloadablesListSecurity,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CustomerPortalDownloadablesListSecurity$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CustomerPortalDownloadablesListSecurity' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$inboundSchema:

@@ -8,11 +8,18 @@ import { customerPortalOrdersList } from "../funcs/customerPortalOrdersList.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { CustomerOrder } from "../models/components/customerorder.js";
 import { CustomerOrderInvoice } from "../models/components/customerorderinvoice.js";
-import { CustomerPortalOrdersGetRequest } from "../models/operations/customerportalordersget.js";
-import { CustomerPortalOrdersInvoiceRequest } from "../models/operations/customerportalordersinvoice.js";
+import {
+  CustomerPortalOrdersGetRequest,
+  CustomerPortalOrdersGetSecurity,
+} from "../models/operations/customerportalordersget.js";
+import {
+  CustomerPortalOrdersInvoiceRequest,
+  CustomerPortalOrdersInvoiceSecurity,
+} from "../models/operations/customerportalordersinvoice.js";
 import {
   CustomerPortalOrdersListRequest,
   CustomerPortalOrdersListResponse,
+  CustomerPortalOrdersListSecurity,
 } from "../models/operations/customerportalorderslist.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
@@ -22,14 +29,18 @@ export class PolarOrders extends ClientSDK {
    * List Orders
    *
    * @remarks
-   * List orders of the authenticated customer or user.
+   * List orders of the authenticated customer.
+   *
+   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async list(
+    security: CustomerPortalOrdersListSecurity,
     request: CustomerPortalOrdersListRequest,
     options?: RequestOptions,
   ): Promise<PageIterator<CustomerPortalOrdersListResponse, { page: number }>> {
     return unwrapResultIterator(customerPortalOrdersList(
       this,
+      security,
       request,
       options,
     ));
@@ -39,14 +50,18 @@ export class PolarOrders extends ClientSDK {
    * Get Order
    *
    * @remarks
-   * Get an order by ID for the authenticated customer or user.
+   * Get an order by ID for the authenticated customer.
+   *
+   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async get(
+    security: CustomerPortalOrdersGetSecurity,
     request: CustomerPortalOrdersGetRequest,
     options?: RequestOptions,
   ): Promise<CustomerOrder> {
     return unwrapAsync(customerPortalOrdersGet(
       this,
+      security,
       request,
       options,
     ));
@@ -57,13 +72,17 @@ export class PolarOrders extends ClientSDK {
    *
    * @remarks
    * Get an order's invoice data.
+   *
+   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async invoice(
+    security: CustomerPortalOrdersInvoiceSecurity,
     request: CustomerPortalOrdersInvoiceRequest,
     options?: RequestOptions,
   ): Promise<CustomerOrderInvoice> {
     return unwrapAsync(customerPortalOrdersInvoice(
       this,
+      security,
       request,
       options,
     ));

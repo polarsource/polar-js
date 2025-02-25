@@ -14,6 +14,8 @@
 
 Get license keys connected to the given organization & filters.
 
+**Scopes**: `license_keys:read` `license_keys:write`
+
 ### Example Usage
 
 ```typescript
@@ -93,6 +95,8 @@ run();
 
 Get a license key.
 
+**Scopes**: `license_keys:read` `license_keys:write`
+
 ### Example Usage
 
 ```typescript
@@ -171,6 +175,8 @@ run();
 ## update
 
 Update a license key.
+
+**Scopes**: `license_keys:write`
 
 ### Example Usage
 
@@ -252,6 +258,8 @@ run();
 ## getActivation
 
 Get a license key activation.
+
+**Scopes**: `license_keys:read` `license_keys:write`
 
 ### Example Usage
 

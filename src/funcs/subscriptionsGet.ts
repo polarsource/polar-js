@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get a subscription by ID.
+ *
+ * **Scopes**: `subscriptions:write`
  */
 export function subscriptionsGet(
   client: PolarCore,

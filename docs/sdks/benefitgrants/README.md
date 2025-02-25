@@ -11,19 +11,21 @@
 
 ## list
 
-List benefits grants of the authenticated customer or user.
+List benefits grants of the authenticated customer.
+
+**Scopes**: `customer_portal:read` `customer_portal:write`
 
 ### Example Usage
 
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new Polar();
 
 async function run() {
-  const result = await polar.customerPortal.benefitGrants.list({});
+  const result = await polar.customerPortal.benefitGrants.list({
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {});
 
   for await (const page of result) {
     // Handle the page
@@ -44,12 +46,12 @@ import { customerPortalBenefitGrantsList } from "@polar-sh/sdk/funcs/customerPor
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new PolarCore();
 
 async function run() {
-  const res = await customerPortalBenefitGrantsList(polar, {});
+  const res = await customerPortalBenefitGrantsList(polar, {
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {});
 
   if (!res.ok) {
     throw res.error;
@@ -71,6 +73,7 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [operations.CustomerPortalBenefitGrantsListRequest](../../models/operations/customerportalbenefitgrantslistrequest.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.CustomerPortalBenefitGrantsListSecurity](../../models/operations/customerportalbenefitgrantslistsecurity.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -88,19 +91,21 @@ run();
 
 ## get
 
-Get a benefit grant by ID for the authenticated customer or user.
+Get a benefit grant by ID for the authenticated customer.
+
+**Scopes**: `customer_portal:read` `customer_portal:write`
 
 ### Example Usage
 
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new Polar();
 
 async function run() {
   const result = await polar.customerPortal.benefitGrants.get({
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {
     id: "<value>",
   });
 
@@ -121,12 +126,12 @@ import { customerPortalBenefitGrantsGet } from "@polar-sh/sdk/funcs/customerPort
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new PolarCore();
 
 async function run() {
   const res = await customerPortalBenefitGrantsGet(polar, {
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {
     id: "<value>",
   });
 
@@ -148,6 +153,7 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [operations.CustomerPortalBenefitGrantsGetRequest](../../models/operations/customerportalbenefitgrantsgetrequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.CustomerPortalBenefitGrantsGetSecurity](../../models/operations/customerportalbenefitgrantsgetsecurity.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -166,19 +172,21 @@ run();
 
 ## update
 
-Update a benefit grant for the authenticated customer or user.
+Update a benefit grant for the authenticated customer.
+
+**Scopes**: `customer_portal:write`
 
 ### Example Usage
 
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new Polar();
 
 async function run() {
   const result = await polar.customerPortal.benefitGrants.update({
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {
     id: "<value>",
     customerBenefitGrantUpdate: {},
   });
@@ -200,12 +208,12 @@ import { customerPortalBenefitGrantsUpdate } from "@polar-sh/sdk/funcs/customerP
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new PolarCore();
 
 async function run() {
   const res = await customerPortalBenefitGrantsUpdate(polar, {
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {
     id: "<value>",
     customerBenefitGrantUpdate: {
       properties: {
@@ -232,6 +240,7 @@ run();
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [operations.CustomerPortalBenefitGrantsUpdateRequest](../../models/operations/customerportalbenefitgrantsupdaterequest.md)                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.CustomerPortalBenefitGrantsUpdateSecurity](../../models/operations/customerportalbenefitgrantsupdatesecurity.md)                                                   | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

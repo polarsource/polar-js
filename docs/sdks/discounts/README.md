@@ -15,6 +15,8 @@
 
 List discounts.
 
+**Scopes**: `discounts:read` `discounts:write`
+
 ### Example Usage
 
 ```typescript
@@ -91,6 +93,8 @@ run();
 ## create
 
 Create a discount.
+
+**Scopes**: `discounts:write`
 
 ### Example Usage
 
@@ -179,6 +183,8 @@ run();
 
 Get a discount by ID.
 
+**Scopes**: `discounts:read` `discounts:write`
+
 ### Example Usage
 
 ```typescript
@@ -256,6 +262,8 @@ run();
 ## update
 
 Update a discount.
+
+**Scopes**: `discounts:write`
 
 ### Example Usage
 
@@ -336,6 +344,8 @@ run();
 ## delete
 
 Delete a discount.
+
+**Scopes**: `discounts:write`
 
 ### Example Usage
 

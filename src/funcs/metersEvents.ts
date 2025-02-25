@@ -48,6 +48,8 @@ import {
  *
  * @remarks
  * Get events matching the filter of a meter.
+ *
+ * **Scopes**: `meters:read` `meters:write`
  */
 export function metersEvents(
   client: PolarCore,

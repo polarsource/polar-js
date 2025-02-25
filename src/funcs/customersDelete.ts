@@ -42,6 +42,8 @@ import { Result } from "../types/fp.js";
  * Delete a customer.
  *
  * Immediately cancels any active subscriptions and revokes any active benefits.
+ *
+ * **Scopes**: `customers:write`
  */
 export function customersDelete(
   client: PolarCore,

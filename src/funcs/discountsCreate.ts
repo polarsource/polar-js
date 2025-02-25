@@ -39,6 +39,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a discount.
+ *
+ * **Scopes**: `discounts:write`
  */
 export function discountsCreate(
   client: PolarCore,

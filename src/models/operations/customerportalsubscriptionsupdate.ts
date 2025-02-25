@@ -14,6 +14,10 @@ import {
 } from "../components/customersubscriptionupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type CustomerPortalSubscriptionsUpdateSecurity = {
+  customerSession: string;
+};
+
 export type CustomerPortalSubscriptionsUpdateRequest = {
   /**
    * The subscription ID.
@@ -21,6 +25,80 @@ export type CustomerPortalSubscriptionsUpdateRequest = {
   id: string;
   customerSubscriptionUpdate: CustomerSubscriptionUpdate;
 };
+
+/** @internal */
+export const CustomerPortalSubscriptionsUpdateSecurity$inboundSchema: z.ZodType<
+  CustomerPortalSubscriptionsUpdateSecurity,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  customer_session: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    "customer_session": "customerSession",
+  });
+});
+
+/** @internal */
+export type CustomerPortalSubscriptionsUpdateSecurity$Outbound = {
+  customer_session: string;
+};
+
+/** @internal */
+export const CustomerPortalSubscriptionsUpdateSecurity$outboundSchema:
+  z.ZodType<
+    CustomerPortalSubscriptionsUpdateSecurity$Outbound,
+    z.ZodTypeDef,
+    CustomerPortalSubscriptionsUpdateSecurity
+  > = z.object({
+    customerSession: z.string(),
+  }).transform((v) => {
+    return remap$(v, {
+      customerSession: "customer_session",
+    });
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerPortalSubscriptionsUpdateSecurity$ {
+  /** @deprecated use `CustomerPortalSubscriptionsUpdateSecurity$inboundSchema` instead. */
+  export const inboundSchema =
+    CustomerPortalSubscriptionsUpdateSecurity$inboundSchema;
+  /** @deprecated use `CustomerPortalSubscriptionsUpdateSecurity$outboundSchema` instead. */
+  export const outboundSchema =
+    CustomerPortalSubscriptionsUpdateSecurity$outboundSchema;
+  /** @deprecated use `CustomerPortalSubscriptionsUpdateSecurity$Outbound` instead. */
+  export type Outbound = CustomerPortalSubscriptionsUpdateSecurity$Outbound;
+}
+
+export function customerPortalSubscriptionsUpdateSecurityToJSON(
+  customerPortalSubscriptionsUpdateSecurity:
+    CustomerPortalSubscriptionsUpdateSecurity,
+): string {
+  return JSON.stringify(
+    CustomerPortalSubscriptionsUpdateSecurity$outboundSchema.parse(
+      customerPortalSubscriptionsUpdateSecurity,
+    ),
+  );
+}
+
+export function customerPortalSubscriptionsUpdateSecurityFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CustomerPortalSubscriptionsUpdateSecurity,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CustomerPortalSubscriptionsUpdateSecurity$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CustomerPortalSubscriptionsUpdateSecurity' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerPortalSubscriptionsUpdateRequest$inboundSchema: z.ZodType<

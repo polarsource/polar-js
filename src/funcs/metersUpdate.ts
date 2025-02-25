@@ -40,6 +40,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a meter.
+ *
+ * **Scopes**: `meters:write`
  */
 export function metersUpdate(
   client: PolarCore,

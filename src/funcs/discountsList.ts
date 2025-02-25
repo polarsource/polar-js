@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List discounts.
+ *
+ * **Scopes**: `discounts:read` `discounts:write`
  */
 export function discountsList(
   client: PolarCore,

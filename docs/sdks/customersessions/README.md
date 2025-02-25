@@ -11,6 +11,8 @@
 
 Create a customer session.
 
+**Scopes**: `customer_sessions:write`
+
 ### Example Usage
 
 ```typescript

@@ -23,6 +23,8 @@ export class Orders extends ClientSDK {
    *
    * @remarks
    * List orders.
+   *
+   * **Scopes**: `orders:read`
    */
   async list(
     request: OrdersListRequest,
@@ -40,6 +42,8 @@ export class Orders extends ClientSDK {
    *
    * @remarks
    * Get an order by ID.
+   *
+   * **Scopes**: `orders:read`
    */
   async get(
     request: OrdersGetRequest,
@@ -57,6 +61,8 @@ export class Orders extends ClientSDK {
    *
    * @remarks
    * Get an order's invoice data.
+   *
+   * **Scopes**: `orders:read`
    */
   async invoice(
     request: OrdersInvoiceRequest,

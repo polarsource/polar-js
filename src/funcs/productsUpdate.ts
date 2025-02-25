@@ -47,6 +47,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a product.
+ *
+ * **Scopes**: `products:write`
  */
 export function productsUpdate(
   client: PolarCore,

@@ -26,6 +26,8 @@ export class Customers extends ClientSDK {
    *
    * @remarks
    * List customers.
+   *
+   * **Scopes**: `customers:read` `customers:write`
    */
   async list(
     request: CustomersListRequest,
@@ -43,6 +45,8 @@ export class Customers extends ClientSDK {
    *
    * @remarks
    * Create a customer.
+   *
+   * **Scopes**: `customers:write`
    */
   async create(
     request: CustomerCreate,
@@ -60,6 +64,8 @@ export class Customers extends ClientSDK {
    *
    * @remarks
    * Get a customer by ID.
+   *
+   * **Scopes**: `customers:read` `customers:write`
    */
   async get(
     request: CustomersGetRequest,
@@ -77,6 +83,8 @@ export class Customers extends ClientSDK {
    *
    * @remarks
    * Update a customer.
+   *
+   * **Scopes**: `customers:write`
    */
   async update(
     request: CustomersUpdateRequest,
@@ -96,6 +104,8 @@ export class Customers extends ClientSDK {
    * Delete a customer.
    *
    * Immediately cancels any active subscriptions and revokes any active benefits.
+   *
+   * **Scopes**: `customers:write`
    */
   async delete(
     request: CustomersDeleteRequest,

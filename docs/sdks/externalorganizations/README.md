@@ -11,6 +11,8 @@
 
 List external organizations.
 
+**Scopes**: `external_organizations:read`
+
 ### Example Usage
 
 ```typescript

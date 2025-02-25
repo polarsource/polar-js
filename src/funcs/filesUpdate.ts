@@ -45,6 +45,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update a file.
+ *
+ * **Scopes**: `files:write`
  */
 export function filesUpdate(
   client: PolarCore,

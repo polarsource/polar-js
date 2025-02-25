@@ -39,6 +39,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a custom field.
+ *
+ * **Scopes**: `custom_fields:write`
  */
 export function customFieldsCreate(
   client: PolarCore,

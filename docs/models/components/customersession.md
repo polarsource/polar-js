@@ -8,31 +8,31 @@ A customer session that can be used to authenticate as a customer.
 import { CustomerSession } from "@polar-sh/sdk/models/components/customersession.js";
 
 let value: CustomerSession = {
-  createdAt: new Date("2023-10-27T08:26:38.601Z"),
-  modifiedAt: new Date("2025-11-07T05:30:16.112Z"),
+  createdAt: new Date("2023-01-18T13:41:31.922Z"),
+  modifiedAt: new Date("2023-12-01T20:12:04.141Z"),
   id: "<value>",
   token: "<value>",
-  expiresAt: new Date("2023-12-07T05:12:12.503Z"),
-  customerPortalUrl: "https://whole-postbox.net",
+  expiresAt: new Date("2025-08-15T21:46:11.495Z"),
+  customerPortalUrl: "https://urban-corporation.net",
   customerId: "<value>",
   customer: {
-    createdAt: new Date("2025-05-08T14:16:36.701Z"),
-    modifiedAt: new Date("2024-12-13T07:57:37.315Z"),
+    createdAt: new Date("2024-06-23T10:56:58.862Z"),
+    modifiedAt: new Date("2023-10-16T10:23:17.202Z"),
     id: "<value>",
     metadata: {
-      "key": 233989,
+      "key": 610021,
     },
-    email: "Luna.Hirthe85@hotmail.com",
+    email: "Noemie36@gmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Malaysia",
+      country: "Kazakhstan",
     },
     taxId: [
-      "<id>",
+      "kz_bin",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://puzzled-rosemary.name",
+    avatarUrl: "https://nocturnal-scarification.info",
   },
 };
 ```

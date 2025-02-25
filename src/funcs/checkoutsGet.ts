@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get a checkout session by ID.
+ *
+ * **Scopes**: `checkouts:read` `checkouts:write`
  */
 export function checkoutsGet(
   client: PolarCore,

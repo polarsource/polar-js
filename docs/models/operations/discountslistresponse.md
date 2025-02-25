@@ -9,31 +9,30 @@ let value: DiscountsListResponse = {
   result: {
     items: [
       {
-        duration: "once",
-        durationInMonths: 885829,
-        type: "fixed",
-        basisPoints: 435040,
-        createdAt: new Date("2025-08-01T12:48:52.738Z"),
-        modifiedAt: new Date("2023-11-28T03:21:01.284Z"),
+        duration: "forever",
+        type: "percentage",
+        basisPoints: 402291,
+        createdAt: new Date("2024-02-04T12:54:22.276Z"),
+        modifiedAt: new Date("2023-02-07T16:34:11.417Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": false,
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2024-12-23T02:23:53.289Z"),
-        endsAt: new Date("2025-11-06T19:30:28.000Z"),
-        maxRedemptions: 628304,
-        redemptionsCount: 90307,
+        startsAt: new Date("2025-11-08T08:57:15.102Z"),
+        endsAt: new Date("2024-05-20T16:38:15.015Z"),
+        maxRedemptions: 507153,
+        redemptionsCount: 336223,
         organizationId: "<value>",
         products: [
           {
-            createdAt: new Date("2025-04-01T00:05:10.720Z"),
-            modifiedAt: new Date("2023-01-07T12:06:56.751Z"),
+            createdAt: new Date("2023-07-25T17:38:37.851Z"),
+            modifiedAt: new Date("2023-04-02T14:09:43.552Z"),
             id: "<value>",
             name: "<value>",
             description:
-              "incandescence grandson gah after moralise enthusiastically worldly",
+              "bashfully finally cheerfully below upon frivolous lucky outset questionably afore",
             recurringInterval: "year",
             isRecurring: false,
             isArchived: false,
@@ -43,8 +42,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 521909,
-      maxPage: 944272,
+      totalCount: 905109,
+      maxPage: 300946,
     },
   },
 };

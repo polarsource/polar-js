@@ -17,6 +17,8 @@
 
 List checkout sessions.
 
+**Scopes**: `checkouts:read` `checkouts:write`
+
 ### Example Usage
 
 ```typescript
@@ -93,6 +95,8 @@ run();
 ## create
 
 Create a checkout session.
+
+**Scopes**: `checkouts:write`
 
 ### Example Usage
 
@@ -175,6 +179,8 @@ run();
 
 Get a checkout session by ID.
 
+**Scopes**: `checkouts:read` `checkouts:write`
+
 ### Example Usage
 
 ```typescript
@@ -252,6 +258,8 @@ run();
 ## update
 
 Update a checkout session.
+
+**Scopes**: `checkouts:write`
 
 ### Example Usage
 
@@ -496,6 +504,8 @@ run();
 Confirm a checkout session by client secret.
 
 Orders and subscriptions will be processed.
+
+**Scopes**:
 
 ### Example Usage
 

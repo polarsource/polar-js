@@ -39,6 +39,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a checkout session.
+ *
+ * **Scopes**: `checkouts:write`
  */
 export function checkoutsCreate(
   client: PolarCore,

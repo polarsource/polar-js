@@ -36,6 +36,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get an OAuth2 client by Client ID.
+ *
+ * **Scopes**:
  */
 export function oauth2ClientsGet(
   client: PolarCore,

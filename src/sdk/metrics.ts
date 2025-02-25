@@ -16,6 +16,8 @@ export class Metrics extends ClientSDK {
    *
    * @remarks
    * Get metrics about your orders and subscriptions.
+   *
+   * **Scopes**: `metrics:read`
    */
   async get(
     request: MetricsGetRequest,
@@ -33,6 +35,8 @@ export class Metrics extends ClientSDK {
    *
    * @remarks
    * Get the interval limits for the metrics endpoint.
+   *
+   * **Scopes**: `metrics:read`
    */
   async limits(
     options?: RequestOptions,

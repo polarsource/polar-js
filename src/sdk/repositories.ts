@@ -22,6 +22,8 @@ export class Repositories extends ClientSDK {
    *
    * @remarks
    * List repositories.
+   *
+   * **Scopes**: `repositories:read` `repositories:write`
    */
   async list(
     request: RepositoriesListRequest,
@@ -39,6 +41,8 @@ export class Repositories extends ClientSDK {
    *
    * @remarks
    * Get a repository by ID.
+   *
+   * **Scopes**: `repositories:read` `repositories:write`
    */
   async get(
     request: RepositoriesGetRequest,
@@ -56,6 +60,8 @@ export class Repositories extends ClientSDK {
    *
    * @remarks
    * Update a repository.
+   *
+   * **Scopes**: `repositories:write`
    */
   async update(
     request: RepositoriesUpdateRequest,

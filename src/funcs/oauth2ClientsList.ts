@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List OAuth2 clients.
+ *
+ * **Scopes**:
  */
 export function oauth2ClientsList(
   client: PolarCore,

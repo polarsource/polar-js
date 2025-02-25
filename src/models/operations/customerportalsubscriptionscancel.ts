@@ -3,9 +3,14 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+
+export type CustomerPortalSubscriptionsCancelSecurity = {
+  customerSession: string;
+};
 
 export type CustomerPortalSubscriptionsCancelRequest = {
   /**
@@ -13,6 +18,80 @@ export type CustomerPortalSubscriptionsCancelRequest = {
    */
   id: string;
 };
+
+/** @internal */
+export const CustomerPortalSubscriptionsCancelSecurity$inboundSchema: z.ZodType<
+  CustomerPortalSubscriptionsCancelSecurity,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  customer_session: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    "customer_session": "customerSession",
+  });
+});
+
+/** @internal */
+export type CustomerPortalSubscriptionsCancelSecurity$Outbound = {
+  customer_session: string;
+};
+
+/** @internal */
+export const CustomerPortalSubscriptionsCancelSecurity$outboundSchema:
+  z.ZodType<
+    CustomerPortalSubscriptionsCancelSecurity$Outbound,
+    z.ZodTypeDef,
+    CustomerPortalSubscriptionsCancelSecurity
+  > = z.object({
+    customerSession: z.string(),
+  }).transform((v) => {
+    return remap$(v, {
+      customerSession: "customer_session",
+    });
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerPortalSubscriptionsCancelSecurity$ {
+  /** @deprecated use `CustomerPortalSubscriptionsCancelSecurity$inboundSchema` instead. */
+  export const inboundSchema =
+    CustomerPortalSubscriptionsCancelSecurity$inboundSchema;
+  /** @deprecated use `CustomerPortalSubscriptionsCancelSecurity$outboundSchema` instead. */
+  export const outboundSchema =
+    CustomerPortalSubscriptionsCancelSecurity$outboundSchema;
+  /** @deprecated use `CustomerPortalSubscriptionsCancelSecurity$Outbound` instead. */
+  export type Outbound = CustomerPortalSubscriptionsCancelSecurity$Outbound;
+}
+
+export function customerPortalSubscriptionsCancelSecurityToJSON(
+  customerPortalSubscriptionsCancelSecurity:
+    CustomerPortalSubscriptionsCancelSecurity,
+): string {
+  return JSON.stringify(
+    CustomerPortalSubscriptionsCancelSecurity$outboundSchema.parse(
+      customerPortalSubscriptionsCancelSecurity,
+    ),
+  );
+}
+
+export function customerPortalSubscriptionsCancelSecurityFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CustomerPortalSubscriptionsCancelSecurity,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CustomerPortalSubscriptionsCancelSecurity$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CustomerPortalSubscriptionsCancelSecurity' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerPortalSubscriptionsCancelRequest$inboundSchema: z.ZodType<

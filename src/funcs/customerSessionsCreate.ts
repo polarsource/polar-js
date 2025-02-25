@@ -39,6 +39,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Create a customer session.
+ *
+ * **Scopes**: `customer_sessions:write`
  */
 export function customerSessionsCreate(
   client: PolarCore,

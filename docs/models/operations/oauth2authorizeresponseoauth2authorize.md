@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2023-07-04T05:11:18.697Z"),
-    modifiedAt: new Date("2023-01-01T11:08:29.712Z"),
+    createdAt: new Date("2024-03-20T05:37:30.541Z"),
+    modifiedAt: new Date("2023-07-09T22:31:57.118Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://growing-edge.name",
-    logoUri: "https://polished-accelerator.info/",
-    tosUri: "https://dreary-fibre.com",
-    policyUri: "https://impolite-habit.info",
+    clientUri: "https://all-density.com",
+    logoUri: "https://hard-to-find-hope.name/",
+    tosUri: "https://fatal-defendant.org/",
+    policyUri: "https://dependent-spork.info",
   },
   sub: {
     id: "<value>",
-    email: "Ivy_Kunde47@hotmail.com",
-    avatarUrl: "https://upset-fledgling.com",
+    email: "Mose_Mills92@hotmail.com",
+    avatarUrl: "https://immaculate-character.biz",
   },
   scopes: [
-    "external_organizations:read",
+    "custom_fields:read",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2023-12-23T07:27:41.103Z"),
-    modifiedAt: new Date("2024-08-23T07:45:01.641Z"),
+    createdAt: new Date("2023-04-08T18:51:26.417Z"),
+    modifiedAt: new Date("2023-10-14T15:58:41.867Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://live-embarrassment.org",
-    logoUri: "https://second-hand-adrenalin.com",
-    tosUri: "https://soulful-characterization.org",
-    policyUri: "https://stable-pasta.info",
+    clientUri: "https://scornful-valentine.biz/",
+    logoUri: "https://immense-recommendation.net/",
+    tosUri: "https://granular-bonnet.info/",
+    policyUri: "https://nimble-premise.info/",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://warmhearted-edge.biz/",
+    avatarUrl: "https://short-courtroom.name/",
   },
   scopes: [
-    "issues:write",
+    "repositories:read",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://well-made-someplace.biz",
+      avatarUrl: "https://amused-tribe.biz/",
     },
   ],
 };

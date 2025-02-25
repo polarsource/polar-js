@@ -26,6 +26,8 @@ export class CustomFields extends ClientSDK {
    *
    * @remarks
    * List custom fields.
+   *
+   * **Scopes**: `custom_fields:read` `custom_fields:write`
    */
   async list(
     request: CustomFieldsListRequest,
@@ -43,6 +45,8 @@ export class CustomFields extends ClientSDK {
    *
    * @remarks
    * Create a custom field.
+   *
+   * **Scopes**: `custom_fields:write`
    */
   async create(
     request: CustomFieldCreate,
@@ -60,6 +64,8 @@ export class CustomFields extends ClientSDK {
    *
    * @remarks
    * Get a custom field by ID.
+   *
+   * **Scopes**: `custom_fields:read` `custom_fields:write`
    */
   async get(
     request: CustomFieldsGetRequest,
@@ -77,6 +83,8 @@ export class CustomFields extends ClientSDK {
    *
    * @remarks
    * Update a custom field.
+   *
+   * **Scopes**: `custom_fields:write`
    */
   async update(
     request: CustomFieldsUpdateRequest,
@@ -94,6 +102,8 @@ export class CustomFields extends ClientSDK {
    *
    * @remarks
    * Delete a custom field.
+   *
+   * **Scopes**: `custom_fields:write`
    */
   async delete(
     request: CustomFieldsDeleteRequest,

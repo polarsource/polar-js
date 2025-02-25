@@ -32,6 +32,8 @@ export class Meters extends ClientSDK {
    *
    * @remarks
    * List meters.
+   *
+   * **Scopes**: `meters:read` `meters:write`
    */
   async list(
     request: MetersListRequest,
@@ -49,6 +51,8 @@ export class Meters extends ClientSDK {
    *
    * @remarks
    * Create a meter.
+   *
+   * **Scopes**: `meters:write`
    */
   async create(
     request: MeterCreate,
@@ -66,6 +70,8 @@ export class Meters extends ClientSDK {
    *
    * @remarks
    * Get a meter by ID.
+   *
+   * **Scopes**: `meters:read` `meters:write`
    */
   async get(
     request: MetersGetRequest,
@@ -83,6 +89,8 @@ export class Meters extends ClientSDK {
    *
    * @remarks
    * Update a meter.
+   *
+   * **Scopes**: `meters:write`
    */
   async update(
     request: MetersUpdateRequest,
@@ -100,6 +108,8 @@ export class Meters extends ClientSDK {
    *
    * @remarks
    * Get events matching the filter of a meter.
+   *
+   * **Scopes**: `meters:read` `meters:write`
    */
   async events(
     request: MetersEventsRequest,
@@ -117,6 +127,8 @@ export class Meters extends ClientSDK {
    *
    * @remarks
    * Get quantities of a meter over a time period.
+   *
+   * **Scopes**: `meters:read` `meters:write`
    */
   async quantities(
     request: MetersQuantitiesRequest,

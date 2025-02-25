@@ -16,6 +16,8 @@
 
 List meters.
 
+**Scopes**: `meters:read` `meters:write`
+
 ### Example Usage
 
 ```typescript
@@ -92,6 +94,8 @@ run();
 ## create
 
 Create a meter.
+
+**Scopes**: `meters:write`
 
 ### Example Usage
 
@@ -190,6 +194,8 @@ run();
 
 Get a meter by ID.
 
+**Scopes**: `meters:read` `meters:write`
+
 ### Example Usage
 
 ```typescript
@@ -267,6 +273,8 @@ run();
 ## update
 
 Update a meter.
+
+**Scopes**: `meters:write`
 
 ### Example Usage
 
@@ -347,6 +355,8 @@ run();
 ## events
 
 Get events matching the filter of a meter.
+
+**Scopes**: `meters:read` `meters:write`
 
 ### Example Usage
 
@@ -429,6 +439,8 @@ run();
 ## quantities
 
 Get quantities of a meter over a time period.
+
+**Scopes**: `meters:read` `meters:write`
 
 ### Example Usage
 

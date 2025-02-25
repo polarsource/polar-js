@@ -36,6 +36,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Update an OAuth2 client.
+ *
+ * **Scopes**:
  */
 export function oauth2ClientsUpdate(
   client: PolarCore,

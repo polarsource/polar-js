@@ -14,6 +14,8 @@ export class CustomerSessions extends ClientSDK {
    *
    * @remarks
    * Create a customer session.
+   *
+   * **Scopes**: `customer_sessions:write`
    */
   async create(
     request: CustomerSessionCreate,

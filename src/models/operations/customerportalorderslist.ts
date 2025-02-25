@@ -24,6 +24,10 @@ import {
 } from "../components/productpricetype.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type CustomerPortalOrdersListSecurity = {
+  customerSession: string;
+};
+
 /**
  * Filter by organization ID.
  */
@@ -94,6 +98,70 @@ export type CustomerPortalOrdersListRequest = {
 export type CustomerPortalOrdersListResponse = {
   result: ListResourceCustomerOrder;
 };
+
+/** @internal */
+export const CustomerPortalOrdersListSecurity$inboundSchema: z.ZodType<
+  CustomerPortalOrdersListSecurity,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  customer_session: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    "customer_session": "customerSession",
+  });
+});
+
+/** @internal */
+export type CustomerPortalOrdersListSecurity$Outbound = {
+  customer_session: string;
+};
+
+/** @internal */
+export const CustomerPortalOrdersListSecurity$outboundSchema: z.ZodType<
+  CustomerPortalOrdersListSecurity$Outbound,
+  z.ZodTypeDef,
+  CustomerPortalOrdersListSecurity
+> = z.object({
+  customerSession: z.string(),
+}).transform((v) => {
+  return remap$(v, {
+    customerSession: "customer_session",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerPortalOrdersListSecurity$ {
+  /** @deprecated use `CustomerPortalOrdersListSecurity$inboundSchema` instead. */
+  export const inboundSchema = CustomerPortalOrdersListSecurity$inboundSchema;
+  /** @deprecated use `CustomerPortalOrdersListSecurity$outboundSchema` instead. */
+  export const outboundSchema = CustomerPortalOrdersListSecurity$outboundSchema;
+  /** @deprecated use `CustomerPortalOrdersListSecurity$Outbound` instead. */
+  export type Outbound = CustomerPortalOrdersListSecurity$Outbound;
+}
+
+export function customerPortalOrdersListSecurityToJSON(
+  customerPortalOrdersListSecurity: CustomerPortalOrdersListSecurity,
+): string {
+  return JSON.stringify(
+    CustomerPortalOrdersListSecurity$outboundSchema.parse(
+      customerPortalOrdersListSecurity,
+    ),
+  );
+}
+
+export function customerPortalOrdersListSecurityFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomerPortalOrdersListSecurity, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomerPortalOrdersListSecurity$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerPortalOrdersListSecurity' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerPortalOrdersListQueryParamOrganizationIDFilter$inboundSchema:

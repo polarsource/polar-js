@@ -44,6 +44,8 @@ import {
  *
  * @remarks
  * List orders.
+ *
+ * **Scopes**: `orders:read`
  */
 export function ordersList(
   client: PolarCore,

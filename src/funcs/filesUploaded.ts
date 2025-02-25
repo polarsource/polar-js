@@ -45,6 +45,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Complete a file upload.
+ *
+ * **Scopes**: `files:write`
  */
 export function filesUploaded(
   client: PolarCore,

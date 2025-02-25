@@ -9,6 +9,7 @@ import { CustomerPortalDownloadablesCustomerPortalDownloadablesGetRequest } from
 import {
   CustomerPortalDownloadablesListRequest,
   CustomerPortalDownloadablesListResponse,
+  CustomerPortalDownloadablesListSecurity,
 } from "../models/operations/customerportaldownloadableslist.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
@@ -16,8 +17,12 @@ import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 export class Downloadables extends ClientSDK {
   /**
    * List Downloadables
+   *
+   * @remarks
+   * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
   async list(
+    security: CustomerPortalDownloadablesListSecurity,
     request: CustomerPortalDownloadablesListRequest,
     options?: RequestOptions,
   ): Promise<
@@ -25,6 +30,7 @@ export class Downloadables extends ClientSDK {
   > {
     return unwrapResultIterator(customerPortalDownloadablesList(
       this,
+      security,
       request,
       options,
     ));

@@ -43,6 +43,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get an order's invoice data.
+ *
+ * **Scopes**: `orders:read`
  */
 export function ordersInvoice(
   client: PolarCore,

@@ -15,6 +15,8 @@
 
 List customers.
 
+**Scopes**: `customers:read` `customers:write`
+
 ### Example Usage
 
 ```typescript
@@ -91,6 +93,8 @@ run();
 ## create
 
 Create a customer.
+
+**Scopes**: `customers:write`
 
 ### Example Usage
 
@@ -169,6 +173,8 @@ run();
 
 Get a customer by ID.
 
+**Scopes**: `customers:read` `customers:write`
+
 ### Example Usage
 
 ```typescript
@@ -246,6 +252,8 @@ run();
 ## update
 
 Update a customer.
+
+**Scopes**: `customers:write`
 
 ### Example Usage
 
@@ -328,6 +336,8 @@ run();
 Delete a customer.
 
 Immediately cancels any active subscriptions and revokes any active benefits.
+
+**Scopes**: `customers:write`
 
 ### Example Usage
 

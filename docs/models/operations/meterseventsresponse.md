@@ -10,39 +10,39 @@ let value: MetersEventsResponse = {
     items: [
       {
         metadata: {
-          "key": 865706,
+          "key": 399766,
         },
         id: "<value>",
-        timestamp: new Date("2023-08-06T09:59:37.931Z"),
+        timestamp: new Date("2024-07-14T04:52:17.411Z"),
         name: "<value>",
-        source: "system",
+        source: "user",
         organizationId: "<value>",
         customerId: "<value>",
         customer: {
-          createdAt: new Date("2023-05-25T12:19:30.904Z"),
-          modifiedAt: new Date("2024-06-17T13:04:54.840Z"),
+          createdAt: new Date("2023-06-11T19:43:11.675Z"),
+          modifiedAt: new Date("2024-05-08T20:20:50.781Z"),
           id: "<value>",
           metadata: {
-            "key": 479084,
+            "key": false,
           },
-          email: "Albert.OKeefe71@hotmail.com",
+          email: "Yolanda.Corwin63@yahoo.com",
           emailVerified: false,
           name: "<value>",
           billingAddress: {
-            country: "Japan",
+            country: "Netherlands",
           },
           taxId: [
-            "br_cnpj",
+            "<id>",
           ],
           organizationId: "<value>",
-          avatarUrl: "https://handy-swath.net",
+          avatarUrl: "https://judicious-integer.info/",
         },
         externalCustomerId: "<id>",
       },
     ],
     pagination: {
-      totalCount: 174206,
-      maxPage: 926245,
+      totalCount: 532954,
+      maxPage: 417755,
     },
   },
 };

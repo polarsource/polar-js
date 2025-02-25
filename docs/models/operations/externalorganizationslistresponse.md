@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "6ebb2ec0-e8bd-435c-85ad-c9e46cca29f4",
+        id: "f5715451-a1b3-4b7f-86df-09438f0fce04",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://personal-attraction.org/",
+        avatarUrl: "https://deep-battle.name/",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Turcotte, O'Connell and Bartell",
+        company: "Tillman Group",
         blog: "<value>",
         location: "<value>",
-        email: "Ari.Bednar@yahoo.com",
+        email: "Kristopher53@yahoo.com",
         twitterUsername: "<value>",
         organizationId: "<value>",
       },
     ],
     pagination: {
-      totalCount: 776876,
-      maxPage: 783242,
+      totalCount: 491684,
+      maxPage: 95666,
     },
   },
 };

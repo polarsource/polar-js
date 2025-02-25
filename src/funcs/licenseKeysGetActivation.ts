@@ -47,6 +47,8 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Get a license key activation.
+ *
+ * **Scopes**: `license_keys:read` `license_keys:write`
  */
 export function licenseKeysGetActivation(
   client: PolarCore,
