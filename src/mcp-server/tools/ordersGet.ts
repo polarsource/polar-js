@@ -17,6 +17,7 @@ export const tool$ordersGet: ToolDefinition<typeof args> = {
 Get an order by ID.
 
 **Scopes**: \`orders:read\``,
+  scopes: ["read", "orders"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await ordersGet(

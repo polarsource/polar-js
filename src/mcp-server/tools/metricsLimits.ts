@@ -12,6 +12,7 @@ export const tool$metricsLimits: ToolDefinition = {
 Get the interval limits for the metrics endpoint.
 
 **Scopes**: \`metrics:read\``,
+  scopes: ["read", "metrics"],
   tool: async (client, ctx) => {
     const [result, apiCall] = await metricsLimits(
       client,

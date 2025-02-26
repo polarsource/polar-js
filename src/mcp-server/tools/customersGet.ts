@@ -17,6 +17,7 @@ export const tool$customersGet: ToolDefinition<typeof args> = {
 Get a customer by ID.
 
 **Scopes**: \`customers:read\` \`customers:write\``,
+  scopes: ["read", "customers"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await customersGet(

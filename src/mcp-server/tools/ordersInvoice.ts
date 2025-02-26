@@ -17,6 +17,7 @@ export const tool$ordersInvoice: ToolDefinition<typeof args> = {
 Get an order's invoice data.
 
 **Scopes**: \`orders:read\``,
+  scopes: ["read", "orders"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await ordersInvoice(

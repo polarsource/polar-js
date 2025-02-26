@@ -16,7 +16,10 @@ export const tool$metricsGet: ToolDefinition<typeof args> = {
 
 Get metrics about your orders and subscriptions.
 
+Currency values are output in cents.
+
 **Scopes**: \`metrics:read\``,
+  scopes: ["read", "metrics"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await metricsGet(

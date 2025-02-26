@@ -19,6 +19,7 @@ Delete a customer.
 Immediately cancels any active subscriptions and revokes any active benefits.
 
 **Scopes**: \`customers:write\``,
+  scopes: ["write", "customers"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await customersDelete(

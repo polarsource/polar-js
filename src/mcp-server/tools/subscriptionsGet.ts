@@ -17,6 +17,7 @@ export const tool$subscriptionsGet: ToolDefinition<typeof args> = {
 Get a subscription by ID.
 
 **Scopes**: \`subscriptions:write\``,
+  scopes: ["read", "subscriptions"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await subscriptionsGet(
