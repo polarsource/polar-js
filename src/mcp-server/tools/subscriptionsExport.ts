@@ -17,6 +17,7 @@ export const tool$subscriptionsExport: ToolDefinition<typeof args> = {
 Export subscriptions as a CSV file.
 
 **Scopes**: \`subscriptions:read\` \`subscriptions:write\``,
+  scopes: ["read", "subscriptions"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await subscriptionsExport(

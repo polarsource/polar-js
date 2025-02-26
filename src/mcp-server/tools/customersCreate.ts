@@ -17,6 +17,7 @@ export const tool$customersCreate: ToolDefinition<typeof args> = {
 Create a customer.
 
 **Scopes**: \`customers:write\``,
+  scopes: ["write", "customers"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await customersCreate(

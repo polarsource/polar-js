@@ -17,6 +17,7 @@ export const tool$productsUpdateBenefits: ToolDefinition<typeof args> = {
 Update benefits granted by a product.
 
 **Scopes**: \`products:write\``,
+  scopes: ["write", "products"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await productsUpdateBenefits(

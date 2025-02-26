@@ -17,6 +17,7 @@ export const tool$subscriptionsRevoke: ToolDefinition<typeof args> = {
 Revoke a subscription, i.e cancel immediately.
 
 **Scopes**: \`subscriptions:write\``,
+  scopes: ["write", "subscriptions"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await subscriptionsRevoke(

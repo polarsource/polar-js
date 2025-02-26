@@ -17,6 +17,7 @@ export const tool$productsGet: ToolDefinition<typeof args> = {
 Get a product by ID.
 
 **Scopes**: \`products:read\` \`products:write\``,
+  scopes: ["read", "products"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await productsGet(

@@ -12,6 +12,8 @@
 
 Get metrics about your orders and subscriptions.
 
+Currency values are output in cents.
+
 **Scopes**: `metrics:read`
 
 ### Example Usage

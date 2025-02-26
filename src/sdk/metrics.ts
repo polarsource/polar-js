@@ -17,6 +17,8 @@ export class Metrics extends ClientSDK {
    * @remarks
    * Get metrics about your orders and subscriptions.
    *
+   * Currency values are output in cents.
+   *
    * **Scopes**: `metrics:read`
    */
   async get(

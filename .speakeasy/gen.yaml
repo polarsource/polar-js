@@ -18,7 +18,7 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
 typescript:
-  version: 0.27.0
+  version: 0.27.1
   additionalDependencies:
     dependencies:
       standardwebhooks: ^1.0.0

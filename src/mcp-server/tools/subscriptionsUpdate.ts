@@ -17,6 +17,7 @@ export const tool$subscriptionsUpdate: ToolDefinition<typeof args> = {
 Update a subscription.
 
 **Scopes**: \`subscriptions:write\``,
+  scopes: ["write", "subscriptions"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await subscriptionsUpdate(

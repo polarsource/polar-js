@@ -17,6 +17,7 @@ export const tool$productsCreate: ToolDefinition<typeof args> = {
 Create a product.
 
 **Scopes**: \`products:write\``,
+  scopes: ["write", "products"],
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await productsCreate(

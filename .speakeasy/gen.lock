@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: f5cb5eb99a0c2e74687939feb495b787
+  docChecksum: 111e175a4c3fd93c669152e1fb7d554a
   docVersion: 0.1.0
-  speakeasyVersion: 1.503.0
-  generationVersion: 2.526.1
-  releaseVersion: 0.27.0
-  configChecksum: 9058b2656c4f8b6be051cf2d4825a5ba
+  speakeasyVersion: 1.504.1
+  generationVersion: 2.529.2
+  releaseVersion: 0.27.1
+  configChecksum: 12bdd9b52349fdc1c23a2221b877d665
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.21.1
+    core: 3.21.2
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.0
@@ -947,95 +947,21 @@ generatedFiles:
   - src/mcp-server/server.ts
   - src/mcp-server/shared.ts
   - src/mcp-server/tools.ts
-  - src/mcp-server/tools/advertisementsGet.ts
-  - src/mcp-server/tools/advertisementsList.ts
-  - src/mcp-server/tools/benefitsCreate.ts
-  - src/mcp-server/tools/benefitsDelete.ts
-  - src/mcp-server/tools/benefitsGet.ts
-  - src/mcp-server/tools/benefitsGrants.ts
-  - src/mcp-server/tools/benefitsList.ts
-  - src/mcp-server/tools/benefitsUpdate.ts
-  - src/mcp-server/tools/checkoutLinksCreate.ts
-  - src/mcp-server/tools/checkoutLinksDelete.ts
-  - src/mcp-server/tools/checkoutLinksGet.ts
-  - src/mcp-server/tools/checkoutLinksList.ts
-  - src/mcp-server/tools/checkoutLinksUpdate.ts
-  - src/mcp-server/tools/checkoutsClientConfirm.ts
-  - src/mcp-server/tools/checkoutsClientGet.ts
-  - src/mcp-server/tools/checkoutsClientUpdate.ts
-  - src/mcp-server/tools/checkoutsCreate.ts
-  - src/mcp-server/tools/checkoutsGet.ts
-  - src/mcp-server/tools/checkoutsList.ts
-  - src/mcp-server/tools/checkoutsUpdate.ts
-  - src/mcp-server/tools/customFieldsCreate.ts
-  - src/mcp-server/tools/customFieldsDelete.ts
-  - src/mcp-server/tools/customFieldsGet.ts
-  - src/mcp-server/tools/customFieldsList.ts
-  - src/mcp-server/tools/customFieldsUpdate.ts
-  - src/mcp-server/tools/customerPortalDownloadablesGet.ts
-  - src/mcp-server/tools/customerPortalLicenseKeysActivate.ts
-  - src/mcp-server/tools/customerPortalLicenseKeysDeactivate.ts
-  - src/mcp-server/tools/customerPortalLicenseKeysValidate.ts
-  - src/mcp-server/tools/customerPortalOrganizationsGet.ts
-  - src/mcp-server/tools/customerSessionsCreate.ts
   - src/mcp-server/tools/customersCreate.ts
   - src/mcp-server/tools/customersDelete.ts
   - src/mcp-server/tools/customersGet.ts
   - src/mcp-server/tools/customersList.ts
   - src/mcp-server/tools/customersUpdate.ts
-  - src/mcp-server/tools/discountsCreate.ts
-  - src/mcp-server/tools/discountsDelete.ts
-  - src/mcp-server/tools/discountsGet.ts
-  - src/mcp-server/tools/discountsList.ts
-  - src/mcp-server/tools/discountsUpdate.ts
-  - src/mcp-server/tools/eventsGet.ts
-  - src/mcp-server/tools/eventsIngest.ts
-  - src/mcp-server/tools/eventsList.ts
-  - src/mcp-server/tools/externalOrganizationsList.ts
-  - src/mcp-server/tools/filesCreate.ts
-  - src/mcp-server/tools/filesDelete.ts
-  - src/mcp-server/tools/filesList.ts
-  - src/mcp-server/tools/filesUpdate.ts
-  - src/mcp-server/tools/filesUploaded.ts
-  - src/mcp-server/tools/licenseKeysGet.ts
-  - src/mcp-server/tools/licenseKeysGetActivation.ts
-  - src/mcp-server/tools/licenseKeysList.ts
-  - src/mcp-server/tools/licenseKeysUpdate.ts
-  - src/mcp-server/tools/metersCreate.ts
-  - src/mcp-server/tools/metersEvents.ts
-  - src/mcp-server/tools/metersGet.ts
-  - src/mcp-server/tools/metersList.ts
-  - src/mcp-server/tools/metersQuantities.ts
-  - src/mcp-server/tools/metersUpdate.ts
   - src/mcp-server/tools/metricsGet.ts
   - src/mcp-server/tools/metricsLimits.ts
-  - src/mcp-server/tools/oauth2Authorize.ts
-  - src/mcp-server/tools/oauth2ClientsCreate.ts
-  - src/mcp-server/tools/oauth2ClientsDelete.ts
-  - src/mcp-server/tools/oauth2ClientsGet.ts
-  - src/mcp-server/tools/oauth2ClientsList.ts
-  - src/mcp-server/tools/oauth2ClientsUpdate.ts
-  - src/mcp-server/tools/oauth2Introspect.ts
-  - src/mcp-server/tools/oauth2Revoke.ts
-  - src/mcp-server/tools/oauth2Token.ts
-  - src/mcp-server/tools/oauth2Userinfo.ts
   - src/mcp-server/tools/ordersGet.ts
   - src/mcp-server/tools/ordersInvoice.ts
   - src/mcp-server/tools/ordersList.ts
-  - src/mcp-server/tools/organizationsCreate.ts
-  - src/mcp-server/tools/organizationsGet.ts
-  - src/mcp-server/tools/organizationsList.ts
-  - src/mcp-server/tools/organizationsUpdate.ts
   - src/mcp-server/tools/productsCreate.ts
   - src/mcp-server/tools/productsGet.ts
   - src/mcp-server/tools/productsList.ts
   - src/mcp-server/tools/productsUpdate.ts
   - src/mcp-server/tools/productsUpdateBenefits.ts
-  - src/mcp-server/tools/refundsCreate.ts
-  - src/mcp-server/tools/refundsList.ts
-  - src/mcp-server/tools/repositoriesGet.ts
-  - src/mcp-server/tools/repositoriesList.ts
-  - src/mcp-server/tools/repositoriesUpdate.ts
   - src/mcp-server/tools/subscriptionsExport.ts
   - src/mcp-server/tools/subscriptionsGet.ts
   - src/mcp-server/tools/subscriptionsList.ts
