@@ -68,6 +68,10 @@ export type CheckoutProductsCreate = {
    * ID of an existing customer in the organization. The customer data will be pre-filled in the checkout form. The resulting order will be linked to this customer.
    */
   customerId?: string | null | undefined;
+  /**
+   * ID of the customer in your system. If a matching customer exists on Polar, the resulting order will be linked to this customer. Otherwise, a new customer will be created with this external ID set.
+   */
+  customerExternalId?: string | null | undefined;
   customerName?: string | null | undefined;
   customerEmail?: string | null | undefined;
   customerIpAddress?: string | null | undefined;
@@ -302,6 +306,7 @@ export const CheckoutProductsCreate$inboundSchema: z.ZodType<
   allow_discount_codes: z.boolean().default(true),
   amount: z.nullable(z.number().int()).optional(),
   customer_id: z.nullable(z.string()).optional(),
+  customer_external_id: z.nullable(z.string()).optional(),
   customer_name: z.nullable(z.string()).optional(),
   customer_email: z.nullable(z.string()).optional(),
   customer_ip_address: z.nullable(z.string()).optional(),
@@ -320,6 +325,7 @@ export const CheckoutProductsCreate$inboundSchema: z.ZodType<
     "discount_id": "discountId",
     "allow_discount_codes": "allowDiscountCodes",
     "customer_id": "customerId",
+    "customer_external_id": "customerExternalId",
     "customer_name": "customerName",
     "customer_email": "customerEmail",
     "customer_ip_address": "customerIpAddress",
@@ -342,6 +348,7 @@ export type CheckoutProductsCreate$Outbound = {
   allow_discount_codes: boolean;
   amount?: number | null | undefined;
   customer_id?: string | null | undefined;
+  customer_external_id?: string | null | undefined;
   customer_name?: string | null | undefined;
   customer_email?: string | null | undefined;
   customer_ip_address?: string | null | undefined;
@@ -376,6 +383,7 @@ export const CheckoutProductsCreate$outboundSchema: z.ZodType<
   allowDiscountCodes: z.boolean().default(true),
   amount: z.nullable(z.number().int()).optional(),
   customerId: z.nullable(z.string()).optional(),
+  customerExternalId: z.nullable(z.string()).optional(),
   customerName: z.nullable(z.string()).optional(),
   customerEmail: z.nullable(z.string()).optional(),
   customerIpAddress: z.nullable(z.string()).optional(),
@@ -394,6 +402,7 @@ export const CheckoutProductsCreate$outboundSchema: z.ZodType<
     discountId: "discount_id",
     allowDiscountCodes: "allow_discount_codes",
     customerId: "customer_id",
+    customerExternalId: "customer_external_id",
     customerName: "customer_name",
     customerEmail: "customer_email",
     customerIpAddress: "customer_ip_address",

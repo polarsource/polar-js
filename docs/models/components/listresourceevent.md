@@ -24,6 +24,7 @@ let value: ListResourceEvent = {
         metadata: {
           "key": "<value>",
         },
+        externalId: "<id>",
         email: "Kacie.Lowe56@gmail.com",
         emailVerified: false,
         name: "<value>",

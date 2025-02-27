@@ -40,7 +40,17 @@ export type Customer = {
    */
   id: string;
   metadata: { [k: string]: string | number | boolean };
+  /**
+   * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
+   */
+  externalId: string | null;
+  /**
+   * The email address of the customer. This must be unique within the organization.
+   */
   email: string;
+  /**
+   * Whether the customer email address is verified. The address is automatically verified when the customer accesses the customer portal using their email address.
+   */
   emailVerified: boolean;
   name: string | null;
   billingAddress: Address | null;
@@ -153,6 +163,7 @@ export const Customer$inboundSchema: z.ZodType<
   ),
   id: z.string(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  external_id: z.nullable(z.string()),
   email: z.string(),
   email_verified: z.boolean(),
   name: z.nullable(z.string()),
@@ -166,6 +177,7 @@ export const Customer$inboundSchema: z.ZodType<
   return remap$(v, {
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
+    "external_id": "externalId",
     "email_verified": "emailVerified",
     "billing_address": "billingAddress",
     "tax_id": "taxId",
@@ -180,6 +192,7 @@ export type Customer$Outbound = {
   modified_at: string | null;
   id: string;
   metadata: { [k: string]: string | number | boolean };
+  external_id: string | null;
   email: string;
   email_verified: boolean;
   name: string | null;
@@ -199,6 +212,7 @@ export const Customer$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  externalId: z.nullable(z.string()),
   email: z.string(),
   emailVerified: z.boolean(),
   name: z.nullable(z.string()),
@@ -212,6 +226,7 @@ export const Customer$outboundSchema: z.ZodType<
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
+    externalId: "external_id",
     emailVerified: "email_verified",
     billingAddress: "billing_address",
     taxId: "tax_id",

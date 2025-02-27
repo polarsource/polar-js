@@ -15,6 +15,7 @@ let value: CustomersListResponse = {
         metadata: {
           "key": 961541,
         },
+        externalId: "<id>",
         email: "Brett_Bauch@gmail.com",
         emailVerified: false,
         name: "<value>",

@@ -22,6 +22,7 @@ let value: LicenseKeyRead = {
     metadata: {
       "key": 44740,
     },
+    externalId: "<id>",
     email: "Felicia51@gmail.com",
     emailVerified: false,
     name: "<value>",

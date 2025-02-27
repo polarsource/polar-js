@@ -14,6 +14,7 @@ let value: ListResourceCustomer = {
       metadata: {
         "key": false,
       },
+      externalId: "<id>",
       email: "Tyreek32@gmail.com",
       emailVerified: false,
       name: "<value>",

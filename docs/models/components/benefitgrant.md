@@ -23,6 +23,7 @@ let value: BenefitGrant = {
     metadata: {
       "key": false,
     },
+    externalId: "<id>",
     email: "Mackenzie.Hansen51@yahoo.com",
     emailVerified: false,
     name: "<value>",

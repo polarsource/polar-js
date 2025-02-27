@@ -42,6 +42,7 @@ let value: WebhookSubscriptionCreatedPayload = {
       metadata: {
         "key": false,
       },
+      externalId: "<id>",
       email: "Kayleigh.Kub51@hotmail.com",
       emailVerified: false,
       name: "<value>",

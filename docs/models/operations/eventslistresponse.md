@@ -25,6 +25,7 @@ let value: EventsListResponse = {
           metadata: {
             "key": "<value>",
           },
+          externalId: "<id>",
           email: "Kenny.Lehner@hotmail.com",
           emailVerified: false,
           name: "<value>",

@@ -40,6 +40,7 @@ let value: SubscriptionsListResponse = {
           metadata: {
             "key": false,
           },
+          externalId: "<id>",
           email: "Roosevelt.VonRueden78@yahoo.com",
           emailVerified: false,
           name: "<value>",

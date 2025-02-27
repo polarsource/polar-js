@@ -505,8 +505,6 @@ Confirm a checkout session by client secret.
 
 Orders and subscriptions will be processed.
 
-**Scopes**:
-
 ### Example Usage
 
 ```typescript

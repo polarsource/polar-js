@@ -144,8 +144,6 @@ export class Checkouts extends ClientSDK {
    * Confirm a checkout session by client secret.
    *
    * Orders and subscriptions will be processed.
-   *
-   * **Scopes**:
    */
   async clientConfirm(
     request: CheckoutsClientConfirmRequest,

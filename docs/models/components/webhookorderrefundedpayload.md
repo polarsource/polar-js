@@ -40,6 +40,7 @@ let value: WebhookOrderRefundedPayload = {
       metadata: {
         "key": "<value>",
       },
+      externalId: "<id>",
       email: "Abel25@yahoo.com",
       emailVerified: false,
       name: "<value>",

@@ -15,8 +15,6 @@
 
 List OAuth2 clients.
 
-**Scopes**:
-
 ### Example Usage
 
 ```typescript
@@ -93,8 +91,6 @@ run();
 ## create
 
 Create an OAuth2 client.
-
-**Scopes**:
 
 ### Example Usage
 
@@ -179,8 +175,6 @@ run();
 
 Get an OAuth2 client by Client ID.
 
-**Scopes**:
-
 ### Example Usage
 
 ```typescript
@@ -257,8 +251,6 @@ run();
 ## update
 
 Update an OAuth2 client.
-
-**Scopes**:
 
 ### Example Usage
 
@@ -354,8 +346,6 @@ run();
 ## delete
 
 Delete an OAuth2 client.
-
-**Scopes**:
 
 ### Example Usage
 

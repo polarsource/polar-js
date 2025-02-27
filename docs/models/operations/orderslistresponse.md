@@ -38,6 +38,7 @@ let value: OrdersListResponse = {
           metadata: {
             "key": "<value>",
           },
+          externalId: "<id>",
           email: "Stanton86@yahoo.com",
           emailVerified: false,
           name: "<value>",

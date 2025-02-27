@@ -47,7 +47,7 @@ export type MetersQuantitiesRequest = {
   /**
    * Filter by external customer ID.
    */
-  exernalCustomerId?: string | Array<string> | null | undefined;
+  externalCustomerId?: string | Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -180,14 +180,14 @@ export const MetersQuantitiesRequest$inboundSchema: z.ZodType<
   interval: TimeInterval$inboundSchema,
   customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
-  exernal_customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
+  external_customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_timestamp": "startTimestamp",
     "end_timestamp": "endTimestamp",
     "customer_id": "customerId",
-    "exernal_customer_id": "exernalCustomerId",
+    "external_customer_id": "externalCustomerId",
   });
 });
 
@@ -198,7 +198,7 @@ export type MetersQuantitiesRequest$Outbound = {
   end_timestamp: string;
   interval: string;
   customer_id?: string | Array<string> | null | undefined;
-  exernal_customer_id?: string | Array<string> | null | undefined;
+  external_customer_id?: string | Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -212,14 +212,14 @@ export const MetersQuantitiesRequest$outboundSchema: z.ZodType<
   endTimestamp: z.date().transform(v => v.toISOString()),
   interval: TimeInterval$outboundSchema,
   customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  exernalCustomerId: z.nullable(z.union([z.string(), z.array(z.string())]))
+  externalCustomerId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
 }).transform((v) => {
   return remap$(v, {
     startTimestamp: "start_timestamp",
     endTimestamp: "end_timestamp",
     customerId: "customer_id",
-    exernalCustomerId: "exernal_customer_id",
+    externalCustomerId: "external_customer_id",
   });
 });
 

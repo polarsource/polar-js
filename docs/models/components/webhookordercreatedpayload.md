@@ -40,6 +40,7 @@ let value: WebhookOrderCreatedPayload = {
       metadata: {
         "key": 664197,
       },
+      externalId: "<id>",
       email: "Arvilla.Gottlieb96@yahoo.com",
       emailVerified: false,
       name: "<value>",

@@ -25,6 +25,7 @@ let value: ListResourceBenefitGrant = {
         metadata: {
           "key": "<value>",
         },
+        externalId: "<id>",
         email: "Alfreda.Hodkiewicz@yahoo.com",
         emailVerified: false,
         name: "<value>",

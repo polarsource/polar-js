@@ -25,6 +25,13 @@ export type CustomerUpdateTaxId = string | TaxIDFormat;
 
 export type CustomerUpdate = {
   metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  /**
+   * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
+   */
+  externalId?: string | null | undefined;
+  /**
+   * The email address of the customer. This must be unique within the organization.
+   */
   email?: string | null | undefined;
   name?: string | null | undefined;
   billingAddress?: Address | null | undefined;
@@ -136,6 +143,7 @@ export const CustomerUpdate$inboundSchema: z.ZodType<
   metadata: z.nullable(
     z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   ).optional(),
+  external_id: z.nullable(z.string()).optional(),
   email: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
   billing_address: z.nullable(Address$inboundSchema).optional(),
@@ -144,6 +152,7 @@ export const CustomerUpdate$inboundSchema: z.ZodType<
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "external_id": "externalId",
     "billing_address": "billingAddress",
     "tax_id": "taxId",
   });
@@ -152,6 +161,7 @@ export const CustomerUpdate$inboundSchema: z.ZodType<
 /** @internal */
 export type CustomerUpdate$Outbound = {
   metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  external_id?: string | null | undefined;
   email?: string | null | undefined;
   name?: string | null | undefined;
   billing_address?: Address$Outbound | null | undefined;
@@ -167,6 +177,7 @@ export const CustomerUpdate$outboundSchema: z.ZodType<
   metadata: z.nullable(
     z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   ).optional(),
+  externalId: z.nullable(z.string()).optional(),
   email: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
   billingAddress: z.nullable(Address$outboundSchema).optional(),
@@ -175,6 +186,7 @@ export const CustomerUpdate$outboundSchema: z.ZodType<
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
+    externalId: "external_id",
     billingAddress: "billing_address",
     taxId: "tax_id",
   });

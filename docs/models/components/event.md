@@ -22,6 +22,7 @@ let value: Event = {
     metadata: {
       "key": "<value>",
     },
+    externalId: "<id>",
     email: "Karli34@hotmail.com",
     emailVerified: false,
     name: "<value>",

@@ -24,6 +24,7 @@ let value: ListResourceLicenseKeyRead = {
         metadata: {
           "key": false,
         },
+        externalId: "<id>",
         email: "Elliot_Turner51@hotmail.com",
         emailVerified: false,
         name: "<value>",

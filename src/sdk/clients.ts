@@ -25,8 +25,6 @@ export class Clients extends ClientSDK {
    *
    * @remarks
    * List OAuth2 clients.
-   *
-   * **Scopes**:
    */
   async list(
     request: Oauth2ClientsListRequest,
@@ -44,8 +42,6 @@ export class Clients extends ClientSDK {
    *
    * @remarks
    * Create an OAuth2 client.
-   *
-   * **Scopes**:
    */
   async create(
     request: OAuth2ClientConfiguration,
@@ -63,8 +59,6 @@ export class Clients extends ClientSDK {
    *
    * @remarks
    * Get an OAuth2 client by Client ID.
-   *
-   * **Scopes**:
    */
   async get(
     request: Oauth2ClientsOauth2GetClientRequest,
@@ -82,8 +76,6 @@ export class Clients extends ClientSDK {
    *
    * @remarks
    * Update an OAuth2 client.
-   *
-   * **Scopes**:
    */
   async update(
     request: Oauth2ClientsOauth2UpdateClientRequest,
@@ -101,8 +93,6 @@ export class Clients extends ClientSDK {
    *
    * @remarks
    * Delete an OAuth2 client.
-   *
-   * **Scopes**:
    */
   async delete(
     request: Oauth2ClientsOauth2DeleteClientRequest,

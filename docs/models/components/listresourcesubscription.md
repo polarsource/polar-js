@@ -39,6 +39,7 @@ let value: ListResourceSubscription = {
         metadata: {
           "key": false,
         },
+        externalId: "<id>",
         email: "Jazmin_Williamson21@yahoo.com",
         emailVerified: false,
         name: "<value>",
