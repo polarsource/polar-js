@@ -738,6 +738,9 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [get](docs/sdks/customers/README.md#get) - Get Customer
 * [update](docs/sdks/customers/README.md#update) - Update Customer
 * [delete](docs/sdks/customers/README.md#delete) - Delete Customer
+* [getExternal](docs/sdks/customers/README.md#getexternal) - Get Customer by External ID
+* [updateExternal](docs/sdks/customers/README.md#updateexternal) - Update Customer by External ID
+* [deleteExternal](docs/sdks/customers/README.md#deleteexternal) - Delete Customer by External ID
 
 ### [customerSessions](docs/sdks/customersessions/README.md)
 
@@ -918,10 +921,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerPortalSubscriptionsUpdate`](docs/sdks/polarsubscriptions/README.md#update) - Update Subscription
 - [`customersCreate`](docs/sdks/customers/README.md#create) - Create Customer
 - [`customersDelete`](docs/sdks/customers/README.md#delete) - Delete Customer
+- [`customersDeleteExternal`](docs/sdks/customers/README.md#deleteexternal) - Delete Customer by External ID
 - [`customerSessionsCreate`](docs/sdks/customersessions/README.md#create) - Create Customer Session
 - [`customersGet`](docs/sdks/customers/README.md#get) - Get Customer
+- [`customersGetExternal`](docs/sdks/customers/README.md#getexternal) - Get Customer by External ID
 - [`customersList`](docs/sdks/customers/README.md#list) - List Customers
 - [`customersUpdate`](docs/sdks/customers/README.md#update) - Update Customer
+- [`customersUpdateExternal`](docs/sdks/customers/README.md#updateexternal) - Update Customer by External ID
 - [`customFieldsCreate`](docs/sdks/customfields/README.md#create) - Create Custom Field
 - [`customFieldsDelete`](docs/sdks/customfields/README.md#delete) - Delete Custom Field
 - [`customFieldsGet`](docs/sdks/customfields/README.md#get) - Get Custom Field

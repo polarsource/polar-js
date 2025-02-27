@@ -29,6 +29,7 @@ let value: LicenseKeyActivationRead = {
       metadata: {
         "key": false,
       },
+      externalId: "<id>",
       email: "Constance_Gutmann45@yahoo.com",
       emailVerified: false,
       name: "<value>",

@@ -25,6 +25,7 @@ let value: LicenseKeysListResponse = {
           metadata: {
             "key": "<value>",
           },
+          externalId: "<id>",
           email: "Manley_Wolff@gmail.com",
           emailVerified: false,
           name: "<value>",

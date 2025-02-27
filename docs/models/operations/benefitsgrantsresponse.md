@@ -26,6 +26,7 @@ let value: BenefitsGrantsResponse = {
           metadata: {
             "key": false,
           },
+          externalId: "<id>",
           email: "Taryn.Olson75@hotmail.com",
           emailVerified: false,
           name: "<value>",

@@ -4,19 +4,25 @@
 
 import { customersCreate } from "../funcs/customersCreate.js";
 import { customersDelete } from "../funcs/customersDelete.js";
+import { customersDeleteExternal } from "../funcs/customersDeleteExternal.js";
 import { customersGet } from "../funcs/customersGet.js";
+import { customersGetExternal } from "../funcs/customersGetExternal.js";
 import { customersList } from "../funcs/customersList.js";
 import { customersUpdate } from "../funcs/customersUpdate.js";
+import { customersUpdateExternal } from "../funcs/customersUpdateExternal.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { Customer } from "../models/components/customer.js";
 import { CustomerCreate } from "../models/components/customercreate.js";
 import { CustomersDeleteRequest } from "../models/operations/customersdelete.js";
+import { CustomersDeleteExternalRequest } from "../models/operations/customersdeleteexternal.js";
 import { CustomersGetRequest } from "../models/operations/customersget.js";
+import { CustomersGetExternalRequest } from "../models/operations/customersgetexternal.js";
 import {
   CustomersListRequest,
   CustomersListResponse,
 } from "../models/operations/customerslist.js";
 import { CustomersUpdateRequest } from "../models/operations/customersupdate.js";
+import { CustomersUpdateExternalRequest } from "../models/operations/customersupdateexternal.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -112,6 +118,65 @@ export class Customers extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(customersDelete(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Customer by External ID
+   *
+   * @remarks
+   * Get a customer by external ID.
+   *
+   * **Scopes**: `customers:read` `customers:write`
+   */
+  async getExternal(
+    request: CustomersGetExternalRequest,
+    options?: RequestOptions,
+  ): Promise<Customer> {
+    return unwrapAsync(customersGetExternal(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update Customer by External ID
+   *
+   * @remarks
+   * Update a customer by external ID.
+   *
+   * **Scopes**: `customers:write`
+   */
+  async updateExternal(
+    request: CustomersUpdateExternalRequest,
+    options?: RequestOptions,
+  ): Promise<Customer> {
+    return unwrapAsync(customersUpdateExternal(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Delete Customer by External ID
+   *
+   * @remarks
+   * Delete a customer by external ID.
+   *
+   * Immediately cancels any active subscriptions and revokes any active benefits.
+   *
+   * **Scopes**: `customers:write`
+   */
+  async deleteExternal(
+    request: CustomersDeleteExternalRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(customersDeleteExternal(
       this,
       request,
       options,

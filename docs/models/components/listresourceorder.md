@@ -37,6 +37,7 @@ let value: ListResourceOrder = {
         metadata: {
           "key": 896306,
         },
+        externalId: "<id>",
         email: "Deshawn_Daniel-Kreiger@yahoo.com",
         emailVerified: false,
         name: "<value>",

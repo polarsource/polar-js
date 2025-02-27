@@ -28,6 +28,7 @@ let value: WebhookBenefitGrantRevokedPayload = {
       metadata: {
         "key": false,
       },
+      externalId: "<id>",
       email: "Isidro.Dach63@hotmail.com",
       emailVerified: false,
       name: "<value>",

@@ -28,6 +28,7 @@ let value: WebhookBenefitGrantUpdatedPayload = {
       metadata: {
         "key": "<value>",
       },
+      externalId: "<id>",
       email: "Robyn52@yahoo.com",
       emailVerified: false,
       name: "<value>",

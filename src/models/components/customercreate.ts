@@ -39,6 +39,13 @@ export type CustomerCreate = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | boolean } | undefined;
+  /**
+   * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
+   */
+  externalId?: string | null | undefined;
+  /**
+   * The email address of the customer. This must be unique within the organization.
+   */
   email: string;
   name?: string | null | undefined;
   billingAddress?: Address | null | undefined;
@@ -153,6 +160,7 @@ export const CustomerCreate$inboundSchema: z.ZodType<
 > = z.object({
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
     .optional(),
+  external_id: z.nullable(z.string()).optional(),
   email: z.string(),
   name: z.nullable(z.string()).optional(),
   billing_address: z.nullable(Address$inboundSchema).optional(),
@@ -162,6 +170,7 @@ export const CustomerCreate$inboundSchema: z.ZodType<
   organization_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "external_id": "externalId",
     "billing_address": "billingAddress",
     "tax_id": "taxId",
     "organization_id": "organizationId",
@@ -171,6 +180,7 @@ export const CustomerCreate$inboundSchema: z.ZodType<
 /** @internal */
 export type CustomerCreate$Outbound = {
   metadata?: { [k: string]: string | number | boolean } | undefined;
+  external_id?: string | null | undefined;
   email: string;
   name?: string | null | undefined;
   billing_address?: Address$Outbound | null | undefined;
@@ -186,6 +196,7 @@ export const CustomerCreate$outboundSchema: z.ZodType<
 > = z.object({
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
     .optional(),
+  externalId: z.nullable(z.string()).optional(),
   email: z.string(),
   name: z.nullable(z.string()).optional(),
   billingAddress: z.nullable(Address$outboundSchema).optional(),
@@ -195,6 +206,7 @@ export const CustomerCreate$outboundSchema: z.ZodType<
   organizationId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    externalId: "external_id",
     billingAddress: "billing_address",
     taxId: "tax_id",
     organizationId: "organization_id",

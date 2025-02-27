@@ -22,6 +22,7 @@ let value: ValidatedLicenseKey = {
     metadata: {
       "key": false,
     },
+    externalId: "<id>",
     email: "Nicola_Rodriguez@gmail.com",
     emailVerified: false,
     name: "<value>",

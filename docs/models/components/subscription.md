@@ -37,6 +37,7 @@ let value: Subscription = {
     metadata: {
       "key": "<value>",
     },
+    externalId: "<id>",
     email: "Nellie.Buckridge@gmail.com",
     emailVerified: false,
     name: "<value>",

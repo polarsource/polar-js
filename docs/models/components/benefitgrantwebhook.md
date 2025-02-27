@@ -23,6 +23,7 @@ let value: BenefitGrantWebhook = {
     metadata: {
       "key": false,
     },
+    externalId: "<id>",
     email: "Larue.Brekke95@hotmail.com",
     emailVerified: false,
     name: "<value>",

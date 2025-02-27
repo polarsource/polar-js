@@ -13,7 +13,7 @@
 
 ## authorize
 
-**Scopes**:
+Authorize
 
 ### Example Usage
 

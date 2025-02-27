@@ -22,6 +22,7 @@ let value: CustomerSession = {
     metadata: {
       "key": 610021,
     },
+    externalId: "<id>",
     email: "Noemie36@gmail.com",
     emailVerified: false,
     name: "<value>",

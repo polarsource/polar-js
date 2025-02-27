@@ -35,6 +35,7 @@ let value: Order = {
     metadata: {
       "key": 461050,
     },
+    externalId: "<id>",
     email: "Shayna39@hotmail.com",
     emailVerified: false,
     name: "<value>",

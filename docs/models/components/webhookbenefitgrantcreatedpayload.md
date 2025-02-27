@@ -28,6 +28,7 @@ let value: WebhookBenefitGrantCreatedPayload = {
       metadata: {
         "key": 690874,
       },
+      externalId: "<id>",
       email: "Jeremie62@hotmail.com",
       emailVerified: false,
       name: "<value>",

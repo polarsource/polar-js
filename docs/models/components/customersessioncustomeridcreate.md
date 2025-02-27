@@ -1,13 +1,13 @@
-# CustomerSessionCreate
+# CustomerSessionCustomerIDCreate
 
-Schema for creating a customer session.
+Schema for creating a customer session using a customer ID.
 
 ## Example Usage
 
 ```typescript
-import { CustomerSessionCreate } from "@polar-sh/sdk/models/components/customersessioncreate.js";
+import { CustomerSessionCustomerIDCreate } from "@polar-sh/sdk/models/components/customersessioncustomeridcreate.js";
 
-let value: CustomerSessionCreate = {
+let value: CustomerSessionCustomerIDCreate = {
   customerId: "<value>",
 };
 ```

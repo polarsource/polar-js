@@ -115,7 +115,7 @@ async function $do(
   const query = encodeFormQuery({
     "customer_id": payload.customer_id,
     "end_timestamp": payload.end_timestamp,
-    "exernal_customer_id": payload.exernal_customer_id,
+    "external_customer_id": payload.external_customer_id,
     "interval": payload.interval,
     "start_timestamp": payload.start_timestamp,
   });

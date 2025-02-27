@@ -15,10 +15,6 @@ import {
   CustomerSession$inboundSchema,
 } from "../models/components/customersession.js";
 import {
-  CustomerSessionCreate,
-  CustomerSessionCreate$outboundSchema,
-} from "../models/components/customersessioncreate.js";
-import {
   ConnectionError,
   InvalidRequestError,
   RequestAbortedError,
@@ -31,6 +27,10 @@ import {
 } from "../models/errors/httpvalidationerror.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
+import {
+  CustomerSessionsCreateCustomerSessionCreate,
+  CustomerSessionsCreateCustomerSessionCreate$outboundSchema,
+} from "../models/operations/customersessionscreate.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
@@ -44,7 +44,7 @@ import { Result } from "../types/fp.js";
  */
 export function customerSessionsCreate(
   client: PolarCore,
-  request: CustomerSessionCreate,
+  request: CustomerSessionsCreateCustomerSessionCreate,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -68,7 +68,7 @@ export function customerSessionsCreate(
 
 async function $do(
   client: PolarCore,
-  request: CustomerSessionCreate,
+  request: CustomerSessionsCreateCustomerSessionCreate,
   options?: RequestOptions,
 ): Promise<
   [
@@ -88,7 +88,8 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => CustomerSessionCreate$outboundSchema.parse(value),
+    (value) =>
+      CustomerSessionsCreateCustomerSessionCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {

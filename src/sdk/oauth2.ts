@@ -27,9 +27,6 @@ export class Oauth2 extends ClientSDK {
 
   /**
    * Authorize
-   *
-   * @remarks
-   * **Scopes**:
    */
   async authorize(
     options?: RequestOptions,

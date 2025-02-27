@@ -25,6 +25,7 @@ let value: MetersEventsResponse = {
           metadata: {
             "key": false,
           },
+          externalId: "<id>",
           email: "Yolanda.Corwin63@yahoo.com",
           emailVerified: false,
           name: "<value>",
