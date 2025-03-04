@@ -32,7 +32,7 @@ export type MetricsGetQueryParamProductIDFilter = string | Array<string>;
 /**
  * Filter by billing type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
  */
-export type ProductBillingTypeFilter =
+export type QueryParamProductBillingTypeFilter =
   | ProductBillingType
   | Array<ProductBillingType>;
 
@@ -193,8 +193,8 @@ export function metricsGetQueryParamProductIDFilterFromJSON(
 }
 
 /** @internal */
-export const ProductBillingTypeFilter$inboundSchema: z.ZodType<
-  ProductBillingTypeFilter,
+export const QueryParamProductBillingTypeFilter$inboundSchema: z.ZodType<
+  QueryParamProductBillingTypeFilter,
   z.ZodTypeDef,
   unknown
 > = z.union([
@@ -203,13 +203,15 @@ export const ProductBillingTypeFilter$inboundSchema: z.ZodType<
 ]);
 
 /** @internal */
-export type ProductBillingTypeFilter$Outbound = string | Array<string>;
+export type QueryParamProductBillingTypeFilter$Outbound =
+  | string
+  | Array<string>;
 
 /** @internal */
-export const ProductBillingTypeFilter$outboundSchema: z.ZodType<
-  ProductBillingTypeFilter$Outbound,
+export const QueryParamProductBillingTypeFilter$outboundSchema: z.ZodType<
+  QueryParamProductBillingTypeFilter$Outbound,
   z.ZodTypeDef,
-  ProductBillingTypeFilter
+  QueryParamProductBillingTypeFilter
 > = z.union([
   ProductBillingType$outboundSchema,
   z.array(ProductBillingType$outboundSchema),
@@ -219,30 +221,34 @@ export const ProductBillingTypeFilter$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ProductBillingTypeFilter$ {
-  /** @deprecated use `ProductBillingTypeFilter$inboundSchema` instead. */
-  export const inboundSchema = ProductBillingTypeFilter$inboundSchema;
-  /** @deprecated use `ProductBillingTypeFilter$outboundSchema` instead. */
-  export const outboundSchema = ProductBillingTypeFilter$outboundSchema;
-  /** @deprecated use `ProductBillingTypeFilter$Outbound` instead. */
-  export type Outbound = ProductBillingTypeFilter$Outbound;
+export namespace QueryParamProductBillingTypeFilter$ {
+  /** @deprecated use `QueryParamProductBillingTypeFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamProductBillingTypeFilter$inboundSchema;
+  /** @deprecated use `QueryParamProductBillingTypeFilter$outboundSchema` instead. */
+  export const outboundSchema =
+    QueryParamProductBillingTypeFilter$outboundSchema;
+  /** @deprecated use `QueryParamProductBillingTypeFilter$Outbound` instead. */
+  export type Outbound = QueryParamProductBillingTypeFilter$Outbound;
 }
 
-export function productBillingTypeFilterToJSON(
-  productBillingTypeFilter: ProductBillingTypeFilter,
+export function queryParamProductBillingTypeFilterToJSON(
+  queryParamProductBillingTypeFilter: QueryParamProductBillingTypeFilter,
 ): string {
   return JSON.stringify(
-    ProductBillingTypeFilter$outboundSchema.parse(productBillingTypeFilter),
+    QueryParamProductBillingTypeFilter$outboundSchema.parse(
+      queryParamProductBillingTypeFilter,
+    ),
   );
 }
 
-export function productBillingTypeFilterFromJSON(
+export function queryParamProductBillingTypeFilterFromJSON(
   jsonString: string,
-): SafeParseResult<ProductBillingTypeFilter, SDKValidationError> {
+): SafeParseResult<QueryParamProductBillingTypeFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ProductBillingTypeFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductBillingTypeFilter' from JSON`,
+    (x) =>
+      QueryParamProductBillingTypeFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamProductBillingTypeFilter' from JSON`,
   );
 }
 

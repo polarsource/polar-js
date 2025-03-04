@@ -21,7 +21,7 @@ import {
 
 export type SubscriptionCustomerMetadata = string | number | boolean;
 
-export type TaxId = string | TaxIDFormat;
+export type SubscriptionCustomerTaxId = string | TaxIDFormat;
 
 export type SubscriptionCustomer = {
   /**
@@ -107,43 +107,50 @@ export function subscriptionCustomerMetadataFromJSON(
 }
 
 /** @internal */
-export const TaxId$inboundSchema: z.ZodType<TaxId, z.ZodTypeDef, unknown> = z
-  .union([z.string(), TaxIDFormat$inboundSchema]);
-
-/** @internal */
-export type TaxId$Outbound = string | string;
-
-/** @internal */
-export const TaxId$outboundSchema: z.ZodType<
-  TaxId$Outbound,
+export const SubscriptionCustomerTaxId$inboundSchema: z.ZodType<
+  SubscriptionCustomerTaxId,
   z.ZodTypeDef,
-  TaxId
+  unknown
+> = z.union([z.string(), TaxIDFormat$inboundSchema]);
+
+/** @internal */
+export type SubscriptionCustomerTaxId$Outbound = string | string;
+
+/** @internal */
+export const SubscriptionCustomerTaxId$outboundSchema: z.ZodType<
+  SubscriptionCustomerTaxId$Outbound,
+  z.ZodTypeDef,
+  SubscriptionCustomerTaxId
 > = z.union([z.string(), TaxIDFormat$outboundSchema]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TaxId$ {
-  /** @deprecated use `TaxId$inboundSchema` instead. */
-  export const inboundSchema = TaxId$inboundSchema;
-  /** @deprecated use `TaxId$outboundSchema` instead. */
-  export const outboundSchema = TaxId$outboundSchema;
-  /** @deprecated use `TaxId$Outbound` instead. */
-  export type Outbound = TaxId$Outbound;
+export namespace SubscriptionCustomerTaxId$ {
+  /** @deprecated use `SubscriptionCustomerTaxId$inboundSchema` instead. */
+  export const inboundSchema = SubscriptionCustomerTaxId$inboundSchema;
+  /** @deprecated use `SubscriptionCustomerTaxId$outboundSchema` instead. */
+  export const outboundSchema = SubscriptionCustomerTaxId$outboundSchema;
+  /** @deprecated use `SubscriptionCustomerTaxId$Outbound` instead. */
+  export type Outbound = SubscriptionCustomerTaxId$Outbound;
 }
 
-export function taxIdToJSON(taxId: TaxId): string {
-  return JSON.stringify(TaxId$outboundSchema.parse(taxId));
+export function subscriptionCustomerTaxIdToJSON(
+  subscriptionCustomerTaxId: SubscriptionCustomerTaxId,
+): string {
+  return JSON.stringify(
+    SubscriptionCustomerTaxId$outboundSchema.parse(subscriptionCustomerTaxId),
+  );
 }
 
-export function taxIdFromJSON(
+export function subscriptionCustomerTaxIdFromJSON(
   jsonString: string,
-): SafeParseResult<TaxId, SDKValidationError> {
+): SafeParseResult<SubscriptionCustomerTaxId, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TaxId$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TaxId' from JSON`,
+    (x) => SubscriptionCustomerTaxId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionCustomerTaxId' from JSON`,
   );
 }
 

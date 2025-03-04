@@ -45,7 +45,7 @@ import {
  * @remarks
  * List files.
  *
- * **Scopes**: `files:write`
+ * **Scopes**: `files:read` `files:write`
  */
 export function filesList(
   client: PolarCore,

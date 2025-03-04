@@ -11,10 +11,7 @@ let value: MeterCreate = {
     conjunction: "or",
     clauses: [],
   },
-  aggregation: {
-    func: "avg",
-    property: "<value>",
-  },
+  aggregation: {},
 };
 ```
 

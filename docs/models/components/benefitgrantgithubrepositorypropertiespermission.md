@@ -5,7 +5,7 @@
 ```typescript
 import { BenefitGrantGitHubRepositoryPropertiesPermission } from "@polar-sh/sdk/models/components/benefitgrantgithubrepositoryproperties.js";
 
-let value: BenefitGrantGitHubRepositoryPropertiesPermission = "maintain";
+let value: BenefitGrantGitHubRepositoryPropertiesPermission = "pull";
 ```
 
 ## Values

@@ -322,7 +322,7 @@ async function run() {
               createdAt: new Date("2025-10-16T20:09:46.139Z"),
               modifiedAt: new Date("2023-09-29T18:20:07.088Z"),
               id: "<value>",
-              type: "ads",
+              type: "github_repository",
               description: "pupil divine roundabout gah oh hm over equatorial",
               selectable: false,
               deletable: false,
@@ -470,7 +470,7 @@ async function run() {
             createdAt: new Date("2025-08-24T18:28:03.144Z"),
             modifiedAt: new Date("2023-10-21T11:52:11.842Z"),
             id: "<value>",
-            type: "ads",
+            type: "custom",
             description:
               "certainly these restfully geez who countess happily gym",
             selectable: false,
@@ -651,11 +651,6 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 <details open>
 <summary>Available methods</summary>
-
-### [advertisements](docs/sdks/advertisements/README.md)
-
-* [list](docs/sdks/advertisements/README.md#list) - List Campaigns
-* [get](docs/sdks/advertisements/README.md#get) - Get Campaign
 
 ### [benefits](docs/sdks/benefits/README.md)
 
@@ -876,8 +871,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`advertisementsGet`](docs/sdks/advertisements/README.md#get) - Get Campaign
-- [`advertisementsList`](docs/sdks/advertisements/README.md#list) - List Campaigns
 - [`benefitsCreate`](docs/sdks/benefits/README.md#create) - Create Benefit
 - [`benefitsDelete`](docs/sdks/benefits/README.md#delete) - Delete Benefit
 - [`benefitsGet`](docs/sdks/benefits/README.md#get) - Get Benefit

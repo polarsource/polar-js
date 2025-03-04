@@ -27,14 +27,6 @@ const value: components.BenefitGrantDownloadablesProperties = {};
 const value: components.BenefitGrantLicenseKeysProperties = {};
 ```
 
-### `components.BenefitGrantAdsProperties`
-
-```typescript
-const value: components.BenefitGrantAdsProperties = {
-  advertisementCampaignId: "<id>",
-};
-```
-
 ### `components.BenefitGrantCustomProperties`
 
 ```typescript

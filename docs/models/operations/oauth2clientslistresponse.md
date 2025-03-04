@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://confused-coin.net/",
+          "https://important-comparison.com/",
         ],
         clientName: "<value>",
-        createdAt: new Date("2023-04-22T00:35:29.397Z"),
-        modifiedAt: new Date("2023-06-09T18:37:15.154Z"),
+        createdAt: new Date("2024-12-10T01:49:15.356Z"),
+        modifiedAt: new Date("2024-08-08T06:13:11.927Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 591293,
-        clientSecretExpiresAt: 126505,
+        clientIdIssuedAt: 881954,
+        clientSecretExpiresAt: 156040,
       },
     ],
     pagination: {
-      totalCount: 53407,
-      maxPage: 194029,
+      totalCount: 347877,
+      maxPage: 582725,
     },
   },
 };

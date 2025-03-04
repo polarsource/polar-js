@@ -5,7 +5,7 @@
 ```typescript
 import { OAuth2ClientConfigurationUpdateGrantTypes } from "@polar-sh/sdk/models/components/oauth2clientconfigurationupdate.js";
 
-let value: OAuth2ClientConfigurationUpdateGrantTypes = "refresh_token";
+let value: OAuth2ClientConfigurationUpdateGrantTypes = "authorization_code";
 ```
 
 ## Values

@@ -8,11 +8,11 @@ import { ListResourceCustomerBenefitGrant } from "@polar-sh/sdk/models/component
 let value: ListResourceCustomerBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2025-11-25T07:30:04.232Z"),
-      modifiedAt: new Date("2023-04-18T08:47:11.414Z"),
+      createdAt: new Date("2023-07-09T11:32:01.340Z"),
+      modifiedAt: new Date("2025-09-12T19:18:28.211Z"),
       id: "<value>",
-      grantedAt: new Date("2025-03-01T08:18:06.425Z"),
-      revokedAt: new Date("2025-08-06T14:32:01.697Z"),
+      grantedAt: new Date("2024-03-23T21:56:02.071Z"),
+      revokedAt: new Date("2023-07-19T14:03:29.837Z"),
       customerId: "<value>",
       benefitId: "<value>",
       subscriptionId: "<value>",
@@ -20,17 +20,17 @@ let value: ListResourceCustomerBenefitGrant = {
       isGranted: false,
       isRevoked: false,
       customer: {
-        createdAt: new Date("2023-12-31T03:03:22.852Z"),
-        modifiedAt: new Date("2024-09-16T00:32:08.173Z"),
+        createdAt: new Date("2024-10-31T20:28:03.091Z"),
+        modifiedAt: new Date("2024-12-01T20:03:30.175Z"),
         id: "<value>",
-        email: "Ethyl.Pfannerstill@gmail.com",
+        email: "Alexandrea.Ferry@yahoo.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Uganda",
+          country: "Jamaica",
         },
         taxId: [
-          "ad_nrt",
+          "id_npwp",
         ],
         oauthAccounts: {
           "key": {
@@ -40,29 +40,30 @@ let value: ListResourceCustomerBenefitGrant = {
         },
       },
       benefit: {
-        createdAt: new Date("2024-09-28T19:26:25.236Z"),
-        modifiedAt: new Date("2024-03-14T04:01:44.816Z"),
+        createdAt: new Date("2024-11-01T13:50:07.480Z"),
+        modifiedAt: new Date("2024-03-21T05:45:09.123Z"),
         id: "<value>",
-        description: "monstrous unnaturally when er fat despite cleaner",
+        description:
+          "elementary whereas essay however emergent coolly faithfully mmm unto defensive",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         organization: {
-          createdAt: new Date("2025-05-30T14:10:56.971Z"),
-          modifiedAt: new Date("2023-11-15T11:44:33.303Z"),
+          createdAt: new Date("2024-10-14T16:36:34.415Z"),
+          modifiedAt: new Date("2024-10-27T12:57:22.714Z"),
           id: "<value>",
           name: "<value>",
           slug: "<value>",
-          avatarUrl: "https://firsthand-stranger.net",
+          avatarUrl: "https://distant-finger.com/",
           bio: "<value>",
-          company: "Hickle, Torphy and Stokes",
+          company: "Ankunding, Harris and Walsh",
           blog: "<value>",
           location: "<value>",
-          email: "Cale_Welch7@yahoo.com",
+          email: "Judd31@gmail.com",
           twitterUsername: "<value>",
-          pledgeMinimumAmount: 460636,
+          pledgeMinimumAmount: 567352,
           pledgeBadgeShowAmount: false,
-          defaultUpfrontSplitToContributors: 913009,
+          defaultUpfrontSplitToContributors: 221652,
           profileSettings: {},
           featureSettings: {
             issueFundingEnabled: false,
@@ -70,28 +71,21 @@ let value: ListResourceCustomerBenefitGrant = {
           subscriptionSettings: {
             allowMultipleSubscriptions: false,
             allowCustomerUpdates: false,
-            prorationBehavior: "prorate",
+            prorationBehavior: "invoice",
           },
         },
         properties: {
-          prefix: "<value>",
-          expires: {
-            ttl: 999386,
-            timeframe: "month",
-          },
-          activations: {
-            limit: 882230,
-            enableCustomerAdmin: false,
-          },
-          limitUsage: 812025,
+          activeFiles: [
+            "<value>",
+          ],
         },
       },
       properties: {},
     },
   ],
   pagination: {
-    totalCount: 538609,
-    maxPage: 90450,
+    totalCount: 249245,
+    maxPage: 628991,
   },
 };
 ```

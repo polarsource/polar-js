@@ -6,20 +6,20 @@
 import { Subscription } from "@polar-sh/sdk/models/components/subscription.js";
 
 let value: Subscription = {
-  createdAt: new Date("2024-03-10T05:14:19.198Z"),
-  modifiedAt: new Date("2024-10-21T17:31:37.327Z"),
+  createdAt: new Date("2025-03-02T20:38:32.287Z"),
+  modifiedAt: new Date("2023-09-19T15:47:11.283Z"),
   id: "<value>",
-  amount: 63369,
-  currency: "Jamaican Dollar",
-  recurringInterval: "year",
-  status: "incomplete_expired",
-  currentPeriodStart: new Date("2025-10-31T10:26:27.251Z"),
-  currentPeriodEnd: new Date("2025-01-22T17:08:58.929Z"),
+  amount: 943828,
+  currency: "Zloty",
+  recurringInterval: "month",
+  status: "canceled",
+  currentPeriodStart: new Date("2023-04-02T03:33:58.167Z"),
+  currentPeriodEnd: new Date("2025-12-04T08:27:59.075Z"),
   cancelAtPeriodEnd: false,
-  canceledAt: new Date("2023-11-12T04:22:58.334Z"),
-  startedAt: new Date("2025-04-22T19:44:51.587Z"),
-  endsAt: new Date("2023-04-02T03:33:58.167Z"),
-  endedAt: new Date("2025-12-04T08:27:59.075Z"),
+  canceledAt: new Date("2023-02-24T00:23:58.036Z"),
+  startedAt: new Date("2025-10-20T01:37:25.539Z"),
+  endsAt: new Date("2023-10-05T03:04:06.241Z"),
+  endedAt: new Date("2025-04-10T13:48:19.184Z"),
   customerId: "<value>",
   productId: "<value>",
   priceId: "<value>",
@@ -28,74 +28,77 @@ let value: Subscription = {
   customerCancellationReason: "customer_service",
   customerCancellationComment: "<value>",
   metadata: {
-    "key": false,
+    "key": "<value>",
   },
   customer: {
-    createdAt: new Date("2023-10-05T03:04:06.241Z"),
-    modifiedAt: new Date("2025-04-10T13:48:19.184Z"),
+    createdAt: new Date("2025-04-01T00:20:32.487Z"),
+    modifiedAt: new Date("2024-08-06T10:34:04.832Z"),
     id: "<value>",
     metadata: {
       "key": "<value>",
     },
     externalId: "<id>",
-    email: "Nellie.Buckridge@gmail.com",
+    email: "Garrett_Orn@yahoo.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Norway",
+      country: "Burkina Faso",
     },
     taxId: [
-      "in_gst",
+      "nz_gst",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://corrupt-shadowbox.net/",
+    avatarUrl: "https://minty-pick.com/",
   },
   userId: "<value>",
   user: {
     id: "<value>",
-    email: "Joshua.Cruickshank@yahoo.com",
+    email: "Emiliano_Kuhlman@gmail.com",
     publicName: "<value>",
   },
   product: {
-    createdAt: new Date("2024-06-17T07:41:11.850Z"),
-    modifiedAt: new Date("2025-01-29T00:57:24.858Z"),
+    createdAt: new Date("2023-05-28T03:45:35.250Z"),
+    modifiedAt: new Date("2025-07-21T06:55:08.065Z"),
     id: "<value>",
     name: "<value>",
-    description: "with ick enlightened wide solemnly lest onto closely arcade",
-    recurringInterval: "month",
+    description: "aha barring wise finally enlightened aha reiterate",
+    recurringInterval: "year",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     metadata: {
-      "key": false,
+      "key": "<value>",
     },
     prices: [
       {
-        createdAt: new Date("2023-09-04T08:32:34.245Z"),
-        modifiedAt: new Date("2025-07-18T02:56:07.362Z"),
+        createdAt: new Date("2023-08-11T22:07:27.220Z"),
+        modifiedAt: new Date("2023-07-13T00:14:07.257Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        type: "recurring",
-        recurringInterval: "year",
-        priceCurrency: "<value>",
-        minimumAmount: 981865,
-        maximumAmount: 428199,
-        presetAmount: 881067,
+        recurringInterval: "month",
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2023-02-06T14:44:43.529Z"),
-        modifiedAt: new Date("2024-10-08T22:43:23.020Z"),
+        createdAt: new Date("2024-08-14T07:58:15.099Z"),
+        modifiedAt: new Date("2023-02-20T06:02:51.866Z"),
         id: "<value>",
-        description: "sweet majority wonderfully bah with",
+        description: "per beside sweet majority wonderfully bah",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          imageHeight: 400,
-          imageWidth: 400,
+          prefix: "<value>",
+          expires: {
+            ttl: 538877,
+            timeframe: "year",
+          },
+          activations: {
+            limit: 540223,
+            enableCustomerAdmin: false,
+          },
+          limitUsage: 631904,
         },
       },
     ],
@@ -106,57 +109,55 @@ let value: Subscription = {
         name: "<value>",
         path: "/var/spool",
         mimeType: "<value>",
-        size: 650200,
+        size: 585051,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-07-08T11:24:13.011Z"),
+        lastModifiedAt: new Date("2025-11-26T06:30:19.542Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2024-05-25T18:14:09.419Z"),
+        createdAt: new Date("2025-11-19T22:05:14.154Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://ambitious-cap.com",
+        publicUrl: "https://measly-insolence.org",
       },
     ],
     attachedCustomFields: [
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2024-01-08T06:10:49.913Z"),
-          modifiedAt: new Date("2024-11-30T05:07:28.563Z"),
+          createdAt: new Date("2023-05-05T17:36:39.027Z"),
+          modifiedAt: new Date("2023-04-22T20:53:41.146Z"),
           id: "<value>",
           metadata: {
-            "key": 385828,
+            "key": false,
           },
           slug: "<value>",
           name: "<value>",
           organizationId: "<value>",
-          properties: {
-            options: [
-              {
-                value: "<value>",
-                label: "<value>",
-              },
-            ],
-          },
+          properties: {},
         },
-        order: 531568,
+        order: 339651,
         required: false,
       },
     ],
   },
   price: {
-    createdAt: new Date("2024-09-22T21:28:43.149Z"),
-    modifiedAt: new Date("2024-11-04T08:19:22.907Z"),
+    createdAt: new Date("2024-02-27T20:49:08.098Z"),
+    modifiedAt: new Date("2024-08-05T14:21:26.517Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
-    type: "one_time",
+    type: "recurring",
     recurringInterval: "year",
+    priceCurrency: "<value>",
+    minimumAmount: 575634,
+    maximumAmount: 614368,
+    presetAmount: 67855,
   },
   discount: {
-    duration: "repeating",
+    duration: "forever",
+    durationInMonths: 801274,
     type: "fixed",
     basisPoints: 420910,
     createdAt: new Date("2023-10-09T15:28:56.919Z"),
@@ -201,11 +202,11 @@ let value: Subscription = {
 | `checkoutId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `customerCancellationReason`                                                                                            | [components.CustomerCancellationReason](../../models/components/customercancellationreason.md)                          | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `customerCancellationComment`                                                                                           | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
-| `metadata`                                                                                                              | Record<string, *components.Metadata*>                                                                                   | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
-| `customFieldData`                                                                                                       | Record<string, *components.CustomFieldData*>                                                                            | :heavy_minus_sign:                                                                                                      | Key-value object storing custom field values.                                                                           |
+| `metadata`                                                                                                              | Record<string, *components.SubscriptionMetadata*>                                                                       | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `customFieldData`                                                                                                       | Record<string, *components.SubscriptionCustomFieldData*>                                                                | :heavy_minus_sign:                                                                                                      | Key-value object storing custom field values.                                                                           |
 | `customer`                                                                                                              | [components.SubscriptionCustomer](../../models/components/subscriptioncustomer.md)                                      | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | ~~`userId`~~                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. |
 | `user`                                                                                                                  | [components.SubscriptionUser](../../models/components/subscriptionuser.md)                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `product`                                                                                                               | [components.Product](../../models/components/product.md)                                                                | :heavy_check_mark:                                                                                                      | A product.                                                                                                              |
-| `price`                                                                                                                 | *components.Price*                                                                                                      | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `price`                                                                                                                 | *components.SubscriptionPrice*                                                                                          | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `discount`                                                                                                              | *components.SubscriptionDiscount*                                                                                       | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |

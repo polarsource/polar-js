@@ -21,7 +21,7 @@ import {
 
 export type LicenseKeyCustomerMetadata = string | number | boolean;
 
-export type LicenseKeyCustomerTaxId = string | TaxIDFormat;
+export type TaxId = string | TaxIDFormat;
 
 export type LicenseKeyCustomer = {
   /**
@@ -105,50 +105,43 @@ export function licenseKeyCustomerMetadataFromJSON(
 }
 
 /** @internal */
-export const LicenseKeyCustomerTaxId$inboundSchema: z.ZodType<
-  LicenseKeyCustomerTaxId,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), TaxIDFormat$inboundSchema]);
+export const TaxId$inboundSchema: z.ZodType<TaxId, z.ZodTypeDef, unknown> = z
+  .union([z.string(), TaxIDFormat$inboundSchema]);
 
 /** @internal */
-export type LicenseKeyCustomerTaxId$Outbound = string | string;
+export type TaxId$Outbound = string | string;
 
 /** @internal */
-export const LicenseKeyCustomerTaxId$outboundSchema: z.ZodType<
-  LicenseKeyCustomerTaxId$Outbound,
+export const TaxId$outboundSchema: z.ZodType<
+  TaxId$Outbound,
   z.ZodTypeDef,
-  LicenseKeyCustomerTaxId
+  TaxId
 > = z.union([z.string(), TaxIDFormat$outboundSchema]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace LicenseKeyCustomerTaxId$ {
-  /** @deprecated use `LicenseKeyCustomerTaxId$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyCustomerTaxId$inboundSchema;
-  /** @deprecated use `LicenseKeyCustomerTaxId$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyCustomerTaxId$outboundSchema;
-  /** @deprecated use `LicenseKeyCustomerTaxId$Outbound` instead. */
-  export type Outbound = LicenseKeyCustomerTaxId$Outbound;
+export namespace TaxId$ {
+  /** @deprecated use `TaxId$inboundSchema` instead. */
+  export const inboundSchema = TaxId$inboundSchema;
+  /** @deprecated use `TaxId$outboundSchema` instead. */
+  export const outboundSchema = TaxId$outboundSchema;
+  /** @deprecated use `TaxId$Outbound` instead. */
+  export type Outbound = TaxId$Outbound;
 }
 
-export function licenseKeyCustomerTaxIdToJSON(
-  licenseKeyCustomerTaxId: LicenseKeyCustomerTaxId,
-): string {
-  return JSON.stringify(
-    LicenseKeyCustomerTaxId$outboundSchema.parse(licenseKeyCustomerTaxId),
-  );
+export function taxIdToJSON(taxId: TaxId): string {
+  return JSON.stringify(TaxId$outboundSchema.parse(taxId));
 }
 
-export function licenseKeyCustomerTaxIdFromJSON(
+export function taxIdFromJSON(
   jsonString: string,
-): SafeParseResult<LicenseKeyCustomerTaxId, SDKValidationError> {
+): SafeParseResult<TaxId, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => LicenseKeyCustomerTaxId$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LicenseKeyCustomerTaxId' from JSON`,
+    (x) => TaxId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TaxId' from JSON`,
   );
 }
 

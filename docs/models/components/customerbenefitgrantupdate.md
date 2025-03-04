@@ -3,12 +3,6 @@
 
 ## Supported Types
 
-### `components.CustomerBenefitGrantAdsUpdate`
-
-```typescript
-const value: components.CustomerBenefitGrantAdsUpdate = {};
-```
-
 ### `components.CustomerBenefitGrantCustomUpdate`
 
 ```typescript

@@ -6,17 +6,17 @@
 import { ExternalOrganization } from "@polar-sh/sdk/models/components/externalorganization.js";
 
 let value: ExternalOrganization = {
-  id: "124c4913-91b7-44da-a1a3-e293f59279c8",
+  id: "8fbf7b26-a705-4a67-ad49-dc3042048a63",
   platform: "github",
   name: "<value>",
-  avatarUrl: "https://frightened-fledgling.com",
+  avatarUrl: "https://rowdy-stool.biz",
   isPersonal: false,
   bio: "<value>",
   prettyName: "<value>",
-  company: "Witting LLC",
+  company: "Kuhn Inc",
   blog: "<value>",
   location: "<value>",
-  email: "Jack.Crooks@hotmail.com",
+  email: "Bria.Bashirian@hotmail.com",
   twitterUsername: "<value>",
   organizationId: "<value>",
 };

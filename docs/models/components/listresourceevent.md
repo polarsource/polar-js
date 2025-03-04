@@ -9,40 +9,40 @@ let value: ListResourceEvent = {
   items: [
     {
       metadata: {
-        "key": 270279,
+        "key": false,
       },
       id: "<value>",
-      timestamp: new Date("2023-10-06T00:10:21.444Z"),
+      timestamp: new Date("2023-09-20T15:54:20.278Z"),
       name: "<value>",
       source: "user",
       organizationId: "<value>",
       customerId: "<value>",
       customer: {
-        createdAt: new Date("2025-01-05T15:25:48.435Z"),
-        modifiedAt: new Date("2023-02-09T05:05:40.460Z"),
+        createdAt: new Date("2023-01-26T06:27:45.871Z"),
+        modifiedAt: new Date("2025-12-05T13:35:01.303Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": 428712,
         },
         externalId: "<id>",
-        email: "Kacie.Lowe56@gmail.com",
+        email: "Halle54@hotmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Turkey",
+          country: "United Kingdom",
         },
         taxId: [
-          "is_vat",
+          "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://pink-designation.com",
+        avatarUrl: "https://animated-intellect.name/",
       },
       externalCustomerId: "<id>",
     },
   ],
   pagination: {
-    totalCount: 889946,
-    maxPage: 391395,
+    totalCount: 351869,
+    maxPage: 488006,
   },
 };
 ```

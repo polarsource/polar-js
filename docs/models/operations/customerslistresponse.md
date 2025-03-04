@@ -9,29 +9,29 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-12-22T23:10:42.147Z"),
-        modifiedAt: new Date("2024-03-05T11:11:45.978Z"),
+        createdAt: new Date("2024-02-21T19:32:32.411Z"),
+        modifiedAt: new Date("2025-02-20T12:48:12.254Z"),
         id: "<value>",
         metadata: {
-          "key": 961541,
+          "key": "<value>",
         },
         externalId: "<id>",
-        email: "Brett_Bauch@gmail.com",
+        email: "Brianne.Stokes38@hotmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Latvia",
+          country: "San Marino",
         },
         taxId: [
           "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://rewarding-lady.biz/",
+        avatarUrl: "https://big-diver.biz/",
       },
     ],
     pagination: {
-      totalCount: 751116,
-      maxPage: 794385,
+      totalCount: 929981,
+      maxPage: 806974,
     },
   },
 };

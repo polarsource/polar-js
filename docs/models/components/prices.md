@@ -3,36 +3,23 @@
 
 ## Supported Types
 
-### `components.LegacyRecurringProductPrice`
+### `components.ProductPriceFixedCreate`
 
 ```typescript
-const value: components.LegacyRecurringProductPrice = {
-  createdAt: new Date("2023-02-15T07:34:29.918Z"),
-  modifiedAt: new Date("2024-08-04T02:21:50.561Z"),
-  id: "<value>",
-  isArchived: false,
-  productId: "<value>",
-  recurringInterval: "year",
-  priceCurrency: "<value>",
-  minimumAmount: 910396,
-  maximumAmount: 584663,
-  presetAmount: 303549,
+const value: components.ProductPriceFixedCreate = {
+  priceAmount: 665401,
 };
 ```
 
-### `components.ProductPrice`
+### `components.ProductPriceCustomCreate`
 
 ```typescript
-const value: components.ProductPrice = {
-  createdAt: new Date("2025-09-11T02:43:05.010Z"),
-  modifiedAt: new Date("2024-06-22T23:53:14.184Z"),
-  id: "<value>",
-  isArchived: false,
-  productId: "<value>",
-  type: "one_time",
-  recurringInterval: "month",
-  priceCurrency: "<value>",
-  priceAmount: 276795,
-};
+const value: components.ProductPriceCustomCreate = {};
+```
+
+### `components.ProductPriceFreeCreate`
+
+```typescript
+const value: components.ProductPriceFreeCreate = {};
 ```
 

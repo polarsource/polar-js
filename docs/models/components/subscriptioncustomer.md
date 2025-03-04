@@ -6,24 +6,24 @@
 import { SubscriptionCustomer } from "@polar-sh/sdk/models/components/subscriptioncustomer.js";
 
 let value: SubscriptionCustomer = {
-  createdAt: new Date("2023-06-02T21:32:40.622Z"),
-  modifiedAt: new Date("2025-06-01T03:55:56.938Z"),
+  createdAt: new Date("2024-12-21T15:24:11.981Z"),
+  modifiedAt: new Date("2023-08-05T20:49:45.334Z"),
   id: "<value>",
   metadata: {
-    "key": false,
+    "key": "<value>",
   },
   externalId: "<id>",
-  email: "Eldora_OReilly@yahoo.com",
+  email: "Zula45@hotmail.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Bermuda",
+    country: "Peru",
   },
   taxId: [
-    "<id>",
+    "ch_uid",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://trim-fit.org",
+  avatarUrl: "https://urban-earth.net",
 };
 ```
 
@@ -40,6 +40,6 @@ let value: SubscriptionCustomer = {
 | `emailVerified`                                                                                                                                                 | *boolean*                                                                                                                                                       | :heavy_check_mark:                                                                                                                                              | Whether the customer email address is verified. The address is automatically verified when the customer accesses the customer portal using their email address. |
 | `name`                                                                                                                                                          | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |
 | `billingAddress`                                                                                                                                                | [components.Address](../../models/components/address.md)                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |
-| `taxId`                                                                                                                                                         | *components.TaxId*[]                                                                                                                                            | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |
+| `taxId`                                                                                                                                                         | *components.SubscriptionCustomerTaxId*[]                                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |
 | `organizationId`                                                                                                                                                | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |
 | `avatarUrl`                                                                                                                                                     | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |

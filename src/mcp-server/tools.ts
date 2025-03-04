@@ -94,8 +94,13 @@ export function createRegisterTool(
   server: McpServer,
   sdk: PolarCore,
   allowedScopes: Set<MCPScope>,
+  allowedTools?: Set<string>,
 ): <A extends ZodRawShape | undefined>(tool: ToolDefinition<A>) => void {
   return <A extends ZodRawShape | undefined>(tool: ToolDefinition<A>): void => {
+    if (allowedTools && !allowedTools.has(tool.name)) {
+      return;
+    }
+
     const toolScopes = tool.scopes ?? [];
     if (!toolScopes.every((s) => allowedScopes.has(s))) {
       return;

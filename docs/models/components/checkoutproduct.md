@@ -36,7 +36,7 @@ let value: CheckoutProduct = {
       createdAt: new Date("2025-05-29T23:18:26.084Z"),
       modifiedAt: new Date("2023-06-24T10:10:57.419Z"),
       id: "<value>",
-      type: "github_repository",
+      type: "downloadables",
       description: "enrage upside-down accurate",
       selectable: false,
       deletable: false,

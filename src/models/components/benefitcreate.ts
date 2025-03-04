@@ -7,12 +7,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BenefitAdsCreate,
-  BenefitAdsCreate$inboundSchema,
-  BenefitAdsCreate$Outbound,
-  BenefitAdsCreate$outboundSchema,
-} from "./benefitadscreate.js";
-import {
   BenefitCustomCreate,
   BenefitCustomCreate$inboundSchema,
   BenefitCustomCreate$Outbound,
@@ -44,7 +38,6 @@ import {
 } from "./benefitlicensekeyscreate.js";
 
 export type BenefitCreate =
-  | (BenefitAdsCreate & { type: "ads" })
   | (BenefitCustomCreate & { type: "custom" })
   | (BenefitDiscordCreate & { type: "discord" })
   | (BenefitDownloadablesCreate & { type: "downloadables" })
@@ -57,9 +50,6 @@ export const BenefitCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  BenefitAdsCreate$inboundSchema.and(
-    z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
-  ),
   BenefitCustomCreate$inboundSchema.and(
     z.object({ type: z.literal("custom") }).transform((v) => ({
       type: v.type,
@@ -89,7 +79,6 @@ export const BenefitCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitCreate$Outbound =
-  | (BenefitAdsCreate$Outbound & { type: "ads" })
   | (BenefitCustomCreate$Outbound & { type: "custom" })
   | (BenefitDiscordCreate$Outbound & { type: "discord" })
   | (BenefitDownloadablesCreate$Outbound & { type: "downloadables" })
@@ -102,9 +91,6 @@ export const BenefitCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitCreate
 > = z.union([
-  BenefitAdsCreate$outboundSchema.and(
-    z.object({ type: z.literal("ads") }).transform((v) => ({ type: v.type })),
-  ),
   BenefitCustomCreate$outboundSchema.and(
     z.object({ type: z.literal("custom") }).transform((v) => ({
       type: v.type,

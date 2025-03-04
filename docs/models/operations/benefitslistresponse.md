@@ -9,23 +9,23 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-05-14T06:49:56.913Z"),
-        modifiedAt: new Date("2023-04-27T09:03:53.602Z"),
+        createdAt: new Date("2024-03-16T12:07:26.131Z"),
+        modifiedAt: new Date("2024-07-30T00:04:24.406Z"),
         id: "<value>",
         description:
-          "throughout innocently er wilt punctually sudden affectionate among honored",
+          "bashfully marvelous regarding singing obediently swim meanwhile zesty",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          imageHeight: 400,
-          imageWidth: 400,
+          note: "<value>",
         },
+        isTaxApplicable: false,
       },
     ],
     pagination: {
-      totalCount: 674166,
-      maxPage: 693648,
+      totalCount: 716292,
+      maxPage: 611761,
     },
   },
 };

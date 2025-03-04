@@ -77,11 +77,11 @@ import {
   SubscriptionUser$outboundSchema,
 } from "./subscriptionuser.js";
 
-export type Metadata = string | number | boolean;
+export type SubscriptionMetadata = string | number | boolean;
 
-export type CustomFieldData = string | number | boolean | Date;
+export type SubscriptionCustomFieldData = string | number | boolean | Date;
 
-export type Price = LegacyRecurringProductPrice | ProductPrice;
+export type SubscriptionPrice = LegacyRecurringProductPrice | ProductPrice;
 
 export type SubscriptionDiscount =
   | DiscountPercentageOnceForeverDurationBase
@@ -147,52 +147,56 @@ export type Subscription = {
 };
 
 /** @internal */
-export const Metadata$inboundSchema: z.ZodType<
-  Metadata,
+export const SubscriptionMetadata$inboundSchema: z.ZodType<
+  SubscriptionMetadata,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
 /** @internal */
-export type Metadata$Outbound = string | number | boolean;
+export type SubscriptionMetadata$Outbound = string | number | boolean;
 
 /** @internal */
-export const Metadata$outboundSchema: z.ZodType<
-  Metadata$Outbound,
+export const SubscriptionMetadata$outboundSchema: z.ZodType<
+  SubscriptionMetadata$Outbound,
   z.ZodTypeDef,
-  Metadata
+  SubscriptionMetadata
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Metadata$ {
-  /** @deprecated use `Metadata$inboundSchema` instead. */
-  export const inboundSchema = Metadata$inboundSchema;
-  /** @deprecated use `Metadata$outboundSchema` instead. */
-  export const outboundSchema = Metadata$outboundSchema;
-  /** @deprecated use `Metadata$Outbound` instead. */
-  export type Outbound = Metadata$Outbound;
+export namespace SubscriptionMetadata$ {
+  /** @deprecated use `SubscriptionMetadata$inboundSchema` instead. */
+  export const inboundSchema = SubscriptionMetadata$inboundSchema;
+  /** @deprecated use `SubscriptionMetadata$outboundSchema` instead. */
+  export const outboundSchema = SubscriptionMetadata$outboundSchema;
+  /** @deprecated use `SubscriptionMetadata$Outbound` instead. */
+  export type Outbound = SubscriptionMetadata$Outbound;
 }
 
-export function metadataToJSON(metadata: Metadata): string {
-  return JSON.stringify(Metadata$outboundSchema.parse(metadata));
+export function subscriptionMetadataToJSON(
+  subscriptionMetadata: SubscriptionMetadata,
+): string {
+  return JSON.stringify(
+    SubscriptionMetadata$outboundSchema.parse(subscriptionMetadata),
+  );
 }
 
-export function metadataFromJSON(
+export function subscriptionMetadataFromJSON(
   jsonString: string,
-): SafeParseResult<Metadata, SDKValidationError> {
+): SafeParseResult<SubscriptionMetadata, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Metadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Metadata' from JSON`,
+    (x) => SubscriptionMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionMetadata' from JSON`,
   );
 }
 
 /** @internal */
-export const CustomFieldData$inboundSchema: z.ZodType<
-  CustomFieldData,
+export const SubscriptionCustomFieldData$inboundSchema: z.ZodType<
+  SubscriptionCustomFieldData,
   z.ZodTypeDef,
   unknown
 > = z.union([
@@ -203,13 +207,17 @@ export const CustomFieldData$inboundSchema: z.ZodType<
 ]);
 
 /** @internal */
-export type CustomFieldData$Outbound = string | number | boolean | string;
+export type SubscriptionCustomFieldData$Outbound =
+  | string
+  | number
+  | boolean
+  | string;
 
 /** @internal */
-export const CustomFieldData$outboundSchema: z.ZodType<
-  CustomFieldData$Outbound,
+export const SubscriptionCustomFieldData$outboundSchema: z.ZodType<
+  SubscriptionCustomFieldData$Outbound,
   z.ZodTypeDef,
-  CustomFieldData
+  SubscriptionCustomFieldData
 > = z.union([
   z.string(),
   z.number().int(),
@@ -221,48 +229,55 @@ export const CustomFieldData$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CustomFieldData$ {
-  /** @deprecated use `CustomFieldData$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldData$inboundSchema;
-  /** @deprecated use `CustomFieldData$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldData$outboundSchema;
-  /** @deprecated use `CustomFieldData$Outbound` instead. */
-  export type Outbound = CustomFieldData$Outbound;
+export namespace SubscriptionCustomFieldData$ {
+  /** @deprecated use `SubscriptionCustomFieldData$inboundSchema` instead. */
+  export const inboundSchema = SubscriptionCustomFieldData$inboundSchema;
+  /** @deprecated use `SubscriptionCustomFieldData$outboundSchema` instead. */
+  export const outboundSchema = SubscriptionCustomFieldData$outboundSchema;
+  /** @deprecated use `SubscriptionCustomFieldData$Outbound` instead. */
+  export type Outbound = SubscriptionCustomFieldData$Outbound;
 }
 
-export function customFieldDataToJSON(
-  customFieldData: CustomFieldData,
+export function subscriptionCustomFieldDataToJSON(
+  subscriptionCustomFieldData: SubscriptionCustomFieldData,
 ): string {
-  return JSON.stringify(CustomFieldData$outboundSchema.parse(customFieldData));
+  return JSON.stringify(
+    SubscriptionCustomFieldData$outboundSchema.parse(
+      subscriptionCustomFieldData,
+    ),
+  );
 }
 
-export function customFieldDataFromJSON(
+export function subscriptionCustomFieldDataFromJSON(
   jsonString: string,
-): SafeParseResult<CustomFieldData, SDKValidationError> {
+): SafeParseResult<SubscriptionCustomFieldData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CustomFieldData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldData' from JSON`,
+    (x) => SubscriptionCustomFieldData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionCustomFieldData' from JSON`,
   );
 }
 
 /** @internal */
-export const Price$inboundSchema: z.ZodType<Price, z.ZodTypeDef, unknown> = z
-  .union([
-    LegacyRecurringProductPrice$inboundSchema,
-    ProductPrice$inboundSchema,
-  ]);
+export const SubscriptionPrice$inboundSchema: z.ZodType<
+  SubscriptionPrice,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
 
 /** @internal */
-export type Price$Outbound =
+export type SubscriptionPrice$Outbound =
   | LegacyRecurringProductPrice$Outbound
   | ProductPrice$Outbound;
 
 /** @internal */
-export const Price$outboundSchema: z.ZodType<
-  Price$Outbound,
+export const SubscriptionPrice$outboundSchema: z.ZodType<
+  SubscriptionPrice$Outbound,
   z.ZodTypeDef,
-  Price
+  SubscriptionPrice
 > = z.union([
   LegacyRecurringProductPrice$outboundSchema,
   ProductPrice$outboundSchema,
@@ -272,26 +287,30 @@ export const Price$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Price$ {
-  /** @deprecated use `Price$inboundSchema` instead. */
-  export const inboundSchema = Price$inboundSchema;
-  /** @deprecated use `Price$outboundSchema` instead. */
-  export const outboundSchema = Price$outboundSchema;
-  /** @deprecated use `Price$Outbound` instead. */
-  export type Outbound = Price$Outbound;
+export namespace SubscriptionPrice$ {
+  /** @deprecated use `SubscriptionPrice$inboundSchema` instead. */
+  export const inboundSchema = SubscriptionPrice$inboundSchema;
+  /** @deprecated use `SubscriptionPrice$outboundSchema` instead. */
+  export const outboundSchema = SubscriptionPrice$outboundSchema;
+  /** @deprecated use `SubscriptionPrice$Outbound` instead. */
+  export type Outbound = SubscriptionPrice$Outbound;
 }
 
-export function priceToJSON(price: Price): string {
-  return JSON.stringify(Price$outboundSchema.parse(price));
+export function subscriptionPriceToJSON(
+  subscriptionPrice: SubscriptionPrice,
+): string {
+  return JSON.stringify(
+    SubscriptionPrice$outboundSchema.parse(subscriptionPrice),
+  );
 }
 
-export function priceFromJSON(
+export function subscriptionPriceFromJSON(
   jsonString: string,
-): SafeParseResult<Price, SDKValidationError> {
+): SafeParseResult<SubscriptionPrice, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Price$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Price' from JSON`,
+    (x) => SubscriptionPrice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionPrice' from JSON`,
   );
 }
 

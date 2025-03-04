@@ -37,9 +37,9 @@ import {
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
 
-export type ProductCreateMetadata = string | number | boolean;
+export type Metadata = string | number | boolean;
 
-export type ProductCreatePrices =
+export type Prices =
   | ProductPriceFreeCreate
   | ProductPriceFixedCreate
   | ProductPriceCustomCreate;
@@ -96,75 +96,68 @@ export type ProductCreate = {
 };
 
 /** @internal */
-export const ProductCreateMetadata$inboundSchema: z.ZodType<
-  ProductCreateMetadata,
+export const Metadata$inboundSchema: z.ZodType<
+  Metadata,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
 /** @internal */
-export type ProductCreateMetadata$Outbound = string | number | boolean;
+export type Metadata$Outbound = string | number | boolean;
 
 /** @internal */
-export const ProductCreateMetadata$outboundSchema: z.ZodType<
-  ProductCreateMetadata$Outbound,
+export const Metadata$outboundSchema: z.ZodType<
+  Metadata$Outbound,
   z.ZodTypeDef,
-  ProductCreateMetadata
+  Metadata
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ProductCreateMetadata$ {
-  /** @deprecated use `ProductCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema = ProductCreateMetadata$inboundSchema;
-  /** @deprecated use `ProductCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema = ProductCreateMetadata$outboundSchema;
-  /** @deprecated use `ProductCreateMetadata$Outbound` instead. */
-  export type Outbound = ProductCreateMetadata$Outbound;
+export namespace Metadata$ {
+  /** @deprecated use `Metadata$inboundSchema` instead. */
+  export const inboundSchema = Metadata$inboundSchema;
+  /** @deprecated use `Metadata$outboundSchema` instead. */
+  export const outboundSchema = Metadata$outboundSchema;
+  /** @deprecated use `Metadata$Outbound` instead. */
+  export type Outbound = Metadata$Outbound;
 }
 
-export function productCreateMetadataToJSON(
-  productCreateMetadata: ProductCreateMetadata,
-): string {
-  return JSON.stringify(
-    ProductCreateMetadata$outboundSchema.parse(productCreateMetadata),
-  );
+export function metadataToJSON(metadata: Metadata): string {
+  return JSON.stringify(Metadata$outboundSchema.parse(metadata));
 }
 
-export function productCreateMetadataFromJSON(
+export function metadataFromJSON(
   jsonString: string,
-): SafeParseResult<ProductCreateMetadata, SDKValidationError> {
+): SafeParseResult<Metadata, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ProductCreateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductCreateMetadata' from JSON`,
+    (x) => Metadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Metadata' from JSON`,
   );
 }
 
 /** @internal */
-export const ProductCreatePrices$inboundSchema: z.ZodType<
-  ProductCreatePrices,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  ProductPriceFreeCreate$inboundSchema,
-  ProductPriceFixedCreate$inboundSchema,
-  ProductPriceCustomCreate$inboundSchema,
-]);
+export const Prices$inboundSchema: z.ZodType<Prices, z.ZodTypeDef, unknown> = z
+  .union([
+    ProductPriceFreeCreate$inboundSchema,
+    ProductPriceFixedCreate$inboundSchema,
+    ProductPriceCustomCreate$inboundSchema,
+  ]);
 
 /** @internal */
-export type ProductCreatePrices$Outbound =
+export type Prices$Outbound =
   | ProductPriceFreeCreate$Outbound
   | ProductPriceFixedCreate$Outbound
   | ProductPriceCustomCreate$Outbound;
 
 /** @internal */
-export const ProductCreatePrices$outboundSchema: z.ZodType<
-  ProductCreatePrices$Outbound,
+export const Prices$outboundSchema: z.ZodType<
+  Prices$Outbound,
   z.ZodTypeDef,
-  ProductCreatePrices
+  Prices
 > = z.union([
   ProductPriceFreeCreate$outboundSchema,
   ProductPriceFixedCreate$outboundSchema,
@@ -175,30 +168,26 @@ export const ProductCreatePrices$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ProductCreatePrices$ {
-  /** @deprecated use `ProductCreatePrices$inboundSchema` instead. */
-  export const inboundSchema = ProductCreatePrices$inboundSchema;
-  /** @deprecated use `ProductCreatePrices$outboundSchema` instead. */
-  export const outboundSchema = ProductCreatePrices$outboundSchema;
-  /** @deprecated use `ProductCreatePrices$Outbound` instead. */
-  export type Outbound = ProductCreatePrices$Outbound;
+export namespace Prices$ {
+  /** @deprecated use `Prices$inboundSchema` instead. */
+  export const inboundSchema = Prices$inboundSchema;
+  /** @deprecated use `Prices$outboundSchema` instead. */
+  export const outboundSchema = Prices$outboundSchema;
+  /** @deprecated use `Prices$Outbound` instead. */
+  export type Outbound = Prices$Outbound;
 }
 
-export function productCreatePricesToJSON(
-  productCreatePrices: ProductCreatePrices,
-): string {
-  return JSON.stringify(
-    ProductCreatePrices$outboundSchema.parse(productCreatePrices),
-  );
+export function pricesToJSON(prices: Prices): string {
+  return JSON.stringify(Prices$outboundSchema.parse(prices));
 }
 
-export function productCreatePricesFromJSON(
+export function pricesFromJSON(
   jsonString: string,
-): SafeParseResult<ProductCreatePrices, SDKValidationError> {
+): SafeParseResult<Prices, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ProductCreatePrices$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductCreatePrices' from JSON`,
+    (x) => Prices$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Prices' from JSON`,
   );
 }
 

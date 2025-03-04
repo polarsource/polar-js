@@ -5,11 +5,11 @@
 ```typescript
 import { BenefitType } from "@polar-sh/sdk/models/components/benefittype.js";
 
-let value: BenefitType = "discord";
+let value: BenefitType = "github_repository";
 ```
 
 ## Values
 
 ```typescript
-"custom" | "ads" | "discord" | "github_repository" | "downloadables" | "license_keys"
+"custom" | "discord" | "github_repository" | "downloadables" | "license_keys"
 ```

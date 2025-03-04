@@ -6,29 +6,29 @@
 import { BenefitLicenseKeysSubscriber } from "@polar-sh/sdk/models/components/benefitlicensekeyssubscriber.js";
 
 let value: BenefitLicenseKeysSubscriber = {
-  createdAt: new Date("2024-11-11T13:52:42.697Z"),
-  modifiedAt: new Date("2023-05-09T03:26:26.188Z"),
+  createdAt: new Date("2023-10-21T04:47:42.657Z"),
+  modifiedAt: new Date("2025-05-26T20:33:27.961Z"),
   id: "<value>",
-  description: "phew pish now now huddle greedily on",
+  description: "amid incidentally thread whose what",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2025-12-24T08:32:45.268Z"),
-    modifiedAt: new Date("2023-03-04T17:36:29.889Z"),
+    createdAt: new Date("2023-11-29T08:43:46.201Z"),
+    modifiedAt: new Date("2023-10-22T23:11:32.871Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://gleaming-account.name/",
+    avatarUrl: "https://cuddly-stall.org",
     bio: "<value>",
-    company: "Johnston Inc",
+    company: "Erdman and Sons",
     blog: "<value>",
     location: "<value>",
-    email: "Leopoldo26@hotmail.com",
+    email: "Elroy0@gmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 637764,
+    pledgeMinimumAmount: 23738,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 261646,
+    defaultUpfrontSplitToContributors: 881551,
     profileSettings: {},
     featureSettings: {},
     subscriptionSettings: {
@@ -40,14 +40,14 @@ let value: BenefitLicenseKeysSubscriber = {
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 860632,
+      ttl: 936700,
       timeframe: "year",
     },
     activations: {
-      limit: 24896,
+      limit: 179707,
       enableCustomerAdmin: false,
     },
-    limitUsage: 276086,
+    limitUsage: 54286,
   },
 };
 ```

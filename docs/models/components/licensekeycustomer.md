@@ -6,24 +6,24 @@
 import { LicenseKeyCustomer } from "@polar-sh/sdk/models/components/licensekeycustomer.js";
 
 let value: LicenseKeyCustomer = {
-  createdAt: new Date("2024-04-30T17:04:34.452Z"),
-  modifiedAt: new Date("2023-12-27T03:00:57.232Z"),
+  createdAt: new Date("2025-01-29T15:45:00.257Z"),
+  modifiedAt: new Date("2024-02-16T17:45:29.595Z"),
   id: "<value>",
   metadata: {
     "key": false,
   },
   externalId: "<id>",
-  email: "Flossie_Schulist@yahoo.com",
+  email: "Lucile18@yahoo.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Benin",
+    country: "Costa Rica",
   },
   taxId: [
-    "eu_oss_vat",
+    "ua_vat",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://severe-celsius.net/",
+  avatarUrl: "https://stiff-maestro.org",
 };
 ```
 
@@ -40,6 +40,6 @@ let value: LicenseKeyCustomer = {
 | `emailVerified`                                                                                                                                                 | *boolean*                                                                                                                                                       | :heavy_check_mark:                                                                                                                                              | Whether the customer email address is verified. The address is automatically verified when the customer accesses the customer portal using their email address. |
 | `name`                                                                                                                                                          | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |
 | `billingAddress`                                                                                                                                                | [components.Address](../../models/components/address.md)                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |
-| `taxId`                                                                                                                                                         | *components.LicenseKeyCustomerTaxId*[]                                                                                                                          | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |
+| `taxId`                                                                                                                                                         | *components.TaxId*[]                                                                                                                                            | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |
 | `organizationId`                                                                                                                                                | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |
 | `avatarUrl`                                                                                                                                                     | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |

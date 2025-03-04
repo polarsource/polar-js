@@ -10,40 +10,40 @@ let value: MetersEventsResponse = {
     items: [
       {
         metadata: {
-          "key": 399766,
+          "key": "<value>",
         },
         id: "<value>",
-        timestamp: new Date("2024-07-14T04:52:17.411Z"),
+        timestamp: new Date("2023-04-28T18:33:29.815Z"),
         name: "<value>",
-        source: "user",
+        source: "system",
         organizationId: "<value>",
         customerId: "<value>",
         customer: {
-          createdAt: new Date("2023-06-11T19:43:11.675Z"),
-          modifiedAt: new Date("2024-05-08T20:20:50.781Z"),
+          createdAt: new Date("2023-08-06T05:23:24.419Z"),
+          modifiedAt: new Date("2023-03-07T06:53:48.572Z"),
           id: "<value>",
           metadata: {
-            "key": false,
+            "key": "<value>",
           },
           externalId: "<id>",
-          email: "Yolanda.Corwin63@yahoo.com",
+          email: "Jeanie.Swift@gmail.com",
           emailVerified: false,
           name: "<value>",
           billingAddress: {
-            country: "Netherlands",
+            country: "Seychelles",
           },
           taxId: [
-            "<id>",
+            "ua_vat",
           ],
           organizationId: "<value>",
-          avatarUrl: "https://judicious-integer.info/",
+          avatarUrl: "https://realistic-follower.biz",
         },
         externalCustomerId: "<id>",
       },
     ],
     pagination: {
-      totalCount: 532954,
-      maxPage: 417755,
+      totalCount: 857155,
+      maxPage: 569425,
     },
   },
 };

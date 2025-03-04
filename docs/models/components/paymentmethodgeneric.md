@@ -8,7 +8,7 @@ import { PaymentMethodGeneric } from "@polar-sh/sdk/models/components/paymentmet
 let value: PaymentMethodGeneric = {
   id: "<id>",
   type: "<value>",
-  createdAt: new Date("2023-01-23T12:47:00.295Z"),
+  createdAt: new Date("2024-09-28T22:07:33.788Z"),
   default: false,
 };
 ```

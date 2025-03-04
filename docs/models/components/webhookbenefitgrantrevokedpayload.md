@@ -11,8 +11,8 @@ import { WebhookBenefitGrantRevokedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantRevokedPayload = {
   data: {
-    createdAt: new Date("2025-04-08T16:45:39.314Z"),
-    modifiedAt: new Date("2023-09-03T13:00:02.802Z"),
+    createdAt: new Date("2025-07-22T20:45:22.257Z"),
+    modifiedAt: new Date("2025-08-31T14:34:42.904Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,48 +22,39 @@ let value: WebhookBenefitGrantRevokedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2023-08-21T00:23:22.376Z"),
-      modifiedAt: new Date("2025-01-19T23:07:05.447Z"),
+      createdAt: new Date("2023-10-20T02:42:42.383Z"),
+      modifiedAt: new Date("2023-07-07T00:56:28.352Z"),
       id: "<value>",
       metadata: {
         "key": false,
       },
       externalId: "<id>",
-      email: "Isidro.Dach63@hotmail.com",
+      email: "Bernadette_Hartmann@yahoo.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Uruguay",
+        country: "Sierra Leone",
       },
       taxId: [
-        "<id>",
+        "mx_rfc",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://glass-reach.info",
+      avatarUrl: "https://experienced-lady.net",
     },
-    properties: {
-      advertisementCampaignId: "<id>",
-    },
+    properties: {},
     benefit: {
-      createdAt: new Date("2024-10-15T08:57:15.593Z"),
-      modifiedAt: new Date("2023-06-29T15:57:49.931Z"),
+      createdAt: new Date("2025-01-19T23:07:05.447Z"),
+      modifiedAt: new Date("2025-05-05T13:55:56.565Z"),
       id: "<value>",
       description:
-        "cooperative questionable atop up obesity easily eek fine and stigmatize",
+        "whose synthesise seriously nor joyously through nor cheerfully neatly juvenile",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        prefix: "<value>",
-        expires: {
-          ttl: 61840,
-          timeframe: "month",
-        },
-        activations: {
-          limit: 681766,
-          enableCustomerAdmin: false,
-        },
-        limitUsage: 375389,
+        guildId: "<id>",
+        roleId: "<id>",
+        guildToken: "<value>",
       },
     },
   },
