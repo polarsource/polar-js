@@ -8,8 +8,8 @@ import { ListResourceBenefitGrant } from "@polar-sh/sdk/models/components/listre
 let value: ListResourceBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2024-09-07T12:14:03.053Z"),
-      modifiedAt: new Date("2025-06-28T22:00:04.593Z"),
+      createdAt: new Date("2024-12-28T15:28:03.893Z"),
+      modifiedAt: new Date("2025-04-15T06:22:03.126Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
@@ -19,33 +19,31 @@ let value: ListResourceBenefitGrant = {
       userId: "<value>",
       benefitId: "<value>",
       customer: {
-        createdAt: new Date("2025-12-26T11:07:58.955Z"),
-        modifiedAt: new Date("2023-06-19T01:02:39.961Z"),
+        createdAt: new Date("2023-06-10T08:23:28.124Z"),
+        modifiedAt: new Date("2023-04-14T01:23:42.431Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": 481828,
         },
         externalId: "<id>",
-        email: "Alfreda.Hodkiewicz@yahoo.com",
+        email: "Oma_Volkman@gmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Fiji",
+          country: "Iceland",
         },
         taxId: [
           "<id>",
         ],
         organizationId: "<value>",
-        avatarUrl: "https://soft-nucleotidase.biz",
+        avatarUrl: "https://front-lobster.name",
       },
-      properties: {
-        advertisementCampaignId: "<id>",
-      },
+      properties: {},
     },
   ],
   pagination: {
-    totalCount: 157859,
-    maxPage: 878283,
+    totalCount: 10686,
+    maxPage: 348739,
   },
 };
 ```

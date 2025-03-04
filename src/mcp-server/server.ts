@@ -34,6 +34,7 @@ import { tool$subscriptionsUpdate } from "./tools/subscriptionsUpdate.js";
 
 export function createMCPServer(deps: {
   logger: ConsoleLogger;
+  allowedTools?: string[] | undefined;
   scopes?: MCPScope[] | undefined;
   serverURL?: string | undefined;
   accessToken?: SDKOptions["accessToken"] | undefined;
@@ -41,7 +42,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Polar",
-    version: "0.28.0",
+    version: "0.29.0",
   });
 
   const client = new PolarCore({
@@ -50,7 +51,14 @@ export function createMCPServer(deps: {
     server: deps.server,
   });
   const scopes = new Set(deps.scopes ?? mcpScopes);
-  const tool = createRegisterTool(deps.logger, server, client, scopes);
+  const allowedTools = deps.allowedTools && new Set(deps.allowedTools);
+  const tool = createRegisterTool(
+    deps.logger,
+    server,
+    client,
+    scopes,
+    allowedTools,
+  );
 
   tool(tool$subscriptionsList);
   tool(tool$subscriptionsExport);

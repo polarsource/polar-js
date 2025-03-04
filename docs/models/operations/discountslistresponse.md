@@ -9,30 +9,30 @@ let value: DiscountsListResponse = {
   result: {
     items: [
       {
-        duration: "forever",
-        type: "percentage",
-        basisPoints: 402291,
-        createdAt: new Date("2024-02-04T12:54:22.276Z"),
-        modifiedAt: new Date("2023-02-07T16:34:11.417Z"),
+        duration: "once",
+        durationInMonths: 744339,
+        type: "fixed",
+        basisPoints: 71891,
+        createdAt: new Date("2024-05-08T15:09:48.730Z"),
+        modifiedAt: new Date("2023-01-21T09:04:47.376Z"),
         id: "<value>",
         metadata: {
           "key": false,
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2025-11-08T08:57:15.102Z"),
-        endsAt: new Date("2024-05-20T16:38:15.015Z"),
-        maxRedemptions: 507153,
-        redemptionsCount: 336223,
+        startsAt: new Date("2023-09-29T18:10:57.735Z"),
+        endsAt: new Date("2025-09-11T17:55:19.118Z"),
+        maxRedemptions: 24887,
+        redemptionsCount: 387290,
         organizationId: "<value>",
         products: [
           {
-            createdAt: new Date("2023-07-25T17:38:37.851Z"),
-            modifiedAt: new Date("2023-04-02T14:09:43.552Z"),
+            createdAt: new Date("2024-03-27T10:33:34.110Z"),
+            modifiedAt: new Date("2025-12-20T07:26:20.116Z"),
             id: "<value>",
             name: "<value>",
-            description:
-              "bashfully finally cheerfully below upon frivolous lucky outset questionably afore",
+            description: "pish untimely sans sleet suspiciously certainly",
             recurringInterval: "year",
             isRecurring: false,
             isArchived: false,
@@ -42,8 +42,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 905109,
-      maxPage: 300946,
+      totalCount: 690674,
+      maxPage: 731439,
     },
   },
 };

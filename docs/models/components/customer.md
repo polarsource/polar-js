@@ -8,24 +8,24 @@ A customer in an organization.
 import { Customer } from "@polar-sh/sdk/models/components/customer.js";
 
 let value: Customer = {
-  createdAt: new Date("2023-02-25T17:48:53.428Z"),
-  modifiedAt: new Date("2025-12-06T11:06:25.063Z"),
+  createdAt: new Date("2024-08-10T22:09:50.874Z"),
+  modifiedAt: new Date("2024-12-09T03:12:45.244Z"),
   id: "<value>",
   metadata: {
-    "key": false,
+    "key": 435632,
   },
   externalId: "<id>",
-  email: "Alvera_Kovacek@yahoo.com",
+  email: "Cecilia.Koch66@gmail.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {
-    country: "Togo",
+    country: "Madagascar",
   },
   taxId: [
-    "<id>",
+    "ge_vat",
   ],
   organizationId: "<value>",
-  avatarUrl: "https://instructive-goat.net/",
+  avatarUrl: "https://kosher-stock.name/",
 };
 ```
 

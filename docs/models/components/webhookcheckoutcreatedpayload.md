@@ -79,7 +79,7 @@ let value: WebhookCheckoutCreatedPayload = {
             createdAt: new Date("2023-06-26T19:05:08.010Z"),
             modifiedAt: new Date("2024-12-16T19:21:41.015Z"),
             id: "<value>",
-            type: "ads",
+            type: "discord",
             description: "gestate worriedly whoa aw plus outside",
             selectable: false,
             deletable: false,
@@ -134,7 +134,7 @@ let value: WebhookCheckoutCreatedPayload = {
           createdAt: new Date("2024-11-12T03:22:04.343Z"),
           modifiedAt: new Date("2024-09-24T15:25:14.861Z"),
           id: "<value>",
-          type: "ads",
+          type: "discord",
           description:
             "evenly backburn bathhouse reluctantly till unless although towards contractor unsteady",
           selectable: false,

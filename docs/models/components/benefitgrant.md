@@ -6,8 +6,8 @@
 import { BenefitGrant } from "@polar-sh/sdk/models/components/benefitgrant.js";
 
 let value: BenefitGrant = {
-  createdAt: new Date("2024-05-04T04:09:38.309Z"),
-  modifiedAt: new Date("2024-06-05T13:03:17.818Z"),
+  createdAt: new Date("2025-05-16T08:19:09.839Z"),
+  modifiedAt: new Date("2024-01-16T04:44:34.885Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,24 +17,24 @@ let value: BenefitGrant = {
   userId: "<value>",
   benefitId: "<value>",
   customer: {
-    createdAt: new Date("2023-08-12T17:54:50.405Z"),
-    modifiedAt: new Date("2024-11-05T14:24:16.309Z"),
+    createdAt: new Date("2024-07-12T06:43:06.103Z"),
+    modifiedAt: new Date("2024-01-15T21:48:36.807Z"),
     id: "<value>",
     metadata: {
-      "key": false,
+      "key": "<value>",
     },
     externalId: "<id>",
-    email: "Mackenzie.Hansen51@yahoo.com",
+    email: "Nelle.Waters@gmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Nauru",
+      country: "Democratic People's Republic of Korea",
     },
     taxId: [
-      "<id>",
+      "hu_tin",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://blank-switchboard.info",
+    avatarUrl: "https://political-blowgun.com",
   },
   properties: {},
 };

@@ -15,7 +15,7 @@
 
 List files.
 
-**Scopes**: `files:write`
+**Scopes**: `files:read` `files:write`
 
 ### Example Usage
 

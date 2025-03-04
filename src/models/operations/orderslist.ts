@@ -18,6 +18,11 @@ import {
   OrderSortProperty$outboundSchema,
 } from "../components/ordersortproperty.js";
 import {
+  ProductBillingType,
+  ProductBillingType$inboundSchema,
+  ProductBillingType$outboundSchema,
+} from "../components/productbillingtype.js";
+import {
   ProductPriceType,
   ProductPriceType$inboundSchema,
   ProductPriceType$outboundSchema,
@@ -35,8 +40,12 @@ export type OrdersListQueryParamOrganizationIDFilter = string | Array<string>;
 export type OrdersListQueryParamProductIDFilter = string | Array<string>;
 
 /**
- * Filter by product price type. `recurring` will return orders corresponding to subscriptions creations or renewals. `one_time` will return orders corresponding to one-time purchases.
+ * Filter by product billing type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
  */
+export type ProductBillingTypeFilter =
+  | ProductBillingType
+  | Array<ProductBillingType>;
+
 export type ProductPriceTypeFilter = ProductPriceType | Array<ProductPriceType>;
 
 /**
@@ -64,7 +73,15 @@ export type OrdersListRequest = {
    */
   productId?: string | Array<string> | null | undefined;
   /**
-   * Filter by product price type. `recurring` will return orders corresponding to subscriptions creations or renewals. `one_time` will return orders corresponding to one-time purchases.
+   * Filter by product billing type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
+   */
+  productBillingType?:
+    | ProductBillingType
+    | Array<ProductBillingType>
+    | null
+    | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   productPriceType?:
     | ProductPriceType
@@ -214,6 +231,60 @@ export function ordersListQueryParamProductIDFilterFromJSON(
     (x) =>
       OrdersListQueryParamProductIDFilter$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'OrdersListQueryParamProductIDFilter' from JSON`,
+  );
+}
+
+/** @internal */
+export const ProductBillingTypeFilter$inboundSchema: z.ZodType<
+  ProductBillingTypeFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  ProductBillingType$inboundSchema,
+  z.array(ProductBillingType$inboundSchema),
+]);
+
+/** @internal */
+export type ProductBillingTypeFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const ProductBillingTypeFilter$outboundSchema: z.ZodType<
+  ProductBillingTypeFilter$Outbound,
+  z.ZodTypeDef,
+  ProductBillingTypeFilter
+> = z.union([
+  ProductBillingType$outboundSchema,
+  z.array(ProductBillingType$outboundSchema),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ProductBillingTypeFilter$ {
+  /** @deprecated use `ProductBillingTypeFilter$inboundSchema` instead. */
+  export const inboundSchema = ProductBillingTypeFilter$inboundSchema;
+  /** @deprecated use `ProductBillingTypeFilter$outboundSchema` instead. */
+  export const outboundSchema = ProductBillingTypeFilter$outboundSchema;
+  /** @deprecated use `ProductBillingTypeFilter$Outbound` instead. */
+  export type Outbound = ProductBillingTypeFilter$Outbound;
+}
+
+export function productBillingTypeFilterToJSON(
+  productBillingTypeFilter: ProductBillingTypeFilter,
+): string {
+  return JSON.stringify(
+    ProductBillingTypeFilter$outboundSchema.parse(productBillingTypeFilter),
+  );
+}
+
+export function productBillingTypeFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductBillingTypeFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductBillingTypeFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductBillingTypeFilter' from JSON`,
   );
 }
 
@@ -431,6 +502,12 @@ export const OrdersListRequest$inboundSchema: z.ZodType<
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  product_billing_type: z.nullable(
+    z.union([
+      ProductBillingType$inboundSchema,
+      z.array(ProductBillingType$inboundSchema),
+    ]),
+  ).optional(),
   product_price_type: z.nullable(
     z.union([
       ProductPriceType$inboundSchema,
@@ -450,6 +527,7 @@ export const OrdersListRequest$inboundSchema: z.ZodType<
   return remap$(v, {
     "organization_id": "organizationId",
     "product_id": "productId",
+    "product_billing_type": "productBillingType",
     "product_price_type": "productPriceType",
     "discount_id": "discountId",
     "customer_id": "customerId",
@@ -461,6 +539,7 @@ export const OrdersListRequest$inboundSchema: z.ZodType<
 export type OrdersListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
+  product_billing_type?: string | Array<string> | null | undefined;
   product_price_type?: string | Array<string> | null | undefined;
   discount_id?: string | Array<string> | null | undefined;
   customer_id?: string | Array<string> | null | undefined;
@@ -479,6 +558,12 @@ export const OrdersListRequest$outboundSchema: z.ZodType<
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  productBillingType: z.nullable(
+    z.union([
+      ProductBillingType$outboundSchema,
+      z.array(ProductBillingType$outboundSchema),
+    ]),
+  ).optional(),
   productPriceType: z.nullable(
     z.union([
       ProductPriceType$outboundSchema,
@@ -495,6 +580,7 @@ export const OrdersListRequest$outboundSchema: z.ZodType<
   return remap$(v, {
     organizationId: "organization_id",
     productId: "product_id",
+    productBillingType: "product_billing_type",
     productPriceType: "product_price_type",
     discountId: "discount_id",
     customerId: "customer_id",

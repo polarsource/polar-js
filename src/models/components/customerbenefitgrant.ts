@@ -7,12 +7,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CustomerBenefitGrantAds,
-  CustomerBenefitGrantAds$inboundSchema,
-  CustomerBenefitGrantAds$Outbound,
-  CustomerBenefitGrantAds$outboundSchema,
-} from "./customerbenefitgrantads.js";
-import {
   CustomerBenefitGrantCustom,
   CustomerBenefitGrantCustom$inboundSchema,
   CustomerBenefitGrantCustom$Outbound,
@@ -48,7 +42,6 @@ export type CustomerBenefitGrant =
   | CustomerBenefitGrantGitHubRepository
   | CustomerBenefitGrantDownloadables
   | CustomerBenefitGrantLicenseKeys
-  | CustomerBenefitGrantAds
   | CustomerBenefitGrantCustom;
 
 /** @internal */
@@ -61,7 +54,6 @@ export const CustomerBenefitGrant$inboundSchema: z.ZodType<
   CustomerBenefitGrantGitHubRepository$inboundSchema,
   CustomerBenefitGrantDownloadables$inboundSchema,
   CustomerBenefitGrantLicenseKeys$inboundSchema,
-  CustomerBenefitGrantAds$inboundSchema,
   CustomerBenefitGrantCustom$inboundSchema,
 ]);
 
@@ -71,7 +63,6 @@ export type CustomerBenefitGrant$Outbound =
   | CustomerBenefitGrantGitHubRepository$Outbound
   | CustomerBenefitGrantDownloadables$Outbound
   | CustomerBenefitGrantLicenseKeys$Outbound
-  | CustomerBenefitGrantAds$Outbound
   | CustomerBenefitGrantCustom$Outbound;
 
 /** @internal */
@@ -84,7 +75,6 @@ export const CustomerBenefitGrant$outboundSchema: z.ZodType<
   CustomerBenefitGrantGitHubRepository$outboundSchema,
   CustomerBenefitGrantDownloadables$outboundSchema,
   CustomerBenefitGrantLicenseKeys$outboundSchema,
-  CustomerBenefitGrantAds$outboundSchema,
   CustomerBenefitGrantCustom$outboundSchema,
 ]);
 

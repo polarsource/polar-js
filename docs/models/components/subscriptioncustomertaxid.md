@@ -1,4 +1,4 @@
-# LicenseKeyCustomerTaxId
+# SubscriptionCustomerTaxId
 
 
 ## Supported Types
@@ -12,6 +12,6 @@ const value: string = "<value>";
 ### `components.TaxIDFormat`
 
 ```typescript
-const value: components.TaxIDFormat = "kz_bin";
+const value: components.TaxIDFormat = "ae_trn";
 ```
 

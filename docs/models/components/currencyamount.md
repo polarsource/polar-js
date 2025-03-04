@@ -6,8 +6,8 @@
 import { CurrencyAmount } from "@polar-sh/sdk/models/components/currencyamount.js";
 
 let value: CurrencyAmount = {
-  currency: "Netherlands Antillian Guilder",
-  amount: 316842,
+  currency: "Balboa",
+  amount: 38800,
 };
 ```
 

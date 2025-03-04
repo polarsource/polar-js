@@ -5,7 +5,7 @@
 ```typescript
 import { TokenType } from "@polar-sh/sdk/models/components/introspecttokenresponse.js";
 
-let value: TokenType = "refresh_token";
+let value: TokenType = "access_token";
 ```
 
 ## Values

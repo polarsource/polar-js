@@ -348,9 +348,7 @@ Get a checkout session by client secret.
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new Polar();
 
 async function run() {
   const result = await polar.checkouts.clientGet({
@@ -374,9 +372,7 @@ import { checkoutsClientGet } from "@polar-sh/sdk/funcs/checkoutsClientGet.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new PolarCore();
 
 async function run() {
   const res = await checkoutsClientGet(polar, {
@@ -426,9 +422,7 @@ Update a checkout session by client secret.
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new Polar();
 
 async function run() {
   const result = await polar.checkouts.clientUpdate({
@@ -453,9 +447,7 @@ import { checkoutsClientUpdate } from "@polar-sh/sdk/funcs/checkoutsClientUpdate
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new PolarCore();
 
 async function run() {
   const res = await checkoutsClientUpdate(polar, {

@@ -41,9 +41,7 @@ import {
   SubscriptionStatus$outboundSchema,
 } from "./subscriptionstatus.js";
 
-export type CustomerSubscriptionPrice =
-  | LegacyRecurringProductPrice
-  | ProductPrice;
+export type Price = LegacyRecurringProductPrice | ProductPrice;
 
 export type CustomerSubscription = {
   /**
@@ -85,25 +83,22 @@ export type CustomerSubscription = {
 };
 
 /** @internal */
-export const CustomerSubscriptionPrice$inboundSchema: z.ZodType<
-  CustomerSubscriptionPrice,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  LegacyRecurringProductPrice$inboundSchema,
-  ProductPrice$inboundSchema,
-]);
+export const Price$inboundSchema: z.ZodType<Price, z.ZodTypeDef, unknown> = z
+  .union([
+    LegacyRecurringProductPrice$inboundSchema,
+    ProductPrice$inboundSchema,
+  ]);
 
 /** @internal */
-export type CustomerSubscriptionPrice$Outbound =
+export type Price$Outbound =
   | LegacyRecurringProductPrice$Outbound
   | ProductPrice$Outbound;
 
 /** @internal */
-export const CustomerSubscriptionPrice$outboundSchema: z.ZodType<
-  CustomerSubscriptionPrice$Outbound,
+export const Price$outboundSchema: z.ZodType<
+  Price$Outbound,
   z.ZodTypeDef,
-  CustomerSubscriptionPrice
+  Price
 > = z.union([
   LegacyRecurringProductPrice$outboundSchema,
   ProductPrice$outboundSchema,
@@ -113,30 +108,26 @@ export const CustomerSubscriptionPrice$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CustomerSubscriptionPrice$ {
-  /** @deprecated use `CustomerSubscriptionPrice$inboundSchema` instead. */
-  export const inboundSchema = CustomerSubscriptionPrice$inboundSchema;
-  /** @deprecated use `CustomerSubscriptionPrice$outboundSchema` instead. */
-  export const outboundSchema = CustomerSubscriptionPrice$outboundSchema;
-  /** @deprecated use `CustomerSubscriptionPrice$Outbound` instead. */
-  export type Outbound = CustomerSubscriptionPrice$Outbound;
+export namespace Price$ {
+  /** @deprecated use `Price$inboundSchema` instead. */
+  export const inboundSchema = Price$inboundSchema;
+  /** @deprecated use `Price$outboundSchema` instead. */
+  export const outboundSchema = Price$outboundSchema;
+  /** @deprecated use `Price$Outbound` instead. */
+  export type Outbound = Price$Outbound;
 }
 
-export function customerSubscriptionPriceToJSON(
-  customerSubscriptionPrice: CustomerSubscriptionPrice,
-): string {
-  return JSON.stringify(
-    CustomerSubscriptionPrice$outboundSchema.parse(customerSubscriptionPrice),
-  );
+export function priceToJSON(price: Price): string {
+  return JSON.stringify(Price$outboundSchema.parse(price));
 }
 
-export function customerSubscriptionPriceFromJSON(
+export function priceFromJSON(
   jsonString: string,
-): SafeParseResult<CustomerSubscriptionPrice, SDKValidationError> {
+): SafeParseResult<Price, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CustomerSubscriptionPrice$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerSubscriptionPrice' from JSON`,
+    (x) => Price$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Price' from JSON`,
   );
 }
 

@@ -18,6 +18,11 @@ import {
   ListResourceCustomerOrder$outboundSchema,
 } from "../components/listresourcecustomerorder.js";
 import {
+  ProductBillingType,
+  ProductBillingType$inboundSchema,
+  ProductBillingType$outboundSchema,
+} from "../components/productbillingtype.js";
+import {
   ProductPriceType,
   ProductPriceType$inboundSchema,
   ProductPriceType$outboundSchema,
@@ -43,8 +48,12 @@ export type CustomerPortalOrdersListQueryParamProductIDFilter =
   | Array<string>;
 
 /**
- * Filter by product price type. `recurring` will return orders corresponding to subscriptions creations or renewals. `one_time` will return orders corresponding to one-time purchases.
+ * Filter by product billing type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
  */
+export type CustomerPortalOrdersListQueryParamProductBillingTypeFilter =
+  | ProductBillingType
+  | Array<ProductBillingType>;
+
 export type QueryParamProductPriceTypeFilter =
   | ProductPriceType
   | Array<ProductPriceType>;
@@ -66,7 +75,15 @@ export type CustomerPortalOrdersListRequest = {
    */
   productId?: string | Array<string> | null | undefined;
   /**
-   * Filter by product price type. `recurring` will return orders corresponding to subscriptions creations or renewals. `one_time` will return orders corresponding to one-time purchases.
+   * Filter by product billing type. `recurring` will filter data corresponding to subscriptions creations or renewals. `one_time` will filter data corresponding to one-time purchases.
+   */
+  productBillingType?:
+    | ProductBillingType
+    | Array<ProductBillingType>
+    | null
+    | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   productPriceType?:
     | ProductPriceType
@@ -291,6 +308,74 @@ export function customerPortalOrdersListQueryParamProductIDFilterFromJSON(
 }
 
 /** @internal */
+export const CustomerPortalOrdersListQueryParamProductBillingTypeFilter$inboundSchema:
+  z.ZodType<
+    CustomerPortalOrdersListQueryParamProductBillingTypeFilter,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([
+    ProductBillingType$inboundSchema,
+    z.array(ProductBillingType$inboundSchema),
+  ]);
+
+/** @internal */
+export type CustomerPortalOrdersListQueryParamProductBillingTypeFilter$Outbound =
+  | string
+  | Array<string>;
+
+/** @internal */
+export const CustomerPortalOrdersListQueryParamProductBillingTypeFilter$outboundSchema:
+  z.ZodType<
+    CustomerPortalOrdersListQueryParamProductBillingTypeFilter$Outbound,
+    z.ZodTypeDef,
+    CustomerPortalOrdersListQueryParamProductBillingTypeFilter
+  > = z.union([
+    ProductBillingType$outboundSchema,
+    z.array(ProductBillingType$outboundSchema),
+  ]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerPortalOrdersListQueryParamProductBillingTypeFilter$ {
+  /** @deprecated use `CustomerPortalOrdersListQueryParamProductBillingTypeFilter$inboundSchema` instead. */
+  export const inboundSchema =
+    CustomerPortalOrdersListQueryParamProductBillingTypeFilter$inboundSchema;
+  /** @deprecated use `CustomerPortalOrdersListQueryParamProductBillingTypeFilter$outboundSchema` instead. */
+  export const outboundSchema =
+    CustomerPortalOrdersListQueryParamProductBillingTypeFilter$outboundSchema;
+  /** @deprecated use `CustomerPortalOrdersListQueryParamProductBillingTypeFilter$Outbound` instead. */
+  export type Outbound =
+    CustomerPortalOrdersListQueryParamProductBillingTypeFilter$Outbound;
+}
+
+export function customerPortalOrdersListQueryParamProductBillingTypeFilterToJSON(
+  customerPortalOrdersListQueryParamProductBillingTypeFilter:
+    CustomerPortalOrdersListQueryParamProductBillingTypeFilter,
+): string {
+  return JSON.stringify(
+    CustomerPortalOrdersListQueryParamProductBillingTypeFilter$outboundSchema
+      .parse(customerPortalOrdersListQueryParamProductBillingTypeFilter),
+  );
+}
+
+export function customerPortalOrdersListQueryParamProductBillingTypeFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CustomerPortalOrdersListQueryParamProductBillingTypeFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CustomerPortalOrdersListQueryParamProductBillingTypeFilter$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'CustomerPortalOrdersListQueryParamProductBillingTypeFilter' from JSON`,
+  );
+}
+
+/** @internal */
 export const QueryParamProductPriceTypeFilter$inboundSchema: z.ZodType<
   QueryParamProductPriceTypeFilter,
   z.ZodTypeDef,
@@ -418,6 +503,12 @@ export const CustomerPortalOrdersListRequest$inboundSchema: z.ZodType<
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  product_billing_type: z.nullable(
+    z.union([
+      ProductBillingType$inboundSchema,
+      z.array(ProductBillingType$inboundSchema),
+    ]),
+  ).optional(),
   product_price_type: z.nullable(
     z.union([
       ProductPriceType$inboundSchema,
@@ -435,6 +526,7 @@ export const CustomerPortalOrdersListRequest$inboundSchema: z.ZodType<
   return remap$(v, {
     "organization_id": "organizationId",
     "product_id": "productId",
+    "product_billing_type": "productBillingType",
     "product_price_type": "productPriceType",
     "subscription_id": "subscriptionId",
   });
@@ -444,6 +536,7 @@ export const CustomerPortalOrdersListRequest$inboundSchema: z.ZodType<
 export type CustomerPortalOrdersListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
+  product_billing_type?: string | Array<string> | null | undefined;
   product_price_type?: string | Array<string> | null | undefined;
   subscription_id?: string | Array<string> | null | undefined;
   query?: string | null | undefined;
@@ -461,6 +554,12 @@ export const CustomerPortalOrdersListRequest$outboundSchema: z.ZodType<
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  productBillingType: z.nullable(
+    z.union([
+      ProductBillingType$outboundSchema,
+      z.array(ProductBillingType$outboundSchema),
+    ]),
+  ).optional(),
   productPriceType: z.nullable(
     z.union([
       ProductPriceType$outboundSchema,
@@ -478,6 +577,7 @@ export const CustomerPortalOrdersListRequest$outboundSchema: z.ZodType<
   return remap$(v, {
     organizationId: "organization_id",
     productId: "product_id",
+    productBillingType: "product_billing_type",
     productPriceType: "product_price_type",
     subscriptionId: "subscription_id",
   });

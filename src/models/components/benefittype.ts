@@ -7,7 +7,6 @@ import { ClosedEnum } from "../../types/enums.js";
 
 export const BenefitType = {
   Custom: "custom",
-  Ads: "ads",
   Discord: "discord",
   GithubRepository: "github_repository",
   Downloadables: "downloadables",

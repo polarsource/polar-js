@@ -181,9 +181,7 @@ Validate a license key.
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new Polar();
 
 async function run() {
   const result = await polar.customerPortal.licenseKeys.validate({
@@ -208,9 +206,7 @@ import { customerPortalLicenseKeysValidate } from "@polar-sh/sdk/funcs/customerP
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new PolarCore();
 
 async function run() {
   const res = await customerPortalLicenseKeysValidate(polar, {
@@ -261,9 +257,7 @@ Activate a license key instance.
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new Polar();
 
 async function run() {
   const result = await polar.customerPortal.licenseKeys.activate({
@@ -289,9 +283,7 @@ import { customerPortalLicenseKeysActivate } from "@polar-sh/sdk/funcs/customerP
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new PolarCore();
 
 async function run() {
   const res = await customerPortalLicenseKeysActivate(polar, {
@@ -344,9 +336,7 @@ Deactivate a license key instance.
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new Polar();
 
 async function run() {
   await polar.customerPortal.licenseKeys.deactivate({
@@ -371,9 +361,7 @@ import { customerPortalLicenseKeysDeactivate } from "@polar-sh/sdk/funcs/custome
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
+const polar = new PolarCore();
 
 async function run() {
   const res = await customerPortalLicenseKeysDeactivate(polar, {

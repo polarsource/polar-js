@@ -11,8 +11,8 @@ import { WebhookBenefitGrantCreatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantCreatedPayload = {
   data: {
-    createdAt: new Date("2025-12-30T04:04:24.405Z"),
-    modifiedAt: new Date("2023-05-03T14:40:56.825Z"),
+    createdAt: new Date("2024-03-05T07:39:44.470Z"),
+    modifiedAt: new Date("2024-08-16T15:21:31.814Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,39 +22,39 @@ let value: WebhookBenefitGrantCreatedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2023-01-03T07:54:22.986Z"),
-      modifiedAt: new Date("2025-03-30T13:43:21.206Z"),
+      createdAt: new Date("2023-06-09T04:26:57.182Z"),
+      modifiedAt: new Date("2023-10-18T13:51:15.254Z"),
       id: "<value>",
       metadata: {
-        "key": 690874,
+        "key": "<value>",
       },
       externalId: "<id>",
-      email: "Jeremie62@hotmail.com",
+      email: "Maurice_Collins@yahoo.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Canada",
+        country: "Democratic People's Republic of Korea",
       },
       taxId: [
         "<id>",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://stark-mentor.org/",
+      avatarUrl: "https://cloudy-commodity.org",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2025-04-19T09:50:49.398Z"),
-      modifiedAt: new Date("2024-12-21T16:12:19.264Z"),
+      createdAt: new Date("2025-05-21T10:31:09.802Z"),
+      modifiedAt: new Date("2025-12-28T13:59:45.916Z"),
       id: "<value>",
-      description:
-        "incline regarding behind about after hence belabor search controvert",
+      description: "abnormally whenever sympathetically sugary",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        note: "<value>",
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "maintain",
       },
-      isTaxApplicable: false,
     },
   },
 };

@@ -7,28 +7,28 @@ import { AuthorizeResponseOrganization } from "@polar-sh/sdk/models/components/a
 
 let value: AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2025-03-04T18:09:48.048Z"),
-    modifiedAt: new Date("2023-03-03T16:30:26.804Z"),
+    createdAt: new Date("2023-08-09T18:04:08.797Z"),
+    modifiedAt: new Date("2025-07-14T07:05:49.939Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://awful-charm.net",
-    logoUri: "https://bulky-characterization.com/",
-    tosUri: "https://overcooked-seafood.biz",
-    policyUri: "https://unrealistic-lounge.org",
+    clientUri: "https://liquid-goodwill.org/",
+    logoUri: "https://liquid-necklace.biz",
+    tosUri: "https://gummy-cafe.net",
+    policyUri: "https://flickering-cd.com/",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://wide-bin.net/",
+    avatarUrl: "https://graceful-premeditation.info/",
   },
   scopes: [
-    "custom_fields:write",
+    "webhooks:write",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://noted-farm.biz/",
+      avatarUrl: "https://gummy-climb.com",
     },
   ],
 };

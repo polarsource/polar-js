@@ -9,7 +9,7 @@ let value: BenefitBase = {
   createdAt: new Date("2024-06-23T02:43:59.746Z"),
   modifiedAt: new Date("2025-09-12T06:16:21.252Z"),
   id: "<value>",
-  type: "ads",
+  type: "custom",
   description: "shameful scotch since uh-huh beyond stage inside",
   selectable: false,
   deletable: false,

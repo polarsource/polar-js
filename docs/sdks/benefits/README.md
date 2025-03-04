@@ -110,8 +110,9 @@ async function run() {
   const result = await polar.benefits.create({
     description: "delightfully fumigate convection though zowie up bulky electronics",
     properties: {
-      guildToken: "<value>",
-      roleId: "<id>",
+      files: [
+        "<value>",
+      ],
     },
   });
 
@@ -139,7 +140,10 @@ const polar = new PolarCore({
 async function run() {
   const res = await benefitsCreate(polar, {
     description: "indolent apud formula other",
-    properties: {},
+    properties: {
+      guildToken: "<value>",
+      roleId: "<id>",
+    },
   });
 
   if (!res.ok) {

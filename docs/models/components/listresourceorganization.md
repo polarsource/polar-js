@@ -8,33 +8,33 @@ import { ListResourceOrganization } from "@polar-sh/sdk/models/components/listre
 let value: ListResourceOrganization = {
   items: [
     {
-      createdAt: new Date("2025-09-05T20:27:28.734Z"),
-      modifiedAt: new Date("2023-03-09T01:30:44.677Z"),
+      createdAt: new Date("2025-06-22T06:45:38.869Z"),
+      modifiedAt: new Date("2023-11-09T16:12:50.253Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://pale-nerve.net",
+      avatarUrl: "https://orderly-puritan.net",
       bio: "<value>",
-      company: "Rogahn, D'Amore and Wilkinson",
+      company: "Greenfelder, Huel and Tromp",
       blog: "<value>",
       location: "<value>",
-      email: "Elinor_Schoen@hotmail.com",
+      email: "Green.Raynor36@hotmail.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 9836,
+      pledgeMinimumAmount: 518795,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 35492,
+      defaultUpfrontSplitToContributors: 772103,
       profileSettings: {},
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
-        prorationBehavior: "prorate",
+        prorationBehavior: "invoice",
       },
     },
   ],
   pagination: {
-    totalCount: 815584,
-    maxPage: 349346,
+    totalCount: 986735,
+    maxPage: 467112,
   },
 };
 ```

@@ -5,7 +5,7 @@
 ```typescript
 import { RefundStatus } from "@polar-sh/sdk/models/components/refundstatus.js";
 
-let value: RefundStatus = "failed";
+let value: RefundStatus = "canceled";
 ```
 
 ## Values

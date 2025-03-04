@@ -28,6 +28,15 @@ export const startCommand = buildCommand({
         parse: (val: string) =>
           z.coerce.number().int().gte(0).lt(65536).parse(val),
       },
+      tool: {
+        kind: "parsed",
+        brief: "Specify tools to mount on the server",
+        optional: true,
+        variadic: true,
+        parse: (value) => {
+          return z.string().parse(value);
+        },
+      },
       ...(mcpScopes.length
         ? {
           scope: {

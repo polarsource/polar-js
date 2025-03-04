@@ -11,8 +11,8 @@ import { WebhookBenefitGrantUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantUpdatedPayload = {
   data: {
-    createdAt: new Date("2025-07-10T10:39:26.328Z"),
-    modifiedAt: new Date("2023-01-13T10:05:01.779Z"),
+    createdAt: new Date("2025-03-30T02:19:05.351Z"),
+    modifiedAt: new Date("2025-02-26T02:13:18.268Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,39 +22,38 @@ let value: WebhookBenefitGrantUpdatedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2024-06-26T07:37:02.234Z"),
-      modifiedAt: new Date("2023-10-20T22:11:31.924Z"),
+      createdAt: new Date("2023-02-25T17:48:53.428Z"),
+      modifiedAt: new Date("2025-12-06T11:06:25.063Z"),
       id: "<value>",
       metadata: {
-        "key": "<value>",
+        "key": false,
       },
       externalId: "<id>",
-      email: "Robyn52@yahoo.com",
+      email: "Alvera_Kovacek@yahoo.com",
       emailVerified: false,
       name: "<value>",
       billingAddress: {
-        country: "Venezuela",
+        country: "Togo",
       },
       taxId: [
         "<id>",
       ],
       organizationId: "<value>",
-      avatarUrl: "https://flustered-pomelo.org/",
+      avatarUrl: "https://instructive-goat.net/",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2024-09-23T15:48:31.283Z"),
-      modifiedAt: new Date("2025-11-11T12:00:22.100Z"),
+      createdAt: new Date("2024-06-26T07:37:02.234Z"),
+      modifiedAt: new Date("2023-10-20T22:11:31.924Z"),
       id: "<value>",
-      description: "why commercial likewise naturally",
+      description: "uh-huh foolhardy pro fax",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        guildId: "<id>",
-        roleId: "<id>",
-        guildToken: "<value>",
+        note: "<value>",
       },
+      isTaxApplicable: false,
     },
   },
 };

@@ -7,7 +7,7 @@ import { OAuth2ClientConfigurationUpdate } from "@polar-sh/sdk/models/components
 
 let value: OAuth2ClientConfigurationUpdate = {
   redirectUris: [
-    "https://amused-cafe.name/",
+    "https://awful-charm.net",
   ],
   clientName: "<value>",
   clientId: "<id>",

@@ -3,12 +3,6 @@
 
 ## Supported Types
 
-### `components.BenefitAdsUpdate`
-
-```typescript
-const value: components.BenefitAdsUpdate = {};
-```
-
 ### `components.BenefitCustomUpdate`
 
 ```typescript
@@ -28,7 +22,7 @@ const value: components.BenefitGitHubRepositoryUpdate = {
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "triage",
+    permission: "admin",
   },
 };
 ```

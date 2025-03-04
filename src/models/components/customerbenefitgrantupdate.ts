@@ -7,12 +7,6 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CustomerBenefitGrantAdsUpdate,
-  CustomerBenefitGrantAdsUpdate$inboundSchema,
-  CustomerBenefitGrantAdsUpdate$Outbound,
-  CustomerBenefitGrantAdsUpdate$outboundSchema,
-} from "./customerbenefitgrantadsupdate.js";
-import {
   CustomerBenefitGrantCustomUpdate,
   CustomerBenefitGrantCustomUpdate$inboundSchema,
   CustomerBenefitGrantCustomUpdate$Outbound,
@@ -44,7 +38,6 @@ import {
 } from "./customerbenefitgrantlicensekeysupdate.js";
 
 export type CustomerBenefitGrantUpdate =
-  | (CustomerBenefitGrantAdsUpdate & { benefitType: "ads" })
   | (CustomerBenefitGrantCustomUpdate & { benefitType: "custom" })
   | (CustomerBenefitGrantDownloadablesUpdate & { benefitType: "downloadables" })
   | (CustomerBenefitGrantLicenseKeysUpdate & { benefitType: "license_keys" })
@@ -59,11 +52,6 @@ export const CustomerBenefitGrantUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  CustomerBenefitGrantAdsUpdate$inboundSchema.and(
-    z.object({ benefit_type: z.literal("ads") }).transform((v) => ({
-      benefitType: v.benefit_type,
-    })),
-  ),
   CustomerBenefitGrantCustomUpdate$inboundSchema.and(
     z.object({ benefit_type: z.literal("custom") }).transform((v) => ({
       benefitType: v.benefit_type,
@@ -93,7 +81,6 @@ export const CustomerBenefitGrantUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerBenefitGrantUpdate$Outbound =
-  | (CustomerBenefitGrantAdsUpdate$Outbound & { benefit_type: "ads" })
   | (CustomerBenefitGrantCustomUpdate$Outbound & { benefit_type: "custom" })
   | (CustomerBenefitGrantDownloadablesUpdate$Outbound & {
     benefit_type: "downloadables";
@@ -112,11 +99,6 @@ export const CustomerBenefitGrantUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerBenefitGrantUpdate
 > = z.union([
-  CustomerBenefitGrantAdsUpdate$outboundSchema.and(
-    z.object({ benefitType: z.literal("ads") }).transform((v) => ({
-      benefit_type: v.benefitType,
-    })),
-  ),
   CustomerBenefitGrantCustomUpdate$outboundSchema.and(
     z.object({ benefitType: z.literal("custom") }).transform((v) => ({
       benefit_type: v.benefitType,

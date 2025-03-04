@@ -33,7 +33,7 @@ export class Files extends ClientSDK {
    * @remarks
    * List files.
    *
-   * **Scopes**: `files:write`
+   * **Scopes**: `files:read` `files:write`
    */
   async list(
     request: FilesListRequest,

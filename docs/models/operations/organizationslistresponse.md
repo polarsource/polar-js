@@ -9,21 +9,21 @@ let value: OrganizationsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-08-05T04:18:33.269Z"),
-        modifiedAt: new Date("2023-11-11T12:32:14.872Z"),
+        createdAt: new Date("2025-04-08T08:38:32.225Z"),
+        modifiedAt: new Date("2025-04-26T09:35:14.757Z"),
         id: "<value>",
         name: "<value>",
         slug: "<value>",
-        avatarUrl: "https://concrete-disk.info/",
+        avatarUrl: "https://thorough-hyena.com/",
         bio: "<value>",
-        company: "Pagac - Satterfield",
+        company: "Hammes and Sons",
         blog: "<value>",
         location: "<value>",
-        email: "Monroe63@hotmail.com",
+        email: "Catherine.Fritsch98@hotmail.com",
         twitterUsername: "<value>",
-        pledgeMinimumAmount: 559947,
+        pledgeMinimumAmount: 744608,
         pledgeBadgeShowAmount: false,
-        defaultUpfrontSplitToContributors: 667476,
+        defaultUpfrontSplitToContributors: 745018,
         profileSettings: {},
         featureSettings: {},
         subscriptionSettings: {
@@ -34,8 +34,8 @@ let value: OrganizationsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 551002,
-      maxPage: 754525,
+      totalCount: 882332,
+      maxPage: 89104,
     },
   },
 };

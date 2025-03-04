@@ -7,33 +7,33 @@ import { Event } from "@polar-sh/sdk/models/components/event.js";
 
 let value: Event = {
   metadata: {
-    "key": false,
+    "key": "<value>",
   },
   id: "<value>",
-  timestamp: new Date("2025-03-12T20:49:07.256Z"),
+  timestamp: new Date("2025-09-17T06:24:00.140Z"),
   name: "<value>",
   source: "system",
   organizationId: "<value>",
   customerId: "<value>",
   customer: {
-    createdAt: new Date("2025-08-30T22:32:53.523Z"),
-    modifiedAt: new Date("2025-05-20T04:09:40.373Z"),
+    createdAt: new Date("2024-08-11T20:27:07.720Z"),
+    modifiedAt: new Date("2023-12-26T16:17:58.881Z"),
     id: "<value>",
     metadata: {
-      "key": "<value>",
+      "key": false,
     },
     externalId: "<id>",
-    email: "Karli34@hotmail.com",
+    email: "Darby15@gmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Guernsey",
+      country: "Republic of Korea",
     },
     taxId: [
-      "sa_vat",
+      "<id>",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://pertinent-traffic.biz",
+    avatarUrl: "https://separate-disclosure.org",
   },
   externalCustomerId: "<id>",
 };

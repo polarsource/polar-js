@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components/benefitgrantwebhook.js";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2024-02-09T00:05:44.146Z"),
-  modifiedAt: new Date("2024-12-04T15:42:27.623Z"),
+  createdAt: new Date("2024-05-10T08:04:00.367Z"),
+  modifiedAt: new Date("2023-10-31T16:22:57.100Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,42 +17,39 @@ let value: BenefitGrantWebhook = {
   userId: "<value>",
   benefitId: "<value>",
   customer: {
-    createdAt: new Date("2023-06-06T03:35:17.126Z"),
-    modifiedAt: new Date("2023-11-13T20:42:37.829Z"),
+    createdAt: new Date("2023-03-02T22:30:52.651Z"),
+    modifiedAt: new Date("2023-12-04T11:57:18.685Z"),
     id: "<value>",
     metadata: {
-      "key": false,
+      "key": "<value>",
     },
     externalId: "<id>",
-    email: "Larue.Brekke95@hotmail.com",
+    email: "Dangelo.Ernser83@yahoo.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "Kuwait",
+      country: "Saint Helena",
     },
     taxId: [
-      "ca_qst",
+      "bo_tin",
     ],
     organizationId: "<value>",
-    avatarUrl: "https://magnificent-distinction.org/",
+    avatarUrl: "https://known-section.name",
   },
   properties: {},
   benefit: {
-    createdAt: new Date("2023-01-10T11:10:36.870Z"),
-    modifiedAt: new Date("2024-11-20T07:15:29.281Z"),
+    createdAt: new Date("2024-06-13T05:21:09.862Z"),
+    modifiedAt: new Date("2025-09-06T22:38:24.153Z"),
     id: "<value>",
-    description: "design horde though whether",
+    description:
+      "bravely fill essence coincide transparency below wholly barring how scrutinise",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      archived: {
-        "key": false,
-      },
-      files: [
-        "<value>",
-      ],
+      note: "<value>",
     },
+    isTaxApplicable: false,
   },
 };
 ```

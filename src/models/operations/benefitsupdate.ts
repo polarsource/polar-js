@@ -7,12 +7,6 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
-  BenefitAdsUpdate,
-  BenefitAdsUpdate$inboundSchema,
-  BenefitAdsUpdate$Outbound,
-  BenefitAdsUpdate$outboundSchema,
-} from "../components/benefitadsupdate.js";
-import {
   BenefitCustomUpdate,
   BenefitCustomUpdate$inboundSchema,
   BenefitCustomUpdate$Outbound,
@@ -45,7 +39,6 @@ import {
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitsUpdateBenefitUpdate =
-  | BenefitAdsUpdate
   | BenefitCustomUpdate
   | BenefitDiscordUpdate
   | BenefitGitHubRepositoryUpdate
@@ -55,7 +48,6 @@ export type BenefitsUpdateBenefitUpdate =
 export type BenefitsUpdateRequest = {
   id: string;
   requestBody:
-    | BenefitAdsUpdate
     | BenefitCustomUpdate
     | BenefitDiscordUpdate
     | BenefitGitHubRepositoryUpdate
@@ -69,7 +61,6 @@ export const BenefitsUpdateBenefitUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  BenefitAdsUpdate$inboundSchema,
   BenefitCustomUpdate$inboundSchema,
   BenefitDiscordUpdate$inboundSchema,
   BenefitGitHubRepositoryUpdate$inboundSchema,
@@ -79,7 +70,6 @@ export const BenefitsUpdateBenefitUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitsUpdateBenefitUpdate$Outbound =
-  | BenefitAdsUpdate$Outbound
   | BenefitCustomUpdate$Outbound
   | BenefitDiscordUpdate$Outbound
   | BenefitGitHubRepositoryUpdate$Outbound
@@ -92,7 +82,6 @@ export const BenefitsUpdateBenefitUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitsUpdateBenefitUpdate
 > = z.union([
-  BenefitAdsUpdate$outboundSchema,
   BenefitCustomUpdate$outboundSchema,
   BenefitDiscordUpdate$outboundSchema,
   BenefitGitHubRepositoryUpdate$outboundSchema,
@@ -141,7 +130,6 @@ export const BenefitsUpdateRequest$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   RequestBody: z.union([
-    BenefitAdsUpdate$inboundSchema,
     BenefitCustomUpdate$inboundSchema,
     BenefitDiscordUpdate$inboundSchema,
     BenefitGitHubRepositoryUpdate$inboundSchema,
@@ -158,7 +146,6 @@ export const BenefitsUpdateRequest$inboundSchema: z.ZodType<
 export type BenefitsUpdateRequest$Outbound = {
   id: string;
   RequestBody:
-    | BenefitAdsUpdate$Outbound
     | BenefitCustomUpdate$Outbound
     | BenefitDiscordUpdate$Outbound
     | BenefitGitHubRepositoryUpdate$Outbound
@@ -174,7 +161,6 @@ export const BenefitsUpdateRequest$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   requestBody: z.union([
-    BenefitAdsUpdate$outboundSchema,
     BenefitCustomUpdate$outboundSchema,
     BenefitDiscordUpdate$outboundSchema,
     BenefitGitHubRepositoryUpdate$outboundSchema,

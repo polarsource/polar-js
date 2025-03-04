@@ -44,9 +44,9 @@ let value: Product = {
       deletable: false,
       organizationId: "<value>",
       properties: {
-        imageHeight: 400,
-        imageWidth: 400,
+        note: "<value>",
       },
+      isTaxApplicable: false,
     },
   ],
   medias: [
@@ -105,7 +105,7 @@ let value: Product = {
 | `isArchived`                                                                                         | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | Whether the product is archived and no longer available.                                             |
 | `organizationId`                                                                                     | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the organization owning the product.                                                       |
 | `metadata`                                                                                           | Record<string, *components.ProductMetadata*>                                                         | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `prices`                                                                                             | *components.Prices*[]                                                                                | :heavy_check_mark:                                                                                   | List of prices for this product.                                                                     |
+| `prices`                                                                                             | *components.ProductPrices*[]                                                                         | :heavy_check_mark:                                                                                   | List of prices for this product.                                                                     |
 | `benefits`                                                                                           | *components.Benefit*[]                                                                               | :heavy_check_mark:                                                                                   | List of benefits granted by the product.                                                             |
 | `medias`                                                                                             | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]                 | :heavy_check_mark:                                                                                   | List of medias associated to the product.                                                            |
 | `attachedCustomFields`                                                                               | [components.AttachedCustomField](../../models/components/attachedcustomfield.md)[]                   | :heavy_check_mark:                                                                                   | List of custom fields attached to the product.                                                       |
