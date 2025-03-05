@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://important-comparison.com/",
+          "https://joyful-department.net",
         ],
         clientName: "<value>",
-        createdAt: new Date("2024-12-10T01:49:15.356Z"),
-        modifiedAt: new Date("2024-08-08T06:13:11.927Z"),
+        createdAt: new Date("2023-02-03T09:03:46.147Z"),
+        modifiedAt: new Date("2025-01-22T12:24:34.947Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 881954,
-        clientSecretExpiresAt: 156040,
+        clientIdIssuedAt: 749167,
+        clientSecretExpiresAt: 83514,
       },
     ],
     pagination: {
-      totalCount: 347877,
-      maxPage: 582725,
+      totalCount: 279503,
+      maxPage: 923960,
     },
   },
 };

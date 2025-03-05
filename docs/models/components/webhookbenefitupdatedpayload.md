@@ -11,20 +11,24 @@ import { WebhookBenefitUpdatedPayload } from "@polar-sh/sdk/models/components/we
 
 let value: WebhookBenefitUpdatedPayload = {
   data: {
-    createdAt: new Date("2023-04-29T11:47:52.155Z"),
-    modifiedAt: new Date("2023-02-01T18:40:51.816Z"),
+    createdAt: new Date("2023-07-12T12:16:27.623Z"),
+    modifiedAt: new Date("2025-12-27T09:51:28.931Z"),
     id: "<value>",
-    description: "deduce anenst obnoxiously right miscalculate",
+    description: "sleepily meh fondly suffice oof even coil armchair",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      archived: {
-        "key": false,
+      prefix: "<value>",
+      expires: {
+        ttl: 289247,
+        timeframe: "day",
       },
-      files: [
-        "<value>",
-      ],
+      activations: {
+        limit: 621230,
+        enableCustomerAdmin: false,
+      },
+      limitUsage: 818596,
     },
   },
 };
@@ -32,7 +36,7 @@ let value: WebhookBenefitUpdatedPayload = {
 
 ## Fields
 
-| Field                | Type                 | Required             | Description          |
-| -------------------- | -------------------- | -------------------- | -------------------- |
-| `type`               | *string*             | :heavy_check_mark:   | N/A                  |
-| `data`               | *components.Benefit* | :heavy_check_mark:   | N/A                  |
+| Field                | Type                 | Required             | Description          | Example              |
+| -------------------- | -------------------- | -------------------- | -------------------- | -------------------- |
+| `type`               | *string*             | :heavy_check_mark:   | N/A                  | benefit.updated      |
+| `data`               | *components.Benefit* | :heavy_check_mark:   | N/A                  |                      |

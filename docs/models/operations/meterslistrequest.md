@@ -5,7 +5,11 @@
 ```typescript
 import { MetersListRequest } from "@polar-sh/sdk/models/operations/meterslist.js";
 
-let value: MetersListRequest = {};
+let value: MetersListRequest = {
+  organizationId: [
+    "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  ],
+};
 ```
 
 ## Fields

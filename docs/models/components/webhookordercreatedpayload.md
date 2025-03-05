@@ -2,6 +2,13 @@
 
 Sent when a new order is created.
 
+A new order is created when:
+
+* A customer purchases a one-time product. In this case, `billing_reason` is set to `purchase`.
+* A customer starts a subscription. In this case, `billing_reason` is set to `subscription_create`.
+* A subscription is renewed. In this case, `billing_reason` is set to `subscription_cycle`.
+* A subscription is upgraded, downgraded or revoked with an immediate proration invoice. In this case, `billing_reason` is set to `subscription_update`.
+
 **Discord & Slack support:** Full
 
 ## Example Usage
@@ -11,21 +18,21 @@ import { WebhookOrderCreatedPayload } from "@polar-sh/sdk/models/components/webh
 
 let value: WebhookOrderCreatedPayload = {
   data: {
-    createdAt: new Date("2023-05-11T00:03:45.342Z"),
-    modifiedAt: new Date("2025-10-25T07:53:21.937Z"),
+    createdAt: new Date("2023-02-25T22:53:59.329Z"),
+    modifiedAt: new Date("2023-12-30T01:41:47.858Z"),
     id: "<value>",
     metadata: {
       "key": "<value>",
     },
     status: "<value>",
-    amount: 458212,
-    taxAmount: 757407,
-    refundedAmount: 203621,
-    refundedTaxAmount: 566312,
-    currency: "Yuan Renminbi",
-    billingReason: "purchase",
+    amount: 946808,
+    taxAmount: 845154,
+    refundedAmount: 382764,
+    refundedTaxAmount: 24769,
+    currency: "Somoni",
+    billingReason: "subscription_cycle",
     billingAddress: {
-      country: "Botswana",
+      country: "US",
     },
     customerId: "<value>",
     productId: "<value>",
@@ -34,98 +41,97 @@ let value: WebhookOrderCreatedPayload = {
     subscriptionId: "<value>",
     checkoutId: "<value>",
     customer: {
-      createdAt: new Date("2024-01-27T23:20:13.821Z"),
-      modifiedAt: new Date("2023-01-06T02:26:26.981Z"),
-      id: "<value>",
+      id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+      createdAt: new Date("2025-12-27T16:39:31.366Z"),
+      modifiedAt: new Date("2023-04-20T20:32:25.216Z"),
       metadata: {
-        "key": 664197,
+        "key": false,
       },
-      externalId: "<id>",
-      email: "Arvilla.Gottlieb96@yahoo.com",
-      emailVerified: false,
-      name: "<value>",
+      externalId: "usr_1337",
+      email: "customer@example.com",
+      emailVerified: true,
+      name: "John Doe",
       billingAddress: {
-        country: "Singapore",
+        country: "US",
       },
       taxId: [
-        "kr_brn",
+        "911144442",
+        "us_ein",
       ],
-      organizationId: "<value>",
-      avatarUrl: "https://winding-freezing.net",
+      organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     userId: "<value>",
     user: {
       id: "<value>",
-      email: "Gonzalo78@yahoo.com",
+      email: "Marianne88@hotmail.com",
       publicName: "<value>",
     },
     product: {
-      createdAt: new Date("2025-10-01T07:24:57.730Z"),
-      modifiedAt: new Date("2023-10-12T06:39:45.765Z"),
+      createdAt: new Date("2025-02-19T05:02:25.225Z"),
+      modifiedAt: new Date("2023-02-28T21:24:26.026Z"),
       id: "<value>",
       name: "<value>",
-      description:
-        "upwardly rue alarmed beyond quaver shaft rekindle vibration tomorrow",
-      recurringInterval: "year",
+      description: "young vary down foolishly jaggedly orderly",
+      recurringInterval: "month",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",
     },
     productPrice: {
-      createdAt: new Date("2023-02-18T20:23:54.612Z"),
-      modifiedAt: new Date("2025-09-27T23:00:42.188Z"),
+      createdAt: new Date("2025-04-20T04:24:39.583Z"),
+      modifiedAt: new Date("2025-01-24T19:07:43.861Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
-      type: "one_time",
       recurringInterval: "year",
       priceCurrency: "<value>",
-      priceAmount: 982445,
+      priceAmount: 767210,
     },
     discount: {
       duration: "forever",
-      durationInMonths: 400879,
+      durationInMonths: 543353,
       type: "percentage",
-      amount: 527715,
-      currency: "Dominican Peso",
-      createdAt: new Date("2023-10-25T08:26:08.475Z"),
-      modifiedAt: new Date("2023-10-10T19:59:22.296Z"),
+      amount: 956871,
+      currency: "Fiji Dollar",
+      createdAt: new Date("2025-05-19T10:28:52.033Z"),
+      modifiedAt: new Date("2024-12-24T07:51:55.110Z"),
       id: "<value>",
       metadata: {
-        "key": 703189,
+        "key": 774880,
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2025-11-06T09:51:30.567Z"),
-      endsAt: new Date("2025-01-30T17:16:27.531Z"),
-      maxRedemptions: 781193,
-      redemptionsCount: 168926,
-      organizationId: "<value>",
+      startsAt: new Date("2025-10-31T15:49:47.989Z"),
+      endsAt: new Date("2023-02-10T05:07:51.800Z"),
+      maxRedemptions: 147400,
+      redemptionsCount: 756287,
+      organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     },
     subscription: {
       metadata: {
-        "key": 413780,
+        "key": "<value>",
       },
-      createdAt: new Date("2025-01-22T06:32:44.052Z"),
-      modifiedAt: new Date("2023-11-21T07:08:33.168Z"),
+      createdAt: new Date("2024-07-19T16:07:04.167Z"),
+      modifiedAt: new Date("2023-08-29T23:13:04.327Z"),
       id: "<value>",
-      amount: 303292,
-      currency: "Gourde",
-      recurringInterval: "year",
-      status: "past_due",
-      currentPeriodStart: new Date("2023-03-24T12:05:36.847Z"),
-      currentPeriodEnd: new Date("2023-03-27T18:11:07.462Z"),
+      amount: 274295,
+      currency: "New Leu",
+      recurringInterval: "month",
+      status: "unpaid",
+      currentPeriodStart: new Date("2024-05-02T03:34:27.990Z"),
+      currentPeriodEnd: new Date("2024-07-04T14:57:11.531Z"),
       cancelAtPeriodEnd: false,
-      canceledAt: new Date("2024-02-11T22:19:54.417Z"),
-      startedAt: new Date("2025-04-20T04:24:39.583Z"),
-      endsAt: new Date("2025-01-24T19:07:43.861Z"),
-      endedAt: new Date("2025-02-14T22:46:04.284Z"),
+      canceledAt: new Date("2024-08-14T21:25:17.893Z"),
+      startedAt: new Date("2024-12-08T12:23:49.649Z"),
+      endsAt: new Date("2024-01-13T23:06:27.556Z"),
+      endedAt: new Date("2023-04-21T19:31:53.154Z"),
       customerId: "<value>",
       productId: "<value>",
       priceId: "<value>",
       discountId: "<value>",
       checkoutId: "<value>",
-      customerCancellationReason: "unused",
+      customerCancellationReason: "missing_features",
       customerCancellationComment: "<value>",
       userId: "<value>",
     },
@@ -135,7 +141,7 @@ let value: WebhookOrderCreatedPayload = {
 
 ## Fields
 
-| Field                                                | Type                                                 | Required                                             | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| `type`                                               | *string*                                             | :heavy_check_mark:                                   | N/A                                                  |
-| `data`                                               | [components.Order](../../models/components/order.md) | :heavy_check_mark:                                   | N/A                                                  |
+| Field                                                | Type                                                 | Required                                             | Description                                          | Example                                              |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| `type`                                               | *string*                                             | :heavy_check_mark:                                   | N/A                                                  | order.created                                        |
+| `data`                                               | [components.Order](../../models/components/order.md) | :heavy_check_mark:                                   | N/A                                                  |                                                      |

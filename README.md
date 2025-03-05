@@ -177,7 +177,7 @@ async function run() {
       customerEmail: "<value>",
       customerIpAddress: "<value>",
       customerBillingAddress: {
-        country: "Solomon Islands",
+        country: "FR",
       },
       customerTaxId: "<id>",
       paymentProcessorMetadata: {
@@ -549,7 +549,7 @@ async function run() {
             },
             slug: "<value>",
             name: "<value>",
-            organizationId: "<value>",
+            organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
             properties: {
               options: [
                 {
@@ -573,7 +573,7 @@ async function run() {
             },
             slug: "<value>",
             name: "<value>",
-            organizationId: "<value>",
+            organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
             properties: {},
           },
           order: 918364,
@@ -590,7 +590,7 @@ async function run() {
             },
             slug: "<value>",
             name: "<value>",
-            organizationId: "<value>",
+            organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
             properties: {
               options: [
                 {
@@ -736,6 +736,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [getExternal](docs/sdks/customers/README.md#getexternal) - Get Customer by External ID
 * [updateExternal](docs/sdks/customers/README.md#updateexternal) - Update Customer by External ID
 * [deleteExternal](docs/sdks/customers/README.md#deleteexternal) - Delete Customer by External ID
+* [getState](docs/sdks/customers/README.md#getstate) - Get Customer State
+* [getStateExternal](docs/sdks/customers/README.md#getstateexternal) - Get Customer State by External ID
 
 ### [customerSessions](docs/sdks/customersessions/README.md)
 
@@ -918,6 +920,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerSessionsCreate`](docs/sdks/customersessions/README.md#create) - Create Customer Session
 - [`customersGet`](docs/sdks/customers/README.md#get) - Get Customer
 - [`customersGetExternal`](docs/sdks/customers/README.md#getexternal) - Get Customer by External ID
+- [`customersGetState`](docs/sdks/customers/README.md#getstate) - Get Customer State
+- [`customersGetStateExternal`](docs/sdks/customers/README.md#getstateexternal) - Get Customer State by External ID
 - [`customersList`](docs/sdks/customers/README.md#list) - List Customers
 - [`customersUpdate`](docs/sdks/customers/README.md#update) - Update Customer
 - [`customersUpdateExternal`](docs/sdks/customers/README.md#updateexternal) - Update Customer by External ID
@@ -1008,7 +1012,11 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({});
+  const result = await polar.externalOrganizations.list({
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -1035,7 +1043,11 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({}, {
+  const result = await polar.externalOrganizations.list({
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  }, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -1077,7 +1089,11 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({});
+  const result = await polar.externalOrganizations.list({
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -1114,7 +1130,11 @@ const polar = new Polar({
 async function run() {
   let result;
   try {
-    result = await polar.externalOrganizations.list({});
+    result = await polar.externalOrganizations.list({
+      organizationId: [
+        "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      ],
+    });
 
     for await (const page of result) {
       // Handle the page
@@ -1183,7 +1203,11 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({});
+  const result = await polar.externalOrganizations.list({
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -1207,7 +1231,11 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({});
+  const result = await polar.externalOrganizations.list({
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -1289,7 +1317,11 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({});
+  const result = await polar.externalOrganizations.list({
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -1312,7 +1344,11 @@ const polar = new Polar();
 async function run() {
   const result = await polar.customerPortal.benefitGrants.list({
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
-  }, {});
+  }, {
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   for await (const page of result) {
     // Handle the page

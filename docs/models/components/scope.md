@@ -5,7 +5,7 @@
 ```typescript
 import { Scope } from "@polar-sh/sdk/models/components/scope.js";
 
-let value: Scope = "checkouts:write";
+let value: Scope = "products:write";
 ```
 
 ## Values

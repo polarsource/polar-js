@@ -8,29 +8,30 @@ import { ListResourceCustomer } from "@polar-sh/sdk/models/components/listresour
 let value: ListResourceCustomer = {
   items: [
     {
-      createdAt: new Date("2024-02-18T12:34:13.180Z"),
-      modifiedAt: new Date("2023-09-20T03:15:46.900Z"),
-      id: "<value>",
+      id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+      createdAt: new Date("2025-06-17T16:49:17.447Z"),
+      modifiedAt: new Date("2024-05-20T03:07:59.370Z"),
       metadata: {
-        "key": false,
+        "key": "<value>",
       },
-      externalId: "<id>",
-      email: "Jannie.Swaniawski46@hotmail.com",
-      emailVerified: false,
-      name: "<value>",
+      externalId: "usr_1337",
+      email: "customer@example.com",
+      emailVerified: true,
+      name: "John Doe",
       billingAddress: {
-        country: "South Georgia and the South Sandwich Islands",
+        country: "US",
       },
       taxId: [
-        "my_sst",
+        "911144442",
+        "us_ein",
       ],
-      organizationId: "<value>",
-      avatarUrl: "https://agreeable-eternity.com/",
+      organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
   ],
   pagination: {
-    totalCount: 29928,
-    maxPage: 985129,
+    totalCount: 77611,
+    maxPage: 643350,
   },
 };
 ```

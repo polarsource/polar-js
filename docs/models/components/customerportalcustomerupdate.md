@@ -5,7 +5,11 @@
 ```typescript
 import { CustomerPortalCustomerUpdate } from "@polar-sh/sdk/models/components/customerportalcustomerupdate.js";
 
-let value: CustomerPortalCustomerUpdate = {};
+let value: CustomerPortalCustomerUpdate = {
+  billingAddress: {
+    country: "SE",
+  },
+};
 ```
 
 ## Fields

@@ -7,7 +7,7 @@ The permission level to grant. Read more about roles and their permissions on [G
 ```typescript
 import { Permission } from "@polar-sh/sdk/models/components/benefitgithubrepositorycreateproperties.js";
 
-let value: Permission = "triage";
+let value: Permission = "maintain";
 ```
 
 ## Values

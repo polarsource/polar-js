@@ -7,15 +7,16 @@
 
 ```typescript
 const value: components.DownloadableFileCreate = {
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   name: "<value>",
   mimeType: "<value>",
-  size: 423019,
+  size: 118735,
   upload: {
     parts: [
       {
-        number: 60393,
-        chunkStart: 286276,
-        chunkEnd: 77469,
+        number: 928155,
+        chunkStart: 505017,
+        chunkEnd: 49900,
       },
     ],
   },
@@ -26,15 +27,16 @@ const value: components.DownloadableFileCreate = {
 
 ```typescript
 const value: components.OrganizationAvatarFileCreate = {
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   name: "<value>",
   mimeType: "<value>",
-  size: 477044,
+  size: 148557,
   upload: {
     parts: [
       {
-        number: 573379,
-        chunkStart: 749283,
-        chunkEnd: 923240,
+        number: 672553,
+        chunkStart: 476764,
+        chunkEnd: 597663,
       },
     ],
   },
@@ -45,15 +47,16 @@ const value: components.OrganizationAvatarFileCreate = {
 
 ```typescript
 const value: components.ProductMediaFileCreate = {
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   name: "<value>",
   mimeType: "<value>",
-  size: 437621,
+  size: 458275,
   upload: {
     parts: [
       {
-        number: 627810,
-        chunkStart: 60068,
-        chunkEnd: 475314,
+        number: 925515,
+        chunkStart: 825249,
+        chunkEnd: 980145,
       },
     ],
   },

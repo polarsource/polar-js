@@ -10,10 +10,10 @@ Use it to grant any kind of benefit that doesn't fit in the other types.
 import { BenefitCustom } from "@polar-sh/sdk/models/components/benefitcustom.js";
 
 let value: BenefitCustom = {
-  createdAt: new Date("2025-08-13T16:15:24.093Z"),
-  modifiedAt: new Date("2024-05-06T07:36:48.931Z"),
+  createdAt: new Date("2023-03-20T23:59:47.253Z"),
+  modifiedAt: new Date("2023-04-09T05:57:20.488Z"),
   id: "<value>",
-  description: "married regularly whose",
+  description: "suffice the keenly loftily seafood jive",
   selectable: false,
   deletable: false,
   organizationId: "<value>",

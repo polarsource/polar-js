@@ -8,11 +8,11 @@ import { ListResourceCustomerBenefitGrant } from "@polar-sh/sdk/models/component
 let value: ListResourceCustomerBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2023-07-09T11:32:01.340Z"),
-      modifiedAt: new Date("2025-09-12T19:18:28.211Z"),
+      createdAt: new Date("2025-08-21T00:18:07.571Z"),
+      modifiedAt: new Date("2024-09-25T05:44:49.986Z"),
       id: "<value>",
-      grantedAt: new Date("2024-03-23T21:56:02.071Z"),
-      revokedAt: new Date("2023-07-19T14:03:29.837Z"),
+      grantedAt: new Date("2025-11-23T05:57:14.612Z"),
+      revokedAt: new Date("2023-07-18T04:17:29.241Z"),
       customerId: "<value>",
       benefitId: "<value>",
       subscriptionId: "<value>",
@@ -20,17 +20,18 @@ let value: ListResourceCustomerBenefitGrant = {
       isGranted: false,
       isRevoked: false,
       customer: {
-        createdAt: new Date("2024-10-31T20:28:03.091Z"),
-        modifiedAt: new Date("2024-12-01T20:03:30.175Z"),
+        createdAt: new Date("2024-05-12T19:04:22.335Z"),
+        modifiedAt: new Date("2025-05-06T02:45:05.659Z"),
         id: "<value>",
-        email: "Alexandrea.Ferry@yahoo.com",
+        email: "Zane_DuBuque@yahoo.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
-          country: "Jamaica",
+          country: "FR",
         },
         taxId: [
-          "id_npwp",
+          "FR61954506077",
+          "eu_vat",
         ],
         oauthAccounts: {
           "key": {
@@ -40,30 +41,29 @@ let value: ListResourceCustomerBenefitGrant = {
         },
       },
       benefit: {
-        createdAt: new Date("2024-11-01T13:50:07.480Z"),
-        modifiedAt: new Date("2024-03-21T05:45:09.123Z"),
+        createdAt: new Date("2025-04-27T08:26:18.832Z"),
+        modifiedAt: new Date("2023-12-22T03:14:57.302Z"),
         id: "<value>",
-        description:
-          "elementary whereas essay however emergent coolly faithfully mmm unto defensive",
+        description: "inasmuch forenenst guacamole abseil",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         organization: {
-          createdAt: new Date("2024-10-14T16:36:34.415Z"),
-          modifiedAt: new Date("2024-10-27T12:57:22.714Z"),
-          id: "<value>",
+          createdAt: new Date("2025-04-24T16:56:02.290Z"),
+          modifiedAt: new Date("2025-09-13T17:33:20.087Z"),
+          id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
           name: "<value>",
           slug: "<value>",
-          avatarUrl: "https://distant-finger.com/",
+          avatarUrl: "https://complicated-rule.net/",
           bio: "<value>",
-          company: "Ankunding, Harris and Walsh",
+          company: "VonRueden, Baumbach and Lind",
           blog: "<value>",
           location: "<value>",
-          email: "Judd31@gmail.com",
+          email: "Jewell.Mante90@hotmail.com",
           twitterUsername: "<value>",
-          pledgeMinimumAmount: 567352,
+          pledgeMinimumAmount: 25458,
           pledgeBadgeShowAmount: false,
-          defaultUpfrontSplitToContributors: 221652,
+          defaultUpfrontSplitToContributors: 633439,
           profileSettings: {},
           featureSettings: {
             issueFundingEnabled: false,
@@ -71,21 +71,19 @@ let value: ListResourceCustomerBenefitGrant = {
           subscriptionSettings: {
             allowMultipleSubscriptions: false,
             allowCustomerUpdates: false,
-            prorationBehavior: "invoice",
+            prorationBehavior: "prorate",
           },
         },
         properties: {
-          activeFiles: [
-            "<value>",
-          ],
+          note: "<value>",
         },
       },
       properties: {},
     },
   ],
   pagination: {
-    totalCount: 249245,
-    maxPage: 628991,
+    totalCount: 127759,
+    maxPage: 998295,
   },
 };
 ```

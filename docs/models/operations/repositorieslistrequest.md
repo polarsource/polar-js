@@ -5,7 +5,11 @@
 ```typescript
 import { RepositoriesListRequest } from "@polar-sh/sdk/models/operations/repositorieslist.js";
 
-let value: RepositoriesListRequest = {};
+let value: RepositoriesListRequest = {
+  organizationId: [
+    "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  ],
+};
 ```
 
 ## Fields

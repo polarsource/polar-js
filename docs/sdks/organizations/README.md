@@ -187,7 +187,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.organizations.get({
-    id: "<value>",
+    id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   // Handle the result
@@ -213,7 +213,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await organizationsGet(polar, {
-    id: "<value>",
+    id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   if (!res.ok) {
@@ -267,7 +267,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.organizations.update({
-    id: "<value>",
+    id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     organizationUpdate: {},
   });
 
@@ -294,7 +294,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await organizationsUpdate(polar, {
-    id: "<value>",
+    id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     organizationUpdate: {},
   });
 

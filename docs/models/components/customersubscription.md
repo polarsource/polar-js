@@ -6,55 +6,58 @@
 import { CustomerSubscription } from "@polar-sh/sdk/models/components/customersubscription.js";
 
 let value: CustomerSubscription = {
-  createdAt: new Date("2024-08-17T14:27:20.338Z"),
-  modifiedAt: new Date("2025-09-05T06:46:41.583Z"),
+  createdAt: new Date("2024-03-12T09:34:16.987Z"),
+  modifiedAt: new Date("2024-07-14T01:14:05.609Z"),
   id: "<value>",
-  amount: 106781,
-  currency: "Colombian Peso",
+  amount: 63427,
+  currency: "Serbian Dinar",
   recurringInterval: "year",
-  status: "trialing",
-  currentPeriodStart: new Date("2023-03-18T03:29:56.846Z"),
-  currentPeriodEnd: new Date("2025-02-09T14:02:15.752Z"),
+  status: "unpaid",
+  currentPeriodStart: new Date("2025-08-12T18:07:32.885Z"),
+  currentPeriodEnd: new Date("2024-01-14T14:36:00.166Z"),
   cancelAtPeriodEnd: false,
-  canceledAt: new Date("2023-05-29T17:59:10.197Z"),
-  startedAt: new Date("2023-05-11T15:16:30.860Z"),
-  endsAt: new Date("2024-07-05T02:56:26.157Z"),
-  endedAt: new Date("2024-03-27T12:59:41.406Z"),
+  canceledAt: new Date("2024-02-13T05:07:31.431Z"),
+  startedAt: new Date("2024-12-24T15:57:34.849Z"),
+  endsAt: new Date("2024-05-17T10:58:40.372Z"),
+  endedAt: new Date("2024-08-30T20:29:51.699Z"),
   customerId: "<value>",
   productId: "<value>",
   priceId: "<value>",
   discountId: "<value>",
   checkoutId: "<value>",
-  customerCancellationReason: "low_quality",
+  customerCancellationReason: "other",
   customerCancellationComment: "<value>",
   userId: "<value>",
   product: {
-    createdAt: new Date("2025-01-04T22:35:21.598Z"),
-    modifiedAt: new Date("2024-03-31T08:59:52.910Z"),
+    createdAt: new Date("2023-04-10T08:39:34.010Z"),
+    modifiedAt: new Date("2024-10-13T21:14:28.454Z"),
     id: "<value>",
     name: "<value>",
-    description: "despite safe yogurt psst readies until under belabor",
-    recurringInterval: "year",
+    description:
+      "intellect blah certification about freely justly chilly where",
+    recurringInterval: "month",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2023-09-24T06:04:53.029Z"),
-        modifiedAt: new Date("2024-09-28T00:16:41.299Z"),
+        createdAt: new Date("2023-06-17T22:21:21.794Z"),
+        modifiedAt: new Date("2023-07-08T03:11:19.331Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
         recurringInterval: "month",
+        priceCurrency: "<value>",
+        priceAmount: 157489,
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2025-08-26T03:06:52.368Z"),
-        modifiedAt: new Date("2023-05-30T01:40:11.174Z"),
+        createdAt: new Date("2024-12-10T05:58:02.311Z"),
+        modifiedAt: new Date("2024-11-21T04:51:59.437Z"),
         id: "<value>",
-        type: "downloadables",
-        description: "nippy geez howl ah",
+        type: "discord",
+        description: "drat via and or request",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -65,37 +68,37 @@ let value: CustomerSubscription = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/usr/local/src",
+        path: "/usr/include",
         mimeType: "<value>",
-        size: 72288,
+        size: 107406,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2025-08-18T01:01:53.905Z"),
+        lastModifiedAt: new Date("2025-02-17T11:36:04.308Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2024-04-05T04:10:03.608Z"),
+        createdAt: new Date("2025-06-27T16:57:19.473Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://elderly-mythology.org/",
+        publicUrl: "https://gleaming-countess.com/",
       },
     ],
     organization: {
-      createdAt: new Date("2024-01-22T06:01:41.855Z"),
-      modifiedAt: new Date("2023-09-10T19:30:29.998Z"),
-      id: "<value>",
+      createdAt: new Date("2025-08-10T01:54:29.277Z"),
+      modifiedAt: new Date("2024-08-12T05:31:21.644Z"),
+      id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://brown-derby.name/",
+      avatarUrl: "https://educated-cassava.com",
       bio: "<value>",
-      company: "Johnson, Welch and Cummerata",
+      company: "Gerlach, Mosciski and Hermann",
       blog: "<value>",
       location: "<value>",
-      email: "Gus.Dietrich@hotmail.com",
+      email: "Rudy31@yahoo.com",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 608138,
+      pledgeMinimumAmount: 789833,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 432370,
+      defaultUpfrontSplitToContributors: 360744,
       profileSettings: {},
       featureSettings: {},
       subscriptionSettings: {
@@ -106,15 +109,14 @@ let value: CustomerSubscription = {
     },
   },
   price: {
-    createdAt: new Date("2024-12-03T22:36:50.794Z"),
-    modifiedAt: new Date("2025-11-27T19:52:31.566Z"),
+    createdAt: new Date("2025-03-10T22:11:06.316Z"),
+    modifiedAt: new Date("2025-09-26T16:56:57.899Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
-    type: "recurring",
-    recurringInterval: "month",
+    recurringInterval: "year",
     priceCurrency: "<value>",
-    priceAmount: 610935,
+    priceAmount: 902360,
   },
 };
 ```
@@ -126,8 +128,8 @@ let value: CustomerSubscription = {
 | `createdAt`                                                                                                             | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Creation timestamp of the object.                                                                                       |
 | `modifiedAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Last modification timestamp of the object.                                                                              |
 | `id`                                                                                                                    | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the object.                                                                                                   |
-| `amount`                                                                                                                | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
-| `currency`                                                                                                              | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `amount`                                                                                                                | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | The amount of the subscription.                                                                                         |
+| `currency`                                                                                                              | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The currency of the subscription.                                                                                       |
 | `recurringInterval`                                                                                                     | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                    | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `status`                                                                                                                | [components.SubscriptionStatus](../../models/components/subscriptionstatus.md)                                          | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `currentPeriodStart`                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
@@ -140,7 +142,7 @@ let value: CustomerSubscription = {
 | `customerId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `productId`                                                                                                             | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `priceId`                                                                                                               | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
-| `discountId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
+| `discountId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the applied discount, if any.                                                                                 |
 | `checkoutId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `customerCancellationReason`                                                                                            | [components.CustomerCancellationReason](../../models/components/customercancellationreason.md)                          | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `customerCancellationComment`                                                                                           | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |

@@ -27,7 +27,11 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.subscriptions.list({});
+  const result = await polar.subscriptions.list({
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -53,7 +57,11 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await subscriptionsList(polar, {});
+  const res = await subscriptionsList(polar, {
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -106,7 +114,11 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.subscriptions.export({});
+  const result = await polar.subscriptions.export({
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   // Handle the result
   console.log(result);
@@ -130,7 +142,11 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await subscriptionsExport(polar, {});
+  const res = await subscriptionsExport(polar, {
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   if (!res.ok) {
     throw res.error;

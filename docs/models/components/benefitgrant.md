@@ -6,8 +6,8 @@
 import { BenefitGrant } from "@polar-sh/sdk/models/components/benefitgrant.js";
 
 let value: BenefitGrant = {
-  createdAt: new Date("2025-05-16T08:19:09.839Z"),
-  modifiedAt: new Date("2024-01-16T04:44:34.885Z"),
+  createdAt: new Date("2023-10-06T03:14:11.675Z"),
+  modifiedAt: new Date("2023-06-30T09:23:23.018Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,24 +17,25 @@ let value: BenefitGrant = {
   userId: "<value>",
   benefitId: "<value>",
   customer: {
-    createdAt: new Date("2024-07-12T06:43:06.103Z"),
-    modifiedAt: new Date("2024-01-15T21:48:36.807Z"),
-    id: "<value>",
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2025-08-29T14:19:53.281Z"),
+    modifiedAt: new Date("2023-03-16T23:12:57.117Z"),
     metadata: {
-      "key": "<value>",
+      "key": false,
     },
-    externalId: "<id>",
-    email: "Nelle.Waters@gmail.com",
-    emailVerified: false,
-    name: "<value>",
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
     billingAddress: {
-      country: "Democratic People's Republic of Korea",
+      country: "FR",
     },
     taxId: [
-      "hu_tin",
+      "FR61954506077",
+      "eu_vat",
     ],
-    organizationId: "<value>",
-    avatarUrl: "https://political-blowgun.com",
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   properties: {},
 };

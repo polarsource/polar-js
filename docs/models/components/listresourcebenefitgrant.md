@@ -8,8 +8,8 @@ import { ListResourceBenefitGrant } from "@polar-sh/sdk/models/components/listre
 let value: ListResourceBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2024-12-28T15:28:03.893Z"),
-      modifiedAt: new Date("2025-04-15T06:22:03.126Z"),
+      createdAt: new Date("2024-01-08T22:15:44.580Z"),
+      modifiedAt: new Date("2024-07-23T07:21:47.082Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
@@ -19,31 +19,32 @@ let value: ListResourceBenefitGrant = {
       userId: "<value>",
       benefitId: "<value>",
       customer: {
-        createdAt: new Date("2023-06-10T08:23:28.124Z"),
-        modifiedAt: new Date("2023-04-14T01:23:42.431Z"),
-        id: "<value>",
+        id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+        createdAt: new Date("2025-02-24T07:31:14.518Z"),
+        modifiedAt: new Date("2024-12-31T19:38:02.610Z"),
         metadata: {
-          "key": 481828,
+          "key": false,
         },
-        externalId: "<id>",
-        email: "Oma_Volkman@gmail.com",
-        emailVerified: false,
-        name: "<value>",
+        externalId: "usr_1337",
+        email: "customer@example.com",
+        emailVerified: true,
+        name: "John Doe",
         billingAddress: {
-          country: "Iceland",
+          country: "SE",
         },
         taxId: [
-          "<id>",
+          "FR61954506077",
+          "eu_vat",
         ],
-        organizationId: "<value>",
-        avatarUrl: "https://front-lobster.name",
+        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+        avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
       },
       properties: {},
     },
   ],
   pagination: {
-    totalCount: 10686,
-    maxPage: 348739,
+    totalCount: 187203,
+    maxPage: 683718,
   },
 };
 ```

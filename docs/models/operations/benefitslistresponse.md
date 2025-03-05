@@ -9,23 +9,27 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-03-16T12:07:26.131Z"),
-        modifiedAt: new Date("2024-07-30T00:04:24.406Z"),
+        createdAt: new Date("2025-10-31T21:20:06.190Z"),
+        modifiedAt: new Date("2023-02-21T08:10:22.238Z"),
         id: "<value>",
         description:
-          "bashfully marvelous regarding singing obediently swim meanwhile zesty",
+          "slather loosely hm if hypothesise recommendation if engage",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          note: "<value>",
+          archived: {
+            "key": false,
+          },
+          files: [
+            "<value>",
+          ],
         },
-        isTaxApplicable: false,
       },
     ],
     pagination: {
-      totalCount: 716292,
-      maxPage: 611761,
+      totalCount: 232549,
+      maxPage: 867468,
     },
   },
 };

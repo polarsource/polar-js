@@ -40,7 +40,7 @@ let value: WebhookCheckoutUpdatedPayload = {
     customerEmail: "<value>",
     customerIpAddress: "<value>",
     customerBillingAddress: {
-      country: "Bahrain",
+      country: "US",
     },
     customerTaxId: "<id>",
     paymentProcessorMetadata: {
@@ -194,7 +194,7 @@ let value: WebhookCheckoutUpdatedPayload = {
           },
           slug: "<value>",
           name: "<value>",
-          organizationId: "<value>",
+          organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
           properties: {},
         },
         order: 982248,
@@ -210,7 +210,7 @@ let value: WebhookCheckoutUpdatedPayload = {
 
 ## Fields
 
-| Field                                                      | Type                                                       | Required                                                   | Description                                                |
-| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `type`                                                     | *string*                                                   | :heavy_check_mark:                                         | N/A                                                        |
-| `data`                                                     | [components.Checkout](../../models/components/checkout.md) | :heavy_check_mark:                                         | Checkout session data retrieved using an access token.     |
+| Field                                                      | Type                                                       | Required                                                   | Description                                                | Example                                                    |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `type`                                                     | *string*                                                   | :heavy_check_mark:                                         | N/A                                                        | checkout.updated                                           |
+| `data`                                                     | [components.Checkout](../../models/components/checkout.md) | :heavy_check_mark:                                         | Checkout session data retrieved using an access token.     |                                                            |

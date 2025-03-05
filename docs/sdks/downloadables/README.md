@@ -22,7 +22,11 @@ const polar = new Polar();
 async function run() {
   const result = await polar.customerPortal.downloadables.list({
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
-  }, {});
+  }, {
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -48,7 +52,11 @@ const polar = new PolarCore();
 async function run() {
   const res = await customerPortalDownloadablesList(polar, {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
-  }, {});
+  }, {
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   if (!res.ok) {
     throw res.error;

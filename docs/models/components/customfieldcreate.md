@@ -9,6 +9,7 @@
 const value: components.CustomFieldCreateCheckbox = {
   slug: "<value>",
   name: "<value>",
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
 };
 ```
@@ -19,6 +20,7 @@ const value: components.CustomFieldCreateCheckbox = {
 const value: components.CustomFieldCreateDate = {
   slug: "<value>",
   name: "<value>",
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
 };
 ```
@@ -29,6 +31,7 @@ const value: components.CustomFieldCreateDate = {
 const value: components.CustomFieldCreateNumber = {
   slug: "<value>",
   name: "<value>",
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
 };
 ```
@@ -39,6 +42,7 @@ const value: components.CustomFieldCreateNumber = {
 const value: components.CustomFieldCreateSelect = {
   slug: "<value>",
   name: "<value>",
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     options: [
       {
@@ -56,6 +60,7 @@ const value: components.CustomFieldCreateSelect = {
 const value: components.CustomFieldCreateText = {
   slug: "<value>",
   name: "<value>",
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
 };
 ```

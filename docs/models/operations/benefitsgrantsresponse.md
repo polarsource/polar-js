@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-05-23T19:42:16.496Z"),
-        modifiedAt: new Date("2025-04-22T20:02:07.778Z"),
+        createdAt: new Date("2024-05-22T18:22:13.947Z"),
+        modifiedAt: new Date("2023-01-29T23:31:18.878Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -20,31 +20,32 @@ let value: BenefitsGrantsResponse = {
         userId: "<value>",
         benefitId: "<value>",
         customer: {
-          createdAt: new Date("2023-06-15T03:14:03.485Z"),
-          modifiedAt: new Date("2023-06-12T22:42:54.501Z"),
-          id: "<value>",
+          id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+          createdAt: new Date("2025-03-02T02:49:14.543Z"),
+          modifiedAt: new Date("2023-10-16T23:35:49.294Z"),
           metadata: {
             "key": "<value>",
           },
-          externalId: "<id>",
-          email: "Krystina29@hotmail.com",
-          emailVerified: false,
-          name: "<value>",
+          externalId: "usr_1337",
+          email: "customer@example.com",
+          emailVerified: true,
+          name: "John Doe",
           billingAddress: {
-            country: "Guam",
+            country: "FR",
           },
           taxId: [
-            "<id>",
+            "FR61954506077",
+            "eu_vat",
           ],
-          organizationId: "<value>",
-          avatarUrl: "https://untrue-vestment.com",
+          organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+          avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
         },
         properties: {},
       },
     ],
     pagination: {
-      totalCount: 960776,
-      maxPage: 349371,
+      totalCount: 533581,
+      maxPage: 590485,
     },
   },
 };

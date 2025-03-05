@@ -36,20 +36,59 @@ export type CustomerOrderSubscription = {
    * The ID of the object.
    */
   id: string;
+  /**
+   * The amount of the subscription.
+   */
   amount: number | null;
+  /**
+   * The currency of the subscription.
+   */
   currency: string | null;
   recurringInterval: SubscriptionRecurringInterval;
   status: SubscriptionStatus;
+  /**
+   * The start timestamp of the current billing period.
+   */
   currentPeriodStart: Date;
+  /**
+   * The end timestamp of the current billing period.
+   */
   currentPeriodEnd: Date | null;
+  /**
+   * Whether the subscription will be canceled at the end of the current period.
+   */
   cancelAtPeriodEnd: boolean;
+  /**
+   * The timestamp when the subscription was canceled. The subscription might still be active if `cancel_at_period_end` is `true`.
+   */
   canceledAt: Date | null;
+  /**
+   * The timestamp when the subscription started.
+   */
   startedAt: Date | null;
+  /**
+   * The timestamp when the subscription will end.
+   */
   endsAt: Date | null;
+  /**
+   * The timestamp when the subscription ended.
+   */
   endedAt: Date | null;
+  /**
+   * The ID of the subscribed customer.
+   */
   customerId: string;
+  /**
+   * The ID of the subscribed product.
+   */
   productId: string;
+  /**
+   * The ID of the subscribed price.
+   */
   priceId: string;
+  /**
+   * The ID of the applied discount, if any.
+   */
   discountId: string | null;
   checkoutId: string | null;
   customerCancellationReason: CustomerCancellationReason | null;

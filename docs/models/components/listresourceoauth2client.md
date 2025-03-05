@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://ignorant-meatloaf.net",
+        "https://failing-baseboard.info/",
       ],
       clientName: "<value>",
-      createdAt: new Date("2024-12-31T21:10:10.994Z"),
-      modifiedAt: new Date("2024-10-23T11:48:21.731Z"),
+      createdAt: new Date("2024-09-24T20:40:57.193Z"),
+      modifiedAt: new Date("2024-06-28T03:53:07.992Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 681824,
-      clientSecretExpiresAt: 64244,
+      clientIdIssuedAt: 162787,
+      clientSecretExpiresAt: 371545,
     },
   ],
   pagination: {
-    totalCount: 97799,
-    maxPage: 607549,
+    totalCount: 917907,
+    maxPage: 459294,
   },
 };
 ```

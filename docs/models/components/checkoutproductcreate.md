@@ -13,6 +13,9 @@ to the resulting order and/or subscription.
 import { CheckoutProductCreate } from "@polar-sh/sdk/models/components/checkoutproductcreate.js";
 
 let value: CheckoutProductCreate = {
+  customerBillingAddress: {
+    country: "US",
+  },
   productId: "<value>",
 };
 ```

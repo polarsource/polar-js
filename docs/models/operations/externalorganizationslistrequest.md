@@ -5,7 +5,9 @@
 ```typescript
 import { ExternalOrganizationsListRequest } from "@polar-sh/sdk/models/operations/externalorganizationslist.js";
 
-let value: ExternalOrganizationsListRequest = {};
+let value: ExternalOrganizationsListRequest = {
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+};
 ```
 
 ## Fields

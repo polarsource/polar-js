@@ -7,7 +7,11 @@ Update an existing checkout session using the client secret.
 ```typescript
 import { CheckoutUpdatePublic } from "@polar-sh/sdk/models/components/checkoutupdatepublic.js";
 
-let value: CheckoutUpdatePublic = {};
+let value: CheckoutUpdatePublic = {
+  customerBillingAddress: {
+    country: "FR",
+  },
+};
 ```
 
 ## Fields

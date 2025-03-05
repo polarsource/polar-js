@@ -13,6 +13,8 @@ import { tool$customersDelete } from "./tools/customersDelete.js";
 import { tool$customersDeleteExternal } from "./tools/customersDeleteExternal.js";
 import { tool$customersGet } from "./tools/customersGet.js";
 import { tool$customersGetExternal } from "./tools/customersGetExternal.js";
+import { tool$customersGetState } from "./tools/customersGetState.js";
+import { tool$customersGetStateExternal } from "./tools/customersGetStateExternal.js";
 import { tool$customersList } from "./tools/customersList.js";
 import { tool$customersUpdate } from "./tools/customersUpdate.js";
 import { tool$customersUpdateExternal } from "./tools/customersUpdateExternal.js";
@@ -42,7 +44,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Polar",
-    version: "0.29.0",
+    version: "0.29.1",
   });
 
   const client = new PolarCore({
@@ -83,6 +85,8 @@ export function createMCPServer(deps: {
   tool(tool$customersGetExternal);
   tool(tool$customersUpdateExternal);
   tool(tool$customersDeleteExternal);
+  tool(tool$customersGetState);
+  tool(tool$customersGetStateExternal);
 
   return server;
 }

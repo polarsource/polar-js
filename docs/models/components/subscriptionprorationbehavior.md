@@ -5,7 +5,7 @@
 ```typescript
 import { SubscriptionProrationBehavior } from "@polar-sh/sdk/models/components/subscriptionprorationbehavior.js";
 
-let value: SubscriptionProrationBehavior = "invoice";
+let value: SubscriptionProrationBehavior = "prorate";
 ```
 
 ## Values

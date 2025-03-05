@@ -10,13 +10,13 @@ let value: ListResourceUnionPaymentMethodCardPaymentMethodGeneric = {
     {
       id: "<id>",
       type: "<value>",
-      createdAt: new Date("2023-01-12T14:50:02.595Z"),
+      createdAt: new Date("2023-02-24T19:05:40.409Z"),
       default: false,
     },
   ],
   pagination: {
-    totalCount: 497233,
-    maxPage: 537645,
+    totalCount: 676732,
+    maxPage: 565430,
   },
 };
 ```
