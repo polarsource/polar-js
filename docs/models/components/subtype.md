@@ -5,7 +5,7 @@
 ```typescript
 import { SubType } from "@polar-sh/sdk/models/components/subtype.js";
 
-let value: SubType = "user";
+let value: SubType = "organization";
 ```
 
 ## Values

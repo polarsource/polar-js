@@ -56,7 +56,13 @@ export type CustomerSubscription = {
    * The ID of the object.
    */
   id: string;
+  /**
+   * The amount of the subscription.
+   */
   amount: number | null;
+  /**
+   * The currency of the subscription.
+   */
   currency: string | null;
   recurringInterval: SubscriptionRecurringInterval;
   status: SubscriptionStatus;
@@ -70,6 +76,9 @@ export type CustomerSubscription = {
   customerId: string;
   productId: string;
   priceId: string;
+  /**
+   * The ID of the applied discount, if any.
+   */
   discountId: string | null;
   checkoutId: string | null;
   customerCancellationReason: CustomerCancellationReason | null;

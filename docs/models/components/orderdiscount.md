@@ -7,23 +7,23 @@
 
 ```typescript
 const value: components.DiscountFixedOnceForeverDurationBase = {
-  duration: "forever",
+  duration: "once",
   type: "fixed",
-  amount: 274295,
-  currency: "New Leu",
-  createdAt: new Date("2023-02-03T02:11:26.549Z"),
-  modifiedAt: new Date("2025-08-15T03:47:39.234Z"),
+  amount: 990369,
+  currency: "Venezuelan bolívar",
+  createdAt: new Date("2023-05-10T17:03:48.644Z"),
+  modifiedAt: new Date("2023-01-28T14:36:19.330Z"),
   id: "<value>",
   metadata: {
-    "key": 502393,
+    "key": false,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2024-08-14T21:25:17.893Z"),
-  endsAt: new Date("2024-12-08T12:23:49.649Z"),
-  maxRedemptions: 344856,
-  redemptionsCount: 101107,
-  organizationId: "<value>",
+  startsAt: new Date("2024-08-11T17:43:22.964Z"),
+  endsAt: new Date("2023-08-08T09:47:41.350Z"),
+  maxRedemptions: 673653,
+  redemptionsCount: 644223,
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
 
@@ -32,23 +32,23 @@ const value: components.DiscountFixedOnceForeverDurationBase = {
 ```typescript
 const value: components.DiscountFixedRepeatDurationBase = {
   duration: "once",
-  durationInMonths: 168142,
-  type: "percentage",
-  amount: 318028,
-  currency: "CFP Franc",
-  createdAt: new Date("2025-11-24T10:40:28.013Z"),
-  modifiedAt: new Date("2024-11-10T15:47:28.185Z"),
+  durationInMonths: 259600,
+  type: "fixed",
+  amount: 209860,
+  currency: "Bahamian Dollar",
+  createdAt: new Date("2023-07-31T18:53:14.774Z"),
+  modifiedAt: new Date("2025-01-21T06:31:40.102Z"),
   id: "<value>",
   metadata: {
-    "key": 985379,
+    "key": "<value>",
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-08-30T11:05:45.637Z"),
-  endsAt: new Date("2025-04-18T12:23:59.794Z"),
-  maxRedemptions: 313590,
-  redemptionsCount: 365539,
-  organizationId: "<value>",
+  startsAt: new Date("2023-04-22T15:11:01.678Z"),
+  endsAt: new Date("2023-05-28T01:18:12.153Z"),
+  maxRedemptions: 316541,
+  redemptionsCount: 298750,
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
 
@@ -57,21 +57,21 @@ const value: components.DiscountFixedRepeatDurationBase = {
 ```typescript
 const value: components.DiscountPercentageOnceForeverDurationBase = {
   duration: "once",
-  type: "fixed",
-  basisPoints: 990369,
-  createdAt: new Date("2025-09-26T17:13:07.205Z"),
-  modifiedAt: new Date("2023-05-10T17:03:48.644Z"),
+  type: "percentage",
+  basisPoints: 998023,
+  createdAt: new Date("2024-08-08T05:45:19.091Z"),
+  modifiedAt: new Date("2025-10-31T20:18:29.852Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": 106682,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-09-11T21:45:54.828Z"),
-  endsAt: new Date("2024-08-11T17:43:22.964Z"),
-  maxRedemptions: 200190,
-  redemptionsCount: 673653,
-  organizationId: "<value>",
+  startsAt: new Date("2024-03-24T00:23:12.517Z"),
+  endsAt: new Date("2023-11-21T13:20:41.827Z"),
+  maxRedemptions: 493407,
+  redemptionsCount: 657044,
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
 
@@ -80,22 +80,22 @@ const value: components.DiscountPercentageOnceForeverDurationBase = {
 ```typescript
 const value: components.DiscountPercentageRepeatDurationBase = {
   duration: "forever",
-  durationInMonths: 122085,
-  type: "fixed",
-  basisPoints: 60078,
-  createdAt: new Date("2023-08-19T00:10:11.657Z"),
-  modifiedAt: new Date("2023-05-26T00:10:06.496Z"),
+  durationInMonths: 935161,
+  type: "percentage",
+  basisPoints: 701978,
+  createdAt: new Date("2024-06-20T16:40:18.965Z"),
+  modifiedAt: new Date("2023-05-25T07:54:08.139Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": 704402,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-01-21T06:31:40.102Z"),
-  endsAt: new Date("2023-02-24T06:02:28.583Z"),
-  maxRedemptions: 101854,
-  redemptionsCount: 134173,
-  organizationId: "<value>",
+  startsAt: new Date("2023-11-09T05:37:43.437Z"),
+  endsAt: new Date("2023-04-24T23:18:08.610Z"),
+  maxRedemptions: 907899,
+  redemptionsCount: 709051,
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
 

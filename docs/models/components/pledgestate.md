@@ -5,7 +5,7 @@
 ```typescript
 import { PledgeState } from "@polar-sh/sdk/models/components/pledgestate.js";
 
-let value: PledgeState = "charge_disputed";
+let value: PledgeState = "initiated";
 ```
 
 ## Values

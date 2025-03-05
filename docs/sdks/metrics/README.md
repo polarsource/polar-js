@@ -31,6 +31,9 @@ async function run() {
     startDate: new RFCDate("2025-02-06"),
     endDate: new RFCDate("2024-09-04"),
     interval: "week",
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
   });
 
   // Handle the result
@@ -60,6 +63,9 @@ async function run() {
     startDate: new RFCDate("2025-02-06"),
     endDate: new RFCDate("2024-09-04"),
     interval: "week",
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
   });
 
   if (!res.ok) {

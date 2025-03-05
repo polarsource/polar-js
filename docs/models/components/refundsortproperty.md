@@ -5,7 +5,7 @@
 ```typescript
 import { RefundSortProperty } from "@polar-sh/sdk/models/components/refundsortproperty.js";
 
-let value: RefundSortProperty = "-amount";
+let value: RefundSortProperty = "-created_at";
 ```
 
 ## Values

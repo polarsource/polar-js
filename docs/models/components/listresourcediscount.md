@@ -8,30 +8,30 @@ import { ListResourceDiscount } from "@polar-sh/sdk/models/components/listresour
 let value: ListResourceDiscount = {
   items: [
     {
-      duration: "once",
-      durationInMonths: 861729,
-      type: "percentage",
-      basisPoints: 31323,
-      createdAt: new Date("2025-04-06T09:07:29.092Z"),
-      modifiedAt: new Date("2025-07-28T19:44:04.336Z"),
+      duration: "repeating",
+      durationInMonths: 484547,
+      type: "fixed",
+      basisPoints: 370141,
+      createdAt: new Date("2024-04-14T18:31:17.553Z"),
+      modifiedAt: new Date("2023-12-13T12:05:42.154Z"),
       id: "<value>",
       metadata: {
-        "key": 791839,
+        "key": "<value>",
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2025-09-24T21:01:28.984Z"),
-      endsAt: new Date("2024-09-14T18:42:51.260Z"),
-      maxRedemptions: 916692,
-      redemptionsCount: 416975,
-      organizationId: "<value>",
+      startsAt: new Date("2025-12-13T00:40:25.139Z"),
+      endsAt: new Date("2025-12-23T14:09:59.555Z"),
+      maxRedemptions: 642928,
+      redemptionsCount: 809794,
+      organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       products: [
         {
-          createdAt: new Date("2025-06-08T19:18:02.881Z"),
-          modifiedAt: new Date("2025-05-05T14:38:18.417Z"),
+          createdAt: new Date("2025-03-01T08:59:39.201Z"),
+          modifiedAt: new Date("2025-01-17T14:16:00.694Z"),
           id: "<value>",
           name: "<value>",
-          description: "mmm besmirch so voluntarily and duh intently amid",
+          description: "chasuble via feline yet",
           recurringInterval: "year",
           isRecurring: false,
           isArchived: false,
@@ -41,8 +41,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 144952,
-    maxPage: 278706,
+    totalCount: 455069,
+    maxPage: 492918,
   },
 };
 ```

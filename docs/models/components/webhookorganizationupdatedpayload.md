@@ -11,21 +11,21 @@ import { WebhookOrganizationUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookOrganizationUpdatedPayload = {
   data: {
-    createdAt: new Date("2025-09-25T04:48:13.660Z"),
-    modifiedAt: new Date("2023-10-30T23:56:54.625Z"),
-    id: "<value>",
+    createdAt: new Date("2025-08-08T00:51:23.196Z"),
+    modifiedAt: new Date("2024-12-25T03:04:40.757Z"),
+    id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://urban-mobility.info/",
+    avatarUrl: "https://frivolous-dish.name",
     bio: "<value>",
-    company: "Walsh, Pacocha and Feeney",
+    company: "Lakin Group",
     blog: "<value>",
     location: "<value>",
-    email: "Helen_Kuhlman6@hotmail.com",
+    email: "Katheryn43@gmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 194568,
+    pledgeMinimumAmount: 91613,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 221000,
+    defaultUpfrontSplitToContributors: 271782,
     profileSettings: {},
     featureSettings: {},
     subscriptionSettings: {
@@ -39,7 +39,7 @@ let value: WebhookOrganizationUpdatedPayload = {
 
 ## Fields
 
-| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `type`                                                             | *string*                                                           | :heavy_check_mark:                                                 | N/A                                                                |
-| `data`                                                             | [components.Organization](../../models/components/organization.md) | :heavy_check_mark:                                                 | N/A                                                                |
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `type`                                                             | *string*                                                           | :heavy_check_mark:                                                 | N/A                                                                | organization.updated                                               |
+| `data`                                                             | [components.Organization](../../models/components/organization.md) | :heavy_check_mark:                                                 | N/A                                                                |                                                                    |

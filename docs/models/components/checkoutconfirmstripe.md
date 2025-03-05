@@ -7,7 +7,11 @@ Confirm a checkout session using a Stripe confirmation token.
 ```typescript
 import { CheckoutConfirmStripe } from "@polar-sh/sdk/models/components/checkoutconfirmstripe.js";
 
-let value: CheckoutConfirmStripe = {};
+let value: CheckoutConfirmStripe = {
+  customerBillingAddress: {
+    country: "US",
+  },
+};
 ```
 
 ## Fields

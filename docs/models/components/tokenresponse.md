@@ -7,7 +7,7 @@ import { TokenResponse } from "@polar-sh/sdk/models/components/tokenresponse.js"
 
 let value: TokenResponse = {
   accessToken: "<value>",
-  expiresIn: 95555,
+  expiresIn: 837154,
   refreshToken: "<value>",
   scope: "<value>",
   idToken: "<value>",

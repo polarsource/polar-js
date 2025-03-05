@@ -25,6 +25,10 @@ export type SubscriptionCustomerTaxId = string | TaxIDFormat;
 
 export type SubscriptionCustomer = {
   /**
+   * The ID of the customer.
+   */
+  id: string;
+  /**
    * Creation timestamp of the object.
    */
   createdAt: Date;
@@ -32,10 +36,6 @@ export type SubscriptionCustomer = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the object.
-   */
-  id: string;
   metadata: { [k: string]: string | number | boolean };
   /**
    * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
@@ -49,9 +49,15 @@ export type SubscriptionCustomer = {
    * Whether the customer email address is verified. The address is automatically verified when the customer accesses the customer portal using their email address.
    */
   emailVerified: boolean;
+  /**
+   * The name of the customer.
+   */
   name: string | null;
   billingAddress: Address | null;
   taxId: Array<string | TaxIDFormat | null> | null;
+  /**
+   * The ID of the organization owning the customer.
+   */
   organizationId: string;
   avatarUrl: string;
 };
@@ -160,11 +166,11 @@ export const SubscriptionCustomer$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   external_id: z.nullable(z.string()),
   email: z.string(),
@@ -191,9 +197,9 @@ export const SubscriptionCustomer$inboundSchema: z.ZodType<
 
 /** @internal */
 export type SubscriptionCustomer$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
   metadata: { [k: string]: string | number | boolean };
   external_id: string | null;
   email: string;
@@ -211,9 +217,9 @@ export const SubscriptionCustomer$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SubscriptionCustomer
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   externalId: z.nullable(z.string()),
   email: z.string(),

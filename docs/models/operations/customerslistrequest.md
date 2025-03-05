@@ -5,7 +5,9 @@
 ```typescript
 import { CustomersListRequest } from "@polar-sh/sdk/models/operations/customerslist.js";
 
-let value: CustomersListRequest = {};
+let value: CustomersListRequest = {
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+};
 ```
 
 ## Fields

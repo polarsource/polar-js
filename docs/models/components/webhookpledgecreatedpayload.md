@@ -11,63 +11,63 @@ import { WebhookPledgeCreatedPayload } from "@polar-sh/sdk/models/components/web
 
 let value: WebhookPledgeCreatedPayload = {
   data: {
-    createdAt: new Date("2023-03-09T17:02:11.941Z"),
-    modifiedAt: new Date("2024-02-27T11:23:35.011Z"),
+    createdAt: new Date("2025-04-11T01:09:42.166Z"),
+    modifiedAt: new Date("2023-06-22T21:29:52.321Z"),
     id: "<value>",
-    amount: 241750,
-    currency: "Yuan Renminbi",
-    state: "pending",
+    amount: 583240,
+    currency: "Hryvnia",
+    state: "created",
     type: "pay_upfront",
     issue: {
-      id: "56de4492-5061-48af-933f-d9d3dd38eaa8",
+      id: "bc35a697-cdd9-4970-9417-d9a342d48215",
       platform: "github",
-      number: 978416,
+      number: 328853,
       title: "<value>",
-      state: "open",
-      issueCreatedAt: new Date("2023-12-08T08:23:00.023Z"),
+      state: "closed",
+      issueCreatedAt: new Date("2023-12-13T07:48:18.232Z"),
       needsConfirmationSolved: false,
       funding: {},
       repository: {
-        id: "b95431a8-300b-4340-b2d3-f24d64b0ed1c",
+        id: "c15a9174-a2a7-44b3-820d-781158b7d606",
         platform: "github",
         isPrivate: false,
         name: "MyOrg",
-        description: "table gadzooks fooey pulp except scout",
+        description: "animated jump whoever among broadcast",
         stars: 1337,
         license: "<value>",
         homepage: "<value>",
         profileSettings: {},
         organization: {
-          id: "0919d37c-22eb-4bd8-b78b-612f0bf2b43d",
+          id: "fb812658-1080-4060-9633-6156de449250",
           platform: "github",
           name: "<value>",
-          avatarUrl: "https://pretty-complication.net/",
+          avatarUrl: "https://noxious-pants.org/",
           isPersonal: false,
           bio: "<value>",
           prettyName: "<value>",
-          company: "Hamill, O'Hara and Terry",
+          company: "Durgan - White",
           blog: "<value>",
           location: "<value>",
-          email: "Russ82@gmail.com",
+          email: "Lewis_Ebert86@hotmail.com",
           twitterUsername: "<value>",
-          organizationId: "<value>",
+          organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         },
         internalOrganization: {
-          createdAt: new Date("2024-07-03T09:16:14.276Z"),
-          modifiedAt: new Date("2024-06-18T11:12:24.413Z"),
-          id: "<value>",
+          createdAt: new Date("2024-07-11T04:15:05.970Z"),
+          modifiedAt: new Date("2025-10-16T00:46:56.055Z"),
+          id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
           name: "<value>",
           slug: "<value>",
-          avatarUrl: "https://entire-bowling.net",
+          avatarUrl: "https://quiet-meadow.biz",
           bio: "<value>",
-          company: "Mante, Gislason and Grimes",
+          company: "King, Hahn and Rempel",
           blog: "<value>",
           location: "<value>",
-          email: "Dora_Hartmann22@yahoo.com",
+          email: "Eve.Emard@yahoo.com",
           twitterUsername: "<value>",
-          pledgeMinimumAmount: 733999,
+          pledgeMinimumAmount: 234848,
           pledgeBadgeShowAmount: false,
-          defaultUpfrontSplitToContributors: 385727,
+          defaultUpfrontSplitToContributors: 55124,
           profileSettings: {},
           featureSettings: {},
           subscriptionSettings: {
@@ -85,7 +85,7 @@ let value: WebhookPledgeCreatedPayload = {
 
 ## Fields
 
-| Field                                                  | Type                                                   | Required                                               | Description                                            |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| `type`                                                 | *string*                                               | :heavy_check_mark:                                     | N/A                                                    |
-| `data`                                                 | [components.Pledge](../../models/components/pledge.md) | :heavy_check_mark:                                     | N/A                                                    |
+| Field                                                  | Type                                                   | Required                                               | Description                                            | Example                                                |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| `type`                                                 | *string*                                               | :heavy_check_mark:                                     | N/A                                                    | pledge.created                                         |
+| `data`                                                 | [components.Pledge](../../models/components/pledge.md) | :heavy_check_mark:                                     | N/A                                                    |                                                        |

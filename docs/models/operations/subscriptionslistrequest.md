@@ -5,7 +5,9 @@
 ```typescript
 import { SubscriptionsListRequest } from "@polar-sh/sdk/models/operations/subscriptionslist.js";
 
-let value: SubscriptionsListRequest = {};
+let value: SubscriptionsListRequest = {
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+};
 ```
 
 ## Fields

@@ -12,7 +12,7 @@ const value: string = "<value>";
 ### `number`
 
 ```typescript
-const value: number = 400613;
+const value: number = 14040;
 ```
 
 ### `boolean`
@@ -24,6 +24,6 @@ const value: boolean = false;
 ### `Date`
 
 ```typescript
-const value: Date = new Date("2023-06-15T18:36:00.924Z");
+const value: Date = new Date("2024-06-09T09:07:09.454Z");
 ```
 

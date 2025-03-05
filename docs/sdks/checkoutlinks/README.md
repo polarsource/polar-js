@@ -27,7 +27,11 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.checkoutLinks.list({});
+  const result = await polar.checkoutLinks.list({
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -53,7 +57,11 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await checkoutLinksList(polar, {});
+  const res = await checkoutLinksList(polar, {
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   if (!res.ok) {
     throw res.error;

@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2023-04-01T00:38:08.817Z"),
-    modifiedAt: new Date("2023-03-03T00:48:44.834Z"),
+    createdAt: new Date("2024-01-21T15:33:48.510Z"),
+    modifiedAt: new Date("2024-06-18T20:31:13.886Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://motionless-mentor.net/",
-    logoUri: "https://frightened-hydrocarbon.name",
-    tosUri: "https://ultimate-king.name/",
-    policyUri: "https://soupy-fraudster.net/",
+    clientUri: "https://damaged-teriyaki.biz/",
+    logoUri: "https://gorgeous-unique.com",
+    tosUri: "https://frilly-fraudster.com/",
+    policyUri: "https://triangular-iridescence.com/",
   },
   sub: {
     id: "<value>",
-    email: "Rosalinda35@yahoo.com",
-    avatarUrl: "https://chilly-expansion.com",
+    email: "Mitchell_Terry99@hotmail.com",
+    avatarUrl: "https://faraway-circumference.biz",
   },
   scopes: [
-    "discounts:read",
+    "refunds:write",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2024-02-12T18:56:35.512Z"),
-    modifiedAt: new Date("2025-12-10T09:17:08.132Z"),
+    createdAt: new Date("2024-11-20T01:45:48.881Z"),
+    modifiedAt: new Date("2023-12-10T19:59:16.156Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://kaleidoscopic-best-seller.info/",
-    logoUri: "https://helpful-cardboard.name/",
-    tosUri: "https://rubbery-depot.net/",
-    policyUri: "https://whirlwind-gradient.net/",
+    clientUri: "https://cluttered-numeracy.info/",
+    logoUri: "https://bustling-kettledrum.biz/",
+    tosUri: "https://rowdy-heating.org",
+    policyUri: "https://svelte-muscat.org",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://any-nephew.biz",
+    avatarUrl: "https://spanish-apparatus.com/",
   },
   scopes: [
-    "discounts:read",
+    "external_organizations:read",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://wasteful-bar.org",
+      avatarUrl: "https://parallel-tomb.info",
     },
   ],
 };

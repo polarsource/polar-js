@@ -11,8 +11,8 @@ import { WebhookBenefitGrantUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantUpdatedPayload = {
   data: {
-    createdAt: new Date("2025-03-30T02:19:05.351Z"),
-    modifiedAt: new Date("2025-02-26T02:13:18.268Z"),
+    createdAt: new Date("2023-08-09T06:52:57.434Z"),
+    modifiedAt: new Date("2024-11-13T23:17:33.665Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -22,38 +22,43 @@ let value: WebhookBenefitGrantUpdatedPayload = {
     userId: "<value>",
     benefitId: "<value>",
     customer: {
-      createdAt: new Date("2023-02-25T17:48:53.428Z"),
-      modifiedAt: new Date("2025-12-06T11:06:25.063Z"),
-      id: "<value>",
+      id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+      createdAt: new Date("2023-04-29T11:47:52.155Z"),
+      modifiedAt: new Date("2023-02-01T18:40:51.816Z"),
       metadata: {
-        "key": false,
+        "key": 718859,
       },
-      externalId: "<id>",
-      email: "Alvera_Kovacek@yahoo.com",
-      emailVerified: false,
-      name: "<value>",
+      externalId: "usr_1337",
+      email: "customer@example.com",
+      emailVerified: true,
+      name: "John Doe",
       billingAddress: {
-        country: "Togo",
+        country: "FR",
       },
       taxId: [
-        "<id>",
+        "FR61954506077",
+        "eu_vat",
       ],
-      organizationId: "<value>",
-      avatarUrl: "https://instructive-goat.net/",
+      organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2024-06-26T07:37:02.234Z"),
-      modifiedAt: new Date("2023-10-20T22:11:31.924Z"),
+      createdAt: new Date("2024-06-16T20:00:28.055Z"),
+      modifiedAt: new Date("2023-08-17T12:20:23.359Z"),
       id: "<value>",
-      description: "uh-huh foolhardy pro fax",
+      description: "char chasuble noxious imaginary below whereas yak",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        note: "<value>",
+        archived: {
+          "key": false,
+        },
+        files: [
+          "<value>",
+        ],
       },
-      isTaxApplicable: false,
     },
   },
 };
@@ -61,7 +66,7 @@ let value: WebhookBenefitGrantUpdatedPayload = {
 
 ## Fields
 
-| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `type`                                                                           | *string*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              |
-| `data`                                                                           | [components.BenefitGrantWebhook](../../models/components/benefitgrantwebhook.md) | :heavy_check_mark:                                                               | N/A                                                                              |
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `type`                                                                           | *string*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              | benefit_grant.updated                                                            |
+| `data`                                                                           | [components.BenefitGrantWebhook](../../models/components/benefitgrantwebhook.md) | :heavy_check_mark:                                                               | N/A                                                                              |                                                                                  |

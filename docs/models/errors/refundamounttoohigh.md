@@ -10,7 +10,7 @@ import { RefundAmountTooHigh } from "@polar-sh/sdk/models/errors/refundamounttoo
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `error`            | *string*           | :heavy_check_mark: | N/A                |
-| `detail`           | *string*           | :heavy_check_mark: | N/A                |
+| Field               | Type                | Required            | Description         | Example             |
+| ------------------- | ------------------- | ------------------- | ------------------- | ------------------- |
+| `error`             | *string*            | :heavy_check_mark:  | N/A                 | RefundAmountTooHigh |
+| `detail`            | *string*            | :heavy_check_mark:  | N/A                 |                     |

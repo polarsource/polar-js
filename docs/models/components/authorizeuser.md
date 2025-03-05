@@ -7,8 +7,8 @@ import { AuthorizeUser } from "@polar-sh/sdk/models/components/authorizeuser.js"
 
 let value: AuthorizeUser = {
   id: "<value>",
-  email: "Ron.Douglas33@hotmail.com",
-  avatarUrl: "https://unhappy-sushi.info",
+  email: "Tyson.Gutkowski@yahoo.com",
+  avatarUrl: "https://unknown-bar.name",
 };
 ```
 

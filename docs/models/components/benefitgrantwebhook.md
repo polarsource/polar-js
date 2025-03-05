@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components/benefitgrantwebhook.js";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2024-05-10T08:04:00.367Z"),
-  modifiedAt: new Date("2023-10-31T16:22:57.100Z"),
+  createdAt: new Date("2024-04-05T21:31:12.539Z"),
+  modifiedAt: new Date("2025-02-04T01:25:02.057Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -17,39 +17,40 @@ let value: BenefitGrantWebhook = {
   userId: "<value>",
   benefitId: "<value>",
   customer: {
-    createdAt: new Date("2023-03-02T22:30:52.651Z"),
-    modifiedAt: new Date("2023-12-04T11:57:18.685Z"),
-    id: "<value>",
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2024-06-17T01:02:43.891Z"),
+    modifiedAt: new Date("2025-10-28T04:30:37.605Z"),
     metadata: {
       "key": "<value>",
     },
-    externalId: "<id>",
-    email: "Dangelo.Ernser83@yahoo.com",
-    emailVerified: false,
-    name: "<value>",
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
     billingAddress: {
-      country: "Saint Helena",
+      country: "US",
     },
     taxId: [
-      "bo_tin",
+      "911144442",
+      "us_ein",
     ],
-    organizationId: "<value>",
-    avatarUrl: "https://known-section.name",
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   properties: {},
   benefit: {
-    createdAt: new Date("2024-06-13T05:21:09.862Z"),
-    modifiedAt: new Date("2025-09-06T22:38:24.153Z"),
+    createdAt: new Date("2023-06-17T12:34:18.438Z"),
+    modifiedAt: new Date("2025-01-29T10:30:11.869Z"),
     id: "<value>",
-    description:
-      "bravely fill essence coincide transparency below wholly barring how scrutinise",
+    description: "as below rim apropos",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      note: "<value>",
+      guildId: "<id>",
+      roleId: "<id>",
+      guildToken: "<value>",
     },
-    isTaxApplicable: false,
   },
 };
 ```

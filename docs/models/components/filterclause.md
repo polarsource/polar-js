@@ -8,7 +8,7 @@ import { FilterClause } from "@polar-sh/sdk/models/components/filterclause.js";
 let value: FilterClause = {
   property: "<value>",
   operator: "like",
-  value: "<value>",
+  value: 757363,
 };
 ```
 

@@ -9,12 +9,11 @@ let value: ProductsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-01-20T19:32:27.742Z"),
-        modifiedAt: new Date("2024-01-22T16:24:11.216Z"),
+        createdAt: new Date("2025-11-03T03:04:57.584Z"),
+        modifiedAt: new Date("2025-02-17T00:36:16.610Z"),
         id: "<value>",
         name: "<value>",
-        description:
-          "pish including since neat because oval phooey fervently ugh",
+        description: "less pecan or",
         recurringInterval: "year",
         isRecurring: false,
         isArchived: false,
@@ -24,27 +23,33 @@ let value: ProductsListResponse = {
         },
         prices: [
           {
-            createdAt: new Date("2024-12-22T12:29:01.001Z"),
-            modifiedAt: new Date("2025-08-05T04:18:33.269Z"),
+            createdAt: new Date("2025-05-06T19:40:45.220Z"),
+            modifiedAt: new Date("2024-03-02T09:50:18.418Z"),
             id: "<value>",
             isArchived: false,
             productId: "<value>",
-            recurringInterval: "month",
+            recurringInterval: "year",
+            priceCurrency: "<value>",
+            minimumAmount: 528173,
+            maximumAmount: 950007,
+            presetAmount: 442506,
           },
         ],
         benefits: [
           {
-            createdAt: new Date("2023-05-29T03:09:24.790Z"),
-            modifiedAt: new Date("2023-10-11T02:48:00.542Z"),
+            createdAt: new Date("2025-03-18T04:49:50.317Z"),
+            modifiedAt: new Date("2023-07-20T22:17:57.471Z"),
             id: "<value>",
-            description: "silky only clamp parody clean tuba",
+            description:
+              "slowly triumphantly cheerfully hasty behind developmental meanwhile entwine",
             selectable: false,
             deletable: false,
             organizationId: "<value>",
             properties: {
-              note: "<value>",
+              guildId: "<id>",
+              roleId: "<id>",
+              guildToken: "<value>",
             },
-            isTaxApplicable: false,
           },
         ],
         medias: [
@@ -52,34 +57,34 @@ let value: ProductsListResponse = {
             id: "<value>",
             organizationId: "<value>",
             name: "<value>",
-            path: "/root",
+            path: "/etc/defaults",
             mimeType: "<value>",
-            size: 177134,
+            size: 554974,
             storageVersion: "<value>",
             checksumEtag: "<value>",
             checksumSha256Base64: "<value>",
             checksumSha256Hex: "<value>",
-            lastModifiedAt: new Date("2023-03-24T10:58:16.071Z"),
+            lastModifiedAt: new Date("2025-02-07T13:42:59.030Z"),
             version: "<value>",
             isUploaded: false,
-            createdAt: new Date("2024-11-12T23:45:49.092Z"),
+            createdAt: new Date("2024-11-11T17:17:08.680Z"),
             sizeReadable: "<value>",
-            publicUrl: "https://linear-brochure.org",
+            publicUrl: "https://unimportant-hubris.com/",
           },
         ],
         attachedCustomFields: [
           {
             customFieldId: "<value>",
             customField: {
-              createdAt: new Date("2025-08-16T09:00:14.604Z"),
-              modifiedAt: new Date("2024-03-03T15:13:15.380Z"),
+              createdAt: new Date("2024-06-01T16:50:18.771Z"),
+              modifiedAt: new Date("2024-02-27T09:44:46.188Z"),
               id: "<value>",
               metadata: {
-                "key": 479422,
+                "key": 326766,
               },
               slug: "<value>",
               name: "<value>",
-              organizationId: "<value>",
+              organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
               properties: {
                 options: [
                   {
@@ -89,15 +94,15 @@ let value: ProductsListResponse = {
                 ],
               },
             },
-            order: 983199,
+            order: 238315,
             required: false,
           },
         ],
       },
     ],
     pagination: {
-      totalCount: 389982,
-      maxPage: 815604,
+      totalCount: 907673,
+      maxPage: 804572,
     },
   },
 };

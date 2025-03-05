@@ -9,29 +9,30 @@ let value: CustomersListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-02-21T19:32:32.411Z"),
-        modifiedAt: new Date("2025-02-20T12:48:12.254Z"),
-        id: "<value>",
+        id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+        createdAt: new Date("2023-04-22T18:24:15.526Z"),
+        modifiedAt: new Date("2023-05-21T20:05:30.836Z"),
         metadata: {
-          "key": "<value>",
+          "key": false,
         },
-        externalId: "<id>",
-        email: "Brianne.Stokes38@hotmail.com",
-        emailVerified: false,
-        name: "<value>",
+        externalId: "usr_1337",
+        email: "customer@example.com",
+        emailVerified: true,
+        name: "John Doe",
         billingAddress: {
-          country: "San Marino",
+          country: "FR",
         },
         taxId: [
-          "<id>",
+          "FR61954506077",
+          "eu_vat",
         ],
-        organizationId: "<value>",
-        avatarUrl: "https://big-diver.biz/",
+        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+        avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
       },
     ],
     pagination: {
-      totalCount: 929981,
-      maxPage: 806974,
+      totalCount: 392377,
+      maxPage: 741968,
     },
   },
 };

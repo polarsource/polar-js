@@ -7,7 +7,11 @@ Update an existing checkout session using an access token.
 ```typescript
 import { CheckoutUpdate } from "@polar-sh/sdk/models/components/checkoutupdate.js";
 
-let value: CheckoutUpdate = {};
+let value: CheckoutUpdate = {
+  customerBillingAddress: {
+    country: "SE",
+  },
+};
 ```
 
 ## Fields

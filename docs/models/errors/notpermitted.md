@@ -10,7 +10,7 @@ import { NotPermitted } from "@polar-sh/sdk/models/errors/notpermitted.js";
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `error`            | *string*           | :heavy_check_mark: | N/A                |
-| `detail`           | *string*           | :heavy_check_mark: | N/A                |
+| Field              | Type               | Required           | Description        | Example            |
+| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
+| `error`            | *string*           | :heavy_check_mark: | N/A                | NotPermitted       |
+| `detail`           | *string*           | :heavy_check_mark: | N/A                |                    |

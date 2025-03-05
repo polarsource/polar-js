@@ -6,29 +6,29 @@
 import { BenefitLicenseKeysSubscriber } from "@polar-sh/sdk/models/components/benefitlicensekeyssubscriber.js";
 
 let value: BenefitLicenseKeysSubscriber = {
-  createdAt: new Date("2023-10-21T04:47:42.657Z"),
-  modifiedAt: new Date("2025-05-26T20:33:27.961Z"),
+  createdAt: new Date("2025-08-14T06:57:51.565Z"),
+  modifiedAt: new Date("2024-10-27T01:41:34.978Z"),
   id: "<value>",
-  description: "amid incidentally thread whose what",
+  description: "ah before zowie oh woefully",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2023-11-29T08:43:46.201Z"),
-    modifiedAt: new Date("2023-10-22T23:11:32.871Z"),
-    id: "<value>",
+    createdAt: new Date("2025-10-20T08:31:50.564Z"),
+    modifiedAt: new Date("2025-02-01T21:36:44.416Z"),
+    id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://cuddly-stall.org",
+    avatarUrl: "https://able-jet.name/",
     bio: "<value>",
-    company: "Erdman and Sons",
+    company: "Cole, Borer and Kautzer",
     blog: "<value>",
     location: "<value>",
-    email: "Elroy0@gmail.com",
+    email: "Eunice_Towne@hotmail.com",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 23738,
+    pledgeMinimumAmount: 37992,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 881551,
+    defaultUpfrontSplitToContributors: 168638,
     profileSettings: {},
     featureSettings: {},
     subscriptionSettings: {
@@ -40,14 +40,14 @@ let value: BenefitLicenseKeysSubscriber = {
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 936700,
-      timeframe: "year",
+      ttl: 174093,
+      timeframe: "month",
     },
     activations: {
-      limit: 179707,
+      limit: 614979,
       enableCustomerAdmin: false,
     },
-    limitUsage: 54286,
+    limitUsage: 156636,
   },
 };
 ```

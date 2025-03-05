@@ -11,45 +11,49 @@ import { WebhookProductUpdatedPayload } from "@polar-sh/sdk/models/components/we
 
 let value: WebhookProductUpdatedPayload = {
   data: {
-    createdAt: new Date("2025-04-11T01:09:42.166Z"),
-    modifiedAt: new Date("2023-06-22T21:29:52.321Z"),
+    createdAt: new Date("2024-03-07T23:50:01.730Z"),
+    modifiedAt: new Date("2024-10-27T17:13:19.444Z"),
     id: "<value>",
     name: "<value>",
-    description: "finding tragic lightly ultimately inasmuch supposing gah",
+    description: "nor deeply unless incidentally",
     recurringInterval: "month",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     metadata: {
-      "key": false,
+      "key": 52029,
     },
     prices: [
       {
-        createdAt: new Date("2023-01-17T19:55:21.199Z"),
-        modifiedAt: new Date("2025-08-01T23:38:40.461Z"),
+        createdAt: new Date("2025-01-11T01:11:19.363Z"),
+        modifiedAt: new Date("2023-11-01T22:35:54.505Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
+        type: "one_time",
         recurringInterval: "month",
         priceCurrency: "<value>",
-        minimumAmount: 516716,
-        maximumAmount: 114762,
-        presetAmount: 107776,
+        minimumAmount: 419683,
+        maximumAmount: 653492,
+        presetAmount: 944689,
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2024-07-19T18:55:51.097Z"),
-        modifiedAt: new Date("2025-02-07T03:44:34.259Z"),
+        createdAt: new Date("2024-07-29T13:48:05.536Z"),
+        modifiedAt: new Date("2024-04-01T08:07:24.314Z"),
         id: "<value>",
-        description: "um oh sedately mount although ick",
+        description: "judgementally furthermore meh",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          guildId: "<id>",
-          roleId: "<id>",
-          guildToken: "<value>",
+          archived: {
+            "key": false,
+          },
+          files: [
+            "<value>",
+          ],
         },
       },
     ],
@@ -58,37 +62,37 @@ let value: WebhookProductUpdatedPayload = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/usr/include",
+        path: "/boot/defaults",
         mimeType: "<value>",
-        size: 518728,
+        size: 72,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2023-05-12T19:14:37.630Z"),
+        lastModifiedAt: new Date("2025-08-22T19:59:17.126Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2023-07-12T12:59:47.341Z"),
+        createdAt: new Date("2024-03-31T11:38:42.791Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://heavenly-mathematics.com/",
+        publicUrl: "https://male-hose.biz",
       },
     ],
     attachedCustomFields: [
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2024-07-14T04:03:20.132Z"),
-          modifiedAt: new Date("2023-02-01T05:42:01.166Z"),
+          createdAt: new Date("2023-12-06T10:12:28.995Z"),
+          modifiedAt: new Date("2024-10-28T21:12:06.679Z"),
           id: "<value>",
           metadata: {
-            "key": "<value>",
+            "key": false,
           },
           slug: "<value>",
           name: "<value>",
-          organizationId: "<value>",
+          organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
           properties: {},
         },
-        order: 376341,
+        order: 540826,
         required: false,
       },
     ],
@@ -98,7 +102,7 @@ let value: WebhookProductUpdatedPayload = {
 
 ## Fields
 
-| Field                                                    | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `type`                                                   | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
-| `data`                                                   | [components.Product](../../models/components/product.md) | :heavy_check_mark:                                       | A product.                                               |
+| Field                                                    | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `type`                                                   | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      | product.updated                                          |
+| `data`                                                   | [components.Product](../../models/components/product.md) | :heavy_check_mark:                                       | A product.                                               |                                                          |

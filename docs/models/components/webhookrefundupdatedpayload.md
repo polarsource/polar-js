@@ -11,17 +11,17 @@ import { WebhookRefundUpdatedPayload } from "@polar-sh/sdk/models/components/web
 
 let value: WebhookRefundUpdatedPayload = {
   data: {
-    createdAt: new Date("2024-01-03T21:55:52.769Z"),
-    modifiedAt: new Date("2025-01-14T23:14:29.526Z"),
+    createdAt: new Date("2023-04-09T06:29:36.990Z"),
+    modifiedAt: new Date("2025-11-07T09:51:45.663Z"),
     id: "<value>",
     metadata: {
-      "key": "<value>",
+      "key": false,
     },
     status: "succeeded",
-    reason: "duplicate",
-    amount: 816346,
-    taxAmount: 186967,
-    currency: "Philippine Peso",
+    reason: "customer_request",
+    amount: 145333,
+    taxAmount: 710181,
+    currency: "Jordanian Dinar",
     organizationId: "<value>",
     orderId: "<value>",
     subscriptionId: "<value>",
@@ -33,7 +33,7 @@ let value: WebhookRefundUpdatedPayload = {
 
 ## Fields
 
-| Field                                                  | Type                                                   | Required                                               | Description                                            |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| `type`                                                 | *string*                                               | :heavy_check_mark:                                     | N/A                                                    |
-| `data`                                                 | [components.Refund](../../models/components/refund.md) | :heavy_check_mark:                                     | N/A                                                    |
+| Field                                                  | Type                                                   | Required                                               | Description                                            | Example                                                |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| `type`                                                 | *string*                                               | :heavy_check_mark:                                     | N/A                                                    | refund.updated                                         |
+| `data`                                                 | [components.Refund](../../models/components/refund.md) | :heavy_check_mark:                                     | N/A                                                    |                                                        |

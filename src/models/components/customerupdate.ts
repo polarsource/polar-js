@@ -33,6 +33,9 @@ export type CustomerUpdate = {
    * The email address of the customer. This must be unique within the organization.
    */
   email?: string | null | undefined;
+  /**
+   * The name of the customer.
+   */
   name?: string | null | undefined;
   billingAddress?: Address | null | undefined;
   taxId?: Array<string | TaxIDFormat | null> | null | undefined;

@@ -5,7 +5,11 @@
 ```typescript
 import { EventsListRequest } from "@polar-sh/sdk/models/operations/eventslist.js";
 
-let value: EventsListRequest = {};
+let value: EventsListRequest = {
+  organizationId: [
+    "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  ],
+};
 ```
 
 ## Fields

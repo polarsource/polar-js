@@ -28,7 +28,11 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.meters.list({});
+  const result = await polar.meters.list({
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   for await (const page of result) {
     // Handle the page
@@ -54,7 +58,11 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await metersList(polar, {});
+  const res = await metersList(polar, {
+    organizationId: [
+      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    ],
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -119,6 +127,7 @@ async function run() {
       func: "sum",
       property: "<value>",
     },
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   // Handle the result
@@ -155,6 +164,7 @@ async function run() {
       func: "sum",
       property: "<value>",
     },
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   if (!res.ok) {

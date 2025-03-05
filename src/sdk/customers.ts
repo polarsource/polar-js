@@ -7,16 +7,21 @@ import { customersDelete } from "../funcs/customersDelete.js";
 import { customersDeleteExternal } from "../funcs/customersDeleteExternal.js";
 import { customersGet } from "../funcs/customersGet.js";
 import { customersGetExternal } from "../funcs/customersGetExternal.js";
+import { customersGetState } from "../funcs/customersGetState.js";
+import { customersGetStateExternal } from "../funcs/customersGetStateExternal.js";
 import { customersList } from "../funcs/customersList.js";
 import { customersUpdate } from "../funcs/customersUpdate.js";
 import { customersUpdateExternal } from "../funcs/customersUpdateExternal.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { Customer } from "../models/components/customer.js";
 import { CustomerCreate } from "../models/components/customercreate.js";
+import { CustomerState } from "../models/components/customerstate.js";
 import { CustomersDeleteRequest } from "../models/operations/customersdelete.js";
 import { CustomersDeleteExternalRequest } from "../models/operations/customersdeleteexternal.js";
 import { CustomersGetRequest } from "../models/operations/customersget.js";
 import { CustomersGetExternalRequest } from "../models/operations/customersgetexternal.js";
+import { CustomersGetStateRequest } from "../models/operations/customersgetstate.js";
+import { CustomersGetStateExternalRequest } from "../models/operations/customersgetstateexternal.js";
 import {
   CustomersListRequest,
   CustomersListResponse,
@@ -177,6 +182,56 @@ export class Customers extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(customersDeleteExternal(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Customer State
+   *
+   * @remarks
+   * Get a customer state by ID.
+   *
+   * The customer state includes information about
+   * the customer's active subscriptions and benefits.
+   *
+   * It's the ideal endpoint to use when you need to get a full overview
+   * of a customer's status.
+   *
+   * **Scopes**: `customers:read` `customers:write`
+   */
+  async getState(
+    request: CustomersGetStateRequest,
+    options?: RequestOptions,
+  ): Promise<CustomerState> {
+    return unwrapAsync(customersGetState(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Customer State by External ID
+   *
+   * @remarks
+   * Get a customer state by external ID.
+   *
+   * The customer state includes information about
+   * the customer's active subscriptions and benefits.
+   *
+   * It's the ideal endpoint to use when you need to get a full overview
+   * of a customer's status.
+   *
+   * **Scopes**: `customers:read` `customers:write`
+   */
+  async getStateExternal(
+    request: CustomersGetStateExternalRequest,
+    options?: RequestOptions,
+  ): Promise<CustomerState> {
+    return unwrapAsync(customersGetStateExternal(
       this,
       request,
       options,
