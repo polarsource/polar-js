@@ -188,6 +188,7 @@ async function run() {
       metadata: {
         "key": "<value>",
       },
+      customerExternalId: "<id>",
       products: [
         {
           createdAt: new Date("2024-05-27T05:08:06.235Z"),

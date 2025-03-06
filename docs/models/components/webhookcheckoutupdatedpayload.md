@@ -49,6 +49,7 @@ let value: WebhookCheckoutUpdatedPayload = {
     metadata: {
       "key": false,
     },
+    customerExternalId: "<id>",
     products: [
       {
         createdAt: new Date("2024-03-09T04:12:54.857Z"),
