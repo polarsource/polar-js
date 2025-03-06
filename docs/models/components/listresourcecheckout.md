@@ -46,6 +46,7 @@ let value: ListResourceCheckout = {
       metadata: {
         "key": false,
       },
+      customerExternalId: "<id>",
       products: [
         {
           createdAt: new Date("2024-08-24T18:51:00.647Z"),

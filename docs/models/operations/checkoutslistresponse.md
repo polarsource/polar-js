@@ -47,6 +47,7 @@ let value: CheckoutsListResponse = {
         metadata: {
           "key": false,
         },
+        customerExternalId: "<id>",
         products: [
           {
             createdAt: new Date("2024-09-02T13:41:49.073Z"),
