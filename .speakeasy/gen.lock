@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: d46974a8f679476a3e514e7380f08ad9
+  docChecksum: a245d0e8fa1b557ee953898ee04f11ae
   docVersion: 0.1.0
-  speakeasyVersion: 1.510.0
-  generationVersion: 2.541.0
-  releaseVersion: 0.29.3
-  configChecksum: 74e6af38113e03c81a085d52e29ef212
+  speakeasyVersion: 1.513.2
+  generationVersion: 2.545.2
+  releaseVersion: 0.30.0
+  configChecksum: 203b89a405c54b914f39d30782666e43
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -26,7 +26,7 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
     groups: 2.81.2
-    mcpServer: 0.4.1
+    mcpServer: 0.6.0
     methodSecurity: 2.82.6
     nameOverrides: 2.81.2
     nullables: 0.1.1
@@ -950,6 +950,7 @@ generatedFiles:
   - src/mcp-server/cli/start/command.ts
   - src/mcp-server/cli/start/impl.ts
   - src/mcp-server/console-logger.ts
+  - src/mcp-server/extensions.ts
   - src/mcp-server/mcp-server.ts
   - src/mcp-server/resources.ts
   - src/mcp-server/scopes.ts
