@@ -6,6 +6,10 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { PolarCore } from "../core.js";
 import { SDKOptions } from "../lib/config.js";
 import type { ConsoleLogger } from "./console-logger.js";
+import {
+  createRegisterResource,
+  createRegisterResourceTemplate,
+} from "./resources.js";
 import { MCPScope, mcpScopes } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
 import { tool$customersCreate } from "./tools/customersCreate.js";
@@ -44,7 +48,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Polar",
-    version: "0.29.3",
+    version: "0.30.0",
   });
 
   const client = new PolarCore({
@@ -52,7 +56,9 @@ export function createMCPServer(deps: {
     serverURL: deps.serverURL,
     server: deps.server,
   });
+
   const scopes = new Set(deps.scopes ?? mcpScopes);
+
   const allowedTools = deps.allowedTools && new Set(deps.allowedTools);
   const tool = createRegisterTool(
     deps.logger,
@@ -61,6 +67,15 @@ export function createMCPServer(deps: {
     scopes,
     allowedTools,
   );
+  const resource = createRegisterResource(deps.logger, server, client, scopes);
+  const resourceTemplate = createRegisterResourceTemplate(
+    deps.logger,
+    server,
+    client,
+    scopes,
+  );
+  const register = { tool, resource, resourceTemplate };
+  void register; // suppress unused warnings
 
   tool(tool$subscriptionsList);
   tool(tool$subscriptionsExport);
