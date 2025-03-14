@@ -55,6 +55,12 @@ import {
   OrderCustomer$outboundSchema,
 } from "./ordercustomer.js";
 import {
+  OrderItemSchema,
+  OrderItemSchema$inboundSchema,
+  OrderItemSchema$Outbound,
+  OrderItemSchema$outboundSchema,
+} from "./orderitemschema.js";
+import {
   OrderProduct,
   OrderProduct$inboundSchema,
   OrderProduct$Outbound,
@@ -83,6 +89,9 @@ export type OrderMetadata = string | number | boolean;
 
 export type OrderCustomFieldData = string | number | boolean | Date;
 
+/**
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
 export type OrderProductPrice = LegacyRecurringProductPrice | ProductPrice;
 
 export type OrderDiscount =
@@ -112,14 +121,38 @@ export type Order = {
     | { [k: string]: string | number | boolean | Date | null }
     | undefined;
   status: string;
+  /**
+   * Amount in cents, before discounts and taxes.
+   */
+  subtotalAmount: number;
+  /**
+   * Discount amount in cents.
+   */
+  discountAmount: number;
+  /**
+   * Amount in cents, after discounts but before taxes.
+   */
+  netAmount: number;
+  /**
+   * Amount in cents, after discounts but before taxes.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   amount: number;
+  /**
+   * Sales tax amount in cents.
+   */
   taxAmount: number;
   /**
-   * Amount refunded
+   * Amount in cents, after discounts and taxes.
+   */
+  totalAmount: number;
+  /**
+   * Amount refunded in cents.
    */
   refundedAmount: number;
   /**
-   * Sales tax refunded
+   * Sales tax refunded in cents.
    */
   refundedTaxAmount: number;
   currency: string;
@@ -127,6 +160,9 @@ export type Order = {
   billingAddress: Address | null;
   customerId: string;
   productId: string;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   productPriceId: string;
   discountId: string | null;
   subscriptionId: string | null;
@@ -138,6 +174,9 @@ export type Order = {
   userId: string;
   user: OrderUser;
   product: OrderProduct;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   productPrice: LegacyRecurringProductPrice | ProductPrice;
   discount:
     | DiscountPercentageOnceForeverDurationBase
@@ -146,6 +185,10 @@ export type Order = {
     | DiscountFixedRepeatDurationBase
     | null;
   subscription: OrderSubscription | null;
+  /**
+   * Line items composing the order.
+   */
+  items: Array<OrderItemSchema>;
 };
 
 /** @internal */
@@ -386,8 +429,12 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       ),
     ).optional(),
     status: z.string(),
+    subtotal_amount: z.number().int(),
+    discount_amount: z.number().int(),
+    net_amount: z.number().int(),
     amount: z.number().int(),
     tax_amount: z.number().int(),
+    total_amount: z.number().int(),
     refunded_amount: z.number().int(),
     refunded_tax_amount: z.number().int(),
     currency: z.string(),
@@ -416,12 +463,17 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       ]),
     ),
     subscription: z.nullable(OrderSubscription$inboundSchema),
+    items: z.array(OrderItemSchema$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
       "custom_field_data": "customFieldData",
+      "subtotal_amount": "subtotalAmount",
+      "discount_amount": "discountAmount",
+      "net_amount": "netAmount",
       "tax_amount": "taxAmount",
+      "total_amount": "totalAmount",
       "refunded_amount": "refundedAmount",
       "refunded_tax_amount": "refundedTaxAmount",
       "billing_reason": "billingReason",
@@ -447,8 +499,12 @@ export type Order$Outbound = {
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
   status: string;
+  subtotal_amount: number;
+  discount_amount: number;
+  net_amount: number;
   amount: number;
   tax_amount: number;
+  total_amount: number;
   refunded_amount: number;
   refunded_tax_amount: number;
   currency: string;
@@ -472,6 +528,7 @@ export type Order$Outbound = {
     | DiscountFixedRepeatDurationBase$Outbound
     | null;
   subscription: OrderSubscription$Outbound | null;
+  items: Array<OrderItemSchema$Outbound>;
 };
 
 /** @internal */
@@ -495,8 +552,12 @@ export const Order$outboundSchema: z.ZodType<
     ),
   ).optional(),
   status: z.string(),
+  subtotalAmount: z.number().int(),
+  discountAmount: z.number().int(),
+  netAmount: z.number().int(),
   amount: z.number().int(),
   taxAmount: z.number().int(),
+  totalAmount: z.number().int(),
   refundedAmount: z.number().int(),
   refundedTaxAmount: z.number().int(),
   currency: z.string(),
@@ -525,12 +586,17 @@ export const Order$outboundSchema: z.ZodType<
     ]),
   ),
   subscription: z.nullable(OrderSubscription$outboundSchema),
+  items: z.array(OrderItemSchema$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
     customFieldData: "custom_field_data",
+    subtotalAmount: "subtotal_amount",
+    discountAmount: "discount_amount",
+    netAmount: "net_amount",
     taxAmount: "tax_amount",
+    totalAmount: "total_amount",
     refundedAmount: "refunded_amount",
     refundedTaxAmount: "refunded_tax_amount",
     billingReason: "billing_reason",

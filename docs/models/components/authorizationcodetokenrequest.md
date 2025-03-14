@@ -9,7 +9,7 @@ let value: AuthorizationCodeTokenRequest = {
   clientId: "<id>",
   clientSecret: "<value>",
   code: "<value>",
-  redirectUri: "https://lost-synergy.org",
+  redirectUri: "https://outstanding-foodstuffs.com",
 };
 ```
 

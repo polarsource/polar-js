@@ -11,8 +11,8 @@ import { WebhookBenefitGrantCreatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantCreatedPayload = {
   data: {
-    createdAt: new Date("2025-03-27T07:52:32.211Z"),
-    modifiedAt: new Date("2023-01-24T07:40:44.694Z"),
+    createdAt: new Date("2023-03-07T19:06:15.685Z"),
+    modifiedAt: new Date("2025-04-03T01:12:40.733Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -23,38 +23,40 @@ let value: WebhookBenefitGrantCreatedPayload = {
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2024-09-16T05:56:47.413Z"),
-      modifiedAt: new Date("2024-04-25T12:06:48.895Z"),
+      createdAt: new Date("2025-10-15T15:36:13.589Z"),
+      modifiedAt: new Date("2023-04-28T09:55:27.616Z"),
       metadata: {
-        "key": 992382,
+        "key": 451727,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
       emailVerified: true,
       name: "John Doe",
       billingAddress: {
-        country: "SE",
+        country: "FR",
       },
       taxId: [
-        "911144442",
-        "us_ein",
+        "FR61954506077",
+        "eu_vat",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      deletedAt: new Date("2023-11-01T23:42:16.112Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2025-03-27T19:40:06.065Z"),
-      modifiedAt: new Date("2024-01-17T00:37:52.892Z"),
+      createdAt: new Date("2025-09-06T22:38:24.153Z"),
+      modifiedAt: new Date("2025-09-19T06:40:22.196Z"),
       id: "<value>",
-      description: "grandpa before vastly tightly",
+      description: "nor ceramics hm invite",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        note: "<value>",
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "push",
       },
-      isTaxApplicable: false,
     },
   },
 };

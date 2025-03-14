@@ -41,7 +41,16 @@ import {
   SubscriptionStatus$outboundSchema,
 } from "./subscriptionstatus.js";
 
-export type Price = LegacyRecurringProductPrice | ProductPrice;
+/**
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
+export type CustomerSubscriptionPrice =
+  | LegacyRecurringProductPrice
+  | ProductPrice;
+
+export type CustomerSubscriptionPrices =
+  | LegacyRecurringProductPrice
+  | ProductPrice;
 
 export type CustomerSubscription = {
   /**
@@ -59,23 +68,49 @@ export type CustomerSubscription = {
   /**
    * The amount of the subscription.
    */
-  amount: number | null;
+  amount: number;
   /**
    * The currency of the subscription.
    */
-  currency: string | null;
+  currency: string;
   recurringInterval: SubscriptionRecurringInterval;
   status: SubscriptionStatus;
+  /**
+   * The start timestamp of the current billing period.
+   */
   currentPeriodStart: Date;
+  /**
+   * The end timestamp of the current billing period.
+   */
   currentPeriodEnd: Date | null;
+  /**
+   * Whether the subscription will be canceled at the end of the current period.
+   */
   cancelAtPeriodEnd: boolean;
+  /**
+   * The timestamp when the subscription was canceled. The subscription might still be active if `cancel_at_period_end` is `true`.
+   */
   canceledAt: Date | null;
+  /**
+   * The timestamp when the subscription started.
+   */
   startedAt: Date | null;
+  /**
+   * The timestamp when the subscription will end.
+   */
   endsAt: Date | null;
+  /**
+   * The timestamp when the subscription ended.
+   */
   endedAt: Date | null;
+  /**
+   * The ID of the subscribed customer.
+   */
   customerId: string;
+  /**
+   * The ID of the subscribed product.
+   */
   productId: string;
-  priceId: string;
   /**
    * The ID of the applied discount, if any.
    */
@@ -86,28 +121,42 @@ export type CustomerSubscription = {
   /**
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
+  priceId: string;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   userId: string;
   product: CustomerSubscriptionProduct;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   price: LegacyRecurringProductPrice | ProductPrice;
+  /**
+   * List of enabled prices for the subscription.
+   */
+  prices: Array<LegacyRecurringProductPrice | ProductPrice>;
 };
 
 /** @internal */
-export const Price$inboundSchema: z.ZodType<Price, z.ZodTypeDef, unknown> = z
-  .union([
-    LegacyRecurringProductPrice$inboundSchema,
-    ProductPrice$inboundSchema,
-  ]);
+export const CustomerSubscriptionPrice$inboundSchema: z.ZodType<
+  CustomerSubscriptionPrice,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
 
 /** @internal */
-export type Price$Outbound =
+export type CustomerSubscriptionPrice$Outbound =
   | LegacyRecurringProductPrice$Outbound
   | ProductPrice$Outbound;
 
 /** @internal */
-export const Price$outboundSchema: z.ZodType<
-  Price$Outbound,
+export const CustomerSubscriptionPrice$outboundSchema: z.ZodType<
+  CustomerSubscriptionPrice$Outbound,
   z.ZodTypeDef,
-  Price
+  CustomerSubscriptionPrice
 > = z.union([
   LegacyRecurringProductPrice$outboundSchema,
   ProductPrice$outboundSchema,
@@ -117,26 +166,86 @@ export const Price$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Price$ {
-  /** @deprecated use `Price$inboundSchema` instead. */
-  export const inboundSchema = Price$inboundSchema;
-  /** @deprecated use `Price$outboundSchema` instead. */
-  export const outboundSchema = Price$outboundSchema;
-  /** @deprecated use `Price$Outbound` instead. */
-  export type Outbound = Price$Outbound;
+export namespace CustomerSubscriptionPrice$ {
+  /** @deprecated use `CustomerSubscriptionPrice$inboundSchema` instead. */
+  export const inboundSchema = CustomerSubscriptionPrice$inboundSchema;
+  /** @deprecated use `CustomerSubscriptionPrice$outboundSchema` instead. */
+  export const outboundSchema = CustomerSubscriptionPrice$outboundSchema;
+  /** @deprecated use `CustomerSubscriptionPrice$Outbound` instead. */
+  export type Outbound = CustomerSubscriptionPrice$Outbound;
 }
 
-export function priceToJSON(price: Price): string {
-  return JSON.stringify(Price$outboundSchema.parse(price));
+export function customerSubscriptionPriceToJSON(
+  customerSubscriptionPrice: CustomerSubscriptionPrice,
+): string {
+  return JSON.stringify(
+    CustomerSubscriptionPrice$outboundSchema.parse(customerSubscriptionPrice),
+  );
 }
 
-export function priceFromJSON(
+export function customerSubscriptionPriceFromJSON(
   jsonString: string,
-): SafeParseResult<Price, SDKValidationError> {
+): SafeParseResult<CustomerSubscriptionPrice, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Price$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Price' from JSON`,
+    (x) => CustomerSubscriptionPrice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerSubscriptionPrice' from JSON`,
+  );
+}
+
+/** @internal */
+export const CustomerSubscriptionPrices$inboundSchema: z.ZodType<
+  CustomerSubscriptionPrices,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
+
+/** @internal */
+export type CustomerSubscriptionPrices$Outbound =
+  | LegacyRecurringProductPrice$Outbound
+  | ProductPrice$Outbound;
+
+/** @internal */
+export const CustomerSubscriptionPrices$outboundSchema: z.ZodType<
+  CustomerSubscriptionPrices$Outbound,
+  z.ZodTypeDef,
+  CustomerSubscriptionPrices
+> = z.union([
+  LegacyRecurringProductPrice$outboundSchema,
+  ProductPrice$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerSubscriptionPrices$ {
+  /** @deprecated use `CustomerSubscriptionPrices$inboundSchema` instead. */
+  export const inboundSchema = CustomerSubscriptionPrices$inboundSchema;
+  /** @deprecated use `CustomerSubscriptionPrices$outboundSchema` instead. */
+  export const outboundSchema = CustomerSubscriptionPrices$outboundSchema;
+  /** @deprecated use `CustomerSubscriptionPrices$Outbound` instead. */
+  export type Outbound = CustomerSubscriptionPrices$Outbound;
+}
+
+export function customerSubscriptionPricesToJSON(
+  customerSubscriptionPrices: CustomerSubscriptionPrices,
+): string {
+  return JSON.stringify(
+    CustomerSubscriptionPrices$outboundSchema.parse(customerSubscriptionPrices),
+  );
+}
+
+export function customerSubscriptionPricesFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomerSubscriptionPrices, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomerSubscriptionPrices$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerSubscriptionPrices' from JSON`,
   );
 }
 
@@ -151,8 +260,8 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  amount: z.nullable(z.number().int()),
-  currency: z.nullable(z.string()),
+  amount: z.number().int(),
+  currency: z.string(),
   recurring_interval: SubscriptionRecurringInterval$inboundSchema,
   status: SubscriptionStatus$inboundSchema,
   current_period_start: z.string().datetime({ offset: true }).transform(v =>
@@ -176,19 +285,25 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
   ),
   customer_id: z.string(),
   product_id: z.string(),
-  price_id: z.string(),
   discount_id: z.nullable(z.string()),
   checkout_id: z.nullable(z.string()),
   customer_cancellation_reason: z.nullable(
     CustomerCancellationReason$inboundSchema,
   ),
   customer_cancellation_comment: z.nullable(z.string()),
+  price_id: z.string(),
   user_id: z.string(),
   product: CustomerSubscriptionProduct$inboundSchema,
   price: z.union([
     LegacyRecurringProductPrice$inboundSchema,
     ProductPrice$inboundSchema,
   ]),
+  prices: z.array(
+    z.union([
+      LegacyRecurringProductPrice$inboundSchema,
+      ProductPrice$inboundSchema,
+    ]),
+  ),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -203,11 +318,11 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
     "ended_at": "endedAt",
     "customer_id": "customerId",
     "product_id": "productId",
-    "price_id": "priceId",
     "discount_id": "discountId",
     "checkout_id": "checkoutId",
     "customer_cancellation_reason": "customerCancellationReason",
     "customer_cancellation_comment": "customerCancellationComment",
+    "price_id": "priceId",
     "user_id": "userId",
   });
 });
@@ -217,8 +332,8 @@ export type CustomerSubscription$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  amount: number | null;
-  currency: string | null;
+  amount: number;
+  currency: string;
   recurring_interval: string;
   status: string;
   current_period_start: string;
@@ -230,14 +345,15 @@ export type CustomerSubscription$Outbound = {
   ended_at: string | null;
   customer_id: string;
   product_id: string;
-  price_id: string;
   discount_id: string | null;
   checkout_id: string | null;
   customer_cancellation_reason: string | null;
   customer_cancellation_comment: string | null;
+  price_id: string;
   user_id: string;
   product: CustomerSubscriptionProduct$Outbound;
   price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
+  prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
 };
 
 /** @internal */
@@ -249,8 +365,8 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  amount: z.nullable(z.number().int()),
-  currency: z.nullable(z.string()),
+  amount: z.number().int(),
+  currency: z.string(),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,
   status: SubscriptionStatus$outboundSchema,
   currentPeriodStart: z.date().transform(v => v.toISOString()),
@@ -262,19 +378,25 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
   endedAt: z.nullable(z.date().transform(v => v.toISOString())),
   customerId: z.string(),
   productId: z.string(),
-  priceId: z.string(),
   discountId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
   customerCancellationReason: z.nullable(
     CustomerCancellationReason$outboundSchema,
   ),
   customerCancellationComment: z.nullable(z.string()),
+  priceId: z.string(),
   userId: z.string(),
   product: CustomerSubscriptionProduct$outboundSchema,
   price: z.union([
     LegacyRecurringProductPrice$outboundSchema,
     ProductPrice$outboundSchema,
   ]),
+  prices: z.array(
+    z.union([
+      LegacyRecurringProductPrice$outboundSchema,
+      ProductPrice$outboundSchema,
+    ]),
+  ),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -289,11 +411,11 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
     endedAt: "ended_at",
     customerId: "customer_id",
     productId: "product_id",
-    priceId: "price_id",
     discountId: "discount_id",
     checkoutId: "checkout_id",
     customerCancellationReason: "customer_cancellation_reason",
     customerCancellationComment: "customer_cancellation_comment",
+    priceId: "price_id",
     userId: "user_id",
   });
 });

@@ -21,7 +21,7 @@ import {
 
 export type SubscriptionCustomerMetadata = string | number | boolean;
 
-export type SubscriptionCustomerTaxId = string | TaxIDFormat;
+export type TaxId = string | TaxIDFormat;
 
 export type SubscriptionCustomer = {
   /**
@@ -59,6 +59,10 @@ export type SubscriptionCustomer = {
    * The ID of the organization owning the customer.
    */
   organizationId: string;
+  /**
+   * Timestamp for when the customer was soft deleted.
+   */
+  deletedAt: Date | null;
   avatarUrl: string;
 };
 
@@ -113,50 +117,43 @@ export function subscriptionCustomerMetadataFromJSON(
 }
 
 /** @internal */
-export const SubscriptionCustomerTaxId$inboundSchema: z.ZodType<
-  SubscriptionCustomerTaxId,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), TaxIDFormat$inboundSchema]);
+export const TaxId$inboundSchema: z.ZodType<TaxId, z.ZodTypeDef, unknown> = z
+  .union([z.string(), TaxIDFormat$inboundSchema]);
 
 /** @internal */
-export type SubscriptionCustomerTaxId$Outbound = string | string;
+export type TaxId$Outbound = string | string;
 
 /** @internal */
-export const SubscriptionCustomerTaxId$outboundSchema: z.ZodType<
-  SubscriptionCustomerTaxId$Outbound,
+export const TaxId$outboundSchema: z.ZodType<
+  TaxId$Outbound,
   z.ZodTypeDef,
-  SubscriptionCustomerTaxId
+  TaxId
 > = z.union([z.string(), TaxIDFormat$outboundSchema]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SubscriptionCustomerTaxId$ {
-  /** @deprecated use `SubscriptionCustomerTaxId$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionCustomerTaxId$inboundSchema;
-  /** @deprecated use `SubscriptionCustomerTaxId$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionCustomerTaxId$outboundSchema;
-  /** @deprecated use `SubscriptionCustomerTaxId$Outbound` instead. */
-  export type Outbound = SubscriptionCustomerTaxId$Outbound;
+export namespace TaxId$ {
+  /** @deprecated use `TaxId$inboundSchema` instead. */
+  export const inboundSchema = TaxId$inboundSchema;
+  /** @deprecated use `TaxId$outboundSchema` instead. */
+  export const outboundSchema = TaxId$outboundSchema;
+  /** @deprecated use `TaxId$Outbound` instead. */
+  export type Outbound = TaxId$Outbound;
 }
 
-export function subscriptionCustomerTaxIdToJSON(
-  subscriptionCustomerTaxId: SubscriptionCustomerTaxId,
-): string {
-  return JSON.stringify(
-    SubscriptionCustomerTaxId$outboundSchema.parse(subscriptionCustomerTaxId),
-  );
+export function taxIdToJSON(taxId: TaxId): string {
+  return JSON.stringify(TaxId$outboundSchema.parse(taxId));
 }
 
-export function subscriptionCustomerTaxIdFromJSON(
+export function taxIdFromJSON(
   jsonString: string,
-): SafeParseResult<SubscriptionCustomerTaxId, SDKValidationError> {
+): SafeParseResult<TaxId, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SubscriptionCustomerTaxId$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionCustomerTaxId' from JSON`,
+    (x) => TaxId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TaxId' from JSON`,
   );
 }
 
@@ -181,6 +178,9 @@ export const SubscriptionCustomer$inboundSchema: z.ZodType<
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
   ),
   organization_id: z.string(),
+  deleted_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
   avatar_url: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -191,6 +191,7 @@ export const SubscriptionCustomer$inboundSchema: z.ZodType<
     "billing_address": "billingAddress",
     "tax_id": "taxId",
     "organization_id": "organizationId",
+    "deleted_at": "deletedAt",
     "avatar_url": "avatarUrl",
   });
 });
@@ -208,6 +209,7 @@ export type SubscriptionCustomer$Outbound = {
   billing_address: Address$Outbound | null;
   tax_id: Array<string | string | null> | null;
   organization_id: string;
+  deleted_at: string | null;
   avatar_url: string;
 };
 
@@ -230,6 +232,7 @@ export const SubscriptionCustomer$outboundSchema: z.ZodType<
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
   ),
   organizationId: z.string(),
+  deletedAt: z.nullable(z.date().transform(v => v.toISOString())),
   avatarUrl: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -240,6 +243,7 @@ export const SubscriptionCustomer$outboundSchema: z.ZodType<
     billingAddress: "billing_address",
     taxId: "tax_id",
     organizationId: "organization_id",
+    deletedAt: "deleted_at",
     avatarUrl: "avatar_url",
   });
 });

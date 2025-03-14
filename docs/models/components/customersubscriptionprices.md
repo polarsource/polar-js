@@ -1,4 +1,4 @@
-# SubscriptionPrice
+# CustomerSubscriptionPrices
 
 
 ## Supported Types
@@ -7,12 +7,12 @@
 
 ```typescript
 const value: components.LegacyRecurringProductPrice = {
-  createdAt: new Date("2025-10-08T12:20:15.003Z"),
-  modifiedAt: new Date("2024-11-07T06:29:39.051Z"),
+  createdAt: new Date("2023-03-21T05:28:53.838Z"),
+  modifiedAt: new Date("2025-08-18T01:01:53.905Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  recurringInterval: "year",
+  recurringInterval: "month",
 };
 ```
 
@@ -20,13 +20,15 @@ const value: components.LegacyRecurringProductPrice = {
 
 ```typescript
 const value: components.ProductPrice = {
-  createdAt: new Date("2023-03-16T21:31:12.259Z"),
-  modifiedAt: new Date("2024-07-02T21:47:04.955Z"),
+  createdAt: new Date("2023-08-30T00:47:32.608Z"),
+  modifiedAt: new Date("2024-10-13T11:17:29.351Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "one_time",
+  type: "recurring",
   recurringInterval: "month",
+  priceCurrency: "<value>",
+  priceAmount: 230668,
 };
 ```
 

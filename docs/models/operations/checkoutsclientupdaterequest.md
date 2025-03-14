@@ -9,7 +9,7 @@ let value: CheckoutsClientUpdateRequest = {
   clientSecret: "<value>",
   checkoutUpdatePublic: {
     customerBillingAddress: {
-      country: "US",
+      country: "FR",
     },
   },
 };

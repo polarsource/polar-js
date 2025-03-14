@@ -14,17 +14,17 @@ let value: ListResourceDownloadableRead = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/var/mail",
+        path: "/boot/defaults",
         mimeType: "<value>",
-        size: 687669,
+        size: 223057,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2025-06-17T01:38:31.962Z"),
+        lastModifiedAt: new Date("2023-05-16T04:57:49.424Z"),
         download: {
-          url: "https://outlying-vision.info",
-          expiresAt: new Date("2025-05-16T04:06:10.206Z"),
+          url: "https://wry-spirit.info",
+          expiresAt: new Date("2024-07-17T18:36:12.171Z"),
         },
         version: "<value>",
         isUploaded: false,
@@ -34,8 +34,8 @@ let value: ListResourceDownloadableRead = {
     },
   ],
   pagination: {
-    totalCount: 101961,
-    maxPage: 181327,
+    totalCount: 835289,
+    maxPage: 381831,
   },
 };
 ```

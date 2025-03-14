@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$customersGetState: ToolDefinition<typeof args> = {
-  name: "customers_get-state",
+  name: "customers-get-state",
   description: `Get Customer State
 
 Get a customer state by ID.

@@ -6,8 +6,8 @@
 import { MeterQuantity } from "@polar-sh/sdk/models/components/meterquantity.js";
 
 let value: MeterQuantity = {
-  timestamp: new Date("2023-04-03T01:32:48.709Z"),
-  quantity: 3207.88,
+  timestamp: new Date("2024-01-27T06:22:33.365Z"),
+  quantity: 7736.1,
 };
 ```
 

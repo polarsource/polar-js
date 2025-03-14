@@ -9,11 +9,11 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-10-31T21:20:06.190Z"),
-        modifiedAt: new Date("2023-02-21T08:10:22.238Z"),
+        createdAt: new Date("2025-05-21T02:16:12.635Z"),
+        modifiedAt: new Date("2024-12-30T09:58:26.971Z"),
         id: "<value>",
         description:
-          "slather loosely hm if hypothesise recommendation if engage",
+          "commandeer burdensome white phew pish including since neat because oval",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -28,8 +28,8 @@ let value: BenefitsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 232549,
-      maxPage: 867468,
+      totalCount: 231020,
+      maxPage: 756477,
     },
   },
 };

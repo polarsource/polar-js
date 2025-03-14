@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$customersCreate: ToolDefinition<typeof args> = {
-  name: "customers_create",
+  name: "customers-create",
   description: `Create Customer
 
 Create a customer.

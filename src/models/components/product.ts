@@ -45,7 +45,7 @@ import {
 
 export type ProductMetadata = string | number | boolean;
 
-export type ProductPrices = LegacyRecurringProductPrice | ProductPrice;
+export type Prices = LegacyRecurringProductPrice | ProductPrice;
 
 /**
  * A product.
@@ -153,25 +153,22 @@ export function productMetadataFromJSON(
 }
 
 /** @internal */
-export const ProductPrices$inboundSchema: z.ZodType<
-  ProductPrices,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  LegacyRecurringProductPrice$inboundSchema,
-  ProductPrice$inboundSchema,
-]);
+export const Prices$inboundSchema: z.ZodType<Prices, z.ZodTypeDef, unknown> = z
+  .union([
+    LegacyRecurringProductPrice$inboundSchema,
+    ProductPrice$inboundSchema,
+  ]);
 
 /** @internal */
-export type ProductPrices$Outbound =
+export type Prices$Outbound =
   | LegacyRecurringProductPrice$Outbound
   | ProductPrice$Outbound;
 
 /** @internal */
-export const ProductPrices$outboundSchema: z.ZodType<
-  ProductPrices$Outbound,
+export const Prices$outboundSchema: z.ZodType<
+  Prices$Outbound,
   z.ZodTypeDef,
-  ProductPrices
+  Prices
 > = z.union([
   LegacyRecurringProductPrice$outboundSchema,
   ProductPrice$outboundSchema,
@@ -181,26 +178,26 @@ export const ProductPrices$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ProductPrices$ {
-  /** @deprecated use `ProductPrices$inboundSchema` instead. */
-  export const inboundSchema = ProductPrices$inboundSchema;
-  /** @deprecated use `ProductPrices$outboundSchema` instead. */
-  export const outboundSchema = ProductPrices$outboundSchema;
-  /** @deprecated use `ProductPrices$Outbound` instead. */
-  export type Outbound = ProductPrices$Outbound;
+export namespace Prices$ {
+  /** @deprecated use `Prices$inboundSchema` instead. */
+  export const inboundSchema = Prices$inboundSchema;
+  /** @deprecated use `Prices$outboundSchema` instead. */
+  export const outboundSchema = Prices$outboundSchema;
+  /** @deprecated use `Prices$Outbound` instead. */
+  export type Outbound = Prices$Outbound;
 }
 
-export function productPricesToJSON(productPrices: ProductPrices): string {
-  return JSON.stringify(ProductPrices$outboundSchema.parse(productPrices));
+export function pricesToJSON(prices: Prices): string {
+  return JSON.stringify(Prices$outboundSchema.parse(prices));
 }
 
-export function productPricesFromJSON(
+export function pricesFromJSON(
   jsonString: string,
-): SafeParseResult<ProductPrices, SDKValidationError> {
+): SafeParseResult<Prices, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ProductPrices$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductPrices' from JSON`,
+    (x) => Prices$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Prices' from JSON`,
   );
 }
 

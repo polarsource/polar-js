@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$customersGetExternal: ToolDefinition<typeof args> = {
-  name: "customers_get-external",
+  name: "customers-get-external",
   description: `Get Customer by External ID
 
 Get a customer by external ID.

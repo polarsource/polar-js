@@ -42,11 +42,11 @@ export type OrderSubscription = {
   /**
    * The amount of the subscription.
    */
-  amount: number | null;
+  amount: number;
   /**
    * The currency of the subscription.
    */
-  currency: string | null;
+  currency: string;
   recurringInterval: SubscriptionRecurringInterval;
   status: SubscriptionStatus;
   /**
@@ -86,16 +86,16 @@ export type OrderSubscription = {
    */
   productId: string;
   /**
-   * The ID of the subscribed price.
-   */
-  priceId: string;
-  /**
    * The ID of the applied discount, if any.
    */
   discountId: string | null;
   checkoutId: string | null;
   customerCancellationReason: CustomerCancellationReason | null;
   customerCancellationComment: string | null;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  priceId: string;
   /**
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
@@ -162,8 +162,8 @@ export const OrderSubscription$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  amount: z.nullable(z.number().int()),
-  currency: z.nullable(z.string()),
+  amount: z.number().int(),
+  currency: z.string(),
   recurring_interval: SubscriptionRecurringInterval$inboundSchema,
   status: SubscriptionStatus$inboundSchema,
   current_period_start: z.string().datetime({ offset: true }).transform(v =>
@@ -187,13 +187,13 @@ export const OrderSubscription$inboundSchema: z.ZodType<
   ),
   customer_id: z.string(),
   product_id: z.string(),
-  price_id: z.string(),
   discount_id: z.nullable(z.string()),
   checkout_id: z.nullable(z.string()),
   customer_cancellation_reason: z.nullable(
     CustomerCancellationReason$inboundSchema,
   ),
   customer_cancellation_comment: z.nullable(z.string()),
+  price_id: z.string(),
   user_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -209,11 +209,11 @@ export const OrderSubscription$inboundSchema: z.ZodType<
     "ended_at": "endedAt",
     "customer_id": "customerId",
     "product_id": "productId",
-    "price_id": "priceId",
     "discount_id": "discountId",
     "checkout_id": "checkoutId",
     "customer_cancellation_reason": "customerCancellationReason",
     "customer_cancellation_comment": "customerCancellationComment",
+    "price_id": "priceId",
     "user_id": "userId",
   });
 });
@@ -224,8 +224,8 @@ export type OrderSubscription$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  amount: number | null;
-  currency: string | null;
+  amount: number;
+  currency: string;
   recurring_interval: string;
   status: string;
   current_period_start: string;
@@ -237,11 +237,11 @@ export type OrderSubscription$Outbound = {
   ended_at: string | null;
   customer_id: string;
   product_id: string;
-  price_id: string;
   discount_id: string | null;
   checkout_id: string | null;
   customer_cancellation_reason: string | null;
   customer_cancellation_comment: string | null;
+  price_id: string;
   user_id: string;
 };
 
@@ -255,8 +255,8 @@ export const OrderSubscription$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  amount: z.nullable(z.number().int()),
-  currency: z.nullable(z.string()),
+  amount: z.number().int(),
+  currency: z.string(),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,
   status: SubscriptionStatus$outboundSchema,
   currentPeriodStart: z.date().transform(v => v.toISOString()),
@@ -268,13 +268,13 @@ export const OrderSubscription$outboundSchema: z.ZodType<
   endedAt: z.nullable(z.date().transform(v => v.toISOString())),
   customerId: z.string(),
   productId: z.string(),
-  priceId: z.string(),
   discountId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
   customerCancellationReason: z.nullable(
     CustomerCancellationReason$outboundSchema,
   ),
   customerCancellationComment: z.nullable(z.string()),
+  priceId: z.string(),
   userId: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -290,11 +290,11 @@ export const OrderSubscription$outboundSchema: z.ZodType<
     endedAt: "ended_at",
     customerId: "customer_id",
     productId: "product_id",
-    priceId: "price_id",
     discountId: "discount_id",
     checkoutId: "checkout_id",
     customerCancellationReason: "customer_cancellation_reason",
     customerCancellationComment: "customer_cancellation_comment",
+    priceId: "price_id",
     userId: "user_id",
   });
 });

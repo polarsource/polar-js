@@ -39,6 +39,10 @@ export type BenefitsListRequest = {
    */
   typeFilter?: BenefitType | Array<BenefitType> | null | undefined;
   /**
+   * Filter by description.
+   */
+  query?: string | null | undefined;
+  /**
    * Page number, defaults to 1.
    */
   page?: number | undefined;
@@ -171,6 +175,7 @@ export const BenefitsListRequest$inboundSchema: z.ZodType<
   type_filter: z.nullable(
     z.union([BenefitType$inboundSchema, z.array(BenefitType$inboundSchema)]),
   ).optional(),
+  query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
@@ -184,6 +189,7 @@ export const BenefitsListRequest$inboundSchema: z.ZodType<
 export type BenefitsListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   type_filter?: string | Array<string> | null | undefined;
+  query?: string | null | undefined;
   page: number;
   limit: number;
 };
@@ -199,6 +205,7 @@ export const BenefitsListRequest$outboundSchema: z.ZodType<
   typeFilter: z.nullable(
     z.union([BenefitType$outboundSchema, z.array(BenefitType$outboundSchema)]),
   ).optional(),
+  query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {

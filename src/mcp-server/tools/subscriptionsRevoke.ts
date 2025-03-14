@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$subscriptionsRevoke: ToolDefinition<typeof args> = {
-  name: "subscriptions_revoke",
+  name: "subscriptions-revoke",
   description: `Revoke Subscription
 
 Revoke a subscription, i.e cancel immediately.

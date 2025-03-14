@@ -87,7 +87,7 @@ export type CheckoutDiscount =
   | CheckoutDiscountPercentageRepeatDuration
   | CheckoutDiscountFixedRepeatDuration;
 
-export type CheckoutCustomerMetadata = string | number | boolean;
+export type CustomerMetadata = string | number | boolean;
 
 /**
  * Checkout session data retrieved using an access token.
@@ -456,50 +456,50 @@ export function checkoutDiscountFromJSON(
 }
 
 /** @internal */
-export const CheckoutCustomerMetadata$inboundSchema: z.ZodType<
-  CheckoutCustomerMetadata,
+export const CustomerMetadata$inboundSchema: z.ZodType<
+  CustomerMetadata,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
 /** @internal */
-export type CheckoutCustomerMetadata$Outbound = string | number | boolean;
+export type CustomerMetadata$Outbound = string | number | boolean;
 
 /** @internal */
-export const CheckoutCustomerMetadata$outboundSchema: z.ZodType<
-  CheckoutCustomerMetadata$Outbound,
+export const CustomerMetadata$outboundSchema: z.ZodType<
+  CustomerMetadata$Outbound,
   z.ZodTypeDef,
-  CheckoutCustomerMetadata
+  CustomerMetadata
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CheckoutCustomerMetadata$ {
-  /** @deprecated use `CheckoutCustomerMetadata$inboundSchema` instead. */
-  export const inboundSchema = CheckoutCustomerMetadata$inboundSchema;
-  /** @deprecated use `CheckoutCustomerMetadata$outboundSchema` instead. */
-  export const outboundSchema = CheckoutCustomerMetadata$outboundSchema;
-  /** @deprecated use `CheckoutCustomerMetadata$Outbound` instead. */
-  export type Outbound = CheckoutCustomerMetadata$Outbound;
+export namespace CustomerMetadata$ {
+  /** @deprecated use `CustomerMetadata$inboundSchema` instead. */
+  export const inboundSchema = CustomerMetadata$inboundSchema;
+  /** @deprecated use `CustomerMetadata$outboundSchema` instead. */
+  export const outboundSchema = CustomerMetadata$outboundSchema;
+  /** @deprecated use `CustomerMetadata$Outbound` instead. */
+  export type Outbound = CustomerMetadata$Outbound;
 }
 
-export function checkoutCustomerMetadataToJSON(
-  checkoutCustomerMetadata: CheckoutCustomerMetadata,
+export function customerMetadataToJSON(
+  customerMetadata: CustomerMetadata,
 ): string {
   return JSON.stringify(
-    CheckoutCustomerMetadata$outboundSchema.parse(checkoutCustomerMetadata),
+    CustomerMetadata$outboundSchema.parse(customerMetadata),
   );
 }
 
-export function checkoutCustomerMetadataFromJSON(
+export function customerMetadataFromJSON(
   jsonString: string,
-): SafeParseResult<CheckoutCustomerMetadata, SDKValidationError> {
+): SafeParseResult<CustomerMetadata, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CheckoutCustomerMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutCustomerMetadata' from JSON`,
+    (x) => CustomerMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomerMetadata' from JSON`,
   );
 }
 

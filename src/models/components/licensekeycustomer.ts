@@ -21,7 +21,7 @@ import {
 
 export type LicenseKeyCustomerMetadata = string | number | boolean;
 
-export type TaxId = string | TaxIDFormat;
+export type LicenseKeyCustomerTaxId = string | TaxIDFormat;
 
 export type LicenseKeyCustomer = {
   /**
@@ -59,6 +59,10 @@ export type LicenseKeyCustomer = {
    * The ID of the organization owning the customer.
    */
   organizationId: string;
+  /**
+   * Timestamp for when the customer was soft deleted.
+   */
+  deletedAt: Date | null;
   avatarUrl: string;
 };
 
@@ -111,43 +115,50 @@ export function licenseKeyCustomerMetadataFromJSON(
 }
 
 /** @internal */
-export const TaxId$inboundSchema: z.ZodType<TaxId, z.ZodTypeDef, unknown> = z
-  .union([z.string(), TaxIDFormat$inboundSchema]);
-
-/** @internal */
-export type TaxId$Outbound = string | string;
-
-/** @internal */
-export const TaxId$outboundSchema: z.ZodType<
-  TaxId$Outbound,
+export const LicenseKeyCustomerTaxId$inboundSchema: z.ZodType<
+  LicenseKeyCustomerTaxId,
   z.ZodTypeDef,
-  TaxId
+  unknown
+> = z.union([z.string(), TaxIDFormat$inboundSchema]);
+
+/** @internal */
+export type LicenseKeyCustomerTaxId$Outbound = string | string;
+
+/** @internal */
+export const LicenseKeyCustomerTaxId$outboundSchema: z.ZodType<
+  LicenseKeyCustomerTaxId$Outbound,
+  z.ZodTypeDef,
+  LicenseKeyCustomerTaxId
 > = z.union([z.string(), TaxIDFormat$outboundSchema]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TaxId$ {
-  /** @deprecated use `TaxId$inboundSchema` instead. */
-  export const inboundSchema = TaxId$inboundSchema;
-  /** @deprecated use `TaxId$outboundSchema` instead. */
-  export const outboundSchema = TaxId$outboundSchema;
-  /** @deprecated use `TaxId$Outbound` instead. */
-  export type Outbound = TaxId$Outbound;
+export namespace LicenseKeyCustomerTaxId$ {
+  /** @deprecated use `LicenseKeyCustomerTaxId$inboundSchema` instead. */
+  export const inboundSchema = LicenseKeyCustomerTaxId$inboundSchema;
+  /** @deprecated use `LicenseKeyCustomerTaxId$outboundSchema` instead. */
+  export const outboundSchema = LicenseKeyCustomerTaxId$outboundSchema;
+  /** @deprecated use `LicenseKeyCustomerTaxId$Outbound` instead. */
+  export type Outbound = LicenseKeyCustomerTaxId$Outbound;
 }
 
-export function taxIdToJSON(taxId: TaxId): string {
-  return JSON.stringify(TaxId$outboundSchema.parse(taxId));
+export function licenseKeyCustomerTaxIdToJSON(
+  licenseKeyCustomerTaxId: LicenseKeyCustomerTaxId,
+): string {
+  return JSON.stringify(
+    LicenseKeyCustomerTaxId$outboundSchema.parse(licenseKeyCustomerTaxId),
+  );
 }
 
-export function taxIdFromJSON(
+export function licenseKeyCustomerTaxIdFromJSON(
   jsonString: string,
-): SafeParseResult<TaxId, SDKValidationError> {
+): SafeParseResult<LicenseKeyCustomerTaxId, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TaxId$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TaxId' from JSON`,
+    (x) => LicenseKeyCustomerTaxId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LicenseKeyCustomerTaxId' from JSON`,
   );
 }
 
@@ -172,6 +183,9 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodType<
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
   ),
   organization_id: z.string(),
+  deleted_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
   avatar_url: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -182,6 +196,7 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodType<
     "billing_address": "billingAddress",
     "tax_id": "taxId",
     "organization_id": "organizationId",
+    "deleted_at": "deletedAt",
     "avatar_url": "avatarUrl",
   });
 });
@@ -199,6 +214,7 @@ export type LicenseKeyCustomer$Outbound = {
   billing_address: Address$Outbound | null;
   tax_id: Array<string | string | null> | null;
   organization_id: string;
+  deleted_at: string | null;
   avatar_url: string;
 };
 
@@ -221,6 +237,7 @@ export const LicenseKeyCustomer$outboundSchema: z.ZodType<
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
   ),
   organizationId: z.string(),
+  deletedAt: z.nullable(z.date().transform(v => v.toISOString())),
   avatarUrl: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -231,6 +248,7 @@ export const LicenseKeyCustomer$outboundSchema: z.ZodType<
     billingAddress: "billing_address",
     taxId: "tax_id",
     organizationId: "organization_id",
+    deletedAt: "deleted_at",
     avatarUrl: "avatar_url",
   });
 });

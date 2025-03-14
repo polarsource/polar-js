@@ -14,7 +14,7 @@ import { CheckoutProductCreate } from "@polar-sh/sdk/models/components/checkoutp
 
 let value: CheckoutProductCreate = {
   customerBillingAddress: {
-    country: "US",
+    country: "FR",
   },
   productId: "<value>",
 };

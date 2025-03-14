@@ -8,13 +8,12 @@ A product.
 import { Product } from "@polar-sh/sdk/models/components/product.js";
 
 let value: Product = {
-  createdAt: new Date("2024-03-30T10:47:58.920Z"),
-  modifiedAt: new Date("2024-04-06T17:10:31.500Z"),
+  createdAt: new Date("2023-06-05T14:48:44.098Z"),
+  modifiedAt: new Date("2023-10-12T06:34:08.121Z"),
   id: "<value>",
   name: "<value>",
-  description:
-    "gee outfit outrun lighthearted quizzically pleasing foolishly why beside commonly",
-  recurringInterval: "month",
+  description: "inasmuch drive frankly unblinking furthermore sightseeing",
+  recurringInterval: "year",
   isRecurring: false,
   isArchived: false,
   organizationId: "<value>",
@@ -23,30 +22,29 @@ let value: Product = {
   },
   prices: [
     {
-      createdAt: new Date("2023-01-07T00:32:08.475Z"),
-      modifiedAt: new Date("2023-10-30T18:25:07.122Z"),
+      createdAt: new Date("2023-07-24T02:06:35.279Z"),
+      modifiedAt: new Date("2023-07-26T11:39:39.770Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
-      type: "one_time",
-      recurringInterval: "year",
+      recurringInterval: "month",
       priceCurrency: "<value>",
-      priceAmount: 967006,
+      priceAmount: 738592,
     },
   ],
   benefits: [
     {
-      createdAt: new Date("2025-01-22T14:41:40.360Z"),
-      modifiedAt: new Date("2025-12-26T09:53:59.176Z"),
+      createdAt: new Date("2025-08-29T19:18:55.589Z"),
+      modifiedAt: new Date("2025-06-29T16:13:30.061Z"),
       id: "<value>",
-      description: "unless save unlawful vague override shakily rewarding woot",
+      description: "and hence zowie",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        guildId: "<id>",
-        roleId: "<id>",
-        guildToken: "<value>",
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "pull",
       },
     },
   ],
@@ -55,27 +53,27 @@ let value: Product = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/var",
+      path: "/usr/libdata",
       mimeType: "<value>",
-      size: 503528,
+      size: 61345,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2024-11-11T10:36:59.251Z"),
+      lastModifiedAt: new Date("2024-05-22T04:28:16.968Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2025-07-01T22:55:43.947Z"),
+      createdAt: new Date("2023-01-07T00:56:47.831Z"),
       sizeReadable: "<value>",
-      publicUrl: "https://broken-wear.biz",
+      publicUrl: "https://weird-amnesty.org",
     },
   ],
   attachedCustomFields: [
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2024-07-07T14:30:14.002Z"),
-        modifiedAt: new Date("2024-06-08T17:38:07.580Z"),
+        createdAt: new Date("2024-01-29T07:29:41.887Z"),
+        modifiedAt: new Date("2025-09-23T03:05:19.693Z"),
         id: "<value>",
         metadata: {
           "key": "<value>",
@@ -92,7 +90,7 @@ let value: Product = {
           ],
         },
       },
-      order: 722151,
+      order: 409295,
       required: false,
     },
   ],
@@ -113,7 +111,7 @@ let value: Product = {
 | `isArchived`                                                                                         | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | Whether the product is archived and no longer available.                                             |
 | `organizationId`                                                                                     | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the organization owning the product.                                                       |
 | `metadata`                                                                                           | Record<string, *components.ProductMetadata*>                                                         | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `prices`                                                                                             | *components.ProductPrices*[]                                                                         | :heavy_check_mark:                                                                                   | List of prices for this product.                                                                     |
+| `prices`                                                                                             | *components.Prices*[]                                                                                | :heavy_check_mark:                                                                                   | List of prices for this product.                                                                     |
 | `benefits`                                                                                           | *components.Benefit*[]                                                                               | :heavy_check_mark:                                                                                   | List of benefits granted by the product.                                                             |
 | `medias`                                                                                             | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]                 | :heavy_check_mark:                                                                                   | List of medias associated to the product.                                                            |
 | `attachedCustomFields`                                                                               | [components.AttachedCustomField](../../models/components/attachedcustomfield.md)[]                   | :heavy_check_mark:                                                                                   | List of custom fields attached to the product.                                                       |

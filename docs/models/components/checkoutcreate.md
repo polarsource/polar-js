@@ -8,7 +8,7 @@
 ```typescript
 const value: components.CheckoutProductsCreate = {
   customerBillingAddress: {
-    country: "FR",
+    country: "SE",
   },
   products: [
     "<value>",
@@ -21,7 +21,7 @@ const value: components.CheckoutProductsCreate = {
 ```typescript
 const value: components.CheckoutProductCreate = {
   customerBillingAddress: {
-    country: "FR",
+    country: "SE",
   },
   productId: "<value>",
 };
@@ -32,7 +32,7 @@ const value: components.CheckoutProductCreate = {
 ```typescript
 const value: components.CheckoutPriceCreate = {
   customerBillingAddress: {
-    country: "FR",
+    country: "SE",
   },
   productPriceId: "<value>",
 };

@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$ordersInvoice: ToolDefinition<typeof args> = {
-  name: "orders_invoice",
+  name: "orders-invoice",
   description: `Get Order Invoice
 
 Get an order's invoice data.

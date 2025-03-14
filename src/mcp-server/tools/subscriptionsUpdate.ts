@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$subscriptionsUpdate: ToolDefinition<typeof args> = {
-  name: "subscriptions_update",
+  name: "subscriptions-update",
   description: `Update Subscription
 
 Update a subscription.

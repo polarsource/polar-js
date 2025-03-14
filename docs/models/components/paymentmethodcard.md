@@ -7,13 +7,13 @@ import { PaymentMethodCard } from "@polar-sh/sdk/models/components/paymentmethod
 
 let value: PaymentMethodCard = {
   id: "<id>",
-  createdAt: new Date("2024-07-19T10:14:15.803Z"),
+  createdAt: new Date("2024-07-08T23:00:48.489Z"),
   default: false,
   card: {
     brand: "<value>",
     last4: "<value>",
-    expMonth: 766445,
-    expYear: 782991,
+    expMonth: 908773,
+    expYear: 524620,
   },
 };
 ```

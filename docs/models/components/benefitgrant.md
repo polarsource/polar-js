@@ -6,8 +6,8 @@
 import { BenefitGrant } from "@polar-sh/sdk/models/components/benefitgrant.js";
 
 let value: BenefitGrant = {
-  createdAt: new Date("2023-10-06T03:14:11.675Z"),
-  modifiedAt: new Date("2023-06-30T09:23:23.018Z"),
+  createdAt: new Date("2024-11-19T05:40:00.333Z"),
+  modifiedAt: new Date("2025-10-18T12:49:42.272Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -18,10 +18,10 @@ let value: BenefitGrant = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-08-29T14:19:53.281Z"),
-    modifiedAt: new Date("2023-03-16T23:12:57.117Z"),
+    createdAt: new Date("2024-04-06T10:06:23.670Z"),
+    modifiedAt: new Date("2024-11-28T16:15:54.686Z"),
     metadata: {
-      "key": false,
+      "key": 473938,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -31,10 +31,11 @@ let value: BenefitGrant = {
       country: "FR",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-10-14T06:29:58.286Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   properties: {},

@@ -8,7 +8,7 @@ import { CustomerPaymentMethodCreate } from "@polar-sh/sdk/models/components/cus
 let value: CustomerPaymentMethodCreate = {
   confirmationTokenId: "<id>",
   setDefault: false,
-  returnUrl: "https://lanky-apricot.info/",
+  returnUrl: "https://whirlwind-privilege.name",
 };
 ```
 

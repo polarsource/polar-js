@@ -8,8 +8,8 @@ import { ListResourceBenefitGrant } from "@polar-sh/sdk/models/components/listre
 let value: ListResourceBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2024-01-08T22:15:44.580Z"),
-      modifiedAt: new Date("2024-07-23T07:21:47.082Z"),
+      createdAt: new Date("2024-09-23T06:30:32.920Z"),
+      modifiedAt: new Date("2024-08-02T20:34:34.106Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
@@ -20,8 +20,8 @@ let value: ListResourceBenefitGrant = {
       benefitId: "<value>",
       customer: {
         id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-        createdAt: new Date("2025-02-24T07:31:14.518Z"),
-        modifiedAt: new Date("2024-12-31T19:38:02.610Z"),
+        createdAt: new Date("2023-01-12T17:05:53.623Z"),
+        modifiedAt: new Date("2024-01-18T05:13:42.234Z"),
         metadata: {
           "key": false,
         },
@@ -37,14 +37,15 @@ let value: ListResourceBenefitGrant = {
           "eu_vat",
         ],
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+        deletedAt: new Date("2024-01-15T21:48:36.807Z"),
         avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
       },
       properties: {},
     },
   ],
   pagination: {
-    totalCount: 187203,
-    maxPage: 683718,
+    totalCount: 199753,
+    maxPage: 748860,
   },
 };
 ```

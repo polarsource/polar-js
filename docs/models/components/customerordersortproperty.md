@@ -5,11 +5,11 @@
 ```typescript
 import { CustomerOrderSortProperty } from "@polar-sh/sdk/models/components/customerordersortproperty.js";
 
-let value: CustomerOrderSortProperty = "organization";
+let value: CustomerOrderSortProperty = "amount";
 ```
 
 ## Values
 
 ```typescript
-"created_at" | "-created_at" | "amount" | "-amount" | "organization" | "-organization" | "product" | "-product" | "subscription" | "-subscription"
+"created_at" | "-created_at" | "amount" | "-amount" | "net_amount" | "-net_amount" | "product" | "-product" | "subscription" | "-subscription"
 ```

@@ -5,7 +5,7 @@
 ```typescript
 import { CustomFieldSortProperty } from "@polar-sh/sdk/models/components/customfieldsortproperty.js";
 
-let value: CustomFieldSortProperty = "slug";
+let value: CustomFieldSortProperty = "type";
 ```
 
 ## Values

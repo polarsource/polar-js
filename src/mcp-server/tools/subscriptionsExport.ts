@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$subscriptionsExport: ToolDefinition<typeof args> = {
-  name: "subscriptions_export",
+  name: "subscriptions-export",
   description: `Export Subscriptions
 
 Export subscriptions as a CSV file.

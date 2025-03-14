@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://failing-baseboard.info/",
+        "https://serpentine-teriyaki.biz",
       ],
       clientName: "<value>",
-      createdAt: new Date("2024-09-24T20:40:57.193Z"),
-      modifiedAt: new Date("2024-06-28T03:53:07.992Z"),
+      createdAt: new Date("2023-05-21T01:38:02.928Z"),
+      modifiedAt: new Date("2024-07-12T02:22:41.507Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 162787,
-      clientSecretExpiresAt: 371545,
+      clientIdIssuedAt: 299592,
+      clientSecretExpiresAt: 984493,
     },
   ],
   pagination: {
-    totalCount: 917907,
-    maxPage: 459294,
+    totalCount: 39842,
+    maxPage: 190895,
   },
 };
 ```

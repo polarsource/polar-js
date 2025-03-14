@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$customersDeleteExternal: ToolDefinition<typeof args> = {
-  name: "customers_delete-external",
+  name: "customers-delete-external",
   description: `Delete Customer by External ID
 
 Delete a customer by external ID.

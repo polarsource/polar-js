@@ -15,7 +15,7 @@ const value: components.ProductBillingType = "one_time";
 
 ```typescript
 const value: components.ProductBillingType[] = [
-  "one_time",
+  "recurring",
 ];
 ```
 

@@ -12,13 +12,13 @@ let value: ValidatedLicenseKey = {
   customerId: "<value>",
   user: {
     id: "<value>",
-    email: "Roselyn_Altenwerth40@yahoo.com",
+    email: "Donato.Carter37@hotmail.com",
     publicName: "<value>",
   },
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-03-17T16:27:59.408Z"),
-    modifiedAt: new Date("2023-12-23T06:21:53.920Z"),
+    createdAt: new Date("2024-06-19T01:41:54.596Z"),
+    modifiedAt: new Date("2023-09-24T07:39:44.970Z"),
     metadata: {
       "key": "<value>",
     },
@@ -27,25 +27,26 @@ let value: ValidatedLicenseKey = {
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "US",
+      country: "FR",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2023-07-08T20:13:53.625Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   benefitId: "<value>",
   key: "<key>",
   displayKey: "<value>",
   status: "disabled",
-  limitActivations: 391915,
-  usage: 763739,
-  limitUsage: 654240,
-  validations: 420961,
-  lastValidatedAt: new Date("2023-02-23T15:09:30.145Z"),
-  expiresAt: new Date("2024-03-24T17:37:09.177Z"),
+  limitActivations: 488559,
+  usage: 562959,
+  limitUsage: 962224,
+  validations: 118154,
+  lastValidatedAt: new Date("2023-07-19T18:24:46.859Z"),
+  expiresAt: new Date("2025-02-17T09:13:35.781Z"),
 };
 ```
 
