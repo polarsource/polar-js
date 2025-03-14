@@ -9,14 +9,14 @@ import { CustomerStateSubscription } from "@polar-sh/sdk/models/components/custo
 
 let value: CustomerStateSubscription = {
   id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
-  createdAt: new Date("2023-11-17T05:26:00.288Z"),
-  modifiedAt: new Date("2025-12-13T08:34:18.669Z"),
+  createdAt: new Date("2025-11-03T16:48:56.969Z"),
+  modifiedAt: new Date("2025-07-15T06:55:59.176Z"),
   metadata: {
-    "key": "<value>",
+    "key": 24769,
   },
   amount: 1000,
   currency: "usd",
-  recurringInterval: "month",
+  recurringInterval: "year",
   currentPeriodStart: new Date("2025-02-03T13:37:00Z"),
   currentPeriodEnd: new Date("2025-03-03T13:37:00Z"),
   cancelAtPeriodEnd: false,
@@ -24,8 +24,8 @@ let value: CustomerStateSubscription = {
   startedAt: new Date("2025-01-03T13:37:00Z"),
   endsAt: null,
   productId: "d8dd2de1-21b7-4a41-8bc3-ce909c0cfe23",
-  priceId: "196ca717-4d84-4d28-a1b8-777255797dbc",
   discountId: null,
+  priceId: "196ca717-4d84-4d28-a1b8-777255797dbc",
 };
 ```
 
@@ -49,5 +49,5 @@ let value: CustomerStateSubscription = {
 | `startedAt`                                                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The timestamp when the subscription started.                                                                                  | 2025-01-03T13:37:00Z                                                                                                          |
 | `endsAt`                                                                                                                      | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The timestamp when the subscription will end.                                                                                 | <nil>                                                                                                                         |
 | `productId`                                                                                                                   | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the subscribed product.                                                                                             | d8dd2de1-21b7-4a41-8bc3-ce909c0cfe23                                                                                          |
-| `priceId`                                                                                                                     | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the subscribed price.                                                                                               | 196ca717-4d84-4d28-a1b8-777255797dbc                                                                                          |
 | `discountId`                                                                                                                  | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the applied discount, if any.                                                                                       | <nil>                                                                                                                         |
+| ~~`priceId`~~                                                                                                                 | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.       | 196ca717-4d84-4d28-a1b8-777255797dbc                                                                                          |

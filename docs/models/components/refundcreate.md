@@ -7,8 +7,8 @@ import { RefundCreate } from "@polar-sh/sdk/models/components/refundcreate.js";
 
 let value: RefundCreate = {
   orderId: "<value>",
-  reason: "fraudulent",
-  amount: 596791,
+  reason: "duplicate",
+  amount: 459888,
 };
 ```
 

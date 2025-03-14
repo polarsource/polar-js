@@ -6,7 +6,7 @@ import { metricsLimits } from "../../funcs/metricsLimits.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$metricsLimits: ToolDefinition = {
-  name: "metrics_limits",
+  name: "metrics-limits",
   description: `Get Metrics Limits
 
 Get the interval limits for the metrics endpoint.

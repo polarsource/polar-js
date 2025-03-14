@@ -59,6 +59,10 @@ export type OrderCustomer = {
    * The ID of the organization owning the customer.
    */
   organizationId: string;
+  /**
+   * Timestamp for when the customer was soft deleted.
+   */
+  deletedAt: Date | null;
   avatarUrl: string;
 };
 
@@ -179,6 +183,9 @@ export const OrderCustomer$inboundSchema: z.ZodType<
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
   ),
   organization_id: z.string(),
+  deleted_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
   avatar_url: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -189,6 +196,7 @@ export const OrderCustomer$inboundSchema: z.ZodType<
     "billing_address": "billingAddress",
     "tax_id": "taxId",
     "organization_id": "organizationId",
+    "deleted_at": "deletedAt",
     "avatar_url": "avatarUrl",
   });
 });
@@ -206,6 +214,7 @@ export type OrderCustomer$Outbound = {
   billing_address: Address$Outbound | null;
   tax_id: Array<string | string | null> | null;
   organization_id: string;
+  deleted_at: string | null;
   avatar_url: string;
 };
 
@@ -228,6 +237,7 @@ export const OrderCustomer$outboundSchema: z.ZodType<
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
   ),
   organizationId: z.string(),
+  deletedAt: z.nullable(z.date().transform(v => v.toISOString())),
   avatarUrl: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -238,6 +248,7 @@ export const OrderCustomer$outboundSchema: z.ZodType<
     billingAddress: "billing_address",
     taxId: "tax_id",
     organizationId: "organization_id",
+    deletedAt: "deleted_at",
     avatarUrl: "avatar_url",
   });
 });

@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * The permission level to grant. Read more about roles and their permissions on [GitHub documentation](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role).
  */
-export const Permission = {
+export const BenefitGitHubRepositoryCreatePropertiesPermission = {
   Pull: "pull",
   Triage: "triage",
   Push: "push",
@@ -22,7 +22,9 @@ export const Permission = {
 /**
  * The permission level to grant. Read more about roles and their permissions on [GitHub documentation](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role).
  */
-export type Permission = ClosedEnum<typeof Permission>;
+export type BenefitGitHubRepositoryCreatePropertiesPermission = ClosedEnum<
+  typeof BenefitGitHubRepositoryCreatePropertiesPermission
+>;
 
 /**
  * Properties to create a benefit of type `github_repository`.
@@ -39,26 +41,30 @@ export type BenefitGitHubRepositoryCreateProperties = {
   /**
    * The permission level to grant. Read more about roles and their permissions on [GitHub documentation](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role).
    */
-  permission: Permission;
+  permission: BenefitGitHubRepositoryCreatePropertiesPermission;
 };
 
 /** @internal */
-export const Permission$inboundSchema: z.ZodNativeEnum<typeof Permission> = z
-  .nativeEnum(Permission);
+export const BenefitGitHubRepositoryCreatePropertiesPermission$inboundSchema:
+  z.ZodNativeEnum<typeof BenefitGitHubRepositoryCreatePropertiesPermission> = z
+    .nativeEnum(BenefitGitHubRepositoryCreatePropertiesPermission);
 
 /** @internal */
-export const Permission$outboundSchema: z.ZodNativeEnum<typeof Permission> =
-  Permission$inboundSchema;
+export const BenefitGitHubRepositoryCreatePropertiesPermission$outboundSchema:
+  z.ZodNativeEnum<typeof BenefitGitHubRepositoryCreatePropertiesPermission> =
+    BenefitGitHubRepositoryCreatePropertiesPermission$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Permission$ {
-  /** @deprecated use `Permission$inboundSchema` instead. */
-  export const inboundSchema = Permission$inboundSchema;
-  /** @deprecated use `Permission$outboundSchema` instead. */
-  export const outboundSchema = Permission$outboundSchema;
+export namespace BenefitGitHubRepositoryCreatePropertiesPermission$ {
+  /** @deprecated use `BenefitGitHubRepositoryCreatePropertiesPermission$inboundSchema` instead. */
+  export const inboundSchema =
+    BenefitGitHubRepositoryCreatePropertiesPermission$inboundSchema;
+  /** @deprecated use `BenefitGitHubRepositoryCreatePropertiesPermission$outboundSchema` instead. */
+  export const outboundSchema =
+    BenefitGitHubRepositoryCreatePropertiesPermission$outboundSchema;
 }
 
 /** @internal */
@@ -69,7 +75,7 @@ export const BenefitGitHubRepositoryCreateProperties$inboundSchema: z.ZodType<
 > = z.object({
   repository_owner: z.string(),
   repository_name: z.string(),
-  permission: Permission$inboundSchema,
+  permission: BenefitGitHubRepositoryCreatePropertiesPermission$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "repository_owner": "repositoryOwner",
@@ -92,7 +98,7 @@ export const BenefitGitHubRepositoryCreateProperties$outboundSchema: z.ZodType<
 > = z.object({
   repositoryOwner: z.string(),
   repositoryName: z.string(),
-  permission: Permission$outboundSchema,
+  permission: BenefitGitHubRepositoryCreatePropertiesPermission$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     repositoryOwner: "repository_owner",

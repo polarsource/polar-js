@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  OrganizationDetails,
+  OrganizationDetails$inboundSchema,
+  OrganizationDetails$Outbound,
+  OrganizationDetails$outboundSchema,
+} from "./organizationdetails.js";
+import {
   OrganizationFeatureSettings,
   OrganizationFeatureSettings$inboundSchema,
   OrganizationFeatureSettings$Outbound,
@@ -20,6 +26,12 @@ import {
   OrganizationProfileSettings$outboundSchema,
 } from "./organizationprofilesettings.js";
 import {
+  OrganizationSocialLink,
+  OrganizationSocialLink$inboundSchema,
+  OrganizationSocialLink$Outbound,
+  OrganizationSocialLink$outboundSchema,
+} from "./organizationsociallink.js";
+import {
   OrganizationSubscriptionSettings,
   OrganizationSubscriptionSettings$inboundSchema,
   OrganizationSubscriptionSettings$Outbound,
@@ -29,16 +41,56 @@ import {
 export type OrganizationUpdate = {
   name?: string | null | undefined;
   avatarUrl?: string | null | undefined;
-  defaultUpfrontSplitToContributors?: number | null | undefined;
-  pledgeBadgeShowAmount?: boolean | undefined;
-  billingEmail?: string | null | undefined;
-  defaultBadgeCustomContent?: string | null | undefined;
-  pledgeMinimumAmount?: number | undefined;
-  totalMonthlySpendingLimit?: number | null | undefined;
-  perUserMonthlySpendingLimit?: number | null | undefined;
-  profileSettings?: OrganizationProfileSettings | null | undefined;
+  /**
+   * Public support email.
+   */
+  email?: string | null | undefined;
+  /**
+   * Official website of the organization.
+   */
+  website?: string | null | undefined;
+  /**
+   * Links to social profiles.
+   */
+  socials?: Array<OrganizationSocialLink> | null | undefined;
+  /**
+   * Additional, private, business details Polar needs about active organizations for compliance (KYC).
+   */
+  details?: OrganizationDetails | null | undefined;
   featureSettings?: OrganizationFeatureSettings | null | undefined;
   subscriptionSettings?: OrganizationSubscriptionSettings | null | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  defaultUpfrontSplitToContributors?: number | null | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  pledgeBadgeShowAmount?: boolean | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  billingEmail?: string | null | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  defaultBadgeCustomContent?: string | null | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  pledgeMinimumAmount?: number | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  totalMonthlySpendingLimit?: number | null | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  perUserMonthlySpendingLimit?: number | null | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  profileSettings?: OrganizationProfileSettings | null | undefined;
 };
 
 /** @internal */
@@ -49,6 +101,15 @@ export const OrganizationUpdate$inboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
   avatar_url: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  website: z.nullable(z.string()).optional(),
+  socials: z.nullable(z.array(OrganizationSocialLink$inboundSchema)).optional(),
+  details: z.nullable(OrganizationDetails$inboundSchema).optional(),
+  feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema)
+    .optional(),
+  subscription_settings: z.nullable(
+    OrganizationSubscriptionSettings$inboundSchema,
+  ).optional(),
   default_upfront_split_to_contributors: z.nullable(z.number().int())
     .optional(),
   pledge_badge_show_amount: z.boolean().default(false),
@@ -59,14 +120,11 @@ export const OrganizationUpdate$inboundSchema: z.ZodType<
   per_user_monthly_spending_limit: z.nullable(z.number().int()).optional(),
   profile_settings: z.nullable(OrganizationProfileSettings$inboundSchema)
     .optional(),
-  feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema)
-    .optional(),
-  subscription_settings: z.nullable(
-    OrganizationSubscriptionSettings$inboundSchema,
-  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "avatar_url": "avatarUrl",
+    "feature_settings": "featureSettings",
+    "subscription_settings": "subscriptionSettings",
     "default_upfront_split_to_contributors":
       "defaultUpfrontSplitToContributors",
     "pledge_badge_show_amount": "pledgeBadgeShowAmount",
@@ -76,8 +134,6 @@ export const OrganizationUpdate$inboundSchema: z.ZodType<
     "total_monthly_spending_limit": "totalMonthlySpendingLimit",
     "per_user_monthly_spending_limit": "perUserMonthlySpendingLimit",
     "profile_settings": "profileSettings",
-    "feature_settings": "featureSettings",
-    "subscription_settings": "subscriptionSettings",
   });
 });
 
@@ -85,6 +141,15 @@ export const OrganizationUpdate$inboundSchema: z.ZodType<
 export type OrganizationUpdate$Outbound = {
   name?: string | null | undefined;
   avatar_url?: string | null | undefined;
+  email?: string | null | undefined;
+  website?: string | null | undefined;
+  socials?: Array<OrganizationSocialLink$Outbound> | null | undefined;
+  details?: OrganizationDetails$Outbound | null | undefined;
+  feature_settings?: OrganizationFeatureSettings$Outbound | null | undefined;
+  subscription_settings?:
+    | OrganizationSubscriptionSettings$Outbound
+    | null
+    | undefined;
   default_upfront_split_to_contributors?: number | null | undefined;
   pledge_badge_show_amount: boolean;
   billing_email?: string | null | undefined;
@@ -93,11 +158,6 @@ export type OrganizationUpdate$Outbound = {
   total_monthly_spending_limit?: number | null | undefined;
   per_user_monthly_spending_limit?: number | null | undefined;
   profile_settings?: OrganizationProfileSettings$Outbound | null | undefined;
-  feature_settings?: OrganizationFeatureSettings$Outbound | null | undefined;
-  subscription_settings?:
-    | OrganizationSubscriptionSettings$Outbound
-    | null
-    | undefined;
 };
 
 /** @internal */
@@ -108,6 +168,16 @@ export const OrganizationUpdate$outboundSchema: z.ZodType<
 > = z.object({
   name: z.nullable(z.string()).optional(),
   avatarUrl: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  website: z.nullable(z.string()).optional(),
+  socials: z.nullable(z.array(OrganizationSocialLink$outboundSchema))
+    .optional(),
+  details: z.nullable(OrganizationDetails$outboundSchema).optional(),
+  featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema)
+    .optional(),
+  subscriptionSettings: z.nullable(
+    OrganizationSubscriptionSettings$outboundSchema,
+  ).optional(),
   defaultUpfrontSplitToContributors: z.nullable(z.number().int()).optional(),
   pledgeBadgeShowAmount: z.boolean().default(false),
   billingEmail: z.nullable(z.string()).optional(),
@@ -117,14 +187,11 @@ export const OrganizationUpdate$outboundSchema: z.ZodType<
   perUserMonthlySpendingLimit: z.nullable(z.number().int()).optional(),
   profileSettings: z.nullable(OrganizationProfileSettings$outboundSchema)
     .optional(),
-  featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema)
-    .optional(),
-  subscriptionSettings: z.nullable(
-    OrganizationSubscriptionSettings$outboundSchema,
-  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     avatarUrl: "avatar_url",
+    featureSettings: "feature_settings",
+    subscriptionSettings: "subscription_settings",
     defaultUpfrontSplitToContributors: "default_upfront_split_to_contributors",
     pledgeBadgeShowAmount: "pledge_badge_show_amount",
     billingEmail: "billing_email",
@@ -133,8 +200,6 @@ export const OrganizationUpdate$outboundSchema: z.ZodType<
     totalMonthlySpendingLimit: "total_monthly_spending_limit",
     perUserMonthlySpendingLimit: "per_user_monthly_spending_limit",
     profileSettings: "profile_settings",
-    featureSettings: "feature_settings",
-    subscriptionSettings: "subscription_settings",
   });
 });
 

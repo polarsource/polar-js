@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2024-01-21T15:33:48.510Z"),
-    modifiedAt: new Date("2024-06-18T20:31:13.886Z"),
+    createdAt: new Date("2023-03-09T20:51:59.634Z"),
+    modifiedAt: new Date("2025-11-17T05:07:47.437Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://damaged-teriyaki.biz/",
-    logoUri: "https://gorgeous-unique.com",
-    tosUri: "https://frilly-fraudster.com/",
-    policyUri: "https://triangular-iridescence.com/",
+    clientUri: "https://unruly-assist.biz",
+    logoUri: "https://important-comparison.com/",
+    tosUri: "https://murky-swine.com",
+    policyUri: "https://our-birdbath.org/",
   },
   sub: {
     id: "<value>",
-    email: "Mitchell_Terry99@hotmail.com",
-    avatarUrl: "https://faraway-circumference.biz",
+    email: "Kaley.Kulas@hotmail.com",
+    avatarUrl: "https://concrete-hunt.net",
   },
   scopes: [
-    "refunds:write",
+    "customers:write",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2024-11-20T01:45:48.881Z"),
-    modifiedAt: new Date("2023-12-10T19:59:16.156Z"),
+    createdAt: new Date("2023-04-03T02:30:21.355Z"),
+    modifiedAt: new Date("2024-01-04T17:38:06.749Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://cluttered-numeracy.info/",
-    logoUri: "https://bustling-kettledrum.biz/",
-    tosUri: "https://rowdy-heating.org",
-    policyUri: "https://svelte-muscat.org",
+    clientUri: "https://creative-cruelty.info/",
+    logoUri: "https://super-sarong.info",
+    tosUri: "https://complete-switch.info/",
+    policyUri: "https://royal-repeat.net",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://spanish-apparatus.com/",
+    avatarUrl: "https://irresponsible-resolve.info/",
   },
   scopes: [
-    "external_organizations:read",
+    "email",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://parallel-tomb.info",
+      avatarUrl: "https://quarrelsome-in-joke.org",
     },
   ],
 };

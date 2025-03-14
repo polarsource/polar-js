@@ -41,7 +41,17 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Delete a customer.
  *
- * Immediately cancels any active subscriptions and revokes any active benefits.
+ * This action cannot be undone and will immediately:
+ * - Cancel any active subscriptions for the customer
+ * - Revoke all their benefits
+ * - Clear any `external_id`
+ *
+ * Use it only in the context of deleting a user within your
+ * own service. Otherwise, use more granular API endpoints to cancel
+ * a specific subscription or revoke certain benefits.
+ *
+ * Note: The customers information will nonetheless be retained for historic
+ * orders and subscriptions.
  *
  * **Scopes**: `customers:write`
  */

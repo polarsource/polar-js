@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$subscriptionsList: ToolDefinition<typeof args> = {
-  name: "subscriptions_list",
+  name: "subscriptions-list",
   description: `List Subscriptions
 
 List subscriptions.

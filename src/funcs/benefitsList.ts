@@ -114,6 +114,7 @@ async function $do(
     "limit": payload.limit,
     "organization_id": payload.organization_id,
     "page": payload.page,
+    "query": payload.query,
     "type": payload.type_filter,
   });
 

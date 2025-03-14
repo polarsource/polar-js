@@ -102,6 +102,10 @@ export function createRegisterTool(
     }
 
     const toolScopes = tool.scopes ?? [];
+    if (allowedScopes.size > 0 && toolScopes.length === 0) {
+      return;
+    }
+
     if (!toolScopes.every((s) => allowedScopes.has(s))) {
       return;
     }

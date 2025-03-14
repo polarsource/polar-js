@@ -6,96 +6,100 @@
 import { Subscription } from "@polar-sh/sdk/models/components/subscription.js";
 
 let value: Subscription = {
-  createdAt: new Date("2023-09-06T19:28:31.689Z"),
-  modifiedAt: new Date("2023-05-18T04:15:08.103Z"),
+  createdAt: new Date("2025-03-04T14:00:13.445Z"),
+  modifiedAt: new Date("2023-08-11T22:07:27.220Z"),
   id: "<value>",
-  amount: 964210,
-  currency: "Somali Shilling",
-  recurringInterval: "month",
+  amount: 176104,
+  currency: "Guinea Franc",
+  recurringInterval: "year",
   status: "active",
-  currentPeriodStart: new Date("2024-03-29T11:45:32.202Z"),
-  currentPeriodEnd: new Date("2023-06-16T00:41:16.617Z"),
+  currentPeriodStart: new Date("2023-02-20T06:02:51.866Z"),
+  currentPeriodEnd: new Date("2024-05-23T10:17:07.880Z"),
   cancelAtPeriodEnd: false,
-  canceledAt: new Date("2023-06-27T15:10:04.073Z"),
-  startedAt: new Date("2025-11-21T23:06:53.071Z"),
-  endsAt: new Date("2023-12-01T05:46:40.326Z"),
-  endedAt: new Date("2025-10-28T19:37:08.863Z"),
+  canceledAt: new Date("2025-01-19T15:23:58.911Z"),
+  startedAt: new Date("2024-08-13T01:14:36.260Z"),
+  endsAt: new Date("2024-09-19T09:43:49.938Z"),
+  endedAt: new Date("2023-09-04T08:32:34.245Z"),
   customerId: "<value>",
   productId: "<value>",
-  priceId: "<value>",
   discountId: "<value>",
   checkoutId: "<value>",
-  customerCancellationReason: "customer_service",
+  customerCancellationReason: "unused",
   customerCancellationComment: "<value>",
+  priceId: "<value>",
   metadata: {
-    "key": 129619,
+    "key": 713246,
   },
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-01-06T05:55:38.572Z"),
-    modifiedAt: new Date("2024-08-29T22:15:46.090Z"),
+    createdAt: new Date("2025-12-12T02:57:22.912Z"),
+    modifiedAt: new Date("2024-04-14T07:20:14.969Z"),
     metadata: {
-      "key": "<value>",
+      "key": false,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "FR",
+      country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2024-10-08T22:43:23.020Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   userId: "<value>",
   user: {
     id: "<value>",
-    email: "Trudie_Gulgowski@gmail.com",
+    email: "Delmer56@gmail.com",
     publicName: "<value>",
   },
   product: {
-    createdAt: new Date("2024-02-16T15:28:53.569Z"),
-    modifiedAt: new Date("2024-01-29T13:56:15.278Z"),
+    createdAt: new Date("2025-06-28T21:29:27.010Z"),
+    modifiedAt: new Date("2025-07-12T20:33:30.741Z"),
     id: "<value>",
     name: "<value>",
-    description: "where nicely heating for perfectly midwife loyalty",
+    description: "whup terrorise categorise putrid solidly wasteful",
     recurringInterval: "year",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     metadata: {
-      "key": 601944,
+      "key": 67855,
     },
     prices: [
       {
-        createdAt: new Date("2025-03-02T20:38:32.287Z"),
-        modifiedAt: new Date("2023-09-19T15:47:11.283Z"),
+        createdAt: new Date("2025-05-28T04:41:45.730Z"),
+        modifiedAt: new Date("2023-02-25T02:51:22.050Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        recurringInterval: "year",
+        type: "one_time",
+        recurringInterval: "month",
         priceCurrency: "<value>",
-        priceAmount: 686784,
+        minimumAmount: 266976,
+        maximumAmount: 791454,
+        presetAmount: 623867,
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2025-04-22T19:44:51.587Z"),
-        modifiedAt: new Date("2023-04-02T03:33:58.167Z"),
+        createdAt: new Date("2023-01-12T14:26:50.258Z"),
+        modifiedAt: new Date("2025-11-23T13:27:52.601Z"),
         id: "<value>",
         description:
-          "request times nervously unless presume incidentally soybean showy contractor seemingly",
+          "beside commonly intently prime hm halt deficient long unselfish meh",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          guildId: "<id>",
-          roleId: "<id>",
-          guildToken: "<value>",
+          repositoryOwner: "polarsource",
+          repositoryName: "private_repo",
+          permission: "admin",
         },
       },
     ],
@@ -104,72 +108,79 @@ let value: Subscription = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/opt/include",
+        path: "/opt/sbin",
         mimeType: "<value>",
-        size: 29270,
+        size: 326635,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-04-21T17:03:43.493Z"),
+        lastModifiedAt: new Date("2025-06-19T13:15:30.828Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2025-09-22T11:12:54.955Z"),
+        createdAt: new Date("2024-08-23T12:08:16.152Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://granular-wombat.name/",
+        publicUrl: "https://strange-pillow.info",
       },
     ],
     attachedCustomFields: [
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2023-04-22T19:31:18.310Z"),
-          modifiedAt: new Date("2025-05-13T11:35:30.480Z"),
+          createdAt: new Date("2024-09-27T22:50:51.985Z"),
+          modifiedAt: new Date("2025-09-10T14:05:10.415Z"),
           id: "<value>",
           metadata: {
-            "key": false,
+            "key": 910726,
           },
           slug: "<value>",
           name: "<value>",
           organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
           properties: {},
         },
-        order: 921916,
+        order: 503528,
         required: false,
       },
     ],
   },
+  discount: {
+    duration: "repeating",
+    type: "percentage",
+    basisPoints: 90969,
+    createdAt: new Date("2025-12-11T03:40:55.772Z"),
+    modifiedAt: new Date("2023-09-27T10:49:12.135Z"),
+    id: "<value>",
+    metadata: {
+      "key": false,
+    },
+    name: "<value>",
+    code: "<value>",
+    startsAt: new Date("2024-07-07T14:30:14.002Z"),
+    endsAt: new Date("2024-06-08T17:38:07.580Z"),
+    maxRedemptions: 243941,
+    redemptionsCount: 722151,
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  },
   price: {
-    createdAt: new Date("2025-03-04T14:00:13.445Z"),
-    modifiedAt: new Date("2023-08-11T22:07:27.220Z"),
+    createdAt: new Date("2025-07-15T12:42:19.873Z"),
+    modifiedAt: new Date("2024-08-08T19:43:23.369Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
     recurringInterval: "month",
-    priceCurrency: "<value>",
-    minimumAmount: 319807,
-    maximumAmount: 816825,
-    presetAmount: 539537,
   },
-  discount: {
-    duration: "forever",
-    type: "percentage",
-    amount: 538368,
-    currency: "Mauritius Rupee",
-    createdAt: new Date("2023-09-04T08:32:34.245Z"),
-    modifiedAt: new Date("2025-07-18T02:56:07.362Z"),
-    id: "<value>",
-    metadata: {
-      "key": 713246,
+  prices: [
+    {
+      createdAt: new Date("2025-08-21T20:11:48.916Z"),
+      modifiedAt: new Date("2023-10-29T09:46:06.110Z"),
+      id: "<value>",
+      isArchived: false,
+      productId: "<value>",
+      recurringInterval: "year",
+      priceCurrency: "<value>",
+      priceAmount: 234550,
     },
-    name: "<value>",
-    code: "<value>",
-    startsAt: new Date("2025-12-12T02:57:22.912Z"),
-    endsAt: new Date("2024-04-14T07:20:14.969Z"),
-    maxRedemptions: 881067,
-    redemptionsCount: 7281,
-    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  },
+  ],
 };
 ```
 
@@ -193,16 +204,17 @@ let value: Subscription = {
 | `endedAt`                                                                                                                     | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The timestamp when the subscription ended.                                                                                    |
 | `customerId`                                                                                                                  | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the subscribed customer.                                                                                            |
 | `productId`                                                                                                                   | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the subscribed product.                                                                                             |
-| `priceId`                                                                                                                     | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the subscribed price.                                                                                               |
 | `discountId`                                                                                                                  | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the applied discount, if any.                                                                                       |
 | `checkoutId`                                                                                                                  | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `customerCancellationReason`                                                                                                  | [components.CustomerCancellationReason](../../models/components/customercancellationreason.md)                                | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `customerCancellationComment`                                                                                                 | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
-| `metadata`                                                                                                                    | Record<string, *components.SubscriptionMetadata*>                                                                             | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
-| `customFieldData`                                                                                                             | Record<string, *components.SubscriptionCustomFieldData*>                                                                      | :heavy_minus_sign:                                                                                                            | Key-value object storing custom field values.                                                                                 |
+| ~~`priceId`~~                                                                                                                 | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.       |
+| `metadata`                                                                                                                    | Record<string, *components.Metadata*>                                                                                         | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `customFieldData`                                                                                                             | Record<string, *components.CustomFieldData*>                                                                                  | :heavy_minus_sign:                                                                                                            | Key-value object storing custom field values.                                                                                 |
 | `customer`                                                                                                                    | [components.SubscriptionCustomer](../../models/components/subscriptioncustomer.md)                                            | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | ~~`userId`~~                                                                                                                  | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.       |
 | `user`                                                                                                                        | [components.SubscriptionUser](../../models/components/subscriptionuser.md)                                                    | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `product`                                                                                                                     | [components.Product](../../models/components/product.md)                                                                      | :heavy_check_mark:                                                                                                            | A product.                                                                                                                    |
-| `price`                                                                                                                       | *components.SubscriptionPrice*                                                                                                | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `discount`                                                                                                                    | *components.SubscriptionDiscount*                                                                                             | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| ~~`price`~~                                                                                                                   | *components.Price*                                                                                                            | :heavy_check_mark:                                                                                                            | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.       |
+| `prices`                                                                                                                      | *components.SubscriptionPrices*[]                                                                                             | :heavy_check_mark:                                                                                                            | List of enabled prices for the subscription.                                                                                  |

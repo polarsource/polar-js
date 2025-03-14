@@ -6,7 +6,9 @@
 import { CustomerPortalBenefitGrantsListRequest } from "@polar-sh/sdk/models/operations/customerportalbenefitgrantslist.js";
 
 let value: CustomerPortalBenefitGrantsListRequest = {
-  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  organizationId: [
+    "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  ],
 };
 ```
 

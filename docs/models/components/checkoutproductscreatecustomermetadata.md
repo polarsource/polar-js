@@ -1,4 +1,4 @@
-# SubscriptionMetadata
+# CheckoutProductsCreateCustomerMetadata
 
 
 ## Supported Types
@@ -12,7 +12,7 @@ const value: string = "<value>";
 ### `number`
 
 ```typescript
-const value: number = 512349;
+const value: number = 263484;
 ```
 
 ### `boolean`

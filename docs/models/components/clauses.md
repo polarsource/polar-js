@@ -9,7 +9,7 @@
 const value: components.FilterClause = {
   property: "<value>",
   operator: "eq",
-  value: "<value>",
+  value: false,
 };
 ```
 

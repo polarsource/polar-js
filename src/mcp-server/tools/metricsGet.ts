@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$metricsGet: ToolDefinition<typeof args> = {
-  name: "metrics_get",
+  name: "metrics-get",
   description: `Get Metrics
 
 Get metrics about your orders and subscriptions.

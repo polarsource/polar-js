@@ -11,8 +11,8 @@ import { WebhookBenefitGrantUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantUpdatedPayload = {
   data: {
-    createdAt: new Date("2023-08-09T06:52:57.434Z"),
-    modifiedAt: new Date("2024-11-13T23:17:33.665Z"),
+    createdAt: new Date("2024-05-29T15:13:20.991Z"),
+    modifiedAt: new Date("2025-09-25T16:00:15.843Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -23,31 +23,32 @@ let value: WebhookBenefitGrantUpdatedPayload = {
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2023-04-29T11:47:52.155Z"),
-      modifiedAt: new Date("2023-02-01T18:40:51.816Z"),
+      createdAt: new Date("2024-04-03T13:46:33.531Z"),
+      modifiedAt: new Date("2024-09-24T17:25:50.604Z"),
       metadata: {
-        "key": 718859,
+        "key": false,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
       emailVerified: true,
       name: "John Doe",
       billingAddress: {
-        country: "FR",
+        country: "SE",
       },
       taxId: [
-        "FR61954506077",
-        "eu_vat",
+        "911144442",
+        "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      deletedAt: new Date("2024-04-10T20:54:26.937Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2024-06-16T20:00:28.055Z"),
-      modifiedAt: new Date("2023-08-17T12:20:23.359Z"),
+      createdAt: new Date("2025-07-10T10:39:26.328Z"),
+      modifiedAt: new Date("2023-01-13T10:05:01.779Z"),
       id: "<value>",
-      description: "char chasuble noxious imaginary below whereas yak",
+      description: "when reckon vice towards saturate though",
       selectable: false,
       deletable: false,
       organizationId: "<value>",

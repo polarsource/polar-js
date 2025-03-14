@@ -16,9 +16,13 @@ import {
 
 export type CheckoutProductsCreateMetadata = string | number | boolean;
 
-export type CustomFieldData = string | number | boolean | Date;
+export type CheckoutProductsCreateCustomFieldData =
+  | string
+  | number
+  | boolean
+  | Date;
 
-export type CustomerMetadata = string | number | boolean;
+export type CheckoutProductsCreateCustomerMetadata = string | number | boolean;
 
 /**
  * Create a new checkout session from a list of products.
@@ -157,8 +161,8 @@ export function checkoutProductsCreateMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomFieldData$inboundSchema: z.ZodType<
-  CustomFieldData,
+export const CheckoutProductsCreateCustomFieldData$inboundSchema: z.ZodType<
+  CheckoutProductsCreateCustomFieldData,
   z.ZodTypeDef,
   unknown
 > = z.union([
@@ -169,13 +173,17 @@ export const CustomFieldData$inboundSchema: z.ZodType<
 ]);
 
 /** @internal */
-export type CustomFieldData$Outbound = string | number | boolean | string;
+export type CheckoutProductsCreateCustomFieldData$Outbound =
+  | string
+  | number
+  | boolean
+  | string;
 
 /** @internal */
-export const CustomFieldData$outboundSchema: z.ZodType<
-  CustomFieldData$Outbound,
+export const CheckoutProductsCreateCustomFieldData$outboundSchema: z.ZodType<
+  CheckoutProductsCreateCustomFieldData$Outbound,
   z.ZodTypeDef,
-  CustomFieldData
+  CheckoutProductsCreateCustomFieldData
 > = z.union([
   z.string(),
   z.number().int(),
@@ -187,76 +195,92 @@ export const CustomFieldData$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CustomFieldData$ {
-  /** @deprecated use `CustomFieldData$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldData$inboundSchema;
-  /** @deprecated use `CustomFieldData$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldData$outboundSchema;
-  /** @deprecated use `CustomFieldData$Outbound` instead. */
-  export type Outbound = CustomFieldData$Outbound;
+export namespace CheckoutProductsCreateCustomFieldData$ {
+  /** @deprecated use `CheckoutProductsCreateCustomFieldData$inboundSchema` instead. */
+  export const inboundSchema =
+    CheckoutProductsCreateCustomFieldData$inboundSchema;
+  /** @deprecated use `CheckoutProductsCreateCustomFieldData$outboundSchema` instead. */
+  export const outboundSchema =
+    CheckoutProductsCreateCustomFieldData$outboundSchema;
+  /** @deprecated use `CheckoutProductsCreateCustomFieldData$Outbound` instead. */
+  export type Outbound = CheckoutProductsCreateCustomFieldData$Outbound;
 }
 
-export function customFieldDataToJSON(
-  customFieldData: CustomFieldData,
+export function checkoutProductsCreateCustomFieldDataToJSON(
+  checkoutProductsCreateCustomFieldData: CheckoutProductsCreateCustomFieldData,
 ): string {
-  return JSON.stringify(CustomFieldData$outboundSchema.parse(customFieldData));
+  return JSON.stringify(
+    CheckoutProductsCreateCustomFieldData$outboundSchema.parse(
+      checkoutProductsCreateCustomFieldData,
+    ),
+  );
 }
 
-export function customFieldDataFromJSON(
+export function checkoutProductsCreateCustomFieldDataFromJSON(
   jsonString: string,
-): SafeParseResult<CustomFieldData, SDKValidationError> {
+): SafeParseResult<CheckoutProductsCreateCustomFieldData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CustomFieldData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldData' from JSON`,
+    (x) =>
+      CheckoutProductsCreateCustomFieldData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutProductsCreateCustomFieldData' from JSON`,
   );
 }
 
 /** @internal */
-export const CustomerMetadata$inboundSchema: z.ZodType<
-  CustomerMetadata,
+export const CheckoutProductsCreateCustomerMetadata$inboundSchema: z.ZodType<
+  CheckoutProductsCreateCustomerMetadata,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
 /** @internal */
-export type CustomerMetadata$Outbound = string | number | boolean;
+export type CheckoutProductsCreateCustomerMetadata$Outbound =
+  | string
+  | number
+  | boolean;
 
 /** @internal */
-export const CustomerMetadata$outboundSchema: z.ZodType<
-  CustomerMetadata$Outbound,
+export const CheckoutProductsCreateCustomerMetadata$outboundSchema: z.ZodType<
+  CheckoutProductsCreateCustomerMetadata$Outbound,
   z.ZodTypeDef,
-  CustomerMetadata
+  CheckoutProductsCreateCustomerMetadata
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CustomerMetadata$ {
-  /** @deprecated use `CustomerMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomerMetadata$inboundSchema;
-  /** @deprecated use `CustomerMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomerMetadata$outboundSchema;
-  /** @deprecated use `CustomerMetadata$Outbound` instead. */
-  export type Outbound = CustomerMetadata$Outbound;
+export namespace CheckoutProductsCreateCustomerMetadata$ {
+  /** @deprecated use `CheckoutProductsCreateCustomerMetadata$inboundSchema` instead. */
+  export const inboundSchema =
+    CheckoutProductsCreateCustomerMetadata$inboundSchema;
+  /** @deprecated use `CheckoutProductsCreateCustomerMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    CheckoutProductsCreateCustomerMetadata$outboundSchema;
+  /** @deprecated use `CheckoutProductsCreateCustomerMetadata$Outbound` instead. */
+  export type Outbound = CheckoutProductsCreateCustomerMetadata$Outbound;
 }
 
-export function customerMetadataToJSON(
-  customerMetadata: CustomerMetadata,
+export function checkoutProductsCreateCustomerMetadataToJSON(
+  checkoutProductsCreateCustomerMetadata:
+    CheckoutProductsCreateCustomerMetadata,
 ): string {
   return JSON.stringify(
-    CustomerMetadata$outboundSchema.parse(customerMetadata),
+    CheckoutProductsCreateCustomerMetadata$outboundSchema.parse(
+      checkoutProductsCreateCustomerMetadata,
+    ),
   );
 }
 
-export function customerMetadataFromJSON(
+export function checkoutProductsCreateCustomerMetadataFromJSON(
   jsonString: string,
-): SafeParseResult<CustomerMetadata, SDKValidationError> {
+): SafeParseResult<CheckoutProductsCreateCustomerMetadata, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CustomerMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerMetadata' from JSON`,
+    (x) =>
+      CheckoutProductsCreateCustomerMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutProductsCreateCustomerMetadata' from JSON`,
   );
 }
 

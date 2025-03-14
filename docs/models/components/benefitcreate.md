@@ -7,7 +7,7 @@
 
 ```typescript
 const value: components.BenefitCustomCreate = {
-  description: "ugh bakeware warmly boo",
+  description: "boo simple inasmuch and not geez shadowy pomelo hourly boldly",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
 };
@@ -17,7 +17,7 @@ const value: components.BenefitCustomCreate = {
 
 ```typescript
 const value: components.BenefitDiscordCreate = {
-  description: "swath properly anenst unconscious whose ick",
+  description: "hidden or oxygenate",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     guildToken: "<value>",
@@ -30,8 +30,7 @@ const value: components.BenefitDiscordCreate = {
 
 ```typescript
 const value: components.BenefitDownloadablesCreate = {
-  description:
-    "narrow over equally lecture fuss indeed halt requite oh personal",
+  description: "stall ick beside smoggy yuck nearly failing",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     files: [
@@ -45,12 +44,12 @@ const value: components.BenefitDownloadablesCreate = {
 
 ```typescript
 const value: components.BenefitGitHubRepositoryCreate = {
-  description: "up aside beard cruelly tectonics for off bah",
+  description: "terrorise aboard why fooey",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "push",
+    permission: "triage",
   },
 };
 ```
@@ -59,7 +58,7 @@ const value: components.BenefitGitHubRepositoryCreate = {
 
 ```typescript
 const value: components.BenefitLicenseKeysCreate = {
-  description: "of editor ack including angrily venom",
+  description: "geez gee little supplier exactly chasuble beard",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
 };

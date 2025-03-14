@@ -26,12 +26,21 @@ import {
   LegacyRecurringProductPrice$outboundSchema,
 } from "./legacyrecurringproductprice.js";
 import {
+  OrderItemSchema,
+  OrderItemSchema$inboundSchema,
+  OrderItemSchema$Outbound,
+  OrderItemSchema$outboundSchema,
+} from "./orderitemschema.js";
+import {
   ProductPrice,
   ProductPrice$inboundSchema,
   ProductPrice$Outbound,
   ProductPrice$outboundSchema,
 } from "./productprice.js";
 
+/**
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
 export type CustomerOrderProductPrice =
   | LegacyRecurringProductPrice
   | ProductPrice;
@@ -46,11 +55,46 @@ export type CustomerOrder = {
    */
   modifiedAt: Date | null;
   id: string;
+  /**
+   * Amount in cents, before discounts and taxes.
+   */
+  subtotalAmount: number;
+  /**
+   * Discount amount in cents.
+   */
+  discountAmount: number;
+  /**
+   * Amount in cents, after discounts but before taxes.
+   */
+  netAmount: number;
+  /**
+   * Amount in cents, after discounts but before taxes.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   amount: number;
+  /**
+   * Sales tax amount in cents.
+   */
   taxAmount: number;
+  /**
+   * Amount in cents, after discounts and taxes.
+   */
+  totalAmount: number;
+  /**
+   * Amount refunded in cents.
+   */
+  refundedAmount: number;
+  /**
+   * Sales tax refunded in cents.
+   */
+  refundedTaxAmount: number;
   currency: string;
   customerId: string;
   productId: string;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   productPriceId: string;
   subscriptionId: string | null;
   /**
@@ -58,8 +102,15 @@ export type CustomerOrder = {
    */
   userId: string;
   product: CustomerOrderProduct;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   productPrice: LegacyRecurringProductPrice | ProductPrice;
   subscription: CustomerOrderSubscription | null;
+  /**
+   * Line items composing the order.
+   */
+  items: Array<OrderItemSchema>;
 };
 
 /** @internal */
@@ -129,8 +180,14 @@ export const CustomerOrder$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
+  subtotal_amount: z.number().int(),
+  discount_amount: z.number().int(),
+  net_amount: z.number().int(),
   amount: z.number().int(),
   tax_amount: z.number().int(),
+  total_amount: z.number().int(),
+  refunded_amount: z.number().int(),
+  refunded_tax_amount: z.number().int(),
   currency: z.string(),
   customer_id: z.string(),
   product_id: z.string(),
@@ -143,11 +200,18 @@ export const CustomerOrder$inboundSchema: z.ZodType<
     ProductPrice$inboundSchema,
   ]),
   subscription: z.nullable(CustomerOrderSubscription$inboundSchema),
+  items: z.array(OrderItemSchema$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
+    "subtotal_amount": "subtotalAmount",
+    "discount_amount": "discountAmount",
+    "net_amount": "netAmount",
     "tax_amount": "taxAmount",
+    "total_amount": "totalAmount",
+    "refunded_amount": "refundedAmount",
+    "refunded_tax_amount": "refundedTaxAmount",
     "customer_id": "customerId",
     "product_id": "productId",
     "product_price_id": "productPriceId",
@@ -162,8 +226,14 @@ export type CustomerOrder$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
+  subtotal_amount: number;
+  discount_amount: number;
+  net_amount: number;
   amount: number;
   tax_amount: number;
+  total_amount: number;
+  refunded_amount: number;
+  refunded_tax_amount: number;
   currency: string;
   customer_id: string;
   product_id: string;
@@ -173,6 +243,7 @@ export type CustomerOrder$Outbound = {
   product: CustomerOrderProduct$Outbound;
   product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   subscription: CustomerOrderSubscription$Outbound | null;
+  items: Array<OrderItemSchema$Outbound>;
 };
 
 /** @internal */
@@ -184,8 +255,14 @@ export const CustomerOrder$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
+  subtotalAmount: z.number().int(),
+  discountAmount: z.number().int(),
+  netAmount: z.number().int(),
   amount: z.number().int(),
   taxAmount: z.number().int(),
+  totalAmount: z.number().int(),
+  refundedAmount: z.number().int(),
+  refundedTaxAmount: z.number().int(),
   currency: z.string(),
   customerId: z.string(),
   productId: z.string(),
@@ -198,11 +275,18 @@ export const CustomerOrder$outboundSchema: z.ZodType<
     ProductPrice$outboundSchema,
   ]),
   subscription: z.nullable(CustomerOrderSubscription$outboundSchema),
+  items: z.array(OrderItemSchema$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
+    subtotalAmount: "subtotal_amount",
+    discountAmount: "discount_amount",
+    netAmount: "net_amount",
     taxAmount: "tax_amount",
+    totalAmount: "total_amount",
+    refundedAmount: "refunded_amount",
+    refundedTaxAmount: "refunded_tax_amount",
     customerId: "customer_id",
     productId: "product_id",
     productPriceId: "product_price_id",

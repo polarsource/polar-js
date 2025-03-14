@@ -7,10 +7,10 @@
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2023-05-04T14:46:57.065Z"),
-  modifiedAt: new Date("2025-12-21T12:53:01.858Z"),
+  createdAt: new Date("2023-04-16T23:53:34.946Z"),
+  modifiedAt: new Date("2024-12-21T00:07:20.834Z"),
   id: "<value>",
-  description: "knickers bracelet gosh geez knotty so indeed sour jovially",
+  description: "obstruct overburden mountain",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -25,10 +25,11 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscord = {
-  createdAt: new Date("2025-11-04T06:00:17.772Z"),
-  modifiedAt: new Date("2023-10-17T11:33:47.639Z"),
+  createdAt: new Date("2023-01-29T22:08:41.933Z"),
+  modifiedAt: new Date("2025-11-09T12:17:45.431Z"),
   id: "<value>",
-  description: "finally painfully politely boohoo delirious oh",
+  description:
+    "jiggle keenly only self-confidence reluctantly conceal toward happily elementary summer",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -44,17 +45,17 @@ const value: components.BenefitDiscord = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2025-10-20T11:53:40.892Z"),
-  modifiedAt: new Date("2025-04-28T03:27:09.943Z"),
+  createdAt: new Date("2025-12-24T18:31:51.343Z"),
+  modifiedAt: new Date("2025-04-17T04:37:18.826Z"),
   id: "<value>",
-  description: "jellyfish modulo likewise airport pleasure",
+  description: "flame yawningly limp as uncover sleepily",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "pull",
+    permission: "push",
   },
 };
 ```
@@ -63,10 +64,11 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2024-05-19T19:32:12.756Z"),
-  modifiedAt: new Date("2025-11-25T13:04:10.611Z"),
+  createdAt: new Date("2025-06-03T10:02:48.006Z"),
+  modifiedAt: new Date("2025-02-26T19:43:42.467Z"),
   id: "<value>",
-  description: "abaft unpleasant reproachfully at ditch moor until",
+  description:
+    "before consequently broadside standard stint unto sternly briefly provided accredit",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -85,24 +87,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2025-07-29T19:18:16.265Z"),
-  modifiedAt: new Date("2024-05-20T22:57:42.336Z"),
+  createdAt: new Date("2025-12-28T18:18:25.337Z"),
+  modifiedAt: new Date("2023-08-30T16:10:43.426Z"),
   id: "<value>",
-  description: "petticoat cloudy stunt toward ha",
+  description: "obesity lamp ill-fated vastly yippee",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 858478,
-      timeframe: "year",
+      ttl: 467109,
+      timeframe: "day",
     },
     activations: {
-      limit: 315024,
+      limit: 5938,
       enableCustomerAdmin: false,
     },
-    limitUsage: 500677,
+    limitUsage: 434632,
   },
 };
 ```

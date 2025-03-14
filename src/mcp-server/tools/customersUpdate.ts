@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$customersUpdate: ToolDefinition<typeof args> = {
-  name: "customers_update",
+  name: "customers-update",
   description: `Update Customer
 
 Update a customer.

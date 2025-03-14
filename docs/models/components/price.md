@@ -1,4 +1,6 @@
-# Price
+# ~~Price~~
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 
 ## Supported Types
@@ -7,12 +9,16 @@
 
 ```typescript
 const value: components.LegacyRecurringProductPrice = {
-  createdAt: new Date("2024-06-09T19:47:10.644Z"),
-  modifiedAt: new Date("2025-09-19T00:17:31.188Z"),
+  createdAt: new Date("2023-09-17T23:02:09.893Z"),
+  modifiedAt: new Date("2023-07-21T02:54:05.406Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  recurringInterval: "month",
+  recurringInterval: "year",
+  priceCurrency: "<value>",
+  minimumAmount: 535883,
+  maximumAmount: 667634,
+  presetAmount: 820462,
 };
 ```
 
@@ -20,17 +26,15 @@ const value: components.LegacyRecurringProductPrice = {
 
 ```typescript
 const value: components.ProductPrice = {
-  createdAt: new Date("2023-01-04T03:36:40.213Z"),
-  modifiedAt: new Date("2023-10-25T00:03:32.852Z"),
+  createdAt: new Date("2023-12-24T05:06:11.927Z"),
+  modifiedAt: new Date("2025-02-15T08:42:30.471Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "recurring",
+  type: "one_time",
   recurringInterval: "month",
   priceCurrency: "<value>",
-  minimumAmount: 463038,
-  maximumAmount: 403074,
-  presetAmount: 739469,
+  priceAmount: 434955,
 };
 ```
 

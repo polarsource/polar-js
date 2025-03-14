@@ -9,31 +9,32 @@ let value: DiscountsListResponse = {
   result: {
     items: [
       {
-        duration: "forever",
-        durationInMonths: 520827,
-        type: "fixed",
-        basisPoints: 455552,
-        createdAt: new Date("2023-04-27T09:03:53.602Z"),
-        modifiedAt: new Date("2025-06-30T12:04:58.293Z"),
+        duration: "repeating",
+        type: "percentage",
+        amount: 669784,
+        currency: "Bahamian Dollar",
+        createdAt: new Date("2024-12-24T14:04:06.848Z"),
+        modifiedAt: new Date("2024-02-16T06:49:59.233Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": 418580,
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2024-03-18T10:16:47.345Z"),
-        endsAt: new Date("2023-03-05T21:56:17.705Z"),
-        maxRedemptions: 422171,
-        redemptionsCount: 644867,
+        startsAt: new Date("2025-03-17T16:42:07.584Z"),
+        endsAt: new Date("2023-02-14T07:01:21.736Z"),
+        maxRedemptions: 164203,
+        redemptionsCount: 432046,
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         products: [
           {
-            createdAt: new Date("2024-06-28T14:36:58.925Z"),
-            modifiedAt: new Date("2025-06-21T07:10:54.065Z"),
+            createdAt: new Date("2024-10-20T17:37:49.641Z"),
+            modifiedAt: new Date("2023-01-24T14:37:59.472Z"),
             id: "<value>",
             name: "<value>",
-            description: "doubtfully kiss catalyst between ornery compete",
-            recurringInterval: "month",
+            description:
+              "obsess failing out gah see advancement mythology at navigate",
+            recurringInterval: "year",
             isRecurring: false,
             isArchived: false,
             organizationId: "<value>",
@@ -42,8 +43,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 147559,
-      maxPage: 591309,
+      totalCount: 603276,
+      maxPage: 188104,
     },
   },
 };

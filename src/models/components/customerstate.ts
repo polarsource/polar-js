@@ -80,6 +80,10 @@ export type CustomerState = {
    */
   organizationId: string;
   /**
+   * Timestamp for when the customer was soft deleted.
+   */
+  deletedAt: Date | null;
+  /**
    * The customer's active subscriptions.
    */
   activeSubscriptions: Array<CustomerStateSubscription>;
@@ -207,6 +211,9 @@ export const CustomerState$inboundSchema: z.ZodType<
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
   ),
   organization_id: z.string(),
+  deleted_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
   active_subscriptions: z.array(CustomerStateSubscription$inboundSchema),
   granted_benefits: z.array(CustomerStateBenefitGrant$inboundSchema),
   avatar_url: z.string(),
@@ -219,6 +226,7 @@ export const CustomerState$inboundSchema: z.ZodType<
     "billing_address": "billingAddress",
     "tax_id": "taxId",
     "organization_id": "organizationId",
+    "deleted_at": "deletedAt",
     "active_subscriptions": "activeSubscriptions",
     "granted_benefits": "grantedBenefits",
     "avatar_url": "avatarUrl",
@@ -238,6 +246,7 @@ export type CustomerState$Outbound = {
   billing_address: Address$Outbound | null;
   tax_id: Array<string | string | null> | null;
   organization_id: string;
+  deleted_at: string | null;
   active_subscriptions: Array<CustomerStateSubscription$Outbound>;
   granted_benefits: Array<CustomerStateBenefitGrant$Outbound>;
   avatar_url: string;
@@ -262,6 +271,7 @@ export const CustomerState$outboundSchema: z.ZodType<
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
   ),
   organizationId: z.string(),
+  deletedAt: z.nullable(z.date().transform(v => v.toISOString())),
   activeSubscriptions: z.array(CustomerStateSubscription$outboundSchema),
   grantedBenefits: z.array(CustomerStateBenefitGrant$outboundSchema),
   avatarUrl: z.string(),
@@ -274,6 +284,7 @@ export const CustomerState$outboundSchema: z.ZodType<
     billingAddress: "billing_address",
     taxId: "tax_id",
     organizationId: "organization_id",
+    deletedAt: "deleted_at",
     activeSubscriptions: "active_subscriptions",
     grantedBenefits: "granted_benefits",
     avatarUrl: "avatar_url",

@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$ordersGet: ToolDefinition<typeof args> = {
-  name: "orders_get",
+  name: "orders-get",
   description: `Get Order
 
 Get an order by ID.

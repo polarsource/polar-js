@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "d7137f3c-2a3c-48e1-a3c5-1b21862a6a6d",
+        id: "ea360183-2fa0-442f-8498-e052c6d8f75b",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://powerful-fraudster.info",
+        avatarUrl: "https://bare-quinoa.net",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Barrows, D'Amore and Murphy",
+        company: "Tillman - Borer",
         blog: "<value>",
         location: "<value>",
-        email: "Royal42@hotmail.com",
+        email: "Taya_Mante22@hotmail.com",
         twitterUsername: "<value>",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       },
     ],
     pagination: {
-      totalCount: 296020,
-      maxPage: 928743,
+      totalCount: 833518,
+      maxPage: 90496,
     },
   },
 };

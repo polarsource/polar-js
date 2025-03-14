@@ -8,11 +8,23 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  OrganizationDetails,
+  OrganizationDetails$inboundSchema,
+  OrganizationDetails$Outbound,
+  OrganizationDetails$outboundSchema,
+} from "./organizationdetails.js";
+import {
   OrganizationFeatureSettings,
   OrganizationFeatureSettings$inboundSchema,
   OrganizationFeatureSettings$Outbound,
   OrganizationFeatureSettings$outboundSchema,
 } from "./organizationfeaturesettings.js";
+import {
+  OrganizationSocialLink,
+  OrganizationSocialLink$inboundSchema,
+  OrganizationSocialLink$Outbound,
+  OrganizationSocialLink$outboundSchema,
+} from "./organizationsociallink.js";
 import {
   OrganizationSubscriptionSettings,
   OrganizationSubscriptionSettings$inboundSchema,
@@ -24,6 +36,22 @@ export type OrganizationCreate = {
   name: string;
   slug: string;
   avatarUrl?: string | null | undefined;
+  /**
+   * Public support email.
+   */
+  email?: string | null | undefined;
+  /**
+   * Official website of the organization.
+   */
+  website?: string | null | undefined;
+  /**
+   * Link to social profiles.
+   */
+  socials?: Array<OrganizationSocialLink> | null | undefined;
+  /**
+   * Additional, private, business details Polar needs about active organizations for compliance (KYC).
+   */
+  details?: OrganizationDetails | null | undefined;
   featureSettings?: OrganizationFeatureSettings | null | undefined;
   subscriptionSettings?: OrganizationSubscriptionSettings | null | undefined;
 };
@@ -37,6 +65,10 @@ export const OrganizationCreate$inboundSchema: z.ZodType<
   name: z.string(),
   slug: z.string(),
   avatar_url: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  website: z.nullable(z.string()).optional(),
+  socials: z.nullable(z.array(OrganizationSocialLink$inboundSchema)).optional(),
+  details: z.nullable(OrganizationDetails$inboundSchema).optional(),
   feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema)
     .optional(),
   subscription_settings: z.nullable(
@@ -55,6 +87,10 @@ export type OrganizationCreate$Outbound = {
   name: string;
   slug: string;
   avatar_url?: string | null | undefined;
+  email?: string | null | undefined;
+  website?: string | null | undefined;
+  socials?: Array<OrganizationSocialLink$Outbound> | null | undefined;
+  details?: OrganizationDetails$Outbound | null | undefined;
   feature_settings?: OrganizationFeatureSettings$Outbound | null | undefined;
   subscription_settings?:
     | OrganizationSubscriptionSettings$Outbound
@@ -71,6 +107,11 @@ export const OrganizationCreate$outboundSchema: z.ZodType<
   name: z.string(),
   slug: z.string(),
   avatarUrl: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  website: z.nullable(z.string()).optional(),
+  socials: z.nullable(z.array(OrganizationSocialLink$outboundSchema))
+    .optional(),
+  details: z.nullable(OrganizationDetails$outboundSchema).optional(),
   featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema)
     .optional(),
   subscriptionSettings: z.nullable(

@@ -11,24 +11,17 @@ import { WebhookBenefitCreatedPayload } from "@polar-sh/sdk/models/components/we
 
 let value: WebhookBenefitCreatedPayload = {
   data: {
-    createdAt: new Date("2025-04-19T23:42:02.974Z"),
-    modifiedAt: new Date("2023-11-30T23:12:05.956Z"),
+    createdAt: new Date("2023-11-13T23:20:26.533Z"),
+    modifiedAt: new Date("2025-06-05T11:34:22.007Z"),
     id: "<value>",
-    description: "jazz gladly aha eyeliner meh than bah once creative",
+    description: "different abnormally whenever",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      prefix: "<value>",
-      expires: {
-        ttl: 786446,
-        timeframe: "day",
-      },
-      activations: {
-        limit: 812365,
-        enableCustomerAdmin: false,
-      },
-      limitUsage: 821896,
+      repositoryOwner: "polarsource",
+      repositoryName: "private_repo",
+      permission: "triage",
     },
   },
 };

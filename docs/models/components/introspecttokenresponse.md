@@ -8,14 +8,14 @@ import { IntrospectTokenResponse } from "@polar-sh/sdk/models/components/introsp
 let value: IntrospectTokenResponse = {
   active: false,
   clientId: "<id>",
-  tokenType: "refresh_token",
+  tokenType: "access_token",
   scope: "<value>",
   subType: "user",
   sub: "<value>",
   aud: "<value>",
   iss: "<value>",
-  exp: 123268,
-  iat: 743623,
+  exp: 802404,
+  iat: 95555,
 };
 ```
 

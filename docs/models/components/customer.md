@@ -9,10 +9,10 @@ import { Customer } from "@polar-sh/sdk/models/components/customer.js";
 
 let value: Customer = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2023-07-23T15:43:25.483Z"),
-  modifiedAt: new Date("2023-04-25T18:58:42.780Z"),
+  createdAt: new Date("2023-04-25T18:58:42.780Z"),
+  modifiedAt: new Date("2023-05-08T17:57:27.868Z"),
   metadata: {
-    "key": "<value>",
+    "key": 4654,
   },
   externalId: "usr_1337",
   email: "customer@example.com",
@@ -22,10 +22,11 @@ let value: Customer = {
     country: "SE",
   },
   taxId: [
-    "911144442",
-    "us_ein",
+    "FR61954506077",
+    "eu_vat",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  deletedAt: new Date("2024-03-16T06:00:21.666Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
 };
 ```
@@ -45,4 +46,5 @@ let value: Customer = {
 | `billingAddress`                                                                                                                                                | [components.Address](../../models/components/address.md)                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |                                                                                                                                                                 |
 | `taxId`                                                                                                                                                         | *components.CustomerTaxId*[]                                                                                                                                    | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             | [<br/>"911144442",<br/>"us_ein"<br/>]                                                                                                                           |
 | `organizationId`                                                                                                                                                | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | The ID of the organization owning the customer.                                                                                                                 | 1dbfc517-0bbf-4301-9ba8-555ca42b9737                                                                                                                            |
+| `deletedAt`                                                                                                                                                     | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                   | :heavy_check_mark:                                                                                                                                              | Timestamp for when the customer was soft deleted.                                                                                                               |                                                                                                                                                                 |
 | `avatarUrl`                                                                                                                                                     | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             | https://www.gravatar.com/avatar/xxx?d=blank                                                                                                                     |

@@ -6,27 +6,27 @@
 import { CustomerOrderSubscription } from "@polar-sh/sdk/models/components/customerordersubscription.js";
 
 let value: CustomerOrderSubscription = {
-  createdAt: new Date("2023-12-23T21:42:12.315Z"),
-  modifiedAt: new Date("2023-01-17T09:03:28.369Z"),
+  createdAt: new Date("2023-06-20T00:38:57.696Z"),
+  modifiedAt: new Date("2024-11-25T06:19:18.187Z"),
   id: "<value>",
-  amount: 739428,
-  currency: "Som",
+  amount: 757185,
+  currency: "Aruban Guilder",
   recurringInterval: "month",
-  status: "incomplete_expired",
-  currentPeriodStart: new Date("2024-06-19T03:57:39.135Z"),
-  currentPeriodEnd: new Date("2023-10-25T17:11:33.457Z"),
+  status: "canceled",
+  currentPeriodStart: new Date("2024-07-31T13:47:31.288Z"),
+  currentPeriodEnd: new Date("2024-04-04T01:58:10.321Z"),
   cancelAtPeriodEnd: false,
-  canceledAt: new Date("2024-07-10T12:32:56.304Z"),
-  startedAt: new Date("2023-10-02T10:20:48.033Z"),
-  endsAt: new Date("2023-11-17T17:44:27.736Z"),
-  endedAt: new Date("2024-04-10T23:29:18.829Z"),
+  canceledAt: new Date("2023-07-13T22:18:07.511Z"),
+  startedAt: new Date("2023-05-05T13:10:17.632Z"),
+  endsAt: new Date("2024-01-01T00:27:16.216Z"),
+  endedAt: new Date("2023-11-09T07:17:45.765Z"),
   customerId: "<value>",
   productId: "<value>",
-  priceId: "<value>",
   discountId: "<value>",
   checkoutId: "<value>",
-  customerCancellationReason: "too_complex",
+  customerCancellationReason: "missing_features",
   customerCancellationComment: "<value>",
+  priceId: "<value>",
 };
 ```
 
@@ -50,8 +50,8 @@ let value: CustomerOrderSubscription = {
 | `endedAt`                                                                                                                     | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The timestamp when the subscription ended.                                                                                    |
 | `customerId`                                                                                                                  | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the subscribed customer.                                                                                            |
 | `productId`                                                                                                                   | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the subscribed product.                                                                                             |
-| `priceId`                                                                                                                     | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the subscribed price.                                                                                               |
 | `discountId`                                                                                                                  | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the applied discount, if any.                                                                                       |
 | `checkoutId`                                                                                                                  | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `customerCancellationReason`                                                                                                  | [components.CustomerCancellationReason](../../models/components/customercancellationreason.md)                                | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `customerCancellationComment`                                                                                                 | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| ~~`priceId`~~                                                                                                                 | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.       |

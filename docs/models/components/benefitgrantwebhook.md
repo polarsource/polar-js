@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components/benefitgrantwebhook.js";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2024-04-05T21:31:12.539Z"),
-  modifiedAt: new Date("2025-02-04T01:25:02.057Z"),
+  createdAt: new Date("2025-05-06T04:06:41.754Z"),
+  modifiedAt: new Date("2023-10-26T06:31:29.994Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -18,10 +18,10 @@ let value: BenefitGrantWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-06-17T01:02:43.891Z"),
-    modifiedAt: new Date("2025-10-28T04:30:37.605Z"),
+    createdAt: new Date("2025-03-19T14:24:12.773Z"),
+    modifiedAt: new Date("2023-01-29T20:48:34.054Z"),
     metadata: {
-      "key": "<value>",
+      "key": false,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -35,21 +35,25 @@ let value: BenefitGrantWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2023-07-10T01:53:42.639Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   properties: {},
   benefit: {
-    createdAt: new Date("2023-06-17T12:34:18.438Z"),
-    modifiedAt: new Date("2025-01-29T10:30:11.869Z"),
+    createdAt: new Date("2023-06-06T03:35:17.126Z"),
+    modifiedAt: new Date("2023-11-13T20:42:37.829Z"),
     id: "<value>",
-    description: "as below rim apropos",
+    description: "abacus which dreamily aboard whoa lotion simple er",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      guildId: "<id>",
-      roleId: "<id>",
-      guildToken: "<value>",
+      archived: {
+        "key": false,
+      },
+      files: [
+        "<value>",
+      ],
     },
   },
 };

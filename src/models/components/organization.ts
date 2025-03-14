@@ -20,6 +20,12 @@ import {
   OrganizationProfileSettings$outboundSchema,
 } from "./organizationprofilesettings.js";
 import {
+  OrganizationSocialLink,
+  OrganizationSocialLink$inboundSchema,
+  OrganizationSocialLink$Outbound,
+  OrganizationSocialLink$outboundSchema,
+} from "./organizationsociallink.js";
+import {
   OrganizationSubscriptionSettings,
   OrganizationSubscriptionSettings$inboundSchema,
   OrganizationSubscriptionSettings$Outbound,
@@ -39,27 +45,77 @@ export type Organization = {
    * The organization ID.
    */
   id: string;
-  name: string;
-  slug: string;
-  avatarUrl: string | null;
-  bio: string | null;
-  company: string | null;
-  blog: string | null;
-  location: string | null;
-  email: string | null;
-  twitterUsername: string | null;
-  pledgeMinimumAmount: number;
-  pledgeBadgeShowAmount: boolean;
-  defaultUpfrontSplitToContributors: number | null;
   /**
-   * Settings for the organization profile
+   * Organization name shown in checkout, customer portal, emails etc.
    */
-  profileSettings: OrganizationProfileSettings | null;
+  name: string;
   /**
-   * Settings for the organization features
+   * Unique organization slug in checkout, customer portal and credit card statements.
+   */
+  slug: string;
+  /**
+   * Avatar URL shown in checkout, customer portal, emails etc.
+   */
+  avatarUrl: string | null;
+  /**
+   * Public support email.
+   */
+  email: string | null;
+  /**
+   * Official website of the organization.
+   */
+  website: string | null;
+  /**
+   * Links to social profiles.
+   */
+  socials: Array<OrganizationSocialLink>;
+  /**
+   * When the business details were submitted.
+   */
+  detailsSubmittedAt: Date | null;
+  /**
+   * Organization feature settings
    */
   featureSettings: OrganizationFeatureSettings | null;
   subscriptionSettings: OrganizationSubscriptionSettings;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  bio: string | null;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  company: string | null;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  blog: string | null;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  location: string | null;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  twitterUsername: string | null;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  pledgeMinimumAmount: number;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  pledgeBadgeShowAmount: boolean;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  defaultUpfrontSplitToContributors: number | null;
+  /**
+   * Settings for the organization profile
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  profileSettings: OrganizationProfileSettings | null;
 };
 
 /** @internal */
@@ -76,31 +132,37 @@ export const Organization$inboundSchema: z.ZodType<
   name: z.string(),
   slug: z.string(),
   avatar_url: z.nullable(z.string()),
+  email: z.nullable(z.string()),
+  website: z.nullable(z.string()),
+  socials: z.array(OrganizationSocialLink$inboundSchema),
+  details_submitted_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
+  feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema),
+  subscription_settings: OrganizationSubscriptionSettings$inboundSchema,
   bio: z.nullable(z.string()),
   company: z.nullable(z.string()),
   blog: z.nullable(z.string()),
   location: z.nullable(z.string()),
-  email: z.nullable(z.string()),
   twitter_username: z.nullable(z.string()),
   pledge_minimum_amount: z.number().int(),
   pledge_badge_show_amount: z.boolean(),
   default_upfront_split_to_contributors: z.nullable(z.number().int()),
   profile_settings: z.nullable(OrganizationProfileSettings$inboundSchema),
-  feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema),
-  subscription_settings: OrganizationSubscriptionSettings$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
     "avatar_url": "avatarUrl",
+    "details_submitted_at": "detailsSubmittedAt",
+    "feature_settings": "featureSettings",
+    "subscription_settings": "subscriptionSettings",
     "twitter_username": "twitterUsername",
     "pledge_minimum_amount": "pledgeMinimumAmount",
     "pledge_badge_show_amount": "pledgeBadgeShowAmount",
     "default_upfront_split_to_contributors":
       "defaultUpfrontSplitToContributors",
     "profile_settings": "profileSettings",
-    "feature_settings": "featureSettings",
-    "subscription_settings": "subscriptionSettings",
   });
 });
 
@@ -112,18 +174,21 @@ export type Organization$Outbound = {
   name: string;
   slug: string;
   avatar_url: string | null;
+  email: string | null;
+  website: string | null;
+  socials: Array<OrganizationSocialLink$Outbound>;
+  details_submitted_at: string | null;
+  feature_settings: OrganizationFeatureSettings$Outbound | null;
+  subscription_settings: OrganizationSubscriptionSettings$Outbound;
   bio: string | null;
   company: string | null;
   blog: string | null;
   location: string | null;
-  email: string | null;
   twitter_username: string | null;
   pledge_minimum_amount: number;
   pledge_badge_show_amount: boolean;
   default_upfront_split_to_contributors: number | null;
   profile_settings: OrganizationProfileSettings$Outbound | null;
-  feature_settings: OrganizationFeatureSettings$Outbound | null;
-  subscription_settings: OrganizationSubscriptionSettings$Outbound;
 };
 
 /** @internal */
@@ -138,30 +203,34 @@ export const Organization$outboundSchema: z.ZodType<
   name: z.string(),
   slug: z.string(),
   avatarUrl: z.nullable(z.string()),
+  email: z.nullable(z.string()),
+  website: z.nullable(z.string()),
+  socials: z.array(OrganizationSocialLink$outboundSchema),
+  detailsSubmittedAt: z.nullable(z.date().transform(v => v.toISOString())),
+  featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema),
+  subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,
   bio: z.nullable(z.string()),
   company: z.nullable(z.string()),
   blog: z.nullable(z.string()),
   location: z.nullable(z.string()),
-  email: z.nullable(z.string()),
   twitterUsername: z.nullable(z.string()),
   pledgeMinimumAmount: z.number().int(),
   pledgeBadgeShowAmount: z.boolean(),
   defaultUpfrontSplitToContributors: z.nullable(z.number().int()),
   profileSettings: z.nullable(OrganizationProfileSettings$outboundSchema),
-  featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema),
-  subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
     avatarUrl: "avatar_url",
+    detailsSubmittedAt: "details_submitted_at",
+    featureSettings: "feature_settings",
+    subscriptionSettings: "subscription_settings",
     twitterUsername: "twitter_username",
     pledgeMinimumAmount: "pledge_minimum_amount",
     pledgeBadgeShowAmount: "pledge_badge_show_amount",
     defaultUpfrontSplitToContributors: "default_upfront_split_to_contributors",
     profileSettings: "profile_settings",
-    featureSettings: "feature_settings",
-    subscriptionSettings: "subscription_settings",
   });
 });
 

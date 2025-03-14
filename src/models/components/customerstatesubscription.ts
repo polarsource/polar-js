@@ -48,11 +48,11 @@ export type CustomerStateSubscription = {
   /**
    * The amount of the subscription.
    */
-  amount: number | null;
+  amount: number;
   /**
    * The currency of the subscription.
    */
-  currency: string | null;
+  currency: string;
   recurringInterval: SubscriptionRecurringInterval;
   /**
    * The start timestamp of the current billing period.
@@ -83,13 +83,13 @@ export type CustomerStateSubscription = {
    */
   productId: string;
   /**
-   * The ID of the subscribed price.
-   */
-  priceId: string;
-  /**
    * The ID of the applied discount, if any.
    */
   discountId: string | null;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  priceId: string;
 };
 
 /** @internal */
@@ -242,8 +242,8 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
   ).optional(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   status: z.literal("active").optional(),
-  amount: z.nullable(z.number().int()),
-  currency: z.nullable(z.string()),
+  amount: z.number().int(),
+  currency: z.string(),
   recurring_interval: SubscriptionRecurringInterval$inboundSchema,
   current_period_start: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
@@ -262,8 +262,8 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   product_id: z.string(),
-  price_id: z.string(),
   discount_id: z.nullable(z.string()),
+  price_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -277,8 +277,8 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
     "started_at": "startedAt",
     "ends_at": "endsAt",
     "product_id": "productId",
-    "price_id": "priceId",
     "discount_id": "discountId",
+    "price_id": "priceId",
   });
 });
 
@@ -292,8 +292,8 @@ export type CustomerStateSubscription$Outbound = {
     | undefined;
   metadata: { [k: string]: string | number | boolean };
   status: "active";
-  amount: number | null;
-  currency: string | null;
+  amount: number;
+  currency: string;
   recurring_interval: string;
   current_period_start: string;
   current_period_end: string | null;
@@ -302,8 +302,8 @@ export type CustomerStateSubscription$Outbound = {
   started_at: string | null;
   ends_at: string | null;
   product_id: string;
-  price_id: string;
   discount_id: string | null;
+  price_id: string;
 };
 
 /** @internal */
@@ -327,8 +327,8 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
   ).optional(),
   metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
   status: z.literal("active").default("active" as const),
-  amount: z.nullable(z.number().int()),
-  currency: z.nullable(z.string()),
+  amount: z.number().int(),
+  currency: z.string(),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,
   currentPeriodStart: z.date().transform(v => v.toISOString()),
   currentPeriodEnd: z.nullable(z.date().transform(v => v.toISOString())),
@@ -337,8 +337,8 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
   startedAt: z.nullable(z.date().transform(v => v.toISOString())),
   endsAt: z.nullable(z.date().transform(v => v.toISOString())),
   productId: z.string(),
-  priceId: z.string(),
   discountId: z.nullable(z.string()),
+  priceId: z.string(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -352,8 +352,8 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
     startedAt: "started_at",
     endsAt: "ends_at",
     productId: "product_id",
-    priceId: "price_id",
     discountId: "discount_id",
+    priceId: "price_id",
   });
 });
 

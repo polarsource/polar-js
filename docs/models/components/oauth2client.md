@@ -7,15 +7,15 @@ import { OAuth2Client } from "@polar-sh/sdk/models/components/oauth2client.js";
 
 let value: OAuth2Client = {
   redirectUris: [
-    "https://basic-deer.info/",
+    "https://submissive-piglet.name",
   ],
   clientName: "<value>",
-  createdAt: new Date("2024-10-02T12:55:16.245Z"),
-  modifiedAt: new Date("2024-06-08T00:56:27.193Z"),
+  createdAt: new Date("2025-01-17T06:41:20.361Z"),
+  modifiedAt: new Date("2023-03-12T09:53:29.242Z"),
   clientId: "<id>",
   clientSecret: "<value>",
-  clientIdIssuedAt: 363893,
-  clientSecretExpiresAt: 803498,
+  clientIdIssuedAt: 97799,
+  clientSecretExpiresAt: 607549,
 };
 ```
 

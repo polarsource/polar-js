@@ -34,6 +34,7 @@ let value: WebhookCustomerCreatedPayload = {
       "eu_vat",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2023-08-12T04:02:41.990Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
 };

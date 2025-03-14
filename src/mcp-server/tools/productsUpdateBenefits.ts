@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$productsUpdateBenefits: ToolDefinition<typeof args> = {
-  name: "products_update-benefits",
+  name: "products-update-benefits",
   description: `Update Product Benefits
 
 Update benefits granted by a product.

@@ -9,7 +9,7 @@ Ref: https://docs.stripe.com/billing/customer/tax-ids#supported-tax-id
 ```typescript
 import { TaxIDFormat } from "@polar-sh/sdk/models/components/taxidformat.js";
 
-let value: TaxIDFormat = "hk_br";
+let value: TaxIDFormat = "bh_vat";
 ```
 
 ## Values
