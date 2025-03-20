@@ -34,6 +34,7 @@ export type ToolDefinition<Args extends undefined | ZodRawShape = undefined> =
       ) => CallToolResult | Promise<CallToolResult>;
     };
 
+// Optional function to assist with formatting tool results
 export async function formatResult(
   value: unknown,
   init: { response?: Response | undefined },

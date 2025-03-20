@@ -67,6 +67,11 @@ import {
   OrderProduct$outboundSchema,
 } from "./orderproduct.js";
 import {
+  OrderStatus,
+  OrderStatus$inboundSchema,
+  OrderStatus$outboundSchema,
+} from "./orderstatus.js";
+import {
   OrderSubscription,
   OrderSubscription$inboundSchema,
   OrderSubscription$Outbound,
@@ -120,7 +125,11 @@ export type Order = {
   customFieldData?:
     | { [k: string]: string | number | boolean | Date | null }
     | undefined;
-  status: string;
+  status: OrderStatus;
+  /**
+   * Whether the order has been paid for.
+   */
+  paid: boolean;
   /**
    * Amount in cents, before discounts and taxes.
    */
@@ -428,7 +437,8 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
         ]),
       ),
     ).optional(),
-    status: z.string(),
+    status: OrderStatus$inboundSchema,
+    paid: z.boolean(),
     subtotal_amount: z.number().int(),
     discount_amount: z.number().int(),
     net_amount: z.number().int(),
@@ -499,6 +509,7 @@ export type Order$Outbound = {
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
   status: string;
+  paid: boolean;
   subtotal_amount: number;
   discount_amount: number;
   net_amount: number;
@@ -551,7 +562,8 @@ export const Order$outboundSchema: z.ZodType<
       ]),
     ),
   ).optional(),
-  status: z.string(),
+  status: OrderStatus$outboundSchema,
+  paid: z.boolean(),
   subtotalAmount: z.number().int(),
   discountAmount: z.number().int(),
   netAmount: z.number().int(),

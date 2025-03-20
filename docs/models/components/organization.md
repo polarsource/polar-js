@@ -6,35 +6,35 @@
 import { Organization } from "@polar-sh/sdk/models/components/organization.js";
 
 let value: Organization = {
-  createdAt: new Date("2024-05-08T13:00:30.149Z"),
-  modifiedAt: new Date("2023-02-02T13:48:44.392Z"),
+  createdAt: new Date("2025-03-18T04:21:48.927Z"),
+  modifiedAt: new Date("2023-06-30T23:12:37.559Z"),
   id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   name: "<value>",
   slug: "<value>",
-  avatarUrl: "https://regular-gray.info/",
-  email: "Domingo_Stamm23@hotmail.com",
+  avatarUrl: "https://radiant-heartache.org",
+  email: "Gerardo_Reichert22@yahoo.com",
   website: "<value>",
   socials: [
     {
-      platform: "facebook",
-      url: "https://amazing-exasperation.name/",
+      platform: "github",
+      url: "https://austere-elevation.net/",
     },
   ],
-  detailsSubmittedAt: new Date("2024-12-13T17:59:25.488Z"),
+  detailsSubmittedAt: new Date("2024-11-11T20:49:52.958Z"),
   featureSettings: {},
   subscriptionSettings: {
     allowMultipleSubscriptions: false,
     allowCustomerUpdates: false,
-    prorationBehavior: "invoice",
+    prorationBehavior: "prorate",
   },
   bio: "<value>",
-  company: "Marks - Rolfson",
+  company: "Bahringer, Marks and Kessler",
   blog: "<value>",
   location: "<value>",
   twitterUsername: "<value>",
-  pledgeMinimumAmount: 694952,
+  pledgeMinimumAmount: 361300,
   pledgeBadgeShowAmount: false,
-  defaultUpfrontSplitToContributors: 856985,
+  defaultUpfrontSplitToContributors: 992382,
   profileSettings: {},
 };
 ```

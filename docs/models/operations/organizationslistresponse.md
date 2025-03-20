@@ -9,21 +9,21 @@ let value: OrganizationsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-11-21T22:44:43.009Z"),
-        modifiedAt: new Date("2023-03-11T14:53:21.190Z"),
+        createdAt: new Date("2025-05-07T19:52:37.336Z"),
+        modifiedAt: new Date("2024-02-26T15:17:44.821Z"),
         id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         name: "<value>",
         slug: "<value>",
-        avatarUrl: "https://obvious-meatloaf.biz/",
-        email: "Corine.Homenick4@gmail.com",
+        avatarUrl: "https://finished-disappointment.name/",
+        email: "Alford_Barrows@hotmail.com",
         website: "<value>",
         socials: [
           {
-            platform: "linkedin",
-            url: "https://vivacious-developmental.com",
+            platform: "instagram",
+            url: "https://frizzy-toaster.org",
           },
         ],
-        detailsSubmittedAt: new Date("2023-02-02T22:34:01.781Z"),
+        detailsSubmittedAt: new Date("2024-07-02T20:27:58.335Z"),
         featureSettings: {},
         subscriptionSettings: {
           allowMultipleSubscriptions: false,
@@ -31,19 +31,19 @@ let value: OrganizationsListResponse = {
           prorationBehavior: "prorate",
         },
         bio: "<value>",
-        company: "Emard Inc",
+        company: "Fisher Group",
         blog: "<value>",
         location: "<value>",
         twitterUsername: "<value>",
-        pledgeMinimumAmount: 119733,
+        pledgeMinimumAmount: 889946,
         pledgeBadgeShowAmount: false,
-        defaultUpfrontSplitToContributors: 147468,
+        defaultUpfrontSplitToContributors: 391395,
         profileSettings: {},
       },
     ],
     pagination: {
-      totalCount: 631146,
-      maxPage: 315515,
+      totalCount: 908754,
+      maxPage: 693429,
     },
   },
 };

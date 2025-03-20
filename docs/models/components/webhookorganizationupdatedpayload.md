@@ -11,21 +11,21 @@ import { WebhookOrganizationUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookOrganizationUpdatedPayload = {
   data: {
-    createdAt: new Date("2025-05-03T03:06:38.832Z"),
-    modifiedAt: new Date("2024-06-27T17:40:06.266Z"),
+    createdAt: new Date("2023-01-28T01:28:09.985Z"),
+    modifiedAt: new Date("2023-07-21T02:15:38.786Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://immense-premium.net",
-    email: "Rosario.Mayert@yahoo.com",
+    avatarUrl: "https://muted-partridge.info",
+    email: "Braeden.VonRueden@yahoo.com",
     website: "<value>",
     socials: [
       {
-        platform: "instagram",
-        url: "https://courteous-doing.biz",
+        platform: "x",
+        url: "https://unfit-heating.info",
       },
     ],
-    detailsSubmittedAt: new Date("2024-07-18T14:44:10.552Z"),
+    detailsSubmittedAt: new Date("2024-05-11T19:52:22.574Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -33,13 +33,13 @@ let value: WebhookOrganizationUpdatedPayload = {
       prorationBehavior: "prorate",
     },
     bio: "<value>",
-    company: "Collins - Macejkovic",
+    company: "Rogahn LLC",
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 854650,
+    pledgeMinimumAmount: 50859,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 418232,
+    defaultUpfrontSplitToContributors: 976700,
     profileSettings: {},
   },
 };

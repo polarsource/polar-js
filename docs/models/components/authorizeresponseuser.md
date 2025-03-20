@@ -7,22 +7,22 @@ import { AuthorizeResponseUser } from "@polar-sh/sdk/models/components/authorize
 
 let value: AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2025-07-01T10:51:36.392Z"),
-    modifiedAt: new Date("2025-08-08T08:17:18.251Z"),
+    createdAt: new Date("2024-01-08T02:30:31.934Z"),
+    modifiedAt: new Date("2024-04-27T15:39:32.812Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://ordinary-wilderness.com/",
-    logoUri: "https://sneaky-wombat.com/",
-    tosUri: "https://sleepy-mythology.org/",
-    policyUri: "https://near-nudge.net/",
+    clientUri: "https://vibrant-someplace.name",
+    logoUri: "https://great-in-joke.org",
+    tosUri: "https://decisive-integer.name/",
+    policyUri: "https://clumsy-event.org/",
   },
   sub: {
     id: "<value>",
-    email: "Jarod_Adams@hotmail.com",
-    avatarUrl: "https://well-made-coin.info",
+    email: "Dalton_Olson75@hotmail.com",
+    avatarUrl: "https://wide-king.com/",
   },
   scopes: [
-    "license_keys:write",
+    "checkouts:read",
   ],
 };
 ```

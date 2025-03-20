@@ -7,7 +7,7 @@ import { OAuth2ClientConfiguration } from "@polar-sh/sdk/models/components/oauth
 
 let value: OAuth2ClientConfiguration = {
   redirectUris: [
-    "https://variable-conservation.name",
+    "https://shimmering-baritone.info/",
   ],
   clientName: "<value>",
 };
