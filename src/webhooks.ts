@@ -12,6 +12,8 @@ import { WebhookCheckoutCreatedPayload$inboundSchema } from "./models/components
 import { WebhookCheckoutUpdatedPayload$inboundSchema } from "./models/components/webhookcheckoutupdatedpayload.js";
 import { WebhookOrderCreatedPayload$inboundSchema } from "./models/components/webhookordercreatedpayload.js";
 import { WebhookOrderRefundedPayload$inboundSchema } from "./models/components/webhookorderrefundedpayload.js";
+import { WebhookOrderUpdatedPayload$inboundSchema } from "./models/components/webhookorderupdatedpayload.js";
+import { WebhookOrderPaidPayload$inboundSchema } from "./models/components/webhookorderpaidpayload.js";
 import { WebhookOrganizationUpdatedPayload$inboundSchema } from "./models/components/webhookorganizationupdatedpayload.js";
 import { WebhookPledgeCreatedPayload$inboundSchema } from "./models/components/webhookpledgecreatedpayload.js";
 import { WebhookPledgeUpdatedPayload$inboundSchema } from "./models/components/webhookpledgeupdatedpayload.js";
@@ -65,6 +67,10 @@ const parseEvent = (parsed: any) => {
         return WebhookCheckoutUpdatedPayload$inboundSchema.parse(parsed);
       case "order.created":
         return WebhookOrderCreatedPayload$inboundSchema.parse(parsed);
+      case "order.paid":
+        return WebhookOrderPaidPayload$inboundSchema.parse(parsed);
+      case "order.updated":
+        return WebhookOrderUpdatedPayload$inboundSchema.parse(parsed);
       case "order.refunded":
         return WebhookOrderRefundedPayload$inboundSchema.parse(parsed);
       case "organization.updated":
