@@ -32,6 +32,11 @@ import {
   OrderItemSchema$outboundSchema,
 } from "./orderitemschema.js";
 import {
+  OrderStatus,
+  OrderStatus$inboundSchema,
+  OrderStatus$outboundSchema,
+} from "./orderstatus.js";
+import {
   ProductPrice,
   ProductPrice$inboundSchema,
   ProductPrice$Outbound,
@@ -55,6 +60,11 @@ export type CustomerOrder = {
    */
   modifiedAt: Date | null;
   id: string;
+  status: OrderStatus;
+  /**
+   * Whether the order has been paid for.
+   */
+  paid: boolean;
   /**
    * Amount in cents, before discounts and taxes.
    */
@@ -180,6 +190,8 @@ export const CustomerOrder$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
+  status: OrderStatus$inboundSchema,
+  paid: z.boolean(),
   subtotal_amount: z.number().int(),
   discount_amount: z.number().int(),
   net_amount: z.number().int(),
@@ -226,6 +238,8 @@ export type CustomerOrder$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
+  status: string;
+  paid: boolean;
   subtotal_amount: number;
   discount_amount: number;
   net_amount: number;
@@ -255,6 +269,8 @@ export const CustomerOrder$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
+  status: OrderStatus$outboundSchema,
+  paid: z.boolean(),
   subtotalAmount: z.number().int(),
   discountAmount: z.number().int(),
   netAmount: z.number().int(),

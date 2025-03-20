@@ -7,7 +7,9 @@ A new order is created when:
 * A customer purchases a one-time product. In this case, `billing_reason` is set to `purchase`.
 * A customer starts a subscription. In this case, `billing_reason` is set to `subscription_create`.
 * A subscription is renewed. In this case, `billing_reason` is set to `subscription_cycle`.
-* A subscription is upgraded, downgraded or revoked with an immediate proration invoice. In this case, `billing_reason` is set to `subscription_update`.
+* A subscription is upgraded or downgraded with an immediate proration invoice. In this case, `billing_reason` is set to `subscription_update`.
+
+<Warning>The order might not be paid yet, so the `status` field might be `pending`.</Warning>
 
 **Discord & Slack support:** Full
 
@@ -24,16 +26,17 @@ let value: WebhookOrderCreatedPayload = {
     metadata: {
       "key": false,
     },
-    status: "<value>",
-    subtotalAmount: 100233,
-    discountAmount: 867115,
-    netAmount: 294266,
-    amount: 435353,
-    taxAmount: 795457,
-    totalAmount: 677509,
-    refundedAmount: 937865,
-    refundedTaxAmount: 621140,
-    currency: "Burundi Franc",
+    status: "pending",
+    paid: true,
+    subtotalAmount: 867115,
+    discountAmount: 294266,
+    netAmount: 435353,
+    amount: 795457,
+    taxAmount: 677509,
+    totalAmount: 937865,
+    refundedAmount: 621140,
+    refundedTaxAmount: 97810,
+    currency: "Uganda Shilling",
     billingReason: "subscription_update",
     billingAddress: {
       country: "FR",
@@ -46,10 +49,10 @@ let value: WebhookOrderCreatedPayload = {
     checkoutId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2025-02-19T05:02:25.225Z"),
-      modifiedAt: new Date("2023-02-28T21:24:26.026Z"),
+      createdAt: new Date("2023-02-28T21:24:26.026Z"),
+      modifiedAt: new Date("2024-03-10T06:14:35.072Z"),
       metadata: {
-        "key": 167435,
+        "key": "<value>",
       },
       externalId: "usr_1337",
       email: "customer@example.com",

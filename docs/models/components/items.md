@@ -8,13 +8,13 @@
 ```typescript
 const value: components.PaymentMethodCard = {
   id: "<id>",
-  createdAt: new Date("2025-04-25T20:25:55.548Z"),
+  createdAt: new Date("2023-01-26T22:48:01.116Z"),
   default: false,
   card: {
     brand: "<value>",
     last4: "<value>",
-    expMonth: 974390,
-    expYear: 642770,
+    expMonth: 438702,
+    expYear: 190003,
   },
 };
 ```
@@ -25,7 +25,7 @@ const value: components.PaymentMethodCard = {
 const value: components.PaymentMethodGeneric = {
   id: "<id>",
   type: "<value>",
-  createdAt: new Date("2025-10-29T13:21:33.515Z"),
+  createdAt: new Date("2024-10-16T09:54:58.570Z"),
   default: false,
 };
 ```

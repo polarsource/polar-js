@@ -7,7 +7,7 @@ import { LicenseKeyUser } from "@polar-sh/sdk/models/components/licensekeyuser.j
 
 let value: LicenseKeyUser = {
   id: "<value>",
-  email: "Harmony_Lockman47@hotmail.com",
+  email: "Lacey_Kertzmann@gmail.com",
   publicName: "<value>",
 };
 ```

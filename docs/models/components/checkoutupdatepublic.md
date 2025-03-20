@@ -9,7 +9,7 @@ import { CheckoutUpdatePublic } from "@polar-sh/sdk/models/components/checkoutup
 
 let value: CheckoutUpdatePublic = {
   customerBillingAddress: {
-    country: "FR",
+    country: "US",
   },
 };
 ```

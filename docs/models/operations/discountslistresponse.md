@@ -9,32 +9,32 @@ let value: DiscountsListResponse = {
   result: {
     items: [
       {
-        duration: "repeating",
+        duration: "once",
+        durationInMonths: 927366,
         type: "percentage",
-        amount: 669784,
-        currency: "Bahamian Dollar",
-        createdAt: new Date("2024-12-24T14:04:06.848Z"),
-        modifiedAt: new Date("2024-02-16T06:49:59.233Z"),
+        basisPoints: 1017,
+        createdAt: new Date("2024-02-29T11:38:51.783Z"),
+        modifiedAt: new Date("2023-10-29T02:06:17.083Z"),
         id: "<value>",
         metadata: {
-          "key": 418580,
+          "key": false,
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2025-03-17T16:42:07.584Z"),
-        endsAt: new Date("2023-02-14T07:01:21.736Z"),
-        maxRedemptions: 164203,
-        redemptionsCount: 432046,
+        startsAt: new Date("2023-07-18T01:48:24.710Z"),
+        endsAt: new Date("2023-11-01T16:55:02.649Z"),
+        maxRedemptions: 65863,
+        redemptionsCount: 261627,
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         products: [
           {
-            createdAt: new Date("2024-10-20T17:37:49.641Z"),
-            modifiedAt: new Date("2023-01-24T14:37:59.472Z"),
+            createdAt: new Date("2023-07-31T07:22:42.631Z"),
+            modifiedAt: new Date("2025-10-16T06:12:38.743Z"),
             id: "<value>",
             name: "<value>",
             description:
-              "obsess failing out gah see advancement mythology at navigate",
-            recurringInterval: "year",
+              "poor meh ouch furthermore which deform confound the what",
+            recurringInterval: "month",
             isRecurring: false,
             isArchived: false,
             organizationId: "<value>",
@@ -43,8 +43,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 603276,
-      maxPage: 188104,
+      totalCount: 164203,
+      maxPage: 432046,
     },
   },
 };

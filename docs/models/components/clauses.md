@@ -8,8 +8,8 @@
 ```typescript
 const value: components.FilterClause = {
   property: "<value>",
-  operator: "eq",
-  value: false,
+  operator: "lte",
+  value: 359637,
 };
 ```
 
@@ -17,7 +17,7 @@ const value: components.FilterClause = {
 
 ```typescript
 const value: components.Filter = {
-  conjunction: "or",
+  conjunction: "and",
   clauses: [],
 };
 ```

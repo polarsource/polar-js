@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://those-mousse.com",
+          "https://strange-makeover.biz",
         ],
         clientName: "<value>",
-        createdAt: new Date("2024-02-15T22:56:46.437Z"),
-        modifiedAt: new Date("2024-01-06T12:13:28.450Z"),
+        createdAt: new Date("2025-12-20T16:48:26.342Z"),
+        modifiedAt: new Date("2023-11-07T11:10:32.200Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 880185,
-        clientSecretExpiresAt: 153538,
+        clientIdIssuedAt: 283221,
+        clientSecretExpiresAt: 527610,
       },
     ],
     pagination: {
-      totalCount: 263528,
-      maxPage: 47284,
+      totalCount: 411210,
+      maxPage: 86838,
     },
   },
 };

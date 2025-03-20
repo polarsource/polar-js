@@ -6,10 +6,10 @@
 import { CustomerPortalCustomer } from "@polar-sh/sdk/models/components/customerportalcustomer.js";
 
 let value: CustomerPortalCustomer = {
-  createdAt: new Date("2025-03-26T01:16:01.791Z"),
-  modifiedAt: new Date("2023-08-28T00:22:05.181Z"),
+  createdAt: new Date("2024-06-02T07:07:47.859Z"),
+  modifiedAt: new Date("2025-09-03T21:54:21.511Z"),
   id: "<value>",
-  email: "Dorian.Goldner47@yahoo.com",
+  email: "Hal_Cole@yahoo.com",
   emailVerified: false,
   name: "<value>",
   billingAddress: {

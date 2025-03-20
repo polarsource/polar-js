@@ -46,6 +46,7 @@ export type ResourceTemplateDefinition = {
   read: ReadResourceTemplateCallback;
 };
 
+// Optional function to assist with formatting resource results
 export async function formatResult(
   value: unknown,
   uri: URL,

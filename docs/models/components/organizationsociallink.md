@@ -6,8 +6,8 @@
 import { OrganizationSocialLink } from "@polar-sh/sdk/models/components/organizationsociallink.js";
 
 let value: OrganizationSocialLink = {
-  platform: "instagram",
-  url: "https://ripe-chainstay.net/",
+  platform: "youtube",
+  url: "https://silver-folklore.biz/",
 };
 ```
 

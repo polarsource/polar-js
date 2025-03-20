@@ -8,11 +8,11 @@ import { ListResourceCustomerBenefitGrant } from "@polar-sh/sdk/models/component
 let value: ListResourceCustomerBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2024-05-09T07:01:19.772Z"),
-      modifiedAt: new Date("2025-07-08T05:40:38.975Z"),
+      createdAt: new Date("2023-12-31T03:03:22.852Z"),
+      modifiedAt: new Date("2024-09-16T00:32:08.173Z"),
       id: "<value>",
-      grantedAt: new Date("2024-04-07T00:27:41.040Z"),
-      revokedAt: new Date("2023-09-30T15:10:49.815Z"),
+      grantedAt: new Date("2023-04-09T05:37:51.811Z"),
+      revokedAt: new Date("2024-01-05T09:56:17.090Z"),
       customerId: "<value>",
       benefitId: "<value>",
       subscriptionId: "<value>",
@@ -20,18 +20,18 @@ let value: ListResourceCustomerBenefitGrant = {
       isGranted: false,
       isRevoked: false,
       customer: {
-        createdAt: new Date("2024-03-29T17:53:51.271Z"),
-        modifiedAt: new Date("2025-06-21T23:34:21.915Z"),
+        createdAt: new Date("2023-09-30T17:15:44.718Z"),
+        modifiedAt: new Date("2025-01-21T03:55:14.180Z"),
         id: "<value>",
-        email: "Jeffrey_Beier@gmail.com",
+        email: "Jayne_Waters@gmail.com",
         emailVerified: false,
         name: "<value>",
         billingAddress: {
           country: "SE",
         },
         taxId: [
-          "911144442",
-          "us_ein",
+          "FR61954506077",
+          "eu_vat",
         ],
         oauthAccounts: {
           "key": {
@@ -41,29 +41,30 @@ let value: ListResourceCustomerBenefitGrant = {
         },
       },
       benefit: {
-        createdAt: new Date("2025-09-12T19:18:28.211Z"),
-        modifiedAt: new Date("2024-03-23T21:56:02.071Z"),
+        createdAt: new Date("2024-12-12T23:04:48.157Z"),
+        modifiedAt: new Date("2023-10-28T17:12:20.149Z"),
         id: "<value>",
-        description: "consequently improbable quarterly testify",
+        description:
+          "sophisticated violently unlike neatly whenever like needily tiny almost",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         organization: {
-          createdAt: new Date("2025-06-05T17:21:16.311Z"),
-          modifiedAt: new Date("2025-07-16T09:22:57.749Z"),
+          createdAt: new Date("2024-05-19T20:34:01.386Z"),
+          modifiedAt: new Date("2025-09-27T15:46:53.541Z"),
           id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
           name: "<value>",
           slug: "<value>",
-          avatarUrl: "https://fantastic-tail.info/",
-          email: "Elise_Dare47@gmail.com",
+          avatarUrl: "https://zesty-order.org",
+          email: "Kali_Christiansen@hotmail.com",
           website: "<value>",
           socials: [
             {
-              platform: "youtube",
-              url: "https://mild-obedience.name/",
+              platform: "facebook",
+              url: "https://upbeat-valuable.org",
             },
           ],
-          detailsSubmittedAt: new Date("2025-06-13T14:18:18.458Z"),
+          detailsSubmittedAt: new Date("2024-09-10T03:54:13.692Z"),
           featureSettings: {
             issueFundingEnabled: false,
           },
@@ -73,25 +74,25 @@ let value: ListResourceCustomerBenefitGrant = {
             prorationBehavior: "prorate",
           },
           bio: "<value>",
-          company: "Grimes - Jacobson",
+          company: "Hintz, Murray and Kessler",
           blog: "<value>",
           location: "<value>",
           twitterUsername: "<value>",
-          pledgeMinimumAmount: 769488,
+          pledgeMinimumAmount: 344722,
           pledgeBadgeShowAmount: false,
-          defaultUpfrontSplitToContributors: 904183,
+          defaultUpfrontSplitToContributors: 929443,
           profileSettings: {},
         },
         properties: {
-          guildId: "<id>",
+          note: "<value>",
         },
       },
       properties: {},
     },
   ],
   pagination: {
-    totalCount: 24532,
-    maxPage: 993419,
+    totalCount: 569644,
+    maxPage: 465106,
   },
 };
 ```

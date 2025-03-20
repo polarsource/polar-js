@@ -33,6 +33,9 @@ export type RefundCreate = {
   metadata?: { [k: string]: string | number | boolean } | undefined;
   orderId: string;
   reason: RefundReason;
+  /**
+   * Amount to refund in cents. Minimum is 1.
+   */
   amount: number;
   /**
    * An internal comment about the refund.

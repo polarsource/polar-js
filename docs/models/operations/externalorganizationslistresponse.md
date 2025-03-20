@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "ea360183-2fa0-442f-8498-e052c6d8f75b",
+        id: "18b90e61-b768-453e-9c54-cc0d7195ec2c",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://bare-quinoa.net",
+        avatarUrl: "https://worthless-cappelletti.net/",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Tillman - Borer",
+        company: "Ebert, Tillman and Borer",
         blog: "<value>",
         location: "<value>",
-        email: "Taya_Mante22@hotmail.com",
+        email: "Aaron.Mosciski@hotmail.com",
         twitterUsername: "<value>",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       },
     ],
     pagination: {
-      totalCount: 833518,
-      maxPage: 90496,
+      totalCount: 612234,
+      maxPage: 201564,
     },
   },
 };

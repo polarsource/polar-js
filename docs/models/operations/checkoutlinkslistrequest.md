@@ -6,7 +6,9 @@
 import { CheckoutLinksListRequest } from "@polar-sh/sdk/models/operations/checkoutlinkslist.js";
 
 let value: CheckoutLinksListRequest = {
-  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  organizationId: [
+    "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  ],
 };
 ```
 

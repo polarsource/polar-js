@@ -9,12 +9,12 @@
 
 ```typescript
 const value: components.LegacyRecurringProductPrice = {
-  createdAt: new Date("2024-03-30T12:47:48.425Z"),
-  modifiedAt: new Date("2023-01-12T14:30:26.716Z"),
+  createdAt: new Date("2025-07-01T18:33:39.424Z"),
+  modifiedAt: new Date("2024-09-10T21:36:58.913Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  recurringInterval: "month",
+  recurringInterval: "year",
 };
 ```
 
@@ -22,13 +22,17 @@ const value: components.LegacyRecurringProductPrice = {
 
 ```typescript
 const value: components.ProductPrice = {
-  createdAt: new Date("2024-01-30T18:20:23.958Z"),
-  modifiedAt: new Date("2025-07-16T15:05:54.840Z"),
+  createdAt: new Date("2024-07-01T15:28:38.660Z"),
+  modifiedAt: new Date("2023-03-31T02:34:43.087Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
   type: "one_time",
-  recurringInterval: "month",
+  recurringInterval: "year",
+  priceCurrency: "<value>",
+  minimumAmount: 853453,
+  maximumAmount: 594157,
+  presetAmount: 905366,
 };
 ```
 

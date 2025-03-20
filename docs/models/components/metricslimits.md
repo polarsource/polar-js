@@ -9,22 +9,22 @@ import { MetricsLimits } from "@polar-sh/sdk/models/components/metricslimits.js"
 import { RFCDate } from "@polar-sh/sdk/types/rfcdate.js";
 
 let value: MetricsLimits = {
-  minDate: new RFCDate("2024-10-21"),
+  minDate: new RFCDate("2024-08-01"),
   intervals: {
     hour: {
-      maxDays: 706780,
+      maxDays: 593682,
     },
     day: {
-      maxDays: 467504,
+      maxDays: 139067,
     },
     week: {
-      maxDays: 641831,
+      maxDays: 570826,
     },
     month: {
-      maxDays: 108040,
+      maxDays: 260562,
     },
     year: {
-      maxDays: 874066,
+      maxDays: 274048,
     },
   },
 };

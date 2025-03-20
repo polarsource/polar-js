@@ -8,7 +8,7 @@ Schema to create a fixed price.
 import { ProductPriceFixedCreate } from "@polar-sh/sdk/models/components/productpricefixedcreate.js";
 
 let value: ProductPriceFixedCreate = {
-  priceAmount: 157859,
+  priceAmount: 771289,
 };
 ```
 

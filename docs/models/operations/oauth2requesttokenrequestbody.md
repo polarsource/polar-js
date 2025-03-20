@@ -10,7 +10,7 @@ const value: components.AuthorizationCodeTokenRequest = {
   clientId: "<id>",
   clientSecret: "<value>",
   code: "<value>",
-  redirectUri: "https://complicated-foodstuffs.name",
+  redirectUri: "https://graceful-tribe.net",
 };
 ```
 

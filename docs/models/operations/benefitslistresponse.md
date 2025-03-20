@@ -9,27 +9,23 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-05-21T02:16:12.635Z"),
-        modifiedAt: new Date("2024-12-30T09:58:26.971Z"),
+        createdAt: new Date("2025-04-09T02:21:23.378Z"),
+        modifiedAt: new Date("2023-10-25T16:59:49.088Z"),
         id: "<value>",
-        description:
-          "commandeer burdensome white phew pish including since neat because oval",
+        description: "yieldingly educated upward manipulate silky",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          archived: {
-            "key": false,
-          },
-          files: [
-            "<value>",
-          ],
+          guildId: "<id>",
+          roleId: "<id>",
+          guildToken: "<value>",
         },
       },
     ],
     pagination: {
-      totalCount: 231020,
-      maxPage: 756477,
+      totalCount: 884779,
+      maxPage: 639041,
     },
   },
 };

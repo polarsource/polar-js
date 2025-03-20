@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2023-03-09T20:51:59.634Z"),
-    modifiedAt: new Date("2025-11-17T05:07:47.437Z"),
+    createdAt: new Date("2024-04-17T20:24:25.583Z"),
+    modifiedAt: new Date("2025-09-19T21:01:06.393Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://unruly-assist.biz",
-    logoUri: "https://important-comparison.com/",
-    tosUri: "https://murky-swine.com",
-    policyUri: "https://our-birdbath.org/",
+    clientUri: "https://old-release.net/",
+    logoUri: "https://zesty-provision.name",
+    tosUri: "https://secret-cemetery.net",
+    policyUri: "https://creamy-elevator.net/",
   },
   sub: {
     id: "<value>",
-    email: "Kaley.Kulas@hotmail.com",
-    avatarUrl: "https://concrete-hunt.net",
+    email: "Ezequiel.Botsford@yahoo.com",
+    avatarUrl: "https://musty-thongs.org/",
   },
   scopes: [
-    "customers:write",
+    "user:read",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2023-04-03T02:30:21.355Z"),
-    modifiedAt: new Date("2024-01-04T17:38:06.749Z"),
+    createdAt: new Date("2025-11-05T12:32:55.334Z"),
+    modifiedAt: new Date("2025-11-19T00:13:51.965Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://creative-cruelty.info/",
-    logoUri: "https://super-sarong.info",
-    tosUri: "https://complete-switch.info/",
-    policyUri: "https://royal-repeat.net",
+    clientUri: "https://agitated-forage.net/",
+    logoUri: "https://exhausted-carnival.com/",
+    tosUri: "https://partial-sustenance.com",
+    policyUri: "https://optimistic-spirit.info",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://irresponsible-resolve.info/",
+    avatarUrl: "https://medium-intervention.net/",
   },
   scopes: [
-    "email",
+    "issues:write",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://quarrelsome-in-joke.org",
+      avatarUrl: "https://oily-fork.name/",
     },
   ],
 };
