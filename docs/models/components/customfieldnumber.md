@@ -8,11 +8,11 @@ Schema for a custom field of type number.
 import { CustomFieldNumber } from "@polar-sh/sdk/models/components/customfieldnumber.js";
 
 let value: CustomFieldNumber = {
-  createdAt: new Date("2024-01-12T08:34:33.723Z"),
-  modifiedAt: new Date("2024-10-09T18:22:17.762Z"),
+  createdAt: new Date("2023-01-27T15:32:03.858Z"),
+  modifiedAt: new Date("2024-01-11T12:02:21.595Z"),
   id: "<value>",
   metadata: {
-    "key": 397257,
+    "key": 279068,
   },
   slug: "<value>",
   name: "<value>",

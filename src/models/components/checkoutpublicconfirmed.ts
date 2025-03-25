@@ -143,21 +143,25 @@ export type CheckoutPublicConfirmed = {
   embedOrigin: string | null;
   amount: number | null;
   /**
-   * Computed tax amount to pay in cents.
+   * Discount amount in cents.
+   */
+  discountAmount: number | null;
+  /**
+   * Amount in cents, after discounts but before taxes.
+   */
+  netAmount: number | null;
+  /**
+   * Sales tax amount in cents.
    */
   taxAmount: number | null;
+  /**
+   * Amount in cents, after discounts and taxes.
+   */
+  totalAmount: number | null;
   /**
    * Currency code of the checkout session.
    */
   currency: string | null;
-  /**
-   * Subtotal amount in cents, including discounts and before tax.
-   */
-  subtotalAmount: number | null;
-  /**
-   * Total amount to pay in cents, including discounts and after tax.
-   */
-  totalAmount: number | null;
   /**
    * ID of the product to checkout.
    */
@@ -207,6 +211,10 @@ export type CheckoutPublicConfirmed = {
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
   paymentProcessorMetadata: { [k: string]: string };
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  subtotalAmount: number | null;
   /**
    * List of products available to select.
    */
@@ -452,10 +460,11 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
   success_url: z.string(),
   embed_origin: z.nullable(z.string()),
   amount: z.nullable(z.number().int()),
+  discount_amount: z.nullable(z.number().int()),
+  net_amount: z.nullable(z.number().int()),
   tax_amount: z.nullable(z.number().int()),
-  currency: z.nullable(z.string()),
-  subtotal_amount: z.nullable(z.number().int()),
   total_amount: z.nullable(z.number().int()),
+  currency: z.nullable(z.string()),
   product_id: z.string(),
   product_price_id: z.string(),
   discount_id: z.nullable(z.string()),
@@ -472,6 +481,7 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
   customer_billing_address: z.nullable(Address$inboundSchema),
   customer_tax_id: z.nullable(z.string()),
   payment_processor_metadata: z.record(z.string()),
+  subtotal_amount: z.nullable(z.number().int()),
   products: z.array(CheckoutProduct$inboundSchema),
   product: CheckoutProduct$inboundSchema,
   product_price: z.union([
@@ -499,8 +509,9 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
     "expires_at": "expiresAt",
     "success_url": "successUrl",
     "embed_origin": "embedOrigin",
+    "discount_amount": "discountAmount",
+    "net_amount": "netAmount",
     "tax_amount": "taxAmount",
-    "subtotal_amount": "subtotalAmount",
     "total_amount": "totalAmount",
     "product_id": "productId",
     "product_price_id": "productPriceId",
@@ -518,6 +529,7 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
+    "subtotal_amount": "subtotalAmount",
     "product_price": "productPrice",
     "attached_custom_fields": "attachedCustomFields",
     "customer_session_token": "customerSessionToken",
@@ -540,10 +552,11 @@ export type CheckoutPublicConfirmed$Outbound = {
   success_url: string;
   embed_origin: string | null;
   amount: number | null;
+  discount_amount: number | null;
+  net_amount: number | null;
   tax_amount: number | null;
-  currency: string | null;
-  subtotal_amount: number | null;
   total_amount: number | null;
+  currency: string | null;
   product_id: string;
   product_price_id: string;
   discount_id: string | null;
@@ -560,6 +573,7 @@ export type CheckoutPublicConfirmed$Outbound = {
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
   payment_processor_metadata: { [k: string]: string };
+  subtotal_amount: number | null;
   products: Array<CheckoutProduct$Outbound>;
   product: CheckoutProduct$Outbound;
   product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
@@ -601,10 +615,11 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
   successUrl: z.string(),
   embedOrigin: z.nullable(z.string()),
   amount: z.nullable(z.number().int()),
+  discountAmount: z.nullable(z.number().int()),
+  netAmount: z.nullable(z.number().int()),
   taxAmount: z.nullable(z.number().int()),
-  currency: z.nullable(z.string()),
-  subtotalAmount: z.nullable(z.number().int()),
   totalAmount: z.nullable(z.number().int()),
+  currency: z.nullable(z.string()),
   productId: z.string(),
   productPriceId: z.string(),
   discountId: z.nullable(z.string()),
@@ -621,6 +636,7 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
   customerBillingAddress: z.nullable(Address$outboundSchema),
   customerTaxId: z.nullable(z.string()),
   paymentProcessorMetadata: z.record(z.string()),
+  subtotalAmount: z.nullable(z.number().int()),
   products: z.array(CheckoutProduct$outboundSchema),
   product: CheckoutProduct$outboundSchema,
   productPrice: z.union([
@@ -648,8 +664,9 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
     expiresAt: "expires_at",
     successUrl: "success_url",
     embedOrigin: "embed_origin",
+    discountAmount: "discount_amount",
+    netAmount: "net_amount",
     taxAmount: "tax_amount",
-    subtotalAmount: "subtotal_amount",
     totalAmount: "total_amount",
     productId: "product_id",
     productPriceId: "product_price_id",
@@ -667,6 +684,7 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",
+    subtotalAmount: "subtotal_amount",
     productPrice: "product_price",
     attachedCustomFields: "attached_custom_fields",
     customerSessionToken: "customer_session_token",

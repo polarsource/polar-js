@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://soupy-scenario.biz",
+          "https://thin-individual.net/",
         ],
         clientName: "<value>",
-        createdAt: new Date("2024-05-02T07:36:13.592Z"),
-        modifiedAt: new Date("2024-07-11T09:17:17.799Z"),
+        createdAt: new Date("2024-10-03T13:35:00.562Z"),
+        modifiedAt: new Date("2025-12-05T10:23:47.414Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 5266,
-        clientSecretExpiresAt: 877291,
+        clientIdIssuedAt: 557090,
+        clientSecretExpiresAt: 782690,
       },
     ],
     pagination: {
-      totalCount: 497962,
-      maxPage: 579119,
+      totalCount: 384705,
+      maxPage: 449095,
     },
   },
 };

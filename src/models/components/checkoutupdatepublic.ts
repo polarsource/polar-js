@@ -29,7 +29,6 @@ export type CheckoutUpdatePublic = {
    */
   customFieldData?:
     | { [k: string]: string | number | boolean | Date | null }
-    | null
     | undefined;
   /**
    * ID of the product to checkout. Must be present in the checkout's product list.
@@ -125,16 +124,14 @@ export const CheckoutUpdatePublic$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  custom_field_data: z.nullable(
-    z.record(
-      z.nullable(
-        z.union([
-          z.string(),
-          z.number().int(),
-          z.boolean(),
-          z.string().datetime({ offset: true }).transform(v => new Date(v)),
-        ]),
-      ),
+  custom_field_data: z.record(
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.string().datetime({ offset: true }).transform(v => new Date(v)),
+      ]),
     ),
   ).optional(),
   product_id: z.nullable(z.string()).optional(),
@@ -162,7 +159,6 @@ export const CheckoutUpdatePublic$inboundSchema: z.ZodType<
 export type CheckoutUpdatePublic$Outbound = {
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
-    | null
     | undefined;
   product_id?: string | null | undefined;
   product_price_id?: string | null | undefined;
@@ -180,16 +176,14 @@ export const CheckoutUpdatePublic$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutUpdatePublic
 > = z.object({
-  customFieldData: z.nullable(
-    z.record(
-      z.nullable(
-        z.union([
-          z.string(),
-          z.number().int(),
-          z.boolean(),
-          z.date().transform(v => v.toISOString()),
-        ]),
-      ),
+  customFieldData: z.record(
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.date().transform(v => v.toISOString()),
+      ]),
     ),
   ).optional(),
   productId: z.nullable(z.string()).optional(),

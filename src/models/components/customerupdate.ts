@@ -24,7 +24,21 @@ export type CustomerUpdateMetadata = string | number | boolean;
 export type CustomerUpdateTaxId = string | TaxIDFormat;
 
 export type CustomerUpdate = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   /**
    * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
    */
@@ -143,9 +157,8 @@ export const CustomerUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   external_id: z.nullable(z.string()).optional(),
   email: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
@@ -163,7 +176,7 @@ export const CustomerUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerUpdate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   external_id?: string | null | undefined;
   email?: string | null | undefined;
   name?: string | null | undefined;
@@ -177,9 +190,8 @@ export const CustomerUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerUpdate
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   externalId: z.nullable(z.string()).optional(),
   email: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),

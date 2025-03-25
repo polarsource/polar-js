@@ -24,7 +24,21 @@ export type DiscountUpdateMetadata = string | number | boolean;
  * Schema to update a discount.
  */
 export type DiscountUpdate = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   name?: string | null | undefined;
   code?: string | null | undefined;
   startsAt?: Date | null | undefined;
@@ -93,9 +107,8 @@ export const DiscountUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.nullable(z.string()).optional(),
   code: z.nullable(z.string()).optional(),
   starts_at: z.nullable(
@@ -124,7 +137,7 @@ export const DiscountUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type DiscountUpdate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   name?: string | null | undefined;
   code?: string | null | undefined;
   starts_at?: string | null | undefined;
@@ -145,9 +158,8 @@ export const DiscountUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DiscountUpdate
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.nullable(z.string()).optional(),
   code: z.nullable(z.string()).optional(),
   startsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),

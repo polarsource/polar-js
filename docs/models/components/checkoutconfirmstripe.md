@@ -9,7 +9,7 @@ import { CheckoutConfirmStripe } from "@polar-sh/sdk/models/components/checkoutc
 
 let value: CheckoutConfirmStripe = {
   customerBillingAddress: {
-    country: "FR",
+    country: "SE",
   },
 };
 ```

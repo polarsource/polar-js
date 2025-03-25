@@ -8,8 +8,8 @@ A free price for a product.
 import { ProductPriceFree } from "@polar-sh/sdk/models/components/productpricefree.js";
 
 let value: ProductPriceFree = {
-  createdAt: new Date("2024-05-15T05:23:49.944Z"),
-  modifiedAt: new Date("2023-06-18T02:12:53.867Z"),
+  createdAt: new Date("2024-01-03T16:56:37.878Z"),
+  modifiedAt: new Date("2023-06-11T20:43:17.217Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",

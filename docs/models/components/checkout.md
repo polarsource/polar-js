@@ -8,21 +8,22 @@ Checkout session data retrieved using an access token.
 import { Checkout } from "@polar-sh/sdk/models/components/checkout.js";
 
 let value: Checkout = {
-  createdAt: new Date("2024-09-02T21:01:43.273Z"),
-  modifiedAt: new Date("2025-08-01T03:56:17.075Z"),
+  createdAt: new Date("2025-12-02T07:40:27.262Z"),
+  modifiedAt: new Date("2025-11-19T01:47:41.445Z"),
   id: "<value>",
   paymentProcessor: "stripe",
-  status: "succeeded",
+  status: "failed",
   clientSecret: "<value>",
-  url: "https://competent-awareness.biz/",
-  expiresAt: new Date("2023-10-15T06:45:20.871Z"),
-  successUrl: "https://rich-porter.biz/",
+  url: "https://grave-birdcage.info",
+  expiresAt: new Date("2023-09-12T12:41:12.752Z"),
+  successUrl: "https://awesome-quinoa.com/",
   embedOrigin: "<value>",
-  amount: 379927,
-  taxAmount: 181151,
-  currency: "Surinam Dollar",
-  subtotalAmount: 56848,
-  totalAmount: 696997,
+  amount: 770581,
+  discountAmount: 146946,
+  netAmount: 79522,
+  taxAmount: 89603,
+  totalAmount: 672048,
+  currency: "Algerian Dinar",
   productId: "<value>",
   productPriceId: "<value>",
   discountId: "<value>",
@@ -37,48 +38,47 @@ let value: Checkout = {
   customerEmail: "<value>",
   customerIpAddress: "<value>",
   customerBillingAddress: {
-    country: "FR",
+    country: "SE",
   },
   customerTaxId: "<id>",
   paymentProcessorMetadata: {
     "key": "<value>",
   },
+  subtotalAmount: 557369,
   metadata: {
     "key": false,
   },
   customerExternalId: "<id>",
   products: [
     {
-      createdAt: new Date("2023-10-12T07:51:04.077Z"),
-      modifiedAt: new Date("2024-02-14T16:46:50.809Z"),
+      createdAt: new Date("2025-03-07T20:10:20.231Z"),
+      modifiedAt: new Date("2023-10-24T06:42:18.790Z"),
       id: "<value>",
       name: "<value>",
-      description: "after horst vanadyl mmm ownership toward curly",
+      description: "emphasize sarong in-joke oof",
       recurringInterval: "year",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",
       prices: [
         {
-          createdAt: new Date("2024-04-09T17:44:39.673Z"),
-          modifiedAt: new Date("2023-10-11T12:25:32.503Z"),
+          createdAt: new Date("2024-07-12T23:28:59.820Z"),
+          modifiedAt: new Date("2024-08-10T15:36:46.154Z"),
           id: "<value>",
           isArchived: false,
           productId: "<value>",
           recurringInterval: "year",
           priceCurrency: "<value>",
-          minimumAmount: 33304,
-          maximumAmount: 958983,
-          presetAmount: 355369,
+          priceAmount: 277596,
         },
       ],
       benefits: [
         {
-          createdAt: new Date("2024-01-26T22:49:04.962Z"),
-          modifiedAt: new Date("2023-01-18T21:30:17.764Z"),
+          createdAt: new Date("2023-05-22T05:32:53.930Z"),
+          modifiedAt: new Date("2024-03-06T08:56:27.585Z"),
           id: "<value>",
-          type: "custom",
-          description: "furthermore geez um scenario hippodrome vain",
+          type: "license_keys",
+          description: "impish exalted late quickly",
           selectable: false,
           deletable: false,
           organizationId: "<value>",
@@ -89,60 +89,54 @@ let value: Checkout = {
           id: "<value>",
           organizationId: "<value>",
           name: "<value>",
-          path: "/boot",
+          path: "/opt/include",
           mimeType: "<value>",
-          size: 232627,
+          size: 62713,
           storageVersion: "<value>",
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
           checksumSha256Hex: "<value>",
-          lastModifiedAt: new Date("2024-01-17T23:27:12.582Z"),
+          lastModifiedAt: new Date("2024-04-09T17:44:39.673Z"),
           version: "<value>",
           isUploaded: false,
-          createdAt: new Date("2025-06-12T04:52:41.784Z"),
+          createdAt: new Date("2023-10-11T12:25:32.503Z"),
           sizeReadable: "<value>",
-          publicUrl: "https://wiggly-term.biz",
+          publicUrl: "https://animated-velocity.info",
         },
       ],
     },
   ],
   product: {
-    createdAt: new Date("2025-12-23T05:51:49.489Z"),
-    modifiedAt: new Date("2023-10-01T08:44:41.136Z"),
+    createdAt: new Date("2024-01-26T22:49:04.962Z"),
+    modifiedAt: new Date("2023-01-18T21:30:17.764Z"),
     id: "<value>",
     name: "<value>",
-    description: "dress gratefully wasteful",
+    description: "helplessly hence why baseboard",
     recurringInterval: "year",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2025-12-25T20:43:06.136Z"),
-        modifiedAt: new Date("2024-05-10T04:43:03.147Z"),
+        createdAt: new Date("2024-12-27T02:31:12.899Z"),
+        modifiedAt: new Date("2023-09-27T16:26:45.665Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        type: "one_time",
-        recurringInterval: "month",
-        unitAmount: 152354,
-        includedUnits: 417486,
-        capAmount: 131289,
-        meterId: "<value>",
-        meter: {
-          id: "<value>",
-          name: "<value>",
-        },
+        recurringInterval: "year",
+        priceCurrency: "<value>",
+        minimumAmount: 517309,
+        maximumAmount: 424089,
+        presetAmount: 554688,
       },
     ],
     benefits: [
       {
-        createdAt: new Date("2024-10-24T02:42:52.981Z"),
-        modifiedAt: new Date("2024-02-24T13:22:59.477Z"),
+        createdAt: new Date("2023-11-11T14:36:11.448Z"),
+        modifiedAt: new Date("2025-02-13T09:44:27.866Z"),
         id: "<value>",
-        type: "license_keys",
-        description:
-          "firm lieu limply decide seemingly almost recount venture bus questioningly",
+        type: "github_repository",
+        description: "um unit grade soap sizzling",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -153,44 +147,38 @@ let value: Checkout = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/usr/src",
+        path: "/usr/X11R6",
         mimeType: "<value>",
-        size: 618826,
+        size: 967966,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2023-05-27T06:34:13.913Z"),
+        lastModifiedAt: new Date("2025-12-25T20:43:06.136Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2025-12-10T17:10:47.327Z"),
+        createdAt: new Date("2024-05-10T04:43:03.147Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://meager-topsail.name",
+        publicUrl: "https://frail-circumference.info/",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2025-11-27T05:48:20.651Z"),
-    modifiedAt: new Date("2025-10-05T01:58:01.397Z"),
+    createdAt: new Date("2024-02-24T13:22:59.477Z"),
+    modifiedAt: new Date("2025-09-08T08:13:49.082Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
-    type: "one_time",
-    recurringInterval: "month",
-    unitAmount: 389135,
-    includedUnits: 952143,
-    capAmount: 300029,
-    meterId: "<value>",
-    meter: {
-      id: "<value>",
-      name: "<value>",
-    },
+    recurringInterval: "year",
+    priceCurrency: "<value>",
+    priceAmount: 546885,
   },
   discount: {
-    duration: "repeating",
+    duration: "forever",
+    durationInMonths: 896762,
     type: "fixed",
-    amount: 907876,
-    currency: "Canadian Dollar",
+    amount: 552078,
+    currency: "Euro",
     id: "<value>",
     name: "<value>",
     code: "<value>",
@@ -200,30 +188,23 @@ let value: Checkout = {
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2024-04-27T12:41:51.916Z"),
-        modifiedAt: new Date("2023-03-25T19:54:28.701Z"),
+        createdAt: new Date("2024-03-16T06:40:22.205Z"),
+        modifiedAt: new Date("2023-09-30T06:16:04.028Z"),
         id: "<value>",
         metadata: {
-          "key": false,
+          "key": 310381,
         },
         slug: "<value>",
         name: "<value>",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {
-          options: [
-            {
-              value: "<value>",
-              label: "<value>",
-            },
-          ],
-        },
+        properties: {},
       },
-      order: 247399,
+      order: 373035,
       required: false,
     },
   ],
   customerMetadata: {
-    "key": "<value>",
+    "key": 750595,
   },
 };
 ```
@@ -244,10 +225,11 @@ let value: Checkout = {
 | `successUrl`                                                                                                                                                                                         | *string*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | URL where the customer will be redirected after a successful payment.                                                                                                                                |
 | `embedOrigin`                                                                                                                                                                                        | *string*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | When checkout is embedded, represents the Origin of the page embedding the checkout. Used as a security measure to send messages only to the embedding page.                                         |
 | `amount`                                                                                                                                                                                             | *number*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | N/A                                                                                                                                                                                                  |
-| `taxAmount`                                                                                                                                                                                          | *number*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | Computed tax amount to pay in cents.                                                                                                                                                                 |
+| `discountAmount`                                                                                                                                                                                     | *number*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | Discount amount in cents.                                                                                                                                                                            |
+| `netAmount`                                                                                                                                                                                          | *number*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | Amount in cents, after discounts but before taxes.                                                                                                                                                   |
+| `taxAmount`                                                                                                                                                                                          | *number*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | Sales tax amount in cents.                                                                                                                                                                           |
+| `totalAmount`                                                                                                                                                                                        | *number*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | Amount in cents, after discounts and taxes.                                                                                                                                                          |
 | `currency`                                                                                                                                                                                           | *string*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | Currency code of the checkout session.                                                                                                                                                               |
-| `subtotalAmount`                                                                                                                                                                                     | *number*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | Subtotal amount in cents, including discounts and before tax.                                                                                                                                        |
-| `totalAmount`                                                                                                                                                                                        | *number*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | Total amount to pay in cents, including discounts and after tax.                                                                                                                                     |
 | `productId`                                                                                                                                                                                          | *string*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | ID of the product to checkout.                                                                                                                                                                       |
 | `productPriceId`                                                                                                                                                                                     | *string*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | ID of the product price to checkout.                                                                                                                                                                 |
 | `discountId`                                                                                                                                                                                         | *string*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | ID of the discount applied to the checkout.                                                                                                                                                          |
@@ -264,6 +246,7 @@ let value: Checkout = {
 | `customerBillingAddress`                                                                                                                                                                             | [components.Address](../../models/components/address.md)                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | N/A                                                                                                                                                                                                  |
 | `customerTaxId`                                                                                                                                                                                      | *string*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | N/A                                                                                                                                                                                                  |
 | `paymentProcessorMetadata`                                                                                                                                                                           | Record<string, *string*>                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | N/A                                                                                                                                                                                                  |
+| ~~`subtotalAmount`~~                                                                                                                                                                                 | *number*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                                              |
 | `metadata`                                                                                                                                                                                           | Record<string, *components.CheckoutMetadata*>                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                   | N/A                                                                                                                                                                                                  |
 | `customerExternalId`                                                                                                                                                                                 | *string*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | ID of the customer in your system. If a matching customer exists on Polar, the resulting order will be linked to this customer. Otherwise, a new customer will be created with this external ID set. |
 | `products`                                                                                                                                                                                           | [components.CheckoutProduct](../../models/components/checkoutproduct.md)[]                                                                                                                           | :heavy_check_mark:                                                                                                                                                                                   | List of products available to select.                                                                                                                                                                |

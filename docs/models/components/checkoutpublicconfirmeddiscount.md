@@ -7,10 +7,10 @@
 
 ```typescript
 const value: components.CheckoutDiscountFixedOnceForeverDuration = {
-  duration: "once",
+  duration: "repeating",
   type: "percentage",
-  amount: 803186,
-  currency: "Barbados Dollar",
+  amount: 369529,
+  currency: "Trinidad and Tobago Dollar",
   id: "<value>",
   name: "<value>",
   code: "<value>",
@@ -22,10 +22,10 @@ const value: components.CheckoutDiscountFixedOnceForeverDuration = {
 ```typescript
 const value: components.CheckoutDiscountFixedRepeatDuration = {
   duration: "repeating",
-  durationInMonths: 662633,
+  durationInMonths: 593724,
   type: "percentage",
-  amount: 457797,
-  currency: "Sri Lanka Rupee",
+  amount: 87837,
+  currency: "Mexican Peso",
   id: "<value>",
   name: "<value>",
   code: "<value>",
@@ -36,9 +36,9 @@ const value: components.CheckoutDiscountFixedRepeatDuration = {
 
 ```typescript
 const value: components.CheckoutDiscountPercentageOnceForeverDuration = {
-  duration: "repeating",
-  type: "fixed",
-  basisPoints: 526368,
+  duration: "forever",
+  type: "percentage",
+  basisPoints: 124065,
   id: "<value>",
   name: "<value>",
   code: "<value>",
@@ -49,10 +49,10 @@ const value: components.CheckoutDiscountPercentageOnceForeverDuration = {
 
 ```typescript
 const value: components.CheckoutDiscountPercentageRepeatDuration = {
-  duration: "once",
-  durationInMonths: 330422,
-  type: "fixed",
-  basisPoints: 45663,
+  duration: "repeating",
+  durationInMonths: 511956,
+  type: "percentage",
+  basisPoints: 206812,
   id: "<value>",
   name: "<value>",
   code: "<value>",

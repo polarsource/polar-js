@@ -27,6 +27,7 @@ const value: components.ProductPrice = {
   productId: "<value>",
   type: "one_time",
   recurringInterval: "month",
+  priceCurrency: "<value>",
   unitAmount: 123546,
   includedUnits: 463044,
   capAmount: 916051,

@@ -19,7 +19,21 @@ export type CustomFieldUpdateCheckboxMetadata = string | number | boolean;
  * Schema to update a custom field of type checkbox.
  */
 export type CustomFieldUpdateCheckbox = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
   type?: "checkbox" | undefined;
@@ -86,9 +100,8 @@ export const CustomFieldUpdateCheckbox$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
   type: z.literal("checkbox").optional(),
@@ -98,7 +111,7 @@ export const CustomFieldUpdateCheckbox$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomFieldUpdateCheckbox$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
   type: "checkbox";
@@ -111,9 +124,8 @@ export const CustomFieldUpdateCheckbox$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomFieldUpdateCheckbox
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
   type: z.literal("checkbox").default("checkbox" as const),

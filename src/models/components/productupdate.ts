@@ -55,7 +55,21 @@ export type ProductUpdatePrices =
  * Schema to update a product.
  */
 export type ProductUpdate = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   name?: string | null | undefined;
   /**
    * The description of the product.
@@ -204,9 +218,8 @@ export const ProductUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema)
@@ -236,7 +249,7 @@ export const ProductUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ProductUpdate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   name?: string | null | undefined;
   description?: string | null | undefined;
   recurring_interval?: string | null | undefined;
@@ -263,9 +276,8 @@ export const ProductUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductUpdate
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema)

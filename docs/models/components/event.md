@@ -7,18 +7,18 @@ import { Event } from "@polar-sh/sdk/models/components/event.js";
 
 let value: Event = {
   metadata: {
-    "key": 163249,
+    "key": "<value>",
   },
   id: "<value>",
-  timestamp: new Date("2025-05-23T07:56:48.531Z"),
+  timestamp: new Date("2025-07-19T13:31:14.258Z"),
   name: "<value>",
-  source: "system",
+  source: "user",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-01-03T02:53:12.857Z"),
-    modifiedAt: new Date("2024-10-06T04:57:17.194Z"),
+    createdAt: new Date("2025-03-13T09:56:57.969Z"),
+    modifiedAt: new Date("2023-08-16T12:23:08.303Z"),
     metadata: {
       "key": "<value>",
     },
@@ -27,14 +27,14 @@ let value: Event = {
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "US",
+      country: "SE",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-09-20T15:54:20.278Z"),
+    deletedAt: new Date("2023-08-05T16:54:18.635Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",
