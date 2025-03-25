@@ -33,6 +33,14 @@ const value: components.ProductPrice = {
   productId: "<value>",
   type: "one_time",
   recurringInterval: "month",
+  unitAmount: 862192,
+  includedUnits: 972920,
+  capAmount: 960835,
+  meterId: "<value>",
+  meter: {
+    id: "<value>",
+    name: "<value>",
+  },
 };
 ```
 

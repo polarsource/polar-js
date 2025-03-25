@@ -9,17 +9,17 @@ let value: RefundsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-08-29T09:58:59.868Z"),
-        modifiedAt: new Date("2025-03-23T09:33:43.561Z"),
+        createdAt: new Date("2024-11-09T07:05:20.079Z"),
+        modifiedAt: new Date("2023-01-05T14:48:18.182Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": 974583,
         },
-        status: "canceled",
-        reason: "customer_request",
-        amount: 812458,
-        taxAmount: 731585,
-        currency: "Forint",
+        status: "pending",
+        reason: "fraudulent",
+        amount: 114065,
+        taxAmount: 500400,
+        currency: "Iranian Rial",
         organizationId: "<value>",
         orderId: "<value>",
         subscriptionId: "<value>",
@@ -28,8 +28,8 @@ let value: RefundsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 601758,
-      maxPage: 599528,
+      totalCount: 404383,
+      maxPage: 421528,
     },
   },
 };

@@ -9,7 +9,7 @@ let value: CheckoutsClientConfirmRequest = {
   clientSecret: "<value>",
   checkoutConfirmStripe: {
     customerBillingAddress: {
-      country: "FR",
+      country: "SE",
     },
   },
 };

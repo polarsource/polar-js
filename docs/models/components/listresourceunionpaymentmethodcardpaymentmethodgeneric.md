@@ -9,14 +9,19 @@ let value: ListResourceUnionPaymentMethodCardPaymentMethodGeneric = {
   items: [
     {
       id: "<id>",
-      type: "<value>",
-      createdAt: new Date("2023-11-03T16:54:29.824Z"),
+      createdAt: new Date("2024-02-01T09:05:51.525Z"),
       default: false,
+      card: {
+        brand: "<value>",
+        last4: "<value>",
+        expMonth: 182151,
+        expYear: 488289,
+      },
     },
   ],
   pagination: {
-    totalCount: 133731,
-    maxPage: 119743,
+    totalCount: 271639,
+    maxPage: 507776,
   },
 };
 ```

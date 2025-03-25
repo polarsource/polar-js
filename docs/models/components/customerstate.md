@@ -12,31 +12,31 @@ import { CustomerState } from "@polar-sh/sdk/models/components/customerstate.js"
 
 let value: CustomerState = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2024-11-30T21:58:32.911Z"),
-  modifiedAt: new Date("2024-04-16T06:38:07.129Z"),
+  createdAt: new Date("2025-11-23T17:51:29.432Z"),
+  modifiedAt: new Date("2023-06-15T17:57:35.415Z"),
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
   externalId: "usr_1337",
   email: "customer@example.com",
   emailVerified: true,
   name: "John Doe",
   billingAddress: {
-    country: "FR",
+    country: "SE",
   },
   taxId: [
     "FR61954506077",
     "eu_vat",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2025-05-11T15:54:08.244Z"),
+  deletedAt: new Date("2024-07-15T05:46:16.146Z"),
   activeSubscriptions: [
     {
       id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
-      createdAt: new Date("2025-03-30T19:59:30.170Z"),
-      modifiedAt: new Date("2025-05-19T17:59:45.777Z"),
+      createdAt: new Date("2025-12-01T01:15:21.435Z"),
+      modifiedAt: new Date("2024-02-03T18:34:22.670Z"),
       metadata: {
-        "key": "<value>",
+        "key": false,
       },
       amount: 1000,
       currency: "usd",
@@ -55,11 +55,11 @@ let value: CustomerState = {
   grantedBenefits: [
     {
       id: "d322132c-a9d0-4e0d-b8d3-d81ad021a3a9",
-      createdAt: new Date("2024-08-24T12:51:13.766Z"),
-      modifiedAt: new Date("2024-06-02T18:22:20.556Z"),
+      createdAt: new Date("2024-03-09T14:44:52.776Z"),
+      modifiedAt: new Date("2025-11-13T04:34:33.275Z"),
       grantedAt: new Date("2025-01-03T13:37:00Z"),
       benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-      benefitType: "downloadables",
+      benefitType: "github_repository",
       properties: {},
     },
   ],

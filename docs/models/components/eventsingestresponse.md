@@ -6,7 +6,7 @@
 import { EventsIngestResponse } from "@polar-sh/sdk/models/components/eventsingestresponse.js";
 
 let value: EventsIngestResponse = {
-  inserted: 914916,
+  inserted: 975882,
 };
 ```
 

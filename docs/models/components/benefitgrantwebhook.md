@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components/benefitgrantwebhook.js";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2025-08-08T02:04:00.602Z"),
-  modifiedAt: new Date("2023-02-15T08:39:53.949Z"),
+  createdAt: new Date("2025-05-06T04:06:41.754Z"),
+  modifiedAt: new Date("2023-10-26T06:31:29.994Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -18,46 +18,42 @@ let value: BenefitGrantWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-03-12T06:24:46.513Z"),
-    modifiedAt: new Date("2025-08-01T01:47:59.550Z"),
+    createdAt: new Date("2025-03-19T14:24:12.773Z"),
+    modifiedAt: new Date("2023-01-29T20:48:34.054Z"),
     metadata: {
-      "key": 84620,
+      "key": false,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "SE",
+      country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-12-13T18:22:28.160Z"),
+    deletedAt: new Date("2023-07-10T01:53:42.639Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   properties: {},
   benefit: {
-    createdAt: new Date("2023-07-03T20:54:21.016Z"),
-    modifiedAt: new Date("2023-04-13T08:26:12.730Z"),
+    createdAt: new Date("2023-06-06T03:35:17.126Z"),
+    modifiedAt: new Date("2023-11-13T20:42:37.829Z"),
     id: "<value>",
-    description: "per mid service unaccountably nudge",
+    description: "abacus which dreamily aboard whoa lotion simple er",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      prefix: "<value>",
-      expires: {
-        ttl: 678129,
-        timeframe: "year",
+      archived: {
+        "key": false,
       },
-      activations: {
-        limit: 756641,
-        enableCustomerAdmin: false,
-      },
-      limitUsage: 103328,
+      files: [
+        "<value>",
+      ],
     },
   },
 };

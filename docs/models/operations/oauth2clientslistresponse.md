@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://strange-makeover.biz",
+          "https://soupy-scenario.biz",
         ],
         clientName: "<value>",
-        createdAt: new Date("2025-12-20T16:48:26.342Z"),
-        modifiedAt: new Date("2023-11-07T11:10:32.200Z"),
+        createdAt: new Date("2024-05-02T07:36:13.592Z"),
+        modifiedAt: new Date("2024-07-11T09:17:17.799Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 283221,
-        clientSecretExpiresAt: 527610,
+        clientIdIssuedAt: 5266,
+        clientSecretExpiresAt: 877291,
       },
     ],
     pagination: {
-      totalCount: 411210,
-      maxPage: 86838,
+      totalCount: 497962,
+      maxPage: 579119,
     },
   },
 };

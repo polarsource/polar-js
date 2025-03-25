@@ -7,24 +7,24 @@ import { OrderCustomer } from "@polar-sh/sdk/models/components/ordercustomer.js"
 
 let value: OrderCustomer = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2024-04-01T23:01:50.436Z"),
-  modifiedAt: new Date("2024-03-14T21:57:18.934Z"),
+  createdAt: new Date("2025-07-23T13:07:53.786Z"),
+  modifiedAt: new Date("2023-02-05T22:08:14.307Z"),
   metadata: {
-    "key": false,
+    "key": "<value>",
   },
   externalId: "usr_1337",
   email: "customer@example.com",
   emailVerified: true,
   name: "John Doe",
   billingAddress: {
-    country: "US",
+    country: "SE",
   },
   taxId: [
     "911144442",
     "us_ein",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2025-07-21T21:55:28.560Z"),
+  deletedAt: new Date("2025-05-30T01:27:51.669Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
 };
 ```

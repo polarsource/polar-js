@@ -13,7 +13,7 @@ const value: components.ProductPriceType = "recurring";
 
 ```typescript
 const value: components.ProductPriceType[] = [
-  "recurring",
+  "one_time",
 ];
 ```
 

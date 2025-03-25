@@ -6,11 +6,11 @@
 import { OrderProduct } from "@polar-sh/sdk/models/components/orderproduct.js";
 
 let value: OrderProduct = {
-  createdAt: new Date("2025-01-20T05:02:59.164Z"),
-  modifiedAt: new Date("2024-04-02T09:31:51.488Z"),
+  createdAt: new Date("2023-07-31T21:28:27.806Z"),
+  modifiedAt: new Date("2024-01-15T21:10:18.661Z"),
   id: "<value>",
   name: "<value>",
-  description: "cleverly wrong abnegate convection bogus till",
+  description: "spanish quizzically drat far exalted marten save",
   recurringInterval: "month",
   isRecurring: false,
   isArchived: false,

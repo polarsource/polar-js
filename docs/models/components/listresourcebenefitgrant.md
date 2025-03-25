@@ -8,8 +8,8 @@ import { ListResourceBenefitGrant } from "@polar-sh/sdk/models/components/listre
 let value: ListResourceBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2024-09-04T16:59:03.883Z"),
-      modifiedAt: new Date("2023-01-31T08:21:15.292Z"),
+      createdAt: new Date("2025-04-18T17:00:11.017Z"),
+      modifiedAt: new Date("2024-08-10T12:03:37.307Z"),
       id: "<value>",
       isGranted: false,
       isRevoked: false,
@@ -20,8 +20,8 @@ let value: ListResourceBenefitGrant = {
       benefitId: "<value>",
       customer: {
         id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-        createdAt: new Date("2025-04-19T15:11:07.418Z"),
-        modifiedAt: new Date("2025-02-21T18:03:33.984Z"),
+        createdAt: new Date("2025-07-28T06:27:03.803Z"),
+        modifiedAt: new Date("2023-05-02T16:25:41.913Z"),
         metadata: {
           "key": false,
         },
@@ -30,22 +30,22 @@ let value: ListResourceBenefitGrant = {
         emailVerified: true,
         name: "John Doe",
         billingAddress: {
-          country: "US",
+          country: "SE",
         },
         taxId: [
-          "911144442",
-          "us_ein",
+          "FR61954506077",
+          "eu_vat",
         ],
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        deletedAt: new Date("2025-12-29T00:34:10.069Z"),
+        deletedAt: new Date("2023-11-08T07:32:04.078Z"),
         avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
       },
       properties: {},
     },
   ],
   pagination: {
-    totalCount: 726243,
-    maxPage: 96417,
+    totalCount: 189804,
+    maxPage: 373346,
   },
 };
 ```

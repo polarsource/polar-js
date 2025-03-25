@@ -7,11 +7,11 @@
 
 ```typescript
 const value: components.CustomFieldCheckbox = {
-  createdAt: new Date("2025-01-20T16:30:55.711Z"),
-  modifiedAt: new Date("2024-12-20T19:27:59.598Z"),
+  createdAt: new Date("2025-01-07T03:36:18.419Z"),
+  modifiedAt: new Date("2024-08-02T17:14:09.216Z"),
   id: "<value>",
   metadata: {
-    "key": false,
+    "key": "<value>",
   },
   slug: "<value>",
   name: "<value>",
@@ -24,11 +24,11 @@ const value: components.CustomFieldCheckbox = {
 
 ```typescript
 const value: components.CustomFieldDate = {
-  createdAt: new Date("2023-04-17T14:16:27.461Z"),
-  modifiedAt: new Date("2024-06-29T13:31:25.620Z"),
+  createdAt: new Date("2025-12-29T18:23:56.613Z"),
+  modifiedAt: new Date("2024-02-01T23:01:15.623Z"),
   id: "<value>",
   metadata: {
-    "key": 241557,
+    "key": 378245,
   },
   slug: "<value>",
   name: "<value>",
@@ -41,8 +41,8 @@ const value: components.CustomFieldDate = {
 
 ```typescript
 const value: components.CustomFieldNumber = {
-  createdAt: new Date("2023-07-05T06:02:39.418Z"),
-  modifiedAt: new Date("2025-07-31T02:24:51.557Z"),
+  createdAt: new Date("2025-12-09T13:28:34.858Z"),
+  modifiedAt: new Date("2023-07-11T10:12:51.010Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
@@ -58,11 +58,11 @@ const value: components.CustomFieldNumber = {
 
 ```typescript
 const value: components.CustomFieldSelect = {
-  createdAt: new Date("2024-05-30T19:12:44.124Z"),
-  modifiedAt: new Date("2023-05-07T22:53:51.252Z"),
+  createdAt: new Date("2025-01-15T15:53:28.719Z"),
+  modifiedAt: new Date("2023-03-11T06:36:47.494Z"),
   id: "<value>",
   metadata: {
-    "key": 979963,
+    "key": 477646,
   },
   slug: "<value>",
   name: "<value>",
@@ -82,11 +82,11 @@ const value: components.CustomFieldSelect = {
 
 ```typescript
 const value: components.CustomFieldText = {
-  createdAt: new Date("2024-04-09T09:10:18.917Z"),
-  modifiedAt: new Date("2025-07-28T09:48:49.789Z"),
+  createdAt: new Date("2023-11-08T06:20:07.399Z"),
+  modifiedAt: new Date("2023-09-19T07:13:22.589Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": 367927,
   },
   slug: "<value>",
   name: "<value>",

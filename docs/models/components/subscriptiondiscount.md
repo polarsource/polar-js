@@ -7,22 +7,22 @@
 
 ```typescript
 const value: components.DiscountFixedOnceForeverDurationBase = {
-  duration: "forever",
+  duration: "once",
   type: "percentage",
-  amount: 994902,
-  currency: "Seychelles Rupee",
-  createdAt: new Date("2024-11-28T06:19:47.637Z"),
-  modifiedAt: new Date("2023-03-27T13:40:51.471Z"),
+  amount: 356007,
+  currency: "Zambian Kwacha",
+  createdAt: new Date("2023-01-15T23:11:30.521Z"),
+  modifiedAt: new Date("2024-11-01T22:48:20.467Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-09-28T01:52:02.410Z"),
-  endsAt: new Date("2023-08-09T07:14:53.484Z"),
-  maxRedemptions: 843591,
-  redemptionsCount: 696324,
+  startsAt: new Date("2023-11-13T15:24:13.369Z"),
+  endsAt: new Date("2025-12-03T02:39:59.387Z"),
+  maxRedemptions: 859537,
+  redemptionsCount: 915653,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -31,23 +31,23 @@ const value: components.DiscountFixedOnceForeverDurationBase = {
 
 ```typescript
 const value: components.DiscountFixedRepeatDurationBase = {
-  duration: "forever",
-  durationInMonths: 529174,
-  type: "percentage",
-  amount: 714054,
-  currency: "Libyan Dinar",
-  createdAt: new Date("2023-05-26T20:25:51.045Z"),
-  modifiedAt: new Date("2025-04-27T16:57:06.047Z"),
+  duration: "once",
+  durationInMonths: 569872,
+  type: "fixed",
+  amount: 849029,
+  currency: "Nepalese Rupee",
+  createdAt: new Date("2024-08-13T14:37:14.598Z"),
+  modifiedAt: new Date("2023-05-06T14:07:37.974Z"),
   id: "<value>",
   metadata: {
-    "key": 963094,
+    "key": 631904,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2023-11-07T17:32:47.506Z"),
-  endsAt: new Date("2023-10-16T08:01:27.253Z"),
-  maxRedemptions: 333507,
-  redemptionsCount: 572317,
+  startsAt: new Date("2025-11-13T16:19:02.583Z"),
+  endsAt: new Date("2024-10-03T05:10:54.402Z"),
+  maxRedemptions: 967401,
+  redemptionsCount: 961607,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -56,21 +56,21 @@ const value: components.DiscountFixedRepeatDurationBase = {
 
 ```typescript
 const value: components.DiscountPercentageOnceForeverDurationBase = {
-  duration: "repeating",
-  type: "fixed",
-  basisPoints: 279679,
-  createdAt: new Date("2024-09-29T12:30:23.739Z"),
-  modifiedAt: new Date("2024-05-12T22:48:28.461Z"),
+  duration: "forever",
+  type: "percentage",
+  basisPoints: 466022,
+  createdAt: new Date("2025-09-02T20:31:03.618Z"),
+  modifiedAt: new Date("2023-01-31T23:15:49.640Z"),
   id: "<value>",
   metadata: {
-    "key": 820735,
+    "key": "<value>",
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-10-09T13:41:41.530Z"),
-  endsAt: new Date("2024-06-11T12:17:54.368Z"),
-  maxRedemptions: 687352,
-  redemptionsCount: 801059,
+  startsAt: new Date("2023-04-22T20:53:41.146Z"),
+  endsAt: new Date("2025-04-09T14:25:36.451Z"),
+  maxRedemptions: 339651,
+  redemptionsCount: 637969,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -80,21 +80,21 @@ const value: components.DiscountPercentageOnceForeverDurationBase = {
 ```typescript
 const value: components.DiscountPercentageRepeatDurationBase = {
   duration: "forever",
-  durationInMonths: 294316,
+  durationInMonths: 385828,
   type: "percentage",
-  basisPoints: 585109,
-  createdAt: new Date("2025-09-15T02:42:30.278Z"),
-  modifiedAt: new Date("2023-02-27T10:30:52.902Z"),
+  basisPoints: 645139,
+  createdAt: new Date("2025-10-28T06:45:26.918Z"),
+  modifiedAt: new Date("2024-09-22T21:28:43.149Z"),
   id: "<value>",
   metadata: {
-    "key": false,
+    "key": 67855,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2024-08-08T17:42:00.248Z"),
-  endsAt: new Date("2023-01-18T04:20:40.403Z"),
-  maxRedemptions: 344702,
-  redemptionsCount: 724334,
+  startsAt: new Date("2025-11-09T15:05:05.250Z"),
+  endsAt: new Date("2024-08-01T18:40:01.314Z"),
+  maxRedemptions: 801274,
+  redemptionsCount: 50291,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```

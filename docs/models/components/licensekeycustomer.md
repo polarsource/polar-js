@@ -7,10 +7,10 @@ import { LicenseKeyCustomer } from "@polar-sh/sdk/models/components/licensekeycu
 
 let value: LicenseKeyCustomer = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2024-12-07T02:08:23.563Z"),
-  modifiedAt: new Date("2025-07-16T21:37:42.229Z"),
+  createdAt: new Date("2025-03-17T00:47:08.664Z"),
+  modifiedAt: new Date("2024-11-19T08:32:51.731Z"),
   metadata: {
-    "key": false,
+    "key": "<value>",
   },
   externalId: "usr_1337",
   email: "customer@example.com",
@@ -20,11 +20,11 @@ let value: LicenseKeyCustomer = {
     country: "US",
   },
   taxId: [
-    "911144442",
-    "us_ein",
+    "FR61954506077",
+    "eu_vat",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2023-03-08T19:43:38.812Z"),
+  deletedAt: new Date("2023-06-30T09:14:54.880Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
 };
 ```

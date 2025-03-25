@@ -9,11 +9,11 @@ import { CustomerStateBenefitGrant } from "@polar-sh/sdk/models/components/custo
 
 let value: CustomerStateBenefitGrant = {
   id: "d322132c-a9d0-4e0d-b8d3-d81ad021a3a9",
-  createdAt: new Date("2023-04-23T03:20:29.490Z"),
-  modifiedAt: new Date("2023-11-17T05:26:00.288Z"),
+  createdAt: new Date("2024-04-02T14:57:04.115Z"),
+  modifiedAt: new Date("2025-05-06T14:43:32.754Z"),
   grantedAt: new Date("2025-01-03T13:37:00Z"),
   benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-  benefitType: "license_keys",
+  benefitType: "downloadables",
   properties: {},
 };
 ```

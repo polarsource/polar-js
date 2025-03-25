@@ -11,21 +11,21 @@ import { WebhookOrganizationUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookOrganizationUpdatedPayload = {
   data: {
-    createdAt: new Date("2023-01-28T01:28:09.985Z"),
-    modifiedAt: new Date("2023-07-21T02:15:38.786Z"),
+    createdAt: new Date("2023-05-04T22:59:01.944Z"),
+    modifiedAt: new Date("2025-09-25T11:36:35.384Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://muted-partridge.info",
-    email: "Braeden.VonRueden@yahoo.com",
+    avatarUrl: "https://extroverted-behest.name",
+    email: "Orlo70@gmail.com",
     website: "<value>",
     socials: [
       {
-        platform: "x",
-        url: "https://unfit-heating.info",
+        platform: "youtube",
+        url: "https://our-mixture.biz",
       },
     ],
-    detailsSubmittedAt: new Date("2024-05-11T19:52:22.574Z"),
+    detailsSubmittedAt: new Date("2025-10-17T22:20:26.967Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -33,13 +33,13 @@ let value: WebhookOrganizationUpdatedPayload = {
       prorationBehavior: "prorate",
     },
     bio: "<value>",
-    company: "Rogahn LLC",
+    company: "Littel Group",
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 50859,
+    pledgeMinimumAmount: 265125,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 976700,
+    defaultUpfrontSplitToContributors: 306682,
     profileSettings: {},
   },
 };

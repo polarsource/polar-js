@@ -16,24 +16,24 @@ import { WebhookCustomerUpdatedPayload } from "@polar-sh/sdk/models/components/w
 let value: WebhookCustomerUpdatedPayload = {
   data: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-03-10T16:58:04.176Z"),
-    modifiedAt: new Date("2023-11-01T19:34:36.306Z"),
+    createdAt: new Date("2025-06-04T02:09:29.897Z"),
+    modifiedAt: new Date("2023-02-25T21:41:46.505Z"),
     metadata: {
-      "key": "<value>",
+      "key": 502453,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "FR",
+      country: "US",
     },
     taxId: [
       "911144442",
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-06-01T18:53:02.233Z"),
+    deletedAt: new Date("2025-04-27T11:48:28.988Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
 };

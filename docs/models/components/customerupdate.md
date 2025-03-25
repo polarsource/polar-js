@@ -10,7 +10,7 @@ let value: CustomerUpdate = {
   email: "customer@example.com",
   name: "John Doe",
   billingAddress: {
-    country: "US",
+    country: "SE",
   },
   taxId: [
     "FR61954506077",

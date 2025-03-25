@@ -10,8 +10,8 @@ import { CheckoutDiscountFixedOnceForeverDuration } from "@polar-sh/sdk/models/c
 let value: CheckoutDiscountFixedOnceForeverDuration = {
   duration: "forever",
   type: "percentage",
-  amount: 103298,
-  currency: "New Taiwan Dollar",
+  amount: 773084,
+  currency: "CFP Franc",
   id: "<value>",
   name: "<value>",
   code: "<value>",

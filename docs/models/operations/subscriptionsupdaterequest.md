@@ -7,7 +7,9 @@ import { SubscriptionsUpdateRequest } from "@polar-sh/sdk/models/operations/subs
 
 let value: SubscriptionsUpdateRequest = {
   id: "<value>",
-  subscriptionUpdate: {},
+  subscriptionUpdate: {
+    productId: "<value>",
+  },
 };
 ```
 

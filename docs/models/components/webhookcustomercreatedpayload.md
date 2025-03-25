@@ -17,8 +17,8 @@ import { WebhookCustomerCreatedPayload } from "@polar-sh/sdk/models/components/w
 let value: WebhookCustomerCreatedPayload = {
   data: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-05-11T00:03:45.342Z"),
-    modifiedAt: new Date("2025-10-25T07:53:21.937Z"),
+    createdAt: new Date("2025-01-02T08:48:44.316Z"),
+    modifiedAt: new Date("2023-11-11T05:47:44.270Z"),
     metadata: {
       "key": "<value>",
     },
@@ -30,11 +30,11 @@ let value: WebhookCustomerCreatedPayload = {
       country: "SE",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-08-12T04:02:41.990Z"),
+    deletedAt: new Date("2025-10-29T15:13:36.657Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
 };
