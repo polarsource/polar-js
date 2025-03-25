@@ -7,22 +7,22 @@
 
 ```typescript
 const value: components.DiscountFixedOnceForeverDurationBase = {
-  duration: "repeating",
+  duration: "once",
   type: "percentage",
-  amount: 118349,
-  currency: "Armenian Dram",
-  createdAt: new Date("2025-09-11T21:45:54.828Z"),
-  modifiedAt: new Date("2024-08-11T17:43:22.964Z"),
+  amount: 219860,
+  currency: "Fiji Dollar",
+  createdAt: new Date("2025-02-08T05:12:43.428Z"),
+  modifiedAt: new Date("2023-02-03T02:11:26.549Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-01-08T07:46:32.172Z"),
-  endsAt: new Date("2024-12-07T01:38:47.300Z"),
-  maxRedemptions: 122085,
-  redemptionsCount: 259600,
+  startsAt: new Date("2024-05-02T03:34:27.990Z"),
+  endsAt: new Date("2024-07-04T14:57:11.531Z"),
+  maxRedemptions: 540048,
+  redemptionsCount: 645544,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -31,23 +31,23 @@ const value: components.DiscountFixedOnceForeverDurationBase = {
 
 ```typescript
 const value: components.DiscountFixedRepeatDurationBase = {
-  duration: "once",
-  durationInMonths: 209860,
+  duration: "forever",
+  durationInMonths: 101107,
   type: "fixed",
-  amount: 193236,
-  currency: "Zloty",
-  createdAt: new Date("2023-02-24T06:02:28.583Z"),
-  modifiedAt: new Date("2023-04-22T15:11:01.678Z"),
+  amount: 168142,
+  currency: "Tugrik",
+  createdAt: new Date("2023-12-15T13:25:30.391Z"),
+  modifiedAt: new Date("2025-11-16T00:59:56.580Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2023-12-13T22:17:51.524Z"),
-  endsAt: new Date("2023-11-24T10:19:41.436Z"),
-  maxRedemptions: 255064,
-  redemptionsCount: 750537,
+  startsAt: new Date("2024-11-10T15:47:28.185Z"),
+  endsAt: new Date("2024-11-07T18:38:53.264Z"),
+  maxRedemptions: 985379,
+  redemptionsCount: 887284,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -57,20 +57,20 @@ const value: components.DiscountFixedRepeatDurationBase = {
 ```typescript
 const value: components.DiscountPercentageOnceForeverDurationBase = {
   duration: "repeating",
-  type: "percentage",
-  basisPoints: 944203,
-  createdAt: new Date("2024-03-10T16:25:56.602Z"),
-  modifiedAt: new Date("2023-04-27T22:10:30.290Z"),
+  type: "fixed",
+  basisPoints: 365539,
+  createdAt: new Date("2023-08-09T14:07:15.623Z"),
+  modifiedAt: new Date("2024-06-17T21:56:39.590Z"),
   id: "<value>",
   metadata: {
-    "key": 296128,
+    "key": false,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2024-06-24T18:34:36.250Z"),
-  endsAt: new Date("2024-12-21T02:52:36.760Z"),
-  maxRedemptions: 461050,
-  redemptionsCount: 935161,
+  startsAt: new Date("2025-09-26T17:13:07.205Z"),
+  endsAt: new Date("2023-05-10T17:03:48.644Z"),
+  maxRedemptions: 25190,
+  redemptionsCount: 898638,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -79,22 +79,22 @@ const value: components.DiscountPercentageOnceForeverDurationBase = {
 
 ```typescript
 const value: components.DiscountPercentageRepeatDurationBase = {
-  duration: "repeating",
-  durationInMonths: 701978,
-  type: "fixed",
-  basisPoints: 131687,
-  createdAt: new Date("2024-03-11T03:02:50.967Z"),
-  modifiedAt: new Date("2025-02-11T00:34:41.133Z"),
+  duration: "forever",
+  durationInMonths: 200190,
+  type: "percentage",
+  basisPoints: 644223,
+  createdAt: new Date("2023-05-14T19:20:23.288Z"),
+  modifiedAt: new Date("2023-10-12T12:31:28.351Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2023-04-24T23:18:08.610Z"),
-  endsAt: new Date("2025-09-22T01:21:39.695Z"),
-  maxRedemptions: 709051,
-  redemptionsCount: 615277,
+  startsAt: new Date("2023-08-19T00:10:11.657Z"),
+  endsAt: new Date("2023-05-26T00:10:06.496Z"),
+  maxRedemptions: 193236,
+  redemptionsCount: 685467,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```

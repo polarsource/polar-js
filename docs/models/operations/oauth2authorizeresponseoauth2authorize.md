@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2024-04-17T20:24:25.583Z"),
-    modifiedAt: new Date("2025-09-19T21:01:06.393Z"),
+    createdAt: new Date("2023-02-12T21:33:27.477Z"),
+    modifiedAt: new Date("2023-01-31T12:23:22.680Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://old-release.net/",
-    logoUri: "https://zesty-provision.name",
-    tosUri: "https://secret-cemetery.net",
-    policyUri: "https://creamy-elevator.net/",
+    clientUri: "https://outgoing-marathon.info",
+    logoUri: "https://frizzy-toaster.org",
+    tosUri: "https://plain-nudge.biz",
+    policyUri: "https://uniform-grandpa.org/",
   },
   sub: {
     id: "<value>",
-    email: "Ezequiel.Botsford@yahoo.com",
-    avatarUrl: "https://musty-thongs.org/",
+    email: "Mose5@hotmail.com",
+    avatarUrl: "https://rubbery-soliloquy.biz",
   },
   scopes: [
-    "user:read",
+    "checkouts:write",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2025-11-05T12:32:55.334Z"),
-    modifiedAt: new Date("2025-11-19T00:13:51.965Z"),
+    createdAt: new Date("2025-06-03T04:32:33.374Z"),
+    modifiedAt: new Date("2024-02-11T20:26:54.603Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://agitated-forage.net/",
-    logoUri: "https://exhausted-carnival.com/",
-    tosUri: "https://partial-sustenance.com",
-    policyUri: "https://optimistic-spirit.info",
+    clientUri: "https://suburban-sand.name",
+    logoUri: "https://friendly-horde.net",
+    tosUri: "https://quick-witted-castanet.name",
+    policyUri: "https://fatherly-bathrobe.com",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://medium-intervention.net/",
+    avatarUrl: "https://aware-translation.org",
   },
   scopes: [
-    "issues:write",
+    "repositories:write",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://oily-fork.name/",
+      avatarUrl: "https://angelic-meander.com",
     },
   ],
 };

@@ -8,31 +8,30 @@ import { ListResourceDiscount } from "@polar-sh/sdk/models/components/listresour
 let value: ListResourceDiscount = {
   items: [
     {
-      duration: "repeating",
-      durationInMonths: 107772,
+      duration: "forever",
+      durationInMonths: 221447,
       type: "percentage",
-      basisPoints: 893477,
-      createdAt: new Date("2024-04-09T18:38:17.654Z"),
-      modifiedAt: new Date("2023-09-01T12:05:57.701Z"),
+      basisPoints: 760667,
+      createdAt: new Date("2024-02-28T08:38:23.712Z"),
+      modifiedAt: new Date("2025-07-10T23:10:00.876Z"),
       id: "<value>",
       metadata: {
-        "key": false,
+        "key": 623460,
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2023-09-07T19:46:48.651Z"),
-      endsAt: new Date("2025-09-22T02:49:31.119Z"),
-      maxRedemptions: 418821,
-      redemptionsCount: 487785,
+      startsAt: new Date("2023-04-24T21:27:44.545Z"),
+      endsAt: new Date("2024-03-23T09:25:05.820Z"),
+      maxRedemptions: 71414,
+      redemptionsCount: 400913,
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       products: [
         {
-          createdAt: new Date("2025-01-31T04:16:30.064Z"),
-          modifiedAt: new Date("2024-01-30T00:42:04.756Z"),
+          createdAt: new Date("2023-03-07T03:43:14.669Z"),
+          modifiedAt: new Date("2023-07-31T09:26:01.957Z"),
           id: "<value>",
           name: "<value>",
-          description:
-            "stupendous inasmuch transparency oddly yahoo before needily phooey as gosh",
+          description: "where climb satirise infatuated however factorize",
           recurringInterval: "month",
           isRecurring: false,
           isArchived: false,
@@ -42,8 +41,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 495257,
-    maxPage: 72741,
+    totalCount: 645782,
+    maxPage: 61822,
   },
 };
 ```

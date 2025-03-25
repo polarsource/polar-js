@@ -5,7 +5,7 @@
 ```typescript
 import { RepositorySortProperty } from "@polar-sh/sdk/models/components/repositorysortproperty.js";
 
-let value: RepositorySortProperty = "-name";
+let value: RepositorySortProperty = "name";
 ```
 
 ## Values

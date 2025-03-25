@@ -8,7 +8,7 @@ import { CustomerPaymentMethodCreate } from "@polar-sh/sdk/models/components/cus
 let value: CustomerPaymentMethodCreate = {
   confirmationTokenId: "<id>",
   setDefault: false,
-  returnUrl: "https://natural-metal.net/",
+  returnUrl: "https://prudent-yarmulke.biz/",
 };
 ```
 

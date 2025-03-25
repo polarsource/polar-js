@@ -6,7 +6,7 @@
 import { Address } from "@polar-sh/sdk/models/components/address.js";
 
 let value: Address = {
-  country: "FR",
+  country: "US",
 };
 ```
 

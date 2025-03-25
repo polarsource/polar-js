@@ -11,13 +11,13 @@ let value: ProductMediaFileCreate = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   name: "<value>",
   mimeType: "<value>",
-  size: 706780,
+  size: 920544,
   upload: {
     parts: [
       {
-        number: 467504,
-        chunkStart: 641831,
-        chunkEnd: 108040,
+        number: 885050,
+        chunkStart: 205486,
+        chunkEnd: 409714,
       },
     ],
   },

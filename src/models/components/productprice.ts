@@ -24,11 +24,18 @@ import {
   ProductPriceFree$Outbound,
   ProductPriceFree$outboundSchema,
 } from "./productpricefree.js";
+import {
+  ProductPriceMeteredUnit,
+  ProductPriceMeteredUnit$inboundSchema,
+  ProductPriceMeteredUnit$Outbound,
+  ProductPriceMeteredUnit$outboundSchema,
+} from "./productpricemeteredunit.js";
 
 export type ProductPrice =
   | ProductPriceFree
   | ProductPriceFixed
-  | ProductPriceCustom;
+  | ProductPriceCustom
+  | ProductPriceMeteredUnit;
 
 /** @internal */
 export const ProductPrice$inboundSchema: z.ZodType<
@@ -39,13 +46,15 @@ export const ProductPrice$inboundSchema: z.ZodType<
   ProductPriceFree$inboundSchema,
   ProductPriceFixed$inboundSchema,
   ProductPriceCustom$inboundSchema,
+  ProductPriceMeteredUnit$inboundSchema,
 ]);
 
 /** @internal */
 export type ProductPrice$Outbound =
   | ProductPriceFree$Outbound
   | ProductPriceFixed$Outbound
-  | ProductPriceCustom$Outbound;
+  | ProductPriceCustom$Outbound
+  | ProductPriceMeteredUnit$Outbound;
 
 /** @internal */
 export const ProductPrice$outboundSchema: z.ZodType<
@@ -56,6 +65,7 @@ export const ProductPrice$outboundSchema: z.ZodType<
   ProductPriceFree$outboundSchema,
   ProductPriceFixed$outboundSchema,
   ProductPriceCustom$outboundSchema,
+  ProductPriceMeteredUnit$outboundSchema,
 ]);
 
 /**

@@ -8,7 +8,8 @@ Schema to create a benefit of type `custom`.
 import { BenefitCustomCreate } from "@polar-sh/sdk/models/components/benefitcustomcreate.js";
 
 let value: BenefitCustomCreate = {
-  description: "boo athwart incidentally awkwardly",
+  description:
+    "noisily delightfully ill-fated phooey baritone notwithstanding cycle intelligent upwardly where",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
 };

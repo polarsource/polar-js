@@ -6,19 +6,19 @@
 import { MetricPeriod } from "@polar-sh/sdk/models/components/metricperiod.js";
 
 let value: MetricPeriod = {
-  timestamp: new Date("2023-07-08T15:03:29.279Z"),
-  orders: 61706,
-  revenue: 933771,
-  cumulativeRevenue: 148478,
-  averageOrderValue: 520049,
-  oneTimeProducts: 367299,
-  oneTimeProductsRevenue: 44740,
-  newSubscriptions: 314354,
-  newSubscriptionsRevenue: 350470,
-  renewedSubscriptions: 493438,
-  renewedSubscriptionsRevenue: 706735,
-  activeSubscriptions: 999978,
-  monthlyRecurringRevenue: 518571,
+  timestamp: new Date("2025-06-02T17:50:16.383Z"),
+  orders: 847548,
+  revenue: 897288,
+  cumulativeRevenue: 202556,
+  averageOrderValue: 342554,
+  oneTimeProducts: 899374,
+  oneTimeProductsRevenue: 149214,
+  newSubscriptions: 490145,
+  newSubscriptionsRevenue: 104748,
+  renewedSubscriptions: 152546,
+  renewedSubscriptionsRevenue: 588889,
+  activeSubscriptions: 396101,
+  monthlyRecurringRevenue: 423692,
 };
 ```
 

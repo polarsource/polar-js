@@ -12,24 +12,24 @@ import { WebhookCustomerDeletedPayload } from "@polar-sh/sdk/models/components/w
 let value: WebhookCustomerDeletedPayload = {
   data: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-10-04T08:58:59.878Z"),
-    modifiedAt: new Date("2024-09-15T22:31:23.316Z"),
+    createdAt: new Date("2024-09-14T04:35:24.236Z"),
+    modifiedAt: new Date("2025-12-13T08:48:33.282Z"),
     metadata: {
-      "key": 971764,
+      "key": false,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "SE",
+      country: "FR",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2024-08-31T14:27:22.330Z"),
+    deletedAt: new Date("2025-10-25T07:53:21.937Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
 };

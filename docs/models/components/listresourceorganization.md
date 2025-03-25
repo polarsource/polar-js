@@ -8,21 +8,21 @@ import { ListResourceOrganization } from "@polar-sh/sdk/models/components/listre
 let value: ListResourceOrganization = {
   items: [
     {
-      createdAt: new Date("2024-01-19T15:23:14.662Z"),
-      modifiedAt: new Date("2023-04-30T08:58:38.503Z"),
+      createdAt: new Date("2025-04-27T05:25:51.367Z"),
+      modifiedAt: new Date("2024-01-22T05:57:34.526Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://haunting-duster.com",
-      email: "Demetrius.Price@gmail.com",
+      avatarUrl: "https://whopping-pomelo.com/",
+      email: "Destini.Russel-Pagac80@gmail.com",
       website: "<value>",
       socials: [
         {
-          platform: "facebook",
-          url: "https://able-godparent.info/",
+          platform: "github",
+          url: "https://accurate-baritone.org",
         },
       ],
-      detailsSubmittedAt: new Date("2024-02-03T19:47:42.976Z"),
+      detailsSubmittedAt: new Date("2023-10-03T16:54:50.541Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
@@ -30,19 +30,19 @@ let value: ListResourceOrganization = {
         prorationBehavior: "prorate",
       },
       bio: "<value>",
-      company: "Buckridge - Feest",
+      company: "Bruen and Sons",
       blog: "<value>",
       location: "<value>",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 513733,
+      pledgeMinimumAmount: 207391,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 725902,
+      defaultUpfrontSplitToContributors: 695427,
       profileSettings: {},
     },
   ],
   pagination: {
-    totalCount: 903664,
-    maxPage: 267095,
+    totalCount: 380853,
+    maxPage: 544760,
   },
 };
 ```

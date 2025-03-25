@@ -10,14 +10,14 @@ A recurring price for a product, i.e. a subscription.
 import { LegacyRecurringProductPriceFixed } from "@polar-sh/sdk/models/components/legacyrecurringproductpricefixed.js";
 
 let value: LegacyRecurringProductPriceFixed = {
-  createdAt: new Date("2024-01-18T23:40:38.791Z"),
-  modifiedAt: new Date("2025-05-06T12:02:21.857Z"),
+  createdAt: new Date("2023-10-25T07:00:52.657Z"),
+  modifiedAt: new Date("2024-03-18T13:21:51.302Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  recurringInterval: "year",
+  recurringInterval: "month",
   priceCurrency: "<value>",
-  priceAmount: 927212,
+  priceAmount: 671384,
 };
 ```
 

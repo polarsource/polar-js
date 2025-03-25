@@ -5,7 +5,7 @@
 ```typescript
 import { RefundReason } from "@polar-sh/sdk/models/components/refundreason.js";
 
-let value: RefundReason = "other";
+let value: RefundReason = "duplicate";
 ```
 
 ## Values

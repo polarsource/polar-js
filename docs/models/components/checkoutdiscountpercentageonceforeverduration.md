@@ -9,8 +9,8 @@ import { CheckoutDiscountPercentageOnceForeverDuration } from "@polar-sh/sdk/mod
 
 let value: CheckoutDiscountPercentageOnceForeverDuration = {
   duration: "forever",
-  type: "percentage",
-  basisPoints: 373216,
+  type: "fixed",
+  basisPoints: 147808,
   id: "<value>",
   name: "<value>",
   code: "<value>",

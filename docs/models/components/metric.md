@@ -9,8 +9,8 @@ import { Metric } from "@polar-sh/sdk/models/components/metric.js";
 
 let value: Metric = {
   slug: "<value>",
-  displayName: "Buford.Kshlerin83",
-  type: "scalar",
+  displayName: "Louvenia54",
+  type: "currency",
 };
 ```
 

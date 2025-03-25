@@ -9,8 +9,8 @@ let value: ListResourceCustomer = {
   items: [
     {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2023-04-25T11:53:31.235Z"),
-      modifiedAt: new Date("2023-05-03T03:10:03.746Z"),
+      createdAt: new Date("2024-06-30T20:38:28.755Z"),
+      modifiedAt: new Date("2023-12-26T17:55:49.483Z"),
       metadata: {
         "key": false,
       },
@@ -26,13 +26,13 @@ let value: ListResourceCustomer = {
         "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2024-09-02T17:41:59.365Z"),
+      deletedAt: new Date("2023-11-24T08:56:53.231Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
   ],
   pagination: {
-    totalCount: 486862,
-    maxPage: 555733,
+    totalCount: 747290,
+    maxPage: 879775,
   },
 };
 ```

@@ -7,16 +7,14 @@
 
 ```typescript
 const value: components.LegacyRecurringProductPrice = {
-  createdAt: new Date("2023-03-08T00:09:26.563Z"),
-  modifiedAt: new Date("2025-04-04T10:19:40.067Z"),
+  createdAt: new Date("2024-04-14T18:31:17.553Z"),
+  modifiedAt: new Date("2023-12-13T12:05:42.154Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
   recurringInterval: "month",
   priceCurrency: "<value>",
-  minimumAmount: 120677,
-  maximumAmount: 835232,
-  presetAmount: 537065,
+  priceAmount: 982690,
 };
 ```
 
@@ -24,13 +22,21 @@ const value: components.LegacyRecurringProductPrice = {
 
 ```typescript
 const value: components.ProductPrice = {
-  createdAt: new Date("2024-09-26T10:42:41.389Z"),
-  modifiedAt: new Date("2025-11-08T14:28:35.152Z"),
+  createdAt: new Date("2024-12-05T15:34:49.873Z"),
+  modifiedAt: new Date("2025-06-06T12:49:01.406Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "month",
+  recurringInterval: "year",
+  unitAmount: 146508,
+  includedUnits: 136721,
+  capAmount: 885840,
+  meterId: "<value>",
+  meter: {
+    id: "<value>",
+    name: "<value>",
+  },
 };
 ```
 

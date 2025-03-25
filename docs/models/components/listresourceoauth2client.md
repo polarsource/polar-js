@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://svelte-character.biz",
+        "https://possible-alb.net/",
       ],
       clientName: "<value>",
-      createdAt: new Date("2025-10-03T13:54:59.592Z"),
-      modifiedAt: new Date("2024-01-24T18:09:07.037Z"),
+      createdAt: new Date("2023-02-16T06:35:54.024Z"),
+      modifiedAt: new Date("2025-01-08T18:59:17.756Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 216998,
-      clientSecretExpiresAt: 912070,
+      clientIdIssuedAt: 212369,
+      clientSecretExpiresAt: 591191,
     },
   ],
   pagination: {
-    totalCount: 970105,
-    maxPage: 637770,
+    totalCount: 275974,
+    maxPage: 22402,
   },
 };
 ```

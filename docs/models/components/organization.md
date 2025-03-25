@@ -6,35 +6,35 @@
 import { Organization } from "@polar-sh/sdk/models/components/organization.js";
 
 let value: Organization = {
-  createdAt: new Date("2025-03-18T04:21:48.927Z"),
-  modifiedAt: new Date("2023-06-30T23:12:37.559Z"),
+  createdAt: new Date("2023-05-28T02:53:47.484Z"),
+  modifiedAt: new Date("2025-06-01T10:38:34.033Z"),
   id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   name: "<value>",
   slug: "<value>",
-  avatarUrl: "https://radiant-heartache.org",
-  email: "Gerardo_Reichert22@yahoo.com",
+  avatarUrl: "https://ill-fated-nougat.info/",
+  email: "Alisha.Blick29@yahoo.com",
   website: "<value>",
   socials: [
     {
-      platform: "github",
-      url: "https://austere-elevation.net/",
+      platform: "x",
+      url: "https://soulful-reconsideration.net",
     },
   ],
-  detailsSubmittedAt: new Date("2024-11-11T20:49:52.958Z"),
+  detailsSubmittedAt: new Date("2023-03-23T16:26:21.583Z"),
   featureSettings: {},
   subscriptionSettings: {
     allowMultipleSubscriptions: false,
     allowCustomerUpdates: false,
-    prorationBehavior: "prorate",
+    prorationBehavior: "invoice",
   },
   bio: "<value>",
-  company: "Bahringer, Marks and Kessler",
+  company: "Beier - Bashirian",
   blog: "<value>",
   location: "<value>",
   twitterUsername: "<value>",
-  pledgeMinimumAmount: 361300,
+  pledgeMinimumAmount: 198934,
   pledgeBadgeShowAmount: false,
-  defaultUpfrontSplitToContributors: 992382,
+  defaultUpfrontSplitToContributors: 56283,
   profileSettings: {},
 };
 ```

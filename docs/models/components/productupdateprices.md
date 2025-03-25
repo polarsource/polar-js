@@ -15,7 +15,7 @@ const value: components.ExistingProductPrice = {
 
 ```typescript
 const value: components.ProductPriceFixedCreate = {
-  priceAmount: 252409,
+  priceAmount: 284514,
 };
 ```
 
