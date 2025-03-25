@@ -8,31 +8,31 @@ import { ListResourceDiscount } from "@polar-sh/sdk/models/components/listresour
 let value: ListResourceDiscount = {
   items: [
     {
-      duration: "forever",
-      durationInMonths: 221447,
-      type: "percentage",
-      basisPoints: 760667,
-      createdAt: new Date("2024-02-28T08:38:23.712Z"),
-      modifiedAt: new Date("2025-07-10T23:10:00.876Z"),
+      duration: "repeating",
+      type: "fixed",
+      basisPoints: 93512,
+      createdAt: new Date("2025-12-13T21:51:57.448Z"),
+      modifiedAt: new Date("2023-04-03T22:36:08.417Z"),
       id: "<value>",
       metadata: {
-        "key": 623460,
+        "key": 51109,
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2023-04-24T21:27:44.545Z"),
-      endsAt: new Date("2024-03-23T09:25:05.820Z"),
-      maxRedemptions: 71414,
-      redemptionsCount: 400913,
+      startsAt: new Date("2023-01-16T16:45:02.911Z"),
+      endsAt: new Date("2023-01-11T21:25:09.426Z"),
+      maxRedemptions: 942435,
+      redemptionsCount: 462162,
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       products: [
         {
-          createdAt: new Date("2023-03-07T03:43:14.669Z"),
-          modifiedAt: new Date("2023-07-31T09:26:01.957Z"),
+          createdAt: new Date("2024-10-21T19:47:23.356Z"),
+          modifiedAt: new Date("2023-06-04T21:18:02.417Z"),
           id: "<value>",
           name: "<value>",
-          description: "where climb satirise infatuated however factorize",
-          recurringInterval: "month",
+          description:
+            "valuable accurate next possession characterization showboat",
+          recurringInterval: "year",
           isRecurring: false,
           isArchived: false,
           organizationId: "<value>",
@@ -41,8 +41,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 645782,
-    maxPage: 61822,
+    totalCount: 215727,
+    maxPage: 965909,
   },
 };
 ```

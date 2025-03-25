@@ -9,18 +9,18 @@ let value: ListResourceEvent = {
   items: [
     {
       metadata: {
-        "key": "<value>",
+        "key": 118313,
       },
       id: "<value>",
-      timestamp: new Date("2023-01-25T01:58:27.894Z"),
+      timestamp: new Date("2025-04-19T21:02:01.154Z"),
       name: "<value>",
       source: "user",
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       customerId: "<value>",
       customer: {
         id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-        createdAt: new Date("2024-05-09T07:07:25.624Z"),
-        modifiedAt: new Date("2023-10-12T16:44:39.135Z"),
+        createdAt: new Date("2024-10-05T12:04:09.498Z"),
+        modifiedAt: new Date("2023-02-12T02:08:42.634Z"),
         metadata: {
           "key": "<value>",
         },
@@ -29,22 +29,22 @@ let value: ListResourceEvent = {
         emailVerified: true,
         name: "John Doe",
         billingAddress: {
-          country: "US",
+          country: "SE",
         },
         taxId: [
-          "FR61954506077",
-          "eu_vat",
+          "911144442",
+          "us_ein",
         ],
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        deletedAt: new Date("2024-10-15T23:27:36.527Z"),
+        deletedAt: new Date("2025-03-10T22:43:43.482Z"),
         avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
       },
       externalCustomerId: "<id>",
     },
   ],
   pagination: {
-    totalCount: 262422,
-    maxPage: 261250,
+    totalCount: 216778,
+    maxPage: 361280,
   },
 };
 ```

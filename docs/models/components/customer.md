@@ -9,10 +9,10 @@ import { Customer } from "@polar-sh/sdk/models/components/customer.js";
 
 let value: Customer = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2024-12-16T16:30:20.563Z"),
-  modifiedAt: new Date("2024-01-13T08:10:55.878Z"),
+  createdAt: new Date("2023-01-19T16:45:32.510Z"),
+  modifiedAt: new Date("2025-11-25T21:24:45.235Z"),
   metadata: {
-    "key": 815225,
+    "key": 552439,
   },
   externalId: "usr_1337",
   email: "customer@example.com",
@@ -26,7 +26,7 @@ let value: Customer = {
     "eu_vat",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2023-02-15T03:11:35.631Z"),
+  deletedAt: new Date("2023-10-19T10:22:53.837Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
 };
 ```

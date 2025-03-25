@@ -9,30 +9,23 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-12-28T10:29:46.261Z"),
-        modifiedAt: new Date("2024-01-19T16:40:09.743Z"),
+        createdAt: new Date("2024-10-01T05:07:03.674Z"),
+        modifiedAt: new Date("2024-08-24T20:03:18.837Z"),
         id: "<value>",
-        description: "westernise whoa wildly deselect assist lounge oof revere",
+        description: "pink pro possession suburban smug actually",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          prefix: "<value>",
-          expires: {
-            ttl: 135278,
-            timeframe: "month",
-          },
-          activations: {
-            limit: 695652,
-            enableCustomerAdmin: false,
-          },
-          limitUsage: 632888,
+          repositoryOwner: "polarsource",
+          repositoryName: "private_repo",
+          permission: "maintain",
         },
       },
     ],
     pagination: {
-      totalCount: 84036,
-      maxPage: 336437,
+      totalCount: 52146,
+      maxPage: 925109,
     },
   },
 };

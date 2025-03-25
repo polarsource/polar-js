@@ -18,8 +18,8 @@ import { WebhookCustomerStateChangedPayload } from "@polar-sh/sdk/models/compone
 let value: WebhookCustomerStateChangedPayload = {
   data: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-09-26T01:09:32.384Z"),
-    modifiedAt: new Date("2024-05-17T04:48:55.010Z"),
+    createdAt: new Date("2023-02-08T12:51:00.758Z"),
+    modifiedAt: new Date("2025-09-20T05:30:40.558Z"),
     metadata: {
       "key": false,
     },
@@ -28,25 +28,25 @@ let value: WebhookCustomerStateChangedPayload = {
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "US",
+      country: "SE",
     },
     taxId: [
       "FR61954506077",
       "eu_vat",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-07-23T15:43:25.483Z"),
+    deletedAt: new Date("2025-11-20T18:50:24.078Z"),
     activeSubscriptions: [
       {
         id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
-        createdAt: new Date("2023-04-25T18:58:42.780Z"),
-        modifiedAt: new Date("2023-05-08T17:57:27.868Z"),
+        createdAt: new Date("2023-05-02T03:10:42.322Z"),
+        modifiedAt: new Date("2024-11-22T09:23:59.598Z"),
         metadata: {
-          "key": 4654,
+          "key": false,
         },
         amount: 1000,
         currency: "usd",
-        recurringInterval: "month",
+        recurringInterval: "year",
         currentPeriodStart: new Date("2025-02-03T13:37:00Z"),
         currentPeriodEnd: new Date("2025-03-03T13:37:00Z"),
         cancelAtPeriodEnd: false,
@@ -61,11 +61,11 @@ let value: WebhookCustomerStateChangedPayload = {
     grantedBenefits: [
       {
         id: "d322132c-a9d0-4e0d-b8d3-d81ad021a3a9",
-        createdAt: new Date("2024-12-28T23:02:26.348Z"),
-        modifiedAt: new Date("2024-03-16T06:00:21.666Z"),
+        createdAt: new Date("2024-10-23T05:48:28.761Z"),
+        modifiedAt: new Date("2023-05-21T07:27:39.514Z"),
         grantedAt: new Date("2025-01-03T13:37:00Z"),
         benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-        benefitType: "custom",
+        benefitType: "github_repository",
         properties: {},
       },
     ],

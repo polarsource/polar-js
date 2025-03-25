@@ -29,7 +29,6 @@ export type CheckoutUpdate = {
    */
   customFieldData?:
     | { [k: string]: string | number | boolean | Date | null }
-    | null
     | undefined;
   /**
    * ID of the product to checkout. Must be present in the checkout's product list.
@@ -46,7 +45,21 @@ export type CheckoutUpdate = {
   customerEmail?: string | null | undefined;
   customerBillingAddress?: Address | null | undefined;
   customerTaxId?: string | null | undefined;
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   /**
    * ID of the discount to apply to the checkout.
    */
@@ -252,16 +265,14 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  custom_field_data: z.nullable(
-    z.record(
-      z.nullable(
-        z.union([
-          z.string(),
-          z.number().int(),
-          z.boolean(),
-          z.string().datetime({ offset: true }).transform(v => new Date(v)),
-        ]),
-      ),
+  custom_field_data: z.record(
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.string().datetime({ offset: true }).transform(v => new Date(v)),
+      ]),
     ),
   ).optional(),
   product_id: z.nullable(z.string()).optional(),
@@ -271,9 +282,8 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   customer_email: z.nullable(z.string()).optional(),
   customer_billing_address: z.nullable(Address$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   discount_id: z.nullable(z.string()).optional(),
   allow_discount_codes: z.nullable(z.boolean()).optional(),
   customer_ip_address: z.nullable(z.string()).optional(),
@@ -304,7 +314,6 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
 export type CheckoutUpdate$Outbound = {
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
-    | null
     | undefined;
   product_id?: string | null | undefined;
   product_price_id?: string | null | undefined;
@@ -313,7 +322,7 @@ export type CheckoutUpdate$Outbound = {
   customer_email?: string | null | undefined;
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   discount_id?: string | null | undefined;
   allow_discount_codes?: boolean | null | undefined;
   customer_ip_address?: string | null | undefined;
@@ -331,16 +340,14 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutUpdate
 > = z.object({
-  customFieldData: z.nullable(
-    z.record(
-      z.nullable(
-        z.union([
-          z.string(),
-          z.number().int(),
-          z.boolean(),
-          z.date().transform(v => v.toISOString()),
-        ]),
-      ),
+  customFieldData: z.record(
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.date().transform(v => v.toISOString()),
+      ]),
     ),
   ).optional(),
   productId: z.nullable(z.string()).optional(),
@@ -350,9 +357,8 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   customerEmail: z.nullable(z.string()).optional(),
   customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   discountId: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.nullable(z.boolean()).optional(),
   customerIpAddress: z.nullable(z.string()).optional(),

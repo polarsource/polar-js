@@ -19,7 +19,21 @@ export type CustomFieldUpdateTextMetadata = string | number | boolean;
  * Schema to update a custom field of type text.
  */
 export type CustomFieldUpdateText = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
   type?: "text" | undefined;
@@ -82,9 +96,8 @@ export const CustomFieldUpdateText$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
   type: z.literal("text").optional(),
@@ -93,7 +106,7 @@ export const CustomFieldUpdateText$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomFieldUpdateText$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
   type: "text";
@@ -106,9 +119,8 @@ export const CustomFieldUpdateText$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomFieldUpdateText
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
   type: z.literal("text").default("text" as const),

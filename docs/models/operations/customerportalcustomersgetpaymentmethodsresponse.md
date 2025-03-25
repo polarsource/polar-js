@@ -11,13 +11,13 @@ let value: CustomerPortalCustomersGetPaymentMethodsResponse = {
       {
         id: "<id>",
         type: "<value>",
-        createdAt: new Date("2024-02-16T06:49:59.233Z"),
+        createdAt: new Date("2025-09-20T08:07:26.391Z"),
         default: false,
       },
     ],
     pagination: {
-      totalCount: 542838,
-      maxPage: 418580,
+      totalCount: 306525,
+      maxPage: 542927,
     },
   },
 };

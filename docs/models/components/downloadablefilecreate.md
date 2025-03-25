@@ -11,13 +11,13 @@ let value: DownloadableFileCreate = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   name: "<value>",
   mimeType: "<value>",
-  size: 627191,
+  size: 66963,
   upload: {
     parts: [
       {
-        number: 748403,
-        chunkStart: 936071,
-        chunkEnd: 982477,
+        number: 457962,
+        chunkStart: 411009,
+        chunkEnd: 549457,
       },
     ],
   },

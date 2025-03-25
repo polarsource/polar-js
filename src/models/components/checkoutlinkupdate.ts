@@ -14,7 +14,21 @@ export type CheckoutLinkUpdateMetadata = string | number | boolean;
  * Schema to update an existing checkout link.
  */
 export type CheckoutLinkUpdate = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   /**
    * List of products that will be available to select at checkout.
    */
@@ -88,9 +102,8 @@ export const CheckoutLinkUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   products: z.nullable(z.array(z.string())).optional(),
   label: z.nullable(z.string()).optional(),
   allow_discount_codes: z.nullable(z.boolean()).optional(),
@@ -106,7 +119,7 @@ export const CheckoutLinkUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutLinkUpdate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   products?: Array<string> | null | undefined;
   label?: string | null | undefined;
   allow_discount_codes?: boolean | null | undefined;
@@ -120,9 +133,8 @@ export const CheckoutLinkUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutLinkUpdate
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   products: z.nullable(z.array(z.string())).optional(),
   label: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.nullable(z.boolean()).optional(),

@@ -35,7 +35,21 @@ export type Aggregation =
   | (PropertyAggregation & { func: "sum" });
 
 export type MeterUpdate = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   /**
    * The name of the meter. Will be shown on customer's invoices and usage.
    */
@@ -192,9 +206,8 @@ export const MeterUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.nullable(z.string()).optional(),
   filter: z.nullable(Filter$inboundSchema).optional(),
   aggregation: z.nullable(
@@ -230,7 +243,7 @@ export const MeterUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type MeterUpdate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
+  metadata?: { [k: string]: string | number | boolean } | undefined;
   name?: string | null | undefined;
   filter?: Filter$Outbound | null | undefined;
   aggregation?:
@@ -249,9 +262,8 @@ export const MeterUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   MeterUpdate
 > = z.object({
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
+  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
+    .optional(),
   name: z.nullable(z.string()).optional(),
   filter: z.nullable(Filter$outboundSchema).optional(),
   aggregation: z.nullable(

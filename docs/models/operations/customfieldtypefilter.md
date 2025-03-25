@@ -8,7 +8,7 @@ Filter by custom field type.
 ### `components.CustomFieldType`
 
 ```typescript
-const value: components.CustomFieldType = "checkbox";
+const value: components.CustomFieldType = "select";
 ```
 
 ### `components.CustomFieldType[]`

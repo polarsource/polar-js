@@ -8,19 +8,19 @@ A customer session that can be used to authenticate as a customer.
 import { CustomerSession } from "@polar-sh/sdk/models/components/customersession.js";
 
 let value: CustomerSession = {
-  createdAt: new Date("2024-03-10T00:58:34.513Z"),
-  modifiedAt: new Date("2024-12-05T15:28:55.131Z"),
+  createdAt: new Date("2024-06-30T02:18:36.520Z"),
+  modifiedAt: new Date("2025-05-09T22:10:56.397Z"),
   id: "<value>",
   token: "<value>",
-  expiresAt: new Date("2023-12-23T04:40:26.461Z"),
-  customerPortalUrl: "https://hungry-status.biz/",
+  expiresAt: new Date("2024-12-13T21:12:16.851Z"),
+  customerPortalUrl: "https://some-range.info",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-11-26T18:57:13.016Z"),
-    modifiedAt: new Date("2023-10-13T06:16:43.259Z"),
+    createdAt: new Date("2023-05-13T09:45:50.507Z"),
+    modifiedAt: new Date("2024-02-21T05:09:44.984Z"),
     metadata: {
-      "key": 256699,
+      "key": false,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -34,7 +34,7 @@ let value: CustomerSession = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2024-02-15T18:11:36.520Z"),
+    deletedAt: new Date("2024-08-05T08:45:43.654Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
 };

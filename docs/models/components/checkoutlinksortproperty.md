@@ -5,7 +5,7 @@
 ```typescript
 import { CheckoutLinkSortProperty } from "@polar-sh/sdk/models/components/checkoutlinksortproperty.js";
 
-let value: CheckoutLinkSortProperty = "-label";
+let value: CheckoutLinkSortProperty = "-created_at";
 ```
 
 ## Values
