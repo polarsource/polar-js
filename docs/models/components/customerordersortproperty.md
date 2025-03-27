@@ -5,7 +5,7 @@
 ```typescript
 import { CustomerOrderSortProperty } from "@polar-sh/sdk/models/components/customerordersortproperty.js";
 
-let value: CustomerOrderSortProperty = "net_amount";
+let value: CustomerOrderSortProperty = "-product";
 ```
 
 ## Values

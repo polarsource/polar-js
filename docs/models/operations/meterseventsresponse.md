@@ -10,42 +10,42 @@ let value: MetersEventsResponse = {
     items: [
       {
         metadata: {
-          "key": false,
+          "key": 738553,
         },
         id: "<value>",
-        timestamp: new Date("2024-02-13T05:43:01.611Z"),
+        timestamp: new Date("2023-02-05T14:36:46.546Z"),
         name: "<value>",
         source: "user",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         customerId: "<value>",
         customer: {
           id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-          createdAt: new Date("2024-11-05T10:32:46.494Z"),
-          modifiedAt: new Date("2023-02-12T03:41:44.576Z"),
+          createdAt: new Date("2023-02-28T08:21:20.329Z"),
+          modifiedAt: new Date("2023-04-24T06:16:39.874Z"),
           metadata: {
-            "key": 672546,
+            "key": "<value>",
           },
           externalId: "usr_1337",
           email: "customer@example.com",
           emailVerified: true,
           name: "John Doe",
           billingAddress: {
-            country: "US",
+            country: "FR",
           },
           taxId: [
             "FR61954506077",
             "eu_vat",
           ],
           organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-          deletedAt: new Date("2025-10-21T14:53:42.812Z"),
+          deletedAt: new Date("2023-01-02T10:00:27.833Z"),
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
         },
         externalCustomerId: "<id>",
       },
     ],
     pagination: {
-      totalCount: 270448,
-      maxPage: 587684,
+      totalCount: 915155,
+      maxPage: 959773,
     },
   },
 };

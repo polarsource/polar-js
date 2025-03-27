@@ -6,29 +6,30 @@
 import { BenefitCustomSubscriber } from "@polar-sh/sdk/models/components/benefitcustomsubscriber.js";
 
 let value: BenefitCustomSubscriber = {
-  createdAt: new Date("2025-08-23T21:58:47.391Z"),
-  modifiedAt: new Date("2023-01-19T14:46:34.753Z"),
+  createdAt: new Date("2023-02-07T17:42:25.899Z"),
+  modifiedAt: new Date("2024-06-15T23:24:38.141Z"),
   id: "<value>",
-  description: "even boo however as before hoot forenenst untimely",
+  description:
+    "nervously factorize strategy comparison boohoo new during pigpen times",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2023-12-09T23:28:03.526Z"),
-    modifiedAt: new Date("2025-05-13T12:44:04.791Z"),
+    createdAt: new Date("2024-08-01T06:43:02.119Z"),
+    modifiedAt: new Date("2024-12-10T12:44:47.120Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://happy-go-lucky-pupil.com",
-    email: "Cornelius27@gmail.com",
+    avatarUrl: "https://self-reliant-bidet.net",
+    email: "Giovanni.Rempel91@hotmail.com",
     website: "<value>",
     socials: [
       {
-        platform: "other",
-        url: "https://known-jungle.info",
+        platform: "instagram",
+        url: "https://jittery-cope.name/",
       },
     ],
-    detailsSubmittedAt: new Date("2024-05-20T01:39:36.546Z"),
+    detailsSubmittedAt: new Date("2025-03-28T19:41:25.300Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -36,13 +37,13 @@ let value: BenefitCustomSubscriber = {
       prorationBehavior: "invoice",
     },
     bio: "<value>",
-    company: "Denesik - Thompson",
+    company: "Carter - Funk",
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 689973,
+    pledgeMinimumAmount: 828422,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 133334,
+    defaultUpfrontSplitToContributors: 433069,
     profileSettings: {},
   },
   properties: {

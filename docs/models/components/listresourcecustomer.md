@@ -9,30 +9,30 @@ let value: ListResourceCustomer = {
   items: [
     {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2025-02-15T22:53:05.739Z"),
-      modifiedAt: new Date("2024-07-20T13:01:21.633Z"),
+      createdAt: new Date("2025-09-17T04:38:05.058Z"),
+      modifiedAt: new Date("2023-08-01T17:02:23.069Z"),
       metadata: {
-        "key": 163795,
+        "key": false,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
       emailVerified: true,
       name: "John Doe",
       billingAddress: {
-        country: "FR",
+        country: "US",
       },
       taxId: [
-        "911144442",
-        "us_ein",
+        "FR61954506077",
+        "eu_vat",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2024-04-26T00:40:26.962Z"),
+      deletedAt: new Date("2023-06-04T18:32:11.631Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
   ],
   pagination: {
-    totalCount: 678472,
-    maxPage: 888394,
+    totalCount: 361530,
+    maxPage: 345555,
   },
 };
 ```

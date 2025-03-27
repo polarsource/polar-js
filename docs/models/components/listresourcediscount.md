@@ -8,31 +8,33 @@ import { ListResourceDiscount } from "@polar-sh/sdk/models/components/listresour
 let value: ListResourceDiscount = {
   items: [
     {
-      duration: "repeating",
+      duration: "once",
+      durationInMonths: 53834,
       type: "fixed",
-      basisPoints: 93512,
-      createdAt: new Date("2025-12-13T21:51:57.448Z"),
-      modifiedAt: new Date("2023-04-03T22:36:08.417Z"),
+      amount: 327988,
+      currency: "Djibouti Franc",
+      createdAt: new Date("2024-12-31T19:13:04.647Z"),
+      modifiedAt: new Date("2023-07-05T21:42:29.568Z"),
       id: "<value>",
       metadata: {
-        "key": 51109,
+        "key": false,
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2023-01-16T16:45:02.911Z"),
-      endsAt: new Date("2023-01-11T21:25:09.426Z"),
-      maxRedemptions: 942435,
-      redemptionsCount: 462162,
+      startsAt: new Date("2025-11-26T15:04:44.401Z"),
+      endsAt: new Date("2024-06-04T11:33:54.284Z"),
+      maxRedemptions: 51116,
+      redemptionsCount: 170634,
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       products: [
         {
-          createdAt: new Date("2024-10-21T19:47:23.356Z"),
-          modifiedAt: new Date("2023-06-04T21:18:02.417Z"),
+          createdAt: new Date("2023-10-20T19:46:22.426Z"),
+          modifiedAt: new Date("2025-08-18T01:43:29.999Z"),
           id: "<value>",
           name: "<value>",
           description:
-            "valuable accurate next possession characterization showboat",
-          recurringInterval: "year",
+            "drat typify brood anenst frantically tribe even zealous under axe",
+          recurringInterval: "month",
           isRecurring: false,
           isArchived: false,
           organizationId: "<value>",
@@ -41,8 +43,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 215727,
-    maxPage: 965909,
+    totalCount: 869340,
+    maxPage: 275420,
   },
 };
 ```

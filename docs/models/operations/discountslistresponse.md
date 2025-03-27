@@ -9,31 +9,31 @@ let value: DiscountsListResponse = {
   result: {
     items: [
       {
-        duration: "repeating",
-        durationInMonths: 204224,
-        type: "fixed",
-        basisPoints: 368846,
-        createdAt: new Date("2023-12-16T01:31:03.204Z"),
-        modifiedAt: new Date("2023-11-27T21:08:07.204Z"),
+        duration: "once",
+        type: "percentage",
+        amount: 96967,
+        currency: "Pound Sterling",
+        createdAt: new Date("2024-12-31T00:45:57.025Z"),
+        modifiedAt: new Date("2023-03-19T16:43:42.877Z"),
         id: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": false,
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2024-10-28T11:54:08.670Z"),
-        endsAt: new Date("2024-08-25T19:40:31.835Z"),
-        maxRedemptions: 61550,
-        redemptionsCount: 311725,
+        startsAt: new Date("2025-03-16T12:30:01.164Z"),
+        endsAt: new Date("2024-10-18T05:20:57.644Z"),
+        maxRedemptions: 542484,
+        redemptionsCount: 634857,
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         products: [
           {
-            createdAt: new Date("2024-01-21T02:11:47.557Z"),
-            modifiedAt: new Date("2023-05-05T10:12:38.655Z"),
+            createdAt: new Date("2025-05-15T15:55:20.769Z"),
+            modifiedAt: new Date("2023-05-19T17:15:57.061Z"),
             id: "<value>",
             name: "<value>",
             description:
-              "if dispense pillory developmental inventory coaxingly verbally",
+              "healthily heavy after unexpectedly the plain viability",
             recurringInterval: "month",
             isRecurring: false,
             isArchived: false,
@@ -43,8 +43,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 294082,
-      maxPage: 555193,
+      totalCount: 607654,
+      maxPage: 952308,
     },
   },
 };

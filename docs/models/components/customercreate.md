@@ -10,11 +10,11 @@ let value: CustomerCreate = {
   email: "customer@example.com",
   name: "John Doe",
   billingAddress: {
-    country: "FR",
+    country: "US",
   },
   taxId: [
-    "911144442",
-    "us_ein",
+    "FR61954506077",
+    "eu_vat",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };

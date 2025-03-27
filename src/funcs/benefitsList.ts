@@ -115,6 +115,7 @@ async function $do(
     "organization_id": payload.organization_id,
     "page": payload.page,
     "query": payload.query,
+    "sorting": payload.sorting,
     "type": payload.type_filter,
   });
 
@@ -129,7 +130,7 @@ async function $do(
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "benefits:list",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

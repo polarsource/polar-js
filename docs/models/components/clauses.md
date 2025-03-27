@@ -8,8 +8,8 @@
 ```typescript
 const value: components.FilterClause = {
   property: "<value>",
-  operator: "gte",
-  value: "<value>",
+  operator: "ne",
+  value: 59552,
 };
 ```
 

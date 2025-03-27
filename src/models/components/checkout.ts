@@ -133,23 +133,26 @@ export type Checkout = {
    * When checkout is embedded, represents the Origin of the page embedding the checkout. Used as a security measure to send messages only to the embedding page.
    */
   embedOrigin: string | null;
-  amount: number | null;
+  /**
+   * Amount in cents, before discounts and taxes.
+   */
+  amount: number;
   /**
    * Discount amount in cents.
    */
-  discountAmount: number | null;
+  discountAmount: number;
   /**
    * Amount in cents, after discounts but before taxes.
    */
-  netAmount: number | null;
+  netAmount: number;
   /**
-   * Sales tax amount in cents.
+   * Sales tax amount in cents. If `null`, it means there is no enough information yet to calculate it.
    */
   taxAmount: number | null;
   /**
    * Amount in cents, after discounts and taxes.
    */
-  totalAmount: number | null;
+  totalAmount: number;
   /**
    * Currency code of the checkout session.
    */
@@ -539,11 +542,11 @@ export const Checkout$inboundSchema: z.ZodType<
   expires_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   success_url: z.string(),
   embed_origin: z.nullable(z.string()),
-  amount: z.nullable(z.number().int()),
-  discount_amount: z.nullable(z.number().int()),
-  net_amount: z.nullable(z.number().int()),
+  amount: z.number().int(),
+  discount_amount: z.number().int(),
+  net_amount: z.number().int(),
   tax_amount: z.nullable(z.number().int()),
-  total_amount: z.nullable(z.number().int()),
+  total_amount: z.number().int(),
   currency: z.nullable(z.string()),
   product_id: z.string(),
   product_price_id: z.string(),
@@ -637,11 +640,11 @@ export type Checkout$Outbound = {
   expires_at: string;
   success_url: string;
   embed_origin: string | null;
-  amount: number | null;
-  discount_amount: number | null;
-  net_amount: number | null;
+  amount: number;
+  discount_amount: number;
+  net_amount: number;
   tax_amount: number | null;
-  total_amount: number | null;
+  total_amount: number;
   currency: string | null;
   product_id: string;
   product_price_id: string;
@@ -702,11 +705,11 @@ export const Checkout$outboundSchema: z.ZodType<
   expiresAt: z.date().transform(v => v.toISOString()),
   successUrl: z.string(),
   embedOrigin: z.nullable(z.string()),
-  amount: z.nullable(z.number().int()),
-  discountAmount: z.nullable(z.number().int()),
-  netAmount: z.nullable(z.number().int()),
+  amount: z.number().int(),
+  discountAmount: z.number().int(),
+  netAmount: z.number().int(),
   taxAmount: z.nullable(z.number().int()),
-  totalAmount: z.nullable(z.number().int()),
+  totalAmount: z.number().int(),
   currency: z.nullable(z.string()),
   productId: z.string(),
   productPriceId: z.string(),

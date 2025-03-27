@@ -7,6 +7,11 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
+  BenefitSortProperty,
+  BenefitSortProperty$inboundSchema,
+  BenefitSortProperty$outboundSchema,
+} from "../components/benefitsortproperty.js";
+import {
   BenefitType,
   BenefitType$inboundSchema,
   BenefitType$outboundSchema,
@@ -50,6 +55,10 @@ export type BenefitsListRequest = {
    * Size of a page, defaults to 10. Maximum is 100.
    */
   limit?: number | undefined;
+  /**
+   * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
+   */
+  sorting?: Array<BenefitSortProperty> | null | undefined;
 };
 
 export type BenefitsListResponse = {
@@ -178,6 +187,7 @@ export const BenefitsListRequest$inboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
+  sorting: z.nullable(z.array(BenefitSortProperty$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -192,6 +202,7 @@ export type BenefitsListRequest$Outbound = {
   query?: string | null | undefined;
   page: number;
   limit: number;
+  sorting?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -208,6 +219,7 @@ export const BenefitsListRequest$outboundSchema: z.ZodType<
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
+  sorting: z.nullable(z.array(BenefitSortProperty$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",

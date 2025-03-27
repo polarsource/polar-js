@@ -10,7 +10,7 @@ import { WebhookRecipient } from "../types/webhooks.js";
 export type HookContext = {
   baseURL: string | URL;
   operationID: string;
-  oAuth2Scopes?: string[];
+  oAuth2Scopes: string[] | null;
   webhookRecipient?: WebhookRecipient;
   securitySource?: any | (() => Promise<any>);
   retryConfig: RetryConfig;

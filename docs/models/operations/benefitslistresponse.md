@@ -9,23 +9,27 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-10-01T05:07:03.674Z"),
-        modifiedAt: new Date("2024-08-24T20:03:18.837Z"),
+        createdAt: new Date("2023-11-04T22:28:05.369Z"),
+        modifiedAt: new Date("2025-08-08T16:43:50.985Z"),
         id: "<value>",
-        description: "pink pro possession suburban smug actually",
+        description:
+          "surprisingly as under overcooked save importance glider concerned",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          repositoryOwner: "polarsource",
-          repositoryName: "private_repo",
-          permission: "maintain",
+          archived: {
+            "key": false,
+          },
+          files: [
+            "<value>",
+          ],
         },
       },
     ],
     pagination: {
-      totalCount: 52146,
-      maxPage: 925109,
+      totalCount: 837785,
+      maxPage: 18923,
     },
   },
 };

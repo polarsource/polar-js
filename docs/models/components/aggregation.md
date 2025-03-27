@@ -7,7 +7,7 @@
 
 ```typescript
 const value: components.PropertyAggregation = {
-  func: "max",
+  func: "sum",
   property: "<value>",
 };
 ```
@@ -22,7 +22,7 @@ const value: components.CountAggregation = {};
 
 ```typescript
 const value: components.PropertyAggregation = {
-  func: "avg",
+  func: "sum",
   property: "<value>",
 };
 ```

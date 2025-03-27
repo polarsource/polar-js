@@ -32,6 +32,12 @@ import {
   ProductPriceFreeCreate$outboundSchema,
 } from "./productpricefreecreate.js";
 import {
+  ProductPriceMeteredUnitCreate,
+  ProductPriceMeteredUnitCreate$inboundSchema,
+  ProductPriceMeteredUnitCreate$Outbound,
+  ProductPriceMeteredUnitCreate$outboundSchema,
+} from "./productpricemeteredunitcreate.js";
+import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
@@ -42,7 +48,8 @@ export type ProductCreateMetadata = string | number | boolean;
 export type ProductCreatePrices =
   | ProductPriceFreeCreate
   | ProductPriceFixedCreate
-  | ProductPriceCustomCreate;
+  | ProductPriceCustomCreate
+  | ProductPriceMeteredUnitCreate;
 
 /**
  * Schema to create a product.
@@ -79,7 +86,10 @@ export type ProductCreate = {
    * List of available prices for this product. Currently, only a single price is supported.
    */
   prices: Array<
-    ProductPriceFreeCreate | ProductPriceFixedCreate | ProductPriceCustomCreate
+    | ProductPriceFreeCreate
+    | ProductPriceFixedCreate
+    | ProductPriceCustomCreate
+    | ProductPriceMeteredUnitCreate
   >;
   /**
    * List of file IDs. Each one must be on the same organization as the product, of type `product_media` and correctly uploaded.
@@ -152,13 +162,15 @@ export const ProductCreatePrices$inboundSchema: z.ZodType<
   ProductPriceFreeCreate$inboundSchema,
   ProductPriceFixedCreate$inboundSchema,
   ProductPriceCustomCreate$inboundSchema,
+  ProductPriceMeteredUnitCreate$inboundSchema,
 ]);
 
 /** @internal */
 export type ProductCreatePrices$Outbound =
   | ProductPriceFreeCreate$Outbound
   | ProductPriceFixedCreate$Outbound
-  | ProductPriceCustomCreate$Outbound;
+  | ProductPriceCustomCreate$Outbound
+  | ProductPriceMeteredUnitCreate$Outbound;
 
 /** @internal */
 export const ProductCreatePrices$outboundSchema: z.ZodType<
@@ -169,6 +181,7 @@ export const ProductCreatePrices$outboundSchema: z.ZodType<
   ProductPriceFreeCreate$outboundSchema,
   ProductPriceFixedCreate$outboundSchema,
   ProductPriceCustomCreate$outboundSchema,
+  ProductPriceMeteredUnitCreate$outboundSchema,
 ]);
 
 /**
@@ -218,6 +231,7 @@ export const ProductCreate$inboundSchema: z.ZodType<
       ProductPriceFreeCreate$inboundSchema,
       ProductPriceFixedCreate$inboundSchema,
       ProductPriceCustomCreate$inboundSchema,
+      ProductPriceMeteredUnitCreate$inboundSchema,
     ]),
   ),
   medias: z.nullable(z.array(z.string())).optional(),
@@ -242,6 +256,7 @@ export type ProductCreate$Outbound = {
     | ProductPriceFreeCreate$Outbound
     | ProductPriceFixedCreate$Outbound
     | ProductPriceCustomCreate$Outbound
+    | ProductPriceMeteredUnitCreate$Outbound
   >;
   medias?: Array<string> | null | undefined;
   attached_custom_fields?:
@@ -266,6 +281,7 @@ export const ProductCreate$outboundSchema: z.ZodType<
       ProductPriceFreeCreate$outboundSchema,
       ProductPriceFixedCreate$outboundSchema,
       ProductPriceCustomCreate$outboundSchema,
+      ProductPriceMeteredUnitCreate$outboundSchema,
     ]),
   ),
   medias: z.nullable(z.array(z.string())).optional(),
