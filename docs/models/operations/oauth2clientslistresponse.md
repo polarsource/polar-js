@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://thin-individual.net/",
+          "https://raw-interchange.name",
         ],
         clientName: "<value>",
-        createdAt: new Date("2024-10-03T13:35:00.562Z"),
-        modifiedAt: new Date("2025-12-05T10:23:47.414Z"),
+        createdAt: new Date("2025-04-06T23:00:54.390Z"),
+        modifiedAt: new Date("2025-12-30T04:19:31.943Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 557090,
-        clientSecretExpiresAt: 782690,
+        clientIdIssuedAt: 47602,
+        clientSecretExpiresAt: 546829,
       },
     ],
     pagination: {
-      totalCount: 384705,
-      maxPage: 449095,
+      totalCount: 409380,
+      maxPage: 929452,
     },
   },
 };

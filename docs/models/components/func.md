@@ -5,7 +5,7 @@
 ```typescript
 import { Func } from "@polar-sh/sdk/models/components/propertyaggregation.js";
 
-let value: Func = "min";
+let value: Func = "max";
 ```
 
 ## Values

@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2024-07-30T06:38:24.415Z"),
-    modifiedAt: new Date("2025-07-01T11:28:21.776Z"),
+    createdAt: new Date("2025-10-18T21:22:24.698Z"),
+    modifiedAt: new Date("2025-04-22T11:09:07.785Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://mindless-sticker.com",
-    logoUri: "https://wrong-cemetery.name/",
-    tosUri: "https://ill-hubris.name",
-    policyUri: "https://present-baritone.biz/",
+    clientUri: "https://strange-makeover.biz",
+    logoUri: "https://focused-ectoderm.name",
+    tosUri: "https://breakable-impostor.info/",
+    policyUri: "https://unlawful-nightlife.net",
   },
   sub: {
     id: "<value>",
-    email: "Kelsie.Bosco@yahoo.com",
-    avatarUrl: "https://authentic-attraction.net/",
+    email: "Dariana.Goldner@yahoo.com",
+    avatarUrl: "https://alienated-rawhide.com/",
   },
   scopes: [
-    "files:write",
+    "customer_portal:write",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2025-10-19T23:59:57.430Z"),
-    modifiedAt: new Date("2023-09-27T07:12:55.319Z"),
+    createdAt: new Date("2025-12-24T02:34:24.050Z"),
+    modifiedAt: new Date("2024-04-04T20:58:22.098Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://amused-muscat.name/",
-    logoUri: "https://inborn-carnival.com/",
-    tosUri: "https://gigantic-euphonium.name",
-    policyUri: "https://aggressive-excess.org/",
+    clientUri: "https://strident-ravioli.org/",
+    logoUri: "https://wee-negotiation.name/",
+    tosUri: "https://finished-gallery.org",
+    policyUri: "https://trained-effector.com",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://urban-corporation.net",
+    avatarUrl: "https://far-flung-kick.biz/",
   },
   scopes: [
-    "meters:read",
+    "orders:read",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://proud-numeracy.com/",
+      avatarUrl: "https://scornful-railway.name",
     },
   ],
 };

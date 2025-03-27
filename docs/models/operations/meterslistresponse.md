@@ -9,8 +9,8 @@ let value: MetersListResponse = {
   result: {
     items: [],
     pagination: {
-      totalCount: 392271,
-      maxPage: 424011,
+      totalCount: 899890,
+      maxPage: 522163,
     },
   },
 };

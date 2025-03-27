@@ -10,30 +10,30 @@ let value: CustomersListResponse = {
     items: [
       {
         id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-        createdAt: new Date("2023-11-11T05:18:13.495Z"),
-        modifiedAt: new Date("2023-02-10T18:24:05.857Z"),
+        createdAt: new Date("2024-11-20T08:59:09.777Z"),
+        modifiedAt: new Date("2025-06-12T22:18:05.181Z"),
         metadata: {
-          "key": 542756,
+          "key": false,
         },
         externalId: "usr_1337",
         email: "customer@example.com",
         emailVerified: true,
         name: "John Doe",
         billingAddress: {
-          country: "US",
+          country: "FR",
         },
         taxId: [
-          "FR61954506077",
-          "eu_vat",
+          "911144442",
+          "us_ein",
         ],
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        deletedAt: new Date("2023-12-25T14:48:15.096Z"),
+        deletedAt: new Date("2023-12-18T08:55:56.473Z"),
         avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
       },
     ],
     pagination: {
-      totalCount: 810409,
-      maxPage: 354624,
+      totalCount: 249867,
+      maxPage: 31072,
     },
   },
 };

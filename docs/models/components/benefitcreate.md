@@ -7,7 +7,7 @@
 
 ```typescript
 const value: components.BenefitCustomCreate = {
-  description: "interestingly gape notwithstanding onto fortunately",
+  description: "shout conclude twist provided charter motionless up chapel",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
 };
@@ -17,7 +17,8 @@ const value: components.BenefitCustomCreate = {
 
 ```typescript
 const value: components.BenefitDiscordCreate = {
-  description: "motionless up chapel",
+  description:
+    "blank waft tabletop jealously liberalize monthly large democratize",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     guildToken: "<value>",
@@ -30,8 +31,7 @@ const value: components.BenefitDiscordCreate = {
 
 ```typescript
 const value: components.BenefitDownloadablesCreate = {
-  description:
-    "blank waft tabletop jealously liberalize monthly large democratize",
+  description: "once numeracy horde bore rotten fooey now",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     files: [
@@ -45,7 +45,7 @@ const value: components.BenefitDownloadablesCreate = {
 
 ```typescript
 const value: components.BenefitGitHubRepositoryCreate = {
-  description: "once numeracy horde bore rotten fooey now",
+  description: "meanwhile although phew yowza slump why triumphantly footrest",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     repositoryOwner: "polarsource",
@@ -59,7 +59,7 @@ const value: components.BenefitGitHubRepositoryCreate = {
 
 ```typescript
 const value: components.BenefitLicenseKeysCreate = {
-  description: "oh atomize fishery",
+  description: "notwithstanding cycle intelligent",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
 };

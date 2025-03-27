@@ -13,8 +13,8 @@ let value: CustomerUpdate = {
     country: "SE",
   },
   taxId: [
-    "FR61954506077",
-    "eu_vat",
+    "911144442",
+    "us_ein",
   ],
 };
 ```

@@ -9,7 +9,7 @@ import { BenefitCustomCreate } from "@polar-sh/sdk/models/components/benefitcust
 
 let value: BenefitCustomCreate = {
   description:
-    "noisily delightfully ill-fated phooey baritone notwithstanding cycle intelligent upwardly where",
+    "as phooey an emergent see yuck zowie recommendation smooth since",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
 };

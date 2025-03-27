@@ -9,21 +9,21 @@ let value: OrganizationsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-10-16T01:02:51.856Z"),
-        modifiedAt: new Date("2024-11-12T14:45:50.022Z"),
+        createdAt: new Date("2024-08-24T20:03:18.837Z"),
+        modifiedAt: new Date("2024-06-14T11:17:00.227Z"),
         id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         name: "<value>",
         slug: "<value>",
-        avatarUrl: "https://murky-mouser.net",
-        email: "Melyssa3@hotmail.com",
+        avatarUrl: "https://frizzy-toaster.org",
+        email: "Leopold.Fisher@yahoo.com",
         website: "<value>",
         socials: [
           {
-            platform: "tiktok",
-            url: "https://jaunty-allegation.com/",
+            platform: "other",
+            url: "https://shameful-consistency.org",
           },
         ],
-        detailsSubmittedAt: new Date("2024-08-26T02:17:15.307Z"),
+        detailsSubmittedAt: new Date("2025-05-20T04:09:40.373Z"),
         featureSettings: {},
         subscriptionSettings: {
           allowMultipleSubscriptions: false,
@@ -31,19 +31,19 @@ let value: OrganizationsListResponse = {
           prorationBehavior: "invoice",
         },
         bio: "<value>",
-        company: "West - O'Hara",
+        company: "Little, Predovic and Shanahan",
         blog: "<value>",
         location: "<value>",
         twitterUsername: "<value>",
-        pledgeMinimumAmount: 43285,
+        pledgeMinimumAmount: 230328,
         pledgeBadgeShowAmount: false,
-        defaultUpfrontSplitToContributors: 296266,
+        defaultUpfrontSplitToContributors: 343271,
         profileSettings: {},
       },
     ],
     pagination: {
-      totalCount: 182953,
-      maxPage: 958209,
+      totalCount: 806742,
+      maxPage: 371215,
     },
   },
 };

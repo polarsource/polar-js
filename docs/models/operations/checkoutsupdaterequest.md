@@ -9,7 +9,7 @@ let value: CheckoutsUpdateRequest = {
   id: "<value>",
   checkoutUpdate: {
     customerBillingAddress: {
-      country: "US",
+      country: "FR",
     },
   },
 };

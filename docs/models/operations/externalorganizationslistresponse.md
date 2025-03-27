@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "540c7432-f944-4fa2-ac6a-921c3b0f86c6",
+        id: "55620974-7169-4e73-a73e-e0b7d950e941",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://upset-mantua.net/",
+        avatarUrl: "https://poor-adviser.org",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Johnston, Braun and Bartoletti",
+        company: "Bins LLC",
         blog: "<value>",
         location: "<value>",
-        email: "King16@yahoo.com",
+        email: "German90@yahoo.com",
         twitterUsername: "<value>",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       },
     ],
     pagination: {
-      totalCount: 177033,
-      maxPage: 537274,
+      totalCount: 332956,
+      maxPage: 290320,
     },
   },
 };
