@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://raw-interchange.name",
+          "https://grumpy-moment.com/",
         ],
         clientName: "<value>",
-        createdAt: new Date("2025-04-06T23:00:54.390Z"),
-        modifiedAt: new Date("2025-12-30T04:19:31.943Z"),
+        createdAt: new Date("2025-09-04T21:49:33.036Z"),
+        modifiedAt: new Date("2025-11-24T15:40:34.778Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 47602,
-        clientSecretExpiresAt: 546829,
+        clientIdIssuedAt: 538184,
+        clientSecretExpiresAt: 827911,
       },
     ],
     pagination: {
-      totalCount: 409380,
-      maxPage: 929452,
+      totalCount: 491684,
+      maxPage: 95666,
     },
   },
 };

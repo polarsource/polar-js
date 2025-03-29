@@ -6,7 +6,9 @@
 import { CustomerPortalSubscriptionsListRequest } from "@polar-sh/sdk/models/operations/customerportalsubscriptionslist.js";
 
 let value: CustomerPortalSubscriptionsListRequest = {
-  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  organizationId: [
+    "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  ],
 };
 ```
 

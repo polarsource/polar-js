@@ -8,33 +8,33 @@ A customer session that can be used to authenticate as a customer.
 import { CustomerSession } from "@polar-sh/sdk/models/components/customersession.js";
 
 let value: CustomerSession = {
-  createdAt: new Date("2024-09-15T08:24:23.778Z"),
-  modifiedAt: new Date("2023-05-10T09:13:59.221Z"),
+  createdAt: new Date("2023-04-25T07:49:56.848Z"),
+  modifiedAt: new Date("2023-02-06T23:30:01.627Z"),
   id: "<value>",
   token: "<value>",
-  expiresAt: new Date("2025-12-07T10:08:59.384Z"),
-  customerPortalUrl: "https://entire-suitcase.net/",
+  expiresAt: new Date("2024-06-02T15:24:34.415Z"),
+  customerPortalUrl: "https://hairy-juggernaut.com",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-06-24T15:37:26.078Z"),
-    modifiedAt: new Date("2025-08-20T09:00:03.223Z"),
+    createdAt: new Date("2023-06-27T10:23:07.802Z"),
+    modifiedAt: new Date("2025-09-17T06:24:00.140Z"),
     metadata: {
-      "key": 26441,
+      "key": "<value>",
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "FR",
+      country: "SE",
     },
     taxId: [
       "911144442",
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-12-21T08:10:48.729Z"),
+    deletedAt: new Date("2025-11-06T05:51:47.281Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
 };

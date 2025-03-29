@@ -9,32 +9,31 @@ let value: DiscountsListResponse = {
   result: {
     items: [
       {
-        duration: "once",
-        type: "percentage",
-        amount: 96967,
-        currency: "Pound Sterling",
-        createdAt: new Date("2024-12-31T00:45:57.025Z"),
-        modifiedAt: new Date("2023-03-19T16:43:42.877Z"),
+        duration: "forever",
+        durationInMonths: 811176,
+        type: "fixed",
+        basisPoints: 112847,
+        createdAt: new Date("2024-07-15T05:55:01.936Z"),
+        modifiedAt: new Date("2024-07-28T16:45:50.465Z"),
         id: "<value>",
         metadata: {
-          "key": false,
+          "key": 121331,
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2025-03-16T12:30:01.164Z"),
-        endsAt: new Date("2024-10-18T05:20:57.644Z"),
-        maxRedemptions: 542484,
-        redemptionsCount: 634857,
+        startsAt: new Date("2023-02-09T03:52:41.491Z"),
+        endsAt: new Date("2023-02-10T01:08:58.558Z"),
+        maxRedemptions: 112541,
+        redemptionsCount: 28143,
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         products: [
           {
-            createdAt: new Date("2025-05-15T15:55:20.769Z"),
-            modifiedAt: new Date("2023-05-19T17:15:57.061Z"),
+            createdAt: new Date("2025-01-24T01:46:25.150Z"),
+            modifiedAt: new Date("2025-10-24T05:07:27.834Z"),
             id: "<value>",
             name: "<value>",
-            description:
-              "healthily heavy after unexpectedly the plain viability",
-            recurringInterval: "month",
+            description: "accountability saw drag ravage",
+            recurringInterval: "year",
             isRecurring: false,
             isArchived: false,
             organizationId: "<value>",
@@ -43,8 +42,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 607654,
-      maxPage: 952308,
+      totalCount: 461339,
+      maxPage: 565818,
     },
   },
 };

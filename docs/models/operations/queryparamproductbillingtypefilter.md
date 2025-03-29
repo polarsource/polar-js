@@ -8,7 +8,7 @@ Filter by billing type. `recurring` will filter data corresponding to subscripti
 ### `components.ProductBillingType`
 
 ```typescript
-const value: components.ProductBillingType = "recurring";
+const value: components.ProductBillingType = "one_time";
 ```
 
 ### `components.ProductBillingType[]`

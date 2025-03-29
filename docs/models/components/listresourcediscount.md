@@ -9,31 +9,28 @@ let value: ListResourceDiscount = {
   items: [
     {
       duration: "once",
-      durationInMonths: 53834,
-      type: "fixed",
-      amount: 327988,
-      currency: "Djibouti Franc",
-      createdAt: new Date("2024-12-31T19:13:04.647Z"),
-      modifiedAt: new Date("2023-07-05T21:42:29.568Z"),
+      type: "percentage",
+      basisPoints: 857502,
+      createdAt: new Date("2024-05-16T11:26:11.280Z"),
+      modifiedAt: new Date("2025-05-17T20:32:17.192Z"),
       id: "<value>",
       metadata: {
         "key": false,
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2025-11-26T15:04:44.401Z"),
-      endsAt: new Date("2024-06-04T11:33:54.284Z"),
-      maxRedemptions: 51116,
-      redemptionsCount: 170634,
+      startsAt: new Date("2024-09-14T18:42:51.260Z"),
+      endsAt: new Date("2025-10-01T16:38:34.857Z"),
+      maxRedemptions: 416975,
+      redemptionsCount: 811865,
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       products: [
         {
-          createdAt: new Date("2023-10-20T19:46:22.426Z"),
-          modifiedAt: new Date("2025-08-18T01:43:29.999Z"),
+          createdAt: new Date("2025-05-05T14:38:18.417Z"),
+          modifiedAt: new Date("2025-02-26T22:43:52.910Z"),
           id: "<value>",
           name: "<value>",
-          description:
-            "drat typify brood anenst frantically tribe even zealous under axe",
+          description: "portray state hm what seemingly idolized",
           recurringInterval: "month",
           isRecurring: false,
           isArchived: false,
@@ -43,8 +40,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 869340,
-    maxPage: 275420,
+    totalCount: 944955,
+    maxPage: 989504,
   },
 };
 ```
