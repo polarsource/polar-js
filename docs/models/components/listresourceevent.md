@@ -9,20 +9,20 @@ let value: ListResourceEvent = {
   items: [
     {
       metadata: {
-        "key": false,
+        "key": "<value>",
       },
       id: "<value>",
-      timestamp: new Date("2024-11-12T14:45:50.022Z"),
+      timestamp: new Date("2023-09-10T07:38:30.814Z"),
       name: "<value>",
-      source: "user",
+      source: "system",
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       customerId: "<value>",
       customer: {
         id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-        createdAt: new Date("2024-08-07T19:18:35.830Z"),
-        modifiedAt: new Date("2024-10-09T04:06:47.415Z"),
+        createdAt: new Date("2024-01-31T22:05:16.754Z"),
+        modifiedAt: new Date("2023-04-16T17:08:57.790Z"),
         metadata: {
-          "key": false,
+          "key": "<value>",
         },
         externalId: "usr_1337",
         email: "customer@example.com",
@@ -32,19 +32,19 @@ let value: ListResourceEvent = {
           country: "FR",
         },
         taxId: [
-          "FR61954506077",
-          "eu_vat",
+          "911144442",
+          "us_ein",
         ],
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        deletedAt: new Date("2023-01-31T20:09:40.406Z"),
+        deletedAt: new Date("2023-06-25T06:59:48.938Z"),
         avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
       },
       externalCustomerId: "<id>",
     },
   ],
   pagination: {
-    totalCount: 356994,
-    maxPage: 773610,
+    totalCount: 917179,
+    maxPage: 723588,
   },
 };
 ```

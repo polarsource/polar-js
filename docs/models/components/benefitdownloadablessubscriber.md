@@ -6,30 +6,30 @@
 import { BenefitDownloadablesSubscriber } from "@polar-sh/sdk/models/components/benefitdownloadablessubscriber.js";
 
 let value: BenefitDownloadablesSubscriber = {
-  createdAt: new Date("2024-12-08T03:23:35.917Z"),
-  modifiedAt: new Date("2024-07-20T20:09:55.663Z"),
+  createdAt: new Date("2024-11-18T18:24:36.305Z"),
+  modifiedAt: new Date("2024-10-03T06:41:29.849Z"),
   id: "<value>",
   description:
-    "whose proliferate apud hefty bakeware why carefree dependable squeaky freely",
+    "for nucleotidase nor gullible cake aha valentine apud scoop triumphantly",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2025-02-09T20:20:37.854Z"),
-    modifiedAt: new Date("2023-06-21T10:04:50.151Z"),
+    createdAt: new Date("2025-09-13T06:06:42.185Z"),
+    modifiedAt: new Date("2025-10-09T00:59:04.462Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://torn-mentor.biz",
-    email: "Darron_Kiehn45@hotmail.com",
+    avatarUrl: "https://descriptive-seagull.com",
+    email: "Kirstin_Lubowitz3@hotmail.com",
     website: "<value>",
     socials: [
       {
         platform: "linkedin",
-        url: "https://unconscious-slipper.org/",
+        url: "https://strident-pressure.name/",
       },
     ],
-    detailsSubmittedAt: new Date("2023-12-11T02:29:40.537Z"),
+    detailsSubmittedAt: new Date("2023-04-26T00:53:32.713Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -37,13 +37,13 @@ let value: BenefitDownloadablesSubscriber = {
       prorationBehavior: "invoice",
     },
     bio: "<value>",
-    company: "Pfeffer - Crona",
+    company: "Walsh Group",
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 167831,
+    pledgeMinimumAmount: 422241,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 230393,
+    defaultUpfrontSplitToContributors: 641688,
     profileSettings: {},
   },
   properties: {

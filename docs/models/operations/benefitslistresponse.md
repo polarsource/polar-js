@@ -9,27 +9,22 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-11-04T22:28:05.369Z"),
-        modifiedAt: new Date("2025-08-08T16:43:50.985Z"),
+        createdAt: new Date("2024-01-04T17:38:06.749Z"),
+        modifiedAt: new Date("2023-02-22T10:37:19.141Z"),
         id: "<value>",
-        description:
-          "surprisingly as under overcooked save importance glider concerned",
+        description: "exonerate slap opposite seafood",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          archived: {
-            "key": false,
-          },
-          files: [
-            "<value>",
-          ],
+          note: "<value>",
         },
+        isTaxApplicable: false,
       },
     ],
     pagination: {
-      totalCount: 837785,
-      maxPage: 18923,
+      totalCount: 852353,
+      maxPage: 591309,
     },
   },
 };

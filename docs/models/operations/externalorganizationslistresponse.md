@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "55620974-7169-4e73-a73e-e0b7d950e941",
+        id: "f0aa6a6f-7deb-4ab2-9476-25b0a5e4fd3e",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://poor-adviser.org",
+        avatarUrl: "https://irresponsible-coin.name/",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Bins LLC",
+        company: "Wisozk - Jones",
         blog: "<value>",
         location: "<value>",
-        email: "German90@yahoo.com",
+        email: "Eloisa32@hotmail.com",
         twitterUsername: "<value>",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       },
     ],
     pagination: {
-      totalCount: 332956,
-      maxPage: 290320,
+      totalCount: 105783,
+      maxPage: 73536,
     },
   },
 };

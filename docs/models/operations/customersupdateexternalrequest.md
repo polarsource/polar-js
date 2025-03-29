@@ -12,11 +12,11 @@ let value: CustomersUpdateExternalRequest = {
     email: "customer@example.com",
     name: "John Doe",
     billingAddress: {
-      country: "US",
+      country: "SE",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
   },
 };

@@ -29,7 +29,6 @@ const value: components.ProductPriceFreeCreate = {};
 const value: components.ProductPriceMeteredUnitCreate = {
   meterId: "<value>",
   unitAmount: 823722,
-  includedUnits: 290227,
 };
 ```
 

@@ -28,7 +28,7 @@ export type ProductPriceMeteredUnitCreate = {
   /**
    * The number of units included in the price. They will be deducted from the total.
    */
-  includedUnits: number;
+  includedUnits?: number | undefined;
   /**
    * Optional maximum amount in cents that can be charged, regardless of the number of units consumed.
    */
@@ -45,7 +45,7 @@ export const ProductPriceMeteredUnitCreate$inboundSchema: z.ZodType<
   meter_id: z.string(),
   price_currency: z.string().default("usd"),
   unit_amount: z.number().int(),
-  included_units: z.number().int(),
+  included_units: z.number().int().default(0),
   cap_amount: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -78,7 +78,7 @@ export const ProductPriceMeteredUnitCreate$outboundSchema: z.ZodType<
   meterId: z.string(),
   priceCurrency: z.string().default("usd"),
   unitAmount: z.number().int(),
-  includedUnits: z.number().int(),
+  includedUnits: z.number().int().default(0),
   capAmount: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {

@@ -8,8 +8,8 @@
 ```typescript
 const value: components.DiscountFixedOnceForeverDurationCreate = {
   duration: "forever",
-  type: "percentage",
-  amount: 142889,
+  type: "fixed",
+  amount: 724676,
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
@@ -19,10 +19,10 @@ const value: components.DiscountFixedOnceForeverDurationCreate = {
 
 ```typescript
 const value: components.DiscountFixedRepeatDurationCreate = {
-  duration: "forever",
-  durationInMonths: 202907,
+  duration: "once",
+  durationInMonths: 305662,
   type: "fixed",
-  amount: 445060,
+  amount: 747290,
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
@@ -32,9 +32,9 @@ const value: components.DiscountFixedRepeatDurationCreate = {
 
 ```typescript
 const value: components.DiscountPercentageOnceForeverDurationCreate = {
-  duration: "forever",
+  duration: "repeating",
   type: "fixed",
-  basisPoints: 595522,
+  basisPoints: 561677,
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
@@ -44,10 +44,10 @@ const value: components.DiscountPercentageOnceForeverDurationCreate = {
 
 ```typescript
 const value: components.DiscountPercentageRepeatDurationCreate = {
-  duration: "forever",
-  durationInMonths: 408535,
-  type: "fixed",
-  basisPoints: 333927,
+  duration: "repeating",
+  durationInMonths: 871210,
+  type: "percentage",
+  basisPoints: 258996,
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };

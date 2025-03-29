@@ -9,11 +9,11 @@ let value: CustomerPortalBenefitGrantsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-11-20T07:43:39.299Z"),
-        modifiedAt: new Date("2025-05-17T00:38:55.045Z"),
+        createdAt: new Date("2024-08-13T09:05:48.830Z"),
+        modifiedAt: new Date("2024-03-31T22:54:18.001Z"),
         id: "<value>",
-        grantedAt: new Date("2023-08-03T01:24:03.604Z"),
-        revokedAt: new Date("2024-04-12T14:05:02.894Z"),
+        grantedAt: new Date("2023-09-29T10:20:06.709Z"),
+        revokedAt: new Date("2024-06-24T08:32:46.463Z"),
         customerId: "<value>",
         benefitId: "<value>",
         subscriptionId: "<value>",
@@ -21,18 +21,18 @@ let value: CustomerPortalBenefitGrantsListResponse = {
         isGranted: false,
         isRevoked: false,
         customer: {
-          createdAt: new Date("2025-12-23T03:06:01.181Z"),
-          modifiedAt: new Date("2024-03-27T12:47:48.745Z"),
+          createdAt: new Date("2025-08-29T03:02:44.062Z"),
+          modifiedAt: new Date("2025-08-18T00:45:54.098Z"),
           id: "<value>",
-          email: "Halie_Leuschke@yahoo.com",
+          email: "Felton_Rutherford90@hotmail.com",
           emailVerified: false,
           name: "<value>",
           billingAddress: {
             country: "SE",
           },
           taxId: [
-            "911144442",
-            "us_ein",
+            "FR61954506077",
+            "eu_vat",
           ],
           oauthAccounts: {
             "key": {
@@ -42,45 +42,46 @@ let value: CustomerPortalBenefitGrantsListResponse = {
           },
         },
         benefit: {
-          createdAt: new Date("2024-03-26T12:38:41.209Z"),
-          modifiedAt: new Date("2025-11-24T06:43:52.548Z"),
+          createdAt: new Date("2023-08-08T20:48:50.504Z"),
+          modifiedAt: new Date("2025-11-03T16:35:05.103Z"),
           id: "<value>",
-          description: "pfft waver ouch yowza how",
+          description:
+            "spice basic phooey exaggerate frightfully travel er ugh",
           selectable: false,
           deletable: false,
           organizationId: "<value>",
           organization: {
-            createdAt: new Date("2023-06-06T12:57:12.595Z"),
-            modifiedAt: new Date("2023-07-05T05:14:36.043Z"),
+            createdAt: new Date("2024-06-13T14:36:55.399Z"),
+            modifiedAt: new Date("2023-06-24T12:40:04.159Z"),
             id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
             name: "<value>",
             slug: "<value>",
-            avatarUrl: "https://stained-fundraising.biz",
-            email: "Leola.Rath26@hotmail.com",
+            avatarUrl: "https://watery-cope.name/",
+            email: "Noemie_Rempel@hotmail.com",
             website: "<value>",
             socials: [
               {
-                platform: "instagram",
-                url: "https://defensive-begonia.biz/",
+                platform: "github",
+                url: "https://vast-worth.org/",
               },
             ],
-            detailsSubmittedAt: new Date("2024-02-15T06:00:45.519Z"),
+            detailsSubmittedAt: new Date("2023-11-22T06:39:10.655Z"),
             featureSettings: {
               issueFundingEnabled: false,
             },
             subscriptionSettings: {
               allowMultipleSubscriptions: false,
               allowCustomerUpdates: false,
-              prorationBehavior: "prorate",
+              prorationBehavior: "invoice",
             },
             bio: "<value>",
-            company: "Jacobson LLC",
+            company: "Thompson LLC",
             blog: "<value>",
             location: "<value>",
             twitterUsername: "<value>",
-            pledgeMinimumAmount: 225824,
+            pledgeMinimumAmount: 542120,
             pledgeBadgeShowAmount: false,
-            defaultUpfrontSplitToContributors: 338978,
+            defaultUpfrontSplitToContributors: 264047,
             profileSettings: {},
           },
           properties: {
@@ -91,8 +92,8 @@ let value: CustomerPortalBenefitGrantsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 548022,
-      maxPage: 492688,
+      totalCount: 11004,
+      maxPage: 655937,
     },
   },
 };

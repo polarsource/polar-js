@@ -7,8 +7,8 @@ import { MetersQuantitiesRequest } from "@polar-sh/sdk/models/operations/metersq
 
 let value: MetersQuantitiesRequest = {
   id: "<value>",
-  startTimestamp: new Date("2025-11-30T02:02:23.848Z"),
-  endTimestamp: new Date("2024-03-05T22:22:45.695Z"),
+  startTimestamp: new Date("2025-09-23T02:05:01.499Z"),
+  endTimestamp: new Date("2025-02-14T03:35:30.276Z"),
   interval: "month",
 };
 ```

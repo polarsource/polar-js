@@ -6,30 +6,29 @@
 import { BenefitGitHubRepositorySubscriber } from "@polar-sh/sdk/models/components/benefitgithubrepositorysubscriber.js";
 
 let value: BenefitGitHubRepositorySubscriber = {
-  createdAt: new Date("2024-08-23T10:15:12.130Z"),
-  modifiedAt: new Date("2023-02-24T19:05:40.409Z"),
+  createdAt: new Date("2025-03-14T12:56:53.269Z"),
+  modifiedAt: new Date("2025-07-23T05:17:11.148Z"),
   id: "<value>",
-  description:
-    "regularly skyscraper alongside idealistic colorfully below accompany coaxingly",
+  description: "daintily synergy yearn too fervently toward among",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2025-02-03T12:58:34.917Z"),
-    modifiedAt: new Date("2025-12-24T14:46:09.468Z"),
+    createdAt: new Date("2024-09-17T16:51:01.606Z"),
+    modifiedAt: new Date("2025-10-06T18:59:00.388Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://snarling-peninsula.info/",
-    email: "Haley57@gmail.com",
+    avatarUrl: "https://radiant-strait.net",
+    email: "Prudence54@yahoo.com",
     website: "<value>",
     socials: [
       {
-        platform: "youtube",
-        url: "https://well-documented-cook.com/",
+        platform: "tiktok",
+        url: "https://faint-programme.com/",
       },
     ],
-    detailsSubmittedAt: new Date("2024-02-02T05:55:21.427Z"),
+    detailsSubmittedAt: new Date("2023-10-14T09:08:59.998Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -37,13 +36,13 @@ let value: BenefitGitHubRepositorySubscriber = {
       prorationBehavior: "invoice",
     },
     bio: "<value>",
-    company: "Luettgen, Schoen and Runte",
+    company: "Bechtelar, Hegmann and Kautzer",
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 402226,
+    pledgeMinimumAmount: 73292,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 74649,
+    defaultUpfrontSplitToContributors: 458401,
     profileSettings: {},
   },
   properties: {

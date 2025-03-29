@@ -10,9 +10,9 @@ import { DiscountFixedRepeatDurationCreate } from "@polar-sh/sdk/models/componen
 
 let value: DiscountFixedRepeatDurationCreate = {
   duration: "once",
-  durationInMonths: 523516,
+  durationInMonths: 410869,
   type: "fixed",
-  amount: 949769,
+  amount: 653390,
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };

@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-01-04T02:48:29.766Z"),
-        modifiedAt: new Date("2025-11-19T09:00:19.356Z"),
+        createdAt: new Date("2024-01-06T12:13:28.450Z"),
+        modifiedAt: new Date("2025-08-22T16:23:18.387Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -21,32 +21,32 @@ let value: BenefitsGrantsResponse = {
         benefitId: "<value>",
         customer: {
           id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-          createdAt: new Date("2023-03-30T16:27:34.642Z"),
-          modifiedAt: new Date("2023-01-11T02:56:26.303Z"),
+          createdAt: new Date("2023-06-18T06:39:45.655Z"),
+          modifiedAt: new Date("2023-10-16T19:50:16.042Z"),
           metadata: {
-            "key": false,
+            "key": "<value>",
           },
           externalId: "usr_1337",
           email: "customer@example.com",
           emailVerified: true,
           name: "John Doe",
           billingAddress: {
-            country: "FR",
+            country: "SE",
           },
           taxId: [
             "911144442",
             "us_ein",
           ],
           organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-          deletedAt: new Date("2024-01-15T03:27:12.416Z"),
+          deletedAt: new Date("2025-12-06T06:30:21.750Z"),
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
         },
         properties: {},
       },
     ],
     pagination: {
-      totalCount: 838539,
-      maxPage: 57801,
+      totalCount: 905909,
+      maxPage: 202604,
     },
   },
 };

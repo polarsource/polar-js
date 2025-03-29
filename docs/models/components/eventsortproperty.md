@@ -5,7 +5,7 @@
 ```typescript
 import { EventSortProperty } from "@polar-sh/sdk/models/components/eventsortproperty.js";
 
-let value: EventSortProperty = "-timestamp";
+let value: EventSortProperty = "timestamp";
 ```
 
 ## Values

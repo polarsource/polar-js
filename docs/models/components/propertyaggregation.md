@@ -6,7 +6,7 @@
 import { PropertyAggregation } from "@polar-sh/sdk/models/components/propertyaggregation.js";
 
 let value: PropertyAggregation = {
-  func: "min",
+  func: "sum",
   property: "<value>",
 };
 ```
