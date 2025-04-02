@@ -7,7 +7,7 @@ import { OrganizationSocialLink } from "@polar-sh/sdk/models/components/organiza
 
 let value: OrganizationSocialLink = {
   platform: "linkedin",
-  url: "https://worthwhile-pepper.org/",
+  url: "https://alarmed-metal.info",
 };
 ```
 

@@ -22,7 +22,7 @@ const value: components.BenefitGitHubRepositoryUpdate = {
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "triage",
+    permission: "maintain",
   },
 };
 ```
@@ -37,5 +37,11 @@ const value: components.BenefitDownloadablesUpdate = {};
 
 ```typescript
 const value: components.BenefitLicenseKeysUpdate = {};
+```
+
+### `components.BenefitMeterCreditUpdate`
+
+```typescript
+const value: components.BenefitMeterCreditUpdate = {};
 ```
 

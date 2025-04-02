@@ -36,13 +36,20 @@ import {
   BenefitLicenseKeysCreate$Outbound,
   BenefitLicenseKeysCreate$outboundSchema,
 } from "./benefitlicensekeyscreate.js";
+import {
+  BenefitMeterCreditCreate,
+  BenefitMeterCreditCreate$inboundSchema,
+  BenefitMeterCreditCreate$Outbound,
+  BenefitMeterCreditCreate$outboundSchema,
+} from "./benefitmetercreditcreate.js";
 
 export type BenefitCreate =
   | (BenefitCustomCreate & { type: "custom" })
   | (BenefitDiscordCreate & { type: "discord" })
   | (BenefitDownloadablesCreate & { type: "downloadables" })
   | (BenefitGitHubRepositoryCreate & { type: "github_repository" })
-  | (BenefitLicenseKeysCreate & { type: "license_keys" });
+  | (BenefitLicenseKeysCreate & { type: "license_keys" })
+  | (BenefitMeterCreditCreate & { type: "meter_credit" });
 
 /** @internal */
 export const BenefitCreate$inboundSchema: z.ZodType<
@@ -75,6 +82,11 @@ export const BenefitCreate$inboundSchema: z.ZodType<
       type: v.type,
     })),
   ),
+  BenefitMeterCreditCreate$inboundSchema.and(
+    z.object({ type: z.literal("meter_credit") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
 ]);
 
 /** @internal */
@@ -83,7 +95,8 @@ export type BenefitCreate$Outbound =
   | (BenefitDiscordCreate$Outbound & { type: "discord" })
   | (BenefitDownloadablesCreate$Outbound & { type: "downloadables" })
   | (BenefitGitHubRepositoryCreate$Outbound & { type: "github_repository" })
-  | (BenefitLicenseKeysCreate$Outbound & { type: "license_keys" });
+  | (BenefitLicenseKeysCreate$Outbound & { type: "license_keys" })
+  | (BenefitMeterCreditCreate$Outbound & { type: "meter_credit" });
 
 /** @internal */
 export const BenefitCreate$outboundSchema: z.ZodType<
@@ -113,6 +126,11 @@ export const BenefitCreate$outboundSchema: z.ZodType<
   ),
   BenefitLicenseKeysCreate$outboundSchema.and(
     z.object({ type: z.literal("license_keys") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
+  BenefitMeterCreditCreate$outboundSchema.and(
+    z.object({ type: z.literal("meter_credit") }).transform((v) => ({
       type: v.type,
     })),
   ),

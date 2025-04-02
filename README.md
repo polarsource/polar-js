@@ -568,8 +568,7 @@ async function run() {
         recurringInterval: "month",
         priceCurrency: "<value>",
         unitAmount: 199664,
-        includedUnits: 440790,
-        capAmount: 856200,
+        capAmount: 440790,
         meterId: "<value>",
         meter: {
           id: "<value>",
@@ -589,11 +588,11 @@ async function run() {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2025-05-25T15:20:50.694Z"),
-            modifiedAt: new Date("2024-11-27T14:29:40.329Z"),
+            createdAt: new Date("2023-01-25T05:44:56.791Z"),
+            modifiedAt: new Date("2025-05-25T15:20:50.694Z"),
             id: "<value>",
             metadata: {
-              "key": false,
+              "key": 993705,
             },
             slug: "<value>",
             name: "<value>",

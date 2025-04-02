@@ -5,7 +5,7 @@
 ```typescript
 import { OrganizationSocialPlatforms } from "@polar-sh/sdk/models/components/organizationsocialplatforms.js";
 
-let value: OrganizationSocialPlatforms = "tiktok";
+let value: OrganizationSocialPlatforms = "facebook";
 ```
 
 ## Values

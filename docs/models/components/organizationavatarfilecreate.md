@@ -11,13 +11,13 @@ let value: OrganizationAvatarFileCreate = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   name: "<value>",
   mimeType: "<value>",
-  size: 319664,
+  size: 475182,
   upload: {
     parts: [
       {
-        number: 388215,
-        chunkStart: 851544,
-        chunkEnd: 681125,
+        number: 360131,
+        chunkStart: 34104,
+        chunkEnd: 349710,
       },
     ],
   },

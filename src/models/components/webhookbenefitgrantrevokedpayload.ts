@@ -14,7 +14,7 @@ import {
 } from "./benefitgrantwebhook.js";
 
 /**
- * Sent when a new benefit grant is revoked.
+ * Sent when a benefit grant is revoked.
  *
  * @remarks
  *

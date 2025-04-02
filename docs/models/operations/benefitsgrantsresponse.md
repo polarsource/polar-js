@@ -9,8 +9,8 @@ let value: BenefitsGrantsResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2025-01-04T02:48:29.766Z"),
-        modifiedAt: new Date("2025-11-19T09:00:19.356Z"),
+        createdAt: new Date("2023-10-06T19:29:26.565Z"),
+        modifiedAt: new Date("2025-07-13T17:03:39.749Z"),
         id: "<value>",
         isGranted: false,
         isRevoked: false,
@@ -21,32 +21,32 @@ let value: BenefitsGrantsResponse = {
         benefitId: "<value>",
         customer: {
           id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-          createdAt: new Date("2023-03-30T16:27:34.642Z"),
-          modifiedAt: new Date("2023-01-11T02:56:26.303Z"),
+          createdAt: new Date("2023-03-03T23:31:30.643Z"),
+          modifiedAt: new Date("2023-08-16T15:58:06.671Z"),
           metadata: {
-            "key": false,
+            "key": "<value>",
           },
           externalId: "usr_1337",
           email: "customer@example.com",
           emailVerified: true,
           name: "John Doe",
           billingAddress: {
-            country: "FR",
+            country: "US",
           },
           taxId: [
-            "911144442",
-            "us_ein",
+            "FR61954506077",
+            "eu_vat",
           ],
           organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-          deletedAt: new Date("2024-01-15T03:27:12.416Z"),
+          deletedAt: new Date("2025-12-06T07:41:37.087Z"),
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
         },
         properties: {},
       },
     ],
     pagination: {
-      totalCount: 838539,
-      maxPage: 57801,
+      totalCount: 661070,
+      maxPage: 241368,
     },
   },
 };

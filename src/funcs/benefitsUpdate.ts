@@ -26,10 +26,6 @@ import {
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
 import {
-  NotPermitted,
-  NotPermitted$inboundSchema,
-} from "../models/errors/notpermitted.js";
-import {
   ResourceNotFound,
   ResourceNotFound$inboundSchema,
 } from "../models/errors/resourcenotfound.js";
@@ -57,7 +53,6 @@ export function benefitsUpdate(
 ): APIPromise<
   Result<
     Benefit,
-    | NotPermitted
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -84,7 +79,6 @@ async function $do(
   [
     Result<
       Benefit,
-      | NotPermitted
       | ResourceNotFound
       | HTTPValidationError
       | SDKError
@@ -130,7 +124,7 @@ async function $do(
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "benefits:update",
-    oAuth2Scopes: null,
+    oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
 
@@ -157,7 +151,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["403", "404", "422", "4XX", "5XX"],
+    errorCodes: ["404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -172,7 +166,6 @@ async function $do(
 
   const [result] = await M.match<
     Benefit,
-    | NotPermitted
     | ResourceNotFound
     | HTTPValidationError
     | SDKError
@@ -184,7 +177,6 @@ async function $do(
     | ConnectionError
   >(
     M.json(200, Benefit$inboundSchema),
-    M.jsonErr(403, NotPermitted$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),

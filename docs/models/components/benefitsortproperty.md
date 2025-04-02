@@ -5,7 +5,7 @@
 ```typescript
 import { BenefitSortProperty } from "@polar-sh/sdk/models/components/benefitsortproperty.js";
 
-let value: BenefitSortProperty = "-created_at";
+let value: BenefitSortProperty = "description";
 ```
 
 ## Values

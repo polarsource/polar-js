@@ -63,10 +63,6 @@ export type ProductPriceMeteredUnit = {
    */
   unitAmount: number;
   /**
-   * The number of units included in the price. They will be deducted from the total.
-   */
-  includedUnits: number;
-  /**
    * The maximum amount in cents that can be charged, regardless of the number of units consumed.
    */
   capAmount: number | null;
@@ -98,7 +94,6 @@ export const ProductPriceMeteredUnit$inboundSchema: z.ZodType<
   recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
   price_currency: z.string(),
   unit_amount: z.number().int(),
-  included_units: z.number().int(),
   cap_amount: z.nullable(z.number().int()),
   meter_id: z.string(),
   meter: ProductPriceMeter$inboundSchema,
@@ -112,7 +107,6 @@ export const ProductPriceMeteredUnit$inboundSchema: z.ZodType<
     "recurring_interval": "recurringInterval",
     "price_currency": "priceCurrency",
     "unit_amount": "unitAmount",
-    "included_units": "includedUnits",
     "cap_amount": "capAmount",
     "meter_id": "meterId",
   });
@@ -130,7 +124,6 @@ export type ProductPriceMeteredUnit$Outbound = {
   recurring_interval: string | null;
   price_currency: string;
   unit_amount: number;
-  included_units: number;
   cap_amount: number | null;
   meter_id: string;
   meter: ProductPriceMeter$Outbound;
@@ -152,7 +145,6 @@ export const ProductPriceMeteredUnit$outboundSchema: z.ZodType<
   recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
   priceCurrency: z.string(),
   unitAmount: z.number().int(),
-  includedUnits: z.number().int(),
   capAmount: z.nullable(z.number().int()),
   meterId: z.string(),
   meter: ProductPriceMeter$outboundSchema,
@@ -166,7 +158,6 @@ export const ProductPriceMeteredUnit$outboundSchema: z.ZodType<
     recurringInterval: "recurring_interval",
     priceCurrency: "price_currency",
     unitAmount: "unit_amount",
-    includedUnits: "included_units",
     capAmount: "cap_amount",
     meterId: "meter_id",
   });

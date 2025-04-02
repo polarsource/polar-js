@@ -64,8 +64,7 @@ const value: components.ProductPriceMeteredUnit = {
   recurringInterval: "month",
   priceCurrency: "<value>",
   unitAmount: 970494,
-  includedUnits: 133439,
-  capAmount: 96804,
+  capAmount: 133439,
   meterId: "<value>",
   meter: {
     id: "<value>",

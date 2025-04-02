@@ -9,7 +9,7 @@ The aggregation to apply on the filtered events to calculate the meter.
 
 ```typescript
 const value: components.PropertyAggregation = {
-  func: "avg",
+  func: "sum",
   property: "<value>",
 };
 ```
@@ -24,7 +24,16 @@ const value: components.CountAggregation = {};
 
 ```typescript
 const value: components.PropertyAggregation = {
-  func: "sum",
+  func: "avg",
+  property: "<value>",
+};
+```
+
+### `components.PropertyAggregation`
+
+```typescript
+const value: components.PropertyAggregation = {
+  func: "avg",
   property: "<value>",
 };
 ```
@@ -34,15 +43,6 @@ const value: components.PropertyAggregation = {
 ```typescript
 const value: components.PropertyAggregation = {
   func: "max",
-  property: "<value>",
-};
-```
-
-### `components.PropertyAggregation`
-
-```typescript
-const value: components.PropertyAggregation = {
-  func: "sum",
   property: "<value>",
 };
 ```

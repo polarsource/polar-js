@@ -5,7 +5,7 @@
 ```typescript
 import { CheckoutStatus } from "@polar-sh/sdk/models/components/checkoutstatus.js";
 
-let value: CheckoutStatus = "failed";
+let value: CheckoutStatus = "confirmed";
 ```
 
 ## Values

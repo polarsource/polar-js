@@ -8,12 +8,12 @@ An order line item.
 import { OrderItemSchema } from "@polar-sh/sdk/models/components/orderitemschema.js";
 
 let value: OrderItemSchema = {
-  createdAt: new Date("2025-01-01T06:24:56.331Z"),
-  modifiedAt: new Date("2025-05-24T16:40:13.929Z"),
+  createdAt: new Date("2024-12-13T00:33:52.023Z"),
+  modifiedAt: new Date("2025-08-23T13:46:22.768Z"),
   id: "<value>",
   label: "<value>",
-  amount: 550994,
-  taxAmount: 980467,
+  amount: 555938,
+  taxAmount: 741603,
   proration: false,
   productPriceId: "<value>",
 };

@@ -5,7 +5,7 @@
 ```typescript
 import { SwitchingFrom } from "@polar-sh/sdk/models/components/organizationdetails.js";
 
-let value: SwitchingFrom = "lemon_squeezy";
+let value: SwitchingFrom = "paddle";
 ```
 
 ## Values

@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components/benefitgrantwebhook.js";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2025-05-06T04:06:41.754Z"),
-  modifiedAt: new Date("2023-10-26T06:31:29.994Z"),
+  createdAt: new Date("2025-06-23T08:41:15.007Z"),
+  modifiedAt: new Date("2023-03-24T21:20:51.391Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -18,42 +18,40 @@ let value: BenefitGrantWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-03-19T14:24:12.773Z"),
-    modifiedAt: new Date("2023-01-29T20:48:34.054Z"),
+    createdAt: new Date("2023-10-06T15:10:36.471Z"),
+    modifiedAt: new Date("2025-08-08T02:04:00.602Z"),
     metadata: {
-      "key": false,
+      "key": "<value>",
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "US",
+      country: "SE",
     },
     taxId: [
-      "911144442",
-      "us_ein",
+      "FR61954506077",
+      "eu_vat",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-07-10T01:53:42.639Z"),
+    deletedAt: new Date("2024-05-03T15:45:49.822Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   properties: {},
   benefit: {
-    createdAt: new Date("2023-06-06T03:35:17.126Z"),
-    modifiedAt: new Date("2023-11-13T20:42:37.829Z"),
+    createdAt: new Date("2025-03-13T12:12:28.416Z"),
+    modifiedAt: new Date("2023-12-13T18:22:28.160Z"),
     id: "<value>",
-    description: "abacus which dreamily aboard whoa lotion simple er",
+    description:
+      "hence sadly those naturally if solemnly underneath french now corny",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
-      archived: {
-        "key": false,
-      },
-      files: [
-        "<value>",
-      ],
+      repositoryOwner: "polarsource",
+      repositoryName: "private_repo",
+      permission: "admin",
     },
   },
 };

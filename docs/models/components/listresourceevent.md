@@ -9,20 +9,20 @@ let value: ListResourceEvent = {
   items: [
     {
       metadata: {
-        "key": false,
+        "key": 161442,
       },
       id: "<value>",
-      timestamp: new Date("2024-11-12T14:45:50.022Z"),
+      timestamp: new Date("2025-12-06T06:30:21.750Z"),
       name: "<value>",
-      source: "user",
+      source: "system",
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       customerId: "<value>",
       customer: {
         id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-        createdAt: new Date("2024-08-07T19:18:35.830Z"),
-        modifiedAt: new Date("2024-10-09T04:06:47.415Z"),
+        createdAt: new Date("2025-09-19T21:01:06.393Z"),
+        modifiedAt: new Date("2023-08-11T01:18:06.311Z"),
         metadata: {
-          "key": false,
+          "key": 741089,
         },
         externalId: "usr_1337",
         email: "customer@example.com",
@@ -36,15 +36,15 @@ let value: ListResourceEvent = {
           "eu_vat",
         ],
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        deletedAt: new Date("2023-01-31T20:09:40.406Z"),
+        deletedAt: new Date("2025-12-30T22:13:06.413Z"),
         avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
       },
       externalCustomerId: "<id>",
     },
   ],
   pagination: {
-    totalCount: 356994,
-    maxPage: 773610,
+    totalCount: 716292,
+    maxPage: 611761,
   },
 };
 ```

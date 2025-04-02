@@ -12,7 +12,7 @@ let value: OrganizationDetails = {
   customerAcquisition: [
     "<value>",
   ],
-  futureAnnualRevenue: 301099,
+  futureAnnualRevenue: 108768,
 };
 ```
 

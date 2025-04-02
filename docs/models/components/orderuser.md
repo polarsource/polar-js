@@ -7,7 +7,7 @@ import { OrderUser } from "@polar-sh/sdk/models/components/orderuser.js";
 
 let value: OrderUser = {
   id: "<value>",
-  email: "Barry.Schmitt@yahoo.com",
+  email: "Moshe84@yahoo.com",
   publicName: "<value>",
 };
 ```

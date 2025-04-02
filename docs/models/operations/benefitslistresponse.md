@@ -9,27 +9,23 @@ let value: BenefitsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2023-11-04T22:28:05.369Z"),
-        modifiedAt: new Date("2025-08-08T16:43:50.985Z"),
+        createdAt: new Date("2024-03-15T02:32:11.651Z"),
+        modifiedAt: new Date("2023-03-24T21:36:20.596Z"),
         id: "<value>",
-        description:
-          "surprisingly as under overcooked save importance glider concerned",
+        description: "chubby hence when",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         properties: {
-          archived: {
-            "key": false,
-          },
-          files: [
-            "<value>",
-          ],
+          guildId: "<id>",
+          roleId: "<id>",
+          guildToken: "<value>",
         },
       },
     ],
     pagination: {
-      totalCount: 837785,
-      maxPage: 18923,
+      totalCount: 164340,
+      maxPage: 250817,
     },
   },
 };

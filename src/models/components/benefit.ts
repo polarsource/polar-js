@@ -36,12 +36,19 @@ import {
   BenefitLicenseKeys$Outbound,
   BenefitLicenseKeys$outboundSchema,
 } from "./benefitlicensekeys.js";
+import {
+  BenefitMeterCredit,
+  BenefitMeterCredit$inboundSchema,
+  BenefitMeterCredit$Outbound,
+  BenefitMeterCredit$outboundSchema,
+} from "./benefitmetercredit.js";
 
 export type Benefit =
   | BenefitDiscord
   | BenefitGitHubRepository
   | BenefitDownloadables
   | BenefitLicenseKeys
+  | BenefitMeterCredit
   | BenefitCustom;
 
 /** @internal */
@@ -51,6 +58,7 @@ export const Benefit$inboundSchema: z.ZodType<Benefit, z.ZodTypeDef, unknown> =
     BenefitGitHubRepository$inboundSchema,
     BenefitDownloadables$inboundSchema,
     BenefitLicenseKeys$inboundSchema,
+    BenefitMeterCredit$inboundSchema,
     BenefitCustom$inboundSchema,
   ]);
 
@@ -60,6 +68,7 @@ export type Benefit$Outbound =
   | BenefitGitHubRepository$Outbound
   | BenefitDownloadables$Outbound
   | BenefitLicenseKeys$Outbound
+  | BenefitMeterCredit$Outbound
   | BenefitCustom$Outbound;
 
 /** @internal */
@@ -72,6 +81,7 @@ export const Benefit$outboundSchema: z.ZodType<
   BenefitGitHubRepository$outboundSchema,
   BenefitDownloadables$outboundSchema,
   BenefitLicenseKeys$outboundSchema,
+  BenefitMeterCredit$outboundSchema,
   BenefitCustom$outboundSchema,
 ]);
 

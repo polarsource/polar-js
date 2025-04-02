@@ -139,7 +139,7 @@ let value: WebhookCheckoutCreatedPayload = {
           createdAt: new Date("2023-07-24T01:37:14.976Z"),
           modifiedAt: new Date("2025-11-01T00:46:16.847Z"),
           id: "<value>",
-          type: "downloadables",
+          type: "license_keys",
           description:
             "instead technician inasmuch sympathetically disappointment nor",
           selectable: false,

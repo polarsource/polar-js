@@ -26,10 +26,6 @@ export type ProductPriceMeteredUnitCreate = {
    */
   unitAmount: number;
   /**
-   * The number of units included in the price. They will be deducted from the total.
-   */
-  includedUnits: number;
-  /**
    * Optional maximum amount in cents that can be charged, regardless of the number of units consumed.
    */
   capAmount?: number | null | undefined;
@@ -45,7 +41,6 @@ export const ProductPriceMeteredUnitCreate$inboundSchema: z.ZodType<
   meter_id: z.string(),
   price_currency: z.string().default("usd"),
   unit_amount: z.number().int(),
-  included_units: z.number().int(),
   cap_amount: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -53,7 +48,6 @@ export const ProductPriceMeteredUnitCreate$inboundSchema: z.ZodType<
     "meter_id": "meterId",
     "price_currency": "priceCurrency",
     "unit_amount": "unitAmount",
-    "included_units": "includedUnits",
     "cap_amount": "capAmount",
   });
 });
@@ -64,7 +58,6 @@ export type ProductPriceMeteredUnitCreate$Outbound = {
   meter_id: string;
   price_currency: string;
   unit_amount: number;
-  included_units: number;
   cap_amount?: number | null | undefined;
 };
 
@@ -78,7 +71,6 @@ export const ProductPriceMeteredUnitCreate$outboundSchema: z.ZodType<
   meterId: z.string(),
   priceCurrency: z.string().default("usd"),
   unitAmount: z.number().int(),
-  includedUnits: z.number().int(),
   capAmount: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -86,7 +78,6 @@ export const ProductPriceMeteredUnitCreate$outboundSchema: z.ZodType<
     meterId: "meter_id",
     priceCurrency: "price_currency",
     unitAmount: "unit_amount",
-    includedUnits: "included_units",
     capAmount: "cap_amount",
   });
 });

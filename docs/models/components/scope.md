@@ -5,7 +5,7 @@
 ```typescript
 import { Scope } from "@polar-sh/sdk/models/components/scope.js";
 
-let value: Scope = "license_keys:write";
+let value: Scope = "organizations:write";
 ```
 
 ## Values

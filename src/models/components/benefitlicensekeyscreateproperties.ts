@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BenefitLicenseKeyActivationProperties,
-  BenefitLicenseKeyActivationProperties$inboundSchema,
-  BenefitLicenseKeyActivationProperties$Outbound,
-  BenefitLicenseKeyActivationProperties$outboundSchema,
-} from "./benefitlicensekeyactivationproperties.js";
+  BenefitLicenseKeyActivationCreateProperties,
+  BenefitLicenseKeyActivationCreateProperties$inboundSchema,
+  BenefitLicenseKeyActivationCreateProperties$Outbound,
+  BenefitLicenseKeyActivationCreateProperties$outboundSchema,
+} from "./benefitlicensekeyactivationcreateproperties.js";
 import {
   BenefitLicenseKeyExpirationProperties,
   BenefitLicenseKeyExpirationProperties$inboundSchema,
@@ -23,7 +23,7 @@ import {
 export type BenefitLicenseKeysCreateProperties = {
   prefix?: string | null | undefined;
   expires?: BenefitLicenseKeyExpirationProperties | null | undefined;
-  activations?: BenefitLicenseKeyActivationProperties | null | undefined;
+  activations?: BenefitLicenseKeyActivationCreateProperties | null | undefined;
   limitUsage?: number | null | undefined;
 };
 
@@ -36,8 +36,9 @@ export const BenefitLicenseKeysCreateProperties$inboundSchema: z.ZodType<
   prefix: z.nullable(z.string()).optional(),
   expires: z.nullable(BenefitLicenseKeyExpirationProperties$inboundSchema)
     .optional(),
-  activations: z.nullable(BenefitLicenseKeyActivationProperties$inboundSchema)
-    .optional(),
+  activations: z.nullable(
+    BenefitLicenseKeyActivationCreateProperties$inboundSchema,
+  ).optional(),
   limit_usage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -50,7 +51,7 @@ export type BenefitLicenseKeysCreateProperties$Outbound = {
   prefix?: string | null | undefined;
   expires?: BenefitLicenseKeyExpirationProperties$Outbound | null | undefined;
   activations?:
-    | BenefitLicenseKeyActivationProperties$Outbound
+    | BenefitLicenseKeyActivationCreateProperties$Outbound
     | null
     | undefined;
   limit_usage?: number | null | undefined;
@@ -65,8 +66,9 @@ export const BenefitLicenseKeysCreateProperties$outboundSchema: z.ZodType<
   prefix: z.nullable(z.string()).optional(),
   expires: z.nullable(BenefitLicenseKeyExpirationProperties$outboundSchema)
     .optional(),
-  activations: z.nullable(BenefitLicenseKeyActivationProperties$outboundSchema)
-    .optional(),
+  activations: z.nullable(
+    BenefitLicenseKeyActivationCreateProperties$outboundSchema,
+  ).optional(),
   limitUsage: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
