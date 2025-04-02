@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "55620974-7169-4e73-a73e-e0b7d950e941",
+        id: "6175ee9b-93c4-45d5-a00b-0ff63cbf3f98",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://poor-adviser.org",
+        avatarUrl: "https://homely-switchboard.name/",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Bins LLC",
+        company: "Grant, Bins and Collier",
         blog: "<value>",
         location: "<value>",
-        email: "German90@yahoo.com",
+        email: "Jermaine71@gmail.com",
         twitterUsername: "<value>",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       },
     ],
     pagination: {
-      totalCount: 332956,
-      maxPage: 290320,
+      totalCount: 570185,
+      maxPage: 744473,
     },
   },
 };

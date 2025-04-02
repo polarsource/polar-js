@@ -36,6 +36,12 @@ import {
   BenefitLicenseKeysUpdate$Outbound,
   BenefitLicenseKeysUpdate$outboundSchema,
 } from "../components/benefitlicensekeysupdate.js";
+import {
+  BenefitMeterCreditUpdate,
+  BenefitMeterCreditUpdate$inboundSchema,
+  BenefitMeterCreditUpdate$Outbound,
+  BenefitMeterCreditUpdate$outboundSchema,
+} from "../components/benefitmetercreditupdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitsUpdateBenefitUpdate =
@@ -43,7 +49,8 @@ export type BenefitsUpdateBenefitUpdate =
   | BenefitDiscordUpdate
   | BenefitGitHubRepositoryUpdate
   | BenefitDownloadablesUpdate
-  | BenefitLicenseKeysUpdate;
+  | BenefitLicenseKeysUpdate
+  | BenefitMeterCreditUpdate;
 
 export type BenefitsUpdateRequest = {
   id: string;
@@ -52,7 +59,8 @@ export type BenefitsUpdateRequest = {
     | BenefitDiscordUpdate
     | BenefitGitHubRepositoryUpdate
     | BenefitDownloadablesUpdate
-    | BenefitLicenseKeysUpdate;
+    | BenefitLicenseKeysUpdate
+    | BenefitMeterCreditUpdate;
 };
 
 /** @internal */
@@ -66,6 +74,7 @@ export const BenefitsUpdateBenefitUpdate$inboundSchema: z.ZodType<
   BenefitGitHubRepositoryUpdate$inboundSchema,
   BenefitDownloadablesUpdate$inboundSchema,
   BenefitLicenseKeysUpdate$inboundSchema,
+  BenefitMeterCreditUpdate$inboundSchema,
 ]);
 
 /** @internal */
@@ -74,7 +83,8 @@ export type BenefitsUpdateBenefitUpdate$Outbound =
   | BenefitDiscordUpdate$Outbound
   | BenefitGitHubRepositoryUpdate$Outbound
   | BenefitDownloadablesUpdate$Outbound
-  | BenefitLicenseKeysUpdate$Outbound;
+  | BenefitLicenseKeysUpdate$Outbound
+  | BenefitMeterCreditUpdate$Outbound;
 
 /** @internal */
 export const BenefitsUpdateBenefitUpdate$outboundSchema: z.ZodType<
@@ -87,6 +97,7 @@ export const BenefitsUpdateBenefitUpdate$outboundSchema: z.ZodType<
   BenefitGitHubRepositoryUpdate$outboundSchema,
   BenefitDownloadablesUpdate$outboundSchema,
   BenefitLicenseKeysUpdate$outboundSchema,
+  BenefitMeterCreditUpdate$outboundSchema,
 ]);
 
 /**
@@ -135,6 +146,7 @@ export const BenefitsUpdateRequest$inboundSchema: z.ZodType<
     BenefitGitHubRepositoryUpdate$inboundSchema,
     BenefitDownloadablesUpdate$inboundSchema,
     BenefitLicenseKeysUpdate$inboundSchema,
+    BenefitMeterCreditUpdate$inboundSchema,
   ]),
 }).transform((v) => {
   return remap$(v, {
@@ -150,7 +162,8 @@ export type BenefitsUpdateRequest$Outbound = {
     | BenefitDiscordUpdate$Outbound
     | BenefitGitHubRepositoryUpdate$Outbound
     | BenefitDownloadablesUpdate$Outbound
-    | BenefitLicenseKeysUpdate$Outbound;
+    | BenefitLicenseKeysUpdate$Outbound
+    | BenefitMeterCreditUpdate$Outbound;
 };
 
 /** @internal */
@@ -166,6 +179,7 @@ export const BenefitsUpdateRequest$outboundSchema: z.ZodType<
     BenefitGitHubRepositoryUpdate$outboundSchema,
     BenefitDownloadablesUpdate$outboundSchema,
     BenefitLicenseKeysUpdate$outboundSchema,
+    BenefitMeterCreditUpdate$outboundSchema,
   ]),
 }).transform((v) => {
   return remap$(v, {

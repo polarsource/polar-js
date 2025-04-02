@@ -109,7 +109,7 @@ async function $do(
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID:
       "customer_portal:downloadables:customer_portal.downloadables.get",
-    oAuth2Scopes: null,
+    oAuth2Scopes: [],
 
     resolvedSecurity: null,
 

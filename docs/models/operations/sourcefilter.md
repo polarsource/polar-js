@@ -15,7 +15,7 @@ const value: components.EventSource = "user";
 
 ```typescript
 const value: components.EventSource[] = [
-  "user",
+  "system",
 ];
 ```
 

@@ -6,30 +6,29 @@
 import { BenefitCustomSubscriber } from "@polar-sh/sdk/models/components/benefitcustomsubscriber.js";
 
 let value: BenefitCustomSubscriber = {
-  createdAt: new Date("2023-02-07T17:42:25.899Z"),
-  modifiedAt: new Date("2024-06-15T23:24:38.141Z"),
+  createdAt: new Date("2025-11-28T04:12:23.377Z"),
+  modifiedAt: new Date("2024-09-18T13:32:37.133Z"),
   id: "<value>",
-  description:
-    "nervously factorize strategy comparison boohoo new during pigpen times",
+  description: "along meanwhile finally",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2024-08-01T06:43:02.119Z"),
-    modifiedAt: new Date("2024-12-10T12:44:47.120Z"),
+    createdAt: new Date("2023-02-03T18:13:52.827Z"),
+    modifiedAt: new Date("2025-12-16T12:03:21.969Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://self-reliant-bidet.net",
-    email: "Giovanni.Rempel91@hotmail.com",
+    avatarUrl: "https://sentimental-sprinkles.com",
+    email: "Salvatore_Hand@gmail.com",
     website: "<value>",
     socials: [
       {
-        platform: "instagram",
-        url: "https://jittery-cope.name/",
+        platform: "x",
+        url: "https://afraid-brace.net/",
       },
     ],
-    detailsSubmittedAt: new Date("2025-03-28T19:41:25.300Z"),
+    detailsSubmittedAt: new Date("2023-10-26T18:35:23.960Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -37,13 +36,13 @@ let value: BenefitCustomSubscriber = {
       prorationBehavior: "invoice",
     },
     bio: "<value>",
-    company: "Carter - Funk",
+    company: "Schuster, Parker and Hansen",
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 828422,
+    pledgeMinimumAmount: 167783,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 433069,
+    defaultUpfrontSplitToContributors: 816103,
     profileSettings: {},
   },
   properties: {

@@ -7,7 +7,7 @@ import { CustomerPortalCustomerUpdate } from "@polar-sh/sdk/models/components/cu
 
 let value: CustomerPortalCustomerUpdate = {
   billingAddress: {
-    country: "US",
+    country: "FR",
   },
 };
 ```

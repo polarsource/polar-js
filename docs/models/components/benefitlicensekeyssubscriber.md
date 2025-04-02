@@ -6,30 +6,29 @@
 import { BenefitLicenseKeysSubscriber } from "@polar-sh/sdk/models/components/benefitlicensekeyssubscriber.js";
 
 let value: BenefitLicenseKeysSubscriber = {
-  createdAt: new Date("2023-12-23T21:42:12.315Z"),
-  modifiedAt: new Date("2023-01-17T09:03:28.369Z"),
+  createdAt: new Date("2024-11-21T05:27:14.477Z"),
+  modifiedAt: new Date("2025-02-15T07:26:21.630Z"),
   id: "<value>",
-  description:
-    "atop rarely advancement sorrowful harvest awkwardly sizzling forenenst",
+  description: "wound more miscalculate swanling opposite",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2023-08-18T07:42:11.698Z"),
-    modifiedAt: new Date("2025-03-20T21:26:47.376Z"),
+    createdAt: new Date("2024-12-06T11:34:56.016Z"),
+    modifiedAt: new Date("2025-06-18T05:00:51.297Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://mammoth-luck.biz/",
-    email: "Fanny4@gmail.com",
+    avatarUrl: "https://whimsical-horst.biz/",
+    email: "Tristian28@yahoo.com",
     website: "<value>",
     socials: [
       {
-        platform: "linkedin",
-        url: "https://proper-typeface.net",
+        platform: "tiktok",
+        url: "https://troubled-term.name/",
       },
     ],
-    detailsSubmittedAt: new Date("2023-12-05T07:06:31.528Z"),
+    detailsSubmittedAt: new Date("2025-12-15T03:43:32.459Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -37,26 +36,26 @@ let value: BenefitLicenseKeysSubscriber = {
       prorationBehavior: "prorate",
     },
     bio: "<value>",
-    company: "Lakin - Upton",
+    company: "Gutmann, Wilderman and Hettinger",
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 524620,
+    pledgeMinimumAmount: 99549,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 946712,
+    defaultUpfrontSplitToContributors: 155134,
     profileSettings: {},
   },
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 381771,
-      timeframe: "month",
+      ttl: 633452,
+      timeframe: "day",
     },
     activations: {
-      limit: 569496,
+      limit: 54726,
       enableCustomerAdmin: false,
     },
-    limitUsage: 960498,
+    limitUsage: 469513,
   },
 };
 ```

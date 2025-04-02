@@ -135,7 +135,7 @@ async function $do(
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "customer_portal:customers:delete_payment_method",
-    oAuth2Scopes: null,
+    oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
 

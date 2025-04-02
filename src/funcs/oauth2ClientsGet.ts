@@ -112,7 +112,7 @@ async function $do(
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "oauth2:clients:oauth2:get_client",
-    oAuth2Scopes: null,
+    oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
 

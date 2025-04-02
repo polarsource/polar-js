@@ -15,7 +15,7 @@ const value: components.ExistingProductPrice = {
 
 ```typescript
 const value: components.ProductPriceFixedCreate = {
-  priceAmount: 708387,
+  priceAmount: 428906,
 };
 ```
 
@@ -36,8 +36,7 @@ const value: components.ProductPriceFreeCreate = {};
 ```typescript
 const value: components.ProductPriceMeteredUnitCreate = {
   meterId: "<value>",
-  unitAmount: 13223,
-  includedUnits: 334416,
+  unitAmount: 425323,
 };
 ```
 

@@ -8,22 +8,23 @@ import { ListResourceBenefit } from "@polar-sh/sdk/models/components/listresourc
 let value: ListResourceBenefit = {
   items: [
     {
-      createdAt: new Date("2025-04-14T04:11:39.460Z"),
-      modifiedAt: new Date("2023-08-10T02:00:43.034Z"),
+      createdAt: new Date("2024-03-04T09:01:12.508Z"),
+      modifiedAt: new Date("2024-11-20T22:00:18.063Z"),
       id: "<value>",
-      description: "flickering old-fashioned which",
+      description: "old-fashioned that or ouch splurge elegantly gerbil",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        note: "<value>",
+        guildId: "<id>",
+        roleId: "<id>",
+        guildToken: "<value>",
       },
-      isTaxApplicable: false,
     },
   ],
   pagination: {
-    totalCount: 616888,
-    maxPage: 258430,
+    totalCount: 569794,
+    maxPage: 499202,
   },
 };
 ```

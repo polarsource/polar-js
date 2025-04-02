@@ -13,8 +13,8 @@ let value: CustomerCreate = {
     country: "US",
   },
   taxId: [
-    "FR61954506077",
-    "eu_vat",
+    "911144442",
+    "us_ein",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };

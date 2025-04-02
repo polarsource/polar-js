@@ -12,10 +12,10 @@ import { CustomerState } from "@polar-sh/sdk/models/components/customerstate.js"
 
 let value: CustomerState = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2023-12-29T03:54:31.758Z"),
-  modifiedAt: new Date("2024-11-30T16:12:48.033Z"),
+  createdAt: new Date("2023-10-30T20:46:20.876Z"),
+  modifiedAt: new Date("2024-02-09T23:56:49.919Z"),
   metadata: {
-    "key": "<value>",
+    "key": 560451,
   },
   externalId: "usr_1337",
   email: "customer@example.com",
@@ -25,18 +25,18 @@ let value: CustomerState = {
     country: "FR",
   },
   taxId: [
-    "FR61954506077",
-    "eu_vat",
+    "911144442",
+    "us_ein",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2023-12-28T07:08:38.576Z"),
+  deletedAt: new Date("2023-01-22T07:56:26.664Z"),
   activeSubscriptions: [
     {
       id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
-      createdAt: new Date("2025-05-17T18:29:32.722Z"),
-      modifiedAt: new Date("2023-04-29T13:11:09.441Z"),
+      createdAt: new Date("2024-03-13T13:08:44.087Z"),
+      modifiedAt: new Date("2023-12-05T03:31:10.013Z"),
       metadata: {
-        "key": 221218,
+        "key": false,
       },
       amount: 1000,
       currency: "usd",
@@ -55,11 +55,11 @@ let value: CustomerState = {
   grantedBenefits: [
     {
       id: "d322132c-a9d0-4e0d-b8d3-d81ad021a3a9",
-      createdAt: new Date("2023-04-23T06:44:49.184Z"),
-      modifiedAt: new Date("2024-03-11T03:22:02.972Z"),
+      createdAt: new Date("2025-07-31T21:36:43.500Z"),
+      modifiedAt: new Date("2024-12-16T16:30:20.563Z"),
       grantedAt: new Date("2025-01-03T13:37:00Z"),
       benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-      benefitType: "discord",
+      benefitType: "github_repository",
       properties: {},
     },
   ],

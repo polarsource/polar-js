@@ -148,12 +148,9 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await benefitsCreate(polar, {
-    description: "indolent apud formula other",
+    description: "brightly sleet where schedule insolence when warming when",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    properties: {
-      guildToken: "<value>",
-      roleId: "<id>",
-    },
+    properties: {},
   });
 
   if (!res.ok) {
@@ -314,7 +311,13 @@ const polar = new PolarCore({
 async function run() {
   const res = await benefitsUpdate(polar, {
     id: "<value>",
-    requestBody: {},
+    requestBody: {
+      properties: {
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "admin",
+      },
+    },
   });
 
   if (!res.ok) {
@@ -347,7 +350,6 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.NotPermitted        | 403                        | application/json           |
 | errors.ResourceNotFound    | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |

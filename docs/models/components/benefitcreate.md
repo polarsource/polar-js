@@ -7,7 +7,8 @@
 
 ```typescript
 const value: components.BenefitCustomCreate = {
-  description: "shout conclude twist provided charter motionless up chapel",
+  description:
+    "furthermore aha adolescent fooey now yawningly properly reconsideration",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
 };
@@ -17,8 +18,7 @@ const value: components.BenefitCustomCreate = {
 
 ```typescript
 const value: components.BenefitDiscordCreate = {
-  description:
-    "blank waft tabletop jealously liberalize monthly large democratize",
+  description: "apologise um handy into",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     guildToken: "<value>",
@@ -31,7 +31,8 @@ const value: components.BenefitDiscordCreate = {
 
 ```typescript
 const value: components.BenefitDownloadablesCreate = {
-  description: "once numeracy horde bore rotten fooey now",
+  description:
+    "heating stage what embossing than glittering sauerkraut off splurge",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     files: [
@@ -45,12 +46,12 @@ const value: components.BenefitDownloadablesCreate = {
 
 ```typescript
 const value: components.BenefitGitHubRepositoryCreate = {
-  description: "meanwhile although phew yowza slump why triumphantly footrest",
+  description: "despite defendant reward",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "maintain",
+    permission: "push",
   },
 };
 ```
@@ -59,9 +60,23 @@ const value: components.BenefitGitHubRepositoryCreate = {
 
 ```typescript
 const value: components.BenefitLicenseKeysCreate = {
-  description: "notwithstanding cycle intelligent",
+  description:
+    "gymnast authentic gosh yahoo scoop forenenst between begonia grizzled",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {},
+};
+```
+
+### `components.BenefitMeterCreditCreate`
+
+```typescript
+const value: components.BenefitMeterCreditCreate = {
+  description: "ack hm gadzooks between sanity",
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  properties: {
+    unit: 84703,
+    meterId: "<value>",
+  },
 };
 ```
 

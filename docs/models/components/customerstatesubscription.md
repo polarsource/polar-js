@@ -9,8 +9,8 @@ import { CustomerStateSubscription } from "@polar-sh/sdk/models/components/custo
 
 let value: CustomerStateSubscription = {
   id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
-  createdAt: new Date("2023-12-13T22:32:12.208Z"),
-  modifiedAt: new Date("2025-06-25T04:17:08.995Z"),
+  createdAt: new Date("2024-07-04T16:31:32.400Z"),
+  modifiedAt: new Date("2023-07-06T02:55:55.961Z"),
   metadata: {
     "key": "<value>",
   },

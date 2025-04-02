@@ -9,21 +9,21 @@ let value: OrganizationsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-08-24T20:03:18.837Z"),
-        modifiedAt: new Date("2024-06-14T11:17:00.227Z"),
+        createdAt: new Date("2025-10-26T02:22:10.699Z"),
+        modifiedAt: new Date("2023-11-08T15:01:16.630Z"),
         id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         name: "<value>",
         slug: "<value>",
-        avatarUrl: "https://frizzy-toaster.org",
-        email: "Leopold.Fisher@yahoo.com",
+        avatarUrl: "https://weekly-necklace.org/",
+        email: "Eileen.Mohr@hotmail.com",
         website: "<value>",
         socials: [
           {
-            platform: "other",
-            url: "https://shameful-consistency.org",
+            platform: "x",
+            url: "https://needy-approach.net/",
           },
         ],
-        detailsSubmittedAt: new Date("2025-05-20T04:09:40.373Z"),
+        detailsSubmittedAt: new Date("2024-03-06T00:25:52.572Z"),
         featureSettings: {},
         subscriptionSettings: {
           allowMultipleSubscriptions: false,
@@ -31,19 +31,19 @@ let value: OrganizationsListResponse = {
           prorationBehavior: "invoice",
         },
         bio: "<value>",
-        company: "Little, Predovic and Shanahan",
+        company: "Bernhard, Cummings and Runolfsson",
         blog: "<value>",
         location: "<value>",
         twitterUsername: "<value>",
-        pledgeMinimumAmount: 230328,
+        pledgeMinimumAmount: 933659,
         pledgeBadgeShowAmount: false,
-        defaultUpfrontSplitToContributors: 343271,
+        defaultUpfrontSplitToContributors: 34591,
         profileSettings: {},
       },
     ],
     pagination: {
-      totalCount: 806742,
-      maxPage: 371215,
+      totalCount: 60497,
+      maxPage: 482627,
     },
   },
 };

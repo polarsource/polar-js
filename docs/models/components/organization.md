@@ -6,21 +6,21 @@
 import { Organization } from "@polar-sh/sdk/models/components/organization.js";
 
 let value: Organization = {
-  createdAt: new Date("2023-05-28T02:53:47.484Z"),
-  modifiedAt: new Date("2025-06-01T10:38:34.033Z"),
+  createdAt: new Date("2023-09-12T01:27:22.798Z"),
+  modifiedAt: new Date("2023-05-28T12:26:51.418Z"),
   id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   name: "<value>",
   slug: "<value>",
-  avatarUrl: "https://ill-fated-nougat.info/",
-  email: "Alisha.Blick29@yahoo.com",
+  avatarUrl: "https://bright-loaf.biz",
+  email: "Clemmie_Cummerata@hotmail.com",
   website: "<value>",
   socials: [
     {
-      platform: "x",
-      url: "https://soulful-reconsideration.net",
+      platform: "other",
+      url: "https://idealistic-coil.net",
     },
   ],
-  detailsSubmittedAt: new Date("2023-03-23T16:26:21.583Z"),
+  detailsSubmittedAt: new Date("2024-10-15T13:56:30.312Z"),
   featureSettings: {},
   subscriptionSettings: {
     allowMultipleSubscriptions: false,
@@ -28,13 +28,13 @@ let value: Organization = {
     prorationBehavior: "invoice",
   },
   bio: "<value>",
-  company: "Beier - Bashirian",
+  company: "Ernser - Kunze",
   blog: "<value>",
   location: "<value>",
   twitterUsername: "<value>",
-  pledgeMinimumAmount: 198934,
+  pledgeMinimumAmount: 47289,
   pledgeBadgeShowAmount: false,
-  defaultUpfrontSplitToContributors: 56283,
+  defaultUpfrontSplitToContributors: 289247,
   profileSettings: {},
 };
 ```

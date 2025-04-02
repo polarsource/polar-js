@@ -6,10 +6,10 @@
 import { Author } from "@polar-sh/sdk/models/components/author.js";
 
 let value: Author = {
-  id: 189614,
-  login: "Cordell67",
-  htmlUrl: "https://limping-gym.name",
-  avatarUrl: "https://spiteful-thyme.net/",
+  id: 535550,
+  login: "Antonette_Douglas10",
+  htmlUrl: "https://secret-popularity.net/",
+  avatarUrl: "https://pleased-jogging.biz",
 };
 ```
 

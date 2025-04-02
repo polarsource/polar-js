@@ -7,10 +7,10 @@ import { SubscriptionCustomer } from "@polar-sh/sdk/models/components/subscripti
 
 let value: SubscriptionCustomer = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2024-01-20T17:37:00.236Z"),
-  modifiedAt: new Date("2025-05-27T10:54:59.560Z"),
+  createdAt: new Date("2024-06-07T00:51:36.478Z"),
+  modifiedAt: new Date("2024-09-17T04:46:00.118Z"),
   metadata: {
-    "key": 267684,
+    "key": 968945,
   },
   externalId: "usr_1337",
   email: "customer@example.com",
@@ -24,7 +24,7 @@ let value: SubscriptionCustomer = {
     "us_ein",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2024-05-31T17:48:08.887Z"),
+  deletedAt: new Date("2025-02-16T17:04:58.533Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
 };
 ```

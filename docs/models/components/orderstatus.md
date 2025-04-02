@@ -5,7 +5,7 @@
 ```typescript
 import { OrderStatus } from "@polar-sh/sdk/models/components/orderstatus.js";
 
-let value: OrderStatus = "pending";
+let value: OrderStatus = "partially_refunded";
 ```
 
 ## Values

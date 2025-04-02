@@ -8,15 +8,15 @@ A fixed price for a product.
 import { ProductPriceFixed } from "@polar-sh/sdk/models/components/productpricefixed.js";
 
 let value: ProductPriceFixed = {
-  createdAt: new Date("2024-01-12T08:34:33.723Z"),
-  modifiedAt: new Date("2024-10-09T18:22:17.762Z"),
+  createdAt: new Date("2023-04-17T02:19:52.263Z"),
+  modifiedAt: new Date("2024-01-12T08:34:33.723Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "month",
+  recurringInterval: "year",
   priceCurrency: "<value>",
-  priceAmount: 999278,
+  priceAmount: 397257,
 };
 ```
 

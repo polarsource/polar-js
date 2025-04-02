@@ -9,10 +9,10 @@ let value: FilesUploadedRequest = {
   id: "<value>",
   fileUploadCompleted: {
     id: "<id>",
-    path: "/etc/namedb",
+    path: "/opt/lib",
     parts: [
       {
-        number: 580770,
+        number: 875600,
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
       },

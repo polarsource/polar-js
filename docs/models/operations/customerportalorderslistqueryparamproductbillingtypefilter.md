@@ -8,14 +8,14 @@ Filter by product billing type. `recurring` will filter data corresponding to su
 ### `components.ProductBillingType`
 
 ```typescript
-const value: components.ProductBillingType = "one_time";
+const value: components.ProductBillingType = "recurring";
 ```
 
 ### `components.ProductBillingType[]`
 
 ```typescript
 const value: components.ProductBillingType[] = [
-  "one_time",
+  "recurring",
 ];
 ```
 

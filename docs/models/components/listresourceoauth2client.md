@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://possible-alb.net/",
+        "https://frozen-disclosure.info/",
       ],
       clientName: "<value>",
-      createdAt: new Date("2023-02-16T06:35:54.024Z"),
-      modifiedAt: new Date("2025-01-08T18:59:17.756Z"),
+      createdAt: new Date("2025-04-29T23:43:18.801Z"),
+      modifiedAt: new Date("2025-06-01T15:17:38.399Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 212369,
-      clientSecretExpiresAt: 591191,
+      clientIdIssuedAt: 790570,
+      clientSecretExpiresAt: 885646,
     },
   ],
   pagination: {
-    totalCount: 275974,
-    maxPage: 22402,
+    totalCount: 50741,
+    maxPage: 982217,
   },
 };
 ```

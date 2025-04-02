@@ -11,8 +11,8 @@ import { WebhookBenefitGrantCreatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantCreatedPayload = {
   data: {
-    createdAt: new Date("2023-03-07T19:06:15.685Z"),
-    modifiedAt: new Date("2025-04-03T01:12:40.733Z"),
+    createdAt: new Date("2023-01-02T19:45:35.845Z"),
+    modifiedAt: new Date("2025-01-17T02:51:27.106Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -23,39 +23,39 @@ let value: WebhookBenefitGrantCreatedPayload = {
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2025-10-15T15:36:13.589Z"),
-      modifiedAt: new Date("2023-04-28T09:55:27.616Z"),
+      createdAt: new Date("2023-03-05T14:02:18.907Z"),
+      modifiedAt: new Date("2025-03-17T01:50:29.399Z"),
       metadata: {
-        "key": 451727,
+        "key": "<value>",
       },
       externalId: "usr_1337",
       email: "customer@example.com",
       emailVerified: true,
       name: "John Doe",
       billingAddress: {
-        country: "FR",
+        country: "US",
       },
       taxId: [
         "FR61954506077",
         "eu_vat",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2023-11-01T23:42:16.112Z"),
+      deletedAt: new Date("2025-12-13T21:16:19.781Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2025-09-06T22:38:24.153Z"),
-      modifiedAt: new Date("2025-09-19T06:40:22.196Z"),
+      createdAt: new Date("2023-03-09T18:39:44.610Z"),
+      modifiedAt: new Date("2024-07-11T12:00:35.437Z"),
       id: "<value>",
-      description: "nor ceramics hm invite",
+      description:
+        "information adrenalin convalesce after kindheartedly beyond frizz sock",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        repositoryOwner: "polarsource",
-        repositoryName: "private_repo",
-        permission: "push",
+        unit: 476765,
+        meterId: "<value>",
       },
     },
   },

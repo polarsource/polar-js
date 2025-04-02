@@ -7,8 +7,8 @@ import { OrderCustomer } from "@polar-sh/sdk/models/components/ordercustomer.js"
 
 let value: OrderCustomer = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2025-11-18T17:34:52.177Z"),
-  modifiedAt: new Date("2025-05-25T15:39:50.494Z"),
+  createdAt: new Date("2023-02-16T20:50:29.690Z"),
+  modifiedAt: new Date("2023-01-01T09:39:45.396Z"),
   metadata: {
     "key": "<value>",
   },
@@ -17,14 +17,14 @@ let value: OrderCustomer = {
   emailVerified: true,
   name: "John Doe",
   billingAddress: {
-    country: "FR",
+    country: "SE",
   },
   taxId: [
-    "911144442",
-    "us_ein",
+    "FR61954506077",
+    "eu_vat",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2023-09-16T14:57:54.048Z"),
+  deletedAt: new Date("2023-04-22T12:57:54.328Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
 };
 ```
