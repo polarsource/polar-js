@@ -10,20 +10,20 @@ let value: Oauth2ClientsListResponse = {
     items: [
       {
         redirectUris: [
-          "https://athletic-platypus.org",
+          "https://authentic-status.info/",
         ],
         clientName: "<value>",
-        createdAt: new Date("2025-04-16T10:31:47.570Z"),
-        modifiedAt: new Date("2024-08-22T14:00:46.508Z"),
+        createdAt: new Date("2023-02-07T00:32:11.404Z"),
+        modifiedAt: new Date("2024-10-02T10:27:02.030Z"),
         clientId: "<id>",
         clientSecret: "<value>",
-        clientIdIssuedAt: 37078,
-        clientSecretExpiresAt: 493415,
+        clientIdIssuedAt: 614836,
+        clientSecretExpiresAt: 180315,
       },
     ],
     pagination: {
-      totalCount: 271066,
-      maxPage: 561790,
+      totalCount: 294636,
+      maxPage: 289623,
     },
   },
 };

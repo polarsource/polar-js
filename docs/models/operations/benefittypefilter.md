@@ -8,14 +8,14 @@ Filter by benefit type.
 ### `components.BenefitType`
 
 ```typescript
-const value: components.BenefitType = "discord";
+const value: components.BenefitType = "custom";
 ```
 
 ### `components.BenefitType[]`
 
 ```typescript
 const value: components.BenefitType[] = [
-  "downloadables",
+  "github_repository",
 ];
 ```
 

@@ -7,10 +7,10 @@
 
 ```typescript
 const value: components.BenefitCustom = {
-  createdAt: new Date("2025-07-29T21:23:38.273Z"),
-  modifiedAt: new Date("2023-09-29T05:06:49.761Z"),
+  createdAt: new Date("2023-08-26T14:42:37.044Z"),
+  modifiedAt: new Date("2023-08-21T09:17:20.239Z"),
   id: "<value>",
-  description: "investigate even mushy or ack",
+  description: "across atop whenever than until supposing",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -25,10 +25,10 @@ const value: components.BenefitCustom = {
 
 ```typescript
 const value: components.BenefitDiscord = {
-  createdAt: new Date("2025-02-22T13:34:54.556Z"),
-  modifiedAt: new Date("2023-06-09T23:00:47.892Z"),
+  createdAt: new Date("2025-05-26T06:25:53.245Z"),
+  modifiedAt: new Date("2024-07-04T12:48:33.795Z"),
   id: "<value>",
-  description: "metabolise impact worth shameful mount gradient oof even",
+  description: "utterly antelope famously whose because folklore fatal a",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -44,17 +44,17 @@ const value: components.BenefitDiscord = {
 
 ```typescript
 const value: components.BenefitGitHubRepository = {
-  createdAt: new Date("2025-10-14T04:47:20.484Z"),
-  modifiedAt: new Date("2024-12-15T14:32:46.539Z"),
+  createdAt: new Date("2025-09-20T17:50:31.812Z"),
+  modifiedAt: new Date("2024-03-20T03:15:07.982Z"),
   id: "<value>",
-  description: "instead staid well-groomed rot woot ridge eek",
+  description: "versus spirit than splosh",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "push",
+    permission: "admin",
   },
 };
 ```
@@ -63,10 +63,10 @@ const value: components.BenefitGitHubRepository = {
 
 ```typescript
 const value: components.BenefitDownloadables = {
-  createdAt: new Date("2025-10-26T05:58:24.759Z"),
-  modifiedAt: new Date("2023-05-22T13:19:47.503Z"),
+  createdAt: new Date("2023-10-19T18:24:22.763Z"),
+  modifiedAt: new Date("2025-04-23T14:51:34.166Z"),
   id: "<value>",
-  description: "from throughout undergo",
+  description: "colorful er spectacles after worriedly testify times",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -85,24 +85,24 @@ const value: components.BenefitDownloadables = {
 
 ```typescript
 const value: components.BenefitLicenseKeys = {
-  createdAt: new Date("2024-05-28T04:05:53.462Z"),
-  modifiedAt: new Date("2024-01-04T09:22:53.989Z"),
+  createdAt: new Date("2025-09-22T06:32:51.347Z"),
+  modifiedAt: new Date("2024-09-20T21:32:20.766Z"),
   id: "<value>",
-  description: "cricket cassava utterly",
+  description: "greedily whereas tightly brood hence",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 449369,
+      ttl: 646761,
       timeframe: "year",
     },
     activations: {
-      limit: 593830,
+      limit: 916452,
       enableCustomerAdmin: false,
     },
-    limitUsage: 537623,
+    limitUsage: 28097,
   },
 };
 ```
@@ -111,15 +111,16 @@ const value: components.BenefitLicenseKeys = {
 
 ```typescript
 const value: components.BenefitMeterCredit = {
-  createdAt: new Date("2023-08-06T10:53:27.934Z"),
-  modifiedAt: new Date("2024-10-22T22:18:54.790Z"),
+  createdAt: new Date("2025-07-13T02:35:52.595Z"),
+  modifiedAt: new Date("2023-09-17T11:24:42.238Z"),
   id: "<value>",
-  description: "e-mail mainstream clinch capitalise less",
+  description:
+    "grouper alongside till strategy generally deserted solidly camouflage via er",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
-    unit: 278469,
+    units: 472252,
     meterId: "<value>",
   },
 };

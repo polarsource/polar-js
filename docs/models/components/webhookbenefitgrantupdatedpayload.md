@@ -11,8 +11,8 @@ import { WebhookBenefitGrantUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantUpdatedPayload = {
   data: {
-    createdAt: new Date("2025-04-05T19:56:36.942Z"),
-    modifiedAt: new Date("2025-11-22T22:46:02.766Z"),
+    createdAt: new Date("2023-04-18T13:08:43.650Z"),
+    modifiedAt: new Date("2023-09-16T13:34:50.547Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -23,47 +23,47 @@ let value: WebhookBenefitGrantUpdatedPayload = {
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2025-05-17T18:00:28.664Z"),
-      modifiedAt: new Date("2024-09-30T10:38:22.243Z"),
+      createdAt: new Date("2025-10-11T19:34:50.666Z"),
+      modifiedAt: new Date("2025-12-04T18:11:54.423Z"),
       metadata: {
-        "key": false,
+        "key": "<value>",
       },
       externalId: "usr_1337",
       email: "customer@example.com",
       emailVerified: true,
       name: "John Doe",
       billingAddress: {
-        country: "SE",
+        country: "US",
       },
       taxId: [
         "911144442",
         "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2023-07-12T08:26:30.494Z"),
+      deletedAt: new Date("2025-08-13T19:24:27.975Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2025-06-22T06:45:38.869Z"),
-      modifiedAt: new Date("2023-11-09T16:12:50.253Z"),
+      createdAt: new Date("2024-03-22T06:24:13.619Z"),
+      modifiedAt: new Date("2024-11-29T00:34:44.806Z"),
       id: "<value>",
       description:
-        "usually even by wholly unnecessarily amid far-off beloved decent whoa",
+        "with regarding but poor unique furthermore milky yippee warmhearted hopeful",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
         prefix: "<value>",
         expires: {
-          ttl: 651359,
-          timeframe: "year",
+          ttl: 842977,
+          timeframe: "month",
         },
         activations: {
-          limit: 35492,
+          limit: 358271,
           enableCustomerAdmin: false,
         },
-        limitUsage: 785182,
+        limitUsage: 229034,
       },
     },
   },

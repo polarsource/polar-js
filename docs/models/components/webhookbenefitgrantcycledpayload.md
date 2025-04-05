@@ -12,8 +12,8 @@ import { WebhookBenefitGrantCycledPayload } from "@polar-sh/sdk/models/component
 
 let value: WebhookBenefitGrantCycledPayload = {
   data: {
-    createdAt: new Date("2025-06-12T21:06:38.090Z"),
-    modifiedAt: new Date("2024-01-18T21:12:05.315Z"),
+    createdAt: new Date("2023-11-18T20:31:19.582Z"),
+    modifiedAt: new Date("2024-03-08T01:20:16.494Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -24,8 +24,8 @@ let value: WebhookBenefitGrantCycledPayload = {
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2024-05-05T23:08:58.513Z"),
-      modifiedAt: new Date("2025-05-04T07:22:05.808Z"),
+      createdAt: new Date("2024-12-12T14:18:47.000Z"),
+      modifiedAt: new Date("2023-08-07T21:00:38.885Z"),
       metadata: {
         "key": false,
       },
@@ -34,37 +34,29 @@ let value: WebhookBenefitGrantCycledPayload = {
       emailVerified: true,
       name: "John Doe",
       billingAddress: {
-        country: "US",
+        country: "FR",
       },
       taxId: [
         "FR61954506077",
         "eu_vat",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2023-08-09T03:53:46.602Z"),
+      deletedAt: new Date("2025-02-26T00:46:37.159Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2025-01-21T15:14:30.409Z"),
-      modifiedAt: new Date("2024-07-04T12:12:40.835Z"),
+      createdAt: new Date("2025-07-25T23:55:15.574Z"),
+      modifiedAt: new Date("2023-07-06T08:58:45.482Z"),
       id: "<value>",
-      description: "while carefully ouch incidentally as for monocle sleepily",
+      description: "buzzing despite boggle whereas across boo",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        prefix: "<value>",
-        expires: {
-          ttl: 61375,
-          timeframe: "year",
-        },
-        activations: {
-          limit: 917102,
-          enableCustomerAdmin: false,
-        },
-        limitUsage: 775356,
+        note: "<value>",
       },
+      isTaxApplicable: false,
     },
   },
 };

@@ -9,7 +9,7 @@ import { ProductPriceMeteredUnitCreate } from "@polar-sh/sdk/models/components/p
 
 let value: ProductPriceMeteredUnitCreate = {
   meterId: "<value>",
-  unitAmount: 54255,
+  unitAmount: 882646,
 };
 ```
 

@@ -11,7 +11,7 @@ import {
   MetadataQuery$inboundSchema,
   MetadataQuery$Outbound,
   MetadataQuery$outboundSchema,
-} from "../components/customerslist.js";
+} from "../components/eventslist.js";
 import {
   EventSortProperty,
   EventSortProperty$inboundSchema,
@@ -329,7 +329,8 @@ export const EventsListRequest$inboundSchema: z.ZodType<
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(EventSortProperty$inboundSchema)).optional(),
-  metadata: z.nullable(z.record(MetadataQuery$inboundSchema)).optional(),
+  metadata: z.nullable(z.record(z.lazy(() => MetadataQuery$inboundSchema)))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_timestamp": "startTimestamp",
@@ -374,7 +375,8 @@ export const EventsListRequest$outboundSchema: z.ZodType<
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(EventSortProperty$outboundSchema)).optional(),
-  metadata: z.nullable(z.record(MetadataQuery$outboundSchema)).optional(),
+  metadata: z.nullable(z.record(z.lazy(() => MetadataQuery$outboundSchema)))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     startTimestamp: "start_timestamp",

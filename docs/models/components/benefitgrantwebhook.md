@@ -6,8 +6,8 @@
 import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components/benefitgrantwebhook.js";
 
 let value: BenefitGrantWebhook = {
-  createdAt: new Date("2025-06-23T08:41:15.007Z"),
-  modifiedAt: new Date("2023-03-24T21:20:51.391Z"),
+  createdAt: new Date("2025-05-20T06:29:58.394Z"),
+  modifiedAt: new Date("2025-04-20T07:46:05.447Z"),
   id: "<value>",
   isGranted: false,
   isRevoked: false,
@@ -18,10 +18,10 @@ let value: BenefitGrantWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-10-06T15:10:36.471Z"),
-    modifiedAt: new Date("2025-08-08T02:04:00.602Z"),
+    createdAt: new Date("2024-08-03T22:31:58.796Z"),
+    modifiedAt: new Date("2025-03-23T10:27:37.150Z"),
     metadata: {
-      "key": "<value>",
+      "key": false,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -31,27 +31,26 @@ let value: BenefitGrantWebhook = {
       country: "SE",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2024-05-03T15:45:49.822Z"),
+    deletedAt: new Date("2023-07-03T18:19:30.365Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   properties: {},
   benefit: {
-    createdAt: new Date("2025-03-13T12:12:28.416Z"),
-    modifiedAt: new Date("2023-12-13T18:22:28.160Z"),
+    createdAt: new Date("2023-12-27T22:17:00.210Z"),
+    modifiedAt: new Date("2024-02-10T10:41:30.057Z"),
     id: "<value>",
-    description:
-      "hence sadly those naturally if solemnly underneath french now corny",
+    description: "toward while fooey democratize or er um twin elver",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
       repositoryOwner: "polarsource",
       repositoryName: "private_repo",
-      permission: "admin",
+      permission: "maintain",
     },
   },
 };

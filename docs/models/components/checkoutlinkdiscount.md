@@ -7,22 +7,22 @@
 
 ```typescript
 const value: components.DiscountFixedOnceForeverDurationBase = {
-  duration: "once",
+  duration: "repeating",
   type: "fixed",
-  amount: 249506,
-  currency: "Fiji Dollar",
-  createdAt: new Date("2025-01-12T12:38:58.687Z"),
-  modifiedAt: new Date("2024-12-13T18:14:41.004Z"),
+  amount: 978120,
+  currency: "Lebanese Pound",
+  createdAt: new Date("2023-11-29T22:19:07.374Z"),
+  modifiedAt: new Date("2025-08-26T08:06:28.501Z"),
   id: "<value>",
   metadata: {
-    "key": false,
+    "key": 234343,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-06-12T14:01:58.849Z"),
-  endsAt: new Date("2025-05-14T06:02:33.632Z"),
-  maxRedemptions: 588907,
-  redemptionsCount: 106632,
+  startsAt: new Date("2025-06-09T06:38:20.565Z"),
+  endsAt: new Date("2023-12-05T14:26:35.432Z"),
+  maxRedemptions: 132138,
+  redemptionsCount: 728287,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -31,23 +31,23 @@ const value: components.DiscountFixedOnceForeverDurationBase = {
 
 ```typescript
 const value: components.DiscountFixedRepeatDurationBase = {
-  duration: "repeating",
-  durationInMonths: 302321,
-  type: "percentage",
-  amount: 366687,
-  currency: "Bahamian Dollar",
-  createdAt: new Date("2024-10-25T10:01:56.756Z"),
-  modifiedAt: new Date("2025-08-25T13:18:49.312Z"),
+  duration: "once",
+  durationInMonths: 619926,
+  type: "fixed",
+  amount: 441641,
+  currency: "Namibia Dollar",
+  createdAt: new Date("2025-11-25T04:43:58.974Z"),
+  modifiedAt: new Date("2025-06-10T15:39:22.400Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2023-11-19T16:34:45.510Z"),
-  endsAt: new Date("2023-10-17T19:40:17.347Z"),
-  maxRedemptions: 782277,
-  redemptionsCount: 152179,
+  startsAt: new Date("2023-06-02T15:02:54.697Z"),
+  endsAt: new Date("2025-05-26T12:41:24.659Z"),
+  maxRedemptions: 76274,
+  redemptionsCount: 21686,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -56,21 +56,21 @@ const value: components.DiscountFixedRepeatDurationBase = {
 
 ```typescript
 const value: components.DiscountPercentageOnceForeverDurationBase = {
-  duration: "forever",
+  duration: "once",
   type: "fixed",
-  basisPoints: 769331,
-  createdAt: new Date("2024-04-26T14:18:23.756Z"),
-  modifiedAt: new Date("2023-09-30T19:12:28.413Z"),
+  basisPoints: 599069,
+  createdAt: new Date("2024-01-10T18:51:26.386Z"),
+  modifiedAt: new Date("2024-04-08T21:26:27.882Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": false,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2024-06-16T10:59:36.631Z"),
-  endsAt: new Date("2023-09-30T22:08:25.999Z"),
-  maxRedemptions: 685507,
-  redemptionsCount: 240083,
+  startsAt: new Date("2025-04-12T16:04:59.265Z"),
+  endsAt: new Date("2024-11-17T00:52:34.763Z"),
+  maxRedemptions: 992406,
+  redemptionsCount: 293950,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
@@ -79,22 +79,22 @@ const value: components.DiscountPercentageOnceForeverDurationBase = {
 
 ```typescript
 const value: components.DiscountPercentageRepeatDurationBase = {
-  duration: "forever",
-  durationInMonths: 636570,
-  type: "percentage",
-  basisPoints: 905385,
-  createdAt: new Date("2025-01-02T16:11:02.138Z"),
-  modifiedAt: new Date("2023-08-22T21:57:23.570Z"),
+  duration: "repeating",
+  durationInMonths: 695395,
+  type: "fixed",
+  basisPoints: 489532,
+  createdAt: new Date("2023-03-12T10:58:50.277Z"),
+  modifiedAt: new Date("2024-09-14T19:15:52.642Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": 399573,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-04-04T10:19:40.067Z"),
-  endsAt: new Date("2024-01-30T12:54:28.356Z"),
-  maxRedemptions: 120677,
-  redemptionsCount: 835232,
+  startsAt: new Date("2023-08-16T10:20:17.618Z"),
+  endsAt: new Date("2024-09-04T23:43:02.503Z"),
+  maxRedemptions: 863337,
+  redemptionsCount: 383593,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```

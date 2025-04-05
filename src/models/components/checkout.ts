@@ -156,7 +156,7 @@ export type Checkout = {
   /**
    * Currency code of the checkout session.
    */
-  currency: string | null;
+  currency: string;
   /**
    * ID of the product to checkout.
    */
@@ -547,7 +547,7 @@ export const Checkout$inboundSchema: z.ZodType<
   net_amount: z.number().int(),
   tax_amount: z.nullable(z.number().int()),
   total_amount: z.number().int(),
-  currency: z.nullable(z.string()),
+  currency: z.string(),
   product_id: z.string(),
   product_price_id: z.string(),
   discount_id: z.nullable(z.string()),
@@ -645,7 +645,7 @@ export type Checkout$Outbound = {
   net_amount: number;
   tax_amount: number | null;
   total_amount: number;
-  currency: string | null;
+  currency: string;
   product_id: string;
   product_price_id: string;
   discount_id: string | null;
@@ -710,7 +710,7 @@ export const Checkout$outboundSchema: z.ZodType<
   netAmount: z.number().int(),
   taxAmount: z.nullable(z.number().int()),
   totalAmount: z.number().int(),
-  currency: z.nullable(z.string()),
+  currency: z.string(),
   productId: z.string(),
   productPriceId: z.string(),
   discountId: z.nullable(z.string()),

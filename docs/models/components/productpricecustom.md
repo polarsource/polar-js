@@ -8,17 +8,17 @@ A pay-what-you-want price for a product.
 import { ProductPriceCustom } from "@polar-sh/sdk/models/components/productpricecustom.js";
 
 let value: ProductPriceCustom = {
-  createdAt: new Date("2024-01-21T16:11:36.139Z"),
-  modifiedAt: new Date("2025-03-01T15:52:51.579Z"),
+  createdAt: new Date("2023-06-13T10:32:41.434Z"),
+  modifiedAt: new Date("2025-05-23T09:58:04.118Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "recurring",
+  type: "one_time",
   recurringInterval: "year",
   priceCurrency: "<value>",
-  minimumAmount: 976226,
-  maximumAmount: 889794,
-  presetAmount: 764562,
+  minimumAmount: 851910,
+  maximumAmount: 768715,
+  presetAmount: 2538,
 };
 ```
 

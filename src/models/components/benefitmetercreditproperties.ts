@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Properties for a benefit of type `meter_unit`.
  */
 export type BenefitMeterCreditProperties = {
-  unit: number;
+  units: number;
   meterId: string;
 };
 
@@ -22,7 +22,7 @@ export const BenefitMeterCreditProperties$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  unit: z.number().int(),
+  units: z.number().int(),
   meter_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -32,7 +32,7 @@ export const BenefitMeterCreditProperties$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitMeterCreditProperties$Outbound = {
-  unit: number;
+  units: number;
   meter_id: string;
 };
 
@@ -42,7 +42,7 @@ export const BenefitMeterCreditProperties$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitMeterCreditProperties
 > = z.object({
-  unit: z.number().int(),
+  units: z.number().int(),
   meterId: z.string(),
 }).transform((v) => {
   return remap$(v, {

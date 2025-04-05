@@ -5,7 +5,7 @@
 ```typescript
 import { SubscriptionRecurringInterval } from "@polar-sh/sdk/models/components/subscriptionrecurringinterval.js";
 
-let value: SubscriptionRecurringInterval = "month";
+let value: SubscriptionRecurringInterval = "year";
 ```
 
 ## Values

@@ -21,7 +21,7 @@ const value: components.CheckoutProductsCreate = {
 ```typescript
 const value: components.CheckoutProductCreate = {
   customerBillingAddress: {
-    country: "US",
+    country: "SE",
   },
   productId: "<value>",
 };

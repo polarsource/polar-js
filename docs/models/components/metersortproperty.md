@@ -5,7 +5,7 @@
 ```typescript
 import { MeterSortProperty } from "@polar-sh/sdk/models/components/metersortproperty.js";
 
-let value: MeterSortProperty = "name";
+let value: MeterSortProperty = "created_at";
 ```
 
 ## Values

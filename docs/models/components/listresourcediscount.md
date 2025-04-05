@@ -8,32 +8,32 @@ import { ListResourceDiscount } from "@polar-sh/sdk/models/components/listresour
 let value: ListResourceDiscount = {
   items: [
     {
-      duration: "once",
+      duration: "repeating",
+      durationInMonths: 35453,
       type: "percentage",
-      amount: 577775,
-      currency: "Turkish Lira",
-      createdAt: new Date("2025-01-31T20:33:50.648Z"),
-      modifiedAt: new Date("2023-02-20T20:35:50.646Z"),
+      amount: 718704,
+      currency: "Iraqi Dinar",
+      createdAt: new Date("2024-02-16T02:45:40.769Z"),
+      modifiedAt: new Date("2024-10-28T04:42:36.139Z"),
       id: "<value>",
       metadata: {
         "key": "<value>",
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2023-05-09T19:43:06.838Z"),
-      endsAt: new Date("2024-06-11T11:40:46.522Z"),
-      maxRedemptions: 816410,
-      redemptionsCount: 718185,
+      startsAt: new Date("2024-10-05T18:52:55.497Z"),
+      endsAt: new Date("2025-09-04T21:50:43.396Z"),
+      maxRedemptions: 582139,
+      redemptionsCount: 189863,
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       products: [
         {
-          createdAt: new Date("2023-08-16T00:35:17.530Z"),
-          modifiedAt: new Date("2024-04-01T19:40:29.875Z"),
+          createdAt: new Date("2023-01-02T21:02:00.809Z"),
+          modifiedAt: new Date("2025-11-14T07:21:36.206Z"),
           id: "<value>",
           name: "<value>",
-          description:
-            "winged mid contravene correctly regarding far-flung handle amongst",
-          recurringInterval: "year",
+          description: "toothpick requite metallic bony um dirty with",
+          recurringInterval: "month",
           isRecurring: false,
           isArchived: false,
           organizationId: "<value>",
@@ -42,8 +42,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 875785,
-    maxPage: 815754,
+    totalCount: 678543,
+    maxPage: 60381,
   },
 };
 ```

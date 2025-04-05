@@ -8,24 +8,24 @@ import { ListResourceExternalOrganization } from "@polar-sh/sdk/models/component
 let value: ListResourceExternalOrganization = {
   items: [
     {
-      id: "7e2f00dc-337f-4add-b29f-17cf16c9e189",
+      id: "569257e2-9302-45e0-b2dd-c2ff4e640858",
       platform: "github",
       name: "<value>",
-      avatarUrl: "https://liquid-newsstand.com",
+      avatarUrl: "https://fragrant-bob.net",
       isPersonal: false,
       bio: "<value>",
       prettyName: "<value>",
-      company: "Armstrong, O'Connell and Lakin",
+      company: "Olson - Waelchi",
       blog: "<value>",
       location: "<value>",
-      email: "Carter_Stiedemann@hotmail.com",
+      email: "Dylan_Wilderman89@yahoo.com",
       twitterUsername: "<value>",
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     },
   ],
   pagination: {
-    totalCount: 682402,
-    maxPage: 881543,
+    totalCount: 258585,
+    maxPage: 912963,
   },
 };
 ```
