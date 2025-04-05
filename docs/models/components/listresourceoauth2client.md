@@ -9,20 +9,20 @@ let value: ListResourceOAuth2Client = {
   items: [
     {
       redirectUris: [
-        "https://frozen-disclosure.info/",
+        "https://deficient-sock.info",
       ],
       clientName: "<value>",
-      createdAt: new Date("2025-04-29T23:43:18.801Z"),
-      modifiedAt: new Date("2025-06-01T15:17:38.399Z"),
+      createdAt: new Date("2024-12-22T15:43:02.670Z"),
+      modifiedAt: new Date("2024-04-03T03:09:37.954Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 790570,
-      clientSecretExpiresAt: 885646,
+      clientIdIssuedAt: 643766,
+      clientSecretExpiresAt: 384365,
     },
   ],
   pagination: {
-    totalCount: 50741,
-    maxPage: 982217,
+    totalCount: 146552,
+    maxPage: 237437,
   },
 };
 ```

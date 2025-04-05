@@ -5,7 +5,7 @@
 ```typescript
 import { IntrospectTokenRequestTokenTypeHint } from "@polar-sh/sdk/models/components/introspecttokenrequest.js";
 
-let value: IntrospectTokenRequestTokenTypeHint = "refresh_token";
+let value: IntrospectTokenRequestTokenTypeHint = "access_token";
 ```
 
 ## Values

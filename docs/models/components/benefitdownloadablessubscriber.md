@@ -6,30 +6,29 @@
 import { BenefitDownloadablesSubscriber } from "@polar-sh/sdk/models/components/benefitdownloadablessubscriber.js";
 
 let value: BenefitDownloadablesSubscriber = {
-  createdAt: new Date("2023-06-25T14:33:17.707Z"),
-  modifiedAt: new Date("2025-10-09T02:18:31.099Z"),
+  createdAt: new Date("2024-02-11T02:38:58.436Z"),
+  modifiedAt: new Date("2025-09-10T10:17:52.189Z"),
   id: "<value>",
-  description:
-    "self-reliant if supposing meanwhile phew aboard really implode yahoo",
+  description: "happy whisper sad woot out psst tousle",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2023-08-31T18:46:56.958Z"),
-    modifiedAt: new Date("2023-09-27T03:49:30.939Z"),
+    createdAt: new Date("2025-10-24T19:06:58.146Z"),
+    modifiedAt: new Date("2023-12-07T04:34:35.188Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://annual-march.name",
-    email: "Declan99@yahoo.com",
+    avatarUrl: "https://supportive-jazz.biz/",
+    email: "Lisette.Roob22@gmail.com",
     website: "<value>",
     socials: [
       {
         platform: "instagram",
-        url: "https://oval-pecan.biz",
+        url: "https://better-veto.com/",
       },
     ],
-    detailsSubmittedAt: new Date("2024-07-07T11:10:27.071Z"),
+    detailsSubmittedAt: new Date("2023-03-01T12:09:50.911Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -37,13 +36,13 @@ let value: BenefitDownloadablesSubscriber = {
       prorationBehavior: "invoice",
     },
     bio: "<value>",
-    company: "Jacobs - Crona",
+    company: "Stanton - Kirlin",
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 159487,
+    pledgeMinimumAmount: 173437,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 178274,
+    defaultUpfrontSplitToContributors: 281763,
     profileSettings: {},
   },
   properties: {

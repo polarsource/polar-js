@@ -9,10 +9,10 @@ let value: FilesUploadedRequest = {
   id: "<value>",
   fileUploadCompleted: {
     id: "<id>",
-    path: "/opt/lib",
+    path: "/etc/ppp",
     parts: [
       {
-        number: 875600,
+        number: 76501,
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
       },

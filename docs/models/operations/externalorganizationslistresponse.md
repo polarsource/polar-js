@@ -9,24 +9,24 @@ let value: ExternalOrganizationsListResponse = {
   result: {
     items: [
       {
-        id: "6175ee9b-93c4-45d5-a00b-0ff63cbf3f98",
+        id: "7b6a8f60-1734-4f1f-9ffd-2b66566183c6",
         platform: "github",
         name: "<value>",
-        avatarUrl: "https://homely-switchboard.name/",
+        avatarUrl: "https://square-diagram.com",
         isPersonal: false,
         bio: "<value>",
         prettyName: "<value>",
-        company: "Grant, Bins and Collier",
+        company: "Orn and Sons",
         blog: "<value>",
         location: "<value>",
-        email: "Jermaine71@gmail.com",
+        email: "Kariane93@hotmail.com",
         twitterUsername: "<value>",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       },
     ],
     pagination: {
-      totalCount: 570185,
-      maxPage: 744473,
+      totalCount: 419695,
+      maxPage: 88419,
     },
   },
 };

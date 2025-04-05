@@ -6,29 +6,30 @@
 import { BenefitCustomSubscriber } from "@polar-sh/sdk/models/components/benefitcustomsubscriber.js";
 
 let value: BenefitCustomSubscriber = {
-  createdAt: new Date("2025-11-28T04:12:23.377Z"),
-  modifiedAt: new Date("2024-09-18T13:32:37.133Z"),
+  createdAt: new Date("2025-11-30T04:35:35.570Z"),
+  modifiedAt: new Date("2024-02-26T07:33:16.529Z"),
   id: "<value>",
-  description: "along meanwhile finally",
+  description:
+    "woot self-assured lovingly midst come however norm gee legitimize bah",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2023-02-03T18:13:52.827Z"),
-    modifiedAt: new Date("2025-12-16T12:03:21.969Z"),
+    createdAt: new Date("2023-09-16T21:27:24.089Z"),
+    modifiedAt: new Date("2025-10-18T09:14:25.735Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://sentimental-sprinkles.com",
-    email: "Salvatore_Hand@gmail.com",
+    avatarUrl: "https://common-venom.name/",
+    email: "Clark.Walsh62@yahoo.com",
     website: "<value>",
     socials: [
       {
-        platform: "x",
-        url: "https://afraid-brace.net/",
+        platform: "facebook",
+        url: "https://radiant-elver.com",
       },
     ],
-    detailsSubmittedAt: new Date("2023-10-26T18:35:23.960Z"),
+    detailsSubmittedAt: new Date("2024-09-07T05:59:02.037Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -36,13 +37,13 @@ let value: BenefitCustomSubscriber = {
       prorationBehavior: "invoice",
     },
     bio: "<value>",
-    company: "Schuster, Parker and Hansen",
+    company: "Jaskolski, Franecki and Lubowitz",
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 167783,
+    pledgeMinimumAmount: 380456,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 816103,
+    defaultUpfrontSplitToContributors: 379789,
     profileSettings: {},
   },
   properties: {

@@ -8,8 +8,8 @@ import { ListResourceMeter } from "@polar-sh/sdk/models/components/listresourcem
 let value: ListResourceMeter = {
   items: [],
   pagination: {
-    totalCount: 535130,
-    maxPage: 908582,
+    totalCount: 828235,
+    maxPage: 313930,
   },
 };
 ```

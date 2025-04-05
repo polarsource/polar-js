@@ -10,15 +10,15 @@ Use it to grant a number of units on a specific meter.
 import { BenefitMeterCredit } from "@polar-sh/sdk/models/components/benefitmetercredit.js";
 
 let value: BenefitMeterCredit = {
-  createdAt: new Date("2024-07-07T02:12:48.329Z"),
-  modifiedAt: new Date("2023-10-11T21:14:00.960Z"),
+  createdAt: new Date("2023-08-25T12:13:00.837Z"),
+  modifiedAt: new Date("2024-07-31T23:01:40.559Z"),
   id: "<value>",
-  description: "inexperienced pike investigate whether and wonderful",
+  description: "drat failing or numeracy",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
-    unit: 802188,
+    units: 546974,
     meterId: "<value>",
   },
 };

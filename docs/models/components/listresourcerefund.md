@@ -8,17 +8,17 @@ import { ListResourceRefund } from "@polar-sh/sdk/models/components/listresource
 let value: ListResourceRefund = {
   items: [
     {
-      createdAt: new Date("2024-11-04T12:08:37.220Z"),
-      modifiedAt: new Date("2025-10-26T06:09:24.035Z"),
+      createdAt: new Date("2023-09-24T05:07:15.062Z"),
+      modifiedAt: new Date("2025-09-08T17:29:42.903Z"),
       id: "<value>",
       metadata: {
-        "key": false,
+        "key": "<value>",
       },
-      status: "failed",
-      reason: "service_disruption",
-      amount: 650391,
-      taxAmount: 924966,
-      currency: "Zambian Kwacha",
+      status: "canceled",
+      reason: "fraudulent",
+      amount: 299744,
+      taxAmount: 368337,
+      currency: "Pa'anga",
       organizationId: "<value>",
       orderId: "<value>",
       subscriptionId: "<value>",
@@ -27,8 +27,8 @@ let value: ListResourceRefund = {
     },
   ],
   pagination: {
-    totalCount: 33090,
-    maxPage: 969553,
+    totalCount: 949677,
+    maxPage: 352874,
   },
 };
 ```

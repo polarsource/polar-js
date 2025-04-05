@@ -8,16 +8,16 @@ A metered, usage-based, price for a product, with a fixed unit price.
 import { ProductPriceMeteredUnit } from "@polar-sh/sdk/models/components/productpricemeteredunit.js";
 
 let value: ProductPriceMeteredUnit = {
-  createdAt: new Date("2023-09-23T02:58:56.738Z"),
-  modifiedAt: new Date("2024-04-18T18:43:55.492Z"),
+  createdAt: new Date("2025-04-25T18:42:41.309Z"),
+  modifiedAt: new Date("2025-04-21T06:35:32.464Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "recurring",
+  type: "one_time",
   recurringInterval: "year",
   priceCurrency: "<value>",
-  unitAmount: 958741,
-  capAmount: 117320,
+  unitAmount: 198847,
+  capAmount: 499639,
   meterId: "<value>",
   meter: {
     id: "<value>",

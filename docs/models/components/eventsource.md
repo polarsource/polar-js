@@ -5,7 +5,7 @@
 ```typescript
 import { EventSource } from "@polar-sh/sdk/models/components/eventsource.js";
 
-let value: EventSource = "user";
+let value: EventSource = "system";
 ```
 
 ## Values

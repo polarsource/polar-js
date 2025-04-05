@@ -11,8 +11,8 @@ import { WebhookBenefitGrantCreatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantCreatedPayload = {
   data: {
-    createdAt: new Date("2023-01-02T19:45:35.845Z"),
-    modifiedAt: new Date("2025-01-17T02:51:27.106Z"),
+    createdAt: new Date("2025-10-02T04:38:09.243Z"),
+    modifiedAt: new Date("2025-01-26T22:42:29.259Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -23,10 +23,10 @@ let value: WebhookBenefitGrantCreatedPayload = {
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2023-03-05T14:02:18.907Z"),
-      modifiedAt: new Date("2025-03-17T01:50:29.399Z"),
+      createdAt: new Date("2023-10-21T01:27:19.889Z"),
+      modifiedAt: new Date("2023-07-02T18:46:10.563Z"),
       metadata: {
-        "key": "<value>",
+        "key": 951630,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
@@ -36,26 +36,29 @@ let value: WebhookBenefitGrantCreatedPayload = {
         country: "US",
       },
       taxId: [
-        "FR61954506077",
-        "eu_vat",
+        "911144442",
+        "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2025-12-13T21:16:19.781Z"),
+      deletedAt: new Date("2024-02-18T11:58:26.695Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2023-03-09T18:39:44.610Z"),
-      modifiedAt: new Date("2024-07-11T12:00:35.437Z"),
+      createdAt: new Date("2025-02-01T06:50:40.155Z"),
+      modifiedAt: new Date("2024-10-14T07:36:23.610Z"),
       id: "<value>",
-      description:
-        "information adrenalin convalesce after kindheartedly beyond frizz sock",
+      description: "artistic monasticism when that",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        unit: 476765,
-        meterId: "<value>",
+        archived: {
+          "key": false,
+        },
+        files: [
+          "<value>",
+        ],
       },
     },
   },

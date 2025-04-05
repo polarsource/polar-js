@@ -9,9 +9,9 @@ import { CheckoutDiscountFixedOnceForeverDuration } from "@polar-sh/sdk/models/c
 
 let value: CheckoutDiscountFixedOnceForeverDuration = {
   duration: "repeating",
-  type: "percentage",
-  amount: 333965,
-  currency: "Surinam Dollar",
+  type: "fixed",
+  amount: 585667,
+  currency: "Iraqi Dinar",
   id: "<value>",
   name: "<value>",
   code: "<value>",
