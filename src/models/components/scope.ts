@@ -52,6 +52,8 @@ export const Scope = {
   IssuesWrite: "issues:write",
   CustomerPortalRead: "customer_portal:read",
   CustomerPortalWrite: "customer_portal:write",
+  NotificationRecipientsRead: "notification_recipients:read",
+  NotificationRecipientsWrite: "notification_recipients:write",
 } as const;
 export type Scope = ClosedEnum<typeof Scope>;
 

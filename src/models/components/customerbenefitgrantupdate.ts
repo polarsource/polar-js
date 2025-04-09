@@ -36,11 +36,18 @@ import {
   CustomerBenefitGrantLicenseKeysUpdate$Outbound,
   CustomerBenefitGrantLicenseKeysUpdate$outboundSchema,
 } from "./customerbenefitgrantlicensekeysupdate.js";
+import {
+  CustomerBenefitGrantMeterCreditUpdate,
+  CustomerBenefitGrantMeterCreditUpdate$inboundSchema,
+  CustomerBenefitGrantMeterCreditUpdate$Outbound,
+  CustomerBenefitGrantMeterCreditUpdate$outboundSchema,
+} from "./customerbenefitgrantmetercreditupdate.js";
 
 export type CustomerBenefitGrantUpdate =
   | (CustomerBenefitGrantCustomUpdate & { benefitType: "custom" })
   | (CustomerBenefitGrantDownloadablesUpdate & { benefitType: "downloadables" })
   | (CustomerBenefitGrantLicenseKeysUpdate & { benefitType: "license_keys" })
+  | (CustomerBenefitGrantMeterCreditUpdate & { benefitType: "meter_credit" })
   | (CustomerBenefitGrantDiscordUpdate & { benefitType: "discord" })
   | (CustomerBenefitGrantGitHubRepositoryUpdate & {
     benefitType: "github_repository";
@@ -67,6 +74,11 @@ export const CustomerBenefitGrantUpdate$inboundSchema: z.ZodType<
       benefitType: v.benefit_type,
     })),
   ),
+  CustomerBenefitGrantMeterCreditUpdate$inboundSchema.and(
+    z.object({ benefit_type: z.literal("meter_credit") }).transform((v) => ({
+      benefitType: v.benefit_type,
+    })),
+  ),
   CustomerBenefitGrantDiscordUpdate$inboundSchema.and(
     z.object({ benefit_type: z.literal("discord") }).transform((v) => ({
       benefitType: v.benefit_type,
@@ -87,6 +99,9 @@ export type CustomerBenefitGrantUpdate$Outbound =
   })
   | (CustomerBenefitGrantLicenseKeysUpdate$Outbound & {
     benefit_type: "license_keys";
+  })
+  | (CustomerBenefitGrantMeterCreditUpdate$Outbound & {
+    benefit_type: "meter_credit";
   })
   | (CustomerBenefitGrantDiscordUpdate$Outbound & { benefit_type: "discord" })
   | (CustomerBenefitGrantGitHubRepositoryUpdate$Outbound & {
@@ -111,6 +126,11 @@ export const CustomerBenefitGrantUpdate$outboundSchema: z.ZodType<
   ),
   CustomerBenefitGrantLicenseKeysUpdate$outboundSchema.and(
     z.object({ benefitType: z.literal("license_keys") }).transform((v) => ({
+      benefit_type: v.benefitType,
+    })),
+  ),
+  CustomerBenefitGrantMeterCreditUpdate$outboundSchema.and(
+    z.object({ benefitType: z.literal("meter_credit") }).transform((v) => ({
       benefit_type: v.benefitType,
     })),
   ),

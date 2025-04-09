@@ -9,14 +9,14 @@ import { CustomerStateSubscription } from "@polar-sh/sdk/models/components/custo
 
 let value: CustomerStateSubscription = {
   id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
-  createdAt: new Date("2024-07-04T16:31:32.400Z"),
-  modifiedAt: new Date("2023-07-06T02:55:55.961Z"),
+  createdAt: new Date("2024-12-31T22:39:03.650Z"),
+  modifiedAt: new Date("2025-01-04T13:00:17.295Z"),
   metadata: {
-    "key": "<value>",
+    "key": 823316,
   },
   amount: 1000,
   currency: "usd",
-  recurringInterval: "year",
+  recurringInterval: "month",
   currentPeriodStart: new Date("2025-02-03T13:37:00Z"),
   currentPeriodEnd: new Date("2025-03-03T13:37:00Z"),
   cancelAtPeriodEnd: false,

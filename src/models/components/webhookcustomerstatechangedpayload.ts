@@ -34,7 +34,8 @@ export type WebhookCustomerStateChangedPayload = {
    * @remarks
    *
    * * Active subscriptions
-   * * Active benefits
+   * * Granted benefits
+   * * Active meters
    */
   data: CustomerState;
 };

@@ -8,7 +8,7 @@ Properties for creating a benefit of type `meter_unit`.
 import { BenefitMeterCreditCreateProperties } from "@polar-sh/sdk/models/components/benefitmetercreditcreateproperties.js";
 
 let value: BenefitMeterCreditCreateProperties = {
-  unit: 950080,
+  units: 311092,
   meterId: "<value>",
 };
 ```
@@ -17,5 +17,5 @@ let value: BenefitMeterCreditCreateProperties = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `unit`             | *number*           | :heavy_check_mark: | N/A                |
+| `units`            | *number*           | :heavy_check_mark: | N/A                |
 | `meterId`          | *string*           | :heavy_check_mark: | N/A                |

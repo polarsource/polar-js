@@ -101,7 +101,11 @@ const polar = new Polar();
 async function run() {
   const result = await polar.customerPortal.customers.update({
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
-  }, {});
+  }, {
+    billingAddress: {
+      country: "FR",
+    },
+  });
 
   // Handle the result
   console.log(result);
@@ -125,7 +129,11 @@ const polar = new PolarCore();
 async function run() {
   const res = await customerPortalCustomersUpdate(polar, {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
-  }, {});
+  }, {
+    billingAddress: {
+      country: "FR",
+    },
+  });
 
   if (!res.ok) {
     throw res.error;

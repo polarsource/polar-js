@@ -223,11 +223,7 @@ async function run() {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   }, {
     id: "<value>",
-    customerBenefitGrantUpdate: {
-      properties: {
-        accountId: "<id>",
-      },
-    },
+    customerBenefitGrantUpdate: {},
   });
 
   if (!res.ok) {

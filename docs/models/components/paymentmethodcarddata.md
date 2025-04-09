@@ -8,8 +8,8 @@ import { PaymentMethodCardData } from "@polar-sh/sdk/models/components/paymentme
 let value: PaymentMethodCardData = {
   brand: "<value>",
   last4: "<value>",
-  expMonth: 9403,
-  expYear: 741702,
+  expMonth: 540837,
+  expYear: 817945,
 };
 ```
 

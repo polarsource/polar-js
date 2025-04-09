@@ -6,35 +6,35 @@
 import { Organization } from "@polar-sh/sdk/models/components/organization.js";
 
 let value: Organization = {
-  createdAt: new Date("2023-09-12T01:27:22.798Z"),
-  modifiedAt: new Date("2023-05-28T12:26:51.418Z"),
+  createdAt: new Date("2025-08-18T16:08:36.319Z"),
+  modifiedAt: new Date("2023-06-29T18:21:41.585Z"),
   id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   name: "<value>",
   slug: "<value>",
-  avatarUrl: "https://bright-loaf.biz",
-  email: "Clemmie_Cummerata@hotmail.com",
+  avatarUrl: "https://medium-formula.org",
+  email: "Waino.Paucek35@yahoo.com",
   website: "<value>",
   socials: [
     {
-      platform: "other",
-      url: "https://idealistic-coil.net",
+      platform: "youtube",
+      url: "https://torn-bob.net",
     },
   ],
-  detailsSubmittedAt: new Date("2024-10-15T13:56:30.312Z"),
+  detailsSubmittedAt: new Date("2024-10-03T20:10:35.957Z"),
   featureSettings: {},
   subscriptionSettings: {
     allowMultipleSubscriptions: false,
     allowCustomerUpdates: false,
-    prorationBehavior: "invoice",
+    prorationBehavior: "prorate",
   },
   bio: "<value>",
-  company: "Ernser - Kunze",
+  company: "Green - Towne",
   blog: "<value>",
   location: "<value>",
   twitterUsername: "<value>",
-  pledgeMinimumAmount: 47289,
+  pledgeMinimumAmount: 553537,
   pledgeBadgeShowAmount: false,
-  defaultUpfrontSplitToContributors: 289247,
+  defaultUpfrontSplitToContributors: 919110,
   profileSettings: {},
 };
 ```

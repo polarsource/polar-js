@@ -7,20 +7,20 @@ import { DiscountPercentageOnceForeverDurationBase } from "@polar-sh/sdk/models/
 
 let value: DiscountPercentageOnceForeverDurationBase = {
   duration: "forever",
-  type: "fixed",
-  basisPoints: 590927,
-  createdAt: new Date("2025-03-02T17:47:11.428Z"),
-  modifiedAt: new Date("2023-12-15T02:59:19.660Z"),
+  type: "percentage",
+  basisPoints: 272361,
+  createdAt: new Date("2023-11-11T05:10:11.694Z"),
+  modifiedAt: new Date("2023-03-18T00:10:49.850Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2023-01-22T13:58:08.292Z"),
-  endsAt: new Date("2023-02-14T19:10:20.351Z"),
-  maxRedemptions: 257821,
-  redemptionsCount: 740245,
+  startsAt: new Date("2025-02-09T23:44:19.945Z"),
+  endsAt: new Date("2024-07-17T21:00:43.321Z"),
+  maxRedemptions: 172020,
+  redemptionsCount: 225362,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
