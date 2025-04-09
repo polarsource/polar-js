@@ -36,13 +36,20 @@ import {
   CustomerBenefitGrantLicenseKeys$Outbound,
   CustomerBenefitGrantLicenseKeys$outboundSchema,
 } from "./customerbenefitgrantlicensekeys.js";
+import {
+  CustomerBenefitGrantMeterCredit,
+  CustomerBenefitGrantMeterCredit$inboundSchema,
+  CustomerBenefitGrantMeterCredit$Outbound,
+  CustomerBenefitGrantMeterCredit$outboundSchema,
+} from "./customerbenefitgrantmetercredit.js";
 
 export type CustomerBenefitGrant =
   | CustomerBenefitGrantDiscord
   | CustomerBenefitGrantGitHubRepository
   | CustomerBenefitGrantDownloadables
   | CustomerBenefitGrantLicenseKeys
-  | CustomerBenefitGrantCustom;
+  | CustomerBenefitGrantCustom
+  | CustomerBenefitGrantMeterCredit;
 
 /** @internal */
 export const CustomerBenefitGrant$inboundSchema: z.ZodType<
@@ -55,6 +62,7 @@ export const CustomerBenefitGrant$inboundSchema: z.ZodType<
   CustomerBenefitGrantDownloadables$inboundSchema,
   CustomerBenefitGrantLicenseKeys$inboundSchema,
   CustomerBenefitGrantCustom$inboundSchema,
+  CustomerBenefitGrantMeterCredit$inboundSchema,
 ]);
 
 /** @internal */
@@ -63,7 +71,8 @@ export type CustomerBenefitGrant$Outbound =
   | CustomerBenefitGrantGitHubRepository$Outbound
   | CustomerBenefitGrantDownloadables$Outbound
   | CustomerBenefitGrantLicenseKeys$Outbound
-  | CustomerBenefitGrantCustom$Outbound;
+  | CustomerBenefitGrantCustom$Outbound
+  | CustomerBenefitGrantMeterCredit$Outbound;
 
 /** @internal */
 export const CustomerBenefitGrant$outboundSchema: z.ZodType<
@@ -76,6 +85,7 @@ export const CustomerBenefitGrant$outboundSchema: z.ZodType<
   CustomerBenefitGrantDownloadables$outboundSchema,
   CustomerBenefitGrantLicenseKeys$outboundSchema,
   CustomerBenefitGrantCustom$outboundSchema,
+  CustomerBenefitGrantMeterCredit$outboundSchema,
 ]);
 
 /**

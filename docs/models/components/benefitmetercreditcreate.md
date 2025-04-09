@@ -8,10 +8,10 @@ Schema to create a benefit of type `meter_unit`.
 import { BenefitMeterCreditCreate } from "@polar-sh/sdk/models/components/benefitmetercreditcreate.js";
 
 let value: BenefitMeterCreditCreate = {
-  description: "skean ascertain nor cop vivaciously yippee tame",
+  description: "yummy and outset whenever concerning blissfully",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
-    unit: 682449,
+    units: 569858,
     meterId: "<value>",
   },
 };

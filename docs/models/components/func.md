@@ -5,7 +5,7 @@
 ```typescript
 import { Func } from "@polar-sh/sdk/models/components/propertyaggregation.js";
 
-let value: Func = "sum";
+let value: Func = "avg";
 ```
 
 ## Values

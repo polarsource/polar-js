@@ -14,17 +14,17 @@ let value: ListResourceDownloadableRead = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/etc",
+        path: "/boot",
         mimeType: "<value>",
-        size: 648360,
+        size: 156565,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-12-03T06:25:18.097Z"),
+        lastModifiedAt: new Date("2023-02-19T20:41:25.338Z"),
         download: {
-          url: "https://authorized-cook.name",
-          expiresAt: new Date("2024-08-27T16:46:29.820Z"),
+          url: "https://empty-bookcase.com",
+          expiresAt: new Date("2024-06-10T02:33:32.817Z"),
         },
         version: "<value>",
         isUploaded: false,
@@ -34,8 +34,8 @@ let value: ListResourceDownloadableRead = {
     },
   ],
   pagination: {
-    totalCount: 26965,
-    maxPage: 834020,
+    totalCount: 603128,
+    maxPage: 545995,
   },
 };
 ```

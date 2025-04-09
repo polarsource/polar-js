@@ -20,6 +20,12 @@ import {
   CustomerStateBenefitGrant$outboundSchema,
 } from "./customerstatebenefitgrant.js";
 import {
+  CustomerStateMeter,
+  CustomerStateMeter$inboundSchema,
+  CustomerStateMeter$Outbound,
+  CustomerStateMeter$outboundSchema,
+} from "./customerstatemeter.js";
+import {
   CustomerStateSubscription,
   CustomerStateSubscription$inboundSchema,
   CustomerStateSubscription$Outbound,
@@ -41,7 +47,8 @@ export type CustomerStateTaxId = string | TaxIDFormat;
  * @remarks
  *
  * * Active subscriptions
- * * Active benefits
+ * * Granted benefits
+ * * Active meters
  */
 export type CustomerState = {
   /**
@@ -91,6 +98,10 @@ export type CustomerState = {
    * The customer's active benefit grants.
    */
   grantedBenefits: Array<CustomerStateBenefitGrant>;
+  /**
+   * The customer's active meters.
+   */
+  activeMeters: Array<CustomerStateMeter>;
   avatarUrl: string;
 };
 
@@ -216,6 +227,7 @@ export const CustomerState$inboundSchema: z.ZodType<
   ),
   active_subscriptions: z.array(CustomerStateSubscription$inboundSchema),
   granted_benefits: z.array(CustomerStateBenefitGrant$inboundSchema),
+  active_meters: z.array(CustomerStateMeter$inboundSchema),
   avatar_url: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -229,6 +241,7 @@ export const CustomerState$inboundSchema: z.ZodType<
     "deleted_at": "deletedAt",
     "active_subscriptions": "activeSubscriptions",
     "granted_benefits": "grantedBenefits",
+    "active_meters": "activeMeters",
     "avatar_url": "avatarUrl",
   });
 });
@@ -249,6 +262,7 @@ export type CustomerState$Outbound = {
   deleted_at: string | null;
   active_subscriptions: Array<CustomerStateSubscription$Outbound>;
   granted_benefits: Array<CustomerStateBenefitGrant$Outbound>;
+  active_meters: Array<CustomerStateMeter$Outbound>;
   avatar_url: string;
 };
 
@@ -274,6 +288,7 @@ export const CustomerState$outboundSchema: z.ZodType<
   deletedAt: z.nullable(z.date().transform(v => v.toISOString())),
   activeSubscriptions: z.array(CustomerStateSubscription$outboundSchema),
   grantedBenefits: z.array(CustomerStateBenefitGrant$outboundSchema),
+  activeMeters: z.array(CustomerStateMeter$outboundSchema),
   avatarUrl: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -287,6 +302,7 @@ export const CustomerState$outboundSchema: z.ZodType<
     deletedAt: "deleted_at",
     activeSubscriptions: "active_subscriptions",
     grantedBenefits: "granted_benefits",
+    activeMeters: "active_meters",
     avatarUrl: "avatar_url",
   });
 });

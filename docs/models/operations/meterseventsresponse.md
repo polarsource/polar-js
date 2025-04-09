@@ -10,42 +10,42 @@ let value: MetersEventsResponse = {
     items: [
       {
         metadata: {
-          "key": 151171,
+          "key": "<value>",
         },
         id: "<value>",
-        timestamp: new Date("2025-11-27T09:34:55.765Z"),
+        timestamp: new Date("2025-05-12T13:21:27.718Z"),
         name: "<value>",
         source: "system",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         customerId: "<value>",
         customer: {
           id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-          createdAt: new Date("2024-01-02T16:02:26.316Z"),
-          modifiedAt: new Date("2025-04-23T20:51:58.248Z"),
+          createdAt: new Date("2023-07-11T19:13:49.739Z"),
+          modifiedAt: new Date("2024-11-08T01:55:40.071Z"),
           metadata: {
-            "key": false,
+            "key": "<value>",
           },
           externalId: "usr_1337",
           email: "customer@example.com",
           emailVerified: true,
           name: "John Doe",
           billingAddress: {
-            country: "US",
+            country: "FR",
           },
           taxId: [
-            "911144442",
-            "us_ein",
+            "FR61954506077",
+            "eu_vat",
           ],
           organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-          deletedAt: new Date("2023-04-08T01:57:49.131Z"),
+          deletedAt: new Date("2024-10-09T23:31:25.948Z"),
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
         },
         externalCustomerId: "<id>",
       },
     ],
     pagination: {
-      totalCount: 33417,
-      maxPage: 561672,
+      totalCount: 568459,
+      maxPage: 722381,
     },
   },
 };

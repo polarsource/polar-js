@@ -10,19 +10,14 @@ let value: CustomerPortalCustomersGetPaymentMethodsResponse = {
     items: [
       {
         id: "<id>",
-        createdAt: new Date("2023-04-20T18:22:49.776Z"),
+        type: "<value>",
+        createdAt: new Date("2024-01-02T16:37:24.927Z"),
         default: false,
-        card: {
-          brand: "<value>",
-          last4: "<value>",
-          expMonth: 498605,
-          expYear: 899890,
-        },
       },
     ],
     pagination: {
-      totalCount: 522163,
-      maxPage: 618268,
+      totalCount: 374098,
+      maxPage: 472137,
     },
   },
 };

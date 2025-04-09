@@ -11,21 +11,21 @@ import { WebhookOrganizationUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookOrganizationUpdatedPayload = {
   data: {
-    createdAt: new Date("2025-03-30T02:19:05.351Z"),
-    modifiedAt: new Date("2025-02-26T02:13:18.268Z"),
+    createdAt: new Date("2023-07-16T02:28:27.582Z"),
+    modifiedAt: new Date("2025-03-30T11:56:13.023Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://wobbly-printer.name/",
-    email: "Terrence57@gmail.com",
+    avatarUrl: "https://fake-eternity.org/",
+    email: "Murl_Jacobson@yahoo.com",
     website: "<value>",
     socials: [
       {
         platform: "instagram",
-        url: "https://instructive-goat.net/",
+        url: "https://which-freezing.com/",
       },
     ],
-    detailsSubmittedAt: new Date("2025-07-10T10:39:26.328Z"),
+    detailsSubmittedAt: new Date("2025-06-03T13:51:02.753Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -33,13 +33,13 @@ let value: WebhookOrganizationUpdatedPayload = {
       prorationBehavior: "invoice",
     },
     bio: "<value>",
-    company: "Gleichner Group",
+    company: "Rau - Marquardt",
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 665706,
+    pledgeMinimumAmount: 667846,
     pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 835546,
+    defaultUpfrontSplitToContributors: 292301,
     profileSettings: {},
   },
 };

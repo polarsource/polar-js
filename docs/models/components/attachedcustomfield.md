@@ -10,18 +10,18 @@ import { AttachedCustomField } from "@polar-sh/sdk/models/components/attachedcus
 let value: AttachedCustomField = {
   customFieldId: "<value>",
   customField: {
-    createdAt: new Date("2025-10-09T21:04:19.910Z"),
-    modifiedAt: new Date("2025-08-03T02:25:37.402Z"),
+    createdAt: new Date("2024-10-12T09:35:12.807Z"),
+    modifiedAt: new Date("2025-01-25T21:47:47.062Z"),
     id: "<value>",
     metadata: {
-      "key": "<value>",
+      "key": false,
     },
     slug: "<value>",
     name: "<value>",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     properties: {},
   },
-  order: 253642,
+  order: 594826,
   required: false,
 };
 ```

@@ -121,8 +121,7 @@ async function run() {
     customerBillingAddress: {
       country: "SE",
     },
-    successUrl: "https://probable-heating.com/",
-    productPriceId: "<value>",
+    productId: "<value>",
   });
 
   // Handle the result
@@ -152,8 +151,7 @@ async function run() {
     customerBillingAddress: {
       country: "SE",
     },
-    successUrl: "https://probable-heating.com/",
-    productPriceId: "<value>",
+    productId: "<value>",
   });
 
   if (!res.ok) {
@@ -206,7 +204,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.checkouts.get({
-    id: "<id>",
+    id: "<value>",
   });
 
   // Handle the result
@@ -232,7 +230,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await checkoutsGet(polar, {
-    id: "<id>",
+    id: "<value>",
   });
 
   if (!res.ok) {
@@ -287,7 +285,11 @@ const polar = new Polar({
 async function run() {
   const result = await polar.checkouts.update({
     id: "<value>",
-    checkoutUpdate: {},
+    checkoutUpdate: {
+      customerBillingAddress: {
+        country: "FR",
+      },
+    },
   });
 
   // Handle the result
@@ -314,7 +316,11 @@ const polar = new PolarCore({
 async function run() {
   const res = await checkoutsUpdate(polar, {
     id: "<value>",
-    checkoutUpdate: {},
+    checkoutUpdate: {
+      customerBillingAddress: {
+        country: "FR",
+      },
+    },
   });
 
   if (!res.ok) {
@@ -441,7 +447,11 @@ const polar = new Polar();
 async function run() {
   const result = await polar.checkouts.clientUpdate({
     clientSecret: "<value>",
-    checkoutUpdatePublic: {},
+    checkoutUpdatePublic: {
+      customerBillingAddress: {
+        country: "FR",
+      },
+    },
   });
 
   // Handle the result
@@ -466,7 +476,11 @@ const polar = new PolarCore();
 async function run() {
   const res = await checkoutsClientUpdate(polar, {
     clientSecret: "<value>",
-    checkoutUpdatePublic: {},
+    checkoutUpdatePublic: {
+      customerBillingAddress: {
+        country: "FR",
+      },
+    },
   });
 
   if (!res.ok) {
@@ -523,7 +537,11 @@ const polar = new Polar({
 async function run() {
   const result = await polar.checkouts.clientConfirm({
     clientSecret: "<value>",
-    checkoutConfirmStripe: {},
+    checkoutConfirmStripe: {
+      customerBillingAddress: {
+        country: "FR",
+      },
+    },
   });
 
   // Handle the result
@@ -550,7 +568,11 @@ const polar = new PolarCore({
 async function run() {
   const res = await checkoutsClientConfirm(polar, {
     clientSecret: "<value>",
-    checkoutConfirmStripe: {},
+    checkoutConfirmStripe: {
+      customerBillingAddress: {
+        country: "FR",
+      },
+    },
   });
 
   if (!res.ok) {

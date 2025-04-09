@@ -6,13 +6,12 @@
 import { BenefitGitHubRepositoryCreate } from "@polar-sh/sdk/models/components/benefitgithubrepositorycreate.js";
 
 let value: BenefitGitHubRepositoryCreate = {
-  description:
-    "subsidy depart indeed horn anti judgementally yearningly despite exalted obstruct",
+  description: "obnoxiously about amidst likewise appertain muddy outside",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "triage",
+    permission: "maintain",
   },
 };
 ```

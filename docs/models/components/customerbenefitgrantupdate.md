@@ -41,3 +41,9 @@ const value: components.CustomerBenefitGrantGitHubRepositoryUpdate = {
 const value: components.CustomerBenefitGrantLicenseKeysUpdate = {};
 ```
 
+### `components.CustomerBenefitGrantMeterCreditUpdate`
+
+```typescript
+const value: components.CustomerBenefitGrantMeterCreditUpdate = {};
+```
+

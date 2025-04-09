@@ -11,7 +11,7 @@ import {
   MetadataQuery$inboundSchema,
   MetadataQuery$Outbound,
   MetadataQuery$outboundSchema,
-} from "../components/customerslist.js";
+} from "../components/eventslist.js";
 import {
   ListResourceMeter,
   ListResourceMeter$inboundSchema,

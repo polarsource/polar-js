@@ -6,17 +6,17 @@
 import { Refund } from "@polar-sh/sdk/models/components/refund.js";
 
 let value: Refund = {
-  createdAt: new Date("2025-08-15T22:27:14.964Z"),
-  modifiedAt: new Date("2025-08-08T13:39:24.245Z"),
+  createdAt: new Date("2025-12-04T20:21:23.175Z"),
+  modifiedAt: new Date("2024-05-23T22:39:09.157Z"),
   id: "<value>",
   metadata: {
     "key": "<value>",
   },
-  status: "failed",
-  reason: "other",
-  amount: 679150,
-  taxAmount: 660519,
-  currency: "Pataca",
+  status: "pending",
+  reason: "duplicate",
+  amount: 750354,
+  taxAmount: 300741,
+  currency: "Hryvnia",
   organizationId: "<value>",
   orderId: "<value>",
   subscriptionId: "<value>",

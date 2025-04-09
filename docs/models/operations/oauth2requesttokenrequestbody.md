@@ -10,7 +10,7 @@ const value: components.AuthorizationCodeTokenRequest = {
   clientId: "<id>",
   clientSecret: "<value>",
   code: "<value>",
-  redirectUri: "https://formal-riser.name",
+  redirectUri: "https://bleak-makeover.biz/",
 };
 ```
 

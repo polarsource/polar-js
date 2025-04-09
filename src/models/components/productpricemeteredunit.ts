@@ -61,7 +61,7 @@ export type ProductPriceMeteredUnit = {
   /**
    * The price per unit in cents.
    */
-  unitAmount: number;
+  unitAmount: string;
   /**
    * The maximum amount in cents that can be charged, regardless of the number of units consumed.
    */
@@ -93,7 +93,7 @@ export const ProductPriceMeteredUnit$inboundSchema: z.ZodType<
   type: ProductPriceType$inboundSchema,
   recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
   price_currency: z.string(),
-  unit_amount: z.number().int(),
+  unit_amount: z.string(),
   cap_amount: z.nullable(z.number().int()),
   meter_id: z.string(),
   meter: ProductPriceMeter$inboundSchema,
@@ -123,7 +123,7 @@ export type ProductPriceMeteredUnit$Outbound = {
   type: string;
   recurring_interval: string | null;
   price_currency: string;
-  unit_amount: number;
+  unit_amount: string;
   cap_amount: number | null;
   meter_id: string;
   meter: ProductPriceMeter$Outbound;
@@ -144,7 +144,7 @@ export const ProductPriceMeteredUnit$outboundSchema: z.ZodType<
   type: ProductPriceType$outboundSchema,
   recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
   priceCurrency: z.string(),
-  unitAmount: z.number().int(),
+  unitAmount: z.string(),
   capAmount: z.nullable(z.number().int()),
   meterId: z.string(),
   meter: ProductPriceMeter$outboundSchema,

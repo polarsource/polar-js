@@ -9,15 +9,18 @@ let value: Meter = {
   metadata: {
     "key": "<value>",
   },
-  createdAt: new Date("2024-01-22T16:24:11.216Z"),
-  modifiedAt: new Date("2025-04-24T10:11:14.990Z"),
+  createdAt: new Date("2023-07-18T04:53:21.925Z"),
+  modifiedAt: new Date("2023-01-23T13:42:10.358Z"),
   id: "<value>",
   name: "<value>",
   filter: {
     conjunction: "and",
     clauses: [],
   },
-  aggregation: {},
+  aggregation: {
+    func: "avg",
+    property: "<value>",
+  },
   organizationId: "<value>",
 };
 ```

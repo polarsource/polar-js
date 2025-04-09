@@ -9,10 +9,9 @@ import { ProductCreate } from "@polar-sh/sdk/models/components/productcreate.js"
 
 let value: ProductCreate = {
   name: "<value>",
-  recurringInterval: "year",
+  recurringInterval: "month",
   prices: [
     {
-      priceAmount: 547940,
       priceCurrency: "usd",
     },
   ],

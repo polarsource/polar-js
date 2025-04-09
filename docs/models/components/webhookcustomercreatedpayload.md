@@ -17,10 +17,10 @@ import { WebhookCustomerCreatedPayload } from "@polar-sh/sdk/models/components/w
 let value: WebhookCustomerCreatedPayload = {
   data: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-07-08T22:50:38.940Z"),
-    modifiedAt: new Date("2024-01-19T11:42:30.917Z"),
+    createdAt: new Date("2024-07-14T00:49:20.816Z"),
+    modifiedAt: new Date("2025-01-09T10:52:27.442Z"),
     metadata: {
-      "key": false,
+      "key": "<value>",
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -34,7 +34,7 @@ let value: WebhookCustomerCreatedPayload = {
       "eu_vat",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-09-10T16:56:49.935Z"),
+    deletedAt: new Date("2023-08-07T00:43:15.932Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
 };

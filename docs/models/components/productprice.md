@@ -7,15 +7,15 @@
 
 ```typescript
 const value: components.ProductPriceFixed = {
-  createdAt: new Date("2025-01-07T03:36:18.419Z"),
-  modifiedAt: new Date("2024-08-02T17:14:09.216Z"),
+  createdAt: new Date("2025-12-26T12:23:44.317Z"),
+  modifiedAt: new Date("2025-07-03T15:28:37.002Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "one_time",
-  recurringInterval: "year",
+  type: "recurring",
+  recurringInterval: "month",
   priceCurrency: "<value>",
-  priceAmount: 362189,
+  priceAmount: 593331,
 };
 ```
 
@@ -23,17 +23,17 @@ const value: components.ProductPriceFixed = {
 
 ```typescript
 const value: components.ProductPriceCustom = {
-  createdAt: new Date("2024-05-30T19:56:59.856Z"),
-  modifiedAt: new Date("2024-02-19T13:21:39.892Z"),
+  createdAt: new Date("2023-06-12T19:38:31.503Z"),
+  modifiedAt: new Date("2023-09-25T15:00:34.865Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "month",
+  recurringInterval: "year",
   priceCurrency: "<value>",
-  minimumAmount: 327988,
-  maximumAmount: 680349,
-  presetAmount: 63207,
+  minimumAmount: 9926,
+  maximumAmount: 338033,
+  presetAmount: 867213,
 };
 ```
 
@@ -41,13 +41,13 @@ const value: components.ProductPriceCustom = {
 
 ```typescript
 const value: components.ProductPriceFree = {
-  createdAt: new Date("2024-10-27T13:05:15.123Z"),
-  modifiedAt: new Date("2024-06-07T12:00:49.002Z"),
+  createdAt: new Date("2023-09-10T01:59:19.952Z"),
+  modifiedAt: new Date("2024-10-07T22:48:38.896Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
   type: "one_time",
-  recurringInterval: "month",
+  recurringInterval: "year",
 };
 ```
 
@@ -55,16 +55,16 @@ const value: components.ProductPriceFree = {
 
 ```typescript
 const value: components.ProductPriceMeteredUnit = {
-  createdAt: new Date("2024-07-17T21:44:35.519Z"),
-  modifiedAt: new Date("2024-02-08T05:58:01.482Z"),
+  createdAt: new Date("2023-10-22T15:18:33.510Z"),
+  modifiedAt: new Date("2023-02-10T09:49:20.536Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "one_time",
-  recurringInterval: "month",
+  type: "recurring",
+  recurringInterval: "year",
   priceCurrency: "<value>",
-  unitAmount: 970494,
-  capAmount: 133439,
+  unitAmount: "<value>",
+  capAmount: 912776,
   meterId: "<value>",
   meter: {
     id: "<value>",

@@ -9,8 +9,8 @@ import { Customer } from "@polar-sh/sdk/models/components/customer.js";
 
 let value: Customer = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2025-11-13T07:16:15.727Z"),
-  modifiedAt: new Date("2023-12-13T22:32:12.208Z"),
+  createdAt: new Date("2025-07-08T03:18:52.668Z"),
+  modifiedAt: new Date("2023-01-07T07:33:47.635Z"),
   metadata: {
     "key": false,
   },
@@ -19,14 +19,14 @@ let value: Customer = {
   emailVerified: true,
   name: "John Doe",
   billingAddress: {
-    country: "US",
+    country: "FR",
   },
   taxId: [
     "FR61954506077",
     "eu_vat",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2025-04-03T03:09:12.985Z"),
+  deletedAt: new Date("2025-09-15T03:51:57.911Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
 };
 ```

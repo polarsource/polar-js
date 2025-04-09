@@ -7,11 +7,11 @@
 
 ```typescript
 const value: components.CustomerBenefitGrantDiscord = {
-  createdAt: new Date("2023-07-04T01:30:00.013Z"),
-  modifiedAt: new Date("2023-07-05T03:19:41.489Z"),
+  createdAt: new Date("2023-04-02T19:52:21.245Z"),
+  modifiedAt: new Date("2025-07-02T18:24:37.178Z"),
   id: "<value>",
-  grantedAt: new Date("2024-03-31T07:57:32.210Z"),
-  revokedAt: new Date("2024-10-26T09:56:19.354Z"),
+  grantedAt: new Date("2023-11-02T07:46:05.555Z"),
+  revokedAt: new Date("2024-12-17T14:02:02.593Z"),
   customerId: "<value>",
   benefitId: "<value>",
   subscriptionId: "<value>",
@@ -19,14 +19,14 @@ const value: components.CustomerBenefitGrantDiscord = {
   isGranted: false,
   isRevoked: false,
   customer: {
-    createdAt: new Date("2023-11-28T20:55:03.426Z"),
-    modifiedAt: new Date("2024-06-29T06:44:42.522Z"),
+    createdAt: new Date("2024-06-14T15:29:42.558Z"),
+    modifiedAt: new Date("2024-12-11T01:50:17.539Z"),
     id: "<value>",
-    email: "Alexander26@hotmail.com",
+    email: "Camylle.Daniel-Nolan@yahoo.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
-      country: "SE",
+      country: "FR",
     },
     taxId: [
       "911144442",
@@ -40,44 +40,43 @@ const value: components.CustomerBenefitGrantDiscord = {
     },
   },
   benefit: {
-    createdAt: new Date("2024-11-21T13:06:40.923Z"),
-    modifiedAt: new Date("2023-01-29T22:14:42.973Z"),
+    createdAt: new Date("2024-04-20T06:26:31.212Z"),
+    modifiedAt: new Date("2025-01-06T12:00:33.712Z"),
     id: "<value>",
-    description:
-      "beyond yahoo incidentally profuse fun bandwidth throughout below",
+    description: "perfectly questioningly soon delight um energetic",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     organization: {
-      createdAt: new Date("2023-01-02T05:13:35.742Z"),
-      modifiedAt: new Date("2024-06-16T12:06:28.738Z"),
+      createdAt: new Date("2024-08-17T17:15:36.277Z"),
+      modifiedAt: new Date("2024-03-11T02:44:55.063Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://yellowish-ceramics.com",
-      email: "Nettie_Ondricka79@yahoo.com",
+      avatarUrl: "https://messy-fisherman.name/",
+      email: "Daphne5@gmail.com",
       website: "<value>",
       socials: [
         {
-          platform: "instagram",
-          url: "https://deadly-rust.biz/",
+          platform: "facebook",
+          url: "https://quixotic-fax.name/",
         },
       ],
-      detailsSubmittedAt: new Date("2024-09-04T11:02:41.111Z"),
+      detailsSubmittedAt: new Date("2024-09-28T16:45:34.189Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
-        prorationBehavior: "prorate",
+        prorationBehavior: "invoice",
       },
       bio: "<value>",
-      company: "Volkman - Beer",
+      company: "Klocko - Welch",
       blog: "<value>",
       location: "<value>",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 919235,
+      pledgeMinimumAmount: 691170,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 113799,
+      defaultUpfrontSplitToContributors: 767828,
       profileSettings: {},
     },
     properties: {
@@ -92,11 +91,11 @@ const value: components.CustomerBenefitGrantDiscord = {
 
 ```typescript
 const value: components.CustomerBenefitGrantGitHubRepository = {
-  createdAt: new Date("2025-09-14T08:29:02.551Z"),
-  modifiedAt: new Date("2024-02-08T05:00:10.593Z"),
+  createdAt: new Date("2024-09-05T14:33:30.256Z"),
+  modifiedAt: new Date("2024-08-11T14:24:07.378Z"),
   id: "<value>",
-  grantedAt: new Date("2025-05-15T15:58:19.686Z"),
-  revokedAt: new Date("2024-03-08T02:01:36.327Z"),
+  grantedAt: new Date("2024-12-26T09:09:05.844Z"),
+  revokedAt: new Date("2025-04-27T11:36:49.473Z"),
   customerId: "<value>",
   benefitId: "<value>",
   subscriptionId: "<value>",
@@ -104,10 +103,359 @@ const value: components.CustomerBenefitGrantGitHubRepository = {
   isGranted: false,
   isRevoked: false,
   customer: {
-    createdAt: new Date("2025-03-14T12:56:53.269Z"),
-    modifiedAt: new Date("2025-07-23T05:17:11.148Z"),
+    createdAt: new Date("2023-10-09T03:13:42.047Z"),
+    modifiedAt: new Date("2024-10-29T15:11:50.667Z"),
     id: "<value>",
-    email: "Griffin.Bednar@yahoo.com",
+    email: "Dangelo.Beatty@yahoo.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
+  },
+  benefit: {
+    createdAt: new Date("2023-08-19T16:06:34.657Z"),
+    modifiedAt: new Date("2023-08-21T19:07:23.145Z"),
+    id: "<value>",
+    description: "fooey yuck resource",
+    selectable: false,
+    deletable: false,
+    organizationId: "<value>",
+    organization: {
+      createdAt: new Date("2024-06-20T03:51:37.689Z"),
+      modifiedAt: new Date("2025-11-13T14:23:44.047Z"),
+      id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      name: "<value>",
+      slug: "<value>",
+      avatarUrl: "https://filthy-pleasure.com",
+      email: "Mac.Mitchell18@hotmail.com",
+      website: "<value>",
+      socials: [
+        {
+          platform: "facebook",
+          url: "https://muted-nun.org",
+        },
+      ],
+      detailsSubmittedAt: new Date("2024-04-18T20:40:03.771Z"),
+      featureSettings: {},
+      subscriptionSettings: {
+        allowMultipleSubscriptions: false,
+        allowCustomerUpdates: false,
+        prorationBehavior: "invoice",
+      },
+      bio: "<value>",
+      company: "Lind, Abbott and Denesik",
+      blog: "<value>",
+      location: "<value>",
+      twitterUsername: "<value>",
+      pledgeMinimumAmount: 607473,
+      pledgeBadgeShowAmount: false,
+      defaultUpfrontSplitToContributors: 113719,
+      profileSettings: {},
+    },
+    properties: {
+      repositoryOwner: "polarsource",
+      repositoryName: "private_repo",
+    },
+  },
+  properties: {},
+};
+```
+
+### `components.CustomerBenefitGrantDownloadables`
+
+```typescript
+const value: components.CustomerBenefitGrantDownloadables = {
+  createdAt: new Date("2023-08-19T04:17:07.651Z"),
+  modifiedAt: new Date("2023-02-23T09:07:32.780Z"),
+  id: "<value>",
+  grantedAt: new Date("2024-04-25T08:23:06.923Z"),
+  revokedAt: new Date("2024-07-02T19:26:03.934Z"),
+  customerId: "<value>",
+  benefitId: "<value>",
+  subscriptionId: "<value>",
+  orderId: "<value>",
+  isGranted: false,
+  isRevoked: false,
+  customer: {
+    createdAt: new Date("2023-02-14T17:54:10.949Z"),
+    modifiedAt: new Date("2025-12-15T20:19:47.380Z"),
+    id: "<value>",
+    email: "Kayley33@yahoo.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "FR",
+    },
+    taxId: [
+      "FR61954506077",
+      "eu_vat",
+    ],
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
+  },
+  benefit: {
+    createdAt: new Date("2023-07-24T15:43:06.407Z"),
+    modifiedAt: new Date("2023-01-09T18:48:17.764Z"),
+    id: "<value>",
+    description:
+      "blah by markup wilted although sticker tremendously terrible task",
+    selectable: false,
+    deletable: false,
+    organizationId: "<value>",
+    organization: {
+      createdAt: new Date("2024-02-25T14:24:29.191Z"),
+      modifiedAt: new Date("2024-02-18T01:14:17.067Z"),
+      id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      name: "<value>",
+      slug: "<value>",
+      avatarUrl: "https://mindless-futon.com/",
+      email: "Adela.Frami70@yahoo.com",
+      website: "<value>",
+      socials: [
+        {
+          platform: "other",
+          url: "https://affectionate-dime.org/",
+        },
+      ],
+      detailsSubmittedAt: new Date("2025-11-03T20:12:27.010Z"),
+      featureSettings: {},
+      subscriptionSettings: {
+        allowMultipleSubscriptions: false,
+        allowCustomerUpdates: false,
+        prorationBehavior: "prorate",
+      },
+      bio: "<value>",
+      company: "Fay, Howe and Davis",
+      blog: "<value>",
+      location: "<value>",
+      twitterUsername: "<value>",
+      pledgeMinimumAmount: 743601,
+      pledgeBadgeShowAmount: false,
+      defaultUpfrontSplitToContributors: 772605,
+      profileSettings: {},
+    },
+    properties: {
+      activeFiles: [
+        "<value>",
+      ],
+    },
+  },
+  properties: {},
+};
+```
+
+### `components.CustomerBenefitGrantLicenseKeys`
+
+```typescript
+const value: components.CustomerBenefitGrantLicenseKeys = {
+  createdAt: new Date("2023-12-29T05:36:27.136Z"),
+  modifiedAt: new Date("2025-10-06T16:43:38.916Z"),
+  id: "<value>",
+  grantedAt: new Date("2025-08-05T20:48:50.717Z"),
+  revokedAt: new Date("2024-02-08T00:57:15.026Z"),
+  customerId: "<value>",
+  benefitId: "<value>",
+  subscriptionId: "<value>",
+  orderId: "<value>",
+  isGranted: false,
+  isRevoked: false,
+  customer: {
+    createdAt: new Date("2024-08-17T04:16:46.889Z"),
+    modifiedAt: new Date("2023-11-03T16:52:10.538Z"),
+    id: "<value>",
+    email: "Solon_Quigley75@yahoo.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "FR",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
+  },
+  benefit: {
+    createdAt: new Date("2025-03-16T09:24:03.055Z"),
+    modifiedAt: new Date("2025-05-21T10:38:18.755Z"),
+    id: "<value>",
+    description: "pace wildly sadly triangular innocently",
+    selectable: false,
+    deletable: false,
+    organizationId: "<value>",
+    organization: {
+      createdAt: new Date("2025-04-21T03:41:11.764Z"),
+      modifiedAt: new Date("2024-05-14T21:38:47.126Z"),
+      id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      name: "<value>",
+      slug: "<value>",
+      avatarUrl: "https://low-derby.name",
+      email: "Velma39@gmail.com",
+      website: "<value>",
+      socials: [
+        {
+          platform: "github",
+          url: "https://grandiose-lashes.name/",
+        },
+      ],
+      detailsSubmittedAt: new Date("2024-11-11T07:46:03.808Z"),
+      featureSettings: {},
+      subscriptionSettings: {
+        allowMultipleSubscriptions: false,
+        allowCustomerUpdates: false,
+        prorationBehavior: "invoice",
+      },
+      bio: "<value>",
+      company: "Gislason Inc",
+      blog: "<value>",
+      location: "<value>",
+      twitterUsername: "<value>",
+      pledgeMinimumAmount: 64991,
+      pledgeBadgeShowAmount: false,
+      defaultUpfrontSplitToContributors: 229058,
+      profileSettings: {},
+    },
+    properties: {
+      prefix: "<value>",
+      expires: {
+        ttl: 467847,
+        timeframe: "year",
+      },
+      activations: {
+        limit: 659510,
+        enableCustomerAdmin: false,
+      },
+      limitUsage: 709791,
+    },
+  },
+  properties: {},
+};
+```
+
+### `components.CustomerBenefitGrantCustom`
+
+```typescript
+const value: components.CustomerBenefitGrantCustom = {
+  createdAt: new Date("2023-11-18T01:23:25.583Z"),
+  modifiedAt: new Date("2024-04-11T22:41:26.880Z"),
+  id: "<value>",
+  grantedAt: new Date("2024-12-10T17:33:07.669Z"),
+  revokedAt: new Date("2025-06-07T12:55:35.057Z"),
+  customerId: "<value>",
+  benefitId: "<value>",
+  subscriptionId: "<value>",
+  orderId: "<value>",
+  isGranted: false,
+  isRevoked: false,
+  customer: {
+    createdAt: new Date("2023-12-17T07:56:31.600Z"),
+    modifiedAt: new Date("2023-08-24T13:54:59.760Z"),
+    id: "<value>",
+    email: "Rhianna48@gmail.com",
+    emailVerified: false,
+    name: "<value>",
+    billingAddress: {
+      country: "FR",
+    },
+    taxId: [
+      "FR61954506077",
+      "eu_vat",
+    ],
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
+  },
+  benefit: {
+    createdAt: new Date("2025-03-19T07:14:31.670Z"),
+    modifiedAt: new Date("2024-11-28T11:35:41.959Z"),
+    id: "<value>",
+    description: "vacation that really rudely enfold",
+    selectable: false,
+    deletable: false,
+    organizationId: "<value>",
+    organization: {
+      createdAt: new Date("2023-01-05T20:17:08.012Z"),
+      modifiedAt: new Date("2024-05-01T17:17:17.155Z"),
+      id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      name: "<value>",
+      slug: "<value>",
+      avatarUrl: "https://quick-witted-smog.org",
+      email: "Andrew58@yahoo.com",
+      website: "<value>",
+      socials: [
+        {
+          platform: "other",
+          url: "https://trusting-humidity.name",
+        },
+      ],
+      detailsSubmittedAt: new Date("2024-03-19T06:24:38.117Z"),
+      featureSettings: {},
+      subscriptionSettings: {
+        allowMultipleSubscriptions: false,
+        allowCustomerUpdates: false,
+        prorationBehavior: "invoice",
+      },
+      bio: "<value>",
+      company: "Doyle, Miller and Buckridge",
+      blog: "<value>",
+      location: "<value>",
+      twitterUsername: "<value>",
+      pledgeMinimumAmount: 472406,
+      pledgeBadgeShowAmount: false,
+      defaultUpfrontSplitToContributors: 440135,
+      profileSettings: {},
+    },
+    properties: {
+      note: "<value>",
+    },
+  },
+  properties: {},
+};
+```
+
+### `components.CustomerBenefitGrantMeterCredit`
+
+```typescript
+const value: components.CustomerBenefitGrantMeterCredit = {
+  createdAt: new Date("2024-04-14T20:11:35.311Z"),
+  modifiedAt: new Date("2023-11-30T16:09:14.574Z"),
+  id: "<value>",
+  grantedAt: new Date("2025-05-18T14:47:11.111Z"),
+  revokedAt: new Date("2024-10-24T22:48:58.081Z"),
+  customerId: "<value>",
+  benefitId: "<value>",
+  subscriptionId: "<value>",
+  orderId: "<value>",
+  isGranted: false,
+  isRevoked: false,
+  customer: {
+    createdAt: new Date("2025-12-27T05:01:17.641Z"),
+    modifiedAt: new Date("2024-07-04T12:59:46.364Z"),
+    id: "<value>",
+    email: "Willy_Veum@gmail.com",
     emailVerified: false,
     name: "<value>",
     billingAddress: {
@@ -125,294 +473,30 @@ const value: components.CustomerBenefitGrantGitHubRepository = {
     },
   },
   benefit: {
-    createdAt: new Date("2024-11-29T23:56:50.889Z"),
-    modifiedAt: new Date("2024-06-04T01:21:54.034Z"),
-    id: "<value>",
-    description: "brr finally radiant ack grumpy",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    organization: {
-      createdAt: new Date("2024-03-24T03:45:48.595Z"),
-      modifiedAt: new Date("2023-10-10T03:49:19.883Z"),
-      id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      name: "<value>",
-      slug: "<value>",
-      avatarUrl: "https://oily-toothpick.name/",
-      email: "Ryann12@yahoo.com",
-      website: "<value>",
-      socials: [
-        {
-          platform: "youtube",
-          url: "https://utter-pliers.com",
-        },
-      ],
-      detailsSubmittedAt: new Date("2023-10-05T04:26:24.914Z"),
-      featureSettings: {},
-      subscriptionSettings: {
-        allowMultipleSubscriptions: false,
-        allowCustomerUpdates: false,
-        prorationBehavior: "prorate",
-      },
-      bio: "<value>",
-      company: "Gibson - Gislason",
-      blog: "<value>",
-      location: "<value>",
-      twitterUsername: "<value>",
-      pledgeMinimumAmount: 707709,
-      pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 51623,
-      profileSettings: {},
-    },
-    properties: {
-      repositoryOwner: "polarsource",
-      repositoryName: "private_repo",
-    },
-  },
-  properties: {},
-};
-```
-
-### `components.CustomerBenefitGrantDownloadables`
-
-```typescript
-const value: components.CustomerBenefitGrantDownloadables = {
-  createdAt: new Date("2024-01-14T02:23:02.233Z"),
-  modifiedAt: new Date("2024-04-12T07:18:48.482Z"),
-  id: "<value>",
-  grantedAt: new Date("2023-03-22T07:53:37.413Z"),
-  revokedAt: new Date("2024-05-17T09:47:38.626Z"),
-  customerId: "<value>",
-  benefitId: "<value>",
-  subscriptionId: "<value>",
-  orderId: "<value>",
-  isGranted: false,
-  isRevoked: false,
-  customer: {
-    createdAt: new Date("2024-08-05T10:08:55.763Z"),
-    modifiedAt: new Date("2025-11-30T00:24:40.391Z"),
-    id: "<value>",
-    email: "Tomas_Corwin@hotmail.com",
-    emailVerified: false,
-    name: "<value>",
-    billingAddress: {
-      country: "US",
-    },
-    taxId: [
-      "911144442",
-      "us_ein",
-    ],
-    oauthAccounts: {
-      "key": {
-        accountId: "<id>",
-        accountUsername: "<value>",
-      },
-    },
-  },
-  benefit: {
-    createdAt: new Date("2024-05-07T00:30:07.587Z"),
-    modifiedAt: new Date("2024-11-28T13:10:32.383Z"),
-    id: "<value>",
-    description: "about patroller what",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    organization: {
-      createdAt: new Date("2023-05-08T18:50:11.491Z"),
-      modifiedAt: new Date("2023-03-07T13:13:15.838Z"),
-      id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      name: "<value>",
-      slug: "<value>",
-      avatarUrl: "https://informal-pigpen.com/",
-      email: "Eileen.Kemmer40@yahoo.com",
-      website: "<value>",
-      socials: [
-        {
-          platform: "github",
-          url: "https://ignorant-yin.net/",
-        },
-      ],
-      detailsSubmittedAt: new Date("2024-09-30T19:19:11.121Z"),
-      featureSettings: {},
-      subscriptionSettings: {
-        allowMultipleSubscriptions: false,
-        allowCustomerUpdates: false,
-        prorationBehavior: "prorate",
-      },
-      bio: "<value>",
-      company: "Pagac - Mann",
-      blog: "<value>",
-      location: "<value>",
-      twitterUsername: "<value>",
-      pledgeMinimumAmount: 515900,
-      pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 766445,
-      profileSettings: {},
-    },
-    properties: {
-      activeFiles: [
-        "<value>",
-      ],
-    },
-  },
-  properties: {},
-};
-```
-
-### `components.CustomerBenefitGrantLicenseKeys`
-
-```typescript
-const value: components.CustomerBenefitGrantLicenseKeys = {
-  createdAt: new Date("2025-05-08T03:46:45.933Z"),
-  modifiedAt: new Date("2023-08-26T11:49:51.321Z"),
-  id: "<value>",
-  grantedAt: new Date("2023-07-22T09:00:46.743Z"),
-  revokedAt: new Date("2024-12-23T23:52:06.888Z"),
-  customerId: "<value>",
-  benefitId: "<value>",
-  subscriptionId: "<value>",
-  orderId: "<value>",
-  isGranted: false,
-  isRevoked: false,
-  customer: {
-    createdAt: new Date("2023-12-29T13:25:29.981Z"),
-    modifiedAt: new Date("2024-05-13T10:30:39.040Z"),
-    id: "<value>",
-    email: "Henderson_Pfeffer@gmail.com",
-    emailVerified: false,
-    name: "<value>",
-    billingAddress: {
-      country: "FR",
-    },
-    taxId: [
-      "911144442",
-      "us_ein",
-    ],
-    oauthAccounts: {
-      "key": {
-        accountId: "<id>",
-        accountUsername: "<value>",
-      },
-    },
-  },
-  benefit: {
-    createdAt: new Date("2025-05-16T04:06:10.206Z"),
-    modifiedAt: new Date("2023-09-11T15:02:02.117Z"),
-    id: "<value>",
-    description: "idealistic colorfully below",
-    selectable: false,
-    deletable: false,
-    organizationId: "<value>",
-    organization: {
-      createdAt: new Date("2024-12-13T07:19:22.635Z"),
-      modifiedAt: new Date("2025-10-21T11:47:33.986Z"),
-      id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      name: "<value>",
-      slug: "<value>",
-      avatarUrl: "https://murky-stay.biz/",
-      email: "Yessenia_Brekke32@gmail.com",
-      website: "<value>",
-      socials: [
-        {
-          platform: "x",
-          url: "https://yellowish-grandpa.net",
-        },
-      ],
-      detailsSubmittedAt: new Date("2024-12-18T01:08:14.559Z"),
-      featureSettings: {},
-      subscriptionSettings: {
-        allowMultipleSubscriptions: false,
-        allowCustomerUpdates: false,
-        prorationBehavior: "invoice",
-      },
-      bio: "<value>",
-      company: "Jast - Barrows",
-      blog: "<value>",
-      location: "<value>",
-      twitterUsername: "<value>",
-      pledgeMinimumAmount: 952242,
-      pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 409388,
-      profileSettings: {},
-    },
-    properties: {
-      prefix: "<value>",
-      expires: {
-        ttl: 579240,
-        timeframe: "day",
-      },
-      activations: {
-        limit: 576025,
-        enableCustomerAdmin: false,
-      },
-      limitUsage: 172329,
-    },
-  },
-  properties: {},
-};
-```
-
-### `components.CustomerBenefitGrantCustom`
-
-```typescript
-const value: components.CustomerBenefitGrantCustom = {
-  createdAt: new Date("2025-11-08T23:14:36.883Z"),
-  modifiedAt: new Date("2023-07-25T23:34:13.262Z"),
-  id: "<value>",
-  grantedAt: new Date("2023-05-21T10:45:22.173Z"),
-  revokedAt: new Date("2024-02-02T05:55:21.427Z"),
-  customerId: "<value>",
-  benefitId: "<value>",
-  subscriptionId: "<value>",
-  orderId: "<value>",
-  isGranted: false,
-  isRevoked: false,
-  customer: {
-    createdAt: new Date("2024-04-21T14:18:59.007Z"),
-    modifiedAt: new Date("2025-12-07T04:48:23.043Z"),
-    id: "<value>",
-    email: "Rachael11@yahoo.com",
-    emailVerified: false,
-    name: "<value>",
-    billingAddress: {
-      country: "FR",
-    },
-    taxId: [
-      "911144442",
-      "us_ein",
-    ],
-    oauthAccounts: {
-      "key": {
-        accountId: "<id>",
-        accountUsername: "<value>",
-      },
-    },
-  },
-  benefit: {
-    createdAt: new Date("2025-07-01T17:27:09.272Z"),
-    modifiedAt: new Date("2025-09-13T06:06:42.185Z"),
+    createdAt: new Date("2025-04-27T22:11:41.772Z"),
+    modifiedAt: new Date("2024-02-05T12:21:21.967Z"),
     id: "<value>",
     description:
-      "reboot terribly astride next mmm seldom excluding trek in before",
+      "while naturally knowledgeably platypus psst turbulent intend aha reorganisation cruelly",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     organization: {
-      createdAt: new Date("2024-01-27T05:26:22.568Z"),
-      modifiedAt: new Date("2023-03-30T12:54:31.192Z"),
+      createdAt: new Date("2023-03-14T04:51:06.687Z"),
+      modifiedAt: new Date("2024-10-15T07:40:45.158Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://glass-pants.biz/",
-      email: "Bill18@hotmail.com",
+      avatarUrl: "https://numb-slide.com",
+      email: "Cortney_Herzog@gmail.com",
       website: "<value>",
       socials: [
         {
-          platform: "github",
-          url: "https://spanish-turret.net",
+          platform: "other",
+          url: "https://whirlwind-alliance.info/",
         },
       ],
-      detailsSubmittedAt: new Date("2024-02-04T23:31:05.359Z"),
+      detailsSubmittedAt: new Date("2024-03-28T04:31:25.466Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
@@ -420,20 +504,25 @@ const value: components.CustomerBenefitGrantCustom = {
         prorationBehavior: "prorate",
       },
       bio: "<value>",
-      company: "Gleichner and Sons",
+      company: "Hackett, Bashirian and Lind",
       blog: "<value>",
       location: "<value>",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 329098,
+      pledgeMinimumAmount: 922564,
       pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 130136,
+      defaultUpfrontSplitToContributors: 182210,
       profileSettings: {},
     },
     properties: {
-      note: "<value>",
+      units: 252439,
+      meterId: "<value>",
     },
   },
-  properties: {},
+  properties: {
+    lastCreditedMeterId: "<id>",
+    lastCreditedUnits: 639415,
+    lastCreditedAt: "<value>",
+  },
 };
 ```
 

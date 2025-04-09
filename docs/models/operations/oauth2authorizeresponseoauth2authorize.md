@@ -10,22 +10,22 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2024-11-01T09:25:27.472Z"),
-    modifiedAt: new Date("2024-06-29T19:05:03.867Z"),
+    createdAt: new Date("2025-11-06T09:00:45.294Z"),
+    modifiedAt: new Date("2024-02-13T01:48:54.322Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://unlawful-settler.name/",
-    logoUri: "https://shocked-stay.biz/",
-    tosUri: "https://insignificant-feather.name",
-    policyUri: "https://unwelcome-scratch.com/",
+    clientUri: "https://awful-synergy.name",
+    logoUri: "https://hard-to-find-chapel.com/",
+    tosUri: "https://experienced-address.biz",
+    policyUri: "https://tiny-glider.name",
   },
   sub: {
     id: "<value>",
-    email: "Selmer68@hotmail.com",
-    avatarUrl: "https://french-birdcage.net/",
+    email: "Beau67@gmail.com",
+    avatarUrl: "https://forceful-fledgling.com/",
   },
   scopes: [
-    "repositories:read",
+    "subscriptions:write",
   ],
 };
 ```
@@ -35,28 +35,28 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2025-01-31T00:52:46.159Z"),
-    modifiedAt: new Date("2025-08-04T17:37:26.656Z"),
+    createdAt: new Date("2024-05-19T17:17:33.198Z"),
+    modifiedAt: new Date("2023-03-20T13:31:10.189Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://last-publicity.info",
-    logoUri: "https://white-hexagon.org/",
-    tosUri: "https://grumpy-giggle.org",
-    policyUri: "https://late-barracks.biz/",
+    clientUri: "https://limping-cafe.info/",
+    logoUri: "https://parallel-vibraphone.com/",
+    tosUri: "https://querulous-elevator.com/",
+    policyUri: "https://puzzled-equal.com/",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://grounded-provider.info/",
+    avatarUrl: "https://usable-premise.org",
   },
   scopes: [
-    "events:write",
+    "events:read",
   ],
   organizations: [
     {
       id: "<value>",
       slug: "<value>",
-      avatarUrl: "https://pertinent-coil.com/",
+      avatarUrl: "https://innocent-league.com",
     },
   ],
 };

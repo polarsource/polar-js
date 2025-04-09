@@ -11,8 +11,8 @@ import { WebhookBenefitGrantRevokedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantRevokedPayload = {
   data: {
-    createdAt: new Date("2024-12-26T13:45:07.381Z"),
-    modifiedAt: new Date("2024-03-14T01:36:57.560Z"),
+    createdAt: new Date("2025-12-18T19:40:40.081Z"),
+    modifiedAt: new Date("2025-04-15T04:11:09.163Z"),
     id: "<value>",
     isGranted: false,
     isRevoked: false,
@@ -23,39 +23,39 @@ let value: WebhookBenefitGrantRevokedPayload = {
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2023-02-24T14:39:49.836Z"),
-      modifiedAt: new Date("2023-10-13T05:41:23.194Z"),
+      createdAt: new Date("2023-11-27T09:29:34.234Z"),
+      modifiedAt: new Date("2025-06-17T23:02:39.442Z"),
       metadata: {
-        "key": 422778,
+        "key": 944718,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
       emailVerified: true,
       name: "John Doe",
       billingAddress: {
-        country: "SE",
+        country: "US",
       },
       taxId: [
-        "911144442",
-        "us_ein",
+        "FR61954506077",
+        "eu_vat",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2024-11-24T20:22:52.550Z"),
+      deletedAt: new Date("2023-10-19T01:21:41.378Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2025-10-26T09:04:03.886Z"),
-      modifiedAt: new Date("2023-08-05T16:18:42.945Z"),
+      createdAt: new Date("2023-11-03T12:13:38.868Z"),
+      modifiedAt: new Date("2023-06-20T18:06:09.405Z"),
       id: "<value>",
-      description: "deduct quixotic what worth",
+      description: "impressive and past reassemble behind",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        note: "<value>",
+        units: 591168,
+        meterId: "<value>",
       },
-      isTaxApplicable: false,
     },
   },
 };

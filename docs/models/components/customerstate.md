@@ -3,7 +3,8 @@
 A customer along with additional state information:
 
 * Active subscriptions
-* Active benefits
+* Granted benefits
+* Active meters
 
 ## Example Usage
 
@@ -12,35 +13,35 @@ import { CustomerState } from "@polar-sh/sdk/models/components/customerstate.js"
 
 let value: CustomerState = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2023-10-30T20:46:20.876Z"),
-  modifiedAt: new Date("2024-02-09T23:56:49.919Z"),
+  createdAt: new Date("2023-04-12T13:06:03.685Z"),
+  modifiedAt: new Date("2025-09-17T07:27:55.357Z"),
   metadata: {
-    "key": 560451,
+    "key": false,
   },
   externalId: "usr_1337",
   email: "customer@example.com",
   emailVerified: true,
   name: "John Doe",
   billingAddress: {
-    country: "FR",
+    country: "SE",
   },
   taxId: [
     "911144442",
     "us_ein",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2023-01-22T07:56:26.664Z"),
+  deletedAt: new Date("2025-01-01T08:01:53.305Z"),
   activeSubscriptions: [
     {
       id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
-      createdAt: new Date("2024-03-13T13:08:44.087Z"),
-      modifiedAt: new Date("2023-12-05T03:31:10.013Z"),
+      createdAt: new Date("2025-01-12T15:44:32.793Z"),
+      modifiedAt: new Date("2025-09-13T05:36:28.332Z"),
       metadata: {
-        "key": false,
+        "key": "<value>",
       },
       amount: 1000,
       currency: "usd",
-      recurringInterval: "year",
+      recurringInterval: "month",
       currentPeriodStart: new Date("2025-02-03T13:37:00Z"),
       currentPeriodEnd: new Date("2025-03-03T13:37:00Z"),
       cancelAtPeriodEnd: false,
@@ -55,12 +56,22 @@ let value: CustomerState = {
   grantedBenefits: [
     {
       id: "d322132c-a9d0-4e0d-b8d3-d81ad021a3a9",
-      createdAt: new Date("2025-07-31T21:36:43.500Z"),
-      modifiedAt: new Date("2024-12-16T16:30:20.563Z"),
+      createdAt: new Date("2025-03-19T06:38:24.563Z"),
+      modifiedAt: new Date("2024-01-11T04:33:07.947Z"),
       grantedAt: new Date("2025-01-03T13:37:00Z"),
       benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-      benefitType: "github_repository",
+      benefitType: "discord",
       properties: {},
+    },
+  ],
+  activeMeters: [
+    {
+      createdAt: new Date("2023-02-21T03:07:24.293Z"),
+      modifiedAt: new Date("2024-08-06T03:48:52.242Z"),
+      meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
+      consumedUnits: 25,
+      creditedUnits: 100,
+      balance: 75,
     },
   ],
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
@@ -85,4 +96,5 @@ let value: CustomerState = {
 | `deletedAt`                                                                                                                                                     | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                   | :heavy_check_mark:                                                                                                                                              | Timestamp for when the customer was soft deleted.                                                                                                               |                                                                                                                                                                 |
 | `activeSubscriptions`                                                                                                                                           | [components.CustomerStateSubscription](../../models/components/customerstatesubscription.md)[]                                                                  | :heavy_check_mark:                                                                                                                                              | The customer's active subscriptions.                                                                                                                            |                                                                                                                                                                 |
 | `grantedBenefits`                                                                                                                                               | [components.CustomerStateBenefitGrant](../../models/components/customerstatebenefitgrant.md)[]                                                                  | :heavy_check_mark:                                                                                                                                              | The customer's active benefit grants.                                                                                                                           |                                                                                                                                                                 |
+| `activeMeters`                                                                                                                                                  | [components.CustomerStateMeter](../../models/components/customerstatemeter.md)[]                                                                                | :heavy_check_mark:                                                                                                                                              | The customer's active meters.                                                                                                                                   |                                                                                                                                                                 |
 | `avatarUrl`                                                                                                                                                     | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             | https://www.gravatar.com/avatar/xxx?d=blank                                                                                                                     |
