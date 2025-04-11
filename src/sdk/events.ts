@@ -5,6 +5,7 @@
 import { eventsGet } from "../funcs/eventsGet.js";
 import { eventsIngest } from "../funcs/eventsIngest.js";
 import { eventsList } from "../funcs/eventsList.js";
+import { eventsListNames } from "../funcs/eventsListNames.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { Event } from "../models/components/event.js";
 import { EventsIngest } from "../models/components/eventsingest.js";
@@ -14,6 +15,10 @@ import {
   EventsListRequest,
   EventsListResponse,
 } from "../models/operations/eventslist.js";
+import {
+  EventsListNamesRequest,
+  EventsListNamesResponse,
+} from "../models/operations/eventslistnames.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
@@ -31,6 +36,25 @@ export class Events extends ClientSDK {
     options?: RequestOptions,
   ): Promise<PageIterator<EventsListResponse, { page: number }>> {
     return unwrapResultIterator(eventsList(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Event Names
+   *
+   * @remarks
+   * List event names.
+   *
+   * **Scopes**: `events:read` `events:write`
+   */
+  async listNames(
+    request: EventsListNamesRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<EventsListNamesResponse, { page: number }>> {
+    return unwrapResultIterator(eventsListNames(
       this,
       request,
       options,

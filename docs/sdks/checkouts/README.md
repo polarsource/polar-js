@@ -427,11 +427,12 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ResourceNotFound    | 404                        | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResourceNotFound     | 404                         | application/json            |
+| errors.ExpiredCheckoutError | 410                         | application/json            |
+| errors.HTTPValidationError  | 422                         | application/json            |
+| errors.SDKError             | 4XX, 5XX                    | \*/\*                       |
 
 ## clientUpdate
 
@@ -516,6 +517,7 @@ run();
 | errors.AlreadyActiveSubscriptionError | 403                                   | application/json                      |
 | errors.NotOpenCheckout                | 403                                   | application/json                      |
 | errors.ResourceNotFound               | 404                                   | application/json                      |
+| errors.ExpiredCheckoutError           | 410                                   | application/json                      |
 | errors.HTTPValidationError            | 422                                   | application/json                      |
 | errors.SDKError                       | 4XX, 5XX                              | \*/\*                                 |
 
@@ -609,5 +611,6 @@ run();
 | errors.AlreadyActiveSubscriptionError | 403                                   | application/json                      |
 | errors.NotOpenCheckout                | 403                                   | application/json                      |
 | errors.ResourceNotFound               | 404                                   | application/json                      |
+| errors.ExpiredCheckoutError           | 410                                   | application/json                      |
 | errors.HTTPValidationError            | 422                                   | application/json                      |
 | errors.SDKError                       | 4XX, 5XX                              | \*/\*                                 |

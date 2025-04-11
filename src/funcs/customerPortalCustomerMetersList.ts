@@ -4,12 +4,12 @@
 
 import { PolarCore } from "../core.js";
 import { dlv } from "../lib/dlv.js";
-import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import { encodeFormQuery } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
-import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
+import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
   ConnectionError,
@@ -22,18 +22,15 @@ import {
   HTTPValidationError,
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
-import {
-  ResourceNotFound,
-  ResourceNotFound$inboundSchema,
-} from "../models/errors/resourcenotfound.js";
 import { SDKError } from "../models/errors/sdkerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
-  MetersEventsRequest,
-  MetersEventsRequest$outboundSchema,
-  MetersEventsResponse,
-  MetersEventsResponse$inboundSchema,
-} from "../models/operations/metersevents.js";
+  CustomerPortalCustomerMetersListRequest,
+  CustomerPortalCustomerMetersListRequest$outboundSchema,
+  CustomerPortalCustomerMetersListResponse,
+  CustomerPortalCustomerMetersListResponse$inboundSchema,
+  CustomerPortalCustomerMetersListSecurity,
+} from "../models/operations/customerportalcustomermeterslist.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 import {
@@ -44,22 +41,22 @@ import {
 } from "../types/operations.js";
 
 /**
- * Get Meter Events
+ * List Meters
  *
  * @remarks
- * Get events matching the filter of a meter.
+ * List meters of the authenticated customer.
  *
- * **Scopes**: `meters:read` `meters:write`
+ * **Scopes**: `customer_portal:read` `customer_portal:write`
  */
-export function metersEvents(
+export function customerPortalCustomerMetersList(
   client: PolarCore,
-  request: MetersEventsRequest,
+  security: CustomerPortalCustomerMetersListSecurity,
+  request: CustomerPortalCustomerMetersListRequest,
   options?: RequestOptions,
 ): APIPromise<
   PageIterator<
     Result<
-      MetersEventsResponse,
-      | ResourceNotFound
+      CustomerPortalCustomerMetersListResponse,
       | HTTPValidationError
       | SDKError
       | SDKValidationError
@@ -74,6 +71,7 @@ export function metersEvents(
 > {
   return new APIPromise($do(
     client,
+    security,
     request,
     options,
   ));
@@ -81,14 +79,14 @@ export function metersEvents(
 
 async function $do(
   client: PolarCore,
-  request: MetersEventsRequest,
+  security: CustomerPortalCustomerMetersListSecurity,
+  request: CustomerPortalCustomerMetersListRequest,
   options?: RequestOptions,
 ): Promise<
   [
     PageIterator<
       Result<
-        MetersEventsResponse,
-        | ResourceNotFound
+        CustomerPortalCustomerMetersListResponse,
         | HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -105,7 +103,8 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => MetersEventsRequest$outboundSchema.parse(value),
+    (value) =>
+      CustomerPortalCustomerMetersListRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -114,36 +113,38 @@ async function $do(
   const payload = parsed.value;
   const body = null;
 
-  const pathParams = {
-    id: encodeSimple("id", payload.id, {
-      explode: false,
-      charEncoding: "percent",
-    }),
-  };
-
-  const path = pathToFunc("/v1/meters/{id}/events")(pathParams);
+  const path = pathToFunc("/v1/customer-portal/meters/")();
 
   const query = encodeFormQuery({
     "limit": payload.limit,
+    "meter_id": payload.meter_id,
     "page": payload.page,
+    "query": payload.query,
+    "sorting": payload.sorting,
   });
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
   }));
 
-  const secConfig = await extractSecurity(client._options.accessToken);
-  const securityInput = secConfig == null ? {} : { accessToken: secConfig };
-  const requestSecurity = resolveGlobalSecurity(securityInput);
+  const requestSecurity = resolveSecurity(
+    [
+      {
+        fieldName: "Authorization",
+        type: "http:bearer",
+        value: security?.customerSession,
+      },
+    ],
+  );
 
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "meters:events",
-    oAuth2Scopes: [],
+    operationID: "customer_portal:customer_meters:list",
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 
-    securitySource: client._options.accessToken,
+    securitySource: security,
     retryConfig: options?.retries
       || client._options.retryConfig
       || { strategy: "none" },
@@ -167,7 +168,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["404", "422", "4XX", "5XX"],
+    errorCodes: ["422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -181,8 +182,7 @@ async function $do(
   };
 
   const [result, raw] = await M.match<
-    MetersEventsResponse,
-    | ResourceNotFound
+    CustomerPortalCustomerMetersListResponse,
     | HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -192,8 +192,9 @@ async function $do(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, MetersEventsResponse$inboundSchema, { key: "Result" }),
-    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.json(200, CustomerPortalCustomerMetersListResponse$inboundSchema, {
+      key: "Result",
+    }),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
@@ -211,8 +212,7 @@ async function $do(
   ): {
     next: Paginator<
       Result<
-        MetersEventsResponse,
-        | ResourceNotFound
+        CustomerPortalCustomerMetersListResponse,
         | HTTPValidationError
         | SDKError
         | SDKValidationError
@@ -245,8 +245,9 @@ async function $do(
     }
 
     const nextVal = () =>
-      metersEvents(
+      customerPortalCustomerMetersList(
         client,
+        security,
         {
           ...request,
           page: nextPage,

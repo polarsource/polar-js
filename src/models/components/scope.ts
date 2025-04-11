@@ -36,6 +36,7 @@ export const Scope = {
   SubscriptionsWrite: "subscriptions:write",
   CustomersRead: "customers:read",
   CustomersWrite: "customers:write",
+  CustomerMetersRead: "customer_meters:read",
   CustomerSessionsWrite: "customer_sessions:write",
   OrdersRead: "orders:read",
   RefundsRead: "refunds:read",
