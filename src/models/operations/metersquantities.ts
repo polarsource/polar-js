@@ -21,7 +21,9 @@ export type MetersQuantitiesQueryParamCustomerIDFilter = string | Array<string>;
 /**
  * Filter by external customer ID.
  */
-export type QueryParamExternalCustomerIDFilter = string | Array<string>;
+export type MetersQuantitiesQueryParamExternalCustomerIDFilter =
+  | string
+  | Array<string>;
 
 export type MetersQuantitiesRequest = {
   /**
@@ -111,56 +113,66 @@ export function metersQuantitiesQueryParamCustomerIDFilterFromJSON(
 }
 
 /** @internal */
-export const QueryParamExternalCustomerIDFilter$inboundSchema: z.ZodType<
-  QueryParamExternalCustomerIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
+export const MetersQuantitiesQueryParamExternalCustomerIDFilter$inboundSchema:
+  z.ZodType<
+    MetersQuantitiesQueryParamExternalCustomerIDFilter,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
-export type QueryParamExternalCustomerIDFilter$Outbound =
+export type MetersQuantitiesQueryParamExternalCustomerIDFilter$Outbound =
   | string
   | Array<string>;
 
 /** @internal */
-export const QueryParamExternalCustomerIDFilter$outboundSchema: z.ZodType<
-  QueryParamExternalCustomerIDFilter$Outbound,
-  z.ZodTypeDef,
-  QueryParamExternalCustomerIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+export const MetersQuantitiesQueryParamExternalCustomerIDFilter$outboundSchema:
+  z.ZodType<
+    MetersQuantitiesQueryParamExternalCustomerIDFilter$Outbound,
+    z.ZodTypeDef,
+    MetersQuantitiesQueryParamExternalCustomerIDFilter
+  > = z.union([z.string(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryParamExternalCustomerIDFilter$ {
-  /** @deprecated use `QueryParamExternalCustomerIDFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamExternalCustomerIDFilter$inboundSchema;
-  /** @deprecated use `QueryParamExternalCustomerIDFilter$outboundSchema` instead. */
+export namespace MetersQuantitiesQueryParamExternalCustomerIDFilter$ {
+  /** @deprecated use `MetersQuantitiesQueryParamExternalCustomerIDFilter$inboundSchema` instead. */
+  export const inboundSchema =
+    MetersQuantitiesQueryParamExternalCustomerIDFilter$inboundSchema;
+  /** @deprecated use `MetersQuantitiesQueryParamExternalCustomerIDFilter$outboundSchema` instead. */
   export const outboundSchema =
-    QueryParamExternalCustomerIDFilter$outboundSchema;
-  /** @deprecated use `QueryParamExternalCustomerIDFilter$Outbound` instead. */
-  export type Outbound = QueryParamExternalCustomerIDFilter$Outbound;
+    MetersQuantitiesQueryParamExternalCustomerIDFilter$outboundSchema;
+  /** @deprecated use `MetersQuantitiesQueryParamExternalCustomerIDFilter$Outbound` instead. */
+  export type Outbound =
+    MetersQuantitiesQueryParamExternalCustomerIDFilter$Outbound;
 }
 
-export function queryParamExternalCustomerIDFilterToJSON(
-  queryParamExternalCustomerIDFilter: QueryParamExternalCustomerIDFilter,
+export function metersQuantitiesQueryParamExternalCustomerIDFilterToJSON(
+  metersQuantitiesQueryParamExternalCustomerIDFilter:
+    MetersQuantitiesQueryParamExternalCustomerIDFilter,
 ): string {
   return JSON.stringify(
-    QueryParamExternalCustomerIDFilter$outboundSchema.parse(
-      queryParamExternalCustomerIDFilter,
+    MetersQuantitiesQueryParamExternalCustomerIDFilter$outboundSchema.parse(
+      metersQuantitiesQueryParamExternalCustomerIDFilter,
     ),
   );
 }
 
-export function queryParamExternalCustomerIDFilterFromJSON(
+export function metersQuantitiesQueryParamExternalCustomerIDFilterFromJSON(
   jsonString: string,
-): SafeParseResult<QueryParamExternalCustomerIDFilter, SDKValidationError> {
+): SafeParseResult<
+  MetersQuantitiesQueryParamExternalCustomerIDFilter,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
     (x) =>
-      QueryParamExternalCustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamExternalCustomerIDFilter' from JSON`,
+      MetersQuantitiesQueryParamExternalCustomerIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetersQuantitiesQueryParamExternalCustomerIDFilter' from JSON`,
   );
 }
 

@@ -5,6 +5,7 @@
 import { ClientSDK } from "../lib/sdks.js";
 import { BenefitGrants } from "./benefitgrants.js";
 import { Downloadables } from "./downloadables.js";
+import { PolarCustomerMeters } from "./polarcustomermeters.js";
 import { PolarCustomers } from "./polarcustomers.js";
 import { PolarLicenseKeys } from "./polarlicensekeys.js";
 import { PolarOrders } from "./polarorders.js";
@@ -20,6 +21,11 @@ export class CustomerPortal extends ClientSDK {
   private _customers?: PolarCustomers;
   get customers(): PolarCustomers {
     return (this._customers ??= new PolarCustomers(this._options));
+  }
+
+  private _customerMeters?: PolarCustomerMeters;
+  get customerMeters(): PolarCustomerMeters {
+    return (this._customerMeters ??= new PolarCustomerMeters(this._options));
   }
 
   private _downloadables?: Downloadables;

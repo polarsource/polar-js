@@ -15,6 +15,10 @@ import {
 
 export type MeterQuantities = {
   quantities: Array<MeterQuantity>;
+  /**
+   * The total quantity for the period.
+   */
+  total: number;
 };
 
 /** @internal */
@@ -24,11 +28,13 @@ export const MeterQuantities$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   quantities: z.array(MeterQuantity$inboundSchema),
+  total: z.number(),
 });
 
 /** @internal */
 export type MeterQuantities$Outbound = {
   quantities: Array<MeterQuantity$Outbound>;
+  total: number;
 };
 
 /** @internal */
@@ -38,6 +44,7 @@ export const MeterQuantities$outboundSchema: z.ZodType<
   MeterQuantities
 > = z.object({
   quantities: z.array(MeterQuantity$outboundSchema),
+  total: z.number(),
 });
 
 /**

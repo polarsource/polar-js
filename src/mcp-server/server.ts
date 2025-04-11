@@ -13,6 +13,8 @@ import {
 } from "./resources.js";
 import { MCPScope } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
+import { tool$customerMetersGet } from "./tools/customerMetersGet.js";
+import { tool$customerMetersList } from "./tools/customerMetersList.js";
 import { tool$customersCreate } from "./tools/customersCreate.js";
 import { tool$customersDelete } from "./tools/customersDelete.js";
 import { tool$customersDeleteExternal } from "./tools/customersDeleteExternal.js";
@@ -49,7 +51,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Polar",
-    version: "0.32.5",
+    version: "0.32.7",
   });
 
   const client = new PolarCore({
@@ -104,6 +106,8 @@ export function createMCPServer(deps: {
   tool(tool$customersDeleteExternal);
   tool(tool$customersGetState);
   tool(tool$customersGetStateExternal);
+  tool(tool$customerMetersList);
+  tool(tool$customerMetersGet);
 
   return server;
 }

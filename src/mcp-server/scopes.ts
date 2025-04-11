@@ -3,6 +3,7 @@
  */
 
 export const mcpScopes = [
+  "customer_meters",
   "customers",
   "metrics",
   "orders",

@@ -6,6 +6,7 @@ import { ClientSDK } from "../lib/sdks.js";
 import { Benefits } from "./benefits.js";
 import { CheckoutLinks } from "./checkoutlinks.js";
 import { Checkouts } from "./checkouts.js";
+import { CustomerMeters } from "./customermeters.js";
 import { CustomerPortal } from "./customerportal.js";
 import { Customers } from "./customers.js";
 import { CustomerSessions } from "./customersessions.js";
@@ -131,5 +132,10 @@ export class Polar extends ClientSDK {
   private _meters?: Meters;
   get meters(): Meters {
     return (this._meters ??= new Meters(this._options));
+  }
+
+  private _customerMeters?: CustomerMeters;
+  get customerMeters(): CustomerMeters {
+    return (this._customerMeters ??= new CustomerMeters(this._options));
   }
 }

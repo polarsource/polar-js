@@ -83,7 +83,7 @@ export type ProductCreate = {
    */
   recurringInterval: SubscriptionRecurringInterval | null;
   /**
-   * List of available prices for this product. Currently, only a single price is supported.
+   * List of available prices for this product. It should contain at most one static price (fixed, custom or free), and any number of metered prices. Metered prices are not supported on one-time purchase products.
    */
   prices: Array<
     | ProductPriceFreeCreate

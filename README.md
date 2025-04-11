@@ -220,7 +220,7 @@ async function run() {
       subtotalAmount: 219352,
       metadata: {
         "key": 366960,
-        "key1": false,
+        "key1": 961375,
       },
       customerExternalId: "<id>",
       products: [
@@ -236,24 +236,30 @@ async function run() {
           organizationId: "<value>",
           prices: [
             {
-              createdAt: new Date("2023-11-17T00:11:23.972Z"),
-              modifiedAt: new Date("2024-02-03T11:05:02.671Z"),
+              createdAt: new Date("2025-11-19T15:59:15.588Z"),
+              modifiedAt: new Date("2023-11-17T00:11:23.972Z"),
               id: "<value>",
               isArchived: false,
               productId: "<value>",
-              recurringInterval: "month",
-            },
-            {
-              createdAt: new Date("2024-06-03T08:42:54.736Z"),
-              modifiedAt: new Date("2025-02-14T09:22:19.644Z"),
-              id: "<value>",
-              isArchived: false,
-              productId: "<value>",
+              type: "one_time",
               recurringInterval: "month",
               priceCurrency: "<value>",
-              minimumAmount: 417896,
-              maximumAmount: 962818,
-              presetAmount: 6400,
+              minimumAmount: 82334,
+              maximumAmount: 50275,
+              presetAmount: 473871,
+            },
+            {
+              createdAt: new Date("2024-04-03T00:20:23.805Z"),
+              modifiedAt: new Date("2025-11-21T05:56:48.487Z"),
+              id: "<value>",
+              isArchived: false,
+              productId: "<value>",
+              type: "one_time",
+              recurringInterval: "month",
+              priceCurrency: "<value>",
+              minimumAmount: 648726,
+              maximumAmount: 210702,
+              presetAmount: 441593,
             },
           ],
           benefits: [],
@@ -345,14 +351,13 @@ async function run() {
         ],
       },
       productPrice: {
-        createdAt: new Date("2023-08-19T22:18:44.316Z"),
-        modifiedAt: new Date("2024-04-28T23:39:10.699Z"),
+        createdAt: new Date("2024-07-02T09:46:29.338Z"),
+        modifiedAt: new Date("2025-01-24T18:08:49.597Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
+        type: "recurring",
         recurringInterval: "year",
-        priceCurrency: "<value>",
-        priceAmount: 598949,
       },
       discount: {
         duration: "forever",
@@ -368,11 +373,11 @@ async function run() {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2025-01-24T18:08:49.597Z"),
-            modifiedAt: new Date("2025-07-22T12:18:02.066Z"),
+            createdAt: new Date("2023-11-12T09:40:10.044Z"),
+            modifiedAt: new Date("2023-08-29T09:50:00.241Z"),
             id: "<value>",
             metadata: {
-              "key": false,
+              "key": 385218,
             },
             slug: "<value>",
             name: "<value>",
@@ -385,11 +390,11 @@ async function run() {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2023-11-12T09:40:10.044Z"),
-            modifiedAt: new Date("2023-08-29T09:50:00.241Z"),
+            createdAt: new Date("2025-06-25T22:47:14.264Z"),
+            modifiedAt: new Date("2025-01-27T19:10:37.564Z"),
             id: "<value>",
             metadata: {
-              "key": 385218,
+              "key": 18677,
             },
             slug: "<value>",
             name: "<value>",
@@ -402,11 +407,11 @@ async function run() {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2025-06-25T22:47:14.264Z"),
-            modifiedAt: new Date("2025-01-27T19:10:37.564Z"),
+            createdAt: new Date("2023-04-15T12:36:50.681Z"),
+            modifiedAt: new Date("2023-04-02T00:05:42.586Z"),
             id: "<value>",
             metadata: {
-              "key": 18677,
+              "key": 740296,
             },
             slug: "<value>",
             name: "<value>",
@@ -491,6 +496,11 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [clientUpdate](docs/sdks/checkouts/README.md#clientupdate) - Update Checkout Session from Client
 * [clientConfirm](docs/sdks/checkouts/README.md#clientconfirm) - Confirm Checkout Session from Client
 
+### [customerMeters](docs/sdks/customermeters/README.md)
+
+* [list](docs/sdks/customermeters/README.md#list) - List Customer Meters
+* [get](docs/sdks/customermeters/README.md#get) - Get Customer Meter
+
 ### [customerPortal](docs/sdks/customerportal/README.md)
 
 
@@ -499,6 +509,11 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [list](docs/sdks/benefitgrants/README.md#list) - List Benefit Grants
 * [get](docs/sdks/benefitgrants/README.md#get) - Get Benefit Grant
 * [update](docs/sdks/benefitgrants/README.md#update) - Update Benefit Grant
+
+#### [customerPortal.customerMeters](docs/sdks/polarcustomermeters/README.md)
+
+* [list](docs/sdks/polarcustomermeters/README.md#list) - List Meters
+* [get](docs/sdks/polarcustomermeters/README.md#get) - Get Customer Meter
 
 #### [customerPortal.customers](docs/sdks/polarcustomers/README.md)
 
@@ -574,6 +589,7 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 ### [events](docs/sdks/events/README.md)
 
 * [list](docs/sdks/events/README.md#list) - List Events
+* [listNames](docs/sdks/events/README.md#listnames) - List Event Names
 * [get](docs/sdks/events/README.md#get) - Get Event
 * [ingest](docs/sdks/events/README.md#ingest) - Ingest Events
 
@@ -602,7 +618,6 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [create](docs/sdks/meters/README.md#create) - Create Meter
 * [get](docs/sdks/meters/README.md#get) - Get Meter
 * [update](docs/sdks/meters/README.md#update) - Update Meter
-* [events](docs/sdks/meters/README.md#events) - Get Meter Events
 * [quantities](docs/sdks/meters/README.md#quantities) - Get Meter Quantities
 
 ### [metrics](docs/sdks/metrics/README.md)
@@ -703,9 +718,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`checkoutsGet`](docs/sdks/checkouts/README.md#get) - Get Checkout Session
 - [`checkoutsList`](docs/sdks/checkouts/README.md#list) - List Checkout Sessions
 - [`checkoutsUpdate`](docs/sdks/checkouts/README.md#update) - Update Checkout Session
+- [`customerMetersGet`](docs/sdks/customermeters/README.md#get) - Get Customer Meter
+- [`customerMetersList`](docs/sdks/customermeters/README.md#list) - List Customer Meters
 - [`customerPortalBenefitGrantsGet`](docs/sdks/benefitgrants/README.md#get) - Get Benefit Grant
 - [`customerPortalBenefitGrantsList`](docs/sdks/benefitgrants/README.md#list) - List Benefit Grants
 - [`customerPortalBenefitGrantsUpdate`](docs/sdks/benefitgrants/README.md#update) - Update Benefit Grant
+- [`customerPortalCustomerMetersGet`](docs/sdks/polarcustomermeters/README.md#get) - Get Customer Meter
+- [`customerPortalCustomerMetersList`](docs/sdks/polarcustomermeters/README.md#list) - List Meters
 - [`customerPortalCustomersAddPaymentMethod`](docs/sdks/polarcustomers/README.md#addpaymentmethod) - Add Customer Payment Method
 - [`customerPortalCustomersDeletePaymentMethod`](docs/sdks/polarcustomers/README.md#deletepaymentmethod) - Delete Customer Payment Method
 - [`customerPortalCustomersGet`](docs/sdks/polarcustomers/README.md#get) - Get Customer
@@ -750,6 +769,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsGet`](docs/sdks/events/README.md#get) - Get Event
 - [`eventsIngest`](docs/sdks/events/README.md#ingest) - Ingest Events
 - [`eventsList`](docs/sdks/events/README.md#list) - List Events
+- [`eventsListNames`](docs/sdks/events/README.md#listnames) - List Event Names
 - [`externalOrganizationsList`](docs/sdks/externalorganizations/README.md#list) - List External Organizations
 - [`filesCreate`](docs/sdks/files/README.md#create) - Create File
 - [`filesDelete`](docs/sdks/files/README.md#delete) - Delete File
@@ -761,7 +781,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`licenseKeysList`](docs/sdks/licensekeys/README.md#list) - List License Keys
 - [`licenseKeysUpdate`](docs/sdks/licensekeys/README.md#update) - Update License Key
 - [`metersCreate`](docs/sdks/meters/README.md#create) - Create Meter
-- [`metersEvents`](docs/sdks/meters/README.md#events) - Get Meter Events
 - [`metersGet`](docs/sdks/meters/README.md#get) - Get Meter
 - [`metersList`](docs/sdks/meters/README.md#list) - List Meters
 - [`metersQuantities`](docs/sdks/meters/README.md#quantities) - Get Meter Quantities

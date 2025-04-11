@@ -14,6 +14,10 @@ import {
   CheckoutPublic$inboundSchema,
 } from "../models/components/checkoutpublic.js";
 import {
+  ExpiredCheckoutError,
+  ExpiredCheckoutError$inboundSchema,
+} from "../models/errors/expiredcheckouterror.js";
+import {
   ConnectionError,
   InvalidRequestError,
   RequestAbortedError,
@@ -51,6 +55,7 @@ export function checkoutsClientGet(
   Result<
     CheckoutPublic,
     | ResourceNotFound
+    | ExpiredCheckoutError
     | HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -77,6 +82,7 @@ async function $do(
     Result<
       CheckoutPublic,
       | ResourceNotFound
+      | ExpiredCheckoutError
       | HTTPValidationError
       | SDKError
       | SDKValidationError
@@ -142,7 +148,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["404", "422", "4XX", "5XX"],
+    errorCodes: ["404", "410", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -158,6 +164,7 @@ async function $do(
   const [result] = await M.match<
     CheckoutPublic,
     | ResourceNotFound
+    | ExpiredCheckoutError
     | HTTPValidationError
     | SDKError
     | SDKValidationError
@@ -169,6 +176,7 @@ async function $do(
   >(
     M.json(200, CheckoutPublic$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(410, ExpiredCheckoutError$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

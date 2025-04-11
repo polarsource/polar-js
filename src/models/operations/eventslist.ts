@@ -11,7 +11,7 @@ import {
   MetadataQuery$inboundSchema,
   MetadataQuery$Outbound,
   MetadataQuery$outboundSchema,
-} from "../components/eventslist.js";
+} from "../components/customerslist.js";
 import {
   EventSortProperty,
   EventSortProperty$inboundSchema,
@@ -46,6 +46,11 @@ export type EventsListQueryParamCustomerIDFilter = string | Array<string>;
 export type ExternalCustomerIDFilter = string | Array<string>;
 
 /**
+ * Filter by event name.
+ */
+export type NameFilter = string | Array<string>;
+
+/**
  * Filter by event source.
  */
 export type SourceFilter = EventSource | Array<EventSource>;
@@ -71,6 +76,14 @@ export type EventsListRequest = {
    * Filter by external customer ID.
    */
   externalCustomerId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by a meter filter clause.
+   */
+  meterId?: string | null | undefined;
+  /**
+   * Filter by event name.
+   */
+  name?: string | Array<string> | null | undefined;
   /**
    * Filter by event source.
    */
@@ -262,6 +275,50 @@ export function externalCustomerIDFilterFromJSON(
 }
 
 /** @internal */
+export const NameFilter$inboundSchema: z.ZodType<
+  NameFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type NameFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const NameFilter$outboundSchema: z.ZodType<
+  NameFilter$Outbound,
+  z.ZodTypeDef,
+  NameFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace NameFilter$ {
+  /** @deprecated use `NameFilter$inboundSchema` instead. */
+  export const inboundSchema = NameFilter$inboundSchema;
+  /** @deprecated use `NameFilter$outboundSchema` instead. */
+  export const outboundSchema = NameFilter$outboundSchema;
+  /** @deprecated use `NameFilter$Outbound` instead. */
+  export type Outbound = NameFilter$Outbound;
+}
+
+export function nameFilterToJSON(nameFilter: NameFilter): string {
+  return JSON.stringify(NameFilter$outboundSchema.parse(nameFilter));
+}
+
+export function nameFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<NameFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => NameFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'NameFilter' from JSON`,
+  );
+}
+
+/** @internal */
 export const SourceFilter$inboundSchema: z.ZodType<
   SourceFilter,
   z.ZodTypeDef,
@@ -323,14 +380,15 @@ export const EventsListRequest$inboundSchema: z.ZodType<
     .optional(),
   external_customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  meter_id: z.nullable(z.string()).optional(),
+  name: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   source: z.nullable(
     z.union([EventSource$inboundSchema, z.array(EventSource$inboundSchema)]),
   ).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(EventSortProperty$inboundSchema)).optional(),
-  metadata: z.nullable(z.record(z.lazy(() => MetadataQuery$inboundSchema)))
-    .optional(),
+  metadata: z.nullable(z.record(MetadataQuery$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_timestamp": "startTimestamp",
@@ -338,6 +396,7 @@ export const EventsListRequest$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
     "customer_id": "customerId",
     "external_customer_id": "externalCustomerId",
+    "meter_id": "meterId",
   });
 });
 
@@ -348,6 +407,8 @@ export type EventsListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   customer_id?: string | Array<string> | null | undefined;
   external_customer_id?: string | Array<string> | null | undefined;
+  meter_id?: string | null | undefined;
+  name?: string | Array<string> | null | undefined;
   source?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
@@ -369,14 +430,15 @@ export const EventsListRequest$outboundSchema: z.ZodType<
   customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   externalCustomerId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  meterId: z.nullable(z.string()).optional(),
+  name: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   source: z.nullable(
     z.union([EventSource$outboundSchema, z.array(EventSource$outboundSchema)]),
   ).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(EventSortProperty$outboundSchema)).optional(),
-  metadata: z.nullable(z.record(z.lazy(() => MetadataQuery$outboundSchema)))
-    .optional(),
+  metadata: z.nullable(z.record(MetadataQuery$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     startTimestamp: "start_timestamp",
@@ -384,6 +446,7 @@ export const EventsListRequest$outboundSchema: z.ZodType<
     organizationId: "organization_id",
     customerId: "customer_id",
     externalCustomerId: "external_customer_id",
+    meterId: "meter_id",
   });
 });
 

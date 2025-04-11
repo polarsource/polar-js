@@ -3,7 +3,6 @@
  */
 
 import { metersCreate } from "../funcs/metersCreate.js";
-import { metersEvents } from "../funcs/metersEvents.js";
 import { metersGet } from "../funcs/metersGet.js";
 import { metersList } from "../funcs/metersList.js";
 import { metersQuantities } from "../funcs/metersQuantities.js";
@@ -12,10 +11,6 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { Meter } from "../models/components/meter.js";
 import { MeterCreate } from "../models/components/metercreate.js";
 import { MeterQuantities } from "../models/components/meterquantities.js";
-import {
-  MetersEventsRequest,
-  MetersEventsResponse,
-} from "../models/operations/metersevents.js";
 import { MetersGetRequest } from "../models/operations/metersget.js";
 import {
   MetersListRequest,
@@ -97,25 +92,6 @@ export class Meters extends ClientSDK {
     options?: RequestOptions,
   ): Promise<Meter> {
     return unwrapAsync(metersUpdate(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Get Meter Events
-   *
-   * @remarks
-   * Get events matching the filter of a meter.
-   *
-   * **Scopes**: `meters:read` `meters:write`
-   */
-  async events(
-    request: MetersEventsRequest,
-    options?: RequestOptions,
-  ): Promise<PageIterator<MetersEventsResponse, { page: number }>> {
-    return unwrapResultIterator(metersEvents(
       this,
       request,
       options,
