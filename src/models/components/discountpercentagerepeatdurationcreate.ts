@@ -21,6 +21,7 @@ import {
 export type DiscountPercentageRepeatDurationCreateMetadata =
   | string
   | number
+  | number
   | boolean;
 
 /**
@@ -60,11 +61,12 @@ export type DiscountPercentageRepeatDurationCreate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * Name of the discount. Will be displayed to the customer when the discount is applied.
    */
@@ -98,11 +100,12 @@ export const DiscountPercentageRepeatDurationCreateMetadata$inboundSchema:
     DiscountPercentageRepeatDurationCreateMetadata,
     z.ZodTypeDef,
     unknown
-  > = z.union([z.string(), z.number().int(), z.boolean()]);
+  > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type DiscountPercentageRepeatDurationCreateMetadata$Outbound =
   | string
+  | number
   | number
   | boolean;
 
@@ -112,7 +115,7 @@ export const DiscountPercentageRepeatDurationCreateMetadata$outboundSchema:
     DiscountPercentageRepeatDurationCreateMetadata$Outbound,
     z.ZodTypeDef,
     DiscountPercentageRepeatDurationCreateMetadata
-  > = z.union([z.string(), z.number().int(), z.boolean()]);
+  > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -167,8 +170,9 @@ export const DiscountPercentageRepeatDurationCreate$inboundSchema: z.ZodType<
   duration_in_months: z.number().int(),
   type: DiscountType$inboundSchema,
   basis_points: z.number().int(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.string(),
   code: z.nullable(z.string()).optional(),
   starts_at: z.nullable(
@@ -197,7 +201,7 @@ export type DiscountPercentageRepeatDurationCreate$Outbound = {
   duration_in_months: number;
   type: string;
   basis_points: number;
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name: string;
   code?: string | null | undefined;
   starts_at?: string | null | undefined;
@@ -217,8 +221,9 @@ export const DiscountPercentageRepeatDurationCreate$outboundSchema: z.ZodType<
   durationInMonths: z.number().int(),
   type: DiscountType$outboundSchema,
   basisPoints: z.number().int(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.string(),
   code: z.nullable(z.string()).optional(),
   startsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),

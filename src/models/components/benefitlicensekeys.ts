@@ -14,7 +14,13 @@ import {
   BenefitLicenseKeysProperties$outboundSchema,
 } from "./benefitlicensekeysproperties.js";
 
+export type BenefitLicenseKeysMetadata = string | number | number | boolean;
+
 export type BenefitLicenseKeys = {
+  /**
+   * The ID of the benefit.
+   */
+  id: string;
   /**
    * Creation timestamp of the object.
    */
@@ -23,10 +29,7 @@ export type BenefitLicenseKeys = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "license_keys" | undefined;
   /**
    * The description of the benefit.
@@ -48,16 +51,71 @@ export type BenefitLicenseKeys = {
 };
 
 /** @internal */
+export const BenefitLicenseKeysMetadata$inboundSchema: z.ZodType<
+  BenefitLicenseKeysMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitLicenseKeysMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitLicenseKeysMetadata$outboundSchema: z.ZodType<
+  BenefitLicenseKeysMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitLicenseKeysMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitLicenseKeysMetadata$ {
+  /** @deprecated use `BenefitLicenseKeysMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitLicenseKeysMetadata$inboundSchema;
+  /** @deprecated use `BenefitLicenseKeysMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitLicenseKeysMetadata$outboundSchema;
+  /** @deprecated use `BenefitLicenseKeysMetadata$Outbound` instead. */
+  export type Outbound = BenefitLicenseKeysMetadata$Outbound;
+}
+
+export function benefitLicenseKeysMetadataToJSON(
+  benefitLicenseKeysMetadata: BenefitLicenseKeysMetadata,
+): string {
+  return JSON.stringify(
+    BenefitLicenseKeysMetadata$outboundSchema.parse(benefitLicenseKeysMetadata),
+  );
+}
+
+export function benefitLicenseKeysMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitLicenseKeysMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitLicenseKeysMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitLicenseKeysMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitLicenseKeys$inboundSchema: z.ZodType<
   BenefitLicenseKeys,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("license_keys").optional(),
   description: z.string(),
   selectable: z.boolean(),
@@ -74,9 +132,10 @@ export const BenefitLicenseKeys$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitLicenseKeys$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: "license_keys";
   description: string;
   selectable: boolean;
@@ -91,9 +150,12 @@ export const BenefitLicenseKeys$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitLicenseKeys
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("license_keys").default("license_keys" as const),
   description: z.string(),
   selectable: z.boolean(),

@@ -15,7 +15,7 @@ const value: components.DiscountFixedOnceForeverDuration = {
   modifiedAt: new Date("2025-04-16T07:07:45.158Z"),
   id: "<value>",
   metadata: {
-    "key": 524788,
+    "key": 5247.88,
   },
   name: "<value>",
   code: "<value>",
@@ -89,7 +89,7 @@ const value: components.DiscountPercentageOnceForeverDuration = {
   modifiedAt: new Date("2023-05-17T21:52:37.548Z"),
   id: "<value>",
   metadata: {
-    "key": 302686,
+    "key": 3026.86,
   },
   name: "<value>",
   code: "<value>",

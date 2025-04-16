@@ -26,7 +26,7 @@ import {
   PropertyAggregation$outboundSchema,
 } from "./propertyaggregation.js";
 
-export type MeterMetadata = string | number | boolean;
+export type MeterMetadata = string | number | number | boolean;
 
 /**
  * The aggregation to apply on the filtered events to calculate the meter.
@@ -39,7 +39,7 @@ export type MeterAggregation =
   | (PropertyAggregation & { func: "sum" });
 
 export type Meter = {
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * Creation timestamp of the object.
    */
@@ -77,17 +77,17 @@ export const MeterMetadata$inboundSchema: z.ZodType<
   MeterMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type MeterMetadata$Outbound = string | number | boolean;
+export type MeterMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const MeterMetadata$outboundSchema: z.ZodType<
   MeterMetadata$Outbound,
   z.ZodTypeDef,
   MeterMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -204,7 +204,9 @@ export function meterAggregationFromJSON(
 /** @internal */
 export const Meter$inboundSchema: z.ZodType<Meter, z.ZodTypeDef, unknown> = z
   .object({
-    metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+    metadata: z.record(
+      z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+    ),
     created_at: z.string().datetime({ offset: true }).transform(v =>
       new Date(v)
     ),
@@ -252,7 +254,7 @@ export const Meter$inboundSchema: z.ZodType<Meter, z.ZodTypeDef, unknown> = z
 
 /** @internal */
 export type Meter$Outbound = {
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   created_at: string;
   modified_at: string | null;
   id: string;
@@ -273,7 +275,9 @@ export const Meter$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Meter
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),

@@ -15,7 +15,7 @@ const value: components.DiscountFixedOnceForeverDurationBase = {
   modifiedAt: new Date("2025-08-26T08:06:28.501Z"),
   id: "<value>",
   metadata: {
-    "key": 234343,
+    "key": 2343.43,
   },
   name: "<value>",
   code: "<value>",

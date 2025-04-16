@@ -21,6 +21,7 @@ import {
 export type DiscountFixedOnceForeverDurationBaseMetadata =
   | string
   | number
+  | number
   | boolean;
 
 export type DiscountFixedOnceForeverDurationBase = {
@@ -40,7 +41,7 @@ export type DiscountFixedOnceForeverDurationBase = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * Name of the discount. Will be displayed to the customer when the discount is applied.
    */
@@ -77,11 +78,12 @@ export const DiscountFixedOnceForeverDurationBaseMetadata$inboundSchema:
     DiscountFixedOnceForeverDurationBaseMetadata,
     z.ZodTypeDef,
     unknown
-  > = z.union([z.string(), z.number().int(), z.boolean()]);
+  > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type DiscountFixedOnceForeverDurationBaseMetadata$Outbound =
   | string
+  | number
   | number
   | boolean;
 
@@ -91,7 +93,7 @@ export const DiscountFixedOnceForeverDurationBaseMetadata$outboundSchema:
     DiscountFixedOnceForeverDurationBaseMetadata$Outbound,
     z.ZodTypeDef,
     DiscountFixedOnceForeverDurationBaseMetadata
-  > = z.union([z.string(), z.number().int(), z.boolean()]);
+  > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -150,7 +152,9 @@ export const DiscountFixedOnceForeverDurationBase$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   name: z.string(),
   code: z.nullable(z.string()),
   starts_at: z.nullable(
@@ -183,7 +187,7 @@ export type DiscountFixedOnceForeverDurationBase$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   name: string;
   code: string | null;
   starts_at: string | null;
@@ -206,7 +210,9 @@ export const DiscountFixedOnceForeverDurationBase$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   name: z.string(),
   code: z.nullable(z.string()),
   startsAt: z.nullable(z.date().transform(v => v.toISOString())),

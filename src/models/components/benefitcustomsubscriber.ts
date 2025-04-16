@@ -20,7 +20,17 @@ import {
   Organization$outboundSchema,
 } from "./organization.js";
 
+export type BenefitCustomSubscriberMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitCustomSubscriber = {
+  /**
+   * The ID of the benefit.
+   */
+  id: string;
   /**
    * Creation timestamp of the object.
    */
@@ -29,10 +39,7 @@ export type BenefitCustomSubscriber = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "custom" | undefined;
   /**
    * The description of the benefit.
@@ -58,16 +65,73 @@ export type BenefitCustomSubscriber = {
 };
 
 /** @internal */
+export const BenefitCustomSubscriberMetadata$inboundSchema: z.ZodType<
+  BenefitCustomSubscriberMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitCustomSubscriberMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitCustomSubscriberMetadata$outboundSchema: z.ZodType<
+  BenefitCustomSubscriberMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitCustomSubscriberMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitCustomSubscriberMetadata$ {
+  /** @deprecated use `BenefitCustomSubscriberMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitCustomSubscriberMetadata$inboundSchema;
+  /** @deprecated use `BenefitCustomSubscriberMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitCustomSubscriberMetadata$outboundSchema;
+  /** @deprecated use `BenefitCustomSubscriberMetadata$Outbound` instead. */
+  export type Outbound = BenefitCustomSubscriberMetadata$Outbound;
+}
+
+export function benefitCustomSubscriberMetadataToJSON(
+  benefitCustomSubscriberMetadata: BenefitCustomSubscriberMetadata,
+): string {
+  return JSON.stringify(
+    BenefitCustomSubscriberMetadata$outboundSchema.parse(
+      benefitCustomSubscriberMetadata,
+    ),
+  );
+}
+
+export function benefitCustomSubscriberMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitCustomSubscriberMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitCustomSubscriberMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitCustomSubscriberMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitCustomSubscriber$inboundSchema: z.ZodType<
   BenefitCustomSubscriber,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("custom").optional(),
   description: z.string(),
   selectable: z.boolean(),
@@ -85,9 +149,10 @@ export const BenefitCustomSubscriber$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitCustomSubscriber$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: "custom";
   description: string;
   selectable: boolean;
@@ -103,9 +168,12 @@ export const BenefitCustomSubscriber$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitCustomSubscriber
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("custom").default("custom" as const),
   description: z.string(),
   selectable: z.boolean(),

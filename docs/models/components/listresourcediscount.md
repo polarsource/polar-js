@@ -17,22 +17,23 @@ let value: ListResourceDiscount = {
       modifiedAt: new Date("2024-10-28T04:42:36.139Z"),
       id: "<value>",
       metadata: {
-        "key": "<value>",
+        "key": 587397,
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2024-10-05T18:52:55.497Z"),
-      endsAt: new Date("2025-09-04T21:50:43.396Z"),
-      maxRedemptions: 582139,
-      redemptionsCount: 189863,
+      startsAt: new Date("2025-09-04T21:50:43.396Z"),
+      endsAt: new Date("2024-09-30T00:34:11.283Z"),
+      maxRedemptions: 189863,
+      redemptionsCount: 1712,
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       products: [
         {
-          createdAt: new Date("2023-01-02T21:02:00.809Z"),
-          modifiedAt: new Date("2025-11-14T07:21:36.206Z"),
+          createdAt: new Date("2025-11-14T07:21:36.206Z"),
+          modifiedAt: new Date("2024-08-19T06:24:57.447Z"),
           id: "<value>",
           name: "<value>",
-          description: "toothpick requite metallic bony um dirty with",
+          description:
+            "spanish mismatch possible opposite depot overconfidently",
           recurringInterval: "month",
           isRecurring: false,
           isArchived: false,
@@ -42,8 +43,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 678543,
-    maxPage: 60381,
+    totalCount: 447113,
+    maxPage: 973403,
   },
 };
 ```

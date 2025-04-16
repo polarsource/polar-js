@@ -13,7 +13,7 @@ import {
   CustomFieldDateProperties$outboundSchema,
 } from "./customfielddateproperties.js";
 
-export type CustomFieldUpdateDateMetadata = string | number | boolean;
+export type CustomFieldUpdateDateMetadata = string | number | number | boolean;
 
 /**
  * Schema to update a custom field of type date.
@@ -29,11 +29,12 @@ export type CustomFieldUpdateDate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
   type?: "date" | undefined;
@@ -45,17 +46,21 @@ export const CustomFieldUpdateDateMetadata$inboundSchema: z.ZodType<
   CustomFieldUpdateDateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type CustomFieldUpdateDateMetadata$Outbound = string | number | boolean;
+export type CustomFieldUpdateDateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const CustomFieldUpdateDateMetadata$outboundSchema: z.ZodType<
   CustomFieldUpdateDateMetadata$Outbound,
   z.ZodTypeDef,
   CustomFieldUpdateDateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -96,8 +101,9 @@ export const CustomFieldUpdateDate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
   type: z.literal("date").optional(),
@@ -106,7 +112,7 @@ export const CustomFieldUpdateDate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomFieldUpdateDate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
   type: "date";
@@ -119,8 +125,9 @@ export const CustomFieldUpdateDate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomFieldUpdateDate
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
   type: z.literal("date").default("date" as const),

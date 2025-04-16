@@ -20,7 +20,17 @@ import {
   Organization$outboundSchema,
 } from "./organization.js";
 
+export type BenefitGitHubRepositorySubscriberMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitGitHubRepositorySubscriber = {
+  /**
+   * The ID of the benefit.
+   */
+  id: string;
   /**
    * Creation timestamp of the object.
    */
@@ -29,10 +39,7 @@ export type BenefitGitHubRepositorySubscriber = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "github_repository" | undefined;
   /**
    * The description of the benefit.
@@ -58,16 +65,83 @@ export type BenefitGitHubRepositorySubscriber = {
 };
 
 /** @internal */
+export const BenefitGitHubRepositorySubscriberMetadata$inboundSchema: z.ZodType<
+  BenefitGitHubRepositorySubscriberMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitGitHubRepositorySubscriberMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitGitHubRepositorySubscriberMetadata$outboundSchema:
+  z.ZodType<
+    BenefitGitHubRepositorySubscriberMetadata$Outbound,
+    z.ZodTypeDef,
+    BenefitGitHubRepositorySubscriberMetadata
+  > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitGitHubRepositorySubscriberMetadata$ {
+  /** @deprecated use `BenefitGitHubRepositorySubscriberMetadata$inboundSchema` instead. */
+  export const inboundSchema =
+    BenefitGitHubRepositorySubscriberMetadata$inboundSchema;
+  /** @deprecated use `BenefitGitHubRepositorySubscriberMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    BenefitGitHubRepositorySubscriberMetadata$outboundSchema;
+  /** @deprecated use `BenefitGitHubRepositorySubscriberMetadata$Outbound` instead. */
+  export type Outbound = BenefitGitHubRepositorySubscriberMetadata$Outbound;
+}
+
+export function benefitGitHubRepositorySubscriberMetadataToJSON(
+  benefitGitHubRepositorySubscriberMetadata:
+    BenefitGitHubRepositorySubscriberMetadata,
+): string {
+  return JSON.stringify(
+    BenefitGitHubRepositorySubscriberMetadata$outboundSchema.parse(
+      benefitGitHubRepositorySubscriberMetadata,
+    ),
+  );
+}
+
+export function benefitGitHubRepositorySubscriberMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  BenefitGitHubRepositorySubscriberMetadata,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitGitHubRepositorySubscriberMetadata$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'BenefitGitHubRepositorySubscriberMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitGitHubRepositorySubscriber$inboundSchema: z.ZodType<
   BenefitGitHubRepositorySubscriber,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("github_repository").optional(),
   description: z.string(),
   selectable: z.boolean(),
@@ -85,9 +159,10 @@ export const BenefitGitHubRepositorySubscriber$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitGitHubRepositorySubscriber$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: "github_repository";
   description: string;
   selectable: boolean;
@@ -103,9 +178,12 @@ export const BenefitGitHubRepositorySubscriber$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGitHubRepositorySubscriber
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("github_repository").default("github_repository" as const),
   description: z.string(),
   selectable: z.boolean(),

@@ -14,7 +14,11 @@ import {
   CustomFieldSelectProperties$outboundSchema,
 } from "./customfieldselectproperties.js";
 
-export type CustomFieldCreateSelectMetadata = string | number | boolean;
+export type CustomFieldCreateSelectMetadata =
+  | string
+  | number
+  | number
+  | boolean;
 
 /**
  * Schema to create a custom field of type select.
@@ -30,11 +34,12 @@ export type CustomFieldCreateSelect = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type?: "select" | undefined;
   /**
    * Identifier of the custom field. It'll be used as key when storing the value. Must be unique across the organization.It can only contain ASCII letters, numbers and hyphens.
@@ -56,11 +61,12 @@ export const CustomFieldCreateSelectMetadata$inboundSchema: z.ZodType<
   CustomFieldCreateSelectMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type CustomFieldCreateSelectMetadata$Outbound =
   | string
+  | number
   | number
   | boolean;
 
@@ -69,7 +75,7 @@ export const CustomFieldCreateSelectMetadata$outboundSchema: z.ZodType<
   CustomFieldCreateSelectMetadata$Outbound,
   z.ZodTypeDef,
   CustomFieldCreateSelectMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -110,8 +116,9 @@ export const CustomFieldCreateSelect$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("select").optional(),
   slug: z.string(),
   name: z.string(),
@@ -125,7 +132,7 @@ export const CustomFieldCreateSelect$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomFieldCreateSelect$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type: "select";
   slug: string;
   name: string;
@@ -139,8 +146,9 @@ export const CustomFieldCreateSelect$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomFieldCreateSelect
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("select").default("select" as const),
   slug: z.string(),
   name: z.string(),

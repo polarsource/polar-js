@@ -40,17 +40,20 @@ let value: BenefitGrantWebhook = {
   },
   properties: {},
   benefit: {
+    id: "<value>",
     createdAt: new Date("2023-12-27T22:17:00.210Z"),
     modifiedAt: new Date("2024-02-10T10:41:30.057Z"),
-    id: "<value>",
-    description: "toward while fooey democratize or er um twin elver",
+    metadata: {
+      "key": false,
+    },
+    description: "before though poorly passport bicycle parsnip modulo",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     properties: {
       repositoryOwner: "polarsource",
       repositoryName: "private_repo",
-      permission: "maintain",
+      permission: "push",
     },
   },
 };

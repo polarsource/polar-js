@@ -14,7 +14,11 @@ import {
   CustomFieldNumberProperties$outboundSchema,
 } from "./customfieldnumberproperties.js";
 
-export type CustomFieldCreateNumberMetadata = string | number | boolean;
+export type CustomFieldCreateNumberMetadata =
+  | string
+  | number
+  | number
+  | boolean;
 
 /**
  * Schema to create a custom field of type number.
@@ -30,11 +34,12 @@ export type CustomFieldCreateNumber = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type?: "number" | undefined;
   /**
    * Identifier of the custom field. It'll be used as key when storing the value. Must be unique across the organization.It can only contain ASCII letters, numbers and hyphens.
@@ -56,11 +61,12 @@ export const CustomFieldCreateNumberMetadata$inboundSchema: z.ZodType<
   CustomFieldCreateNumberMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type CustomFieldCreateNumberMetadata$Outbound =
   | string
+  | number
   | number
   | boolean;
 
@@ -69,7 +75,7 @@ export const CustomFieldCreateNumberMetadata$outboundSchema: z.ZodType<
   CustomFieldCreateNumberMetadata$Outbound,
   z.ZodTypeDef,
   CustomFieldCreateNumberMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -110,8 +116,9 @@ export const CustomFieldCreateNumber$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("number").optional(),
   slug: z.string(),
   name: z.string(),
@@ -125,7 +132,7 @@ export const CustomFieldCreateNumber$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomFieldCreateNumber$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type: "number";
   slug: string;
   name: string;
@@ -139,8 +146,9 @@ export const CustomFieldCreateNumber$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomFieldCreateNumber
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("number").default("number" as const),
   slug: z.string(),
   name: z.string(),

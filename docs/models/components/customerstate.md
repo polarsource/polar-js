@@ -16,28 +16,28 @@ let value: CustomerState = {
   createdAt: new Date("2023-04-12T13:06:03.685Z"),
   modifiedAt: new Date("2025-09-17T07:27:55.357Z"),
   metadata: {
-    "key": false,
+    "key": 4275.05,
   },
   externalId: "usr_1337",
   email: "customer@example.com",
   emailVerified: true,
   name: "John Doe",
   billingAddress: {
-    country: "SE",
+    country: "US",
   },
   taxId: [
-    "911144442",
-    "us_ein",
+    "FR61954506077",
+    "eu_vat",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2025-01-01T08:01:53.305Z"),
+  deletedAt: new Date("2025-01-12T15:44:32.793Z"),
   activeSubscriptions: [
     {
       id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
-      createdAt: new Date("2025-01-12T15:44:32.793Z"),
-      modifiedAt: new Date("2025-09-13T05:36:28.332Z"),
+      createdAt: new Date("2025-09-13T05:36:28.332Z"),
+      modifiedAt: new Date("2023-06-29T21:29:51.503Z"),
       metadata: {
-        "key": "<value>",
+        "key": 737479,
       },
       amount: 1000,
       currency: "usd",
@@ -53,8 +53,8 @@ let value: CustomerState = {
       priceId: "196ca717-4d84-4d28-a1b8-777255797dbc",
       meters: [
         {
-          createdAt: new Date("2025-03-19T06:38:24.563Z"),
-          modifiedAt: new Date("2024-01-11T04:33:07.947Z"),
+          createdAt: new Date("2023-10-27T09:57:20.709Z"),
+          modifiedAt: new Date("2025-12-13T14:51:07.575Z"),
           id: "<value>",
           consumedUnits: 25,
           creditedUnits: 100,
@@ -67,18 +67,18 @@ let value: CustomerState = {
   grantedBenefits: [
     {
       id: "d322132c-a9d0-4e0d-b8d3-d81ad021a3a9",
-      createdAt: new Date("2023-10-27T09:57:20.709Z"),
-      modifiedAt: new Date("2025-12-13T14:51:07.575Z"),
+      createdAt: new Date("2023-02-21T03:07:24.293Z"),
+      modifiedAt: new Date("2024-08-06T03:48:52.242Z"),
       grantedAt: new Date("2025-01-03T13:37:00Z"),
       benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-      benefitType: "custom",
+      benefitType: "discord",
       properties: {},
     },
   ],
   activeMeters: [
     {
-      createdAt: new Date("2023-08-01T15:49:02.586Z"),
-      modifiedAt: new Date("2025-11-18T22:28:05.680Z"),
+      createdAt: new Date("2025-07-13T15:26:30.510Z"),
+      modifiedAt: new Date("2025-04-30T07:02:55.261Z"),
       meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
       consumedUnits: 25,
       creditedUnits: 100,

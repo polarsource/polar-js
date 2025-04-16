@@ -14,7 +14,7 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 
-export type CheckoutProductsCreateMetadata = string | number | boolean;
+export type CheckoutProductsCreateMetadata = string | number | number | boolean;
 
 export type CheckoutProductsCreateCustomFieldData =
   | string
@@ -22,7 +22,11 @@ export type CheckoutProductsCreateCustomFieldData =
   | boolean
   | Date;
 
-export type CheckoutProductsCreateCustomerMetadata = string | number | boolean;
+export type CheckoutProductsCreateCustomerMetadata =
+  | string
+  | number
+  | number
+  | boolean;
 
 /**
  * Create a new checkout session from a list of products.
@@ -44,11 +48,12 @@ export type CheckoutProductsCreate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * Key-value object storing custom field values.
    */
@@ -87,11 +92,14 @@ export type CheckoutProductsCreate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  customerMetadata?: { [k: string]: string | number | boolean } | undefined;
+  customerMetadata?:
+    | { [k: string]: string | number | number | boolean }
+    | undefined;
   /**
    * ID of a subscription to upgrade. It must be on a free pricing. If checkout is successful, metadata set on this checkout will be copied to the subscription, and existing keys will be overwritten.
    */
@@ -115,17 +123,21 @@ export const CheckoutProductsCreateMetadata$inboundSchema: z.ZodType<
   CheckoutProductsCreateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type CheckoutProductsCreateMetadata$Outbound = string | number | boolean;
+export type CheckoutProductsCreateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const CheckoutProductsCreateMetadata$outboundSchema: z.ZodType<
   CheckoutProductsCreateMetadata$Outbound,
   z.ZodTypeDef,
   CheckoutProductsCreateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -232,11 +244,12 @@ export const CheckoutProductsCreateCustomerMetadata$inboundSchema: z.ZodType<
   CheckoutProductsCreateCustomerMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type CheckoutProductsCreateCustomerMetadata$Outbound =
   | string
+  | number
   | number
   | boolean;
 
@@ -245,7 +258,7 @@ export const CheckoutProductsCreateCustomerMetadata$outboundSchema: z.ZodType<
   CheckoutProductsCreateCustomerMetadata$Outbound,
   z.ZodTypeDef,
   CheckoutProductsCreateCustomerMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -290,8 +303,9 @@ export const CheckoutProductsCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   custom_field_data: z.record(
     z.nullable(
       z.union([
@@ -313,7 +327,7 @@ export const CheckoutProductsCreate$inboundSchema: z.ZodType<
   customer_billing_address: z.nullable(Address$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
   customer_metadata: z.record(
-    z.union([z.string(), z.number().int(), z.boolean()]),
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   subscription_id: z.nullable(z.string()).optional(),
   success_url: z.nullable(z.string()).optional(),
@@ -340,7 +354,7 @@ export const CheckoutProductsCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutProductsCreate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
@@ -354,7 +368,9 @@ export type CheckoutProductsCreate$Outbound = {
   customer_ip_address?: string | null | undefined;
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
-  customer_metadata?: { [k: string]: string | number | boolean } | undefined;
+  customer_metadata?:
+    | { [k: string]: string | number | number | boolean }
+    | undefined;
   subscription_id?: string | null | undefined;
   success_url?: string | null | undefined;
   embed_origin?: string | null | undefined;
@@ -367,8 +383,9 @@ export const CheckoutProductsCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutProductsCreate
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   customFieldData: z.record(
     z.nullable(
       z.union([
@@ -390,7 +407,7 @@ export const CheckoutProductsCreate$outboundSchema: z.ZodType<
   customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
   customerMetadata: z.record(
-    z.union([z.string(), z.number().int(), z.boolean()]),
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   subscriptionId: z.nullable(z.string()).optional(),
   successUrl: z.nullable(z.string()).optional(),

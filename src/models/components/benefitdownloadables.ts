@@ -14,7 +14,13 @@ import {
   BenefitDownloadablesProperties$outboundSchema,
 } from "./benefitdownloadablesproperties.js";
 
+export type BenefitDownloadablesMetadata = string | number | number | boolean;
+
 export type BenefitDownloadables = {
+  /**
+   * The ID of the benefit.
+   */
+  id: string;
   /**
    * Creation timestamp of the object.
    */
@@ -23,10 +29,7 @@ export type BenefitDownloadables = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "downloadables" | undefined;
   /**
    * The description of the benefit.
@@ -48,16 +51,73 @@ export type BenefitDownloadables = {
 };
 
 /** @internal */
+export const BenefitDownloadablesMetadata$inboundSchema: z.ZodType<
+  BenefitDownloadablesMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitDownloadablesMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitDownloadablesMetadata$outboundSchema: z.ZodType<
+  BenefitDownloadablesMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitDownloadablesMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitDownloadablesMetadata$ {
+  /** @deprecated use `BenefitDownloadablesMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitDownloadablesMetadata$inboundSchema;
+  /** @deprecated use `BenefitDownloadablesMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitDownloadablesMetadata$outboundSchema;
+  /** @deprecated use `BenefitDownloadablesMetadata$Outbound` instead. */
+  export type Outbound = BenefitDownloadablesMetadata$Outbound;
+}
+
+export function benefitDownloadablesMetadataToJSON(
+  benefitDownloadablesMetadata: BenefitDownloadablesMetadata,
+): string {
+  return JSON.stringify(
+    BenefitDownloadablesMetadata$outboundSchema.parse(
+      benefitDownloadablesMetadata,
+    ),
+  );
+}
+
+export function benefitDownloadablesMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitDownloadablesMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitDownloadablesMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitDownloadablesMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitDownloadables$inboundSchema: z.ZodType<
   BenefitDownloadables,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("downloadables").optional(),
   description: z.string(),
   selectable: z.boolean(),
@@ -74,9 +134,10 @@ export const BenefitDownloadables$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitDownloadables$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: "downloadables";
   description: string;
   selectable: boolean;
@@ -91,9 +152,12 @@ export const BenefitDownloadables$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitDownloadables
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("downloadables").default("downloadables" as const),
   description: z.string(),
   selectable: z.boolean(),

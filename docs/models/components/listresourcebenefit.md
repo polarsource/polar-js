@@ -8,30 +8,33 @@ import { ListResourceBenefit } from "@polar-sh/sdk/models/components/listresourc
 let value: ListResourceBenefit = {
   items: [
     {
+      id: "<value>",
       createdAt: new Date("2023-09-27T12:36:24.812Z"),
       modifiedAt: new Date("2024-11-08T01:17:28.121Z"),
-      id: "<value>",
-      description: "yippee license annual",
+      metadata: {
+        "key": "<value>",
+      },
+      description: "hyena sarong under",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
         prefix: "<value>",
         expires: {
-          ttl: 879846,
+          ttl: 390938,
           timeframe: "month",
         },
         activations: {
-          limit: 481078,
+          limit: 66465,
           enableCustomerAdmin: false,
         },
-        limitUsage: 66465,
+        limitUsage: 116937,
       },
     },
   ],
   pagination: {
-    totalCount: 116937,
-    maxPage: 737180,
+    totalCount: 737180,
+    maxPage: 91241,
   },
 };
 ```

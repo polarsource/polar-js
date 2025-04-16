@@ -14,14 +14,14 @@ let value: DiscountPercentageRepeatDurationBase = {
   modifiedAt: new Date("2025-06-19T19:29:41.371Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": 525858,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2024-07-30T08:09:34.533Z"),
-  endsAt: new Date("2024-07-17T16:02:43.496Z"),
-  maxRedemptions: 370051,
-  redemptionsCount: 866307,
+  startsAt: new Date("2024-07-17T16:02:43.496Z"),
+  endsAt: new Date("2024-02-10T13:50:11.933Z"),
+  maxRedemptions: 866307,
+  redemptionsCount: 707361,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```

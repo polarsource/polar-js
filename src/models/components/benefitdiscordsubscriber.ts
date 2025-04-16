@@ -20,7 +20,17 @@ import {
   Organization$outboundSchema,
 } from "./organization.js";
 
+export type BenefitDiscordSubscriberMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitDiscordSubscriber = {
+  /**
+   * The ID of the benefit.
+   */
+  id: string;
   /**
    * Creation timestamp of the object.
    */
@@ -29,10 +39,7 @@ export type BenefitDiscordSubscriber = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "discord" | undefined;
   /**
    * The description of the benefit.
@@ -58,16 +65,73 @@ export type BenefitDiscordSubscriber = {
 };
 
 /** @internal */
+export const BenefitDiscordSubscriberMetadata$inboundSchema: z.ZodType<
+  BenefitDiscordSubscriberMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitDiscordSubscriberMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitDiscordSubscriberMetadata$outboundSchema: z.ZodType<
+  BenefitDiscordSubscriberMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitDiscordSubscriberMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitDiscordSubscriberMetadata$ {
+  /** @deprecated use `BenefitDiscordSubscriberMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitDiscordSubscriberMetadata$inboundSchema;
+  /** @deprecated use `BenefitDiscordSubscriberMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitDiscordSubscriberMetadata$outboundSchema;
+  /** @deprecated use `BenefitDiscordSubscriberMetadata$Outbound` instead. */
+  export type Outbound = BenefitDiscordSubscriberMetadata$Outbound;
+}
+
+export function benefitDiscordSubscriberMetadataToJSON(
+  benefitDiscordSubscriberMetadata: BenefitDiscordSubscriberMetadata,
+): string {
+  return JSON.stringify(
+    BenefitDiscordSubscriberMetadata$outboundSchema.parse(
+      benefitDiscordSubscriberMetadata,
+    ),
+  );
+}
+
+export function benefitDiscordSubscriberMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitDiscordSubscriberMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitDiscordSubscriberMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitDiscordSubscriberMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitDiscordSubscriber$inboundSchema: z.ZodType<
   BenefitDiscordSubscriber,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("discord").optional(),
   description: z.string(),
   selectable: z.boolean(),
@@ -85,9 +149,10 @@ export const BenefitDiscordSubscriber$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitDiscordSubscriber$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: "discord";
   description: string;
   selectable: boolean;
@@ -103,9 +168,12 @@ export const BenefitDiscordSubscriber$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitDiscordSubscriber
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("discord").default("discord" as const),
   description: z.string(),
   selectable: z.boolean(),

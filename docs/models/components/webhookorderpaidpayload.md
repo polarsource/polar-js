@@ -17,7 +17,7 @@ let value: WebhookOrderPaidPayload = {
     modifiedAt: new Date("2023-01-22T20:00:27.076Z"),
     id: "<value>",
     metadata: {
-      "key": 374100,
+      "key": 3741,
     },
     status: "partially_refunded",
     paid: true,

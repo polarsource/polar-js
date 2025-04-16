@@ -45,25 +45,28 @@ let value: WebhookBenefitGrantUpdatedPayload = {
     },
     properties: {},
     benefit: {
+      id: "<value>",
       createdAt: new Date("2024-03-22T06:24:13.619Z"),
       modifiedAt: new Date("2024-11-29T00:34:44.806Z"),
-      id: "<value>",
+      metadata: {
+        "key": false,
+      },
       description:
-        "with regarding but poor unique furthermore milky yippee warmhearted hopeful",
+        "kaleidoscopic persecute outrun multicolored among provision prickly lounge",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
         prefix: "<value>",
         expires: {
-          ttl: 842977,
+          ttl: 861958,
           timeframe: "month",
         },
         activations: {
-          limit: 358271,
+          limit: 453048,
           enableCustomerAdmin: false,
         },
-        limitUsage: 229034,
+        limitUsage: 657011,
       },
     },
   },

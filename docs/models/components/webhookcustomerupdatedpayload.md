@@ -19,7 +19,7 @@ let value: WebhookCustomerUpdatedPayload = {
     createdAt: new Date("2023-04-17T17:52:21.274Z"),
     modifiedAt: new Date("2024-12-18T07:39:50.624Z"),
     metadata: {
-      "key": 737117,
+      "key": 7371.17,
     },
     externalId: "usr_1337",
     email: "customer@example.com",

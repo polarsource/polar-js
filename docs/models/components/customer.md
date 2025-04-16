@@ -12,21 +12,21 @@ let value: Customer = {
   createdAt: new Date("2025-07-08T03:18:52.668Z"),
   modifiedAt: new Date("2023-01-07T07:33:47.635Z"),
   metadata: {
-    "key": false,
+    "key": 7161.85,
   },
   externalId: "usr_1337",
   email: "customer@example.com",
   emailVerified: true,
   name: "John Doe",
   billingAddress: {
-    country: "FR",
+    country: "SE",
   },
   taxId: [
     "FR61954506077",
     "eu_vat",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2025-09-15T03:51:57.911Z"),
+  deletedAt: new Date("2025-04-20T03:44:40.362Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
 };
 ```

@@ -37,7 +37,7 @@ import {
   TaxIDFormat$outboundSchema,
 } from "./taxidformat.js";
 
-export type CustomerStateMetadata = string | number | boolean;
+export type CustomerStateMetadata = string | number | number | boolean;
 
 export type CustomerStateTaxId = string | TaxIDFormat;
 
@@ -63,7 +63,7 @@ export type CustomerState = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
    */
@@ -110,17 +110,17 @@ export const CustomerStateMetadata$inboundSchema: z.ZodType<
   CustomerStateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type CustomerStateMetadata$Outbound = string | number | boolean;
+export type CustomerStateMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const CustomerStateMetadata$outboundSchema: z.ZodType<
   CustomerStateMetadata$Outbound,
   z.ZodTypeDef,
   CustomerStateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -212,7 +212,9 @@ export const CustomerState$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   external_id: z.nullable(z.string()),
   email: z.string(),
   email_verified: z.boolean(),
@@ -251,7 +253,7 @@ export type CustomerState$Outbound = {
   id: string;
   created_at: string;
   modified_at: string | null;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   external_id: string | null;
   email: string;
   email_verified: boolean;
@@ -275,7 +277,9 @@ export const CustomerState$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   externalId: z.nullable(z.string()),
   email: z.string(),
   emailVerified: z.boolean(),

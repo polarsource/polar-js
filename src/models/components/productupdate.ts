@@ -49,7 +49,7 @@ import {
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
 
-export type ProductUpdateMetadata = string | number | boolean;
+export type ProductUpdateMetadata = string | number | number | boolean;
 
 export type ProductUpdatePrices =
   | ExistingProductPrice
@@ -72,11 +72,12 @@ export type ProductUpdate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
   /**
    * The description of the product.
@@ -115,17 +116,17 @@ export const ProductUpdateMetadata$inboundSchema: z.ZodType<
   ProductUpdateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type ProductUpdateMetadata$Outbound = string | number | boolean;
+export type ProductUpdateMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const ProductUpdateMetadata$outboundSchema: z.ZodType<
   ProductUpdateMetadata$Outbound,
   z.ZodTypeDef,
   ProductUpdateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -229,8 +230,9 @@ export const ProductUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema)
@@ -261,7 +263,7 @@ export const ProductUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ProductUpdate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
   description?: string | null | undefined;
   recurring_interval?: string | null | undefined;
@@ -289,8 +291,9 @@ export const ProductUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductUpdate
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema)

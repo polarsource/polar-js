@@ -10,10 +10,13 @@ Use it to grant any kind of benefit that doesn't fit in the other types.
 import { BenefitCustom } from "@polar-sh/sdk/models/components/benefitcustom.js";
 
 let value: BenefitCustom = {
+  id: "<value>",
   createdAt: new Date("2024-11-04T05:40:36.718Z"),
   modifiedAt: new Date("2025-01-01T00:20:21.826Z"),
-  id: "<value>",
-  description: "yet solemnly cleave until",
+  metadata: {
+    "key": "<value>",
+  },
+  description: "ack splash outrun",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -28,9 +31,10 @@ let value: BenefitCustom = {
 
 | Field                                                                                                                   | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                    | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the benefit.                                                                                                  |
 | `createdAt`                                                                                                             | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Creation timestamp of the object.                                                                                       |
 | `modifiedAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Last modification timestamp of the object.                                                                              |
-| `id`                                                                                                                    | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the benefit.                                                                                                  |
+| `metadata`                                                                                                              | Record<string, *components.BenefitCustomMetadata*>                                                                      | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `type`                                                                                                                  | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `description`                                                                                                           | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The description of the benefit.                                                                                         |
 | `selectable`                                                                                                            | *boolean*                                                                                                               | :heavy_check_mark:                                                                                                      | Whether the benefit is selectable when creating a product.                                                              |

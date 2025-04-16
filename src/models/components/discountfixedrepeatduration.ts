@@ -24,7 +24,11 @@ import {
   DiscountType$outboundSchema,
 } from "./discounttype.js";
 
-export type DiscountFixedRepeatDurationMetadata = string | number | boolean;
+export type DiscountFixedRepeatDurationMetadata =
+  | string
+  | number
+  | number
+  | boolean;
 
 /**
  * Schema for a fixed amount discount that is applied on every invoice
@@ -50,7 +54,7 @@ export type DiscountFixedRepeatDuration = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * Name of the discount. Will be displayed to the customer when the discount is applied.
    */
@@ -87,11 +91,12 @@ export const DiscountFixedRepeatDurationMetadata$inboundSchema: z.ZodType<
   DiscountFixedRepeatDurationMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type DiscountFixedRepeatDurationMetadata$Outbound =
   | string
+  | number
   | number
   | boolean;
 
@@ -100,7 +105,7 @@ export const DiscountFixedRepeatDurationMetadata$outboundSchema: z.ZodType<
   DiscountFixedRepeatDurationMetadata$Outbound,
   z.ZodTypeDef,
   DiscountFixedRepeatDurationMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -154,7 +159,9 @@ export const DiscountFixedRepeatDuration$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   name: z.string(),
   code: z.nullable(z.string()),
   starts_at: z.nullable(
@@ -190,7 +197,7 @@ export type DiscountFixedRepeatDuration$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   name: string;
   code: string | null;
   starts_at: string | null;
@@ -215,7 +222,9 @@ export const DiscountFixedRepeatDuration$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   name: z.string(),
   code: z.nullable(z.string()),
   startsAt: z.nullable(z.date().transform(v => v.toISOString())),

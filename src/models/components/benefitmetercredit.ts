@@ -14,6 +14,8 @@ import {
   BenefitMeterCreditProperties$outboundSchema,
 } from "./benefitmetercreditproperties.js";
 
+export type BenefitMeterCreditMetadata = string | number | number | boolean;
+
 /**
  * A benefit of type `meter_unit`.
  *
@@ -23,6 +25,10 @@ import {
  */
 export type BenefitMeterCredit = {
   /**
+   * The ID of the benefit.
+   */
+  id: string;
+  /**
    * Creation timestamp of the object.
    */
   createdAt: Date;
@@ -30,10 +36,7 @@ export type BenefitMeterCredit = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "meter_credit" | undefined;
   /**
    * The description of the benefit.
@@ -58,16 +61,71 @@ export type BenefitMeterCredit = {
 };
 
 /** @internal */
+export const BenefitMeterCreditMetadata$inboundSchema: z.ZodType<
+  BenefitMeterCreditMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitMeterCreditMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitMeterCreditMetadata$outboundSchema: z.ZodType<
+  BenefitMeterCreditMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitMeterCreditMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitMeterCreditMetadata$ {
+  /** @deprecated use `BenefitMeterCreditMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitMeterCreditMetadata$inboundSchema;
+  /** @deprecated use `BenefitMeterCreditMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitMeterCreditMetadata$outboundSchema;
+  /** @deprecated use `BenefitMeterCreditMetadata$Outbound` instead. */
+  export type Outbound = BenefitMeterCreditMetadata$Outbound;
+}
+
+export function benefitMeterCreditMetadataToJSON(
+  benefitMeterCreditMetadata: BenefitMeterCreditMetadata,
+): string {
+  return JSON.stringify(
+    BenefitMeterCreditMetadata$outboundSchema.parse(benefitMeterCreditMetadata),
+  );
+}
+
+export function benefitMeterCreditMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitMeterCreditMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitMeterCreditMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitMeterCreditMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitMeterCredit$inboundSchema: z.ZodType<
   BenefitMeterCredit,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("meter_credit").optional(),
   description: z.string(),
   selectable: z.boolean(),
@@ -84,9 +142,10 @@ export const BenefitMeterCredit$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitMeterCredit$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: "meter_credit";
   description: string;
   selectable: boolean;
@@ -101,9 +160,12 @@ export const BenefitMeterCredit$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitMeterCredit
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("meter_credit").default("meter_credit" as const),
   description: z.string(),
   selectable: z.boolean(),

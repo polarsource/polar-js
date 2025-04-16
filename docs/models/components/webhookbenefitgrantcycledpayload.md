@@ -27,36 +27,40 @@ let value: WebhookBenefitGrantCycledPayload = {
       createdAt: new Date("2024-12-12T14:18:47.000Z"),
       modifiedAt: new Date("2023-08-07T21:00:38.885Z"),
       metadata: {
-        "key": false,
+        "key": 8445.1,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
       emailVerified: true,
       name: "John Doe",
       billingAddress: {
-        country: "FR",
+        country: "SE",
       },
       taxId: [
         "FR61954506077",
         "eu_vat",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2025-02-26T00:46:37.159Z"),
+      deletedAt: new Date("2023-05-28T21:14:49.720Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     properties: {},
     benefit: {
-      createdAt: new Date("2025-07-25T23:55:15.574Z"),
-      modifiedAt: new Date("2023-07-06T08:58:45.482Z"),
       id: "<value>",
-      description: "buzzing despite boggle whereas across boo",
+      createdAt: new Date("2023-07-06T08:58:45.482Z"),
+      modifiedAt: new Date("2024-02-17T18:00:50.194Z"),
+      metadata: {
+        "key": 336598,
+      },
+      description:
+        "rarely before doubtfully sprinkles mysteriously comparison gestate",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        note: "<value>",
+        units: 222403,
+        meterId: "<value>",
       },
-      isTaxApplicable: false,
     },
   },
 };

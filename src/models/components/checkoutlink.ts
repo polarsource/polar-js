@@ -55,7 +55,7 @@ import {
   ProductPrice$outboundSchema,
 } from "./productprice.js";
 
-export type CheckoutLinkMetadata = string | number | boolean;
+export type CheckoutLinkMetadata = string | number | number | boolean;
 
 export type CheckoutLinkDiscount =
   | DiscountPercentageOnceForeverDurationBase
@@ -86,7 +86,7 @@ export type CheckoutLink = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   paymentProcessor: PaymentProcessor;
   /**
    * Client secret used to access the checkout link.
@@ -143,17 +143,17 @@ export const CheckoutLinkMetadata$inboundSchema: z.ZodType<
   CheckoutLinkMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type CheckoutLinkMetadata$Outbound = string | number | boolean;
+export type CheckoutLinkMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const CheckoutLinkMetadata$outboundSchema: z.ZodType<
   CheckoutLinkMetadata$Outbound,
   z.ZodTypeDef,
   CheckoutLinkMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -315,7 +315,9 @@ export const CheckoutLink$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   payment_processor: PaymentProcessor$inboundSchema,
   client_secret: z.string(),
   success_url: z.nullable(z.string()),
@@ -361,7 +363,7 @@ export type CheckoutLink$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   payment_processor: string;
   client_secret: string;
   success_url: string | null;
@@ -392,7 +394,9 @@ export const CheckoutLink$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   paymentProcessor: PaymentProcessor$outboundSchema,
   clientSecret: z.string(),
   successUrl: z.nullable(z.string()),

@@ -11,7 +11,7 @@ const value: components.CustomFieldCheckbox = {
   modifiedAt: new Date("2023-07-17T23:18:22.207Z"),
   id: "<value>",
   metadata: {
-    "key": false,
+    "key": 5428.8,
   },
   slug: "<value>",
   name: "<value>",
@@ -28,7 +28,7 @@ const value: components.CustomFieldDate = {
   modifiedAt: new Date("2025-03-16T00:30:11.499Z"),
   id: "<value>",
   metadata: {
-    "key": 617891,
+    "key": 6178.91,
   },
   slug: "<value>",
   name: "<value>",
@@ -45,7 +45,7 @@ const value: components.CustomFieldNumber = {
   modifiedAt: new Date("2024-08-23T20:36:51.735Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": 507927,
   },
   slug: "<value>",
   name: "<value>",
@@ -62,7 +62,7 @@ const value: components.CustomFieldSelect = {
   modifiedAt: new Date("2025-12-12T23:38:43.148Z"),
   id: "<value>",
   metadata: {
-    "key": 879621,
+    "key": 8796.21,
   },
   slug: "<value>",
   name: "<value>",

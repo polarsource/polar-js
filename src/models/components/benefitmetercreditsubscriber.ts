@@ -20,7 +20,17 @@ import {
   Organization$outboundSchema,
 } from "./organization.js";
 
+export type BenefitMeterCreditSubscriberMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitMeterCreditSubscriber = {
+  /**
+   * The ID of the benefit.
+   */
+  id: string;
   /**
    * Creation timestamp of the object.
    */
@@ -29,10 +39,7 @@ export type BenefitMeterCreditSubscriber = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "meter_credit" | undefined;
   /**
    * The description of the benefit.
@@ -58,16 +65,76 @@ export type BenefitMeterCreditSubscriber = {
 };
 
 /** @internal */
+export const BenefitMeterCreditSubscriberMetadata$inboundSchema: z.ZodType<
+  BenefitMeterCreditSubscriberMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitMeterCreditSubscriberMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitMeterCreditSubscriberMetadata$outboundSchema: z.ZodType<
+  BenefitMeterCreditSubscriberMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitMeterCreditSubscriberMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitMeterCreditSubscriberMetadata$ {
+  /** @deprecated use `BenefitMeterCreditSubscriberMetadata$inboundSchema` instead. */
+  export const inboundSchema =
+    BenefitMeterCreditSubscriberMetadata$inboundSchema;
+  /** @deprecated use `BenefitMeterCreditSubscriberMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    BenefitMeterCreditSubscriberMetadata$outboundSchema;
+  /** @deprecated use `BenefitMeterCreditSubscriberMetadata$Outbound` instead. */
+  export type Outbound = BenefitMeterCreditSubscriberMetadata$Outbound;
+}
+
+export function benefitMeterCreditSubscriberMetadataToJSON(
+  benefitMeterCreditSubscriberMetadata: BenefitMeterCreditSubscriberMetadata,
+): string {
+  return JSON.stringify(
+    BenefitMeterCreditSubscriberMetadata$outboundSchema.parse(
+      benefitMeterCreditSubscriberMetadata,
+    ),
+  );
+}
+
+export function benefitMeterCreditSubscriberMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitMeterCreditSubscriberMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitMeterCreditSubscriberMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitMeterCreditSubscriberMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitMeterCreditSubscriber$inboundSchema: z.ZodType<
   BenefitMeterCreditSubscriber,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("meter_credit").optional(),
   description: z.string(),
   selectable: z.boolean(),
@@ -85,9 +152,10 @@ export const BenefitMeterCreditSubscriber$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitMeterCreditSubscriber$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: "meter_credit";
   description: string;
   selectable: boolean;
@@ -103,9 +171,12 @@ export const BenefitMeterCreditSubscriber$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitMeterCreditSubscriber
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("meter_credit").default("meter_credit" as const),
   description: z.string(),
   selectable: z.boolean(),

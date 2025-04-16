@@ -43,7 +43,7 @@ import {
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
 
-export type ProductCreateMetadata = string | number | boolean;
+export type ProductCreateMetadata = string | number | number | boolean;
 
 export type ProductCreatePrices =
   | ProductPriceFreeCreate
@@ -65,11 +65,12 @@ export type ProductCreate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * The name of the product.
    */
@@ -110,17 +111,17 @@ export const ProductCreateMetadata$inboundSchema: z.ZodType<
   ProductCreateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type ProductCreateMetadata$Outbound = string | number | boolean;
+export type ProductCreateMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const ProductCreateMetadata$outboundSchema: z.ZodType<
   ProductCreateMetadata$Outbound,
   z.ZodTypeDef,
   ProductCreateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -221,8 +222,9 @@ export const ProductCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.string(),
   description: z.nullable(z.string()).optional(),
   recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
@@ -248,7 +250,7 @@ export const ProductCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ProductCreate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name: string;
   description?: string | null | undefined;
   recurring_interval: string | null;
@@ -271,8 +273,9 @@ export const ProductCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductCreate
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.string(),
   description: z.nullable(z.string()).optional(),
   recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),

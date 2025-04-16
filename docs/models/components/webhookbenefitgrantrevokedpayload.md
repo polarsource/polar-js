@@ -26,7 +26,7 @@ let value: WebhookBenefitGrantRevokedPayload = {
       createdAt: new Date("2023-11-27T09:29:34.234Z"),
       modifiedAt: new Date("2025-06-17T23:02:39.442Z"),
       metadata: {
-        "key": 944718,
+        "key": 9447.18,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
@@ -45,15 +45,18 @@ let value: WebhookBenefitGrantRevokedPayload = {
     },
     properties: {},
     benefit: {
+      id: "<value>",
       createdAt: new Date("2023-11-03T12:13:38.868Z"),
       modifiedAt: new Date("2023-06-20T18:06:09.405Z"),
-      id: "<value>",
-      description: "impressive and past reassemble behind",
+      metadata: {
+        "key": 459309,
+      },
+      description: "obedient after almost overdue where slime bidet rich",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
       properties: {
-        units: 591168,
+        units: 204157,
         meterId: "<value>",
       },
     },

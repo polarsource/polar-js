@@ -13,14 +13,14 @@ let value: DiscountPercentageOnceForeverDurationBase = {
   modifiedAt: new Date("2023-03-18T00:10:49.850Z"),
   id: "<value>",
   metadata: {
-    "key": "<value>",
+    "key": 703457,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2025-02-09T23:44:19.945Z"),
-  endsAt: new Date("2024-07-17T21:00:43.321Z"),
-  maxRedemptions: 172020,
-  redemptionsCount: 225362,
+  startsAt: new Date("2024-07-17T21:00:43.321Z"),
+  endsAt: new Date("2023-07-08T12:49:55.786Z"),
+  maxRedemptions: 225362,
+  redemptionsCount: 238846,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```

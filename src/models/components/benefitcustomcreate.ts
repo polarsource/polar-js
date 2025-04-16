@@ -14,10 +14,28 @@ import {
   BenefitCustomCreateProperties$outboundSchema,
 } from "./benefitcustomcreateproperties.js";
 
+export type BenefitCustomCreateMetadata = string | number | number | boolean;
+
 /**
  * Schema to create a benefit of type `custom`.
  */
 export type BenefitCustomCreate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type?: "custom" | undefined;
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
@@ -34,11 +52,68 @@ export type BenefitCustomCreate = {
 };
 
 /** @internal */
+export const BenefitCustomCreateMetadata$inboundSchema: z.ZodType<
+  BenefitCustomCreateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitCustomCreateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitCustomCreateMetadata$outboundSchema: z.ZodType<
+  BenefitCustomCreateMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitCustomCreateMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitCustomCreateMetadata$ {
+  /** @deprecated use `BenefitCustomCreateMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitCustomCreateMetadata$inboundSchema;
+  /** @deprecated use `BenefitCustomCreateMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitCustomCreateMetadata$outboundSchema;
+  /** @deprecated use `BenefitCustomCreateMetadata$Outbound` instead. */
+  export type Outbound = BenefitCustomCreateMetadata$Outbound;
+}
+
+export function benefitCustomCreateMetadataToJSON(
+  benefitCustomCreateMetadata: BenefitCustomCreateMetadata,
+): string {
+  return JSON.stringify(
+    BenefitCustomCreateMetadata$outboundSchema.parse(
+      benefitCustomCreateMetadata,
+    ),
+  );
+}
+
+export function benefitCustomCreateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitCustomCreateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitCustomCreateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitCustomCreateMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitCustomCreate$inboundSchema: z.ZodType<
   BenefitCustomCreate,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("custom").optional(),
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
@@ -51,6 +126,7 @@ export const BenefitCustomCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitCustomCreate$Outbound = {
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type: "custom";
   description: string;
   organization_id?: string | null | undefined;
@@ -63,6 +139,9 @@ export const BenefitCustomCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitCustomCreate
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("custom").default("custom" as const),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),

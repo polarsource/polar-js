@@ -18,7 +18,7 @@ import {
   RefundStatus$outboundSchema,
 } from "./refundstatus.js";
 
-export type RefundMetadata = string | number | boolean;
+export type RefundMetadata = string | number | number | boolean;
 
 export type Refund = {
   /**
@@ -33,7 +33,7 @@ export type Refund = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   status: RefundStatus;
   reason: RefundReason;
   amount: number;
@@ -51,17 +51,17 @@ export const RefundMetadata$inboundSchema: z.ZodType<
   RefundMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type RefundMetadata$Outbound = string | number | boolean;
+export type RefundMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const RefundMetadata$outboundSchema: z.ZodType<
   RefundMetadata$Outbound,
   z.ZodTypeDef,
   RefundMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -100,7 +100,9 @@ export const Refund$inboundSchema: z.ZodType<Refund, z.ZodTypeDef, unknown> = z
       z.string().datetime({ offset: true }).transform(v => new Date(v)),
     ),
     id: z.string(),
-    metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+    metadata: z.record(
+      z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+    ),
     status: RefundStatus$inboundSchema,
     reason: RefundReason$inboundSchema,
     amount: z.number().int(),
@@ -129,7 +131,7 @@ export type Refund$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   status: string;
   reason: string;
   amount: number;
@@ -151,7 +153,9 @@ export const Refund$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   status: RefundStatus$outboundSchema,
   reason: RefundReason$outboundSchema,
   amount: z.number().int(),

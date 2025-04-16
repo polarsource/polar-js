@@ -83,7 +83,7 @@ import {
   SubscriptionUser$outboundSchema,
 } from "./subscriptionuser.js";
 
-export type Metadata = string | number | boolean;
+export type Metadata = string | number | number | boolean;
 
 export type CustomFieldData = string | number | boolean | Date;
 
@@ -170,7 +170,7 @@ export type Subscription = {
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   priceId: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * Key-value object storing custom field values.
    */
@@ -212,17 +212,17 @@ export const Metadata$inboundSchema: z.ZodType<
   Metadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type Metadata$Outbound = string | number | boolean;
+export type Metadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const Metadata$outboundSchema: z.ZodType<
   Metadata$Outbound,
   z.ZodTypeDef,
   Metadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -517,7 +517,9 @@ export const Subscription$inboundSchema: z.ZodType<
   ),
   customer_cancellation_comment: z.nullable(z.string()),
   price_id: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   custom_field_data: z.record(
     z.nullable(
       z.union([
@@ -598,7 +600,7 @@ export type Subscription$Outbound = {
   customer_cancellation_reason: string | null;
   customer_cancellation_comment: string | null;
   price_id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
@@ -646,7 +648,9 @@ export const Subscription$outboundSchema: z.ZodType<
   ),
   customerCancellationComment: z.nullable(z.string()),
   priceId: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   customFieldData: z.record(
     z.nullable(
       z.union([

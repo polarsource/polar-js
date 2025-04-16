@@ -14,6 +14,8 @@ import {
   BenefitCustomProperties$outboundSchema,
 } from "./benefitcustomproperties.js";
 
+export type BenefitCustomMetadata = string | number | number | boolean;
+
 /**
  * A benefit of type `custom`.
  *
@@ -23,6 +25,10 @@ import {
  */
 export type BenefitCustom = {
   /**
+   * The ID of the benefit.
+   */
+  id: string;
+  /**
    * Creation timestamp of the object.
    */
   createdAt: Date;
@@ -30,10 +36,7 @@ export type BenefitCustom = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "custom" | undefined;
   /**
    * The description of the benefit.
@@ -62,16 +65,67 @@ export type BenefitCustom = {
 };
 
 /** @internal */
+export const BenefitCustomMetadata$inboundSchema: z.ZodType<
+  BenefitCustomMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitCustomMetadata$Outbound = string | number | number | boolean;
+
+/** @internal */
+export const BenefitCustomMetadata$outboundSchema: z.ZodType<
+  BenefitCustomMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitCustomMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitCustomMetadata$ {
+  /** @deprecated use `BenefitCustomMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitCustomMetadata$inboundSchema;
+  /** @deprecated use `BenefitCustomMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitCustomMetadata$outboundSchema;
+  /** @deprecated use `BenefitCustomMetadata$Outbound` instead. */
+  export type Outbound = BenefitCustomMetadata$Outbound;
+}
+
+export function benefitCustomMetadataToJSON(
+  benefitCustomMetadata: BenefitCustomMetadata,
+): string {
+  return JSON.stringify(
+    BenefitCustomMetadata$outboundSchema.parse(benefitCustomMetadata),
+  );
+}
+
+export function benefitCustomMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitCustomMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitCustomMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitCustomMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitCustom$inboundSchema: z.ZodType<
   BenefitCustom,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("custom").optional(),
   description: z.string(),
   selectable: z.boolean(),
@@ -90,9 +144,10 @@ export const BenefitCustom$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitCustom$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: "custom";
   description: string;
   selectable: boolean;
@@ -108,9 +163,12 @@ export const BenefitCustom$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitCustom
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("custom").default("custom" as const),
   description: z.string(),
   selectable: z.boolean(),

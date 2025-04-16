@@ -12,6 +12,11 @@ import {
   EventNamesSortProperty$outboundSchema,
 } from "../components/eventnamessortproperty.js";
 import {
+  EventSource,
+  EventSource$inboundSchema,
+  EventSource$outboundSchema,
+} from "../components/eventsource.js";
+import {
   ListResourceEventName,
   ListResourceEventName$inboundSchema,
   ListResourceEventName$Outbound,
@@ -36,6 +41,11 @@ export type EventsListNamesQueryParamCustomerIDFilter = string | Array<string>;
  */
 export type QueryParamExternalCustomerIDFilter = string | Array<string>;
 
+/**
+ * Filter by event source.
+ */
+export type QueryParamSourceFilter = EventSource | Array<EventSource>;
+
 export type EventsListNamesRequest = {
   /**
    * Filter by organization ID.
@@ -49,6 +59,10 @@ export type EventsListNamesRequest = {
    * Filter by external customer ID.
    */
   externalCustomerId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by event source.
+   */
+  source?: EventSource | Array<EventSource> | null | undefined;
   /**
    * Query to filter event names.
    */
@@ -251,6 +265,54 @@ export function queryParamExternalCustomerIDFilterFromJSON(
 }
 
 /** @internal */
+export const QueryParamSourceFilter$inboundSchema: z.ZodType<
+  QueryParamSourceFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([EventSource$inboundSchema, z.array(EventSource$inboundSchema)]);
+
+/** @internal */
+export type QueryParamSourceFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const QueryParamSourceFilter$outboundSchema: z.ZodType<
+  QueryParamSourceFilter$Outbound,
+  z.ZodTypeDef,
+  QueryParamSourceFilter
+> = z.union([EventSource$outboundSchema, z.array(EventSource$outboundSchema)]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QueryParamSourceFilter$ {
+  /** @deprecated use `QueryParamSourceFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamSourceFilter$inboundSchema;
+  /** @deprecated use `QueryParamSourceFilter$outboundSchema` instead. */
+  export const outboundSchema = QueryParamSourceFilter$outboundSchema;
+  /** @deprecated use `QueryParamSourceFilter$Outbound` instead. */
+  export type Outbound = QueryParamSourceFilter$Outbound;
+}
+
+export function queryParamSourceFilterToJSON(
+  queryParamSourceFilter: QueryParamSourceFilter,
+): string {
+  return JSON.stringify(
+    QueryParamSourceFilter$outboundSchema.parse(queryParamSourceFilter),
+  );
+}
+
+export function queryParamSourceFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryParamSourceFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryParamSourceFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamSourceFilter' from JSON`,
+  );
+}
+
+/** @internal */
 export const EventsListNamesRequest$inboundSchema: z.ZodType<
   EventsListNamesRequest,
   z.ZodTypeDef,
@@ -262,6 +324,9 @@ export const EventsListNamesRequest$inboundSchema: z.ZodType<
     .optional(),
   external_customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  source: z.nullable(
+    z.union([EventSource$inboundSchema, z.array(EventSource$inboundSchema)]),
+  ).optional(),
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
@@ -279,6 +344,7 @@ export type EventsListNamesRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   customer_id?: string | Array<string> | null | undefined;
   external_customer_id?: string | Array<string> | null | undefined;
+  source?: string | Array<string> | null | undefined;
   query?: string | null | undefined;
   page: number;
   limit: number;
@@ -296,6 +362,9 @@ export const EventsListNamesRequest$outboundSchema: z.ZodType<
   customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   externalCustomerId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  source: z.nullable(
+    z.union([EventSource$outboundSchema, z.array(EventSource$outboundSchema)]),
+  ).optional(),
   query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
