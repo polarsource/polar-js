@@ -185,6 +185,7 @@ let value: WebhookSubscriptionCreatedPayload = {
         recurringInterval: "year",
       },
     ],
+    meters: [],
   },
 };
 ```

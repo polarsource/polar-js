@@ -40,10 +40,6 @@ let value: BenefitGitHubRepositorySubscriber = {
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 382232,
-    pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 124429,
-    profileSettings: {},
   },
   properties: {
     repositoryOwner: "polarsource",

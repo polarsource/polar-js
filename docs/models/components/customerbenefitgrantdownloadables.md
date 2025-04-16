@@ -73,10 +73,6 @@ let value: CustomerBenefitGrantDownloadables = {
       blog: "<value>",
       location: "<value>",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 870718,
-      pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 554657,
-      profileSettings: {},
     },
     properties: {
       activeFiles: [

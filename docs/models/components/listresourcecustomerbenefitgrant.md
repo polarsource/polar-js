@@ -78,30 +78,26 @@ let value: ListResourceCustomerBenefitGrant = {
           blog: "<value>",
           location: "<value>",
           twitterUsername: "<value>",
-          pledgeMinimumAmount: 893255,
-          pledgeBadgeShowAmount: false,
-          defaultUpfrontSplitToContributors: 303901,
-          profileSettings: {},
         },
         properties: {
           prefix: "<value>",
           expires: {
-            ttl: 146200,
-            timeframe: "month",
+            ttl: 893255,
+            timeframe: "year",
           },
           activations: {
-            limit: 572004,
+            limit: 146200,
             enableCustomerAdmin: false,
           },
-          limitUsage: 236051,
+          limitUsage: 443619,
         },
       },
       properties: {},
     },
   ],
   pagination: {
-    totalCount: 28197,
-    maxPage: 860386,
+    totalCount: 572004,
+    maxPage: 236051,
   },
 };
 ```

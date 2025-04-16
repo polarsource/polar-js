@@ -40,22 +40,18 @@ let value: BenefitLicenseKeysSubscriber = {
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 376968,
-    pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 568855,
-    profileSettings: {},
   },
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 96776,
-      timeframe: "year",
+      ttl: 376968,
+      timeframe: "month",
     },
     activations: {
-      limit: 959614,
+      limit: 96776,
       enableCustomerAdmin: false,
     },
-    limitUsage: 318539,
+    limitUsage: 298187,
   },
 };
 ```

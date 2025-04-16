@@ -111,32 +111,44 @@ let value: CustomerSubscription = {
       blog: "<value>",
       location: "<value>",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 223838,
-      pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 497916,
-      profileSettings: {},
     },
   },
   price: {
-    createdAt: new Date("2024-07-13T02:22:57.874Z"),
-    modifiedAt: new Date("2024-01-19T13:23:53.796Z"),
+    createdAt: new Date("2024-01-01T22:06:21.882Z"),
+    modifiedAt: new Date("2024-09-20T17:59:15.069Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
     recurringInterval: "year",
     priceCurrency: "<value>",
-    priceAmount: 726139,
+    priceAmount: 349962,
   },
   prices: [
     {
-      createdAt: new Date("2025-06-06T09:10:59.722Z"),
-      modifiedAt: new Date("2023-01-16T21:01:51.363Z"),
+      createdAt: new Date("2023-06-06T08:03:21.211Z"),
+      modifiedAt: new Date("2024-01-15T01:20:02.189Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
+      type: "recurring",
       recurringInterval: "month",
-      priceCurrency: "<value>",
-      priceAmount: 886022,
+    },
+  ],
+  meters: [
+    {
+      createdAt: new Date("2023-09-01T05:24:43.755Z"),
+      modifiedAt: new Date("2025-08-29T01:55:03.203Z"),
+      id: "<value>",
+      consumedUnits: 25,
+      creditedUnits: 100,
+      amount: 0,
+      meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
+      meter: {
+        createdAt: new Date("2024-09-08T07:40:02.320Z"),
+        modifiedAt: new Date("2025-07-05T09:49:32.241Z"),
+        id: "<value>",
+        name: "<value>",
+      },
     },
   ],
 };
@@ -171,3 +183,4 @@ let value: CustomerSubscription = {
 | `product`                                                                                                                     | [components.CustomerSubscriptionProduct](../../models/components/customersubscriptionproduct.md)                              | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | ~~`price`~~                                                                                                                   | *components.CustomerSubscriptionPrice*                                                                                        | :heavy_check_mark:                                                                                                            | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.       |
 | `prices`                                                                                                                      | *components.CustomerSubscriptionPrices*[]                                                                                     | :heavy_check_mark:                                                                                                            | List of enabled prices for the subscription.                                                                                  |
+| `meters`                                                                                                                      | [components.CustomerSubscriptionMeter](../../models/components/customersubscriptionmeter.md)[]                                | :heavy_check_mark:                                                                                                            | List of meters associated with the subscription.                                                                              |

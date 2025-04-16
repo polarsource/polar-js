@@ -7,11 +7,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
-  });
+  const result = await polar.organizations.list({});
 
   for await (const page of result) {
     // Handle the page

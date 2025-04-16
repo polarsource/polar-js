@@ -26,6 +26,17 @@ let value: CustomerStateSubscription = {
   productId: "d8dd2de1-21b7-4a41-8bc3-ce909c0cfe23",
   discountId: null,
   priceId: "196ca717-4d84-4d28-a1b8-777255797dbc",
+  meters: [
+    {
+      createdAt: new Date("2024-03-12T23:23:32.259Z"),
+      modifiedAt: new Date("2024-04-27T13:02:09.387Z"),
+      id: "<value>",
+      consumedUnits: 25,
+      creditedUnits: 100,
+      amount: 0,
+      meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
+    },
+  ],
 };
 ```
 
@@ -51,3 +62,4 @@ let value: CustomerStateSubscription = {
 | `productId`                                                                                                                   | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the subscribed product.                                                                                             | d8dd2de1-21b7-4a41-8bc3-ce909c0cfe23                                                                                          |
 | `discountId`                                                                                                                  | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | The ID of the applied discount, if any.                                                                                       | <nil>                                                                                                                         |
 | ~~`priceId`~~                                                                                                                 | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.       | 196ca717-4d84-4d28-a1b8-777255797dbc                                                                                          |
+| `meters`                                                                                                                      | [components.CustomerStateSubscriptionMeter](../../models/components/customerstatesubscriptionmeter.md)[]                      | :heavy_check_mark:                                                                                                            | List of meters associated with the subscription.                                                                              |                                                                                                                               |

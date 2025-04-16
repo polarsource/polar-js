@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  CustomerStateSubscriptionMeter,
+  CustomerStateSubscriptionMeter$inboundSchema,
+  CustomerStateSubscriptionMeter$Outbound,
+  CustomerStateSubscriptionMeter$outboundSchema,
+} from "./customerstatesubscriptionmeter.js";
+import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
@@ -90,6 +96,10 @@ export type CustomerStateSubscription = {
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   priceId: string;
+  /**
+   * List of meters associated with the subscription.
+   */
+  meters: Array<CustomerStateSubscriptionMeter>;
 };
 
 /** @internal */
@@ -264,6 +274,7 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
   product_id: z.string(),
   discount_id: z.nullable(z.string()),
   price_id: z.string(),
+  meters: z.array(CustomerStateSubscriptionMeter$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -304,6 +315,7 @@ export type CustomerStateSubscription$Outbound = {
   product_id: string;
   discount_id: string | null;
   price_id: string;
+  meters: Array<CustomerStateSubscriptionMeter$Outbound>;
 };
 
 /** @internal */
@@ -339,6 +351,7 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
   productId: z.string(),
   discountId: z.nullable(z.string()),
   priceId: z.string(),
+  meters: z.array(CustomerStateSubscriptionMeter$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

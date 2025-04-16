@@ -13,7 +13,6 @@ import { CustomerSessions } from "./customersessions.js";
 import { CustomFields } from "./customfields.js";
 import { Discounts } from "./discounts.js";
 import { Events } from "./events.js";
-import { ExternalOrganizations } from "./externalorganizations.js";
 import { Files } from "./files.js";
 import { LicenseKeys } from "./licensekeys.js";
 import { Meters } from "./meters.js";
@@ -23,22 +22,9 @@ import { Orders } from "./orders.js";
 import { Organizations } from "./organizations.js";
 import { Products } from "./products.js";
 import { Refunds } from "./refunds.js";
-import { Repositories } from "./repositories.js";
 import { Subscriptions } from "./subscriptions.js";
 
 export class Polar extends ClientSDK {
-  private _externalOrganizations?: ExternalOrganizations;
-  get externalOrganizations(): ExternalOrganizations {
-    return (this._externalOrganizations ??= new ExternalOrganizations(
-      this._options,
-    ));
-  }
-
-  private _repositories?: Repositories;
-  get repositories(): Repositories {
-    return (this._repositories ??= new Repositories(this._options));
-  }
-
   private _organizations?: Organizations;
   get organizations(): Organizations {
     return (this._organizations ??= new Organizations(this._options));

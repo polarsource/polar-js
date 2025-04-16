@@ -122,6 +122,7 @@ async function $do(
       "customer_id": payload.customer_id,
       "end_timestamp": payload.end_timestamp,
       "external_customer_id": payload.external_customer_id,
+      "filter": payload.filter,
       "limit": payload.limit,
       "meter_id": payload.meter_id,
       "name": payload.name,

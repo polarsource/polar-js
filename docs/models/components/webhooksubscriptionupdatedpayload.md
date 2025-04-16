@@ -204,6 +204,7 @@ let value: WebhookSubscriptionUpdatedPayload = {
         },
       },
     ],
+    meters: [],
   },
 };
 ```

@@ -35,15 +35,11 @@ let value: OrganizationsListResponse = {
         blog: "<value>",
         location: "<value>",
         twitterUsername: "<value>",
-        pledgeMinimumAmount: 621948,
-        pledgeBadgeShowAmount: false,
-        defaultUpfrontSplitToContributors: 235430,
-        profileSettings: {},
       },
     ],
     pagination: {
-      totalCount: 284516,
-      maxPage: 290955,
+      totalCount: 621948,
+      maxPage: 235430,
     },
   },
 };

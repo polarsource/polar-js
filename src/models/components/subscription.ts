@@ -61,6 +61,12 @@ import {
   SubscriptionCustomer$outboundSchema,
 } from "./subscriptioncustomer.js";
 import {
+  SubscriptionMeter,
+  SubscriptionMeter$inboundSchema,
+  SubscriptionMeter$Outbound,
+  SubscriptionMeter$outboundSchema,
+} from "./subscriptionmeter.js";
+import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
@@ -195,6 +201,10 @@ export type Subscription = {
    * List of enabled prices for the subscription.
    */
   prices: Array<LegacyRecurringProductPrice | ProductPrice>;
+  /**
+   * List of meters associated with the subscription.
+   */
+  meters: Array<SubscriptionMeter>;
 };
 
 /** @internal */
@@ -540,6 +550,7 @@ export const Subscription$inboundSchema: z.ZodType<
       ProductPrice$inboundSchema,
     ]),
   ),
+  meters: z.array(SubscriptionMeter$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -603,6 +614,7 @@ export type Subscription$Outbound = {
     | null;
   price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
+  meters: Array<SubscriptionMeter$Outbound>;
 };
 
 /** @internal */
@@ -667,6 +679,7 @@ export const Subscription$outboundSchema: z.ZodType<
       ProductPrice$outboundSchema,
     ]),
   ),
+  meters: z.array(SubscriptionMeter$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

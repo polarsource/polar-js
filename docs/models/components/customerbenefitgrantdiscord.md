@@ -73,10 +73,6 @@ let value: CustomerBenefitGrantDiscord = {
       blog: "<value>",
       location: "<value>",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 729055,
-      pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 577615,
-      profileSettings: {},
     },
     properties: {
       guildId: "<id>",

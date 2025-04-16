@@ -93,10 +93,6 @@ let value: CustomerSubscriptionProduct = {
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 573973,
-    pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 938577,
-    profileSettings: {},
   },
 };
 ```

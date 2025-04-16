@@ -10,14 +10,15 @@ let value: EventsListNamesResponse = {
     items: [
       {
         name: "<value>",
-        occurrences: 412059,
-        firstSeen: new Date("2025-09-17T08:10:38.555Z"),
-        lastSeen: new Date("2024-03-07T21:28:00.890Z"),
+        source: "system",
+        occurrences: 903596,
+        firstSeen: new Date("2024-03-07T21:28:00.890Z"),
+        lastSeen: new Date("2023-11-08T23:40:18.040Z"),
       },
     ],
     pagination: {
-      totalCount: 284659,
-      maxPage: 504809,
+      totalCount: 504809,
+      maxPage: 238080,
     },
   },
 };

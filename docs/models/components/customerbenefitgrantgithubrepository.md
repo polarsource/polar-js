@@ -73,10 +73,6 @@ let value: CustomerBenefitGrantGitHubRepository = {
       blog: "<value>",
       location: "<value>",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 751746,
-      pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 299279,
-      profileSettings: {},
     },
     properties: {
       repositoryOwner: "polarsource",

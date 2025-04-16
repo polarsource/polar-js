@@ -179,6 +179,7 @@ let value: Subscription = {
       priceAmount: 164168,
     },
   ],
+  meters: [],
 };
 ```
 
@@ -216,3 +217,4 @@ let value: Subscription = {
 | `discount`                                                                                                                    | *components.SubscriptionDiscount*                                                                                             | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | ~~`price`~~                                                                                                                   | *components.Price*                                                                                                            | :heavy_check_mark:                                                                                                            | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.       |
 | `prices`                                                                                                                      | *components.SubscriptionPrices*[]                                                                                             | :heavy_check_mark:                                                                                                            | List of enabled prices for the subscription.                                                                                  |
+| `meters`                                                                                                                      | [components.SubscriptionMeter](../../models/components/subscriptionmeter.md)[]                                                | :heavy_check_mark:                                                                                                            | List of meters associated with the subscription.                                                                              |

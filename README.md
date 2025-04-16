@@ -593,10 +593,6 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [get](docs/sdks/events/README.md#get) - Get Event
 * [ingest](docs/sdks/events/README.md#ingest) - Ingest Events
 
-### [externalOrganizations](docs/sdks/externalorganizations/README.md)
-
-* [list](docs/sdks/externalorganizations/README.md#list) - List External Organizations
-
 ### [files](docs/sdks/files/README.md)
 
 * [list](docs/sdks/files/README.md#list) - List Files
@@ -667,12 +663,6 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 * [list](docs/sdks/refunds/README.md#list) - List Refunds
 * [create](docs/sdks/refunds/README.md#create) - Create Refund
-
-### [repositories](docs/sdks/repositories/README.md)
-
-* [list](docs/sdks/repositories/README.md#list) - List Repositories
-* [get](docs/sdks/repositories/README.md#get) - Get Repository
-* [update](docs/sdks/repositories/README.md#update) - Update Repository
 
 ### [subscriptions](docs/sdks/subscriptions/README.md)
 
@@ -770,7 +760,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsIngest`](docs/sdks/events/README.md#ingest) - Ingest Events
 - [`eventsList`](docs/sdks/events/README.md#list) - List Events
 - [`eventsListNames`](docs/sdks/events/README.md#listnames) - List Event Names
-- [`externalOrganizationsList`](docs/sdks/externalorganizations/README.md#list) - List External Organizations
 - [`filesCreate`](docs/sdks/files/README.md#create) - Create File
 - [`filesDelete`](docs/sdks/files/README.md#delete) - Delete File
 - [`filesList`](docs/sdks/files/README.md#list) - List Files
@@ -811,9 +800,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`productsUpdateBenefits`](docs/sdks/products/README.md#updatebenefits) - Update Product Benefits
 - [`refundsCreate`](docs/sdks/refunds/README.md#create) - Create Refund
 - [`refundsList`](docs/sdks/refunds/README.md#list) - List Refunds
-- [`repositoriesGet`](docs/sdks/repositories/README.md#get) - Get Repository
-- [`repositoriesList`](docs/sdks/repositories/README.md#list) - List Repositories
-- [`repositoriesUpdate`](docs/sdks/repositories/README.md#update) - Update Repository
 - [`subscriptionsExport`](docs/sdks/subscriptions/README.md#export) - Export Subscriptions
 - [`subscriptionsGet`](docs/sdks/subscriptions/README.md#get) - Get Subscription
 - [`subscriptionsList`](docs/sdks/subscriptions/README.md#list) - List Subscriptions
@@ -843,11 +829,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
-  });
+  const result = await polar.organizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -874,11 +856,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
-  }, {
+  const result = await polar.organizations.list({}, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -920,11 +898,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
-  });
+  const result = await polar.organizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -961,11 +935,7 @@ const polar = new Polar({
 async function run() {
   let result;
   try {
-    result = await polar.externalOrganizations.list({
-      organizationId: [
-        "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      ],
-    });
+    result = await polar.organizations.list({});
 
     for await (const page of result) {
       // Handle the page
@@ -1034,11 +1004,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
-  });
+  const result = await polar.organizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -1062,11 +1028,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
-  });
+  const result = await polar.organizations.list({});
 
   for await (const page of result) {
     // Handle the page
@@ -1148,11 +1110,7 @@ const polar = new Polar({
 });
 
 async function run() {
-  const result = await polar.externalOrganizations.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
-  });
+  const result = await polar.organizations.list({});
 
   for await (const page of result) {
     // Handle the page

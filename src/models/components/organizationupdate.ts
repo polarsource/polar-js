@@ -20,12 +20,6 @@ import {
   OrganizationFeatureSettings$outboundSchema,
 } from "./organizationfeaturesettings.js";
 import {
-  OrganizationProfileSettings,
-  OrganizationProfileSettings$inboundSchema,
-  OrganizationProfileSettings$Outbound,
-  OrganizationProfileSettings$outboundSchema,
-} from "./organizationprofilesettings.js";
-import {
   OrganizationSocialLink,
   OrganizationSocialLink$inboundSchema,
   OrganizationSocialLink$Outbound,
@@ -59,38 +53,6 @@ export type OrganizationUpdate = {
   details?: OrganizationDetails | null | undefined;
   featureSettings?: OrganizationFeatureSettings | null | undefined;
   subscriptionSettings?: OrganizationSubscriptionSettings | null | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  defaultUpfrontSplitToContributors?: number | null | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  pledgeBadgeShowAmount?: boolean | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  billingEmail?: string | null | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  defaultBadgeCustomContent?: string | null | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  pledgeMinimumAmount?: number | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  totalMonthlySpendingLimit?: number | null | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  perUserMonthlySpendingLimit?: number | null | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  profileSettings?: OrganizationProfileSettings | null | undefined;
 };
 
 /** @internal */
@@ -110,30 +72,11 @@ export const OrganizationUpdate$inboundSchema: z.ZodType<
   subscription_settings: z.nullable(
     OrganizationSubscriptionSettings$inboundSchema,
   ).optional(),
-  default_upfront_split_to_contributors: z.nullable(z.number().int())
-    .optional(),
-  pledge_badge_show_amount: z.boolean().default(false),
-  billing_email: z.nullable(z.string()).optional(),
-  default_badge_custom_content: z.nullable(z.string()).optional(),
-  pledge_minimum_amount: z.number().int().default(2000),
-  total_monthly_spending_limit: z.nullable(z.number().int()).optional(),
-  per_user_monthly_spending_limit: z.nullable(z.number().int()).optional(),
-  profile_settings: z.nullable(OrganizationProfileSettings$inboundSchema)
-    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "avatar_url": "avatarUrl",
     "feature_settings": "featureSettings",
     "subscription_settings": "subscriptionSettings",
-    "default_upfront_split_to_contributors":
-      "defaultUpfrontSplitToContributors",
-    "pledge_badge_show_amount": "pledgeBadgeShowAmount",
-    "billing_email": "billingEmail",
-    "default_badge_custom_content": "defaultBadgeCustomContent",
-    "pledge_minimum_amount": "pledgeMinimumAmount",
-    "total_monthly_spending_limit": "totalMonthlySpendingLimit",
-    "per_user_monthly_spending_limit": "perUserMonthlySpendingLimit",
-    "profile_settings": "profileSettings",
   });
 });
 
@@ -150,14 +93,6 @@ export type OrganizationUpdate$Outbound = {
     | OrganizationSubscriptionSettings$Outbound
     | null
     | undefined;
-  default_upfront_split_to_contributors?: number | null | undefined;
-  pledge_badge_show_amount: boolean;
-  billing_email?: string | null | undefined;
-  default_badge_custom_content?: string | null | undefined;
-  pledge_minimum_amount: number;
-  total_monthly_spending_limit?: number | null | undefined;
-  per_user_monthly_spending_limit?: number | null | undefined;
-  profile_settings?: OrganizationProfileSettings$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -178,28 +113,11 @@ export const OrganizationUpdate$outboundSchema: z.ZodType<
   subscriptionSettings: z.nullable(
     OrganizationSubscriptionSettings$outboundSchema,
   ).optional(),
-  defaultUpfrontSplitToContributors: z.nullable(z.number().int()).optional(),
-  pledgeBadgeShowAmount: z.boolean().default(false),
-  billingEmail: z.nullable(z.string()).optional(),
-  defaultBadgeCustomContent: z.nullable(z.string()).optional(),
-  pledgeMinimumAmount: z.number().int().default(2000),
-  totalMonthlySpendingLimit: z.nullable(z.number().int()).optional(),
-  perUserMonthlySpendingLimit: z.nullable(z.number().int()).optional(),
-  profileSettings: z.nullable(OrganizationProfileSettings$outboundSchema)
-    .optional(),
 }).transform((v) => {
   return remap$(v, {
     avatarUrl: "avatar_url",
     featureSettings: "feature_settings",
     subscriptionSettings: "subscription_settings",
-    defaultUpfrontSplitToContributors: "default_upfront_split_to_contributors",
-    pledgeBadgeShowAmount: "pledge_badge_show_amount",
-    billingEmail: "billing_email",
-    defaultBadgeCustomContent: "default_badge_custom_content",
-    pledgeMinimumAmount: "pledge_minimum_amount",
-    totalMonthlySpendingLimit: "total_monthly_spending_limit",
-    perUserMonthlySpendingLimit: "per_user_monthly_spending_limit",
-    profileSettings: "profile_settings",
   });
 });
 

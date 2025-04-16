@@ -78,10 +78,6 @@ let value: CustomerPortalBenefitGrantsListResponse = {
             blog: "<value>",
             location: "<value>",
             twitterUsername: "<value>",
-            pledgeMinimumAmount: 270336,
-            pledgeBadgeShowAmount: false,
-            defaultUpfrontSplitToContributors: 739065,
-            profileSettings: {},
           },
           properties: {
             note: "<value>",
@@ -91,8 +87,8 @@ let value: CustomerPortalBenefitGrantsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 892073,
-      maxPage: 375852,
+      totalCount: 270336,
+      maxPage: 739065,
     },
   },
 };
