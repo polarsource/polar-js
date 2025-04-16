@@ -19,7 +19,7 @@ import {
   TaxIDFormat$outboundSchema,
 } from "./taxidformat.js";
 
-export type CustomerUpdateMetadata = string | number | boolean;
+export type CustomerUpdateMetadata = string | number | number | boolean;
 
 export type CustomerUpdateTaxId = string | TaxIDFormat;
 
@@ -34,11 +34,12 @@ export type CustomerUpdate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
    */
@@ -60,17 +61,21 @@ export const CustomerUpdateMetadata$inboundSchema: z.ZodType<
   CustomerUpdateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type CustomerUpdateMetadata$Outbound = string | number | boolean;
+export type CustomerUpdateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const CustomerUpdateMetadata$outboundSchema: z.ZodType<
   CustomerUpdateMetadata$Outbound,
   z.ZodTypeDef,
   CustomerUpdateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -157,8 +162,9 @@ export const CustomerUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   external_id: z.nullable(z.string()).optional(),
   email: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),
@@ -176,7 +182,7 @@ export const CustomerUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerUpdate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   external_id?: string | null | undefined;
   email?: string | null | undefined;
   name?: string | null | undefined;
@@ -190,8 +196,9 @@ export const CustomerUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerUpdate
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   externalId: z.nullable(z.string()).optional(),
   email: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()).optional(),

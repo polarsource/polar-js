@@ -27,7 +27,7 @@ let value: LicenseKeyActivationRead = {
       createdAt: new Date("2023-05-23T21:44:07.309Z"),
       modifiedAt: new Date("2025-06-27T03:58:57.144Z"),
       metadata: {
-        "key": 736079,
+        "key": 7360.79,
       },
       externalId: "usr_1337",
       email: "customer@example.com",

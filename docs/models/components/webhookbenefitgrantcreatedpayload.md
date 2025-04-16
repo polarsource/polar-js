@@ -26,7 +26,7 @@ let value: WebhookBenefitGrantCreatedPayload = {
       createdAt: new Date("2023-10-21T01:27:19.889Z"),
       modifiedAt: new Date("2023-07-02T18:46:10.563Z"),
       metadata: {
-        "key": 951630,
+        "key": 9516.3,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
@@ -45,10 +45,13 @@ let value: WebhookBenefitGrantCreatedPayload = {
     },
     properties: {},
     benefit: {
+      id: "<value>",
       createdAt: new Date("2025-02-01T06:50:40.155Z"),
       modifiedAt: new Date("2024-10-14T07:36:23.610Z"),
-      id: "<value>",
-      description: "artistic monasticism when that",
+      metadata: {
+        "key": "<value>",
+      },
+      description: "habit ouch woot geez wheel analyse duh trash jovially",
       selectable: false,
       deletable: false,
       organizationId: "<value>",

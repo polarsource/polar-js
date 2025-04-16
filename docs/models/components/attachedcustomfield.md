@@ -14,14 +14,14 @@ let value: AttachedCustomField = {
     modifiedAt: new Date("2025-01-25T21:47:47.062Z"),
     id: "<value>",
     metadata: {
-      "key": false,
+      "key": 5948.26,
     },
     slug: "<value>",
     name: "<value>",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     properties: {},
   },
-  order: 594826,
+  order: 819777,
   required: false,
 };
 ```

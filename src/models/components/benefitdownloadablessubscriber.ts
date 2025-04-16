@@ -20,7 +20,17 @@ import {
   Organization$outboundSchema,
 } from "./organization.js";
 
+export type BenefitDownloadablesSubscriberMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitDownloadablesSubscriber = {
+  /**
+   * The ID of the benefit.
+   */
+  id: string;
   /**
    * Creation timestamp of the object.
    */
@@ -29,10 +39,7 @@ export type BenefitDownloadablesSubscriber = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "downloadables" | undefined;
   /**
    * The description of the benefit.
@@ -55,16 +62,77 @@ export type BenefitDownloadablesSubscriber = {
 };
 
 /** @internal */
+export const BenefitDownloadablesSubscriberMetadata$inboundSchema: z.ZodType<
+  BenefitDownloadablesSubscriberMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitDownloadablesSubscriberMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitDownloadablesSubscriberMetadata$outboundSchema: z.ZodType<
+  BenefitDownloadablesSubscriberMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitDownloadablesSubscriberMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitDownloadablesSubscriberMetadata$ {
+  /** @deprecated use `BenefitDownloadablesSubscriberMetadata$inboundSchema` instead. */
+  export const inboundSchema =
+    BenefitDownloadablesSubscriberMetadata$inboundSchema;
+  /** @deprecated use `BenefitDownloadablesSubscriberMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    BenefitDownloadablesSubscriberMetadata$outboundSchema;
+  /** @deprecated use `BenefitDownloadablesSubscriberMetadata$Outbound` instead. */
+  export type Outbound = BenefitDownloadablesSubscriberMetadata$Outbound;
+}
+
+export function benefitDownloadablesSubscriberMetadataToJSON(
+  benefitDownloadablesSubscriberMetadata:
+    BenefitDownloadablesSubscriberMetadata,
+): string {
+  return JSON.stringify(
+    BenefitDownloadablesSubscriberMetadata$outboundSchema.parse(
+      benefitDownloadablesSubscriberMetadata,
+    ),
+  );
+}
+
+export function benefitDownloadablesSubscriberMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitDownloadablesSubscriberMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitDownloadablesSubscriberMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitDownloadablesSubscriberMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitDownloadablesSubscriber$inboundSchema: z.ZodType<
   BenefitDownloadablesSubscriber,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("downloadables").optional(),
   description: z.string(),
   selectable: z.boolean(),
@@ -82,9 +150,10 @@ export const BenefitDownloadablesSubscriber$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitDownloadablesSubscriber$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: "downloadables";
   description: string;
   selectable: boolean;
@@ -100,9 +169,12 @@ export const BenefitDownloadablesSubscriber$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitDownloadablesSubscriber
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("downloadables").default("downloadables" as const),
   description: z.string(),
   selectable: z.boolean(),

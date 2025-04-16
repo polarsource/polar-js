@@ -13,7 +13,13 @@ import {
   BenefitType$outboundSchema,
 } from "./benefittype.js";
 
+export type BenefitBaseMetadata = string | number | number | boolean;
+
 export type BenefitBase = {
+  /**
+   * The ID of the benefit.
+   */
+  id: string;
   /**
    * Creation timestamp of the object.
    */
@@ -22,10 +28,7 @@ export type BenefitBase = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: BenefitType;
   /**
    * The description of the benefit.
@@ -46,16 +49,67 @@ export type BenefitBase = {
 };
 
 /** @internal */
+export const BenefitBaseMetadata$inboundSchema: z.ZodType<
+  BenefitBaseMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitBaseMetadata$Outbound = string | number | number | boolean;
+
+/** @internal */
+export const BenefitBaseMetadata$outboundSchema: z.ZodType<
+  BenefitBaseMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitBaseMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitBaseMetadata$ {
+  /** @deprecated use `BenefitBaseMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitBaseMetadata$inboundSchema;
+  /** @deprecated use `BenefitBaseMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitBaseMetadata$outboundSchema;
+  /** @deprecated use `BenefitBaseMetadata$Outbound` instead. */
+  export type Outbound = BenefitBaseMetadata$Outbound;
+}
+
+export function benefitBaseMetadataToJSON(
+  benefitBaseMetadata: BenefitBaseMetadata,
+): string {
+  return JSON.stringify(
+    BenefitBaseMetadata$outboundSchema.parse(benefitBaseMetadata),
+  );
+}
+
+export function benefitBaseMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitBaseMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitBaseMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitBaseMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitBase$inboundSchema: z.ZodType<
   BenefitBase,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: BenefitType$inboundSchema,
   description: z.string(),
   selectable: z.boolean(),
@@ -71,9 +125,10 @@ export const BenefitBase$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitBase$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: string;
   description: string;
   selectable: boolean;
@@ -87,9 +142,12 @@ export const BenefitBase$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitBase
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: BenefitType$outboundSchema,
   description: z.string(),
   selectable: z.boolean(),

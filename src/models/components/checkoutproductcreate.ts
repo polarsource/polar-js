@@ -14,7 +14,7 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 
-export type CheckoutProductCreateMetadata = string | number | boolean;
+export type CheckoutProductCreateMetadata = string | number | number | boolean;
 
 export type CheckoutProductCreateCustomFieldData =
   | string
@@ -22,7 +22,11 @@ export type CheckoutProductCreateCustomFieldData =
   | boolean
   | Date;
 
-export type CheckoutProductCreateCustomerMetadata = string | number | boolean;
+export type CheckoutProductCreateCustomerMetadata =
+  | string
+  | number
+  | number
+  | boolean;
 
 /**
  * Create a new checkout session from a product.
@@ -45,11 +49,12 @@ export type CheckoutProductCreate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * Key-value object storing custom field values.
    */
@@ -88,11 +93,14 @@ export type CheckoutProductCreate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  customerMetadata?: { [k: string]: string | number | boolean } | undefined;
+  customerMetadata?:
+    | { [k: string]: string | number | number | boolean }
+    | undefined;
   /**
    * ID of a subscription to upgrade. It must be on a free pricing. If checkout is successful, metadata set on this checkout will be copied to the subscription, and existing keys will be overwritten.
    */
@@ -116,17 +124,21 @@ export const CheckoutProductCreateMetadata$inboundSchema: z.ZodType<
   CheckoutProductCreateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type CheckoutProductCreateMetadata$Outbound = string | number | boolean;
+export type CheckoutProductCreateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const CheckoutProductCreateMetadata$outboundSchema: z.ZodType<
   CheckoutProductCreateMetadata$Outbound,
   z.ZodTypeDef,
   CheckoutProductCreateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -233,11 +245,12 @@ export const CheckoutProductCreateCustomerMetadata$inboundSchema: z.ZodType<
   CheckoutProductCreateCustomerMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type CheckoutProductCreateCustomerMetadata$Outbound =
   | string
+  | number
   | number
   | boolean;
 
@@ -246,7 +259,7 @@ export const CheckoutProductCreateCustomerMetadata$outboundSchema: z.ZodType<
   CheckoutProductCreateCustomerMetadata$Outbound,
   z.ZodTypeDef,
   CheckoutProductCreateCustomerMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -290,8 +303,9 @@ export const CheckoutProductCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   custom_field_data: z.record(
     z.nullable(
       z.union([
@@ -313,7 +327,7 @@ export const CheckoutProductCreate$inboundSchema: z.ZodType<
   customer_billing_address: z.nullable(Address$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
   customer_metadata: z.record(
-    z.union([z.string(), z.number().int(), z.boolean()]),
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   subscription_id: z.nullable(z.string()).optional(),
   success_url: z.nullable(z.string()).optional(),
@@ -341,7 +355,7 @@ export const CheckoutProductCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutProductCreate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
@@ -355,7 +369,9 @@ export type CheckoutProductCreate$Outbound = {
   customer_ip_address?: string | null | undefined;
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
-  customer_metadata?: { [k: string]: string | number | boolean } | undefined;
+  customer_metadata?:
+    | { [k: string]: string | number | number | boolean }
+    | undefined;
   subscription_id?: string | null | undefined;
   success_url?: string | null | undefined;
   embed_origin?: string | null | undefined;
@@ -368,8 +384,9 @@ export const CheckoutProductCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutProductCreate
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   customFieldData: z.record(
     z.nullable(
       z.union([
@@ -391,7 +408,7 @@ export const CheckoutProductCreate$outboundSchema: z.ZodType<
   customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
   customerMetadata: z.record(
-    z.union([z.string(), z.number().int(), z.boolean()]),
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   subscriptionId: z.nullable(z.string()).optional(),
   successUrl: z.nullable(z.string()).optional(),

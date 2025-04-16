@@ -19,10 +19,10 @@ import {
   EventSource$outboundSchema,
 } from "./eventsource.js";
 
-export type EventMetadata = string | number | boolean;
+export type EventMetadata = string | number | number | boolean;
 
 export type Event = {
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * The ID of the object.
    */
@@ -59,17 +59,17 @@ export const EventMetadata$inboundSchema: z.ZodType<
   EventMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type EventMetadata$Outbound = string | number | boolean;
+export type EventMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const EventMetadata$outboundSchema: z.ZodType<
   EventMetadata$Outbound,
   z.ZodTypeDef,
   EventMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -101,7 +101,9 @@ export function eventMetadataFromJSON(
 /** @internal */
 export const Event$inboundSchema: z.ZodType<Event, z.ZodTypeDef, unknown> = z
   .object({
-    metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+    metadata: z.record(
+      z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+    ),
     id: z.string(),
     timestamp: z.string().datetime({ offset: true }).transform(v =>
       new Date(v)
@@ -122,7 +124,7 @@ export const Event$inboundSchema: z.ZodType<Event, z.ZodTypeDef, unknown> = z
 
 /** @internal */
 export type Event$Outbound = {
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   id: string;
   timestamp: string;
   name: string;
@@ -139,7 +141,9 @@ export const Event$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Event
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   id: z.string(),
   timestamp: z.date().transform(v => v.toISOString()),
   name: z.string(),

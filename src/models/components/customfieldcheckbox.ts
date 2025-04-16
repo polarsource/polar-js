@@ -14,7 +14,7 @@ import {
   CustomFieldCheckboxProperties$outboundSchema,
 } from "./customfieldcheckboxproperties.js";
 
-export type CustomFieldCheckboxMetadata = string | number | boolean;
+export type CustomFieldCheckboxMetadata = string | number | number | boolean;
 
 /**
  * Schema for a custom field of type checkbox.
@@ -32,7 +32,7 @@ export type CustomFieldCheckbox = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "checkbox" | undefined;
   /**
    * Identifier of the custom field. It'll be used as key when storing the value.
@@ -54,17 +54,21 @@ export const CustomFieldCheckboxMetadata$inboundSchema: z.ZodType<
   CustomFieldCheckboxMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type CustomFieldCheckboxMetadata$Outbound = string | number | boolean;
+export type CustomFieldCheckboxMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const CustomFieldCheckboxMetadata$outboundSchema: z.ZodType<
   CustomFieldCheckboxMetadata$Outbound,
   z.ZodTypeDef,
   CustomFieldCheckboxMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -110,7 +114,9 @@ export const CustomFieldCheckbox$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("checkbox").optional(),
   slug: z.string(),
   name: z.string(),
@@ -129,7 +135,7 @@ export type CustomFieldCheckbox$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   type: "checkbox";
   slug: string;
   name: string;
@@ -146,7 +152,9 @@ export const CustomFieldCheckbox$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("checkbox").default("checkbox" as const),
   slug: z.string(),
   name: z.string(),

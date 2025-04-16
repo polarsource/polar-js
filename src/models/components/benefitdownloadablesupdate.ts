@@ -13,7 +13,29 @@ import {
   BenefitDownloadablesCreateProperties$outboundSchema,
 } from "./benefitdownloadablescreateproperties.js";
 
+export type BenefitDownloadablesUpdateMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitDownloadablesUpdate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
    */
@@ -23,11 +45,70 @@ export type BenefitDownloadablesUpdate = {
 };
 
 /** @internal */
+export const BenefitDownloadablesUpdateMetadata$inboundSchema: z.ZodType<
+  BenefitDownloadablesUpdateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitDownloadablesUpdateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitDownloadablesUpdateMetadata$outboundSchema: z.ZodType<
+  BenefitDownloadablesUpdateMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitDownloadablesUpdateMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitDownloadablesUpdateMetadata$ {
+  /** @deprecated use `BenefitDownloadablesUpdateMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitDownloadablesUpdateMetadata$inboundSchema;
+  /** @deprecated use `BenefitDownloadablesUpdateMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    BenefitDownloadablesUpdateMetadata$outboundSchema;
+  /** @deprecated use `BenefitDownloadablesUpdateMetadata$Outbound` instead. */
+  export type Outbound = BenefitDownloadablesUpdateMetadata$Outbound;
+}
+
+export function benefitDownloadablesUpdateMetadataToJSON(
+  benefitDownloadablesUpdateMetadata: BenefitDownloadablesUpdateMetadata,
+): string {
+  return JSON.stringify(
+    BenefitDownloadablesUpdateMetadata$outboundSchema.parse(
+      benefitDownloadablesUpdateMetadata,
+    ),
+  );
+}
+
+export function benefitDownloadablesUpdateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitDownloadablesUpdateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitDownloadablesUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitDownloadablesUpdateMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitDownloadablesUpdate$inboundSchema: z.ZodType<
   BenefitDownloadablesUpdate,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   description: z.nullable(z.string()).optional(),
   type: z.literal("downloadables").optional(),
   properties: z.nullable(BenefitDownloadablesCreateProperties$inboundSchema)
@@ -36,6 +117,7 @@ export const BenefitDownloadablesUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitDownloadablesUpdate$Outbound = {
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   description?: string | null | undefined;
   type: "downloadables";
   properties?: BenefitDownloadablesCreateProperties$Outbound | null | undefined;
@@ -47,6 +129,9 @@ export const BenefitDownloadablesUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitDownloadablesUpdate
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   description: z.nullable(z.string()).optional(),
   type: z.literal("downloadables").default("downloadables" as const),
   properties: z.nullable(BenefitDownloadablesCreateProperties$outboundSchema)

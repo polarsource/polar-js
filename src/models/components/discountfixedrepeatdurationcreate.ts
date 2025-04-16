@@ -21,6 +21,7 @@ import {
 export type DiscountFixedRepeatDurationCreateMetadata =
   | string
   | number
+  | number
   | boolean;
 
 /**
@@ -59,11 +60,12 @@ export type DiscountFixedRepeatDurationCreate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * Name of the discount. Will be displayed to the customer when the discount is applied.
    */
@@ -96,11 +98,12 @@ export const DiscountFixedRepeatDurationCreateMetadata$inboundSchema: z.ZodType<
   DiscountFixedRepeatDurationCreateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type DiscountFixedRepeatDurationCreateMetadata$Outbound =
   | string
+  | number
   | number
   | boolean;
 
@@ -110,7 +113,7 @@ export const DiscountFixedRepeatDurationCreateMetadata$outboundSchema:
     DiscountFixedRepeatDurationCreateMetadata$Outbound,
     z.ZodTypeDef,
     DiscountFixedRepeatDurationCreateMetadata
-  > = z.union([z.string(), z.number().int(), z.boolean()]);
+  > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -165,8 +168,9 @@ export const DiscountFixedRepeatDurationCreate$inboundSchema: z.ZodType<
   type: DiscountType$inboundSchema,
   amount: z.number().int(),
   currency: z.string().default("usd"),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.string(),
   code: z.nullable(z.string()).optional(),
   starts_at: z.nullable(
@@ -195,7 +199,7 @@ export type DiscountFixedRepeatDurationCreate$Outbound = {
   type: string;
   amount: number;
   currency: string;
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name: string;
   code?: string | null | undefined;
   starts_at?: string | null | undefined;
@@ -216,8 +220,9 @@ export const DiscountFixedRepeatDurationCreate$outboundSchema: z.ZodType<
   type: DiscountType$outboundSchema,
   amount: z.number().int(),
   currency: z.string().default("usd"),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.string(),
   code: z.nullable(z.string()).optional(),
   startsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),

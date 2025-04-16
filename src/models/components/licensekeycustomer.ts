@@ -19,7 +19,7 @@ import {
   TaxIDFormat$outboundSchema,
 } from "./taxidformat.js";
 
-export type LicenseKeyCustomerMetadata = string | number | boolean;
+export type LicenseKeyCustomerMetadata = string | number | number | boolean;
 
 export type LicenseKeyCustomerTaxId = string | TaxIDFormat;
 
@@ -36,7 +36,7 @@ export type LicenseKeyCustomer = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
    */
@@ -71,17 +71,21 @@ export const LicenseKeyCustomerMetadata$inboundSchema: z.ZodType<
   LicenseKeyCustomerMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type LicenseKeyCustomerMetadata$Outbound = string | number | boolean;
+export type LicenseKeyCustomerMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const LicenseKeyCustomerMetadata$outboundSchema: z.ZodType<
   LicenseKeyCustomerMetadata$Outbound,
   z.ZodTypeDef,
   LicenseKeyCustomerMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -173,7 +177,9 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   external_id: z.nullable(z.string()),
   email: z.string(),
   email_verified: z.boolean(),
@@ -206,7 +212,7 @@ export type LicenseKeyCustomer$Outbound = {
   id: string;
   created_at: string;
   modified_at: string | null;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   external_id: string | null;
   email: string;
   email_verified: boolean;
@@ -227,7 +233,9 @@ export const LicenseKeyCustomer$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   externalId: z.nullable(z.string()),
   email: z.string(),
   emailVerified: z.boolean(),

@@ -6,37 +6,41 @@
 import { BenefitDiscordSubscriber } from "@polar-sh/sdk/models/components/benefitdiscordsubscriber.js";
 
 let value: BenefitDiscordSubscriber = {
+  id: "<value>",
   createdAt: new Date("2024-07-24T23:28:24.019Z"),
   modifiedAt: new Date("2024-10-25T18:28:09.309Z"),
-  id: "<value>",
-  description: "whenever uh-huh belabor gee blissfully pish ha",
+  metadata: {
+    "key": 181.16,
+  },
+  description:
+    "smoggy specific but gown scrape before canter fooey multicolored",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   organization: {
-    createdAt: new Date("2023-10-15T10:16:58.807Z"),
-    modifiedAt: new Date("2023-04-23T01:31:46.729Z"),
+    createdAt: new Date("2024-02-04T21:01:28.851Z"),
+    modifiedAt: new Date("2025-02-12T18:54:39.592Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://enraged-disclosure.net/",
-    email: "Joe34@gmail.com",
+    avatarUrl: "https://hefty-ghost.org/",
+    email: "Blake36@hotmail.com",
     website: "<value>",
     socials: [
       {
-        platform: "linkedin",
-        url: "https://multicolored-freight.net",
+        platform: "facebook",
+        url: "https://legal-formamide.name/",
       },
     ],
-    detailsSubmittedAt: new Date("2023-10-30T03:14:50.251Z"),
+    detailsSubmittedAt: new Date("2025-06-18T10:35:44.151Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
       allowCustomerUpdates: false,
-      prorationBehavior: "invoice",
+      prorationBehavior: "prorate",
     },
     bio: "<value>",
-    company: "Willms and Sons",
+    company: "Kreiger and Sons",
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
@@ -51,9 +55,10 @@ let value: BenefitDiscordSubscriber = {
 
 | Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
 | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                           | *string*                                                                                                       | :heavy_check_mark:                                                                                             | The ID of the benefit.                                                                                         |
 | `createdAt`                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                  | :heavy_check_mark:                                                                                             | Creation timestamp of the object.                                                                              |
 | `modifiedAt`                                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                  | :heavy_check_mark:                                                                                             | Last modification timestamp of the object.                                                                     |
-| `id`                                                                                                           | *string*                                                                                                       | :heavy_check_mark:                                                                                             | The ID of the benefit.                                                                                         |
+| `metadata`                                                                                                     | Record<string, *components.BenefitDiscordSubscriberMetadata*>                                                  | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
 | `type`                                                                                                         | *string*                                                                                                       | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
 | `description`                                                                                                  | *string*                                                                                                       | :heavy_check_mark:                                                                                             | The description of the benefit.                                                                                |
 | `selectable`                                                                                                   | *boolean*                                                                                                      | :heavy_check_mark:                                                                                             | Whether the benefit is selectable when creating a product.                                                     |

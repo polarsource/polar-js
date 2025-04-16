@@ -41,32 +41,35 @@ let value: ListResourceCustomerBenefitGrant = {
         },
       },
       benefit: {
+        id: "<value>",
         createdAt: new Date("2025-08-17T14:14:57.975Z"),
         modifiedAt: new Date("2025-05-22T01:38:35.771Z"),
-        id: "<value>",
-        description:
-          "hmph substantiate unknown definite sarcastic though and comfortable",
+        metadata: {
+          "key": 6734.48,
+        },
+        description: "major porter shameful pish tenderly ouch why by whether",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
         organization: {
-          createdAt: new Date("2024-10-15T17:27:41.286Z"),
-          modifiedAt: new Date("2024-01-23T03:06:50.165Z"),
+          createdAt: new Date("2025-10-04T20:11:49.953Z"),
+          modifiedAt: new Date("2023-08-26T02:17:06.768Z"),
           id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
           name: "<value>",
           slug: "<value>",
-          avatarUrl: "https://ruddy-warming.com/",
-          email: "Iliana.VonRueden76@yahoo.com",
+          avatarUrl: "https://closed-pacemaker.name",
+          email: "Merle.Erdman24@hotmail.com",
           website: "<value>",
           socials: [
             {
-              platform: "tiktok",
-              url: "https://raw-prohibition.name",
+              platform: "x",
+              url: "https://frozen-cheetah.info",
             },
           ],
-          detailsSubmittedAt: new Date("2023-08-28T03:15:53.007Z"),
+          detailsSubmittedAt: new Date("2024-09-18T21:59:58.714Z"),
           featureSettings: {
             issueFundingEnabled: false,
+            usageBasedBillingEnabled: false,
           },
           subscriptionSettings: {
             allowMultipleSubscriptions: false,
@@ -74,7 +77,7 @@ let value: ListResourceCustomerBenefitGrant = {
             prorationBehavior: "invoice",
           },
           bio: "<value>",
-          company: "Brekke - Brakus",
+          company: "Stokes - Carroll",
           blog: "<value>",
           location: "<value>",
           twitterUsername: "<value>",
@@ -82,22 +85,22 @@ let value: ListResourceCustomerBenefitGrant = {
         properties: {
           prefix: "<value>",
           expires: {
-            ttl: 893255,
+            ttl: 542691,
             timeframe: "year",
           },
           activations: {
-            limit: 146200,
+            limit: 889199,
             enableCustomerAdmin: false,
           },
-          limitUsage: 443619,
+          limitUsage: 137777,
         },
       },
       properties: {},
     },
   ],
   pagination: {
-    totalCount: 572004,
-    maxPage: 236051,
+    totalCount: 538227,
+    maxPage: 520408,
   },
 };
 ```

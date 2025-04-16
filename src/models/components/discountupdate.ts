@@ -18,7 +18,7 @@ import {
   DiscountType$outboundSchema,
 } from "./discounttype.js";
 
-export type DiscountUpdateMetadata = string | number | boolean;
+export type DiscountUpdateMetadata = string | number | number | boolean;
 
 /**
  * Schema to update a discount.
@@ -34,11 +34,12 @@ export type DiscountUpdate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
   code?: string | null | undefined;
   startsAt?: Date | null | undefined;
@@ -58,17 +59,21 @@ export const DiscountUpdateMetadata$inboundSchema: z.ZodType<
   DiscountUpdateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type DiscountUpdateMetadata$Outbound = string | number | boolean;
+export type DiscountUpdateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const DiscountUpdateMetadata$outboundSchema: z.ZodType<
   DiscountUpdateMetadata$Outbound,
   z.ZodTypeDef,
   DiscountUpdateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -107,8 +112,9 @@ export const DiscountUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.nullable(z.string()).optional(),
   code: z.nullable(z.string()).optional(),
   starts_at: z.nullable(
@@ -137,7 +143,7 @@ export const DiscountUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type DiscountUpdate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
   code?: string | null | undefined;
   starts_at?: string | null | undefined;
@@ -158,8 +164,9 @@ export const DiscountUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DiscountUpdate
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.nullable(z.string()).optional(),
   code: z.nullable(z.string()).optional(),
   startsAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),

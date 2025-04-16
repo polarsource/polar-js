@@ -25,7 +25,11 @@ export type CustomerStateSubscriptionCustomFieldData =
   | boolean
   | Date;
 
-export type CustomerStateSubscriptionMetadata = string | number | boolean;
+export type CustomerStateSubscriptionMetadata =
+  | string
+  | number
+  | number
+  | boolean;
 
 /**
  * An active customer subscription.
@@ -49,7 +53,7 @@ export type CustomerStateSubscription = {
   customFieldData?:
     | { [k: string]: string | number | boolean | Date | null }
     | undefined;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   status?: "active" | undefined;
   /**
    * The amount of the subscription.
@@ -180,11 +184,12 @@ export const CustomerStateSubscriptionMetadata$inboundSchema: z.ZodType<
   CustomerStateSubscriptionMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type CustomerStateSubscriptionMetadata$Outbound =
   | string
+  | number
   | number
   | boolean;
 
@@ -193,7 +198,7 @@ export const CustomerStateSubscriptionMetadata$outboundSchema: z.ZodType<
   CustomerStateSubscriptionMetadata$Outbound,
   z.ZodTypeDef,
   CustomerStateSubscriptionMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -250,7 +255,9 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
       ]),
     ),
   ).optional(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   status: z.literal("active").optional(),
   amount: z.number().int(),
   currency: z.string(),
@@ -301,7 +308,7 @@ export type CustomerStateSubscription$Outbound = {
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   status: "active";
   amount: number;
   currency: string;
@@ -337,7 +344,9 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
       ]),
     ),
   ).optional(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   status: z.literal("active").default("active" as const),
   amount: z.number().int(),
   currency: z.string(),

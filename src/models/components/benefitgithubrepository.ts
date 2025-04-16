@@ -14,6 +14,12 @@ import {
   BenefitGitHubRepositoryProperties$outboundSchema,
 } from "./benefitgithubrepositoryproperties.js";
 
+export type BenefitGitHubRepositoryMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 /**
  * A benefit of type `github_repository`.
  *
@@ -23,6 +29,10 @@ import {
  */
 export type BenefitGitHubRepository = {
   /**
+   * The ID of the benefit.
+   */
+  id: string;
+  /**
    * Creation timestamp of the object.
    */
   createdAt: Date;
@@ -30,10 +40,7 @@ export type BenefitGitHubRepository = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "github_repository" | undefined;
   /**
    * The description of the benefit.
@@ -58,16 +65,73 @@ export type BenefitGitHubRepository = {
 };
 
 /** @internal */
+export const BenefitGitHubRepositoryMetadata$inboundSchema: z.ZodType<
+  BenefitGitHubRepositoryMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitGitHubRepositoryMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitGitHubRepositoryMetadata$outboundSchema: z.ZodType<
+  BenefitGitHubRepositoryMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitGitHubRepositoryMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitGitHubRepositoryMetadata$ {
+  /** @deprecated use `BenefitGitHubRepositoryMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitGitHubRepositoryMetadata$inboundSchema;
+  /** @deprecated use `BenefitGitHubRepositoryMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitGitHubRepositoryMetadata$outboundSchema;
+  /** @deprecated use `BenefitGitHubRepositoryMetadata$Outbound` instead. */
+  export type Outbound = BenefitGitHubRepositoryMetadata$Outbound;
+}
+
+export function benefitGitHubRepositoryMetadataToJSON(
+  benefitGitHubRepositoryMetadata: BenefitGitHubRepositoryMetadata,
+): string {
+  return JSON.stringify(
+    BenefitGitHubRepositoryMetadata$outboundSchema.parse(
+      benefitGitHubRepositoryMetadata,
+    ),
+  );
+}
+
+export function benefitGitHubRepositoryMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGitHubRepositoryMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitGitHubRepositoryMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGitHubRepositoryMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitGitHubRepository$inboundSchema: z.ZodType<
   BenefitGitHubRepository,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("github_repository").optional(),
   description: z.string(),
   selectable: z.boolean(),
@@ -84,9 +148,10 @@ export const BenefitGitHubRepository$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitGitHubRepository$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: "github_repository";
   description: string;
   selectable: boolean;
@@ -101,9 +166,12 @@ export const BenefitGitHubRepository$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGitHubRepository
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("github_repository").default("github_repository" as const),
   description: z.string(),
   selectable: z.boolean(),

@@ -20,7 +20,17 @@ import {
   Organization$outboundSchema,
 } from "./organization.js";
 
+export type BenefitLicenseKeysSubscriberMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitLicenseKeysSubscriber = {
+  /**
+   * The ID of the benefit.
+   */
+  id: string;
   /**
    * Creation timestamp of the object.
    */
@@ -29,10 +39,7 @@ export type BenefitLicenseKeysSubscriber = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the benefit.
-   */
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type?: "license_keys" | undefined;
   /**
    * The description of the benefit.
@@ -55,16 +62,76 @@ export type BenefitLicenseKeysSubscriber = {
 };
 
 /** @internal */
+export const BenefitLicenseKeysSubscriberMetadata$inboundSchema: z.ZodType<
+  BenefitLicenseKeysSubscriberMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitLicenseKeysSubscriberMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitLicenseKeysSubscriberMetadata$outboundSchema: z.ZodType<
+  BenefitLicenseKeysSubscriberMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitLicenseKeysSubscriberMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitLicenseKeysSubscriberMetadata$ {
+  /** @deprecated use `BenefitLicenseKeysSubscriberMetadata$inboundSchema` instead. */
+  export const inboundSchema =
+    BenefitLicenseKeysSubscriberMetadata$inboundSchema;
+  /** @deprecated use `BenefitLicenseKeysSubscriberMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    BenefitLicenseKeysSubscriberMetadata$outboundSchema;
+  /** @deprecated use `BenefitLicenseKeysSubscriberMetadata$Outbound` instead. */
+  export type Outbound = BenefitLicenseKeysSubscriberMetadata$Outbound;
+}
+
+export function benefitLicenseKeysSubscriberMetadataToJSON(
+  benefitLicenseKeysSubscriberMetadata: BenefitLicenseKeysSubscriberMetadata,
+): string {
+  return JSON.stringify(
+    BenefitLicenseKeysSubscriberMetadata$outboundSchema.parse(
+      benefitLicenseKeysSubscriberMetadata,
+    ),
+  );
+}
+
+export function benefitLicenseKeysSubscriberMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitLicenseKeysSubscriberMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitLicenseKeysSubscriberMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitLicenseKeysSubscriberMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitLicenseKeysSubscriber$inboundSchema: z.ZodType<
   BenefitLicenseKeysSubscriber,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("license_keys").optional(),
   description: z.string(),
   selectable: z.boolean(),
@@ -82,9 +149,10 @@ export const BenefitLicenseKeysSubscriber$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitLicenseKeysSubscriber$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   type: "license_keys";
   description: string;
   selectable: boolean;
@@ -100,9 +168,12 @@ export const BenefitLicenseKeysSubscriber$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitLicenseKeysSubscriber
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   type: z.literal("license_keys").default("license_keys" as const),
   description: z.string(),
   selectable: z.boolean(),

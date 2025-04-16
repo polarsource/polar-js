@@ -26,7 +26,7 @@ import {
   PropertyAggregation$outboundSchema,
 } from "./propertyaggregation.js";
 
-export type MeterCreateMetadata = string | number | boolean;
+export type MeterCreateMetadata = string | number | number | boolean;
 
 /**
  * The aggregation to apply on the filtered events to calculate the meter.
@@ -49,11 +49,12 @@ export type MeterCreate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * The name of the meter. Will be shown on customer's invoices and usage.
    */
@@ -79,17 +80,17 @@ export const MeterCreateMetadata$inboundSchema: z.ZodType<
   MeterCreateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type MeterCreateMetadata$Outbound = string | number | boolean;
+export type MeterCreateMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const MeterCreateMetadata$outboundSchema: z.ZodType<
   MeterCreateMetadata$Outbound,
   z.ZodTypeDef,
   MeterCreateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -213,8 +214,9 @@ export const MeterCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.string(),
   filter: Filter$inboundSchema,
   aggregation: z.union([
@@ -245,7 +247,7 @@ export const MeterCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type MeterCreate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name: string;
   filter: Filter$Outbound;
   aggregation:
@@ -263,8 +265,9 @@ export const MeterCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   MeterCreate
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   name: z.string(),
   filter: Filter$outboundSchema,
   aggregation: z.union([

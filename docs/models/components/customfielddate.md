@@ -12,7 +12,7 @@ let value: CustomFieldDate = {
   modifiedAt: new Date("2023-12-05T19:45:28.030Z"),
   id: "<value>",
   metadata: {
-    "key": 725027,
+    "key": 7250.27,
   },
   slug: "<value>",
   name: "<value>",

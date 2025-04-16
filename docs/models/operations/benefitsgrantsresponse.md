@@ -24,7 +24,7 @@ let value: BenefitsGrantsResponse = {
           createdAt: new Date("2024-06-30T20:15:12.526Z"),
           modifiedAt: new Date("2023-11-18T21:53:45.126Z"),
           metadata: {
-            "key": 918877,
+            "key": 9188.77,
           },
           externalId: "usr_1337",
           email: "customer@example.com",

@@ -14,7 +14,25 @@ import {
   BenefitDiscordCreateProperties$outboundSchema,
 } from "./benefitdiscordcreateproperties.js";
 
+export type BenefitDiscordCreateMetadata = string | number | number | boolean;
+
 export type BenefitDiscordCreate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type?: "discord" | undefined;
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
@@ -31,11 +49,68 @@ export type BenefitDiscordCreate = {
 };
 
 /** @internal */
+export const BenefitDiscordCreateMetadata$inboundSchema: z.ZodType<
+  BenefitDiscordCreateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitDiscordCreateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitDiscordCreateMetadata$outboundSchema: z.ZodType<
+  BenefitDiscordCreateMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitDiscordCreateMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitDiscordCreateMetadata$ {
+  /** @deprecated use `BenefitDiscordCreateMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitDiscordCreateMetadata$inboundSchema;
+  /** @deprecated use `BenefitDiscordCreateMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitDiscordCreateMetadata$outboundSchema;
+  /** @deprecated use `BenefitDiscordCreateMetadata$Outbound` instead. */
+  export type Outbound = BenefitDiscordCreateMetadata$Outbound;
+}
+
+export function benefitDiscordCreateMetadataToJSON(
+  benefitDiscordCreateMetadata: BenefitDiscordCreateMetadata,
+): string {
+  return JSON.stringify(
+    BenefitDiscordCreateMetadata$outboundSchema.parse(
+      benefitDiscordCreateMetadata,
+    ),
+  );
+}
+
+export function benefitDiscordCreateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitDiscordCreateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitDiscordCreateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitDiscordCreateMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitDiscordCreate$inboundSchema: z.ZodType<
   BenefitDiscordCreate,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("discord").optional(),
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
@@ -48,6 +123,7 @@ export const BenefitDiscordCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitDiscordCreate$Outbound = {
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type: "discord";
   description: string;
   organization_id?: string | null | undefined;
@@ -60,6 +136,9 @@ export const BenefitDiscordCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitDiscordCreate
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("discord").default("discord" as const),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),

@@ -40,10 +40,10 @@ let value: CustomerMeter = {
   },
   meter: {
     metadata: {
-      "key": false,
+      "key": 4078.83,
     },
-    createdAt: new Date("2024-03-23T00:57:26.627Z"),
-    modifiedAt: new Date("2024-04-01T21:44:43.705Z"),
+    createdAt: new Date("2024-04-01T21:44:43.705Z"),
+    modifiedAt: new Date("2024-08-01T20:01:49.531Z"),
     id: "<value>",
     name: "<value>",
     filter: {
@@ -51,7 +51,7 @@ let value: CustomerMeter = {
       clauses: [],
     },
     aggregation: {
-      func: "avg",
+      func: "min",
       property: "<value>",
     },
     organizationId: "<value>",

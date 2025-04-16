@@ -90,7 +90,7 @@ import {
   ProductPrice$outboundSchema,
 } from "./productprice.js";
 
-export type OrderMetadata = string | number | boolean;
+export type OrderMetadata = string | number | number | boolean;
 
 export type OrderCustomFieldData = string | number | boolean | Date;
 
@@ -118,7 +118,7 @@ export type Order = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * Key-value object storing custom field values.
    */
@@ -205,17 +205,17 @@ export const OrderMetadata$inboundSchema: z.ZodType<
   OrderMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type OrderMetadata$Outbound = string | number | boolean;
+export type OrderMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const OrderMetadata$outboundSchema: z.ZodType<
   OrderMetadata$Outbound,
   z.ZodTypeDef,
   OrderMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -426,7 +426,9 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       z.string().datetime({ offset: true }).transform(v => new Date(v)),
     ),
     id: z.string(),
-    metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+    metadata: z.record(
+      z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+    ),
     custom_field_data: z.record(
       z.nullable(
         z.union([
@@ -504,7 +506,7 @@ export type Order$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
@@ -551,7 +553,9 @@ export const Order$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   customFieldData: z.record(
     z.nullable(
       z.union([

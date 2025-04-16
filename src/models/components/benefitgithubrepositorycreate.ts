@@ -14,7 +14,29 @@ import {
   BenefitGitHubRepositoryCreateProperties$outboundSchema,
 } from "./benefitgithubrepositorycreateproperties.js";
 
+export type BenefitGitHubRepositoryCreateMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitGitHubRepositoryCreate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type?: "github_repository" | undefined;
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
@@ -31,11 +53,71 @@ export type BenefitGitHubRepositoryCreate = {
 };
 
 /** @internal */
+export const BenefitGitHubRepositoryCreateMetadata$inboundSchema: z.ZodType<
+  BenefitGitHubRepositoryCreateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitGitHubRepositoryCreateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitGitHubRepositoryCreateMetadata$outboundSchema: z.ZodType<
+  BenefitGitHubRepositoryCreateMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitGitHubRepositoryCreateMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitGitHubRepositoryCreateMetadata$ {
+  /** @deprecated use `BenefitGitHubRepositoryCreateMetadata$inboundSchema` instead. */
+  export const inboundSchema =
+    BenefitGitHubRepositoryCreateMetadata$inboundSchema;
+  /** @deprecated use `BenefitGitHubRepositoryCreateMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    BenefitGitHubRepositoryCreateMetadata$outboundSchema;
+  /** @deprecated use `BenefitGitHubRepositoryCreateMetadata$Outbound` instead. */
+  export type Outbound = BenefitGitHubRepositoryCreateMetadata$Outbound;
+}
+
+export function benefitGitHubRepositoryCreateMetadataToJSON(
+  benefitGitHubRepositoryCreateMetadata: BenefitGitHubRepositoryCreateMetadata,
+): string {
+  return JSON.stringify(
+    BenefitGitHubRepositoryCreateMetadata$outboundSchema.parse(
+      benefitGitHubRepositoryCreateMetadata,
+    ),
+  );
+}
+
+export function benefitGitHubRepositoryCreateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGitHubRepositoryCreateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitGitHubRepositoryCreateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGitHubRepositoryCreateMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitGitHubRepositoryCreate$inboundSchema: z.ZodType<
   BenefitGitHubRepositoryCreate,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("github_repository").optional(),
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
@@ -48,6 +130,7 @@ export const BenefitGitHubRepositoryCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitGitHubRepositoryCreate$Outbound = {
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type: "github_repository";
   description: string;
   organization_id?: string | null | undefined;
@@ -60,6 +143,9 @@ export const BenefitGitHubRepositoryCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGitHubRepositoryCreate
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("github_repository").default("github_repository" as const),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),

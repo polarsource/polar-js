@@ -8,7 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type EventCreateExternalCustomerMetadata = string | number | boolean;
+export type EventCreateExternalCustomerMetadata =
+  | string
+  | number
+  | number
+  | boolean;
 
 export type EventCreateExternalCustomer = {
   /**
@@ -21,11 +25,12 @@ export type EventCreateExternalCustomer = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * The timestamp of the event.
    */
@@ -49,11 +54,12 @@ export const EventCreateExternalCustomerMetadata$inboundSchema: z.ZodType<
   EventCreateExternalCustomerMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type EventCreateExternalCustomerMetadata$Outbound =
   | string
+  | number
   | number
   | boolean;
 
@@ -62,7 +68,7 @@ export const EventCreateExternalCustomerMetadata$outboundSchema: z.ZodType<
   EventCreateExternalCustomerMetadata$Outbound,
   z.ZodTypeDef,
   EventCreateExternalCustomerMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -106,8 +112,9 @@ export const EventCreateExternalCustomer$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
   name: z.string(),
@@ -122,7 +129,7 @@ export const EventCreateExternalCustomer$inboundSchema: z.ZodType<
 
 /** @internal */
 export type EventCreateExternalCustomer$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   timestamp?: string | undefined;
   name: string;
   organization_id?: string | null | undefined;
@@ -135,8 +142,9 @@ export const EventCreateExternalCustomer$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EventCreateExternalCustomer
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   timestamp: z.date().transform(v => v.toISOString()).optional(),
   name: z.string(),
   organizationId: z.nullable(z.string()).optional(),

@@ -13,7 +13,7 @@ import {
   RefundReason$outboundSchema,
 } from "./refundreason.js";
 
-export type RefundCreateMetadata = string | number | boolean;
+export type RefundCreateMetadata = string | number | number | boolean;
 
 export type RefundCreate = {
   /**
@@ -26,11 +26,12 @@ export type RefundCreate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   orderId: string;
   reason: RefundReason;
   /**
@@ -59,17 +60,17 @@ export const RefundCreateMetadata$inboundSchema: z.ZodType<
   RefundCreateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type RefundCreateMetadata$Outbound = string | number | boolean;
+export type RefundCreateMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const RefundCreateMetadata$outboundSchema: z.ZodType<
   RefundCreateMetadata$Outbound,
   z.ZodTypeDef,
   RefundCreateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -108,8 +109,9 @@ export const RefundCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   order_id: z.string(),
   reason: RefundReason$inboundSchema,
   amount: z.number().int(),
@@ -124,7 +126,7 @@ export const RefundCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type RefundCreate$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   order_id: string;
   reason: string;
   amount: number;
@@ -138,8 +140,9 @@ export const RefundCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RefundCreate
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   orderId: z.string(),
   reason: RefundReason$outboundSchema,
   amount: z.number().int(),

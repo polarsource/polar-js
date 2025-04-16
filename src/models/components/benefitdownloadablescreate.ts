@@ -14,7 +14,29 @@ import {
   BenefitDownloadablesCreateProperties$outboundSchema,
 } from "./benefitdownloadablescreateproperties.js";
 
+export type BenefitDownloadablesCreateMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitDownloadablesCreate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type?: "downloadables" | undefined;
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
@@ -28,11 +50,70 @@ export type BenefitDownloadablesCreate = {
 };
 
 /** @internal */
+export const BenefitDownloadablesCreateMetadata$inboundSchema: z.ZodType<
+  BenefitDownloadablesCreateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitDownloadablesCreateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitDownloadablesCreateMetadata$outboundSchema: z.ZodType<
+  BenefitDownloadablesCreateMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitDownloadablesCreateMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitDownloadablesCreateMetadata$ {
+  /** @deprecated use `BenefitDownloadablesCreateMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitDownloadablesCreateMetadata$inboundSchema;
+  /** @deprecated use `BenefitDownloadablesCreateMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    BenefitDownloadablesCreateMetadata$outboundSchema;
+  /** @deprecated use `BenefitDownloadablesCreateMetadata$Outbound` instead. */
+  export type Outbound = BenefitDownloadablesCreateMetadata$Outbound;
+}
+
+export function benefitDownloadablesCreateMetadataToJSON(
+  benefitDownloadablesCreateMetadata: BenefitDownloadablesCreateMetadata,
+): string {
+  return JSON.stringify(
+    BenefitDownloadablesCreateMetadata$outboundSchema.parse(
+      benefitDownloadablesCreateMetadata,
+    ),
+  );
+}
+
+export function benefitDownloadablesCreateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitDownloadablesCreateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitDownloadablesCreateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitDownloadablesCreateMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitDownloadablesCreate$inboundSchema: z.ZodType<
   BenefitDownloadablesCreate,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("downloadables").optional(),
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
@@ -45,6 +126,7 @@ export const BenefitDownloadablesCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitDownloadablesCreate$Outbound = {
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   type: "downloadables";
   description: string;
   organization_id?: string | null | undefined;
@@ -57,6 +139,9 @@ export const BenefitDownloadablesCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitDownloadablesCreate
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   type: z.literal("downloadables").default("downloadables" as const),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),

@@ -20,21 +20,21 @@ let value: WebhookCustomerCreatedPayload = {
     createdAt: new Date("2024-07-14T00:49:20.816Z"),
     modifiedAt: new Date("2025-01-09T10:52:27.442Z"),
     metadata: {
-      "key": "<value>",
+      "key": 234015,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "US",
+      country: "FR",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-08-07T00:43:15.932Z"),
+    deletedAt: new Date("2024-01-10T21:34:54.851Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
 };

@@ -43,7 +43,7 @@ import {
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
 
-export type ProductMetadata = string | number | boolean;
+export type ProductMetadata = string | number | number | boolean;
 
 export type Prices = LegacyRecurringProductPrice | ProductPrice;
 
@@ -87,7 +87,7 @@ export type Product = {
    * The ID of the organization owning the product.
    */
   organizationId: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * List of prices for this product.
    */
@@ -111,17 +111,17 @@ export const ProductMetadata$inboundSchema: z.ZodType<
   ProductMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type ProductMetadata$Outbound = string | number | boolean;
+export type ProductMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const ProductMetadata$outboundSchema: z.ZodType<
   ProductMetadata$Outbound,
   z.ZodTypeDef,
   ProductMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -217,7 +217,9 @@ export const Product$inboundSchema: z.ZodType<Product, z.ZodTypeDef, unknown> =
     is_recurring: z.boolean(),
     is_archived: z.boolean(),
     organization_id: z.string(),
-    metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+    metadata: z.record(
+      z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+    ),
     prices: z.array(
       z.union([
         LegacyRecurringProductPrice$inboundSchema,
@@ -250,7 +252,7 @@ export type Product$Outbound = {
   is_recurring: boolean;
   is_archived: boolean;
   organization_id: string;
-  metadata: { [k: string]: string | number | boolean };
+  metadata: { [k: string]: string | number | number | boolean };
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
   benefits: Array<Benefit$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
@@ -272,7 +274,9 @@ export const Product$outboundSchema: z.ZodType<
   isRecurring: z.boolean(),
   isArchived: z.boolean(),
   organizationId: z.string(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   prices: z.array(
     z.union([
       LegacyRecurringProductPrice$outboundSchema,

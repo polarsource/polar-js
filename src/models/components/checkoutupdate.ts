@@ -16,9 +16,9 @@ import {
 
 export type CheckoutUpdateCustomFieldData = string | number | boolean | Date;
 
-export type CheckoutUpdateMetadata = string | number | boolean;
+export type CheckoutUpdateMetadata = string | number | number | boolean;
 
-export type CheckoutUpdateCustomerMetadata = string | number | boolean;
+export type CheckoutUpdateCustomerMetadata = string | number | number | boolean;
 
 /**
  * Update an existing checkout session using an access token.
@@ -55,11 +55,12 @@ export type CheckoutUpdate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * ID of the discount to apply to the checkout.
    */
@@ -79,12 +80,13 @@ export type CheckoutUpdate = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
   customerMetadata?:
-    | { [k: string]: string | number | boolean }
+    | { [k: string]: string | number | number | boolean }
     | null
     | undefined;
   /**
@@ -166,17 +168,21 @@ export const CheckoutUpdateMetadata$inboundSchema: z.ZodType<
   CheckoutUpdateMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type CheckoutUpdateMetadata$Outbound = string | number | boolean;
+export type CheckoutUpdateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const CheckoutUpdateMetadata$outboundSchema: z.ZodType<
   CheckoutUpdateMetadata$Outbound,
   z.ZodTypeDef,
   CheckoutUpdateMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -214,17 +220,21 @@ export const CheckoutUpdateCustomerMetadata$inboundSchema: z.ZodType<
   CheckoutUpdateCustomerMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type CheckoutUpdateCustomerMetadata$Outbound = string | number | boolean;
+export type CheckoutUpdateCustomerMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const CheckoutUpdateCustomerMetadata$outboundSchema: z.ZodType<
   CheckoutUpdateCustomerMetadata$Outbound,
   z.ZodTypeDef,
   CheckoutUpdateCustomerMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -282,13 +292,14 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   customer_email: z.nullable(z.string()).optional(),
   customer_billing_address: z.nullable(Address$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   discount_id: z.nullable(z.string()).optional(),
   allow_discount_codes: z.nullable(z.boolean()).optional(),
   customer_ip_address: z.nullable(z.string()).optional(),
   customer_metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+    z.record(z.union([z.string(), z.number().int(), z.number(), z.boolean()])),
   ).optional(),
   success_url: z.nullable(z.string()).optional(),
   embed_origin: z.nullable(z.string()).optional(),
@@ -322,12 +333,12 @@ export type CheckoutUpdate$Outbound = {
   customer_email?: string | null | undefined;
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   discount_id?: string | null | undefined;
   allow_discount_codes?: boolean | null | undefined;
   customer_ip_address?: string | null | undefined;
   customer_metadata?:
-    | { [k: string]: string | number | boolean }
+    | { [k: string]: string | number | number | boolean }
     | null
     | undefined;
   success_url?: string | null | undefined;
@@ -357,13 +368,14 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   customerEmail: z.nullable(z.string()).optional(),
   customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   discountId: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.nullable(z.boolean()).optional(),
   customerIpAddress: z.nullable(z.string()).optional(),
   customerMetadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
+    z.record(z.union([z.string(), z.number().int(), z.number(), z.boolean()])),
   ).optional(),
   successUrl: z.nullable(z.string()).optional(),
   embedOrigin: z.nullable(z.string()).optional(),

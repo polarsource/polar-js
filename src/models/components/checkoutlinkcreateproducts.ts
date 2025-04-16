@@ -8,7 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type CheckoutLinkCreateProductsMetadata = string | number | boolean;
+export type CheckoutLinkCreateProductsMetadata =
+  | string
+  | number
+  | number
+  | boolean;
 
 /**
  * Schema to create a new checkout link.
@@ -24,11 +28,12 @@ export type CheckoutLinkCreateProducts = {
    *
    * * A string with a maximum length of **500 characters**
    * * An integer
+   * * A floating-point number
    * * A boolean
    *
    * You can store up to **50 key-value pairs**.
    */
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * Payment processor to use. Currently only Stripe is supported.
    */
@@ -60,11 +65,12 @@ export const CheckoutLinkCreateProductsMetadata$inboundSchema: z.ZodType<
   CheckoutLinkCreateProductsMetadata,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type CheckoutLinkCreateProductsMetadata$Outbound =
   | string
+  | number
   | number
   | boolean;
 
@@ -73,7 +79,7 @@ export const CheckoutLinkCreateProductsMetadata$outboundSchema: z.ZodType<
   CheckoutLinkCreateProductsMetadata$Outbound,
   z.ZodTypeDef,
   CheckoutLinkCreateProductsMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -116,8 +122,9 @@ export const CheckoutLinkCreateProducts$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   payment_processor: z.literal("stripe").optional(),
   label: z.nullable(z.string()).optional(),
   allow_discount_codes: z.boolean().default(true),
@@ -135,7 +142,7 @@ export const CheckoutLinkCreateProducts$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutLinkCreateProducts$Outbound = {
-  metadata?: { [k: string]: string | number | boolean } | undefined;
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   payment_processor: "stripe";
   label?: string | null | undefined;
   allow_discount_codes: boolean;
@@ -150,8 +157,9 @@ export const CheckoutLinkCreateProducts$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutLinkCreateProducts
 > = z.object({
-  metadata: z.record(z.union([z.string(), z.number().int(), z.boolean()]))
-    .optional(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   paymentProcessor: z.literal("stripe").default("stripe" as const),
   label: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.boolean().default(true),

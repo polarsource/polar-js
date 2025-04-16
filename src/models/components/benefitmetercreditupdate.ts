@@ -13,7 +13,29 @@ import {
   BenefitMeterCreditCreateProperties$outboundSchema,
 } from "./benefitmetercreditcreateproperties.js";
 
+export type BenefitMeterCreditUpdateMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitMeterCreditUpdate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
    */
@@ -23,11 +45,68 @@ export type BenefitMeterCreditUpdate = {
 };
 
 /** @internal */
+export const BenefitMeterCreditUpdateMetadata$inboundSchema: z.ZodType<
+  BenefitMeterCreditUpdateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitMeterCreditUpdateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitMeterCreditUpdateMetadata$outboundSchema: z.ZodType<
+  BenefitMeterCreditUpdateMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitMeterCreditUpdateMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitMeterCreditUpdateMetadata$ {
+  /** @deprecated use `BenefitMeterCreditUpdateMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitMeterCreditUpdateMetadata$inboundSchema;
+  /** @deprecated use `BenefitMeterCreditUpdateMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitMeterCreditUpdateMetadata$outboundSchema;
+  /** @deprecated use `BenefitMeterCreditUpdateMetadata$Outbound` instead. */
+  export type Outbound = BenefitMeterCreditUpdateMetadata$Outbound;
+}
+
+export function benefitMeterCreditUpdateMetadataToJSON(
+  benefitMeterCreditUpdateMetadata: BenefitMeterCreditUpdateMetadata,
+): string {
+  return JSON.stringify(
+    BenefitMeterCreditUpdateMetadata$outboundSchema.parse(
+      benefitMeterCreditUpdateMetadata,
+    ),
+  );
+}
+
+export function benefitMeterCreditUpdateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitMeterCreditUpdateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitMeterCreditUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitMeterCreditUpdateMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitMeterCreditUpdate$inboundSchema: z.ZodType<
   BenefitMeterCreditUpdate,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   description: z.nullable(z.string()).optional(),
   type: z.literal("meter_credit").optional(),
   properties: z.nullable(BenefitMeterCreditCreateProperties$inboundSchema)
@@ -36,6 +115,7 @@ export const BenefitMeterCreditUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitMeterCreditUpdate$Outbound = {
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   description?: string | null | undefined;
   type: "meter_credit";
   properties?: BenefitMeterCreditCreateProperties$Outbound | null | undefined;
@@ -47,6 +127,9 @@ export const BenefitMeterCreditUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitMeterCreditUpdate
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   description: z.nullable(z.string()).optional(),
   type: z.literal("meter_credit").default("meter_credit" as const),
   properties: z.nullable(BenefitMeterCreditCreateProperties$outboundSchema)

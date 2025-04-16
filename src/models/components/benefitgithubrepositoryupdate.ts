@@ -13,7 +13,29 @@ import {
   BenefitGitHubRepositoryCreateProperties$outboundSchema,
 } from "./benefitgithubrepositorycreateproperties.js";
 
+export type BenefitGitHubRepositoryUpdateMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitGitHubRepositoryUpdate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
    */
@@ -23,11 +45,71 @@ export type BenefitGitHubRepositoryUpdate = {
 };
 
 /** @internal */
+export const BenefitGitHubRepositoryUpdateMetadata$inboundSchema: z.ZodType<
+  BenefitGitHubRepositoryUpdateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitGitHubRepositoryUpdateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitGitHubRepositoryUpdateMetadata$outboundSchema: z.ZodType<
+  BenefitGitHubRepositoryUpdateMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitGitHubRepositoryUpdateMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitGitHubRepositoryUpdateMetadata$ {
+  /** @deprecated use `BenefitGitHubRepositoryUpdateMetadata$inboundSchema` instead. */
+  export const inboundSchema =
+    BenefitGitHubRepositoryUpdateMetadata$inboundSchema;
+  /** @deprecated use `BenefitGitHubRepositoryUpdateMetadata$outboundSchema` instead. */
+  export const outboundSchema =
+    BenefitGitHubRepositoryUpdateMetadata$outboundSchema;
+  /** @deprecated use `BenefitGitHubRepositoryUpdateMetadata$Outbound` instead. */
+  export type Outbound = BenefitGitHubRepositoryUpdateMetadata$Outbound;
+}
+
+export function benefitGitHubRepositoryUpdateMetadataToJSON(
+  benefitGitHubRepositoryUpdateMetadata: BenefitGitHubRepositoryUpdateMetadata,
+): string {
+  return JSON.stringify(
+    BenefitGitHubRepositoryUpdateMetadata$outboundSchema.parse(
+      benefitGitHubRepositoryUpdateMetadata,
+    ),
+  );
+}
+
+export function benefitGitHubRepositoryUpdateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitGitHubRepositoryUpdateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BenefitGitHubRepositoryUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitGitHubRepositoryUpdateMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitGitHubRepositoryUpdate$inboundSchema: z.ZodType<
   BenefitGitHubRepositoryUpdate,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   description: z.nullable(z.string()).optional(),
   type: z.literal("github_repository").optional(),
   properties: z.nullable(BenefitGitHubRepositoryCreateProperties$inboundSchema)
@@ -36,6 +118,7 @@ export const BenefitGitHubRepositoryUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitGitHubRepositoryUpdate$Outbound = {
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   description?: string | null | undefined;
   type: "github_repository";
   properties?:
@@ -50,6 +133,9 @@ export const BenefitGitHubRepositoryUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGitHubRepositoryUpdate
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   description: z.nullable(z.string()).optional(),
   type: z.literal("github_repository").default("github_repository" as const),
   properties: z.nullable(BenefitGitHubRepositoryCreateProperties$outboundSchema)

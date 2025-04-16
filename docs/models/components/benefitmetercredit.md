@@ -10,15 +10,19 @@ Use it to grant a number of units on a specific meter.
 import { BenefitMeterCredit } from "@polar-sh/sdk/models/components/benefitmetercredit.js";
 
 let value: BenefitMeterCredit = {
+  id: "<value>",
   createdAt: new Date("2023-08-25T12:13:00.837Z"),
   modifiedAt: new Date("2024-07-31T23:01:40.559Z"),
-  id: "<value>",
-  description: "drat failing or numeracy",
+  metadata: {
+    "key": "<value>",
+  },
+  description:
+    "vibraphone properly fooey like horde following at yowza developmental hastily",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   properties: {
-    units: 546974,
+    units: 822688,
     meterId: "<value>",
   },
 };
@@ -28,9 +32,10 @@ let value: BenefitMeterCredit = {
 
 | Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
 | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `id`                                                                                               | *string*                                                                                           | :heavy_check_mark:                                                                                 | The ID of the benefit.                                                                             |
 | `createdAt`                                                                                        | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)      | :heavy_check_mark:                                                                                 | Creation timestamp of the object.                                                                  |
 | `modifiedAt`                                                                                       | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)      | :heavy_check_mark:                                                                                 | Last modification timestamp of the object.                                                         |
-| `id`                                                                                               | *string*                                                                                           | :heavy_check_mark:                                                                                 | The ID of the benefit.                                                                             |
+| `metadata`                                                                                         | Record<string, *components.BenefitMeterCreditMetadata*>                                            | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `type`                                                                                             | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `description`                                                                                      | *string*                                                                                           | :heavy_check_mark:                                                                                 | The description of the benefit.                                                                    |
 | `selectable`                                                                                       | *boolean*                                                                                          | :heavy_check_mark:                                                                                 | Whether the benefit is selectable when creating a product.                                         |

@@ -10,21 +10,21 @@ let value: SubscriptionCustomer = {
   createdAt: new Date("2025-11-11T19:45:03.999Z"),
   modifiedAt: new Date("2023-06-20T07:04:04.333Z"),
   metadata: {
-    "key": false,
+    "key": 7793.11,
   },
   externalId: "usr_1337",
   email: "customer@example.com",
   emailVerified: true,
   name: "John Doe",
   billingAddress: {
-    country: "FR",
+    country: "SE",
   },
   taxId: [
-    "FR61954506077",
-    "eu_vat",
+    "911144442",
+    "us_ein",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2023-07-12T17:51:58.687Z"),
+  deletedAt: new Date("2025-06-02T10:57:01.288Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
 };
 ```

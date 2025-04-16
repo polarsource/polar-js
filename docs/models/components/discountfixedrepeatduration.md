@@ -18,7 +18,7 @@ let value: DiscountFixedRepeatDuration = {
   modifiedAt: new Date("2024-05-15T16:32:52.980Z"),
   id: "<value>",
   metadata: {
-    "key": 840218,
+    "key": 8402.18,
   },
   name: "<value>",
   code: "<value>",

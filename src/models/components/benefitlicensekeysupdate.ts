@@ -13,7 +13,29 @@ import {
   BenefitLicenseKeysCreateProperties$outboundSchema,
 } from "./benefitlicensekeyscreateproperties.js";
 
+export type BenefitLicenseKeysUpdateMetadata =
+  | string
+  | number
+  | number
+  | boolean;
+
 export type BenefitLicenseKeysUpdate = {
+  /**
+   * Key-value object allowing you to store additional information.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
    */
@@ -23,11 +45,68 @@ export type BenefitLicenseKeysUpdate = {
 };
 
 /** @internal */
+export const BenefitLicenseKeysUpdateMetadata$inboundSchema: z.ZodType<
+  BenefitLicenseKeysUpdateMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitLicenseKeysUpdateMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const BenefitLicenseKeysUpdateMetadata$outboundSchema: z.ZodType<
+  BenefitLicenseKeysUpdateMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitLicenseKeysUpdateMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitLicenseKeysUpdateMetadata$ {
+  /** @deprecated use `BenefitLicenseKeysUpdateMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitLicenseKeysUpdateMetadata$inboundSchema;
+  /** @deprecated use `BenefitLicenseKeysUpdateMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitLicenseKeysUpdateMetadata$outboundSchema;
+  /** @deprecated use `BenefitLicenseKeysUpdateMetadata$Outbound` instead. */
+  export type Outbound = BenefitLicenseKeysUpdateMetadata$Outbound;
+}
+
+export function benefitLicenseKeysUpdateMetadataToJSON(
+  benefitLicenseKeysUpdateMetadata: BenefitLicenseKeysUpdateMetadata,
+): string {
+  return JSON.stringify(
+    BenefitLicenseKeysUpdateMetadata$outboundSchema.parse(
+      benefitLicenseKeysUpdateMetadata,
+    ),
+  );
+}
+
+export function benefitLicenseKeysUpdateMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitLicenseKeysUpdateMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitLicenseKeysUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitLicenseKeysUpdateMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const BenefitLicenseKeysUpdate$inboundSchema: z.ZodType<
   BenefitLicenseKeysUpdate,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   description: z.nullable(z.string()).optional(),
   type: z.literal("license_keys").optional(),
   properties: z.nullable(BenefitLicenseKeysCreateProperties$inboundSchema)
@@ -36,6 +115,7 @@ export const BenefitLicenseKeysUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitLicenseKeysUpdate$Outbound = {
+  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   description?: string | null | undefined;
   type: "license_keys";
   properties?: BenefitLicenseKeysCreateProperties$Outbound | null | undefined;
@@ -47,6 +127,9 @@ export const BenefitLicenseKeysUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitLicenseKeysUpdate
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
   description: z.nullable(z.string()).optional(),
   type: z.literal("license_keys").default("license_keys" as const),
   properties: z.nullable(BenefitLicenseKeysCreateProperties$outboundSchema)
