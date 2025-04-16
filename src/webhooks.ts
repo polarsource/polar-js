@@ -7,6 +7,7 @@ import { WebhookBenefitCreatedPayload$inboundSchema } from "./models/components/
 import { WebhookBenefitGrantCreatedPayload$inboundSchema } from "./models/components/webhookbenefitgrantcreatedpayload.js";
 import { WebhookBenefitGrantRevokedPayload$inboundSchema } from "./models/components/webhookbenefitgrantrevokedpayload.js";
 import { WebhookBenefitGrantUpdatedPayload$inboundSchema } from "./models/components/webhookbenefitgrantupdatedpayload.js";
+import { WebhookBenefitGrantCycledPayload$inboundSchema } from "./models/components/webhookbenefitgrantcycledpayload.js";
 import { WebhookBenefitUpdatedPayload$inboundSchema } from "./models/components/webhookbenefitupdatedpayload.js";
 import { WebhookCheckoutCreatedPayload$inboundSchema } from "./models/components/webhookcheckoutcreatedpayload.js";
 import { WebhookCheckoutUpdatedPayload$inboundSchema } from "./models/components/webhookcheckoutupdatedpayload.js";
@@ -53,6 +54,8 @@ const parseEvent = (parsed: any) => {
         return WebhookBenefitCreatedPayload$inboundSchema.parse(parsed);
       case "benefit_grant.created":
         return WebhookBenefitGrantCreatedPayload$inboundSchema.parse(parsed);
+      case "benefit_grant.cycled":
+        return WebhookBenefitGrantCycledPayload$inboundSchema.parse(parsed);
       case "benefit_grant.revoked":
         return WebhookBenefitGrantRevokedPayload$inboundSchema.parse(parsed);
       case "benefit_grant.updated":
