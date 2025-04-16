@@ -87,10 +87,6 @@ let value: CustomerOrderProduct = {
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 336255,
-    pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 755162,
-    profileSettings: {},
   },
 };
 ```

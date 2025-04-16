@@ -9,14 +9,15 @@ let value: ListResourceEventName = {
   items: [
     {
       name: "<value>",
-      occurrences: 633206,
-      firstSeen: new Date("2023-09-07T03:37:51.631Z"),
-      lastSeen: new Date("2023-06-19T21:11:21.999Z"),
+      source: "user",
+      occurrences: 227328,
+      firstSeen: new Date("2023-06-19T21:11:21.999Z"),
+      lastSeen: new Date("2025-04-29T10:50:42.537Z"),
     },
   ],
   pagination: {
-    totalCount: 775048,
-    maxPage: 627909,
+    totalCount: 627909,
+    maxPage: 4335,
   },
 };
 ```

@@ -188,6 +188,7 @@ let value: WebhookSubscriptionActivePayload = {
         presetAmount: 66284,
       },
     ],
+    meters: [],
   },
 };
 ```

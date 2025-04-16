@@ -40,10 +40,6 @@ let value: BenefitDownloadablesSubscriber = {
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 173437,
-    pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 281763,
-    profileSettings: {},
   },
   properties: {
     activeFiles: [

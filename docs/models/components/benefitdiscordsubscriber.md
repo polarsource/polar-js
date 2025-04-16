@@ -40,10 +40,6 @@ let value: BenefitDiscordSubscriber = {
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 119749,
-    pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 94734,
-    profileSettings: {},
   },
   properties: {
     guildId: "<id>",

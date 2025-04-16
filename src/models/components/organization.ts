@@ -14,12 +14,6 @@ import {
   OrganizationFeatureSettings$outboundSchema,
 } from "./organizationfeaturesettings.js";
 import {
-  OrganizationProfileSettings,
-  OrganizationProfileSettings$inboundSchema,
-  OrganizationProfileSettings$Outbound,
-  OrganizationProfileSettings$outboundSchema,
-} from "./organizationprofilesettings.js";
-import {
   OrganizationSocialLink,
   OrganizationSocialLink$inboundSchema,
   OrganizationSocialLink$Outbound,
@@ -98,24 +92,6 @@ export type Organization = {
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   twitterUsername: string | null;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  pledgeMinimumAmount: number;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  pledgeBadgeShowAmount: boolean;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  defaultUpfrontSplitToContributors: number | null;
-  /**
-   * Settings for the organization profile
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  profileSettings: OrganizationProfileSettings | null;
 };
 
 /** @internal */
@@ -145,10 +121,6 @@ export const Organization$inboundSchema: z.ZodType<
   blog: z.nullable(z.string()),
   location: z.nullable(z.string()),
   twitter_username: z.nullable(z.string()),
-  pledge_minimum_amount: z.number().int(),
-  pledge_badge_show_amount: z.boolean(),
-  default_upfront_split_to_contributors: z.nullable(z.number().int()),
-  profile_settings: z.nullable(OrganizationProfileSettings$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -158,11 +130,6 @@ export const Organization$inboundSchema: z.ZodType<
     "feature_settings": "featureSettings",
     "subscription_settings": "subscriptionSettings",
     "twitter_username": "twitterUsername",
-    "pledge_minimum_amount": "pledgeMinimumAmount",
-    "pledge_badge_show_amount": "pledgeBadgeShowAmount",
-    "default_upfront_split_to_contributors":
-      "defaultUpfrontSplitToContributors",
-    "profile_settings": "profileSettings",
   });
 });
 
@@ -185,10 +152,6 @@ export type Organization$Outbound = {
   blog: string | null;
   location: string | null;
   twitter_username: string | null;
-  pledge_minimum_amount: number;
-  pledge_badge_show_amount: boolean;
-  default_upfront_split_to_contributors: number | null;
-  profile_settings: OrganizationProfileSettings$Outbound | null;
 };
 
 /** @internal */
@@ -214,10 +177,6 @@ export const Organization$outboundSchema: z.ZodType<
   blog: z.nullable(z.string()),
   location: z.nullable(z.string()),
   twitterUsername: z.nullable(z.string()),
-  pledgeMinimumAmount: z.number().int(),
-  pledgeBadgeShowAmount: z.boolean(),
-  defaultUpfrontSplitToContributors: z.nullable(z.number().int()),
-  profileSettings: z.nullable(OrganizationProfileSettings$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -227,10 +186,6 @@ export const Organization$outboundSchema: z.ZodType<
     featureSettings: "feature_settings",
     subscriptionSettings: "subscription_settings",
     twitterUsername: "twitter_username",
-    pledgeMinimumAmount: "pledge_minimum_amount",
-    pledgeBadgeShowAmount: "pledge_badge_show_amount",
-    defaultUpfrontSplitToContributors: "default_upfront_split_to_contributors",
-    profileSettings: "profile_settings",
   });
 });
 

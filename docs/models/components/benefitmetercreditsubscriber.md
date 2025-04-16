@@ -40,13 +40,9 @@ let value: BenefitMeterCreditSubscriber = {
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 204641,
-    pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 901663,
-    profileSettings: {},
   },
   properties: {
-    units: 864485,
+    units: 204641,
     meterId: "<value>",
   },
 };

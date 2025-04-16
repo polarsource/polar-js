@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { externalOrganizationsList } from "@polar-sh/sdk/funcs/externalOrganizationsList.js";
+import { organizationsList } from "@polar-sh/sdk/funcs/organizationsList.js";
 import { SDKValidationError } from "@polar-sh/sdk/models/errors/sdkvalidationerror.js";
 
 // Use `PolarCore` for best tree-shaking performance.
@@ -30,11 +30,7 @@ const polar = new PolarCore({
 });
 
 async function run() {
-  const res = await externalOrganizationsList(polar, {
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
-  });
+  const res = await organizationsList(polar, {});
 
   switch (true) {
     case res.ok:

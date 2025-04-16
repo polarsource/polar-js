@@ -221,34 +221,23 @@ let value: CheckoutPublicConfirmed = {
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 460328,
-    pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 210682,
-    profileSettings: {},
   },
   attachedCustomFields: [
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2024-10-08T07:49:19.613Z"),
-        modifiedAt: new Date("2024-04-28T00:43:07.895Z"),
+        createdAt: new Date("2023-08-19T21:46:50.627Z"),
+        modifiedAt: new Date("2024-11-22T05:04:42.308Z"),
         id: "<value>",
         metadata: {
-          "key": false,
+          "key": 440721,
         },
         slug: "<value>",
         name: "<value>",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {
-          options: [
-            {
-              value: "<value>",
-              label: "<value>",
-            },
-          ],
-        },
+        properties: {},
       },
-      order: 469960,
+      order: 943101,
       required: false,
     },
   ],

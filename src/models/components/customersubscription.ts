@@ -13,6 +13,12 @@ import {
   CustomerCancellationReason$outboundSchema,
 } from "./customercancellationreason.js";
 import {
+  CustomerSubscriptionMeter,
+  CustomerSubscriptionMeter$inboundSchema,
+  CustomerSubscriptionMeter$Outbound,
+  CustomerSubscriptionMeter$outboundSchema,
+} from "./customersubscriptionmeter.js";
+import {
   CustomerSubscriptionProduct,
   CustomerSubscriptionProduct$inboundSchema,
   CustomerSubscriptionProduct$Outbound,
@@ -135,6 +141,10 @@ export type CustomerSubscription = {
    * List of enabled prices for the subscription.
    */
   prices: Array<LegacyRecurringProductPrice | ProductPrice>;
+  /**
+   * List of meters associated with the subscription.
+   */
+  meters: Array<CustomerSubscriptionMeter>;
 };
 
 /** @internal */
@@ -304,6 +314,7 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
       ProductPrice$inboundSchema,
     ]),
   ),
+  meters: z.array(CustomerSubscriptionMeter$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -354,6 +365,7 @@ export type CustomerSubscription$Outbound = {
   product: CustomerSubscriptionProduct$Outbound;
   price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
+  meters: Array<CustomerSubscriptionMeter$Outbound>;
 };
 
 /** @internal */
@@ -397,6 +409,7 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
       ProductPrice$outboundSchema,
     ]),
   ),
+  meters: z.array(CustomerSubscriptionMeter$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

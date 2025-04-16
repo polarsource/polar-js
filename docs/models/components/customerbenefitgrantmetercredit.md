@@ -74,19 +74,15 @@ let value: CustomerBenefitGrantMeterCredit = {
       blog: "<value>",
       location: "<value>",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 846849,
-      pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 407926,
-      profileSettings: {},
     },
     properties: {
-      units: 141744,
+      units: 846849,
       meterId: "<value>",
     },
   },
   properties: {
     lastCreditedMeterId: "<id>",
-    lastCreditedUnits: 901898,
+    lastCreditedUnits: 407926,
     lastCreditedAt: "<value>",
   },
 };

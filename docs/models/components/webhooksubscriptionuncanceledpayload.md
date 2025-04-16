@@ -191,6 +191,7 @@ let value: WebhookSubscriptionUncanceledPayload = {
         recurringInterval: "month",
       },
     ],
+    meters: [],
   },
 };
 ```

@@ -27,7 +27,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * Filter by organization ID.
  */
-export type BenefitsListQueryParamOrganizationIDFilter = string | Array<string>;
+export type QueryParamOrganizationIDFilter = string | Array<string>;
 
 /**
  * Filter by benefit type.
@@ -66,62 +66,52 @@ export type BenefitsListResponse = {
 };
 
 /** @internal */
-export const BenefitsListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<BenefitsListQueryParamOrganizationIDFilter, z.ZodTypeDef, unknown> =
-    z.union([z.string(), z.array(z.string())]);
+export const QueryParamOrganizationIDFilter$inboundSchema: z.ZodType<
+  QueryParamOrganizationIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
-export type BenefitsListQueryParamOrganizationIDFilter$Outbound =
-  | string
-  | Array<string>;
+export type QueryParamOrganizationIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const BenefitsListQueryParamOrganizationIDFilter$outboundSchema:
-  z.ZodType<
-    BenefitsListQueryParamOrganizationIDFilter$Outbound,
-    z.ZodTypeDef,
-    BenefitsListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+export const QueryParamOrganizationIDFilter$outboundSchema: z.ZodType<
+  QueryParamOrganizationIDFilter$Outbound,
+  z.ZodTypeDef,
+  QueryParamOrganizationIDFilter
+> = z.union([z.string(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace BenefitsListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `BenefitsListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitsListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `BenefitsListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitsListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `BenefitsListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound = BenefitsListQueryParamOrganizationIDFilter$Outbound;
+export namespace QueryParamOrganizationIDFilter$ {
+  /** @deprecated use `QueryParamOrganizationIDFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamOrganizationIDFilter$inboundSchema;
+  /** @deprecated use `QueryParamOrganizationIDFilter$outboundSchema` instead. */
+  export const outboundSchema = QueryParamOrganizationIDFilter$outboundSchema;
+  /** @deprecated use `QueryParamOrganizationIDFilter$Outbound` instead. */
+  export type Outbound = QueryParamOrganizationIDFilter$Outbound;
 }
 
-export function benefitsListQueryParamOrganizationIDFilterToJSON(
-  benefitsListQueryParamOrganizationIDFilter:
-    BenefitsListQueryParamOrganizationIDFilter,
+export function queryParamOrganizationIDFilterToJSON(
+  queryParamOrganizationIDFilter: QueryParamOrganizationIDFilter,
 ): string {
   return JSON.stringify(
-    BenefitsListQueryParamOrganizationIDFilter$outboundSchema.parse(
-      benefitsListQueryParamOrganizationIDFilter,
+    QueryParamOrganizationIDFilter$outboundSchema.parse(
+      queryParamOrganizationIDFilter,
     ),
   );
 }
 
-export function benefitsListQueryParamOrganizationIDFilterFromJSON(
+export function queryParamOrganizationIDFilterFromJSON(
   jsonString: string,
-): SafeParseResult<
-  BenefitsListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
+): SafeParseResult<QueryParamOrganizationIDFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      BenefitsListQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'BenefitsListQueryParamOrganizationIDFilter' from JSON`,
+    (x) => QueryParamOrganizationIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamOrganizationIDFilter' from JSON`,
   );
 }
 

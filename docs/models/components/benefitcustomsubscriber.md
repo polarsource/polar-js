@@ -41,10 +41,6 @@ let value: BenefitCustomSubscriber = {
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 380456,
-    pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 379789,
-    profileSettings: {},
   },
   properties: {
     note: "<value>",

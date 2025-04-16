@@ -73,10 +73,6 @@ let value: CustomerBenefitGrantCustom = {
       blog: "<value>",
       location: "<value>",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 470178,
-      pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 321517,
-      profileSettings: {},
     },
     properties: {
       note: "<value>",

@@ -37,10 +37,6 @@ let value: WebhookOrganizationUpdatedPayload = {
     blog: "<value>",
     location: "<value>",
     twitterUsername: "<value>",
-    pledgeMinimumAmount: 667846,
-    pledgeBadgeShowAmount: false,
-    defaultUpfrontSplitToContributors: 292301,
-    profileSettings: {},
   },
 };
 ```

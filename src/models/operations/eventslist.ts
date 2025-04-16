@@ -57,6 +57,10 @@ export type SourceFilter = EventSource | Array<EventSource>;
 
 export type EventsListRequest = {
   /**
+   * Filter events following filter clauses. JSON string following the same schema a meter filter clause.
+   */
+  filter?: string | null | undefined;
+  /**
    * Filter events after this timestamp.
    */
   startTimestamp?: Date | null | undefined;
@@ -368,6 +372,7 @@ export const EventsListRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  filter: z.nullable(z.string()).optional(),
   start_timestamp: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
@@ -402,6 +407,7 @@ export const EventsListRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type EventsListRequest$Outbound = {
+  filter?: string | null | undefined;
   start_timestamp?: string | null | undefined;
   end_timestamp?: string | null | undefined;
   organization_id?: string | Array<string> | null | undefined;
@@ -422,6 +428,7 @@ export const EventsListRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EventsListRequest
 > = z.object({
+  filter: z.nullable(z.string()).optional(),
   startTimestamp: z.nullable(z.date().transform(v => v.toISOString()))
     .optional(),
   endTimestamp: z.nullable(z.date().transform(v => v.toISOString())).optional(),

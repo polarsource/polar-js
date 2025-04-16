@@ -34,15 +34,11 @@ let value: ListResourceOrganization = {
       blog: "<value>",
       location: "<value>",
       twitterUsername: "<value>",
-      pledgeMinimumAmount: 808600,
-      pledgeBadgeShowAmount: false,
-      defaultUpfrontSplitToContributors: 176629,
-      profileSettings: {},
     },
   ],
   pagination: {
-    totalCount: 279990,
-    maxPage: 718643,
+    totalCount: 808600,
+    maxPage: 176629,
   },
 };
 ```

@@ -7,12 +7,18 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  EventSource,
+  EventSource$inboundSchema,
+  EventSource$outboundSchema,
+} from "./eventsource.js";
 
 export type EventName = {
   /**
    * The name of the event.
    */
   name: string;
+  source: EventSource;
   /**
    * Number of times the event has occurred.
    */
@@ -34,6 +40,7 @@ export const EventName$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   name: z.string(),
+  source: EventSource$inboundSchema,
   occurrences: z.number().int(),
   first_seen: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   last_seen: z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -47,6 +54,7 @@ export const EventName$inboundSchema: z.ZodType<
 /** @internal */
 export type EventName$Outbound = {
   name: string;
+  source: string;
   occurrences: number;
   first_seen: string;
   last_seen: string;
@@ -59,6 +67,7 @@ export const EventName$outboundSchema: z.ZodType<
   EventName
 > = z.object({
   name: z.string(),
+  source: EventSource$outboundSchema,
   occurrences: z.number().int(),
   firstSeen: z.date().transform(v => v.toISOString()),
   lastSeen: z.date().transform(v => v.toISOString()),
