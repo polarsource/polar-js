@@ -50,7 +50,6 @@ let value: CustomerState = {
       endsAt: null,
       productId: "d8dd2de1-21b7-4a41-8bc3-ce909c0cfe23",
       discountId: null,
-      priceId: "196ca717-4d84-4d28-a1b8-777255797dbc",
       meters: [
         {
           createdAt: new Date("2023-10-27T09:57:20.709Z"),

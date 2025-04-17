@@ -206,10 +206,6 @@ export type Checkout = {
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
   paymentProcessorMetadata: { [k: string]: string };
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  subtotalAmount: number | null;
   metadata: { [k: string]: string | number | number | boolean };
   /**
    * ID of the customer in your system. If a matching customer exists on Polar, the resulting order will be linked to this customer. Otherwise, a new customer will be created with this external ID set.
@@ -564,7 +560,6 @@ export const Checkout$inboundSchema: z.ZodType<
   customer_billing_address: z.nullable(Address$inboundSchema),
   customer_tax_id: z.nullable(z.string()),
   payment_processor_metadata: z.record(z.string()),
-  subtotal_amount: z.nullable(z.number().int()),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
@@ -618,7 +613,6 @@ export const Checkout$inboundSchema: z.ZodType<
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
-    "subtotal_amount": "subtotalAmount",
     "customer_external_id": "customerExternalId",
     "product_price": "productPrice",
     "subscription_id": "subscriptionId",
@@ -664,7 +658,6 @@ export type Checkout$Outbound = {
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
   payment_processor_metadata: { [k: string]: string };
-  subtotal_amount: number | null;
   metadata: { [k: string]: string | number | number | boolean };
   customer_external_id: string | null;
   products: Array<CheckoutProduct$Outbound>;
@@ -729,7 +722,6 @@ export const Checkout$outboundSchema: z.ZodType<
   customerBillingAddress: z.nullable(Address$outboundSchema),
   customerTaxId: z.nullable(z.string()),
   paymentProcessorMetadata: z.record(z.string()),
-  subtotalAmount: z.nullable(z.number().int()),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
@@ -783,7 +775,6 @@ export const Checkout$outboundSchema: z.ZodType<
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",
-    subtotalAmount: "subtotal_amount",
     customerExternalId: "customer_external_id",
     productPrice: "product_price",
     subscriptionId: "subscription_id",

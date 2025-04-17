@@ -16,7 +16,6 @@ let value: ListResourceBenefitGrant = {
       subscriptionId: "<value>",
       orderId: "<value>",
       customerId: "<value>",
-      userId: "<value>",
       benefitId: "<value>",
       customer: {
         id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",

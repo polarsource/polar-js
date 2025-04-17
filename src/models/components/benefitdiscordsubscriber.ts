@@ -39,7 +39,6 @@ export type BenefitDiscordSubscriber = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  metadata: { [k: string]: string | number | number | boolean };
   type?: "discord" | undefined;
   /**
    * The description of the benefit.
@@ -57,6 +56,7 @@ export type BenefitDiscordSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
+  metadata: { [k: string]: string | number | number | boolean };
   organization: Organization;
   /**
    * Properties available to subscribers for a benefit of type `discord`.
@@ -129,14 +129,14 @@ export const BenefitDiscordSubscriber$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   type: z.literal("discord").optional(),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   organization: Organization$inboundSchema,
   properties: BenefitDiscordSubscriberProperties$inboundSchema,
 }).transform((v) => {
@@ -152,12 +152,12 @@ export type BenefitDiscordSubscriber$Outbound = {
   id: string;
   created_at: string;
   modified_at: string | null;
-  metadata: { [k: string]: string | number | number | boolean };
   type: "discord";
   description: string;
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   organization: Organization$Outbound;
   properties: BenefitDiscordSubscriberProperties$Outbound;
 };
@@ -171,14 +171,14 @@ export const BenefitDiscordSubscriber$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   type: z.literal("discord").default("discord" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   organization: Organization$outboundSchema,
   properties: BenefitDiscordSubscriberProperties$outboundSchema,
 }).transform((v) => {

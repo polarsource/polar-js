@@ -97,10 +97,6 @@ export type CustomerStateSubscription = {
    */
   discountId: string | null;
   /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  priceId: string;
-  /**
    * List of meters associated with the subscription.
    */
   meters: Array<CustomerStateSubscriptionMeter>;
@@ -280,7 +276,6 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
   ),
   product_id: z.string(),
   discount_id: z.nullable(z.string()),
-  price_id: z.string(),
   meters: z.array(CustomerStateSubscriptionMeter$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
@@ -296,7 +291,6 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
     "ends_at": "endsAt",
     "product_id": "productId",
     "discount_id": "discountId",
-    "price_id": "priceId",
   });
 });
 
@@ -321,7 +315,6 @@ export type CustomerStateSubscription$Outbound = {
   ends_at: string | null;
   product_id: string;
   discount_id: string | null;
-  price_id: string;
   meters: Array<CustomerStateSubscriptionMeter$Outbound>;
 };
 
@@ -359,7 +352,6 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
   endsAt: z.nullable(z.date().transform(v => v.toISOString())),
   productId: z.string(),
   discountId: z.nullable(z.string()),
-  priceId: z.string(),
   meters: z.array(CustomerStateSubscriptionMeter$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
@@ -375,7 +367,6 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
     endsAt: "ends_at",
     productId: "product_id",
     discountId: "discount_id",
-    priceId: "price_id",
   });
 });
 

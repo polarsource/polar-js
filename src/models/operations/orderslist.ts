@@ -22,11 +22,6 @@ import {
   ProductBillingType$inboundSchema,
   ProductBillingType$outboundSchema,
 } from "../components/productbillingtype.js";
-import {
-  ProductPriceType,
-  ProductPriceType$inboundSchema,
-  ProductPriceType$outboundSchema,
-} from "../components/productpricetype.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -45,8 +40,6 @@ export type OrdersListQueryParamProductIDFilter = string | Array<string>;
 export type ProductBillingTypeFilter =
   | ProductBillingType
   | Array<ProductBillingType>;
-
-export type ProductPriceTypeFilter = ProductPriceType | Array<ProductPriceType>;
 
 /**
  * Filter by discount ID.
@@ -78,14 +71,6 @@ export type OrdersListRequest = {
   productBillingType?:
     | ProductBillingType
     | Array<ProductBillingType>
-    | null
-    | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  productPriceType?:
-    | ProductPriceType
-    | Array<ProductPriceType>
     | null
     | undefined;
   /**
@@ -289,60 +274,6 @@ export function productBillingTypeFilterFromJSON(
 }
 
 /** @internal */
-export const ProductPriceTypeFilter$inboundSchema: z.ZodType<
-  ProductPriceTypeFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  ProductPriceType$inboundSchema,
-  z.array(ProductPriceType$inboundSchema),
-]);
-
-/** @internal */
-export type ProductPriceTypeFilter$Outbound = string | Array<string>;
-
-/** @internal */
-export const ProductPriceTypeFilter$outboundSchema: z.ZodType<
-  ProductPriceTypeFilter$Outbound,
-  z.ZodTypeDef,
-  ProductPriceTypeFilter
-> = z.union([
-  ProductPriceType$outboundSchema,
-  z.array(ProductPriceType$outboundSchema),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceTypeFilter$ {
-  /** @deprecated use `ProductPriceTypeFilter$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceTypeFilter$inboundSchema;
-  /** @deprecated use `ProductPriceTypeFilter$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceTypeFilter$outboundSchema;
-  /** @deprecated use `ProductPriceTypeFilter$Outbound` instead. */
-  export type Outbound = ProductPriceTypeFilter$Outbound;
-}
-
-export function productPriceTypeFilterToJSON(
-  productPriceTypeFilter: ProductPriceTypeFilter,
-): string {
-  return JSON.stringify(
-    ProductPriceTypeFilter$outboundSchema.parse(productPriceTypeFilter),
-  );
-}
-
-export function productPriceTypeFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductPriceTypeFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductPriceTypeFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductPriceTypeFilter' from JSON`,
-  );
-}
-
-/** @internal */
 export const QueryParamDiscountIDFilter$inboundSchema: z.ZodType<
   QueryParamDiscountIDFilter,
   z.ZodTypeDef,
@@ -508,12 +439,6 @@ export const OrdersListRequest$inboundSchema: z.ZodType<
       z.array(ProductBillingType$inboundSchema),
     ]),
   ).optional(),
-  product_price_type: z.nullable(
-    z.union([
-      ProductPriceType$inboundSchema,
-      z.array(ProductPriceType$inboundSchema),
-    ]),
-  ).optional(),
   discount_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
@@ -528,7 +453,6 @@ export const OrdersListRequest$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
     "product_id": "productId",
     "product_billing_type": "productBillingType",
-    "product_price_type": "productPriceType",
     "discount_id": "discountId",
     "customer_id": "customerId",
     "checkout_id": "checkoutId",
@@ -540,7 +464,6 @@ export type OrdersListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
   product_billing_type?: string | Array<string> | null | undefined;
-  product_price_type?: string | Array<string> | null | undefined;
   discount_id?: string | Array<string> | null | undefined;
   customer_id?: string | Array<string> | null | undefined;
   checkout_id?: string | Array<string> | null | undefined;
@@ -564,12 +487,6 @@ export const OrdersListRequest$outboundSchema: z.ZodType<
       z.array(ProductBillingType$outboundSchema),
     ]),
   ).optional(),
-  productPriceType: z.nullable(
-    z.union([
-      ProductPriceType$outboundSchema,
-      z.array(ProductPriceType$outboundSchema),
-    ]),
-  ).optional(),
   discountId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   checkoutId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
@@ -581,7 +498,6 @@ export const OrdersListRequest$outboundSchema: z.ZodType<
     organizationId: "organization_id",
     productId: "product_id",
     productBillingType: "product_billing_type",
-    productPriceType: "product_price_type",
     discountId: "discount_id",
     customerId: "customer_id",
     checkoutId: "checkout_id",

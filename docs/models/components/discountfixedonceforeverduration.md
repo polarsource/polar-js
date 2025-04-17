@@ -27,12 +27,16 @@ let value: DiscountFixedOnceForeverDuration = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   products: [
     {
-      createdAt: new Date("2024-11-17T18:46:46.182Z"),
-      modifiedAt: new Date("2023-07-12T04:38:15.587Z"),
+      metadata: {
+        "key": 1753.58,
+      },
+      createdAt: new Date("2024-02-23T14:27:05.286Z"),
+      modifiedAt: new Date("2025-08-16T21:57:49.726Z"),
       id: "<value>",
       name: "<value>",
-      description: "um glider ingratiate extremely across phew",
-      recurringInterval: "year",
+      description:
+        "aha rejigger repentant generously diligently mmm sparkling even unless",
+      recurringInterval: "month",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",

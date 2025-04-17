@@ -29,11 +29,15 @@ let value: DiscountFixedRepeatDuration = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   products: [
     {
-      createdAt: new Date("2024-08-06T21:24:04.554Z"),
-      modifiedAt: new Date("2023-07-12T15:41:03.265Z"),
+      metadata: {
+        "key": 1757.78,
+      },
+      createdAt: new Date("2023-04-14T05:16:00.085Z"),
+      modifiedAt: new Date("2025-08-20T16:46:06.231Z"),
       id: "<value>",
       name: "<value>",
-      description: "after wrongly badly",
+      description:
+        "what broadside whose even negative cinema whoa since smooth pants",
       recurringInterval: "year",
       isRecurring: false,
       isArchived: false,

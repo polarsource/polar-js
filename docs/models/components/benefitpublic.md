@@ -1,19 +1,16 @@
-# BenefitBase
+# BenefitPublic
 
 ## Example Usage
 
 ```typescript
-import { BenefitBase } from "@polar-sh/sdk/models/components/benefitbase.js";
+import { BenefitPublic } from "@polar-sh/sdk/models/components/benefitpublic.js";
 
-let value: BenefitBase = {
+let value: BenefitPublic = {
   id: "<value>",
-  createdAt: new Date("2025-01-21T08:29:07.820Z"),
-  modifiedAt: new Date("2025-01-12T23:47:30.135Z"),
-  metadata: {
-    "key": "<value>",
-  },
+  createdAt: new Date("2023-09-22T15:44:06.701Z"),
+  modifiedAt: new Date("2024-07-03T19:58:12.825Z"),
   type: "github_repository",
-  description: "commonly aha detective rag chromakey as",
+  description: "orchid lest next before through hunger for abaft plumber",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
@@ -27,7 +24,6 @@ let value: BenefitBase = {
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the benefit.                                                                        |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Creation timestamp of the object.                                                             |
 | `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |
-| `metadata`                                                                                    | Record<string, *components.BenefitBaseMetadata*>                                              | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `type`                                                                                        | [components.BenefitType](../../models/components/benefittype.md)                              | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `description`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | The description of the benefit.                                                               |
 | `selectable`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is selectable when creating a product.                                    |

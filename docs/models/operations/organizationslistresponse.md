@@ -30,16 +30,11 @@ let value: OrganizationsListResponse = {
           allowCustomerUpdates: false,
           prorationBehavior: "prorate",
         },
-        bio: "<value>",
-        company: "Runolfsson, Ritchie and Hills",
-        blog: "<value>",
-        location: "<value>",
-        twitterUsername: "<value>",
       },
     ],
     pagination: {
-      totalCount: 621948,
-      maxPage: 235430,
+      totalCount: 935270,
+      maxPage: 766562,
     },
   },
 };

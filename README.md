@@ -217,7 +217,6 @@ async function run() {
       paymentProcessorMetadata: {
         "key": "<value>",
       },
-      subtotalAmount: 219352,
       metadata: {
         "key": 366960,
         "key1": 961375,
@@ -301,9 +300,6 @@ async function run() {
             id: "<value>",
             createdAt: new Date("2025-11-18T07:12:26.749Z"),
             modifiedAt: new Date("2024-08-14T14:29:29.201Z"),
-            metadata: {
-              "key": 2107.02,
-            },
             type: "github_repository",
             description: "phew empty flawed worth radiant anti of blissfully",
             selectable: false,
@@ -314,9 +310,6 @@ async function run() {
             id: "<value>",
             createdAt: new Date("2024-03-12T06:20:21.161Z"),
             modifiedAt: new Date("2024-06-27T20:20:27.400Z"),
-            metadata: {
-              "key": false,
-            },
             type: "license_keys",
             description: "ack neatly jagged as weekly drat nor why",
             selectable: true,
@@ -327,10 +320,6 @@ async function run() {
             id: "<value>",
             createdAt: new Date("2024-03-31T07:42:35.077Z"),
             modifiedAt: new Date("2025-04-30T13:13:01.707Z"),
-            metadata: {
-              "key": 8517.45,
-              "key1": 5003.72,
-            },
             type: "github_repository",
             description:
               "ironclad chilly seriously finger unbearably and bourgeoisie deplore unless",
@@ -361,21 +350,13 @@ async function run() {
         ],
       },
       productPrice: {
-        createdAt: new Date("2025-06-18T23:55:22.042Z"),
-        modifiedAt: new Date("2025-07-31T13:25:31.669Z"),
+        createdAt: new Date("2024-07-02T09:46:29.338Z"),
+        modifiedAt: new Date("2025-01-24T18:08:49.597Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        type: "one_time",
-        recurringInterval: "month",
-        priceCurrency: "<value>",
-        unitAmount: "<value>",
-        capAmount: 626642,
-        meterId: "<value>",
-        meter: {
-          id: "<value>",
-          name: "<value>",
-        },
+        type: "recurring",
+        recurringInterval: "year",
       },
       discount: {
         duration: "forever",
@@ -391,11 +372,11 @@ async function run() {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2024-02-07T04:30:48.802Z"),
-            modifiedAt: new Date("2025-06-25T22:47:14.264Z"),
+            createdAt: new Date("2023-11-12T09:40:10.044Z"),
+            modifiedAt: new Date("2023-08-29T09:50:00.241Z"),
             id: "<value>",
             metadata: {
-              "key": 4995.26,
+              "key": 3852.18,
             },
             slug: "<value>",
             name: "<value>",
@@ -408,11 +389,11 @@ async function run() {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2024-08-14T19:11:10.463Z"),
-            modifiedAt: new Date("2023-04-15T12:36:50.681Z"),
+            createdAt: new Date("2025-06-25T22:47:14.264Z"),
+            modifiedAt: new Date("2025-01-27T19:10:37.564Z"),
             id: "<value>",
             metadata: {
-              "key": "<value>",
+              "key": 18677,
             },
             slug: "<value>",
             name: "<value>",
@@ -425,23 +406,16 @@ async function run() {
         {
           customFieldId: "<value>",
           customField: {
-            createdAt: new Date("2025-03-22T08:44:11.595Z"),
-            modifiedAt: new Date("2024-09-02T09:05:14.886Z"),
+            createdAt: new Date("2023-04-15T12:36:50.681Z"),
+            modifiedAt: new Date("2023-04-02T00:05:42.586Z"),
             id: "<value>",
             metadata: {
-              "key": false,
+              "key": 7402.96,
             },
             slug: "<value>",
             name: "<value>",
             organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-            properties: {
-              options: [
-                {
-                  value: "<value>",
-                  label: "<value>",
-                },
-              ],
-            },
+            properties: {},
           },
           order: 660585,
           required: false,

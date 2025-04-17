@@ -76,12 +76,6 @@ import {
   SubscriptionStatus$inboundSchema,
   SubscriptionStatus$outboundSchema,
 } from "./subscriptionstatus.js";
-import {
-  SubscriptionUser,
-  SubscriptionUser$inboundSchema,
-  SubscriptionUser$Outbound,
-  SubscriptionUser$outboundSchema,
-} from "./subscriptionuser.js";
 
 export type Metadata = string | number | number | boolean;
 
@@ -92,11 +86,6 @@ export type SubscriptionDiscount =
   | DiscountFixedOnceForeverDurationBase
   | DiscountPercentageRepeatDurationBase
   | DiscountFixedRepeatDurationBase;
-
-/**
- * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
- */
-export type Price = LegacyRecurringProductPrice | ProductPrice;
 
 export type SubscriptionPrices = LegacyRecurringProductPrice | ProductPrice;
 
@@ -166,10 +155,6 @@ export type Subscription = {
   checkoutId: string | null;
   customerCancellationReason: CustomerCancellationReason | null;
   customerCancellationComment: string | null;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  priceId: string;
   metadata: { [k: string]: string | number | number | boolean };
   /**
    * Key-value object storing custom field values.
@@ -178,11 +163,6 @@ export type Subscription = {
     | { [k: string]: string | number | boolean | Date | null }
     | undefined;
   customer: SubscriptionCustomer;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  userId: string;
-  user: SubscriptionUser;
   /**
    * A product.
    */
@@ -193,10 +173,6 @@ export type Subscription = {
     | DiscountPercentageRepeatDurationBase
     | DiscountFixedRepeatDurationBase
     | null;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  price: LegacyRecurringProductPrice | ProductPrice;
   /**
    * List of enabled prices for the subscription.
    */
@@ -370,55 +346,6 @@ export function subscriptionDiscountFromJSON(
 }
 
 /** @internal */
-export const Price$inboundSchema: z.ZodType<Price, z.ZodTypeDef, unknown> = z
-  .union([
-    LegacyRecurringProductPrice$inboundSchema,
-    ProductPrice$inboundSchema,
-  ]);
-
-/** @internal */
-export type Price$Outbound =
-  | LegacyRecurringProductPrice$Outbound
-  | ProductPrice$Outbound;
-
-/** @internal */
-export const Price$outboundSchema: z.ZodType<
-  Price$Outbound,
-  z.ZodTypeDef,
-  Price
-> = z.union([
-  LegacyRecurringProductPrice$outboundSchema,
-  ProductPrice$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Price$ {
-  /** @deprecated use `Price$inboundSchema` instead. */
-  export const inboundSchema = Price$inboundSchema;
-  /** @deprecated use `Price$outboundSchema` instead. */
-  export const outboundSchema = Price$outboundSchema;
-  /** @deprecated use `Price$Outbound` instead. */
-  export type Outbound = Price$Outbound;
-}
-
-export function priceToJSON(price: Price): string {
-  return JSON.stringify(Price$outboundSchema.parse(price));
-}
-
-export function priceFromJSON(
-  jsonString: string,
-): SafeParseResult<Price, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Price$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Price' from JSON`,
-  );
-}
-
-/** @internal */
 export const SubscriptionPrices$inboundSchema: z.ZodType<
   SubscriptionPrices,
   z.ZodTypeDef,
@@ -516,7 +443,6 @@ export const Subscription$inboundSchema: z.ZodType<
     CustomerCancellationReason$inboundSchema,
   ),
   customer_cancellation_comment: z.nullable(z.string()),
-  price_id: z.string(),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
@@ -531,8 +457,6 @@ export const Subscription$inboundSchema: z.ZodType<
     ),
   ).optional(),
   customer: SubscriptionCustomer$inboundSchema,
-  user_id: z.string(),
-  user: SubscriptionUser$inboundSchema,
   product: Product$inboundSchema,
   discount: z.nullable(
     z.union([
@@ -542,10 +466,6 @@ export const Subscription$inboundSchema: z.ZodType<
       DiscountFixedRepeatDurationBase$inboundSchema,
     ]),
   ),
-  price: z.union([
-    LegacyRecurringProductPrice$inboundSchema,
-    ProductPrice$inboundSchema,
-  ]),
   prices: z.array(
     z.union([
       LegacyRecurringProductPrice$inboundSchema,
@@ -571,9 +491,7 @@ export const Subscription$inboundSchema: z.ZodType<
     "checkout_id": "checkoutId",
     "customer_cancellation_reason": "customerCancellationReason",
     "customer_cancellation_comment": "customerCancellationComment",
-    "price_id": "priceId",
     "custom_field_data": "customFieldData",
-    "user_id": "userId",
   });
 });
 
@@ -599,14 +517,11 @@ export type Subscription$Outbound = {
   checkout_id: string | null;
   customer_cancellation_reason: string | null;
   customer_cancellation_comment: string | null;
-  price_id: string;
   metadata: { [k: string]: string | number | number | boolean };
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
   customer: SubscriptionCustomer$Outbound;
-  user_id: string;
-  user: SubscriptionUser$Outbound;
   product: Product$Outbound;
   discount:
     | DiscountPercentageOnceForeverDurationBase$Outbound
@@ -614,7 +529,6 @@ export type Subscription$Outbound = {
     | DiscountPercentageRepeatDurationBase$Outbound
     | DiscountFixedRepeatDurationBase$Outbound
     | null;
-  price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
   meters: Array<SubscriptionMeter$Outbound>;
 };
@@ -647,7 +561,6 @@ export const Subscription$outboundSchema: z.ZodType<
     CustomerCancellationReason$outboundSchema,
   ),
   customerCancellationComment: z.nullable(z.string()),
-  priceId: z.string(),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
@@ -662,8 +575,6 @@ export const Subscription$outboundSchema: z.ZodType<
     ),
   ).optional(),
   customer: SubscriptionCustomer$outboundSchema,
-  userId: z.string(),
-  user: SubscriptionUser$outboundSchema,
   product: Product$outboundSchema,
   discount: z.nullable(
     z.union([
@@ -673,10 +584,6 @@ export const Subscription$outboundSchema: z.ZodType<
       DiscountFixedRepeatDurationBase$outboundSchema,
     ]),
   ),
-  price: z.union([
-    LegacyRecurringProductPrice$outboundSchema,
-    ProductPrice$outboundSchema,
-  ]),
   prices: z.array(
     z.union([
       LegacyRecurringProductPrice$outboundSchema,
@@ -702,9 +609,7 @@ export const Subscription$outboundSchema: z.ZodType<
     checkoutId: "checkout_id",
     customerCancellationReason: "customer_cancellation_reason",
     customerCancellationComment: "customer_cancellation_comment",
-    priceId: "price_id",
     customFieldData: "custom_field_data",
-    userId: "user_id",
   });
 });
 

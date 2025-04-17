@@ -11,13 +11,13 @@ let value: ListResourceBenefit = {
       id: "<value>",
       createdAt: new Date("2023-09-27T12:36:24.812Z"),
       modifiedAt: new Date("2024-11-08T01:17:28.121Z"),
-      metadata: {
-        "key": "<value>",
-      },
-      description: "hyena sarong under",
+      description: "yippee license annual",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
+      metadata: {
+        "key": false,
+      },
       properties: {
         prefix: "<value>",
         expires: {

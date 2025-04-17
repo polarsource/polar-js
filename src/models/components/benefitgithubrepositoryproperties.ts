@@ -40,10 +40,6 @@ export type BenefitGitHubRepositoryProperties = {
    * The permission level to grant. Read more about roles and their permissions on [GitHub documentation](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role).
    */
   permission: Permission;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  repositoryId?: string | null | undefined;
 };
 
 /** @internal */
@@ -74,12 +70,10 @@ export const BenefitGitHubRepositoryProperties$inboundSchema: z.ZodType<
   repository_owner: z.string(),
   repository_name: z.string(),
   permission: Permission$inboundSchema,
-  repository_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "repository_owner": "repositoryOwner",
     "repository_name": "repositoryName",
-    "repository_id": "repositoryId",
   });
 });
 
@@ -88,7 +82,6 @@ export type BenefitGitHubRepositoryProperties$Outbound = {
   repository_owner: string;
   repository_name: string;
   permission: string;
-  repository_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -100,12 +93,10 @@ export const BenefitGitHubRepositoryProperties$outboundSchema: z.ZodType<
   repositoryOwner: z.string(),
   repositoryName: z.string(),
   permission: Permission$outboundSchema,
-  repositoryId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     repositoryOwner: "repository_owner",
     repositoryName: "repository_name",
-    repositoryId: "repository_id",
   });
 });
 

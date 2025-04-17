@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BenefitBase,
-  BenefitBase$inboundSchema,
-  BenefitBase$Outbound,
-  BenefitBase$outboundSchema,
-} from "./benefitbase.js";
+  BenefitPublic,
+  BenefitPublic$inboundSchema,
+  BenefitPublic$Outbound,
+  BenefitPublic$outboundSchema,
+} from "./benefitpublic.js";
 import {
   LegacyRecurringProductPrice,
   LegacyRecurringProductPrice$inboundSchema,
@@ -91,7 +91,7 @@ export type CustomerSubscriptionProduct = {
   /**
    * List of benefits granted by the product.
    */
-  benefits: Array<BenefitBase>;
+  benefits: Array<BenefitPublic>;
   /**
    * List of medias associated to the product.
    */
@@ -181,7 +181,7 @@ export const CustomerSubscriptionProduct$inboundSchema: z.ZodType<
       ProductPrice$inboundSchema,
     ]),
   ),
-  benefits: z.array(BenefitBase$inboundSchema),
+  benefits: z.array(BenefitPublic$inboundSchema),
   medias: z.array(ProductMediaFileRead$inboundSchema),
   organization: Organization$inboundSchema,
 }).transform((v) => {
@@ -207,7 +207,7 @@ export type CustomerSubscriptionProduct$Outbound = {
   is_archived: boolean;
   organization_id: string;
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
-  benefits: Array<BenefitBase$Outbound>;
+  benefits: Array<BenefitPublic$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
   organization: Organization$Outbound;
 };
@@ -233,7 +233,7 @@ export const CustomerSubscriptionProduct$outboundSchema: z.ZodType<
       ProductPrice$outboundSchema,
     ]),
   ),
-  benefits: z.array(BenefitBase$outboundSchema),
+  benefits: z.array(BenefitPublic$outboundSchema),
   medias: z.array(ProductMediaFileRead$outboundSchema),
   organization: Organization$outboundSchema,
 }).transform((v) => {

@@ -44,32 +44,32 @@ import {
 } from "./benefitmetercredit.js";
 
 export type Benefit =
+  | BenefitCustom
   | BenefitDiscord
   | BenefitGitHubRepository
   | BenefitDownloadables
   | BenefitLicenseKeys
-  | BenefitMeterCredit
-  | BenefitCustom;
+  | BenefitMeterCredit;
 
 /** @internal */
 export const Benefit$inboundSchema: z.ZodType<Benefit, z.ZodTypeDef, unknown> =
   z.union([
+    BenefitCustom$inboundSchema,
     BenefitDiscord$inboundSchema,
     BenefitGitHubRepository$inboundSchema,
     BenefitDownloadables$inboundSchema,
     BenefitLicenseKeys$inboundSchema,
     BenefitMeterCredit$inboundSchema,
-    BenefitCustom$inboundSchema,
   ]);
 
 /** @internal */
 export type Benefit$Outbound =
+  | BenefitCustom$Outbound
   | BenefitDiscord$Outbound
   | BenefitGitHubRepository$Outbound
   | BenefitDownloadables$Outbound
   | BenefitLicenseKeys$Outbound
-  | BenefitMeterCredit$Outbound
-  | BenefitCustom$Outbound;
+  | BenefitMeterCredit$Outbound;
 
 /** @internal */
 export const Benefit$outboundSchema: z.ZodType<
@@ -77,12 +77,12 @@ export const Benefit$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Benefit
 > = z.union([
+  BenefitCustom$outboundSchema,
   BenefitDiscord$outboundSchema,
   BenefitGitHubRepository$outboundSchema,
   BenefitDownloadables$outboundSchema,
   BenefitLicenseKeys$outboundSchema,
   BenefitMeterCredit$outboundSchema,
-  BenefitCustom$outboundSchema,
 ]);
 
 /**

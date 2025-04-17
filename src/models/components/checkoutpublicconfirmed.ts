@@ -215,10 +215,6 @@ export type CheckoutPublicConfirmed = {
   customerTaxId: string | null;
   paymentProcessorMetadata: { [k: string]: string };
   /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  subtotalAmount: number | null;
-  /**
    * List of products available to select.
    */
   products: Array<CheckoutProduct>;
@@ -484,7 +480,6 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
   customer_billing_address: z.nullable(Address$inboundSchema),
   customer_tax_id: z.nullable(z.string()),
   payment_processor_metadata: z.record(z.string()),
-  subtotal_amount: z.nullable(z.number().int()),
   products: z.array(CheckoutProduct$inboundSchema),
   product: CheckoutProduct$inboundSchema,
   product_price: z.union([
@@ -532,7 +527,6 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
-    "subtotal_amount": "subtotalAmount",
     "product_price": "productPrice",
     "attached_custom_fields": "attachedCustomFields",
     "customer_session_token": "customerSessionToken",
@@ -576,7 +570,6 @@ export type CheckoutPublicConfirmed$Outbound = {
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
   payment_processor_metadata: { [k: string]: string };
-  subtotal_amount: number | null;
   products: Array<CheckoutProduct$Outbound>;
   product: CheckoutProduct$Outbound;
   product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
@@ -639,7 +632,6 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
   customerBillingAddress: z.nullable(Address$outboundSchema),
   customerTaxId: z.nullable(z.string()),
   paymentProcessorMetadata: z.record(z.string()),
-  subtotalAmount: z.nullable(z.number().int()),
   products: z.array(CheckoutProduct$outboundSchema),
   product: CheckoutProduct$outboundSchema,
   productPrice: z.union([
@@ -687,7 +679,6 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",
-    subtotalAmount: "subtotal_amount",
     productPrice: "product_price",
     attachedCustomFields: "attached_custom_fields",
     customerSessionToken: "customer_session_token",

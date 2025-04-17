@@ -19,7 +19,6 @@ let value: WebhookBenefitGrantCreatedPayload = {
     subscriptionId: "<value>",
     orderId: "<value>",
     customerId: "<value>",
-    userId: "<value>",
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
@@ -48,13 +47,13 @@ let value: WebhookBenefitGrantCreatedPayload = {
       id: "<value>",
       createdAt: new Date("2025-02-01T06:50:40.155Z"),
       modifiedAt: new Date("2024-10-14T07:36:23.610Z"),
-      metadata: {
-        "key": "<value>",
-      },
-      description: "habit ouch woot geez wheel analyse duh trash jovially",
+      description: "artistic monasticism when that",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
+      metadata: {
+        "key": "<value>",
+      },
       properties: {
         archived: {
           "key": false,

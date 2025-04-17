@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BenefitBase,
-  BenefitBase$inboundSchema,
-  BenefitBase$Outbound,
-  BenefitBase$outboundSchema,
-} from "./benefitbase.js";
+  BenefitPublic,
+  BenefitPublic$inboundSchema,
+  BenefitPublic$Outbound,
+  BenefitPublic$outboundSchema,
+} from "./benefitpublic.js";
 import {
   LegacyRecurringProductPrice,
   LegacyRecurringProductPrice$inboundSchema,
@@ -37,6 +37,8 @@ import {
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
 
+export type CheckoutLinkProductMetadata = string | number | number | boolean;
+
 export type CheckoutLinkProductPrices =
   | LegacyRecurringProductPrice
   | ProductPrice;
@@ -45,6 +47,7 @@ export type CheckoutLinkProductPrices =
  * Product data for a checkout link.
  */
 export type CheckoutLinkProduct = {
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * Creation timestamp of the object.
    */
@@ -88,12 +91,66 @@ export type CheckoutLinkProduct = {
   /**
    * List of benefits granted by the product.
    */
-  benefits: Array<BenefitBase>;
+  benefits: Array<BenefitPublic>;
   /**
    * List of medias associated to the product.
    */
   medias: Array<ProductMediaFileRead>;
 };
+
+/** @internal */
+export const CheckoutLinkProductMetadata$inboundSchema: z.ZodType<
+  CheckoutLinkProductMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type CheckoutLinkProductMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const CheckoutLinkProductMetadata$outboundSchema: z.ZodType<
+  CheckoutLinkProductMetadata$Outbound,
+  z.ZodTypeDef,
+  CheckoutLinkProductMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutLinkProductMetadata$ {
+  /** @deprecated use `CheckoutLinkProductMetadata$inboundSchema` instead. */
+  export const inboundSchema = CheckoutLinkProductMetadata$inboundSchema;
+  /** @deprecated use `CheckoutLinkProductMetadata$outboundSchema` instead. */
+  export const outboundSchema = CheckoutLinkProductMetadata$outboundSchema;
+  /** @deprecated use `CheckoutLinkProductMetadata$Outbound` instead. */
+  export type Outbound = CheckoutLinkProductMetadata$Outbound;
+}
+
+export function checkoutLinkProductMetadataToJSON(
+  checkoutLinkProductMetadata: CheckoutLinkProductMetadata,
+): string {
+  return JSON.stringify(
+    CheckoutLinkProductMetadata$outboundSchema.parse(
+      checkoutLinkProductMetadata,
+    ),
+  );
+}
+
+export function checkoutLinkProductMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutLinkProductMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutLinkProductMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutLinkProductMetadata' from JSON`,
+  );
+}
 
 /** @internal */
 export const CheckoutLinkProductPrices$inboundSchema: z.ZodType<
@@ -157,6 +214,9 @@ export const CheckoutLinkProduct$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -174,7 +234,7 @@ export const CheckoutLinkProduct$inboundSchema: z.ZodType<
       ProductPrice$inboundSchema,
     ]),
   ),
-  benefits: z.array(BenefitBase$inboundSchema),
+  benefits: z.array(BenefitPublic$inboundSchema),
   medias: z.array(ProductMediaFileRead$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
@@ -189,6 +249,7 @@ export const CheckoutLinkProduct$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutLinkProduct$Outbound = {
+  metadata: { [k: string]: string | number | number | boolean };
   created_at: string;
   modified_at: string | null;
   id: string;
@@ -199,7 +260,7 @@ export type CheckoutLinkProduct$Outbound = {
   is_archived: boolean;
   organization_id: string;
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
-  benefits: Array<BenefitBase$Outbound>;
+  benefits: Array<BenefitPublic$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
 };
 
@@ -209,6 +270,9 @@ export const CheckoutLinkProduct$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutLinkProduct
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
@@ -224,7 +288,7 @@ export const CheckoutLinkProduct$outboundSchema: z.ZodType<
       ProductPrice$outboundSchema,
     ]),
   ),
-  benefits: z.array(BenefitBase$outboundSchema),
+  benefits: z.array(BenefitPublic$outboundSchema),
   medias: z.array(ProductMediaFileRead$outboundSchema),
 }).transform((v) => {
   return remap$(v, {

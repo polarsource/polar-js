@@ -106,10 +106,6 @@ export type BenefitGrantWebhook = {
    */
   customerId: string;
   /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  userId: string;
-  /**
    * The ID of the benefit concerned by this grant.
    */
   benefitId: string;
@@ -288,7 +284,6 @@ export const BenefitGrantWebhook$inboundSchema: z.ZodType<
   subscription_id: z.nullable(z.string()),
   order_id: z.nullable(z.string()),
   customer_id: z.string(),
-  user_id: z.string(),
   benefit_id: z.string(),
   customer: Customer$inboundSchema,
   properties: z.union([
@@ -319,7 +314,6 @@ export const BenefitGrantWebhook$inboundSchema: z.ZodType<
     "subscription_id": "subscriptionId",
     "order_id": "orderId",
     "customer_id": "customerId",
-    "user_id": "userId",
     "benefit_id": "benefitId",
     "previous_properties": "previousProperties",
   });
@@ -337,7 +331,6 @@ export type BenefitGrantWebhook$Outbound = {
   subscription_id: string | null;
   order_id: string | null;
   customer_id: string;
-  user_id: string;
   benefit_id: string;
   customer: Customer$Outbound;
   properties:
@@ -373,7 +366,6 @@ export const BenefitGrantWebhook$outboundSchema: z.ZodType<
   subscriptionId: z.nullable(z.string()),
   orderId: z.nullable(z.string()),
   customerId: z.string(),
-  userId: z.string(),
   benefitId: z.string(),
   customer: Customer$outboundSchema,
   properties: z.union([
@@ -404,7 +396,6 @@ export const BenefitGrantWebhook$outboundSchema: z.ZodType<
     subscriptionId: "subscription_id",
     orderId: "order_id",
     customerId: "customer_id",
-    userId: "user_id",
     benefitId: "benefit_id",
     previousProperties: "previous_properties",
   });

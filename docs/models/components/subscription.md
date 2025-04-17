@@ -26,7 +26,6 @@ let value: Subscription = {
   checkoutId: "<value>",
   customerCancellationReason: "customer_service",
   customerCancellationComment: "<value>",
-  priceId: "<value>",
   metadata: {
     "key": 6542.35,
   },
@@ -52,18 +51,12 @@ let value: Subscription = {
     deletedAt: new Date("2023-01-08T23:04:09.508Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
-  userId: "<value>",
-  user: {
-    id: "<value>",
-    email: "Felicia.Strosin10@hotmail.com",
-    publicName: "<value>",
-  },
   product: {
-    createdAt: new Date("2024-11-20T07:57:52.351Z"),
-    modifiedAt: new Date("2024-10-12T20:51:20.798Z"),
+    createdAt: new Date("2025-04-05T05:10:54.629Z"),
+    modifiedAt: new Date("2024-01-20T02:42:04.239Z"),
     id: "<value>",
     name: "<value>",
-    description: "less gadzooks armchair new unit",
+    description: "ew less gadzooks armchair new unit",
     recurringInterval: "month",
     isRecurring: false,
     isArchived: false,
@@ -86,14 +79,13 @@ let value: Subscription = {
         id: "<value>",
         createdAt: new Date("2024-09-19T13:39:25.849Z"),
         modifiedAt: new Date("2024-07-21T20:55:28.613Z"),
-        metadata: {
-          "key": 417765,
-        },
-        description:
-          "as dimly worth linear bourgeoisie pro greedily bah redesign mostly",
+        description: "final convoke scaly phew siege",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
+        metadata: {
+          "key": 931.52,
+        },
         properties: {
           repositoryOwner: "polarsource",
           repositoryName: "private_repo",
@@ -106,30 +98,30 @@ let value: Subscription = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/etc/defaults",
+        path: "/opt/include",
         mimeType: "<value>",
-        size: 340628,
+        size: 615195,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2023-06-29T22:16:31.198Z"),
+        lastModifiedAt: new Date("2023-12-04T14:15:01.091Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2024-08-04T14:17:23.896Z"),
+        createdAt: new Date("2023-02-17T13:48:01.906Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://elementary-scholarship.name/",
+        publicUrl: "https://shameless-laughter.info",
       },
     ],
     attachedCustomFields: [
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2023-12-20T03:22:52.066Z"),
-          modifiedAt: new Date("2024-07-11T06:03:48.130Z"),
+          createdAt: new Date("2024-09-24T14:32:13.939Z"),
+          modifiedAt: new Date("2023-05-25T14:59:09.071Z"),
           id: "<value>",
           metadata: {
-            "key": 516800,
+            "key": 308808,
           },
           slug: "<value>",
           name: "<value>",
@@ -143,53 +135,41 @@ let value: Subscription = {
             ],
           },
         },
-        order: 860316,
+        order: 585371,
         required: false,
       },
     ],
   },
   discount: {
-    duration: "repeating",
+    duration: "once",
     type: "fixed",
-    amount: 613509,
-    currency: "Argentine Peso",
-    createdAt: new Date("2024-06-18T21:00:43.411Z"),
-    modifiedAt: new Date("2023-05-27T19:25:41.956Z"),
+    amount: 185916,
+    currency: "Brunei Dollar",
+    createdAt: new Date("2024-11-30T12:11:39.373Z"),
+    modifiedAt: new Date("2025-04-15T03:44:19.963Z"),
     id: "<value>",
     metadata: {
       "key": "<value>",
     },
     name: "<value>",
     code: "<value>",
-    startsAt: new Date("2024-11-26T13:06:15.725Z"),
-    endsAt: new Date("2025-07-05T06:40:54.495Z"),
-    maxRedemptions: 768736,
-    redemptionsCount: 441642,
+    startsAt: new Date("2023-06-28T13:01:17.162Z"),
+    endsAt: new Date("2025-01-06T18:30:57.108Z"),
+    maxRedemptions: 375525,
+    redemptionsCount: 785363,
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  },
-  price: {
-    createdAt: new Date("2023-05-14T23:15:51.973Z"),
-    modifiedAt: new Date("2024-01-04T14:27:31.537Z"),
-    id: "<value>",
-    isArchived: false,
-    productId: "<value>",
-    recurringInterval: "month",
-    priceCurrency: "<value>",
-    minimumAmount: 260355,
-    maximumAmount: 794110,
-    presetAmount: 161065,
   },
   prices: [
     {
-      createdAt: new Date("2023-08-06T03:57:48.897Z"),
-      modifiedAt: new Date("2025-05-31T09:17:21.345Z"),
+      createdAt: new Date("2023-04-26T17:31:07.183Z"),
+      modifiedAt: new Date("2025-10-09T23:42:21.091Z"),
       id: "<value>",
       isArchived: false,
       productId: "<value>",
-      type: "one_time",
-      recurringInterval: "month",
+      type: "recurring",
+      recurringInterval: "year",
       priceCurrency: "<value>",
-      priceAmount: 368084,
+      priceAmount: 168279,
     },
   ],
   meters: [],
@@ -220,14 +200,10 @@ let value: Subscription = {
 | `checkoutId`                                                                                                                  | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `customerCancellationReason`                                                                                                  | [components.CustomerCancellationReason](../../models/components/customercancellationreason.md)                                | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `customerCancellationComment`                                                                                                 | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
-| ~~`priceId`~~                                                                                                                 | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.       |
 | `metadata`                                                                                                                    | Record<string, *components.Metadata*>                                                                                         | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `customFieldData`                                                                                                             | Record<string, *components.CustomFieldData*>                                                                                  | :heavy_minus_sign:                                                                                                            | Key-value object storing custom field values.                                                                                 |
 | `customer`                                                                                                                    | [components.SubscriptionCustomer](../../models/components/subscriptioncustomer.md)                                            | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
-| ~~`userId`~~                                                                                                                  | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.       |
-| `user`                                                                                                                        | [components.SubscriptionUser](../../models/components/subscriptionuser.md)                                                    | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `product`                                                                                                                     | [components.Product](../../models/components/product.md)                                                                      | :heavy_check_mark:                                                                                                            | A product.                                                                                                                    |
 | `discount`                                                                                                                    | *components.SubscriptionDiscount*                                                                                             | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
-| ~~`price`~~                                                                                                                   | *components.Price*                                                                                                            | :heavy_check_mark:                                                                                                            | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.       |
 | `prices`                                                                                                                      | *components.SubscriptionPrices*[]                                                                                             | :heavy_check_mark:                                                                                                            | List of enabled prices for the subscription.                                                                                  |
 | `meters`                                                                                                                      | [components.SubscriptionMeter](../../models/components/subscriptionmeter.md)[]                                                | :heavy_check_mark:                                                                                                            | List of meters associated with the subscription.                                                                              |

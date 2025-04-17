@@ -92,14 +92,6 @@ export type OrderSubscription = {
   checkoutId: string | null;
   customerCancellationReason: CustomerCancellationReason | null;
   customerCancellationComment: string | null;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  priceId: string;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  userId: string;
 };
 
 /** @internal */
@@ -199,8 +191,6 @@ export const OrderSubscription$inboundSchema: z.ZodType<
     CustomerCancellationReason$inboundSchema,
   ),
   customer_cancellation_comment: z.nullable(z.string()),
-  price_id: z.string(),
-  user_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -219,8 +209,6 @@ export const OrderSubscription$inboundSchema: z.ZodType<
     "checkout_id": "checkoutId",
     "customer_cancellation_reason": "customerCancellationReason",
     "customer_cancellation_comment": "customerCancellationComment",
-    "price_id": "priceId",
-    "user_id": "userId",
   });
 });
 
@@ -247,8 +235,6 @@ export type OrderSubscription$Outbound = {
   checkout_id: string | null;
   customer_cancellation_reason: string | null;
   customer_cancellation_comment: string | null;
-  price_id: string;
-  user_id: string;
 };
 
 /** @internal */
@@ -282,8 +268,6 @@ export const OrderSubscription$outboundSchema: z.ZodType<
     CustomerCancellationReason$outboundSchema,
   ),
   customerCancellationComment: z.nullable(z.string()),
-  priceId: z.string(),
-  userId: z.string(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -302,8 +286,6 @@ export const OrderSubscription$outboundSchema: z.ZodType<
     checkoutId: "checkout_id",
     customerCancellationReason: "customer_cancellation_reason",
     customerCancellationComment: "customer_cancellation_comment",
-    priceId: "price_id",
-    userId: "user_id",
   });
 });
 

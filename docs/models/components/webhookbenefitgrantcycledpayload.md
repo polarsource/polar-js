@@ -20,7 +20,6 @@ let value: WebhookBenefitGrantCycledPayload = {
     subscriptionId: "<value>",
     orderId: "<value>",
     customerId: "<value>",
-    userId: "<value>",
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
@@ -49,16 +48,15 @@ let value: WebhookBenefitGrantCycledPayload = {
       id: "<value>",
       createdAt: new Date("2023-07-06T08:58:45.482Z"),
       modifiedAt: new Date("2024-02-17T18:00:50.194Z"),
-      metadata: {
-        "key": 336598,
-      },
-      description:
-        "rarely before doubtfully sprinkles mysteriously comparison gestate",
+      description: "accidentally pulp veg blink hence",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
+      metadata: {
+        "key": 503454,
+      },
       properties: {
-        units: 222403,
+        units: 336600,
         meterId: "<value>",
       },
     },

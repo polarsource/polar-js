@@ -117,11 +117,13 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.checkouts.create({
-    allowDiscountCodes: true,
     customerBillingAddress: {
       country: "SE",
     },
-    productId: "<value>",
+    products: [
+      "<value>",
+      "<value>",
+    ],
   });
 
   // Handle the result
@@ -147,11 +149,13 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await checkoutsCreate(polar, {
-    allowDiscountCodes: true,
     customerBillingAddress: {
       country: "SE",
     },
-    productId: "<value>",
+    products: [
+      "<value>",
+      "<value>",
+    ],
   });
 
   if (!res.ok) {

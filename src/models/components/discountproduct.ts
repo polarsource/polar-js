@@ -13,10 +13,13 @@ import {
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
 
+export type DiscountProductMetadata = string | number | number | boolean;
+
 /**
  * A product that a discount can be applied to.
  */
 export type DiscountProduct = {
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * Creation timestamp of the object.
    */
@@ -56,11 +59,66 @@ export type DiscountProduct = {
 };
 
 /** @internal */
+export const DiscountProductMetadata$inboundSchema: z.ZodType<
+  DiscountProductMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type DiscountProductMetadata$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
+
+/** @internal */
+export const DiscountProductMetadata$outboundSchema: z.ZodType<
+  DiscountProductMetadata$Outbound,
+  z.ZodTypeDef,
+  DiscountProductMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DiscountProductMetadata$ {
+  /** @deprecated use `DiscountProductMetadata$inboundSchema` instead. */
+  export const inboundSchema = DiscountProductMetadata$inboundSchema;
+  /** @deprecated use `DiscountProductMetadata$outboundSchema` instead. */
+  export const outboundSchema = DiscountProductMetadata$outboundSchema;
+  /** @deprecated use `DiscountProductMetadata$Outbound` instead. */
+  export type Outbound = DiscountProductMetadata$Outbound;
+}
+
+export function discountProductMetadataToJSON(
+  discountProductMetadata: DiscountProductMetadata,
+): string {
+  return JSON.stringify(
+    DiscountProductMetadata$outboundSchema.parse(discountProductMetadata),
+  );
+}
+
+export function discountProductMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<DiscountProductMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DiscountProductMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DiscountProductMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const DiscountProduct$inboundSchema: z.ZodType<
   DiscountProduct,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -85,6 +143,7 @@ export const DiscountProduct$inboundSchema: z.ZodType<
 
 /** @internal */
 export type DiscountProduct$Outbound = {
+  metadata: { [k: string]: string | number | number | boolean };
   created_at: string;
   modified_at: string | null;
   id: string;
@@ -102,6 +161,9 @@ export const DiscountProduct$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DiscountProduct
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),

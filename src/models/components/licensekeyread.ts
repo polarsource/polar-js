@@ -18,22 +18,11 @@ import {
   LicenseKeyStatus$inboundSchema,
   LicenseKeyStatus$outboundSchema,
 } from "./licensekeystatus.js";
-import {
-  LicenseKeyUser,
-  LicenseKeyUser$inboundSchema,
-  LicenseKeyUser$Outbound,
-  LicenseKeyUser$outboundSchema,
-} from "./licensekeyuser.js";
 
 export type LicenseKeyRead = {
   id: string;
   organizationId: string;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  userId: string;
   customerId: string;
-  user: LicenseKeyUser;
   customer: LicenseKeyCustomer;
   /**
    * The benefit ID.
@@ -58,9 +47,7 @@ export const LicenseKeyRead$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   organization_id: z.string(),
-  user_id: z.string(),
   customer_id: z.string(),
-  user: LicenseKeyUser$inboundSchema,
   customer: LicenseKeyCustomer$inboundSchema,
   benefit_id: z.string(),
   key: z.string(),
@@ -79,7 +66,6 @@ export const LicenseKeyRead$inboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
-    "user_id": "userId",
     "customer_id": "customerId",
     "benefit_id": "benefitId",
     "display_key": "displayKey",
@@ -94,9 +80,7 @@ export const LicenseKeyRead$inboundSchema: z.ZodType<
 export type LicenseKeyRead$Outbound = {
   id: string;
   organization_id: string;
-  user_id: string;
   customer_id: string;
-  user: LicenseKeyUser$Outbound;
   customer: LicenseKeyCustomer$Outbound;
   benefit_id: string;
   key: string;
@@ -118,9 +102,7 @@ export const LicenseKeyRead$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   organizationId: z.string(),
-  userId: z.string(),
   customerId: z.string(),
-  user: LicenseKeyUser$outboundSchema,
   customer: LicenseKeyCustomer$outboundSchema,
   benefitId: z.string(),
   key: z.string(),
@@ -135,7 +117,6 @@ export const LicenseKeyRead$outboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
-    userId: "user_id",
     customerId: "customer_id",
     benefitId: "benefit_id",
     displayKey: "display_key",

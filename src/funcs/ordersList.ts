@@ -119,7 +119,6 @@ async function $do(
     "page": payload.page,
     "product_billing_type": payload.product_billing_type,
     "product_id": payload.product_id,
-    "product_price_type": payload.product_price_type,
     "sorting": payload.sorting,
   });
 

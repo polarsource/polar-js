@@ -36,7 +36,6 @@ export type BenefitCustom = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  metadata: { [k: string]: string | number | number | boolean };
   type?: "custom" | undefined;
   /**
    * The description of the benefit.
@@ -54,14 +53,11 @@ export type BenefitCustom = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * Properties for a benefit of type `custom`.
    */
   properties: BenefitCustomProperties;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  isTaxApplicable: boolean;
 };
 
 /** @internal */
@@ -123,22 +119,20 @@ export const BenefitCustom$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   type: z.literal("custom").optional(),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   properties: BenefitCustomProperties$inboundSchema,
-  is_tax_applicable: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
     "organization_id": "organizationId",
-    "is_tax_applicable": "isTaxApplicable",
   });
 });
 
@@ -147,14 +141,13 @@ export type BenefitCustom$Outbound = {
   id: string;
   created_at: string;
   modified_at: string | null;
-  metadata: { [k: string]: string | number | number | boolean };
   type: "custom";
   description: string;
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   properties: BenefitCustomProperties$Outbound;
-  is_tax_applicable: boolean;
 };
 
 /** @internal */
@@ -166,22 +159,20 @@ export const BenefitCustom$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   type: z.literal("custom").default("custom" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   properties: BenefitCustomProperties$outboundSchema,
-  isTaxApplicable: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
     organizationId: "organization_id",
-    isTaxApplicable: "is_tax_applicable",
   });
 });
 
