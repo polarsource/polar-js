@@ -14,25 +14,24 @@ let value: WebhookBenefitCreatedPayload = {
     id: "<value>",
     createdAt: new Date("2025-01-07T07:50:46.923Z"),
     modifiedAt: new Date("2025-01-16T07:13:19.224Z"),
-    metadata: {
-      "key": 814748,
-    },
-    description:
-      "while sticky hm saturate inasmuch quizzically although formation helpful",
+    description: "whoa interesting as violent broadside",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
+    metadata: {
+      "key": 3239.61,
+    },
     properties: {
       prefix: "<value>",
       expires: {
-        ttl: 230383,
-        timeframe: "day",
+        ttl: 672181,
+        timeframe: "month",
       },
       activations: {
-        limit: 72155,
+        limit: 497257,
         enableCustomerAdmin: false,
       },
-      limitUsage: 43666,
+      limitUsage: 722432,
     },
   },
 };

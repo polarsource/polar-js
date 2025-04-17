@@ -39,11 +39,8 @@ let value: CustomerSubscriptionProduct = {
       id: "<value>",
       createdAt: new Date("2024-01-24T10:59:07.931Z"),
       modifiedAt: new Date("2023-04-28T04:00:20.719Z"),
-      metadata: {
-        "key": false,
-      },
-      type: "license_keys",
-      description: "alliance geez pile smuggle thin nervously kinase",
+      type: "meter_credit",
+      description: "downchange that swill and square boohoo assail unlearn a",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
@@ -54,48 +51,43 @@ let value: CustomerSubscriptionProduct = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/var/log",
+      path: "/usr/include",
       mimeType: "<value>",
-      size: 563130,
+      size: 858807,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2023-06-04T11:15:24.240Z"),
+      lastModifiedAt: new Date("2024-05-21T10:07:32.776Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2024-04-04T03:07:48.081Z"),
+      createdAt: new Date("2025-05-29T04:30:51.881Z"),
       sizeReadable: "<value>",
-      publicUrl: "https://well-documented-ad.com",
+      publicUrl: "https://selfish-markup.org/",
     },
   ],
   organization: {
-    createdAt: new Date("2024-05-27T12:27:28.849Z"),
-    modifiedAt: new Date("2024-02-02T00:26:52.146Z"),
+    createdAt: new Date("2025-03-12T15:31:40.057Z"),
+    modifiedAt: new Date("2025-06-27T16:41:21.358Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://outstanding-accompanist.net",
-    email: "Jakob55@hotmail.com",
+    avatarUrl: "https://insecure-rationale.org",
+    email: "Maribel.Reinger28@hotmail.com",
     website: "<value>",
     socials: [
       {
         platform: "tiktok",
-        url: "https://reckless-heroine.net",
+        url: "https://frightened-jump.name/",
       },
     ],
-    detailsSubmittedAt: new Date("2025-12-02T02:52:52.498Z"),
+    detailsSubmittedAt: new Date("2024-06-26T18:47:54.734Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
       allowCustomerUpdates: false,
       prorationBehavior: "prorate",
     },
-    bio: "<value>",
-    company: "Mills, Reinger and Kovacek",
-    blog: "<value>",
-    location: "<value>",
-    twitterUsername: "<value>",
   },
 };
 ```
@@ -114,6 +106,6 @@ let value: CustomerSubscriptionProduct = {
 | `isArchived`                                                                                         | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | Whether the product is archived and no longer available.                                             |
 | `organizationId`                                                                                     | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the organization owning the product.                                                       |
 | `prices`                                                                                             | *components.CustomerSubscriptionProductPrices*[]                                                     | :heavy_check_mark:                                                                                   | List of prices for this product.                                                                     |
-| `benefits`                                                                                           | [components.BenefitBase](../../models/components/benefitbase.md)[]                                   | :heavy_check_mark:                                                                                   | List of benefits granted by the product.                                                             |
+| `benefits`                                                                                           | [components.BenefitPublic](../../models/components/benefitpublic.md)[]                               | :heavy_check_mark:                                                                                   | List of benefits granted by the product.                                                             |
 | `medias`                                                                                             | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]                 | :heavy_check_mark:                                                                                   | List of medias associated to the product.                                                            |
 | `organization`                                                                                       | [components.Organization](../../models/components/organization.md)                                   | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

@@ -20,12 +20,6 @@ import {
   CustomerOrderSubscription$outboundSchema,
 } from "./customerordersubscription.js";
 import {
-  LegacyRecurringProductPrice,
-  LegacyRecurringProductPrice$inboundSchema,
-  LegacyRecurringProductPrice$Outbound,
-  LegacyRecurringProductPrice$outboundSchema,
-} from "./legacyrecurringproductprice.js";
-import {
   OrderItemSchema,
   OrderItemSchema$inboundSchema,
   OrderItemSchema$Outbound,
@@ -36,19 +30,6 @@ import {
   OrderStatus$inboundSchema,
   OrderStatus$outboundSchema,
 } from "./orderstatus.js";
-import {
-  ProductPrice,
-  ProductPrice$inboundSchema,
-  ProductPrice$Outbound,
-  ProductPrice$outboundSchema,
-} from "./productprice.js";
-
-/**
- * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
- */
-export type CustomerOrderProductPrice =
-  | LegacyRecurringProductPrice
-  | ProductPrice;
 
 export type CustomerOrder = {
   /**
@@ -78,12 +59,6 @@ export type CustomerOrder = {
    */
   netAmount: number;
   /**
-   * Amount in cents, after discounts but before taxes.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  amount: number;
-  /**
    * Sales tax amount in cents.
    */
   taxAmount: number;
@@ -102,82 +77,18 @@ export type CustomerOrder = {
   currency: string;
   customerId: string;
   productId: string;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  productPriceId: string;
   subscriptionId: string | null;
   /**
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   userId: string;
   product: CustomerOrderProduct;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  productPrice: LegacyRecurringProductPrice | ProductPrice;
   subscription: CustomerOrderSubscription | null;
   /**
    * Line items composing the order.
    */
   items: Array<OrderItemSchema>;
 };
-
-/** @internal */
-export const CustomerOrderProductPrice$inboundSchema: z.ZodType<
-  CustomerOrderProductPrice,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  LegacyRecurringProductPrice$inboundSchema,
-  ProductPrice$inboundSchema,
-]);
-
-/** @internal */
-export type CustomerOrderProductPrice$Outbound =
-  | LegacyRecurringProductPrice$Outbound
-  | ProductPrice$Outbound;
-
-/** @internal */
-export const CustomerOrderProductPrice$outboundSchema: z.ZodType<
-  CustomerOrderProductPrice$Outbound,
-  z.ZodTypeDef,
-  CustomerOrderProductPrice
-> = z.union([
-  LegacyRecurringProductPrice$outboundSchema,
-  ProductPrice$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerOrderProductPrice$ {
-  /** @deprecated use `CustomerOrderProductPrice$inboundSchema` instead. */
-  export const inboundSchema = CustomerOrderProductPrice$inboundSchema;
-  /** @deprecated use `CustomerOrderProductPrice$outboundSchema` instead. */
-  export const outboundSchema = CustomerOrderProductPrice$outboundSchema;
-  /** @deprecated use `CustomerOrderProductPrice$Outbound` instead. */
-  export type Outbound = CustomerOrderProductPrice$Outbound;
-}
-
-export function customerOrderProductPriceToJSON(
-  customerOrderProductPrice: CustomerOrderProductPrice,
-): string {
-  return JSON.stringify(
-    CustomerOrderProductPrice$outboundSchema.parse(customerOrderProductPrice),
-  );
-}
-
-export function customerOrderProductPriceFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerOrderProductPrice, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerOrderProductPrice$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerOrderProductPrice' from JSON`,
-  );
-}
 
 /** @internal */
 export const CustomerOrder$inboundSchema: z.ZodType<
@@ -195,7 +106,6 @@ export const CustomerOrder$inboundSchema: z.ZodType<
   subtotal_amount: z.number().int(),
   discount_amount: z.number().int(),
   net_amount: z.number().int(),
-  amount: z.number().int(),
   tax_amount: z.number().int(),
   total_amount: z.number().int(),
   refunded_amount: z.number().int(),
@@ -203,14 +113,9 @@ export const CustomerOrder$inboundSchema: z.ZodType<
   currency: z.string(),
   customer_id: z.string(),
   product_id: z.string(),
-  product_price_id: z.string(),
   subscription_id: z.nullable(z.string()),
   user_id: z.string(),
   product: CustomerOrderProduct$inboundSchema,
-  product_price: z.union([
-    LegacyRecurringProductPrice$inboundSchema,
-    ProductPrice$inboundSchema,
-  ]),
   subscription: z.nullable(CustomerOrderSubscription$inboundSchema),
   items: z.array(OrderItemSchema$inboundSchema),
 }).transform((v) => {
@@ -226,10 +131,8 @@ export const CustomerOrder$inboundSchema: z.ZodType<
     "refunded_tax_amount": "refundedTaxAmount",
     "customer_id": "customerId",
     "product_id": "productId",
-    "product_price_id": "productPriceId",
     "subscription_id": "subscriptionId",
     "user_id": "userId",
-    "product_price": "productPrice",
   });
 });
 
@@ -243,7 +146,6 @@ export type CustomerOrder$Outbound = {
   subtotal_amount: number;
   discount_amount: number;
   net_amount: number;
-  amount: number;
   tax_amount: number;
   total_amount: number;
   refunded_amount: number;
@@ -251,11 +153,9 @@ export type CustomerOrder$Outbound = {
   currency: string;
   customer_id: string;
   product_id: string;
-  product_price_id: string;
   subscription_id: string | null;
   user_id: string;
   product: CustomerOrderProduct$Outbound;
-  product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   subscription: CustomerOrderSubscription$Outbound | null;
   items: Array<OrderItemSchema$Outbound>;
 };
@@ -274,7 +174,6 @@ export const CustomerOrder$outboundSchema: z.ZodType<
   subtotalAmount: z.number().int(),
   discountAmount: z.number().int(),
   netAmount: z.number().int(),
-  amount: z.number().int(),
   taxAmount: z.number().int(),
   totalAmount: z.number().int(),
   refundedAmount: z.number().int(),
@@ -282,14 +181,9 @@ export const CustomerOrder$outboundSchema: z.ZodType<
   currency: z.string(),
   customerId: z.string(),
   productId: z.string(),
-  productPriceId: z.string(),
   subscriptionId: z.nullable(z.string()),
   userId: z.string(),
   product: CustomerOrderProduct$outboundSchema,
-  productPrice: z.union([
-    LegacyRecurringProductPrice$outboundSchema,
-    ProductPrice$outboundSchema,
-  ]),
   subscription: z.nullable(CustomerOrderSubscription$outboundSchema),
   items: z.array(OrderItemSchema$outboundSchema),
 }).transform((v) => {
@@ -305,10 +199,8 @@ export const CustomerOrder$outboundSchema: z.ZodType<
     refundedTaxAmount: "refunded_tax_amount",
     customerId: "customer_id",
     productId: "product_id",
-    productPriceId: "product_price_id",
     subscriptionId: "subscription_id",
     userId: "user_id",
-    productPrice: "product_price",
   });
 });
 

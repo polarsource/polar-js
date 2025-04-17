@@ -26,11 +26,14 @@ let value: DiscountPercentageOnceForeverDuration = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   products: [
     {
-      createdAt: new Date("2024-05-30T21:28:02.067Z"),
-      modifiedAt: new Date("2023-02-19T22:08:17.462Z"),
+      metadata: {
+        "key": 45549,
+      },
+      createdAt: new Date("2023-04-19T08:33:24.969Z"),
+      modifiedAt: new Date("2025-07-19T14:09:59.439Z"),
       id: "<value>",
       name: "<value>",
-      description: "swear amongst apud",
+      description: "amongst correctly against reflecting",
       recurringInterval: "month",
       isRecurring: false,
       isArchived: false,

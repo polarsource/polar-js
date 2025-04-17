@@ -120,7 +120,6 @@ async function $do(
     "page": payload.page,
     "product_billing_type": payload.product_billing_type,
     "product_id": payload.product_id,
-    "product_price_type": payload.product_price_type,
     "query": payload.query,
     "sorting": payload.sorting,
     "subscription_id": payload.subscription_id,

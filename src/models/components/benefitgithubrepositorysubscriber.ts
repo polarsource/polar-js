@@ -39,7 +39,6 @@ export type BenefitGitHubRepositorySubscriber = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  metadata: { [k: string]: string | number | number | boolean };
   type?: "github_repository" | undefined;
   /**
    * The description of the benefit.
@@ -57,6 +56,7 @@ export type BenefitGitHubRepositorySubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
+  metadata: { [k: string]: string | number | number | boolean };
   organization: Organization;
   /**
    * Properties available to subscribers for a benefit of type `github_repository`.
@@ -139,14 +139,14 @@ export const BenefitGitHubRepositorySubscriber$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   type: z.literal("github_repository").optional(),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   organization: Organization$inboundSchema,
   properties: BenefitGitHubRepositorySubscriberProperties$inboundSchema,
 }).transform((v) => {
@@ -162,12 +162,12 @@ export type BenefitGitHubRepositorySubscriber$Outbound = {
   id: string;
   created_at: string;
   modified_at: string | null;
-  metadata: { [k: string]: string | number | number | boolean };
   type: "github_repository";
   description: string;
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   organization: Organization$Outbound;
   properties: BenefitGitHubRepositorySubscriberProperties$Outbound;
 };
@@ -181,14 +181,14 @@ export const BenefitGitHubRepositorySubscriber$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   type: z.literal("github_repository").default("github_repository" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   organization: Organization$outboundSchema,
   properties: BenefitGitHubRepositorySubscriberProperties$outboundSchema,
 }).transform((v) => {

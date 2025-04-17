@@ -72,26 +72,6 @@ export type Organization = {
    */
   featureSettings: OrganizationFeatureSettings | null;
   subscriptionSettings: OrganizationSubscriptionSettings;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  bio: string | null;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  company: string | null;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  blog: string | null;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  location: string | null;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  twitterUsername: string | null;
 };
 
 /** @internal */
@@ -116,11 +96,6 @@ export const Organization$inboundSchema: z.ZodType<
   ),
   feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema),
   subscription_settings: OrganizationSubscriptionSettings$inboundSchema,
-  bio: z.nullable(z.string()),
-  company: z.nullable(z.string()),
-  blog: z.nullable(z.string()),
-  location: z.nullable(z.string()),
-  twitter_username: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -129,7 +104,6 @@ export const Organization$inboundSchema: z.ZodType<
     "details_submitted_at": "detailsSubmittedAt",
     "feature_settings": "featureSettings",
     "subscription_settings": "subscriptionSettings",
-    "twitter_username": "twitterUsername",
   });
 });
 
@@ -147,11 +121,6 @@ export type Organization$Outbound = {
   details_submitted_at: string | null;
   feature_settings: OrganizationFeatureSettings$Outbound | null;
   subscription_settings: OrganizationSubscriptionSettings$Outbound;
-  bio: string | null;
-  company: string | null;
-  blog: string | null;
-  location: string | null;
-  twitter_username: string | null;
 };
 
 /** @internal */
@@ -172,11 +141,6 @@ export const Organization$outboundSchema: z.ZodType<
   detailsSubmittedAt: z.nullable(z.date().transform(v => v.toISOString())),
   featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema),
   subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,
-  bio: z.nullable(z.string()),
-  company: z.nullable(z.string()),
-  blog: z.nullable(z.string()),
-  location: z.nullable(z.string()),
-  twitterUsername: z.nullable(z.string()),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -185,7 +149,6 @@ export const Organization$outboundSchema: z.ZodType<
     detailsSubmittedAt: "details_submitted_at",
     featureSettings: "feature_settings",
     subscriptionSettings: "subscription_settings",
-    twitterUsername: "twitter_username",
   });
 });
 

@@ -13,7 +13,10 @@ import {
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
 
+export type OrderProductMetadata = string | number | number | boolean;
+
 export type OrderProduct = {
+  metadata: { [k: string]: string | number | number | boolean };
   /**
    * Creation timestamp of the object.
    */
@@ -53,11 +56,62 @@ export type OrderProduct = {
 };
 
 /** @internal */
+export const OrderProductMetadata$inboundSchema: z.ZodType<
+  OrderProductMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type OrderProductMetadata$Outbound = string | number | number | boolean;
+
+/** @internal */
+export const OrderProductMetadata$outboundSchema: z.ZodType<
+  OrderProductMetadata$Outbound,
+  z.ZodTypeDef,
+  OrderProductMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OrderProductMetadata$ {
+  /** @deprecated use `OrderProductMetadata$inboundSchema` instead. */
+  export const inboundSchema = OrderProductMetadata$inboundSchema;
+  /** @deprecated use `OrderProductMetadata$outboundSchema` instead. */
+  export const outboundSchema = OrderProductMetadata$outboundSchema;
+  /** @deprecated use `OrderProductMetadata$Outbound` instead. */
+  export type Outbound = OrderProductMetadata$Outbound;
+}
+
+export function orderProductMetadataToJSON(
+  orderProductMetadata: OrderProductMetadata,
+): string {
+  return JSON.stringify(
+    OrderProductMetadata$outboundSchema.parse(orderProductMetadata),
+  );
+}
+
+export function orderProductMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<OrderProductMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrderProductMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrderProductMetadata' from JSON`,
+  );
+}
+
+/** @internal */
 export const OrderProduct$inboundSchema: z.ZodType<
   OrderProduct,
   z.ZodTypeDef,
   unknown
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -82,6 +136,7 @@ export const OrderProduct$inboundSchema: z.ZodType<
 
 /** @internal */
 export type OrderProduct$Outbound = {
+  metadata: { [k: string]: string | number | number | boolean };
   created_at: string;
   modified_at: string | null;
   id: string;
@@ -99,6 +154,9 @@ export const OrderProduct$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   OrderProduct
 > = z.object({
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),

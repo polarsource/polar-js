@@ -43,7 +43,6 @@ let value: WebhookOrderCreatedPayload = {
     },
     customerId: "<value>",
     productId: "<value>",
-    productPriceId: "<value>",
     discountId: "<value>",
     subscriptionId: "<value>",
     checkoutId: "<value>",
@@ -70,34 +69,20 @@ let value: WebhookOrderCreatedPayload = {
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     userId: "<value>",
-    user: {
-      id: "<value>",
-      email: "Elna95@hotmail.com",
-      publicName: "<value>",
-    },
     product: {
-      createdAt: new Date("2024-08-18T23:02:56.814Z"),
-      modifiedAt: new Date("2024-08-01T02:10:59.019Z"),
+      metadata: {
+        "key": false,
+      },
+      createdAt: new Date("2023-12-03T03:44:13.678Z"),
+      modifiedAt: new Date("2025-04-19T04:57:52.293Z"),
       id: "<value>",
       name: "<value>",
       description:
-        "for retool pfft feminize cleverly willfully critical beside",
-      recurringInterval: "month",
+        "afraid pro and maroon insolence pause ah devastation yahoo yum",
+      recurringInterval: "year",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",
-    },
-    productPrice: {
-      createdAt: new Date("2025-09-03T07:09:45.929Z"),
-      modifiedAt: new Date("2024-04-14T03:20:41.585Z"),
-      id: "<value>",
-      isArchived: false,
-      productId: "<value>",
-      recurringInterval: "year",
-      priceCurrency: "<value>",
-      minimumAmount: 352300,
-      maximumAmount: 318189,
-      presetAmount: 696203,
     },
     discount: {
       duration: "forever",
@@ -141,8 +126,6 @@ let value: WebhookOrderCreatedPayload = {
       checkoutId: "<value>",
       customerCancellationReason: "unused",
       customerCancellationComment: "<value>",
-      priceId: "<value>",
-      userId: "<value>",
     },
     items: [
       {

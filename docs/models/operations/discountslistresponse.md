@@ -29,12 +29,15 @@ let value: DiscountsListResponse = {
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         products: [
           {
-            createdAt: new Date("2024-02-04T08:24:53.797Z"),
-            modifiedAt: new Date("2023-04-18T07:54:33.216Z"),
+            metadata: {
+              "key": 97928,
+            },
+            createdAt: new Date("2025-03-23T20:22:01.205Z"),
+            modifiedAt: new Date("2023-04-10T11:34:38.771Z"),
             id: "<value>",
             name: "<value>",
-            description: "gallery ick govern rally cruelty whenever ape anenst",
-            recurringInterval: "year",
+            description: "kit opposite simplistic wisely",
+            recurringInterval: "month",
             isRecurring: false,
             isArchived: false,
             organizationId: "<value>",
@@ -43,8 +46,8 @@ let value: DiscountsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 755838,
-      maxPage: 151562,
+      totalCount: 657387,
+      maxPage: 168983,
     },
   },
 };

@@ -29,7 +29,6 @@ export type BenefitDownloadables = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  metadata: { [k: string]: string | number | number | boolean };
   type?: "downloadables" | undefined;
   /**
    * The description of the benefit.
@@ -47,6 +46,7 @@ export type BenefitDownloadables = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
+  metadata: { [k: string]: string | number | number | boolean };
   properties: BenefitDownloadablesProperties;
 };
 
@@ -115,14 +115,14 @@ export const BenefitDownloadables$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   type: z.literal("downloadables").optional(),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   properties: BenefitDownloadablesProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -137,12 +137,12 @@ export type BenefitDownloadables$Outbound = {
   id: string;
   created_at: string;
   modified_at: string | null;
-  metadata: { [k: string]: string | number | number | boolean };
   type: "downloadables";
   description: string;
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   properties: BenefitDownloadablesProperties$Outbound;
 };
 
@@ -155,14 +155,14 @@ export const BenefitDownloadables$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   type: z.literal("downloadables").default("downloadables" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   properties: BenefitDownloadablesProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

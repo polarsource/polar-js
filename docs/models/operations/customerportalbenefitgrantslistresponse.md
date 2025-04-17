@@ -45,29 +45,29 @@ let value: CustomerPortalBenefitGrantsListResponse = {
           id: "<value>",
           createdAt: new Date("2025-10-01T18:09:27.214Z"),
           modifiedAt: new Date("2024-03-13T17:16:29.953Z"),
-          metadata: {
-            "key": 411813,
-          },
-          description: "yippee on amid",
+          description: "angrily expert considering kiddingly direct or",
           selectable: false,
           deletable: false,
           organizationId: "<value>",
+          metadata: {
+            "key": false,
+          },
           organization: {
-            createdAt: new Date("2023-02-15T15:16:05.941Z"),
-            modifiedAt: new Date("2023-08-24T22:47:39.099Z"),
+            createdAt: new Date("2023-02-10T16:41:06.919Z"),
+            modifiedAt: new Date("2025-11-05T01:09:17.832Z"),
             id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
             name: "<value>",
             slug: "<value>",
-            avatarUrl: "https://inferior-haircut.biz/",
-            email: "Rosetta19@gmail.com",
+            avatarUrl: "https://innocent-analogy.org",
+            email: "Major_Schaefer@yahoo.com",
             website: "<value>",
             socials: [
               {
-                platform: "youtube",
-                url: "https://dismal-coal.org/",
+                platform: "x",
+                url: "https://worldly-alligator.info/",
               },
             ],
-            detailsSubmittedAt: new Date("2024-07-23T15:55:08.591Z"),
+            detailsSubmittedAt: new Date("2023-06-24T22:10:51.085Z"),
             featureSettings: {
               issueFundingEnabled: false,
               usageBasedBillingEnabled: false,
@@ -77,11 +77,6 @@ let value: CustomerPortalBenefitGrantsListResponse = {
               allowCustomerUpdates: false,
               prorationBehavior: "prorate",
             },
-            bio: "<value>",
-            company: "White - Ullrich",
-            blog: "<value>",
-            location: "<value>",
-            twitterUsername: "<value>",
           },
           properties: {
             note: "<value>",
@@ -91,8 +86,8 @@ let value: CustomerPortalBenefitGrantsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 420041,
-      maxPage: 36145,
+      totalCount: 37493,
+      maxPage: 274273,
     },
   },
 };

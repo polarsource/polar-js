@@ -29,16 +29,11 @@ let value: ListResourceOrganization = {
         allowCustomerUpdates: false,
         prorationBehavior: "invoice",
       },
-      bio: "<value>",
-      company: "Beahan - Mohr",
-      blog: "<value>",
-      location: "<value>",
-      twitterUsername: "<value>",
     },
   ],
   pagination: {
-    totalCount: 808600,
-    maxPage: 176629,
+    totalCount: 53217,
+    maxPage: 47105,
   },
 };
 ```

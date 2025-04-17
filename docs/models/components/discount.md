@@ -26,12 +26,16 @@ const value: components.DiscountFixedOnceForeverDuration = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   products: [
     {
-      createdAt: new Date("2023-05-20T23:49:44.658Z"),
-      modifiedAt: new Date("2024-06-16T05:41:15.397Z"),
+      metadata: {
+        "key": "<value>",
+      },
+      createdAt: new Date("2024-06-16T05:41:15.397Z"),
+      modifiedAt: new Date("2023-03-06T00:25:28.008Z"),
       id: "<value>",
       name: "<value>",
-      description: "partially merge between",
-      recurringInterval: "month",
+      description:
+        "after jubilant gad recklessly extra-large yahoo spectacles unless off if",
+      recurringInterval: "year",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",
@@ -64,12 +68,15 @@ const value: components.DiscountFixedRepeatDuration = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   products: [
     {
-      createdAt: new Date("2024-01-20T05:50:19.659Z"),
-      modifiedAt: new Date("2023-11-25T04:10:44.032Z"),
+      metadata: {
+        "key": 299429,
+      },
+      createdAt: new Date("2023-03-21T08:33:52.495Z"),
+      modifiedAt: new Date("2024-06-28T00:01:42.776Z"),
       id: "<value>",
       name: "<value>",
-      description: "on oxygenate youthful",
-      recurringInterval: "year",
+      description: "astride gape muffled psst",
+      recurringInterval: "month",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",
@@ -100,11 +107,15 @@ const value: components.DiscountPercentageOnceForeverDuration = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   products: [
     {
-      createdAt: new Date("2023-12-14T00:06:50.256Z"),
-      modifiedAt: new Date("2025-08-02T11:41:18.425Z"),
+      metadata: {
+        "key": 861759,
+      },
+      createdAt: new Date("2023-08-03T03:34:06.894Z"),
+      modifiedAt: new Date("2024-03-24T18:02:17.573Z"),
       id: "<value>",
       name: "<value>",
-      description: "cram unnaturally shinny psst",
+      description:
+        "unaccountably sympathetically representation down next brr hornet unabashedly boo phew",
       recurringInterval: "year",
       isRecurring: false,
       isArchived: false,
@@ -137,12 +148,15 @@ const value: components.DiscountPercentageRepeatDuration = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   products: [
     {
-      createdAt: new Date("2025-04-18T14:56:33.944Z"),
-      modifiedAt: new Date("2025-07-17T16:19:05.848Z"),
+      metadata: {
+        "key": false,
+      },
+      createdAt: new Date("2025-07-17T16:19:05.848Z"),
+      modifiedAt: new Date("2023-05-25T19:41:34.353Z"),
       id: "<value>",
       name: "<value>",
-      description: "lest hole moment yuck",
-      recurringInterval: "month",
+      description: "gifted diligently standard diligently",
+      recurringInterval: "year",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",

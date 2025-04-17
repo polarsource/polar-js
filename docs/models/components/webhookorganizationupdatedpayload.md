@@ -32,11 +32,6 @@ let value: WebhookOrganizationUpdatedPayload = {
       allowCustomerUpdates: false,
       prorationBehavior: "invoice",
     },
-    bio: "<value>",
-    company: "Rau - Marquardt",
-    blog: "<value>",
-    location: "<value>",
-    twitterUsername: "<value>",
   },
 };
 ```

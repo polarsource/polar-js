@@ -19,7 +19,6 @@ let value: WebhookBenefitGrantUpdatedPayload = {
     subscriptionId: "<value>",
     orderId: "<value>",
     customerId: "<value>",
-    userId: "<value>",
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
@@ -48,25 +47,25 @@ let value: WebhookBenefitGrantUpdatedPayload = {
       id: "<value>",
       createdAt: new Date("2024-03-22T06:24:13.619Z"),
       modifiedAt: new Date("2024-11-29T00:34:44.806Z"),
-      metadata: {
-        "key": false,
-      },
       description:
-        "kaleidoscopic persecute outrun multicolored among provision prickly lounge",
+        "with regarding but poor unique furthermore milky yippee warmhearted hopeful",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
+      metadata: {
+        "key": false,
+      },
       properties: {
         prefix: "<value>",
         expires: {
-          ttl: 861958,
+          ttl: 623160,
           timeframe: "month",
         },
         activations: {
-          limit: 453048,
+          limit: 229034,
           enableCustomerAdmin: false,
         },
-        limitUsage: 657011,
+        limitUsage: 252619,
       },
     },
   },

@@ -38,12 +38,9 @@ let value: CheckoutProduct = {
       id: "<value>",
       createdAt: new Date("2025-05-05T03:36:07.701Z"),
       modifiedAt: new Date("2023-04-03T08:59:52.381Z"),
-      metadata: {
-        "key": 7709.38,
-      },
       type: "downloadables",
       description:
-        "private intelligent misguided evenly excluding ashamed lavish yum nor",
+        "suburban indeed mealy vainly since split drat restfully char",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
@@ -54,19 +51,19 @@ let value: CheckoutProduct = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/var/tmp",
+      path: "/Users",
       mimeType: "<value>",
-      size: 16929,
+      size: 456422,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2023-09-05T10:04:15.460Z"),
+      lastModifiedAt: new Date("2025-12-06T08:10:56.135Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2025-04-30T02:40:43.262Z"),
+      createdAt: new Date("2023-01-19T13:19:06.839Z"),
       sizeReadable: "<value>",
-      publicUrl: "https://thorny-vein.biz/",
+      publicUrl: "https://soulful-jury.org/",
     },
   ],
 };
@@ -86,5 +83,5 @@ let value: CheckoutProduct = {
 | `isArchived`                                                                                         | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | Whether the product is archived and no longer available.                                             |
 | `organizationId`                                                                                     | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the organization owning the product.                                                       |
 | `prices`                                                                                             | *components.CheckoutProductPrices*[]                                                                 | :heavy_check_mark:                                                                                   | List of prices for this product.                                                                     |
-| `benefits`                                                                                           | [components.BenefitBase](../../models/components/benefitbase.md)[]                                   | :heavy_check_mark:                                                                                   | List of benefits granted by the product.                                                             |
+| `benefits`                                                                                           | [components.BenefitPublic](../../models/components/benefitpublic.md)[]                               | :heavy_check_mark:                                                                                   | List of benefits granted by the product.                                                             |
 | `medias`                                                                                             | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]                 | :heavy_check_mark:                                                                                   | List of medias associated to the product.                                                            |

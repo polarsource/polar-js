@@ -35,12 +35,8 @@ let value: CustomerProduct = {
       id: "<value>",
       createdAt: new Date("2023-06-09T17:45:59.840Z"),
       modifiedAt: new Date("2023-05-12T03:22:19.560Z"),
-      metadata: {
-        "key": 4868.88,
-      },
       type: "downloadables",
-      description:
-        "whenever yum fence scenario ha who grade loftily draft roadway",
+      description: "aware but tributary oh even hearten",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
@@ -51,19 +47,19 @@ let value: CustomerProduct = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/home",
+      path: "/Network",
       mimeType: "<value>",
-      size: 410543,
+      size: 914138,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2023-11-03T22:13:58.264Z"),
+      lastModifiedAt: new Date("2023-01-24T22:04:36.931Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2024-06-30T22:35:36.381Z"),
+      createdAt: new Date("2023-12-18T20:32:27.163Z"),
       sizeReadable: "<value>",
-      publicUrl: "https://filthy-charlatan.name",
+      publicUrl: "https://untried-fort.org",
     },
   ],
 };
@@ -83,5 +79,5 @@ let value: CustomerProduct = {
 | `isArchived`                                                                                         | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | Whether the product is archived and no longer available.                                             |
 | `organizationId`                                                                                     | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the organization owning the product.                                                       |
 | `prices`                                                                                             | *components.CustomerProductPrices*[]                                                                 | :heavy_check_mark:                                                                                   | List of available prices for this product.                                                           |
-| `benefits`                                                                                           | [components.BenefitBase](../../models/components/benefitbase.md)[]                                   | :heavy_check_mark:                                                                                   | The benefits granted by the product.                                                                 |
+| `benefits`                                                                                           | [components.BenefitPublic](../../models/components/benefitpublic.md)[]                               | :heavy_check_mark:                                                                                   | The benefits granted by the product.                                                                 |
 | `medias`                                                                                             | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]                 | :heavy_check_mark:                                                                                   | The medias associated to the product.                                                                |

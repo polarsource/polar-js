@@ -32,12 +32,9 @@ let value: CustomerOrderProduct = {
       id: "<value>",
       createdAt: new Date("2023-08-11T14:38:39.231Z"),
       modifiedAt: new Date("2024-10-25T13:48:48.198Z"),
-      metadata: {
-        "key": false,
-      },
-      type: "meter_credit",
+      type: "license_keys",
       description:
-        "clavicle yippee yuck supposing wombat quintuple once shyly heating er",
+        "gadzooks whoa an reluctantly wherever hence phooey factorize courteous",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
@@ -48,48 +45,43 @@ let value: CustomerOrderProduct = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/var/yp",
+      path: "/opt/sbin",
       mimeType: "<value>",
-      size: 900617,
+      size: 66023,
       storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2024-01-08T01:26:41.965Z"),
+      lastModifiedAt: new Date("2023-09-28T22:40:10.265Z"),
       version: "<value>",
       isUploaded: false,
-      createdAt: new Date("2024-07-31T11:06:08.314Z"),
+      createdAt: new Date("2025-07-14T02:16:38.326Z"),
       sizeReadable: "<value>",
-      publicUrl: "https://productive-venom.biz/",
+      publicUrl: "https://vain-publicity.org/",
     },
   ],
   organization: {
-    createdAt: new Date("2023-07-05T17:07:43.030Z"),
-    modifiedAt: new Date("2024-06-13T13:57:30.801Z"),
+    createdAt: new Date("2025-12-28T19:59:01.239Z"),
+    modifiedAt: new Date("2025-09-14T01:48:46.016Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://shameful-plain.name/",
-    email: "Samir_Murazik@gmail.com",
+    avatarUrl: "https://monumental-address.name/",
+    email: "Enoch73@hotmail.com",
     website: "<value>",
     socials: [
       {
-        platform: "github",
-        url: "https://greedy-restaurant.net",
+        platform: "youtube",
+        url: "https://triangular-tomography.name/",
       },
     ],
-    detailsSubmittedAt: new Date("2024-07-15T02:41:03.265Z"),
+    detailsSubmittedAt: new Date("2025-09-14T22:12:04.712Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
       allowCustomerUpdates: false,
-      prorationBehavior: "invoice",
+      prorationBehavior: "prorate",
     },
-    bio: "<value>",
-    company: "Kutch - Wilderman",
-    blog: "<value>",
-    location: "<value>",
-    twitterUsername: "<value>",
   },
 };
 ```
@@ -108,6 +100,6 @@ let value: CustomerOrderProduct = {
 | `isArchived`                                                                                         | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | Whether the product is archived and no longer available.                                             |
 | `organizationId`                                                                                     | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the organization owning the product.                                                       |
 | `prices`                                                                                             | *components.CustomerOrderProductPrices*[]                                                            | :heavy_check_mark:                                                                                   | List of prices for this product.                                                                     |
-| `benefits`                                                                                           | [components.BenefitBase](../../models/components/benefitbase.md)[]                                   | :heavy_check_mark:                                                                                   | List of benefits granted by the product.                                                             |
+| `benefits`                                                                                           | [components.BenefitPublic](../../models/components/benefitpublic.md)[]                               | :heavy_check_mark:                                                                                   | List of benefits granted by the product.                                                             |
 | `medias`                                                                                             | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]                 | :heavy_check_mark:                                                                                   | List of medias associated to the product.                                                            |
 | `organization`                                                                                       | [components.Organization](../../models/components/organization.md)                                   | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

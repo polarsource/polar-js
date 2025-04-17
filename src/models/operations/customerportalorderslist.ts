@@ -22,11 +22,6 @@ import {
   ProductBillingType$inboundSchema,
   ProductBillingType$outboundSchema,
 } from "../components/productbillingtype.js";
-import {
-  ProductPriceType,
-  ProductPriceType$inboundSchema,
-  ProductPriceType$outboundSchema,
-} from "../components/productpricetype.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalOrdersListSecurity = {
@@ -54,10 +49,6 @@ export type CustomerPortalOrdersListQueryParamProductBillingTypeFilter =
   | ProductBillingType
   | Array<ProductBillingType>;
 
-export type QueryParamProductPriceTypeFilter =
-  | ProductPriceType
-  | Array<ProductPriceType>;
-
 /**
  * Filter by subscription ID.
  */
@@ -80,14 +71,6 @@ export type CustomerPortalOrdersListRequest = {
   productBillingType?:
     | ProductBillingType
     | Array<ProductBillingType>
-    | null
-    | undefined;
-  /**
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  productPriceType?:
-    | ProductPriceType
-    | Array<ProductPriceType>
     | null
     | undefined;
   /**
@@ -376,62 +359,6 @@ export function customerPortalOrdersListQueryParamProductBillingTypeFilterFromJS
 }
 
 /** @internal */
-export const QueryParamProductPriceTypeFilter$inboundSchema: z.ZodType<
-  QueryParamProductPriceTypeFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  ProductPriceType$inboundSchema,
-  z.array(ProductPriceType$inboundSchema),
-]);
-
-/** @internal */
-export type QueryParamProductPriceTypeFilter$Outbound = string | Array<string>;
-
-/** @internal */
-export const QueryParamProductPriceTypeFilter$outboundSchema: z.ZodType<
-  QueryParamProductPriceTypeFilter$Outbound,
-  z.ZodTypeDef,
-  QueryParamProductPriceTypeFilter
-> = z.union([
-  ProductPriceType$outboundSchema,
-  z.array(ProductPriceType$outboundSchema),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryParamProductPriceTypeFilter$ {
-  /** @deprecated use `QueryParamProductPriceTypeFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamProductPriceTypeFilter$inboundSchema;
-  /** @deprecated use `QueryParamProductPriceTypeFilter$outboundSchema` instead. */
-  export const outboundSchema = QueryParamProductPriceTypeFilter$outboundSchema;
-  /** @deprecated use `QueryParamProductPriceTypeFilter$Outbound` instead. */
-  export type Outbound = QueryParamProductPriceTypeFilter$Outbound;
-}
-
-export function queryParamProductPriceTypeFilterToJSON(
-  queryParamProductPriceTypeFilter: QueryParamProductPriceTypeFilter,
-): string {
-  return JSON.stringify(
-    QueryParamProductPriceTypeFilter$outboundSchema.parse(
-      queryParamProductPriceTypeFilter,
-    ),
-  );
-}
-
-export function queryParamProductPriceTypeFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<QueryParamProductPriceTypeFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => QueryParamProductPriceTypeFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamProductPriceTypeFilter' from JSON`,
-  );
-}
-
-/** @internal */
 export const CustomerPortalOrdersListQueryParamSubscriptionIDFilter$inboundSchema:
   z.ZodType<
     CustomerPortalOrdersListQueryParamSubscriptionIDFilter,
@@ -509,12 +436,6 @@ export const CustomerPortalOrdersListRequest$inboundSchema: z.ZodType<
       z.array(ProductBillingType$inboundSchema),
     ]),
   ).optional(),
-  product_price_type: z.nullable(
-    z.union([
-      ProductPriceType$inboundSchema,
-      z.array(ProductPriceType$inboundSchema),
-    ]),
-  ).optional(),
   subscription_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   query: z.nullable(z.string()).optional(),
@@ -527,7 +448,6 @@ export const CustomerPortalOrdersListRequest$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
     "product_id": "productId",
     "product_billing_type": "productBillingType",
-    "product_price_type": "productPriceType",
     "subscription_id": "subscriptionId",
   });
 });
@@ -537,7 +457,6 @@ export type CustomerPortalOrdersListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
   product_billing_type?: string | Array<string> | null | undefined;
-  product_price_type?: string | Array<string> | null | undefined;
   subscription_id?: string | Array<string> | null | undefined;
   query?: string | null | undefined;
   page: number;
@@ -560,12 +479,6 @@ export const CustomerPortalOrdersListRequest$outboundSchema: z.ZodType<
       z.array(ProductBillingType$outboundSchema),
     ]),
   ).optional(),
-  productPriceType: z.nullable(
-    z.union([
-      ProductPriceType$outboundSchema,
-      z.array(ProductPriceType$outboundSchema),
-    ]),
-  ).optional(),
   subscriptionId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   query: z.nullable(z.string()).optional(),
@@ -578,7 +491,6 @@ export const CustomerPortalOrdersListRequest$outboundSchema: z.ZodType<
     organizationId: "organization_id",
     productId: "product_id",
     productBillingType: "product_billing_type",
-    productPriceType: "product_price_type",
     subscriptionId: "subscription_id",
   });
 });

@@ -39,7 +39,6 @@ export type BenefitCustomSubscriber = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  metadata: { [k: string]: string | number | number | boolean };
   type?: "custom" | undefined;
   /**
    * The description of the benefit.
@@ -57,6 +56,7 @@ export type BenefitCustomSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
+  metadata: { [k: string]: string | number | number | boolean };
   organization: Organization;
   /**
    * Properties available to subscribers for a benefit of type `custom`.
@@ -129,14 +129,14 @@ export const BenefitCustomSubscriber$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   type: z.literal("custom").optional(),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
   organization_id: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   organization: Organization$inboundSchema,
   properties: BenefitCustomSubscriberProperties$inboundSchema,
 }).transform((v) => {
@@ -152,12 +152,12 @@ export type BenefitCustomSubscriber$Outbound = {
   id: string;
   created_at: string;
   modified_at: string | null;
-  metadata: { [k: string]: string | number | number | boolean };
   type: "custom";
   description: string;
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
+  metadata: { [k: string]: string | number | number | boolean };
   organization: Organization$Outbound;
   properties: BenefitCustomSubscriberProperties$Outbound;
 };
@@ -171,14 +171,14 @@ export const BenefitCustomSubscriber$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   type: z.literal("custom").default("custom" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
   organizationId: z.string(),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   organization: Organization$outboundSchema,
   properties: BenefitCustomSubscriberProperties$outboundSchema,
 }).transform((v) => {

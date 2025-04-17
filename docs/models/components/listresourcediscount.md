@@ -28,13 +28,16 @@ let value: ListResourceDiscount = {
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       products: [
         {
-          createdAt: new Date("2025-11-14T07:21:36.206Z"),
-          modifiedAt: new Date("2024-08-19T06:24:57.447Z"),
+          metadata: {
+            "key": false,
+          },
+          createdAt: new Date("2024-08-19T06:24:57.447Z"),
+          modifiedAt: new Date("2024-06-24T18:51:27.061Z"),
           id: "<value>",
           name: "<value>",
           description:
-            "spanish mismatch possible opposite depot overconfidently",
-          recurringInterval: "month",
+            "grouchy ah weekly scarification never however rightfully er",
+          recurringInterval: "year",
           isRecurring: false,
           isArchived: false,
           organizationId: "<value>",
@@ -43,8 +46,8 @@ let value: ListResourceDiscount = {
     },
   ],
   pagination: {
-    totalCount: 447113,
-    maxPage: 973403,
+    totalCount: 317739,
+    maxPage: 225659,
   },
 };
 ```

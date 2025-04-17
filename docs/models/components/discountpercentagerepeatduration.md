@@ -28,12 +28,15 @@ let value: DiscountPercentageRepeatDuration = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   products: [
     {
-      createdAt: new Date("2025-10-30T00:37:57.395Z"),
-      modifiedAt: new Date("2025-04-11T21:22:55.527Z"),
+      metadata: {
+        "key": false,
+      },
+      createdAt: new Date("2025-04-11T21:22:55.527Z"),
+      modifiedAt: new Date("2023-04-18T01:06:23.222Z"),
       id: "<value>",
       name: "<value>",
-      description: "aboard tenderly speedily",
-      recurringInterval: "month",
+      description: "forenenst whenever cycle yuck messy oof",
+      recurringInterval: "year",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",

@@ -14,51 +14,48 @@ let value: CustomerOrder = {
   subtotalAmount: 175785,
   discountAmount: 3721,
   netAmount: 86176,
-  amount: 961655,
-  taxAmount: 882330,
-  totalAmount: 991943,
-  refundedAmount: 816554,
-  refundedTaxAmount: 62143,
-  currency: "Danish Krone",
+  taxAmount: 961655,
+  totalAmount: 882330,
+  refundedAmount: 991943,
+  refundedTaxAmount: 816554,
+  currency: "Azerbaijanian Manat",
   customerId: "<value>",
   productId: "<value>",
-  productPriceId: "<value>",
   subscriptionId: "<value>",
   userId: "<value>",
   product: {
-    createdAt: new Date("2024-06-29T02:21:41.206Z"),
-    modifiedAt: new Date("2023-10-29T14:30:54.517Z"),
+    createdAt: new Date("2023-09-08T14:32:11.975Z"),
+    modifiedAt: new Date("2024-06-29T02:21:41.206Z"),
     id: "<value>",
     name: "<value>",
-    description:
-      "zowie unless beside sheepishly blah concerning comb oh instead unto",
-    recurringInterval: "year",
+    description: "so sedately through corny consequently",
+    recurringInterval: "month",
     isRecurring: false,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2023-01-05T04:42:07.792Z"),
-        modifiedAt: new Date("2025-08-28T23:03:17.834Z"),
+        createdAt: new Date("2024-10-14T02:58:02.790Z"),
+        modifiedAt: new Date("2023-06-04T11:45:58.378Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
+        type: "recurring",
         recurringInterval: "month",
         priceCurrency: "<value>",
-        priceAmount: 947504,
+        minimumAmount: 367452,
+        maximumAmount: 63036,
+        presetAmount: 754305,
       },
     ],
     benefits: [
       {
         id: "<value>",
-        createdAt: new Date("2023-02-07T02:13:46.475Z"),
-        modifiedAt: new Date("2023-07-11T21:54:30.809Z"),
-        metadata: {
-          "key": "<value>",
-        },
-        type: "custom",
+        createdAt: new Date("2025-09-28T06:14:22.747Z"),
+        modifiedAt: new Date("2024-08-08T09:16:37.102Z"),
+        type: "github_repository",
         description:
-          "formation wearily waft fervently brr whereas per meanwhile from innovate",
+          "while via innovation indeed however excepting before improbable whether quizzically",
         selectable: false,
         deletable: false,
         organizationId: "<value>",
@@ -69,92 +66,75 @@ let value: CustomerOrder = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/boot/defaults",
+        path: "/usr/share",
         mimeType: "<value>",
-        size: 141397,
+        size: 348068,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-10-31T11:44:03.904Z"),
+        lastModifiedAt: new Date("2023-09-12T04:02:12.390Z"),
         version: "<value>",
         isUploaded: false,
-        createdAt: new Date("2023-03-13T05:18:32.374Z"),
+        createdAt: new Date("2023-02-19T15:01:05.733Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://disloyal-massage.info/",
+        publicUrl: "https://sugary-license.net",
       },
     ],
     organization: {
-      createdAt: new Date("2023-01-16T15:27:23.363Z"),
-      modifiedAt: new Date("2025-07-08T00:18:31.347Z"),
+      createdAt: new Date("2024-12-29T02:23:28.044Z"),
+      modifiedAt: new Date("2023-10-22T01:38:00.841Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://firm-soliloquy.com/",
-      email: "Gillian_Harber17@hotmail.com",
+      avatarUrl: "https://known-produce.name/",
+      email: "Ottis_Davis@gmail.com",
       website: "<value>",
       socials: [
         {
-          platform: "tiktok",
-          url: "https://some-repeat.biz",
+          platform: "linkedin",
+          url: "https://ample-instruction.info/",
         },
       ],
-      detailsSubmittedAt: new Date("2024-08-09T12:37:01.128Z"),
+      detailsSubmittedAt: new Date("2024-06-09T17:00:52.619Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
         prorationBehavior: "invoice",
       },
-      bio: "<value>",
-      company: "Greenfelder LLC",
-      blog: "<value>",
-      location: "<value>",
-      twitterUsername: "<value>",
     },
   },
-  productPrice: {
-    createdAt: new Date("2025-03-23T10:34:02.251Z"),
-    modifiedAt: new Date("2024-05-02T18:47:12.293Z"),
-    id: "<value>",
-    isArchived: false,
-    productId: "<value>",
-    type: "recurring",
-    recurringInterval: "year",
-    priceCurrency: "<value>",
-    priceAmount: 763524,
-  },
   subscription: {
-    createdAt: new Date("2023-03-10T00:57:25.166Z"),
-    modifiedAt: new Date("2025-04-14T14:14:22.418Z"),
+    createdAt: new Date("2024-08-28T18:48:57.342Z"),
+    modifiedAt: new Date("2023-11-11T03:07:03.537Z"),
     id: "<value>",
-    amount: 345572,
-    currency: "Somoni",
+    amount: 929799,
+    currency: "Balboa",
     recurringInterval: "month",
     status: "active",
-    currentPeriodStart: new Date("2023-04-14T23:57:52.603Z"),
-    currentPeriodEnd: new Date("2025-11-20T11:03:07.181Z"),
+    currentPeriodStart: new Date("2023-03-02T02:27:24.406Z"),
+    currentPeriodEnd: new Date("2023-06-04T23:19:40.379Z"),
     cancelAtPeriodEnd: false,
-    canceledAt: new Date("2023-12-18T22:59:05.791Z"),
-    startedAt: new Date("2023-07-28T04:10:34.408Z"),
-    endsAt: new Date("2025-09-08T07:39:12.252Z"),
-    endedAt: new Date("2024-04-12T15:20:19.633Z"),
+    canceledAt: new Date("2024-10-31T11:44:03.904Z"),
+    startedAt: new Date("2023-03-13T05:18:32.374Z"),
+    endsAt: new Date("2023-01-15T00:21:31.316Z"),
+    endedAt: new Date("2023-08-06T07:45:53.263Z"),
     customerId: "<value>",
     productId: "<value>",
     discountId: "<value>",
     checkoutId: "<value>",
-    customerCancellationReason: "missing_features",
+    customerCancellationReason: "too_complex",
     customerCancellationComment: "<value>",
-    priceId: "<value>",
   },
   items: [
     {
-      createdAt: new Date("2025-02-25T06:00:03.500Z"),
-      modifiedAt: new Date("2024-02-03T07:47:24.401Z"),
+      createdAt: new Date("2024-06-03T23:13:33.176Z"),
+      modifiedAt: new Date("2023-01-16T15:27:23.363Z"),
       id: "<value>",
       label: "<value>",
-      amount: 894723,
-      taxAmount: 89806,
+      amount: 838516,
+      taxAmount: 140846,
       proration: false,
       productPriceId: "<value>",
     },
@@ -164,28 +144,25 @@ let value: CustomerOrder = {
 
 ## Fields
 
-| Field                                                                                                                                                                       | Type                                                                                                                                                                        | Required                                                                                                                                                                    | Description                                                                                                                                                                 | Example                                                                                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `createdAt`                                                                                                                                                                 | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                               | :heavy_check_mark:                                                                                                                                                          | Creation timestamp of the object.                                                                                                                                           |                                                                                                                                                                             |
-| `modifiedAt`                                                                                                                                                                | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                               | :heavy_check_mark:                                                                                                                                                          | Last modification timestamp of the object.                                                                                                                                  |                                                                                                                                                                             |
-| `id`                                                                                                                                                                        | *string*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | N/A                                                                                                                                                                         |                                                                                                                                                                             |
-| `status`                                                                                                                                                                    | [components.OrderStatus](../../models/components/orderstatus.md)                                                                                                            | :heavy_check_mark:                                                                                                                                                          | N/A                                                                                                                                                                         |                                                                                                                                                                             |
-| `paid`                                                                                                                                                                      | *boolean*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                          | Whether the order has been paid for.                                                                                                                                        | true                                                                                                                                                                        |
-| `subtotalAmount`                                                                                                                                                            | *number*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | Amount in cents, before discounts and taxes.                                                                                                                                |                                                                                                                                                                             |
-| `discountAmount`                                                                                                                                                            | *number*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | Discount amount in cents.                                                                                                                                                   |                                                                                                                                                                             |
-| `netAmount`                                                                                                                                                                 | *number*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | Amount in cents, after discounts but before taxes.                                                                                                                          |                                                                                                                                                                             |
-| ~~`amount`~~                                                                                                                                                                | *number*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.<br/><br/>Amount in cents, after discounts but before taxes. |                                                                                                                                                                             |
-| `taxAmount`                                                                                                                                                                 | *number*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | Sales tax amount in cents.                                                                                                                                                  |                                                                                                                                                                             |
-| `totalAmount`                                                                                                                                                               | *number*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | Amount in cents, after discounts and taxes.                                                                                                                                 |                                                                                                                                                                             |
-| `refundedAmount`                                                                                                                                                            | *number*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | Amount refunded in cents.                                                                                                                                                   |                                                                                                                                                                             |
-| `refundedTaxAmount`                                                                                                                                                         | *number*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | Sales tax refunded in cents.                                                                                                                                                |                                                                                                                                                                             |
-| `currency`                                                                                                                                                                  | *string*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | N/A                                                                                                                                                                         |                                                                                                                                                                             |
-| `customerId`                                                                                                                                                                | *string*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | N/A                                                                                                                                                                         |                                                                                                                                                                             |
-| `productId`                                                                                                                                                                 | *string*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | N/A                                                                                                                                                                         |                                                                                                                                                                             |
-| ~~`productPriceId`~~                                                                                                                                                        | *string*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                     |                                                                                                                                                                             |
-| `subscriptionId`                                                                                                                                                            | *string*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | N/A                                                                                                                                                                         |                                                                                                                                                                             |
-| ~~`userId`~~                                                                                                                                                                | *string*                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                          | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                     |                                                                                                                                                                             |
-| `product`                                                                                                                                                                   | [components.CustomerOrderProduct](../../models/components/customerorderproduct.md)                                                                                          | :heavy_check_mark:                                                                                                                                                          | N/A                                                                                                                                                                         |                                                                                                                                                                             |
-| ~~`productPrice`~~                                                                                                                                                          | *components.CustomerOrderProductPrice*                                                                                                                                      | :heavy_check_mark:                                                                                                                                                          | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                     |                                                                                                                                                                             |
-| `subscription`                                                                                                                                                              | [components.CustomerOrderSubscription](../../models/components/customerordersubscription.md)                                                                                | :heavy_check_mark:                                                                                                                                                          | N/A                                                                                                                                                                         |                                                                                                                                                                             |
-| `items`                                                                                                                                                                     | [components.OrderItemSchema](../../models/components/orderitemschema.md)[]                                                                                                  | :heavy_check_mark:                                                                                                                                                          | Line items composing the order.                                                                                                                                             |                                                                                                                                                                             |
+| Field                                                                                                                   | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             | Example                                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `createdAt`                                                                                                             | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Creation timestamp of the object.                                                                                       |                                                                                                                         |
+| `modifiedAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Last modification timestamp of the object.                                                                              |                                                                                                                         |
+| `id`                                                                                                                    | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| `status`                                                                                                                | [components.OrderStatus](../../models/components/orderstatus.md)                                                        | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| `paid`                                                                                                                  | *boolean*                                                                                                               | :heavy_check_mark:                                                                                                      | Whether the order has been paid for.                                                                                    | true                                                                                                                    |
+| `subtotalAmount`                                                                                                        | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Amount in cents, before discounts and taxes.                                                                            |                                                                                                                         |
+| `discountAmount`                                                                                                        | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Discount amount in cents.                                                                                               |                                                                                                                         |
+| `netAmount`                                                                                                             | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Amount in cents, after discounts but before taxes.                                                                      |                                                                                                                         |
+| `taxAmount`                                                                                                             | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Sales tax amount in cents.                                                                                              |                                                                                                                         |
+| `totalAmount`                                                                                                           | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Amount in cents, after discounts and taxes.                                                                             |                                                                                                                         |
+| `refundedAmount`                                                                                                        | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Amount refunded in cents.                                                                                               |                                                                                                                         |
+| `refundedTaxAmount`                                                                                                     | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Sales tax refunded in cents.                                                                                            |                                                                                                                         |
+| `currency`                                                                                                              | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| `customerId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| `productId`                                                                                                             | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| `subscriptionId`                                                                                                        | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| ~~`userId`~~                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. |                                                                                                                         |
+| `product`                                                                                                               | [components.CustomerOrderProduct](../../models/components/customerorderproduct.md)                                      | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| `subscription`                                                                                                          | [components.CustomerOrderSubscription](../../models/components/customerordersubscription.md)                            | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| `items`                                                                                                                 | [components.OrderItemSchema](../../models/components/orderitemschema.md)[]                                              | :heavy_check_mark:                                                                                                      | Line items composing the order.                                                                                         |                                                                                                                         |
