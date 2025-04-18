@@ -170,7 +170,35 @@ let value: WebhookSubscriptionCanceledPayload = {
         recurringInterval: "year",
       },
     ],
-    meters: [],
+    meters: [
+      {
+        createdAt: new Date("2025-12-04T07:57:32.567Z"),
+        modifiedAt: new Date("2023-04-24T02:01:35.965Z"),
+        id: "<value>",
+        consumedUnits: 25,
+        creditedUnits: 100,
+        amount: 0,
+        meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
+        meter: {
+          metadata: {
+            "key": 2725.72,
+          },
+          createdAt: new Date("2023-03-28T19:34:48.931Z"),
+          modifiedAt: new Date("2024-12-09T23:31:57.716Z"),
+          id: "<value>",
+          name: "<value>",
+          filter: {
+            conjunction: "and",
+            clauses: [],
+          },
+          aggregation: {
+            func: "avg",
+            property: "<value>",
+          },
+          organizationId: "<value>",
+        },
+      },
+    ],
   },
 };
 ```

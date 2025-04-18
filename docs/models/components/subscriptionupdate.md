@@ -14,6 +14,14 @@ const value: components.SubscriptionUpdateProduct = {
 ### `components.SubscriptionCancel`
 
 ```typescript
-const value: components.SubscriptionCancel = {};
+const value: components.SubscriptionCancel = {
+  cancelAtPeriodEnd: false,
+};
+```
+
+### `components.SubscriptionRevoke`
+
+```typescript
+const value: components.SubscriptionRevoke = {};
 ```
 

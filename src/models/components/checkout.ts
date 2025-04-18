@@ -20,6 +20,12 @@ import {
   AttachedCustomField$outboundSchema,
 } from "./attachedcustomfield.js";
 import {
+  CheckoutCustomerBillingAddressFields,
+  CheckoutCustomerBillingAddressFields$inboundSchema,
+  CheckoutCustomerBillingAddressFields$Outbound,
+  CheckoutCustomerBillingAddressFields$outboundSchema,
+} from "./checkoutcustomerbillingaddressfields.js";
+import {
   CheckoutDiscountFixedOnceForeverDuration,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$Outbound,
@@ -174,6 +180,10 @@ export type Checkout = {
    */
   allowDiscountCodes: boolean;
   /**
+   * Whether to require the customer to fill their full billing address, instead of just the country. Customers in the US will always be required to fill their full address, regardless of this setting. If you preset the billing address, this setting will be automatically set to `true`.
+   */
+  requireBillingAddress: boolean;
+  /**
    * Whether the discount is applicable to the checkout. Typically, free and custom prices are not discountable.
    */
   isDiscountApplicable: boolean;
@@ -232,6 +242,7 @@ export type Checkout = {
   subscriptionId: string | null;
   attachedCustomFields: Array<AttachedCustomField>;
   customerMetadata: { [k: string]: string | number | boolean };
+  customerBillingAddressFields: CheckoutCustomerBillingAddressFields;
 };
 
 /** @internal */
@@ -548,6 +559,7 @@ export const Checkout$inboundSchema: z.ZodType<
   product_price_id: z.string(),
   discount_id: z.nullable(z.string()),
   allow_discount_codes: z.boolean(),
+  require_billing_address: z.boolean(),
   is_discount_applicable: z.boolean(),
   is_free_product_price: z.boolean(),
   is_payment_required: z.boolean(),
@@ -583,6 +595,8 @@ export const Checkout$inboundSchema: z.ZodType<
   customer_metadata: z.record(
     z.union([z.string(), z.number().int(), z.boolean()]),
   ),
+  customer_billing_address_fields:
+    CheckoutCustomerBillingAddressFields$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -601,6 +615,7 @@ export const Checkout$inboundSchema: z.ZodType<
     "product_price_id": "productPriceId",
     "discount_id": "discountId",
     "allow_discount_codes": "allowDiscountCodes",
+    "require_billing_address": "requireBillingAddress",
     "is_discount_applicable": "isDiscountApplicable",
     "is_free_product_price": "isFreeProductPrice",
     "is_payment_required": "isPaymentRequired",
@@ -618,6 +633,7 @@ export const Checkout$inboundSchema: z.ZodType<
     "subscription_id": "subscriptionId",
     "attached_custom_fields": "attachedCustomFields",
     "customer_metadata": "customerMetadata",
+    "customer_billing_address_fields": "customerBillingAddressFields",
   });
 });
 
@@ -646,6 +662,7 @@ export type Checkout$Outbound = {
   product_price_id: string;
   discount_id: string | null;
   allow_discount_codes: boolean;
+  require_billing_address: boolean;
   is_discount_applicable: boolean;
   is_free_product_price: boolean;
   is_payment_required: boolean;
@@ -672,6 +689,8 @@ export type Checkout$Outbound = {
   subscription_id: string | null;
   attached_custom_fields: Array<AttachedCustomField$Outbound>;
   customer_metadata: { [k: string]: string | number | boolean };
+  customer_billing_address_fields:
+    CheckoutCustomerBillingAddressFields$Outbound;
 };
 
 /** @internal */
@@ -710,6 +729,7 @@ export const Checkout$outboundSchema: z.ZodType<
   productPriceId: z.string(),
   discountId: z.nullable(z.string()),
   allowDiscountCodes: z.boolean(),
+  requireBillingAddress: z.boolean(),
   isDiscountApplicable: z.boolean(),
   isFreeProductPrice: z.boolean(),
   isPaymentRequired: z.boolean(),
@@ -745,6 +765,8 @@ export const Checkout$outboundSchema: z.ZodType<
   customerMetadata: z.record(
     z.union([z.string(), z.number().int(), z.boolean()]),
   ),
+  customerBillingAddressFields:
+    CheckoutCustomerBillingAddressFields$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -763,6 +785,7 @@ export const Checkout$outboundSchema: z.ZodType<
     productPriceId: "product_price_id",
     discountId: "discount_id",
     allowDiscountCodes: "allow_discount_codes",
+    requireBillingAddress: "require_billing_address",
     isDiscountApplicable: "is_discount_applicable",
     isFreeProductPrice: "is_free_product_price",
     isPaymentRequired: "is_payment_required",
@@ -780,6 +803,7 @@ export const Checkout$outboundSchema: z.ZodType<
     subscriptionId: "subscription_id",
     attachedCustomFields: "attached_custom_fields",
     customerMetadata: "customer_metadata",
+    customerBillingAddressFields: "customer_billing_address_fields",
   });
 });
 

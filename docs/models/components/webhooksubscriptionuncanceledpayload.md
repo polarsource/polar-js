@@ -178,7 +178,32 @@ let value: WebhookSubscriptionUncanceledPayload = {
         presetAmount: 781050,
       },
     ],
-    meters: [],
+    meters: [
+      {
+        createdAt: new Date("2024-09-16T03:43:45.976Z"),
+        modifiedAt: new Date("2024-06-21T23:38:35.374Z"),
+        id: "<value>",
+        consumedUnits: 25,
+        creditedUnits: 100,
+        amount: 0,
+        meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
+        meter: {
+          metadata: {
+            "key": "<value>",
+          },
+          createdAt: new Date("2025-03-12T11:48:00.561Z"),
+          modifiedAt: new Date("2024-01-10T14:51:41.133Z"),
+          id: "<value>",
+          name: "<value>",
+          filter: {
+            conjunction: "and",
+            clauses: [],
+          },
+          aggregation: {},
+          organizationId: "<value>",
+        },
+      },
+    ],
   },
 };
 ```

@@ -13,7 +13,7 @@ import {
   CustomerCancellationReason$outboundSchema,
 } from "./customercancellationreason.js";
 
-export type SubscriptionCancel = {
+export type SubscriptionRevoke = {
   /**
    * Customer reason for cancellation.
    *
@@ -51,18 +51,14 @@ export type SubscriptionCancel = {
    */
   customerCancellationComment?: string | null | undefined;
   /**
-   * Cancel an active subscription once the current period ends.
-   *
-   * @remarks
-   *
-   * Or uncancel a subscription currently set to be revoked at period end.
+   * Cancel and revoke an active subscription immediately
    */
-  cancelAtPeriodEnd: boolean;
+  revoke?: true | undefined;
 };
 
 /** @internal */
-export const SubscriptionCancel$inboundSchema: z.ZodType<
-  SubscriptionCancel,
+export const SubscriptionRevoke$inboundSchema: z.ZodType<
+  SubscriptionRevoke,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -70,38 +66,36 @@ export const SubscriptionCancel$inboundSchema: z.ZodType<
     CustomerCancellationReason$inboundSchema,
   ).optional(),
   customer_cancellation_comment: z.nullable(z.string()).optional(),
-  cancel_at_period_end: z.boolean(),
+  revoke: z.literal(true).optional(),
 }).transform((v) => {
   return remap$(v, {
     "customer_cancellation_reason": "customerCancellationReason",
     "customer_cancellation_comment": "customerCancellationComment",
-    "cancel_at_period_end": "cancelAtPeriodEnd",
   });
 });
 
 /** @internal */
-export type SubscriptionCancel$Outbound = {
+export type SubscriptionRevoke$Outbound = {
   customer_cancellation_reason?: string | null | undefined;
   customer_cancellation_comment?: string | null | undefined;
-  cancel_at_period_end: boolean;
+  revoke: true;
 };
 
 /** @internal */
-export const SubscriptionCancel$outboundSchema: z.ZodType<
-  SubscriptionCancel$Outbound,
+export const SubscriptionRevoke$outboundSchema: z.ZodType<
+  SubscriptionRevoke$Outbound,
   z.ZodTypeDef,
-  SubscriptionCancel
+  SubscriptionRevoke
 > = z.object({
   customerCancellationReason: z.nullable(
     CustomerCancellationReason$outboundSchema,
   ).optional(),
   customerCancellationComment: z.nullable(z.string()).optional(),
-  cancelAtPeriodEnd: z.boolean(),
+  revoke: z.literal(true).default(true as const),
 }).transform((v) => {
   return remap$(v, {
     customerCancellationReason: "customer_cancellation_reason",
     customerCancellationComment: "customer_cancellation_comment",
-    cancelAtPeriodEnd: "cancel_at_period_end",
   });
 });
 
@@ -109,29 +103,29 @@ export const SubscriptionCancel$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SubscriptionCancel$ {
-  /** @deprecated use `SubscriptionCancel$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionCancel$inboundSchema;
-  /** @deprecated use `SubscriptionCancel$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionCancel$outboundSchema;
-  /** @deprecated use `SubscriptionCancel$Outbound` instead. */
-  export type Outbound = SubscriptionCancel$Outbound;
+export namespace SubscriptionRevoke$ {
+  /** @deprecated use `SubscriptionRevoke$inboundSchema` instead. */
+  export const inboundSchema = SubscriptionRevoke$inboundSchema;
+  /** @deprecated use `SubscriptionRevoke$outboundSchema` instead. */
+  export const outboundSchema = SubscriptionRevoke$outboundSchema;
+  /** @deprecated use `SubscriptionRevoke$Outbound` instead. */
+  export type Outbound = SubscriptionRevoke$Outbound;
 }
 
-export function subscriptionCancelToJSON(
-  subscriptionCancel: SubscriptionCancel,
+export function subscriptionRevokeToJSON(
+  subscriptionRevoke: SubscriptionRevoke,
 ): string {
   return JSON.stringify(
-    SubscriptionCancel$outboundSchema.parse(subscriptionCancel),
+    SubscriptionRevoke$outboundSchema.parse(subscriptionRevoke),
   );
 }
 
-export function subscriptionCancelFromJSON(
+export function subscriptionRevokeFromJSON(
   jsonString: string,
-): SafeParseResult<SubscriptionCancel, SDKValidationError> {
+): SafeParseResult<SubscriptionRevoke, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SubscriptionCancel$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionCancel' from JSON`,
+    (x) => SubscriptionRevoke$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubscriptionRevoke' from JSON`,
   );
 }

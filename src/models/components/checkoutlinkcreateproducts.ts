@@ -47,6 +47,10 @@ export type CheckoutLinkCreateProducts = {
    */
   allowDiscountCodes?: boolean | undefined;
   /**
+   * Whether to require the customer to fill their full billing address, instead of just the country. Customers in the US will always be required to fill their full address, regardless of this setting.
+   */
+  requireBillingAddress?: boolean | undefined;
+  /**
    * ID of the discount to apply to the checkout. If the discount is not applicable anymore when opening the checkout link, it'll be ignored.
    */
   discountId?: string | null | undefined;
@@ -128,6 +132,7 @@ export const CheckoutLinkCreateProducts$inboundSchema: z.ZodType<
   payment_processor: z.literal("stripe").optional(),
   label: z.nullable(z.string()).optional(),
   allow_discount_codes: z.boolean().default(true),
+  require_billing_address: z.boolean().default(false),
   discount_id: z.nullable(z.string()).optional(),
   success_url: z.nullable(z.string()).optional(),
   products: z.array(z.string()),
@@ -135,6 +140,7 @@ export const CheckoutLinkCreateProducts$inboundSchema: z.ZodType<
   return remap$(v, {
     "payment_processor": "paymentProcessor",
     "allow_discount_codes": "allowDiscountCodes",
+    "require_billing_address": "requireBillingAddress",
     "discount_id": "discountId",
     "success_url": "successUrl",
   });
@@ -146,6 +152,7 @@ export type CheckoutLinkCreateProducts$Outbound = {
   payment_processor: "stripe";
   label?: string | null | undefined;
   allow_discount_codes: boolean;
+  require_billing_address: boolean;
   discount_id?: string | null | undefined;
   success_url?: string | null | undefined;
   products: Array<string>;
@@ -163,6 +170,7 @@ export const CheckoutLinkCreateProducts$outboundSchema: z.ZodType<
   paymentProcessor: z.literal("stripe").default("stripe" as const),
   label: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.boolean().default(true),
+  requireBillingAddress: z.boolean().default(false),
   discountId: z.nullable(z.string()).optional(),
   successUrl: z.nullable(z.string()).optional(),
   products: z.array(z.string()),
@@ -170,6 +178,7 @@ export const CheckoutLinkCreateProducts$outboundSchema: z.ZodType<
   return remap$(v, {
     paymentProcessor: "payment_processor",
     allowDiscountCodes: "allow_discount_codes",
+    requireBillingAddress: "require_billing_address",
     discountId: "discount_id",
     successUrl: "success_url",
   });

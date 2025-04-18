@@ -86,6 +86,10 @@ export type CheckoutLink = {
    */
   allowDiscountCodes: boolean;
   /**
+   * Whether to require the customer to fill their full billing address, instead of just the country. Customers in the US will always be required to fill their full address, regardless of this setting.
+   */
+  requireBillingAddress: boolean;
+  /**
    * ID of the discount to apply to the checkout. If the discount is not applicable anymore when opening the checkout link, it'll be ignored.
    */
   discountId: string | null;
@@ -232,6 +236,7 @@ export const CheckoutLink$inboundSchema: z.ZodType<
   success_url: z.nullable(z.string()),
   label: z.nullable(z.string()),
   allow_discount_codes: z.boolean(),
+  require_billing_address: z.boolean(),
   discount_id: z.nullable(z.string()),
   organization_id: z.string(),
   products: z.array(CheckoutLinkProduct$inboundSchema),
@@ -252,6 +257,7 @@ export const CheckoutLink$inboundSchema: z.ZodType<
     "client_secret": "clientSecret",
     "success_url": "successUrl",
     "allow_discount_codes": "allowDiscountCodes",
+    "require_billing_address": "requireBillingAddress",
     "discount_id": "discountId",
     "organization_id": "organizationId",
   });
@@ -268,6 +274,7 @@ export type CheckoutLink$Outbound = {
   success_url: string | null;
   label: string | null;
   allow_discount_codes: boolean;
+  require_billing_address: boolean;
   discount_id: string | null;
   organization_id: string;
   products: Array<CheckoutLinkProduct$Outbound>;
@@ -297,6 +304,7 @@ export const CheckoutLink$outboundSchema: z.ZodType<
   successUrl: z.nullable(z.string()),
   label: z.nullable(z.string()),
   allowDiscountCodes: z.boolean(),
+  requireBillingAddress: z.boolean(),
   discountId: z.nullable(z.string()),
   organizationId: z.string(),
   products: z.array(CheckoutLinkProduct$outboundSchema),
@@ -317,6 +325,7 @@ export const CheckoutLink$outboundSchema: z.ZodType<
     clientSecret: "client_secret",
     successUrl: "success_url",
     allowDiscountCodes: "allow_discount_codes",
+    requireBillingAddress: "require_billing_address",
     discountId: "discount_id",
     organizationId: "organization_id",
   });

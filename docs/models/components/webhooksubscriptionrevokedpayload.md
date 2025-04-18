@@ -185,7 +185,32 @@ let value: WebhookSubscriptionRevokedPayload = {
         recurringInterval: "month",
       },
     ],
-    meters: [],
+    meters: [
+      {
+        createdAt: new Date("2024-11-22T07:06:20.439Z"),
+        modifiedAt: new Date("2025-02-17T17:48:06.743Z"),
+        id: "<value>",
+        consumedUnits: 25,
+        creditedUnits: 100,
+        amount: 0,
+        meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
+        meter: {
+          metadata: {
+            "key": false,
+          },
+          createdAt: new Date("2024-10-29T00:52:06.091Z"),
+          modifiedAt: new Date("2025-02-10T13:23:40.560Z"),
+          id: "<value>",
+          name: "<value>",
+          filter: {
+            conjunction: "or",
+            clauses: [],
+          },
+          aggregation: {},
+          organizationId: "<value>",
+        },
+      },
+    ],
   },
 };
 ```

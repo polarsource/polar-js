@@ -118,9 +118,7 @@ async function run() {
     name: "<value>",
     filter: {
       conjunction: "and",
-      clauses: [
-
-      ],
+      clauses: [],
     },
     aggregation: {
       func: "sum",
@@ -155,9 +153,7 @@ async function run() {
     name: "<value>",
     filter: {
       conjunction: "and",
-      clauses: [
-  
-      ],
+      clauses: [],
     },
     aggregation: {
       func: "sum",

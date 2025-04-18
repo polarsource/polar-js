@@ -116,6 +116,7 @@ const polar = new Polar({
 async function run() {
   const result = await polar.checkoutLinks.create({
     allowDiscountCodes: true,
+    requireBillingAddress: false,
     productId: "<value>",
   });
 
@@ -143,6 +144,7 @@ const polar = new PolarCore({
 async function run() {
   const res = await checkoutLinksCreate(polar, {
     allowDiscountCodes: true,
+    requireBillingAddress: false,
     productId: "<value>",
   });
 
