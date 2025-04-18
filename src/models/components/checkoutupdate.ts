@@ -69,6 +69,10 @@ export type CheckoutUpdate = {
    * Whether to allow the customer to apply discount codes. If you apply a discount through `discount_id`, it'll still be applied, but the customer won't be able to change it.
    */
   allowDiscountCodes?: boolean | null | undefined;
+  /**
+   * Whether to require the customer to fill their full billing address, instead of just the country. Customers in the US will always be required to fill their full address, regardless of this setting. If you preset the billing address, this setting will be automatically set to `true`.
+   */
+  requireBillingAddress?: boolean | null | undefined;
   customerIpAddress?: string | null | undefined;
   /**
    * Key-value object allowing you to store additional information that'll be copied to the created customer.
@@ -297,6 +301,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   ).optional(),
   discount_id: z.nullable(z.string()).optional(),
   allow_discount_codes: z.nullable(z.boolean()).optional(),
+  require_billing_address: z.nullable(z.boolean()).optional(),
   customer_ip_address: z.nullable(z.string()).optional(),
   customer_metadata: z.nullable(
     z.record(z.union([z.string(), z.number().int(), z.number(), z.boolean()])),
@@ -314,6 +319,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
     "customer_tax_id": "customerTaxId",
     "discount_id": "discountId",
     "allow_discount_codes": "allowDiscountCodes",
+    "require_billing_address": "requireBillingAddress",
     "customer_ip_address": "customerIpAddress",
     "customer_metadata": "customerMetadata",
     "success_url": "successUrl",
@@ -336,6 +342,7 @@ export type CheckoutUpdate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   discount_id?: string | null | undefined;
   allow_discount_codes?: boolean | null | undefined;
+  require_billing_address?: boolean | null | undefined;
   customer_ip_address?: string | null | undefined;
   customer_metadata?:
     | { [k: string]: string | number | number | boolean }
@@ -373,6 +380,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   ).optional(),
   discountId: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.nullable(z.boolean()).optional(),
+  requireBillingAddress: z.nullable(z.boolean()).optional(),
   customerIpAddress: z.nullable(z.string()).optional(),
   customerMetadata: z.nullable(
     z.record(z.union([z.string(), z.number().int(), z.number(), z.boolean()])),
@@ -390,6 +398,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
     customerTaxId: "customer_tax_id",
     discountId: "discount_id",
     allowDiscountCodes: "allow_discount_codes",
+    requireBillingAddress: "require_billing_address",
     customerIpAddress: "customer_ip_address",
     customerMetadata: "customer_metadata",
     successUrl: "success_url",

@@ -180,7 +180,35 @@ let value: WebhookSubscriptionUpdatedPayload = {
         },
       },
     ],
-    meters: [],
+    meters: [
+      {
+        createdAt: new Date("2025-10-16T00:45:41.650Z"),
+        modifiedAt: new Date("2025-05-23T00:35:37.316Z"),
+        id: "<value>",
+        consumedUnits: 25,
+        creditedUnits: 100,
+        amount: 0,
+        meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
+        meter: {
+          metadata: {
+            "key": 973.17,
+          },
+          createdAt: new Date("2024-06-11T03:24:15.349Z"),
+          modifiedAt: new Date("2023-04-02T01:28:32.139Z"),
+          id: "<value>",
+          name: "<value>",
+          filter: {
+            conjunction: "or",
+            clauses: [],
+          },
+          aggregation: {
+            func: "max",
+            property: "<value>",
+          },
+          organizationId: "<value>",
+        },
+      },
+    ],
   },
 };
 ```

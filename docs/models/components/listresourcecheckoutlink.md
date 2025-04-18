@@ -19,6 +19,7 @@ let value: ListResourceCheckoutLink = {
       successUrl: "https://sociable-blight.name",
       label: "<value>",
       allowDiscountCodes: false,
+      requireBillingAddress: false,
       discountId: "<value>",
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       products: [

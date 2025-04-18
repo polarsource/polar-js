@@ -20,6 +20,7 @@ let value: CheckoutLinksListResponse = {
         successUrl: "https://super-effector.info",
         label: "<value>",
         allowDiscountCodes: false,
+        requireBillingAddress: false,
         discountId: "<value>",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         products: [

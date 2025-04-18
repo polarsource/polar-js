@@ -60,6 +60,10 @@ export type CheckoutCreate = {
    * Whether to allow the customer to apply discount codes. If you apply a discount through `discount_id`, it'll still be applied, but the customer won't be able to change it.
    */
   allowDiscountCodes?: boolean | undefined;
+  /**
+   * Whether to require the customer to fill their full billing address, instead of just the country. Customers in the US will always be required to fill their full address, regardless of this setting. If you preset the billing address, this setting will be automatically set to `true`.
+   */
+  requireBillingAddress?: boolean | undefined;
   amount?: number | null | undefined;
   /**
    * ID of an existing customer in the organization. The customer data will be pre-filled in the checkout form. The resulting order will be linked to this customer.
@@ -301,6 +305,7 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
   ).optional(),
   discount_id: z.nullable(z.string()).optional(),
   allow_discount_codes: z.boolean().default(true),
+  require_billing_address: z.boolean().default(false),
   amount: z.nullable(z.number().int()).optional(),
   customer_id: z.nullable(z.string()).optional(),
   customer_external_id: z.nullable(z.string()).optional(),
@@ -321,6 +326,7 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
     "custom_field_data": "customFieldData",
     "discount_id": "discountId",
     "allow_discount_codes": "allowDiscountCodes",
+    "require_billing_address": "requireBillingAddress",
     "customer_id": "customerId",
     "customer_external_id": "customerExternalId",
     "customer_name": "customerName",
@@ -343,6 +349,7 @@ export type CheckoutCreate$Outbound = {
     | undefined;
   discount_id?: string | null | undefined;
   allow_discount_codes: boolean;
+  require_billing_address: boolean;
   amount?: number | null | undefined;
   customer_id?: string | null | undefined;
   customer_external_id?: string | null | undefined;
@@ -381,6 +388,7 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
   ).optional(),
   discountId: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.boolean().default(true),
+  requireBillingAddress: z.boolean().default(false),
   amount: z.nullable(z.number().int()).optional(),
   customerId: z.nullable(z.string()).optional(),
   customerExternalId: z.nullable(z.string()).optional(),
@@ -401,6 +409,7 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
     customFieldData: "custom_field_data",
     discountId: "discount_id",
     allowDiscountCodes: "allow_discount_codes",
+    requireBillingAddress: "require_billing_address",
     customerId: "customer_id",
     customerExternalId: "customer_external_id",
     customerName: "customer_name",

@@ -171,7 +171,32 @@ let value: WebhookSubscriptionCreatedPayload = {
         recurringInterval: "year",
       },
     ],
-    meters: [],
+    meters: [
+      {
+        createdAt: new Date("2023-03-04T06:35:43.451Z"),
+        modifiedAt: new Date("2025-07-10T00:00:38.572Z"),
+        id: "<value>",
+        consumedUnits: 25,
+        creditedUnits: 100,
+        amount: 0,
+        meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
+        meter: {
+          metadata: {
+            "key": false,
+          },
+          createdAt: new Date("2024-06-26T03:23:33.136Z"),
+          modifiedAt: new Date("2023-03-25T06:21:58.346Z"),
+          id: "<value>",
+          name: "<value>",
+          filter: {
+            conjunction: "and",
+            clauses: [],
+          },
+          aggregation: {},
+          organizationId: "<value>",
+        },
+      },
+    ],
   },
 };
 ```

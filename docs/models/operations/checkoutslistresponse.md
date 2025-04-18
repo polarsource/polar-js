@@ -29,6 +29,7 @@ let value: CheckoutsListResponse = {
         productPriceId: "<value>",
         discountId: "<value>",
         allowDiscountCodes: false,
+        requireBillingAddress: false,
         isDiscountApplicable: false,
         isFreeProductPrice: false,
         isPaymentRequired: false,
@@ -208,6 +209,14 @@ let value: CheckoutsListResponse = {
         ],
         customerMetadata: {
           "key": 510898,
+        },
+        customerBillingAddressFields: {
+          country: false,
+          state: false,
+          city: false,
+          postalCode: false,
+          line1: false,
+          line2: false,
         },
       },
     ],

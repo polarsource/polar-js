@@ -184,7 +184,35 @@ let value: WebhookSubscriptionActivePayload = {
         presetAmount: 614349,
       },
     ],
-    meters: [],
+    meters: [
+      {
+        createdAt: new Date("2023-05-17T02:04:21.933Z"),
+        modifiedAt: new Date("2024-06-09T21:04:54.918Z"),
+        id: "<value>",
+        consumedUnits: 25,
+        creditedUnits: 100,
+        amount: 0,
+        meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
+        meter: {
+          metadata: {
+            "key": 288924,
+          },
+          createdAt: new Date("2025-09-10T14:15:51.514Z"),
+          modifiedAt: new Date("2024-07-17T22:10:20.173Z"),
+          id: "<value>",
+          name: "<value>",
+          filter: {
+            conjunction: "or",
+            clauses: [],
+          },
+          aggregation: {
+            func: "min",
+            property: "<value>",
+          },
+          organizationId: "<value>",
+        },
+      },
+    ],
   },
 };
 ```

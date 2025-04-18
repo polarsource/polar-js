@@ -7,10 +7,29 @@ import { MetersListResponse } from "@polar-sh/sdk/models/operations/meterslist.j
 
 let value: MetersListResponse = {
   result: {
-    items: [],
+    items: [
+      {
+        metadata: {
+          "key": "<value>",
+        },
+        createdAt: new Date("2025-04-21T05:25:19.258Z"),
+        modifiedAt: new Date("2023-01-31T09:16:39.900Z"),
+        id: "<value>",
+        name: "<value>",
+        filter: {
+          conjunction: "or",
+          clauses: [],
+        },
+        aggregation: {
+          func: "max",
+          property: "<value>",
+        },
+        organizationId: "<value>",
+      },
+    ],
     pagination: {
-      totalCount: 217958,
-      maxPage: 767542,
+      totalCount: 255858,
+      maxPage: 729316,
     },
   },
 };

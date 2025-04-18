@@ -306,7 +306,9 @@ const polar = new PolarCore({
 async function run() {
   const res = await subscriptionsUpdate(polar, {
     id: "<value>",
-    subscriptionUpdate: {},
+    subscriptionUpdate: {
+      cancelAtPeriodEnd: false,
+    },
   });
 
   if (!res.ok) {

@@ -6,10 +6,26 @@
 import { ListResourceMeter } from "@polar-sh/sdk/models/components/listresourcemeter.js";
 
 let value: ListResourceMeter = {
-  items: [],
+  items: [
+    {
+      metadata: {
+        "key": false,
+      },
+      createdAt: new Date("2023-12-11T01:36:24.954Z"),
+      modifiedAt: new Date("2023-01-09T16:18:53.335Z"),
+      id: "<value>",
+      name: "<value>",
+      filter: {
+        conjunction: "or",
+        clauses: [],
+      },
+      aggregation: {},
+      organizationId: "<value>",
+    },
+  ],
   pagination: {
-    totalCount: 828235,
-    maxPage: 313930,
+    totalCount: 386895,
+    maxPage: 909416,
   },
 };
 ```

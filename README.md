@@ -201,6 +201,7 @@ async function run() {
       productPriceId: "<value>",
       discountId: "<value>",
       allowDiscountCodes: false,
+      requireBillingAddress: false,
       isDiscountApplicable: false,
       isFreeProductPrice: false,
       isPaymentRequired: false,
@@ -211,7 +212,7 @@ async function run() {
       customerEmail: "<value>",
       customerIpAddress: "<value>",
       customerBillingAddress: {
-        country: "FR",
+        country: "SE",
       },
       customerTaxId: "<id>",
       paymentProcessorMetadata: {
@@ -423,6 +424,14 @@ async function run() {
       ],
       customerMetadata: {
         "key": true,
+      },
+      customerBillingAddressFields: {
+        country: true,
+        state: false,
+        city: true,
+        postalCode: false,
+        line1: false,
+        line2: false,
       },
     },
   });
