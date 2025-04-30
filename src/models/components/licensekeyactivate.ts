@@ -8,16 +8,46 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type LicenseKeyActivateConditions = {};
+export type LicenseKeyActivateConditions = string | number | number | boolean;
 
-export type LicenseKeyActivateMeta = {};
+export type LicenseKeyActivateMeta = string | number | number | boolean;
 
 export type LicenseKeyActivate = {
   key: string;
   organizationId: string;
   label: string;
-  conditions?: LicenseKeyActivateConditions | undefined;
-  meta?: LicenseKeyActivateMeta | undefined;
+  /**
+   * Key-value object allowing you to set conditions that must match when validating the license key.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  conditions?: { [k: string]: string | number | number | boolean } | undefined;
+  /**
+   * Key-value object allowing you to store additional information about the activation
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  meta?: { [k: string]: string | number | number | boolean } | undefined;
 };
 
 /** @internal */
@@ -25,17 +55,21 @@ export const LicenseKeyActivateConditions$inboundSchema: z.ZodType<
   LicenseKeyActivateConditions,
   z.ZodTypeDef,
   unknown
-> = z.object({});
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type LicenseKeyActivateConditions$Outbound = {};
+export type LicenseKeyActivateConditions$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const LicenseKeyActivateConditions$outboundSchema: z.ZodType<
   LicenseKeyActivateConditions$Outbound,
   z.ZodTypeDef,
   LicenseKeyActivateConditions
-> = z.object({});
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -75,17 +109,21 @@ export const LicenseKeyActivateMeta$inboundSchema: z.ZodType<
   LicenseKeyActivateMeta,
   z.ZodTypeDef,
   unknown
-> = z.object({});
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type LicenseKeyActivateMeta$Outbound = {};
+export type LicenseKeyActivateMeta$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const LicenseKeyActivateMeta$outboundSchema: z.ZodType<
   LicenseKeyActivateMeta$Outbound,
   z.ZodTypeDef,
   LicenseKeyActivateMeta
-> = z.object({});
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -127,9 +165,12 @@ export const LicenseKeyActivate$inboundSchema: z.ZodType<
   key: z.string(),
   organization_id: z.string(),
   label: z.string(),
-  conditions: z.lazy(() => LicenseKeyActivateConditions$inboundSchema)
-    .optional(),
-  meta: z.lazy(() => LicenseKeyActivateMeta$inboundSchema).optional(),
+  conditions: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
+  meta: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -141,8 +182,8 @@ export type LicenseKeyActivate$Outbound = {
   key: string;
   organization_id: string;
   label: string;
-  conditions?: LicenseKeyActivateConditions$Outbound | undefined;
-  meta?: LicenseKeyActivateMeta$Outbound | undefined;
+  conditions?: { [k: string]: string | number | number | boolean } | undefined;
+  meta?: { [k: string]: string | number | number | boolean } | undefined;
 };
 
 /** @internal */
@@ -154,9 +195,12 @@ export const LicenseKeyActivate$outboundSchema: z.ZodType<
   key: z.string(),
   organizationId: z.string(),
   label: z.string(),
-  conditions: z.lazy(() => LicenseKeyActivateConditions$outboundSchema)
-    .optional(),
-  meta: z.lazy(() => LicenseKeyActivateMeta$outboundSchema).optional(),
+  conditions: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
+  meta: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",

@@ -14,13 +14,13 @@ import {
   LicenseKeyRead$outboundSchema,
 } from "./licensekeyread.js";
 
-export type LicenseKeyActivationReadMeta = {};
+export type LicenseKeyActivationReadMeta = string | number | number | boolean;
 
 export type LicenseKeyActivationRead = {
   id: string;
   licenseKeyId: string;
   label: string;
-  meta: LicenseKeyActivationReadMeta;
+  meta: { [k: string]: string | number | number | boolean };
   createdAt: Date;
   modifiedAt: Date | null;
   licenseKey: LicenseKeyRead;
@@ -31,17 +31,21 @@ export const LicenseKeyActivationReadMeta$inboundSchema: z.ZodType<
   LicenseKeyActivationReadMeta,
   z.ZodTypeDef,
   unknown
-> = z.object({});
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type LicenseKeyActivationReadMeta$Outbound = {};
+export type LicenseKeyActivationReadMeta$Outbound =
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const LicenseKeyActivationReadMeta$outboundSchema: z.ZodType<
   LicenseKeyActivationReadMeta$Outbound,
   z.ZodTypeDef,
   LicenseKeyActivationReadMeta
-> = z.object({});
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -85,7 +89,9 @@ export const LicenseKeyActivationRead$inboundSchema: z.ZodType<
   id: z.string(),
   license_key_id: z.string(),
   label: z.string(),
-  meta: z.lazy(() => LicenseKeyActivationReadMeta$inboundSchema),
+  meta: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -105,7 +111,7 @@ export type LicenseKeyActivationRead$Outbound = {
   id: string;
   license_key_id: string;
   label: string;
-  meta: LicenseKeyActivationReadMeta$Outbound;
+  meta: { [k: string]: string | number | number | boolean };
   created_at: string;
   modified_at: string | null;
   license_key: LicenseKeyRead$Outbound;
@@ -120,7 +126,9 @@ export const LicenseKeyActivationRead$outboundSchema: z.ZodType<
   id: z.string(),
   licenseKeyId: z.string(),
   label: z.string(),
-  meta: z.lazy(() => LicenseKeyActivationReadMeta$outboundSchema),
+  meta: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   licenseKey: LicenseKeyRead$outboundSchema,

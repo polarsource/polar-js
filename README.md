@@ -212,7 +212,7 @@ async function run() {
       customerEmail: "<value>",
       customerIpAddress: "<value>",
       customerBillingAddress: {
-        country: "SE",
+        country: "FR",
       },
       customerTaxId: "<id>",
       paymentProcessorMetadata: {

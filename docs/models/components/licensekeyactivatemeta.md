@@ -1,14 +1,29 @@
 # LicenseKeyActivateMeta
 
-## Example Usage
+
+## Supported Types
+
+### `string`
 
 ```typescript
-import { LicenseKeyActivateMeta } from "@polar-sh/sdk/models/components/licensekeyactivate.js";
-
-let value: LicenseKeyActivateMeta = {};
+const value: string = "<value>";
 ```
 
-## Fields
+### `number`
 
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |
+```typescript
+const value: number = 128403;
+```
+
+### `number`
+
+```typescript
+const value: number = 1284.03;
+```
+
+### `boolean`
+
+```typescript
+const value: boolean = false;
+```
+

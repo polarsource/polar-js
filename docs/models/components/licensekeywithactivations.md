@@ -46,9 +46,11 @@ let value: LicenseKeyWithActivations = {
       id: "<value>",
       licenseKeyId: "<value>",
       label: "<value>",
-      meta: {},
-      createdAt: new Date("2024-04-23T21:45:56.168Z"),
-      modifiedAt: new Date("2024-08-31T18:13:07.759Z"),
+      meta: {
+        "key": 555437,
+      },
+      createdAt: new Date("2024-07-01T15:10:25.837Z"),
+      modifiedAt: new Date("2024-11-07T15:04:32.338Z"),
     },
   ],
 };

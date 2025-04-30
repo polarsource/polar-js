@@ -1,14 +1,29 @@
 # Conditions
 
-## Example Usage
+
+## Supported Types
+
+### `string`
 
 ```typescript
-import { Conditions } from "@polar-sh/sdk/models/components/licensekeyvalidate.js";
-
-let value: Conditions = {};
+const value: string = "<value>";
 ```
 
-## Fields
+### `number`
 
-| Field       | Type        | Required    | Description |
-| ----------- | ----------- | ----------- | ----------- |
+```typescript
+const value: number = 128403;
+```
+
+### `number`
+
+```typescript
+const value: number = 1284.03;
+```
+
+### `boolean`
+
+```typescript
+const value: boolean = false;
+```
+
