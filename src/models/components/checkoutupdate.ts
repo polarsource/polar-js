@@ -40,6 +40,9 @@ export type CheckoutUpdate = {
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   productPriceId?: string | null | undefined;
+  /**
+   * Amount in cents, before discounts and taxes.
+   */
   amount?: number | null | undefined;
   customerName?: string | null | undefined;
   customerEmail?: string | null | undefined;

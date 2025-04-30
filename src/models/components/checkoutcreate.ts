@@ -64,6 +64,9 @@ export type CheckoutCreate = {
    * Whether to require the customer to fill their full billing address, instead of just the country. Customers in the US will always be required to fill their full address, regardless of this setting. If you preset the billing address, this setting will be automatically set to `true`.
    */
   requireBillingAddress?: boolean | undefined;
+  /**
+   * Amount in cents, before discounts and taxes.
+   */
   amount?: number | null | undefined;
   /**
    * ID of an existing customer in the organization. The customer data will be pre-filled in the checkout form. The resulting order will be linked to this customer.
