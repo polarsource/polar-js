@@ -14,11 +14,12 @@ generation:
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: false
+    sharedErrorComponentsApr2025: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
 typescript:
-  version: 0.32.11
+  version: 0.32.12
   additionalDependencies:
     dependencies:
       standardwebhooks: ^1.0.0

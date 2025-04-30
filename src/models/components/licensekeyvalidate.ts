@@ -8,7 +8,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type Conditions = {};
+export type Conditions = string | number | number | boolean;
 
 export type LicenseKeyValidate = {
   key: string;
@@ -17,7 +17,22 @@ export type LicenseKeyValidate = {
   benefitId?: string | null | undefined;
   customerId?: string | null | undefined;
   incrementUsage?: number | null | undefined;
-  conditions?: Conditions | undefined;
+  /**
+   * Key-value object allowing you to set conditions that must match when validating the license key.
+   *
+   * @remarks
+   *
+   * The key must be a string with a maximum length of **40 characters**.
+   * The value must be either:
+   *
+   * * A string with a maximum length of **500 characters**
+   * * An integer
+   * * A floating-point number
+   * * A boolean
+   *
+   * You can store up to **50 key-value pairs**.
+   */
+  conditions?: { [k: string]: string | number | number | boolean } | undefined;
 };
 
 /** @internal */
@@ -25,17 +40,17 @@ export const Conditions$inboundSchema: z.ZodType<
   Conditions,
   z.ZodTypeDef,
   unknown
-> = z.object({});
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type Conditions$Outbound = {};
+export type Conditions$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const Conditions$outboundSchema: z.ZodType<
   Conditions$Outbound,
   z.ZodTypeDef,
   Conditions
-> = z.object({});
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -76,7 +91,9 @@ export const LicenseKeyValidate$inboundSchema: z.ZodType<
   benefit_id: z.nullable(z.string()).optional(),
   customer_id: z.nullable(z.string()).optional(),
   increment_usage: z.nullable(z.number().int()).optional(),
-  conditions: z.lazy(() => Conditions$inboundSchema).optional(),
+  conditions: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -95,7 +112,7 @@ export type LicenseKeyValidate$Outbound = {
   benefit_id?: string | null | undefined;
   customer_id?: string | null | undefined;
   increment_usage?: number | null | undefined;
-  conditions?: Conditions$Outbound | undefined;
+  conditions?: { [k: string]: string | number | number | boolean } | undefined;
 };
 
 /** @internal */
@@ -110,7 +127,9 @@ export const LicenseKeyValidate$outboundSchema: z.ZodType<
   benefitId: z.nullable(z.string()).optional(),
   customerId: z.nullable(z.string()).optional(),
   incrementUsage: z.nullable(z.number().int()).optional(),
-  conditions: z.lazy(() => Conditions$outboundSchema).optional(),
+  conditions: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",

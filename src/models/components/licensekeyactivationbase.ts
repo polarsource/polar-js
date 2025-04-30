@@ -8,27 +8,27 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type Meta = {};
+export type Meta = string | number | number | boolean;
 
 export type LicenseKeyActivationBase = {
   id: string;
   licenseKeyId: string;
   label: string;
-  meta: Meta;
+  meta: { [k: string]: string | number | number | boolean };
   createdAt: Date;
   modifiedAt: Date | null;
 };
 
 /** @internal */
 export const Meta$inboundSchema: z.ZodType<Meta, z.ZodTypeDef, unknown> = z
-  .object({});
+  .union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
-export type Meta$Outbound = {};
+export type Meta$Outbound = string | number | number | boolean;
 
 /** @internal */
 export const Meta$outboundSchema: z.ZodType<Meta$Outbound, z.ZodTypeDef, Meta> =
-  z.object({});
+  z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /**
  * @internal
@@ -66,7 +66,9 @@ export const LicenseKeyActivationBase$inboundSchema: z.ZodType<
   id: z.string(),
   license_key_id: z.string(),
   label: z.string(),
-  meta: z.lazy(() => Meta$inboundSchema),
+  meta: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -84,7 +86,7 @@ export type LicenseKeyActivationBase$Outbound = {
   id: string;
   license_key_id: string;
   label: string;
-  meta: Meta$Outbound;
+  meta: { [k: string]: string | number | number | boolean };
   created_at: string;
   modified_at: string | null;
 };
@@ -98,7 +100,9 @@ export const LicenseKeyActivationBase$outboundSchema: z.ZodType<
   id: z.string(),
   licenseKeyId: z.string(),
   label: z.string(),
-  meta: z.lazy(() => Meta$outboundSchema),
+  meta: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
 }).transform((v) => {
