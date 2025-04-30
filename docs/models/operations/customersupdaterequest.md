@@ -8,7 +8,6 @@ import { CustomersUpdateRequest } from "@polar-sh/sdk/models/operations/customer
 let value: CustomersUpdateRequest = {
   id: "<value>",
   customerUpdate: {
-    externalId: "usr_1337",
     email: "customer@example.com",
     name: "John Doe",
     billingAddress: {
@@ -18,6 +17,7 @@ let value: CustomersUpdateRequest = {
       "FR61954506077",
       "eu_vat",
     ],
+    externalId: "usr_1337",
   },
 };
 ```

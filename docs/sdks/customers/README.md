@@ -301,7 +301,6 @@ async function run() {
   const result = await polar.customers.update({
     id: "<value>",
     customerUpdate: {
-      externalId: "usr_1337",
       email: "customer@example.com",
       name: "John Doe",
       billingAddress: {
@@ -311,6 +310,7 @@ async function run() {
         "FR61954506077",
         "eu_vat",
       ],
+      externalId: "usr_1337",
     },
   });
 
@@ -339,7 +339,6 @@ async function run() {
   const res = await customersUpdate(polar, {
     id: "<value>",
     customerUpdate: {
-      externalId: "usr_1337",
       email: "customer@example.com",
       name: "John Doe",
       billingAddress: {
@@ -349,6 +348,7 @@ async function run() {
         "FR61954506077",
         "eu_vat",
       ],
+      externalId: "usr_1337",
     },
   });
 
@@ -574,8 +574,7 @@ const polar = new Polar({
 async function run() {
   const result = await polar.customers.updateExternal({
     externalId: "<id>",
-    customerUpdate: {
-      externalId: "usr_1337",
+    customerUpdateExternalID: {
       email: "customer@example.com",
       name: "John Doe",
       billingAddress: {
@@ -612,8 +611,7 @@ const polar = new PolarCore({
 async function run() {
   const res = await customersUpdateExternal(polar, {
     externalId: "<id>",
-    customerUpdate: {
-      externalId: "usr_1337",
+    customerUpdateExternalID: {
       email: "customer@example.com",
       name: "John Doe",
       billingAddress: {
