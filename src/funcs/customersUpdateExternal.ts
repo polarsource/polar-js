@@ -101,7 +101,9 @@ async function $do(
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.CustomerUpdate, { explode: true });
+  const body = encodeJSON("body", payload.CustomerUpdateExternalID, {
+    explode: true,
+  });
 
   const pathParams = {
     external_id: encodeSimple("external_id", payload.external_id, {

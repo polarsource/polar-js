@@ -7,11 +7,11 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
-  CustomerUpdate,
-  CustomerUpdate$inboundSchema,
-  CustomerUpdate$Outbound,
-  CustomerUpdate$outboundSchema,
-} from "../components/customerupdate.js";
+  CustomerUpdateExternalID,
+  CustomerUpdateExternalID$inboundSchema,
+  CustomerUpdateExternalID$Outbound,
+  CustomerUpdateExternalID$outboundSchema,
+} from "../components/customerupdateexternalid.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomersUpdateExternalRequest = {
@@ -19,7 +19,7 @@ export type CustomersUpdateExternalRequest = {
    * The customer external ID.
    */
   externalId: string;
-  customerUpdate: CustomerUpdate;
+  customerUpdateExternalID: CustomerUpdateExternalID;
 };
 
 /** @internal */
@@ -29,18 +29,18 @@ export const CustomersUpdateExternalRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   external_id: z.string(),
-  CustomerUpdate: CustomerUpdate$inboundSchema,
+  CustomerUpdateExternalID: CustomerUpdateExternalID$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "external_id": "externalId",
-    "CustomerUpdate": "customerUpdate",
+    "CustomerUpdateExternalID": "customerUpdateExternalID",
   });
 });
 
 /** @internal */
 export type CustomersUpdateExternalRequest$Outbound = {
   external_id: string;
-  CustomerUpdate: CustomerUpdate$Outbound;
+  CustomerUpdateExternalID: CustomerUpdateExternalID$Outbound;
 };
 
 /** @internal */
@@ -50,11 +50,11 @@ export const CustomersUpdateExternalRequest$outboundSchema: z.ZodType<
   CustomersUpdateExternalRequest
 > = z.object({
   externalId: z.string(),
-  customerUpdate: CustomerUpdate$outboundSchema,
+  customerUpdateExternalID: CustomerUpdateExternalID$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     externalId: "external_id",
-    customerUpdate: "CustomerUpdate",
+    customerUpdateExternalID: "CustomerUpdateExternalID",
   });
 });
 

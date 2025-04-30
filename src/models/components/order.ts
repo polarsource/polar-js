@@ -84,6 +84,10 @@ export type OrderDiscount =
 
 export type Order = {
   /**
+   * The ID of the object.
+   */
+  id: string;
+  /**
    * Creation timestamp of the object.
    */
   createdAt: Date;
@@ -91,17 +95,6 @@ export type Order = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  metadata: { [k: string]: string | number | number | boolean };
-  /**
-   * Key-value object storing custom field values.
-   */
-  customFieldData?:
-    | { [k: string]: string | number | boolean | Date | null }
-    | undefined;
   status: OrderStatus;
   /**
    * Whether the order has been paid for.
@@ -149,6 +142,13 @@ export type Order = {
   discountId: string | null;
   subscriptionId: string | null;
   checkoutId: string | null;
+  metadata: { [k: string]: string | number | number | boolean };
+  /**
+   * Key-value object storing custom field values.
+   */
+  customFieldData?:
+    | { [k: string]: string | number | boolean | Date | null }
+    | undefined;
   customer: OrderCustomer;
   /**
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -331,26 +331,13 @@ export function orderDiscountFromJSON(
 /** @internal */
 export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
   .object({
+    id: z.string(),
     created_at: z.string().datetime({ offset: true }).transform(v =>
       new Date(v)
     ),
     modified_at: z.nullable(
       z.string().datetime({ offset: true }).transform(v => new Date(v)),
     ),
-    id: z.string(),
-    metadata: z.record(
-      z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-    ),
-    custom_field_data: z.record(
-      z.nullable(
-        z.union([
-          z.string(),
-          z.number().int(),
-          z.boolean(),
-          z.string().datetime({ offset: true }).transform(v => new Date(v)),
-        ]),
-      ),
-    ).optional(),
     status: OrderStatus$inboundSchema,
     paid: z.boolean(),
     subtotal_amount: z.number().int(),
@@ -369,6 +356,19 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     discount_id: z.nullable(z.string()),
     subscription_id: z.nullable(z.string()),
     checkout_id: z.nullable(z.string()),
+    metadata: z.record(
+      z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+    ),
+    custom_field_data: z.record(
+      z.nullable(
+        z.union([
+          z.string(),
+          z.number().int(),
+          z.boolean(),
+          z.string().datetime({ offset: true }).transform(v => new Date(v)),
+        ]),
+      ),
+    ).optional(),
     customer: OrderCustomer$inboundSchema,
     user_id: z.string(),
     product: OrderProduct$inboundSchema,
@@ -386,7 +386,6 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     return remap$(v, {
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
-      "custom_field_data": "customFieldData",
       "subtotal_amount": "subtotalAmount",
       "discount_amount": "discountAmount",
       "net_amount": "netAmount",
@@ -401,19 +400,16 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       "discount_id": "discountId",
       "subscription_id": "subscriptionId",
       "checkout_id": "checkoutId",
+      "custom_field_data": "customFieldData",
       "user_id": "userId",
     });
   });
 
 /** @internal */
 export type Order$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
-  metadata: { [k: string]: string | number | number | boolean };
-  custom_field_data?:
-    | { [k: string]: string | number | boolean | string | null }
-    | undefined;
   status: string;
   paid: boolean;
   subtotal_amount: number;
@@ -432,6 +428,10 @@ export type Order$Outbound = {
   discount_id: string | null;
   subscription_id: string | null;
   checkout_id: string | null;
+  metadata: { [k: string]: string | number | number | boolean };
+  custom_field_data?:
+    | { [k: string]: string | number | boolean | string | null }
+    | undefined;
   customer: OrderCustomer$Outbound;
   user_id: string;
   product: OrderProduct$Outbound;
@@ -451,22 +451,9 @@ export const Order$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Order
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  customFieldData: z.record(
-    z.nullable(
-      z.union([
-        z.string(),
-        z.number().int(),
-        z.boolean(),
-        z.date().transform(v => v.toISOString()),
-      ]),
-    ),
-  ).optional(),
   status: OrderStatus$outboundSchema,
   paid: z.boolean(),
   subtotalAmount: z.number().int(),
@@ -485,6 +472,19 @@ export const Order$outboundSchema: z.ZodType<
   discountId: z.nullable(z.string()),
   subscriptionId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
+  metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
+  customFieldData: z.record(
+    z.nullable(
+      z.union([
+        z.string(),
+        z.number().int(),
+        z.boolean(),
+        z.date().transform(v => v.toISOString()),
+      ]),
+    ),
+  ).optional(),
   customer: OrderCustomer$outboundSchema,
   userId: z.string(),
   product: OrderProduct$outboundSchema,
@@ -502,7 +502,6 @@ export const Order$outboundSchema: z.ZodType<
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
-    customFieldData: "custom_field_data",
     subtotalAmount: "subtotal_amount",
     discountAmount: "discount_amount",
     netAmount: "net_amount",
@@ -517,6 +516,7 @@ export const Order$outboundSchema: z.ZodType<
     discountId: "discount_id",
     subscriptionId: "subscription_id",
     checkoutId: "checkout_id",
+    customFieldData: "custom_field_data",
     userId: "user_id",
   });
 });

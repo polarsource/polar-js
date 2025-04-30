@@ -7,14 +7,16 @@ import { ValidatedLicenseKey } from "@polar-sh/sdk/models/components/validatedli
 
 let value: ValidatedLicenseKey = {
   id: "<value>",
+  createdAt: new Date("2024-08-17T02:59:17.361Z"),
+  modifiedAt: new Date("2025-01-27T15:02:56.977Z"),
   organizationId: "<value>",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-08-17T02:59:17.361Z"),
-    modifiedAt: new Date("2025-01-27T15:02:56.977Z"),
+    createdAt: new Date("2023-10-05T02:16:18.948Z"),
+    modifiedAt: new Date("2024-01-29T02:39:04.784Z"),
     metadata: {
-      "key": 358677,
+      "key": "<value>",
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -28,19 +30,19 @@ let value: ValidatedLicenseKey = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-10-06T15:13:44.969Z"),
+    deletedAt: new Date("2024-08-19T08:32:22.392Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   benefitId: "<value>",
   key: "<key>",
   displayKey: "<value>",
   status: "revoked",
-  limitActivations: 570776,
-  usage: 718020,
-  limitUsage: 583768,
-  validations: 885534,
-  lastValidatedAt: new Date("2025-06-12T09:40:53.789Z"),
-  expiresAt: new Date("2025-12-31T07:21:14.827Z"),
+  limitActivations: 718020,
+  usage: 583768,
+  limitUsage: 885534,
+  validations: 815149,
+  lastValidatedAt: new Date("2025-12-31T07:21:14.827Z"),
+  expiresAt: new Date("2023-02-12T06:32:42.025Z"),
 };
 ```
 
@@ -48,7 +50,9 @@ let value: ValidatedLicenseKey = {
 
 | Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the object.                                                                         |
+| `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Creation timestamp of the object.                                                             |
+| `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `customerId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `customer`                                                                                    | [components.LicenseKeyCustomer](../../models/components/licensekeycustomer.md)                | :heavy_check_mark:                                                                            | N/A                                                                                           |

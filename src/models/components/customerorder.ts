@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  Address,
+  Address$inboundSchema,
+  Address$Outbound,
+  Address$outboundSchema,
+} from "./address.js";
+import {
   CustomerOrderProduct,
   CustomerOrderProduct$inboundSchema,
   CustomerOrderProduct$Outbound,
@@ -19,6 +25,11 @@ import {
   CustomerOrderSubscription$Outbound,
   CustomerOrderSubscription$outboundSchema,
 } from "./customerordersubscription.js";
+import {
+  OrderBillingReason,
+  OrderBillingReason$inboundSchema,
+  OrderBillingReason$outboundSchema,
+} from "./orderbillingreason.js";
 import {
   OrderItemSchema,
   OrderItemSchema$inboundSchema,
@@ -33,6 +44,10 @@ import {
 
 export type CustomerOrder = {
   /**
+   * The ID of the object.
+   */
+  id: string;
+  /**
    * Creation timestamp of the object.
    */
   createdAt: Date;
@@ -40,7 +55,6 @@ export type CustomerOrder = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  id: string;
   status: OrderStatus;
   /**
    * Whether the order has been paid for.
@@ -59,6 +73,12 @@ export type CustomerOrder = {
    */
   netAmount: number;
   /**
+   * Amount in cents, after discounts but before taxes.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  amount: number;
+  /**
    * Sales tax amount in cents.
    */
   taxAmount: number;
@@ -75,9 +95,13 @@ export type CustomerOrder = {
    */
   refundedTaxAmount: number;
   currency: string;
+  billingReason: OrderBillingReason;
+  billingAddress: Address | null;
   customerId: string;
   productId: string;
+  discountId: string | null;
   subscriptionId: string | null;
+  checkoutId: string | null;
   /**
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
@@ -96,24 +120,29 @@ export const CustomerOrder$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
   status: OrderStatus$inboundSchema,
   paid: z.boolean(),
   subtotal_amount: z.number().int(),
   discount_amount: z.number().int(),
   net_amount: z.number().int(),
+  amount: z.number().int(),
   tax_amount: z.number().int(),
   total_amount: z.number().int(),
   refunded_amount: z.number().int(),
   refunded_tax_amount: z.number().int(),
   currency: z.string(),
+  billing_reason: OrderBillingReason$inboundSchema,
+  billing_address: z.nullable(Address$inboundSchema),
   customer_id: z.string(),
   product_id: z.string(),
+  discount_id: z.nullable(z.string()),
   subscription_id: z.nullable(z.string()),
+  checkout_id: z.nullable(z.string()),
   user_id: z.string(),
   product: CustomerOrderProduct$inboundSchema,
   subscription: z.nullable(CustomerOrderSubscription$inboundSchema),
@@ -129,31 +158,40 @@ export const CustomerOrder$inboundSchema: z.ZodType<
     "total_amount": "totalAmount",
     "refunded_amount": "refundedAmount",
     "refunded_tax_amount": "refundedTaxAmount",
+    "billing_reason": "billingReason",
+    "billing_address": "billingAddress",
     "customer_id": "customerId",
     "product_id": "productId",
+    "discount_id": "discountId",
     "subscription_id": "subscriptionId",
+    "checkout_id": "checkoutId",
     "user_id": "userId",
   });
 });
 
 /** @internal */
 export type CustomerOrder$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
   status: string;
   paid: boolean;
   subtotal_amount: number;
   discount_amount: number;
   net_amount: number;
+  amount: number;
   tax_amount: number;
   total_amount: number;
   refunded_amount: number;
   refunded_tax_amount: number;
   currency: string;
+  billing_reason: string;
+  billing_address: Address$Outbound | null;
   customer_id: string;
   product_id: string;
+  discount_id: string | null;
   subscription_id: string | null;
+  checkout_id: string | null;
   user_id: string;
   product: CustomerOrderProduct$Outbound;
   subscription: CustomerOrderSubscription$Outbound | null;
@@ -166,22 +204,27 @@ export const CustomerOrder$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerOrder
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
   status: OrderStatus$outboundSchema,
   paid: z.boolean(),
   subtotalAmount: z.number().int(),
   discountAmount: z.number().int(),
   netAmount: z.number().int(),
+  amount: z.number().int(),
   taxAmount: z.number().int(),
   totalAmount: z.number().int(),
   refundedAmount: z.number().int(),
   refundedTaxAmount: z.number().int(),
   currency: z.string(),
+  billingReason: OrderBillingReason$outboundSchema,
+  billingAddress: z.nullable(Address$outboundSchema),
   customerId: z.string(),
   productId: z.string(),
+  discountId: z.nullable(z.string()),
   subscriptionId: z.nullable(z.string()),
+  checkoutId: z.nullable(z.string()),
   userId: z.string(),
   product: CustomerOrderProduct$outboundSchema,
   subscription: z.nullable(CustomerOrderSubscription$outboundSchema),
@@ -197,9 +240,13 @@ export const CustomerOrder$outboundSchema: z.ZodType<
     totalAmount: "total_amount",
     refundedAmount: "refunded_amount",
     refundedTaxAmount: "refunded_tax_amount",
+    billingReason: "billing_reason",
+    billingAddress: "billing_address",
     customerId: "customer_id",
     productId: "product_id",
+    discountId: "discount_id",
     subscriptionId: "subscription_id",
+    checkoutId: "checkout_id",
     userId: "user_id",
   });
 });

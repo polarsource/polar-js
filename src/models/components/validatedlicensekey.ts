@@ -26,7 +26,18 @@ import {
 } from "./licensekeystatus.js";
 
 export type ValidatedLicenseKey = {
+  /**
+   * The ID of the object.
+   */
   id: string;
+  /**
+   * Creation timestamp of the object.
+   */
+  createdAt: Date;
+  /**
+   * Last modification timestamp of the object.
+   */
+  modifiedAt: Date | null;
   organizationId: string;
   customerId: string;
   customer: LicenseKeyCustomer;
@@ -53,6 +64,10 @@ export const ValidatedLicenseKey$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
+  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  modified_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
   organization_id: z.string(),
   customer_id: z.string(),
   customer: LicenseKeyCustomer$inboundSchema,
@@ -73,6 +88,8 @@ export const ValidatedLicenseKey$inboundSchema: z.ZodType<
   activation: z.nullable(LicenseKeyActivationBase$inboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "created_at": "createdAt",
+    "modified_at": "modifiedAt",
     "organization_id": "organizationId",
     "customer_id": "customerId",
     "benefit_id": "benefitId",
@@ -87,6 +104,8 @@ export const ValidatedLicenseKey$inboundSchema: z.ZodType<
 /** @internal */
 export type ValidatedLicenseKey$Outbound = {
   id: string;
+  created_at: string;
+  modified_at: string | null;
   organization_id: string;
   customer_id: string;
   customer: LicenseKeyCustomer$Outbound;
@@ -110,6 +129,8 @@ export const ValidatedLicenseKey$outboundSchema: z.ZodType<
   ValidatedLicenseKey
 > = z.object({
   id: z.string(),
+  createdAt: z.date().transform(v => v.toISOString()),
+  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   organizationId: z.string(),
   customerId: z.string(),
   customer: LicenseKeyCustomer$outboundSchema,
@@ -126,6 +147,8 @@ export const ValidatedLicenseKey$outboundSchema: z.ZodType<
   activation: z.nullable(LicenseKeyActivationBase$outboundSchema).optional(),
 }).transform((v) => {
   return remap$(v, {
+    createdAt: "created_at",
+    modifiedAt: "modified_at",
     organizationId: "organization_id",
     customerId: "customer_id",
     benefitId: "benefit_id",

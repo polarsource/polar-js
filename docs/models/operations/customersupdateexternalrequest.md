@@ -7,8 +7,7 @@ import { CustomersUpdateExternalRequest } from "@polar-sh/sdk/models/operations/
 
 let value: CustomersUpdateExternalRequest = {
   externalId: "<id>",
-  customerUpdate: {
-    externalId: "usr_1337",
+  customerUpdateExternalID: {
     email: "customer@example.com",
     name: "John Doe",
     billingAddress: {
@@ -24,7 +23,7 @@ let value: CustomersUpdateExternalRequest = {
 
 ## Fields
 
-| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `externalId`                                                           | *string*                                                               | :heavy_check_mark:                                                     | The customer external ID.                                              |
-| `customerUpdate`                                                       | [components.CustomerUpdate](../../models/components/customerupdate.md) | :heavy_check_mark:                                                     | N/A                                                                    |
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `externalId`                                                                               | *string*                                                                                   | :heavy_check_mark:                                                                         | The customer external ID.                                                                  |
+| `customerUpdateExternalID`                                                                 | [components.CustomerUpdateExternalID](../../models/components/customerupdateexternalid.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
