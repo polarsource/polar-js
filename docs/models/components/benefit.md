@@ -138,6 +138,7 @@ const value: components.BenefitMeterCredit = {
   },
   properties: {
     units: 41872,
+    rollover: false,
     meterId: "<value>",
   },
 };

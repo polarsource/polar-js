@@ -75,6 +75,7 @@ const value: components.BenefitMeterCreditCreate = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     units: 697633,
+    rollover: false,
     meterId: "<value>",
   },
 };

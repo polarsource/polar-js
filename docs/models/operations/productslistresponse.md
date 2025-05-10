@@ -51,6 +51,7 @@ let value: ProductsListResponse = {
             },
             properties: {
               units: 366833,
+              rollover: false,
               meterId: "<value>",
             },
           },

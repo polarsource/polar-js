@@ -56,6 +56,7 @@ let value: WebhookBenefitGrantRevokedPayload = {
       },
       properties: {
         units: 973892,
+        rollover: false,
         meterId: "<value>",
       },
     },
