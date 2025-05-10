@@ -57,6 +57,7 @@ let value: WebhookBenefitGrantCycledPayload = {
       },
       properties: {
         units: 336600,
+        rollover: false,
         meterId: "<value>",
       },
     },

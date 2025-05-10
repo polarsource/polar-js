@@ -118,7 +118,13 @@ async function run() {
     name: "<value>",
     filter: {
       conjunction: "and",
-      clauses: [],
+      clauses: [
+        {
+          property: "<value>",
+          operator: "ne",
+          value: "<value>",
+        },
+      ],
     },
     aggregation: {
       func: "sum",
@@ -153,7 +159,13 @@ async function run() {
     name: "<value>",
     filter: {
       conjunction: "and",
-      clauses: [],
+      clauses: [
+        {
+          property: "<value>",
+          operator: "ne",
+          value: "<value>",
+        },
+      ],
     },
     aggregation: {
       func: "sum",

@@ -13,6 +13,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type BenefitMeterCreditCreateProperties = {
   units: number;
+  rollover: boolean;
   meterId: string;
 };
 
@@ -23,6 +24,7 @@ export const BenefitMeterCreditCreateProperties$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   units: z.number().int(),
+  rollover: z.boolean(),
   meter_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -33,6 +35,7 @@ export const BenefitMeterCreditCreateProperties$inboundSchema: z.ZodType<
 /** @internal */
 export type BenefitMeterCreditCreateProperties$Outbound = {
   units: number;
+  rollover: boolean;
   meter_id: string;
 };
 
@@ -43,6 +46,7 @@ export const BenefitMeterCreditCreateProperties$outboundSchema: z.ZodType<
   BenefitMeterCreditCreateProperties
 > = z.object({
   units: z.number().int(),
+  rollover: z.boolean(),
   meterId: z.string(),
 }).transform((v) => {
   return remap$(v, {

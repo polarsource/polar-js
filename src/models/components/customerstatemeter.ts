@@ -33,7 +33,7 @@ export type CustomerStateMeter = {
    */
   creditedUnits: number;
   /**
-   * The balance of the meter, i.e. the difference between credited and consumed units. Never goes negative.
+   * The balance of the meter, i.e. the difference between credited and consumed units.
    */
   balance: number;
 };

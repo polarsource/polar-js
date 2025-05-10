@@ -9,6 +9,7 @@ import { BenefitMeterCreditProperties } from "@polar-sh/sdk/models/components/be
 
 let value: BenefitMeterCreditProperties = {
   units: 739520,
+  rollover: false,
   meterId: "<value>",
 };
 ```
@@ -18,4 +19,5 @@ let value: BenefitMeterCreditProperties = {
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `units`            | *number*           | :heavy_check_mark: | N/A                |
+| `rollover`         | *boolean*          | :heavy_check_mark: | N/A                |
 | `meterId`          | *string*           | :heavy_check_mark: | N/A                |
