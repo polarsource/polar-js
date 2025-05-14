@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/polarsource-polar-js-badge.png)](https://mseep.ai/app/polarsource-polar-js)
+
 # @polar-sh/sdk
 
 Developer-friendly & type-safe Typescript SDK specifically catered to leverage [Polar](https://polar.sh) API.
