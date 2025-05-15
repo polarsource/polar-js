@@ -7,6 +7,7 @@ export const mcpScopes = [
   "customers",
   "metrics",
   "orders",
+  "payments",
   "products",
   "read",
   "subscriptions",

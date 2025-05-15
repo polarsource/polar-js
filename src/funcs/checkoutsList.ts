@@ -111,11 +111,14 @@ async function $do(
   const path = pathToFunc("/v1/checkouts/")();
 
   const query = encodeFormQuery({
+    "customer_id": payload.customer_id,
     "limit": payload.limit,
     "organization_id": payload.organization_id,
     "page": payload.page,
     "product_id": payload.product_id,
+    "query": payload.query,
     "sorting": payload.sorting,
+    "status": payload.status,
   });
 
   const headers = new Headers(compactMap({

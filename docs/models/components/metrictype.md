@@ -11,5 +11,5 @@ let value: MetricType = "currency";
 ## Values
 
 ```typescript
-"scalar" | "currency"
+"scalar" | "currency" | "percentage"
 ```

@@ -75,6 +75,7 @@ let value: CustomerBenefitGrantMeterCredit = {
     },
     properties: {
       units: 903336,
+      rollover: false,
       meterId: "<value>",
     },
   },

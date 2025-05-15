@@ -658,6 +658,11 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [get](docs/sdks/organizations/README.md#get) - Get Organization
 * [update](docs/sdks/organizations/README.md#update) - Update Organization
 
+### [payments](docs/sdks/payments/README.md)
+
+* [list](docs/sdks/payments/README.md#list) - List Payments
+* [get](docs/sdks/payments/README.md#get) - Get Payment
+
 
 ### [products](docs/sdks/products/README.md)
 
@@ -801,6 +806,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`organizationsGet`](docs/sdks/organizations/README.md#get) - Get Organization
 - [`organizationsList`](docs/sdks/organizations/README.md#list) - List Organizations
 - [`organizationsUpdate`](docs/sdks/organizations/README.md#update) - Update Organization
+- [`paymentsGet`](docs/sdks/payments/README.md#get) - Get Payment
+- [`paymentsList`](docs/sdks/payments/README.md#list) - List Payments
 - [`productsCreate`](docs/sdks/products/README.md#create) - Create Product
 - [`productsGet`](docs/sdks/products/README.md#get) - Get Product
 - [`productsList`](docs/sdks/products/README.md#list) - List Products

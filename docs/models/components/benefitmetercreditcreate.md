@@ -12,6 +12,7 @@ let value: BenefitMeterCreditCreate = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     units: 569858,
+    rollover: false,
     meterId: "<value>",
   },
 };

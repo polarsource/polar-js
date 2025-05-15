@@ -18,6 +18,12 @@ import {
   Metrics$Outbound,
   Metrics$outboundSchema,
 } from "./metrics.js";
+import {
+  MetricsTotals,
+  MetricsTotals$inboundSchema,
+  MetricsTotals$Outbound,
+  MetricsTotals$outboundSchema,
+} from "./metricstotals.js";
 
 /**
  * Metrics response schema.
@@ -27,6 +33,7 @@ export type MetricsResponse = {
    * List of data for each timestamp.
    */
   periods: Array<MetricPeriod>;
+  totals: MetricsTotals;
   metrics: Metrics;
 };
 
@@ -37,12 +44,14 @@ export const MetricsResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   periods: z.array(MetricPeriod$inboundSchema),
+  totals: MetricsTotals$inboundSchema,
   metrics: Metrics$inboundSchema,
 });
 
 /** @internal */
 export type MetricsResponse$Outbound = {
   periods: Array<MetricPeriod$Outbound>;
+  totals: MetricsTotals$Outbound;
   metrics: Metrics$Outbound;
 };
 
@@ -53,6 +62,7 @@ export const MetricsResponse$outboundSchema: z.ZodType<
   MetricsResponse
 > = z.object({
   periods: z.array(MetricPeriod$outboundSchema),
+  totals: MetricsTotals$outboundSchema,
   metrics: Metrics$outboundSchema,
 });
 

@@ -479,6 +479,7 @@ const value: components.CustomerBenefitGrantMeterCredit = {
     },
     properties: {
       units: 307527,
+      rollover: false,
       meterId: "<value>",
     },
   },

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: d6278ac22a6b5f59b6dc31cdc6622eaf
+  docChecksum: 9a2d40ce4ddb7ab5f71f0aa3bcea411d
   docVersion: 0.1.0
-  speakeasyVersion: 1.540.1
-  generationVersion: 2.593.4
-  releaseVersion: 0.32.13
-  configChecksum: 19bba828acf392220a3951ad6718ddd5
+  speakeasyVersion: 1.545.0
+  generationVersion: 2.599.0
+  releaseVersion: 0.32.14
+  configChecksum: 2c2cf7c6fecd523d9dfd7346367948a9
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.21.6
+    core: 3.21.7
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.0
@@ -24,7 +24,7 @@ features:
     globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.82.4
+    globalServerURLs: 2.82.5
     groups: 2.81.2
     mcpServer: 0.9.2
     methodSecurity: 2.82.6
@@ -47,6 +47,7 @@ generatedFiles:
   - RUNTIMES.md
   - USAGE.md
   - docs/lib/utils/retryconfig.md
+  - docs/models/components/activesubscriptions.md
   - docs/models/components/address.md
   - docs/models/components/aggregation.md
   - docs/models/components/attachedcustomfield.md
@@ -56,6 +57,7 @@ generatedFiles:
   - docs/models/components/authorizeresponseorganization.md
   - docs/models/components/authorizeresponseuser.md
   - docs/models/components/authorizeuser.md
+  - docs/models/components/averageordervalue.md
   - docs/models/components/benefit.md
   - docs/models/components/benefitcreate.md
   - docs/models/components/benefitcustom.md
@@ -141,6 +143,8 @@ generatedFiles:
   - docs/models/components/benefitpublic.md
   - docs/models/components/benefitsortproperty.md
   - docs/models/components/benefittype.md
+  - docs/models/components/cardpayment.md
+  - docs/models/components/cardpaymentmetadata.md
   - docs/models/components/checkout.md
   - docs/models/components/checkoutconfirmstripe.md
   - docs/models/components/checkoutconfirmstripecustomfielddata.md
@@ -182,6 +186,8 @@ generatedFiles:
   - docs/models/components/checkoutpubliccustomfielddata.md
   - docs/models/components/checkoutpublicdiscount.md
   - docs/models/components/checkoutpublicproductprice.md
+  - docs/models/components/checkouts.md
+  - docs/models/components/checkoutsconversion.md
   - docs/models/components/checkoutsortproperty.md
   - docs/models/components/checkoutstatus.md
   - docs/models/components/checkoutupdate.md
@@ -193,6 +199,7 @@ generatedFiles:
   - docs/models/components/clauses.md
   - docs/models/components/conditions.md
   - docs/models/components/countaggregation.md
+  - docs/models/components/cumulativerevenue.md
   - docs/models/components/customer.md
   - docs/models/components/customerbenefitgrant.md
   - docs/models/components/customerbenefitgrantcustom.md
@@ -371,6 +378,7 @@ generatedFiles:
   - docs/models/components/filterconjunction.md
   - docs/models/components/filteroperator.md
   - docs/models/components/func.md
+  - docs/models/components/genericpayment.md
   - docs/models/components/granttypes.md
   - docs/models/components/introspecttokenrequest.md
   - docs/models/components/introspecttokenrequesttokentypehint.md
@@ -395,6 +403,7 @@ generatedFiles:
   - docs/models/components/licensekeyupdate.md
   - docs/models/components/licensekeyvalidate.md
   - docs/models/components/licensekeywithactivations.md
+  - docs/models/components/listresource.md
   - docs/models/components/listresourcebenefit.md
   - docs/models/components/listresourcebenefitgrant.md
   - docs/models/components/listresourcecheckout.md
@@ -442,7 +451,26 @@ generatedFiles:
   - docs/models/components/metricsintervalslimits.md
   - docs/models/components/metricslimits.md
   - docs/models/components/metricsresponse.md
+  - docs/models/components/metricstotals.md
+  - docs/models/components/metricstotalsactivesubscriptions.md
+  - docs/models/components/metricstotalsaverageordervalue.md
+  - docs/models/components/metricstotalscheckouts.md
+  - docs/models/components/metricstotalscheckoutsconversion.md
+  - docs/models/components/metricstotalscumulativerevenue.md
+  - docs/models/components/metricstotalsmonthlyrecurringrevenue.md
+  - docs/models/components/metricstotalsnewsubscriptions.md
+  - docs/models/components/metricstotalsnewsubscriptionsrevenue.md
+  - docs/models/components/metricstotalsonetimeproducts.md
+  - docs/models/components/metricstotalsonetimeproductsrevenue.md
+  - docs/models/components/metricstotalsorders.md
+  - docs/models/components/metricstotalsrenewedsubscriptions.md
+  - docs/models/components/metricstotalsrenewedsubscriptionsrevenue.md
+  - docs/models/components/metricstotalsrevenue.md
+  - docs/models/components/metricstotalssucceededcheckouts.md
   - docs/models/components/metrictype.md
+  - docs/models/components/monthlyrecurringrevenue.md
+  - docs/models/components/newsubscriptions.md
+  - docs/models/components/newsubscriptionsrevenue.md
   - docs/models/components/oauth2client.md
   - docs/models/components/oauth2clientconfiguration.md
   - docs/models/components/oauth2clientconfigurationgranttypes.md
@@ -451,6 +479,8 @@ generatedFiles:
   - docs/models/components/oauth2clientconfigurationupdategranttypes.md
   - docs/models/components/oauth2clientconfigurationupdatetokenendpointauthmethod.md
   - docs/models/components/oauth2clientpublic.md
+  - docs/models/components/onetimeproducts.md
+  - docs/models/components/onetimeproductsrevenue.md
   - docs/models/components/order.md
   - docs/models/components/orderbillingreason.md
   - docs/models/components/ordercustomer.md
@@ -463,6 +493,7 @@ generatedFiles:
   - docs/models/components/ordermetadata.md
   - docs/models/components/orderproduct.md
   - docs/models/components/orderproductmetadata.md
+  - docs/models/components/orders.md
   - docs/models/components/ordersortproperty.md
   - docs/models/components/orderstatus.md
   - docs/models/components/ordersubscription.md
@@ -479,10 +510,13 @@ generatedFiles:
   - docs/models/components/organizationsubscriptionsettings.md
   - docs/models/components/organizationupdate.md
   - docs/models/components/pagination.md
+  - docs/models/components/payment.md
   - docs/models/components/paymentmethodcard.md
   - docs/models/components/paymentmethodcarddata.md
   - docs/models/components/paymentmethodgeneric.md
   - docs/models/components/paymentprocessor.md
+  - docs/models/components/paymentsortproperty.md
+  - docs/models/components/paymentstatus.md
   - docs/models/components/permission.md
   - docs/models/components/previousproperties.md
   - docs/models/components/prices.md
@@ -520,6 +554,9 @@ generatedFiles:
   - docs/models/components/refundreason.md
   - docs/models/components/refundsortproperty.md
   - docs/models/components/refundstatus.md
+  - docs/models/components/renewedsubscriptions.md
+  - docs/models/components/renewedsubscriptionsrevenue.md
+  - docs/models/components/revenue.md
   - docs/models/components/revoketokenrequest.md
   - docs/models/components/revoketokenresponse.md
   - docs/models/components/s3downloadurl.md
@@ -545,6 +582,7 @@ generatedFiles:
   - docs/models/components/subscriptionupdate.md
   - docs/models/components/subscriptionupdateproduct.md
   - docs/models/components/subtype.md
+  - docs/models/components/succeededcheckouts.md
   - docs/models/components/switchingfrom.md
   - docs/models/components/taxid.md
   - docs/models/components/taxidformat.md
@@ -622,11 +660,13 @@ generatedFiles:
   - docs/models/operations/checkoutsclientgetrequest.md
   - docs/models/operations/checkoutsclientupdaterequest.md
   - docs/models/operations/checkoutsgetrequest.md
+  - docs/models/operations/checkoutslistqueryparamcustomeridfilter.md
   - docs/models/operations/checkoutslistqueryparamorganizationidfilter.md
   - docs/models/operations/checkoutslistqueryparamproductidfilter.md
   - docs/models/operations/checkoutslistrequest.md
   - docs/models/operations/checkoutslistresponse.md
   - docs/models/operations/checkoutsupdaterequest.md
+  - docs/models/operations/customeremailfilter.md
   - docs/models/operations/customeridfilter.md
   - docs/models/operations/customermetersgetrequest.md
   - docs/models/operations/customermeterslistqueryparamcustomeridfilter.md
@@ -750,6 +790,7 @@ generatedFiles:
   - docs/models/operations/metersquantitiesqueryparamexternalcustomeridfilter.md
   - docs/models/operations/metersquantitiesrequest.md
   - docs/models/operations/metersupdaterequest.md
+  - docs/models/operations/methodfilter.md
   - docs/models/operations/metricsgetqueryparamcustomeridfilter.md
   - docs/models/operations/metricsgetqueryparamorganizationidfilter.md
   - docs/models/operations/metricsgetqueryparamproductidfilter.md
@@ -777,6 +818,12 @@ generatedFiles:
   - docs/models/operations/organizationslistrequest.md
   - docs/models/operations/organizationslistresponse.md
   - docs/models/operations/organizationsupdaterequest.md
+  - docs/models/operations/paymentsgetrequest.md
+  - docs/models/operations/paymentslistqueryparamcheckoutidfilter.md
+  - docs/models/operations/paymentslistqueryparamorderidfilter.md
+  - docs/models/operations/paymentslistqueryparamorganizationidfilter.md
+  - docs/models/operations/paymentslistrequest.md
+  - docs/models/operations/paymentslistresponse.md
   - docs/models/operations/productbillingtypefilter.md
   - docs/models/operations/productidfilter.md
   - docs/models/operations/productsgetrequest.md
@@ -797,6 +844,7 @@ generatedFiles:
   - docs/models/operations/queryparamproductbillingtypefilter.md
   - docs/models/operations/queryparamproductidfilter.md
   - docs/models/operations/queryparamsourcefilter.md
+  - docs/models/operations/queryparamstatusfilter.md
   - docs/models/operations/queryparamsubscriptionidfilter.md
   - docs/models/operations/refundidfilter.md
   - docs/models/operations/refundslistqueryparamcustomeridfilter.md
@@ -804,6 +852,7 @@ generatedFiles:
   - docs/models/operations/refundslistrequest.md
   - docs/models/operations/refundslistresponse.md
   - docs/models/operations/sourcefilter.md
+  - docs/models/operations/statusfilter.md
   - docs/models/operations/subscriptionidfilter.md
   - docs/models/operations/subscriptionsexportrequest.md
   - docs/models/operations/subscriptionsgetrequest.md
@@ -831,6 +880,7 @@ generatedFiles:
   - docs/sdks/oauth2/README.md
   - docs/sdks/orders/README.md
   - docs/sdks/organizations/README.md
+  - docs/sdks/payments/README.md
   - docs/sdks/polar/README.md
   - docs/sdks/polarcustomermeters/README.md
   - docs/sdks/polarcustomers/README.md
@@ -949,6 +999,8 @@ generatedFiles:
   - src/funcs/organizationsGet.ts
   - src/funcs/organizationsList.ts
   - src/funcs/organizationsUpdate.ts
+  - src/funcs/paymentsGet.ts
+  - src/funcs/paymentsList.ts
   - src/funcs/productsCreate.ts
   - src/funcs/productsGet.ts
   - src/funcs/productsList.ts
@@ -1010,6 +1062,8 @@ generatedFiles:
   - src/mcp-server/tools/ordersGet.ts
   - src/mcp-server/tools/ordersInvoice.ts
   - src/mcp-server/tools/ordersList.ts
+  - src/mcp-server/tools/paymentsGet.ts
+  - src/mcp-server/tools/paymentsList.ts
   - src/mcp-server/tools/productsCreate.ts
   - src/mcp-server/tools/productsGet.ts
   - src/mcp-server/tools/productsList.ts
@@ -1086,6 +1140,8 @@ generatedFiles:
   - src/models/components/benefitpublic.ts
   - src/models/components/benefitsortproperty.ts
   - src/models/components/benefittype.ts
+  - src/models/components/cardpayment.ts
+  - src/models/components/cardpaymentmetadata.ts
   - src/models/components/checkout.ts
   - src/models/components/checkoutconfirmstripe.ts
   - src/models/components/checkoutcreate.ts
@@ -1233,6 +1289,7 @@ generatedFiles:
   - src/models/components/filterclause.ts
   - src/models/components/filterconjunction.ts
   - src/models/components/filteroperator.ts
+  - src/models/components/genericpayment.ts
   - src/models/components/introspecttokenrequest.ts
   - src/models/components/introspecttokenresponse.ts
   - src/models/components/legacyrecurringproductprice.ts
@@ -1249,6 +1306,7 @@ generatedFiles:
   - src/models/components/licensekeyupdate.ts
   - src/models/components/licensekeyvalidate.ts
   - src/models/components/licensekeywithactivations.ts
+  - src/models/components/listresource.ts
   - src/models/components/listresourcebenefit.ts
   - src/models/components/listresourcebenefitgrant.ts
   - src/models/components/listresourcecheckout.ts
@@ -1287,6 +1345,7 @@ generatedFiles:
   - src/models/components/metricsintervalslimits.ts
   - src/models/components/metricslimits.ts
   - src/models/components/metricsresponse.ts
+  - src/models/components/metricstotals.ts
   - src/models/components/metrictype.ts
   - src/models/components/oauth2client.ts
   - src/models/components/oauth2clientconfiguration.ts
@@ -1313,10 +1372,13 @@ generatedFiles:
   - src/models/components/organizationsubscriptionsettings.ts
   - src/models/components/organizationupdate.ts
   - src/models/components/pagination.ts
+  - src/models/components/payment.ts
   - src/models/components/paymentmethodcard.ts
   - src/models/components/paymentmethodcarddata.ts
   - src/models/components/paymentmethodgeneric.ts
   - src/models/components/paymentprocessor.ts
+  - src/models/components/paymentsortproperty.ts
+  - src/models/components/paymentstatus.ts
   - src/models/components/product.ts
   - src/models/components/productbenefitsupdate.ts
   - src/models/components/productbillingtype.ts
@@ -1501,6 +1563,8 @@ generatedFiles:
   - src/models/operations/organizationsget.ts
   - src/models/operations/organizationslist.ts
   - src/models/operations/organizationsupdate.ts
+  - src/models/operations/paymentsget.ts
+  - src/models/operations/paymentslist.ts
   - src/models/operations/productsget.ts
   - src/models/operations/productslist.ts
   - src/models/operations/productsupdate.ts
@@ -1531,6 +1595,7 @@ generatedFiles:
   - src/sdk/oauth2.ts
   - src/sdk/orders.ts
   - src/sdk/organizations.ts
+  - src/sdk/payments.ts
   - src/sdk/polarcustomermeters.ts
   - src/sdk/polarcustomers.ts
   - src/sdk/polarlicensekeys.ts
@@ -1690,7 +1755,7 @@ examples:
   _endpointsubscription_revoked_post:
     speakeasy-default-endpointsubscription-revoked-post:
       requestBody:
-        application/json: {"data": {"created_at": "2025-11-29T12:00:55.925Z", "modified_at": "2023-03-13T04:36:55.320Z", "id": "<value>", "amount": 780683, "currency": "CFP Franc", "recurring_interval": "year", "status": "trialing", "current_period_start": "2023-06-20T05:55:42.170Z", "current_period_end": "2024-05-16T17:55:53.899Z", "cancel_at_period_end": true, "canceled_at": "2025-10-25T10:04:20.460Z", "started_at": "2024-09-29T18:36:35.285Z", "ends_at": "2024-02-23T17:26:12.806Z", "ended_at": "2024-01-24T11:12:57.680Z", "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "checkout_id": "<value>", "customer_cancellation_reason": "too_expensive", "customer_cancellation_comment": "<value>", "metadata": {}, "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2025-09-02T15:09:07.489Z", "modified_at": "2025-06-23T22:13:15.423Z", "metadata": {"key": "<value>", "key1": 182663}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-12-07T07:31:07.439Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "product": {"created_at": "2023-03-09T13:37:07.084Z", "modified_at": "2023-09-27T11:29:41.207Z", "id": "<value>", "name": "<value>", "description": "evenly footrest whoever happy underpants collaborate license irk yuck whether", "recurring_interval": "year", "is_recurring": false, "is_archived": true, "organization_id": "<value>", "metadata": {"key": false, "key1": 934828}, "prices": [], "benefits": [{"id": "<value>", "created_at": "2023-12-18T14:14:00.851Z", "modified_at": "2023-06-20T05:55:42.170Z", "description": "content than supposing ready powerfully card", "selectable": true, "deletable": false, "organization_id": "<value>", "metadata": {"key": 928297}, "properties": {"archived": {"key": false}, "files": ["<value>", "<value>"]}}, {"id": "<value>", "created_at": "2025-08-30T01:12:51.545Z", "modified_at": "2024-08-28T01:54:26.244Z", "description": "underpants collaborate license irk yuck", "selectable": false, "deletable": false, "organization_id": "<value>", "metadata": {}, "properties": {"prefix": "<value>", "expires": {"ttl": 991529, "timeframe": "month"}, "activations": {"limit": 431760, "enable_customer_admin": false}, "limit_usage": 851917}}, {"id": "<value>", "created_at": "2023-01-29T12:49:28.784Z", "modified_at": "2025-02-21T00:44:11.942Z", "description": "dreamily eek excepting velvety than who sleepily meanwhile only joshingly", "selectable": true, "deletable": true, "organization_id": "<value>", "metadata": {"key": 860087}, "properties": {"units": 4315, "meter_id": "<value>"}}], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/private", "mime_type": "<value>", "size": 111779, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2023-05-13T16:20:53.597Z", "version": "<value>", "is_uploaded": false, "created_at": "2024-06-30T21:10:53.584Z", "size_readable": "<value>", "public_url": "https://frequent-mouser.biz/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/private", "mime_type": "<value>", "size": 997963, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2024-06-13T10:57:42.559Z", "version": "<value>", "is_uploaded": true, "created_at": "2024-10-14T19:46:21.585Z", "size_readable": "<value>", "public_url": "https://unlined-carboxyl.org/"}], "attached_custom_fields": []}, "discount": {"duration": "once", "type": "percentage", "amount": 446441, "currency": "Tenge", "created_at": "2025-11-10T18:03:17.858Z", "modified_at": "2024-05-26T06:45:28.603Z", "id": "<value>", "metadata": {"key": 699352}, "name": "<value>", "code": "<value>", "starts_at": "2024-01-20T00:17:58.121Z", "ends_at": "2025-01-25T14:12:19.199Z", "max_redemptions": 517778, "redemptions_count": 937226, "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737"}, "prices": [{"created_at": "2023-06-23T01:49:05.982Z", "modified_at": "2025-12-02T06:57:31.584Z", "id": "<value>", "is_archived": false, "product_id": "<value>", "type": "one_time", "recurring_interval": "month", "price_currency": "<value>", "price_amount": 869772}, {"created_at": "2025-04-01T02:58:07.134Z", "modified_at": "2024-09-30T06:06:07.394Z", "id": "<value>", "is_archived": false, "product_id": "<value>", "type": "recurring", "recurring_interval": "month", "price_currency": "<value>", "unit_amount": "<value>", "cap_amount": 47022, "meter_id": "<value>", "meter": {"id": "<value>", "name": "<value>"}}, {"created_at": "2025-05-19T04:49:42.207Z", "modified_at": "2025-05-09T03:41:48.634Z", "id": "<value>", "is_archived": false, "product_id": "<value>", "recurring_interval": "month", "price_currency": "<value>", "price_amount": 157629}], "meters": []}}
+        application/json: {"data": {"created_at": "2025-11-29T12:00:55.925Z", "modified_at": "2023-03-13T04:36:55.320Z", "id": "<value>", "amount": 780683, "currency": "CFP Franc", "recurring_interval": "year", "status": "trialing", "current_period_start": "2023-06-20T05:55:42.170Z", "current_period_end": "2024-05-16T17:55:53.899Z", "cancel_at_period_end": true, "canceled_at": "2025-10-25T10:04:20.460Z", "started_at": "2024-09-29T18:36:35.285Z", "ends_at": "2024-02-23T17:26:12.806Z", "ended_at": "2024-01-24T11:12:57.680Z", "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "checkout_id": "<value>", "customer_cancellation_reason": "too_expensive", "customer_cancellation_comment": "<value>", "metadata": {}, "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2025-09-02T15:09:07.489Z", "modified_at": "2025-06-23T22:13:15.423Z", "metadata": {"key": "<value>", "key1": 182663}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-12-07T07:31:07.439Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "product": {"created_at": "2023-03-09T13:37:07.084Z", "modified_at": "2023-09-27T11:29:41.207Z", "id": "<value>", "name": "<value>", "description": "evenly footrest whoever happy underpants collaborate license irk yuck whether", "recurring_interval": "year", "is_recurring": false, "is_archived": true, "organization_id": "<value>", "metadata": {"key": false, "key1": 934828}, "prices": [], "benefits": [{"id": "<value>", "created_at": "2023-12-18T14:14:00.851Z", "modified_at": "2023-06-20T05:55:42.170Z", "description": "content than supposing ready powerfully card", "selectable": true, "deletable": false, "organization_id": "<value>", "metadata": {"key": 928297}, "properties": {"archived": {"key": false}, "files": ["<value>", "<value>"]}}, {"id": "<value>", "created_at": "2025-08-30T01:12:51.545Z", "modified_at": "2024-08-28T01:54:26.244Z", "description": "underpants collaborate license irk yuck", "selectable": false, "deletable": false, "organization_id": "<value>", "metadata": {}, "properties": {"prefix": "<value>", "expires": {"ttl": 991529, "timeframe": "month"}, "activations": {"limit": 431760, "enable_customer_admin": false}, "limit_usage": 851917}}, {"id": "<value>", "created_at": "2023-01-29T12:49:28.784Z", "modified_at": "2025-02-21T00:44:11.942Z", "description": "dreamily eek excepting velvety than who sleepily meanwhile only joshingly", "selectable": true, "deletable": true, "organization_id": "<value>", "metadata": {"key": 860087}, "properties": {"units": 4315, "rollover": false, "meter_id": "<value>"}}], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/private", "mime_type": "<value>", "size": 111779, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2023-05-13T16:20:53.597Z", "version": "<value>", "is_uploaded": false, "created_at": "2024-06-30T21:10:53.584Z", "size_readable": "<value>", "public_url": "https://frequent-mouser.biz/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/private", "mime_type": "<value>", "size": 997963, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2024-06-13T10:57:42.559Z", "version": "<value>", "is_uploaded": true, "created_at": "2024-10-14T19:46:21.585Z", "size_readable": "<value>", "public_url": "https://unlined-carboxyl.org/"}], "attached_custom_fields": []}, "discount": {"duration": "once", "type": "percentage", "amount": 446441, "currency": "Tenge", "created_at": "2025-11-10T18:03:17.858Z", "modified_at": "2024-05-26T06:45:28.603Z", "id": "<value>", "metadata": {"key": 699352}, "name": "<value>", "code": "<value>", "starts_at": "2024-01-20T00:17:58.121Z", "ends_at": "2025-01-25T14:12:19.199Z", "max_redemptions": 517778, "redemptions_count": 937226, "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737"}, "prices": [{"created_at": "2025-12-02T06:57:31.584Z", "modified_at": "2025-04-06T17:31:04.776Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "recurring_interval": "month", "price_currency": "<value>", "minimum_amount": 869772, "maximum_amount": 721627, "preset_amount": 941681}, {"created_at": "2025-12-22T02:59:14.585Z", "modified_at": "2024-11-09T15:10:26.479Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "type": "one_time", "recurring_interval": "month"}, {"created_at": "2025-05-09T03:41:48.634Z", "modified_at": "2024-10-01T01:10:35.758Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "type": "one_time", "recurring_interval": "year", "price_currency": "<value>", "unit_amount": "<value>", "cap_amount": 173853, "meter_id": "<value>", "meter": {"id": "<value>", "name": "<value>"}}], "meters": []}}
       responses:
         "200":
           application/json: "<value>"
@@ -1726,7 +1791,7 @@ examples:
   _endpointproduct_updated_post:
     speakeasy-default-endpointproduct-updated-post:
       requestBody:
-        application/json: {"data": {"created_at": "2024-06-25T03:46:32.479Z", "modified_at": "2023-06-04T01:47:33.158Z", "id": "<value>", "name": "<value>", "description": "er ick birdcage", "recurring_interval": "month", "is_recurring": false, "is_archived": true, "organization_id": "<value>", "metadata": {"key": 498845}, "prices": [{"created_at": "2023-04-14T23:22:06.974Z", "modified_at": "2023-11-27T16:49:54.775Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "recurring_interval": "month", "price_currency": "<value>", "minimum_amount": 389871, "maximum_amount": 137830, "preset_amount": 386933}], "benefits": [{"id": "<value>", "created_at": "2023-04-13T14:11:42.240Z", "modified_at": "2025-02-07T03:19:55.369Z", "description": "scrape about giggle luck sonata", "selectable": true, "deletable": false, "organization_id": "<value>", "metadata": {"key": "<value>"}, "properties": {"units": 538655, "meter_id": "<value>"}}], "medias": [], "attached_custom_fields": [{"custom_field_id": "<value>", "custom_field": {"created_at": "2025-06-10T18:03:19.188Z", "modified_at": "2025-03-17T11:57:55.112Z", "id": "<value>", "metadata": {"key": 5813.83, "key1": 3236.22, "key2": "<value>"}, "slug": "<value>", "name": "<value>", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "properties": {}}, "order": 173885, "required": true}]}}
+        application/json: {"data": {"created_at": "2024-06-25T03:46:32.479Z", "modified_at": "2023-06-04T01:47:33.158Z", "id": "<value>", "name": "<value>", "description": "er ick birdcage", "recurring_interval": "month", "is_recurring": false, "is_archived": true, "organization_id": "<value>", "metadata": {"key": 498845}, "prices": [{"created_at": "2023-04-14T23:22:06.974Z", "modified_at": "2023-11-27T16:49:54.775Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "recurring_interval": "month", "price_currency": "<value>", "minimum_amount": 389871, "maximum_amount": 137830, "preset_amount": 386933}], "benefits": [{"id": "<value>", "created_at": "2023-04-13T14:11:42.240Z", "modified_at": "2025-02-07T03:19:55.369Z", "description": "scrape about giggle luck sonata", "selectable": true, "deletable": false, "organization_id": "<value>", "metadata": {"key": "<value>"}, "properties": {"units": 538655, "rollover": true, "meter_id": "<value>"}}], "medias": [], "attached_custom_fields": [{"custom_field_id": "<value>", "custom_field": {"created_at": "2025-03-17T11:57:55.112Z", "modified_at": "2025-08-07T02:29:32.090Z", "id": "<value>", "metadata": {"key": 6797.66, "key1": 11791}, "slug": "<value>", "name": "<value>", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "properties": {}}, "order": 173885, "required": true}]}}
       responses:
         "200":
           application/json: "<value>"
@@ -1798,7 +1863,7 @@ examples:
   _endpointbenefit_grant_cycled_post:
     speakeasy-default-endpointbenefit-grant-cycled-post:
       requestBody:
-        application/json: {"data": {"created_at": "2024-09-17T22:29:23.174Z", "modified_at": "2025-06-14T11:07:13.305Z", "id": "<value>", "is_granted": false, "is_revoked": true, "subscription_id": "<value>", "order_id": "<value>", "customer_id": "<value>", "benefit_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-11-28T04:36:34.627Z", "modified_at": "2024-12-06T09:05:10.912Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-10-18T02:05:35.631Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "properties": {}, "benefit": {"id": "<value>", "created_at": "2023-02-09T05:59:58.193Z", "modified_at": "2024-11-28T04:36:34.627Z", "description": "till begonia loosely confusion excluding sans which instead", "selectable": true, "deletable": false, "organization_id": "<value>", "metadata": {"key": "<value>", "key1": "<value>", "key2": true}, "properties": {"units": 203429, "meter_id": "<value>"}}}}
+        application/json: {"data": {"created_at": "2024-09-17T22:29:23.174Z", "modified_at": "2025-06-14T11:07:13.305Z", "id": "<value>", "is_granted": false, "is_revoked": true, "subscription_id": "<value>", "order_id": "<value>", "customer_id": "<value>", "benefit_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-11-28T04:36:34.627Z", "modified_at": "2024-12-06T09:05:10.912Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-10-18T02:05:35.631Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "properties": {}, "benefit": {"id": "<value>", "created_at": "2023-02-09T05:59:58.193Z", "modified_at": "2024-11-28T04:36:34.627Z", "description": "till begonia loosely confusion excluding sans which instead", "selectable": true, "deletable": false, "organization_id": "<value>", "metadata": {"key": "<value>", "key1": "<value>", "key2": true}, "properties": {"units": 203429, "rollover": true, "meter_id": "<value>"}}}}
       responses:
         "200":
           application/json: "<value>"
@@ -2436,7 +2501,7 @@ examples:
           organization_id: ["1dbfc517-0bbf-4301-9ba8-555ca42b9737"]
       responses:
         "200":
-          application/json: {"periods": [{"timestamp": "2024-05-17T00:32:02.244Z", "orders": 450824, "revenue": 262795, "cumulative_revenue": 213457, "average_order_value": 937146, "one_time_products": 438142, "one_time_products_revenue": 801373, "new_subscriptions": 78888, "new_subscriptions_revenue": 219956, "renewed_subscriptions": 313464, "renewed_subscriptions_revenue": 94589, "active_subscriptions": 552582, "monthly_recurring_revenue": 805876}, {"timestamp": "2024-02-22T05:54:37.856Z", "orders": 746585, "revenue": 608535, "cumulative_revenue": 550965, "average_order_value": 322612, "one_time_products": 323185, "one_time_products_revenue": 177375, "new_subscriptions": 243354, "new_subscriptions_revenue": 780262, "renewed_subscriptions": 284041, "renewed_subscriptions_revenue": 737581, "active_subscriptions": 772105, "monthly_recurring_revenue": 710500}, {"timestamp": "2025-09-23T09:26:26.647Z", "orders": 324692, "revenue": 32069, "cumulative_revenue": 963286, "average_order_value": 444836, "one_time_products": 424256, "one_time_products_revenue": 132944, "new_subscriptions": 159685, "new_subscriptions_revenue": 550563, "renewed_subscriptions": 108980, "renewed_subscriptions_revenue": 862018, "active_subscriptions": 644971, "monthly_recurring_revenue": 538661}], "metrics": {"orders": {"slug": "<value>", "display_name": "Elda.Runolfsson38", "type": "currency"}, "revenue": {"slug": "<value>", "display_name": "Johanna_Marquardt", "type": "currency"}, "cumulative_revenue": {"slug": "<value>", "display_name": "Jacklyn90", "type": "currency"}, "average_order_value": {"slug": "<value>", "display_name": "Hassan_Robel", "type": "scalar"}, "one_time_products": {"slug": "<value>", "display_name": "Armani_OConner98", "type": "currency"}, "one_time_products_revenue": {"slug": "<value>", "display_name": "Martine23", "type": "scalar"}, "new_subscriptions": {"slug": "<value>", "display_name": "Pansy.Orn45", "type": "scalar"}, "new_subscriptions_revenue": {"slug": "<value>", "display_name": "Tyson.Cummings54", "type": "scalar"}, "renewed_subscriptions": {"slug": "<value>", "display_name": "Lorenza54", "type": "currency"}, "renewed_subscriptions_revenue": {"slug": "<value>", "display_name": "Alexandrea57", "type": "scalar"}, "active_subscriptions": {"slug": "<value>", "display_name": "Kadin.Veum53", "type": "currency"}, "monthly_recurring_revenue": {"slug": "<value>", "display_name": "Gilbert_Gerlach", "type": "scalar"}}}
+          application/json: {"periods": [{"timestamp": "2024-05-17T00:32:02.244Z", "orders": 450824, "revenue": 262795, "cumulative_revenue": 213457, "average_order_value": 937146, "one_time_products": 438142, "one_time_products_revenue": 801373, "new_subscriptions": 78888, "new_subscriptions_revenue": 219956, "renewed_subscriptions": 313464, "renewed_subscriptions_revenue": 94589, "active_subscriptions": 552582, "monthly_recurring_revenue": 805876, "checkouts": 5588.34, "succeeded_checkouts": 5212.35, "checkouts_conversion": 4580.49}, {"timestamp": "2024-02-22T05:54:37.856Z", "orders": 746585, "revenue": 608535, "cumulative_revenue": 550965, "average_order_value": 322612, "one_time_products": 323185, "one_time_products_revenue": 177375, "new_subscriptions": 243354, "new_subscriptions_revenue": 780262, "renewed_subscriptions": 284041, "renewed_subscriptions_revenue": 737581, "active_subscriptions": 772105, "monthly_recurring_revenue": 710500, "checkouts": 262795, "succeeded_checkouts": 937146, "checkouts_conversion": 801373}, {"timestamp": "2025-09-23T09:26:26.647Z", "orders": 324692, "revenue": 32069, "cumulative_revenue": 963286, "average_order_value": 444836, "one_time_products": 424256, "one_time_products_revenue": 132944, "new_subscriptions": 159685, "new_subscriptions_revenue": 550563, "renewed_subscriptions": 108980, "renewed_subscriptions_revenue": 862018, "active_subscriptions": 644971, "monthly_recurring_revenue": 538661, "checkouts": 219956, "succeeded_checkouts": 94589, "checkouts_conversion": 8058.76}], "totals": {"orders": 746585, "revenue": 5509.65, "cumulative_revenue": 323185, "average_order_value": 243354, "one_time_products": 2840.41, "one_time_products_revenue": 7721.05, "new_subscriptions": 9091.18, "new_subscriptions_revenue": 32069, "renewed_subscriptions": 4448.36, "renewed_subscriptions_revenue": 132944, "active_subscriptions": 550563, "monthly_recurring_revenue": 862018, "checkouts": 5386.61, "succeeded_checkouts": 729178, "checkouts_conversion": 4073.3}, "metrics": {"orders": {"slug": "<value>", "display_name": "Elda.Runolfsson38", "type": "currency"}, "revenue": {"slug": "<value>", "display_name": "Johanna_Marquardt", "type": "currency"}, "cumulative_revenue": {"slug": "<value>", "display_name": "Jacklyn90", "type": "currency"}, "average_order_value": {"slug": "<value>", "display_name": "Hassan_Robel", "type": "scalar"}, "one_time_products": {"slug": "<value>", "display_name": "Armani_OConner98", "type": "currency"}, "one_time_products_revenue": {"slug": "<value>", "display_name": "Martine23", "type": "scalar"}, "new_subscriptions": {"slug": "<value>", "display_name": "Pansy.Orn45", "type": "scalar"}, "new_subscriptions_revenue": {"slug": "<value>", "display_name": "Tyson.Cummings54", "type": "scalar"}, "renewed_subscriptions": {"slug": "<value>", "display_name": "Lorenza54", "type": "currency"}, "renewed_subscriptions_revenue": {"slug": "<value>", "display_name": "Alexandrea57", "type": "scalar"}, "active_subscriptions": {"slug": "<value>", "display_name": "Kadin.Veum53", "type": "currency"}, "monthly_recurring_revenue": {"slug": "<value>", "display_name": "Gilbert_Gerlach", "type": "scalar"}, "checkouts": {"slug": "<value>", "display_name": "Gerhard_Schowalter", "type": "currency"}, "succeeded_checkouts": {"slug": "<value>", "display_name": "Priscilla10", "type": "currency"}, "checkouts_conversion": {"slug": "<value>", "display_name": "Sydnie14", "type": "currency"}}}
         "422":
           application/json: {}
   metrics:limits:
@@ -2453,7 +2518,7 @@ examples:
           limit: 10
       responses:
         "200":
-          application/json: {"items": [{"id": "<value>", "created_at": "2025-04-22T08:39:55.981Z", "modified_at": "2024-08-22T19:26:20.850Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2025-02-26T06:14:46.641Z", "modified_at": "2023-04-05T09:49:38.010Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-11-25T18:23:24.264Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "granted", "limit_activations": 54607, "usage": 367745, "limit_usage": 485729, "validations": 73227, "last_validated_at": "2025-10-17T13:20:28.265Z", "expires_at": "2024-09-13T22:04:07.138Z"}, {"id": "<value>", "created_at": "2023-09-09T18:28:08.953Z", "modified_at": "2023-06-17T12:14:27.999Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-04-10T02:32:42.816Z", "modified_at": "2025-09-28T03:47:03.515Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2023-05-29T14:05:29.727Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "revoked", "limit_activations": 425334, "usage": 432930, "limit_usage": 480616, "validations": 103421, "last_validated_at": "2024-07-28T04:00:22.486Z", "expires_at": "2025-07-10T18:28:07.954Z"}], "pagination": {"total_count": 410206, "max_page": 863466}}
+          application/json: {"items": [{"id": "<value>", "created_at": "2025-04-22T08:39:55.981Z", "modified_at": "2024-08-22T19:26:20.850Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2025-02-26T06:14:46.641Z", "modified_at": "2023-04-05T09:49:38.010Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-11-25T18:23:24.264Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "granted", "limit_activations": 54607, "usage": 367745, "limit_usage": 485729, "validations": 73227, "last_validated_at": "2025-10-17T13:20:28.265Z", "expires_at": "2024-09-13T22:04:07.138Z"}, {"id": "<value>", "created_at": "2023-09-09T18:28:08.953Z", "modified_at": "2023-06-17T12:14:27.999Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-04-10T02:32:42.816Z", "modified_at": "2025-09-28T03:47:03.515Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2023-05-29T14:05:29.727Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "revoked", "limit_activations": 425334, "usage": 432930, "limit_usage": 480616, "validations": 103421, "last_validated_at": "2024-07-28T04:00:22.486Z", "expires_at": "2025-07-10T18:28:07.954Z"}], "pagination": {"total_count": 410206, "max_page": 863466}}
         "401":
           application/json: {"detail": "<value>"}
         "404":
@@ -2467,7 +2532,7 @@ examples:
           id: "<value>"
       responses:
         "200":
-          application/json: {"id": "<value>", "created_at": "2025-02-06T13:54:48.821Z", "modified_at": "2024-09-04T11:33:52.011Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-10-16T00:34:27.106Z", "modified_at": "2023-08-22T22:47:10.166Z", "metadata": {"key": 801373, "key1": "<value>", "key2": "<value>"}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-08-28T15:06:35.685Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "disabled", "limit_activations": 380699, "usage": 746585, "limit_usage": 608535, "validations": 550965, "last_validated_at": "2023-12-20T13:59:56.783Z", "expires_at": "2023-12-21T05:04:07.004Z", "activations": []}
+          application/json: {"id": "<value>", "created_at": "2025-02-06T13:54:48.821Z", "modified_at": "2024-09-04T11:33:52.011Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-10-16T00:34:27.106Z", "modified_at": "2023-08-22T22:47:10.166Z", "metadata": {"key": 801373, "key1": "<value>", "key2": "<value>"}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-08-28T15:06:35.685Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "disabled", "limit_activations": 380699, "usage": 746585, "limit_usage": 608535, "validations": 550965, "last_validated_at": "2023-12-20T13:59:56.783Z", "expires_at": "2023-12-21T05:04:07.004Z", "activations": []}
         "401":
           application/json: {"detail": "<value>"}
         "404":
@@ -2483,7 +2548,7 @@ examples:
         application/json: {"usage": 0}
       responses:
         "200":
-          application/json: {"id": "<value>", "created_at": "2025-07-28T19:04:48.565Z", "modified_at": "2024-10-16T10:52:42.015Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-03-01T06:03:05.915Z", "modified_at": "2025-09-09T13:32:29.600Z", "metadata": {"key": "<value>"}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-05-15T01:05:20.251Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "disabled", "limit_activations": 302461, "usage": 464385, "limit_usage": 771203, "validations": 693508, "last_validated_at": "2024-03-19T01:46:46.018Z", "expires_at": "2023-02-07T05:49:27.174Z"}
+          application/json: {"id": "<value>", "created_at": "2025-07-28T19:04:48.565Z", "modified_at": "2024-10-16T10:52:42.015Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-03-01T06:03:05.915Z", "modified_at": "2025-09-09T13:32:29.600Z", "metadata": {"key": "<value>"}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-05-15T01:05:20.251Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "disabled", "limit_activations": 302461, "usage": 464385, "limit_usage": 771203, "validations": 693508, "last_validated_at": "2024-03-19T01:46:46.018Z", "expires_at": "2023-02-07T05:49:27.174Z"}
         "401":
           application/json: {"detail": "<value>"}
         "404":
@@ -2498,7 +2563,7 @@ examples:
           activation_id: "<value>"
       responses:
         "200":
-          application/json: {"id": "<value>", "license_key_id": "<value>", "label": "<value>", "meta": {}, "created_at": "2024-11-30T08:59:23.889Z", "modified_at": "2024-05-27T04:18:44.299Z", "license_key": {"id": "<value>", "created_at": "2024-11-30T08:59:23.889Z", "modified_at": "2024-05-27T04:18:44.299Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-02-12T09:53:47.529Z", "modified_at": "2024-03-28T03:08:34.429Z", "metadata": {"key": true, "key1": 467317}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-02-28T03:57:28.912Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "revoked", "limit_activations": 635381, "usage": 144056, "limit_usage": 536885, "validations": 905007, "last_validated_at": "2024-07-07T15:22:07.988Z", "expires_at": "2023-08-23T21:27:34.297Z"}}
+          application/json: {"id": "<value>", "license_key_id": "<value>", "label": "<value>", "meta": {}, "created_at": "2024-11-30T08:59:23.889Z", "modified_at": "2024-05-27T04:18:44.299Z", "license_key": {"id": "<value>", "created_at": "2024-11-30T08:59:23.889Z", "modified_at": "2024-05-27T04:18:44.299Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-02-12T09:53:47.529Z", "modified_at": "2024-03-28T03:08:34.429Z", "metadata": {"key": true, "key1": 467317}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-02-28T03:57:28.912Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "revoked", "limit_activations": 635381, "usage": 144056, "limit_usage": 536885, "validations": 905007, "last_validated_at": "2024-07-07T15:22:07.988Z", "expires_at": "2023-08-23T21:27:34.297Z"}}
         "401":
           application/json: {"detail": "<value>"}
         "404":
@@ -2802,7 +2867,7 @@ examples:
           limit: 10
       responses:
         "200":
-          application/json: {"items": [{"created_at": "2024-08-22T19:26:20.850Z", "modified_at": "2025-01-13T10:26:00.433Z", "id": "<value>", "granted_at": "2023-07-14T18:23:27.528Z", "revoked_at": "2023-09-09T18:28:08.953Z", "customer_id": "<value>", "benefit_id": "<value>", "subscription_id": "<value>", "order_id": "<value>", "is_granted": true, "is_revoked": false, "customer": {"created_at": "2024-12-01T18:25:37.169Z", "modified_at": "2023-01-20T06:21:22.156Z", "id": "<value>", "email": "Aryanna_Pfeffer63@hotmail.com", "email_verified": true, "name": "<value>", "billing_address": {"country": "SE"}, "tax_id": ["911144442", "us_ein"], "oauth_accounts": {}}, "benefit": {"id": "<value>", "created_at": "2025-10-17T13:20:28.265Z", "modified_at": "2024-09-13T22:04:07.138Z", "description": "likewise excepting unimpressively quickly skean yowza beneath meanwhile synthesise angrily", "selectable": false, "deletable": false, "organization_id": "<value>", "metadata": {"key": 41398, "key1": true}, "organization": {"created_at": "2024-03-21T09:41:56.524Z", "modified_at": "2023-03-28T18:28:26.777Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://wavy-window.info/", "email": "Jacynthe.Turcotte@yahoo.com", "website": "<value>", "socials": [], "details_submitted_at": "2023-08-16T08:48:23.679Z", "feature_settings": {"issue_funding_enabled": false, "usage_based_billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "prorate"}}, "properties": {"note": "<value>"}}, "properties": {}}, {"created_at": "2024-05-21T17:28:14.899Z", "modified_at": "2025-04-07T21:37:23.489Z", "id": "<value>", "granted_at": "2023-01-09T23:59:38.923Z", "revoked_at": "2024-06-18T05:46:32.685Z", "customer_id": "<value>", "benefit_id": "<value>", "subscription_id": "<value>", "order_id": "<value>", "is_granted": false, "is_revoked": false, "customer": {"created_at": "2023-11-01T03:58:06.965Z", "modified_at": "2024-08-27T04:17:07.015Z", "id": "<value>", "email": "Laurianne.Bradtke@gmail.com", "email_verified": false, "name": "<value>", "billing_address": {"country": "FR"}, "tax_id": ["FR61954506077", "eu_vat"], "oauth_accounts": {"key": {"account_id": "<id>", "account_username": "<value>"}, "key1": {"account_id": "<id>", "account_username": "<value>"}}}, "benefit": {"id": "<value>", "created_at": "2023-08-14T22:55:48.443Z", "modified_at": "2023-12-07T04:19:04.202Z", "description": "eventually ah creative finally earth that early abseil", "selectable": false, "deletable": true, "organization_id": "<value>", "metadata": {"key": true, "key1": 527743, "key2": "<value>"}, "organization": {"created_at": "2024-08-12T02:33:31.911Z", "modified_at": "2023-07-09T17:20:28.194Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://potable-aftermath.com", "email": "Aletha.Kiehn@hotmail.com", "website": "<value>", "socials": [{"platform": "github", "url": "https://joyous-hawk.biz/"}, {"platform": "youtube", "url": "https://stunning-circumference.org"}], "details_submitted_at": "2025-07-14T16:07:38.809Z", "feature_settings": {"issue_funding_enabled": false, "usage_based_billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": false, "proration_behavior": "invoice"}}, "properties": {"units": 18518, "meter_id": "<value>"}}, "properties": {"last_credited_meter_id": "<id>", "last_credited_units": 197777, "last_credited_at": "<value>"}}], "pagination": {"total_count": 919645, "max_page": 791845}}
+          application/json: {"items": [{"created_at": "2024-08-22T19:26:20.850Z", "modified_at": "2025-01-13T10:26:00.433Z", "id": "<value>", "granted_at": "2023-07-14T18:23:27.528Z", "revoked_at": "2023-09-09T18:28:08.953Z", "customer_id": "<value>", "benefit_id": "<value>", "subscription_id": "<value>", "order_id": "<value>", "is_granted": true, "is_revoked": false, "customer": {"created_at": "2024-12-01T18:25:37.169Z", "modified_at": "2023-01-20T06:21:22.156Z", "id": "<value>", "email": "Aryanna_Pfeffer63@hotmail.com", "email_verified": true, "name": "<value>", "billing_address": {"country": "SE"}, "tax_id": ["911144442", "us_ein"], "oauth_accounts": {}}, "benefit": {"id": "<value>", "created_at": "2025-10-17T13:20:28.265Z", "modified_at": "2024-09-13T22:04:07.138Z", "description": "likewise excepting unimpressively quickly skean yowza beneath meanwhile synthesise angrily", "selectable": false, "deletable": false, "organization_id": "<value>", "metadata": {"key": 41398, "key1": true}, "organization": {"created_at": "2024-03-21T09:41:56.524Z", "modified_at": "2023-03-28T18:28:26.777Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://wavy-window.info/", "email": "Jacynthe.Turcotte@yahoo.com", "website": "<value>", "socials": [], "details_submitted_at": "2023-08-16T08:48:23.679Z", "feature_settings": {"issue_funding_enabled": false, "usage_based_billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "prorate"}}, "properties": {"note": "<value>"}}, "properties": {}}, {"created_at": "2024-05-21T17:28:14.899Z", "modified_at": "2025-04-07T21:37:23.489Z", "id": "<value>", "granted_at": "2023-01-09T23:59:38.923Z", "revoked_at": "2024-06-18T05:46:32.685Z", "customer_id": "<value>", "benefit_id": "<value>", "subscription_id": "<value>", "order_id": "<value>", "is_granted": false, "is_revoked": false, "customer": {"created_at": "2023-11-01T03:58:06.965Z", "modified_at": "2024-08-27T04:17:07.015Z", "id": "<value>", "email": "Laurianne.Bradtke@gmail.com", "email_verified": false, "name": "<value>", "billing_address": {"country": "FR"}, "tax_id": ["FR61954506077", "eu_vat"], "oauth_accounts": {"key": {"account_id": "<id>", "account_username": "<value>"}, "key1": {"account_id": "<id>", "account_username": "<value>"}}}, "benefit": {"id": "<value>", "created_at": "2023-08-14T22:55:48.443Z", "modified_at": "2023-12-07T04:19:04.202Z", "description": "eventually ah creative finally earth that early abseil", "selectable": false, "deletable": true, "organization_id": "<value>", "metadata": {"key": true, "key1": 527743, "key2": "<value>"}, "organization": {"created_at": "2024-08-12T02:33:31.911Z", "modified_at": "2023-07-09T17:20:28.194Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://potable-aftermath.com", "email": "Aletha.Kiehn@hotmail.com", "website": "<value>", "socials": [{"platform": "github", "url": "https://joyous-hawk.biz/"}, {"platform": "youtube", "url": "https://stunning-circumference.org"}], "details_submitted_at": "2025-07-14T16:07:38.809Z", "feature_settings": {"issue_funding_enabled": false, "usage_based_billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": false, "proration_behavior": "invoice"}}, "properties": {"units": 18518, "rollover": true, "meter_id": "<value>"}}, "properties": {"last_credited_meter_id": "<id>", "last_credited_units": 621450, "last_credited_at": "<value>"}}], "pagination": {"total_count": 919645, "max_page": 791845}}
         "422":
           application/json: {}
   customer_portal:benefit-grants:get:
@@ -2908,7 +2973,7 @@ examples:
           limit: 10
       responses:
         "200":
-          application/json: {"items": [{"id": "<value>", "created_at": "2025-04-22T08:39:55.981Z", "modified_at": "2024-08-22T19:26:20.850Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2025-02-26T06:14:46.641Z", "modified_at": "2023-04-05T09:49:38.010Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-11-25T18:23:24.264Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "granted", "limit_activations": 54607, "usage": 367745, "limit_usage": 485729, "validations": 73227, "last_validated_at": "2025-10-17T13:20:28.265Z", "expires_at": "2024-09-13T22:04:07.138Z"}, {"id": "<value>", "created_at": "2023-09-09T18:28:08.953Z", "modified_at": "2023-06-17T12:14:27.999Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-04-10T02:32:42.816Z", "modified_at": "2025-09-28T03:47:03.515Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2023-05-29T14:05:29.727Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "revoked", "limit_activations": 425334, "usage": 432930, "limit_usage": 480616, "validations": 103421, "last_validated_at": "2024-07-28T04:00:22.486Z", "expires_at": "2025-07-10T18:28:07.954Z"}], "pagination": {"total_count": 410206, "max_page": 863466}}
+          application/json: {"items": [{"id": "<value>", "created_at": "2025-04-22T08:39:55.981Z", "modified_at": "2024-08-22T19:26:20.850Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2025-02-26T06:14:46.641Z", "modified_at": "2023-04-05T09:49:38.010Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-11-25T18:23:24.264Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "granted", "limit_activations": 54607, "usage": 367745, "limit_usage": 485729, "validations": 73227, "last_validated_at": "2025-10-17T13:20:28.265Z", "expires_at": "2024-09-13T22:04:07.138Z"}, {"id": "<value>", "created_at": "2023-09-09T18:28:08.953Z", "modified_at": "2023-06-17T12:14:27.999Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-04-10T02:32:42.816Z", "modified_at": "2025-09-28T03:47:03.515Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2023-05-29T14:05:29.727Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "revoked", "limit_activations": 425334, "usage": 432930, "limit_usage": 480616, "validations": 103421, "last_validated_at": "2024-07-28T04:00:22.486Z", "expires_at": "2025-07-10T18:28:07.954Z"}], "pagination": {"total_count": 410206, "max_page": 863466}}
         "401":
           application/json: {"detail": "<value>"}
         "404":
@@ -2922,7 +2987,7 @@ examples:
           id: "<value>"
       responses:
         "200":
-          application/json: {"id": "<value>", "created_at": "2025-02-06T13:54:48.821Z", "modified_at": "2024-09-04T11:33:52.011Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-10-16T00:34:27.106Z", "modified_at": "2023-08-22T22:47:10.166Z", "metadata": {"key": 801373, "key1": "<value>", "key2": "<value>"}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-08-28T15:06:35.685Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "disabled", "limit_activations": 380699, "usage": 746585, "limit_usage": 608535, "validations": 550965, "last_validated_at": "2023-12-20T13:59:56.783Z", "expires_at": "2023-12-21T05:04:07.004Z", "activations": []}
+          application/json: {"id": "<value>", "created_at": "2025-02-06T13:54:48.821Z", "modified_at": "2024-09-04T11:33:52.011Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-10-16T00:34:27.106Z", "modified_at": "2023-08-22T22:47:10.166Z", "metadata": {"key": 801373, "key1": "<value>", "key2": "<value>"}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-08-28T15:06:35.685Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "disabled", "limit_activations": 380699, "usage": 746585, "limit_usage": 608535, "validations": 550965, "last_validated_at": "2023-12-20T13:59:56.783Z", "expires_at": "2023-12-21T05:04:07.004Z", "activations": []}
         "404":
           application/json: {"detail": "<value>"}
         "422":
@@ -2933,7 +2998,7 @@ examples:
         application/json: {"key": "<key>", "organization_id": "<value>"}
       responses:
         "200":
-          application/json: {"id": "<value>", "created_at": "2025-02-03T12:24:22.139Z", "modified_at": "2023-08-06T01:08:18.676Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-06-19T08:52:32.019Z", "modified_at": "2023-01-16T10:18:54.359Z", "metadata": {"key": 495384, "key1": 982092, "key2": true}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-11-15T10:57:03.766Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "granted", "limit_activations": 575316, "usage": 199438, "limit_usage": 710550, "validations": 601022, "last_validated_at": "2025-08-12T06:01:08.414Z", "expires_at": "2023-12-23T21:30:00.586Z"}
+          application/json: {"id": "<value>", "created_at": "2025-02-03T12:24:22.139Z", "modified_at": "2023-08-06T01:08:18.676Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-06-19T08:52:32.019Z", "modified_at": "2023-01-16T10:18:54.359Z", "metadata": {"key": 495384, "key1": 982092, "key2": true}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-11-15T10:57:03.766Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "granted", "limit_activations": 575316, "usage": 199438, "limit_usage": 710550, "validations": 601022, "last_validated_at": "2025-08-12T06:01:08.414Z", "expires_at": "2023-12-23T21:30:00.586Z"}
         "404":
           application/json: {"detail": "<value>"}
         "422":
@@ -2944,7 +3009,7 @@ examples:
         application/json: {"key": "<key>", "organization_id": "<value>", "label": "<value>"}
       responses:
         "200":
-          application/json: {"id": "<value>", "license_key_id": "<value>", "label": "<value>", "meta": {}, "created_at": "2024-08-12T13:11:06.353Z", "modified_at": "2023-07-31T16:19:56.063Z", "license_key": {"id": "<value>", "created_at": "2024-08-12T13:11:06.353Z", "modified_at": "2023-07-31T16:19:56.063Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-05-17T10:55:35.861Z", "modified_at": "2025-10-24T06:01:44.424Z", "metadata": {"key": "<value>", "key1": 296877, "key2": 92223}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-08-04T00:07:59.160Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "revoked", "limit_activations": 407890, "usage": 290826, "limit_usage": 838079, "validations": 32532, "last_validated_at": "2024-11-15T09:59:32.832Z", "expires_at": "2024-12-19T21:16:07.738Z"}}
+          application/json: {"id": "<value>", "license_key_id": "<value>", "label": "<value>", "meta": {}, "created_at": "2024-08-12T13:11:06.353Z", "modified_at": "2023-07-31T16:19:56.063Z", "license_key": {"id": "<value>", "created_at": "2024-08-12T13:11:06.353Z", "modified_at": "2023-07-31T16:19:56.063Z", "organization_id": "<value>", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-05-17T10:55:35.861Z", "modified_at": "2025-10-24T06:01:44.424Z", "metadata": {"key": "<value>", "key1": 296877, "key2": 92223}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-08-04T00:07:59.160Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "benefit_id": "<value>", "key": "<key>", "display_key": "<value>", "status": "revoked", "limit_activations": 407890, "usage": 290826, "limit_usage": 838079, "validations": 32532, "last_validated_at": "2024-11-15T09:59:32.832Z", "expires_at": "2024-12-19T21:16:07.738Z"}}
         "403":
           application/json: {"detail": "<value>"}
         "404":
@@ -2969,7 +3034,7 @@ examples:
           limit: 10
       responses:
         "200":
-          application/json: {"items": [{"id": "<value>", "created_at": "2025-01-13T10:26:00.433Z", "modified_at": "2023-07-14T18:23:27.528Z", "status": "pending", "paid": true, "subtotal_amount": 152837, "discount_amount": 635532, "net_amount": 639387, "amount": 768578, "tax_amount": 718303, "total_amount": 86140, "refunded_amount": 68504, "refunded_tax_amount": 687960, "currency": "Liberian Dollar", "billing_reason": "subscription_cycle", "billing_address": {"country": "FR"}, "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "subscription_id": "<value>", "checkout_id": "<value>", "user_id": "<value>", "product": {"created_at": "2024-11-25T18:23:24.264Z", "modified_at": "2023-01-09T04:26:27.312Z", "id": "<value>", "name": "<value>", "description": "jungle unto meanwhile", "recurring_interval": "month", "is_recurring": true, "is_archived": false, "organization_id": "<value>", "prices": [{"created_at": "2023-06-17T12:14:27.999Z", "modified_at": "2024-11-27T13:02:27.296Z", "id": "<value>", "is_archived": false, "product_id": "<value>", "recurring_interval": "month", "price_currency": "<value>", "minimum_amount": 718303, "maximum_amount": 86140, "preset_amount": 68504}, {"created_at": "2024-11-25T18:23:24.264Z", "modified_at": "2023-01-09T04:26:27.312Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "type": "one_time", "recurring_interval": "month"}, {"created_at": "2024-09-13T22:04:07.138Z", "modified_at": "2025-08-18T13:00:42.665Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "recurring_interval": "month"}], "benefits": [], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/media", "mime_type": "<value>", "size": 781409, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2024-08-19T22:29:27.736Z", "version": "<value>", "is_uploaded": true, "created_at": "2023-03-08T17:05:22.411Z", "size_readable": "<value>", "public_url": "https://yellowish-representation.biz/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/net", "mime_type": "<value>", "size": 96709, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-01-13T06:48:49.446Z", "version": "<value>", "is_uploaded": true, "created_at": "2023-01-06T17:33:20.863Z", "size_readable": "<value>", "public_url": "https://well-to-do-sarong.name"}], "organization": {"created_at": "2025-11-05T16:19:50.933Z", "modified_at": "2025-09-13T12:26:55.235Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://likable-yak.net/", "email": "Guy_OHara@hotmail.com", "website": "<value>", "socials": [], "details_submitted_at": "2025-06-28T00:46:13.804Z", "feature_settings": {"issue_funding_enabled": false, "usage_based_billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "invoice"}}}, "subscription": {"created_at": "2023-08-16T08:48:23.679Z", "modified_at": "2023-08-31T18:02:52.360Z", "id": "<value>", "amount": 123187, "currency": "Philippine Peso", "recurring_interval": "year", "status": "active", "current_period_start": "2025-04-07T21:37:23.489Z", "current_period_end": "2023-01-09T23:59:38.923Z", "cancel_at_period_end": true, "canceled_at": "2025-04-03T18:06:02.533Z", "started_at": "2025-04-03T17:06:12.891Z", "ends_at": "2023-11-01T03:58:06.965Z", "ended_at": "2024-08-27T04:17:07.015Z", "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "checkout_id": "<value>", "customer_cancellation_reason": "customer_service", "customer_cancellation_comment": "<value>"}, "items": [{"created_at": "2024-09-14T02:22:04.749Z", "modified_at": "2023-04-20T19:52:18.966Z", "id": "<value>", "label": "<value>", "amount": 401228, "tax_amount": 602487, "proration": true, "product_price_id": "<value>"}, {"created_at": "2025-10-20T12:04:56.060Z", "modified_at": "2025-04-01T19:36:12.946Z", "id": "<value>", "label": "<value>", "amount": 869095, "tax_amount": 500063, "proration": true, "product_price_id": "<value>"}]}, {"id": "<value>", "created_at": "2023-12-07T04:19:04.202Z", "modified_at": "2025-02-17T17:43:49.763Z", "status": "paid", "paid": true, "subtotal_amount": 838038, "discount_amount": 517221, "net_amount": 774578, "amount": 322596, "tax_amount": 182622, "total_amount": 213989, "refunded_amount": 387574, "refunded_tax_amount": 895464, "currency": "Armenian Dram", "billing_reason": "subscription_update", "billing_address": {"country": "US"}, "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "subscription_id": "<value>", "checkout_id": "<value>", "user_id": "<value>", "product": {"created_at": "2024-07-27T09:20:59.531Z", "modified_at": "2023-12-12T02:49:50.316Z", "id": "<value>", "name": "<value>", "description": "rosy fork shampoo outnumber so hence heartache", "recurring_interval": "year", "is_recurring": true, "is_archived": false, "organization_id": "<value>", "prices": [], "benefits": [{"id": "<value>", "created_at": "2024-11-16T21:16:42.369Z", "modified_at": "2023-01-22T06:30:00.744Z", "type": "custom", "description": "midst taxicab describe house what married owlishly which wonderfully CD", "selectable": false, "deletable": true, "organization_id": "<value>"}, {"id": "<value>", "created_at": "2024-02-08T13:08:21.816Z", "modified_at": "2023-03-14T00:27:12.916Z", "type": "downloadables", "description": "gosh boohoo terribly gosh facilitate in excluding", "selectable": true, "deletable": false, "organization_id": "<value>"}, {"id": "<value>", "created_at": "2023-02-04T16:53:23.272Z", "modified_at": "2025-05-09T13:20:09.208Z", "type": "license_keys", "description": "roughly instead athwart before tattered gosh um what thump kettledrum", "selectable": false, "deletable": false, "organization_id": "<value>"}], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/lib", "mime_type": "<value>", "size": 689954, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2023-11-16T19:05:14.488Z", "version": "<value>", "is_uploaded": true, "created_at": "2025-11-12T19:47:25.302Z", "size_readable": "<value>", "public_url": "https://well-groomed-pigsty.info"}], "organization": {"created_at": "2025-12-05T18:47:21.088Z", "modified_at": "2023-09-15T23:31:11.246Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://knotty-pomelo.biz", "email": "Florine_Waelchi38@hotmail.com", "website": "<value>", "socials": [{"platform": "facebook", "url": "https://weary-kiss.biz"}], "details_submitted_at": "2023-02-21T11:53:00.306Z", "feature_settings": {"issue_funding_enabled": false, "usage_based_billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": false, "proration_behavior": "invoice"}}}, "subscription": {"created_at": "2025-03-25T00:52:08.388Z", "modified_at": "2024-05-09T06:13:03.035Z", "id": "<value>", "amount": 795498, "currency": "Jamaican Dollar", "recurring_interval": "month", "status": "active", "current_period_start": "2024-05-22T05:51:55.323Z", "current_period_end": "2023-08-30T09:21:54.214Z", "cancel_at_period_end": false, "canceled_at": "2024-01-28T20:34:15.891Z", "started_at": "2024-04-01T05:54:05.999Z", "ends_at": "2024-10-21T06:38:12.204Z", "ended_at": "2024-08-28T22:45:20.080Z", "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "checkout_id": "<value>", "customer_cancellation_reason": "customer_service", "customer_cancellation_comment": "<value>"}, "items": []}], "pagination": {"total_count": 921999, "max_page": 866491}}
+          application/json: {"items": [{"id": "<value>", "created_at": "2025-01-13T10:26:00.433Z", "modified_at": "2023-07-14T18:23:27.528Z", "status": "pending", "paid": true, "subtotal_amount": 152837, "discount_amount": 635532, "net_amount": 639387, "amount": 768578, "tax_amount": 718303, "total_amount": 86140, "refunded_amount": 68504, "refunded_tax_amount": 687960, "currency": "Liberian Dollar", "billing_reason": "subscription_cycle", "billing_address": {"country": "FR"}, "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "subscription_id": "<value>", "checkout_id": "<value>", "user_id": "<value>", "product": {"created_at": "2024-11-25T18:23:24.264Z", "modified_at": "2023-01-09T04:26:27.312Z", "id": "<value>", "name": "<value>", "description": "jungle unto meanwhile", "recurring_interval": "month", "is_recurring": true, "is_archived": false, "organization_id": "<value>", "prices": [{"created_at": "2023-07-14T18:23:27.528Z", "modified_at": "2023-09-09T18:28:08.953Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "type": "recurring", "recurring_interval": "year"}, {"created_at": "2023-04-05T09:49:38.010Z", "modified_at": "2023-03-17T01:57:00.187Z", "id": "<value>", "is_archived": false, "product_id": "<value>", "recurring_interval": "year"}, {"created_at": "2023-03-01T20:22:54.911Z", "modified_at": "2024-02-08T01:09:52.088Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "type": "one_time", "recurring_interval": "year", "price_currency": "<value>", "price_amount": 567445}], "benefits": [], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/media", "mime_type": "<value>", "size": 781409, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2024-08-19T22:29:27.736Z", "version": "<value>", "is_uploaded": true, "created_at": "2023-03-08T17:05:22.411Z", "size_readable": "<value>", "public_url": "https://yellowish-representation.biz/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/net", "mime_type": "<value>", "size": 96709, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-01-13T06:48:49.446Z", "version": "<value>", "is_uploaded": true, "created_at": "2023-01-06T17:33:20.863Z", "size_readable": "<value>", "public_url": "https://well-to-do-sarong.name"}], "organization": {"created_at": "2025-11-05T16:19:50.933Z", "modified_at": "2025-09-13T12:26:55.235Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://likable-yak.net/", "email": "Guy_OHara@hotmail.com", "website": "<value>", "socials": [], "details_submitted_at": "2025-06-28T00:46:13.804Z", "feature_settings": {"issue_funding_enabled": false, "usage_based_billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "invoice"}}}, "subscription": {"created_at": "2023-08-16T08:48:23.679Z", "modified_at": "2023-08-31T18:02:52.360Z", "id": "<value>", "amount": 123187, "currency": "Philippine Peso", "recurring_interval": "year", "status": "active", "current_period_start": "2025-04-07T21:37:23.489Z", "current_period_end": "2023-01-09T23:59:38.923Z", "cancel_at_period_end": true, "canceled_at": "2025-04-03T18:06:02.533Z", "started_at": "2025-04-03T17:06:12.891Z", "ends_at": "2023-11-01T03:58:06.965Z", "ended_at": "2024-08-27T04:17:07.015Z", "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "checkout_id": "<value>", "customer_cancellation_reason": "customer_service", "customer_cancellation_comment": "<value>"}, "items": [{"created_at": "2024-09-14T02:22:04.749Z", "modified_at": "2023-04-20T19:52:18.966Z", "id": "<value>", "label": "<value>", "amount": 401228, "tax_amount": 602487, "proration": true, "product_price_id": "<value>"}, {"created_at": "2025-10-20T12:04:56.060Z", "modified_at": "2025-04-01T19:36:12.946Z", "id": "<value>", "label": "<value>", "amount": 869095, "tax_amount": 500063, "proration": true, "product_price_id": "<value>"}]}, {"id": "<value>", "created_at": "2023-12-07T04:19:04.202Z", "modified_at": "2025-02-17T17:43:49.763Z", "status": "paid", "paid": true, "subtotal_amount": 838038, "discount_amount": 517221, "net_amount": 774578, "amount": 322596, "tax_amount": 182622, "total_amount": 213989, "refunded_amount": 387574, "refunded_tax_amount": 895464, "currency": "Armenian Dram", "billing_reason": "subscription_update", "billing_address": {"country": "FR"}, "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "subscription_id": "<value>", "checkout_id": "<value>", "user_id": "<value>", "product": {"created_at": "2024-07-27T09:20:59.531Z", "modified_at": "2023-12-12T02:49:50.316Z", "id": "<value>", "name": "<value>", "description": "rosy fork shampoo outnumber so hence heartache", "recurring_interval": "year", "is_recurring": true, "is_archived": false, "organization_id": "<value>", "prices": [], "benefits": [{"id": "<value>", "created_at": "2024-11-16T21:16:42.369Z", "modified_at": "2023-01-22T06:30:00.744Z", "type": "custom", "description": "midst taxicab describe house what married owlishly which wonderfully CD", "selectable": false, "deletable": true, "organization_id": "<value>"}, {"id": "<value>", "created_at": "2024-02-08T13:08:21.816Z", "modified_at": "2023-03-14T00:27:12.916Z", "type": "downloadables", "description": "gosh boohoo terribly gosh facilitate in excluding", "selectable": true, "deletable": false, "organization_id": "<value>"}, {"id": "<value>", "created_at": "2023-02-04T16:53:23.272Z", "modified_at": "2025-05-09T13:20:09.208Z", "type": "license_keys", "description": "roughly instead athwart before tattered gosh um what thump kettledrum", "selectable": false, "deletable": false, "organization_id": "<value>"}], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/lib", "mime_type": "<value>", "size": 689954, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2023-11-16T19:05:14.488Z", "version": "<value>", "is_uploaded": true, "created_at": "2025-11-12T19:47:25.302Z", "size_readable": "<value>", "public_url": "https://well-groomed-pigsty.info"}], "organization": {"created_at": "2025-12-05T18:47:21.088Z", "modified_at": "2023-09-15T23:31:11.246Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://knotty-pomelo.biz", "email": "Florine_Waelchi38@hotmail.com", "website": "<value>", "socials": [{"platform": "facebook", "url": "https://weary-kiss.biz"}], "details_submitted_at": "2023-02-21T11:53:00.306Z", "feature_settings": {"issue_funding_enabled": false, "usage_based_billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": false, "proration_behavior": "invoice"}}}, "subscription": {"created_at": "2025-03-25T00:52:08.388Z", "modified_at": "2024-05-09T06:13:03.035Z", "id": "<value>", "amount": 795498, "currency": "Jamaican Dollar", "recurring_interval": "month", "status": "active", "current_period_start": "2024-05-22T05:51:55.323Z", "current_period_end": "2023-08-30T09:21:54.214Z", "cancel_at_period_end": false, "canceled_at": "2024-01-28T20:34:15.891Z", "started_at": "2024-04-01T05:54:05.999Z", "ends_at": "2024-10-21T06:38:12.204Z", "ended_at": "2024-08-28T22:45:20.080Z", "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "checkout_id": "<value>", "customer_cancellation_reason": "customer_service", "customer_cancellation_comment": "<value>"}, "items": []}], "pagination": {"total_count": 921999, "max_page": 866491}}
         "422":
           application/json: {}
   customer_portal:orders:get:
@@ -2979,7 +3044,7 @@ examples:
           id: "<value>"
       responses:
         "200":
-          application/json: {"id": "<value>", "created_at": "2025-02-06T13:54:48.821Z", "modified_at": "2024-09-04T11:33:52.011Z", "status": "refunded", "paid": true, "subtotal_amount": 521235, "discount_amount": 969961, "net_amount": 458049, "amount": 700347, "tax_amount": 262795, "total_amount": 213457, "refunded_amount": 937146, "refunded_tax_amount": 438142, "currency": "Dobra", "billing_reason": "subscription_cycle", "billing_address": {"country": "SE"}, "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "subscription_id": "<value>", "checkout_id": "<value>", "user_id": "<value>", "product": {"created_at": "2023-03-28T11:05:23.685Z", "modified_at": "2023-08-30T01:43:46.030Z", "id": "<value>", "name": "<value>", "description": "neaten qua meanwhile bah because", "recurring_interval": "year", "is_recurring": false, "is_archived": false, "organization_id": "<value>", "prices": [{"created_at": "2024-05-17T00:32:02.244Z", "modified_at": "2024-05-09T02:28:23.533Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "type": "one_time", "recurring_interval": "year", "price_currency": "<value>", "unit_amount": "<value>", "cap_amount": 438142, "meter_id": "<value>", "meter": {"id": "<value>", "name": "<value>"}}, {"created_at": "2023-08-30T01:43:46.030Z", "modified_at": "2023-12-10T13:21:20.945Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "type": "recurring", "recurring_interval": "year", "price_currency": "<value>", "price_amount": 380699}], "benefits": [{"id": "<value>", "created_at": "2023-03-21T00:44:28.600Z", "modified_at": "2023-03-31T04:26:02.125Z", "type": "custom", "description": "usefully raw huzzah bell unabashedly unwilling disk modulo", "selectable": false, "deletable": true, "organization_id": "<value>"}], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/etc", "mime_type": "<value>", "size": 784944, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2023-06-04T09:34:39.316Z", "version": "<value>", "is_uploaded": false, "created_at": "2023-08-19T12:04:37.549Z", "size_readable": "<value>", "public_url": "https://murky-council.info/"}], "organization": {"created_at": "2023-11-15T11:05:23.221Z", "modified_at": "2024-11-30T03:14:17.295Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://heavy-valley.name/", "email": "Jensen.Kirlin@hotmail.com", "website": "<value>", "socials": [], "details_submitted_at": "2024-06-25T21:05:40.122Z", "feature_settings": {"issue_funding_enabled": false, "usage_based_billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": false, "allow_customer_updates": false, "proration_behavior": "invoice"}}}, "subscription": {"created_at": "2023-12-12T23:35:27.798Z", "modified_at": "2023-10-07T02:56:50.564Z", "id": "<value>", "amount": 358141, "currency": "Brunei Dollar", "recurring_interval": "year", "status": "past_due", "current_period_start": "2023-08-02T00:17:06.651Z", "current_period_end": "2024-11-29T09:45:47.556Z", "cancel_at_period_end": false, "canceled_at": "2023-12-11T03:15:37.914Z", "started_at": "2025-10-20T04:57:39.211Z", "ends_at": "2023-05-29T23:31:48.271Z", "ended_at": "2025-09-05T20:43:01.371Z", "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "checkout_id": "<value>", "customer_cancellation_reason": "too_complex", "customer_cancellation_comment": "<value>"}, "items": []}
+          application/json: {"id": "<value>", "created_at": "2025-02-06T13:54:48.821Z", "modified_at": "2024-09-04T11:33:52.011Z", "status": "refunded", "paid": true, "subtotal_amount": 521235, "discount_amount": 969961, "net_amount": 458049, "amount": 700347, "tax_amount": 262795, "total_amount": 213457, "refunded_amount": 937146, "refunded_tax_amount": 438142, "currency": "Dobra", "billing_reason": "subscription_cycle", "billing_address": {"country": "FR"}, "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "subscription_id": "<value>", "checkout_id": "<value>", "user_id": "<value>", "product": {"created_at": "2023-03-28T11:05:23.685Z", "modified_at": "2023-08-30T01:43:46.030Z", "id": "<value>", "name": "<value>", "description": "neaten qua meanwhile bah because", "recurring_interval": "year", "is_recurring": false, "is_archived": false, "organization_id": "<value>", "prices": [{"created_at": "2024-07-25T06:33:15.810Z", "modified_at": "2025-11-29T01:50:48.954Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "type": "one_time", "recurring_interval": "month"}, {"created_at": "2024-04-25T04:53:50.189Z", "modified_at": "2025-05-28T07:17:57.134Z", "id": "<value>", "is_archived": true, "product_id": "<value>", "recurring_interval": "month"}], "benefits": [{"id": "<value>", "created_at": "2023-03-21T00:44:28.600Z", "modified_at": "2023-03-31T04:26:02.125Z", "type": "custom", "description": "usefully raw huzzah bell unabashedly unwilling disk modulo", "selectable": false, "deletable": true, "organization_id": "<value>"}], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/etc", "mime_type": "<value>", "size": 784944, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2023-06-04T09:34:39.316Z", "version": "<value>", "is_uploaded": false, "created_at": "2023-08-19T12:04:37.549Z", "size_readable": "<value>", "public_url": "https://murky-council.info/"}], "organization": {"created_at": "2023-11-15T11:05:23.221Z", "modified_at": "2024-11-30T03:14:17.295Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://heavy-valley.name/", "email": "Jensen.Kirlin@hotmail.com", "website": "<value>", "socials": [], "details_submitted_at": "2024-06-25T21:05:40.122Z", "feature_settings": {"issue_funding_enabled": false, "usage_based_billing_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": false, "allow_customer_updates": false, "proration_behavior": "invoice"}}}, "subscription": {"created_at": "2023-12-12T23:35:27.798Z", "modified_at": "2023-10-07T02:56:50.564Z", "id": "<value>", "amount": 358141, "currency": "Brunei Dollar", "recurring_interval": "year", "status": "past_due", "current_period_start": "2023-08-02T00:17:06.651Z", "current_period_end": "2024-11-29T09:45:47.556Z", "cancel_at_period_end": false, "canceled_at": "2023-12-11T03:15:37.914Z", "started_at": "2025-10-20T04:57:39.211Z", "ends_at": "2023-05-29T23:31:48.271Z", "ended_at": "2025-09-05T20:43:01.371Z", "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "checkout_id": "<value>", "customer_cancellation_reason": "too_complex", "customer_cancellation_comment": "<value>"}, "items": []}
         "404":
           application/json: {"detail": "<value>"}
         "422":
@@ -3237,6 +3302,30 @@ examples:
       responses:
         "200":
           application/json: {"id": "<value>", "created_at": "2025-02-06T13:54:48.821Z", "modified_at": "2024-09-04T11:33:52.011Z", "customer_id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "meter_id": "d498a884-e2cd-4d3e-8002-f536468a8b22", "consumed_units": 25, "credited_units": 100, "balance": 75, "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-08-19T11:11:04.610Z", "modified_at": "2024-07-25T06:33:15.810Z", "metadata": {"key": 450824, "key1": "<value>", "key2": "<value>"}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "FR"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-05-28T07:17:57.134Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "meter": {"metadata": {}, "created_at": "2023-08-30T01:43:46.030Z", "modified_at": "2023-12-10T13:21:20.945Z", "id": "<value>", "name": "<value>", "filter": {"conjunction": "and", "clauses": [{"property": "<value>", "operator": "lte", "value": 550965}]}, "aggregation": {"func": "count"}, "organization_id": "<value>"}}
+        "404":
+          application/json: {"detail": "<value>"}
+        "422":
+          application/json: {}
+  payments:list:
+    speakeasy-default-payments:list:
+      parameters:
+        query:
+          organization_id: ["1dbfc517-0bbf-4301-9ba8-555ca42b9737"]
+          page: 1
+          limit: 10
+      responses:
+        "200":
+          application/json: {"items": [{"created_at": "2023-07-14T18:23:27.528Z", "modified_at": "2023-09-09T18:28:08.953Z", "id": "<value>", "processor": "stripe", "status": "pending", "amount": 1000, "currency": "usd", "method": "card", "decline_reason": "insufficient_funds", "decline_message": "Your card has insufficient funds.", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "checkout_id": "e4b478fa-cd25-4253-9f1f-8a41e6370ede", "order_id": "e4b478fa-cd25-4253-9f1f-8a41e6370ede"}, {"created_at": "2024-12-01T18:25:37.169Z", "modified_at": "2023-01-20T06:21:22.156Z", "id": "<value>", "processor": "stripe", "status": "failed", "amount": 1000, "currency": "usd", "method": "card", "decline_reason": "insufficient_funds", "decline_message": "Your card has insufficient funds.", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "checkout_id": "e4b478fa-cd25-4253-9f1f-8a41e6370ede", "order_id": "e4b478fa-cd25-4253-9f1f-8a41e6370ede"}], "pagination": {"total_count": 86140, "max_page": 68504}}
+        "422":
+          application/json: {}
+  payments:get:
+    speakeasy-default-payments:get:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-09-04T11:33:52.011Z", "modified_at": "2024-08-19T11:11:04.610Z", "id": "<value>", "processor": "stripe", "status": "succeeded", "amount": 1000, "currency": "usd", "method": "card", "decline_reason": "insufficient_funds", "decline_message": "Your card has insufficient funds.", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "checkout_id": "e4b478fa-cd25-4253-9f1f-8a41e6370ede", "order_id": "e4b478fa-cd25-4253-9f1f-8a41e6370ede"}
         "404":
           application/json: {"detail": "<value>"}
         "422":
