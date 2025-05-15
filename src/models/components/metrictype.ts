@@ -8,6 +8,7 @@ import { ClosedEnum } from "../../types/enums.js";
 export const MetricType = {
   Scalar: "scalar",
   Currency: "currency",
+  Percentage: "percentage",
 } as const;
 export type MetricType = ClosedEnum<typeof MetricType>;
 

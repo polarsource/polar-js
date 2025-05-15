@@ -41,6 +41,7 @@ export const Scope = {
   OrdersRead: "orders:read",
   RefundsRead: "refunds:read",
   RefundsWrite: "refunds:write",
+  PaymentsRead: "payments:read",
   MetricsRead: "metrics:read",
   WebhooksRead: "webhooks:read",
   WebhooksWrite: "webhooks:write",

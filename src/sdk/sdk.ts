@@ -20,6 +20,7 @@ import { Metrics } from "./metrics.js";
 import { Oauth2 } from "./oauth2.js";
 import { Orders } from "./orders.js";
 import { Organizations } from "./organizations.js";
+import { Payments } from "./payments.js";
 import { Products } from "./products.js";
 import { Refunds } from "./refunds.js";
 import { Subscriptions } from "./subscriptions.js";
@@ -123,5 +124,10 @@ export class Polar extends ClientSDK {
   private _customerMeters?: CustomerMeters;
   get customerMeters(): CustomerMeters {
     return (this._customerMeters ??= new CustomerMeters(this._options));
+  }
+
+  private _payments?: Payments;
+  get payments(): Payments {
+    return (this._payments ??= new Payments(this._options));
   }
 }

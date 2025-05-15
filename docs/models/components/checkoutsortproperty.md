@@ -11,5 +11,5 @@ let value: CheckoutSortProperty = "-created_at";
 ## Values
 
 ```typescript
-"created_at" | "-created_at" | "expires_at" | "-expires_at"
+"created_at" | "-created_at" | "expires_at" | "-expires_at" | "status" | "-status"
 ```

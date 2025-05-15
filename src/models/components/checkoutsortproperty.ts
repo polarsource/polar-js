@@ -10,6 +10,8 @@ export const CheckoutSortProperty = {
   MinusCreatedAt: "-created_at",
   ExpiresAt: "expires_at",
   MinusExpiresAt: "-expires_at",
+  Status: "status",
+  MinusStatus: "-status",
 } as const;
 export type CheckoutSortProperty = ClosedEnum<typeof CheckoutSortProperty>;
 

@@ -25,7 +25,7 @@ const value: components.AuthorizeResponseUser = {
     avatarUrl: "https://forceful-fledgling.com/",
   },
   scopes: [
-    "subscriptions:write",
+    "customers:read",
   ],
 };
 ```

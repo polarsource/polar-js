@@ -12,6 +12,11 @@ import {
   CheckoutSortProperty$outboundSchema,
 } from "../components/checkoutsortproperty.js";
 import {
+  CheckoutStatus,
+  CheckoutStatus$inboundSchema,
+  CheckoutStatus$outboundSchema,
+} from "../components/checkoutstatus.js";
+import {
   ListResourceCheckout,
   ListResourceCheckout$inboundSchema,
   ListResourceCheckout$Outbound,
@@ -31,6 +36,16 @@ export type CheckoutsListQueryParamOrganizationIDFilter =
  */
 export type CheckoutsListQueryParamProductIDFilter = string | Array<string>;
 
+/**
+ * Filter by customer ID.
+ */
+export type CheckoutsListQueryParamCustomerIDFilter = string | Array<string>;
+
+/**
+ * Filter by checkout session status.
+ */
+export type StatusFilter = CheckoutStatus | Array<CheckoutStatus>;
+
 export type CheckoutsListRequest = {
   /**
    * Filter by organization ID.
@@ -40,6 +55,18 @@ export type CheckoutsListRequest = {
    * Filter by product ID.
    */
   productId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by customer ID.
+   */
+  customerId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by checkout session status.
+   */
+  status?: CheckoutStatus | Array<CheckoutStatus> | null | undefined;
+  /**
+   * Filter by customer email.
+   */
+  query?: string | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -178,6 +205,117 @@ export function checkoutsListQueryParamProductIDFilterFromJSON(
 }
 
 /** @internal */
+export const CheckoutsListQueryParamCustomerIDFilter$inboundSchema: z.ZodType<
+  CheckoutsListQueryParamCustomerIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type CheckoutsListQueryParamCustomerIDFilter$Outbound =
+  | string
+  | Array<string>;
+
+/** @internal */
+export const CheckoutsListQueryParamCustomerIDFilter$outboundSchema: z.ZodType<
+  CheckoutsListQueryParamCustomerIDFilter$Outbound,
+  z.ZodTypeDef,
+  CheckoutsListQueryParamCustomerIDFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CheckoutsListQueryParamCustomerIDFilter$ {
+  /** @deprecated use `CheckoutsListQueryParamCustomerIDFilter$inboundSchema` instead. */
+  export const inboundSchema =
+    CheckoutsListQueryParamCustomerIDFilter$inboundSchema;
+  /** @deprecated use `CheckoutsListQueryParamCustomerIDFilter$outboundSchema` instead. */
+  export const outboundSchema =
+    CheckoutsListQueryParamCustomerIDFilter$outboundSchema;
+  /** @deprecated use `CheckoutsListQueryParamCustomerIDFilter$Outbound` instead. */
+  export type Outbound = CheckoutsListQueryParamCustomerIDFilter$Outbound;
+}
+
+export function checkoutsListQueryParamCustomerIDFilterToJSON(
+  checkoutsListQueryParamCustomerIDFilter:
+    CheckoutsListQueryParamCustomerIDFilter,
+): string {
+  return JSON.stringify(
+    CheckoutsListQueryParamCustomerIDFilter$outboundSchema.parse(
+      checkoutsListQueryParamCustomerIDFilter,
+    ),
+  );
+}
+
+export function checkoutsListQueryParamCustomerIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CheckoutsListQueryParamCustomerIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CheckoutsListQueryParamCustomerIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CheckoutsListQueryParamCustomerIDFilter' from JSON`,
+  );
+}
+
+/** @internal */
+export const StatusFilter$inboundSchema: z.ZodType<
+  StatusFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  CheckoutStatus$inboundSchema,
+  z.array(CheckoutStatus$inboundSchema),
+]);
+
+/** @internal */
+export type StatusFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const StatusFilter$outboundSchema: z.ZodType<
+  StatusFilter$Outbound,
+  z.ZodTypeDef,
+  StatusFilter
+> = z.union([
+  CheckoutStatus$outboundSchema,
+  z.array(CheckoutStatus$outboundSchema),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace StatusFilter$ {
+  /** @deprecated use `StatusFilter$inboundSchema` instead. */
+  export const inboundSchema = StatusFilter$inboundSchema;
+  /** @deprecated use `StatusFilter$outboundSchema` instead. */
+  export const outboundSchema = StatusFilter$outboundSchema;
+  /** @deprecated use `StatusFilter$Outbound` instead. */
+  export type Outbound = StatusFilter$Outbound;
+}
+
+export function statusFilterToJSON(statusFilter: StatusFilter): string {
+  return JSON.stringify(StatusFilter$outboundSchema.parse(statusFilter));
+}
+
+export function statusFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<StatusFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => StatusFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'StatusFilter' from JSON`,
+  );
+}
+
+/** @internal */
 export const CheckoutsListRequest$inboundSchema: z.ZodType<
   CheckoutsListRequest,
   z.ZodTypeDef,
@@ -186,6 +324,15 @@ export const CheckoutsListRequest$inboundSchema: z.ZodType<
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
+    .optional(),
+  status: z.nullable(
+    z.union([
+      CheckoutStatus$inboundSchema,
+      z.array(CheckoutStatus$inboundSchema),
+    ]),
+  ).optional(),
+  query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(CheckoutSortProperty$inboundSchema)).optional(),
@@ -193,6 +340,7 @@ export const CheckoutsListRequest$inboundSchema: z.ZodType<
   return remap$(v, {
     "organization_id": "organizationId",
     "product_id": "productId",
+    "customer_id": "customerId",
   });
 });
 
@@ -200,6 +348,9 @@ export const CheckoutsListRequest$inboundSchema: z.ZodType<
 export type CheckoutsListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
+  customer_id?: string | Array<string> | null | undefined;
+  status?: string | Array<string> | null | undefined;
+  query?: string | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -214,6 +365,14 @@ export const CheckoutsListRequest$outboundSchema: z.ZodType<
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  status: z.nullable(
+    z.union([
+      CheckoutStatus$outboundSchema,
+      z.array(CheckoutStatus$outboundSchema),
+    ]),
+  ).optional(),
+  query: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(CheckoutSortProperty$outboundSchema)).optional(),
@@ -221,6 +380,7 @@ export const CheckoutsListRequest$outboundSchema: z.ZodType<
   return remap$(v, {
     organizationId: "organization_id",
     productId: "product_id",
+    customerId: "customer_id",
   });
 });
 

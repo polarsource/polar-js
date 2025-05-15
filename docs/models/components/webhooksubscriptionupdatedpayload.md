@@ -98,6 +98,7 @@ let value: WebhookSubscriptionUpdatedPayload = {
           },
           properties: {
             units: 807621,
+            rollover: false,
             meterId: "<value>",
           },
         },

@@ -30,6 +30,8 @@ import { tool$metricsLimits } from "./tools/metricsLimits.js";
 import { tool$ordersGet } from "./tools/ordersGet.js";
 import { tool$ordersInvoice } from "./tools/ordersInvoice.js";
 import { tool$ordersList } from "./tools/ordersList.js";
+import { tool$paymentsGet } from "./tools/paymentsGet.js";
+import { tool$paymentsList } from "./tools/paymentsList.js";
 import { tool$productsCreate } from "./tools/productsCreate.js";
 import { tool$productsGet } from "./tools/productsGet.js";
 import { tool$productsList } from "./tools/productsList.js";
@@ -51,7 +53,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Polar",
-    version: "0.32.13",
+    version: "0.32.14",
   });
 
   const client = new PolarCore({
@@ -108,6 +110,8 @@ export function createMCPServer(deps: {
   tool(tool$customersGetStateExternal);
   tool(tool$customerMetersList);
   tool(tool$customerMetersGet);
+  tool(tool$paymentsList);
+  tool(tool$paymentsGet);
 
   return server;
 }
