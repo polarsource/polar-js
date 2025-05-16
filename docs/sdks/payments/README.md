@@ -25,9 +25,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.payments.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   for await (const page of result) {
@@ -55,9 +53,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await paymentsList(polar, {
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   if (!res.ok) {

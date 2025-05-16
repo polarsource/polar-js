@@ -103,7 +103,7 @@ async function run() {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   }, {
     billingAddress: {
-      country: "FR",
+      country: "US",
     },
   });
 
@@ -131,7 +131,7 @@ async function run() {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   }, {
     billingAddress: {
-      country: "FR",
+      country: "US",
     },
   });
 
@@ -268,7 +268,7 @@ async function run() {
   }, {
     confirmationTokenId: "<id>",
     setDefault: false,
-    returnUrl: "https://slight-digestive.info",
+    returnUrl: "https://yearly-custom.net/",
   });
 
   // Handle the result
@@ -296,7 +296,7 @@ async function run() {
   }, {
     confirmationTokenId: "<id>",
     setDefault: false,
-    returnUrl: "https://slight-digestive.info",
+    returnUrl: "https://yearly-custom.net/",
   });
 
   if (!res.ok) {

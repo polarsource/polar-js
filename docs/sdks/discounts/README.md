@@ -28,9 +28,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.discounts.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   for await (const page of result) {
@@ -58,9 +56,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await discountsList(polar, {
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   if (!res.ok) {
@@ -115,11 +111,9 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.discounts.create({
-    duration: "forever",
-    durationInMonths: 417458,
+    duration: "once",
     type: "fixed",
-    amount: 69025,
-    currency: "usd",
+    basisPoints: 449604,
     name: "<value>",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
@@ -147,11 +141,9 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await discountsCreate(polar, {
-    duration: "forever",
-    durationInMonths: 417458,
+    duration: "once",
     type: "fixed",
-    amount: 69025,
-    currency: "usd",
+    basisPoints: 449604,
     name: "<value>",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });

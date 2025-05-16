@@ -32,6 +32,12 @@ import {
   BenefitGrantDownloadablesProperties$outboundSchema,
 } from "./benefitgrantdownloadablesproperties.js";
 import {
+  BenefitGrantError,
+  BenefitGrantError$inboundSchema,
+  BenefitGrantError$Outbound,
+  BenefitGrantError$outboundSchema,
+} from "./benefitgranterror.js";
+import {
   BenefitGrantGitHubRepositoryProperties,
   BenefitGrantGitHubRepositoryProperties$inboundSchema,
   BenefitGrantGitHubRepositoryProperties$Outbound,
@@ -109,6 +115,10 @@ export type BenefitGrantWebhook = {
    * The ID of the benefit concerned by this grant.
    */
   benefitId: string;
+  /**
+   * The error information if the benefit grant failed with an unrecoverable error.
+   */
+  error?: BenefitGrantError | null | undefined;
   /**
    * A customer in an organization.
    */
@@ -285,6 +295,7 @@ export const BenefitGrantWebhook$inboundSchema: z.ZodType<
   order_id: z.nullable(z.string()),
   customer_id: z.string(),
   benefit_id: z.string(),
+  error: z.nullable(BenefitGrantError$inboundSchema).optional(),
   customer: Customer$inboundSchema,
   properties: z.union([
     BenefitGrantCustomProperties$inboundSchema,
@@ -332,6 +343,7 @@ export type BenefitGrantWebhook$Outbound = {
   order_id: string | null;
   customer_id: string;
   benefit_id: string;
+  error?: BenefitGrantError$Outbound | null | undefined;
   customer: Customer$Outbound;
   properties:
     | BenefitGrantCustomProperties$Outbound
@@ -367,6 +379,7 @@ export const BenefitGrantWebhook$outboundSchema: z.ZodType<
   orderId: z.nullable(z.string()),
   customerId: z.string(),
   benefitId: z.string(),
+  error: z.nullable(BenefitGrantError$outboundSchema).optional(),
   customer: Customer$outboundSchema,
   properties: z.union([
     BenefitGrantCustomProperties$outboundSchema,

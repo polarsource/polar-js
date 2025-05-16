@@ -13,6 +13,12 @@ import {
   ListResourceSubscription$outboundSchema,
 } from "../components/listresourcesubscription.js";
 import {
+  MetadataQuery,
+  MetadataQuery$inboundSchema,
+  MetadataQuery$Outbound,
+  MetadataQuery$outboundSchema,
+} from "../components/subscriptionslist.js";
+import {
   SubscriptionSortProperty,
   SubscriptionSortProperty$inboundSchema,
   SubscriptionSortProperty$outboundSchema,
@@ -72,6 +78,10 @@ export type SubscriptionsListRequest = {
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
   sorting?: Array<SubscriptionSortProperty> | null | undefined;
+  /**
+   * Filter by metadata key-value pairs. It uses the `deepObject` style, e.g. `?metadata[key]=value`.
+   */
+  metadata?: { [k: string]: MetadataQuery } | null | undefined;
 };
 
 export type SubscriptionsListResponse = {
@@ -286,6 +296,8 @@ export const SubscriptionsListRequest$inboundSchema: z.ZodType<
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(SubscriptionSortProperty$inboundSchema))
     .optional(),
+  metadata: z.nullable(z.record(z.lazy(() => MetadataQuery$inboundSchema)))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -305,6 +317,7 @@ export type SubscriptionsListRequest$Outbound = {
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
+  metadata?: { [k: string]: MetadataQuery$Outbound } | null | undefined;
 };
 
 /** @internal */
@@ -322,6 +335,8 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodType<
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(SubscriptionSortProperty$outboundSchema))
+    .optional(),
+  metadata: z.nullable(z.record(z.lazy(() => MetadataQuery$outboundSchema)))
     .optional(),
 }).transform((v) => {
   return remap$(v, {

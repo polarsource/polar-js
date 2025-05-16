@@ -7,12 +7,6 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
-  MetadataQuery,
-  MetadataQuery$inboundSchema,
-  MetadataQuery$Outbound,
-  MetadataQuery$outboundSchema,
-} from "../components/customerslist.js";
-import {
   EventSortProperty,
   EventSortProperty$inboundSchema,
   EventSortProperty$outboundSchema,
@@ -28,6 +22,12 @@ import {
   ListResourceEvent$Outbound,
   ListResourceEvent$outboundSchema,
 } from "../components/listresourceevent.js";
+import {
+  MetadataQuery,
+  MetadataQuery$inboundSchema,
+  MetadataQuery$Outbound,
+  MetadataQuery$outboundSchema,
+} from "../components/subscriptionslist.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**

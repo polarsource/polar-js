@@ -279,7 +279,9 @@ const polar = new Polar({
 async function run() {
   const result = await polar.subscriptions.update({
     id: "<value>",
-    subscriptionUpdate: {},
+    subscriptionUpdate: {
+      productId: "<value>",
+    },
   });
 
   // Handle the result
@@ -307,7 +309,7 @@ async function run() {
   const res = await subscriptionsUpdate(polar, {
     id: "<value>",
     subscriptionUpdate: {
-      cancelAtPeriodEnd: false,
+      productId: "<value>",
     },
   });
 

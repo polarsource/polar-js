@@ -7,12 +7,6 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
-  MetadataQuery,
-  MetadataQuery$inboundSchema,
-  MetadataQuery$Outbound,
-  MetadataQuery$outboundSchema,
-} from "../components/customerslist.js";
-import {
   ListResourceMeter,
   ListResourceMeter$inboundSchema,
   ListResourceMeter$Outbound,
@@ -23,6 +17,12 @@ import {
   MeterSortProperty$inboundSchema,
   MeterSortProperty$outboundSchema,
 } from "../components/metersortproperty.js";
+import {
+  MetadataQuery,
+  MetadataQuery$inboundSchema,
+  MetadataQuery$Outbound,
+  MetadataQuery$outboundSchema,
+} from "../components/subscriptionslist.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**

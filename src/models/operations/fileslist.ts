@@ -14,12 +14,25 @@ import {
 } from "../components/listresourcefileread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+/**
+ * Filter by organization ID.
+ */
+export type FilesListQueryParamOrganizationIDFilter = string | Array<string>;
+
+/**
+ * Filter by file ID.
+ */
+export type FileIDFilter = string | Array<string>;
+
 export type FilesListRequest = {
-  organizationId?: string | null | undefined;
   /**
-   * List of file IDs to get.
+   * Filter by organization ID.
    */
-  ids?: Array<string> | null | undefined;
+  organizationId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by file ID.
+   */
+  ids?: string | Array<string> | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -35,13 +48,119 @@ export type FilesListResponse = {
 };
 
 /** @internal */
+export const FilesListQueryParamOrganizationIDFilter$inboundSchema: z.ZodType<
+  FilesListQueryParamOrganizationIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type FilesListQueryParamOrganizationIDFilter$Outbound =
+  | string
+  | Array<string>;
+
+/** @internal */
+export const FilesListQueryParamOrganizationIDFilter$outboundSchema: z.ZodType<
+  FilesListQueryParamOrganizationIDFilter$Outbound,
+  z.ZodTypeDef,
+  FilesListQueryParamOrganizationIDFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FilesListQueryParamOrganizationIDFilter$ {
+  /** @deprecated use `FilesListQueryParamOrganizationIDFilter$inboundSchema` instead. */
+  export const inboundSchema =
+    FilesListQueryParamOrganizationIDFilter$inboundSchema;
+  /** @deprecated use `FilesListQueryParamOrganizationIDFilter$outboundSchema` instead. */
+  export const outboundSchema =
+    FilesListQueryParamOrganizationIDFilter$outboundSchema;
+  /** @deprecated use `FilesListQueryParamOrganizationIDFilter$Outbound` instead. */
+  export type Outbound = FilesListQueryParamOrganizationIDFilter$Outbound;
+}
+
+export function filesListQueryParamOrganizationIDFilterToJSON(
+  filesListQueryParamOrganizationIDFilter:
+    FilesListQueryParamOrganizationIDFilter,
+): string {
+  return JSON.stringify(
+    FilesListQueryParamOrganizationIDFilter$outboundSchema.parse(
+      filesListQueryParamOrganizationIDFilter,
+    ),
+  );
+}
+
+export function filesListQueryParamOrganizationIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FilesListQueryParamOrganizationIDFilter,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FilesListQueryParamOrganizationIDFilter$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FilesListQueryParamOrganizationIDFilter' from JSON`,
+  );
+}
+
+/** @internal */
+export const FileIDFilter$inboundSchema: z.ZodType<
+  FileIDFilter,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.array(z.string())]);
+
+/** @internal */
+export type FileIDFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const FileIDFilter$outboundSchema: z.ZodType<
+  FileIDFilter$Outbound,
+  z.ZodTypeDef,
+  FileIDFilter
+> = z.union([z.string(), z.array(z.string())]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FileIDFilter$ {
+  /** @deprecated use `FileIDFilter$inboundSchema` instead. */
+  export const inboundSchema = FileIDFilter$inboundSchema;
+  /** @deprecated use `FileIDFilter$outboundSchema` instead. */
+  export const outboundSchema = FileIDFilter$outboundSchema;
+  /** @deprecated use `FileIDFilter$Outbound` instead. */
+  export type Outbound = FileIDFilter$Outbound;
+}
+
+export function fileIDFilterToJSON(fileIDFilter: FileIDFilter): string {
+  return JSON.stringify(FileIDFilter$outboundSchema.parse(fileIDFilter));
+}
+
+export function fileIDFilterFromJSON(
+  jsonString: string,
+): SafeParseResult<FileIDFilter, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FileIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FileIDFilter' from JSON`,
+  );
+}
+
+/** @internal */
 export const FilesListRequest$inboundSchema: z.ZodType<
   FilesListRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  organization_id: z.nullable(z.string()).optional(),
-  ids: z.nullable(z.array(z.string())).optional(),
+  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
+    .optional(),
+  ids: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
@@ -52,8 +171,8 @@ export const FilesListRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type FilesListRequest$Outbound = {
-  organization_id?: string | null | undefined;
-  ids?: Array<string> | null | undefined;
+  organization_id?: string | Array<string> | null | undefined;
+  ids?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
 };
@@ -64,8 +183,9 @@ export const FilesListRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FilesListRequest
 > = z.object({
-  organizationId: z.nullable(z.string()).optional(),
-  ids: z.nullable(z.array(z.string())).optional(),
+  organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
+    .optional(),
+  ids: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {

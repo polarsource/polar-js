@@ -7,12 +7,6 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
-  MetadataQuery,
-  MetadataQuery$inboundSchema,
-  MetadataQuery$Outbound,
-  MetadataQuery$outboundSchema,
-} from "../components/customerslist.js";
-import {
   CustomerSortProperty,
   CustomerSortProperty$inboundSchema,
   CustomerSortProperty$outboundSchema,
@@ -23,6 +17,12 @@ import {
   ListResourceCustomer$Outbound,
   ListResourceCustomer$outboundSchema,
 } from "../components/listresourcecustomer.js";
+import {
+  MetadataQuery,
+  MetadataQuery$inboundSchema,
+  MetadataQuery$Outbound,
+  MetadataQuery$outboundSchema,
+} from "../components/subscriptionslist.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -143,8 +143,7 @@ export const CustomersListRequest$inboundSchema: z.ZodType<
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(CustomerSortProperty$inboundSchema)).optional(),
-  metadata: z.nullable(z.record(z.lazy(() => MetadataQuery$inboundSchema)))
-    .optional(),
+  metadata: z.nullable(z.record(MetadataQuery$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -175,8 +174,7 @@ export const CustomersListRequest$outboundSchema: z.ZodType<
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(CustomerSortProperty$outboundSchema)).optional(),
-  metadata: z.nullable(z.record(z.lazy(() => MetadataQuery$outboundSchema)))
-    .optional(),
+  metadata: z.nullable(z.record(MetadataQuery$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",

@@ -114,15 +114,9 @@ async function run() {
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     mimeType: "<value>",
-    size: 638424,
+    size: 612128,
     upload: {
-      parts: [
-        {
-          number: 417458,
-          chunkStart: 134365,
-          chunkEnd: 69025,
-        },
-      ],
+      parts: [],
     },
   });
 
@@ -152,15 +146,9 @@ async function run() {
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     mimeType: "<value>",
-    size: 816588,
+    size: 612128,
     upload: {
-      parts: [
-        {
-          number: 586220,
-          chunkStart: 752438,
-          chunkEnd: 957409,
-        },
-      ],
+      parts: [],
     },
   });
 
@@ -217,20 +205,20 @@ async function run() {
     id: "<value>",
     fileUploadCompleted: {
       id: "<id>",
-      path: "/sys",
+      path: "/boot",
       parts: [
         {
-          number: 173116,
+          number: 979613,
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
         },
         {
-          number: 894030,
+          number: 979613,
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
         },
         {
-          number: 673715,
+          number: 979613,
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
         },
@@ -264,20 +252,20 @@ async function run() {
     id: "<value>",
     fileUploadCompleted: {
       id: "<id>",
-      path: "/sys",
+      path: "/boot",
       parts: [
         {
-          number: 173116,
+          number: 979613,
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
         },
         {
-          number: 894030,
+          number: 979613,
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
         },
         {
-          number: 673715,
+          number: 979613,
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
         },
