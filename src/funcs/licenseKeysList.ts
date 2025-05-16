@@ -120,7 +120,7 @@ async function $do(
   const payload = parsed.value;
   const body = null;
 
-  const path = pathToFunc("/v1/license-keys")();
+  const path = pathToFunc("/v1/license-keys/")();
 
   const query = encodeFormQuery({
     "benefit_id": payload.benefit_id,

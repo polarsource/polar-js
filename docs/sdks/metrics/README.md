@@ -28,12 +28,10 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.metrics.get({
-    startDate: new RFCDate("2025-02-06"),
-    endDate: new RFCDate("2024-09-04"),
-    interval: "week",
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    startDate: new RFCDate("2025-03-14"),
+    endDate: new RFCDate("2025-03-18"),
+    interval: "hour",
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   // Handle the result
@@ -60,12 +58,10 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await metricsGet(polar, {
-    startDate: new RFCDate("2025-02-06"),
-    endDate: new RFCDate("2024-09-04"),
-    interval: "week",
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    startDate: new RFCDate("2025-03-14"),
+    endDate: new RFCDate("2025-03-18"),
+    interval: "hour",
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   if (!res.ok) {

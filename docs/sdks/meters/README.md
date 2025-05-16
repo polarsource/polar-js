@@ -28,9 +28,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.meters.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   for await (const page of result) {
@@ -58,9 +56,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await metersList(polar, {
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   if (!res.ok) {
@@ -117,7 +113,7 @@ async function run() {
   const result = await polar.meters.create({
     name: "<value>",
     filter: {
-      conjunction: "and",
+      conjunction: "or",
       clauses: [
         {
           property: "<value>",
@@ -127,7 +123,7 @@ async function run() {
       ],
     },
     aggregation: {
-      func: "sum",
+      func: "max",
       property: "<value>",
     },
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -158,7 +154,7 @@ async function run() {
   const res = await metersCreate(polar, {
     name: "<value>",
     filter: {
-      conjunction: "and",
+      conjunction: "or",
       clauses: [
         {
           property: "<value>",
@@ -168,7 +164,7 @@ async function run() {
       ],
     },
     aggregation: {
-      func: "sum",
+      func: "max",
       property: "<value>",
     },
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -387,9 +383,9 @@ const polar = new Polar({
 async function run() {
   const result = await polar.meters.quantities({
     id: "<value>",
-    startTimestamp: new Date("2023-09-17T00:45:34.608Z"),
-    endTimestamp: new Date("2023-07-21T18:11:39.069Z"),
-    interval: "hour",
+    startTimestamp: new Date("2025-11-25T04:37:16.823Z"),
+    endTimestamp: new Date("2025-11-26T17:06:00.727Z"),
+    interval: "day",
   });
 
   // Handle the result
@@ -416,9 +412,9 @@ const polar = new PolarCore({
 async function run() {
   const res = await metersQuantities(polar, {
     id: "<value>",
-    startTimestamp: new Date("2023-09-17T00:45:34.608Z"),
-    endTimestamp: new Date("2023-07-21T18:11:39.069Z"),
-    interval: "hour",
+    startTimestamp: new Date("2025-11-25T04:37:16.823Z"),
+    endTimestamp: new Date("2025-11-26T17:06:00.727Z"),
+    interval: "day",
   });
 
   if (!res.ok) {

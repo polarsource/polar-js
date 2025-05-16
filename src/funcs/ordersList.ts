@@ -4,7 +4,11 @@
 
 import { PolarCore } from "../core.js";
 import { dlv } from "../lib/dlv.js";
-import { encodeFormQuery } from "../lib/encodings.js";
+import {
+  encodeDeepObjectQuery,
+  encodeFormQuery,
+  queryJoin,
+} from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -110,17 +114,22 @@ async function $do(
 
   const path = pathToFunc("/v1/orders/")();
 
-  const query = encodeFormQuery({
-    "checkout_id": payload.checkout_id,
-    "customer_id": payload.customer_id,
-    "discount_id": payload.discount_id,
-    "limit": payload.limit,
-    "organization_id": payload.organization_id,
-    "page": payload.page,
-    "product_billing_type": payload.product_billing_type,
-    "product_id": payload.product_id,
-    "sorting": payload.sorting,
-  });
+  const query = queryJoin(
+    encodeDeepObjectQuery({
+      "metadata": payload.metadata,
+    }),
+    encodeFormQuery({
+      "checkout_id": payload.checkout_id,
+      "customer_id": payload.customer_id,
+      "discount_id": payload.discount_id,
+      "limit": payload.limit,
+      "organization_id": payload.organization_id,
+      "page": payload.page,
+      "product_billing_type": payload.product_billing_type,
+      "product_id": payload.product_id,
+      "sorting": payload.sorting,
+    }),
+  );
 
   const headers = new Headers(compactMap({
     Accept: "application/json",

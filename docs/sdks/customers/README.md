@@ -124,7 +124,7 @@ async function run() {
     email: "customer@example.com",
     name: "John Doe",
     billingAddress: {
-      country: "SE",
+      country: "FR",
     },
     taxId: [
       "FR61954506077",
@@ -160,7 +160,7 @@ async function run() {
     email: "customer@example.com",
     name: "John Doe",
     billingAddress: {
-      country: "SE",
+      country: "FR",
     },
     taxId: [
       "FR61954506077",
@@ -307,8 +307,8 @@ async function run() {
         country: "FR",
       },
       taxId: [
-        "FR61954506077",
-        "eu_vat",
+        "911144442",
+        "us_ein",
       ],
       externalId: "usr_1337",
     },
@@ -345,8 +345,8 @@ async function run() {
         country: "FR",
       },
       taxId: [
-        "FR61954506077",
-        "eu_vat",
+        "911144442",
+        "us_ein",
       ],
       externalId: "usr_1337",
     },
@@ -581,8 +581,8 @@ async function run() {
         country: "US",
       },
       taxId: [
-        "FR61954506077",
-        "eu_vat",
+        "911144442",
+        "us_ein",
       ],
     },
   });
@@ -618,8 +618,8 @@ async function run() {
         country: "US",
       },
       taxId: [
-        "FR61954506077",
-        "eu_vat",
+        "911144442",
+        "us_ein",
       ],
     },
   });

@@ -117,7 +117,7 @@ async function run() {
   const result = await polar.checkoutLinks.create({
     allowDiscountCodes: true,
     requireBillingAddress: false,
-    productId: "<value>",
+    productPriceId: "<value>",
   });
 
   // Handle the result
@@ -145,7 +145,7 @@ async function run() {
   const res = await checkoutLinksCreate(polar, {
     allowDiscountCodes: true,
     requireBillingAddress: false,
-    productId: "<value>",
+    productPriceId: "<value>",
   });
 
   if (!res.ok) {

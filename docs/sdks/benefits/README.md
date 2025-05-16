@@ -116,13 +116,9 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.benefits.create({
-    description: "delightfully fumigate convection though zowie up bulky electronics",
+    description: "mature emergent at outside arrogantly gadzooks zealous equatorial notwithstanding",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    properties: {
-      files: [
-        "<value>",
-      ],
-    },
+    properties: {},
   });
 
   // Handle the result
@@ -148,7 +144,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await benefitsCreate(polar, {
-    description: "brightly sleet where schedule insolence when warming when",
+    description: "mature emergent at outside arrogantly gadzooks zealous equatorial notwithstanding",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     properties: {},
   });
@@ -311,13 +307,7 @@ const polar = new PolarCore({
 async function run() {
   const res = await benefitsUpdate(polar, {
     id: "<value>",
-    requestBody: {
-      properties: {
-        repositoryOwner: "polarsource",
-        repositoryName: "private_repo",
-        permission: "admin",
-      },
-    },
+    requestBody: {},
   });
 
   if (!res.ok) {

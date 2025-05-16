@@ -30,9 +30,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.checkouts.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   for await (const page of result) {
@@ -60,9 +58,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await checkoutsList(polar, {
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   if (!res.ok) {
@@ -118,11 +114,12 @@ const polar = new Polar({
 async function run() {
   const result = await polar.checkouts.create({
     customerBillingAddress: {
-      country: "SE",
+      country: "FR",
     },
     products: [
-      "<value>",
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
   });
 
@@ -150,11 +147,12 @@ const polar = new PolarCore({
 async function run() {
   const res = await checkoutsCreate(polar, {
     customerBillingAddress: {
-      country: "SE",
+      country: "FR",
     },
     products: [
-      "<value>",
-      "<value>",
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
     ],
   });
 
@@ -291,7 +289,7 @@ async function run() {
     id: "<value>",
     checkoutUpdate: {
       customerBillingAddress: {
-        country: "FR",
+        country: "US",
       },
     },
   });
@@ -322,7 +320,7 @@ async function run() {
     id: "<value>",
     checkoutUpdate: {
       customerBillingAddress: {
-        country: "FR",
+        country: "US",
       },
     },
   });
@@ -454,7 +452,7 @@ async function run() {
     clientSecret: "<value>",
     checkoutUpdatePublic: {
       customerBillingAddress: {
-        country: "FR",
+        country: "US",
       },
     },
   });
@@ -483,7 +481,7 @@ async function run() {
     clientSecret: "<value>",
     checkoutUpdatePublic: {
       customerBillingAddress: {
-        country: "FR",
+        country: "US",
       },
     },
   });
@@ -545,7 +543,7 @@ async function run() {
     clientSecret: "<value>",
     checkoutConfirmStripe: {
       customerBillingAddress: {
-        country: "FR",
+        country: "US",
       },
     },
   });
@@ -576,7 +574,7 @@ async function run() {
     clientSecret: "<value>",
     checkoutConfirmStripe: {
       customerBillingAddress: {
-        country: "FR",
+        country: "US",
       },
     },
   });
