@@ -360,7 +360,7 @@ async function run() {
       ],
       customerMetadata: {
         "key": true,
-        "key1": false,
+        "key1": "<value>",
         "key2": 851435,
       },
       customerBillingAddressFields: {
