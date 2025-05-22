@@ -118,23 +118,21 @@ let value: ListResourceCustomerSubscription = {
           type: "one_time",
           recurringInterval: "month",
           priceCurrency: "<value>",
-          minimumAmount: 5730,
-          maximumAmount: 626389,
-          presetAmount: 241367,
+          priceAmount: 5730,
         },
       ],
       meters: [
         {
-          createdAt: new Date("2025-03-22T15:54:14.387Z"),
-          modifiedAt: new Date("2024-09-05T08:53:23.453Z"),
+          createdAt: new Date("2024-11-17T12:32:04.882Z"),
+          modifiedAt: new Date("2023-09-22T12:55:39.932Z"),
           id: "<value>",
           consumedUnits: 25,
           creditedUnits: 100,
           amount: 0,
           meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
           meter: {
-            createdAt: new Date("2025-01-13T01:23:29.478Z"),
-            modifiedAt: new Date("2024-02-29T13:35:40.295Z"),
+            createdAt: new Date("2025-03-22T15:54:14.387Z"),
+            modifiedAt: new Date("2024-09-05T08:53:23.453Z"),
             id: "<value>",
             name: "<value>",
           },
@@ -143,8 +141,8 @@ let value: ListResourceCustomerSubscription = {
     },
   ],
   pagination: {
-    totalCount: 660386,
-    maxPage: 57171,
+    totalCount: 677973,
+    maxPage: 387378,
   },
 };
 ```

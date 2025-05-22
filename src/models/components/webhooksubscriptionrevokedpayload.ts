@@ -14,7 +14,7 @@ import {
 } from "./subscription.js";
 
 /**
- * Sent when a subscription is revoked, the user looses access immediately.
+ * Sent when a subscription is revoked, the user loses access immediately.
  *
  * @remarks
  * Happens when the subscription is canceled, or payment is past due.

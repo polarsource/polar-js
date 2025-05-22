@@ -52,7 +52,7 @@ let value: CustomerMetersListResponse = {
             clauses: [],
           },
           aggregation: {
-            func: "sum",
+            func: "min",
             property: "<value>",
           },
           organizationId: "<value>",
@@ -60,8 +60,8 @@ let value: CustomerMetersListResponse = {
       },
     ],
     pagination: {
-      totalCount: 541703,
-      maxPage: 14629,
+      totalCount: 66185,
+      maxPage: 541703,
     },
   },
 };

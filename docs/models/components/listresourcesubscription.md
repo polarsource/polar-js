@@ -203,7 +203,7 @@ let value: ListResourceSubscription = {
               clauses: [],
             },
             aggregation: {
-              func: "sum",
+              func: "max",
               property: "<value>",
             },
             organizationId: "<value>",
@@ -213,8 +213,8 @@ let value: ListResourceSubscription = {
     },
   ],
   pagination: {
-    totalCount: 650511,
-    maxPage: 184038,
+    totalCount: 246927,
+    maxPage: 650511,
   },
 };
 ```

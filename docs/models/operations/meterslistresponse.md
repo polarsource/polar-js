@@ -28,8 +28,8 @@ let value: MetersListResponse = {
       },
     ],
     pagination: {
-      totalCount: 255858,
-      maxPage: 729316,
+      totalCount: 439842,
+      maxPage: 255858,
     },
   },
 };

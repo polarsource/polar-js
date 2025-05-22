@@ -114,7 +114,7 @@ const polar = new Polar({
 async function run() {
   const result = await polar.checkouts.create({
     customerBillingAddress: {
-      country: "FR",
+      country: "US",
     },
     products: [
       "<value 1>",
@@ -147,7 +147,7 @@ const polar = new PolarCore({
 async function run() {
   const res = await checkoutsCreate(polar, {
     customerBillingAddress: {
-      country: "FR",
+      country: "US",
     },
     products: [
       "<value 1>",

@@ -13,9 +13,7 @@ let value: EventsListResponse = {
           "key": false,
         },
         id: "<value>",
-        timestamp: new Date("2025-12-15T19:16:18.260Z"),
-        name: "<value>",
-        source: "user",
+        timestamp: new Date("2025-04-30T06:44:33.208Z"),
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         customerId: "<value>",
         customer: {
@@ -41,6 +39,7 @@ let value: EventsListResponse = {
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
         },
         externalCustomerId: "<id>",
+        name: "<value>",
       },
     ],
     pagination: {

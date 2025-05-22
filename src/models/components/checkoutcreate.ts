@@ -70,12 +70,17 @@ export type CheckoutCreate = {
    */
   customerId?: string | null | undefined;
   /**
+   * Whether the customer is a business or an individual. If `true`, the customer will be required to fill their full billing address and billing name.
+   */
+  isBusinessCustomer?: boolean | undefined;
+  /**
    * ID of the customer in your system. If a matching customer exists on Polar, the resulting order will be linked to this customer. Otherwise, a new customer will be created with this external ID set.
    */
   customerExternalId?: string | null | undefined;
   customerName?: string | null | undefined;
   customerEmail?: string | null | undefined;
   customerIpAddress?: string | null | undefined;
+  customerBillingName?: string | null | undefined;
   customerBillingAddress?: Address | null | undefined;
   customerTaxId?: string | null | undefined;
   /**
@@ -308,10 +313,12 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
   require_billing_address: z.boolean().default(false),
   amount: z.nullable(z.number().int()).optional(),
   customer_id: z.nullable(z.string()).optional(),
+  is_business_customer: z.boolean().default(false),
   customer_external_id: z.nullable(z.string()).optional(),
   customer_name: z.nullable(z.string()).optional(),
   customer_email: z.nullable(z.string()).optional(),
   customer_ip_address: z.nullable(z.string()).optional(),
+  customer_billing_name: z.nullable(z.string()).optional(),
   customer_billing_address: z.nullable(Address$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
   customer_metadata: z.record(
@@ -328,10 +335,12 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
     "allow_discount_codes": "allowDiscountCodes",
     "require_billing_address": "requireBillingAddress",
     "customer_id": "customerId",
+    "is_business_customer": "isBusinessCustomer",
     "customer_external_id": "customerExternalId",
     "customer_name": "customerName",
     "customer_email": "customerEmail",
     "customer_ip_address": "customerIpAddress",
+    "customer_billing_name": "customerBillingName",
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
     "customer_metadata": "customerMetadata",
@@ -352,10 +361,12 @@ export type CheckoutCreate$Outbound = {
   require_billing_address: boolean;
   amount?: number | null | undefined;
   customer_id?: string | null | undefined;
+  is_business_customer: boolean;
   customer_external_id?: string | null | undefined;
   customer_name?: string | null | undefined;
   customer_email?: string | null | undefined;
   customer_ip_address?: string | null | undefined;
+  customer_billing_name?: string | null | undefined;
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
   customer_metadata?:
@@ -391,10 +402,12 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
   requireBillingAddress: z.boolean().default(false),
   amount: z.nullable(z.number().int()).optional(),
   customerId: z.nullable(z.string()).optional(),
+  isBusinessCustomer: z.boolean().default(false),
   customerExternalId: z.nullable(z.string()).optional(),
   customerName: z.nullable(z.string()).optional(),
   customerEmail: z.nullable(z.string()).optional(),
   customerIpAddress: z.nullable(z.string()).optional(),
+  customerBillingName: z.nullable(z.string()).optional(),
   customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
   customerMetadata: z.record(
@@ -411,10 +424,12 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
     allowDiscountCodes: "allow_discount_codes",
     requireBillingAddress: "require_billing_address",
     customerId: "customer_id",
+    isBusinessCustomer: "is_business_customer",
     customerExternalId: "customer_external_id",
     customerName: "customer_name",
     customerEmail: "customer_email",
     customerIpAddress: "customer_ip_address",
+    customerBillingName: "customer_billing_name",
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
     customerMetadata: "customer_metadata",

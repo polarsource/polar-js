@@ -6,9 +6,7 @@
 import { CustomerPortalOrdersListRequest } from "@polar-sh/sdk/models/operations/customerportalorderslist.js";
 
 let value: CustomerPortalOrdersListRequest = {
-  organizationId: [
-    "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  ],
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
 
