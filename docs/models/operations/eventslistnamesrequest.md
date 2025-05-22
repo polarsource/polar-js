@@ -6,9 +6,7 @@
 import { EventsListNamesRequest } from "@polar-sh/sdk/models/operations/eventslistnames.js";
 
 let value: EventsListNamesRequest = {
-  organizationId: [
-    "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  ],
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
 };
 ```
 

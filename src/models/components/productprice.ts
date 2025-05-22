@@ -32,10 +32,10 @@ import {
 } from "./productpricemeteredunit.js";
 
 export type ProductPrice =
-  | ProductPriceFree
-  | ProductPriceFixed
-  | ProductPriceCustom
-  | ProductPriceMeteredUnit;
+  | (ProductPriceFree & { amountType: "free" })
+  | (ProductPriceFixed & { amountType: "fixed" })
+  | (ProductPriceCustom & { amountType: "custom" })
+  | (ProductPriceMeteredUnit & { amountType: "metered_unit" });
 
 /** @internal */
 export const ProductPrice$inboundSchema: z.ZodType<
@@ -43,18 +43,34 @@ export const ProductPrice$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  ProductPriceFree$inboundSchema,
-  ProductPriceFixed$inboundSchema,
-  ProductPriceCustom$inboundSchema,
-  ProductPriceMeteredUnit$inboundSchema,
+  ProductPriceFree$inboundSchema.and(
+    z.object({ amount_type: z.literal("free") }).transform((v) => ({
+      amountType: v.amount_type,
+    })),
+  ),
+  ProductPriceFixed$inboundSchema.and(
+    z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
+      amountType: v.amount_type,
+    })),
+  ),
+  ProductPriceCustom$inboundSchema.and(
+    z.object({ amount_type: z.literal("custom") }).transform((v) => ({
+      amountType: v.amount_type,
+    })),
+  ),
+  ProductPriceMeteredUnit$inboundSchema.and(
+    z.object({ amount_type: z.literal("metered_unit") }).transform((v) => ({
+      amountType: v.amount_type,
+    })),
+  ),
 ]);
 
 /** @internal */
 export type ProductPrice$Outbound =
-  | ProductPriceFree$Outbound
-  | ProductPriceFixed$Outbound
-  | ProductPriceCustom$Outbound
-  | ProductPriceMeteredUnit$Outbound;
+  | (ProductPriceFree$Outbound & { amount_type: "free" })
+  | (ProductPriceFixed$Outbound & { amount_type: "fixed" })
+  | (ProductPriceCustom$Outbound & { amount_type: "custom" })
+  | (ProductPriceMeteredUnit$Outbound & { amount_type: "metered_unit" });
 
 /** @internal */
 export const ProductPrice$outboundSchema: z.ZodType<
@@ -62,10 +78,26 @@ export const ProductPrice$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPrice
 > = z.union([
-  ProductPriceFree$outboundSchema,
-  ProductPriceFixed$outboundSchema,
-  ProductPriceCustom$outboundSchema,
-  ProductPriceMeteredUnit$outboundSchema,
+  ProductPriceFree$outboundSchema.and(
+    z.object({ amountType: z.literal("free") }).transform((v) => ({
+      amount_type: v.amountType,
+    })),
+  ),
+  ProductPriceFixed$outboundSchema.and(
+    z.object({ amountType: z.literal("fixed") }).transform((v) => ({
+      amount_type: v.amountType,
+    })),
+  ),
+  ProductPriceCustom$outboundSchema.and(
+    z.object({ amountType: z.literal("custom") }).transform((v) => ({
+      amount_type: v.amountType,
+    })),
+  ),
+  ProductPriceMeteredUnit$outboundSchema.and(
+    z.object({ amountType: z.literal("metered_unit") }).transform((v) => ({
+      amount_type: v.amountType,
+    })),
+  ),
 ]);
 
 /**

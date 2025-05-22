@@ -1,4 +1,4 @@
-# EventMetadata
+# UserEventMetadata
 
 
 ## Supported Types

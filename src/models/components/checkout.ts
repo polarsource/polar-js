@@ -205,6 +205,10 @@ export type Checkout = {
   isPaymentFormRequired: boolean;
   customerId: string | null;
   /**
+   * Whether the customer is a business or an individual. If `true`, the customer will be required to fill their full billing address and billing name.
+   */
+  isBusinessCustomer: boolean;
+  /**
    * Name of the customer.
    */
   customerName: string | null;
@@ -213,6 +217,7 @@ export type Checkout = {
    */
   customerEmail: string | null;
   customerIpAddress: string | null;
+  customerBillingName: string | null;
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
   paymentProcessorMetadata: { [k: string]: string };
@@ -566,9 +571,11 @@ export const Checkout$inboundSchema: z.ZodType<
   is_payment_setup_required: z.boolean(),
   is_payment_form_required: z.boolean(),
   customer_id: z.nullable(z.string()),
+  is_business_customer: z.boolean(),
   customer_name: z.nullable(z.string()),
   customer_email: z.nullable(z.string()),
   customer_ip_address: z.nullable(z.string()),
+  customer_billing_name: z.nullable(z.string()),
   customer_billing_address: z.nullable(Address$inboundSchema),
   customer_tax_id: z.nullable(z.string()),
   payment_processor_metadata: z.record(z.string()),
@@ -622,9 +629,11 @@ export const Checkout$inboundSchema: z.ZodType<
     "is_payment_setup_required": "isPaymentSetupRequired",
     "is_payment_form_required": "isPaymentFormRequired",
     "customer_id": "customerId",
+    "is_business_customer": "isBusinessCustomer",
     "customer_name": "customerName",
     "customer_email": "customerEmail",
     "customer_ip_address": "customerIpAddress",
+    "customer_billing_name": "customerBillingName",
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
@@ -669,9 +678,11 @@ export type Checkout$Outbound = {
   is_payment_setup_required: boolean;
   is_payment_form_required: boolean;
   customer_id: string | null;
+  is_business_customer: boolean;
   customer_name: string | null;
   customer_email: string | null;
   customer_ip_address: string | null;
+  customer_billing_name: string | null;
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
   payment_processor_metadata: { [k: string]: string };
@@ -736,9 +747,11 @@ export const Checkout$outboundSchema: z.ZodType<
   isPaymentSetupRequired: z.boolean(),
   isPaymentFormRequired: z.boolean(),
   customerId: z.nullable(z.string()),
+  isBusinessCustomer: z.boolean(),
   customerName: z.nullable(z.string()),
   customerEmail: z.nullable(z.string()),
   customerIpAddress: z.nullable(z.string()),
+  customerBillingName: z.nullable(z.string()),
   customerBillingAddress: z.nullable(Address$outboundSchema),
   customerTaxId: z.nullable(z.string()),
   paymentProcessorMetadata: z.record(z.string()),
@@ -792,9 +805,11 @@ export const Checkout$outboundSchema: z.ZodType<
     isPaymentSetupRequired: "is_payment_setup_required",
     isPaymentFormRequired: "is_payment_form_required",
     customerId: "customer_id",
+    isBusinessCustomer: "is_business_customer",
     customerName: "customer_name",
     customerEmail: "customer_email",
     customerIpAddress: "customer_ip_address",
+    customerBillingName: "customer_billing_name",
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",

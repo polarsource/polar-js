@@ -59,8 +59,8 @@ let value: ListResourceCustomerMeter = {
     },
   ],
   pagination: {
-    totalCount: 74516,
-    maxPage: 498144,
+    totalCount: 365251,
+    maxPage: 74516,
   },
 };
 ```

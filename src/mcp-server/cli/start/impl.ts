@@ -50,7 +50,7 @@ async function startStdio(flags: StartCommandFlags) {
     logger,
     allowedTools: flags.tool,
     scopes: flags.scope,
-    ...{ accessToken: flags["access-token"] },
+    ...{ accessToken: flags["access-token"] ?? "" },
     serverURL: flags["server-url"],
     server: flags.server,
   });
@@ -71,7 +71,7 @@ async function startSSE(flags: StartCommandFlags) {
     logger,
     allowedTools: flags.tool,
     scopes: flags.scope,
-    ...{ accessToken: flags["access-token"] },
+    ...{ accessToken: flags["access-token"] ?? "" },
     serverURL: flags["server-url"],
     server: flags.server,
   });

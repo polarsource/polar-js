@@ -41,8 +41,10 @@ export type CheckoutConfirmStripe = {
    */
   productPriceId?: string | null | undefined;
   amount?: number | null | undefined;
+  isBusinessCustomer?: boolean | null | undefined;
   customerName?: string | null | undefined;
   customerEmail?: string | null | undefined;
+  customerBillingName?: string | null | undefined;
   customerBillingAddress?: Address | null | undefined;
   customerTaxId?: string | null | undefined;
   /**
@@ -141,8 +143,10 @@ export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
   product_id: z.nullable(z.string()).optional(),
   product_price_id: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
+  is_business_customer: z.nullable(z.boolean()).optional(),
   customer_name: z.nullable(z.string()).optional(),
   customer_email: z.nullable(z.string()).optional(),
+  customer_billing_name: z.nullable(z.string()).optional(),
   customer_billing_address: z.nullable(Address$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
   discount_code: z.nullable(z.string()).optional(),
@@ -152,8 +156,10 @@ export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
     "custom_field_data": "customFieldData",
     "product_id": "productId",
     "product_price_id": "productPriceId",
+    "is_business_customer": "isBusinessCustomer",
     "customer_name": "customerName",
     "customer_email": "customerEmail",
+    "customer_billing_name": "customerBillingName",
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
     "discount_code": "discountCode",
@@ -169,8 +175,10 @@ export type CheckoutConfirmStripe$Outbound = {
   product_id?: string | null | undefined;
   product_price_id?: string | null | undefined;
   amount?: number | null | undefined;
+  is_business_customer?: boolean | null | undefined;
   customer_name?: string | null | undefined;
   customer_email?: string | null | undefined;
+  customer_billing_name?: string | null | undefined;
   customer_billing_address?: Address$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
   discount_code?: string | null | undefined;
@@ -196,8 +204,10 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
   productId: z.nullable(z.string()).optional(),
   productPriceId: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
+  isBusinessCustomer: z.nullable(z.boolean()).optional(),
   customerName: z.nullable(z.string()).optional(),
   customerEmail: z.nullable(z.string()).optional(),
+  customerBillingName: z.nullable(z.string()).optional(),
   customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
   discountCode: z.nullable(z.string()).optional(),
@@ -207,8 +217,10 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
     customFieldData: "custom_field_data",
     productId: "product_id",
     productPriceId: "product_price_id",
+    isBusinessCustomer: "is_business_customer",
     customerName: "customer_name",
     customerEmail: "customer_email",
+    customerBillingName: "customer_billing_name",
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
     discountCode: "discount_code",

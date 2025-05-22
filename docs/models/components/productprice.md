@@ -3,22 +3,6 @@
 
 ## Supported Types
 
-### `components.ProductPriceFixed`
-
-```typescript
-const value: components.ProductPriceFixed = {
-  createdAt: new Date("2025-12-26T12:23:44.317Z"),
-  modifiedAt: new Date("2025-07-03T15:28:37.002Z"),
-  id: "<value>",
-  isArchived: false,
-  productId: "<value>",
-  type: "recurring",
-  recurringInterval: "month",
-  priceCurrency: "<value>",
-  priceAmount: 593331,
-};
-```
-
 ### `components.ProductPriceCustom`
 
 ```typescript
@@ -34,6 +18,22 @@ const value: components.ProductPriceCustom = {
   minimumAmount: 9926,
   maximumAmount: 338033,
   presetAmount: 867213,
+};
+```
+
+### `components.ProductPriceFixed`
+
+```typescript
+const value: components.ProductPriceFixed = {
+  createdAt: new Date("2025-12-26T12:23:44.317Z"),
+  modifiedAt: new Date("2025-07-03T15:28:37.002Z"),
+  id: "<value>",
+  isArchived: false,
+  productId: "<value>",
+  type: "recurring",
+  recurringInterval: "month",
+  priceCurrency: "<value>",
+  priceAmount: 593331,
 };
 ```
 

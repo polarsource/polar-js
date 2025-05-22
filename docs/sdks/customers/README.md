@@ -33,9 +33,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.customers.list({
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   for await (const page of result) {
@@ -63,9 +61,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await customersList(polar, {
-    organizationId: [
-      "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   if (!res.ok) {
@@ -124,11 +120,11 @@ async function run() {
     email: "customer@example.com",
     name: "John Doe",
     billingAddress: {
-      country: "FR",
+      country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
@@ -160,11 +156,11 @@ async function run() {
     email: "customer@example.com",
     name: "John Doe",
     billingAddress: {
-      country: "FR",
+      country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
@@ -304,7 +300,7 @@ async function run() {
       email: "customer@example.com",
       name: "John Doe",
       billingAddress: {
-        country: "FR",
+        country: "US",
       },
       taxId: [
         "911144442",
@@ -342,7 +338,7 @@ async function run() {
       email: "customer@example.com",
       name: "John Doe",
       billingAddress: {
-        country: "FR",
+        country: "US",
       },
       taxId: [
         "911144442",

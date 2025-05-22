@@ -8,21 +8,16 @@ import { ListResourceEvent } from "@polar-sh/sdk/models/components/listresourcee
 let value: ListResourceEvent = {
   items: [
     {
-      metadata: {
-        "key": 931177,
-      },
       id: "<value>",
       timestamp: new Date("2024-06-18T03:11:30.752Z"),
-      name: "<value>",
-      source: "user",
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       customerId: "<value>",
       customer: {
         id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-        createdAt: new Date("2024-06-14T11:35:32.838Z"),
-        modifiedAt: new Date("2024-12-21T04:51:31.301Z"),
+        createdAt: new Date("2025-09-28T16:35:58.850Z"),
+        modifiedAt: new Date("2024-06-14T11:35:32.838Z"),
         metadata: {
-          "key": false,
+          "key": 9800.02,
         },
         externalId: "usr_1337",
         email: "customer@example.com",
@@ -40,6 +35,9 @@ let value: ListResourceEvent = {
         avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
       },
       externalCustomerId: "<id>",
+      metadata: {
+        meterId: "<id>",
+      },
     },
   ],
   pagination: {
@@ -53,5 +51,5 @@ let value: ListResourceEvent = {
 
 | Field                                                          | Type                                                           | Required                                                       | Description                                                    |
 | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `items`                                                        | [components.Event](../../models/components/event.md)[]         | :heavy_check_mark:                                             | N/A                                                            |
+| `items`                                                        | *components.Event*[]                                           | :heavy_check_mark:                                             | N/A                                                            |
 | `pagination`                                                   | [components.Pagination](../../models/components/pagination.md) | :heavy_check_mark:                                             | N/A                                                            |

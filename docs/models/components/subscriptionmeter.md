@@ -28,7 +28,7 @@ let value: SubscriptionMeter = {
       clauses: [],
     },
     aggregation: {
-      func: "sum",
+      func: "max",
       property: "<value>",
     },
     organizationId: "<value>",
