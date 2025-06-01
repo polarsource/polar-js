@@ -13,6 +13,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type CustomerStateMeter = {
   /**
+   * The ID of the object.
+   */
+  id: string;
+  /**
    * Creation timestamp of the object.
    */
   createdAt: Date;
@@ -44,6 +48,7 @@ export const CustomerStateMeter$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -64,6 +69,7 @@ export const CustomerStateMeter$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerStateMeter$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
   meter_id: string;
@@ -78,6 +84,7 @@ export const CustomerStateMeter$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerStateMeter
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   meterId: z.string(),
