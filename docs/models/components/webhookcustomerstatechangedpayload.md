@@ -81,6 +81,7 @@ let value: WebhookCustomerStateChangedPayload = {
     ],
     activeMeters: [
       {
+        id: "<value>",
         createdAt: new Date("2024-12-08T11:33:48.224Z"),
         modifiedAt: new Date("2023-11-11T06:48:37.139Z"),
         meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",

@@ -22,7 +22,7 @@ let value: AuthorizeResponseOrganization = {
     avatarUrl: "https://excitable-eternity.info/",
   },
   scopes: [
-    "events:write",
+    "meters:read",
   ],
   organizations: [
     {

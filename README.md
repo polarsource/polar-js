@@ -484,6 +484,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 * [list](docs/sdks/polarorders/README.md#list) - List Orders
 * [get](docs/sdks/polarorders/README.md#get) - Get Order
+* [update](docs/sdks/polarorders/README.md#update) - Update Order
+* [generateInvoice](docs/sdks/polarorders/README.md#generateinvoice) - Generate Order Invoice
 * [invoice](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
 
 #### [customerPortal.organizations](docs/sdks/polarorganizations/README.md)
@@ -585,6 +587,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 * [list](docs/sdks/orders/README.md#list) - List Orders
 * [get](docs/sdks/orders/README.md#get) - Get Order
+* [update](docs/sdks/orders/README.md#update) - Update Order
+* [generateInvoice](docs/sdks/orders/README.md#generateinvoice) - Generate Order Invoice
 * [invoice](docs/sdks/orders/README.md#invoice) - Get Order Invoice
 
 ### [organizations](docs/sdks/organizations/README.md)
@@ -676,9 +680,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerPortalLicenseKeysGet`](docs/sdks/polarlicensekeys/README.md#get) - Get License Key
 - [`customerPortalLicenseKeysList`](docs/sdks/polarlicensekeys/README.md#list) - List License Keys
 - [`customerPortalLicenseKeysValidate`](docs/sdks/polarlicensekeys/README.md#validate) - Validate License Key
+- [`customerPortalOrdersGenerateInvoice`](docs/sdks/polarorders/README.md#generateinvoice) - Generate Order Invoice
 - [`customerPortalOrdersGet`](docs/sdks/polarorders/README.md#get) - Get Order
 - [`customerPortalOrdersInvoice`](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
 - [`customerPortalOrdersList`](docs/sdks/polarorders/README.md#list) - List Orders
+- [`customerPortalOrdersUpdate`](docs/sdks/polarorders/README.md#update) - Update Order
 - [`customerPortalOrganizationsGet`](docs/sdks/polarorganizations/README.md#get) - Get Organization
 - [`customerPortalSubscriptionsCancel`](docs/sdks/polarsubscriptions/README.md#cancel) - Cancel Subscription
 - [`customerPortalSubscriptionsGet`](docs/sdks/polarsubscriptions/README.md#get) - Get Subscription
@@ -735,9 +741,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`oauth2Revoke`](docs/sdks/oauth2/README.md#revoke) - Revoke Token
 - [`oauth2Token`](docs/sdks/oauth2/README.md#token) - Request Token
 - [`oauth2Userinfo`](docs/sdks/oauth2/README.md#userinfo) - Get User Info
+- [`ordersGenerateInvoice`](docs/sdks/orders/README.md#generateinvoice) - Generate Order Invoice
 - [`ordersGet`](docs/sdks/orders/README.md#get) - Get Order
 - [`ordersInvoice`](docs/sdks/orders/README.md#invoice) - Get Order Invoice
 - [`ordersList`](docs/sdks/orders/README.md#list) - List Orders
+- [`ordersUpdate`](docs/sdks/orders/README.md#update) - Update Order
 - [`organizationsCreate`](docs/sdks/organizations/README.md#create) - Create Organization
 - [`organizationsGet`](docs/sdks/organizations/README.md#get) - Get Organization
 - [`organizationsList`](docs/sdks/organizations/README.md#list) - List Organizations

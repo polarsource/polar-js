@@ -76,6 +76,7 @@ let value: CustomerState = {
   ],
   activeMeters: [
     {
+      id: "<value>",
       createdAt: new Date("2025-07-13T15:26:30.510Z"),
       modifiedAt: new Date("2025-04-30T07:02:55.261Z"),
       meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
