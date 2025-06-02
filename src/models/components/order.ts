@@ -136,7 +136,15 @@ export type Order = {
   refundedTaxAmount: number;
   currency: string;
   billingReason: OrderBillingReason;
+  /**
+   * The name of the customer that should appear on the invoice.
+   */
+  billingName: string | null;
   billingAddress: Address | null;
+  /**
+   * Whether an invoice has been generated for this order.
+   */
+  isInvoiceGenerated: boolean;
   customerId: string;
   productId: string;
   discountId: string | null;
@@ -350,7 +358,9 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     refunded_tax_amount: z.number().int(),
     currency: z.string(),
     billing_reason: OrderBillingReason$inboundSchema,
+    billing_name: z.nullable(z.string()),
     billing_address: z.nullable(Address$inboundSchema),
+    is_invoice_generated: z.boolean(),
     customer_id: z.string(),
     product_id: z.string(),
     discount_id: z.nullable(z.string()),
@@ -394,7 +404,9 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       "refunded_amount": "refundedAmount",
       "refunded_tax_amount": "refundedTaxAmount",
       "billing_reason": "billingReason",
+      "billing_name": "billingName",
       "billing_address": "billingAddress",
+      "is_invoice_generated": "isInvoiceGenerated",
       "customer_id": "customerId",
       "product_id": "productId",
       "discount_id": "discountId",
@@ -422,7 +434,9 @@ export type Order$Outbound = {
   refunded_tax_amount: number;
   currency: string;
   billing_reason: string;
+  billing_name: string | null;
   billing_address: Address$Outbound | null;
+  is_invoice_generated: boolean;
   customer_id: string;
   product_id: string;
   discount_id: string | null;
@@ -466,7 +480,9 @@ export const Order$outboundSchema: z.ZodType<
   refundedTaxAmount: z.number().int(),
   currency: z.string(),
   billingReason: OrderBillingReason$outboundSchema,
+  billingName: z.nullable(z.string()),
   billingAddress: z.nullable(Address$outboundSchema),
+  isInvoiceGenerated: z.boolean(),
   customerId: z.string(),
   productId: z.string(),
   discountId: z.nullable(z.string()),
@@ -510,7 +526,9 @@ export const Order$outboundSchema: z.ZodType<
     refundedAmount: "refunded_amount",
     refundedTaxAmount: "refunded_tax_amount",
     billingReason: "billing_reason",
+    billingName: "billing_name",
     billingAddress: "billing_address",
+    isInvoiceGenerated: "is_invoice_generated",
     customerId: "customer_id",
     productId: "product_id",
     discountId: "discount_id",

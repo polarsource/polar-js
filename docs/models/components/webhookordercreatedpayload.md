@@ -35,9 +35,11 @@ let value: WebhookOrderCreatedPayload = {
     refundedTaxAmount: 493644,
     currency: "North Korean Won",
     billingReason: "subscription_update",
+    billingName: "<value>",
     billingAddress: {
       country: "FR",
     },
+    isInvoiceGenerated: false,
     customerId: "<value>",
     productId: "<value>",
     discountId: "<value>",

@@ -23,9 +23,11 @@ let value: ListResourceOrder = {
       refundedTaxAmount: 541848,
       currency: "Lek",
       billingReason: "subscription_cycle",
+      billingName: "<value>",
       billingAddress: {
         country: "SE",
       },
+      isInvoiceGenerated: false,
       customerId: "<value>",
       productId: "<value>",
       discountId: "<value>",

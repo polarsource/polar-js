@@ -27,9 +27,11 @@ import { tool$customersUpdate } from "./tools/customersUpdate.js";
 import { tool$customersUpdateExternal } from "./tools/customersUpdateExternal.js";
 import { tool$metricsGet } from "./tools/metricsGet.js";
 import { tool$metricsLimits } from "./tools/metricsLimits.js";
+import { tool$ordersGenerateInvoice } from "./tools/ordersGenerateInvoice.js";
 import { tool$ordersGet } from "./tools/ordersGet.js";
 import { tool$ordersInvoice } from "./tools/ordersInvoice.js";
 import { tool$ordersList } from "./tools/ordersList.js";
+import { tool$ordersUpdate } from "./tools/ordersUpdate.js";
 import { tool$paymentsGet } from "./tools/paymentsGet.js";
 import { tool$paymentsList } from "./tools/paymentsList.js";
 import { tool$productsCreate } from "./tools/productsCreate.js";
@@ -53,7 +55,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Polar",
-    version: "0.32.16",
+    version: "0.33.0",
   });
 
   const client = new PolarCore({
@@ -95,6 +97,8 @@ export function createMCPServer(deps: {
   tool(tool$productsUpdateBenefits);
   tool(tool$ordersList);
   tool(tool$ordersGet);
+  tool(tool$ordersUpdate);
+  tool(tool$ordersGenerateInvoice);
   tool(tool$ordersInvoice);
   tool(tool$metricsGet);
   tool(tool$metricsLimits);

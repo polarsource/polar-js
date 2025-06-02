@@ -23,9 +23,11 @@ let value: ListResourceCustomerOrder = {
       refundedTaxAmount: 332443,
       currency: "Uzbekistan Sum",
       billingReason: "subscription_create",
+      billingName: "<value>",
       billingAddress: {
         country: "FR",
       },
+      isInvoiceGenerated: false,
       customerId: "<value>",
       productId: "<value>",
       discountId: "<value>",

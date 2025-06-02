@@ -31,9 +31,11 @@ let value: WebhookOrderUpdatedPayload = {
     refundedTaxAmount: 290008,
     currency: "South Sudanese pound",
     billingReason: "subscription_cycle",
+    billingName: "<value>",
     billingAddress: {
       country: "FR",
     },
+    isInvoiceGenerated: false,
     customerId: "<value>",
     productId: "<value>",
     discountId: "<value>",
