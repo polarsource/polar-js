@@ -24,9 +24,11 @@ let value: OrdersListResponse = {
         refundedTaxAmount: 759912,
         currency: "Pataca",
         billingReason: "subscription_cycle",
+        billingName: "<value>",
         billingAddress: {
           country: "US",
         },
+        isInvoiceGenerated: false,
         customerId: "<value>",
         productId: "<value>",
         discountId: "<value>",

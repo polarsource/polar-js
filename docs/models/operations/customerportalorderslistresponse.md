@@ -24,9 +24,11 @@ let value: CustomerPortalOrdersListResponse = {
         refundedTaxAmount: 200618,
         currency: "Yuan Renminbi",
         billingReason: "subscription_create",
+        billingName: "<value>",
         billingAddress: {
           country: "FR",
         },
+        isInvoiceGenerated: false,
         customerId: "<value>",
         productId: "<value>",
         discountId: "<value>",

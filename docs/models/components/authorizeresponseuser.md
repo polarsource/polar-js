@@ -22,7 +22,7 @@ let value: AuthorizeResponseUser = {
     avatarUrl: "https://handy-vibraphone.com/",
   },
   scopes: [
-    "subscriptions:write",
+    "customers:read",
   ],
 };
 ```

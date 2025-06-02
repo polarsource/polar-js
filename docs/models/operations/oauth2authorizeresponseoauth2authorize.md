@@ -25,7 +25,7 @@ const value: components.AuthorizeResponseUser = {
     avatarUrl: "https://forceful-fledgling.com/",
   },
   scopes: [
-    "customers:read",
+    "customers:write",
   ],
 };
 ```
@@ -50,7 +50,7 @@ const value: components.AuthorizeResponseOrganization = {
     avatarUrl: "https://usable-premise.org",
   },
   scopes: [
-    "events:read",
+    "meters:read",
   ],
   organizations: [
     {
