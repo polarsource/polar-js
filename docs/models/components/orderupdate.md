@@ -8,7 +8,7 @@ Schema to update an order.
 import { OrderUpdate } from "@polar-sh/sdk/models/components/orderupdate.js";
 
 let value: OrderUpdate = {
-  billingName: "<value>",
+  billingName: null,
   billingAddress: {
     country: "US",
   },

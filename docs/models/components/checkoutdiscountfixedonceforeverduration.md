@@ -8,13 +8,13 @@ Schema for a fixed amount discount that is applied once or forever.
 import { CheckoutDiscountFixedOnceForeverDuration } from "@polar-sh/sdk/models/components/checkoutdiscountfixedonceforeverduration.js";
 
 let value: CheckoutDiscountFixedOnceForeverDuration = {
-  duration: "repeating",
-  type: "fixed",
-  amount: 585667,
-  currency: "Iraqi Dinar",
+  duration: "forever",
+  type: "percentage",
+  amount: 700624,
+  currency: "Nuevo Sol",
   id: "<value>",
   name: "<value>",
-  code: "<value>",
+  code: null,
 };
 ```
 

@@ -7,10 +7,10 @@ import { CustomerPortalCustomer } from "@polar-sh/sdk/models/components/customer
 
 let value: CustomerPortalCustomer = {
   createdAt: new Date("2023-04-03T06:47:49.140Z"),
-  modifiedAt: new Date("2024-10-02T01:50:20.097Z"),
+  modifiedAt: new Date("2025-03-12T05:12:55.257Z"),
   id: "<value>",
-  email: "Asha42@hotmail.com",
-  emailVerified: false,
+  email: "Katharina.Frami89@gmail.com",
+  emailVerified: true,
   name: "<value>",
   billingAddress: {
     country: "US",
@@ -19,12 +19,7 @@ let value: CustomerPortalCustomer = {
     "911144442",
     "us_ein",
   ],
-  oauthAccounts: {
-    "key": {
-      accountId: "<id>",
-      accountUsername: "<value>",
-    },
-  },
+  oauthAccounts: {},
 };
 ```
 

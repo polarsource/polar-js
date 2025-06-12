@@ -34,7 +34,8 @@ const value: components.BenefitDownloadablesCreate = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     files: [
-      "<value>",
+      "<value 1>",
+      "<value 2>",
     ],
   },
 };
@@ -75,7 +76,7 @@ const value: components.BenefitMeterCreditCreate = {
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     units: 697633,
-    rollover: false,
+    rollover: true,
     meterId: "<value>",
   },
 };

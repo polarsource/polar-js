@@ -12,9 +12,9 @@ import { WebhookBenefitGrantCreatedPayload } from "@polar-sh/sdk/models/componen
 let value: WebhookBenefitGrantCreatedPayload = {
   data: {
     createdAt: new Date("2025-10-02T04:38:09.243Z"),
-    modifiedAt: new Date("2025-01-26T22:42:29.259Z"),
+    modifiedAt: new Date("2023-10-21T01:27:19.889Z"),
     id: "<value>",
-    isGranted: false,
+    isGranted: true,
     isRevoked: false,
     subscriptionId: "<value>",
     orderId: "<value>",
@@ -22,10 +22,10 @@ let value: WebhookBenefitGrantCreatedPayload = {
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2023-10-21T01:27:19.889Z"),
-      modifiedAt: new Date("2023-07-02T18:46:10.563Z"),
+      createdAt: new Date("2023-07-12T03:53:00.913Z"),
+      modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
       metadata: {
-        "key": 9516.3,
+        "key": 5951.8,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
@@ -39,28 +39,23 @@ let value: WebhookBenefitGrantCreatedPayload = {
         "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2024-02-18T11:58:26.695Z"),
+      deletedAt: new Date("2024-07-29T02:37:49.390Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     properties: {},
     benefit: {
       id: "<value>",
-      createdAt: new Date("2025-02-01T06:50:40.155Z"),
-      modifiedAt: new Date("2024-10-14T07:36:23.610Z"),
-      description: "artistic monasticism when that",
+      createdAt: new Date("2024-10-15T22:21:01.919Z"),
+      modifiedAt: new Date("2023-02-16T12:33:48.786Z"),
+      description: "ouch woot geez wheel analyse duh",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
-      metadata: {
-        "key": "<value>",
-      },
+      metadata: {},
       properties: {
-        archived: {
-          "key": false,
-        },
-        files: [
-          "<value>",
-        ],
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "admin",
       },
     },
   },

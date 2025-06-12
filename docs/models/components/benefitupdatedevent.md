@@ -9,36 +9,36 @@ import { BenefitUpdatedEvent } from "@polar-sh/sdk/models/components/benefitupda
 
 let value: BenefitUpdatedEvent = {
   id: "<value>",
-  timestamp: new Date("2023-09-15T00:36:00.405Z"),
+  timestamp: new Date("2023-08-28T11:47:00.673Z"),
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-07-16T22:23:36.923Z"),
-    modifiedAt: new Date("2025-03-27T14:28:27.553Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": "<value>",
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "SE",
+      country: "US",
     },
     taxId: [
       "911144442",
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-03-05T05:16:03.587Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "github_repository",
+    benefitType: "discord",
   },
 };
 ```

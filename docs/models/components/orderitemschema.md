@@ -9,11 +9,11 @@ import { OrderItemSchema } from "@polar-sh/sdk/models/components/orderitemschema
 
 let value: OrderItemSchema = {
   createdAt: new Date("2024-07-10T10:44:08.434Z"),
-  modifiedAt: new Date("2025-07-08T04:25:44.133Z"),
+  modifiedAt: new Date("2024-09-03T11:39:50.690Z"),
   id: "<value>",
   label: "<value>",
-  amount: 557925,
-  taxAmount: 844213,
+  amount: 844213,
+  taxAmount: 859829,
   proration: false,
   productPriceId: "<value>",
 };

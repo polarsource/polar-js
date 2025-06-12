@@ -7,20 +7,20 @@ import { Organization } from "@polar-sh/sdk/models/components/organization.js";
 
 let value: Organization = {
   createdAt: new Date("2025-08-18T16:08:36.319Z"),
-  modifiedAt: new Date("2023-06-29T18:21:41.585Z"),
+  modifiedAt: new Date("2024-09-21T03:00:08.692Z"),
   id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   name: "<value>",
   slug: "<value>",
-  avatarUrl: "https://medium-formula.org",
-  email: "Waino.Paucek35@yahoo.com",
-  website: "<value>",
+  avatarUrl: "https://weighty-goodwill.org/",
+  email: "Diego83@hotmail.com",
+  website: null,
   socials: [
     {
       platform: "youtube",
-      url: "https://torn-bob.net",
+      url: "https://expert-elevation.org",
     },
   ],
-  detailsSubmittedAt: new Date("2024-10-03T20:10:35.957Z"),
+  detailsSubmittedAt: new Date("2025-10-04T08:15:14.612Z"),
   featureSettings: {},
   subscriptionSettings: {
     allowMultipleSubscriptions: false,

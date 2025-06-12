@@ -9,36 +9,36 @@ import { MeterCreditEvent } from "@polar-sh/sdk/models/components/metercrediteve
 
 let value: MeterCreditEvent = {
   id: "<value>",
-  timestamp: new Date("2023-10-21T09:52:36.128Z"),
+  timestamp: new Date("2023-07-17T16:23:37.725Z"),
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-05-27T02:43:39.971Z"),
-    modifiedAt: new Date("2024-11-28T20:15:56.081Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": "<value>",
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "FR",
+      country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-21T23:48:12.071Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",
   metadata: {
     meterId: "<id>",
-    units: 372006,
-    rollover: false,
+    units: 232955,
+    rollover: true,
   },
 };
 ```

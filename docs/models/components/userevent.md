@@ -9,32 +9,32 @@ import { UserEvent } from "@polar-sh/sdk/models/components/userevent.js";
 
 let value: UserEvent = {
   metadata: {
-    "key": 861780,
+    "key": 455520,
   },
   id: "<value>",
-  timestamp: new Date("2024-01-14T23:56:20.249Z"),
+  timestamp: new Date("2025-07-02T08:53:17.572Z"),
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  customerId: "<value>",
+  customerId: null,
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-10-30T07:02:02.549Z"),
-    modifiedAt: new Date("2024-02-13T15:33:42.530Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": false,
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "FR",
+      country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-10-18T12:21:54.037Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",

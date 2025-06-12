@@ -24,7 +24,8 @@ const value: components.CheckoutLinkCreateProduct = {
 ```typescript
 const value: components.CheckoutLinkCreateProducts = {
   products: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
   ],
 };
 ```

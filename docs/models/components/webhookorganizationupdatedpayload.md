@@ -12,25 +12,20 @@ import { WebhookOrganizationUpdatedPayload } from "@polar-sh/sdk/models/componen
 let value: WebhookOrganizationUpdatedPayload = {
   data: {
     createdAt: new Date("2023-07-16T02:28:27.582Z"),
-    modifiedAt: new Date("2025-03-30T11:56:13.023Z"),
+    modifiedAt: new Date("2023-12-18T01:01:13.059Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://fake-eternity.org/",
-    email: "Murl_Jacobson@yahoo.com",
+    avatarUrl: "https://watery-numeric.net/",
+    email: "Jovan0@yahoo.com",
     website: "<value>",
-    socials: [
-      {
-        platform: "instagram",
-        url: "https://which-freezing.com/",
-      },
-    ],
-    detailsSubmittedAt: new Date("2025-06-03T13:51:02.753Z"),
+    socials: [],
+    detailsSubmittedAt: new Date("2023-09-16T13:33:14.923Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
       allowCustomerUpdates: false,
-      prorationBehavior: "invoice",
+      prorationBehavior: "prorate",
     },
   },
 };

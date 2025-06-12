@@ -11,22 +11,22 @@ import { WebhookRefundUpdatedPayload } from "@polar-sh/sdk/models/components/web
 
 let value: WebhookRefundUpdatedPayload = {
   data: {
-    createdAt: new Date("2024-02-09T00:15:20.778Z"),
-    modifiedAt: new Date("2024-10-04T03:15:53.832Z"),
+    createdAt: new Date("2023-10-16T07:53:56.637Z"),
+    modifiedAt: new Date("2023-07-29T02:53:13.491Z"),
     id: "<value>",
     metadata: {
-      "key": false,
+      "key": 997648,
     },
-    status: "pending",
+    status: "canceled",
     reason: "other",
-    amount: 171151,
-    taxAmount: 164949,
-    currency: "Cordoba Oro",
+    amount: 929248,
+    taxAmount: 237298,
+    currency: "Kyat",
     organizationId: "<value>",
     orderId: "<value>",
     subscriptionId: "<value>",
     customerId: "<value>",
-    revokeBenefits: false,
+    revokeBenefits: true,
   },
 };
 ```

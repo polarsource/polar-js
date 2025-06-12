@@ -15,7 +15,7 @@ const value: components.CheckoutStatus = "open";
 
 ```typescript
 const value: components.CheckoutStatus[] = [
-  "succeeded",
+  "open",
 ];
 ```
 

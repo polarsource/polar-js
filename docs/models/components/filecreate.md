@@ -14,9 +14,9 @@ const value: components.DownloadableFileCreate = {
   upload: {
     parts: [
       {
-        number: 949598,
-        chunkStart: 963617,
-        chunkEnd: 986190,
+        number: 963617,
+        chunkStart: 986190,
+        chunkEnd: 98032,
       },
     ],
   },
@@ -34,9 +34,9 @@ const value: components.OrganizationAvatarFileCreate = {
   upload: {
     parts: [
       {
-        number: 648354,
-        chunkStart: 149204,
-        chunkEnd: 864751,
+        number: 963617,
+        chunkStart: 986190,
+        chunkEnd: 98032,
       },
     ],
   },
@@ -54,9 +54,9 @@ const value: components.ProductMediaFileCreate = {
   upload: {
     parts: [
       {
-        number: 556456,
-        chunkStart: 994750,
-        chunkEnd: 488616,
+        number: 963617,
+        chunkStart: 986190,
+        chunkEnd: 98032,
       },
     ],
   },

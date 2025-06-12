@@ -32,7 +32,6 @@ async function run() {
   });
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -58,16 +57,13 @@ async function run() {
   const res = await metersList(polar, {
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  for await (const page of result) {
-    // Handle the page
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
     console.log(page);
+  }
+  } else {
+    console.log("metersList failed:", res.error);
   }
 }
 
@@ -129,7 +125,6 @@ async function run() {
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -169,15 +164,12 @@ async function run() {
     },
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metersCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -223,7 +215,6 @@ async function run() {
     id: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -248,15 +239,12 @@ async function run() {
   const res = await metersGet(polar, {
     id: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metersGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -304,7 +292,6 @@ async function run() {
     meterUpdate: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -330,15 +317,12 @@ async function run() {
     id: "<value>",
     meterUpdate: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metersUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -388,7 +372,6 @@ async function run() {
     interval: "day",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -416,15 +399,12 @@ async function run() {
     endTimestamp: new Date("2025-11-26T17:06:00.727Z"),
     interval: "day",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metersQuantities failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

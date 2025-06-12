@@ -10,7 +10,7 @@ import { CustomerMeter } from "@polar-sh/sdk/models/components/customermeter.js"
 let value: CustomerMeter = {
   id: "<value>",
   createdAt: new Date("2024-07-26T23:24:52.777Z"),
-  modifiedAt: new Date("2023-05-30T21:26:30.191Z"),
+  modifiedAt: new Date("2023-06-27T00:19:50.084Z"),
   customerId: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
   meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
   consumedUnits: 25,
@@ -18,32 +18,30 @@ let value: CustomerMeter = {
   balance: 75,
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-06-27T00:19:50.084Z"),
-    modifiedAt: new Date("2023-04-04T08:43:09.673Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": 430755,
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "SE",
+      country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-01-14T22:12:31.952Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   meter: {
-    metadata: {
-      "key": 4078.83,
-    },
-    createdAt: new Date("2024-04-01T21:44:43.705Z"),
-    modifiedAt: new Date("2024-08-01T20:01:49.531Z"),
+    metadata: {},
+    createdAt: new Date("2023-04-30T10:26:58.812Z"),
+    modifiedAt: new Date("2025-02-17T07:09:21.144Z"),
     id: "<value>",
     name: "<value>",
     filter: {
@@ -51,7 +49,7 @@ let value: CustomerMeter = {
       clauses: [],
     },
     aggregation: {
-      func: "min",
+      func: "avg",
       property: "<value>",
     },
     organizationId: "<value>",

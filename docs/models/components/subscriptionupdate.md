@@ -11,6 +11,14 @@ const value: components.SubscriptionUpdateProduct = {
 };
 ```
 
+### `components.SubscriptionUpdateDiscount`
+
+```typescript
+const value: components.SubscriptionUpdateDiscount = {
+  discountId: "<value>",
+};
+```
+
 ### `components.SubscriptionCancel`
 
 ```typescript

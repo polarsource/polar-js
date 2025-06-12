@@ -34,7 +34,6 @@ async function run() {
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -63,15 +62,12 @@ async function run() {
     interval: "hour",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -115,7 +111,6 @@ const polar = new Polar({
 async function run() {
   const result = await polar.metrics.limits();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -138,15 +133,12 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await metricsLimits(polar);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("metricsLimits failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

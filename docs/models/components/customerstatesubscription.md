@@ -10,9 +10,9 @@ import { CustomerStateSubscription } from "@polar-sh/sdk/models/components/custo
 let value: CustomerStateSubscription = {
   id: "e5149aae-e521-42b9-b24c-abb3d71eea2e",
   createdAt: new Date("2024-12-31T22:39:03.650Z"),
-  modifiedAt: new Date("2025-01-04T13:00:17.295Z"),
+  modifiedAt: new Date("2024-03-17T15:34:01.799Z"),
   metadata: {
-    "key": 823316,
+    "key": 398699,
   },
   amount: 1000,
   currency: "usd",
@@ -27,8 +27,8 @@ let value: CustomerStateSubscription = {
   discountId: null,
   meters: [
     {
-      createdAt: new Date("2024-03-12T23:23:32.259Z"),
-      modifiedAt: new Date("2024-04-27T13:02:09.387Z"),
+      createdAt: new Date("2023-02-21T03:07:24.293Z"),
+      modifiedAt: new Date("2023-08-01T15:49:02.586Z"),
       id: "<value>",
       consumedUnits: 25,
       creditedUnits: 100,

@@ -8,11 +8,11 @@ Schema of a payment with a generic payment method.
 import { GenericPayment } from "@polar-sh/sdk/models/components/genericpayment.js";
 
 let value: GenericPayment = {
-  createdAt: new Date("2025-05-15T10:27:07.538Z"),
-  modifiedAt: new Date("2024-05-09T06:09:46.871Z"),
+  createdAt: new Date("2025-02-18T21:30:37.361Z"),
+  modifiedAt: new Date("2025-03-12T09:03:17.148Z"),
   id: "<value>",
   processor: "stripe",
-  status: "failed",
+  status: "succeeded",
   amount: 1000,
   currency: "usd",
   method: "card",

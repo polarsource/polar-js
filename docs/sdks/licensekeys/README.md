@@ -31,7 +31,6 @@ async function run() {
   });
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -57,16 +56,13 @@ async function run() {
   const res = await licenseKeysList(polar, {
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  for await (const page of result) {
-    // Handle the page
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
     console.log(page);
+  }
+  } else {
+    console.log("licenseKeysList failed:", res.error);
   }
 }
 
@@ -115,7 +111,6 @@ async function run() {
     id: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -140,15 +135,12 @@ async function run() {
   const res = await licenseKeysGet(polar, {
     id: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("licenseKeysGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -197,7 +189,6 @@ async function run() {
     licenseKeyUpdate: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -223,15 +214,12 @@ async function run() {
     id: "<value>",
     licenseKeyUpdate: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("licenseKeysUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -280,7 +268,6 @@ async function run() {
     activationId: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -306,15 +293,12 @@ async function run() {
     id: "<value>",
     activationId: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("licenseKeysGetActivation failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

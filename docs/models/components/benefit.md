@@ -9,13 +9,13 @@
 const value: components.BenefitCustom = {
   id: "<value>",
   createdAt: new Date("2023-08-26T14:42:37.044Z"),
-  modifiedAt: new Date("2023-08-21T09:17:20.239Z"),
-  description: "across atop whenever than until supposing",
+  modifiedAt: new Date("2024-04-13T00:00:15.234Z"),
+  description: "how nor limited scoff ownership",
   selectable: false,
-  deletable: false,
+  deletable: true,
   organizationId: "<value>",
   metadata: {
-    "key": false,
+    "key": 936136,
   },
   properties: {
     note: "<value>",
@@ -29,13 +29,13 @@ const value: components.BenefitCustom = {
 const value: components.BenefitDiscord = {
   id: "<value>",
   createdAt: new Date("2025-05-26T06:25:53.245Z"),
-  modifiedAt: new Date("2024-07-04T12:48:33.795Z"),
-  description: "utterly antelope famously whose because folklore fatal a",
+  modifiedAt: new Date("2024-12-27T10:01:08.309Z"),
+  description: "after incidentally whose",
   selectable: false,
-  deletable: false,
+  deletable: true,
   organizationId: "<value>",
   metadata: {
-    "key": 107005,
+    "key": 337726,
   },
   properties: {
     guildId: "<id>",
@@ -51,10 +51,10 @@ const value: components.BenefitDiscord = {
 const value: components.BenefitGitHubRepository = {
   id: "<value>",
   createdAt: new Date("2025-09-20T17:50:31.812Z"),
-  modifiedAt: new Date("2024-03-20T03:15:07.982Z"),
-  description: "versus spirit than splosh",
-  selectable: false,
-  deletable: false,
+  modifiedAt: new Date("2023-09-09T10:06:16.908Z"),
+  description: "hoarse secrecy entwine stunning energetically",
+  selectable: true,
+  deletable: true,
   organizationId: "<value>",
   metadata: {
     "key": false,
@@ -62,7 +62,7 @@ const value: components.BenefitGitHubRepository = {
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "maintain",
+    permission: "admin",
   },
 };
 ```
@@ -73,10 +73,10 @@ const value: components.BenefitGitHubRepository = {
 const value: components.BenefitDownloadables = {
   id: "<value>",
   createdAt: new Date("2023-10-19T18:24:22.763Z"),
-  modifiedAt: new Date("2025-04-23T14:51:34.166Z"),
-  description: "colorful er spectacles after worriedly testify times",
-  selectable: false,
-  deletable: false,
+  modifiedAt: new Date("2024-09-19T16:48:07.217Z"),
+  description: "supposing allocation dull scowl bootleg illiterate hmph amid",
+  selectable: true,
+  deletable: true,
   organizationId: "<value>",
   metadata: {
     "key": false,
@@ -86,7 +86,8 @@ const value: components.BenefitDownloadables = {
       "key": false,
     },
     files: [
-      "<value>",
+      "<value 1>",
+      "<value 2>",
     ],
   },
 };
@@ -98,25 +99,23 @@ const value: components.BenefitDownloadables = {
 const value: components.BenefitLicenseKeys = {
   id: "<value>",
   createdAt: new Date("2025-09-22T06:32:51.347Z"),
-  modifiedAt: new Date("2024-09-20T21:32:20.766Z"),
-  description: "greedily whereas tightly brood hence",
-  selectable: false,
-  deletable: false,
+  modifiedAt: new Date("2024-01-12T01:51:09.622Z"),
+  description: "vivaciously now that",
+  selectable: true,
+  deletable: true,
   organizationId: "<value>",
-  metadata: {
-    "key": 219.12,
-  },
+  metadata: {},
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 916452,
-      timeframe: "year",
+      ttl: 93452,
+      timeframe: "day",
     },
     activations: {
-      limit: 639612,
-      enableCustomerAdmin: false,
+      limit: 777902,
+      enableCustomerAdmin: true,
     },
-    limitUsage: 129142,
+    limitUsage: null,
   },
 };
 ```
@@ -127,17 +126,14 @@ const value: components.BenefitLicenseKeys = {
 const value: components.BenefitMeterCredit = {
   id: "<value>",
   createdAt: new Date("2025-07-13T02:35:52.595Z"),
-  modifiedAt: new Date("2023-09-17T11:24:42.238Z"),
-  description:
-    "grouper alongside till strategy generally deserted solidly camouflage via er",
-  selectable: false,
+  modifiedAt: new Date("2025-08-26T02:40:11.876Z"),
+  description: "pish than huzzah rekindle lively approximate against meal",
+  selectable: true,
   deletable: false,
   organizationId: "<value>",
-  metadata: {
-    "key": 226679,
-  },
+  metadata: {},
   properties: {
-    units: 41872,
+    units: 298008,
     rollover: false,
     meterId: "<value>",
   },

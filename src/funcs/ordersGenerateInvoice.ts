@@ -26,7 +26,8 @@ import {
   OrdersGenerateInvoiceResponse422OrdersGenerateInvoice,
   OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$inboundSchema,
 } from "../models/errors/ordersgenerateinvoice.js";
-import { SDKError } from "../models/errors/sdkerror.js";
+import { PolarError } from "../models/errors/polarerror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
   OrdersGenerateInvoiceRequest,
@@ -52,13 +53,14 @@ export function ordersGenerateInvoice(
     any,
     | InvoiceAlreadyExists
     | OrdersGenerateInvoiceResponse422OrdersGenerateInvoice
-    | SDKError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | PolarError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >
 > {
   return new APIPromise($do(
@@ -78,13 +80,14 @@ async function $do(
       any,
       | InvoiceAlreadyExists
       | OrdersGenerateInvoiceResponse422OrdersGenerateInvoice
-      | SDKError
-      | SDKValidationError
-      | UnexpectedClientError
-      | InvalidRequestError
+      | PolarError
+      | ResponseValidationError
+      | ConnectionError
       | RequestAbortedError
       | RequestTimeoutError
-      | ConnectionError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
     >,
     APICall,
   ]
@@ -166,13 +169,14 @@ async function $do(
     any,
     | InvoiceAlreadyExists
     | OrdersGenerateInvoiceResponse422OrdersGenerateInvoice
-    | SDKError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | PolarError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >(
     M.json(202, z.any()),
     M.jsonErr(409, InvoiceAlreadyExists$inboundSchema),
@@ -182,7 +186,7 @@ async function $do(
     ),
     M.fail("4XX"),
     M.fail("5XX"),
-  )(response, { extraFields: responseFields });
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
   }

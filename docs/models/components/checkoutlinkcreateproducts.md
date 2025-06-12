@@ -9,7 +9,8 @@ import { CheckoutLinkCreateProducts } from "@polar-sh/sdk/models/components/chec
 
 let value: CheckoutLinkCreateProducts = {
   products: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
   ],
 };
 ```

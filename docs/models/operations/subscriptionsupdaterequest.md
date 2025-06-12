@@ -7,9 +7,6 @@ import { SubscriptionsUpdateRequest } from "@polar-sh/sdk/models/operations/subs
 
 let value: SubscriptionsUpdateRequest = {
   id: "<value>",
-  subscriptionUpdate: {
-    cancelAtPeriodEnd: false,
-  },
 };
 ```
 

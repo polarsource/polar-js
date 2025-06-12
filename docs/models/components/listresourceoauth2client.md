@@ -8,21 +8,19 @@ import { ListResourceOAuth2Client } from "@polar-sh/sdk/models/components/listre
 let value: ListResourceOAuth2Client = {
   items: [
     {
-      redirectUris: [
-        "https://deficient-sock.info",
-      ],
+      redirectUris: [],
       clientName: "<value>",
-      createdAt: new Date("2024-12-22T15:43:02.670Z"),
-      modifiedAt: new Date("2024-04-03T03:09:37.954Z"),
+      createdAt: new Date("2025-06-24T01:39:24.374Z"),
+      modifiedAt: new Date("2024-12-22T15:43:02.670Z"),
       clientId: "<id>",
       clientSecret: "<value>",
-      clientIdIssuedAt: 643766,
-      clientSecretExpiresAt: 384365,
+      clientIdIssuedAt: 418003,
+      clientSecretExpiresAt: 643766,
     },
   ],
   pagination: {
-    totalCount: 146552,
-    maxPage: 237437,
+    totalCount: 47105,
+    maxPage: 607201,
   },
 };
 ```

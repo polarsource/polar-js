@@ -15,23 +15,23 @@ let value: FileUpload = {
   storageVersion: "<value>",
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
-  checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2025-02-26T02:55:31.254Z"),
+  checksumSha256Hex: null,
+  lastModifiedAt: new Date("2023-05-03T20:11:20.299Z"),
   upload: {
     id: "<id>",
-    path: "/usr/local/src",
+    path: "/etc/periodic",
     parts: [
       {
-        number: 945174,
-        chunkStart: 21083,
-        chunkEnd: 602576,
-        url: "https://dark-tusk.info/",
-        expiresAt: new Date("2024-10-10T12:43:57.564Z"),
+        number: 485136,
+        chunkStart: 591725,
+        chunkEnd: 880119,
+        url: "https://scornful-decryption.net/",
+        expiresAt: new Date("2024-03-19T02:17:36.566Z"),
       },
     ],
   },
-  version: "<value>",
-  service: "organization_avatar",
+  version: null,
+  service: "product_media",
   sizeReadable: "<value>",
 };
 ```

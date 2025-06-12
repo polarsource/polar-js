@@ -9,36 +9,36 @@ import { BenefitGrantedEvent } from "@polar-sh/sdk/models/components/benefitgran
 
 let value: BenefitGrantedEvent = {
   id: "<value>",
-  timestamp: new Date("2025-05-04T12:57:41.574Z"),
+  timestamp: new Date("2025-06-01T19:12:32.636Z"),
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-11-08T03:20:43.167Z"),
-    modifiedAt: new Date("2023-06-18T06:00:22.213Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": 738943,
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "SE",
+      country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-01-13T12:08:02.702Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "license_keys",
+    benefitType: "discord",
   },
 };
 ```

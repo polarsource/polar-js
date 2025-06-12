@@ -5,22 +5,7 @@
 ```typescript
 import { CustomerPortalCustomersGetPaymentMethodsResponse } from "@polar-sh/sdk/models/operations/customerportalcustomersgetpaymentmethods.js";
 
-let value: CustomerPortalCustomersGetPaymentMethodsResponse = {
-  result: {
-    items: [
-      {
-        id: "<id>",
-        type: "<value>",
-        createdAt: new Date("2024-01-02T16:37:24.927Z"),
-        default: false,
-      },
-    ],
-    pagination: {
-      totalCount: 374098,
-      maxPage: 472137,
-    },
-  },
-};
+let value: CustomerPortalCustomersGetPaymentMethodsResponse = {};
 ```
 
 ## Fields

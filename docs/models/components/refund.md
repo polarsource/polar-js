@@ -7,11 +7,9 @@ import { Refund } from "@polar-sh/sdk/models/components/refund.js";
 
 let value: Refund = {
   createdAt: new Date("2025-12-04T20:21:23.175Z"),
-  modifiedAt: new Date("2024-05-23T22:39:09.157Z"),
+  modifiedAt: new Date("2023-10-13T16:58:34.242Z"),
   id: "<value>",
-  metadata: {
-    "key": 113756,
-  },
+  metadata: {},
   status: "pending",
   reason: "satisfaction_guarantee",
   amount: 300741,

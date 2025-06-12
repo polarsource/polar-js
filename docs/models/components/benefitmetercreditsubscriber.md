@@ -8,30 +8,30 @@ import { BenefitMeterCreditSubscriber } from "@polar-sh/sdk/models/components/be
 let value: BenefitMeterCreditSubscriber = {
   id: "<value>",
   createdAt: new Date("2025-02-05T19:56:46.266Z"),
-  modifiedAt: new Date("2024-03-24T19:43:32.313Z"),
-  description: "trash valiantly boohoo zowie",
+  modifiedAt: new Date("2023-07-04T00:01:16.390Z"),
+  description: "somber even yuck gym",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   metadata: {
-    "key": 878423,
+    "key": 246653,
   },
   organization: {
-    createdAt: new Date("2025-04-25T13:08:18.422Z"),
-    modifiedAt: new Date("2024-11-14T19:58:44.206Z"),
+    createdAt: new Date("2025-10-05T12:57:48.267Z"),
+    modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://expensive-giggle.net/",
-    email: "Lola.Friesen@yahoo.com",
+    avatarUrl: "https://medium-object.org",
+    email: "Elena.Barton@hotmail.com",
     website: "<value>",
     socials: [
       {
-        platform: "instagram",
-        url: "https://stupendous-toaster.biz/",
+        platform: "youtube",
+        url: "https://expert-elevation.org",
       },
     ],
-    detailsSubmittedAt: new Date("2025-04-25T09:59:29.489Z"),
+    detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -40,8 +40,8 @@ let value: BenefitMeterCreditSubscriber = {
     },
   },
   properties: {
-    units: 882770,
-    rollover: false,
+    units: 430943,
+    rollover: true,
     meterId: "<value>",
   },
 };

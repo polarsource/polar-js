@@ -7,21 +7,22 @@ import { BenefitDownloadables } from "@polar-sh/sdk/models/components/benefitdow
 
 let value: BenefitDownloadables = {
   id: "<value>",
-  createdAt: new Date("2023-09-07T23:34:47.523Z"),
-  modifiedAt: new Date("2025-12-18T07:04:31.810Z"),
-  description: "duh woefully for crooked arid",
-  selectable: false,
-  deletable: false,
+  createdAt: new Date("2023-10-19T18:24:22.763Z"),
+  modifiedAt: new Date("2024-09-19T16:48:07.217Z"),
+  description: "supposing allocation dull scowl bootleg illiterate hmph amid",
+  selectable: true,
+  deletable: true,
   organizationId: "<value>",
   metadata: {
-    "key": 424777,
+    "key": false,
   },
   properties: {
     archived: {
       "key": false,
     },
     files: [
-      "<value>",
+      "<value 1>",
+      "<value 2>",
     ],
   },
 };

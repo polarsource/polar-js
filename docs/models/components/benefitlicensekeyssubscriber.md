@@ -8,48 +8,48 @@ import { BenefitLicenseKeysSubscriber } from "@polar-sh/sdk/models/components/be
 let value: BenefitLicenseKeysSubscriber = {
   id: "<value>",
   createdAt: new Date("2024-07-17T05:09:36.262Z"),
-  modifiedAt: new Date("2023-03-17T14:59:08.856Z"),
+  modifiedAt: null,
   description: "allegation properly editor quinoa mortally",
   selectable: false,
   deletable: false,
   organizationId: "<value>",
   metadata: {
-    "key": false,
+    "key": 8092.3,
   },
   organization: {
-    createdAt: new Date("2024-12-14T04:00:15.350Z"),
-    modifiedAt: new Date("2025-06-27T01:00:05.095Z"),
+    createdAt: new Date("2025-10-05T12:57:48.267Z"),
+    modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://strong-mechanic.org",
-    email: "Destany.Predovic27@hotmail.com",
+    avatarUrl: "https://medium-object.org",
+    email: "Elena.Barton@hotmail.com",
     website: "<value>",
     socials: [
       {
-        platform: "facebook",
-        url: "https://rusty-innovation.name",
+        platform: "youtube",
+        url: "https://expert-elevation.org",
       },
     ],
-    detailsSubmittedAt: new Date("2023-04-29T16:26:46.499Z"),
+    detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
       allowCustomerUpdates: false,
-      prorationBehavior: "invoice",
+      prorationBehavior: "prorate",
     },
   },
   properties: {
     prefix: "<value>",
     expires: {
-      ttl: 470269,
-      timeframe: "year",
+      ttl: 93452,
+      timeframe: "day",
     },
     activations: {
-      limit: 376968,
-      enableCustomerAdmin: false,
+      limit: 777902,
+      enableCustomerAdmin: true,
     },
-    limitUsage: 568855,
+    limitUsage: 596467,
   },
 };
 ```

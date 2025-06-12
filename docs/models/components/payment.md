@@ -8,7 +8,7 @@
 ```typescript
 const value: components.CardPayment = {
   createdAt: new Date("2024-08-19T22:20:52.095Z"),
-  modifiedAt: new Date("2025-07-18T15:40:57.437Z"),
+  modifiedAt: new Date("2024-02-13T06:48:23.838Z"),
   id: "<value>",
   processor: "stripe",
   status: "succeeded",
@@ -31,10 +31,10 @@ const value: components.CardPayment = {
 ```typescript
 const value: components.GenericPayment = {
   createdAt: new Date("2025-02-18T21:30:37.361Z"),
-  modifiedAt: new Date("2024-06-27T16:03:22.844Z"),
+  modifiedAt: new Date("2025-03-12T09:03:17.148Z"),
   id: "<value>",
   processor: "stripe",
-  status: "failed",
+  status: "succeeded",
   amount: 1000,
   currency: "usd",
   method: "card",

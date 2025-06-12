@@ -10,7 +10,7 @@ import { CustomerOrderUpdate } from "@polar-sh/sdk/models/components/customerord
 let value: CustomerOrderUpdate = {
   billingName: "<value>",
   billingAddress: {
-    country: "SE",
+    country: "US",
   },
 };
 ```

@@ -9,11 +9,11 @@ let value: CustomerUpdateExternalID = {
   email: "customer@example.com",
   name: "John Doe",
   billingAddress: {
-    country: "SE",
+    country: "US",
   },
   taxId: [
-    "FR61954506077",
-    "eu_vat",
+    "911144442",
+    "us_ein",
   ],
 };
 ```

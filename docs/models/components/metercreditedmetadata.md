@@ -8,7 +8,7 @@ import { MeterCreditedMetadata } from "@polar-sh/sdk/models/components/metercred
 let value: MeterCreditedMetadata = {
   meterId: "<id>",
   units: 127078,
-  rollover: false,
+  rollover: true,
 };
 ```
 

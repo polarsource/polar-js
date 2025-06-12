@@ -236,24 +236,22 @@ async function run() {
         prices: [
           {
             createdAt: new Date("2023-09-13T08:36:46.434Z"),
-            modifiedAt: new Date("2023-09-14T02:01:27.394Z"),
+            modifiedAt: new Date("2023-10-05T12:55:46.428Z"),
             id: "<value>",
             isArchived: false,
             productId: "<value>",
             recurringInterval: "month",
           },
           {
-            createdAt: new Date("2025-03-15T14:26:53.109Z"),
-            modifiedAt: new Date("2023-12-28T10:30:56.042Z"),
+            createdAt: new Date("2024-05-02T18:25:33.974Z"),
+            modifiedAt: new Date("2025-02-06T12:55:07.640Z"),
             id: "<value>",
             isArchived: false,
             productId: "<value>",
-            type: "one_time",
-            recurringInterval: "year",
+            type: "recurring",
+            recurringInterval: "month",
             priceCurrency: "<value>",
-            minimumAmount: 700309,
-            maximumAmount: 631188,
-            presetAmount: 968968,
+            priceAmount: 115799,
           },
         ],
         benefits: [],
@@ -315,15 +313,16 @@ async function run() {
         ],
       },
       productPrice: {
-        createdAt: new Date("2023-05-07T21:58:39.365Z"),
-        modifiedAt: new Date("2024-04-23T21:54:44.503Z"),
+        createdAt: new Date("2025-07-31T12:54:47.590Z"),
+        modifiedAt: new Date("2023-01-11T22:31:47.320Z"),
         id: "<value>",
-        isArchived: false,
+        isArchived: true,
         productId: "<value>",
-        type: "one_time",
-        recurringInterval: "year",
+        recurringInterval: "month",
         priceCurrency: "<value>",
-        priceAmount: 275553,
+        minimumAmount: 203013,
+        maximumAmount: null,
+        presetAmount: 119260,
       },
       discount: {
         duration: "once",
@@ -372,7 +371,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -791,7 +789,6 @@ async function run() {
   const result = await polar.organizations.list({});
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -829,7 +826,6 @@ async function run() {
   });
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -860,7 +856,6 @@ async function run() {
   const result = await polar.organizations.list({});
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -873,51 +868,45 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `list` method may throw the following errors:
+[`PolarError`](./src/models/errors/polarerror.ts) is the base class for all HTTP error responses. It has the following properties:
 
-| Error Type                 | Status Code | Content Type     |
-| -------------------------- | ----------- | ---------------- |
-| errors.HTTPValidationError | 422         | application/json |
-| errors.SDKError            | 4XX, 5XX    | \*/\*            |
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
-If the method throws an error and it is not captured by the known errors, it will default to throwing a `SDKError`.
-
+### Example
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 import { HTTPValidationError } from "@polar-sh/sdk/models/errors/httpvalidationerror.js";
-import { SDKValidationError } from "@polar-sh/sdk/models/errors/sdkvalidationerror.js";
+import { PolarError } from "@polar-sh/sdk/models/errors/polarerror.js.js";
 
 const polar = new Polar({
   accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 
 async function run() {
-  let result;
   try {
-    result = await polar.organizations.list({});
+    const result = await polar.organizations.list({});
 
     for await (const page of result) {
-      // Handle the page
       console.log(page);
     }
-  } catch (err) {
-    switch (true) {
-      // The server response does not match the expected SDK schema
-      case (err instanceof SDKValidationError): {
-        // Pretty-print will provide a human-readable multi-line error message
-        console.error(err.pretty());
-        // Raw value may also be inspected
-        console.error(err.rawValue);
-        return;
-      }
-      case (err instanceof HTTPValidationError): {
-        // Handle err.data$: HTTPValidationErrorData
-        console.error(err);
-        return;
-      }
-      default: {
-        // Other errors such as network errors, see HTTPClientErrors for more details
-        throw err;
+  } catch (error) {
+    // The base class for HTTP error responses
+    if (error instanceof PolarError) {
+      console.log(error.message);
+      console.log(error.statusCode);
+      console.log(error.body);
+      console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof HTTPValidationError) {
+        console.log(error.data$.detail); // ValidationError[]
       }
     }
   }
@@ -927,17 +916,42 @@ run();
 
 ```
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+### Error Classes
+**Primary errors:**
+* [`PolarError`](./src/models/errors/polarerror.ts): The base class for HTTP error responses.
+  * [`HTTPValidationError`](docs/models/errors/httpvalidationerror.md): Validation Error. Status code `422`. *
 
-In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `models/errors/httpclienterrors.ts` module:
+<details><summary>Less common errors (19)</summary>
 
-| HTTP Client Error                                    | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| RequestAbortedError                                  | HTTP request was aborted by the client               |
-| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError                                      | HTTP client was unable to make a request to a server |
-| InvalidRequestError                                  | Any input used to create a request is invalid        |
-| UnexpectedClientError                                | Unrecognised or unexpected error                     |
+<br />
+
+**Network errors:**
+* [`ConnectionError`](./src/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
+* [`RequestTimeoutError`](./src/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
+* [`RequestAbortedError`](./src/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
+* [`InvalidRequestError`](./src/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
+* [`UnexpectedClientError`](./src/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
+
+
+**Inherit from [`PolarError`](./src/models/errors/polarerror.ts)**:
+* [`ResourceNotFound`](docs/models/errors/resourcenotfound.md): Status code `404`. Applicable to 66 of 121 methods.*
+* [`NotPermitted`](docs/models/errors/notpermitted.md): Status code `403`. Applicable to 9 of 121 methods.*
+* [`Unauthorized`](docs/models/errors/unauthorized.md): Not authorized to manage license key. Status code `401`. Applicable to 5 of 121 methods.*
+* [`AlreadyCanceledSubscription`](docs/models/errors/alreadycanceledsubscription.md): Status code `403`. Applicable to 4 of 121 methods.*
+* [`AlreadyActiveSubscriptionError`](docs/models/errors/alreadyactivesubscriptionerror.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 121 methods.*
+* [`NotOpenCheckout`](docs/models/errors/notopencheckout.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 121 methods.*
+* [`ExpiredCheckoutError`](docs/models/errors/expiredcheckouterror.md): The checkout session is expired. Status code `410`. Applicable to 3 of 121 methods.*
+* [`InvoiceAlreadyExists`](docs/models/errors/invoicealreadyexists.md): Order already has an invoice. Status code `409`. Applicable to 2 of 121 methods.*
+* [`MissingInvoiceBillingDetails`](docs/models/errors/missinginvoicebillingdetails.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 121 methods.*
+* [`NotPaidOrder`](docs/models/errors/notpaidorder.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 121 methods.*
+* [`RefundAmountTooHigh`](docs/models/errors/refundamounttoohigh.md): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 121 methods.*
+* [`PaymentError`](docs/models/errors/paymenterror.md): The payment failed. Status code `400`. Applicable to 1 of 121 methods.*
+* [`RefundedAlready`](docs/models/errors/refundedalready.md): Order is already fully refunded. Status code `403`. Applicable to 1 of 121 methods.*
+* [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+
+</details>
+
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -966,7 +980,6 @@ async function run() {
   const result = await polar.organizations.list({});
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -990,7 +1003,6 @@ async function run() {
   const result = await polar.organizations.list({});
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -1072,7 +1084,6 @@ async function run() {
   const result = await polar.organizations.list({});
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -1097,7 +1108,6 @@ async function run() {
   });
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }

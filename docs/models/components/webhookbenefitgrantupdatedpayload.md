@@ -11,10 +11,10 @@ import { WebhookBenefitGrantUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookBenefitGrantUpdatedPayload = {
   data: {
-    createdAt: new Date("2023-04-18T13:08:43.650Z"),
-    modifiedAt: new Date("2023-09-16T13:34:50.547Z"),
+    createdAt: new Date("2025-10-02T04:38:09.243Z"),
+    modifiedAt: new Date("2023-10-21T01:27:19.889Z"),
     id: "<value>",
-    isGranted: false,
+    isGranted: true,
     isRevoked: false,
     subscriptionId: "<value>",
     orderId: "<value>",
@@ -22,10 +22,10 @@ let value: WebhookBenefitGrantUpdatedPayload = {
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2025-10-11T19:34:50.666Z"),
-      modifiedAt: new Date("2025-12-04T18:11:54.423Z"),
+      createdAt: new Date("2023-07-12T03:53:00.913Z"),
+      modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
       metadata: {
-        "key": "<value>",
+        "key": 5951.8,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
@@ -39,33 +39,23 @@ let value: WebhookBenefitGrantUpdatedPayload = {
         "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2025-08-13T19:24:27.975Z"),
+      deletedAt: new Date("2024-07-29T02:37:49.390Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
     },
     properties: {},
     benefit: {
       id: "<value>",
-      createdAt: new Date("2024-03-22T06:24:13.619Z"),
-      modifiedAt: new Date("2024-11-29T00:34:44.806Z"),
-      description:
-        "with regarding but poor unique furthermore milky yippee warmhearted hopeful",
+      createdAt: new Date("2024-10-15T22:21:01.919Z"),
+      modifiedAt: new Date("2023-02-16T12:33:48.786Z"),
+      description: "ouch woot geez wheel analyse duh",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
-      metadata: {
-        "key": false,
-      },
+      metadata: {},
       properties: {
-        prefix: "<value>",
-        expires: {
-          ttl: 623160,
-          timeframe: "month",
-        },
-        activations: {
-          limit: 229034,
-          enableCustomerAdmin: false,
-        },
-        limitUsage: 252619,
+        repositoryOwner: "polarsource",
+        repositoryName: "private_repo",
+        permission: "admin",
       },
     },
   },

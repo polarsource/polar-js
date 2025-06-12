@@ -13,7 +13,7 @@ const value: components.CheckoutDiscountFixedOnceForeverDuration = {
   currency: "Nuevo Sol",
   id: "<value>",
   name: "<value>",
-  code: "<value>",
+  code: null,
 };
 ```
 

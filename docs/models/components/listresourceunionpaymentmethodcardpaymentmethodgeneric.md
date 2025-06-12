@@ -6,22 +6,10 @@
 import { ListResourceUnionPaymentMethodCardPaymentMethodGeneric } from "@polar-sh/sdk/models/components/listresourceunionpaymentmethodcardpaymentmethodgeneric.js";
 
 let value: ListResourceUnionPaymentMethodCardPaymentMethodGeneric = {
-  items: [
-    {
-      id: "<id>",
-      createdAt: new Date("2023-12-24T08:15:36.580Z"),
-      default: false,
-      card: {
-        brand: "<value>",
-        last4: "<value>",
-        expMonth: 228824,
-        expYear: 604303,
-      },
-    },
-  ],
+  items: [],
   pagination: {
-    totalCount: 10975,
-    maxPage: 609533,
+    totalCount: 47105,
+    maxPage: 607201,
   },
 };
 ```

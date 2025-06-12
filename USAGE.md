@@ -10,7 +10,6 @@ async function run() {
   const result = await polar.organizations.list({});
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }

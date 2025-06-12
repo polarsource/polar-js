@@ -7,7 +7,7 @@ import { CustomerSubscriptionMeterMeter } from "@polar-sh/sdk/models/components/
 
 let value: CustomerSubscriptionMeterMeter = {
   createdAt: new Date("2023-02-04T20:45:21.880Z"),
-  modifiedAt: new Date("2023-01-07T12:25:47.080Z"),
+  modifiedAt: null,
   id: "<value>",
   name: "<value>",
 };

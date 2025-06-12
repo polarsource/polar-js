@@ -8,10 +8,10 @@
 ```typescript
 const value: components.CustomFieldCheckbox = {
   createdAt: new Date("2024-12-15T08:54:31.599Z"),
-  modifiedAt: new Date("2023-07-17T23:18:22.207Z"),
+  modifiedAt: new Date("2025-02-11T21:56:58.786Z"),
   id: "<value>",
   metadata: {
-    "key": 5428.8,
+    "key": false,
   },
   slug: "<value>",
   name: "<value>",
@@ -25,10 +25,10 @@ const value: components.CustomFieldCheckbox = {
 ```typescript
 const value: components.CustomFieldDate = {
   createdAt: new Date("2023-02-13T09:39:00.718Z"),
-  modifiedAt: new Date("2025-03-16T00:30:11.499Z"),
+  modifiedAt: new Date("2024-10-12T01:37:53.162Z"),
   id: "<value>",
   metadata: {
-    "key": 6178.91,
+    "key": true,
   },
   slug: "<value>",
   name: "<value>",
@@ -42,10 +42,10 @@ const value: components.CustomFieldDate = {
 ```typescript
 const value: components.CustomFieldNumber = {
   createdAt: new Date("2024-09-14T18:42:51.369Z"),
-  modifiedAt: new Date("2024-08-23T20:36:51.735Z"),
+  modifiedAt: new Date("2023-10-22T02:25:47.805Z"),
   id: "<value>",
   metadata: {
-    "key": 507927,
+    "key": 64532,
   },
   slug: "<value>",
   name: "<value>",
@@ -59,21 +59,16 @@ const value: components.CustomFieldNumber = {
 ```typescript
 const value: components.CustomFieldSelect = {
   createdAt: new Date("2024-07-07T06:15:52.159Z"),
-  modifiedAt: new Date("2025-12-12T23:38:43.148Z"),
+  modifiedAt: new Date("2024-11-24T13:34:12.101Z"),
   id: "<value>",
   metadata: {
-    "key": 8796.21,
+    "key": 1484.44,
   },
   slug: "<value>",
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
-    options: [
-      {
-        value: "<value>",
-        label: "<value>",
-      },
-    ],
+    options: [],
   },
 };
 ```
@@ -83,10 +78,10 @@ const value: components.CustomFieldSelect = {
 ```typescript
 const value: components.CustomFieldText = {
   createdAt: new Date("2025-11-19T01:45:51.741Z"),
-  modifiedAt: new Date("2023-01-30T08:04:14.705Z"),
+  modifiedAt: null,
   id: "<value>",
   metadata: {
-    "key": false,
+    "key": "<value>",
   },
   slug: "<value>",
   name: "<value>",

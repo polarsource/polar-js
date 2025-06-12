@@ -8,11 +8,9 @@ import { ListResourceMeter } from "@polar-sh/sdk/models/components/listresourcem
 let value: ListResourceMeter = {
   items: [
     {
-      metadata: {
-        "key": false,
-      },
-      createdAt: new Date("2023-12-11T01:36:24.954Z"),
-      modifiedAt: new Date("2023-01-09T16:18:53.335Z"),
+      metadata: {},
+      createdAt: new Date("2023-01-09T16:18:53.335Z"),
+      modifiedAt: new Date("2023-09-06T03:20:48.650Z"),
       id: "<value>",
       name: "<value>",
       filter: {
@@ -24,8 +22,8 @@ let value: ListResourceMeter = {
     },
   ],
   pagination: {
-    totalCount: 386895,
-    maxPage: 909416,
+    totalCount: 47105,
+    maxPage: 607201,
   },
 };
 ```

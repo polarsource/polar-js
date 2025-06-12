@@ -22,7 +22,8 @@ import {
   HTTPValidationError,
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
-import { SDKError } from "../models/errors/sdkerror.js";
+import { PolarError } from "../models/errors/polarerror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
   CustomerPortalBenefitGrantsListRequest,
@@ -58,13 +59,14 @@ export function customerPortalBenefitGrantsList(
     Result<
       CustomerPortalBenefitGrantsListResponse,
       | HTTPValidationError
-      | SDKError
-      | SDKValidationError
-      | UnexpectedClientError
-      | InvalidRequestError
+      | PolarError
+      | ResponseValidationError
+      | ConnectionError
       | RequestAbortedError
       | RequestTimeoutError
-      | ConnectionError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
     >,
     { page: number }
   >
@@ -88,13 +90,14 @@ async function $do(
       Result<
         CustomerPortalBenefitGrantsListResponse,
         | HTTPValidationError
-        | SDKError
-        | SDKValidationError
-        | UnexpectedClientError
-        | InvalidRequestError
+        | PolarError
+        | ResponseValidationError
+        | ConnectionError
         | RequestAbortedError
         | RequestTimeoutError
-        | ConnectionError
+        | InvalidRequestError
+        | UnexpectedClientError
+        | SDKValidationError
       >,
       { page: number }
     >,
@@ -190,13 +193,14 @@ async function $do(
   const [result, raw] = await M.match<
     CustomerPortalBenefitGrantsListResponse,
     | HTTPValidationError
-    | SDKError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | PolarError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >(
     M.json(200, CustomerPortalBenefitGrantsListResponse$inboundSchema, {
       key: "Result",
@@ -204,7 +208,7 @@ async function $do(
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
-  )(response, { extraFields: responseFields });
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
     return [haltIterator(result), {
       status: "complete",
@@ -220,13 +224,14 @@ async function $do(
       Result<
         CustomerPortalBenefitGrantsListResponse,
         | HTTPValidationError
-        | SDKError
-        | SDKValidationError
-        | UnexpectedClientError
-        | InvalidRequestError
+        | PolarError
+        | ResponseValidationError
+        | ConnectionError
         | RequestAbortedError
         | RequestTimeoutError
-        | ConnectionError
+        | InvalidRequestError
+        | UnexpectedClientError
+        | SDKValidationError
       >
     >;
     "~next"?: { page: number };

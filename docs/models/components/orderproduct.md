@@ -6,17 +6,15 @@
 import { OrderProduct } from "@polar-sh/sdk/models/components/orderproduct.js";
 
 let value: OrderProduct = {
-  metadata: {
-    "key": 100550,
-  },
-  createdAt: new Date("2023-06-01T03:16:51.095Z"),
+  metadata: {},
+  createdAt: new Date("2023-04-21T04:52:20.100Z"),
   modifiedAt: new Date("2024-08-23T10:14:02.533Z"),
   id: "<value>",
   name: "<value>",
-  description: "amongst parallel microblog though but",
+  description: "option impeccable pfft meh rawhide",
   recurringInterval: "year",
   isRecurring: false,
-  isArchived: false,
+  isArchived: true,
   organizationId: "<value>",
 };
 ```

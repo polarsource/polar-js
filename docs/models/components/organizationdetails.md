@@ -10,9 +10,9 @@ let value: OrganizationDetails = {
   productDescription: "<value>",
   intendedUse: "<value>",
   customerAcquisition: [
-    "<value>",
+    "<value 1>",
   ],
-  futureAnnualRevenue: 330907,
+  futureAnnualRevenue: 610140,
 };
 ```
 

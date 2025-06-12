@@ -8,15 +8,15 @@ import { CustomerCustomerMeter } from "@polar-sh/sdk/models/components/customerc
 let value: CustomerCustomerMeter = {
   id: "<value>",
   createdAt: new Date("2025-12-16T23:18:15.511Z"),
-  modifiedAt: new Date("2024-03-14T17:45:38.506Z"),
+  modifiedAt: new Date("2023-06-10T08:09:24.344Z"),
   customerId: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
   meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
   consumedUnits: 25,
   creditedUnits: 100,
   balance: 75,
   meter: {
-    createdAt: new Date("2023-06-10T08:09:24.344Z"),
-    modifiedAt: new Date("2023-08-24T19:08:34.581Z"),
+    createdAt: new Date("2025-10-22T08:20:44.088Z"),
+    modifiedAt: new Date("2023-06-24T10:10:24.566Z"),
     id: "<value>",
     name: "<value>",
   },

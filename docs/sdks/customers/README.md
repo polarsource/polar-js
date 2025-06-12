@@ -37,7 +37,6 @@ async function run() {
   });
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -63,16 +62,13 @@ async function run() {
   const res = await customersList(polar, {
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  for await (const page of result) {
-    // Handle the page
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
     console.log(page);
+  }
+  } else {
+    console.log("customersList failed:", res.error);
   }
 }
 
@@ -129,7 +125,6 @@ async function run() {
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -164,15 +159,12 @@ async function run() {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customersCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -218,7 +210,6 @@ async function run() {
     id: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -243,15 +234,12 @@ async function run() {
   const res = await customersGet(polar, {
     id: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customersGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -310,7 +298,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -347,15 +334,12 @@ async function run() {
       externalId: "usr_1337",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customersUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -438,14 +422,12 @@ async function run() {
   const res = await customersDelete(polar, {
     id: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("customersDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -492,7 +474,6 @@ async function run() {
     externalId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -517,15 +498,12 @@ async function run() {
   const res = await customersGetExternal(polar, {
     externalId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customersGetExternal failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -583,7 +561,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -619,15 +596,12 @@ async function run() {
       ],
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customersUpdateExternal failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -700,14 +674,12 @@ async function run() {
   const res = await customersDeleteExternal(polar, {
     externalId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("customersDeleteExternal failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -760,7 +732,6 @@ async function run() {
     id: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -785,15 +756,12 @@ async function run() {
   const res = await customersGetState(polar, {
     id: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customersGetState failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -846,7 +814,6 @@ async function run() {
     externalId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -871,15 +838,12 @@ async function run() {
   const res = await customersGetStateExternal(polar, {
     externalId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customersGetStateExternal failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

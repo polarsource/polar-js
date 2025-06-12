@@ -9,7 +9,8 @@ import { ProductBenefitsUpdate } from "@polar-sh/sdk/models/components/productbe
 
 let value: ProductBenefitsUpdate = {
   benefits: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
   ],
 };
 ```

@@ -13,31 +13,31 @@ const value: components.BenefitCycledEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-08-07T06:13:56.447Z"),
-    modifiedAt: new Date("2025-11-06T03:25:09.078Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": false,
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "SE",
+      country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2024-04-22T13:09:01.674Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "license_keys",
+    benefitType: "discord",
   },
 };
 ```
@@ -52,10 +52,10 @@ const value: components.BenefitGrantedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-03-21T07:47:56.812Z"),
-    modifiedAt: new Date("2023-10-01T05:46:38.819Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": 129350,
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -65,18 +65,18 @@ const value: components.BenefitGrantedEvent = {
       country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-01-20T03:19:00.486Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "meter_credit",
+    benefitType: "discord",
   },
 };
 ```
@@ -91,10 +91,10 @@ const value: components.BenefitRevokedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-11-02T19:42:49.301Z"),
-    modifiedAt: new Date("2024-09-03T08:37:30.499Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": 323380,
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -108,14 +108,14 @@ const value: components.BenefitRevokedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-03-10T16:31:09.424Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "downloadables",
+    benefitType: "discord",
   },
 };
 ```
@@ -130,10 +130,10 @@ const value: components.BenefitUpdatedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-05-05T15:55:36.615Z"),
-    modifiedAt: new Date("2023-05-15T07:11:41.870Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": 737808,
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -147,14 +147,14 @@ const value: components.BenefitUpdatedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-06-17T07:42:25.430Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "custom",
+    benefitType: "discord",
   },
 };
 ```
@@ -169,10 +169,10 @@ const value: components.MeterCreditEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-08-15T15:39:42.233Z"),
-    modifiedAt: new Date("2024-01-01T15:11:12.843Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": 2329.55,
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -182,18 +182,18 @@ const value: components.MeterCreditEvent = {
       country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-06-23T15:05:35.258Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",
   metadata: {
     meterId: "<id>",
-    units: 87738,
-    rollover: false,
+    units: 232955,
+    rollover: true,
   },
 };
 ```
@@ -208,10 +208,10 @@ const value: components.MeterResetEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-12-30T13:06:02.570Z"),
-    modifiedAt: new Date("2024-09-06T10:24:42.589Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": 922862,
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -225,7 +225,7 @@ const value: components.MeterResetEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2024-10-09T19:18:51.463Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",
