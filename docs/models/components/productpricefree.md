@@ -8,13 +8,13 @@ A free price for a product.
 import { ProductPriceFree } from "@polar-sh/sdk/models/components/productpricefree.js";
 
 let value: ProductPriceFree = {
-  createdAt: new Date("2023-10-13T21:05:43.693Z"),
-  modifiedAt: new Date("2025-09-24T19:21:04.401Z"),
+  createdAt: new Date("2023-09-10T01:59:19.952Z"),
+  modifiedAt: new Date("2023-06-15T13:47:01.466Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "one_time",
-  recurringInterval: "month",
+  type: "recurring",
+  recurringInterval: "year",
 };
 ```
 

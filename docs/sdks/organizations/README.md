@@ -29,7 +29,6 @@ async function run() {
   const result = await polar.organizations.list({});
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -53,16 +52,13 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await organizationsList(polar, {});
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  for await (const page of result) {
-    // Handle the page
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
     console.log(page);
+  }
+  } else {
+    console.log("organizationsList failed:", res.error);
   }
 }
 
@@ -110,7 +106,6 @@ async function run() {
     slug: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -136,15 +131,12 @@ async function run() {
     name: "<value>",
     slug: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("organizationsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -190,7 +182,6 @@ async function run() {
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -215,15 +206,12 @@ async function run() {
   const res = await organizationsGet(polar, {
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("organizationsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -271,7 +259,6 @@ async function run() {
     organizationUpdate: {},
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -297,15 +284,12 @@ async function run() {
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     organizationUpdate: {},
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("organizationsUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

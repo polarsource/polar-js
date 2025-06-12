@@ -8,31 +8,29 @@ import { BenefitCustomSubscriber } from "@polar-sh/sdk/models/components/benefit
 let value: BenefitCustomSubscriber = {
   id: "<value>",
   createdAt: new Date("2025-11-30T04:35:35.570Z"),
-  modifiedAt: new Date("2024-02-26T07:33:16.529Z"),
+  modifiedAt: new Date("2025-09-04T05:38:30.963Z"),
   description:
-    "woot self-assured lovingly midst come however norm gee legitimize bah",
+    "innocently selfish hence manner manner climb reasoning mentor upside-down at",
   selectable: false,
-  deletable: false,
+  deletable: true,
   organizationId: "<value>",
-  metadata: {
-    "key": "<value>",
-  },
+  metadata: {},
   organization: {
-    createdAt: new Date("2025-10-18T09:14:25.735Z"),
-    modifiedAt: new Date("2023-05-18T17:21:37.773Z"),
+    createdAt: new Date("2025-10-05T12:57:48.267Z"),
+    modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://whimsical-onset.name/",
-    email: "Arianna_Kulas13@gmail.com",
+    avatarUrl: "https://medium-object.org",
+    email: "Elena.Barton@hotmail.com",
     website: "<value>",
     socials: [
       {
-        platform: "tiktok",
-        url: "https://fragrant-bar.name",
+        platform: "youtube",
+        url: "https://expert-elevation.org",
       },
     ],
-    detailsSubmittedAt: new Date("2024-06-25T05:00:31.676Z"),
+    detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,

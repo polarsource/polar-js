@@ -9,26 +9,24 @@ import { SubscriptionMeter } from "@polar-sh/sdk/models/components/subscriptionm
 
 let value: SubscriptionMeter = {
   createdAt: new Date("2024-12-11T10:04:45.653Z"),
-  modifiedAt: new Date("2023-09-01T23:39:35.995Z"),
+  modifiedAt: new Date("2025-08-17T04:20:39.632Z"),
   id: "<value>",
   consumedUnits: 25,
   creditedUnits: 100,
   amount: 0,
   meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
   meter: {
-    metadata: {
-      "key": false,
-    },
-    createdAt: new Date("2023-09-27T12:45:23.148Z"),
-    modifiedAt: new Date("2023-09-28T00:55:30.553Z"),
+    metadata: {},
+    createdAt: new Date("2023-04-30T10:26:58.812Z"),
+    modifiedAt: new Date("2025-02-17T07:09:21.144Z"),
     id: "<value>",
     name: "<value>",
     filter: {
-      conjunction: "and",
+      conjunction: "or",
       clauses: [],
     },
     aggregation: {
-      func: "max",
+      func: "avg",
       property: "<value>",
     },
     organizationId: "<value>",

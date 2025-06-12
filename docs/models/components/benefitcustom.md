@@ -11,14 +11,14 @@ import { BenefitCustom } from "@polar-sh/sdk/models/components/benefitcustom.js"
 
 let value: BenefitCustom = {
   id: "<value>",
-  createdAt: new Date("2024-11-04T05:40:36.718Z"),
-  modifiedAt: new Date("2025-01-01T00:20:21.826Z"),
-  description: "yet solemnly cleave until",
+  createdAt: new Date("2023-08-26T14:42:37.044Z"),
+  modifiedAt: new Date("2024-04-13T00:00:15.234Z"),
+  description: "how nor limited scoff ownership",
   selectable: false,
-  deletable: false,
+  deletable: true,
   organizationId: "<value>",
   metadata: {
-    "key": 397373,
+    "key": 936136,
   },
   properties: {
     note: "<value>",

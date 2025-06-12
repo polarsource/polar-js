@@ -7,7 +7,6 @@ import { CustomFieldsUpdateRequest } from "@polar-sh/sdk/models/operations/custo
 
 let value: CustomFieldsUpdateRequest = {
   id: "<value>",
-  customFieldUpdate: {},
 };
 ```
 

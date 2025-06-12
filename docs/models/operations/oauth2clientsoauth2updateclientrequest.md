@@ -7,13 +7,6 @@ import { Oauth2ClientsOauth2UpdateClientRequest } from "@polar-sh/sdk/models/ope
 
 let value: Oauth2ClientsOauth2UpdateClientRequest = {
   clientId: "<id>",
-  oAuth2ClientConfigurationUpdate: {
-    redirectUris: [
-      "https://abandoned-mobility.info",
-    ],
-    clientName: "<value>",
-    clientId: "<id>",
-  },
 };
 ```
 

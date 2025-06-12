@@ -8,16 +8,16 @@
 ```typescript
 const value: components.ProductPriceCustom = {
   createdAt: new Date("2023-06-12T19:38:31.503Z"),
-  modifiedAt: new Date("2023-09-25T15:00:34.865Z"),
+  modifiedAt: new Date("2025-07-14T10:09:27.768Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "recurring",
+  type: "one_time",
   recurringInterval: "year",
   priceCurrency: "<value>",
-  minimumAmount: 9926,
-  maximumAmount: 338033,
-  presetAmount: 867213,
+  minimumAmount: 508827,
+  maximumAmount: 793062,
+  presetAmount: 879510,
 };
 ```
 
@@ -26,14 +26,14 @@ const value: components.ProductPriceCustom = {
 ```typescript
 const value: components.ProductPriceFixed = {
   createdAt: new Date("2025-12-26T12:23:44.317Z"),
-  modifiedAt: new Date("2025-07-03T15:28:37.002Z"),
+  modifiedAt: new Date("2025-06-01T02:05:27.121Z"),
   id: "<value>",
-  isArchived: false,
+  isArchived: true,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "month",
+  recurringInterval: "year",
   priceCurrency: "<value>",
-  priceAmount: 593331,
+  priceAmount: 286494,
 };
 ```
 
@@ -42,11 +42,11 @@ const value: components.ProductPriceFixed = {
 ```typescript
 const value: components.ProductPriceFree = {
   createdAt: new Date("2023-09-10T01:59:19.952Z"),
-  modifiedAt: new Date("2024-10-07T22:48:38.896Z"),
+  modifiedAt: new Date("2023-06-15T13:47:01.466Z"),
   id: "<value>",
   isArchived: false,
   productId: "<value>",
-  type: "one_time",
+  type: "recurring",
   recurringInterval: "year",
 };
 ```
@@ -56,7 +56,7 @@ const value: components.ProductPriceFree = {
 ```typescript
 const value: components.ProductPriceMeteredUnit = {
   createdAt: new Date("2023-10-22T15:18:33.510Z"),
-  modifiedAt: new Date("2023-02-10T09:49:20.536Z"),
+  modifiedAt: null,
   id: "<value>",
   isArchived: false,
   productId: "<value>",
@@ -64,7 +64,7 @@ const value: components.ProductPriceMeteredUnit = {
   recurringInterval: "year",
   priceCurrency: "<value>",
   unitAmount: "<value>",
-  capAmount: 912776,
+  capAmount: 700651,
   meterId: "<value>",
   meter: {
     id: "<value>",

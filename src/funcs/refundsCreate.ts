@@ -26,6 +26,7 @@ import {
   HTTPValidationError,
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
+import { PolarError } from "../models/errors/polarerror.js";
 import {
   RefundAmountTooHigh,
   RefundAmountTooHigh$inboundSchema,
@@ -34,7 +35,7 @@ import {
   RefundedAlready,
   RefundedAlready$inboundSchema,
 } from "../models/errors/refundedalready.js";
-import { SDKError } from "../models/errors/sdkerror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -57,13 +58,14 @@ export function refundsCreate(
     | RefundAmountTooHigh
     | RefundedAlready
     | HTTPValidationError
-    | SDKError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | PolarError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >
 > {
   return new APIPromise($do(
@@ -84,13 +86,14 @@ async function $do(
       | RefundAmountTooHigh
       | RefundedAlready
       | HTTPValidationError
-      | SDKError
-      | SDKValidationError
-      | UnexpectedClientError
-      | InvalidRequestError
+      | PolarError
+      | ResponseValidationError
+      | ConnectionError
       | RequestAbortedError
       | RequestTimeoutError
-      | ConnectionError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
     >,
     APICall,
   ]
@@ -167,13 +170,14 @@ async function $do(
     | RefundAmountTooHigh
     | RefundedAlready
     | HTTPValidationError
-    | SDKError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | PolarError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >(
     M.json(200, Refund$inboundSchema.optional()),
     M.nil(201, Refund$inboundSchema.optional()),
@@ -182,7 +186,7 @@ async function $do(
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
-  )(response, { extraFields: responseFields });
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
   }

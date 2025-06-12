@@ -11,17 +11,15 @@ import { BenefitMeterCredit } from "@polar-sh/sdk/models/components/benefitmeter
 
 let value: BenefitMeterCredit = {
   id: "<value>",
-  createdAt: new Date("2023-08-25T12:13:00.837Z"),
-  modifiedAt: new Date("2024-07-31T23:01:40.559Z"),
-  description: "drat failing or numeracy",
-  selectable: false,
+  createdAt: new Date("2025-07-13T02:35:52.595Z"),
+  modifiedAt: new Date("2025-08-26T02:40:11.876Z"),
+  description: "pish than huzzah rekindle lively approximate against meal",
+  selectable: true,
   deletable: false,
   organizationId: "<value>",
-  metadata: {
-    "key": 1663.34,
-  },
+  metadata: {},
   properties: {
-    units: 41510,
+    units: 298008,
     rollover: false,
     meterId: "<value>",
   },

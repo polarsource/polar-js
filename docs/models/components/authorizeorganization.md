@@ -8,7 +8,7 @@ import { AuthorizeOrganization } from "@polar-sh/sdk/models/components/authorize
 let value: AuthorizeOrganization = {
   id: "<value>",
   slug: "<value>",
-  avatarUrl: "https://leading-flint.name",
+  avatarUrl: "https://grounded-lift.biz/",
 };
 ```
 

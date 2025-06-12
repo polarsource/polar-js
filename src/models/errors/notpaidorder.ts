@@ -3,26 +3,29 @@
  */
 
 import * as z from "zod";
+import { PolarError } from "./polarerror.js";
 
 export type NotPaidOrderData = {
   error: "NotPaidOrder";
   detail: string;
 };
 
-export class NotPaidOrder extends Error {
+export class NotPaidOrder extends PolarError {
   error: "NotPaidOrder";
   detail: string;
 
   /** The original data that was passed to this error instance. */
   data$: NotPaidOrderData;
 
-  constructor(err: NotPaidOrderData) {
+  constructor(
+    err: NotPaidOrderData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.error = err.error;
     this.detail = err.detail;
 
@@ -38,9 +41,16 @@ export const NotPaidOrder$inboundSchema: z.ZodType<
 > = z.object({
   error: z.literal("NotPaidOrder"),
   detail: z.string(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new NotPaidOrder(v);
+    return new NotPaidOrder(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

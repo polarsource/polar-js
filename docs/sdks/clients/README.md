@@ -28,7 +28,6 @@ async function run() {
   const result = await polar.oauth2.clients.list({});
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -52,16 +51,13 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await oauth2ClientsList(polar, {});
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  for await (const page of result) {
-    // Handle the page
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
     console.log(page);
+  }
+  } else {
+    console.log("oauth2ClientsList failed:", res.error);
   }
 }
 
@@ -110,7 +106,6 @@ async function run() {
     clientName: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -139,15 +134,12 @@ async function run() {
     ],
     clientName: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("oauth2ClientsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -191,7 +183,6 @@ async function run() {
     clientId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -216,15 +207,12 @@ async function run() {
   const res = await oauth2ClientsGet(polar, {
     clientId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("oauth2ClientsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -276,7 +264,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -309,15 +296,12 @@ async function run() {
       clientId: "<id>",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("oauth2ClientsUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -361,7 +345,6 @@ async function run() {
     clientId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -386,15 +369,12 @@ async function run() {
   const res = await oauth2ClientsDelete(polar, {
     clientId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("oauth2ClientsDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

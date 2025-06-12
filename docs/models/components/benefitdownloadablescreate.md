@@ -6,11 +6,12 @@
 import { BenefitDownloadablesCreate } from "@polar-sh/sdk/models/components/benefitdownloadablescreate.js";
 
 let value: BenefitDownloadablesCreate = {
-  description: "anti questionable yippee unlike",
+  description: "mortally violent horst puff role toward",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
     files: [
-      "<value>",
+      "<value 1>",
+      "<value 2>",
     ],
   },
 };

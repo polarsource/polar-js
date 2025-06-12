@@ -11,17 +11,17 @@ let value: AttachedCustomField = {
   customFieldId: "<value>",
   customField: {
     createdAt: new Date("2024-10-12T09:35:12.807Z"),
-    modifiedAt: new Date("2025-01-25T21:47:47.062Z"),
+    modifiedAt: new Date("2025-02-09T05:41:16.244Z"),
     id: "<value>",
     metadata: {
-      "key": 5948.26,
+      "key": false,
     },
     slug: "<value>",
     name: "<value>",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     properties: {},
   },
-  order: 819777,
+  order: 193851,
   required: false,
 };
 ```

@@ -29,7 +29,6 @@ async function run() {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -52,15 +51,12 @@ async function run() {
   const res = await customerPortalCustomersGet(polar, {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customerPortalCustomersGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -107,7 +103,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -134,15 +129,12 @@ async function run() {
       country: "US",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customerPortalCustomersUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -188,7 +180,6 @@ async function run() {
   }, {});
 
   for await (const page of result) {
-    // Handle the page
     console.log(page);
   }
 }
@@ -212,16 +203,13 @@ async function run() {
   const res = await customerPortalCustomersGetPaymentMethods(polar, {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   }, {});
-
-  if (!res.ok) {
-    throw res.error;
-  }
-
-  const { value: result } = res;
-
-  for await (const page of result) {
-    // Handle the page
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
     console.log(page);
+  }
+  } else {
+    console.log("customerPortalCustomersGetPaymentMethods failed:", res.error);
   }
 }
 
@@ -271,7 +259,6 @@ async function run() {
     returnUrl: "https://yearly-custom.net/",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -298,15 +285,12 @@ async function run() {
     setDefault: false,
     returnUrl: "https://yearly-custom.net/",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customerPortalCustomersAddPaymentMethod failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -377,14 +361,12 @@ async function run() {
   }, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("customerPortalCustomersDeletePaymentMethod failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();

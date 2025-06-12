@@ -7,11 +7,6 @@ import { CheckoutsClientUpdateRequest } from "@polar-sh/sdk/models/operations/ch
 
 let value: CheckoutsClientUpdateRequest = {
   clientSecret: "<value>",
-  checkoutUpdatePublic: {
-    customerBillingAddress: {
-      country: "US",
-    },
-  },
 };
 ```
 

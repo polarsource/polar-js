@@ -7,7 +7,8 @@ import { BenefitDownloadablesSubscriberProperties } from "@polar-sh/sdk/models/c
 
 let value: BenefitDownloadablesSubscriberProperties = {
   activeFiles: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
   ],
 };
 ```

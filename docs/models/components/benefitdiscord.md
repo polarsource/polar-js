@@ -11,15 +11,14 @@ import { BenefitDiscord } from "@polar-sh/sdk/models/components/benefitdiscord.j
 
 let value: BenefitDiscord = {
   id: "<value>",
-  createdAt: new Date("2024-08-26T18:05:27.237Z"),
-  modifiedAt: new Date("2024-03-07T01:32:52.206Z"),
-  description:
-    "justly innocently qua broadcast vestment amongst scholarship sleepily partridge",
+  createdAt: new Date("2025-05-26T06:25:53.245Z"),
+  modifiedAt: new Date("2024-12-27T10:01:08.309Z"),
+  description: "after incidentally whose",
   selectable: false,
-  deletable: false,
+  deletable: true,
   organizationId: "<value>",
   metadata: {
-    "key": 545672,
+    "key": 337726,
   },
   properties: {
     guildId: "<id>",

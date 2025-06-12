@@ -13,18 +13,16 @@ let value: WebhookBenefitUpdatedPayload = {
   data: {
     id: "<value>",
     createdAt: new Date("2024-05-19T01:49:21.918Z"),
-    modifiedAt: new Date("2024-08-16T12:57:27.941Z"),
-    description: "cripple across impure dishonor",
-    selectable: false,
-    deletable: false,
+    modifiedAt: new Date("2023-08-26T23:40:36.460Z"),
+    description: "hotfoot than fortunately woefully unlawful yuck pfft apud",
+    selectable: true,
+    deletable: true,
     organizationId: "<value>",
-    metadata: {
-      "key": false,
-    },
+    metadata: {},
     properties: {
       repositoryOwner: "polarsource",
       repositoryName: "private_repo",
-      permission: "maintain",
+      permission: "admin",
     },
   },
 };

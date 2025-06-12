@@ -10,12 +10,12 @@ A free recurring price for a product, i.e. a subscription.
 import { LegacyRecurringProductPriceFree } from "@polar-sh/sdk/models/components/legacyrecurringproductpricefree.js";
 
 let value: LegacyRecurringProductPriceFree = {
-  createdAt: new Date("2023-05-24T07:15:15.317Z"),
-  modifiedAt: new Date("2025-09-19T22:00:41.278Z"),
+  createdAt: new Date("2024-05-26T22:02:46.951Z"),
+  modifiedAt: new Date("2025-07-18T18:38:40.552Z"),
   id: "<value>",
-  isArchived: false,
+  isArchived: true,
   productId: "<value>",
-  recurringInterval: "month",
+  recurringInterval: "year",
 };
 ```
 

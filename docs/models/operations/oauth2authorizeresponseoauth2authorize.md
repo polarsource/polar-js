@@ -10,23 +10,21 @@ Successful Response
 ```typescript
 const value: components.AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2025-11-06T09:00:45.294Z"),
-    modifiedAt: new Date("2024-02-13T01:48:54.322Z"),
+    createdAt: new Date("2024-01-29T12:13:57.857Z"),
+    modifiedAt: new Date("2024-10-29T18:01:51.537Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://awful-synergy.name",
-    logoUri: "https://hard-to-find-chapel.com/",
-    tosUri: "https://experienced-address.biz",
-    policyUri: "https://tiny-glider.name",
+    clientUri: "https://unhappy-kit.name/",
+    logoUri: "https://gifted-celsius.org",
+    tosUri: null,
+    policyUri: "https://somber-populist.org",
   },
   sub: {
     id: "<value>",
-    email: "Beau67@gmail.com",
-    avatarUrl: "https://forceful-fledgling.com/",
+    email: "Ignacio35@gmail.com",
+    avatarUrl: "https://soulful-minion.net",
   },
-  scopes: [
-    "customers:write",
-  ],
+  scopes: [],
 };
 ```
 
@@ -35,30 +33,22 @@ const value: components.AuthorizeResponseUser = {
 ```typescript
 const value: components.AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2024-05-19T17:17:33.198Z"),
-    modifiedAt: new Date("2023-03-20T13:31:10.189Z"),
+    createdAt: new Date("2024-01-29T12:13:57.857Z"),
+    modifiedAt: new Date("2024-10-29T18:01:51.537Z"),
     clientId: "<id>",
     clientName: "<value>",
-    clientUri: "https://limping-cafe.info/",
-    logoUri: "https://parallel-vibraphone.com/",
-    tosUri: "https://querulous-elevator.com/",
-    policyUri: "https://puzzled-equal.com/",
+    clientUri: "https://unhappy-kit.name/",
+    logoUri: "https://gifted-celsius.org",
+    tosUri: null,
+    policyUri: "https://somber-populist.org",
   },
   sub: {
     id: "<value>",
     slug: "<value>",
-    avatarUrl: "https://usable-premise.org",
+    avatarUrl: "https://obvious-simple.name/",
   },
-  scopes: [
-    "meters:read",
-  ],
-  organizations: [
-    {
-      id: "<value>",
-      slug: "<value>",
-      avatarUrl: "https://innocent-league.com",
-    },
-  ],
+  scopes: [],
+  organizations: [],
 };
 ```
 

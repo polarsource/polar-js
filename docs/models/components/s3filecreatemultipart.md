@@ -6,13 +6,7 @@
 import { S3FileCreateMultipart } from "@polar-sh/sdk/models/components/s3filecreatemultipart.js";
 
 let value: S3FileCreateMultipart = {
-  parts: [
-    {
-      number: 420928,
-      chunkStart: 106471,
-      chunkEnd: 8097,
-    },
-  ],
+  parts: [],
 };
 ```
 

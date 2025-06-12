@@ -7,7 +7,6 @@ import { CheckoutLinksUpdateRequest } from "@polar-sh/sdk/models/operations/chec
 
 let value: CheckoutLinksUpdateRequest = {
   id: "<value>",
-  checkoutLinkUpdate: {},
 };
 ```
 

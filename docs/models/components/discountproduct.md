@@ -9,13 +9,13 @@ import { DiscountProduct } from "@polar-sh/sdk/models/components/discountproduct
 
 let value: DiscountProduct = {
   metadata: {
-    "key": false,
+    "key": "<value>",
   },
-  createdAt: new Date("2023-01-15T11:39:37.097Z"),
-  modifiedAt: new Date("2023-10-14T18:44:12.681Z"),
+  createdAt: new Date("2023-10-14T18:44:12.681Z"),
+  modifiedAt: null,
   id: "<value>",
   name: "<value>",
-  description: "siege subtle sharply",
+  description: "shanghai milky knowingly purple",
   recurringInterval: "month",
   isRecurring: false,
   isArchived: false,

@@ -8,15 +8,7 @@ import { S3FileUploadMultipart } from "@polar-sh/sdk/models/components/s3fileupl
 let value: S3FileUploadMultipart = {
   id: "<id>",
   path: "/var/log",
-  parts: [
-    {
-      number: 176416,
-      chunkStart: 907120,
-      chunkEnd: 196272,
-      url: "https://total-apparatus.net/",
-      expiresAt: new Date("2024-02-22T23:29:14.285Z"),
-    },
-  ],
+  parts: [],
 };
 ```
 

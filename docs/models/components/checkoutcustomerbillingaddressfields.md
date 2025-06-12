@@ -7,9 +7,9 @@ import { CheckoutCustomerBillingAddressFields } from "@polar-sh/sdk/models/compo
 
 let value: CheckoutCustomerBillingAddressFields = {
   country: false,
-  state: false,
+  state: true,
   city: false,
-  postalCode: false,
+  postalCode: true,
   line1: false,
   line2: false,
 };

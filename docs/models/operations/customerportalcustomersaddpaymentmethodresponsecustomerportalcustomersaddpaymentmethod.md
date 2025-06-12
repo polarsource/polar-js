@@ -15,8 +15,8 @@ const value: components.PaymentMethodCard = {
   card: {
     brand: "<value>",
     last4: "<value>",
-    expMonth: 668136,
-    expYear: 637348,
+    expMonth: 637348,
+    expYear: 438108,
   },
 };
 ```

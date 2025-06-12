@@ -7,12 +7,6 @@ import { CustomerPortalOrdersUpdateRequest } from "@polar-sh/sdk/models/operatio
 
 let value: CustomerPortalOrdersUpdateRequest = {
   id: "<value>",
-  customerOrderUpdate: {
-    billingName: "<value>",
-    billingAddress: {
-      country: "US",
-    },
-  },
 };
 ```
 

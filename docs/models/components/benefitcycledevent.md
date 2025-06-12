@@ -9,36 +9,36 @@ import { BenefitCycledEvent } from "@polar-sh/sdk/models/components/benefitcycle
 
 let value: BenefitCycledEvent = {
   id: "<value>",
-  timestamp: new Date("2025-12-29T21:24:04.995Z"),
+  timestamp: new Date("2025-08-07T21:09:06.819Z"),
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-09-19T15:06:10.304Z"),
-    modifiedAt: new Date("2025-03-27T10:41:52.950Z"),
+    createdAt: new Date("2023-07-12T03:53:00.913Z"),
+    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
     metadata: {
-      "key": 564838,
+      "key": 5951.8,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
     billingAddress: {
-      country: "FR",
+      country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2023-09-01T18:51:46.236Z"),
+    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
   },
   externalCustomerId: "<id>",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "license_keys",
+    benefitType: "discord",
   },
 };
 ```

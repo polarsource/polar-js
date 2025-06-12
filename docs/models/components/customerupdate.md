@@ -12,8 +12,8 @@ let value: CustomerUpdate = {
     country: "US",
   },
   taxId: [
-    "FR61954506077",
-    "eu_vat",
+    "911144442",
+    "us_ein",
   ],
   externalId: "usr_1337",
 };

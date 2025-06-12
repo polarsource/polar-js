@@ -8,10 +8,11 @@ import { BenefitPublic } from "@polar-sh/sdk/models/components/benefitpublic.js"
 let value: BenefitPublic = {
   id: "<value>",
   createdAt: new Date("2023-09-22T15:44:06.701Z"),
-  modifiedAt: new Date("2024-07-03T19:58:12.825Z"),
-  type: "github_repository",
-  description: "orchid lest next before through hunger for abaft plumber",
-  selectable: false,
+  modifiedAt: new Date("2024-03-01T14:28:24.069Z"),
+  type: "license_keys",
+  description:
+    "pro hm jubilant though stupendous straw bookend longingly around",
+  selectable: true,
   deletable: false,
   organizationId: "<value>",
 };

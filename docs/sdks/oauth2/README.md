@@ -27,7 +27,6 @@ const polar = new Polar({
 async function run() {
   const result = await polar.oauth2.authorize();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -50,15 +49,12 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await oauth2Authorize(polar);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("oauth2Authorize failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -101,7 +97,6 @@ async function run() {
     redirectUri: "https://memorable-season.name",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -127,15 +122,12 @@ async function run() {
     code: "<value>",
     redirectUri: "https://memorable-season.name",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("oauth2Token failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -178,7 +170,6 @@ async function run() {
     clientSecret: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -203,15 +194,12 @@ async function run() {
     clientId: "<id>",
     clientSecret: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("oauth2Revoke failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -254,7 +242,6 @@ async function run() {
     clientSecret: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -279,15 +266,12 @@ async function run() {
     clientId: "<id>",
     clientSecret: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("oauth2Introspect failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -328,7 +312,6 @@ const polar = new Polar({
 async function run() {
   const result = await polar.oauth2.userinfo();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -351,15 +334,12 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await oauth2Userinfo(polar);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("oauth2Userinfo failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

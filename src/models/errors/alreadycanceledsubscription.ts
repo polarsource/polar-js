@@ -3,26 +3,29 @@
  */
 
 import * as z from "zod";
+import { PolarError } from "./polarerror.js";
 
 export type AlreadyCanceledSubscriptionData = {
   error: "AlreadyCanceledSubscription";
   detail: string;
 };
 
-export class AlreadyCanceledSubscription extends Error {
+export class AlreadyCanceledSubscription extends PolarError {
   error: "AlreadyCanceledSubscription";
   detail: string;
 
   /** The original data that was passed to this error instance. */
   data$: AlreadyCanceledSubscriptionData;
 
-  constructor(err: AlreadyCanceledSubscriptionData) {
+  constructor(
+    err: AlreadyCanceledSubscriptionData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.error = err.error;
     this.detail = err.detail;
 
@@ -38,9 +41,16 @@ export const AlreadyCanceledSubscription$inboundSchema: z.ZodType<
 > = z.object({
   error: z.literal("AlreadyCanceledSubscription"),
   detail: z.string(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new AlreadyCanceledSubscription(v);
+    return new AlreadyCanceledSubscription(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

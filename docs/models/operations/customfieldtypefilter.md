@@ -15,7 +15,7 @@ const value: components.CustomFieldType = "date";
 
 ```typescript
 const value: components.CustomFieldType[] = [
-  "select",
+  "text",
 ];
 ```
 

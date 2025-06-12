@@ -14,16 +14,16 @@ let value: ProductMediaFileRead = {
   path: "/var/spool",
   mimeType: "<value>",
   size: 450045,
-  storageVersion: "<value>",
+  storageVersion: null,
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2023-03-26T10:50:20.114Z"),
+  lastModifiedAt: new Date("2024-04-22T16:40:31.898Z"),
   version: "<value>",
-  isUploaded: false,
-  createdAt: new Date("2023-04-24T18:25:32.554Z"),
+  isUploaded: true,
+  createdAt: new Date("2024-06-21T23:30:25.601Z"),
   sizeReadable: "<value>",
-  publicUrl: "https://tiny-teriyaki.info/",
+  publicUrl: "https://close-spirit.org",
 };
 ```
 

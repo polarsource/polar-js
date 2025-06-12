@@ -3,26 +3,29 @@
  */
 
 import * as z from "zod";
+import { PolarError } from "./polarerror.js";
 
 export type PaymentErrorData = {
   error: "PaymentError";
   detail: string;
 };
 
-export class PaymentError extends Error {
+export class PaymentError extends PolarError {
   error: "PaymentError";
   detail: string;
 
   /** The original data that was passed to this error instance. */
   data$: PaymentErrorData;
 
-  constructor(err: PaymentErrorData) {
+  constructor(
+    err: PaymentErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.error = err.error;
     this.detail = err.detail;
 
@@ -38,9 +41,16 @@ export const PaymentError$inboundSchema: z.ZodType<
 > = z.object({
   error: z.literal("PaymentError"),
   detail: z.string(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new PaymentError(v);
+    return new PaymentError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

@@ -18,14 +18,15 @@ const value: number = 128403;
 ### `boolean`
 
 ```typescript
-const value: boolean = false;
+const value: boolean = true;
 ```
 
 ### `string[]`
 
 ```typescript
 const value: string[] = [
-  "<value>",
+  "<value 1>",
+  "<value 2>",
 ];
 ```
 
@@ -33,7 +34,9 @@ const value: string[] = [
 
 ```typescript
 const value: number[] = [
-  986366,
+  339048,
+  133621,
+  943799,
 ];
 ```
 
@@ -41,7 +44,7 @@ const value: number[] = [
 
 ```typescript
 const value: boolean[] = [
-  false,
+  true,
 ];
 ```
 

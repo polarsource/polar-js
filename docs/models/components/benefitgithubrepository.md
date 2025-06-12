@@ -11,11 +11,11 @@ import { BenefitGitHubRepository } from "@polar-sh/sdk/models/components/benefit
 
 let value: BenefitGitHubRepository = {
   id: "<value>",
-  createdAt: new Date("2025-05-21T23:00:10.312Z"),
-  modifiedAt: new Date("2025-03-02T20:10:49.911Z"),
-  description: "apud runway as among",
-  selectable: false,
-  deletable: false,
+  createdAt: new Date("2025-09-20T17:50:31.812Z"),
+  modifiedAt: new Date("2023-09-09T10:06:16.908Z"),
+  description: "hoarse secrecy entwine stunning energetically",
+  selectable: true,
+  deletable: true,
   organizationId: "<value>",
   metadata: {
     "key": false,
@@ -23,7 +23,7 @@ let value: BenefitGitHubRepository = {
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",
-    permission: "pull",
+    permission: "admin",
   },
 };
 ```

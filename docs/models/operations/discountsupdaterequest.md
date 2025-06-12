@@ -7,7 +7,6 @@ import { DiscountsUpdateRequest } from "@polar-sh/sdk/models/operations/discount
 
 let value: DiscountsUpdateRequest = {
   id: "<value>",
-  discountUpdate: {},
 };
 ```
 

@@ -9,32 +9,23 @@ let value: ListResourceBenefit = {
   items: [
     {
       id: "<value>",
-      createdAt: new Date("2023-09-27T12:36:24.812Z"),
-      modifiedAt: new Date("2024-11-08T01:17:28.121Z"),
-      description: "yippee license annual",
-      selectable: false,
-      deletable: false,
+      createdAt: new Date("2024-11-08T01:17:28.121Z"),
+      modifiedAt: null,
+      description: "hyena sarong under",
+      selectable: true,
+      deletable: true,
       organizationId: "<value>",
-      metadata: {
-        "key": false,
-      },
+      metadata: {},
       properties: {
-        prefix: "<value>",
-        expires: {
-          ttl: 390938,
-          timeframe: "month",
-        },
-        activations: {
-          limit: 66465,
-          enableCustomerAdmin: false,
-        },
-        limitUsage: 116937,
+        guildId: "<id>",
+        roleId: "<id>",
+        guildToken: "<value>",
       },
     },
   ],
   pagination: {
-    totalCount: 737180,
-    maxPage: 91241,
+    totalCount: 47105,
+    maxPage: 607201,
   },
 };
 ```

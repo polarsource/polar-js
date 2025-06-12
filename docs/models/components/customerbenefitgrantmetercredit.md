@@ -6,11 +6,11 @@
 import { CustomerBenefitGrantMeterCredit } from "@polar-sh/sdk/models/components/customerbenefitgrantmetercredit.js";
 
 let value: CustomerBenefitGrantMeterCredit = {
-  createdAt: new Date("2025-05-03T01:40:46.344Z"),
-  modifiedAt: new Date("2025-12-06T01:26:55.407Z"),
+  createdAt: new Date("2024-04-14T20:11:35.311Z"),
+  modifiedAt: new Date("2025-05-18T14:47:11.111Z"),
   id: "<value>",
-  grantedAt: new Date("2024-08-19T02:38:27.858Z"),
-  revokedAt: new Date("2025-02-04T14:22:46.766Z"),
+  grantedAt: new Date("2025-12-27T05:01:17.641Z"),
+  revokedAt: new Date("2023-04-01T11:45:01.104Z"),
   customerId: "<value>",
   benefitId: "<value>",
   subscriptionId: "<value>",
@@ -18,18 +18,18 @@ let value: CustomerBenefitGrantMeterCredit = {
   isGranted: false,
   isRevoked: false,
   customer: {
-    createdAt: new Date("2023-05-21T14:56:07.287Z"),
-    modifiedAt: new Date("2023-07-14T06:34:38.265Z"),
+    createdAt: new Date("2025-10-07T04:17:24.786Z"),
+    modifiedAt: new Date("2025-05-05T02:01:44.871Z"),
     id: "<value>",
-    email: "Sonia.Blanda84@hotmail.com",
-    emailVerified: false,
+    email: "Sedrick_Paucek@hotmail.com",
+    emailVerified: true,
     name: "<value>",
     billingAddress: {
-      country: "FR",
+      country: "US",
     },
     taxId: [
-      "FR61954506077",
-      "eu_vat",
+      "911144442",
+      "us_ein",
     ],
     oauthAccounts: {
       "key": {
@@ -40,48 +40,46 @@ let value: CustomerBenefitGrantMeterCredit = {
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-01-01T07:06:15.468Z"),
-    modifiedAt: new Date("2025-10-06T19:40:41.293Z"),
+    createdAt: new Date("2023-07-10T03:04:33.155Z"),
+    modifiedAt: new Date("2023-06-26T20:31:24.411Z"),
     description:
-      "vaguely quarrelsomely rarely for make playfully bobble tightly",
+      "yowza er dreamily gadzooks eventually outrun playfully mortally",
     selectable: false,
-    deletable: false,
+    deletable: true,
     organizationId: "<value>",
-    metadata: {
-      "key": false,
-    },
+    metadata: {},
     organization: {
-      createdAt: new Date("2024-06-28T19:25:45.361Z"),
-      modifiedAt: new Date("2025-03-23T09:19:48.253Z"),
+      createdAt: new Date("2025-10-05T12:57:48.267Z"),
+      modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://cruel-sermon.com/",
-      email: "Carlotta_Von11@hotmail.com",
+      avatarUrl: "https://medium-object.org",
+      email: "Elena.Barton@hotmail.com",
       website: "<value>",
       socials: [
         {
-          platform: "linkedin",
-          url: "https://lanky-trolley.biz",
+          platform: "youtube",
+          url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-12T16:49:55.391Z"),
+      detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
-        prorationBehavior: "invoice",
+        prorationBehavior: "prorate",
       },
     },
     properties: {
-      units: 903336,
-      rollover: false,
+      units: 430943,
+      rollover: true,
       meterId: "<value>",
     },
   },
   properties: {
     lastCreditedMeterId: "<id>",
-    lastCreditedUnits: 530974,
+    lastCreditedUnits: 736819,
     lastCreditedAt: "<value>",
   },
 };
