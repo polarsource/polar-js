@@ -623,6 +623,16 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [update](docs/sdks/subscriptions/README.md#update) - Update Subscription
 * [revoke](docs/sdks/subscriptions/README.md#revoke) - Revoke Subscription
 
+### [webhooks](docs/sdks/webhooks/README.md)
+
+* [listWebhookEndpoints](docs/sdks/webhooks/README.md#listwebhookendpoints) - List Webhook Endpoints
+* [createWebhookEndpoint](docs/sdks/webhooks/README.md#createwebhookendpoint) - Create Webhook Endpoint
+* [getWebhookEndpoint](docs/sdks/webhooks/README.md#getwebhookendpoint) - Get Webhook Endpoint
+* [updateWebhookEndpoint](docs/sdks/webhooks/README.md#updatewebhookendpoint) - Update Webhook Endpoint
+* [deleteWebhookEndpoint](docs/sdks/webhooks/README.md#deletewebhookendpoint) - Delete Webhook Endpoint
+* [listWebhookDeliveries](docs/sdks/webhooks/README.md#listwebhookdeliveries) - List Webhook Deliveries
+* [redeliverWebhookEvent](docs/sdks/webhooks/README.md#redeliverwebhookevent) - Redeliver Webhook Event
+
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
@@ -762,6 +772,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`subscriptionsList`](docs/sdks/subscriptions/README.md#list) - List Subscriptions
 - [`subscriptionsRevoke`](docs/sdks/subscriptions/README.md#revoke) - Revoke Subscription
 - [`subscriptionsUpdate`](docs/sdks/subscriptions/README.md#update) - Update Subscription
+- [`webhooksCreateWebhookEndpoint`](docs/sdks/webhooks/README.md#createwebhookendpoint) - Create Webhook Endpoint
+- [`webhooksDeleteWebhookEndpoint`](docs/sdks/webhooks/README.md#deletewebhookendpoint) - Delete Webhook Endpoint
+- [`webhooksGetWebhookEndpoint`](docs/sdks/webhooks/README.md#getwebhookendpoint) - Get Webhook Endpoint
+- [`webhooksListWebhookDeliveries`](docs/sdks/webhooks/README.md#listwebhookdeliveries) - List Webhook Deliveries
+- [`webhooksListWebhookEndpoints`](docs/sdks/webhooks/README.md#listwebhookendpoints) - List Webhook Endpoints
+- [`webhooksRedeliverWebhookEvent`](docs/sdks/webhooks/README.md#redeliverwebhookevent) - Redeliver Webhook Event
+- [`webhooksUpdateWebhookEndpoint`](docs/sdks/webhooks/README.md#updatewebhookendpoint) - Update Webhook Endpoint
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -934,19 +951,19 @@ run();
 
 
 **Inherit from [`PolarError`](./src/models/errors/polarerror.ts)**:
-* [`ResourceNotFound`](docs/models/errors/resourcenotfound.md): Status code `404`. Applicable to 66 of 121 methods.*
-* [`NotPermitted`](docs/models/errors/notpermitted.md): Status code `403`. Applicable to 9 of 121 methods.*
-* [`Unauthorized`](docs/models/errors/unauthorized.md): Not authorized to manage license key. Status code `401`. Applicable to 5 of 121 methods.*
-* [`AlreadyCanceledSubscription`](docs/models/errors/alreadycanceledsubscription.md): Status code `403`. Applicable to 4 of 121 methods.*
-* [`AlreadyActiveSubscriptionError`](docs/models/errors/alreadyactivesubscriptionerror.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 121 methods.*
-* [`NotOpenCheckout`](docs/models/errors/notopencheckout.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 121 methods.*
-* [`ExpiredCheckoutError`](docs/models/errors/expiredcheckouterror.md): The checkout session is expired. Status code `410`. Applicable to 3 of 121 methods.*
-* [`InvoiceAlreadyExists`](docs/models/errors/invoicealreadyexists.md): Order already has an invoice. Status code `409`. Applicable to 2 of 121 methods.*
-* [`MissingInvoiceBillingDetails`](docs/models/errors/missinginvoicebillingdetails.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 121 methods.*
-* [`NotPaidOrder`](docs/models/errors/notpaidorder.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 121 methods.*
-* [`RefundAmountTooHigh`](docs/models/errors/refundamounttoohigh.md): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 121 methods.*
-* [`PaymentError`](docs/models/errors/paymenterror.md): The payment failed. Status code `400`. Applicable to 1 of 121 methods.*
-* [`RefundedAlready`](docs/models/errors/refundedalready.md): Order is already fully refunded. Status code `403`. Applicable to 1 of 121 methods.*
+* [`ResourceNotFound`](docs/models/errors/resourcenotfound.md): Status code `404`. Applicable to 70 of 128 methods.*
+* [`NotPermitted`](docs/models/errors/notpermitted.md): Status code `403`. Applicable to 9 of 128 methods.*
+* [`Unauthorized`](docs/models/errors/unauthorized.md): Not authorized to manage license key. Status code `401`. Applicable to 5 of 128 methods.*
+* [`AlreadyCanceledSubscription`](docs/models/errors/alreadycanceledsubscription.md): Status code `403`. Applicable to 4 of 128 methods.*
+* [`AlreadyActiveSubscriptionError`](docs/models/errors/alreadyactivesubscriptionerror.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 128 methods.*
+* [`NotOpenCheckout`](docs/models/errors/notopencheckout.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 128 methods.*
+* [`ExpiredCheckoutError`](docs/models/errors/expiredcheckouterror.md): The checkout session is expired. Status code `410`. Applicable to 3 of 128 methods.*
+* [`InvoiceAlreadyExists`](docs/models/errors/invoicealreadyexists.md): Order already has an invoice. Status code `409`. Applicable to 2 of 128 methods.*
+* [`MissingInvoiceBillingDetails`](docs/models/errors/missinginvoicebillingdetails.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 128 methods.*
+* [`NotPaidOrder`](docs/models/errors/notpaidorder.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 128 methods.*
+* [`RefundAmountTooHigh`](docs/models/errors/refundamounttoohigh.md): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 128 methods.*
+* [`PaymentError`](docs/models/errors/paymenterror.md): The payment failed. Status code `400`. Applicable to 1 of 128 methods.*
+* [`RefundedAlready`](docs/models/errors/refundedalready.md): Order is already fully refunded. Status code `403`. Applicable to 1 of 128 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
