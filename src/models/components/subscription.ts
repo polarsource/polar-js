@@ -82,10 +82,10 @@ export type Metadata = string | number | number | boolean;
 export type CustomFieldData = string | number | boolean | Date;
 
 export type SubscriptionDiscount =
-  | DiscountPercentageOnceForeverDurationBase
+  | DiscountFixedRepeatDurationBase
   | DiscountFixedOnceForeverDurationBase
   | DiscountPercentageRepeatDurationBase
-  | DiscountFixedRepeatDurationBase;
+  | DiscountPercentageOnceForeverDurationBase;
 
 export type SubscriptionPrices = LegacyRecurringProductPrice | ProductPrice;
 
@@ -168,10 +168,10 @@ export type Subscription = {
    */
   product: Product;
   discount:
-    | DiscountPercentageOnceForeverDurationBase
+    | DiscountFixedRepeatDurationBase
     | DiscountFixedOnceForeverDurationBase
     | DiscountPercentageRepeatDurationBase
-    | DiscountFixedRepeatDurationBase
+    | DiscountPercentageOnceForeverDurationBase
     | null;
   /**
    * List of enabled prices for the subscription.
@@ -289,18 +289,18 @@ export const SubscriptionDiscount$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  DiscountPercentageOnceForeverDurationBase$inboundSchema,
+  DiscountFixedRepeatDurationBase$inboundSchema,
   DiscountFixedOnceForeverDurationBase$inboundSchema,
   DiscountPercentageRepeatDurationBase$inboundSchema,
-  DiscountFixedRepeatDurationBase$inboundSchema,
+  DiscountPercentageOnceForeverDurationBase$inboundSchema,
 ]);
 
 /** @internal */
 export type SubscriptionDiscount$Outbound =
-  | DiscountPercentageOnceForeverDurationBase$Outbound
+  | DiscountFixedRepeatDurationBase$Outbound
   | DiscountFixedOnceForeverDurationBase$Outbound
   | DiscountPercentageRepeatDurationBase$Outbound
-  | DiscountFixedRepeatDurationBase$Outbound;
+  | DiscountPercentageOnceForeverDurationBase$Outbound;
 
 /** @internal */
 export const SubscriptionDiscount$outboundSchema: z.ZodType<
@@ -308,10 +308,10 @@ export const SubscriptionDiscount$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SubscriptionDiscount
 > = z.union([
-  DiscountPercentageOnceForeverDurationBase$outboundSchema,
+  DiscountFixedRepeatDurationBase$outboundSchema,
   DiscountFixedOnceForeverDurationBase$outboundSchema,
   DiscountPercentageRepeatDurationBase$outboundSchema,
-  DiscountFixedRepeatDurationBase$outboundSchema,
+  DiscountPercentageOnceForeverDurationBase$outboundSchema,
 ]);
 
 /**
@@ -460,10 +460,10 @@ export const Subscription$inboundSchema: z.ZodType<
   product: Product$inboundSchema,
   discount: z.nullable(
     z.union([
-      DiscountPercentageOnceForeverDurationBase$inboundSchema,
+      DiscountFixedRepeatDurationBase$inboundSchema,
       DiscountFixedOnceForeverDurationBase$inboundSchema,
       DiscountPercentageRepeatDurationBase$inboundSchema,
-      DiscountFixedRepeatDurationBase$inboundSchema,
+      DiscountPercentageOnceForeverDurationBase$inboundSchema,
     ]),
   ),
   prices: z.array(
@@ -524,10 +524,10 @@ export type Subscription$Outbound = {
   customer: SubscriptionCustomer$Outbound;
   product: Product$Outbound;
   discount:
-    | DiscountPercentageOnceForeverDurationBase$Outbound
+    | DiscountFixedRepeatDurationBase$Outbound
     | DiscountFixedOnceForeverDurationBase$Outbound
     | DiscountPercentageRepeatDurationBase$Outbound
-    | DiscountFixedRepeatDurationBase$Outbound
+    | DiscountPercentageOnceForeverDurationBase$Outbound
     | null;
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
   meters: Array<SubscriptionMeter$Outbound>;
@@ -578,10 +578,10 @@ export const Subscription$outboundSchema: z.ZodType<
   product: Product$outboundSchema,
   discount: z.nullable(
     z.union([
-      DiscountPercentageOnceForeverDurationBase$outboundSchema,
+      DiscountFixedRepeatDurationBase$outboundSchema,
       DiscountFixedOnceForeverDurationBase$outboundSchema,
       DiscountPercentageRepeatDurationBase$outboundSchema,
-      DiscountFixedRepeatDurationBase$outboundSchema,
+      DiscountPercentageOnceForeverDurationBase$outboundSchema,
     ]),
   ),
   prices: z.array(

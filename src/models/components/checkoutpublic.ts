@@ -94,10 +94,10 @@ export type CheckoutPublicProductPrice =
   | ProductPrice;
 
 export type CheckoutPublicDiscount =
-  | CheckoutDiscountPercentageOnceForeverDuration
+  | CheckoutDiscountFixedRepeatDuration
   | CheckoutDiscountFixedOnceForeverDuration
   | CheckoutDiscountPercentageRepeatDuration
-  | CheckoutDiscountFixedRepeatDuration;
+  | CheckoutDiscountPercentageOnceForeverDuration;
 
 /**
  * Checkout session data retrieved using the client secret.
@@ -238,10 +238,10 @@ export type CheckoutPublic = {
    */
   productPrice: LegacyRecurringProductPrice | ProductPrice;
   discount:
-    | CheckoutDiscountPercentageOnceForeverDuration
+    | CheckoutDiscountFixedRepeatDuration
     | CheckoutDiscountFixedOnceForeverDuration
     | CheckoutDiscountPercentageRepeatDuration
-    | CheckoutDiscountFixedRepeatDuration
+    | CheckoutDiscountPercentageOnceForeverDuration
     | null;
   organization: Organization;
   attachedCustomFields: Array<AttachedCustomField>;
@@ -374,18 +374,18 @@ export const CheckoutPublicDiscount$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+  CheckoutDiscountFixedRepeatDuration$inboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
-  CheckoutDiscountFixedRepeatDuration$inboundSchema,
+  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
 ]);
 
 /** @internal */
 export type CheckoutPublicDiscount$Outbound =
-  | CheckoutDiscountPercentageOnceForeverDuration$Outbound
+  | CheckoutDiscountFixedRepeatDuration$Outbound
   | CheckoutDiscountFixedOnceForeverDuration$Outbound
   | CheckoutDiscountPercentageRepeatDuration$Outbound
-  | CheckoutDiscountFixedRepeatDuration$Outbound;
+  | CheckoutDiscountPercentageOnceForeverDuration$Outbound;
 
 /** @internal */
 export const CheckoutPublicDiscount$outboundSchema: z.ZodType<
@@ -393,10 +393,10 @@ export const CheckoutPublicDiscount$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutPublicDiscount
 > = z.union([
-  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+  CheckoutDiscountFixedRepeatDuration$outboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
   CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-  CheckoutDiscountFixedRepeatDuration$outboundSchema,
+  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
 ]);
 
 /**
@@ -491,10 +491,10 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   ]),
   discount: z.nullable(
     z.union([
-      CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+      CheckoutDiscountFixedRepeatDuration$inboundSchema,
       CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
       CheckoutDiscountPercentageRepeatDuration$inboundSchema,
-      CheckoutDiscountFixedRepeatDuration$inboundSchema,
+      CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
     ]),
   ),
   organization: Organization$inboundSchema,
@@ -584,10 +584,10 @@ export type CheckoutPublic$Outbound = {
   product: CheckoutProduct$Outbound;
   product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   discount:
-    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
+    | CheckoutDiscountFixedRepeatDuration$Outbound
     | CheckoutDiscountFixedOnceForeverDuration$Outbound
     | CheckoutDiscountPercentageRepeatDuration$Outbound
-    | CheckoutDiscountFixedRepeatDuration$Outbound
+    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
     | null;
   organization: Organization$Outbound;
   attached_custom_fields: Array<AttachedCustomField$Outbound>;
@@ -654,10 +654,10 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   ]),
   discount: z.nullable(
     z.union([
-      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+      CheckoutDiscountFixedRepeatDuration$outboundSchema,
       CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
       CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-      CheckoutDiscountFixedRepeatDuration$outboundSchema,
+      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
     ]),
   ),
   organization: Organization$outboundSchema,

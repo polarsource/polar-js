@@ -44,9 +44,9 @@ export type FilesUpdateRequest = {
  * File updated.
  */
 export type FilesUpdateResponseFilesUpdate =
-  | (DownloadableFileRead & { service: "downloadable" })
   | (ProductMediaFileRead & { service: "product_media" })
-  | (OrganizationAvatarFileRead & { service: "organization_avatar" });
+  | (OrganizationAvatarFileRead & { service: "organization_avatar" })
+  | (DownloadableFileRead & { service: "downloadable" });
 
 /** @internal */
 export const FilesUpdateRequest$inboundSchema: z.ZodType<
@@ -119,11 +119,6 @@ export const FilesUpdateResponseFilesUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  DownloadableFileRead$inboundSchema.and(
-    z.object({ service: z.literal("downloadable") }).transform((v) => ({
-      service: v.service,
-    })),
-  ),
   ProductMediaFileRead$inboundSchema.and(
     z.object({ service: z.literal("product_media") }).transform((v) => ({
       service: v.service,
@@ -134,13 +129,18 @@ export const FilesUpdateResponseFilesUpdate$inboundSchema: z.ZodType<
       service: v.service,
     })),
   ),
+  DownloadableFileRead$inboundSchema.and(
+    z.object({ service: z.literal("downloadable") }).transform((v) => ({
+      service: v.service,
+    })),
+  ),
 ]);
 
 /** @internal */
 export type FilesUpdateResponseFilesUpdate$Outbound =
-  | (DownloadableFileRead$Outbound & { service: "downloadable" })
   | (ProductMediaFileRead$Outbound & { service: "product_media" })
-  | (OrganizationAvatarFileRead$Outbound & { service: "organization_avatar" });
+  | (OrganizationAvatarFileRead$Outbound & { service: "organization_avatar" })
+  | (DownloadableFileRead$Outbound & { service: "downloadable" });
 
 /** @internal */
 export const FilesUpdateResponseFilesUpdate$outboundSchema: z.ZodType<
@@ -148,11 +148,6 @@ export const FilesUpdateResponseFilesUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FilesUpdateResponseFilesUpdate
 > = z.union([
-  DownloadableFileRead$outboundSchema.and(
-    z.object({ service: z.literal("downloadable") }).transform((v) => ({
-      service: v.service,
-    })),
-  ),
   ProductMediaFileRead$outboundSchema.and(
     z.object({ service: z.literal("product_media") }).transform((v) => ({
       service: v.service,
@@ -160,6 +155,11 @@ export const FilesUpdateResponseFilesUpdate$outboundSchema: z.ZodType<
   ),
   OrganizationAvatarFileRead$outboundSchema.and(
     z.object({ service: z.literal("organization_avatar") }).transform((v) => ({
+      service: v.service,
+    })),
+  ),
+  DownloadableFileRead$outboundSchema.and(
+    z.object({ service: z.literal("downloadable") }).transform((v) => ({
       service: v.service,
     })),
   ),

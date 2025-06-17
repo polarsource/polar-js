@@ -25,21 +25,21 @@ import {
   PaymentMethodGeneric$outboundSchema,
 } from "./paymentmethodgeneric.js";
 
-export type Items = PaymentMethodGeneric | PaymentMethodCard;
+export type Items = PaymentMethodCard | PaymentMethodGeneric;
 
 export type ListResourceUnionPaymentMethodCardPaymentMethodGeneric = {
-  items: Array<PaymentMethodGeneric | PaymentMethodCard>;
+  items: Array<PaymentMethodCard | PaymentMethodGeneric>;
   pagination: Pagination;
 };
 
 /** @internal */
 export const Items$inboundSchema: z.ZodType<Items, z.ZodTypeDef, unknown> = z
-  .union([PaymentMethodGeneric$inboundSchema, PaymentMethodCard$inboundSchema]);
+  .union([PaymentMethodCard$inboundSchema, PaymentMethodGeneric$inboundSchema]);
 
 /** @internal */
 export type Items$Outbound =
-  | PaymentMethodGeneric$Outbound
-  | PaymentMethodCard$Outbound;
+  | PaymentMethodCard$Outbound
+  | PaymentMethodGeneric$Outbound;
 
 /** @internal */
 export const Items$outboundSchema: z.ZodType<
@@ -47,8 +47,8 @@ export const Items$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Items
 > = z.union([
-  PaymentMethodGeneric$outboundSchema,
   PaymentMethodCard$outboundSchema,
+  PaymentMethodGeneric$outboundSchema,
 ]);
 
 /**
@@ -87,8 +87,8 @@ export const ListResourceUnionPaymentMethodCardPaymentMethodGeneric$inboundSchem
   > = z.object({
     items: z.array(
       z.union([
-        PaymentMethodGeneric$inboundSchema,
         PaymentMethodCard$inboundSchema,
+        PaymentMethodGeneric$inboundSchema,
       ]),
     ),
     pagination: Pagination$inboundSchema,
@@ -96,7 +96,7 @@ export const ListResourceUnionPaymentMethodCardPaymentMethodGeneric$inboundSchem
 
 /** @internal */
 export type ListResourceUnionPaymentMethodCardPaymentMethodGeneric$Outbound = {
-  items: Array<PaymentMethodGeneric$Outbound | PaymentMethodCard$Outbound>;
+  items: Array<PaymentMethodCard$Outbound | PaymentMethodGeneric$Outbound>;
   pagination: Pagination$Outbound;
 };
 
@@ -109,8 +109,8 @@ export const ListResourceUnionPaymentMethodCardPaymentMethodGeneric$outboundSche
   > = z.object({
     items: z.array(
       z.union([
-        PaymentMethodGeneric$outboundSchema,
         PaymentMethodCard$outboundSchema,
+        PaymentMethodGeneric$outboundSchema,
       ]),
     ),
     pagination: Pagination$outboundSchema,
