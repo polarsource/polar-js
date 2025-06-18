@@ -60,3 +60,4 @@ typescript:
   responseFormat: flat
   templateVersion: v2
   useIndexModules: false
+  constFieldsAlwaysOptional: false
