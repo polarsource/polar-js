@@ -40,7 +40,7 @@ export type BenefitMeterCreditUpdate = {
    * The description of the benefit. Will be displayed on products having this benefit.
    */
   description?: string | null | undefined;
-  type?: "meter_credit" | undefined;
+  type: "meter_credit";
   properties?: BenefitMeterCreditCreateProperties | null | undefined;
 };
 
@@ -108,7 +108,7 @@ export const BenefitMeterCreditUpdate$inboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("meter_credit").optional(),
+  type: z.literal("meter_credit"),
   properties: z.nullable(BenefitMeterCreditCreateProperties$inboundSchema)
     .optional(),
 });
@@ -131,7 +131,7 @@ export const BenefitMeterCreditUpdate$outboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("meter_credit").default("meter_credit" as const),
+  type: z.literal("meter_credit"),
   properties: z.nullable(BenefitMeterCreditCreateProperties$outboundSchema)
     .optional(),
 });

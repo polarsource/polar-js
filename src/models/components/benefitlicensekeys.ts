@@ -29,7 +29,7 @@ export type BenefitLicenseKeys = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  type?: "license_keys" | undefined;
+  type: "license_keys";
   /**
    * The description of the benefit.
    */
@@ -113,7 +113,7 @@ export const BenefitLicenseKeys$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  type: z.literal("license_keys").optional(),
+  type: z.literal("license_keys"),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
@@ -153,7 +153,7 @@ export const BenefitLicenseKeys$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  type: z.literal("license_keys").default("license_keys" as const),
+  type: z.literal("license_keys"),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

@@ -8,7 +8,7 @@ Schema for creating a customer session using an external customer ID.
 import { CustomerSessionCustomerExternalIDCreate } from "@polar-sh/sdk/models/components/customersessioncustomerexternalidcreate.js";
 
 let value: CustomerSessionCustomerExternalIDCreate = {
-  customerExternalId: "<id>",
+  externalCustomerId: "<id>",
 };
 ```
 
@@ -16,4 +16,4 @@ let value: CustomerSessionCustomerExternalIDCreate = {
 
 | Field                                                | Type                                                 | Required                                             | Description                                          |
 | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| `customerExternalId`                                 | *string*                                             | :heavy_check_mark:                                   | External ID of the customer to create a session for. |
+| `externalCustomerId`                                 | *string*                                             | :heavy_check_mark:                                   | External ID of the customer to create a session for. |

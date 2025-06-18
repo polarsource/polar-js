@@ -67,9 +67,7 @@ export const AlreadyCanceledSubscription$outboundSchema: z.ZodType<
 > = z.instanceof(AlreadyCanceledSubscription)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("AlreadyCanceledSubscription").default(
-      "AlreadyCanceledSubscription" as const,
-    ),
+    error: z.literal("AlreadyCanceledSubscription"),
     detail: z.string(),
   }));
 

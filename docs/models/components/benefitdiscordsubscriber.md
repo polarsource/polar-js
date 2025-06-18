@@ -17,13 +17,13 @@ let value: BenefitDiscordSubscriber = {
     "key": 110104,
   },
   organization: {
-    createdAt: new Date("2025-10-05T12:57:48.267Z"),
-    modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
+    createdAt: new Date("2024-07-11T02:04:41.072Z"),
+    modifiedAt: new Date("2025-11-26T13:33:51.948Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://medium-object.org",
-    email: "Elena.Barton@hotmail.com",
+    avatarUrl: "https://french-lid.com",
+    email: "Hannah_Price@gmail.com",
     website: "<value>",
     socials: [
       {
@@ -31,7 +31,7 @@ let value: BenefitDiscordSubscriber = {
         url: "https://expert-elevation.org",
       },
     ],
-    detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
+    detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,

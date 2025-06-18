@@ -23,7 +23,7 @@ import {
  * **Discord & Slack support:** Full
  */
 export type WebhookSubscriptionCreatedPayload = {
-  type?: "subscription.created" | undefined;
+  type: "subscription.created";
   data: Subscription;
 };
 
@@ -33,7 +33,7 @@ export const WebhookSubscriptionCreatedPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("subscription.created").optional(),
+  type: z.literal("subscription.created"),
   data: Subscription$inboundSchema,
 });
 
@@ -49,9 +49,7 @@ export const WebhookSubscriptionCreatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookSubscriptionCreatedPayload
 > = z.object({
-  type: z.literal("subscription.created").default(
-    "subscription.created" as const,
-  ),
+  type: z.literal("subscription.created"),
   data: Subscription$outboundSchema,
 });
 

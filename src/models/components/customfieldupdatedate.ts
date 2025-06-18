@@ -37,7 +37,7 @@ export type CustomFieldUpdateDate = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
-  type?: "date" | undefined;
+  type: "date";
   properties?: CustomFieldDateProperties | null | undefined;
 };
 
@@ -106,7 +106,7 @@ export const CustomFieldUpdateDate$inboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("date").optional(),
+  type: z.literal("date"),
   properties: z.nullable(CustomFieldDateProperties$inboundSchema).optional(),
 });
 
@@ -130,7 +130,7 @@ export const CustomFieldUpdateDate$outboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("date").default("date" as const),
+  type: z.literal("date"),
   properties: z.nullable(CustomFieldDateProperties$outboundSchema).optional(),
 });
 

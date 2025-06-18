@@ -18,7 +18,12 @@ let value: CustomFieldSelect = {
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   properties: {
-    options: [],
+    options: [
+      {
+        value: "<value>",
+        label: "<value>",
+      },
+    ],
   },
 };
 ```

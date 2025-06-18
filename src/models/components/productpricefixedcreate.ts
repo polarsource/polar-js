@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Schema to create a fixed price.
  */
 export type ProductPriceFixedCreate = {
-  amountType?: "fixed" | undefined;
+  amountType: "fixed";
   /**
    * The price in cents.
    */
@@ -29,7 +29,7 @@ export const ProductPriceFixedCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  amount_type: z.literal("fixed").optional(),
+  amount_type: z.literal("fixed"),
   price_amount: z.number().int(),
   price_currency: z.string().default("usd"),
 }).transform((v) => {
@@ -53,7 +53,7 @@ export const ProductPriceFixedCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPriceFixedCreate
 > = z.object({
-  amountType: z.literal("fixed").default("fixed" as const),
+  amountType: z.literal("fixed"),
   priceAmount: z.number().int(),
   priceCurrency: z.string().default("usd"),
 }).transform((v) => {
