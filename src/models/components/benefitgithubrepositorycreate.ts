@@ -37,7 +37,7 @@ export type BenefitGitHubRepositoryCreate = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  type?: "github_repository" | undefined;
+  type: "github_repository";
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
    */
@@ -118,7 +118,7 @@ export const BenefitGitHubRepositoryCreate$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("github_repository").optional(),
+  type: z.literal("github_repository"),
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
   properties: BenefitGitHubRepositoryCreateProperties$inboundSchema,
@@ -146,7 +146,7 @@ export const BenefitGitHubRepositoryCreate$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("github_repository").default("github_repository" as const),
+  type: z.literal("github_repository"),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   properties: BenefitGitHubRepositoryCreateProperties$outboundSchema,

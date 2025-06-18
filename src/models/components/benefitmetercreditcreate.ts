@@ -40,7 +40,7 @@ export type BenefitMeterCreditCreate = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  type?: "meter_credit" | undefined;
+  type: "meter_credit";
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
    */
@@ -118,7 +118,7 @@ export const BenefitMeterCreditCreate$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("meter_credit").optional(),
+  type: z.literal("meter_credit"),
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
   properties: BenefitMeterCreditCreateProperties$inboundSchema,
@@ -146,7 +146,7 @@ export const BenefitMeterCreditCreate$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("meter_credit").default("meter_credit" as const),
+  type: z.literal("meter_credit"),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   properties: BenefitMeterCreditCreateProperties$outboundSchema,

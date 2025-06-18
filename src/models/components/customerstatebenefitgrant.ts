@@ -43,6 +43,8 @@ import {
   BenefitType$outboundSchema,
 } from "./benefittype.js";
 
+export type BenefitMetadata = string | number | number | boolean;
+
 export type CustomerStateBenefitGrantProperties =
   | BenefitGrantDiscordProperties
   | BenefitGrantGitHubRepositoryProperties
@@ -75,6 +77,10 @@ export type CustomerStateBenefitGrant = {
    */
   benefitId: string;
   benefitType: BenefitType;
+  /**
+   * The metadata of the benefit concerned by this grant.
+   */
+  benefitMetadata: { [k: string]: string | number | number | boolean };
   properties:
     | BenefitGrantDiscordProperties
     | BenefitGrantGitHubRepositoryProperties
@@ -82,6 +88,52 @@ export type CustomerStateBenefitGrant = {
     | BenefitGrantLicenseKeysProperties
     | BenefitGrantCustomProperties;
 };
+
+/** @internal */
+export const BenefitMetadata$inboundSchema: z.ZodType<
+  BenefitMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/** @internal */
+export type BenefitMetadata$Outbound = string | number | number | boolean;
+
+/** @internal */
+export const BenefitMetadata$outboundSchema: z.ZodType<
+  BenefitMetadata$Outbound,
+  z.ZodTypeDef,
+  BenefitMetadata
+> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BenefitMetadata$ {
+  /** @deprecated use `BenefitMetadata$inboundSchema` instead. */
+  export const inboundSchema = BenefitMetadata$inboundSchema;
+  /** @deprecated use `BenefitMetadata$outboundSchema` instead. */
+  export const outboundSchema = BenefitMetadata$outboundSchema;
+  /** @deprecated use `BenefitMetadata$Outbound` instead. */
+  export type Outbound = BenefitMetadata$Outbound;
+}
+
+export function benefitMetadataToJSON(
+  benefitMetadata: BenefitMetadata,
+): string {
+  return JSON.stringify(BenefitMetadata$outboundSchema.parse(benefitMetadata));
+}
+
+export function benefitMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<BenefitMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BenefitMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BenefitMetadata' from JSON`,
+  );
+}
 
 /** @internal */
 export const CustomerStateBenefitGrantProperties$inboundSchema: z.ZodType<
@@ -167,6 +219,9 @@ export const CustomerStateBenefitGrant$inboundSchema: z.ZodType<
   granted_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   benefit_id: z.string(),
   benefit_type: BenefitType$inboundSchema,
+  benefit_metadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   properties: z.union([
     BenefitGrantDiscordProperties$inboundSchema,
     BenefitGrantGitHubRepositoryProperties$inboundSchema,
@@ -181,6 +236,7 @@ export const CustomerStateBenefitGrant$inboundSchema: z.ZodType<
     "granted_at": "grantedAt",
     "benefit_id": "benefitId",
     "benefit_type": "benefitType",
+    "benefit_metadata": "benefitMetadata",
   });
 });
 
@@ -192,6 +248,7 @@ export type CustomerStateBenefitGrant$Outbound = {
   granted_at: string;
   benefit_id: string;
   benefit_type: string;
+  benefit_metadata: { [k: string]: string | number | number | boolean };
   properties:
     | BenefitGrantDiscordProperties$Outbound
     | BenefitGrantGitHubRepositoryProperties$Outbound
@@ -212,6 +269,9 @@ export const CustomerStateBenefitGrant$outboundSchema: z.ZodType<
   grantedAt: z.date().transform(v => v.toISOString()),
   benefitId: z.string(),
   benefitType: BenefitType$outboundSchema,
+  benefitMetadata: z.record(
+    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
+  ),
   properties: z.union([
     BenefitGrantDiscordProperties$outboundSchema,
     BenefitGrantGitHubRepositoryProperties$outboundSchema,
@@ -226,6 +286,7 @@ export const CustomerStateBenefitGrant$outboundSchema: z.ZodType<
     grantedAt: "granted_at",
     benefitId: "benefit_id",
     benefitType: "benefit_type",
+    benefitMetadata: "benefit_metadata",
   });
 });
 

@@ -67,7 +67,7 @@ export const NotOpenCheckout$outboundSchema: z.ZodType<
 > = z.instanceof(NotOpenCheckout)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("NotOpenCheckout").default("NotOpenCheckout" as const),
+    error: z.literal("NotOpenCheckout"),
     detail: z.string(),
   }));
 

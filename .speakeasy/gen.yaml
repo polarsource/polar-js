@@ -20,7 +20,7 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
 typescript:
-  version: 0.33.2
+  version: 0.34.0
   additionalDependencies:
     dependencies:
       standardwebhooks: ^1.0.0
@@ -34,6 +34,7 @@ typescript:
   author: Speakeasy
   baseErrorName: PolarError
   clientServerStatusCodesAsErrors: true
+  constFieldsAlwaysOptional: false
   defaultErrorName: SDKError
   enableCustomCodeRegions: false
   enableMCPServer: true
@@ -60,4 +61,3 @@ typescript:
   responseFormat: flat
   templateVersion: v2
   useIndexModules: false
-  constFieldsAlwaysOptional: false

@@ -225,6 +225,10 @@ export type Checkout = {
   /**
    * ID of the customer in your system. If a matching customer exists on Polar, the resulting order will be linked to this customer. Otherwise, a new customer will be created with this external ID set.
    */
+  externalCustomerId: string | null;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   customerExternalId: string | null;
   /**
    * List of products available to select.
@@ -582,6 +586,7 @@ export const Checkout$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
+  external_customer_id: z.nullable(z.string()),
   customer_external_id: z.nullable(z.string()),
   products: z.array(CheckoutProduct$inboundSchema),
   product: CheckoutProduct$inboundSchema,
@@ -637,6 +642,7 @@ export const Checkout$inboundSchema: z.ZodType<
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
+    "external_customer_id": "externalCustomerId",
     "customer_external_id": "customerExternalId",
     "product_price": "productPrice",
     "subscription_id": "subscriptionId",
@@ -687,6 +693,7 @@ export type Checkout$Outbound = {
   customer_tax_id: string | null;
   payment_processor_metadata: { [k: string]: string };
   metadata: { [k: string]: string | number | number | boolean };
+  external_customer_id: string | null;
   customer_external_id: string | null;
   products: Array<CheckoutProduct$Outbound>;
   product: CheckoutProduct$Outbound;
@@ -758,6 +765,7 @@ export const Checkout$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
+  externalCustomerId: z.nullable(z.string()),
   customerExternalId: z.nullable(z.string()),
   products: z.array(CheckoutProduct$outboundSchema),
   product: CheckoutProduct$outboundSchema,
@@ -813,6 +821,7 @@ export const Checkout$outboundSchema: z.ZodType<
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",
+    externalCustomerId: "external_customer_id",
     customerExternalId: "customer_external_id",
     productPrice: "product_price",
     subscriptionId: "subscription_id",

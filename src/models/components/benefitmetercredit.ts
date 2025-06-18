@@ -36,7 +36,7 @@ export type BenefitMeterCredit = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  type?: "meter_credit" | undefined;
+  type: "meter_credit";
   /**
    * The description of the benefit.
    */
@@ -123,7 +123,7 @@ export const BenefitMeterCredit$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  type: z.literal("meter_credit").optional(),
+  type: z.literal("meter_credit"),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
@@ -163,7 +163,7 @@ export const BenefitMeterCredit$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  type: z.literal("meter_credit").default("meter_credit" as const),
+  type: z.literal("meter_credit"),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

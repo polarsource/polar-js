@@ -65,6 +65,9 @@ let value: CustomerState = {
       grantedAt: new Date("2025-01-03T13:37:00Z"),
       benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
       benefitType: "custom",
+      benefitMetadata: {
+        "key": "value",
+      },
       properties: {},
     },
   ],

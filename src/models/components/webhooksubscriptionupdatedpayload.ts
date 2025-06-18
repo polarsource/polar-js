@@ -25,7 +25,7 @@ import {
  * **Discord & Slack support:** On cancellation and revocation. Renewals are skipped.
  */
 export type WebhookSubscriptionUpdatedPayload = {
-  type?: "subscription.updated" | undefined;
+  type: "subscription.updated";
   data: Subscription;
 };
 
@@ -35,7 +35,7 @@ export const WebhookSubscriptionUpdatedPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("subscription.updated").optional(),
+  type: z.literal("subscription.updated"),
   data: Subscription$inboundSchema,
 });
 
@@ -51,9 +51,7 @@ export const WebhookSubscriptionUpdatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookSubscriptionUpdatedPayload
 > = z.object({
-  type: z.literal("subscription.updated").default(
-    "subscription.updated" as const,
-  ),
+  type: z.literal("subscription.updated"),
   data: Subscription$outboundSchema,
 });
 

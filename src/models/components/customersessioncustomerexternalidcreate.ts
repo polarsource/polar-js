@@ -15,7 +15,7 @@ export type CustomerSessionCustomerExternalIDCreate = {
   /**
    * External ID of the customer to create a session for.
    */
-  customerExternalId: string;
+  externalCustomerId: string;
 };
 
 /** @internal */
@@ -24,16 +24,16 @@ export const CustomerSessionCustomerExternalIDCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  customer_external_id: z.string(),
+  external_customer_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
-    "customer_external_id": "customerExternalId",
+    "external_customer_id": "externalCustomerId",
   });
 });
 
 /** @internal */
 export type CustomerSessionCustomerExternalIDCreate$Outbound = {
-  customer_external_id: string;
+  external_customer_id: string;
 };
 
 /** @internal */
@@ -42,10 +42,10 @@ export const CustomerSessionCustomerExternalIDCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerSessionCustomerExternalIDCreate
 > = z.object({
-  customerExternalId: z.string(),
+  externalCustomerId: z.string(),
 }).transform((v) => {
   return remap$(v, {
-    customerExternalId: "customer_external_id",
+    externalCustomerId: "external_customer_id",
   });
 });
 

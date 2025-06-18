@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Schema to create a pay-what-you-want price.
  */
 export type ProductPriceCustomCreate = {
-  amountType?: "custom" | undefined;
+  amountType: "custom";
   /**
    * The currency. Currently, only `usd` is supported.
    */
@@ -37,7 +37,7 @@ export const ProductPriceCustomCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  amount_type: z.literal("custom").optional(),
+  amount_type: z.literal("custom"),
   price_currency: z.string().default("usd"),
   minimum_amount: z.nullable(z.number().int()).optional(),
   maximum_amount: z.nullable(z.number().int()).optional(),
@@ -67,7 +67,7 @@ export const ProductPriceCustomCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPriceCustomCreate
 > = z.object({
-  amountType: z.literal("custom").default("custom" as const),
+  amountType: z.literal("custom"),
   priceCurrency: z.string().default("usd"),
   minimumAmount: z.nullable(z.number().int()).optional(),
   maximumAmount: z.nullable(z.number().int()).optional(),

@@ -30,7 +30,7 @@ export type ProductMediaFileCreate = {
   size: number;
   checksumSha256Base64?: string | null | undefined;
   upload: S3FileCreateMultipart;
-  service?: "product_media" | undefined;
+  service: "product_media";
   version?: string | null | undefined;
 };
 
@@ -46,7 +46,7 @@ export const ProductMediaFileCreate$inboundSchema: z.ZodType<
   size: z.number().int(),
   checksum_sha256_base64: z.nullable(z.string()).optional(),
   upload: S3FileCreateMultipart$inboundSchema,
-  service: z.literal("product_media").optional(),
+  service: z.literal("product_media"),
   version: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -80,7 +80,7 @@ export const ProductMediaFileCreate$outboundSchema: z.ZodType<
   size: z.number().int(),
   checksumSha256Base64: z.nullable(z.string()).optional(),
   upload: S3FileCreateMultipart$outboundSchema,
-  service: z.literal("product_media").default("product_media" as const),
+  service: z.literal("product_media"),
   version: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

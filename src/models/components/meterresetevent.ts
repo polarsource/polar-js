@@ -51,11 +51,11 @@ export type MeterResetEvent = {
   /**
    * The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API.
    */
-  source?: "system" | undefined;
+  source: "system";
   /**
    * The name of the event.
    */
-  name?: "meter.reset" | undefined;
+  name: "meter.reset";
   metadata: MeterResetMetadata;
 };
 
@@ -71,8 +71,8 @@ export const MeterResetEvent$inboundSchema: z.ZodType<
   customer_id: z.nullable(z.string()),
   customer: z.nullable(Customer$inboundSchema),
   external_customer_id: z.nullable(z.string()),
-  source: z.literal("system").optional(),
-  name: z.literal("meter.reset").optional(),
+  source: z.literal("system"),
+  name: z.literal("meter.reset"),
   metadata: MeterResetMetadata$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -107,8 +107,8 @@ export const MeterResetEvent$outboundSchema: z.ZodType<
   customerId: z.nullable(z.string()),
   customer: z.nullable(Customer$outboundSchema),
   externalCustomerId: z.nullable(z.string()),
-  source: z.literal("system").default("system" as const),
-  name: z.literal("meter.reset").default("meter.reset" as const),
+  source: z.literal("system"),
+  name: z.literal("meter.reset"),
   metadata: MeterResetMetadata$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

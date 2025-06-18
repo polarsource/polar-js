@@ -36,7 +36,7 @@ export type BenefitCustomCreate = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  type?: "custom" | undefined;
+  type: "custom";
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
    */
@@ -114,7 +114,7 @@ export const BenefitCustomCreate$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("custom").optional(),
+  type: z.literal("custom"),
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
   properties: BenefitCustomCreateProperties$inboundSchema,
@@ -142,7 +142,7 @@ export const BenefitCustomCreate$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("custom").default("custom" as const),
+  type: z.literal("custom"),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   properties: BenefitCustomCreateProperties$outboundSchema,

@@ -40,7 +40,7 @@ export type BenefitLicenseKeysUpdate = {
    * The description of the benefit. Will be displayed on products having this benefit.
    */
   description?: string | null | undefined;
-  type?: "license_keys" | undefined;
+  type: "license_keys";
   properties?: BenefitLicenseKeysCreateProperties | null | undefined;
 };
 
@@ -108,7 +108,7 @@ export const BenefitLicenseKeysUpdate$inboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("license_keys").optional(),
+  type: z.literal("license_keys"),
   properties: z.nullable(BenefitLicenseKeysCreateProperties$inboundSchema)
     .optional(),
 });
@@ -131,7 +131,7 @@ export const BenefitLicenseKeysUpdate$outboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("license_keys").default("license_keys" as const),
+  type: z.literal("license_keys"),
   properties: z.nullable(BenefitLicenseKeysCreateProperties$outboundSchema)
     .optional(),
 });

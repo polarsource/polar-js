@@ -126,7 +126,7 @@ export type CheckoutPublicConfirmed = {
     | { [k: string]: string | number | boolean | Date | null }
     | undefined;
   paymentProcessor: PaymentProcessor;
-  status?: "confirmed" | undefined;
+  status: "confirmed";
   /**
    * Client secret used to update and complete the checkout session from the client.
    */
@@ -468,7 +468,7 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
     ),
   ).optional(),
   payment_processor: PaymentProcessor$inboundSchema,
-  status: z.literal("confirmed").optional(),
+  status: z.literal("confirmed"),
   client_secret: z.string(),
   url: z.string(),
   expires_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -634,7 +634,7 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
     ),
   ).optional(),
   paymentProcessor: PaymentProcessor$outboundSchema,
-  status: z.literal("confirmed").default("confirmed" as const),
+  status: z.literal("confirmed"),
   clientSecret: z.string(),
   url: z.string(),
   expiresAt: z.date().transform(v => v.toISOString()),

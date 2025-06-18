@@ -76,7 +76,7 @@ export type CheckoutCreate = {
   /**
    * ID of the customer in your system. If a matching customer exists on Polar, the resulting order will be linked to this customer. Otherwise, a new customer will be created with this external ID set.
    */
-  customerExternalId?: string | null | undefined;
+  externalCustomerId?: string | null | undefined;
   customerName?: string | null | undefined;
   customerEmail?: string | null | undefined;
   customerIpAddress?: string | null | undefined;
@@ -314,7 +314,7 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
   amount: z.nullable(z.number().int()).optional(),
   customer_id: z.nullable(z.string()).optional(),
   is_business_customer: z.boolean().default(false),
-  customer_external_id: z.nullable(z.string()).optional(),
+  external_customer_id: z.nullable(z.string()).optional(),
   customer_name: z.nullable(z.string()).optional(),
   customer_email: z.nullable(z.string()).optional(),
   customer_ip_address: z.nullable(z.string()).optional(),
@@ -336,7 +336,7 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
     "require_billing_address": "requireBillingAddress",
     "customer_id": "customerId",
     "is_business_customer": "isBusinessCustomer",
-    "customer_external_id": "customerExternalId",
+    "external_customer_id": "externalCustomerId",
     "customer_name": "customerName",
     "customer_email": "customerEmail",
     "customer_ip_address": "customerIpAddress",
@@ -362,7 +362,7 @@ export type CheckoutCreate$Outbound = {
   amount?: number | null | undefined;
   customer_id?: string | null | undefined;
   is_business_customer: boolean;
-  customer_external_id?: string | null | undefined;
+  external_customer_id?: string | null | undefined;
   customer_name?: string | null | undefined;
   customer_email?: string | null | undefined;
   customer_ip_address?: string | null | undefined;
@@ -403,7 +403,7 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
   amount: z.nullable(z.number().int()).optional(),
   customerId: z.nullable(z.string()).optional(),
   isBusinessCustomer: z.boolean().default(false),
-  customerExternalId: z.nullable(z.string()).optional(),
+  externalCustomerId: z.nullable(z.string()).optional(),
   customerName: z.nullable(z.string()).optional(),
   customerEmail: z.nullable(z.string()).optional(),
   customerIpAddress: z.nullable(z.string()).optional(),
@@ -425,7 +425,7 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
     requireBillingAddress: "require_billing_address",
     customerId: "customer_id",
     isBusinessCustomer: "is_business_customer",
-    customerExternalId: "customer_external_id",
+    externalCustomerId: "external_customer_id",
     customerName: "customer_name",
     customerEmail: "customer_email",
     customerIpAddress: "customer_ip_address",

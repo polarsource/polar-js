@@ -107,6 +107,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.customFields.create({
+    type: "select",
     slug: "<value>",
     name: "<value>",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -137,6 +138,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await customFieldsCreate(polar, {
+    type: "select",
     slug: "<value>",
     name: "<value>",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -269,7 +271,9 @@ const polar = new Polar({
 async function run() {
   const result = await polar.customFields.update({
     id: "<value>",
-    customFieldUpdate: {},
+    customFieldUpdate: {
+      type: "date",
+    },
   });
 
   console.log(result);
@@ -295,7 +299,9 @@ const polar = new PolarCore({
 async function run() {
   const res = await customFieldsUpdate(polar, {
     id: "<value>",
-    customFieldUpdate: {},
+    customFieldUpdate: {
+      type: "date",
+    },
   });
   if (res.ok) {
     const { value: result } = res;

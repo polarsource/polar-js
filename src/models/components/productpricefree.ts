@@ -34,7 +34,7 @@ export type ProductPriceFree = {
    * The ID of the price.
    */
   id: string;
-  amountType?: "free" | undefined;
+  amountType: "free";
   /**
    * Whether the price is archived and no longer available.
    */
@@ -61,7 +61,7 @@ export const ProductPriceFree$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  amount_type: z.literal("free").optional(),
+  amount_type: z.literal("free"),
   is_archived: z.boolean(),
   product_id: z.string(),
   type: ProductPriceType$inboundSchema,
@@ -98,7 +98,7 @@ export const ProductPriceFree$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  amountType: z.literal("free").default("free" as const),
+  amountType: z.literal("free"),
   isArchived: z.boolean(),
   productId: z.string(),
   type: ProductPriceType$outboundSchema,

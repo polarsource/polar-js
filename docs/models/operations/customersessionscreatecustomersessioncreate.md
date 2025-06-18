@@ -15,7 +15,7 @@ const value: components.CustomerSessionCustomerIDCreate = {
 
 ```typescript
 const value: components.CustomerSessionCustomerExternalIDCreate = {
-  customerExternalId: "<id>",
+  externalCustomerId: "<id>",
 };
 ```
 

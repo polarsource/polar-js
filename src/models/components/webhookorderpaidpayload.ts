@@ -23,7 +23,7 @@ import {
  * **Discord & Slack support:** Full
  */
 export type WebhookOrderPaidPayload = {
-  type?: "order.paid" | undefined;
+  type: "order.paid";
   data: Order;
 };
 
@@ -33,7 +33,7 @@ export const WebhookOrderPaidPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("order.paid").optional(),
+  type: z.literal("order.paid"),
   data: Order$inboundSchema,
 });
 
@@ -49,7 +49,7 @@ export const WebhookOrderPaidPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookOrderPaidPayload
 > = z.object({
-  type: z.literal("order.paid").default("order.paid" as const),
+  type: z.literal("order.paid"),
   data: Order$outboundSchema,
 });
 

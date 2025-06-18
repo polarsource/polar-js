@@ -24,7 +24,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.customerSessions.create({
-    customerExternalId: "<id>",
+    externalCustomerId: "<id>",
   });
 
   console.log(result);
@@ -49,7 +49,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await customerSessionsCreate(polar, {
-    customerExternalId: "<id>",
+    externalCustomerId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
