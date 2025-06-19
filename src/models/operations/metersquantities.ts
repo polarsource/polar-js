@@ -7,6 +7,12 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
+  MetadataQuery,
+  MetadataQuery$inboundSchema,
+  MetadataQuery$Outbound,
+  MetadataQuery$outboundSchema,
+} from "../components/subscriptionslist.js";
+import {
   TimeInterval,
   TimeInterval$inboundSchema,
   TimeInterval$outboundSchema,
@@ -50,6 +56,10 @@ export type MetersQuantitiesRequest = {
    * Filter by external customer ID.
    */
   externalCustomerId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by metadata key-value pairs. It uses the `deepObject` style, e.g. `?metadata[key]=value`.
+   */
+  metadata?: { [k: string]: MetadataQuery } | null | undefined;
 };
 
 /** @internal */
@@ -194,6 +204,7 @@ export const MetersQuantitiesRequest$inboundSchema: z.ZodType<
     .optional(),
   external_customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  metadata: z.nullable(z.record(MetadataQuery$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_timestamp": "startTimestamp",
@@ -211,6 +222,7 @@ export type MetersQuantitiesRequest$Outbound = {
   interval: string;
   customer_id?: string | Array<string> | null | undefined;
   external_customer_id?: string | Array<string> | null | undefined;
+  metadata?: { [k: string]: MetadataQuery$Outbound } | null | undefined;
 };
 
 /** @internal */
@@ -226,6 +238,7 @@ export const MetersQuantitiesRequest$outboundSchema: z.ZodType<
   customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   externalCustomerId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  metadata: z.nullable(z.record(MetadataQuery$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     startTimestamp: "start_timestamp",

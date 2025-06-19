@@ -3,7 +3,12 @@
  */
 
 import { PolarCore } from "../core.js";
-import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import {
+  encodeDeepObjectQuery,
+  encodeFormQuery,
+  encodeSimple,
+  queryJoin,
+} from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -115,13 +120,18 @@ async function $do(
 
   const path = pathToFunc("/v1/meters/{id}/quantities")(pathParams);
 
-  const query = encodeFormQuery({
-    "customer_id": payload.customer_id,
-    "end_timestamp": payload.end_timestamp,
-    "external_customer_id": payload.external_customer_id,
-    "interval": payload.interval,
-    "start_timestamp": payload.start_timestamp,
-  });
+  const query = queryJoin(
+    encodeDeepObjectQuery({
+      "metadata": payload.metadata,
+    }),
+    encodeFormQuery({
+      "customer_id": payload.customer_id,
+      "end_timestamp": payload.end_timestamp,
+      "external_customer_id": payload.external_customer_id,
+      "interval": payload.interval,
+      "start_timestamp": payload.start_timestamp,
+    }),
+  );
 
   const headers = new Headers(compactMap({
     Accept: "application/json",

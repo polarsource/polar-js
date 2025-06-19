@@ -17,6 +17,12 @@ import {
   ProductSortProperty$inboundSchema,
   ProductSortProperty$outboundSchema,
 } from "../components/productsortproperty.js";
+import {
+  MetadataQuery,
+  MetadataQuery$inboundSchema,
+  MetadataQuery$Outbound,
+  MetadataQuery$outboundSchema,
+} from "../components/subscriptionslist.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -71,6 +77,10 @@ export type ProductsListRequest = {
    * Sorting criterion. Several criteria can be used simultaneously and will be applied in order. Add a minus sign `-` before the criteria name to sort by descending order.
    */
   sorting?: Array<ProductSortProperty> | null | undefined;
+  /**
+   * Filter by metadata key-value pairs. It uses the `deepObject` style, e.g. `?metadata[key]=value`.
+   */
+  metadata?: { [k: string]: MetadataQuery } | null | undefined;
 };
 
 export type ProductsListResponse = {
@@ -247,6 +257,7 @@ export const ProductsListRequest$inboundSchema: z.ZodType<
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(ProductSortProperty$inboundSchema)).optional(),
+  metadata: z.nullable(z.record(MetadataQuery$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -267,6 +278,7 @@ export type ProductsListRequest$Outbound = {
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
+  metadata?: { [k: string]: MetadataQuery$Outbound } | null | undefined;
 };
 
 /** @internal */
@@ -285,6 +297,7 @@ export const ProductsListRequest$outboundSchema: z.ZodType<
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(ProductSortProperty$outboundSchema)).optional(),
+  metadata: z.nullable(z.record(MetadataQuery$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",

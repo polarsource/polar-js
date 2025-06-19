@@ -4,7 +4,11 @@
 
 import { PolarCore } from "../core.js";
 import { dlv } from "../lib/dlv.js";
-import { encodeFormQuery } from "../lib/encodings.js";
+import {
+  encodeDeepObjectQuery,
+  encodeFormQuery,
+  queryJoin,
+} from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -113,17 +117,22 @@ async function $do(
 
   const path = pathToFunc("/v1/products/")();
 
-  const query = encodeFormQuery({
-    "benefit_id": payload.benefit_id,
-    "id": payload.id,
-    "is_archived": payload.is_archived,
-    "is_recurring": payload.is_recurring,
-    "limit": payload.limit,
-    "organization_id": payload.organization_id,
-    "page": payload.page,
-    "query": payload.query,
-    "sorting": payload.sorting,
-  });
+  const query = queryJoin(
+    encodeDeepObjectQuery({
+      "metadata": payload.metadata,
+    }),
+    encodeFormQuery({
+      "benefit_id": payload.benefit_id,
+      "id": payload.id,
+      "is_archived": payload.is_archived,
+      "is_recurring": payload.is_recurring,
+      "limit": payload.limit,
+      "organization_id": payload.organization_id,
+      "page": payload.page,
+      "query": payload.query,
+      "sorting": payload.sorting,
+    }),
+  );
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
