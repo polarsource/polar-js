@@ -21,7 +21,7 @@ import {
  * **Discord & Slack support:** Full
  */
 export type WebhookOrderRefundedPayload = {
-  type: "order.refunded";
+  type?: "order.refunded" | undefined;
   data: Order;
 };
 
@@ -31,7 +31,7 @@ export const WebhookOrderRefundedPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("order.refunded"),
+  type: z.literal("order.refunded").optional(),
   data: Order$inboundSchema,
 });
 
@@ -47,7 +47,7 @@ export const WebhookOrderRefundedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookOrderRefundedPayload
 > = z.object({
-  type: z.literal("order.refunded"),
+  type: z.literal("order.refunded").default("order.refunded" as const),
   data: Order$outboundSchema,
 });
 

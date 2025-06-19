@@ -41,24 +41,24 @@ let value: CustomerSubscription = {
     benefits: [
       {
         id: "<value>",
-        createdAt: new Date("2025-02-28T01:09:21.212Z"),
-        modifiedAt: new Date("2023-02-15T16:10:30.309Z"),
-        type: "downloadables",
-        description: "drowse whoever until continually amidst gentle quadruple",
+        createdAt: new Date("2025-08-22T09:43:58.793Z"),
+        modifiedAt: new Date("2023-02-16T00:22:02.887Z"),
+        type: "custom",
+        description: "inside any judgementally grown consequently naturally",
         selectable: false,
-        deletable: false,
+        deletable: true,
         organizationId: "<value>",
       },
     ],
     medias: [],
     organization: {
-      createdAt: new Date("2024-07-11T02:04:41.072Z"),
-      modifiedAt: new Date("2025-11-26T13:33:51.948Z"),
+      createdAt: new Date("2025-10-05T12:57:48.267Z"),
+      modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://french-lid.com",
-      email: "Hannah_Price@gmail.com",
+      avatarUrl: "https://medium-object.org",
+      email: "Elena.Barton@hotmail.com",
       website: "<value>",
       socials: [
         {
@@ -66,7 +66,7 @@ let value: CustomerSubscription = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,

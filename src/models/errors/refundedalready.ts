@@ -67,7 +67,7 @@ export const RefundedAlready$outboundSchema: z.ZodType<
 > = z.instanceof(RefundedAlready)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("RefundedAlready"),
+    error: z.literal("RefundedAlready").default("RefundedAlready" as const),
     detail: z.string(),
   }));
 

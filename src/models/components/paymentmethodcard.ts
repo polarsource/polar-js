@@ -16,7 +16,7 @@ import {
 
 export type PaymentMethodCard = {
   id: string;
-  type: "card";
+  type?: "card" | undefined;
   createdAt: Date;
   default: boolean;
   card: PaymentMethodCardData;
@@ -29,7 +29,7 @@ export const PaymentMethodCard$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  type: z.literal("card"),
+  type: z.literal("card").optional(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   default: z.boolean(),
   card: PaymentMethodCardData$inboundSchema,
@@ -55,7 +55,7 @@ export const PaymentMethodCard$outboundSchema: z.ZodType<
   PaymentMethodCard
 > = z.object({
   id: z.string(),
-  type: z.literal("card"),
+  type: z.literal("card").default("card" as const),
   createdAt: z.date().transform(v => v.toISOString()),
   default: z.boolean(),
   card: PaymentMethodCardData$outboundSchema,

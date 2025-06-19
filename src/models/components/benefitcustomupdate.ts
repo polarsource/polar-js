@@ -36,7 +36,7 @@ export type BenefitCustomUpdate = {
    * The description of the benefit. Will be displayed on products having this benefit.
    */
   description?: string | null | undefined;
-  type: "custom";
+  type?: "custom" | undefined;
   properties?: BenefitCustomProperties | null | undefined;
 };
 
@@ -104,7 +104,7 @@ export const BenefitCustomUpdate$inboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("custom"),
+  type: z.literal("custom").optional(),
   properties: z.nullable(BenefitCustomProperties$inboundSchema).optional(),
 });
 
@@ -126,7 +126,7 @@ export const BenefitCustomUpdate$outboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("custom"),
+  type: z.literal("custom").default("custom" as const),
   properties: z.nullable(BenefitCustomProperties$outboundSchema).optional(),
 });
 

@@ -32,11 +32,11 @@ export type MeterMetadata = string | number | number | boolean;
  * The aggregation to apply on the filtered events to calculate the meter.
  */
 export type MeterAggregation =
+  | (CountAggregation & { func: "count" })
   | (PropertyAggregation & { func: "avg" })
-  | (PropertyAggregation & { func: "avg" })
-  | (PropertyAggregation & { func: "avg" })
-  | (PropertyAggregation & { func: "avg" })
-  | (CountAggregation & { func: "count" });
+  | (PropertyAggregation & { func: "max" })
+  | (PropertyAggregation & { func: "min" })
+  | (PropertyAggregation & { func: "sum" });
 
 export type Meter = {
   metadata: { [k: string]: string | number | number | boolean };
@@ -61,11 +61,11 @@ export type Meter = {
    * The aggregation to apply on the filtered events to calculate the meter.
    */
   aggregation:
+    | (CountAggregation & { func: "count" })
     | (PropertyAggregation & { func: "avg" })
-    | (PropertyAggregation & { func: "avg" })
-    | (PropertyAggregation & { func: "avg" })
-    | (PropertyAggregation & { func: "avg" })
-    | (CountAggregation & { func: "count" });
+    | (PropertyAggregation & { func: "max" })
+    | (PropertyAggregation & { func: "min" })
+    | (PropertyAggregation & { func: "sum" });
   /**
    * The ID of the organization owning the meter.
    */
@@ -122,30 +122,30 @@ export const MeterAggregation$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  PropertyAggregation$inboundSchema.and(
-    z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-  ),
-  PropertyAggregation$inboundSchema.and(
-    z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-  ),
-  PropertyAggregation$inboundSchema.and(
-    z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-  ),
-  PropertyAggregation$inboundSchema.and(
-    z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-  ),
   CountAggregation$inboundSchema.and(
     z.object({ func: z.literal("count") }).transform((v) => ({ func: v.func })),
+  ),
+  PropertyAggregation$inboundSchema.and(
+    z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
+  ),
+  PropertyAggregation$inboundSchema.and(
+    z.object({ func: z.literal("max") }).transform((v) => ({ func: v.func })),
+  ),
+  PropertyAggregation$inboundSchema.and(
+    z.object({ func: z.literal("min") }).transform((v) => ({ func: v.func })),
+  ),
+  PropertyAggregation$inboundSchema.and(
+    z.object({ func: z.literal("sum") }).transform((v) => ({ func: v.func })),
   ),
 ]);
 
 /** @internal */
 export type MeterAggregation$Outbound =
+  | (CountAggregation$Outbound & { func: "count" })
   | (PropertyAggregation$Outbound & { func: "avg" })
-  | (PropertyAggregation$Outbound & { func: "avg" })
-  | (PropertyAggregation$Outbound & { func: "avg" })
-  | (PropertyAggregation$Outbound & { func: "avg" })
-  | (CountAggregation$Outbound & { func: "count" });
+  | (PropertyAggregation$Outbound & { func: "max" })
+  | (PropertyAggregation$Outbound & { func: "min" })
+  | (PropertyAggregation$Outbound & { func: "sum" });
 
 /** @internal */
 export const MeterAggregation$outboundSchema: z.ZodType<
@@ -153,20 +153,20 @@ export const MeterAggregation$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   MeterAggregation
 > = z.union([
-  PropertyAggregation$outboundSchema.and(
-    z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-  ),
-  PropertyAggregation$outboundSchema.and(
-    z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-  ),
-  PropertyAggregation$outboundSchema.and(
-    z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-  ),
-  PropertyAggregation$outboundSchema.and(
-    z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-  ),
   CountAggregation$outboundSchema.and(
     z.object({ func: z.literal("count") }).transform((v) => ({ func: v.func })),
+  ),
+  PropertyAggregation$outboundSchema.and(
+    z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
+  ),
+  PropertyAggregation$outboundSchema.and(
+    z.object({ func: z.literal("max") }).transform((v) => ({ func: v.func })),
+  ),
+  PropertyAggregation$outboundSchema.and(
+    z.object({ func: z.literal("min") }).transform((v) => ({ func: v.func })),
+  ),
+  PropertyAggregation$outboundSchema.and(
+    z.object({ func: z.literal("sum") }).transform((v) => ({ func: v.func })),
   ),
 ]);
 
@@ -217,28 +217,28 @@ export const Meter$inboundSchema: z.ZodType<Meter, z.ZodTypeDef, unknown> = z
     name: z.string(),
     filter: Filter$inboundSchema,
     aggregation: z.union([
-      PropertyAggregation$inboundSchema.and(
-        z.object({ func: z.literal("avg") }).transform((v) => ({
-          func: v.func,
-        })),
-      ),
-      PropertyAggregation$inboundSchema.and(
-        z.object({ func: z.literal("avg") }).transform((v) => ({
-          func: v.func,
-        })),
-      ),
-      PropertyAggregation$inboundSchema.and(
-        z.object({ func: z.literal("avg") }).transform((v) => ({
-          func: v.func,
-        })),
-      ),
-      PropertyAggregation$inboundSchema.and(
-        z.object({ func: z.literal("avg") }).transform((v) => ({
-          func: v.func,
-        })),
-      ),
       CountAggregation$inboundSchema.and(
         z.object({ func: z.literal("count") }).transform((v) => ({
+          func: v.func,
+        })),
+      ),
+      PropertyAggregation$inboundSchema.and(
+        z.object({ func: z.literal("avg") }).transform((v) => ({
+          func: v.func,
+        })),
+      ),
+      PropertyAggregation$inboundSchema.and(
+        z.object({ func: z.literal("max") }).transform((v) => ({
+          func: v.func,
+        })),
+      ),
+      PropertyAggregation$inboundSchema.and(
+        z.object({ func: z.literal("min") }).transform((v) => ({
+          func: v.func,
+        })),
+      ),
+      PropertyAggregation$inboundSchema.and(
+        z.object({ func: z.literal("sum") }).transform((v) => ({
           func: v.func,
         })),
       ),
@@ -261,11 +261,11 @@ export type Meter$Outbound = {
   name: string;
   filter: Filter$Outbound;
   aggregation:
+    | (CountAggregation$Outbound & { func: "count" })
     | (PropertyAggregation$Outbound & { func: "avg" })
-    | (PropertyAggregation$Outbound & { func: "avg" })
-    | (PropertyAggregation$Outbound & { func: "avg" })
-    | (PropertyAggregation$Outbound & { func: "avg" })
-    | (CountAggregation$Outbound & { func: "count" });
+    | (PropertyAggregation$Outbound & { func: "max" })
+    | (PropertyAggregation$Outbound & { func: "min" })
+    | (PropertyAggregation$Outbound & { func: "sum" });
   organization_id: string;
 };
 
@@ -284,22 +284,22 @@ export const Meter$outboundSchema: z.ZodType<
   name: z.string(),
   filter: Filter$outboundSchema,
   aggregation: z.union([
-    PropertyAggregation$outboundSchema.and(
-      z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-    ),
-    PropertyAggregation$outboundSchema.and(
-      z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-    ),
-    PropertyAggregation$outboundSchema.and(
-      z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-    ),
-    PropertyAggregation$outboundSchema.and(
-      z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-    ),
     CountAggregation$outboundSchema.and(
       z.object({ func: z.literal("count") }).transform((v) => ({
         func: v.func,
       })),
+    ),
+    PropertyAggregation$outboundSchema.and(
+      z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
+    ),
+    PropertyAggregation$outboundSchema.and(
+      z.object({ func: z.literal("max") }).transform((v) => ({ func: v.func })),
+    ),
+    PropertyAggregation$outboundSchema.and(
+      z.object({ func: z.literal("min") }).transform((v) => ({ func: v.func })),
+    ),
+    PropertyAggregation$outboundSchema.and(
+      z.object({ func: z.literal("sum") }).transform((v) => ({ func: v.func })),
     ),
   ]),
   organizationId: z.string(),

@@ -7,8 +7,8 @@ import { env } from "./env.js";
 
 type OAuth2PasswordFlow = {
   username: string;
-  password: string;
-  clientID?: string | undefined;
+  password?: string | undefined;
+  clientID: string;
   clientSecret?: string | undefined;
   tokenURL: string;
 };

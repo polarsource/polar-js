@@ -24,7 +24,7 @@ export type DownloadableFileCreate = {
   size: number;
   checksumSha256Base64?: string | null | undefined;
   upload: S3FileCreateMultipart;
-  service: "downloadable";
+  service?: "downloadable" | undefined;
   version?: string | null | undefined;
 };
 
@@ -40,7 +40,7 @@ export const DownloadableFileCreate$inboundSchema: z.ZodType<
   size: z.number().int(),
   checksum_sha256_base64: z.nullable(z.string()).optional(),
   upload: S3FileCreateMultipart$inboundSchema,
-  service: z.literal("downloadable"),
+  service: z.literal("downloadable").optional(),
   version: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -74,7 +74,7 @@ export const DownloadableFileCreate$outboundSchema: z.ZodType<
   size: z.number().int(),
   checksumSha256Base64: z.nullable(z.string()).optional(),
   upload: S3FileCreateMultipart$outboundSchema,
-  service: z.literal("downloadable"),
+  service: z.literal("downloadable").default("downloadable" as const),
   version: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

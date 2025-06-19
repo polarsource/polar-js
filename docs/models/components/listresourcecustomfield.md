@@ -18,12 +18,7 @@ let value: ListResourceCustomField = {
       name: "<value>",
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       properties: {
-        options: [
-          {
-            value: "<value>",
-            label: "<value>",
-          },
-        ],
+        options: [],
       },
     },
   ],

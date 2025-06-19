@@ -184,9 +184,7 @@ async function run() {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   }, {
     id: "<value>",
-    customerBenefitGrantUpdate: {
-      benefitType: "license_keys",
-    },
+    customerBenefitGrantUpdate: {},
   });
 
   console.log(result);
@@ -212,9 +210,7 @@ async function run() {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   }, {
     id: "<value>",
-    customerBenefitGrantUpdate: {
-      benefitType: "license_keys",
-    },
+    customerBenefitGrantUpdate: {},
   });
   if (res.ok) {
     const { value: result } = res;

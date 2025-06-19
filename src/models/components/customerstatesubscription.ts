@@ -54,7 +54,7 @@ export type CustomerStateSubscription = {
     | { [k: string]: string | number | boolean | Date | null }
     | undefined;
   metadata: { [k: string]: string | number | number | boolean };
-  status: "active";
+  status?: "active" | undefined;
   /**
    * The amount of the subscription.
    */
@@ -254,7 +254,7 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  status: z.literal("active"),
+  status: z.literal("active").optional(),
   amount: z.number().int(),
   currency: z.string(),
   recurring_interval: SubscriptionRecurringInterval$inboundSchema,
@@ -340,7 +340,7 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  status: z.literal("active"),
+  status: z.literal("active").default("active" as const),
   amount: z.number().int(),
   currency: z.string(),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,

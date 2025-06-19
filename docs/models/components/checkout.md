@@ -47,6 +47,14 @@ let value: Checkout = {
   paymentProcessorMetadata: {
     "key": "<value>",
   },
+  customerBillingAddressFields: {
+    country: true,
+    state: false,
+    city: false,
+    postalCode: true,
+    line1: true,
+    line2: false,
+  },
   metadata: {
     "key": "<value>",
   },
@@ -54,55 +62,79 @@ let value: Checkout = {
   customerExternalId: "<id>",
   products: [
     {
-      createdAt: new Date("2024-08-06T01:44:33.394Z"),
-      modifiedAt: new Date("2023-12-28T04:11:54.477Z"),
+      createdAt: new Date("2025-07-05T05:38:23.285Z"),
+      modifiedAt: null,
       id: "<value>",
       name: "<value>",
-      description:
-        "afford sheepishly rudely fairly kiddingly obnoxiously unlike while jot inside",
+      description: "onto weep singe etch even obnoxiously so among",
       recurringInterval: "month",
       isRecurring: true,
       isArchived: true,
       organizationId: "<value>",
-      prices: [],
+      prices: [
+        {
+          createdAt: new Date("2024-05-23T00:03:50.452Z"),
+          modifiedAt: new Date("2025-06-18T23:14:44.449Z"),
+          id: "<value>",
+          isArchived: false,
+          productId: "<value>",
+          recurringInterval: "year",
+        },
+      ],
       benefits: [],
-      medias: [],
+      medias: [
+        {
+          id: "<value>",
+          organizationId: "<value>",
+          name: "<value>",
+          path: "/usr/X11R6",
+          mimeType: "<value>",
+          size: 327832,
+          storageVersion: "<value>",
+          checksumEtag: "<value>",
+          checksumSha256Base64: "<value>",
+          checksumSha256Hex: "<value>",
+          lastModifiedAt: null,
+          version: "<value>",
+          isUploaded: true,
+          createdAt: new Date("2023-11-10T03:13:37.813Z"),
+          sizeReadable: "<value>",
+          publicUrl: "https://warlike-tinderbox.com",
+        },
+      ],
     },
   ],
   product: {
-    createdAt: new Date("2023-06-20T19:01:29.811Z"),
-    modifiedAt: new Date("2025-12-11T20:38:00.359Z"),
+    createdAt: new Date("2025-01-02T11:48:03.532Z"),
+    modifiedAt: new Date("2024-04-15T06:23:21.766Z"),
     id: "<value>",
     name: "<value>",
     description:
-      "after midst adrenalin miserly unless likewise sophisticated clinking",
-    recurringInterval: "year",
+      "continually amidst gentle quadruple ha bah pace alive noisily gad",
+    recurringInterval: "month",
     isRecurring: true,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2023-06-22T10:39:25.286Z"),
-        modifiedAt: new Date("2025-12-10T05:32:38.930Z"),
+        createdAt: new Date("2023-01-22T03:01:52.725Z"),
+        modifiedAt: new Date("2025-07-19T04:13:46.135Z"),
         id: "<value>",
-        isArchived: false,
+        isArchived: true,
         productId: "<value>",
+        type: "recurring",
         recurringInterval: "year",
-        priceCurrency: "<value>",
-        minimumAmount: null,
-        maximumAmount: 137381,
-        presetAmount: 813898,
       },
     ],
     benefits: [
       {
         id: "<value>",
-        createdAt: new Date("2025-02-28T01:09:21.212Z"),
-        modifiedAt: new Date("2023-02-15T16:10:30.309Z"),
-        type: "downloadables",
-        description: "drowse whoever until continually amidst gentle quadruple",
+        createdAt: new Date("2025-08-22T09:43:58.793Z"),
+        modifiedAt: new Date("2023-02-16T00:22:02.887Z"),
+        type: "custom",
+        description: "inside any judgementally grown consequently naturally",
         selectable: false,
-        deletable: false,
+        deletable: true,
         organizationId: "<value>",
       },
     ],
@@ -111,85 +143,46 @@ let value: Checkout = {
         id: "<value>",
         organizationId: "<value>",
         name: "<value>",
-        path: "/private",
+        path: "/usr/X11R6",
         mimeType: "<value>",
-        size: 782007,
+        size: 327832,
         storageVersion: "<value>",
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
         lastModifiedAt: null,
         version: "<value>",
-        isUploaded: false,
-        createdAt: new Date("2024-07-08T02:43:14.288Z"),
+        isUploaded: true,
+        createdAt: new Date("2023-11-10T03:13:37.813Z"),
         sizeReadable: "<value>",
-        publicUrl: "https://aged-fellow.net",
+        publicUrl: "https://warlike-tinderbox.com",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2025-04-16T13:20:23.984Z"),
-    modifiedAt: new Date("2025-11-14T12:17:37.257Z"),
+    createdAt: new Date("2025-09-07T23:37:19.259Z"),
+    modifiedAt: new Date("2025-03-28T02:00:35.338Z"),
     id: "<value>",
     isArchived: true,
     productId: "<value>",
-    type: "one_time",
-    recurringInterval: "month",
+    recurringInterval: "year",
     priceCurrency: "<value>",
-    unitAmount: "<value>",
-    capAmount: 306356,
-    meterId: "<value>",
-    meter: {
-      id: "<value>",
-      name: "<value>",
-    },
+    minimumAmount: 405834,
+    maximumAmount: 614961,
+    presetAmount: 965284,
   },
   discount: {
     duration: "repeating",
     type: "percentage",
-    basisPoints: 693707,
+    amount: 855249,
+    currency: "Bahraini Dinar",
     id: "<value>",
     name: "<value>",
-    code: null,
+    code: "<value>",
   },
   subscriptionId: "<value>",
-  attachedCustomFields: [
-    {
-      customFieldId: "<value>",
-      customField: {
-        createdAt: new Date("2024-07-01T08:41:58.254Z"),
-        modifiedAt: new Date("2024-04-28T16:06:37.710Z"),
-        id: "<value>",
-        metadata: {
-          "key": 120959,
-        },
-        slug: "<value>",
-        name: "<value>",
-        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {
-          options: [
-            {
-              value: "<value>",
-              label: "<value>",
-            },
-          ],
-        },
-      },
-      order: 943565,
-      required: false,
-    },
-  ],
-  customerMetadata: {
-    "key": 602668,
-  },
-  customerBillingAddressFields: {
-    country: false,
-    state: true,
-    city: false,
-    postalCode: true,
-    line1: true,
-    line2: true,
-  },
+  attachedCustomFields: [],
+  customerMetadata: {},
 };
 ```
 
@@ -233,6 +226,7 @@ let value: Checkout = {
 | `customerBillingAddress`                                                                                                                                                                                                                                                                  | [components.Address](../../models/components/address.md)                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `customerTaxId`                                                                                                                                                                                                                                                                           | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `paymentProcessorMetadata`                                                                                                                                                                                                                                                                | Record<string, *string*>                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
+| `customerBillingAddressFields`                                                                                                                                                                                                                                                            | [components.CheckoutCustomerBillingAddressFields](../../models/components/checkoutcustomerbillingaddressfields.md)                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `metadata`                                                                                                                                                                                                                                                                                | Record<string, *components.CheckoutMetadata*>                                                                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `externalCustomerId`                                                                                                                                                                                                                                                                      | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | ID of the customer in your system. If a matching customer exists on Polar, the resulting order will be linked to this customer. Otherwise, a new customer will be created with this external ID set.                                                                                      |
 | ~~`customerExternalId`~~                                                                                                                                                                                                                                                                  | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                                                                                                                                   |
@@ -243,4 +237,3 @@ let value: Checkout = {
 | `subscriptionId`                                                                                                                                                                                                                                                                          | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `attachedCustomFields`                                                                                                                                                                                                                                                                    | [components.AttachedCustomField](../../models/components/attachedcustomfield.md)[]                                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `customerMetadata`                                                                                                                                                                                                                                                                        | Record<string, *components.CustomerMetadata*>                                                                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
-| `customerBillingAddressFields`                                                                                                                                                                                                                                                            | [components.CheckoutCustomerBillingAddressFields](../../models/components/checkoutcustomerbillingaddressfields.md)                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |

@@ -88,10 +88,10 @@ export type CheckoutMetadata = string | number | number | boolean;
 export type CheckoutProductPrice = LegacyRecurringProductPrice | ProductPrice;
 
 export type CheckoutDiscount =
-  | CheckoutDiscountFixedRepeatDuration
+  | CheckoutDiscountPercentageOnceForeverDuration
   | CheckoutDiscountFixedOnceForeverDuration
   | CheckoutDiscountPercentageRepeatDuration
-  | CheckoutDiscountPercentageOnceForeverDuration;
+  | CheckoutDiscountFixedRepeatDuration;
 
 export type CustomerMetadata = string | number | boolean;
 
@@ -221,6 +221,7 @@ export type Checkout = {
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
   paymentProcessorMetadata: { [k: string]: string };
+  customerBillingAddressFields: CheckoutCustomerBillingAddressFields;
   metadata: { [k: string]: string | number | number | boolean };
   /**
    * ID of the customer in your system. If a matching customer exists on Polar, the resulting order will be linked to this customer. Otherwise, a new customer will be created with this external ID set.
@@ -243,15 +244,14 @@ export type Checkout = {
    */
   productPrice: LegacyRecurringProductPrice | ProductPrice;
   discount:
-    | CheckoutDiscountFixedRepeatDuration
+    | CheckoutDiscountPercentageOnceForeverDuration
     | CheckoutDiscountFixedOnceForeverDuration
     | CheckoutDiscountPercentageRepeatDuration
-    | CheckoutDiscountPercentageOnceForeverDuration
+    | CheckoutDiscountFixedRepeatDuration
     | null;
   subscriptionId: string | null;
   attachedCustomFields: Array<AttachedCustomField>;
   customerMetadata: { [k: string]: string | number | boolean };
-  customerBillingAddressFields: CheckoutCustomerBillingAddressFields;
 };
 
 /** @internal */
@@ -426,18 +426,18 @@ export const CheckoutDiscount$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  CheckoutDiscountFixedRepeatDuration$inboundSchema,
+  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
-  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+  CheckoutDiscountFixedRepeatDuration$inboundSchema,
 ]);
 
 /** @internal */
 export type CheckoutDiscount$Outbound =
-  | CheckoutDiscountFixedRepeatDuration$Outbound
+  | CheckoutDiscountPercentageOnceForeverDuration$Outbound
   | CheckoutDiscountFixedOnceForeverDuration$Outbound
   | CheckoutDiscountPercentageRepeatDuration$Outbound
-  | CheckoutDiscountPercentageOnceForeverDuration$Outbound;
+  | CheckoutDiscountFixedRepeatDuration$Outbound;
 
 /** @internal */
 export const CheckoutDiscount$outboundSchema: z.ZodType<
@@ -445,10 +445,10 @@ export const CheckoutDiscount$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutDiscount
 > = z.union([
-  CheckoutDiscountFixedRepeatDuration$outboundSchema,
+  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
   CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+  CheckoutDiscountFixedRepeatDuration$outboundSchema,
 ]);
 
 /**
@@ -583,6 +583,8 @@ export const Checkout$inboundSchema: z.ZodType<
   customer_billing_address: z.nullable(Address$inboundSchema),
   customer_tax_id: z.nullable(z.string()),
   payment_processor_metadata: z.record(z.string()),
+  customer_billing_address_fields:
+    CheckoutCustomerBillingAddressFields$inboundSchema,
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
@@ -596,10 +598,10 @@ export const Checkout$inboundSchema: z.ZodType<
   ]),
   discount: z.nullable(
     z.union([
-      CheckoutDiscountFixedRepeatDuration$inboundSchema,
+      CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
       CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
       CheckoutDiscountPercentageRepeatDuration$inboundSchema,
-      CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+      CheckoutDiscountFixedRepeatDuration$inboundSchema,
     ]),
   ),
   subscription_id: z.nullable(z.string()),
@@ -607,8 +609,6 @@ export const Checkout$inboundSchema: z.ZodType<
   customer_metadata: z.record(
     z.union([z.string(), z.number().int(), z.boolean()]),
   ),
-  customer_billing_address_fields:
-    CheckoutCustomerBillingAddressFields$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -642,13 +642,13 @@ export const Checkout$inboundSchema: z.ZodType<
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
+    "customer_billing_address_fields": "customerBillingAddressFields",
     "external_customer_id": "externalCustomerId",
     "customer_external_id": "customerExternalId",
     "product_price": "productPrice",
     "subscription_id": "subscriptionId",
     "attached_custom_fields": "attachedCustomFields",
     "customer_metadata": "customerMetadata",
-    "customer_billing_address_fields": "customerBillingAddressFields",
   });
 });
 
@@ -692,6 +692,8 @@ export type Checkout$Outbound = {
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
   payment_processor_metadata: { [k: string]: string };
+  customer_billing_address_fields:
+    CheckoutCustomerBillingAddressFields$Outbound;
   metadata: { [k: string]: string | number | number | boolean };
   external_customer_id: string | null;
   customer_external_id: string | null;
@@ -699,16 +701,14 @@ export type Checkout$Outbound = {
   product: CheckoutProduct$Outbound;
   product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   discount:
-    | CheckoutDiscountFixedRepeatDuration$Outbound
+    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
     | CheckoutDiscountFixedOnceForeverDuration$Outbound
     | CheckoutDiscountPercentageRepeatDuration$Outbound
-    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
+    | CheckoutDiscountFixedRepeatDuration$Outbound
     | null;
   subscription_id: string | null;
   attached_custom_fields: Array<AttachedCustomField$Outbound>;
   customer_metadata: { [k: string]: string | number | boolean };
-  customer_billing_address_fields:
-    CheckoutCustomerBillingAddressFields$Outbound;
 };
 
 /** @internal */
@@ -762,6 +762,8 @@ export const Checkout$outboundSchema: z.ZodType<
   customerBillingAddress: z.nullable(Address$outboundSchema),
   customerTaxId: z.nullable(z.string()),
   paymentProcessorMetadata: z.record(z.string()),
+  customerBillingAddressFields:
+    CheckoutCustomerBillingAddressFields$outboundSchema,
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
@@ -775,10 +777,10 @@ export const Checkout$outboundSchema: z.ZodType<
   ]),
   discount: z.nullable(
     z.union([
-      CheckoutDiscountFixedRepeatDuration$outboundSchema,
+      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
       CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
       CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+      CheckoutDiscountFixedRepeatDuration$outboundSchema,
     ]),
   ),
   subscriptionId: z.nullable(z.string()),
@@ -786,8 +788,6 @@ export const Checkout$outboundSchema: z.ZodType<
   customerMetadata: z.record(
     z.union([z.string(), z.number().int(), z.boolean()]),
   ),
-  customerBillingAddressFields:
-    CheckoutCustomerBillingAddressFields$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -821,13 +821,13 @@ export const Checkout$outboundSchema: z.ZodType<
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",
+    customerBillingAddressFields: "customer_billing_address_fields",
     externalCustomerId: "external_customer_id",
     customerExternalId: "customer_external_id",
     productPrice: "product_price",
     subscriptionId: "subscription_id",
     attachedCustomFields: "attached_custom_fields",
     customerMetadata: "customer_metadata",
-    customerBillingAddressFields: "customer_billing_address_fields",
   });
 });
 
