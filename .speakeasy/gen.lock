@@ -5,8 +5,8 @@ management:
   docVersion: 0.1.0
   speakeasyVersion: 1.561.0
   generationVersion: 2.628.0
-  releaseVersion: 0.34.0
-  configChecksum: dfd14471fd7c56346d1de56a3000bf88
+  releaseVersion: 0.34.1
+  configChecksum: 172b1277cbb3533112802376746dc173
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
