@@ -5,7 +5,7 @@
 import { customerPortalCustomersAddPaymentMethod } from "../funcs/customerPortalCustomersAddPaymentMethod.js";
 import { customerPortalCustomersDeletePaymentMethod } from "../funcs/customerPortalCustomersDeletePaymentMethod.js";
 import { customerPortalCustomersGet } from "../funcs/customerPortalCustomersGet.js";
-import { customerPortalCustomersGetPaymentMethods } from "../funcs/customerPortalCustomersGetPaymentMethods.js";
+import { customerPortalCustomersListPaymentMethods } from "../funcs/customerPortalCustomersListPaymentMethods.js";
 import { customerPortalCustomersUpdate } from "../funcs/customerPortalCustomersUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { CustomerPaymentMethodCreate } from "../models/components/customerpaymentmethodcreate.js";
@@ -21,10 +21,10 @@ import {
 } from "../models/operations/customerportalcustomersdeletepaymentmethod.js";
 import { CustomerPortalCustomersGetSecurity } from "../models/operations/customerportalcustomersget.js";
 import {
-  CustomerPortalCustomersGetPaymentMethodsRequest,
-  CustomerPortalCustomersGetPaymentMethodsResponse,
-  CustomerPortalCustomersGetPaymentMethodsSecurity,
-} from "../models/operations/customerportalcustomersgetpaymentmethods.js";
+  CustomerPortalCustomersListPaymentMethodsRequest,
+  CustomerPortalCustomersListPaymentMethodsResponse,
+  CustomerPortalCustomersListPaymentMethodsSecurity,
+} from "../models/operations/customerportalcustomerslistpaymentmethods.js";
 import { CustomerPortalCustomersUpdateSecurity } from "../models/operations/customerportalcustomersupdate.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
@@ -71,24 +71,24 @@ export class PolarCustomers extends ClientSDK {
   }
 
   /**
-   * Get Customer Payment Methods
+   * List Customer Payment Methods
    *
    * @remarks
    * Get saved payment methods of the authenticated customer.
    *
    * **Scopes**: `customer_portal:read` `customer_portal:write`
    */
-  async getPaymentMethods(
-    security: CustomerPortalCustomersGetPaymentMethodsSecurity,
-    request: CustomerPortalCustomersGetPaymentMethodsRequest,
+  async listPaymentMethods(
+    security: CustomerPortalCustomersListPaymentMethodsSecurity,
+    request: CustomerPortalCustomersListPaymentMethodsRequest,
     options?: RequestOptions,
   ): Promise<
     PageIterator<
-      CustomerPortalCustomersGetPaymentMethodsResponse,
+      CustomerPortalCustomersListPaymentMethodsResponse,
       { page: number }
     >
   > {
-    return unwrapResultIterator(customerPortalCustomersGetPaymentMethods(
+    return unwrapResultIterator(customerPortalCustomersListPaymentMethods(
       this,
       security,
       request,

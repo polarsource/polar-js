@@ -69,7 +69,6 @@ let value: ListResourceCustomerBenefitGrant = {
           detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
           featureSettings: {
             issueFundingEnabled: false,
-            usageBasedBillingEnabled: false,
           },
           subscriptionSettings: {
             allowMultipleSubscriptions: false,

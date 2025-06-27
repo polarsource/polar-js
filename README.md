@@ -462,7 +462,7 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 * [get](docs/sdks/polarcustomers/README.md#get) - Get Customer
 * [update](docs/sdks/polarcustomers/README.md#update) - Update Customer
-* [getPaymentMethods](docs/sdks/polarcustomers/README.md#getpaymentmethods) - Get Customer Payment Methods
+* [listPaymentMethods](docs/sdks/polarcustomers/README.md#listpaymentmethods) - List Customer Payment Methods
 * [addPaymentMethod](docs/sdks/polarcustomers/README.md#addpaymentmethod) - Add Customer Payment Method
 * [deletePaymentMethod](docs/sdks/polarcustomers/README.md#deletepaymentmethod) - Delete Customer Payment Method
 
@@ -680,7 +680,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerPortalCustomersAddPaymentMethod`](docs/sdks/polarcustomers/README.md#addpaymentmethod) - Add Customer Payment Method
 - [`customerPortalCustomersDeletePaymentMethod`](docs/sdks/polarcustomers/README.md#deletepaymentmethod) - Delete Customer Payment Method
 - [`customerPortalCustomersGet`](docs/sdks/polarcustomers/README.md#get) - Get Customer
-- [`customerPortalCustomersGetPaymentMethods`](docs/sdks/polarcustomers/README.md#getpaymentmethods) - Get Customer Payment Methods
+- [`customerPortalCustomersListPaymentMethods`](docs/sdks/polarcustomers/README.md#listpaymentmethods) - List Customer Payment Methods
 - [`customerPortalCustomersUpdate`](docs/sdks/polarcustomers/README.md#update) - Update Customer
 - [`customerPortalDownloadablesGet`](docs/sdks/downloadables/README.md#get) - Get Downloadable
 - [`customerPortalDownloadablesList`](docs/sdks/downloadables/README.md#list) - List Downloadables

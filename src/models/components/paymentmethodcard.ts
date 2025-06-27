@@ -8,18 +8,34 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PaymentMethodCardData,
-  PaymentMethodCardData$inboundSchema,
-  PaymentMethodCardData$Outbound,
-  PaymentMethodCardData$outboundSchema,
-} from "./paymentmethodcarddata.js";
+  PaymentMethodCardMetadata,
+  PaymentMethodCardMetadata$inboundSchema,
+  PaymentMethodCardMetadata$Outbound,
+  PaymentMethodCardMetadata$outboundSchema,
+} from "./paymentmethodcardmetadata.js";
+import {
+  PaymentProcessor,
+  PaymentProcessor$inboundSchema,
+  PaymentProcessor$outboundSchema,
+} from "./paymentprocessor.js";
 
 export type PaymentMethodCard = {
+  /**
+   * The ID of the object.
+   */
   id: string;
-  type?: "card" | undefined;
+  /**
+   * Creation timestamp of the object.
+   */
   createdAt: Date;
-  default: boolean;
-  card: PaymentMethodCardData;
+  /**
+   * Last modification timestamp of the object.
+   */
+  modifiedAt: Date | null;
+  processor: PaymentProcessor;
+  customerId: string;
+  type?: "card" | undefined;
+  methodMetadata: PaymentMethodCardMetadata;
 };
 
 /** @internal */
@@ -29,23 +45,32 @@ export const PaymentMethodCard$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  type: z.literal("card").optional(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  default: z.boolean(),
-  card: PaymentMethodCardData$inboundSchema,
+  modified_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
+  processor: PaymentProcessor$inboundSchema,
+  customer_id: z.string(),
+  type: z.literal("card").optional(),
+  method_metadata: PaymentMethodCardMetadata$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
+    "modified_at": "modifiedAt",
+    "customer_id": "customerId",
+    "method_metadata": "methodMetadata",
   });
 });
 
 /** @internal */
 export type PaymentMethodCard$Outbound = {
   id: string;
-  type: "card";
   created_at: string;
-  default: boolean;
-  card: PaymentMethodCardData$Outbound;
+  modified_at: string | null;
+  processor: string;
+  customer_id: string;
+  type: "card";
+  method_metadata: PaymentMethodCardMetadata$Outbound;
 };
 
 /** @internal */
@@ -55,13 +80,18 @@ export const PaymentMethodCard$outboundSchema: z.ZodType<
   PaymentMethodCard
 > = z.object({
   id: z.string(),
-  type: z.literal("card").default("card" as const),
   createdAt: z.date().transform(v => v.toISOString()),
-  default: z.boolean(),
-  card: PaymentMethodCardData$outboundSchema,
+  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
+  processor: PaymentProcessor$outboundSchema,
+  customerId: z.string(),
+  type: z.literal("card").default("card" as const),
+  methodMetadata: PaymentMethodCardMetadata$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
+    modifiedAt: "modified_at",
+    customerId: "customer_id",
+    methodMetadata: "method_metadata",
   });
 });
 
