@@ -1,11 +1,11 @@
-# CustomerPortalCustomersGetPaymentMethodsSecurity
+# CustomerPortalCustomersListPaymentMethodsSecurity
 
 ## Example Usage
 
 ```typescript
-import { CustomerPortalCustomersGetPaymentMethodsSecurity } from "@polar-sh/sdk/models/operations/customerportalcustomersgetpaymentmethods.js";
+import { CustomerPortalCustomersListPaymentMethodsSecurity } from "@polar-sh/sdk/models/operations/customerportalcustomerslistpaymentmethods.js";
 
-let value: CustomerPortalCustomersGetPaymentMethodsSecurity = {
+let value: CustomerPortalCustomersListPaymentMethodsSecurity = {
   customerSession: "<value>",
 };
 ```

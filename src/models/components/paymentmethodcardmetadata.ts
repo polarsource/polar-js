@@ -8,7 +8,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type PaymentMethodCardData = {
+export type PaymentMethodCardMetadata = {
   brand: string;
   last4: string;
   expMonth: number;
@@ -17,8 +17,8 @@ export type PaymentMethodCardData = {
 };
 
 /** @internal */
-export const PaymentMethodCardData$inboundSchema: z.ZodType<
-  PaymentMethodCardData,
+export const PaymentMethodCardMetadata$inboundSchema: z.ZodType<
+  PaymentMethodCardMetadata,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -35,7 +35,7 @@ export const PaymentMethodCardData$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type PaymentMethodCardData$Outbound = {
+export type PaymentMethodCardMetadata$Outbound = {
   brand: string;
   last4: string;
   exp_month: number;
@@ -44,10 +44,10 @@ export type PaymentMethodCardData$Outbound = {
 };
 
 /** @internal */
-export const PaymentMethodCardData$outboundSchema: z.ZodType<
-  PaymentMethodCardData$Outbound,
+export const PaymentMethodCardMetadata$outboundSchema: z.ZodType<
+  PaymentMethodCardMetadata$Outbound,
   z.ZodTypeDef,
-  PaymentMethodCardData
+  PaymentMethodCardMetadata
 > = z.object({
   brand: z.string(),
   last4: z.string(),
@@ -65,29 +65,29 @@ export const PaymentMethodCardData$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace PaymentMethodCardData$ {
-  /** @deprecated use `PaymentMethodCardData$inboundSchema` instead. */
-  export const inboundSchema = PaymentMethodCardData$inboundSchema;
-  /** @deprecated use `PaymentMethodCardData$outboundSchema` instead. */
-  export const outboundSchema = PaymentMethodCardData$outboundSchema;
-  /** @deprecated use `PaymentMethodCardData$Outbound` instead. */
-  export type Outbound = PaymentMethodCardData$Outbound;
+export namespace PaymentMethodCardMetadata$ {
+  /** @deprecated use `PaymentMethodCardMetadata$inboundSchema` instead. */
+  export const inboundSchema = PaymentMethodCardMetadata$inboundSchema;
+  /** @deprecated use `PaymentMethodCardMetadata$outboundSchema` instead. */
+  export const outboundSchema = PaymentMethodCardMetadata$outboundSchema;
+  /** @deprecated use `PaymentMethodCardMetadata$Outbound` instead. */
+  export type Outbound = PaymentMethodCardMetadata$Outbound;
 }
 
-export function paymentMethodCardDataToJSON(
-  paymentMethodCardData: PaymentMethodCardData,
+export function paymentMethodCardMetadataToJSON(
+  paymentMethodCardMetadata: PaymentMethodCardMetadata,
 ): string {
   return JSON.stringify(
-    PaymentMethodCardData$outboundSchema.parse(paymentMethodCardData),
+    PaymentMethodCardMetadata$outboundSchema.parse(paymentMethodCardMetadata),
   );
 }
 
-export function paymentMethodCardDataFromJSON(
+export function paymentMethodCardMetadataFromJSON(
   jsonString: string,
-): SafeParseResult<PaymentMethodCardData, SDKValidationError> {
+): SafeParseResult<PaymentMethodCardMetadata, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => PaymentMethodCardData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'PaymentMethodCardData' from JSON`,
+    (x) => PaymentMethodCardMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PaymentMethodCardMetadata' from JSON`,
   );
 }

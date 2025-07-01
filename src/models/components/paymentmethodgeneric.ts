@@ -7,12 +7,28 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  PaymentProcessor,
+  PaymentProcessor$inboundSchema,
+  PaymentProcessor$outboundSchema,
+} from "./paymentprocessor.js";
 
 export type PaymentMethodGeneric = {
+  /**
+   * The ID of the object.
+   */
   id: string;
-  type: string;
+  /**
+   * Creation timestamp of the object.
+   */
   createdAt: Date;
-  default: boolean;
+  /**
+   * Last modification timestamp of the object.
+   */
+  modifiedAt: Date | null;
+  processor: PaymentProcessor;
+  customerId: string;
+  type: string;
 };
 
 /** @internal */
@@ -22,21 +38,29 @@ export const PaymentMethodGeneric$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  type: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  default: z.boolean(),
+  modified_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
+  processor: PaymentProcessor$inboundSchema,
+  customer_id: z.string(),
+  type: z.string(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
+    "modified_at": "modifiedAt",
+    "customer_id": "customerId",
   });
 });
 
 /** @internal */
 export type PaymentMethodGeneric$Outbound = {
   id: string;
-  type: string;
   created_at: string;
-  default: boolean;
+  modified_at: string | null;
+  processor: string;
+  customer_id: string;
+  type: string;
 };
 
 /** @internal */
@@ -46,12 +70,16 @@ export const PaymentMethodGeneric$outboundSchema: z.ZodType<
   PaymentMethodGeneric
 > = z.object({
   id: z.string(),
-  type: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
-  default: z.boolean(),
+  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
+  processor: PaymentProcessor$outboundSchema,
+  customerId: z.string(),
+  type: z.string(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
+    modifiedAt: "modified_at",
+    customerId: "customer_id",
   });
 });
 

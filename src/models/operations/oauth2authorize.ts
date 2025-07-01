@@ -23,8 +23,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Successful Response
  */
 export type Oauth2AuthorizeResponseOauth2Authorize =
-  | (AuthorizeResponseUser & { subType: "user" })
-  | (AuthorizeResponseOrganization & { subType: "organization" });
+  | (AuthorizeResponseOrganization & { subType: "organization" })
+  | (AuthorizeResponseUser & { subType: "user" });
 
 /** @internal */
 export const Oauth2AuthorizeResponseOauth2Authorize$inboundSchema: z.ZodType<
@@ -32,13 +32,13 @@ export const Oauth2AuthorizeResponseOauth2Authorize$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  AuthorizeResponseUser$inboundSchema.and(
-    z.object({ sub_type: z.literal("user") }).transform((v) => ({
+  AuthorizeResponseOrganization$inboundSchema.and(
+    z.object({ sub_type: z.literal("organization") }).transform((v) => ({
       subType: v.sub_type,
     })),
   ),
-  AuthorizeResponseOrganization$inboundSchema.and(
-    z.object({ sub_type: z.literal("organization") }).transform((v) => ({
+  AuthorizeResponseUser$inboundSchema.and(
+    z.object({ sub_type: z.literal("user") }).transform((v) => ({
       subType: v.sub_type,
     })),
   ),
@@ -46,8 +46,8 @@ export const Oauth2AuthorizeResponseOauth2Authorize$inboundSchema: z.ZodType<
 
 /** @internal */
 export type Oauth2AuthorizeResponseOauth2Authorize$Outbound =
-  | (AuthorizeResponseUser$Outbound & { sub_type: "user" })
-  | (AuthorizeResponseOrganization$Outbound & { sub_type: "organization" });
+  | (AuthorizeResponseOrganization$Outbound & { sub_type: "organization" })
+  | (AuthorizeResponseUser$Outbound & { sub_type: "user" });
 
 /** @internal */
 export const Oauth2AuthorizeResponseOauth2Authorize$outboundSchema: z.ZodType<
@@ -55,13 +55,13 @@ export const Oauth2AuthorizeResponseOauth2Authorize$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Oauth2AuthorizeResponseOauth2Authorize
 > = z.union([
-  AuthorizeResponseUser$outboundSchema.and(
-    z.object({ subType: z.literal("user") }).transform((v) => ({
+  AuthorizeResponseOrganization$outboundSchema.and(
+    z.object({ subType: z.literal("organization") }).transform((v) => ({
       sub_type: v.subType,
     })),
   ),
-  AuthorizeResponseOrganization$outboundSchema.and(
-    z.object({ subType: z.literal("organization") }).transform((v) => ({
+  AuthorizeResponseUser$outboundSchema.and(
+    z.object({ subType: z.literal("user") }).transform((v) => ({
       sub_type: v.subType,
     })),
   ),

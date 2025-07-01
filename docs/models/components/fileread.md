@@ -3,28 +3,6 @@
 
 ## Supported Types
 
-### `components.DownloadableFileRead`
-
-```typescript
-const value: components.DownloadableFileRead = {
-  id: "<value>",
-  organizationId: "<value>",
-  name: "<value>",
-  path: "/sbin",
-  mimeType: "<value>",
-  size: 822101,
-  storageVersion: "<value>",
-  checksumEtag: "<value>",
-  checksumSha256Base64: "<value>",
-  checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2023-11-01T10:53:02.231Z"),
-  version: "<value>",
-  isUploaded: true,
-  createdAt: new Date("2023-06-01T05:20:04.314Z"),
-  sizeReadable: "<value>",
-};
-```
-
 ### `components.OrganizationAvatarFileRead`
 
 ```typescript
@@ -68,6 +46,28 @@ const value: components.ProductMediaFileRead = {
   createdAt: new Date("2024-06-21T23:30:25.601Z"),
   sizeReadable: "<value>",
   publicUrl: "https://close-spirit.org",
+};
+```
+
+### `components.DownloadableFileRead`
+
+```typescript
+const value: components.DownloadableFileRead = {
+  id: "<value>",
+  organizationId: "<value>",
+  name: "<value>",
+  path: "/sbin",
+  mimeType: "<value>",
+  size: 822101,
+  storageVersion: "<value>",
+  checksumEtag: "<value>",
+  checksumSha256Base64: "<value>",
+  checksumSha256Hex: "<value>",
+  lastModifiedAt: new Date("2023-11-01T10:53:02.231Z"),
+  version: "<value>",
+  isUploaded: true,
+  createdAt: new Date("2023-06-01T05:20:04.314Z"),
+  sizeReadable: "<value>",
 };
 ```
 

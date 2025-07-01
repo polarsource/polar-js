@@ -46,6 +46,7 @@ export type CustomerPortalCustomer = {
   billingAddress: Address | null;
   taxId: Array<string | TaxIDFormat | null> | null;
   oauthAccounts: { [k: string]: CustomerPortalOAuthAccount };
+  defaultPaymentMethodId?: string | null | undefined;
 };
 
 /** @internal */
@@ -117,6 +118,7 @@ export const CustomerPortalCustomer$inboundSchema: z.ZodType<
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
   ),
   oauth_accounts: z.record(CustomerPortalOAuthAccount$inboundSchema),
+  default_payment_method_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -125,6 +127,7 @@ export const CustomerPortalCustomer$inboundSchema: z.ZodType<
     "billing_address": "billingAddress",
     "tax_id": "taxId",
     "oauth_accounts": "oauthAccounts",
+    "default_payment_method_id": "defaultPaymentMethodId",
   });
 });
 
@@ -139,6 +142,7 @@ export type CustomerPortalCustomer$Outbound = {
   billing_address: Address$Outbound | null;
   tax_id: Array<string | string | null> | null;
   oauth_accounts: { [k: string]: CustomerPortalOAuthAccount$Outbound };
+  default_payment_method_id?: string | null | undefined;
 };
 
 /** @internal */
@@ -158,6 +162,7 @@ export const CustomerPortalCustomer$outboundSchema: z.ZodType<
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
   ),
   oauthAccounts: z.record(CustomerPortalOAuthAccount$outboundSchema),
+  defaultPaymentMethodId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -166,6 +171,7 @@ export const CustomerPortalCustomer$outboundSchema: z.ZodType<
     billingAddress: "billing_address",
     taxId: "tax_id",
     oauthAccounts: "oauth_accounts",
+    defaultPaymentMethodId: "default_payment_method_id",
   });
 });
 

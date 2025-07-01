@@ -67,7 +67,7 @@ export const ResourceNotFound$outboundSchema: z.ZodType<
 > = z.instanceof(ResourceNotFound)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("ResourceNotFound").default("ResourceNotFound" as const),
+    error: z.literal("ResourceNotFound"),
     detail: z.string(),
   }));
 

@@ -49,13 +49,13 @@ let value: CheckoutPublic = {
     "key1": "<value>",
     "key2": "<value>",
   },
-  customerBillingAddressFields: {
-    country: true,
-    state: false,
-    city: false,
-    postalCode: true,
-    line1: true,
-    line2: false,
+  billingAddressFields: {
+    country: "required",
+    state: "disabled",
+    city: "optional",
+    postalCode: "required",
+    line1: "required",
+    line2: "disabled",
   },
   products: [
     {
@@ -70,13 +70,12 @@ let value: CheckoutPublic = {
       organizationId: "<value>",
       prices: [
         {
-          createdAt: new Date("2025-12-07T19:21:48.818Z"),
-          modifiedAt: new Date("2023-07-28T11:30:45.712Z"),
+          createdAt: new Date("2024-06-21T13:25:28.290Z"),
+          modifiedAt: new Date("2024-03-21T18:20:59.508Z"),
           id: "<value>",
           isArchived: true,
           productId: "<value>",
-          type: "recurring",
-          recurringInterval: "month",
+          recurringInterval: "year",
         },
       ],
       benefits: [],
@@ -115,16 +114,14 @@ let value: CheckoutPublic = {
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2024-09-01T15:00:28.058Z"),
-        modifiedAt: new Date("2024-02-22T02:01:31.430Z"),
+        createdAt: new Date("2025-09-30T08:10:08.066Z"),
+        modifiedAt: new Date("2024-06-08T18:26:53.959Z"),
         id: "<value>",
         isArchived: false,
         productId: "<value>",
-        recurringInterval: "month",
+        recurringInterval: "year",
         priceCurrency: "<value>",
-        minimumAmount: 937504,
-        maximumAmount: 511346,
-        presetAmount: 104768,
+        priceAmount: 511346,
       },
     ],
     benefits: [
@@ -161,31 +158,38 @@ let value: CheckoutPublic = {
     ],
   },
   productPrice: {
-    createdAt: new Date("2025-12-25T08:43:59.026Z"),
-    modifiedAt: new Date("2024-05-16T12:32:43.957Z"),
+    createdAt: new Date("2024-08-07T11:19:43.767Z"),
+    modifiedAt: new Date("2025-12-25T08:43:59.026Z"),
     id: "<value>",
     isArchived: false,
     productId: "<value>",
     type: "one_time",
-    recurringInterval: "year",
+    recurringInterval: "month",
+    priceCurrency: "<value>",
+    unitAmount: "<value>",
+    capAmount: 748346,
+    meterId: "<value>",
+    meter: {
+      id: "<value>",
+      name: "<value>",
+    },
   },
   discount: {
-    duration: "repeating",
+    duration: "forever",
     type: "percentage",
-    amount: 855249,
-    currency: "Bahraini Dinar",
+    basisPoints: 967669,
     id: "<value>",
     name: "<value>",
     code: "<value>",
   },
   organization: {
-    createdAt: new Date("2025-10-05T12:57:48.267Z"),
-    modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
+    createdAt: new Date("2025-01-01T18:22:02.718Z"),
+    modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://medium-object.org",
-    email: "Elena.Barton@hotmail.com",
+    avatarUrl: null,
+    email: "Hannah_Price@gmail.com",
     website: "<value>",
     socials: [
       {
@@ -193,7 +197,7 @@ let value: CheckoutPublic = {
         url: "https://expert-elevation.org",
       },
     ],
-    detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
+    detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -201,25 +205,7 @@ let value: CheckoutPublic = {
       prorationBehavior: "prorate",
     },
   },
-  attachedCustomFields: [
-    {
-      customFieldId: "<value>",
-      customField: {
-        createdAt: new Date("2025-02-17T09:28:43.135Z"),
-        modifiedAt: new Date("2024-12-12T07:00:59.178Z"),
-        id: "<value>",
-        metadata: {
-          "key": 8232.57,
-        },
-        slug: "<value>",
-        name: "<value>",
-        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {},
-      },
-      order: 723045,
-      required: false,
-    },
-  ],
+  attachedCustomFields: [],
 };
 ```
 
@@ -263,7 +249,7 @@ let value: CheckoutPublic = {
 | `customerBillingAddress`                                                                                                                                                                                                                                                                  | [components.Address](../../models/components/address.md)                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `customerTaxId`                                                                                                                                                                                                                                                                           | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `paymentProcessorMetadata`                                                                                                                                                                                                                                                                | Record<string, *string*>                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
-| `customerBillingAddressFields`                                                                                                                                                                                                                                                            | [components.CheckoutCustomerBillingAddressFields](../../models/components/checkoutcustomerbillingaddressfields.md)                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
+| `billingAddressFields`                                                                                                                                                                                                                                                                    | [components.CheckoutBillingAddressFields](../../models/components/checkoutbillingaddressfields.md)                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `products`                                                                                                                                                                                                                                                                                | [components.CheckoutProduct](../../models/components/checkoutproduct.md)[]                                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                                                                                                        | List of products available to select.                                                                                                                                                                                                                                                     |
 | `product`                                                                                                                                                                                                                                                                                 | [components.CheckoutProduct](../../models/components/checkoutproduct.md)                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Product data for a checkout session.                                                                                                                                                                                                                                                      |
 | `productPrice`                                                                                                                                                                                                                                                                            | *components.CheckoutPublicProductPrice*                                                                                                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Price of the selected product.                                                                                                                                                                                                                                                            |

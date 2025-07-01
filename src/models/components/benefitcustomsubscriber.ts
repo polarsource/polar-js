@@ -39,7 +39,7 @@ export type BenefitCustomSubscriber = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  type?: "custom" | undefined;
+  type: "custom";
   /**
    * The description of the benefit.
    */
@@ -129,7 +129,7 @@ export const BenefitCustomSubscriber$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  type: z.literal("custom").optional(),
+  type: z.literal("custom"),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
@@ -171,7 +171,7 @@ export const BenefitCustomSubscriber$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  type: z.literal("custom").default("custom" as const),
+  type: z.literal("custom"),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

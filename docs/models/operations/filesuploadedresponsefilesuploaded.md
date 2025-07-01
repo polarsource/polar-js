@@ -5,28 +5,6 @@ File upload completed.
 
 ## Supported Types
 
-### `components.DownloadableFileRead`
-
-```typescript
-const value: components.DownloadableFileRead = {
-  id: "<value>",
-  organizationId: "<value>",
-  name: "<value>",
-  path: "/sbin",
-  mimeType: "<value>",
-  size: 822101,
-  storageVersion: "<value>",
-  checksumEtag: "<value>",
-  checksumSha256Base64: "<value>",
-  checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2023-11-01T10:53:02.231Z"),
-  version: "<value>",
-  isUploaded: true,
-  createdAt: new Date("2023-06-01T05:20:04.314Z"),
-  sizeReadable: "<value>",
-};
-```
-
 ### `components.ProductMediaFileRead`
 
 ```typescript
@@ -70,6 +48,28 @@ const value: components.OrganizationAvatarFileRead = {
   createdAt: new Date("2024-01-22T16:01:37.037Z"),
   sizeReadable: "<value>",
   publicUrl: "https://useless-validity.info/",
+};
+```
+
+### `components.DownloadableFileRead`
+
+```typescript
+const value: components.DownloadableFileRead = {
+  id: "<value>",
+  organizationId: "<value>",
+  name: "<value>",
+  path: "/sbin",
+  mimeType: "<value>",
+  size: 822101,
+  storageVersion: "<value>",
+  checksumEtag: "<value>",
+  checksumSha256Base64: "<value>",
+  checksumSha256Hex: "<value>",
+  lastModifiedAt: new Date("2023-11-01T10:53:02.231Z"),
+  version: "<value>",
+  isUploaded: true,
+  createdAt: new Date("2023-06-01T05:20:04.314Z"),
+  sizeReadable: "<value>",
 };
 ```
 

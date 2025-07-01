@@ -36,7 +36,7 @@ export type BenefitDiscord = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  type?: "discord" | undefined;
+  type: "discord";
   /**
    * The description of the benefit.
    */
@@ -123,7 +123,7 @@ export const BenefitDiscord$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  type: z.literal("discord").optional(),
+  type: z.literal("discord"),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
@@ -163,7 +163,7 @@ export const BenefitDiscord$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  type: z.literal("discord").default("discord" as const),
+  type: z.literal("discord"),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

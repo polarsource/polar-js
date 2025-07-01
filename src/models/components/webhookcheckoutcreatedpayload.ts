@@ -21,7 +21,7 @@ import {
  * **Discord & Slack support:** Basic
  */
 export type WebhookCheckoutCreatedPayload = {
-  type?: "checkout.created" | undefined;
+  type: "checkout.created";
   /**
    * Checkout session data retrieved using an access token.
    */
@@ -34,7 +34,7 @@ export const WebhookCheckoutCreatedPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("checkout.created").optional(),
+  type: z.literal("checkout.created"),
   data: Checkout$inboundSchema,
 });
 
@@ -50,7 +50,7 @@ export const WebhookCheckoutCreatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookCheckoutCreatedPayload
 > = z.object({
-  type: z.literal("checkout.created").default("checkout.created" as const),
+  type: z.literal("checkout.created"),
   data: Checkout$outboundSchema,
 });
 

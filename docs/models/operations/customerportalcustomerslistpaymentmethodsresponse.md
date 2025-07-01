@@ -1,11 +1,11 @@
-# CustomerPortalCustomersGetPaymentMethodsResponse
+# CustomerPortalCustomersListPaymentMethodsResponse
 
 ## Example Usage
 
 ```typescript
-import { CustomerPortalCustomersGetPaymentMethodsResponse } from "@polar-sh/sdk/models/operations/customerportalcustomersgetpaymentmethods.js";
+import { CustomerPortalCustomersListPaymentMethodsResponse } from "@polar-sh/sdk/models/operations/customerportalcustomerslistpaymentmethods.js";
 
-let value: CustomerPortalCustomersGetPaymentMethodsResponse = {};
+let value: CustomerPortalCustomersListPaymentMethodsResponse = {};
 ```
 
 ## Fields

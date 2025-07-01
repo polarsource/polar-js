@@ -26,12 +26,12 @@ import { PolarError } from "../models/errors/polarerror.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
-  CustomerPortalCustomersGetPaymentMethodsRequest,
-  CustomerPortalCustomersGetPaymentMethodsRequest$outboundSchema,
-  CustomerPortalCustomersGetPaymentMethodsResponse,
-  CustomerPortalCustomersGetPaymentMethodsResponse$inboundSchema,
-  CustomerPortalCustomersGetPaymentMethodsSecurity,
-} from "../models/operations/customerportalcustomersgetpaymentmethods.js";
+  CustomerPortalCustomersListPaymentMethodsRequest,
+  CustomerPortalCustomersListPaymentMethodsRequest$outboundSchema,
+  CustomerPortalCustomersListPaymentMethodsResponse,
+  CustomerPortalCustomersListPaymentMethodsResponse$inboundSchema,
+  CustomerPortalCustomersListPaymentMethodsSecurity,
+} from "../models/operations/customerportalcustomerslistpaymentmethods.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 import {
@@ -42,22 +42,22 @@ import {
 } from "../types/operations.js";
 
 /**
- * Get Customer Payment Methods
+ * List Customer Payment Methods
  *
  * @remarks
  * Get saved payment methods of the authenticated customer.
  *
  * **Scopes**: `customer_portal:read` `customer_portal:write`
  */
-export function customerPortalCustomersGetPaymentMethods(
+export function customerPortalCustomersListPaymentMethods(
   client: PolarCore,
-  security: CustomerPortalCustomersGetPaymentMethodsSecurity,
-  request: CustomerPortalCustomersGetPaymentMethodsRequest,
+  security: CustomerPortalCustomersListPaymentMethodsSecurity,
+  request: CustomerPortalCustomersListPaymentMethodsRequest,
   options?: RequestOptions,
 ): APIPromise<
   PageIterator<
     Result<
-      CustomerPortalCustomersGetPaymentMethodsResponse,
+      CustomerPortalCustomersListPaymentMethodsResponse,
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -81,14 +81,14 @@ export function customerPortalCustomersGetPaymentMethods(
 
 async function $do(
   client: PolarCore,
-  security: CustomerPortalCustomersGetPaymentMethodsSecurity,
-  request: CustomerPortalCustomersGetPaymentMethodsRequest,
+  security: CustomerPortalCustomersListPaymentMethodsSecurity,
+  request: CustomerPortalCustomersListPaymentMethodsRequest,
   options?: RequestOptions,
 ): Promise<
   [
     PageIterator<
       Result<
-        CustomerPortalCustomersGetPaymentMethodsResponse,
+        CustomerPortalCustomersListPaymentMethodsResponse,
         | HTTPValidationError
         | PolarError
         | ResponseValidationError
@@ -107,7 +107,7 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      CustomerPortalCustomersGetPaymentMethodsRequest$outboundSchema.parse(
+      CustomerPortalCustomersListPaymentMethodsRequest$outboundSchema.parse(
         value,
       ),
     "Input validation failed",
@@ -142,7 +142,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "customer_portal:customers:get_payment_methods",
+    operationID: "customer_portal:customers:list_payment_methods",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -186,7 +186,7 @@ async function $do(
   };
 
   const [result, raw] = await M.match<
-    CustomerPortalCustomersGetPaymentMethodsResponse,
+    CustomerPortalCustomersListPaymentMethodsResponse,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -199,7 +199,7 @@ async function $do(
   >(
     M.json(
       200,
-      CustomerPortalCustomersGetPaymentMethodsResponse$inboundSchema,
+      CustomerPortalCustomersListPaymentMethodsResponse$inboundSchema,
       { key: "Result" },
     ),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
@@ -219,7 +219,7 @@ async function $do(
   ): {
     next: Paginator<
       Result<
-        CustomerPortalCustomersGetPaymentMethodsResponse,
+        CustomerPortalCustomersListPaymentMethodsResponse,
         | HTTPValidationError
         | PolarError
         | ResponseValidationError
@@ -253,7 +253,7 @@ async function $do(
     }
 
     const nextVal = () =>
-      customerPortalCustomersGetPaymentMethods(
+      customerPortalCustomersListPaymentMethods(
         client,
         security,
         {

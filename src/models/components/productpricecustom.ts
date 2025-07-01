@@ -34,7 +34,7 @@ export type ProductPriceCustom = {
    * The ID of the price.
    */
   id: string;
-  amountType?: "custom" | undefined;
+  amountType: "custom";
   /**
    * Whether the price is archived and no longer available.
    */
@@ -77,7 +77,7 @@ export const ProductPriceCustom$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  amount_type: z.literal("custom").optional(),
+  amount_type: z.literal("custom"),
   is_archived: z.boolean(),
   product_id: z.string(),
   type: ProductPriceType$inboundSchema,
@@ -126,7 +126,7 @@ export const ProductPriceCustom$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  amountType: z.literal("custom").default("custom" as const),
+  amountType: z.literal("custom"),
   isArchived: z.boolean(),
   productId: z.string(),
   type: ProductPriceType$outboundSchema,

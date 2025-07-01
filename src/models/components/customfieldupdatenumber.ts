@@ -41,7 +41,7 @@ export type CustomFieldUpdateNumber = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
-  type?: "number" | undefined;
+  type: "number";
   properties?: CustomFieldNumberProperties | null | undefined;
 };
 
@@ -110,7 +110,7 @@ export const CustomFieldUpdateNumber$inboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("number").optional(),
+  type: z.literal("number"),
   properties: z.nullable(CustomFieldNumberProperties$inboundSchema).optional(),
 });
 
@@ -134,7 +134,7 @@ export const CustomFieldUpdateNumber$outboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("number").default("number" as const),
+  type: z.literal("number"),
   properties: z.nullable(CustomFieldNumberProperties$outboundSchema).optional(),
 });
 

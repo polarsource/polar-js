@@ -44,14 +44,14 @@ import {
 } from "./customerbenefitgrantmetercreditupdate.js";
 
 export type CustomerBenefitGrantUpdate =
-  | (CustomerBenefitGrantCustomUpdate & { benefitType: "custom" })
-  | (CustomerBenefitGrantDownloadablesUpdate & { benefitType: "downloadables" })
-  | (CustomerBenefitGrantLicenseKeysUpdate & { benefitType: "license_keys" })
-  | (CustomerBenefitGrantMeterCreditUpdate & { benefitType: "meter_credit" })
   | (CustomerBenefitGrantDiscordUpdate & { benefitType: "discord" })
   | (CustomerBenefitGrantGitHubRepositoryUpdate & {
     benefitType: "github_repository";
-  });
+  })
+  | (CustomerBenefitGrantCustomUpdate & { benefitType: "custom" })
+  | (CustomerBenefitGrantDownloadablesUpdate & { benefitType: "downloadables" })
+  | (CustomerBenefitGrantLicenseKeysUpdate & { benefitType: "license_keys" })
+  | (CustomerBenefitGrantMeterCreditUpdate & { benefitType: "meter_credit" });
 
 /** @internal */
 export const CustomerBenefitGrantUpdate$inboundSchema: z.ZodType<
@@ -59,6 +59,16 @@ export const CustomerBenefitGrantUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  CustomerBenefitGrantDiscordUpdate$inboundSchema.and(
+    z.object({ benefit_type: z.literal("discord") }).transform((v) => ({
+      benefitType: v.benefit_type,
+    })),
+  ),
+  CustomerBenefitGrantGitHubRepositoryUpdate$inboundSchema.and(
+    z.object({ benefit_type: z.literal("github_repository") }).transform((
+      v,
+    ) => ({ benefitType: v.benefit_type })),
+  ),
   CustomerBenefitGrantCustomUpdate$inboundSchema.and(
     z.object({ benefit_type: z.literal("custom") }).transform((v) => ({
       benefitType: v.benefit_type,
@@ -79,20 +89,14 @@ export const CustomerBenefitGrantUpdate$inboundSchema: z.ZodType<
       benefitType: v.benefit_type,
     })),
   ),
-  CustomerBenefitGrantDiscordUpdate$inboundSchema.and(
-    z.object({ benefit_type: z.literal("discord") }).transform((v) => ({
-      benefitType: v.benefit_type,
-    })),
-  ),
-  CustomerBenefitGrantGitHubRepositoryUpdate$inboundSchema.and(
-    z.object({ benefit_type: z.literal("github_repository") }).transform((
-      v,
-    ) => ({ benefitType: v.benefit_type })),
-  ),
 ]);
 
 /** @internal */
 export type CustomerBenefitGrantUpdate$Outbound =
+  | (CustomerBenefitGrantDiscordUpdate$Outbound & { benefit_type: "discord" })
+  | (CustomerBenefitGrantGitHubRepositoryUpdate$Outbound & {
+    benefit_type: "github_repository";
+  })
   | (CustomerBenefitGrantCustomUpdate$Outbound & { benefit_type: "custom" })
   | (CustomerBenefitGrantDownloadablesUpdate$Outbound & {
     benefit_type: "downloadables";
@@ -102,10 +106,6 @@ export type CustomerBenefitGrantUpdate$Outbound =
   })
   | (CustomerBenefitGrantMeterCreditUpdate$Outbound & {
     benefit_type: "meter_credit";
-  })
-  | (CustomerBenefitGrantDiscordUpdate$Outbound & { benefit_type: "discord" })
-  | (CustomerBenefitGrantGitHubRepositoryUpdate$Outbound & {
-    benefit_type: "github_repository";
   });
 
 /** @internal */
@@ -114,6 +114,16 @@ export const CustomerBenefitGrantUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerBenefitGrantUpdate
 > = z.union([
+  CustomerBenefitGrantDiscordUpdate$outboundSchema.and(
+    z.object({ benefitType: z.literal("discord") }).transform((v) => ({
+      benefit_type: v.benefitType,
+    })),
+  ),
+  CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema.and(
+    z.object({ benefitType: z.literal("github_repository") }).transform((
+      v,
+    ) => ({ benefit_type: v.benefitType })),
+  ),
   CustomerBenefitGrantCustomUpdate$outboundSchema.and(
     z.object({ benefitType: z.literal("custom") }).transform((v) => ({
       benefit_type: v.benefitType,
@@ -133,16 +143,6 @@ export const CustomerBenefitGrantUpdate$outboundSchema: z.ZodType<
     z.object({ benefitType: z.literal("meter_credit") }).transform((v) => ({
       benefit_type: v.benefitType,
     })),
-  ),
-  CustomerBenefitGrantDiscordUpdate$outboundSchema.and(
-    z.object({ benefitType: z.literal("discord") }).transform((v) => ({
-      benefit_type: v.benefitType,
-    })),
-  ),
-  CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema.and(
-    z.object({ benefitType: z.literal("github_repository") }).transform((
-      v,
-    ) => ({ benefit_type: v.benefitType })),
   ),
 ]);
 

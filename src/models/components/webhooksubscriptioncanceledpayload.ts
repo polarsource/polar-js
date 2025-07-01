@@ -22,7 +22,7 @@ import {
  * **Discord & Slack support:** Full
  */
 export type WebhookSubscriptionCanceledPayload = {
-  type?: "subscription.canceled" | undefined;
+  type: "subscription.canceled";
   data: Subscription;
 };
 
@@ -32,7 +32,7 @@ export const WebhookSubscriptionCanceledPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("subscription.canceled").optional(),
+  type: z.literal("subscription.canceled"),
   data: Subscription$inboundSchema,
 });
 
@@ -48,9 +48,7 @@ export const WebhookSubscriptionCanceledPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookSubscriptionCanceledPayload
 > = z.object({
-  type: z.literal("subscription.canceled").default(
-    "subscription.canceled" as const,
-  ),
+  type: z.literal("subscription.canceled"),
   data: Subscription$outboundSchema,
 });
 

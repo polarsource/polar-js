@@ -41,7 +41,7 @@ export type CustomFieldUpdateSelect = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
-  type?: "select" | undefined;
+  type: "select";
   properties?: CustomFieldSelectProperties | null | undefined;
 };
 
@@ -110,7 +110,7 @@ export const CustomFieldUpdateSelect$inboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("select").optional(),
+  type: z.literal("select"),
   properties: z.nullable(CustomFieldSelectProperties$inboundSchema).optional(),
 });
 
@@ -134,7 +134,7 @@ export const CustomFieldUpdateSelect$outboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("select").default("select" as const),
+  type: z.literal("select"),
   properties: z.nullable(CustomFieldSelectProperties$outboundSchema).optional(),
 });
 

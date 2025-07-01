@@ -53,7 +53,7 @@ export type CardPayment = {
   /**
    * The payment method used.
    */
-  method?: "card" | undefined;
+  method: "card";
   /**
    * Error code, if the payment was declined.
    */
@@ -95,7 +95,7 @@ export const CardPayment$inboundSchema: z.ZodType<
   status: PaymentStatus$inboundSchema,
   amount: z.number().int(),
   currency: z.string(),
-  method: z.literal("card").optional(),
+  method: z.literal("card"),
   decline_reason: z.nullable(z.string()),
   decline_message: z.nullable(z.string()),
   organization_id: z.string(),
@@ -146,7 +146,7 @@ export const CardPayment$outboundSchema: z.ZodType<
   status: PaymentStatus$outboundSchema,
   amount: z.number().int(),
   currency: z.string(),
-  method: z.literal("card").default("card" as const),
+  method: z.literal("card"),
   declineReason: z.nullable(z.string()),
   declineMessage: z.nullable(z.string()),
   organizationId: z.string(),

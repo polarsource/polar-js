@@ -20,11 +20,11 @@ import {
   AttachedCustomField$outboundSchema,
 } from "./attachedcustomfield.js";
 import {
-  CheckoutCustomerBillingAddressFields,
-  CheckoutCustomerBillingAddressFields$inboundSchema,
-  CheckoutCustomerBillingAddressFields$Outbound,
-  CheckoutCustomerBillingAddressFields$outboundSchema,
-} from "./checkoutcustomerbillingaddressfields.js";
+  CheckoutBillingAddressFields,
+  CheckoutBillingAddressFields$inboundSchema,
+  CheckoutBillingAddressFields$Outbound,
+  CheckoutBillingAddressFields$outboundSchema,
+} from "./checkoutbillingaddressfields.js";
 import {
   CheckoutDiscountFixedOnceForeverDuration,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
@@ -94,10 +94,10 @@ export type CheckoutPublicProductPrice =
   | ProductPrice;
 
 export type CheckoutPublicDiscount =
-  | CheckoutDiscountPercentageOnceForeverDuration
+  | CheckoutDiscountFixedRepeatDuration
   | CheckoutDiscountFixedOnceForeverDuration
   | CheckoutDiscountPercentageRepeatDuration
-  | CheckoutDiscountFixedRepeatDuration;
+  | CheckoutDiscountPercentageOnceForeverDuration;
 
 /**
  * Checkout session data retrieved using the client secret.
@@ -225,7 +225,7 @@ export type CheckoutPublic = {
   customerBillingAddress: Address | null;
   customerTaxId: string | null;
   paymentProcessorMetadata: { [k: string]: string };
-  customerBillingAddressFields: CheckoutCustomerBillingAddressFields;
+  billingAddressFields: CheckoutBillingAddressFields;
   /**
    * List of products available to select.
    */
@@ -239,10 +239,10 @@ export type CheckoutPublic = {
    */
   productPrice: LegacyRecurringProductPrice | ProductPrice;
   discount:
-    | CheckoutDiscountPercentageOnceForeverDuration
+    | CheckoutDiscountFixedRepeatDuration
     | CheckoutDiscountFixedOnceForeverDuration
     | CheckoutDiscountPercentageRepeatDuration
-    | CheckoutDiscountFixedRepeatDuration
+    | CheckoutDiscountPercentageOnceForeverDuration
     | null;
   organization: Organization;
   attachedCustomFields: Array<AttachedCustomField>;
@@ -374,18 +374,18 @@ export const CheckoutPublicDiscount$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+  CheckoutDiscountFixedRepeatDuration$inboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
-  CheckoutDiscountFixedRepeatDuration$inboundSchema,
+  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
 ]);
 
 /** @internal */
 export type CheckoutPublicDiscount$Outbound =
-  | CheckoutDiscountPercentageOnceForeverDuration$Outbound
+  | CheckoutDiscountFixedRepeatDuration$Outbound
   | CheckoutDiscountFixedOnceForeverDuration$Outbound
   | CheckoutDiscountPercentageRepeatDuration$Outbound
-  | CheckoutDiscountFixedRepeatDuration$Outbound;
+  | CheckoutDiscountPercentageOnceForeverDuration$Outbound;
 
 /** @internal */
 export const CheckoutPublicDiscount$outboundSchema: z.ZodType<
@@ -393,10 +393,10 @@ export const CheckoutPublicDiscount$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutPublicDiscount
 > = z.union([
-  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+  CheckoutDiscountFixedRepeatDuration$outboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
   CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-  CheckoutDiscountFixedRepeatDuration$outboundSchema,
+  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
 ]);
 
 /**
@@ -483,8 +483,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   customer_billing_address: z.nullable(Address$inboundSchema),
   customer_tax_id: z.nullable(z.string()),
   payment_processor_metadata: z.record(z.string()),
-  customer_billing_address_fields:
-    CheckoutCustomerBillingAddressFields$inboundSchema,
+  billing_address_fields: CheckoutBillingAddressFields$inboundSchema,
   products: z.array(CheckoutProduct$inboundSchema),
   product: CheckoutProduct$inboundSchema,
   product_price: z.union([
@@ -493,10 +492,10 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   ]),
   discount: z.nullable(
     z.union([
-      CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+      CheckoutDiscountFixedRepeatDuration$inboundSchema,
       CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
       CheckoutDiscountPercentageRepeatDuration$inboundSchema,
-      CheckoutDiscountFixedRepeatDuration$inboundSchema,
+      CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
     ]),
   ),
   organization: Organization$inboundSchema,
@@ -534,7 +533,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
-    "customer_billing_address_fields": "customerBillingAddressFields",
+    "billing_address_fields": "billingAddressFields",
     "product_price": "productPrice",
     "attached_custom_fields": "attachedCustomFields",
   });
@@ -580,16 +579,15 @@ export type CheckoutPublic$Outbound = {
   customer_billing_address: Address$Outbound | null;
   customer_tax_id: string | null;
   payment_processor_metadata: { [k: string]: string };
-  customer_billing_address_fields:
-    CheckoutCustomerBillingAddressFields$Outbound;
+  billing_address_fields: CheckoutBillingAddressFields$Outbound;
   products: Array<CheckoutProduct$Outbound>;
   product: CheckoutProduct$Outbound;
   product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   discount:
-    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
+    | CheckoutDiscountFixedRepeatDuration$Outbound
     | CheckoutDiscountFixedOnceForeverDuration$Outbound
     | CheckoutDiscountPercentageRepeatDuration$Outbound
-    | CheckoutDiscountFixedRepeatDuration$Outbound
+    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
     | null;
   organization: Organization$Outbound;
   attached_custom_fields: Array<AttachedCustomField$Outbound>;
@@ -646,8 +644,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   customerBillingAddress: z.nullable(Address$outboundSchema),
   customerTaxId: z.nullable(z.string()),
   paymentProcessorMetadata: z.record(z.string()),
-  customerBillingAddressFields:
-    CheckoutCustomerBillingAddressFields$outboundSchema,
+  billingAddressFields: CheckoutBillingAddressFields$outboundSchema,
   products: z.array(CheckoutProduct$outboundSchema),
   product: CheckoutProduct$outboundSchema,
   productPrice: z.union([
@@ -656,10 +653,10 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   ]),
   discount: z.nullable(
     z.union([
-      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+      CheckoutDiscountFixedRepeatDuration$outboundSchema,
       CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
       CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-      CheckoutDiscountFixedRepeatDuration$outboundSchema,
+      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
     ]),
   ),
   organization: Organization$outboundSchema,
@@ -697,7 +694,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",
-    customerBillingAddressFields: "customer_billing_address_fields",
+    billingAddressFields: "billing_address_fields",
     productPrice: "product_price",
     attachedCustomFields: "attached_custom_fields",
   });

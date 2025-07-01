@@ -32,10 +32,10 @@ import {
 } from "./discountpercentagerepeatdurationcreate.js";
 
 export type DiscountCreate =
-  | DiscountPercentageOnceForeverDurationCreate
-  | DiscountFixedOnceForeverDurationCreate
+  | DiscountFixedRepeatDurationCreate
   | DiscountPercentageRepeatDurationCreate
-  | DiscountFixedRepeatDurationCreate;
+  | DiscountFixedOnceForeverDurationCreate
+  | DiscountPercentageOnceForeverDurationCreate;
 
 /** @internal */
 export const DiscountCreate$inboundSchema: z.ZodType<
@@ -43,18 +43,18 @@ export const DiscountCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  DiscountPercentageOnceForeverDurationCreate$inboundSchema,
-  DiscountFixedOnceForeverDurationCreate$inboundSchema,
-  DiscountPercentageRepeatDurationCreate$inboundSchema,
   DiscountFixedRepeatDurationCreate$inboundSchema,
+  DiscountPercentageRepeatDurationCreate$inboundSchema,
+  DiscountFixedOnceForeverDurationCreate$inboundSchema,
+  DiscountPercentageOnceForeverDurationCreate$inboundSchema,
 ]);
 
 /** @internal */
 export type DiscountCreate$Outbound =
-  | DiscountPercentageOnceForeverDurationCreate$Outbound
-  | DiscountFixedOnceForeverDurationCreate$Outbound
+  | DiscountFixedRepeatDurationCreate$Outbound
   | DiscountPercentageRepeatDurationCreate$Outbound
-  | DiscountFixedRepeatDurationCreate$Outbound;
+  | DiscountFixedOnceForeverDurationCreate$Outbound
+  | DiscountPercentageOnceForeverDurationCreate$Outbound;
 
 /** @internal */
 export const DiscountCreate$outboundSchema: z.ZodType<
@@ -62,10 +62,10 @@ export const DiscountCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DiscountCreate
 > = z.union([
-  DiscountPercentageOnceForeverDurationCreate$outboundSchema,
-  DiscountFixedOnceForeverDurationCreate$outboundSchema,
-  DiscountPercentageRepeatDurationCreate$outboundSchema,
   DiscountFixedRepeatDurationCreate$outboundSchema,
+  DiscountPercentageRepeatDurationCreate$outboundSchema,
+  DiscountFixedOnceForeverDurationCreate$outboundSchema,
+  DiscountPercentageOnceForeverDurationCreate$outboundSchema,
 ]);
 
 /**

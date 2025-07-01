@@ -22,7 +22,7 @@ import {
  * **Discord & Slack support:** Basic
  */
 export type WebhookBenefitGrantCycledPayload = {
-  type?: "benefit_grant.cycled" | undefined;
+  type: "benefit_grant.cycled";
   data: BenefitGrantWebhook;
 };
 
@@ -32,7 +32,7 @@ export const WebhookBenefitGrantCycledPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("benefit_grant.cycled").optional(),
+  type: z.literal("benefit_grant.cycled"),
   data: BenefitGrantWebhook$inboundSchema,
 });
 
@@ -48,9 +48,7 @@ export const WebhookBenefitGrantCycledPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookBenefitGrantCycledPayload
 > = z.object({
-  type: z.literal("benefit_grant.cycled").default(
-    "benefit_grant.cycled" as const,
-  ),
+  type: z.literal("benefit_grant.cycled"),
   data: BenefitGrantWebhook$outboundSchema,
 });
 
