@@ -33,7 +33,7 @@ export type CustomFieldNumber = {
    */
   id: string;
   metadata: { [k: string]: string | number | number | boolean };
-  type?: "number" | undefined;
+  type: "number";
   /**
    * Identifier of the custom field. It'll be used as key when storing the value.
    */
@@ -115,7 +115,7 @@ export const CustomFieldNumber$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  type: z.literal("number").optional(),
+  type: z.literal("number"),
   slug: z.string(),
   name: z.string(),
   organization_id: z.string(),
@@ -153,7 +153,7 @@ export const CustomFieldNumber$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  type: z.literal("number").default("number" as const),
+  type: z.literal("number"),
   slug: z.string(),
   name: z.string(),
   organizationId: z.string(),

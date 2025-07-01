@@ -108,6 +108,7 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.benefits.create({
+    type: "license_keys",
     description: "mature emergent at outside arrogantly gadzooks zealous equatorial notwithstanding",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     properties: {},
@@ -135,6 +136,7 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await benefitsCreate(polar, {
+    type: "license_keys",
     description: "mature emergent at outside arrogantly gadzooks zealous equatorial notwithstanding",
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     properties: {},
@@ -264,7 +266,9 @@ const polar = new Polar({
 async function run() {
   const result = await polar.benefits.update({
     id: "<value>",
-    requestBody: {},
+    requestBody: {
+      type: "custom",
+    },
   });
 
   console.log(result);
@@ -290,7 +294,9 @@ const polar = new PolarCore({
 async function run() {
   const res = await benefitsUpdate(polar, {
     id: "<value>",
-    requestBody: {},
+    requestBody: {
+      type: "custom",
+    },
   });
   if (res.ok) {
     const { value: result } = res;

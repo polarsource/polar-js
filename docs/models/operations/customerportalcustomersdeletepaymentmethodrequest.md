@@ -6,7 +6,7 @@
 import { CustomerPortalCustomersDeletePaymentMethodRequest } from "@polar-sh/sdk/models/operations/customerportalcustomersdeletepaymentmethod.js";
 
 let value: CustomerPortalCustomersDeletePaymentMethodRequest = {
-  id: "<id>",
+  id: "<value>",
 };
 ```
 

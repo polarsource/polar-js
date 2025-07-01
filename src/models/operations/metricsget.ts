@@ -51,6 +51,10 @@ export type MetricsGetRequest = {
    */
   endDate: RFCDate;
   /**
+   * Timezone to use for the timestamps. Default is UTC.
+   */
+  timezone?: string | undefined;
+  /**
    * Interval between two timestamps.
    */
   interval: TimeInterval;
@@ -315,6 +319,7 @@ export const MetricsGetRequest$inboundSchema: z.ZodType<
 > = z.object({
   start_date: z.string().transform(v => new RFCDate(v)),
   end_date: z.string().transform(v => new RFCDate(v)),
+  timezone: z.string().default("UTC"),
   interval: TimeInterval$inboundSchema,
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
@@ -342,6 +347,7 @@ export const MetricsGetRequest$inboundSchema: z.ZodType<
 export type MetricsGetRequest$Outbound = {
   start_date: string;
   end_date: string;
+  timezone: string;
   interval: string;
   organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
@@ -357,6 +363,7 @@ export const MetricsGetRequest$outboundSchema: z.ZodType<
 > = z.object({
   startDate: z.instanceof(RFCDate).transform(v => v.toString()),
   endDate: z.instanceof(RFCDate).transform(v => v.toString()),
+  timezone: z.string().default("UTC"),
   interval: TimeInterval$outboundSchema,
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),

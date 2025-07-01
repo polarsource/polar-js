@@ -67,7 +67,7 @@ export const Unauthorized$outboundSchema: z.ZodType<
 > = z.instanceof(Unauthorized)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("Unauthorized").default("Unauthorized" as const),
+    error: z.literal("Unauthorized"),
     detail: z.string(),
   }));
 

@@ -15,16 +15,16 @@ let value: BenefitLicenseKeys = {
   organizationId: "<value>",
   metadata: {},
   properties: {
-    prefix: "<value>",
+    prefix: null,
     expires: {
-      ttl: 93452,
-      timeframe: "day",
+      ttl: 56931,
+      timeframe: "month",
     },
     activations: {
-      limit: 777902,
-      enableCustomerAdmin: true,
+      limit: 936323,
+      enableCustomerAdmin: false,
     },
-    limitUsage: null,
+    limitUsage: 702937,
   },
 };
 ```

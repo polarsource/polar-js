@@ -91,6 +91,7 @@ const polar = new Polar();
 
 async function run() {
   const result = await polar.oauth2.token({
+    grantType: "authorization_code",
     clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",
@@ -117,6 +118,7 @@ const polar = new PolarCore();
 
 async function run() {
   const res = await oauth2Token(polar, {
+    grantType: "authorization_code",
     clientId: "<id>",
     clientSecret: "<value>",
     code: "<value>",

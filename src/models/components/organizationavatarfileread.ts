@@ -27,7 +27,7 @@ export type OrganizationAvatarFileRead = {
   checksumSha256Hex: string | null;
   lastModifiedAt: Date | null;
   version: string | null;
-  service?: "organization_avatar" | undefined;
+  service: "organization_avatar";
   isUploaded: boolean;
   createdAt: Date;
   sizeReadable: string;
@@ -54,7 +54,7 @@ export const OrganizationAvatarFileRead$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   version: z.nullable(z.string()),
-  service: z.literal("organization_avatar").optional(),
+  service: z.literal("organization_avatar"),
   is_uploaded: z.boolean(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   size_readable: z.string(),
@@ -114,9 +114,7 @@ export const OrganizationAvatarFileRead$outboundSchema: z.ZodType<
   checksumSha256Hex: z.nullable(z.string()),
   lastModifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   version: z.nullable(z.string()),
-  service: z.literal("organization_avatar").default(
-    "organization_avatar" as const,
-  ),
+  service: z.literal("organization_avatar"),
   isUploaded: z.boolean(),
   createdAt: z.date().transform(v => v.toISOString()),
   sizeReadable: z.string(),

@@ -36,7 +36,7 @@ export type CustomFieldCreateText = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  type?: "text" | undefined;
+  type: "text";
   /**
    * Identifier of the custom field. It'll be used as key when storing the value. Must be unique across the organization.It can only contain ASCII letters, numbers and hyphens.
    */
@@ -115,7 +115,7 @@ export const CustomFieldCreateText$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("text").optional(),
+  type: z.literal("text"),
   slug: z.string(),
   name: z.string(),
   organization_id: z.nullable(z.string()).optional(),
@@ -145,7 +145,7 @@ export const CustomFieldCreateText$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("text").default("text" as const),
+  type: z.literal("text"),
   slug: z.string(),
   name: z.string(),
   organizationId: z.nullable(z.string()).optional(),

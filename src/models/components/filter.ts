@@ -18,26 +18,26 @@ import {
   FilterConjunction$outboundSchema,
 } from "./filterconjunction.js";
 
-export type Clauses = Filter | FilterClause;
+export type Clauses = FilterClause | Filter;
 
 export type Filter = {
   conjunction: FilterConjunction;
-  clauses: Array<Filter | FilterClause>;
+  clauses: Array<FilterClause | Filter>;
 };
 
 /** @internal */
 export const Clauses$inboundSchema: z.ZodType<Clauses, z.ZodTypeDef, unknown> =
-  z.union([z.lazy(() => Filter$inboundSchema), FilterClause$inboundSchema]);
+  z.union([FilterClause$inboundSchema, z.lazy(() => Filter$inboundSchema)]);
 
 /** @internal */
-export type Clauses$Outbound = Filter$Outbound | FilterClause$Outbound;
+export type Clauses$Outbound = FilterClause$Outbound | Filter$Outbound;
 
 /** @internal */
 export const Clauses$outboundSchema: z.ZodType<
   Clauses$Outbound,
   z.ZodTypeDef,
   Clauses
-> = z.union([z.lazy(() => Filter$outboundSchema), FilterClause$outboundSchema]);
+> = z.union([FilterClause$outboundSchema, z.lazy(() => Filter$outboundSchema)]);
 
 /**
  * @internal
@@ -71,14 +71,14 @@ export const Filter$inboundSchema: z.ZodType<Filter, z.ZodTypeDef, unknown> = z
   .object({
     conjunction: FilterConjunction$inboundSchema,
     clauses: z.array(
-      z.union([z.lazy(() => Filter$inboundSchema), FilterClause$inboundSchema]),
+      z.union([FilterClause$inboundSchema, z.lazy(() => Filter$inboundSchema)]),
     ),
   });
 
 /** @internal */
 export type Filter$Outbound = {
   conjunction: string;
-  clauses: Array<Filter$Outbound | FilterClause$Outbound>;
+  clauses: Array<FilterClause$Outbound | Filter$Outbound>;
 };
 
 /** @internal */
@@ -89,7 +89,7 @@ export const Filter$outboundSchema: z.ZodType<
 > = z.object({
   conjunction: FilterConjunction$outboundSchema,
   clauses: z.array(
-    z.union([z.lazy(() => Filter$outboundSchema), FilterClause$outboundSchema]),
+    z.union([FilterClause$outboundSchema, z.lazy(() => Filter$outboundSchema)]),
   ),
 });
 

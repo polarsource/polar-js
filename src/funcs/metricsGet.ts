@@ -112,6 +112,7 @@ async function $do(
     "organization_id": payload.organization_id,
     "product_id": payload.product_id,
     "start_date": payload.start_date,
+    "timezone": payload.timezone,
   });
 
   const headers = new Headers(compactMap({

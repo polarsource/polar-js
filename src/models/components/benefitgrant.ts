@@ -51,11 +51,11 @@ import {
 } from "./customer.js";
 
 export type Properties =
-  | BenefitGrantCustomProperties
+  | BenefitGrantDiscordProperties
+  | BenefitGrantGitHubRepositoryProperties
   | BenefitGrantDownloadablesProperties
   | BenefitGrantLicenseKeysProperties
-  | BenefitGrantDiscordProperties
-  | BenefitGrantGitHubRepositoryProperties;
+  | BenefitGrantCustomProperties;
 
 export type BenefitGrant = {
   /**
@@ -111,11 +111,11 @@ export type BenefitGrant = {
    */
   customer: Customer;
   properties:
-    | BenefitGrantCustomProperties
+    | BenefitGrantDiscordProperties
+    | BenefitGrantGitHubRepositoryProperties
     | BenefitGrantDownloadablesProperties
     | BenefitGrantLicenseKeysProperties
-    | BenefitGrantDiscordProperties
-    | BenefitGrantGitHubRepositoryProperties;
+    | BenefitGrantCustomProperties;
 };
 
 /** @internal */
@@ -124,20 +124,20 @@ export const Properties$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  BenefitGrantCustomProperties$inboundSchema,
-  BenefitGrantDownloadablesProperties$inboundSchema,
-  BenefitGrantLicenseKeysProperties$inboundSchema,
   BenefitGrantDiscordProperties$inboundSchema,
   BenefitGrantGitHubRepositoryProperties$inboundSchema,
+  BenefitGrantDownloadablesProperties$inboundSchema,
+  BenefitGrantLicenseKeysProperties$inboundSchema,
+  BenefitGrantCustomProperties$inboundSchema,
 ]);
 
 /** @internal */
 export type Properties$Outbound =
-  | BenefitGrantCustomProperties$Outbound
+  | BenefitGrantDiscordProperties$Outbound
+  | BenefitGrantGitHubRepositoryProperties$Outbound
   | BenefitGrantDownloadablesProperties$Outbound
   | BenefitGrantLicenseKeysProperties$Outbound
-  | BenefitGrantDiscordProperties$Outbound
-  | BenefitGrantGitHubRepositoryProperties$Outbound;
+  | BenefitGrantCustomProperties$Outbound;
 
 /** @internal */
 export const Properties$outboundSchema: z.ZodType<
@@ -145,11 +145,11 @@ export const Properties$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Properties
 > = z.union([
-  BenefitGrantCustomProperties$outboundSchema,
-  BenefitGrantDownloadablesProperties$outboundSchema,
-  BenefitGrantLicenseKeysProperties$outboundSchema,
   BenefitGrantDiscordProperties$outboundSchema,
   BenefitGrantGitHubRepositoryProperties$outboundSchema,
+  BenefitGrantDownloadablesProperties$outboundSchema,
+  BenefitGrantLicenseKeysProperties$outboundSchema,
+  BenefitGrantCustomProperties$outboundSchema,
 ]);
 
 /**
@@ -205,11 +205,11 @@ export const BenefitGrant$inboundSchema: z.ZodType<
   error: z.nullable(BenefitGrantError$inboundSchema).optional(),
   customer: Customer$inboundSchema,
   properties: z.union([
-    BenefitGrantCustomProperties$inboundSchema,
-    BenefitGrantDownloadablesProperties$inboundSchema,
-    BenefitGrantLicenseKeysProperties$inboundSchema,
     BenefitGrantDiscordProperties$inboundSchema,
     BenefitGrantGitHubRepositoryProperties$inboundSchema,
+    BenefitGrantDownloadablesProperties$inboundSchema,
+    BenefitGrantLicenseKeysProperties$inboundSchema,
+    BenefitGrantCustomProperties$inboundSchema,
   ]),
 }).transform((v) => {
   return remap$(v, {
@@ -242,11 +242,11 @@ export type BenefitGrant$Outbound = {
   error?: BenefitGrantError$Outbound | null | undefined;
   customer: Customer$Outbound;
   properties:
-    | BenefitGrantCustomProperties$Outbound
+    | BenefitGrantDiscordProperties$Outbound
+    | BenefitGrantGitHubRepositoryProperties$Outbound
     | BenefitGrantDownloadablesProperties$Outbound
     | BenefitGrantLicenseKeysProperties$Outbound
-    | BenefitGrantDiscordProperties$Outbound
-    | BenefitGrantGitHubRepositoryProperties$Outbound;
+    | BenefitGrantCustomProperties$Outbound;
 };
 
 /** @internal */
@@ -269,11 +269,11 @@ export const BenefitGrant$outboundSchema: z.ZodType<
   error: z.nullable(BenefitGrantError$outboundSchema).optional(),
   customer: Customer$outboundSchema,
   properties: z.union([
-    BenefitGrantCustomProperties$outboundSchema,
-    BenefitGrantDownloadablesProperties$outboundSchema,
-    BenefitGrantLicenseKeysProperties$outboundSchema,
     BenefitGrantDiscordProperties$outboundSchema,
     BenefitGrantGitHubRepositoryProperties$outboundSchema,
+    BenefitGrantDownloadablesProperties$outboundSchema,
+    BenefitGrantLicenseKeysProperties$outboundSchema,
+    BenefitGrantCustomProperties$outboundSchema,
   ]),
 }).transform((v) => {
   return remap$(v, {

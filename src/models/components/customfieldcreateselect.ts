@@ -40,7 +40,7 @@ export type CustomFieldCreateSelect = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  type?: "select" | undefined;
+  type: "select";
   /**
    * Identifier of the custom field. It'll be used as key when storing the value. Must be unique across the organization.It can only contain ASCII letters, numbers and hyphens.
    */
@@ -119,7 +119,7 @@ export const CustomFieldCreateSelect$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("select").optional(),
+  type: z.literal("select"),
   slug: z.string(),
   name: z.string(),
   organization_id: z.nullable(z.string()).optional(),
@@ -149,7 +149,7 @@ export const CustomFieldCreateSelect$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("select").default("select" as const),
+  type: z.literal("select"),
   slug: z.string(),
   name: z.string(),
   organizationId: z.nullable(z.string()).optional(),

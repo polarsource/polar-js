@@ -19,21 +19,21 @@ import {
   GenericPayment$outboundSchema,
 } from "./genericpayment.js";
 
-export type Payment = GenericPayment | CardPayment;
+export type Payment = CardPayment | GenericPayment;
 
 /** @internal */
 export const Payment$inboundSchema: z.ZodType<Payment, z.ZodTypeDef, unknown> =
-  z.union([GenericPayment$inboundSchema, CardPayment$inboundSchema]);
+  z.union([CardPayment$inboundSchema, GenericPayment$inboundSchema]);
 
 /** @internal */
-export type Payment$Outbound = GenericPayment$Outbound | CardPayment$Outbound;
+export type Payment$Outbound = CardPayment$Outbound | GenericPayment$Outbound;
 
 /** @internal */
 export const Payment$outboundSchema: z.ZodType<
   Payment$Outbound,
   z.ZodTypeDef,
   Payment
-> = z.union([GenericPayment$outboundSchema, CardPayment$outboundSchema]);
+> = z.union([CardPayment$outboundSchema, GenericPayment$outboundSchema]);
 
 /**
  * @internal

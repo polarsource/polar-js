@@ -33,7 +33,7 @@ export type CustomFieldCheckbox = {
    */
   id: string;
   metadata: { [k: string]: string | number | number | boolean };
-  type?: "checkbox" | undefined;
+  type: "checkbox";
   /**
    * Identifier of the custom field. It'll be used as key when storing the value.
    */
@@ -117,7 +117,7 @@ export const CustomFieldCheckbox$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  type: z.literal("checkbox").optional(),
+  type: z.literal("checkbox"),
   slug: z.string(),
   name: z.string(),
   organization_id: z.string(),
@@ -155,7 +155,7 @@ export const CustomFieldCheckbox$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  type: z.literal("checkbox").default("checkbox" as const),
+  type: z.literal("checkbox"),
   slug: z.string(),
   name: z.string(),
   organizationId: z.string(),

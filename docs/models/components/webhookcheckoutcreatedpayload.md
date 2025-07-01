@@ -51,13 +51,13 @@ let value: WebhookCheckoutCreatedPayload = {
       "key": "<value>",
       "key1": "<value>",
     },
-    customerBillingAddressFields: {
-      country: true,
-      state: false,
-      city: false,
-      postalCode: true,
-      line1: true,
-      line2: false,
+    billingAddressFields: {
+      country: "required",
+      state: "disabled",
+      city: "optional",
+      postalCode: "required",
+      line1: "required",
+      line2: "disabled",
     },
     metadata: {
       "key": "<value>",

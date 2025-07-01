@@ -7,7 +7,7 @@
 
 * [get](#get) - Get Customer
 * [update](#update) - Update Customer
-* [getPaymentMethods](#getpaymentmethods) - Get Customer Payment Methods
+* [listPaymentMethods](#listpaymentmethods) - List Customer Payment Methods
 * [addPaymentMethod](#addpaymentmethod) - Add Customer Payment Method
 * [deletePaymentMethod](#deletepaymentmethod) - Delete Customer Payment Method
 
@@ -161,7 +161,7 @@ run();
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
-## getPaymentMethods
+## listPaymentMethods
 
 Get saved payment methods of the authenticated customer.
 
@@ -175,7 +175,7 @@ import { Polar } from "@polar-sh/sdk";
 const polar = new Polar();
 
 async function run() {
-  const result = await polar.customerPortal.customers.getPaymentMethods({
+  const result = await polar.customerPortal.customers.listPaymentMethods({
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   }, {});
 
@@ -193,14 +193,14 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { customerPortalCustomersGetPaymentMethods } from "@polar-sh/sdk/funcs/customerPortalCustomersGetPaymentMethods.js";
+import { customerPortalCustomersListPaymentMethods } from "@polar-sh/sdk/funcs/customerPortalCustomersListPaymentMethods.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const polar = new PolarCore();
 
 async function run() {
-  const res = await customerPortalCustomersGetPaymentMethods(polar, {
+  const res = await customerPortalCustomersListPaymentMethods(polar, {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   }, {});
   if (res.ok) {
@@ -209,7 +209,7 @@ async function run() {
     console.log(page);
   }
   } else {
-    console.log("customerPortalCustomersGetPaymentMethods failed:", res.error);
+    console.log("customerPortalCustomersListPaymentMethods failed:", res.error);
   }
 }
 
@@ -220,15 +220,15 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CustomerPortalCustomersGetPaymentMethodsRequest](../../models/operations/customerportalcustomersgetpaymentmethodsrequest.md)                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.CustomerPortalCustomersGetPaymentMethodsSecurity](../../models/operations/customerportalcustomersgetpaymentmethodssecurity.md)                                     | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalCustomersListPaymentMethodsRequest](../../models/operations/customerportalcustomerslistpaymentmethodsrequest.md)                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.CustomerPortalCustomersListPaymentMethodsSecurity](../../models/operations/customerportalcustomerslistpaymentmethodssecurity.md)                                   | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.CustomerPortalCustomersGetPaymentMethodsResponse](../../models/operations/customerportalcustomersgetpaymentmethodsresponse.md)\>**
+**Promise\<[operations.CustomerPortalCustomersListPaymentMethodsResponse](../../models/operations/customerportalcustomerslistpaymentmethodsresponse.md)\>**
 
 ### Errors
 

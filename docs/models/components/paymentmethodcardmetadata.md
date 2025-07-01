@@ -1,15 +1,15 @@
-# PaymentMethodCardData
+# PaymentMethodCardMetadata
 
 ## Example Usage
 
 ```typescript
-import { PaymentMethodCardData } from "@polar-sh/sdk/models/components/paymentmethodcarddata.js";
+import { PaymentMethodCardMetadata } from "@polar-sh/sdk/models/components/paymentmethodcardmetadata.js";
 
-let value: PaymentMethodCardData = {
+let value: PaymentMethodCardMetadata = {
   brand: "<value>",
   last4: "<value>",
-  expMonth: 540837,
-  expYear: 817945,
+  expMonth: 227002,
+  expYear: 822132,
 };
 ```
 

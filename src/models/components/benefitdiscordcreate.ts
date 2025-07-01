@@ -33,7 +33,7 @@ export type BenefitDiscordCreate = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  type?: "discord" | undefined;
+  type: "discord";
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
    */
@@ -111,7 +111,7 @@ export const BenefitDiscordCreate$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("discord").optional(),
+  type: z.literal("discord"),
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
   properties: BenefitDiscordCreateProperties$inboundSchema,
@@ -139,7 +139,7 @@ export const BenefitDiscordCreate$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("discord").default("discord" as const),
+  type: z.literal("discord"),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   properties: BenefitDiscordCreateProperties$outboundSchema,

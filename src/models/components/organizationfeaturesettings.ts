@@ -13,10 +13,6 @@ export type OrganizationFeatureSettings = {
    * If this organization has issue funding enabled
    */
   issueFundingEnabled?: boolean | undefined;
-  /**
-   * If this organization has usage-based billing enabled
-   */
-  usageBasedBillingEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -26,18 +22,15 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   issue_funding_enabled: z.boolean().default(false),
-  usage_based_billing_enabled: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     "issue_funding_enabled": "issueFundingEnabled",
-    "usage_based_billing_enabled": "usageBasedBillingEnabled",
   });
 });
 
 /** @internal */
 export type OrganizationFeatureSettings$Outbound = {
   issue_funding_enabled: boolean;
-  usage_based_billing_enabled: boolean;
 };
 
 /** @internal */
@@ -47,11 +40,9 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodType<
   OrganizationFeatureSettings
 > = z.object({
   issueFundingEnabled: z.boolean().default(false),
-  usageBasedBillingEnabled: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     issueFundingEnabled: "issue_funding_enabled",
-    usageBasedBillingEnabled: "usage_based_billing_enabled",
   });
 });
 

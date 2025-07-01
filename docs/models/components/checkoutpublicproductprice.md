@@ -33,6 +33,8 @@ const value: components.ProductPrice = {
   productId: "<value>",
   type: "one_time",
   recurringInterval: "year",
+  priceCurrency: "<value>",
+  priceAmount: 403500,
 };
 ```
 

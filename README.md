@@ -180,6 +180,7 @@ const polar = new Polar();
 
 async function run() {
   const result = await polar.endpointcheckoutCreatedPost({
+    type: "checkout.created",
     data: {
       createdAt: new Date("2023-02-15T15:44:21.478Z"),
       modifiedAt: new Date("2025-09-12T19:48:15.814Z"),
@@ -218,13 +219,13 @@ async function run() {
       },
       customerTaxId: "<id>",
       paymentProcessorMetadata: {},
-      customerBillingAddressFields: {
-        country: false,
-        state: true,
-        city: false,
-        postalCode: true,
-        line1: true,
-        line2: false,
+      billingAddressFields: {
+        country: "required",
+        state: "disabled",
+        city: "required",
+        postalCode: "required",
+        line1: "required",
+        line2: "disabled",
       },
       metadata: {
         "key": "<value>",
@@ -247,14 +248,18 @@ async function run() {
             createdAt: new Date("2023-09-13T08:36:46.434Z"),
             modifiedAt: new Date("2023-10-05T12:55:46.428Z"),
             id: "<value>",
+            amountType: "free",
             isArchived: false,
             productId: "<value>",
+            type: "recurring",
             recurringInterval: "month",
+            legacy: true,
           },
           {
             createdAt: new Date("2024-05-02T18:25:33.974Z"),
             modifiedAt: new Date("2025-02-06T12:55:07.640Z"),
             id: "<value>",
+            amountType: "fixed",
             isArchived: false,
             productId: "<value>",
             type: "recurring",
@@ -278,6 +283,7 @@ async function run() {
             checksumSha256Hex: "<value>",
             lastModifiedAt: new Date("2024-07-06T07:35:44.280Z"),
             version: "<value>",
+            service: "product_media",
             isUploaded: true,
             createdAt: new Date("2024-10-08T20:45:26.653Z"),
             sizeReadable: "<value>",
@@ -296,6 +302,7 @@ async function run() {
             checksumSha256Hex: "<value>",
             lastModifiedAt: new Date("2024-07-06T07:35:44.280Z"),
             version: "<value>",
+            service: "product_media",
             isUploaded: true,
             createdAt: new Date("2024-10-08T20:45:26.653Z"),
             sizeReadable: "<value>",
@@ -314,6 +321,7 @@ async function run() {
             checksumSha256Hex: "<value>",
             lastModifiedAt: new Date("2024-07-06T07:35:44.280Z"),
             version: "<value>",
+            service: "product_media",
             isUploaded: true,
             createdAt: new Date("2024-10-08T20:45:26.653Z"),
             sizeReadable: "<value>",
@@ -325,13 +333,16 @@ async function run() {
         createdAt: new Date("2025-07-31T12:54:47.590Z"),
         modifiedAt: new Date("2023-01-11T22:31:47.320Z"),
         id: "<value>",
+        amountType: "custom",
         isArchived: true,
         productId: "<value>",
+        type: "recurring",
         recurringInterval: "month",
         priceCurrency: "<value>",
         minimumAmount: 203013,
         maximumAmount: null,
         presetAmount: 119260,
+        legacy: true,
       },
       discount: {
         duration: "once",
@@ -355,6 +366,7 @@ async function run() {
               "key1": "<value>",
               "key2": "<value>",
             },
+            type: "text",
             slug: "<value>",
             name: "<value>",
             organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -462,7 +474,7 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 
 * [get](docs/sdks/polarcustomers/README.md#get) - Get Customer
 * [update](docs/sdks/polarcustomers/README.md#update) - Update Customer
-* [getPaymentMethods](docs/sdks/polarcustomers/README.md#getpaymentmethods) - Get Customer Payment Methods
+* [listPaymentMethods](docs/sdks/polarcustomers/README.md#listpaymentmethods) - List Customer Payment Methods
 * [addPaymentMethod](docs/sdks/polarcustomers/README.md#addpaymentmethod) - Add Customer Payment Method
 * [deletePaymentMethod](docs/sdks/polarcustomers/README.md#deletepaymentmethod) - Delete Customer Payment Method
 
@@ -680,7 +692,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerPortalCustomersAddPaymentMethod`](docs/sdks/polarcustomers/README.md#addpaymentmethod) - Add Customer Payment Method
 - [`customerPortalCustomersDeletePaymentMethod`](docs/sdks/polarcustomers/README.md#deletepaymentmethod) - Delete Customer Payment Method
 - [`customerPortalCustomersGet`](docs/sdks/polarcustomers/README.md#get) - Get Customer
-- [`customerPortalCustomersGetPaymentMethods`](docs/sdks/polarcustomers/README.md#getpaymentmethods) - Get Customer Payment Methods
+- [`customerPortalCustomersListPaymentMethods`](docs/sdks/polarcustomers/README.md#listpaymentmethods) - List Customer Payment Methods
 - [`customerPortalCustomersUpdate`](docs/sdks/polarcustomers/README.md#update) - Update Customer
 - [`customerPortalDownloadablesGet`](docs/sdks/downloadables/README.md#get) - Get Downloadable
 - [`customerPortalDownloadablesList`](docs/sdks/downloadables/README.md#list) - List Downloadables

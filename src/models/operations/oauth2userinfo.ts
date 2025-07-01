@@ -23,27 +23,27 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Successful Response
  */
 export type Oauth2UserinfoResponseOauth2Userinfo =
-  | UserInfoOrganization
-  | UserInfoUser;
+  | UserInfoUser
+  | UserInfoOrganization;
 
 /** @internal */
 export const Oauth2UserinfoResponseOauth2Userinfo$inboundSchema: z.ZodType<
   Oauth2UserinfoResponseOauth2Userinfo,
   z.ZodTypeDef,
   unknown
-> = z.union([UserInfoOrganization$inboundSchema, UserInfoUser$inboundSchema]);
+> = z.union([UserInfoUser$inboundSchema, UserInfoOrganization$inboundSchema]);
 
 /** @internal */
 export type Oauth2UserinfoResponseOauth2Userinfo$Outbound =
-  | UserInfoOrganization$Outbound
-  | UserInfoUser$Outbound;
+  | UserInfoUser$Outbound
+  | UserInfoOrganization$Outbound;
 
 /** @internal */
 export const Oauth2UserinfoResponseOauth2Userinfo$outboundSchema: z.ZodType<
   Oauth2UserinfoResponseOauth2Userinfo$Outbound,
   z.ZodTypeDef,
   Oauth2UserinfoResponseOauth2Userinfo
-> = z.union([UserInfoOrganization$outboundSchema, UserInfoUser$outboundSchema]);
+> = z.union([UserInfoUser$outboundSchema, UserInfoOrganization$outboundSchema]);
 
 /**
  * @internal
