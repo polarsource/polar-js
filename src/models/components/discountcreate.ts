@@ -32,10 +32,10 @@ import {
 } from "./discountpercentagerepeatdurationcreate.js";
 
 export type DiscountCreate =
-  | DiscountFixedRepeatDurationCreate
-  | DiscountPercentageRepeatDurationCreate
+  | DiscountPercentageOnceForeverDurationCreate
   | DiscountFixedOnceForeverDurationCreate
-  | DiscountPercentageOnceForeverDurationCreate;
+  | DiscountPercentageRepeatDurationCreate
+  | DiscountFixedRepeatDurationCreate;
 
 /** @internal */
 export const DiscountCreate$inboundSchema: z.ZodType<
@@ -43,18 +43,18 @@ export const DiscountCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  DiscountFixedRepeatDurationCreate$inboundSchema,
-  DiscountPercentageRepeatDurationCreate$inboundSchema,
-  DiscountFixedOnceForeverDurationCreate$inboundSchema,
   DiscountPercentageOnceForeverDurationCreate$inboundSchema,
+  DiscountFixedOnceForeverDurationCreate$inboundSchema,
+  DiscountPercentageRepeatDurationCreate$inboundSchema,
+  DiscountFixedRepeatDurationCreate$inboundSchema,
 ]);
 
 /** @internal */
 export type DiscountCreate$Outbound =
-  | DiscountFixedRepeatDurationCreate$Outbound
-  | DiscountPercentageRepeatDurationCreate$Outbound
+  | DiscountPercentageOnceForeverDurationCreate$Outbound
   | DiscountFixedOnceForeverDurationCreate$Outbound
-  | DiscountPercentageOnceForeverDurationCreate$Outbound;
+  | DiscountPercentageRepeatDurationCreate$Outbound
+  | DiscountFixedRepeatDurationCreate$Outbound;
 
 /** @internal */
 export const DiscountCreate$outboundSchema: z.ZodType<
@@ -62,10 +62,10 @@ export const DiscountCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DiscountCreate
 > = z.union([
-  DiscountFixedRepeatDurationCreate$outboundSchema,
-  DiscountPercentageRepeatDurationCreate$outboundSchema,
-  DiscountFixedOnceForeverDurationCreate$outboundSchema,
   DiscountPercentageOnceForeverDurationCreate$outboundSchema,
+  DiscountFixedOnceForeverDurationCreate$outboundSchema,
+  DiscountPercentageRepeatDurationCreate$outboundSchema,
+  DiscountFixedRepeatDurationCreate$outboundSchema,
 ]);
 
 /**

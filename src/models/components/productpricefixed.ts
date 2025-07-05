@@ -34,7 +34,7 @@ export type ProductPriceFixed = {
    * The ID of the price.
    */
   id: string;
-  amountType: "fixed";
+  amountType?: "fixed" | undefined;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -69,7 +69,7 @@ export const ProductPriceFixed$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  amount_type: z.literal("fixed"),
+  amount_type: z.literal("fixed").optional(),
   is_archived: z.boolean(),
   product_id: z.string(),
   type: ProductPriceType$inboundSchema,
@@ -112,7 +112,7 @@ export const ProductPriceFixed$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  amountType: z.literal("fixed"),
+  amountType: z.literal("fixed").default("fixed" as const),
   isArchived: z.boolean(),
   productId: z.string(),
   type: ProductPriceType$outboundSchema,

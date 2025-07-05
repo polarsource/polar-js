@@ -27,7 +27,7 @@ export type ProductMediaFileRead = {
   checksumSha256Hex: string | null;
   lastModifiedAt: Date | null;
   version: string | null;
-  service: "product_media";
+  service?: "product_media" | undefined;
   isUploaded: boolean;
   createdAt: Date;
   sizeReadable: string;
@@ -54,7 +54,7 @@ export const ProductMediaFileRead$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   version: z.nullable(z.string()),
-  service: z.literal("product_media"),
+  service: z.literal("product_media").optional(),
   is_uploaded: z.boolean(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   size_readable: z.string(),
@@ -114,7 +114,7 @@ export const ProductMediaFileRead$outboundSchema: z.ZodType<
   checksumSha256Hex: z.nullable(z.string()),
   lastModifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   version: z.nullable(z.string()),
-  service: z.literal("product_media"),
+  service: z.literal("product_media").default("product_media" as const),
   isUploaded: z.boolean(),
   createdAt: z.date().transform(v => v.toISOString()),
   sizeReadable: z.string(),

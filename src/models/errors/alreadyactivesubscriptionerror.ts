@@ -67,7 +67,9 @@ export const AlreadyActiveSubscriptionError$outboundSchema: z.ZodType<
 > = z.instanceof(AlreadyActiveSubscriptionError)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("AlreadyActiveSubscriptionError"),
+    error: z.literal("AlreadyActiveSubscriptionError").default(
+      "AlreadyActiveSubscriptionError" as const,
+    ),
     detail: z.string(),
   }));
 

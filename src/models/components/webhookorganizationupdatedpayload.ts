@@ -21,7 +21,7 @@ import {
  * **Discord & Slack support:** Basic
  */
 export type WebhookOrganizationUpdatedPayload = {
-  type: "organization.updated";
+  type?: "organization.updated" | undefined;
   data: Organization;
 };
 
@@ -31,7 +31,7 @@ export const WebhookOrganizationUpdatedPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("organization.updated"),
+  type: z.literal("organization.updated").optional(),
   data: Organization$inboundSchema,
 });
 
@@ -47,7 +47,9 @@ export const WebhookOrganizationUpdatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookOrganizationUpdatedPayload
 > = z.object({
-  type: z.literal("organization.updated"),
+  type: z.literal("organization.updated").default(
+    "organization.updated" as const,
+  ),
   data: Organization$outboundSchema,
 });
 

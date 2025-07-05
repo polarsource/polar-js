@@ -36,7 +36,7 @@ export type BenefitDiscordUpdate = {
    * The description of the benefit. Will be displayed on products having this benefit.
    */
   description?: string | null | undefined;
-  type: "discord";
+  type?: "discord" | undefined;
   properties?: BenefitDiscordCreateProperties | null | undefined;
 };
 
@@ -104,7 +104,7 @@ export const BenefitDiscordUpdate$inboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("discord"),
+  type: z.literal("discord").optional(),
   properties: z.nullable(BenefitDiscordCreateProperties$inboundSchema)
     .optional(),
 });
@@ -127,7 +127,7 @@ export const BenefitDiscordUpdate$outboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("discord"),
+  type: z.literal("discord").default("discord" as const),
   properties: z.nullable(BenefitDiscordCreateProperties$outboundSchema)
     .optional(),
 });
