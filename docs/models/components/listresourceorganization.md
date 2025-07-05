@@ -24,6 +24,10 @@ let value: ListResourceOrganization = {
         allowCustomerUpdates: false,
         prorationBehavior: "prorate",
       },
+      notificationSettings: {
+        newOrder: true,
+        newSubscription: true,
+      },
     },
   ],
   pagination: {

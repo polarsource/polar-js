@@ -9,7 +9,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AuthorizationCodeTokenRequest = {
-  grantType: "authorization_code";
+  grantType?: "authorization_code" | undefined;
   clientId: string;
   clientSecret: string;
   code: string;
@@ -22,7 +22,7 @@ export const AuthorizationCodeTokenRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  grant_type: z.literal("authorization_code"),
+  grant_type: z.literal("authorization_code").optional(),
   client_id: z.string(),
   client_secret: z.string(),
   code: z.string(),
@@ -51,7 +51,9 @@ export const AuthorizationCodeTokenRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AuthorizationCodeTokenRequest
 > = z.object({
-  grantType: z.literal("authorization_code"),
+  grantType: z.literal("authorization_code").default(
+    "authorization_code" as const,
+  ),
   clientId: z.string(),
   clientSecret: z.string(),
   code: z.string(),

@@ -40,7 +40,7 @@ export type BenefitGitHubRepository = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  type: "github_repository";
+  type?: "github_repository" | undefined;
   /**
    * The description of the benefit.
    */
@@ -129,7 +129,7 @@ export const BenefitGitHubRepository$inboundSchema: z.ZodType<
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  type: z.literal("github_repository"),
+  type: z.literal("github_repository").optional(),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),
@@ -169,7 +169,7 @@ export const BenefitGitHubRepository$outboundSchema: z.ZodType<
   id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  type: z.literal("github_repository"),
+  type: z.literal("github_repository").default("github_repository" as const),
   description: z.string(),
   selectable: z.boolean(),
   deletable: z.boolean(),

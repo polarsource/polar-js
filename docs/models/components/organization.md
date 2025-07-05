@@ -27,6 +27,10 @@ let value: Organization = {
     allowCustomerUpdates: false,
     prorationBehavior: "prorate",
   },
+  notificationSettings: {
+    newOrder: true,
+    newSubscription: true,
+  },
 };
 ```
 
@@ -46,3 +50,4 @@ let value: Organization = {
 | `detailsSubmittedAt`                                                                                       | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)              | :heavy_check_mark:                                                                                         | When the business details were submitted.                                                                  |                                                                                                            |
 | `featureSettings`                                                                                          | [components.OrganizationFeatureSettings](../../models/components/organizationfeaturesettings.md)           | :heavy_check_mark:                                                                                         | Organization feature settings                                                                              |                                                                                                            |
 | `subscriptionSettings`                                                                                     | [components.OrganizationSubscriptionSettings](../../models/components/organizationsubscriptionsettings.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |                                                                                                            |
+| `notificationSettings`                                                                                     | [components.OrganizationNotificationSettings](../../models/components/organizationnotificationsettings.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |                                                                                                            |

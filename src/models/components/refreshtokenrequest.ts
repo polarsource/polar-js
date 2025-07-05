@@ -9,7 +9,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type RefreshTokenRequest = {
-  grantType: "refresh_token";
+  grantType?: "refresh_token" | undefined;
   clientId: string;
   clientSecret: string;
   refreshToken: string;
@@ -21,7 +21,7 @@ export const RefreshTokenRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  grant_type: z.literal("refresh_token"),
+  grant_type: z.literal("refresh_token").optional(),
   client_id: z.string(),
   client_secret: z.string(),
   refresh_token: z.string(),
@@ -48,7 +48,7 @@ export const RefreshTokenRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RefreshTokenRequest
 > = z.object({
-  grantType: z.literal("refresh_token"),
+  grantType: z.literal("refresh_token").default("refresh_token" as const),
   clientId: z.string(),
   clientSecret: z.string(),
   refreshToken: z.string(),

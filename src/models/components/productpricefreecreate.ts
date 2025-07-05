@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Schema to create a free price.
  */
 export type ProductPriceFreeCreate = {
-  amountType: "free";
+  amountType?: "free" | undefined;
 };
 
 /** @internal */
@@ -21,7 +21,7 @@ export const ProductPriceFreeCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  amount_type: z.literal("free"),
+  amount_type: z.literal("free").optional(),
 }).transform((v) => {
   return remap$(v, {
     "amount_type": "amountType",
@@ -39,7 +39,7 @@ export const ProductPriceFreeCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPriceFreeCreate
 > = z.object({
-  amountType: z.literal("free"),
+  amountType: z.literal("free").default("free" as const),
 }).transform((v) => {
   return remap$(v, {
     amountType: "amount_type",

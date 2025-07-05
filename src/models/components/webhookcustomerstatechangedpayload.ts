@@ -27,7 +27,7 @@ import {
  * **Discord & Slack support:** Basic
  */
 export type WebhookCustomerStateChangedPayload = {
-  type: "customer.state_changed";
+  type?: "customer.state_changed" | undefined;
   /**
    * A customer along with additional state information:
    *
@@ -46,7 +46,7 @@ export const WebhookCustomerStateChangedPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("customer.state_changed"),
+  type: z.literal("customer.state_changed").optional(),
   data: CustomerState$inboundSchema,
 });
 
@@ -62,7 +62,9 @@ export const WebhookCustomerStateChangedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookCustomerStateChangedPayload
 > = z.object({
-  type: z.literal("customer.state_changed"),
+  type: z.literal("customer.state_changed").default(
+    "customer.state_changed" as const,
+  ),
   data: CustomerState$outboundSchema,
 });
 
