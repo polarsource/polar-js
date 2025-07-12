@@ -19,6 +19,7 @@ let value: ListResourceBenefit = {
       properties: {
         guildId: "<id>",
         roleId: "<id>",
+        kickMember: false,
         guildToken: "<value>",
       },
     },

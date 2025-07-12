@@ -51,11 +51,11 @@ export type BenefitCycledEvent = {
   /**
    * The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API.
    */
-  source: "system";
+  source?: "system" | undefined;
   /**
    * The name of the event.
    */
-  name: "benefit.cycled";
+  name?: "benefit.cycled" | undefined;
   metadata: BenefitGrantMetadata;
 };
 
@@ -71,8 +71,8 @@ export const BenefitCycledEvent$inboundSchema: z.ZodType<
   customer_id: z.nullable(z.string()),
   customer: z.nullable(Customer$inboundSchema),
   external_customer_id: z.nullable(z.string()),
-  source: z.literal("system"),
-  name: z.literal("benefit.cycled"),
+  source: z.literal("system").optional(),
+  name: z.literal("benefit.cycled").optional(),
   metadata: BenefitGrantMetadata$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -107,8 +107,8 @@ export const BenefitCycledEvent$outboundSchema: z.ZodType<
   customerId: z.nullable(z.string()),
   customer: z.nullable(Customer$outboundSchema),
   externalCustomerId: z.nullable(z.string()),
-  source: z.literal("system"),
-  name: z.literal("benefit.cycled"),
+  source: z.literal("system").default("system" as const),
+  name: z.literal("benefit.cycled").default("benefit.cycled" as const),
   metadata: BenefitGrantMetadata$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

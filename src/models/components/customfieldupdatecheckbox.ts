@@ -41,7 +41,7 @@ export type CustomFieldUpdateCheckbox = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
   slug?: string | null | undefined;
-  type: "checkbox";
+  type?: "checkbox" | undefined;
   properties?: CustomFieldCheckboxProperties | null | undefined;
 };
 
@@ -111,7 +111,7 @@ export const CustomFieldUpdateCheckbox$inboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("checkbox"),
+  type: z.literal("checkbox").optional(),
   properties: z.nullable(CustomFieldCheckboxProperties$inboundSchema)
     .optional(),
 });
@@ -136,7 +136,7 @@ export const CustomFieldUpdateCheckbox$outboundSchema: z.ZodType<
   ).optional(),
   name: z.nullable(z.string()).optional(),
   slug: z.nullable(z.string()).optional(),
-  type: z.literal("checkbox"),
+  type: z.literal("checkbox").default("checkbox" as const),
   properties: z.nullable(CustomFieldCheckboxProperties$outboundSchema)
     .optional(),
 });

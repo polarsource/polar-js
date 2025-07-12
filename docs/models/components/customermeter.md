@@ -36,21 +36,22 @@ let value: CustomerMeter = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-07-29T02:37:49.390Z"),
-    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   meter: {
-    metadata: {
-      "key": 645986,
-    },
-    createdAt: new Date("2025-04-20T02:42:18.399Z"),
-    modifiedAt: new Date("2023-07-17T20:52:33.753Z"),
+    metadata: {},
+    createdAt: new Date("2023-04-30T10:26:58.812Z"),
+    modifiedAt: new Date("2025-02-17T07:09:21.144Z"),
     id: "<value>",
     name: "<value>",
     filter: {
-      conjunction: "and",
+      conjunction: "or",
       clauses: [],
     },
-    aggregation: {},
+    aggregation: {
+      func: "avg",
+      property: "<value>",
+    },
     organizationId: "<value>",
   },
 };

@@ -67,7 +67,7 @@ export const NotPermitted$outboundSchema: z.ZodType<
 > = z.instanceof(NotPermitted)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("NotPermitted"),
+    error: z.literal("NotPermitted").default("NotPermitted" as const),
     detail: z.string(),
   }));
 

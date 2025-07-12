@@ -11,6 +11,7 @@ let value: BenefitDiscordCreate = {
   properties: {
     guildToken: "<value>",
     roleId: "<id>",
+    kickMember: true,
   },
 };
 ```

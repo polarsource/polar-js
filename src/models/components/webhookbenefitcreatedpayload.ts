@@ -21,7 +21,7 @@ import {
  * **Discord & Slack support:** Basic
  */
 export type WebhookBenefitCreatedPayload = {
-  type: "benefit.created";
+  type?: "benefit.created" | undefined;
   data: Benefit;
 };
 
@@ -31,7 +31,7 @@ export const WebhookBenefitCreatedPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("benefit.created"),
+  type: z.literal("benefit.created").optional(),
   data: Benefit$inboundSchema,
 });
 
@@ -47,7 +47,7 @@ export const WebhookBenefitCreatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookBenefitCreatedPayload
 > = z.object({
-  type: z.literal("benefit.created"),
+  type: z.literal("benefit.created").default("benefit.created" as const),
   data: Benefit$outboundSchema,
 });
 

@@ -21,7 +21,7 @@ import {
  * **Discord & Slack support:** Basic
  */
 export type WebhookProductUpdatedPayload = {
-  type: "product.updated";
+  type?: "product.updated" | undefined;
   /**
    * A product.
    */
@@ -34,7 +34,7 @@ export const WebhookProductUpdatedPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("product.updated"),
+  type: z.literal("product.updated").optional(),
   data: Product$inboundSchema,
 });
 
@@ -50,7 +50,7 @@ export const WebhookProductUpdatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookProductUpdatedPayload
 > = z.object({
-  type: z.literal("product.updated"),
+  type: z.literal("product.updated").default("product.updated" as const),
   data: Product$outboundSchema,
 });
 
