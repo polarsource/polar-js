@@ -22,6 +22,7 @@ const value: components.BenefitDiscordCreate = {
   properties: {
     guildToken: "<value>",
     roleId: "<id>",
+    kickMember: true,
   },
 };
 ```

@@ -66,7 +66,7 @@ let value: WebhookOrderCreatedPayload = {
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       deletedAt: new Date("2024-08-18T23:02:56.814Z"),
-      avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
+      avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
     },
     userId: "<value>",
     product: {

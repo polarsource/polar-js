@@ -33,7 +33,7 @@ export type LegacyRecurringProductPriceFixed = {
    * The ID of the price.
    */
   id: string;
-  amountType: "fixed";
+  amountType?: "fixed" | undefined;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -45,7 +45,7 @@ export type LegacyRecurringProductPriceFixed = {
   /**
    * The type of the price.
    */
-  type: "recurring";
+  type?: "recurring" | undefined;
   recurringInterval: SubscriptionRecurringInterval;
   /**
    * The currency.
@@ -55,7 +55,7 @@ export type LegacyRecurringProductPriceFixed = {
    * The price in cents.
    */
   priceAmount: number;
-  legacy: true;
+  legacy?: true | undefined;
 };
 
 /** @internal */
@@ -69,14 +69,14 @@ export const LegacyRecurringProductPriceFixed$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  amount_type: z.literal("fixed"),
+  amount_type: z.literal("fixed").optional(),
   is_archived: z.boolean(),
   product_id: z.string(),
-  type: z.literal("recurring"),
+  type: z.literal("recurring").optional(),
   recurring_interval: SubscriptionRecurringInterval$inboundSchema,
   price_currency: z.string(),
   price_amount: z.number().int(),
-  legacy: z.literal(true),
+  legacy: z.literal(true).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -114,14 +114,14 @@ export const LegacyRecurringProductPriceFixed$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  amountType: z.literal("fixed"),
+  amountType: z.literal("fixed").default("fixed" as const),
   isArchived: z.boolean(),
   productId: z.string(),
-  type: z.literal("recurring"),
+  type: z.literal("recurring").default("recurring" as const),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,
   priceCurrency: z.string(),
   priceAmount: z.number().int(),
-  legacy: z.literal(true),
+  legacy: z.literal(true).default(true as const),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

@@ -37,7 +37,7 @@ export type BenefitDownloadablesCreate = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  type: "downloadables";
+  type?: "downloadables" | undefined;
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
    */
@@ -114,7 +114,7 @@ export const BenefitDownloadablesCreate$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("downloadables"),
+  type: z.literal("downloadables").optional(),
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
   properties: BenefitDownloadablesCreateProperties$inboundSchema,
@@ -142,7 +142,7 @@ export const BenefitDownloadablesCreate$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("downloadables"),
+  type: z.literal("downloadables").default("downloadables" as const),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   properties: BenefitDownloadablesCreateProperties$outboundSchema,

@@ -1,6 +1,6 @@
-# ExternalCustomerIDFilter
+# EventsListNamesQueryParamExternalCustomerIDFilter
 
-Filter by customer external ID.
+Filter by external customer ID.
 
 
 ## Supported Types

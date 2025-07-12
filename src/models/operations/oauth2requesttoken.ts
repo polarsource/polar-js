@@ -20,8 +20,8 @@ import {
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Oauth2RequestTokenRequestBody =
-  | AuthorizationCodeTokenRequest
-  | RefreshTokenRequest;
+  | RefreshTokenRequest
+  | AuthorizationCodeTokenRequest;
 
 /** @internal */
 export const Oauth2RequestTokenRequestBody$inboundSchema: z.ZodType<
@@ -29,14 +29,14 @@ export const Oauth2RequestTokenRequestBody$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  AuthorizationCodeTokenRequest$inboundSchema,
   RefreshTokenRequest$inboundSchema,
+  AuthorizationCodeTokenRequest$inboundSchema,
 ]);
 
 /** @internal */
 export type Oauth2RequestTokenRequestBody$Outbound =
-  | AuthorizationCodeTokenRequest$Outbound
-  | RefreshTokenRequest$Outbound;
+  | RefreshTokenRequest$Outbound
+  | AuthorizationCodeTokenRequest$Outbound;
 
 /** @internal */
 export const Oauth2RequestTokenRequestBody$outboundSchema: z.ZodType<
@@ -44,8 +44,8 @@ export const Oauth2RequestTokenRequestBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Oauth2RequestTokenRequestBody
 > = z.union([
-  AuthorizationCodeTokenRequest$outboundSchema,
   RefreshTokenRequest$outboundSchema,
+  AuthorizationCodeTokenRequest$outboundSchema,
 ]);
 
 /**

@@ -9,7 +9,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerBenefitGrantMeterCreditUpdate = {
-  benefitType: "meter_credit";
+  benefitType?: "meter_credit" | undefined;
 };
 
 /** @internal */
@@ -18,7 +18,7 @@ export const CustomerBenefitGrantMeterCreditUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  benefit_type: z.literal("meter_credit"),
+  benefit_type: z.literal("meter_credit").optional(),
 }).transform((v) => {
   return remap$(v, {
     "benefit_type": "benefitType",
@@ -36,7 +36,7 @@ export const CustomerBenefitGrantMeterCreditUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerBenefitGrantMeterCreditUpdate
 > = z.object({
-  benefitType: z.literal("meter_credit"),
+  benefitType: z.literal("meter_credit").default("meter_credit" as const),
 }).transform((v) => {
   return remap$(v, {
     benefitType: "benefit_type",
