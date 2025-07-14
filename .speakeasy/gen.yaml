@@ -29,8 +29,6 @@ typescript:
       '@types/node': '*'
       jest: '*'
       ts-jest: '*'
-    peerDependencies: 
-      zod: '>=3 <4'
   additionalPackageJSON: {}
   author: Speakeasy
   baseErrorName: PolarError
