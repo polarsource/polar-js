@@ -5,7 +5,9 @@
 ```typescript
 import { BenefitDownloadablesUpdate } from "@polar-sh/sdk/models/components/benefitdownloadablesupdate.js";
 
-let value: BenefitDownloadablesUpdate = {};
+let value: BenefitDownloadablesUpdate = {
+  type: "downloadables",
+};
 ```
 
 ## Fields

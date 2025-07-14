@@ -5,7 +5,15 @@
 ```typescript
 import { BenefitsGrantsResponse } from "@polar-sh/sdk/models/operations/benefitsgrants.js";
 
-let value: BenefitsGrantsResponse = {};
+let value: BenefitsGrantsResponse = {
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 47105,
+      maxPage: 607201,
+    },
+  },
+};
 ```
 
 ## Fields

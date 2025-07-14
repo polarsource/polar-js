@@ -11,6 +11,7 @@ let value: PaymentMethodCard = {
   modifiedAt: new Date("2024-11-29T12:48:39.365Z"),
   processor: "stripe",
   customerId: "<value>",
+  type: "card",
   methodMetadata: {
     brand: "<value>",
     last4: "<value>",

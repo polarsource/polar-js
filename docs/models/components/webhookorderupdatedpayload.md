@@ -15,6 +15,7 @@ An order is updated when:
 import { WebhookOrderUpdatedPayload } from "@polar-sh/sdk/models/components/webhookorderupdatedpayload.js";
 
 let value: WebhookOrderUpdatedPayload = {
+  type: "order.updated",
   data: {
     id: "<value>",
     createdAt: new Date("2023-10-06T17:04:58.025Z"),

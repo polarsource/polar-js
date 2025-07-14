@@ -6,6 +6,7 @@
 import { RefreshTokenRequest } from "@polar-sh/sdk/models/components/refreshtokenrequest.js";
 
 let value: RefreshTokenRequest = {
+  grantType: "refresh_token",
   clientId: "<id>",
   clientSecret: "<value>",
   refreshToken: "<value>",

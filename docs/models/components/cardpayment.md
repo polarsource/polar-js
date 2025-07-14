@@ -15,6 +15,7 @@ let value: CardPayment = {
   status: "succeeded",
   amount: 1000,
   currency: "usd",
+  method: "card",
   declineReason: "insufficient_funds",
   declineMessage: "Your card has insufficient funds.",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",

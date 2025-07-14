@@ -5,7 +5,15 @@
 ```typescript
 import { EventsListNamesResponse } from "@polar-sh/sdk/models/operations/eventslistnames.js";
 
-let value: EventsListNamesResponse = {};
+let value: EventsListNamesResponse = {
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 47105,
+      maxPage: 607201,
+    },
+  },
+};
 ```
 
 ## Fields

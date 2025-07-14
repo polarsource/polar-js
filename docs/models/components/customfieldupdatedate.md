@@ -7,7 +7,9 @@ Schema to update a custom field of type date.
 ```typescript
 import { CustomFieldUpdateDate } from "@polar-sh/sdk/models/components/customfieldupdatedate.js";
 
-let value: CustomFieldUpdateDate = {};
+let value: CustomFieldUpdateDate = {
+  type: "date",
+};
 ```
 
 ## Fields

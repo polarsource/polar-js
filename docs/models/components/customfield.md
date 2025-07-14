@@ -13,6 +13,7 @@ const value: components.CustomFieldCheckbox = {
   metadata: {
     "key": false,
   },
+  type: "checkbox",
   slug: "<value>",
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -30,6 +31,7 @@ const value: components.CustomFieldDate = {
   metadata: {
     "key": true,
   },
+  type: "date",
   slug: "<value>",
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -47,6 +49,7 @@ const value: components.CustomFieldNumber = {
   metadata: {
     "key": 64532,
   },
+  type: "number",
   slug: "<value>",
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -64,6 +67,7 @@ const value: components.CustomFieldSelect = {
   metadata: {
     "key": 1484.44,
   },
+  type: "select",
   slug: "<value>",
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -83,6 +87,7 @@ const value: components.CustomFieldText = {
   metadata: {
     "key": "<value>",
   },
+  type: "text",
   slug: "<value>",
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",

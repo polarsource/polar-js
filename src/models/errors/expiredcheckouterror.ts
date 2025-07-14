@@ -67,9 +67,7 @@ export const ExpiredCheckoutError$outboundSchema: z.ZodType<
 > = z.instanceof(ExpiredCheckoutError)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("ExpiredCheckoutError").default(
-      "ExpiredCheckoutError" as const,
-    ),
+    error: z.literal("ExpiredCheckoutError"),
     detail: z.string(),
   }));
 

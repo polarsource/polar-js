@@ -30,6 +30,8 @@ const value: components.SubscriptionCancel = {
 ### `components.SubscriptionRevoke`
 
 ```typescript
-const value: components.SubscriptionRevoke = {};
+const value: components.SubscriptionRevoke = {
+  revoke: true,
+};
 ```
 

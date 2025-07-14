@@ -16,6 +16,7 @@ let value: AuthorizeResponseUser = {
     tosUri: null,
     policyUri: "https://somber-populist.org",
   },
+  subType: "user",
   sub: {
     id: "<value>",
     email: "Ignacio35@gmail.com",

@@ -35,6 +35,8 @@ let value: MeterCreditEvent = {
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  source: "system",
+  name: "meter.credited",
   metadata: {
     meterId: "<id>",
     units: 232955,

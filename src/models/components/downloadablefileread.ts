@@ -27,7 +27,7 @@ export type DownloadableFileRead = {
   checksumSha256Hex: string | null;
   lastModifiedAt: Date | null;
   version: string | null;
-  service?: "downloadable" | undefined;
+  service: "downloadable";
   isUploaded: boolean;
   createdAt: Date;
   sizeReadable: string;
@@ -53,7 +53,7 @@ export const DownloadableFileRead$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   version: z.nullable(z.string()),
-  service: z.literal("downloadable").optional(),
+  service: z.literal("downloadable"),
   is_uploaded: z.boolean(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   size_readable: z.string(),
@@ -110,7 +110,7 @@ export const DownloadableFileRead$outboundSchema: z.ZodType<
   checksumSha256Hex: z.nullable(z.string()),
   lastModifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   version: z.nullable(z.string()),
-  service: z.literal("downloadable").default("downloadable" as const),
+  service: z.literal("downloadable"),
   isUploaded: z.boolean(),
   createdAt: z.date().transform(v => v.toISOString()),
   sizeReadable: z.string(),

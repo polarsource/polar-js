@@ -8,6 +8,7 @@ Schema to create a custom field of type checkbox.
 import { CustomFieldCreateCheckbox } from "@polar-sh/sdk/models/components/customfieldcreatecheckbox.js";
 
 let value: CustomFieldCreateCheckbox = {
+  type: "checkbox",
   slug: "<value>",
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",

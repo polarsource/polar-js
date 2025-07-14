@@ -10,10 +10,12 @@ Sent when a benefit is updated.
 import { WebhookBenefitUpdatedPayload } from "@polar-sh/sdk/models/components/webhookbenefitupdatedpayload.js";
 
 let value: WebhookBenefitUpdatedPayload = {
+  type: "benefit.updated",
   data: {
     id: "<value>",
     createdAt: new Date("2024-05-19T01:49:21.918Z"),
     modifiedAt: new Date("2023-08-26T23:40:36.460Z"),
+    type: "github_repository",
     description: "hotfoot than fortunately woefully unlawful yuck pfft apud",
     selectable: true,
     deletable: true,

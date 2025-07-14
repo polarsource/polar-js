@@ -21,6 +21,7 @@ let value: ProductMediaFileCreate = {
       },
     ],
   },
+  service: "product_media",
 };
 ```
 

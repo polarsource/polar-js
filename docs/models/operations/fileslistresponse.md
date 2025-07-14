@@ -5,7 +5,15 @@
 ```typescript
 import { FilesListResponse } from "@polar-sh/sdk/models/operations/fileslist.js";
 
-let value: FilesListResponse = {};
+let value: FilesListResponse = {
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 47105,
+      maxPage: 607201,
+    },
+  },
+};
 ```
 
 ## Fields

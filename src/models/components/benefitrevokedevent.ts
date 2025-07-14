@@ -51,11 +51,11 @@ export type BenefitRevokedEvent = {
   /**
    * The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API.
    */
-  source?: "system" | undefined;
+  source: "system";
   /**
    * The name of the event.
    */
-  name?: "benefit.revoked" | undefined;
+  name: "benefit.revoked";
   metadata: BenefitGrantMetadata;
 };
 
@@ -71,8 +71,8 @@ export const BenefitRevokedEvent$inboundSchema: z.ZodType<
   customer_id: z.nullable(z.string()),
   customer: z.nullable(Customer$inboundSchema),
   external_customer_id: z.nullable(z.string()),
-  source: z.literal("system").optional(),
-  name: z.literal("benefit.revoked").optional(),
+  source: z.literal("system"),
+  name: z.literal("benefit.revoked"),
   metadata: BenefitGrantMetadata$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -107,8 +107,8 @@ export const BenefitRevokedEvent$outboundSchema: z.ZodType<
   customerId: z.nullable(z.string()),
   customer: z.nullable(Customer$outboundSchema),
   externalCustomerId: z.nullable(z.string()),
-  source: z.literal("system").default("system" as const),
-  name: z.literal("benefit.revoked").default("benefit.revoked" as const),
+  source: z.literal("system"),
+  name: z.literal("benefit.revoked"),
   metadata: BenefitGrantMetadata$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

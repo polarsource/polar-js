@@ -39,6 +39,7 @@ let value: UserEvent = {
   },
   externalCustomerId: "<id>",
   name: "<value>",
+  source: "user",
 };
 ```
 

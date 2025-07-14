@@ -67,9 +67,7 @@ export const RefundAmountTooHigh$outboundSchema: z.ZodType<
 > = z.instanceof(RefundAmountTooHigh)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("RefundAmountTooHigh").default(
-      "RefundAmountTooHigh" as const,
-    ),
+    error: z.literal("RefundAmountTooHigh"),
     detail: z.string(),
   }));
 

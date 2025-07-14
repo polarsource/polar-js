@@ -5,7 +5,9 @@
 ```typescript
 import { BenefitMeterCreditUpdate } from "@polar-sh/sdk/models/components/benefitmetercreditupdate.js";
 
-let value: BenefitMeterCreditUpdate = {};
+let value: BenefitMeterCreditUpdate = {
+  type: "meter_credit",
+};
 ```
 
 ## Fields

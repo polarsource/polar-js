@@ -7,7 +7,9 @@ Schema to update a custom field of type number.
 ```typescript
 import { CustomFieldUpdateNumber } from "@polar-sh/sdk/models/components/customfieldupdatenumber.js";
 
-let value: CustomFieldUpdateNumber = {};
+let value: CustomFieldUpdateNumber = {
+  type: "number",
+};
 ```
 
 ## Fields

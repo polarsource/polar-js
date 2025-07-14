@@ -7,6 +7,11 @@ import { FilesUploadedRequest } from "@polar-sh/sdk/models/operations/filesuploa
 
 let value: FilesUploadedRequest = {
   id: "<value>",
+  fileUploadCompleted: {
+    id: "<id>",
+    path: "/etc/ppp",
+    parts: [],
+  },
 };
 ```
 

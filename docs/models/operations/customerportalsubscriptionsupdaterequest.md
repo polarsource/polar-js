@@ -7,6 +7,7 @@ import { CustomerPortalSubscriptionsUpdateRequest } from "@polar-sh/sdk/models/o
 
 let value: CustomerPortalSubscriptionsUpdateRequest = {
   id: "<value>",
+  customerSubscriptionUpdate: {},
 };
 ```
 

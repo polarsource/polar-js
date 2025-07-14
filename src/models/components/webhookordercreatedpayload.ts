@@ -30,7 +30,7 @@ import {
  * **Discord & Slack support:** Full
  */
 export type WebhookOrderCreatedPayload = {
-  type?: "order.created" | undefined;
+  type: "order.created";
   data: Order;
 };
 
@@ -40,7 +40,7 @@ export const WebhookOrderCreatedPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("order.created").optional(),
+  type: z.literal("order.created"),
   data: Order$inboundSchema,
 });
 
@@ -56,7 +56,7 @@ export const WebhookOrderCreatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookOrderCreatedPayload
 > = z.object({
-  type: z.literal("order.created").default("order.created" as const),
+  type: z.literal("order.created"),
   data: Order$outboundSchema,
 });
 

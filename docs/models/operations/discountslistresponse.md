@@ -5,7 +5,15 @@
 ```typescript
 import { DiscountsListResponse } from "@polar-sh/sdk/models/operations/discountslist.js";
 
-let value: DiscountsListResponse = {};
+let value: DiscountsListResponse = {
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 47105,
+      maxPage: 607201,
+    },
+  },
+};
 ```
 
 ## Fields

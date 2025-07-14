@@ -5,7 +5,15 @@
 ```typescript
 import { MetersListResponse } from "@polar-sh/sdk/models/operations/meterslist.js";
 
-let value: MetersListResponse = {};
+let value: MetersListResponse = {
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 47105,
+      maxPage: 607201,
+    },
+  },
+};
 ```
 
 ## Fields

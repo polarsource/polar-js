@@ -7,6 +7,7 @@ import { OrganizationsUpdateRequest } from "@polar-sh/sdk/models/operations/orga
 
 let value: OrganizationsUpdateRequest = {
   id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  organizationUpdate: {},
 };
 ```
 

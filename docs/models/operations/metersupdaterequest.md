@@ -7,6 +7,7 @@ import { MetersUpdateRequest } from "@polar-sh/sdk/models/operations/metersupdat
 
 let value: MetersUpdateRequest = {
   id: "<value>",
+  meterUpdate: {},
 };
 ```
 

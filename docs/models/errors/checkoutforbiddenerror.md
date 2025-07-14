@@ -7,6 +7,7 @@
 
 ```typescript
 const value: errors.AlreadyActiveSubscriptionError = {
+  error: "AlreadyActiveSubscriptionError",
   detail: "<value>",
 };
 ```
@@ -15,6 +16,7 @@ const value: errors.AlreadyActiveSubscriptionError = {
 
 ```typescript
 const value: errors.NotOpenCheckout = {
+  error: "NotOpenCheckout",
   detail: "<value>",
 };
 ```

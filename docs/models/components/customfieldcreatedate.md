@@ -8,6 +8,7 @@ Schema to create a custom field of type date.
 import { CustomFieldCreateDate } from "@polar-sh/sdk/models/components/customfieldcreatedate.js";
 
 let value: CustomFieldCreateDate = {
+  type: "date",
   slug: "<value>",
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",

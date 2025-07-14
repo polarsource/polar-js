@@ -10,6 +10,7 @@ Sent when a refund is created regardless of status.
 import { WebhookRefundCreatedPayload } from "@polar-sh/sdk/models/components/webhookrefundcreatedpayload.js";
 
 let value: WebhookRefundCreatedPayload = {
+  type: "refund.created",
   data: {
     createdAt: new Date("2023-10-16T07:53:56.637Z"),
     modifiedAt: new Date("2023-07-29T02:53:13.491Z"),

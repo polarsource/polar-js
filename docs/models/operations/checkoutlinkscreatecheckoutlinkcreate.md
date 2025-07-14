@@ -7,6 +7,7 @@
 
 ```typescript
 const value: components.CheckoutLinkCreateProductPrice = {
+  paymentProcessor: "stripe",
   productPriceId: "<value>",
 };
 ```
@@ -15,6 +16,7 @@ const value: components.CheckoutLinkCreateProductPrice = {
 
 ```typescript
 const value: components.CheckoutLinkCreateProduct = {
+  paymentProcessor: "stripe",
   productId: "<value>",
 };
 ```
@@ -23,6 +25,7 @@ const value: components.CheckoutLinkCreateProduct = {
 
 ```typescript
 const value: components.CheckoutLinkCreateProducts = {
+  paymentProcessor: "stripe",
   products: [
     "<value 1>",
     "<value 2>",

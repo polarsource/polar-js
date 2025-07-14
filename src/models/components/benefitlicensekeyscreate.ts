@@ -37,7 +37,7 @@ export type BenefitLicenseKeysCreate = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  type?: "license_keys" | undefined;
+  type: "license_keys";
   /**
    * The description of the benefit. Will be displayed on products having this benefit.
    */
@@ -112,7 +112,7 @@ export const BenefitLicenseKeysCreate$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("license_keys").optional(),
+  type: z.literal("license_keys"),
   description: z.string(),
   organization_id: z.nullable(z.string()).optional(),
   properties: BenefitLicenseKeysCreateProperties$inboundSchema,
@@ -140,7 +140,7 @@ export const BenefitLicenseKeysCreate$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  type: z.literal("license_keys").default("license_keys" as const),
+  type: z.literal("license_keys"),
   description: z.string(),
   organizationId: z.nullable(z.string()).optional(),
   properties: BenefitLicenseKeysCreateProperties$outboundSchema,

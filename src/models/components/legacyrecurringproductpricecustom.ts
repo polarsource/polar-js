@@ -33,7 +33,7 @@ export type LegacyRecurringProductPriceCustom = {
    * The ID of the price.
    */
   id: string;
-  amountType?: "custom" | undefined;
+  amountType: "custom";
   /**
    * Whether the price is archived and no longer available.
    */
@@ -45,7 +45,7 @@ export type LegacyRecurringProductPriceCustom = {
   /**
    * The type of the price.
    */
-  type?: "recurring" | undefined;
+  type: "recurring";
   recurringInterval: SubscriptionRecurringInterval;
   /**
    * The currency.
@@ -63,7 +63,7 @@ export type LegacyRecurringProductPriceCustom = {
    * The initial amount shown to the customer.
    */
   presetAmount: number | null;
-  legacy?: true | undefined;
+  legacy: true;
 };
 
 /** @internal */
@@ -77,16 +77,16 @@ export const LegacyRecurringProductPriceCustom$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  amount_type: z.literal("custom").optional(),
+  amount_type: z.literal("custom"),
   is_archived: z.boolean(),
   product_id: z.string(),
-  type: z.literal("recurring").optional(),
+  type: z.literal("recurring"),
   recurring_interval: SubscriptionRecurringInterval$inboundSchema,
   price_currency: z.string(),
   minimum_amount: z.nullable(z.number().int()),
   maximum_amount: z.nullable(z.number().int()),
   preset_amount: z.nullable(z.number().int()),
-  legacy: z.literal(true).optional(),
+  legacy: z.literal(true),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -128,16 +128,16 @@ export const LegacyRecurringProductPriceCustom$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  amountType: z.literal("custom").default("custom" as const),
+  amountType: z.literal("custom"),
   isArchived: z.boolean(),
   productId: z.string(),
-  type: z.literal("recurring").default("recurring" as const),
+  type: z.literal("recurring"),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,
   priceCurrency: z.string(),
   minimumAmount: z.nullable(z.number().int()),
   maximumAmount: z.nullable(z.number().int()),
   presetAmount: z.nullable(z.number().int()),
-  legacy: z.literal(true).default(true as const),
+  legacy: z.literal(true),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

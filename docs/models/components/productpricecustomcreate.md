@@ -7,7 +7,9 @@ Schema to create a pay-what-you-want price.
 ```typescript
 import { ProductPriceCustomCreate } from "@polar-sh/sdk/models/components/productpricecustomcreate.js";
 
-let value: ProductPriceCustomCreate = {};
+let value: ProductPriceCustomCreate = {
+  amountType: "custom",
+};
 ```
 
 ## Fields

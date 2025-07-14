@@ -10,6 +10,7 @@ Sent when a new product is created.
 import { WebhookProductCreatedPayload } from "@polar-sh/sdk/models/components/webhookproductcreatedpayload.js";
 
 let value: WebhookProductCreatedPayload = {
+  type: "product.created",
   data: {
     createdAt: new Date("2023-05-19T12:16:27.570Z"),
     modifiedAt: new Date("2024-01-11T15:35:24.124Z"),

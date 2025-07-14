@@ -15,7 +15,7 @@ import {
 } from "./customerbenefitgrantgithubrepositorypropertiesupdate.js";
 
 export type CustomerBenefitGrantGitHubRepositoryUpdate = {
-  benefitType?: "github_repository" | undefined;
+  benefitType: "github_repository";
   properties: CustomerBenefitGrantGitHubRepositoryPropertiesUpdate;
 };
 
@@ -23,7 +23,7 @@ export type CustomerBenefitGrantGitHubRepositoryUpdate = {
 export const CustomerBenefitGrantGitHubRepositoryUpdate$inboundSchema:
   z.ZodType<CustomerBenefitGrantGitHubRepositoryUpdate, z.ZodTypeDef, unknown> =
     z.object({
-      benefit_type: z.literal("github_repository").optional(),
+      benefit_type: z.literal("github_repository"),
       properties:
         CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$inboundSchema,
     }).transform((v) => {
@@ -45,9 +45,7 @@ export const CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema:
     z.ZodTypeDef,
     CustomerBenefitGrantGitHubRepositoryUpdate
   > = z.object({
-    benefitType: z.literal("github_repository").default(
-      "github_repository" as const,
-    ),
+    benefitType: z.literal("github_repository"),
     properties:
       CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$outboundSchema,
   }).transform((v) => {

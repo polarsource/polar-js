@@ -7,6 +7,11 @@ import { ProductsUpdateBenefitsRequest } from "@polar-sh/sdk/models/operations/p
 
 let value: ProductsUpdateBenefitsRequest = {
   id: "<value>",
+  productBenefitsUpdate: {
+    benefits: [
+      "<value 1>",
+    ],
+  },
 };
 ```
 

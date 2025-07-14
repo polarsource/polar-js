@@ -16,6 +16,7 @@ It's triggered when:
 import { WebhookCustomerStateChangedPayload } from "@polar-sh/sdk/models/components/webhookcustomerstatechangedpayload.js";
 
 let value: WebhookCustomerStateChangedPayload = {
+  type: "customer.state_changed",
   data: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
     createdAt: new Date("2023-09-08T09:42:52.953Z"),

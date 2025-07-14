@@ -47,12 +47,13 @@ let value: CustomerOrder = {
     benefits: [
       {
         id: "<value>",
-        createdAt: new Date("2025-08-22T09:43:58.793Z"),
-        modifiedAt: new Date("2023-02-16T00:22:02.887Z"),
-        type: "custom",
-        description: "inside any judgementally grown consequently naturally",
-        selectable: false,
-        deletable: true,
+        createdAt: new Date("2025-01-02T09:29:19.773Z"),
+        modifiedAt: new Date("2025-02-05T18:27:31.976Z"),
+        type: "downloadables",
+        description:
+          "considering superior about toward fortunately eek internationalize wedge enrage",
+        selectable: true,
+        deletable: false,
         organizationId: "<value>",
       },
     ],
@@ -70,6 +71,7 @@ let value: CustomerOrder = {
         checksumSha256Hex: "<value>",
         lastModifiedAt: null,
         version: "<value>",
+        service: "product_media",
         isUploaded: true,
         createdAt: new Date("2023-11-10T03:13:37.813Z"),
         sizeReadable: "<value>",
@@ -77,13 +79,13 @@ let value: CustomerOrder = {
       },
     ],
     organization: {
-      createdAt: new Date("2025-10-05T12:57:48.267Z"),
-      modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
+      createdAt: new Date("2025-01-01T18:22:02.718Z"),
+      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://medium-object.org",
-      email: "Elena.Barton@hotmail.com",
+      avatarUrl: null,
+      email: "Hannah_Price@gmail.com",
       website: "<value>",
       socials: [
         {
@@ -91,7 +93,7 @@ let value: CustomerOrder = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
+      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,

@@ -35,6 +35,8 @@ let value: BenefitRevokedEvent = {
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  source: "system",
+  name: "benefit.revoked",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",

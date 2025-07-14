@@ -180,6 +180,7 @@ const polar = new Polar();
 
 async function run() {
   const result = await polar.endpointcheckoutCreatedPost({
+    type: "checkout.created",
     data: {
       createdAt: new Date("2023-02-15T15:44:21.478Z"),
       modifiedAt: new Date("2025-09-12T19:48:15.814Z"),
@@ -247,20 +248,25 @@ async function run() {
             createdAt: new Date("2023-09-13T08:36:46.434Z"),
             modifiedAt: new Date("2023-10-05T12:55:46.428Z"),
             id: "<value>",
+            amountType: "free",
             isArchived: false,
             productId: "<value>",
+            type: "recurring",
             recurringInterval: "month",
+            legacy: true,
           },
           {
             createdAt: new Date("2024-05-02T18:25:33.974Z"),
             modifiedAt: new Date("2025-02-06T12:55:07.640Z"),
             id: "<value>",
+            amountType: "fixed",
             isArchived: false,
             productId: "<value>",
             type: "recurring",
             recurringInterval: "month",
             priceCurrency: "<value>",
             priceAmount: 115799,
+            legacy: true,
           },
         ],
         benefits: [],
@@ -278,6 +284,7 @@ async function run() {
             checksumSha256Hex: "<value>",
             lastModifiedAt: new Date("2024-07-06T07:35:44.280Z"),
             version: "<value>",
+            service: "product_media",
             isUploaded: true,
             createdAt: new Date("2024-10-08T20:45:26.653Z"),
             sizeReadable: "<value>",
@@ -296,6 +303,7 @@ async function run() {
             checksumSha256Hex: "<value>",
             lastModifiedAt: new Date("2024-07-06T07:35:44.280Z"),
             version: "<value>",
+            service: "product_media",
             isUploaded: true,
             createdAt: new Date("2024-10-08T20:45:26.653Z"),
             sizeReadable: "<value>",
@@ -314,6 +322,7 @@ async function run() {
             checksumSha256Hex: "<value>",
             lastModifiedAt: new Date("2024-07-06T07:35:44.280Z"),
             version: "<value>",
+            service: "product_media",
             isUploaded: true,
             createdAt: new Date("2024-10-08T20:45:26.653Z"),
             sizeReadable: "<value>",
@@ -322,16 +331,15 @@ async function run() {
         ],
       },
       productPrice: {
-        createdAt: new Date("2025-07-31T12:54:47.590Z"),
-        modifiedAt: new Date("2023-01-11T22:31:47.320Z"),
+        createdAt: new Date("2025-09-16T11:22:24.287Z"),
+        modifiedAt: new Date("2025-11-04T08:41:40.941Z"),
         id: "<value>",
-        isArchived: true,
+        amountType: "free",
+        isArchived: false,
         productId: "<value>",
-        recurringInterval: "month",
-        priceCurrency: "<value>",
-        minimumAmount: 203013,
-        maximumAmount: null,
-        presetAmount: 119260,
+        type: "recurring",
+        recurringInterval: "year",
+        legacy: true,
       },
       discount: {
         duration: "once",
@@ -355,6 +363,7 @@ async function run() {
               "key1": "<value>",
               "key2": "<value>",
             },
+            type: "text",
             slug: "<value>",
             name: "<value>",
             organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -922,7 +931,7 @@ run();
 ### Error Classes
 **Primary errors:**
 * [`PolarError`](./src/models/errors/polarerror.ts): The base class for HTTP error responses.
-  * [`HTTPValidationError`](docs/models/errors/httpvalidationerror.md): Validation Error. Status code `422`. *
+  * [`HTTPValidationError`](./src/models/errors/httpvalidationerror.ts): Validation Error. Status code `422`. *
 
 <details><summary>Less common errors (19)</summary>
 
@@ -937,19 +946,19 @@ run();
 
 
 **Inherit from [`PolarError`](./src/models/errors/polarerror.ts)**:
-* [`ResourceNotFound`](docs/models/errors/resourcenotfound.md): Status code `404`. Applicable to 70 of 122 methods.*
-* [`NotPermitted`](docs/models/errors/notpermitted.md): Status code `403`. Applicable to 9 of 122 methods.*
-* [`Unauthorized`](docs/models/errors/unauthorized.md): Not authorized to manage license key. Status code `401`. Applicable to 5 of 122 methods.*
-* [`AlreadyCanceledSubscription`](docs/models/errors/alreadycanceledsubscription.md): Status code `403`. Applicable to 4 of 122 methods.*
-* [`AlreadyActiveSubscriptionError`](docs/models/errors/alreadyactivesubscriptionerror.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 122 methods.*
-* [`NotOpenCheckout`](docs/models/errors/notopencheckout.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 122 methods.*
-* [`ExpiredCheckoutError`](docs/models/errors/expiredcheckouterror.md): The checkout session is expired. Status code `410`. Applicable to 3 of 122 methods.*
-* [`InvoiceAlreadyExists`](docs/models/errors/invoicealreadyexists.md): Order already has an invoice. Status code `409`. Applicable to 2 of 122 methods.*
-* [`MissingInvoiceBillingDetails`](docs/models/errors/missinginvoicebillingdetails.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 122 methods.*
-* [`NotPaidOrder`](docs/models/errors/notpaidorder.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 122 methods.*
-* [`RefundAmountTooHigh`](docs/models/errors/refundamounttoohigh.md): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 122 methods.*
-* [`PaymentError`](docs/models/errors/paymenterror.md): The payment failed. Status code `400`. Applicable to 1 of 122 methods.*
-* [`RefundedAlready`](docs/models/errors/refundedalready.md): Order is already fully refunded. Status code `403`. Applicable to 1 of 122 methods.*
+* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 70 of 122 methods.*
+* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 9 of 122 methods.*
+* [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 122 methods.*
+* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 122 methods.*
+* [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 122 methods.*
+* [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 122 methods.*
+* [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 122 methods.*
+* [`InvoiceAlreadyExists`](./src/models/errors/invoicealreadyexists.ts): Order already has an invoice. Status code `409`. Applicable to 2 of 122 methods.*
+* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 122 methods.*
+* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 122 methods.*
+* [`RefundAmountTooHigh`](./src/models/errors/refundamounttoohigh.ts): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 122 methods.*
+* [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 122 methods.*
+* [`RefundedAlready`](./src/models/errors/refundedalready.ts): Order is already fully refunded. Status code `403`. Applicable to 1 of 122 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

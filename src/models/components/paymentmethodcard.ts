@@ -34,7 +34,7 @@ export type PaymentMethodCard = {
   modifiedAt: Date | null;
   processor: PaymentProcessor;
   customerId: string;
-  type?: "card" | undefined;
+  type: "card";
   methodMetadata: PaymentMethodCardMetadata;
 };
 
@@ -51,7 +51,7 @@ export const PaymentMethodCard$inboundSchema: z.ZodType<
   ),
   processor: PaymentProcessor$inboundSchema,
   customer_id: z.string(),
-  type: z.literal("card").optional(),
+  type: z.literal("card"),
   method_metadata: PaymentMethodCardMetadata$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -84,7 +84,7 @@ export const PaymentMethodCard$outboundSchema: z.ZodType<
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   processor: PaymentProcessor$outboundSchema,
   customerId: z.string(),
-  type: z.literal("card").default("card" as const),
+  type: z.literal("card"),
   methodMetadata: PaymentMethodCardMetadata$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

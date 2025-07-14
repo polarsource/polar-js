@@ -19,6 +19,7 @@ A new order is created when:
 import { WebhookOrderCreatedPayload } from "@polar-sh/sdk/models/components/webhookordercreatedpayload.js";
 
 let value: WebhookOrderCreatedPayload = {
+  type: "order.created",
   data: {
     id: "<value>",
     createdAt: new Date("2023-10-06T17:04:58.025Z"),

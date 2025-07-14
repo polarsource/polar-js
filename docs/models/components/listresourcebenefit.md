@@ -11,6 +11,7 @@ let value: ListResourceBenefit = {
       id: "<value>",
       createdAt: new Date("2024-11-08T01:17:28.121Z"),
       modifiedAt: null,
+      type: "discord",
       description: "hyena sarong under",
       selectable: true,
       deletable: true,

@@ -7,6 +7,9 @@ import { BenefitsUpdateRequest } from "@polar-sh/sdk/models/operations/benefitsu
 
 let value: BenefitsUpdateRequest = {
   id: "<value>",
+  requestBody: {
+    type: "custom",
+  },
 };
 ```
 

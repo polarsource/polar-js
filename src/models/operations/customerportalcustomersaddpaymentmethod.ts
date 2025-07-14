@@ -28,8 +28,8 @@ export type CustomerPortalCustomersAddPaymentMethodSecurity = {
  * Payment method created.
  */
 export type CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod =
-  | PaymentMethodGeneric
-  | PaymentMethodCard;
+  | PaymentMethodCard
+  | PaymentMethodGeneric;
 
 /** @internal */
 export const CustomerPortalCustomersAddPaymentMethodSecurity$inboundSchema:
@@ -114,14 +114,14 @@ export const CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustom
     z.ZodTypeDef,
     unknown
   > = z.union([
-    PaymentMethodGeneric$inboundSchema,
     PaymentMethodCard$inboundSchema,
+    PaymentMethodGeneric$inboundSchema,
   ]);
 
 /** @internal */
 export type CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$Outbound =
-  | PaymentMethodGeneric$Outbound
-  | PaymentMethodCard$Outbound;
+  | PaymentMethodCard$Outbound
+  | PaymentMethodGeneric$Outbound;
 
 /** @internal */
 export const CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$outboundSchema:
@@ -130,8 +130,8 @@ export const CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustom
     z.ZodTypeDef,
     CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod
   > = z.union([
-    PaymentMethodGeneric$outboundSchema,
     PaymentMethodCard$outboundSchema,
+    PaymentMethodGeneric$outboundSchema,
   ]);
 
 /**
