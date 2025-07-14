@@ -26,7 +26,7 @@ jobs:
             force: ${{ github.event.inputs.force }}
             mode: pr
             set_version: ${{ github.event.inputs.set_version }}
-            speakeasy_version: latest
+            speakeasy_version: 1.561.0
             target: ${{ github.event.inputs.target }}
         secrets:
             github_access_token: ${{ secrets.GITHUB_TOKEN }}
