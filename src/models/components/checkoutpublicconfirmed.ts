@@ -93,10 +93,10 @@ export type CheckoutPublicConfirmedProductPrice =
   | ProductPrice;
 
 export type CheckoutPublicConfirmedDiscount =
-  | CheckoutDiscountPercentageOnceForeverDuration
+  | CheckoutDiscountFixedRepeatDuration
   | CheckoutDiscountFixedOnceForeverDuration
   | CheckoutDiscountPercentageRepeatDuration
-  | CheckoutDiscountFixedRepeatDuration;
+  | CheckoutDiscountPercentageOnceForeverDuration;
 
 /**
  * Checkout session data retrieved using the client secret after confirmation.
@@ -126,7 +126,7 @@ export type CheckoutPublicConfirmed = {
     | { [k: string]: string | number | boolean | Date | null }
     | undefined;
   paymentProcessor: PaymentProcessor;
-  status?: "confirmed" | undefined;
+  status: "confirmed";
   /**
    * Client secret used to update and complete the checkout session from the client.
    */
@@ -243,10 +243,10 @@ export type CheckoutPublicConfirmed = {
    */
   productPrice: LegacyRecurringProductPrice | ProductPrice;
   discount:
-    | CheckoutDiscountPercentageOnceForeverDuration
+    | CheckoutDiscountFixedRepeatDuration
     | CheckoutDiscountFixedOnceForeverDuration
     | CheckoutDiscountPercentageRepeatDuration
-    | CheckoutDiscountFixedRepeatDuration
+    | CheckoutDiscountPercentageOnceForeverDuration
     | null;
   organization: Organization;
   attachedCustomFields: Array<AttachedCustomField>;
@@ -388,18 +388,18 @@ export const CheckoutPublicConfirmedDiscount$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+  CheckoutDiscountFixedRepeatDuration$inboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
-  CheckoutDiscountFixedRepeatDuration$inboundSchema,
+  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
 ]);
 
 /** @internal */
 export type CheckoutPublicConfirmedDiscount$Outbound =
-  | CheckoutDiscountPercentageOnceForeverDuration$Outbound
+  | CheckoutDiscountFixedRepeatDuration$Outbound
   | CheckoutDiscountFixedOnceForeverDuration$Outbound
   | CheckoutDiscountPercentageRepeatDuration$Outbound
-  | CheckoutDiscountFixedRepeatDuration$Outbound;
+  | CheckoutDiscountPercentageOnceForeverDuration$Outbound;
 
 /** @internal */
 export const CheckoutPublicConfirmedDiscount$outboundSchema: z.ZodType<
@@ -407,10 +407,10 @@ export const CheckoutPublicConfirmedDiscount$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutPublicConfirmedDiscount
 > = z.union([
-  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+  CheckoutDiscountFixedRepeatDuration$outboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
   CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-  CheckoutDiscountFixedRepeatDuration$outboundSchema,
+  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
 ]);
 
 /**
@@ -468,7 +468,7 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
     ),
   ).optional(),
   payment_processor: PaymentProcessor$inboundSchema,
-  status: z.literal("confirmed").optional(),
+  status: z.literal("confirmed"),
   client_secret: z.string(),
   url: z.string(),
   expires_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -508,10 +508,10 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
   ]),
   discount: z.nullable(
     z.union([
-      CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+      CheckoutDiscountFixedRepeatDuration$inboundSchema,
       CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
       CheckoutDiscountPercentageRepeatDuration$inboundSchema,
-      CheckoutDiscountFixedRepeatDuration$inboundSchema,
+      CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
     ]),
   ),
   organization: Organization$inboundSchema,
@@ -602,10 +602,10 @@ export type CheckoutPublicConfirmed$Outbound = {
   product: CheckoutProduct$Outbound;
   product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   discount:
-    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
+    | CheckoutDiscountFixedRepeatDuration$Outbound
     | CheckoutDiscountFixedOnceForeverDuration$Outbound
     | CheckoutDiscountPercentageRepeatDuration$Outbound
-    | CheckoutDiscountFixedRepeatDuration$Outbound
+    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
     | null;
   organization: Organization$Outbound;
   attached_custom_fields: Array<AttachedCustomField$Outbound>;
@@ -632,7 +632,7 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
     ),
   ).optional(),
   paymentProcessor: PaymentProcessor$outboundSchema,
-  status: z.literal("confirmed").default("confirmed" as const),
+  status: z.literal("confirmed"),
   clientSecret: z.string(),
   url: z.string(),
   expiresAt: z.date().transform(v => v.toISOString()),
@@ -672,10 +672,10 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
   ]),
   discount: z.nullable(
     z.union([
-      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+      CheckoutDiscountFixedRepeatDuration$outboundSchema,
       CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
       CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-      CheckoutDiscountFixedRepeatDuration$outboundSchema,
+      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
     ]),
   ),
   organization: Organization$outboundSchema,

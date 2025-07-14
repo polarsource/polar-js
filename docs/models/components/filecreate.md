@@ -20,6 +20,7 @@ const value: components.DownloadableFileCreate = {
       },
     ],
   },
+  service: "downloadable",
 };
 ```
 
@@ -40,6 +41,7 @@ const value: components.OrganizationAvatarFileCreate = {
       },
     ],
   },
+  service: "organization_avatar",
 };
 ```
 
@@ -60,6 +62,7 @@ const value: components.ProductMediaFileCreate = {
       },
     ],
   },
+  service: "product_media",
 };
 ```
 

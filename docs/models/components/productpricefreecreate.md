@@ -7,7 +7,9 @@ Schema to create a free price.
 ```typescript
 import { ProductPriceFreeCreate } from "@polar-sh/sdk/models/components/productpricefreecreate.js";
 
-let value: ProductPriceFreeCreate = {};
+let value: ProductPriceFreeCreate = {
+  amountType: "free",
+};
 ```
 
 ## Fields

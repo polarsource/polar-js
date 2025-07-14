@@ -9,13 +9,13 @@ import { CustomerOrganization } from "@polar-sh/sdk/models/components/customeror
 
 let value: CustomerOrganization = {
   organization: {
-    createdAt: new Date("2025-10-05T12:57:48.267Z"),
-    modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
+    createdAt: new Date("2025-01-01T18:22:02.718Z"),
+    modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://medium-object.org",
-    email: "Elena.Barton@hotmail.com",
+    avatarUrl: null,
+    email: "Hannah_Price@gmail.com",
     website: "<value>",
     socials: [
       {
@@ -23,7 +23,7 @@ let value: CustomerOrganization = {
         url: "https://expert-elevation.org",
       },
     ],
-    detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
+    detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
@@ -48,37 +48,35 @@ let value: CustomerOrganization = {
       organizationId: "<value>",
       prices: [
         {
-          createdAt: new Date("2025-06-15T18:59:10.339Z"),
-          modifiedAt: new Date("2023-11-08T08:03:26.336Z"),
+          createdAt: new Date("2025-05-27T11:53:33.166Z"),
+          modifiedAt: new Date("2025-02-15T05:46:47.784Z"),
           id: "<value>",
+          amountType: "custom",
           isArchived: true,
           productId: "<value>",
+          type: "recurring",
           recurringInterval: "year",
           priceCurrency: "<value>",
-          priceAmount: 861129,
+          minimumAmount: 165096,
+          maximumAmount: 445471,
+          presetAmount: 818240,
+          legacy: true,
         },
       ],
-      benefits: [],
-      medias: [
+      benefits: [
         {
           id: "<value>",
+          createdAt: new Date("2025-01-02T09:29:19.773Z"),
+          modifiedAt: new Date("2025-02-05T18:27:31.976Z"),
+          type: "downloadables",
+          description:
+            "considering superior about toward fortunately eek internationalize wedge enrage",
+          selectable: true,
+          deletable: false,
           organizationId: "<value>",
-          name: "<value>",
-          path: "/usr/X11R6",
-          mimeType: "<value>",
-          size: 327832,
-          storageVersion: "<value>",
-          checksumEtag: "<value>",
-          checksumSha256Base64: "<value>",
-          checksumSha256Hex: "<value>",
-          lastModifiedAt: null,
-          version: "<value>",
-          isUploaded: true,
-          createdAt: new Date("2023-11-10T03:13:37.813Z"),
-          sizeReadable: "<value>",
-          publicUrl: "https://warlike-tinderbox.com",
         },
       ],
+      medias: [],
     },
   ],
 };

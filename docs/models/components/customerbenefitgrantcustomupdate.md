@@ -5,7 +5,9 @@
 ```typescript
 import { CustomerBenefitGrantCustomUpdate } from "@polar-sh/sdk/models/components/customerbenefitgrantcustomupdate.js";
 
-let value: CustomerBenefitGrantCustomUpdate = {};
+let value: CustomerBenefitGrantCustomUpdate = {
+  benefitType: "custom",
+};
 ```
 
 ## Fields

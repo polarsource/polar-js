@@ -6,6 +6,7 @@
 import { BenefitGitHubRepositoryCreate } from "@polar-sh/sdk/models/components/benefitgithubrepositorycreate.js";
 
 let value: BenefitGitHubRepositoryCreate = {
+  type: "github_repository",
   description:
     "amidst psst broadcast huzzah consequently tentacle idealistic ack hard-to-find boohoo",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",

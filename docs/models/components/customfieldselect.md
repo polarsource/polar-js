@@ -14,6 +14,7 @@ let value: CustomFieldSelect = {
   metadata: {
     "key": 1484.44,
   },
+  type: "select",
   slug: "<value>",
   name: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",

@@ -6,6 +6,7 @@
 import { BenefitGitHubRepositoryUpdate } from "@polar-sh/sdk/models/components/benefitgithubrepositoryupdate.js";
 
 let value: BenefitGitHubRepositoryUpdate = {
+  type: "github_repository",
   properties: {
     repositoryOwner: "polarsource",
     repositoryName: "private_repo",

@@ -35,6 +35,8 @@ let value: BenefitUpdatedEvent = {
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  source: "system",
+  name: "benefit.updated",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",

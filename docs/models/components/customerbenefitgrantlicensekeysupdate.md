@@ -5,7 +5,9 @@
 ```typescript
 import { CustomerBenefitGrantLicenseKeysUpdate } from "@polar-sh/sdk/models/components/customerbenefitgrantlicensekeysupdate.js";
 
-let value: CustomerBenefitGrantLicenseKeysUpdate = {};
+let value: CustomerBenefitGrantLicenseKeysUpdate = {
+  benefitType: "license_keys",
+};
 ```
 
 ## Fields

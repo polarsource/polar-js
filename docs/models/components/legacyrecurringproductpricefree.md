@@ -13,9 +13,12 @@ let value: LegacyRecurringProductPriceFree = {
   createdAt: new Date("2024-05-26T22:02:46.951Z"),
   modifiedAt: new Date("2025-07-18T18:38:40.552Z"),
   id: "<value>",
+  amountType: "free",
   isArchived: true,
   productId: "<value>",
+  type: "recurring",
   recurringInterval: "year",
+  legacy: true,
 };
 ```
 

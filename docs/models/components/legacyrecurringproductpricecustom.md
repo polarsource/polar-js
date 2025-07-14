@@ -13,13 +13,16 @@ let value: LegacyRecurringProductPriceCustom = {
   createdAt: new Date("2024-12-07T03:04:39.121Z"),
   modifiedAt: new Date("2023-07-09T04:58:27.438Z"),
   id: "<value>",
+  amountType: "custom",
   isArchived: true,
   productId: "<value>",
+  type: "recurring",
   recurringInterval: "month",
   priceCurrency: "<value>",
   minimumAmount: 96295,
   maximumAmount: 385918,
   presetAmount: 774449,
+  legacy: true,
 };
 ```
 

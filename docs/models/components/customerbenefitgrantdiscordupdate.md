@@ -6,6 +6,7 @@
 import { CustomerBenefitGrantDiscordUpdate } from "@polar-sh/sdk/models/components/customerbenefitgrantdiscordupdate.js";
 
 let value: CustomerBenefitGrantDiscordUpdate = {
+  benefitType: "discord",
   properties: {
     accountId: "<id>",
   },

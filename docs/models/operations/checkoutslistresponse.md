@@ -5,7 +5,15 @@
 ```typescript
 import { CheckoutsListResponse } from "@polar-sh/sdk/models/operations/checkoutslist.js";
 
-let value: CheckoutsListResponse = {};
+let value: CheckoutsListResponse = {
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 47105,
+      maxPage: 607201,
+    },
+  },
+};
 ```
 
 ## Fields

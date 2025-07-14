@@ -17,7 +17,7 @@ export type UnitAmount = number | string;
  * Schema to create a metered price with a fixed unit price.
  */
 export type ProductPriceMeteredUnitCreate = {
-  amountType?: "metered_unit" | undefined;
+  amountType: "metered_unit";
   /**
    * The ID of the meter associated to the price.
    */
@@ -86,7 +86,7 @@ export const ProductPriceMeteredUnitCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  amount_type: z.literal("metered_unit").optional(),
+  amount_type: z.literal("metered_unit"),
   meter_id: z.string(),
   price_currency: z.string().default("usd"),
   unit_amount: z.union([z.number(), z.string()]),
@@ -116,7 +116,7 @@ export const ProductPriceMeteredUnitCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductPriceMeteredUnitCreate
 > = z.object({
-  amountType: z.literal("metered_unit").default("metered_unit" as const),
+  amountType: z.literal("metered_unit"),
   meterId: z.string(),
   priceCurrency: z.string().default("usd"),
   unitAmount: z.union([z.number(), z.string()]),

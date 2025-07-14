@@ -16,6 +16,7 @@ let value: AuthorizeResponseOrganization = {
     tosUri: null,
     policyUri: "https://somber-populist.org",
   },
+  subType: "organization",
   sub: {
     id: "<value>",
     slug: "<value>",

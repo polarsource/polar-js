@@ -8,6 +8,7 @@ Schema to create a benefit of type `meter_unit`.
 import { BenefitMeterCreditCreate } from "@polar-sh/sdk/models/components/benefitmetercreditcreate.js";
 
 let value: BenefitMeterCreditCreate = {
+  type: "meter_credit",
   description:
     "revere swiftly epic incidentally minion noisily internalise while braid",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",

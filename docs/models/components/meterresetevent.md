@@ -35,6 +35,8 @@ let value: MeterResetEvent = {
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  source: "system",
+  name: "meter.reset",
   metadata: {
     meterId: "<id>",
   },

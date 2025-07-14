@@ -9,22 +9,23 @@ let value: BenefitLicenseKeys = {
   id: "<value>",
   createdAt: new Date("2025-09-22T06:32:51.347Z"),
   modifiedAt: new Date("2024-01-12T01:51:09.622Z"),
+  type: "license_keys",
   description: "vivaciously now that",
   selectable: true,
   deletable: true,
   organizationId: "<value>",
   metadata: {},
   properties: {
-    prefix: "<value>",
+    prefix: null,
     expires: {
-      ttl: 93452,
-      timeframe: "day",
+      ttl: 56931,
+      timeframe: "month",
     },
     activations: {
-      limit: 777902,
-      enableCustomerAdmin: true,
+      limit: 936323,
+      enableCustomerAdmin: false,
     },
-    limitUsage: null,
+    limitUsage: 702937,
   },
 };
 ```

@@ -5,7 +5,9 @@
 ```typescript
 import { BenefitDiscordUpdate } from "@polar-sh/sdk/models/components/benefitdiscordupdate.js";
 
-let value: BenefitDiscordUpdate = {};
+let value: BenefitDiscordUpdate = {
+  type: "discord",
+};
 ```
 
 ## Fields

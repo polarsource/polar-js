@@ -88,10 +88,10 @@ export type CheckoutMetadata = string | number | number | boolean;
 export type CheckoutProductPrice = LegacyRecurringProductPrice | ProductPrice;
 
 export type CheckoutDiscount =
-  | CheckoutDiscountPercentageOnceForeverDuration
+  | CheckoutDiscountFixedRepeatDuration
   | CheckoutDiscountFixedOnceForeverDuration
   | CheckoutDiscountPercentageRepeatDuration
-  | CheckoutDiscountFixedRepeatDuration;
+  | CheckoutDiscountPercentageOnceForeverDuration;
 
 export type CustomerMetadata = string | number | boolean;
 
@@ -244,10 +244,10 @@ export type Checkout = {
    */
   productPrice: LegacyRecurringProductPrice | ProductPrice;
   discount:
-    | CheckoutDiscountPercentageOnceForeverDuration
+    | CheckoutDiscountFixedRepeatDuration
     | CheckoutDiscountFixedOnceForeverDuration
     | CheckoutDiscountPercentageRepeatDuration
-    | CheckoutDiscountFixedRepeatDuration
+    | CheckoutDiscountPercentageOnceForeverDuration
     | null;
   subscriptionId: string | null;
   attachedCustomFields: Array<AttachedCustomField>;
@@ -426,18 +426,18 @@ export const CheckoutDiscount$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+  CheckoutDiscountFixedRepeatDuration$inboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
-  CheckoutDiscountFixedRepeatDuration$inboundSchema,
+  CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
 ]);
 
 /** @internal */
 export type CheckoutDiscount$Outbound =
-  | CheckoutDiscountPercentageOnceForeverDuration$Outbound
+  | CheckoutDiscountFixedRepeatDuration$Outbound
   | CheckoutDiscountFixedOnceForeverDuration$Outbound
   | CheckoutDiscountPercentageRepeatDuration$Outbound
-  | CheckoutDiscountFixedRepeatDuration$Outbound;
+  | CheckoutDiscountPercentageOnceForeverDuration$Outbound;
 
 /** @internal */
 export const CheckoutDiscount$outboundSchema: z.ZodType<
@@ -445,10 +445,10 @@ export const CheckoutDiscount$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutDiscount
 > = z.union([
-  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+  CheckoutDiscountFixedRepeatDuration$outboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
   CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-  CheckoutDiscountFixedRepeatDuration$outboundSchema,
+  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
 ]);
 
 /**
@@ -597,10 +597,10 @@ export const Checkout$inboundSchema: z.ZodType<
   ]),
   discount: z.nullable(
     z.union([
-      CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
+      CheckoutDiscountFixedRepeatDuration$inboundSchema,
       CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
       CheckoutDiscountPercentageRepeatDuration$inboundSchema,
-      CheckoutDiscountFixedRepeatDuration$inboundSchema,
+      CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
     ]),
   ),
   subscription_id: z.nullable(z.string()),
@@ -699,10 +699,10 @@ export type Checkout$Outbound = {
   product: CheckoutProduct$Outbound;
   product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   discount:
-    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
+    | CheckoutDiscountFixedRepeatDuration$Outbound
     | CheckoutDiscountFixedOnceForeverDuration$Outbound
     | CheckoutDiscountPercentageRepeatDuration$Outbound
-    | CheckoutDiscountFixedRepeatDuration$Outbound
+    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
     | null;
   subscription_id: string | null;
   attached_custom_fields: Array<AttachedCustomField$Outbound>;
@@ -774,10 +774,10 @@ export const Checkout$outboundSchema: z.ZodType<
   ]),
   discount: z.nullable(
     z.union([
-      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
+      CheckoutDiscountFixedRepeatDuration$outboundSchema,
       CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
       CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-      CheckoutDiscountFixedRepeatDuration$outboundSchema,
+      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
     ]),
   ),
   subscriptionId: z.nullable(z.string()),

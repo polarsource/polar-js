@@ -6,6 +6,7 @@
 import { AuthorizationCodeTokenRequest } from "@polar-sh/sdk/models/components/authorizationcodetokenrequest.js";
 
 let value: AuthorizationCodeTokenRequest = {
+  grantType: "authorization_code",
   clientId: "<id>",
   clientSecret: "<value>",
   code: "<value>",

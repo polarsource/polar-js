@@ -5,7 +5,15 @@
 ```typescript
 import { LicenseKeysListResponse } from "@polar-sh/sdk/models/operations/licensekeyslist.js";
 
-let value: LicenseKeysListResponse = {};
+let value: LicenseKeysListResponse = {
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 47105,
+      maxPage: 607201,
+    },
+  },
+};
 ```
 
 ## Fields

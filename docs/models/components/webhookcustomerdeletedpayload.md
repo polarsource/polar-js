@@ -10,6 +10,7 @@ Sent when a customer is deleted.
 import { WebhookCustomerDeletedPayload } from "@polar-sh/sdk/models/components/webhookcustomerdeletedpayload.js";
 
 let value: WebhookCustomerDeletedPayload = {
+  type: "customer.deleted",
   data: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
     createdAt: new Date("2024-07-14T00:49:20.816Z"),

@@ -30,7 +30,7 @@ export type OrganizationAvatarFileCreate = {
   size: number;
   checksumSha256Base64?: string | null | undefined;
   upload: S3FileCreateMultipart;
-  service?: "organization_avatar" | undefined;
+  service: "organization_avatar";
   version?: string | null | undefined;
 };
 
@@ -46,7 +46,7 @@ export const OrganizationAvatarFileCreate$inboundSchema: z.ZodType<
   size: z.number().int(),
   checksum_sha256_base64: z.nullable(z.string()).optional(),
   upload: S3FileCreateMultipart$inboundSchema,
-  service: z.literal("organization_avatar").optional(),
+  service: z.literal("organization_avatar"),
   version: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -80,9 +80,7 @@ export const OrganizationAvatarFileCreate$outboundSchema: z.ZodType<
   size: z.number().int(),
   checksumSha256Base64: z.nullable(z.string()).optional(),
   upload: S3FileCreateMultipart$outboundSchema,
-  service: z.literal("organization_avatar").default(
-    "organization_avatar" as const,
-  ),
+  service: z.literal("organization_avatar"),
   version: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

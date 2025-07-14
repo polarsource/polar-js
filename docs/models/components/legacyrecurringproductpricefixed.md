@@ -13,11 +13,14 @@ let value: LegacyRecurringProductPriceFixed = {
   createdAt: new Date("2025-09-21T09:37:21.640Z"),
   modifiedAt: new Date("2023-07-31T14:55:29.344Z"),
   id: "<value>",
+  amountType: "fixed",
   isArchived: false,
   productId: "<value>",
+  type: "recurring",
   recurringInterval: "year",
   priceCurrency: "<value>",
   priceAmount: 555601,
+  legacy: true,
 };
 ```
 

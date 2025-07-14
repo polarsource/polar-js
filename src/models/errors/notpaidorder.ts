@@ -67,7 +67,7 @@ export const NotPaidOrder$outboundSchema: z.ZodType<
 > = z.instanceof(NotPaidOrder)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("NotPaidOrder").default("NotPaidOrder" as const),
+    error: z.literal("NotPaidOrder"),
     detail: z.string(),
   }));
 

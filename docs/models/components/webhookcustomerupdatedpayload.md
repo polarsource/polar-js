@@ -14,6 +14,7 @@ If you want to be notified when a customer subscription or benefit state changes
 import { WebhookCustomerUpdatedPayload } from "@polar-sh/sdk/models/components/webhookcustomerupdatedpayload.js";
 
 let value: WebhookCustomerUpdatedPayload = {
+  type: "customer.updated",
   data: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
     createdAt: new Date("2024-07-14T00:49:20.816Z"),

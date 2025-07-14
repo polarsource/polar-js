@@ -12,6 +12,7 @@ When you receive this event, the order is fully processed and payment has been r
 import { WebhookOrderPaidPayload } from "@polar-sh/sdk/models/components/webhookorderpaidpayload.js";
 
 let value: WebhookOrderPaidPayload = {
+  type: "order.paid",
   data: {
     id: "<value>",
     createdAt: new Date("2023-10-06T17:04:58.025Z"),

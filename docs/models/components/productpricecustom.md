@@ -11,6 +11,7 @@ let value: ProductPriceCustom = {
   createdAt: new Date("2023-06-12T19:38:31.503Z"),
   modifiedAt: new Date("2025-07-14T10:09:27.768Z"),
   id: "<value>",
+  amountType: "custom",
   isArchived: false,
   productId: "<value>",
   type: "one_time",

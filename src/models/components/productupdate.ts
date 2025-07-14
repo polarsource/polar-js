@@ -52,11 +52,11 @@ import {
 export type ProductUpdateMetadata = string | number | number | boolean;
 
 export type ProductUpdatePrices =
-  | ExistingProductPrice
-  | ProductPriceFreeCreate
+  | ProductPriceMeteredUnitCreate
   | ProductPriceFixedCreate
+  | ExistingProductPrice
   | ProductPriceCustomCreate
-  | ProductPriceMeteredUnitCreate;
+  | ProductPriceFreeCreate;
 
 /**
  * Schema to update a product.
@@ -96,11 +96,11 @@ export type ProductUpdate = {
    */
   prices?:
     | Array<
-      | ExistingProductPrice
-      | ProductPriceFreeCreate
-      | ProductPriceFixedCreate
-      | ProductPriceCustomCreate
       | ProductPriceMeteredUnitCreate
+      | ProductPriceFixedCreate
+      | ExistingProductPrice
+      | ProductPriceCustomCreate
+      | ProductPriceFreeCreate
     >
     | null
     | undefined;
@@ -165,20 +165,20 @@ export const ProductUpdatePrices$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  ExistingProductPrice$inboundSchema,
-  ProductPriceFreeCreate$inboundSchema,
-  ProductPriceFixedCreate$inboundSchema,
-  ProductPriceCustomCreate$inboundSchema,
   ProductPriceMeteredUnitCreate$inboundSchema,
+  ProductPriceFixedCreate$inboundSchema,
+  ExistingProductPrice$inboundSchema,
+  ProductPriceCustomCreate$inboundSchema,
+  ProductPriceFreeCreate$inboundSchema,
 ]);
 
 /** @internal */
 export type ProductUpdatePrices$Outbound =
-  | ExistingProductPrice$Outbound
-  | ProductPriceFreeCreate$Outbound
+  | ProductPriceMeteredUnitCreate$Outbound
   | ProductPriceFixedCreate$Outbound
+  | ExistingProductPrice$Outbound
   | ProductPriceCustomCreate$Outbound
-  | ProductPriceMeteredUnitCreate$Outbound;
+  | ProductPriceFreeCreate$Outbound;
 
 /** @internal */
 export const ProductUpdatePrices$outboundSchema: z.ZodType<
@@ -186,11 +186,11 @@ export const ProductUpdatePrices$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductUpdatePrices
 > = z.union([
-  ExistingProductPrice$outboundSchema,
-  ProductPriceFreeCreate$outboundSchema,
-  ProductPriceFixedCreate$outboundSchema,
-  ProductPriceCustomCreate$outboundSchema,
   ProductPriceMeteredUnitCreate$outboundSchema,
+  ProductPriceFixedCreate$outboundSchema,
+  ExistingProductPrice$outboundSchema,
+  ProductPriceCustomCreate$outboundSchema,
+  ProductPriceFreeCreate$outboundSchema,
 ]);
 
 /**
@@ -241,11 +241,11 @@ export const ProductUpdate$inboundSchema: z.ZodType<
   prices: z.nullable(
     z.array(
       z.union([
-        ExistingProductPrice$inboundSchema,
-        ProductPriceFreeCreate$inboundSchema,
-        ProductPriceFixedCreate$inboundSchema,
-        ProductPriceCustomCreate$inboundSchema,
         ProductPriceMeteredUnitCreate$inboundSchema,
+        ProductPriceFixedCreate$inboundSchema,
+        ExistingProductPrice$inboundSchema,
+        ProductPriceCustomCreate$inboundSchema,
+        ProductPriceFreeCreate$inboundSchema,
       ]),
     ),
   ).optional(),
@@ -270,11 +270,11 @@ export type ProductUpdate$Outbound = {
   is_archived?: boolean | null | undefined;
   prices?:
     | Array<
-      | ExistingProductPrice$Outbound
-      | ProductPriceFreeCreate$Outbound
-      | ProductPriceFixedCreate$Outbound
-      | ProductPriceCustomCreate$Outbound
       | ProductPriceMeteredUnitCreate$Outbound
+      | ProductPriceFixedCreate$Outbound
+      | ExistingProductPrice$Outbound
+      | ProductPriceCustomCreate$Outbound
+      | ProductPriceFreeCreate$Outbound
     >
     | null
     | undefined;
@@ -302,11 +302,11 @@ export const ProductUpdate$outboundSchema: z.ZodType<
   prices: z.nullable(
     z.array(
       z.union([
-        ExistingProductPrice$outboundSchema,
-        ProductPriceFreeCreate$outboundSchema,
-        ProductPriceFixedCreate$outboundSchema,
-        ProductPriceCustomCreate$outboundSchema,
         ProductPriceMeteredUnitCreate$outboundSchema,
+        ProductPriceFixedCreate$outboundSchema,
+        ExistingProductPrice$outboundSchema,
+        ProductPriceCustomCreate$outboundSchema,
+        ProductPriceFreeCreate$outboundSchema,
       ]),
     ),
   ).optional(),

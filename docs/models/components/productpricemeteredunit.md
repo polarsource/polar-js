@@ -11,6 +11,7 @@ let value: ProductPriceMeteredUnit = {
   createdAt: new Date("2023-10-22T15:18:33.510Z"),
   modifiedAt: null,
   id: "<value>",
+  amountType: "metered_unit",
   isArchived: false,
   productId: "<value>",
   type: "recurring",

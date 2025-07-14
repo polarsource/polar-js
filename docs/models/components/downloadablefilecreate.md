@@ -21,6 +21,7 @@ let value: DownloadableFileCreate = {
       },
     ],
   },
+  service: "downloadable",
 };
 ```
 

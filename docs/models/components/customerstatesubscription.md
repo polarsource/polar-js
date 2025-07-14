@@ -14,6 +14,7 @@ let value: CustomerStateSubscription = {
   metadata: {
     "key": 398699,
   },
+  status: "active",
   amount: 1000,
   currency: "usd",
   recurringInterval: "month",

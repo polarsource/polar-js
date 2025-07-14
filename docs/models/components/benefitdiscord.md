@@ -13,6 +13,7 @@ let value: BenefitDiscord = {
   id: "<value>",
   createdAt: new Date("2025-05-26T06:25:53.245Z"),
   modifiedAt: new Date("2024-12-27T10:01:08.309Z"),
+  type: "discord",
   description: "after incidentally whose",
   selectable: false,
   deletable: true,

@@ -10,10 +10,12 @@ Sent when a new benefit is created.
 import { WebhookBenefitCreatedPayload } from "@polar-sh/sdk/models/components/webhookbenefitcreatedpayload.js";
 
 let value: WebhookBenefitCreatedPayload = {
+  type: "benefit.created",
   data: {
     id: "<value>",
     createdAt: new Date("2025-01-07T07:50:46.923Z"),
     modifiedAt: new Date("2023-11-11T10:54:49.602Z"),
+    type: "license_keys",
     description:
       "nervously psst neck fearless offensively close good-natured from portly",
     selectable: true,
@@ -23,16 +25,16 @@ let value: WebhookBenefitCreatedPayload = {
       "key": "<value>",
     },
     properties: {
-      prefix: "<value>",
+      prefix: null,
       expires: {
-        ttl: 93452,
-        timeframe: "day",
+        ttl: 56931,
+        timeframe: "month",
       },
       activations: {
-        limit: 777902,
-        enableCustomerAdmin: true,
+        limit: 936323,
+        enableCustomerAdmin: false,
       },
-      limitUsage: null,
+      limitUsage: 702937,
     },
   },
 };

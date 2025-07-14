@@ -11,6 +11,7 @@ let value: ProductPriceFree = {
   createdAt: new Date("2023-09-10T01:59:19.952Z"),
   modifiedAt: new Date("2023-06-15T13:47:01.466Z"),
   id: "<value>",
+  amountType: "free",
   isArchived: false,
   productId: "<value>",
   type: "recurring",

@@ -10,6 +10,7 @@ Sent when a organization is updated.
 import { WebhookOrganizationUpdatedPayload } from "@polar-sh/sdk/models/components/webhookorganizationupdatedpayload.js";
 
 let value: WebhookOrganizationUpdatedPayload = {
+  type: "organization.updated",
   data: {
     createdAt: new Date("2023-07-16T02:28:27.582Z"),
     modifiedAt: new Date("2023-12-18T01:01:13.059Z"),

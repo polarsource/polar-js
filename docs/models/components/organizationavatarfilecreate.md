@@ -21,6 +21,7 @@ let value: OrganizationAvatarFileCreate = {
       },
     ],
   },
+  service: "organization_avatar",
 };
 ```
 

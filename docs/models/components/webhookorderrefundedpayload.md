@@ -10,6 +10,7 @@ Sent when an order is fully or partially refunded.
 import { WebhookOrderRefundedPayload } from "@polar-sh/sdk/models/components/webhookorderrefundedpayload.js";
 
 let value: WebhookOrderRefundedPayload = {
+  type: "order.refunded",
   data: {
     id: "<value>",
     createdAt: new Date("2023-10-06T17:04:58.025Z"),

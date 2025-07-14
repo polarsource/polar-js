@@ -19,8 +19,12 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
 typescript:
-  version: 0.34.4
+  version: 0.34.5
   additionalDependencies:
     dependencies:
       standardwebhooks: ^1.0.0
@@ -42,6 +46,7 @@ typescript:
   envVarPrefix: POLAR
   flattenGlobalSecurity: true
   flatteningOrder: body-first
+  generateExamples: true
   imports:
     option: openapi
     paths:

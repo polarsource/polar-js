@@ -7,6 +7,11 @@ import { CheckoutsUpdateRequest } from "@polar-sh/sdk/models/operations/checkout
 
 let value: CheckoutsUpdateRequest = {
   id: "<value>",
+  checkoutUpdate: {
+    customerBillingAddress: {
+      country: "US",
+    },
+  },
 };
 ```
 

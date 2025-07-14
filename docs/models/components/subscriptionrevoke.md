@@ -5,7 +5,9 @@
 ```typescript
 import { SubscriptionRevoke } from "@polar-sh/sdk/models/components/subscriptionrevoke.js";
 
-let value: SubscriptionRevoke = {};
+let value: SubscriptionRevoke = {
+  revoke: true,
+};
 ```
 
 ## Fields

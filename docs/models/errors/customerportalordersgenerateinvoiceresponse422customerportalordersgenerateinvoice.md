@@ -9,6 +9,7 @@ Order is not paid or is missing billing name or address.
 
 ```typescript
 const value: errors.MissingInvoiceBillingDetails = {
+  error: "MissingInvoiceBillingDetails",
   detail: "<value>",
 };
 ```
@@ -17,6 +18,7 @@ const value: errors.MissingInvoiceBillingDetails = {
 
 ```typescript
 const value: errors.NotPaidOrder = {
+  error: "NotPaidOrder",
   detail: "<value>",
 };
 ```

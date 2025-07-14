@@ -11,6 +11,7 @@ meaning the related subscription has been renewed for another period.
 import { WebhookBenefitGrantCycledPayload } from "@polar-sh/sdk/models/components/webhookbenefitgrantcycledpayload.js";
 
 let value: WebhookBenefitGrantCycledPayload = {
+  type: "benefit_grant.cycled",
   data: {
     createdAt: new Date("2025-10-02T04:38:09.243Z"),
     modifiedAt: new Date("2023-10-21T01:27:19.889Z"),
@@ -48,6 +49,7 @@ let value: WebhookBenefitGrantCycledPayload = {
       id: "<value>",
       createdAt: new Date("2024-10-15T22:21:01.919Z"),
       modifiedAt: new Date("2023-02-16T12:33:48.786Z"),
+      type: "github_repository",
       description: "ouch woot geez wheel analyse duh",
       selectable: false,
       deletable: false,

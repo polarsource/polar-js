@@ -46,10 +46,10 @@ import {
 export type CheckoutLinkMetadata = string | number | number | boolean;
 
 export type CheckoutLinkDiscount =
-  | DiscountPercentageOnceForeverDurationBase
+  | DiscountFixedRepeatDurationBase
   | DiscountFixedOnceForeverDurationBase
   | DiscountPercentageRepeatDurationBase
-  | DiscountFixedRepeatDurationBase;
+  | DiscountPercentageOnceForeverDurationBase;
 
 /**
  * Checkout link data.
@@ -99,10 +99,10 @@ export type CheckoutLink = {
   organizationId: string;
   products: Array<CheckoutLinkProduct>;
   discount:
-    | DiscountPercentageOnceForeverDurationBase
+    | DiscountFixedRepeatDurationBase
     | DiscountFixedOnceForeverDurationBase
     | DiscountPercentageRepeatDurationBase
-    | DiscountFixedRepeatDurationBase
+    | DiscountPercentageOnceForeverDurationBase
     | null;
   url: string;
 };
@@ -161,18 +161,18 @@ export const CheckoutLinkDiscount$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  DiscountPercentageOnceForeverDurationBase$inboundSchema,
+  DiscountFixedRepeatDurationBase$inboundSchema,
   DiscountFixedOnceForeverDurationBase$inboundSchema,
   DiscountPercentageRepeatDurationBase$inboundSchema,
-  DiscountFixedRepeatDurationBase$inboundSchema,
+  DiscountPercentageOnceForeverDurationBase$inboundSchema,
 ]);
 
 /** @internal */
 export type CheckoutLinkDiscount$Outbound =
-  | DiscountPercentageOnceForeverDurationBase$Outbound
+  | DiscountFixedRepeatDurationBase$Outbound
   | DiscountFixedOnceForeverDurationBase$Outbound
   | DiscountPercentageRepeatDurationBase$Outbound
-  | DiscountFixedRepeatDurationBase$Outbound;
+  | DiscountPercentageOnceForeverDurationBase$Outbound;
 
 /** @internal */
 export const CheckoutLinkDiscount$outboundSchema: z.ZodType<
@@ -180,10 +180,10 @@ export const CheckoutLinkDiscount$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutLinkDiscount
 > = z.union([
-  DiscountPercentageOnceForeverDurationBase$outboundSchema,
+  DiscountFixedRepeatDurationBase$outboundSchema,
   DiscountFixedOnceForeverDurationBase$outboundSchema,
   DiscountPercentageRepeatDurationBase$outboundSchema,
-  DiscountFixedRepeatDurationBase$outboundSchema,
+  DiscountPercentageOnceForeverDurationBase$outboundSchema,
 ]);
 
 /**
@@ -242,10 +242,10 @@ export const CheckoutLink$inboundSchema: z.ZodType<
   products: z.array(CheckoutLinkProduct$inboundSchema),
   discount: z.nullable(
     z.union([
-      DiscountPercentageOnceForeverDurationBase$inboundSchema,
+      DiscountFixedRepeatDurationBase$inboundSchema,
       DiscountFixedOnceForeverDurationBase$inboundSchema,
       DiscountPercentageRepeatDurationBase$inboundSchema,
-      DiscountFixedRepeatDurationBase$inboundSchema,
+      DiscountPercentageOnceForeverDurationBase$inboundSchema,
     ]),
   ),
   url: z.string(),
@@ -279,10 +279,10 @@ export type CheckoutLink$Outbound = {
   organization_id: string;
   products: Array<CheckoutLinkProduct$Outbound>;
   discount:
-    | DiscountPercentageOnceForeverDurationBase$Outbound
+    | DiscountFixedRepeatDurationBase$Outbound
     | DiscountFixedOnceForeverDurationBase$Outbound
     | DiscountPercentageRepeatDurationBase$Outbound
-    | DiscountFixedRepeatDurationBase$Outbound
+    | DiscountPercentageOnceForeverDurationBase$Outbound
     | null;
   url: string;
 };
@@ -310,10 +310,10 @@ export const CheckoutLink$outboundSchema: z.ZodType<
   products: z.array(CheckoutLinkProduct$outboundSchema),
   discount: z.nullable(
     z.union([
-      DiscountPercentageOnceForeverDurationBase$outboundSchema,
+      DiscountFixedRepeatDurationBase$outboundSchema,
       DiscountFixedOnceForeverDurationBase$outboundSchema,
       DiscountPercentageRepeatDurationBase$outboundSchema,
-      DiscountFixedRepeatDurationBase$outboundSchema,
+      DiscountPercentageOnceForeverDurationBase$outboundSchema,
     ]),
   ),
   url: z.string(),

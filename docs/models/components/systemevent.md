@@ -34,6 +34,8 @@ const value: components.BenefitCycledEvent = {
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  source: "system",
+  name: "benefit.cycled",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
@@ -73,6 +75,8 @@ const value: components.BenefitGrantedEvent = {
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  source: "system",
+  name: "benefit.granted",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
@@ -112,6 +116,8 @@ const value: components.BenefitRevokedEvent = {
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  source: "system",
+  name: "benefit.revoked",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
@@ -151,6 +157,8 @@ const value: components.BenefitUpdatedEvent = {
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  source: "system",
+  name: "benefit.updated",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
@@ -190,6 +198,8 @@ const value: components.MeterCreditEvent = {
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  source: "system",
+  name: "meter.credited",
   metadata: {
     meterId: "<id>",
     units: 232955,
@@ -229,6 +239,8 @@ const value: components.MeterResetEvent = {
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  source: "system",
+  name: "meter.reset",
   metadata: {
     meterId: "<id>",
   },

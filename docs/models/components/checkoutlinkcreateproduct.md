@@ -10,6 +10,7 @@ Schema to create a new checkout link from a a single product.
 import { CheckoutLinkCreateProduct } from "@polar-sh/sdk/models/components/checkoutlinkcreateproduct.js";
 
 let value: CheckoutLinkCreateProduct = {
+  paymentProcessor: "stripe",
   productId: "<value>",
 };
 ```

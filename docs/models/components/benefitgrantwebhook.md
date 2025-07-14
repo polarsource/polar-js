@@ -42,6 +42,7 @@ let value: BenefitGrantWebhook = {
     id: "<value>",
     createdAt: new Date("2024-01-11T21:20:50.199Z"),
     modifiedAt: new Date("2024-02-10T10:41:30.057Z"),
+    type: "discord",
     description: "toward while fooey democratize or er um twin elver",
     selectable: false,
     deletable: false,

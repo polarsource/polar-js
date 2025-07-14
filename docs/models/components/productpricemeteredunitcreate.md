@@ -8,6 +8,7 @@ Schema to create a metered price with a fixed unit price.
 import { ProductPriceMeteredUnitCreate } from "@polar-sh/sdk/models/components/productpricemeteredunitcreate.js";
 
 let value: ProductPriceMeteredUnitCreate = {
+  amountType: "metered_unit",
   meterId: "<value>",
   unitAmount: "<value>",
 };

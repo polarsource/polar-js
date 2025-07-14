@@ -5,7 +5,15 @@
 ```typescript
 import { CustomerPortalOrdersListResponse } from "@polar-sh/sdk/models/operations/customerportalorderslist.js";
 
-let value: CustomerPortalOrdersListResponse = {};
+let value: CustomerPortalOrdersListResponse = {
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 47105,
+      maxPage: 607201,
+    },
+  },
+};
 ```
 
 ## Fields

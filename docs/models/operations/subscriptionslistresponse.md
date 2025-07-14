@@ -5,7 +5,15 @@
 ```typescript
 import { SubscriptionsListResponse } from "@polar-sh/sdk/models/operations/subscriptionslist.js";
 
-let value: SubscriptionsListResponse = {};
+let value: SubscriptionsListResponse = {
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 47105,
+      maxPage: 607201,
+    },
+  },
+};
 ```
 
 ## Fields

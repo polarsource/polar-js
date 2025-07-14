@@ -5,7 +5,15 @@
 ```typescript
 import { WebhooksListWebhookDeliveriesResponse } from "@polar-sh/sdk/models/operations/webhookslistwebhookdeliveries.js";
 
-let value: WebhooksListWebhookDeliveriesResponse = {};
+let value: WebhooksListWebhookDeliveriesResponse = {
+  result: {
+    items: [],
+    pagination: {
+      totalCount: 47105,
+      maxPage: 607201,
+    },
+  },
+};
 ```
 
 ## Fields

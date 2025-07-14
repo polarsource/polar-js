@@ -40,7 +40,7 @@ export type BenefitDownloadablesUpdate = {
    * The description of the benefit. Will be displayed on products having this benefit.
    */
   description?: string | null | undefined;
-  type?: "downloadables" | undefined;
+  type: "downloadables";
   properties?: BenefitDownloadablesCreateProperties | null | undefined;
 };
 
@@ -110,7 +110,7 @@ export const BenefitDownloadablesUpdate$inboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("downloadables").optional(),
+  type: z.literal("downloadables"),
   properties: z.nullable(BenefitDownloadablesCreateProperties$inboundSchema)
     .optional(),
 });
@@ -133,7 +133,7 @@ export const BenefitDownloadablesUpdate$outboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("downloadables").default("downloadables" as const),
+  type: z.literal("downloadables"),
   properties: z.nullable(BenefitDownloadablesCreateProperties$outboundSchema)
     .optional(),
 });

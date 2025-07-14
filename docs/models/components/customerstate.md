@@ -33,6 +33,7 @@ let value: CustomerState = {
       createdAt: new Date("2023-06-29T21:29:51.503Z"),
       modifiedAt: new Date("2025-03-19T06:38:24.563Z"),
       metadata: {},
+      status: "active",
       amount: 1000,
       currency: "usd",
       recurringInterval: "month",

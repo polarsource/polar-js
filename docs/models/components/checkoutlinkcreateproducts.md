@@ -8,6 +8,7 @@ Schema to create a new checkout link.
 import { CheckoutLinkCreateProducts } from "@polar-sh/sdk/models/components/checkoutlinkcreateproducts.js";
 
 let value: CheckoutLinkCreateProducts = {
+  paymentProcessor: "stripe",
   products: [
     "<value 1>",
     "<value 2>",

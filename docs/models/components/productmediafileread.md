@@ -20,6 +20,7 @@ let value: ProductMediaFileRead = {
   checksumSha256Hex: "<value>",
   lastModifiedAt: new Date("2024-04-22T16:40:31.898Z"),
   version: "<value>",
+  service: "product_media",
   isUploaded: true,
   createdAt: new Date("2024-06-21T23:30:25.601Z"),
   sizeReadable: "<value>",

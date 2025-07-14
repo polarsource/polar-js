@@ -20,6 +20,7 @@ let value: OrganizationAvatarFileRead = {
   checksumSha256Hex: "<value>",
   lastModifiedAt: new Date("2024-03-25T06:19:39.903Z"),
   version: "<value>",
+  service: "organization_avatar",
   isUploaded: true,
   createdAt: new Date("2024-01-22T16:01:37.037Z"),
   sizeReadable: "<value>",
