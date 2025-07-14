@@ -20,6 +20,12 @@ import {
   OrganizationFeatureSettings$outboundSchema,
 } from "./organizationfeaturesettings.js";
 import {
+  OrganizationNotificationSettings,
+  OrganizationNotificationSettings$inboundSchema,
+  OrganizationNotificationSettings$Outbound,
+  OrganizationNotificationSettings$outboundSchema,
+} from "./organizationnotificationsettings.js";
+import {
   OrganizationSocialLink,
   OrganizationSocialLink$inboundSchema,
   OrganizationSocialLink$Outbound,
@@ -54,6 +60,7 @@ export type OrganizationCreate = {
   details?: OrganizationDetails | null | undefined;
   featureSettings?: OrganizationFeatureSettings | null | undefined;
   subscriptionSettings?: OrganizationSubscriptionSettings | null | undefined;
+  notificationSettings?: OrganizationNotificationSettings | null | undefined;
 };
 
 /** @internal */
@@ -74,11 +81,15 @@ export const OrganizationCreate$inboundSchema: z.ZodType<
   subscription_settings: z.nullable(
     OrganizationSubscriptionSettings$inboundSchema,
   ).optional(),
+  notification_settings: z.nullable(
+    OrganizationNotificationSettings$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "avatar_url": "avatarUrl",
     "feature_settings": "featureSettings",
     "subscription_settings": "subscriptionSettings",
+    "notification_settings": "notificationSettings",
   });
 });
 
@@ -94,6 +105,10 @@ export type OrganizationCreate$Outbound = {
   feature_settings?: OrganizationFeatureSettings$Outbound | null | undefined;
   subscription_settings?:
     | OrganizationSubscriptionSettings$Outbound
+    | null
+    | undefined;
+  notification_settings?:
+    | OrganizationNotificationSettings$Outbound
     | null
     | undefined;
 };
@@ -117,11 +132,15 @@ export const OrganizationCreate$outboundSchema: z.ZodType<
   subscriptionSettings: z.nullable(
     OrganizationSubscriptionSettings$outboundSchema,
   ).optional(),
+  notificationSettings: z.nullable(
+    OrganizationNotificationSettings$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     avatarUrl: "avatar_url",
     featureSettings: "feature_settings",
     subscriptionSettings: "subscription_settings",
+    notificationSettings: "notification_settings",
   });
 });
 

@@ -32,10 +32,10 @@ import {
 } from "./discountpercentagerepeatduration.js";
 
 export type Discount =
-  | DiscountFixedRepeatDuration
+  | DiscountPercentageOnceForeverDuration
   | DiscountFixedOnceForeverDuration
   | DiscountPercentageRepeatDuration
-  | DiscountPercentageOnceForeverDuration;
+  | DiscountFixedRepeatDuration;
 
 /** @internal */
 export const Discount$inboundSchema: z.ZodType<
@@ -43,18 +43,18 @@ export const Discount$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  DiscountFixedRepeatDuration$inboundSchema,
+  DiscountPercentageOnceForeverDuration$inboundSchema,
   DiscountFixedOnceForeverDuration$inboundSchema,
   DiscountPercentageRepeatDuration$inboundSchema,
-  DiscountPercentageOnceForeverDuration$inboundSchema,
+  DiscountFixedRepeatDuration$inboundSchema,
 ]);
 
 /** @internal */
 export type Discount$Outbound =
-  | DiscountFixedRepeatDuration$Outbound
+  | DiscountPercentageOnceForeverDuration$Outbound
   | DiscountFixedOnceForeverDuration$Outbound
   | DiscountPercentageRepeatDuration$Outbound
-  | DiscountPercentageOnceForeverDuration$Outbound;
+  | DiscountFixedRepeatDuration$Outbound;
 
 /** @internal */
 export const Discount$outboundSchema: z.ZodType<
@@ -62,10 +62,10 @@ export const Discount$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Discount
 > = z.union([
-  DiscountFixedRepeatDuration$outboundSchema,
+  DiscountPercentageOnceForeverDuration$outboundSchema,
   DiscountFixedOnceForeverDuration$outboundSchema,
   DiscountPercentageRepeatDuration$outboundSchema,
-  DiscountPercentageOnceForeverDuration$outboundSchema,
+  DiscountFixedRepeatDuration$outboundSchema,
 ]);
 
 /**

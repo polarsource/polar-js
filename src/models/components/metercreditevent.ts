@@ -51,11 +51,11 @@ export type MeterCreditEvent = {
   /**
    * The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API.
    */
-  source: "system";
+  source?: "system" | undefined;
   /**
    * The name of the event.
    */
-  name: "meter.credited";
+  name?: "meter.credited" | undefined;
   metadata: MeterCreditedMetadata;
 };
 
@@ -71,8 +71,8 @@ export const MeterCreditEvent$inboundSchema: z.ZodType<
   customer_id: z.nullable(z.string()),
   customer: z.nullable(Customer$inboundSchema),
   external_customer_id: z.nullable(z.string()),
-  source: z.literal("system"),
-  name: z.literal("meter.credited"),
+  source: z.literal("system").optional(),
+  name: z.literal("meter.credited").optional(),
   metadata: MeterCreditedMetadata$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -107,8 +107,8 @@ export const MeterCreditEvent$outboundSchema: z.ZodType<
   customerId: z.nullable(z.string()),
   customer: z.nullable(Customer$outboundSchema),
   externalCustomerId: z.nullable(z.string()),
-  source: z.literal("system"),
-  name: z.literal("meter.credited"),
+  source: z.literal("system").default("system" as const),
+  name: z.literal("meter.credited").default("meter.credited" as const),
   metadata: MeterCreditedMetadata$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

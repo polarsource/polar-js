@@ -43,7 +43,7 @@ export type EventsListQueryParamCustomerIDFilter = string | Array<string>;
 /**
  * Filter by external customer ID.
  */
-export type ExternalCustomerIDFilter = string | Array<string>;
+export type QueryParamExternalCustomerIDFilter = string | Array<string>;
 
 /**
  * Filter by event name.
@@ -231,50 +231,56 @@ export function eventsListQueryParamCustomerIDFilterFromJSON(
 }
 
 /** @internal */
-export const ExternalCustomerIDFilter$inboundSchema: z.ZodType<
-  ExternalCustomerIDFilter,
+export const QueryParamExternalCustomerIDFilter$inboundSchema: z.ZodType<
+  QueryParamExternalCustomerIDFilter,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
-export type ExternalCustomerIDFilter$Outbound = string | Array<string>;
+export type QueryParamExternalCustomerIDFilter$Outbound =
+  | string
+  | Array<string>;
 
 /** @internal */
-export const ExternalCustomerIDFilter$outboundSchema: z.ZodType<
-  ExternalCustomerIDFilter$Outbound,
+export const QueryParamExternalCustomerIDFilter$outboundSchema: z.ZodType<
+  QueryParamExternalCustomerIDFilter$Outbound,
   z.ZodTypeDef,
-  ExternalCustomerIDFilter
+  QueryParamExternalCustomerIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace ExternalCustomerIDFilter$ {
-  /** @deprecated use `ExternalCustomerIDFilter$inboundSchema` instead. */
-  export const inboundSchema = ExternalCustomerIDFilter$inboundSchema;
-  /** @deprecated use `ExternalCustomerIDFilter$outboundSchema` instead. */
-  export const outboundSchema = ExternalCustomerIDFilter$outboundSchema;
-  /** @deprecated use `ExternalCustomerIDFilter$Outbound` instead. */
-  export type Outbound = ExternalCustomerIDFilter$Outbound;
+export namespace QueryParamExternalCustomerIDFilter$ {
+  /** @deprecated use `QueryParamExternalCustomerIDFilter$inboundSchema` instead. */
+  export const inboundSchema = QueryParamExternalCustomerIDFilter$inboundSchema;
+  /** @deprecated use `QueryParamExternalCustomerIDFilter$outboundSchema` instead. */
+  export const outboundSchema =
+    QueryParamExternalCustomerIDFilter$outboundSchema;
+  /** @deprecated use `QueryParamExternalCustomerIDFilter$Outbound` instead. */
+  export type Outbound = QueryParamExternalCustomerIDFilter$Outbound;
 }
 
-export function externalCustomerIDFilterToJSON(
-  externalCustomerIDFilter: ExternalCustomerIDFilter,
+export function queryParamExternalCustomerIDFilterToJSON(
+  queryParamExternalCustomerIDFilter: QueryParamExternalCustomerIDFilter,
 ): string {
   return JSON.stringify(
-    ExternalCustomerIDFilter$outboundSchema.parse(externalCustomerIDFilter),
+    QueryParamExternalCustomerIDFilter$outboundSchema.parse(
+      queryParamExternalCustomerIDFilter,
+    ),
   );
 }
 
-export function externalCustomerIDFilterFromJSON(
+export function queryParamExternalCustomerIDFilterFromJSON(
   jsonString: string,
-): SafeParseResult<ExternalCustomerIDFilter, SDKValidationError> {
+): SafeParseResult<QueryParamExternalCustomerIDFilter, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => ExternalCustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ExternalCustomerIDFilter' from JSON`,
+    (x) =>
+      QueryParamExternalCustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryParamExternalCustomerIDFilter' from JSON`,
   );
 }
 

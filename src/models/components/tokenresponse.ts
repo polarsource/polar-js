@@ -10,7 +10,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type TokenResponse = {
   accessToken: string;
-  tokenType: "Bearer";
+  tokenType?: "Bearer" | undefined;
   expiresIn: number;
   refreshToken: string | null;
   scope: string;
@@ -24,7 +24,7 @@ export const TokenResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   access_token: z.string(),
-  token_type: z.literal("Bearer"),
+  token_type: z.literal("Bearer").optional(),
   expires_in: z.number().int(),
   refresh_token: z.nullable(z.string()),
   scope: z.string(),
@@ -56,7 +56,7 @@ export const TokenResponse$outboundSchema: z.ZodType<
   TokenResponse
 > = z.object({
   accessToken: z.string(),
-  tokenType: z.literal("Bearer"),
+  tokenType: z.literal("Bearer").default("Bearer" as const),
   expiresIn: z.number().int(),
   refreshToken: z.nullable(z.string()),
   scope: z.string(),

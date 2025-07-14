@@ -23,7 +23,7 @@ let value: ListResourceCustomer = {
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       deletedAt: new Date("2025-01-19T19:49:04.247Z"),
-      avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
+      avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
     },
   ],
   pagination: {

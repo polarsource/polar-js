@@ -53,7 +53,7 @@ export type SubscriptionRevoke = {
   /**
    * Cancel and revoke an active subscription immediately
    */
-  revoke: true;
+  revoke?: true | undefined;
 };
 
 /** @internal */
@@ -66,7 +66,7 @@ export const SubscriptionRevoke$inboundSchema: z.ZodType<
     CustomerCancellationReason$inboundSchema,
   ).optional(),
   customer_cancellation_comment: z.nullable(z.string()).optional(),
-  revoke: z.literal(true),
+  revoke: z.literal(true).optional(),
 }).transform((v) => {
   return remap$(v, {
     "customer_cancellation_reason": "customerCancellationReason",
@@ -91,7 +91,7 @@ export const SubscriptionRevoke$outboundSchema: z.ZodType<
     CustomerCancellationReason$outboundSchema,
   ).optional(),
   customerCancellationComment: z.nullable(z.string()).optional(),
-  revoke: z.literal(true),
+  revoke: z.literal(true).default(true as const),
 }).transform((v) => {
   return remap$(v, {
     customerCancellationReason: "customer_cancellation_reason",

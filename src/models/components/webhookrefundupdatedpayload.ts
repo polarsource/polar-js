@@ -21,7 +21,7 @@ import {
  * **Discord & Slack support:** Full
  */
 export type WebhookRefundUpdatedPayload = {
-  type: "refund.updated";
+  type?: "refund.updated" | undefined;
   data: Refund;
 };
 
@@ -31,7 +31,7 @@ export const WebhookRefundUpdatedPayload$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("refund.updated"),
+  type: z.literal("refund.updated").optional(),
   data: Refund$inboundSchema,
 });
 
@@ -47,7 +47,7 @@ export const WebhookRefundUpdatedPayload$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   WebhookRefundUpdatedPayload
 > = z.object({
-  type: z.literal("refund.updated"),
+  type: z.literal("refund.updated").default("refund.updated" as const),
   data: Refund$outboundSchema,
 });
 

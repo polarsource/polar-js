@@ -107,7 +107,6 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.checkoutLinks.create({
-    paymentProcessor: "stripe",
     allowDiscountCodes: true,
     requireBillingAddress: false,
     productPriceId: "<value>",
@@ -135,7 +134,6 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await checkoutLinksCreate(polar, {
-    paymentProcessor: "stripe",
     allowDiscountCodes: true,
     requireBillingAddress: false,
     productPriceId: "<value>",

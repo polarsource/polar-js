@@ -15,7 +15,7 @@ import {
 } from "./customerbenefitgrantdiscordpropertiesupdate.js";
 
 export type CustomerBenefitGrantDiscordUpdate = {
-  benefitType: "discord";
+  benefitType?: "discord" | undefined;
   properties: CustomerBenefitGrantDiscordPropertiesUpdate;
 };
 
@@ -25,7 +25,7 @@ export const CustomerBenefitGrantDiscordUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  benefit_type: z.literal("discord"),
+  benefit_type: z.literal("discord").optional(),
   properties: CustomerBenefitGrantDiscordPropertiesUpdate$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -45,7 +45,7 @@ export const CustomerBenefitGrantDiscordUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerBenefitGrantDiscordUpdate
 > = z.object({
-  benefitType: z.literal("discord"),
+  benefitType: z.literal("discord").default("discord" as const),
   properties: CustomerBenefitGrantDiscordPropertiesUpdate$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

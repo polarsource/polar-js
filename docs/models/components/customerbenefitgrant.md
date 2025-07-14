@@ -52,13 +52,13 @@ const value: components.CustomerBenefitGrantDiscord = {
       "key": 185641,
     },
     organization: {
-      createdAt: new Date("2025-01-01T18:22:02.718Z"),
-      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+      createdAt: new Date("2025-10-05T12:57:48.267Z"),
+      modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: null,
-      email: "Hannah_Price@gmail.com",
+      avatarUrl: "https://medium-object.org",
+      email: "Elena.Barton@hotmail.com",
       website: "<value>",
       socials: [
         {
@@ -66,12 +66,16 @@ const value: components.CustomerBenefitGrantDiscord = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
         prorationBehavior: "prorate",
+      },
+      notificationSettings: {
+        newOrder: true,
+        newSubscription: true,
       },
     },
     properties: {
@@ -130,13 +134,13 @@ const value: components.CustomerBenefitGrantGitHubRepository = {
       "key": 9187.27,
     },
     organization: {
-      createdAt: new Date("2025-01-01T18:22:02.718Z"),
-      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+      createdAt: new Date("2025-10-05T12:57:48.267Z"),
+      modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: null,
-      email: "Hannah_Price@gmail.com",
+      avatarUrl: "https://medium-object.org",
+      email: "Elena.Barton@hotmail.com",
       website: "<value>",
       socials: [
         {
@@ -144,12 +148,16 @@ const value: components.CustomerBenefitGrantGitHubRepository = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
         prorationBehavior: "prorate",
+      },
+      notificationSettings: {
+        newOrder: true,
+        newSubscription: true,
       },
     },
     properties: {
@@ -207,13 +215,13 @@ const value: components.CustomerBenefitGrantDownloadables = {
     organizationId: "<value>",
     metadata: {},
     organization: {
-      createdAt: new Date("2025-01-01T18:22:02.718Z"),
-      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+      createdAt: new Date("2025-10-05T12:57:48.267Z"),
+      modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: null,
-      email: "Hannah_Price@gmail.com",
+      avatarUrl: "https://medium-object.org",
+      email: "Elena.Barton@hotmail.com",
       website: "<value>",
       socials: [
         {
@@ -221,12 +229,16 @@ const value: components.CustomerBenefitGrantDownloadables = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
         prorationBehavior: "prorate",
+      },
+      notificationSettings: {
+        newOrder: true,
+        newSubscription: true,
       },
     },
     properties: {
@@ -289,13 +301,13 @@ const value: components.CustomerBenefitGrantLicenseKeys = {
       "key": true,
     },
     organization: {
-      createdAt: new Date("2025-01-01T18:22:02.718Z"),
-      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+      createdAt: new Date("2025-10-05T12:57:48.267Z"),
+      modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: null,
-      email: "Hannah_Price@gmail.com",
+      avatarUrl: "https://medium-object.org",
+      email: "Elena.Barton@hotmail.com",
       website: "<value>",
       socials: [
         {
@@ -303,23 +315,27 @@ const value: components.CustomerBenefitGrantLicenseKeys = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
         prorationBehavior: "prorate",
       },
+      notificationSettings: {
+        newOrder: true,
+        newSubscription: true,
+      },
     },
     properties: {
       prefix: "<value>",
       expires: {
-        ttl: 56931,
-        timeframe: "month",
+        ttl: 93452,
+        timeframe: "day",
       },
       activations: {
-        limit: 936323,
-        enableCustomerAdmin: false,
+        limit: 777902,
+        enableCustomerAdmin: true,
       },
       limitUsage: 596467,
     },
@@ -377,13 +393,13 @@ const value: components.CustomerBenefitGrantCustom = {
       "key": false,
     },
     organization: {
-      createdAt: new Date("2025-01-01T18:22:02.718Z"),
-      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+      createdAt: new Date("2025-10-05T12:57:48.267Z"),
+      modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: null,
-      email: "Hannah_Price@gmail.com",
+      avatarUrl: "https://medium-object.org",
+      email: "Elena.Barton@hotmail.com",
       website: "<value>",
       socials: [
         {
@@ -391,12 +407,16 @@ const value: components.CustomerBenefitGrantCustom = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
         prorationBehavior: "prorate",
+      },
+      notificationSettings: {
+        newOrder: true,
+        newSubscription: true,
       },
     },
     properties: {
@@ -454,13 +474,13 @@ const value: components.CustomerBenefitGrantMeterCredit = {
     organizationId: "<value>",
     metadata: {},
     organization: {
-      createdAt: new Date("2025-01-01T18:22:02.718Z"),
-      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+      createdAt: new Date("2025-10-05T12:57:48.267Z"),
+      modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: null,
-      email: "Hannah_Price@gmail.com",
+      avatarUrl: "https://medium-object.org",
+      email: "Elena.Barton@hotmail.com",
       website: "<value>",
       socials: [
         {
@@ -468,12 +488,16 @@ const value: components.CustomerBenefitGrantMeterCredit = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      detailsSubmittedAt: new Date("2024-01-24T22:47:46.870Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
         prorationBehavior: "prorate",
+      },
+      notificationSettings: {
+        newOrder: true,
+        newSubscription: true,
       },
     },
     properties: {

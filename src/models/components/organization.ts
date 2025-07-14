@@ -14,6 +14,12 @@ import {
   OrganizationFeatureSettings$outboundSchema,
 } from "./organizationfeaturesettings.js";
 import {
+  OrganizationNotificationSettings,
+  OrganizationNotificationSettings$inboundSchema,
+  OrganizationNotificationSettings$Outbound,
+  OrganizationNotificationSettings$outboundSchema,
+} from "./organizationnotificationsettings.js";
+import {
   OrganizationSocialLink,
   OrganizationSocialLink$inboundSchema,
   OrganizationSocialLink$Outbound,
@@ -72,6 +78,7 @@ export type Organization = {
    */
   featureSettings: OrganizationFeatureSettings | null;
   subscriptionSettings: OrganizationSubscriptionSettings;
+  notificationSettings: OrganizationNotificationSettings;
 };
 
 /** @internal */
@@ -96,6 +103,7 @@ export const Organization$inboundSchema: z.ZodType<
   ),
   feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema),
   subscription_settings: OrganizationSubscriptionSettings$inboundSchema,
+  notification_settings: OrganizationNotificationSettings$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -104,6 +112,7 @@ export const Organization$inboundSchema: z.ZodType<
     "details_submitted_at": "detailsSubmittedAt",
     "feature_settings": "featureSettings",
     "subscription_settings": "subscriptionSettings",
+    "notification_settings": "notificationSettings",
   });
 });
 
@@ -121,6 +130,7 @@ export type Organization$Outbound = {
   details_submitted_at: string | null;
   feature_settings: OrganizationFeatureSettings$Outbound | null;
   subscription_settings: OrganizationSubscriptionSettings$Outbound;
+  notification_settings: OrganizationNotificationSettings$Outbound;
 };
 
 /** @internal */
@@ -141,6 +151,7 @@ export const Organization$outboundSchema: z.ZodType<
   detailsSubmittedAt: z.nullable(z.date().transform(v => v.toISOString())),
   featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema),
   subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,
+  notificationSettings: OrganizationNotificationSettings$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -149,6 +160,7 @@ export const Organization$outboundSchema: z.ZodType<
     detailsSubmittedAt: "details_submitted_at",
     featureSettings: "feature_settings",
     subscriptionSettings: "subscription_settings",
+    notificationSettings: "notification_settings",
   });
 });
 

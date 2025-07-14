@@ -23,6 +23,7 @@ let value: BenefitDiscord = {
   properties: {
     guildId: "<id>",
     roleId: "<id>",
+    kickMember: false,
     guildToken: "<value>",
   },
 };
