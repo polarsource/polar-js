@@ -52,7 +52,7 @@ export type UserEvent = {
   /**
    * The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API.
    */
-  source: "user";
+  source?: "user" | undefined;
 };
 
 /** @internal */
@@ -119,7 +119,7 @@ export const UserEvent$inboundSchema: z.ZodType<
   customer: z.nullable(Customer$inboundSchema),
   external_customer_id: z.nullable(z.string()),
   name: z.string(),
-  source: z.literal("user"),
+  source: z.literal("user").optional(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -157,7 +157,7 @@ export const UserEvent$outboundSchema: z.ZodType<
   customer: z.nullable(Customer$outboundSchema),
   externalCustomerId: z.nullable(z.string()),
   name: z.string(),
-  source: z.literal("user"),
+  source: z.literal("user").default("user" as const),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",

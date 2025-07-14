@@ -19,12 +19,8 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
-  tests:
-    generateTests: true
-    generateNewTests: false
-    skipResponseBodyAssertions: false
 typescript:
-  version: 0.34.3
+  version: 0.34.4
   additionalDependencies:
     dependencies:
       standardwebhooks: ^1.0.0

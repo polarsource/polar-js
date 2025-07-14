@@ -31,7 +31,7 @@ const value: components.BenefitCycledEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-07-29T02:37:49.390Z"),
-    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
   metadata: {
@@ -70,7 +70,7 @@ const value: components.BenefitGrantedEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-07-29T02:37:49.390Z"),
-    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
   metadata: {
@@ -109,7 +109,7 @@ const value: components.BenefitRevokedEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-07-29T02:37:49.390Z"),
-    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
   metadata: {
@@ -148,7 +148,7 @@ const value: components.BenefitUpdatedEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-07-29T02:37:49.390Z"),
-    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
   metadata: {
@@ -187,7 +187,7 @@ const value: components.MeterCreditEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-07-29T02:37:49.390Z"),
-    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
   metadata: {
@@ -226,7 +226,7 @@ const value: components.MeterResetEvent = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-07-29T02:37:49.390Z"),
-    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
   metadata: {

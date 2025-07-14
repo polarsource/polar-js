@@ -67,7 +67,9 @@ export const InvoiceAlreadyExists$outboundSchema: z.ZodType<
 > = z.instanceof(InvoiceAlreadyExists)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("InvoiceAlreadyExists"),
+    error: z.literal("InvoiceAlreadyExists").default(
+      "InvoiceAlreadyExists" as const,
+    ),
     detail: z.string(),
   }));
 

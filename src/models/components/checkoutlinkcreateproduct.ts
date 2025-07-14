@@ -41,7 +41,7 @@ export type CheckoutLinkCreateProduct = {
   /**
    * Payment processor to use. Currently only Stripe is supported.
    */
-  paymentProcessor: "stripe";
+  paymentProcessor?: "stripe" | undefined;
   /**
    * Optional label to distinguish links internally
    */
@@ -129,7 +129,7 @@ export const CheckoutLinkCreateProduct$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  payment_processor: z.literal("stripe"),
+  payment_processor: z.literal("stripe").optional(),
   label: z.nullable(z.string()).optional(),
   allow_discount_codes: z.boolean().default(true),
   require_billing_address: z.boolean().default(false),
@@ -168,7 +168,7 @@ export const CheckoutLinkCreateProduct$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
-  paymentProcessor: z.literal("stripe"),
+  paymentProcessor: z.literal("stripe").default("stripe" as const),
   label: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.boolean().default(true),
   requireBillingAddress: z.boolean().default(false),

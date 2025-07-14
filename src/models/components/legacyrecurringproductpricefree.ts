@@ -33,7 +33,7 @@ export type LegacyRecurringProductPriceFree = {
    * The ID of the price.
    */
   id: string;
-  amountType: "free";
+  amountType?: "free" | undefined;
   /**
    * Whether the price is archived and no longer available.
    */
@@ -45,9 +45,9 @@ export type LegacyRecurringProductPriceFree = {
   /**
    * The type of the price.
    */
-  type: "recurring";
+  type?: "recurring" | undefined;
   recurringInterval: SubscriptionRecurringInterval;
-  legacy: true;
+  legacy?: true | undefined;
 };
 
 /** @internal */
@@ -61,12 +61,12 @@ export const LegacyRecurringProductPriceFree$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  amount_type: z.literal("free"),
+  amount_type: z.literal("free").optional(),
   is_archived: z.boolean(),
   product_id: z.string(),
-  type: z.literal("recurring"),
+  type: z.literal("recurring").optional(),
   recurring_interval: SubscriptionRecurringInterval$inboundSchema,
-  legacy: z.literal(true),
+  legacy: z.literal(true).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -100,12 +100,12 @@ export const LegacyRecurringProductPriceFree$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  amountType: z.literal("free"),
+  amountType: z.literal("free").default("free" as const),
   isArchived: z.boolean(),
   productId: z.string(),
-  type: z.literal("recurring"),
+  type: z.literal("recurring").default("recurring" as const),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,
-  legacy: z.literal(true),
+  legacy: z.literal(true).default(true as const),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

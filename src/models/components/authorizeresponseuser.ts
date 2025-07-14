@@ -23,7 +23,7 @@ import { Scope, Scope$inboundSchema, Scope$outboundSchema } from "./scope.js";
 
 export type AuthorizeResponseUser = {
   client: OAuth2ClientPublic;
-  subType: "user";
+  subType?: "user" | undefined;
   sub: AuthorizeUser | null;
   scopes: Array<Scope>;
 };
@@ -35,7 +35,7 @@ export const AuthorizeResponseUser$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   client: OAuth2ClientPublic$inboundSchema,
-  sub_type: z.literal("user"),
+  sub_type: z.literal("user").optional(),
   sub: z.nullable(AuthorizeUser$inboundSchema),
   scopes: z.array(Scope$inboundSchema),
 }).transform((v) => {
@@ -59,7 +59,7 @@ export const AuthorizeResponseUser$outboundSchema: z.ZodType<
   AuthorizeResponseUser
 > = z.object({
   client: OAuth2ClientPublic$outboundSchema,
-  subType: z.literal("user"),
+  subType: z.literal("user").default("user" as const),
   sub: z.nullable(AuthorizeUser$outboundSchema),
   scopes: z.array(Scope$outboundSchema),
 }).transform((v) => {

@@ -40,7 +40,7 @@ export type BenefitGitHubRepositoryUpdate = {
    * The description of the benefit. Will be displayed on products having this benefit.
    */
   description?: string | null | undefined;
-  type: "github_repository";
+  type?: "github_repository" | undefined;
   properties?: BenefitGitHubRepositoryCreateProperties | null | undefined;
 };
 
@@ -111,7 +111,7 @@ export const BenefitGitHubRepositoryUpdate$inboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("github_repository"),
+  type: z.literal("github_repository").optional(),
   properties: z.nullable(BenefitGitHubRepositoryCreateProperties$inboundSchema)
     .optional(),
 });
@@ -137,7 +137,7 @@ export const BenefitGitHubRepositoryUpdate$outboundSchema: z.ZodType<
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.literal("github_repository"),
+  type: z.literal("github_repository").default("github_repository" as const),
   properties: z.nullable(BenefitGitHubRepositoryCreateProperties$outboundSchema)
     .optional(),
 });

@@ -67,7 +67,7 @@ export const PaymentError$outboundSchema: z.ZodType<
 > = z.instanceof(PaymentError)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("PaymentError"),
+    error: z.literal("PaymentError").default("PaymentError" as const),
     detail: z.string(),
   }));
 

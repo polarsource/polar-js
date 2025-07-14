@@ -27,6 +27,10 @@ let value: WebhookOrganizationUpdatedPayload = {
       allowCustomerUpdates: false,
       prorationBehavior: "prorate",
     },
+    notificationSettings: {
+      newOrder: true,
+      newSubscription: true,
+    },
   },
 };
 ```

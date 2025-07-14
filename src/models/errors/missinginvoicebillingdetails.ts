@@ -67,7 +67,9 @@ export const MissingInvoiceBillingDetails$outboundSchema: z.ZodType<
 > = z.instanceof(MissingInvoiceBillingDetails)
   .transform(v => v.data$)
   .pipe(z.object({
-    error: z.literal("MissingInvoiceBillingDetails"),
+    error: z.literal("MissingInvoiceBillingDetails").default(
+      "MissingInvoiceBillingDetails" as const,
+    ),
     detail: z.string(),
   }));
 

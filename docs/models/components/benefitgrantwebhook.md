@@ -35,7 +35,7 @@ let value: BenefitGrantWebhook = {
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     deletedAt: new Date("2024-07-29T02:37:49.390Z"),
-    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   properties: {},
   benefit: {
@@ -52,6 +52,7 @@ let value: BenefitGrantWebhook = {
     properties: {
       guildId: "<id>",
       roleId: "<id>",
+      kickMember: false,
       guildToken: "<value>",
     },
   },

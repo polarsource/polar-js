@@ -111,13 +111,10 @@ async function run() {
     recurringInterval: "year",
     prices: [
       {
-        amountType: "fixed",
         priceAmount: 677078,
         priceCurrency: "usd",
       },
-      {
-        amountType: "free",
-      },
+      {},
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
@@ -148,13 +145,10 @@ async function run() {
     recurringInterval: "year",
     prices: [
       {
-        amountType: "fixed",
         priceAmount: 677078,
         priceCurrency: "usd",
       },
-      {
-        amountType: "free",
-      },
+      {},
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });

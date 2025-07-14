@@ -114,7 +114,6 @@ async function run() {
     upload: {
       parts: [],
     },
-    service: "downloadable",
   });
 
   console.log(result);
@@ -146,7 +145,6 @@ async function run() {
     upload: {
       parts: [],
     },
-    service: "downloadable",
   });
   if (res.ok) {
     const { value: result } = res;

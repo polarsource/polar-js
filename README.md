@@ -180,7 +180,6 @@ const polar = new Polar();
 
 async function run() {
   const result = await polar.endpointcheckoutCreatedPost({
-    type: "checkout.created",
     data: {
       createdAt: new Date("2023-02-15T15:44:21.478Z"),
       modifiedAt: new Date("2025-09-12T19:48:15.814Z"),
@@ -248,18 +247,14 @@ async function run() {
             createdAt: new Date("2023-09-13T08:36:46.434Z"),
             modifiedAt: new Date("2023-10-05T12:55:46.428Z"),
             id: "<value>",
-            amountType: "free",
             isArchived: false,
             productId: "<value>",
-            type: "recurring",
             recurringInterval: "month",
-            legacy: true,
           },
           {
             createdAt: new Date("2024-05-02T18:25:33.974Z"),
             modifiedAt: new Date("2025-02-06T12:55:07.640Z"),
             id: "<value>",
-            amountType: "fixed",
             isArchived: false,
             productId: "<value>",
             type: "recurring",
@@ -283,7 +278,6 @@ async function run() {
             checksumSha256Hex: "<value>",
             lastModifiedAt: new Date("2024-07-06T07:35:44.280Z"),
             version: "<value>",
-            service: "product_media",
             isUploaded: true,
             createdAt: new Date("2024-10-08T20:45:26.653Z"),
             sizeReadable: "<value>",
@@ -302,7 +296,6 @@ async function run() {
             checksumSha256Hex: "<value>",
             lastModifiedAt: new Date("2024-07-06T07:35:44.280Z"),
             version: "<value>",
-            service: "product_media",
             isUploaded: true,
             createdAt: new Date("2024-10-08T20:45:26.653Z"),
             sizeReadable: "<value>",
@@ -321,7 +314,6 @@ async function run() {
             checksumSha256Hex: "<value>",
             lastModifiedAt: new Date("2024-07-06T07:35:44.280Z"),
             version: "<value>",
-            service: "product_media",
             isUploaded: true,
             createdAt: new Date("2024-10-08T20:45:26.653Z"),
             sizeReadable: "<value>",
@@ -333,16 +325,13 @@ async function run() {
         createdAt: new Date("2025-07-31T12:54:47.590Z"),
         modifiedAt: new Date("2023-01-11T22:31:47.320Z"),
         id: "<value>",
-        amountType: "custom",
         isArchived: true,
         productId: "<value>",
-        type: "recurring",
         recurringInterval: "month",
         priceCurrency: "<value>",
         minimumAmount: 203013,
         maximumAmount: null,
         presetAmount: 119260,
-        legacy: true,
       },
       discount: {
         duration: "once",
@@ -366,7 +355,6 @@ async function run() {
               "key1": "<value>",
               "key2": "<value>",
             },
-            type: "text",
             slug: "<value>",
             name: "<value>",
             organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
@@ -481,7 +469,6 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 #### [customerPortal.downloadables](docs/sdks/downloadables/README.md)
 
 * [list](docs/sdks/downloadables/README.md#list) - List Downloadables
-* [get](docs/sdks/downloadables/README.md#get) - Get Downloadable
 
 #### [customerPortal.licenseKeys](docs/sdks/polarlicensekeys/README.md)
 
@@ -586,14 +573,6 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [introspect](docs/sdks/oauth2/README.md#introspect) - Introspect Token
 * [userinfo](docs/sdks/oauth2/README.md#userinfo) - Get User Info
 
-#### [oauth2.clients](docs/sdks/clients/README.md)
-
-* [list](docs/sdks/clients/README.md#list) - List Clients
-* [create](docs/sdks/clients/README.md#create) - Create Client
-* [get](docs/sdks/clients/README.md#get) - Get Client
-* [update](docs/sdks/clients/README.md#update) - Update Client
-* [delete](docs/sdks/clients/README.md#delete) - Delete Client
-
 ### [orders](docs/sdks/orders/README.md)
 
 * [list](docs/sdks/orders/README.md#list) - List Orders
@@ -694,7 +673,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerPortalCustomersGet`](docs/sdks/polarcustomers/README.md#get) - Get Customer
 - [`customerPortalCustomersListPaymentMethods`](docs/sdks/polarcustomers/README.md#listpaymentmethods) - List Customer Payment Methods
 - [`customerPortalCustomersUpdate`](docs/sdks/polarcustomers/README.md#update) - Update Customer
-- [`customerPortalDownloadablesGet`](docs/sdks/downloadables/README.md#get) - Get Downloadable
 - [`customerPortalDownloadablesList`](docs/sdks/downloadables/README.md#list) - List Downloadables
 - [`customerPortalLicenseKeysActivate`](docs/sdks/polarlicensekeys/README.md#activate) - Activate License Key
 - [`customerPortalLicenseKeysDeactivate`](docs/sdks/polarlicensekeys/README.md#deactivate) - Deactivate License Key
@@ -753,11 +731,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`metricsGet`](docs/sdks/metrics/README.md#get) - Get Metrics
 - [`metricsLimits`](docs/sdks/metrics/README.md#limits) - Get Metrics Limits
 - [`oauth2Authorize`](docs/sdks/oauth2/README.md#authorize) - Authorize
-- [`oauth2ClientsCreate`](docs/sdks/clients/README.md#create) - Create Client
-- [`oauth2ClientsDelete`](docs/sdks/clients/README.md#delete) - Delete Client
-- [`oauth2ClientsGet`](docs/sdks/clients/README.md#get) - Get Client
-- [`oauth2ClientsList`](docs/sdks/clients/README.md#list) - List Clients
-- [`oauth2ClientsUpdate`](docs/sdks/clients/README.md#update) - Update Client
 - [`oauth2Introspect`](docs/sdks/oauth2/README.md#introspect) - Introspect Token
 - [`oauth2Revoke`](docs/sdks/oauth2/README.md#revoke) - Revoke Token
 - [`oauth2Token`](docs/sdks/oauth2/README.md#token) - Request Token
@@ -964,19 +937,19 @@ run();
 
 
 **Inherit from [`PolarError`](./src/models/errors/polarerror.ts)**:
-* [`ResourceNotFound`](docs/models/errors/resourcenotfound.md): Status code `404`. Applicable to 70 of 128 methods.*
-* [`NotPermitted`](docs/models/errors/notpermitted.md): Status code `403`. Applicable to 9 of 128 methods.*
-* [`Unauthorized`](docs/models/errors/unauthorized.md): Not authorized to manage license key. Status code `401`. Applicable to 5 of 128 methods.*
-* [`AlreadyCanceledSubscription`](docs/models/errors/alreadycanceledsubscription.md): Status code `403`. Applicable to 4 of 128 methods.*
-* [`AlreadyActiveSubscriptionError`](docs/models/errors/alreadyactivesubscriptionerror.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 128 methods.*
-* [`NotOpenCheckout`](docs/models/errors/notopencheckout.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 128 methods.*
-* [`ExpiredCheckoutError`](docs/models/errors/expiredcheckouterror.md): The checkout session is expired. Status code `410`. Applicable to 3 of 128 methods.*
-* [`InvoiceAlreadyExists`](docs/models/errors/invoicealreadyexists.md): Order already has an invoice. Status code `409`. Applicable to 2 of 128 methods.*
-* [`MissingInvoiceBillingDetails`](docs/models/errors/missinginvoicebillingdetails.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 128 methods.*
-* [`NotPaidOrder`](docs/models/errors/notpaidorder.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 128 methods.*
-* [`RefundAmountTooHigh`](docs/models/errors/refundamounttoohigh.md): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 128 methods.*
-* [`PaymentError`](docs/models/errors/paymenterror.md): The payment failed. Status code `400`. Applicable to 1 of 128 methods.*
-* [`RefundedAlready`](docs/models/errors/refundedalready.md): Order is already fully refunded. Status code `403`. Applicable to 1 of 128 methods.*
+* [`ResourceNotFound`](docs/models/errors/resourcenotfound.md): Status code `404`. Applicable to 70 of 122 methods.*
+* [`NotPermitted`](docs/models/errors/notpermitted.md): Status code `403`. Applicable to 9 of 122 methods.*
+* [`Unauthorized`](docs/models/errors/unauthorized.md): Not authorized to manage license key. Status code `401`. Applicable to 5 of 122 methods.*
+* [`AlreadyCanceledSubscription`](docs/models/errors/alreadycanceledsubscription.md): Status code `403`. Applicable to 4 of 122 methods.*
+* [`AlreadyActiveSubscriptionError`](docs/models/errors/alreadyactivesubscriptionerror.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 122 methods.*
+* [`NotOpenCheckout`](docs/models/errors/notopencheckout.md): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 122 methods.*
+* [`ExpiredCheckoutError`](docs/models/errors/expiredcheckouterror.md): The checkout session is expired. Status code `410`. Applicable to 3 of 122 methods.*
+* [`InvoiceAlreadyExists`](docs/models/errors/invoicealreadyexists.md): Order already has an invoice. Status code `409`. Applicable to 2 of 122 methods.*
+* [`MissingInvoiceBillingDetails`](docs/models/errors/missinginvoicebillingdetails.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 122 methods.*
+* [`NotPaidOrder`](docs/models/errors/notpaidorder.md): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 122 methods.*
+* [`RefundAmountTooHigh`](docs/models/errors/refundamounttoohigh.md): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 122 methods.*
+* [`PaymentError`](docs/models/errors/paymenterror.md): The payment failed. Status code `400`. Applicable to 1 of 122 methods.*
+* [`RefundedAlready`](docs/models/errors/refundedalready.md): Order is already fully refunded. Status code `403`. Applicable to 1 of 122 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

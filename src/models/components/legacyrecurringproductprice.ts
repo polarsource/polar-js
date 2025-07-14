@@ -26,9 +26,9 @@ import {
 } from "./legacyrecurringproductpricefree.js";
 
 export type LegacyRecurringProductPrice =
-  | (LegacyRecurringProductPriceCustom & { amountType: "custom" })
+  | (LegacyRecurringProductPriceFree & { amountType: "free" })
   | (LegacyRecurringProductPriceFixed & { amountType: "fixed" })
-  | (LegacyRecurringProductPriceFree & { amountType: "free" });
+  | (LegacyRecurringProductPriceCustom & { amountType: "custom" });
 
 /** @internal */
 export const LegacyRecurringProductPrice$inboundSchema: z.ZodType<
@@ -36,8 +36,8 @@ export const LegacyRecurringProductPrice$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  LegacyRecurringProductPriceCustom$inboundSchema.and(
-    z.object({ amount_type: z.literal("custom") }).transform((v) => ({
+  LegacyRecurringProductPriceFree$inboundSchema.and(
+    z.object({ amount_type: z.literal("free") }).transform((v) => ({
       amountType: v.amount_type,
     })),
   ),
@@ -46,8 +46,8 @@ export const LegacyRecurringProductPrice$inboundSchema: z.ZodType<
       amountType: v.amount_type,
     })),
   ),
-  LegacyRecurringProductPriceFree$inboundSchema.and(
-    z.object({ amount_type: z.literal("free") }).transform((v) => ({
+  LegacyRecurringProductPriceCustom$inboundSchema.and(
+    z.object({ amount_type: z.literal("custom") }).transform((v) => ({
       amountType: v.amount_type,
     })),
   ),
@@ -55,9 +55,9 @@ export const LegacyRecurringProductPrice$inboundSchema: z.ZodType<
 
 /** @internal */
 export type LegacyRecurringProductPrice$Outbound =
-  | (LegacyRecurringProductPriceCustom$Outbound & { amount_type: "custom" })
+  | (LegacyRecurringProductPriceFree$Outbound & { amount_type: "free" })
   | (LegacyRecurringProductPriceFixed$Outbound & { amount_type: "fixed" })
-  | (LegacyRecurringProductPriceFree$Outbound & { amount_type: "free" });
+  | (LegacyRecurringProductPriceCustom$Outbound & { amount_type: "custom" });
 
 /** @internal */
 export const LegacyRecurringProductPrice$outboundSchema: z.ZodType<
@@ -65,8 +65,8 @@ export const LegacyRecurringProductPrice$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   LegacyRecurringProductPrice
 > = z.union([
-  LegacyRecurringProductPriceCustom$outboundSchema.and(
-    z.object({ amountType: z.literal("custom") }).transform((v) => ({
+  LegacyRecurringProductPriceFree$outboundSchema.and(
+    z.object({ amountType: z.literal("free") }).transform((v) => ({
       amount_type: v.amountType,
     })),
   ),
@@ -75,8 +75,8 @@ export const LegacyRecurringProductPrice$outboundSchema: z.ZodType<
       amount_type: v.amountType,
     })),
   ),
-  LegacyRecurringProductPriceFree$outboundSchema.and(
-    z.object({ amountType: z.literal("free") }).transform((v) => ({
+  LegacyRecurringProductPriceCustom$outboundSchema.and(
+    z.object({ amountType: z.literal("custom") }).transform((v) => ({
       amount_type: v.amountType,
     })),
   ),

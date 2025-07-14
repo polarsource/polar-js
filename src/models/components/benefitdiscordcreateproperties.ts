@@ -17,6 +17,10 @@ export type BenefitDiscordCreateProperties = {
    * The ID of the Discord role to grant.
    */
   roleId: string;
+  /**
+   * Whether to kick the member from the Discord server on revocation.
+   */
+  kickMember: boolean;
 };
 
 /** @internal */
@@ -27,10 +31,12 @@ export const BenefitDiscordCreateProperties$inboundSchema: z.ZodType<
 > = z.object({
   guild_token: z.string(),
   role_id: z.string(),
+  kick_member: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     "guild_token": "guildToken",
     "role_id": "roleId",
+    "kick_member": "kickMember",
   });
 });
 
@@ -38,6 +44,7 @@ export const BenefitDiscordCreateProperties$inboundSchema: z.ZodType<
 export type BenefitDiscordCreateProperties$Outbound = {
   guild_token: string;
   role_id: string;
+  kick_member: boolean;
 };
 
 /** @internal */
@@ -48,10 +55,12 @@ export const BenefitDiscordCreateProperties$outboundSchema: z.ZodType<
 > = z.object({
   guildToken: z.string(),
   roleId: z.string(),
+  kickMember: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     guildToken: "guild_token",
     roleId: "role_id",
+    kickMember: "kick_member",
   });
 });
 

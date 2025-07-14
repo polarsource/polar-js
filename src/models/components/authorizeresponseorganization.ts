@@ -23,7 +23,7 @@ import { Scope, Scope$inboundSchema, Scope$outboundSchema } from "./scope.js";
 
 export type AuthorizeResponseOrganization = {
   client: OAuth2ClientPublic;
-  subType: "organization";
+  subType?: "organization" | undefined;
   sub: AuthorizeOrganization | null;
   scopes: Array<Scope>;
   organizations: Array<AuthorizeOrganization>;
@@ -36,7 +36,7 @@ export const AuthorizeResponseOrganization$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   client: OAuth2ClientPublic$inboundSchema,
-  sub_type: z.literal("organization"),
+  sub_type: z.literal("organization").optional(),
   sub: z.nullable(AuthorizeOrganization$inboundSchema),
   scopes: z.array(Scope$inboundSchema),
   organizations: z.array(AuthorizeOrganization$inboundSchema),
@@ -62,7 +62,7 @@ export const AuthorizeResponseOrganization$outboundSchema: z.ZodType<
   AuthorizeResponseOrganization
 > = z.object({
   client: OAuth2ClientPublic$outboundSchema,
-  subType: z.literal("organization"),
+  subType: z.literal("organization").default("organization" as const),
   sub: z.nullable(AuthorizeOrganization$outboundSchema),
   scopes: z.array(Scope$outboundSchema),
   organizations: z.array(AuthorizeOrganization$outboundSchema),

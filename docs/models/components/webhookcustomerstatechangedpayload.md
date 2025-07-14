@@ -47,7 +47,7 @@ let value: WebhookCustomerStateChangedPayload = {
         balance: 75,
       },
     ],
-    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=blank",
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
 };
 ```
