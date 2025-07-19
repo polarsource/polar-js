@@ -112,16 +112,16 @@ const value: components.BenefitLicenseKeys = {
   organizationId: "<value>",
   metadata: {},
   properties: {
-    prefix: null,
+    prefix: "<value>",
     expires: {
-      ttl: 56931,
-      timeframe: "month",
+      ttl: 93452,
+      timeframe: "day",
     },
     activations: {
-      limit: 936323,
-      enableCustomerAdmin: false,
+      limit: 777902,
+      enableCustomerAdmin: true,
     },
-    limitUsage: 702937,
+    limitUsage: null,
   },
 };
 ```

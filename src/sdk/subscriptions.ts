@@ -65,7 +65,7 @@ export class Subscriptions extends ClientSDK {
    * @remarks
    * Get a subscription by ID.
    *
-   * **Scopes**: `subscriptions:write`
+   * **Scopes**: `subscriptions:read` `subscriptions:write`
    */
   async get(
     request: SubscriptionsGetRequest,
