@@ -16,7 +16,7 @@ export const tool$subscriptionsGet: ToolDefinition<typeof args> = {
 
 Get a subscription by ID.
 
-**Scopes**: \`subscriptions:write\``,
+**Scopes**: \`subscriptions:read\` \`subscriptions:write\``,
   scopes: ["read", "subscriptions"],
   args,
   tool: async (client, args, ctx) => {

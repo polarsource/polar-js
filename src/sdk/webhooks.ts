@@ -8,6 +8,7 @@ import { webhooksGetWebhookEndpoint } from "../funcs/webhooksGetWebhookEndpoint.
 import { webhooksListWebhookDeliveries } from "../funcs/webhooksListWebhookDeliveries.js";
 import { webhooksListWebhookEndpoints } from "../funcs/webhooksListWebhookEndpoints.js";
 import { webhooksRedeliverWebhookEvent } from "../funcs/webhooksRedeliverWebhookEvent.js";
+import { webhooksResetWebhookEndpointSecret } from "../funcs/webhooksResetWebhookEndpointSecret.js";
 import { webhooksUpdateWebhookEndpoint } from "../funcs/webhooksUpdateWebhookEndpoint.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { WebhookEndpoint } from "../models/components/webhookendpoint.js";
@@ -23,6 +24,7 @@ import {
   WebhooksListWebhookEndpointsResponse,
 } from "../models/operations/webhookslistwebhookendpoints.js";
 import { WebhooksRedeliverWebhookEventRequest } from "../models/operations/webhooksredeliverwebhookevent.js";
+import { WebhooksResetWebhookEndpointSecretRequest } from "../models/operations/webhooksresetwebhookendpointsecret.js";
 import { WebhooksUpdateWebhookEndpointRequest } from "../models/operations/webhooksupdatewebhookendpoint.js";
 import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
@@ -119,6 +121,25 @@ export class Webhooks extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(webhooksDeleteWebhookEndpoint(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Reset Webhook Endpoint Secret
+   *
+   * @remarks
+   * Regenerate a webhook endpoint secret.
+   *
+   * **Scopes**: `webhooks:write`
+   */
+  async resetWebhookEndpointSecret(
+    request: WebhooksResetWebhookEndpointSecretRequest,
+    options?: RequestOptions,
+  ): Promise<WebhookEndpoint> {
+    return unwrapAsync(webhooksResetWebhookEndpointSecret(
       this,
       request,
       options,

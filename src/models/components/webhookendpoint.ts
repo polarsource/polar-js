@@ -40,6 +40,10 @@ export type WebhookEndpoint = {
   url: string;
   format: WebhookFormat;
   /**
+   * The secret used to sign the webhook events.
+   */
+  secret: string;
+  /**
    * The organization ID associated with the webhook endpoint.
    */
   organizationId: string;
@@ -62,6 +66,7 @@ export const WebhookEndpoint$inboundSchema: z.ZodType<
   id: z.string(),
   url: z.string(),
   format: WebhookFormat$inboundSchema,
+  secret: z.string(),
   organization_id: z.string(),
   events: z.array(WebhookEventType$inboundSchema),
 }).transform((v) => {
@@ -79,6 +84,7 @@ export type WebhookEndpoint$Outbound = {
   id: string;
   url: string;
   format: string;
+  secret: string;
   organization_id: string;
   events: Array<string>;
 };
@@ -94,6 +100,7 @@ export const WebhookEndpoint$outboundSchema: z.ZodType<
   id: z.string(),
   url: z.string(),
   format: WebhookFormat$outboundSchema,
+  secret: z.string(),
   organizationId: z.string(),
   events: z.array(WebhookEventType$outboundSchema),
 }).transform((v) => {

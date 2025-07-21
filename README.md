@@ -631,6 +631,7 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [getWebhookEndpoint](docs/sdks/webhooks/README.md#getwebhookendpoint) - Get Webhook Endpoint
 * [updateWebhookEndpoint](docs/sdks/webhooks/README.md#updatewebhookendpoint) - Update Webhook Endpoint
 * [deleteWebhookEndpoint](docs/sdks/webhooks/README.md#deletewebhookendpoint) - Delete Webhook Endpoint
+* [resetWebhookEndpointSecret](docs/sdks/webhooks/README.md#resetwebhookendpointsecret) - Reset Webhook Endpoint Secret
 * [listWebhookDeliveries](docs/sdks/webhooks/README.md#listwebhookdeliveries) - List Webhook Deliveries
 * [redeliverWebhookEvent](docs/sdks/webhooks/README.md#redeliverwebhookevent) - Redeliver Webhook Event
 
@@ -773,6 +774,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`webhooksListWebhookDeliveries`](docs/sdks/webhooks/README.md#listwebhookdeliveries) - List Webhook Deliveries
 - [`webhooksListWebhookEndpoints`](docs/sdks/webhooks/README.md#listwebhookendpoints) - List Webhook Endpoints
 - [`webhooksRedeliverWebhookEvent`](docs/sdks/webhooks/README.md#redeliverwebhookevent) - Redeliver Webhook Event
+- [`webhooksResetWebhookEndpointSecret`](docs/sdks/webhooks/README.md#resetwebhookendpointsecret) - Reset Webhook Endpoint Secret
 - [`webhooksUpdateWebhookEndpoint`](docs/sdks/webhooks/README.md#updatewebhookendpoint) - Update Webhook Endpoint
 
 </details>
@@ -946,19 +948,19 @@ run();
 
 
 **Inherit from [`PolarError`](./src/models/errors/polarerror.ts)**:
-* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 70 of 122 methods.*
-* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 9 of 122 methods.*
-* [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 122 methods.*
-* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 122 methods.*
-* [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 122 methods.*
-* [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 122 methods.*
-* [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 122 methods.*
-* [`InvoiceAlreadyExists`](./src/models/errors/invoicealreadyexists.ts): Order already has an invoice. Status code `409`. Applicable to 2 of 122 methods.*
-* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 122 methods.*
-* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 122 methods.*
-* [`RefundAmountTooHigh`](./src/models/errors/refundamounttoohigh.ts): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 122 methods.*
-* [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 122 methods.*
-* [`RefundedAlready`](./src/models/errors/refundedalready.ts): Order is already fully refunded. Status code `403`. Applicable to 1 of 122 methods.*
+* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 71 of 123 methods.*
+* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 9 of 123 methods.*
+* [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 123 methods.*
+* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 123 methods.*
+* [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 123 methods.*
+* [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired or the customer already has an active subscription. Status code `403`. Applicable to 3 of 123 methods.*
+* [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 123 methods.*
+* [`InvoiceAlreadyExists`](./src/models/errors/invoicealreadyexists.ts): Order already has an invoice. Status code `409`. Applicable to 2 of 123 methods.*
+* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 123 methods.*
+* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 123 methods.*
+* [`RefundAmountTooHigh`](./src/models/errors/refundamounttoohigh.ts): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 123 methods.*
+* [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 123 methods.*
+* [`RefundedAlready`](./src/models/errors/refundedalready.ts): Order is already fully refunded. Status code `403`. Applicable to 1 of 123 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

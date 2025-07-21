@@ -7,11 +7,11 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
-  ListResourceUnionPaymentMethodCardPaymentMethodGeneric,
-  ListResourceUnionPaymentMethodCardPaymentMethodGeneric$inboundSchema,
-  ListResourceUnionPaymentMethodCardPaymentMethodGeneric$Outbound,
-  ListResourceUnionPaymentMethodCardPaymentMethodGeneric$outboundSchema,
-} from "../components/listresourceunionpaymentmethodcardpaymentmethodgeneric.js";
+  ListResourceCustomerPaymentMethod,
+  ListResourceCustomerPaymentMethod$inboundSchema,
+  ListResourceCustomerPaymentMethod$Outbound,
+  ListResourceCustomerPaymentMethod$outboundSchema,
+} from "../components/listresourcecustomerpaymentmethod.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalCustomersListPaymentMethodsSecurity = {
@@ -30,7 +30,7 @@ export type CustomerPortalCustomersListPaymentMethodsRequest = {
 };
 
 export type CustomerPortalCustomersListPaymentMethodsResponse = {
-  result: ListResourceUnionPaymentMethodCardPaymentMethodGeneric;
+  result: ListResourceCustomerPaymentMethod;
 };
 
 /** @internal */
@@ -187,8 +187,7 @@ export const CustomerPortalCustomersListPaymentMethodsResponse$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    Result:
-      ListResourceUnionPaymentMethodCardPaymentMethodGeneric$inboundSchema,
+    Result: ListResourceCustomerPaymentMethod$inboundSchema,
   }).transform((v) => {
     return remap$(v, {
       "Result": "result",
@@ -197,7 +196,7 @@ export const CustomerPortalCustomersListPaymentMethodsResponse$inboundSchema:
 
 /** @internal */
 export type CustomerPortalCustomersListPaymentMethodsResponse$Outbound = {
-  Result: ListResourceUnionPaymentMethodCardPaymentMethodGeneric$Outbound;
+  Result: ListResourceCustomerPaymentMethod$Outbound;
 };
 
 /** @internal */
@@ -207,8 +206,7 @@ export const CustomerPortalCustomersListPaymentMethodsResponse$outboundSchema:
     z.ZodTypeDef,
     CustomerPortalCustomersListPaymentMethodsResponse
   > = z.object({
-    result:
-      ListResourceUnionPaymentMethodCardPaymentMethodGeneric$outboundSchema,
+    result: ListResourceCustomerPaymentMethod$outboundSchema,
   }).transform((v) => {
     return remap$(v, {
       result: "Result",

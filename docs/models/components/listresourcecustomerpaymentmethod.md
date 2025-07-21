@@ -1,11 +1,11 @@
-# ListResourceUnionPaymentMethodCardPaymentMethodGeneric
+# ListResourceCustomerPaymentMethod
 
 ## Example Usage
 
 ```typescript
-import { ListResourceUnionPaymentMethodCardPaymentMethodGeneric } from "@polar-sh/sdk/models/components/listresourceunionpaymentmethodcardpaymentmethodgeneric.js";
+import { ListResourceCustomerPaymentMethod } from "@polar-sh/sdk/models/components/listresourcecustomerpaymentmethod.js";
 
-let value: ListResourceUnionPaymentMethodCardPaymentMethodGeneric = {
+let value: ListResourceCustomerPaymentMethod = {
   items: [],
   pagination: {
     totalCount: 47105,
@@ -18,5 +18,5 @@ let value: ListResourceUnionPaymentMethodCardPaymentMethodGeneric = {
 
 | Field                                                          | Type                                                           | Required                                                       | Description                                                    |
 | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `items`                                                        | *components.Items*[]                                           | :heavy_check_mark:                                             | N/A                                                            |
+| `items`                                                        | *components.CustomerPaymentMethod*[]                           | :heavy_check_mark:                                             | N/A                                                            |
 | `pagination`                                                   | [components.Pagination](../../models/components/pagination.md) | :heavy_check_mark:                                             | N/A                                                            |

@@ -3,21 +3,17 @@
  */
 
 import { PolarCore } from "../core.js";
-import { encodeJSON } from "../lib/encodings.js";
+import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
-import { resolveSecurity } from "../lib/security.js";
+import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  CustomerPaymentMethod,
-  CustomerPaymentMethod$inboundSchema,
-} from "../models/components/customerpaymentmethod.js";
-import {
-  CustomerPaymentMethodCreate,
-  CustomerPaymentMethodCreate$outboundSchema,
-} from "../models/components/customerpaymentmethodcreate.js";
+  WebhookEndpoint,
+  WebhookEndpoint$inboundSchema,
+} from "../models/components/webhookendpoint.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -30,28 +26,35 @@ import {
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
 import { PolarError } from "../models/errors/polarerror.js";
+import {
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import { CustomerPortalCustomersAddPaymentMethodSecurity } from "../models/operations/customerportalcustomersaddpaymentmethod.js";
+import {
+  WebhooksResetWebhookEndpointSecretRequest,
+  WebhooksResetWebhookEndpointSecretRequest$outboundSchema,
+} from "../models/operations/webhooksresetwebhookendpointsecret.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Add Customer Payment Method
+ * Reset Webhook Endpoint Secret
  *
  * @remarks
- * Add a payment method to the authenticated customer.
+ * Regenerate a webhook endpoint secret.
  *
- * **Scopes**: `customer_portal:read` `customer_portal:write`
+ * **Scopes**: `webhooks:write`
  */
-export function customerPortalCustomersAddPaymentMethod(
+export function webhooksResetWebhookEndpointSecret(
   client: PolarCore,
-  security: CustomerPortalCustomersAddPaymentMethodSecurity,
-  request: CustomerPaymentMethodCreate,
+  request: WebhooksResetWebhookEndpointSecretRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    CustomerPaymentMethod,
+    WebhookEndpoint,
+    | ResourceNotFound
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -65,7 +68,6 @@ export function customerPortalCustomersAddPaymentMethod(
 > {
   return new APIPromise($do(
     client,
-    security,
     request,
     options,
   ));
@@ -73,13 +75,13 @@ export function customerPortalCustomersAddPaymentMethod(
 
 async function $do(
   client: PolarCore,
-  security: CustomerPortalCustomersAddPaymentMethodSecurity,
-  request: CustomerPaymentMethodCreate,
+  request: WebhooksResetWebhookEndpointSecretRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      CustomerPaymentMethod,
+      WebhookEndpoint,
+      | ResourceNotFound
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -95,41 +97,42 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => CustomerPaymentMethodCreate$outboundSchema.parse(value),
+    (value) =>
+      WebhooksResetWebhookEndpointSecretRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload, { explode: true });
+  const body = null;
 
-  const path = pathToFunc("/v1/customer-portal/customers/me/payment-methods")();
+  const pathParams = {
+    id: encodeSimple("id", payload.id, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+  };
+
+  const path = pathToFunc("/v1/webhooks/endpoints/{id}/secret")(pathParams);
 
   const headers = new Headers(compactMap({
-    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
-  const requestSecurity = resolveSecurity(
-    [
-      {
-        fieldName: "Authorization",
-        type: "http:bearer",
-        value: security?.customerSession,
-      },
-    ],
-  );
+  const secConfig = await extractSecurity(client._options.accessToken);
+  const securityInput = secConfig == null ? {} : { accessToken: secConfig };
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "customer_portal:customers:add_payment_method",
-    oAuth2Scopes: null,
+    operationID: "webhooks:reset_webhook_endpoint_secret",
+    oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
 
-    securitySource: security,
+    securitySource: client._options.accessToken,
     retryConfig: options?.retries
       || client._options.retryConfig
       || { strategy: "none" },
@@ -138,7 +141,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "POST",
+    method: "PATCH",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -153,7 +156,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["422", "4XX", "5XX"],
+    errorCodes: ["404", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -167,7 +170,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    CustomerPaymentMethod,
+    WebhookEndpoint,
+    | ResourceNotFound
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -178,7 +182,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, CustomerPaymentMethod$inboundSchema),
+    M.json(200, WebhookEndpoint$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

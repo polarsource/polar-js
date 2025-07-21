@@ -8,13 +8,11 @@ import { customerPortalCustomersGet } from "../funcs/customerPortalCustomersGet.
 import { customerPortalCustomersListPaymentMethods } from "../funcs/customerPortalCustomersListPaymentMethods.js";
 import { customerPortalCustomersUpdate } from "../funcs/customerPortalCustomersUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import { CustomerPaymentMethod } from "../models/components/customerpaymentmethod.js";
 import { CustomerPaymentMethodCreate } from "../models/components/customerpaymentmethodcreate.js";
 import { CustomerPortalCustomer } from "../models/components/customerportalcustomer.js";
 import { CustomerPortalCustomerUpdate } from "../models/components/customerportalcustomerupdate.js";
-import {
-  CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod,
-  CustomerPortalCustomersAddPaymentMethodSecurity,
-} from "../models/operations/customerportalcustomersaddpaymentmethod.js";
+import { CustomerPortalCustomersAddPaymentMethodSecurity } from "../models/operations/customerportalcustomersaddpaymentmethod.js";
 import {
   CustomerPortalCustomersDeletePaymentMethodRequest,
   CustomerPortalCustomersDeletePaymentMethodSecurity,
@@ -108,9 +106,7 @@ export class PolarCustomers extends ClientSDK {
     security: CustomerPortalCustomersAddPaymentMethodSecurity,
     request: CustomerPaymentMethodCreate,
     options?: RequestOptions,
-  ): Promise<
-    CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod
-  > {
+  ): Promise<CustomerPaymentMethod> {
     return unwrapAsync(customerPortalCustomersAddPaymentMethod(
       this,
       security,
