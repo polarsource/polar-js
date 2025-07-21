@@ -6,30 +6,11 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import {
-  PaymentMethodCard,
-  PaymentMethodCard$inboundSchema,
-  PaymentMethodCard$Outbound,
-  PaymentMethodCard$outboundSchema,
-} from "../components/paymentmethodcard.js";
-import {
-  PaymentMethodGeneric,
-  PaymentMethodGeneric$inboundSchema,
-  PaymentMethodGeneric$Outbound,
-  PaymentMethodGeneric$outboundSchema,
-} from "../components/paymentmethodgeneric.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalCustomersAddPaymentMethodSecurity = {
   customerSession: string;
 };
-
-/**
- * Payment method created.
- */
-export type CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod =
-  | PaymentMethodCard
-  | PaymentMethodGeneric;
 
 /** @internal */
 export const CustomerPortalCustomersAddPaymentMethodSecurity$inboundSchema:
@@ -104,75 +85,5 @@ export function customerPortalCustomersAddPaymentMethodSecurityFromJSON(
         JSON.parse(x),
       ),
     `Failed to parse 'CustomerPortalCustomersAddPaymentMethodSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$inboundSchema:
-  z.ZodType<
-    CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([
-    PaymentMethodCard$inboundSchema,
-    PaymentMethodGeneric$inboundSchema,
-  ]);
-
-/** @internal */
-export type CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$Outbound =
-  | PaymentMethodCard$Outbound
-  | PaymentMethodGeneric$Outbound;
-
-/** @internal */
-export const CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$outboundSchema:
-  z.ZodType<
-    CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$Outbound,
-    z.ZodTypeDef,
-    CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod
-  > = z.union([
-    PaymentMethodCard$outboundSchema,
-    PaymentMethodGeneric$outboundSchema,
-  ]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$ {
-  /** @deprecated use `CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$Outbound;
-}
-
-export function customerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethodToJSON(
-  customerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod:
-    CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod,
-): string {
-  return JSON.stringify(
-    CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$outboundSchema
-      .parse(
-        customerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod,
-      ),
-  );
-}
-
-export function customerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethodFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod' from JSON`,
   );
 }

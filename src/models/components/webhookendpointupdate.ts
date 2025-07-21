@@ -22,8 +22,11 @@ import {
  */
 export type WebhookEndpointUpdate = {
   url?: string | null | undefined;
-  format?: WebhookFormat | null | undefined;
+  /**
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
   secret?: string | null | undefined;
+  format?: WebhookFormat | null | undefined;
   events?: Array<WebhookEventType> | null | undefined;
 };
 
@@ -34,16 +37,16 @@ export const WebhookEndpointUpdate$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   url: z.nullable(z.string()).optional(),
-  format: z.nullable(WebhookFormat$inboundSchema).optional(),
   secret: z.nullable(z.string()).optional(),
+  format: z.nullable(WebhookFormat$inboundSchema).optional(),
   events: z.nullable(z.array(WebhookEventType$inboundSchema)).optional(),
 });
 
 /** @internal */
 export type WebhookEndpointUpdate$Outbound = {
   url?: string | null | undefined;
-  format?: string | null | undefined;
   secret?: string | null | undefined;
+  format?: string | null | undefined;
   events?: Array<string> | null | undefined;
 };
 
@@ -54,8 +57,8 @@ export const WebhookEndpointUpdate$outboundSchema: z.ZodType<
   WebhookEndpointUpdate
 > = z.object({
   url: z.nullable(z.string()).optional(),
-  format: z.nullable(WebhookFormat$outboundSchema).optional(),
   secret: z.nullable(z.string()).optional(),
+  format: z.nullable(WebhookFormat$outboundSchema).optional(),
   events: z.nullable(z.array(WebhookEventType$outboundSchema)).optional(),
 });
 

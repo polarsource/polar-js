@@ -308,7 +308,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod](../../models/operations/customerportalcustomersaddpaymentmethodresponsecustomerportalcustomersaddpaymentmethod.md)\>**
+**Promise\<[components.CustomerPaymentMethod](../../models/components/customerpaymentmethod.md)\>**
 
 ### Errors
 

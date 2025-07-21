@@ -1,6 +1,4 @@
-# CustomerPortalCustomersAddPaymentMethodResponseCustomerPortalCustomersAddPaymentMethod
-
-Payment method created.
+# CustomerPaymentMethod
 
 
 ## Supported Types

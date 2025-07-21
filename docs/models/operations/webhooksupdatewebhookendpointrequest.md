@@ -9,7 +9,6 @@ let value: WebhooksUpdateWebhookEndpointRequest = {
   id: "<value>",
   webhookEndpointUpdate: {
     url: "https://webhook.site/cb791d80-f26e-4f8c-be88-6e56054192b0",
-    secret: "f_z6mfSpxkjogyw3FkA2aH2gYE5huxruNf34MpdWMcA",
   },
 };
 ```

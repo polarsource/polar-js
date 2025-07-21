@@ -26,11 +26,11 @@ export type WebhookEndpointCreate = {
    * The URL where the webhook events will be sent.
    */
   url: string;
-  format: WebhookFormat;
   /**
-   * The secret used to sign the webhook events.
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  secret: string;
+  secret?: string | null | undefined;
+  format: WebhookFormat;
   /**
    * The events that will trigger the webhook.
    */
@@ -48,8 +48,8 @@ export const WebhookEndpointCreate$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   url: z.string(),
+  secret: z.nullable(z.string()).optional(),
   format: WebhookFormat$inboundSchema,
-  secret: z.string(),
   events: z.array(WebhookEventType$inboundSchema),
   organization_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -61,8 +61,8 @@ export const WebhookEndpointCreate$inboundSchema: z.ZodType<
 /** @internal */
 export type WebhookEndpointCreate$Outbound = {
   url: string;
+  secret?: string | null | undefined;
   format: string;
-  secret: string;
   events: Array<string>;
   organization_id?: string | null | undefined;
 };
@@ -74,8 +74,8 @@ export const WebhookEndpointCreate$outboundSchema: z.ZodType<
   WebhookEndpointCreate
 > = z.object({
   url: z.string(),
+  secret: z.nullable(z.string()).optional(),
   format: WebhookFormat$outboundSchema,
-  secret: z.string(),
   events: z.array(WebhookEventType$outboundSchema),
   organizationId: z.nullable(z.string()).optional(),
 }).transform((v) => {
