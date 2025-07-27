@@ -120,6 +120,10 @@ export type CustomerOrder = {
    * Line items composing the order.
    */
   items: Array<OrderItemSchema>;
+  /**
+   * When the next payment retry is scheduled
+   */
+  nextPaymentAttemptAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -157,6 +161,9 @@ export const CustomerOrder$inboundSchema: z.ZodType<
   product: CustomerOrderProduct$inboundSchema,
   subscription: z.nullable(CustomerOrderSubscription$inboundSchema),
   items: z.array(OrderItemSchema$inboundSchema),
+  next_payment_attempt_at: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -178,6 +185,7 @@ export const CustomerOrder$inboundSchema: z.ZodType<
     "subscription_id": "subscriptionId",
     "checkout_id": "checkoutId",
     "user_id": "userId",
+    "next_payment_attempt_at": "nextPaymentAttemptAt",
   });
 });
 
@@ -210,6 +218,7 @@ export type CustomerOrder$Outbound = {
   product: CustomerOrderProduct$Outbound;
   subscription: CustomerOrderSubscription$Outbound | null;
   items: Array<OrderItemSchema$Outbound>;
+  next_payment_attempt_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -245,6 +254,8 @@ export const CustomerOrder$outboundSchema: z.ZodType<
   product: CustomerOrderProduct$outboundSchema,
   subscription: z.nullable(CustomerOrderSubscription$outboundSchema),
   items: z.array(OrderItemSchema$outboundSchema),
+  nextPaymentAttemptAt: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -266,6 +277,7 @@ export const CustomerOrder$outboundSchema: z.ZodType<
     subscriptionId: "subscription_id",
     checkoutId: "checkout_id",
     userId: "user_id",
+    nextPaymentAttemptAt: "next_payment_attempt_at",
   });
 });
 

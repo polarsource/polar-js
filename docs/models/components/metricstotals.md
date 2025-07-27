@@ -18,28 +18,30 @@ let value: MetricsTotals = {
   renewedSubscriptionsRevenue: 8492.83,
   activeSubscriptions: 830439,
   monthlyRecurringRevenue: 1946.31,
-  checkouts: 892930,
-  succeededCheckouts: 7077.98,
-  checkoutsConversion: 694.09,
+  committedMonthlyRecurringRevenue: 892930,
+  checkouts: 7077.98,
+  succeededCheckouts: 694.09,
+  checkoutsConversion: 146536,
 };
 ```
 
 ## Fields
 
-| Field                                                 | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `orders`                                              | *components.MetricsTotalsOrders*                      | :heavy_check_mark:                                    | N/A                                                   |
-| `revenue`                                             | *components.MetricsTotalsRevenue*                     | :heavy_check_mark:                                    | N/A                                                   |
-| `cumulativeRevenue`                                   | *components.MetricsTotalsCumulativeRevenue*           | :heavy_check_mark:                                    | N/A                                                   |
-| `averageOrderValue`                                   | *components.MetricsTotalsAverageOrderValue*           | :heavy_check_mark:                                    | N/A                                                   |
-| `oneTimeProducts`                                     | *components.MetricsTotalsOneTimeProducts*             | :heavy_check_mark:                                    | N/A                                                   |
-| `oneTimeProductsRevenue`                              | *components.MetricsTotalsOneTimeProductsRevenue*      | :heavy_check_mark:                                    | N/A                                                   |
-| `newSubscriptions`                                    | *components.MetricsTotalsNewSubscriptions*            | :heavy_check_mark:                                    | N/A                                                   |
-| `newSubscriptionsRevenue`                             | *components.MetricsTotalsNewSubscriptionsRevenue*     | :heavy_check_mark:                                    | N/A                                                   |
-| `renewedSubscriptions`                                | *components.MetricsTotalsRenewedSubscriptions*        | :heavy_check_mark:                                    | N/A                                                   |
-| `renewedSubscriptionsRevenue`                         | *components.MetricsTotalsRenewedSubscriptionsRevenue* | :heavy_check_mark:                                    | N/A                                                   |
-| `activeSubscriptions`                                 | *components.MetricsTotalsActiveSubscriptions*         | :heavy_check_mark:                                    | N/A                                                   |
-| `monthlyRecurringRevenue`                             | *components.MetricsTotalsMonthlyRecurringRevenue*     | :heavy_check_mark:                                    | N/A                                                   |
-| `checkouts`                                           | *components.MetricsTotalsCheckouts*                   | :heavy_check_mark:                                    | N/A                                                   |
-| `succeededCheckouts`                                  | *components.MetricsTotalsSucceededCheckouts*          | :heavy_check_mark:                                    | N/A                                                   |
-| `checkoutsConversion`                                 | *components.MetricsTotalsCheckoutsConversion*         | :heavy_check_mark:                                    | N/A                                                   |
+| Field                                                      | Type                                                       | Required                                                   | Description                                                |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `orders`                                                   | *components.MetricsTotalsOrders*                           | :heavy_check_mark:                                         | N/A                                                        |
+| `revenue`                                                  | *components.MetricsTotalsRevenue*                          | :heavy_check_mark:                                         | N/A                                                        |
+| `cumulativeRevenue`                                        | *components.MetricsTotalsCumulativeRevenue*                | :heavy_check_mark:                                         | N/A                                                        |
+| `averageOrderValue`                                        | *components.MetricsTotalsAverageOrderValue*                | :heavy_check_mark:                                         | N/A                                                        |
+| `oneTimeProducts`                                          | *components.MetricsTotalsOneTimeProducts*                  | :heavy_check_mark:                                         | N/A                                                        |
+| `oneTimeProductsRevenue`                                   | *components.MetricsTotalsOneTimeProductsRevenue*           | :heavy_check_mark:                                         | N/A                                                        |
+| `newSubscriptions`                                         | *components.MetricsTotalsNewSubscriptions*                 | :heavy_check_mark:                                         | N/A                                                        |
+| `newSubscriptionsRevenue`                                  | *components.MetricsTotalsNewSubscriptionsRevenue*          | :heavy_check_mark:                                         | N/A                                                        |
+| `renewedSubscriptions`                                     | *components.MetricsTotalsRenewedSubscriptions*             | :heavy_check_mark:                                         | N/A                                                        |
+| `renewedSubscriptionsRevenue`                              | *components.MetricsTotalsRenewedSubscriptionsRevenue*      | :heavy_check_mark:                                         | N/A                                                        |
+| `activeSubscriptions`                                      | *components.MetricsTotalsActiveSubscriptions*              | :heavy_check_mark:                                         | N/A                                                        |
+| `monthlyRecurringRevenue`                                  | *components.MetricsTotalsMonthlyRecurringRevenue*          | :heavy_check_mark:                                         | N/A                                                        |
+| `committedMonthlyRecurringRevenue`                         | *components.MetricsTotalsCommittedMonthlyRecurringRevenue* | :heavy_check_mark:                                         | N/A                                                        |
+| `checkouts`                                                | *components.MetricsTotalsCheckouts*                        | :heavy_check_mark:                                         | N/A                                                        |
+| `succeededCheckouts`                                       | *components.MetricsTotalsSucceededCheckouts*               | :heavy_check_mark:                                         | N/A                                                        |
+| `checkoutsConversion`                                      | *components.MetricsTotalsCheckoutsConversion*              | :heavy_check_mark:                                         | N/A                                                        |

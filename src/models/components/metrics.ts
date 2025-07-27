@@ -66,6 +66,10 @@ export type Metrics = {
   /**
    * Information about a metric.
    */
+  committedMonthlyRecurringRevenue: Metric;
+  /**
+   * Information about a metric.
+   */
   checkouts: Metric;
   /**
    * Information about a metric.
@@ -92,6 +96,7 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
     renewed_subscriptions_revenue: Metric$inboundSchema,
     active_subscriptions: Metric$inboundSchema,
     monthly_recurring_revenue: Metric$inboundSchema,
+    committed_monthly_recurring_revenue: Metric$inboundSchema,
     checkouts: Metric$inboundSchema,
     succeeded_checkouts: Metric$inboundSchema,
     checkouts_conversion: Metric$inboundSchema,
@@ -107,6 +112,7 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
       "renewed_subscriptions_revenue": "renewedSubscriptionsRevenue",
       "active_subscriptions": "activeSubscriptions",
       "monthly_recurring_revenue": "monthlyRecurringRevenue",
+      "committed_monthly_recurring_revenue": "committedMonthlyRecurringRevenue",
       "succeeded_checkouts": "succeededCheckouts",
       "checkouts_conversion": "checkoutsConversion",
     });
@@ -126,6 +132,7 @@ export type Metrics$Outbound = {
   renewed_subscriptions_revenue: Metric$Outbound;
   active_subscriptions: Metric$Outbound;
   monthly_recurring_revenue: Metric$Outbound;
+  committed_monthly_recurring_revenue: Metric$Outbound;
   checkouts: Metric$Outbound;
   succeeded_checkouts: Metric$Outbound;
   checkouts_conversion: Metric$Outbound;
@@ -149,6 +156,7 @@ export const Metrics$outboundSchema: z.ZodType<
   renewedSubscriptionsRevenue: Metric$outboundSchema,
   activeSubscriptions: Metric$outboundSchema,
   monthlyRecurringRevenue: Metric$outboundSchema,
+  committedMonthlyRecurringRevenue: Metric$outboundSchema,
   checkouts: Metric$outboundSchema,
   succeededCheckouts: Metric$outboundSchema,
   checkoutsConversion: Metric$outboundSchema,
@@ -164,6 +172,7 @@ export const Metrics$outboundSchema: z.ZodType<
     renewedSubscriptionsRevenue: "renewed_subscriptions_revenue",
     activeSubscriptions: "active_subscriptions",
     monthlyRecurringRevenue: "monthly_recurring_revenue",
+    committedMonthlyRecurringRevenue: "committed_monthly_recurring_revenue",
     succeededCheckouts: "succeeded_checkouts",
     checkoutsConversion: "checkouts_conversion",
   });
