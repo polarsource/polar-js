@@ -10,6 +10,7 @@
 * [update](#update) - Update Order
 * [generateInvoice](#generateinvoice) - Generate Order Invoice
 * [invoice](#invoice) - Get Order Invoice
+* [retryPayment](#retrypayment) - Retry Payment
 
 ## list
 
@@ -411,3 +412,81 @@ run();
 | errors.ResourceNotFound    | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## retryPayment
+
+Manually retry payment for a failed order.
+
+**Scopes**: `customer_portal:write`
+
+### Example Usage
+
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar();
+
+async function run() {
+  const result = await polar.customerPortal.orders.retryPayment({
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {
+    id: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { customerPortalOrdersRetryPayment } from "@polar-sh/sdk/funcs/customerPortalOrdersRetryPayment.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore();
+
+async function run() {
+  const res = await customerPortalOrdersRetryPayment(polar, {
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {
+    id: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customerPortalOrdersRetryPayment failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalOrdersRetryPaymentRequest](../../models/operations/customerportalordersretrypaymentrequest.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.CustomerPortalOrdersRetryPaymentSecurity](../../models/operations/customerportalordersretrypaymentsecurity.md)                                                     | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[any](../../models/.md)\>**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ResourceNotFound         | 404                             | application/json                |
+| errors.PaymentAlreadyInProgress | 409                             | application/json                |
+| errors.OrderNotEligibleForRetry | 422                             | application/json                |
+| errors.SDKError                 | 4XX, 5XX                        | \*/\*                           |

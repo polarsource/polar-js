@@ -19,9 +19,10 @@ let value: MetricPeriod = {
   renewedSubscriptionsRevenue: 167605,
   activeSubscriptions: 2292.45,
   monthlyRecurringRevenue: 627146,
-  checkouts: 9269.73,
-  succeededCheckouts: 949492,
-  checkoutsConversion: 47251,
+  committedMonthlyRecurringRevenue: 9269.73,
+  checkouts: 949492,
+  succeededCheckouts: 47251,
+  checkoutsConversion: 172713,
 };
 ```
 
@@ -42,6 +43,7 @@ let value: MetricPeriod = {
 | `renewedSubscriptionsRevenue`                                                                 | *components.RenewedSubscriptionsRevenue*                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `activeSubscriptions`                                                                         | *components.ActiveSubscriptions*                                                              | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `monthlyRecurringRevenue`                                                                     | *components.MonthlyRecurringRevenue*                                                          | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `committedMonthlyRecurringRevenue`                                                            | *components.CommittedMonthlyRecurringRevenue*                                                 | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `checkouts`                                                                                   | *components.Checkouts*                                                                        | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `succeededCheckouts`                                                                          | *components.SucceededCheckouts*                                                               | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `checkoutsConversion`                                                                         | *components.CheckoutsConversion*                                                              | :heavy_check_mark:                                                                            | N/A                                                                                           |

@@ -10,7 +10,6 @@ export const Scope = {
   Profile: "profile",
   Email: "email",
   UserRead: "user:read",
-  Admin: "admin",
   WebDefault: "web_default",
   OrganizationsRead: "organizations:read",
   OrganizationsWrite: "organizations:write",

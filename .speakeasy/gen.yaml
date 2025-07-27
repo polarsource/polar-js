@@ -24,7 +24,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.34.6
+  version: 0.34.7
   additionalDependencies:
     dependencies:
       standardwebhooks: ^1.0.0
