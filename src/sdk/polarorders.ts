@@ -6,6 +6,7 @@ import { customerPortalOrdersGenerateInvoice } from "../funcs/customerPortalOrde
 import { customerPortalOrdersGet } from "../funcs/customerPortalOrdersGet.js";
 import { customerPortalOrdersInvoice } from "../funcs/customerPortalOrdersInvoice.js";
 import { customerPortalOrdersList } from "../funcs/customerPortalOrdersList.js";
+import { customerPortalOrdersRetryPayment } from "../funcs/customerPortalOrdersRetryPayment.js";
 import { customerPortalOrdersUpdate } from "../funcs/customerPortalOrdersUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import { CustomerOrder } from "../models/components/customerorder.js";
@@ -27,6 +28,10 @@ import {
   CustomerPortalOrdersListResponse,
   CustomerPortalOrdersListSecurity,
 } from "../models/operations/customerportalorderslist.js";
+import {
+  CustomerPortalOrdersRetryPaymentRequest,
+  CustomerPortalOrdersRetryPaymentSecurity,
+} from "../models/operations/customerportalordersretrypayment.js";
 import {
   CustomerPortalOrdersUpdateRequest,
   CustomerPortalOrdersUpdateSecurity,
@@ -133,6 +138,27 @@ export class PolarOrders extends ClientSDK {
     options?: RequestOptions,
   ): Promise<CustomerOrderInvoice> {
     return unwrapAsync(customerPortalOrdersInvoice(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Retry Payment
+   *
+   * @remarks
+   * Manually retry payment for a failed order.
+   *
+   * **Scopes**: `customer_portal:write`
+   */
+  async retryPayment(
+    security: CustomerPortalOrdersRetryPaymentSecurity,
+    request: CustomerPortalOrdersRetryPaymentRequest,
+    options?: RequestOptions,
+  ): Promise<any> {
+    return unwrapAsync(customerPortalOrdersRetryPayment(
       this,
       security,
       request,

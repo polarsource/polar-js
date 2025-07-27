@@ -32,6 +32,8 @@ export type MetricsTotalsActiveSubscriptions = number | number;
 
 export type MetricsTotalsMonthlyRecurringRevenue = number | number;
 
+export type MetricsTotalsCommittedMonthlyRecurringRevenue = number | number;
+
 export type MetricsTotalsCheckouts = number | number;
 
 export type MetricsTotalsSucceededCheckouts = number | number;
@@ -51,6 +53,7 @@ export type MetricsTotals = {
   renewedSubscriptionsRevenue: number | number;
   activeSubscriptions: number | number;
   monthlyRecurringRevenue: number | number;
+  committedMonthlyRecurringRevenue: number | number;
   checkouts: number | number;
   succeededCheckouts: number | number;
   checkoutsConversion: number | number;
@@ -672,6 +675,69 @@ export function metricsTotalsMonthlyRecurringRevenueFromJSON(
 }
 
 /** @internal */
+export const MetricsTotalsCommittedMonthlyRecurringRevenue$inboundSchema:
+  z.ZodType<
+    MetricsTotalsCommittedMonthlyRecurringRevenue,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCommittedMonthlyRecurringRevenue$Outbound =
+  | number
+  | number;
+
+/** @internal */
+export const MetricsTotalsCommittedMonthlyRecurringRevenue$outboundSchema:
+  z.ZodType<
+    MetricsTotalsCommittedMonthlyRecurringRevenue$Outbound,
+    z.ZodTypeDef,
+    MetricsTotalsCommittedMonthlyRecurringRevenue
+  > = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCommittedMonthlyRecurringRevenue$ {
+  /** @deprecated use `MetricsTotalsCommittedMonthlyRecurringRevenue$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsCommittedMonthlyRecurringRevenue$inboundSchema;
+  /** @deprecated use `MetricsTotalsCommittedMonthlyRecurringRevenue$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsCommittedMonthlyRecurringRevenue$outboundSchema;
+  /** @deprecated use `MetricsTotalsCommittedMonthlyRecurringRevenue$Outbound` instead. */
+  export type Outbound = MetricsTotalsCommittedMonthlyRecurringRevenue$Outbound;
+}
+
+export function metricsTotalsCommittedMonthlyRecurringRevenueToJSON(
+  metricsTotalsCommittedMonthlyRecurringRevenue:
+    MetricsTotalsCommittedMonthlyRecurringRevenue,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCommittedMonthlyRecurringRevenue$outboundSchema.parse(
+      metricsTotalsCommittedMonthlyRecurringRevenue,
+    ),
+  );
+}
+
+export function metricsTotalsCommittedMonthlyRecurringRevenueFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsTotalsCommittedMonthlyRecurringRevenue,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsCommittedMonthlyRecurringRevenue$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsTotalsCommittedMonthlyRecurringRevenue' from JSON`,
+  );
+}
+
+/** @internal */
 export const MetricsTotalsCheckouts$inboundSchema: z.ZodType<
   MetricsTotalsCheckouts,
   z.ZodTypeDef,
@@ -837,6 +903,7 @@ export const MetricsTotals$inboundSchema: z.ZodType<
   renewed_subscriptions_revenue: z.union([z.number().int(), z.number()]),
   active_subscriptions: z.union([z.number().int(), z.number()]),
   monthly_recurring_revenue: z.union([z.number().int(), z.number()]),
+  committed_monthly_recurring_revenue: z.union([z.number().int(), z.number()]),
   checkouts: z.union([z.number().int(), z.number()]),
   succeeded_checkouts: z.union([z.number().int(), z.number()]),
   checkouts_conversion: z.union([z.number().int(), z.number()]),
@@ -852,6 +919,7 @@ export const MetricsTotals$inboundSchema: z.ZodType<
     "renewed_subscriptions_revenue": "renewedSubscriptionsRevenue",
     "active_subscriptions": "activeSubscriptions",
     "monthly_recurring_revenue": "monthlyRecurringRevenue",
+    "committed_monthly_recurring_revenue": "committedMonthlyRecurringRevenue",
     "succeeded_checkouts": "succeededCheckouts",
     "checkouts_conversion": "checkoutsConversion",
   });
@@ -871,6 +939,7 @@ export type MetricsTotals$Outbound = {
   renewed_subscriptions_revenue: number | number;
   active_subscriptions: number | number;
   monthly_recurring_revenue: number | number;
+  committed_monthly_recurring_revenue: number | number;
   checkouts: number | number;
   succeeded_checkouts: number | number;
   checkouts_conversion: number | number;
@@ -894,6 +963,7 @@ export const MetricsTotals$outboundSchema: z.ZodType<
   renewedSubscriptionsRevenue: z.union([z.number().int(), z.number()]),
   activeSubscriptions: z.union([z.number().int(), z.number()]),
   monthlyRecurringRevenue: z.union([z.number().int(), z.number()]),
+  committedMonthlyRecurringRevenue: z.union([z.number().int(), z.number()]),
   checkouts: z.union([z.number().int(), z.number()]),
   succeededCheckouts: z.union([z.number().int(), z.number()]),
   checkoutsConversion: z.union([z.number().int(), z.number()]),
@@ -909,6 +979,7 @@ export const MetricsTotals$outboundSchema: z.ZodType<
     renewedSubscriptionsRevenue: "renewed_subscriptions_revenue",
     activeSubscriptions: "active_subscriptions",
     monthlyRecurringRevenue: "monthly_recurring_revenue",
+    committedMonthlyRecurringRevenue: "committed_monthly_recurring_revenue",
     succeededCheckouts: "succeeded_checkouts",
     checkoutsConversion: "checkouts_conversion",
   });

@@ -8,78 +8,83 @@ import { Metrics } from "@polar-sh/sdk/models/components/metrics.js";
 let value: Metrics = {
   orders: {
     slug: "<value>",
-    displayName: "Carli17",
-    type: "percentage",
+    displayName: "Maudie_Davis82",
+    type: "currency",
   },
   revenue: {
     slug: "<value>",
-    displayName: "Coleman_Kirlin",
-    type: "percentage",
+    displayName: "Isobel.Hermiston",
+    type: "scalar",
   },
   cumulativeRevenue: {
     slug: "<value>",
-    displayName: "Keyshawn_Beer61",
-    type: "currency",
+    displayName: "Anderson.Morar",
+    type: "scalar",
   },
   averageOrderValue: {
     slug: "<value>",
-    displayName: "Heidi37",
+    displayName: "Maggie0",
     type: "scalar",
   },
   oneTimeProducts: {
     slug: "<value>",
-    displayName: "Talon50",
+    displayName: "Jamaal_Kuvalis",
     type: "percentage",
   },
   oneTimeProductsRevenue: {
     slug: "<value>",
-    displayName: "Kory.Gulgowski",
-    type: "scalar",
+    displayName: "Eli_Kling8",
+    type: "currency",
   },
   newSubscriptions: {
     slug: "<value>",
-    displayName: "Dax_Schulist",
-    type: "scalar",
+    displayName: "Raoul7",
+    type: "percentage",
   },
   newSubscriptionsRevenue: {
     slug: "<value>",
-    displayName: "Oswaldo74",
-    type: "scalar",
+    displayName: "Fanny21",
+    type: "percentage",
   },
   renewedSubscriptions: {
     slug: "<value>",
-    displayName: "Monserrate_Adams",
+    displayName: "Addie_Glover75",
     type: "percentage",
   },
   renewedSubscriptionsRevenue: {
     slug: "<value>",
-    displayName: "Casper20",
-    type: "currency",
+    displayName: "Gust_Dooley55",
+    type: "scalar",
   },
   activeSubscriptions: {
     slug: "<value>",
-    displayName: "Adell77",
-    type: "currency",
+    displayName: "Connie_Satterfield37",
+    type: "scalar",
   },
   monthlyRecurringRevenue: {
     slug: "<value>",
-    displayName: "Cyril34",
-    type: "scalar",
+    displayName: "Vanessa_Hegmann14",
+    type: "currency",
+  },
+  committedMonthlyRecurringRevenue: {
+    slug: "<value>",
+    displayName: "Dan_Morissette1",
+    type: "percentage",
   },
   checkouts: {
     slug: "<value>",
-    displayName: "Clint61",
-    type: "scalar",
+    displayName: "Florence_Daniel12",
+    type: "currency",
   },
   succeededCheckouts: {
     slug: "<value>",
-    displayName: "Elouise.Herzog-Kuphal93",
-    type: "scalar",
+    displayName: "Ellsworth_Kshlerin53",
+    type: "percentage",
   },
   checkoutsConversion: {
     slug: "<value>",
-    displayName: "Gerald.Medhurst",
-    type: "scalar",
+    displayName: "Paul68",
+    type: "currency",
   },
 };
 ```
@@ -100,6 +105,7 @@ let value: Metrics = {
 | `renewedSubscriptionsRevenue`                          | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `activeSubscriptions`                                  | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `monthlyRecurringRevenue`                              | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
+| `committedMonthlyRecurringRevenue`                     | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `checkouts`                                            | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `succeededCheckouts`                                   | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `checkoutsConversion`                                  | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
