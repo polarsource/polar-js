@@ -44,13 +44,13 @@ let value: CustomerPortalSubscriptionsListResponse = {
           benefits: [
             {
               id: "<value>",
-              createdAt: new Date("2025-01-02T09:29:19.773Z"),
-              modifiedAt: new Date("2025-02-05T18:27:31.976Z"),
-              type: "downloadables",
+              createdAt: new Date("2025-08-22T09:43:58.793Z"),
+              modifiedAt: new Date("2023-02-16T00:22:02.887Z"),
+              type: "custom",
               description:
-                "considering superior about toward fortunately eek internationalize wedge enrage",
-              selectable: true,
-              deletable: false,
+                "inside any judgementally grown consequently naturally",
+              selectable: false,
+              deletable: true,
               organizationId: "<value>",
             },
           ],
