@@ -3,7 +3,7 @@
  */
 
 import { buildCommand } from "@stricli/core";
-import * as z from "zod";
+import * as z from "zod/v3";
 import { ServerList } from "../../../lib/config.js";
 import { consoleLoggerLevels } from "../../console-logger.js";
 import { mcpScopes } from "../../scopes.js";

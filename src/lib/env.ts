@@ -4,7 +4,7 @@
 
 import { dlv } from "./dlv.js";
 
-import * as z from "zod";
+import * as z from "zod/v3";
 
 export interface Env {
   POLAR_ACCESS_TOKEN?: string | undefined;
