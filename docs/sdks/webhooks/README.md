@@ -22,6 +22,7 @@ List webhook endpoints.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="webhooks:list_webhook_endpoints" method="get" path="/v1/webhooks/endpoints" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -101,6 +102,7 @@ Create a webhook endpoint.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="webhooks:create_webhook_endpoint" method="post" path="/v1/webhooks/endpoints" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -186,6 +188,7 @@ Get a webhook endpoint by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="webhooks:get_webhook_endpoint" method="get" path="/v1/webhooks/endpoints/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -262,6 +265,7 @@ Update a webhook endpoint.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="webhooks:update_webhook_endpoint" method="patch" path="/v1/webhooks/endpoints/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -344,6 +348,7 @@ Delete a webhook endpoint.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="webhooks:delete_webhook_endpoint" method="delete" path="/v1/webhooks/endpoints/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -420,6 +425,7 @@ Regenerate a webhook endpoint secret.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="webhooks:reset_webhook_endpoint_secret" method="patch" path="/v1/webhooks/endpoints/{id}/secret" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -498,6 +504,7 @@ Deliveries are all the attempts to deliver a webhook event to an endpoint.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="webhooks:list_webhook_deliveries" method="get" path="/v1/webhooks/deliveries" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -573,6 +580,7 @@ Schedule the re-delivery of a webhook event.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="webhooks:redeliver_webhook_event" method="post" path="/v1/webhooks/events/{id}/redeliver" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

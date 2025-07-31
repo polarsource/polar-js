@@ -19,6 +19,7 @@ List orders.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="orders:list" method="get" path="/v1/orders/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -98,6 +99,7 @@ Get an order by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="orders:get" method="get" path="/v1/orders/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -174,6 +176,7 @@ Update an order.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="orders:update" method="patch" path="/v1/orders/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -262,6 +265,7 @@ Trigger generation of an order's invoice.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="orders:generate_invoice" method="post" path="/v1/orders/{id}/invoice" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -339,6 +343,7 @@ Get an order's invoice data.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="orders:invoice" method="get" path="/v1/orders/{id}/invoice" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

@@ -21,6 +21,7 @@ List checkout sessions.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkouts:list" method="get" path="/v1/checkouts/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -100,6 +101,7 @@ Create a checkout session.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkouts:create" method="post" path="/v1/checkouts/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -189,6 +191,7 @@ Get a checkout session by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkouts:get" method="get" path="/v1/checkouts/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -265,6 +268,7 @@ Update a checkout session.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkouts:update" method="patch" path="/v1/checkouts/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -341,6 +345,7 @@ run();
 | ------------------------------------- | ------------------------------------- | ------------------------------------- |
 | errors.AlreadyActiveSubscriptionError | 403                                   | application/json                      |
 | errors.NotOpenCheckout                | 403                                   | application/json                      |
+| errors.PaymentNotReady                | 403                                   | application/json                      |
 | errors.ResourceNotFound               | 404                                   | application/json                      |
 | errors.HTTPValidationError            | 422                                   | application/json                      |
 | errors.SDKError                       | 4XX, 5XX                              | \*/\*                                 |
@@ -351,6 +356,7 @@ Get a checkout session by client secret.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkouts:client_get" method="get" path="/v1/checkouts/client/{client_secret}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -426,6 +432,7 @@ Update a checkout session by client secret.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkouts:client_update" method="patch" path="/v1/checkouts/client/{client_secret}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -502,6 +509,7 @@ run();
 | ------------------------------------- | ------------------------------------- | ------------------------------------- |
 | errors.AlreadyActiveSubscriptionError | 403                                   | application/json                      |
 | errors.NotOpenCheckout                | 403                                   | application/json                      |
+| errors.PaymentNotReady                | 403                                   | application/json                      |
 | errors.ResourceNotFound               | 404                                   | application/json                      |
 | errors.ExpiredCheckoutError           | 410                                   | application/json                      |
 | errors.HTTPValidationError            | 422                                   | application/json                      |
@@ -515,6 +523,7 @@ Orders and subscriptions will be processed.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkouts:client_confirm" method="post" path="/v1/checkouts/client/{client_secret}/confirm" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -592,6 +601,7 @@ run();
 | errors.PaymentError                   | 400                                   | application/json                      |
 | errors.AlreadyActiveSubscriptionError | 403                                   | application/json                      |
 | errors.NotOpenCheckout                | 403                                   | application/json                      |
+| errors.PaymentNotReady                | 403                                   | application/json                      |
 | errors.ResourceNotFound               | 404                                   | application/json                      |
 | errors.ExpiredCheckoutError           | 410                                   | application/json                      |
 | errors.HTTPValidationError            | 422                                   | application/json                      |

@@ -13,6 +13,7 @@
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:downloadables:list" method="get" path="/v1/customer-portal/downloadables/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

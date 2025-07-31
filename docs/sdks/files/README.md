@@ -19,6 +19,7 @@ List files.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="files:list" method="get" path="/v1/files/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -98,6 +99,7 @@ Create a file.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="files:create" method="post" path="/v1/files/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -187,6 +189,7 @@ Complete a file upload.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="files:uploaded" method="post" path="/v1/files/{id}/uploaded" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -306,6 +309,7 @@ Update a file.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="files:update" method="patch" path="/v1/files/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -385,6 +389,7 @@ Delete a file.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="files:delete" method="delete" path="/v1/files/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

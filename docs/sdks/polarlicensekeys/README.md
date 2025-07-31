@@ -17,6 +17,7 @@
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:license_keys:list" method="get" path="/v1/customer-portal/license-keys/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -99,6 +100,7 @@ Get a license key.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:license_keys:get" method="get" path="/v1/customer-portal/license-keys/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -174,6 +176,7 @@ Validate a license key.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:license_keys:validate" method="post" path="/v1/customer-portal/license-keys/validate" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -250,6 +253,7 @@ Activate a license key instance.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:license_keys:activate" method="post" path="/v1/customer-portal/license-keys/activate" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -329,6 +333,7 @@ Deactivate a license key instance.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:license_keys:deactivate" method="post" path="/v1/customer-portal/license-keys/deactivate" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

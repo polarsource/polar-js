@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: b516373d2e1afda2a3e6713064871630
+  docChecksum: 65b52aa270befaec33d1ecb4a090c803
   docVersion: 0.1.0
-  speakeasyVersion: 1.590.0
-  generationVersion: 2.666.0
-  releaseVersion: 0.34.8
-  configChecksum: 24a1edcf9e573324382426c6665b76a0
+  speakeasyVersion: 1.593.0
+  generationVersion: 2.669.0
+  releaseVersion: 0.34.9
+  configChecksum: 95a2de641edaba38423a2595c99faf22
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.15
+    core: 3.21.17
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.0
@@ -659,6 +659,7 @@ generatedFiles:
   - docs/models/errors/ordersgenerateinvoiceresponse422ordersgenerateinvoice.md
   - docs/models/errors/paymentalreadyinprogress.md
   - docs/models/errors/paymenterror.md
+  - docs/models/errors/paymentnotready.md
   - docs/models/errors/refundamounttoohigh.md
   - docs/models/errors/refundedalready.md
   - docs/models/errors/resourcenotfound.md
@@ -1554,6 +1555,7 @@ generatedFiles:
   - src/models/errors/ordersgenerateinvoice.ts
   - src/models/errors/paymentalreadyinprogress.ts
   - src/models/errors/paymenterror.ts
+  - src/models/errors/paymentnotready.ts
   - src/models/errors/polarerror.ts
   - src/models/errors/refundamounttoohigh.ts
   - src/models/errors/refundedalready.ts

@@ -19,6 +19,7 @@ List products.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="products:list" method="get" path="/v1/products/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -98,6 +99,7 @@ Create a product.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="products:create" method="post" path="/v1/products/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -197,6 +199,7 @@ Get a product by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="products:get" method="get" path="/v1/products/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -273,6 +276,7 @@ Update a product.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="products:update" method="patch" path="/v1/products/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -352,6 +356,7 @@ Update benefits granted by a product.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="products:update_benefits" method="post" path="/v1/products/{id}/benefits" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

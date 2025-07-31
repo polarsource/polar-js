@@ -18,6 +18,7 @@ Currency values are output in cents.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="metrics:get" method="get" path="/v1/metrics/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 import { RFCDate } from "@polar-sh/sdk/types/rfcdate.js";
@@ -101,6 +102,7 @@ Get the interval limits for the metrics endpoint.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="metrics:limits" method="get" path="/v1/metrics/limits" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

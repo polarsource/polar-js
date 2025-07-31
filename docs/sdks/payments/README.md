@@ -16,6 +16,7 @@ List payments.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="payments:list" method="get" path="/v1/payments/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -95,6 +96,7 @@ Get a payment by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="payments:get" method="get" path="/v1/payments/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

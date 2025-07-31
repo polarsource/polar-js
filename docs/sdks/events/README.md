@@ -18,6 +18,7 @@ List events.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="events:list" method="get" path="/v1/events/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -97,6 +98,7 @@ List event names.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="events:list_names" method="get" path="/v1/events/names" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -176,6 +178,7 @@ Get an event by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="events:get" method="get" path="/v1/events/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -252,6 +255,7 @@ Ingest batch of events.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="events:ingest" method="post" path="/v1/events/ingest" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

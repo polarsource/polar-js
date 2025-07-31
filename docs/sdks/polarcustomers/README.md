@@ -19,6 +19,7 @@ Get authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:customers:get" method="get" path="/v1/customer-portal/customers/me" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -89,6 +90,7 @@ Update authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:customers:update" method="patch" path="/v1/customer-portal/customers/me" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -169,6 +171,7 @@ Get saved payment methods of the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:customers:list_payment_methods" method="get" path="/v1/customer-portal/customers/me/payment-methods" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -245,6 +248,7 @@ Add a payment method to the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:customers:add_payment_method" method="post" path="/v1/customer-portal/customers/me/payment-methods" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -325,6 +329,7 @@ Delete a payment method from the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:customers:delete_payment_method" method="delete" path="/v1/customer-portal/customers/me/payment-methods/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

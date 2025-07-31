@@ -19,6 +19,7 @@ List discounts.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="discounts:list" method="get" path="/v1/discounts/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -98,6 +99,7 @@ Create a discount.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="discounts:create" method="post" path="/v1/discounts/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -181,6 +183,7 @@ Get a discount by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="discounts:get" method="get" path="/v1/discounts/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -257,6 +260,7 @@ Update a discount.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="discounts:update" method="patch" path="/v1/discounts/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -335,6 +339,7 @@ Delete a discount.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="discounts:delete" method="delete" path="/v1/discounts/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

@@ -20,6 +20,7 @@ List benefits.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="benefits:list" method="get" path="/v1/benefits/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -99,6 +100,7 @@ Create a benefit.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="benefits:create" method="post" path="/v1/benefits/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -180,6 +182,7 @@ Get a benefit by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="benefits:get" method="get" path="/v1/benefits/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -256,6 +259,7 @@ Update a benefit.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="benefits:update" method="patch" path="/v1/benefits/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -342,6 +346,7 @@ Delete a benefit.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="benefits:delete" method="delete" path="/v1/benefits/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -421,6 +426,7 @@ It's especially useful to check if a user has been granted a benefit.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="benefits:grants" method="get" path="/v1/benefits/{id}/grants" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

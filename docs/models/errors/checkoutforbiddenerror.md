@@ -21,3 +21,12 @@ const value: errors.NotOpenCheckout = {
 };
 ```
 
+### `errors.PaymentNotReady`
+
+```typescript
+const value: errors.PaymentNotReady = {
+  error: "PaymentNotReady",
+  detail: "<value>",
+};
+```
+

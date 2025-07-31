@@ -19,6 +19,7 @@ List meters.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="meters:list" method="get" path="/v1/meters/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -98,6 +99,7 @@ Create a meter.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="meters:create" method="post" path="/v1/meters/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -203,6 +205,7 @@ Get a meter by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="meters:get" method="get" path="/v1/meters/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -279,6 +282,7 @@ Update a meter.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="meters:update" method="patch" path="/v1/meters/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -357,6 +361,7 @@ Get quantities of a meter over a time period.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="meters:quantities" method="get" path="/v1/meters/{id}/quantities" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
