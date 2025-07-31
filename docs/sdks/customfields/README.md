@@ -19,6 +19,7 @@ List custom fields.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="custom-fields:list" method="get" path="/v1/custom-fields/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -98,6 +99,7 @@ Create a custom field.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="custom-fields:create" method="post" path="/v1/custom-fields/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -185,6 +187,7 @@ Get a custom field by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="custom-fields:get" method="get" path="/v1/custom-fields/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -261,6 +264,7 @@ Update a custom field.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="custom-fields:update" method="patch" path="/v1/custom-fields/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -343,6 +347,7 @@ Delete a custom field.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="custom-fields:delete" method="delete" path="/v1/custom-fields/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

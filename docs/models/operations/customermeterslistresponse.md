@@ -40,11 +40,9 @@ let value: CustomerMetersListResponse = {
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
         },
         meter: {
-          metadata: {
-            "key": 645986,
-          },
-          createdAt: new Date("2025-04-20T02:42:18.399Z"),
-          modifiedAt: new Date("2023-07-17T20:52:33.753Z"),
+          metadata: {},
+          createdAt: new Date("2023-09-28T00:55:30.553Z"),
+          modifiedAt: new Date("2024-07-25T21:43:09.563Z"),
           id: "<value>",
           name: "<value>",
           filter: {
@@ -52,7 +50,7 @@ let value: CustomerMetersListResponse = {
             clauses: [],
           },
           aggregation: {
-            func: "max",
+            func: "avg",
             property: "<value>",
           },
           organizationId: "<value>",

@@ -19,6 +19,7 @@ List subscriptions.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="subscriptions:list" method="get" path="/v1/subscriptions/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -98,6 +99,7 @@ Export subscriptions as a CSV file.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="subscriptions:export" method="get" path="/v1/subscriptions/export" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -173,6 +175,7 @@ Get a subscription by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="subscriptions:get" method="get" path="/v1/subscriptions/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -249,6 +252,7 @@ Update a subscription.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="subscriptions:update" method="patch" path="/v1/subscriptions/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -332,6 +336,7 @@ Revoke a subscription, i.e cancel immediately.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="subscriptions:revoke" method="delete" path="/v1/subscriptions/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

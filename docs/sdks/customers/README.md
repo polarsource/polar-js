@@ -24,6 +24,7 @@ List customers.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customers:list" method="get" path="/v1/customers/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -103,6 +104,7 @@ Create a customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customers:create" method="post" path="/v1/customers/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -198,6 +200,7 @@ Get a customer by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customers:get" method="get" path="/v1/customers/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -274,6 +277,7 @@ Update a customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customers:update" method="patch" path="/v1/customers/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -386,6 +390,7 @@ orders and subscriptions.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customers:delete" method="delete" path="/v1/customers/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -462,6 +467,7 @@ Get a customer by external ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customers:get_external" method="get" path="/v1/customers/external/{external_id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -538,6 +544,7 @@ Update a customer by external ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customers:update_external" method="patch" path="/v1/customers/external/{external_id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -638,6 +645,7 @@ Immediately cancels any active subscriptions and revokes any active benefits.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customers:delete_external" method="delete" path="/v1/customers/external/{external_id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -720,6 +728,7 @@ of a customer's status.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customers:get_state" method="get" path="/v1/customers/{id}/state" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -802,6 +811,7 @@ of a customer's status.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customers:get_state_external" method="get" path="/v1/customers/external/{external_id}/state" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

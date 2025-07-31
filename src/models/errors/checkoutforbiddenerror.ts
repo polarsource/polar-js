@@ -17,11 +17,18 @@ import {
   NotOpenCheckout$Outbound,
   NotOpenCheckout$outboundSchema,
 } from "./notopencheckout.js";
+import {
+  PaymentNotReady,
+  PaymentNotReady$inboundSchema,
+  PaymentNotReady$Outbound,
+  PaymentNotReady$outboundSchema,
+} from "./paymentnotready.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type CheckoutForbiddenError =
   | AlreadyActiveSubscriptionError
-  | NotOpenCheckout;
+  | NotOpenCheckout
+  | PaymentNotReady;
 
 /** @internal */
 export const CheckoutForbiddenError$inboundSchema: z.ZodType<
@@ -31,12 +38,14 @@ export const CheckoutForbiddenError$inboundSchema: z.ZodType<
 > = z.union([
   AlreadyActiveSubscriptionError$inboundSchema,
   NotOpenCheckout$inboundSchema,
+  PaymentNotReady$inboundSchema,
 ]);
 
 /** @internal */
 export type CheckoutForbiddenError$Outbound =
   | AlreadyActiveSubscriptionError$Outbound
-  | NotOpenCheckout$Outbound;
+  | NotOpenCheckout$Outbound
+  | PaymentNotReady$Outbound;
 
 /** @internal */
 export const CheckoutForbiddenError$outboundSchema: z.ZodType<
@@ -46,6 +55,7 @@ export const CheckoutForbiddenError$outboundSchema: z.ZodType<
 > = z.union([
   AlreadyActiveSubscriptionError$outboundSchema,
   NotOpenCheckout$outboundSchema,
+  PaymentNotReady$outboundSchema,
 ]);
 
 /**

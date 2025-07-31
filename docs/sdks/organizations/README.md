@@ -18,6 +18,7 @@ List organizations.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="organizations:list" method="get" path="/v1/organizations/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -93,6 +94,7 @@ Create an organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="organizations:create" method="post" path="/v1/organizations/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -170,6 +172,7 @@ Get an organization by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="organizations:get" method="get" path="/v1/organizations/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -246,6 +249,7 @@ Update an organization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="organizations:update" method="patch" path="/v1/organizations/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

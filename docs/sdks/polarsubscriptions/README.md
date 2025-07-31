@@ -18,6 +18,7 @@ List subscriptions of the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:subscriptions:list" method="get" path="/v1/customer-portal/subscriptions/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -98,6 +99,7 @@ Get a subscription for the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:subscriptions:get" method="get" path="/v1/customer-portal/subscriptions/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -175,6 +177,7 @@ Update a subscription of the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:subscriptions:update" method="patch" path="/v1/customer-portal/subscriptions/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -255,6 +258,7 @@ Cancel a subscription of the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:subscriptions:cancel" method="delete" path="/v1/customer-portal/subscriptions/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

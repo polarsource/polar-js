@@ -16,6 +16,7 @@ List customer meters.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_meters:list" method="get" path="/v1/customer-meters/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -95,6 +96,7 @@ Get a customer meter by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_meters:get" method="get" path="/v1/customer-meters/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

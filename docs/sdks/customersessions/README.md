@@ -15,6 +15,7 @@ Create a customer session.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer-sessions:create" method="post" path="/v1/customer-sessions/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

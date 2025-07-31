@@ -19,6 +19,7 @@ List checkout links.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkout-links:list" method="get" path="/v1/checkout-links/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -98,6 +99,7 @@ Create a checkout link.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkout-links:create" method="post" path="/v1/checkout-links/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -179,6 +181,7 @@ Get a checkout link by ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkout-links:get" method="get" path="/v1/checkout-links/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -255,6 +258,7 @@ Update a checkout link.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkout-links:update" method="patch" path="/v1/checkout-links/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -333,6 +337,7 @@ Delete a checkout link.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="checkout-links:delete" method="delete" path="/v1/checkout-links/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

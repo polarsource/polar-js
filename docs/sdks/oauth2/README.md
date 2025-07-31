@@ -17,6 +17,7 @@ Authorize
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="oauth2:authorize" method="get" path="/v1/oauth2/authorize" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -84,6 +85,7 @@ Request an access token using a valid grant.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="oauth2:request_token" method="post" path="/v1/oauth2/token" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -164,6 +166,7 @@ Revoke an access token or a refresh token.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="oauth2:revoke_token" method="post" path="/v1/oauth2/revoke" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -240,6 +243,7 @@ Get information about an access token.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="oauth2:introspect_token" method="post" path="/v1/oauth2/introspect" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -316,6 +320,7 @@ Get information about the authenticated user.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="oauth2:userinfo" method="get" path="/v1/oauth2/userinfo" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

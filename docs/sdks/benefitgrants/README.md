@@ -17,6 +17,7 @@ List benefits grants of the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:benefit-grants:list" method="get" path="/v1/customer-portal/benefit-grants/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -97,6 +98,7 @@ Get a benefit grant by ID for the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:benefit-grants:get" method="get" path="/v1/customer-portal/benefit-grants/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -174,6 +176,7 @@ Update a benefit grant for the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:benefit-grants:update" method="patch" path="/v1/customer-portal/benefit-grants/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

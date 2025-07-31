@@ -20,6 +20,7 @@ List orders of the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:orders:list" method="get" path="/v1/customer-portal/orders/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -100,6 +101,7 @@ Get an order by ID for the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:orders:get" method="get" path="/v1/customer-portal/orders/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -177,6 +179,7 @@ Update an order for the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:orders:update" method="patch" path="/v1/customer-portal/orders/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -266,6 +269,7 @@ Trigger generation of an order's invoice.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:orders:generate_invoice" method="post" path="/v1/customer-portal/orders/{id}/invoice" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -344,6 +348,7 @@ Get an order's invoice data.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:orders:invoice" method="get" path="/v1/customer-portal/orders/{id}/invoice" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -421,6 +426,7 @@ Manually retry payment for a failed order.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:orders:retry_payment" method="post" path="/v1/customer-portal/orders/{id}/retry-payment" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

@@ -18,6 +18,7 @@ Get license keys connected to the given organization & filters.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="license_keys:list" method="get" path="/v1/license-keys/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -99,6 +100,7 @@ Get a license key.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="license_keys:get" method="get" path="/v1/license-keys/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -176,6 +178,7 @@ Update a license key.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="license_keys:update" method="patch" path="/v1/license-keys/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -255,6 +258,7 @@ Get a license key activation.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="license_keys:get_activation" method="get" path="/v1/license-keys/{id}/activations/{activation_id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

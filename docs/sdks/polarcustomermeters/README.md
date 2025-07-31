@@ -16,6 +16,7 @@ List meters of the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:customer_meters:list" method="get" path="/v1/customer-portal/meters/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -92,6 +93,7 @@ Get a meter by ID for the authenticated customer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="customer_portal:customer_meters:get" method="get" path="/v1/customer-portal/meters/{id}" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 

@@ -16,6 +16,7 @@ List products.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="refunds:list" method="get" path="/v1/refunds/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
@@ -95,6 +96,7 @@ Create a refund.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="refunds:create" method="post" path="/v1/refunds/" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
