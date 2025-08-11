@@ -18,53 +18,12 @@ import {
   FilterConjunction$outboundSchema,
 } from "./filterconjunction.js";
 
-export type Clauses = FilterClause | Filter;
-
 export type Filter = {
   conjunction: FilterConjunction;
   clauses: Array<FilterClause | Filter>;
 };
 
-/** @internal */
-export const Clauses$inboundSchema: z.ZodType<Clauses, z.ZodTypeDef, unknown> =
-  z.union([FilterClause$inboundSchema, z.lazy(() => Filter$inboundSchema)]);
-
-/** @internal */
-export type Clauses$Outbound = FilterClause$Outbound | Filter$Outbound;
-
-/** @internal */
-export const Clauses$outboundSchema: z.ZodType<
-  Clauses$Outbound,
-  z.ZodTypeDef,
-  Clauses
-> = z.union([FilterClause$outboundSchema, z.lazy(() => Filter$outboundSchema)]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Clauses$ {
-  /** @deprecated use `Clauses$inboundSchema` instead. */
-  export const inboundSchema = Clauses$inboundSchema;
-  /** @deprecated use `Clauses$outboundSchema` instead. */
-  export const outboundSchema = Clauses$outboundSchema;
-  /** @deprecated use `Clauses$Outbound` instead. */
-  export type Outbound = Clauses$Outbound;
-}
-
-export function clausesToJSON(clauses: Clauses): string {
-  return JSON.stringify(Clauses$outboundSchema.parse(clauses));
-}
-
-export function clausesFromJSON(
-  jsonString: string,
-): SafeParseResult<Clauses, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Clauses$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Clauses' from JSON`,
-  );
-}
+export type Clauses = FilterClause | Filter;
 
 /** @internal */
 export const Filter$inboundSchema: z.ZodType<Filter, z.ZodTypeDef, unknown> = z
@@ -117,5 +76,46 @@ export function filterFromJSON(
     jsonString,
     (x) => Filter$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'Filter' from JSON`,
+  );
+}
+
+/** @internal */
+export const Clauses$inboundSchema: z.ZodType<Clauses, z.ZodTypeDef, unknown> =
+  z.union([FilterClause$inboundSchema, z.lazy(() => Filter$inboundSchema)]);
+
+/** @internal */
+export type Clauses$Outbound = FilterClause$Outbound | Filter$Outbound;
+
+/** @internal */
+export const Clauses$outboundSchema: z.ZodType<
+  Clauses$Outbound,
+  z.ZodTypeDef,
+  Clauses
+> = z.union([FilterClause$outboundSchema, z.lazy(() => Filter$outboundSchema)]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Clauses$ {
+  /** @deprecated use `Clauses$inboundSchema` instead. */
+  export const inboundSchema = Clauses$inboundSchema;
+  /** @deprecated use `Clauses$outboundSchema` instead. */
+  export const outboundSchema = Clauses$outboundSchema;
+  /** @deprecated use `Clauses$Outbound` instead. */
+  export type Outbound = Clauses$Outbound;
+}
+
+export function clausesToJSON(clauses: Clauses): string {
+  return JSON.stringify(Clauses$outboundSchema.parse(clauses));
+}
+
+export function clausesFromJSON(
+  jsonString: string,
+): SafeParseResult<Clauses, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Clauses$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Clauses' from JSON`,
   );
 }
