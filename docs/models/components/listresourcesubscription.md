@@ -131,20 +131,20 @@ let value: ListResourceSubscription = {
           {
             customFieldId: "<value>",
             customField: {
-              createdAt: new Date("2025-03-12T05:06:14.960Z"),
-              modifiedAt: new Date("2024-10-13T01:08:42.069Z"),
+              createdAt: new Date("2025-07-28T05:12:23.569Z"),
+              modifiedAt: null,
               id: "<value>",
-              metadata: {
-                "key": false,
-              },
-              type: "number",
+              metadata: {},
+              type: "select",
               slug: "<value>",
               name: "<value>",
               organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-              properties: {},
+              properties: {
+                options: [],
+              },
             },
-            order: 19275,
-            required: false,
+            order: 650710,
+            required: true,
           },
         ],
       },
@@ -186,17 +186,19 @@ let value: ListResourceSubscription = {
       ],
       meters: [
         {
-          createdAt: new Date("2025-09-01T19:21:53.135Z"),
-          modifiedAt: new Date("2023-04-07T20:53:24.313Z"),
+          createdAt: new Date("2025-08-12T21:40:54.973Z"),
+          modifiedAt: new Date("2024-03-26T12:19:23.472Z"),
           id: "<value>",
           consumedUnits: 25,
           creditedUnits: 100,
           amount: 0,
           meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
           meter: {
-            metadata: {},
-            createdAt: new Date("2023-09-28T00:55:30.553Z"),
-            modifiedAt: new Date("2024-07-25T21:43:09.563Z"),
+            metadata: {
+              "key": 645986,
+            },
+            createdAt: new Date("2025-04-20T02:42:18.399Z"),
+            modifiedAt: new Date("2023-07-17T20:52:33.753Z"),
             id: "<value>",
             name: "<value>",
             filter: {
@@ -204,7 +206,7 @@ let value: ListResourceSubscription = {
               clauses: [],
             },
             aggregation: {
-              func: "avg",
+              func: "max",
               property: "<value>",
             },
             organizationId: "<value>",
