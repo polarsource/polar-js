@@ -1,6 +1,6 @@
 {
   "name": "@polar-sh/sdk",
-  "version": "0.34.10",
+  "version": "0.34.11",
   "author": "Speakeasy",
   "type": "module",
   "bin": {

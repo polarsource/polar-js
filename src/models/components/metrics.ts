@@ -26,11 +26,23 @@ export type Metrics = {
   /**
    * Information about a metric.
    */
+  netRevenue: Metric;
+  /**
+   * Information about a metric.
+   */
   cumulativeRevenue: Metric;
   /**
    * Information about a metric.
    */
+  netCumulativeRevenue: Metric;
+  /**
+   * Information about a metric.
+   */
   averageOrderValue: Metric;
+  /**
+   * Information about a metric.
+   */
+  netAverageOrderValue: Metric;
   /**
    * Information about a metric.
    */
@@ -42,6 +54,10 @@ export type Metrics = {
   /**
    * Information about a metric.
    */
+  oneTimeProductsNetRevenue: Metric;
+  /**
+   * Information about a metric.
+   */
   newSubscriptions: Metric;
   /**
    * Information about a metric.
@@ -50,11 +66,19 @@ export type Metrics = {
   /**
    * Information about a metric.
    */
+  newSubscriptionsNetRevenue: Metric;
+  /**
+   * Information about a metric.
+   */
   renewedSubscriptions: Metric;
   /**
    * Information about a metric.
    */
   renewedSubscriptionsRevenue: Metric;
+  /**
+   * Information about a metric.
+   */
+  renewedSubscriptionsNetRevenue: Metric;
   /**
    * Information about a metric.
    */
@@ -86,14 +110,20 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
   z.object({
     orders: Metric$inboundSchema,
     revenue: Metric$inboundSchema,
+    net_revenue: Metric$inboundSchema,
     cumulative_revenue: Metric$inboundSchema,
+    net_cumulative_revenue: Metric$inboundSchema,
     average_order_value: Metric$inboundSchema,
+    net_average_order_value: Metric$inboundSchema,
     one_time_products: Metric$inboundSchema,
     one_time_products_revenue: Metric$inboundSchema,
+    one_time_products_net_revenue: Metric$inboundSchema,
     new_subscriptions: Metric$inboundSchema,
     new_subscriptions_revenue: Metric$inboundSchema,
+    new_subscriptions_net_revenue: Metric$inboundSchema,
     renewed_subscriptions: Metric$inboundSchema,
     renewed_subscriptions_revenue: Metric$inboundSchema,
+    renewed_subscriptions_net_revenue: Metric$inboundSchema,
     active_subscriptions: Metric$inboundSchema,
     monthly_recurring_revenue: Metric$inboundSchema,
     committed_monthly_recurring_revenue: Metric$inboundSchema,
@@ -102,14 +132,20 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
     checkouts_conversion: Metric$inboundSchema,
   }).transform((v) => {
     return remap$(v, {
+      "net_revenue": "netRevenue",
       "cumulative_revenue": "cumulativeRevenue",
+      "net_cumulative_revenue": "netCumulativeRevenue",
       "average_order_value": "averageOrderValue",
+      "net_average_order_value": "netAverageOrderValue",
       "one_time_products": "oneTimeProducts",
       "one_time_products_revenue": "oneTimeProductsRevenue",
+      "one_time_products_net_revenue": "oneTimeProductsNetRevenue",
       "new_subscriptions": "newSubscriptions",
       "new_subscriptions_revenue": "newSubscriptionsRevenue",
+      "new_subscriptions_net_revenue": "newSubscriptionsNetRevenue",
       "renewed_subscriptions": "renewedSubscriptions",
       "renewed_subscriptions_revenue": "renewedSubscriptionsRevenue",
+      "renewed_subscriptions_net_revenue": "renewedSubscriptionsNetRevenue",
       "active_subscriptions": "activeSubscriptions",
       "monthly_recurring_revenue": "monthlyRecurringRevenue",
       "committed_monthly_recurring_revenue": "committedMonthlyRecurringRevenue",
@@ -122,14 +158,20 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
 export type Metrics$Outbound = {
   orders: Metric$Outbound;
   revenue: Metric$Outbound;
+  net_revenue: Metric$Outbound;
   cumulative_revenue: Metric$Outbound;
+  net_cumulative_revenue: Metric$Outbound;
   average_order_value: Metric$Outbound;
+  net_average_order_value: Metric$Outbound;
   one_time_products: Metric$Outbound;
   one_time_products_revenue: Metric$Outbound;
+  one_time_products_net_revenue: Metric$Outbound;
   new_subscriptions: Metric$Outbound;
   new_subscriptions_revenue: Metric$Outbound;
+  new_subscriptions_net_revenue: Metric$Outbound;
   renewed_subscriptions: Metric$Outbound;
   renewed_subscriptions_revenue: Metric$Outbound;
+  renewed_subscriptions_net_revenue: Metric$Outbound;
   active_subscriptions: Metric$Outbound;
   monthly_recurring_revenue: Metric$Outbound;
   committed_monthly_recurring_revenue: Metric$Outbound;
@@ -146,14 +188,20 @@ export const Metrics$outboundSchema: z.ZodType<
 > = z.object({
   orders: Metric$outboundSchema,
   revenue: Metric$outboundSchema,
+  netRevenue: Metric$outboundSchema,
   cumulativeRevenue: Metric$outboundSchema,
+  netCumulativeRevenue: Metric$outboundSchema,
   averageOrderValue: Metric$outboundSchema,
+  netAverageOrderValue: Metric$outboundSchema,
   oneTimeProducts: Metric$outboundSchema,
   oneTimeProductsRevenue: Metric$outboundSchema,
+  oneTimeProductsNetRevenue: Metric$outboundSchema,
   newSubscriptions: Metric$outboundSchema,
   newSubscriptionsRevenue: Metric$outboundSchema,
+  newSubscriptionsNetRevenue: Metric$outboundSchema,
   renewedSubscriptions: Metric$outboundSchema,
   renewedSubscriptionsRevenue: Metric$outboundSchema,
+  renewedSubscriptionsNetRevenue: Metric$outboundSchema,
   activeSubscriptions: Metric$outboundSchema,
   monthlyRecurringRevenue: Metric$outboundSchema,
   committedMonthlyRecurringRevenue: Metric$outboundSchema,
@@ -162,14 +210,20 @@ export const Metrics$outboundSchema: z.ZodType<
   checkoutsConversion: Metric$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
+    netRevenue: "net_revenue",
     cumulativeRevenue: "cumulative_revenue",
+    netCumulativeRevenue: "net_cumulative_revenue",
     averageOrderValue: "average_order_value",
+    netAverageOrderValue: "net_average_order_value",
     oneTimeProducts: "one_time_products",
     oneTimeProductsRevenue: "one_time_products_revenue",
+    oneTimeProductsNetRevenue: "one_time_products_net_revenue",
     newSubscriptions: "new_subscriptions",
     newSubscriptionsRevenue: "new_subscriptions_revenue",
+    newSubscriptionsNetRevenue: "new_subscriptions_net_revenue",
     renewedSubscriptions: "renewed_subscriptions",
     renewedSubscriptionsRevenue: "renewed_subscriptions_revenue",
+    renewedSubscriptionsNetRevenue: "renewed_subscriptions_net_revenue",
     activeSubscriptions: "active_subscriptions",
     monthlyRecurringRevenue: "monthly_recurring_revenue",
     committedMonthlyRecurringRevenue: "committed_monthly_recurring_revenue",

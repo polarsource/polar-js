@@ -8,83 +8,113 @@ import { Metrics } from "@polar-sh/sdk/models/components/metrics.js";
 let value: Metrics = {
   orders: {
     slug: "<value>",
-    displayName: "Maudie_Davis82",
+    displayName: "Keyshawn_Beer61",
     type: "currency",
   },
   revenue: {
     slug: "<value>",
-    displayName: "Isobel.Hermiston",
+    displayName: "Heidi37",
     type: "scalar",
+  },
+  netRevenue: {
+    slug: "<value>",
+    displayName: "Talon50",
+    type: "percentage",
   },
   cumulativeRevenue: {
     slug: "<value>",
-    displayName: "Anderson.Morar",
+    displayName: "Kory.Gulgowski",
+    type: "scalar",
+  },
+  netCumulativeRevenue: {
+    slug: "<value>",
+    displayName: "Dax_Schulist",
     type: "scalar",
   },
   averageOrderValue: {
     slug: "<value>",
-    displayName: "Maggie0",
+    displayName: "Oswaldo74",
     type: "scalar",
+  },
+  netAverageOrderValue: {
+    slug: "<value>",
+    displayName: "Monserrate_Adams",
+    type: "percentage",
   },
   oneTimeProducts: {
     slug: "<value>",
-    displayName: "Jamaal_Kuvalis",
-    type: "percentage",
+    displayName: "Casper20",
+    type: "currency",
   },
   oneTimeProductsRevenue: {
     slug: "<value>",
-    displayName: "Eli_Kling8",
+    displayName: "Adell77",
     type: "currency",
+  },
+  oneTimeProductsNetRevenue: {
+    slug: "<value>",
+    displayName: "Cyril34",
+    type: "scalar",
   },
   newSubscriptions: {
     slug: "<value>",
-    displayName: "Raoul7",
-    type: "percentage",
+    displayName: "Clint61",
+    type: "scalar",
   },
   newSubscriptionsRevenue: {
     slug: "<value>",
-    displayName: "Fanny21",
-    type: "percentage",
+    displayName: "Elouise.Herzog-Kuphal93",
+    type: "scalar",
+  },
+  newSubscriptionsNetRevenue: {
+    slug: "<value>",
+    displayName: "Gerald.Medhurst",
+    type: "scalar",
   },
   renewedSubscriptions: {
     slug: "<value>",
-    displayName: "Addie_Glover75",
+    displayName: "Mekhi36",
     type: "percentage",
   },
   renewedSubscriptionsRevenue: {
     slug: "<value>",
-    displayName: "Gust_Dooley55",
-    type: "scalar",
+    displayName: "Grant_McKenzie32",
+    type: "percentage",
+  },
+  renewedSubscriptionsNetRevenue: {
+    slug: "<value>",
+    displayName: "Ahmed_Gulgowski",
+    type: "percentage",
   },
   activeSubscriptions: {
     slug: "<value>",
-    displayName: "Connie_Satterfield37",
+    displayName: "Mya26",
     type: "scalar",
   },
   monthlyRecurringRevenue: {
     slug: "<value>",
-    displayName: "Vanessa_Hegmann14",
+    displayName: "Kristy_Bayer",
     type: "currency",
   },
   committedMonthlyRecurringRevenue: {
     slug: "<value>",
-    displayName: "Dan_Morissette1",
+    displayName: "Peter99",
     type: "percentage",
   },
   checkouts: {
     slug: "<value>",
-    displayName: "Florence_Daniel12",
+    displayName: "Jaiden.Gutmann",
     type: "currency",
   },
   succeededCheckouts: {
     slug: "<value>",
-    displayName: "Ellsworth_Kshlerin53",
+    displayName: "Abdullah_Weber",
     type: "percentage",
   },
   checkoutsConversion: {
     slug: "<value>",
-    displayName: "Paul68",
-    type: "currency",
+    displayName: "Jerrold_Spinka",
+    type: "percentage",
   },
 };
 ```
@@ -95,14 +125,20 @@ let value: Metrics = {
 | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
 | `orders`                                               | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `revenue`                                              | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
+| `netRevenue`                                           | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `cumulativeRevenue`                                    | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
+| `netCumulativeRevenue`                                 | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `averageOrderValue`                                    | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
+| `netAverageOrderValue`                                 | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `oneTimeProducts`                                      | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `oneTimeProductsRevenue`                               | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
+| `oneTimeProductsNetRevenue`                            | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `newSubscriptions`                                     | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `newSubscriptionsRevenue`                              | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
+| `newSubscriptionsNetRevenue`                           | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `renewedSubscriptions`                                 | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `renewedSubscriptionsRevenue`                          | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
+| `renewedSubscriptionsNetRevenue`                       | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `activeSubscriptions`                                  | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `monthlyRecurringRevenue`                              | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `committedMonthlyRecurringRevenue`                     | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |

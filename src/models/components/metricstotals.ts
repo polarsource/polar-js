@@ -12,21 +12,33 @@ export type MetricsTotalsOrders = number | number;
 
 export type MetricsTotalsRevenue = number | number;
 
+export type MetricsTotalsNetRevenue = number | number;
+
 export type MetricsTotalsCumulativeRevenue = number | number;
 
+export type MetricsTotalsNetCumulativeRevenue = number | number;
+
 export type MetricsTotalsAverageOrderValue = number | number;
+
+export type MetricsTotalsNetAverageOrderValue = number | number;
 
 export type MetricsTotalsOneTimeProducts = number | number;
 
 export type MetricsTotalsOneTimeProductsRevenue = number | number;
 
+export type MetricsTotalsOneTimeProductsNetRevenue = number | number;
+
 export type MetricsTotalsNewSubscriptions = number | number;
 
 export type MetricsTotalsNewSubscriptionsRevenue = number | number;
 
+export type MetricsTotalsNewSubscriptionsNetRevenue = number | number;
+
 export type MetricsTotalsRenewedSubscriptions = number | number;
 
 export type MetricsTotalsRenewedSubscriptionsRevenue = number | number;
+
+export type MetricsTotalsRenewedSubscriptionsNetRevenue = number | number;
 
 export type MetricsTotalsActiveSubscriptions = number | number;
 
@@ -43,14 +55,20 @@ export type MetricsTotalsCheckoutsConversion = number | number;
 export type MetricsTotals = {
   orders: number | number;
   revenue: number | number;
+  netRevenue: number | number;
   cumulativeRevenue: number | number;
+  netCumulativeRevenue: number | number;
   averageOrderValue: number | number;
+  netAverageOrderValue: number | number;
   oneTimeProducts: number | number;
   oneTimeProductsRevenue: number | number;
+  oneTimeProductsNetRevenue: number | number;
   newSubscriptions: number | number;
   newSubscriptionsRevenue: number | number;
+  newSubscriptionsNetRevenue: number | number;
   renewedSubscriptions: number | number;
   renewedSubscriptionsRevenue: number | number;
+  renewedSubscriptionsNetRevenue: number | number;
   activeSubscriptions: number | number;
   monthlyRecurringRevenue: number | number;
   committedMonthlyRecurringRevenue: number | number;
@@ -156,6 +174,54 @@ export function metricsTotalsRevenueFromJSON(
 }
 
 /** @internal */
+export const MetricsTotalsNetRevenue$inboundSchema: z.ZodType<
+  MetricsTotalsNetRevenue,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsNetRevenue$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsNetRevenue$outboundSchema: z.ZodType<
+  MetricsTotalsNetRevenue$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsNetRevenue
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsNetRevenue$ {
+  /** @deprecated use `MetricsTotalsNetRevenue$inboundSchema` instead. */
+  export const inboundSchema = MetricsTotalsNetRevenue$inboundSchema;
+  /** @deprecated use `MetricsTotalsNetRevenue$outboundSchema` instead. */
+  export const outboundSchema = MetricsTotalsNetRevenue$outboundSchema;
+  /** @deprecated use `MetricsTotalsNetRevenue$Outbound` instead. */
+  export type Outbound = MetricsTotalsNetRevenue$Outbound;
+}
+
+export function metricsTotalsNetRevenueToJSON(
+  metricsTotalsNetRevenue: MetricsTotalsNetRevenue,
+): string {
+  return JSON.stringify(
+    MetricsTotalsNetRevenue$outboundSchema.parse(metricsTotalsNetRevenue),
+  );
+}
+
+export function metricsTotalsNetRevenueFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsNetRevenue, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsTotalsNetRevenue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsNetRevenue' from JSON`,
+  );
+}
+
+/** @internal */
 export const MetricsTotalsCumulativeRevenue$inboundSchema: z.ZodType<
   MetricsTotalsCumulativeRevenue,
   z.ZodTypeDef,
@@ -206,6 +272,57 @@ export function metricsTotalsCumulativeRevenueFromJSON(
 }
 
 /** @internal */
+export const MetricsTotalsNetCumulativeRevenue$inboundSchema: z.ZodType<
+  MetricsTotalsNetCumulativeRevenue,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsNetCumulativeRevenue$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsNetCumulativeRevenue$outboundSchema: z.ZodType<
+  MetricsTotalsNetCumulativeRevenue$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsNetCumulativeRevenue
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsNetCumulativeRevenue$ {
+  /** @deprecated use `MetricsTotalsNetCumulativeRevenue$inboundSchema` instead. */
+  export const inboundSchema = MetricsTotalsNetCumulativeRevenue$inboundSchema;
+  /** @deprecated use `MetricsTotalsNetCumulativeRevenue$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsNetCumulativeRevenue$outboundSchema;
+  /** @deprecated use `MetricsTotalsNetCumulativeRevenue$Outbound` instead. */
+  export type Outbound = MetricsTotalsNetCumulativeRevenue$Outbound;
+}
+
+export function metricsTotalsNetCumulativeRevenueToJSON(
+  metricsTotalsNetCumulativeRevenue: MetricsTotalsNetCumulativeRevenue,
+): string {
+  return JSON.stringify(
+    MetricsTotalsNetCumulativeRevenue$outboundSchema.parse(
+      metricsTotalsNetCumulativeRevenue,
+    ),
+  );
+}
+
+export function metricsTotalsNetCumulativeRevenueFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsNetCumulativeRevenue, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsTotalsNetCumulativeRevenue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsNetCumulativeRevenue' from JSON`,
+  );
+}
+
+/** @internal */
 export const MetricsTotalsAverageOrderValue$inboundSchema: z.ZodType<
   MetricsTotalsAverageOrderValue,
   z.ZodTypeDef,
@@ -252,6 +369,57 @@ export function metricsTotalsAverageOrderValueFromJSON(
     jsonString,
     (x) => MetricsTotalsAverageOrderValue$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'MetricsTotalsAverageOrderValue' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsNetAverageOrderValue$inboundSchema: z.ZodType<
+  MetricsTotalsNetAverageOrderValue,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsNetAverageOrderValue$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsNetAverageOrderValue$outboundSchema: z.ZodType<
+  MetricsTotalsNetAverageOrderValue$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsNetAverageOrderValue
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsNetAverageOrderValue$ {
+  /** @deprecated use `MetricsTotalsNetAverageOrderValue$inboundSchema` instead. */
+  export const inboundSchema = MetricsTotalsNetAverageOrderValue$inboundSchema;
+  /** @deprecated use `MetricsTotalsNetAverageOrderValue$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsNetAverageOrderValue$outboundSchema;
+  /** @deprecated use `MetricsTotalsNetAverageOrderValue$Outbound` instead. */
+  export type Outbound = MetricsTotalsNetAverageOrderValue$Outbound;
+}
+
+export function metricsTotalsNetAverageOrderValueToJSON(
+  metricsTotalsNetAverageOrderValue: MetricsTotalsNetAverageOrderValue,
+): string {
+  return JSON.stringify(
+    MetricsTotalsNetAverageOrderValue$outboundSchema.parse(
+      metricsTotalsNetAverageOrderValue,
+    ),
+  );
+}
+
+export function metricsTotalsNetAverageOrderValueFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsNetAverageOrderValue, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsTotalsNetAverageOrderValue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsNetAverageOrderValue' from JSON`,
   );
 }
 
@@ -359,6 +527,60 @@ export function metricsTotalsOneTimeProductsRevenueFromJSON(
 }
 
 /** @internal */
+export const MetricsTotalsOneTimeProductsNetRevenue$inboundSchema: z.ZodType<
+  MetricsTotalsOneTimeProductsNetRevenue,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsOneTimeProductsNetRevenue$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsOneTimeProductsNetRevenue$outboundSchema: z.ZodType<
+  MetricsTotalsOneTimeProductsNetRevenue$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsOneTimeProductsNetRevenue
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsOneTimeProductsNetRevenue$ {
+  /** @deprecated use `MetricsTotalsOneTimeProductsNetRevenue$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsOneTimeProductsNetRevenue$inboundSchema;
+  /** @deprecated use `MetricsTotalsOneTimeProductsNetRevenue$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsOneTimeProductsNetRevenue$outboundSchema;
+  /** @deprecated use `MetricsTotalsOneTimeProductsNetRevenue$Outbound` instead. */
+  export type Outbound = MetricsTotalsOneTimeProductsNetRevenue$Outbound;
+}
+
+export function metricsTotalsOneTimeProductsNetRevenueToJSON(
+  metricsTotalsOneTimeProductsNetRevenue:
+    MetricsTotalsOneTimeProductsNetRevenue,
+): string {
+  return JSON.stringify(
+    MetricsTotalsOneTimeProductsNetRevenue$outboundSchema.parse(
+      metricsTotalsOneTimeProductsNetRevenue,
+    ),
+  );
+}
+
+export function metricsTotalsOneTimeProductsNetRevenueFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsOneTimeProductsNetRevenue, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsOneTimeProductsNetRevenue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsOneTimeProductsNetRevenue' from JSON`,
+  );
+}
+
+/** @internal */
 export const MetricsTotalsNewSubscriptions$inboundSchema: z.ZodType<
   MetricsTotalsNewSubscriptions,
   z.ZodTypeDef,
@@ -458,6 +680,65 @@ export function metricsTotalsNewSubscriptionsRevenueFromJSON(
     (x) =>
       MetricsTotalsNewSubscriptionsRevenue$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'MetricsTotalsNewSubscriptionsRevenue' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsNewSubscriptionsNetRevenue$inboundSchema: z.ZodType<
+  MetricsTotalsNewSubscriptionsNetRevenue,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsNewSubscriptionsNetRevenue$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsNewSubscriptionsNetRevenue$outboundSchema: z.ZodType<
+  MetricsTotalsNewSubscriptionsNetRevenue$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsNewSubscriptionsNetRevenue
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsNewSubscriptionsNetRevenue$ {
+  /** @deprecated use `MetricsTotalsNewSubscriptionsNetRevenue$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsNewSubscriptionsNetRevenue$inboundSchema;
+  /** @deprecated use `MetricsTotalsNewSubscriptionsNetRevenue$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsNewSubscriptionsNetRevenue$outboundSchema;
+  /** @deprecated use `MetricsTotalsNewSubscriptionsNetRevenue$Outbound` instead. */
+  export type Outbound = MetricsTotalsNewSubscriptionsNetRevenue$Outbound;
+}
+
+export function metricsTotalsNewSubscriptionsNetRevenueToJSON(
+  metricsTotalsNewSubscriptionsNetRevenue:
+    MetricsTotalsNewSubscriptionsNetRevenue,
+): string {
+  return JSON.stringify(
+    MetricsTotalsNewSubscriptionsNetRevenue$outboundSchema.parse(
+      metricsTotalsNewSubscriptionsNetRevenue,
+    ),
+  );
+}
+
+export function metricsTotalsNewSubscriptionsNetRevenueFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsTotalsNewSubscriptionsNetRevenue,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsNewSubscriptionsNetRevenue$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsTotalsNewSubscriptionsNetRevenue' from JSON`,
   );
 }
 
@@ -568,6 +849,69 @@ export function metricsTotalsRenewedSubscriptionsRevenueFromJSON(
         JSON.parse(x),
       ),
     `Failed to parse 'MetricsTotalsRenewedSubscriptionsRevenue' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsRenewedSubscriptionsNetRevenue$inboundSchema:
+  z.ZodType<
+    MetricsTotalsRenewedSubscriptionsNetRevenue,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsRenewedSubscriptionsNetRevenue$Outbound =
+  | number
+  | number;
+
+/** @internal */
+export const MetricsTotalsRenewedSubscriptionsNetRevenue$outboundSchema:
+  z.ZodType<
+    MetricsTotalsRenewedSubscriptionsNetRevenue$Outbound,
+    z.ZodTypeDef,
+    MetricsTotalsRenewedSubscriptionsNetRevenue
+  > = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsRenewedSubscriptionsNetRevenue$ {
+  /** @deprecated use `MetricsTotalsRenewedSubscriptionsNetRevenue$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsRenewedSubscriptionsNetRevenue$inboundSchema;
+  /** @deprecated use `MetricsTotalsRenewedSubscriptionsNetRevenue$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsRenewedSubscriptionsNetRevenue$outboundSchema;
+  /** @deprecated use `MetricsTotalsRenewedSubscriptionsNetRevenue$Outbound` instead. */
+  export type Outbound = MetricsTotalsRenewedSubscriptionsNetRevenue$Outbound;
+}
+
+export function metricsTotalsRenewedSubscriptionsNetRevenueToJSON(
+  metricsTotalsRenewedSubscriptionsNetRevenue:
+    MetricsTotalsRenewedSubscriptionsNetRevenue,
+): string {
+  return JSON.stringify(
+    MetricsTotalsRenewedSubscriptionsNetRevenue$outboundSchema.parse(
+      metricsTotalsRenewedSubscriptionsNetRevenue,
+    ),
+  );
+}
+
+export function metricsTotalsRenewedSubscriptionsNetRevenueFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsTotalsRenewedSubscriptionsNetRevenue,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsRenewedSubscriptionsNetRevenue$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsTotalsRenewedSubscriptionsNetRevenue' from JSON`,
   );
 }
 
@@ -893,14 +1237,20 @@ export const MetricsTotals$inboundSchema: z.ZodType<
 > = z.object({
   orders: z.union([z.number().int(), z.number()]),
   revenue: z.union([z.number().int(), z.number()]),
+  net_revenue: z.union([z.number().int(), z.number()]),
   cumulative_revenue: z.union([z.number().int(), z.number()]),
+  net_cumulative_revenue: z.union([z.number().int(), z.number()]),
   average_order_value: z.union([z.number().int(), z.number()]),
+  net_average_order_value: z.union([z.number().int(), z.number()]),
   one_time_products: z.union([z.number().int(), z.number()]),
   one_time_products_revenue: z.union([z.number().int(), z.number()]),
+  one_time_products_net_revenue: z.union([z.number().int(), z.number()]),
   new_subscriptions: z.union([z.number().int(), z.number()]),
   new_subscriptions_revenue: z.union([z.number().int(), z.number()]),
+  new_subscriptions_net_revenue: z.union([z.number().int(), z.number()]),
   renewed_subscriptions: z.union([z.number().int(), z.number()]),
   renewed_subscriptions_revenue: z.union([z.number().int(), z.number()]),
+  renewed_subscriptions_net_revenue: z.union([z.number().int(), z.number()]),
   active_subscriptions: z.union([z.number().int(), z.number()]),
   monthly_recurring_revenue: z.union([z.number().int(), z.number()]),
   committed_monthly_recurring_revenue: z.union([z.number().int(), z.number()]),
@@ -909,14 +1259,20 @@ export const MetricsTotals$inboundSchema: z.ZodType<
   checkouts_conversion: z.union([z.number().int(), z.number()]),
 }).transform((v) => {
   return remap$(v, {
+    "net_revenue": "netRevenue",
     "cumulative_revenue": "cumulativeRevenue",
+    "net_cumulative_revenue": "netCumulativeRevenue",
     "average_order_value": "averageOrderValue",
+    "net_average_order_value": "netAverageOrderValue",
     "one_time_products": "oneTimeProducts",
     "one_time_products_revenue": "oneTimeProductsRevenue",
+    "one_time_products_net_revenue": "oneTimeProductsNetRevenue",
     "new_subscriptions": "newSubscriptions",
     "new_subscriptions_revenue": "newSubscriptionsRevenue",
+    "new_subscriptions_net_revenue": "newSubscriptionsNetRevenue",
     "renewed_subscriptions": "renewedSubscriptions",
     "renewed_subscriptions_revenue": "renewedSubscriptionsRevenue",
+    "renewed_subscriptions_net_revenue": "renewedSubscriptionsNetRevenue",
     "active_subscriptions": "activeSubscriptions",
     "monthly_recurring_revenue": "monthlyRecurringRevenue",
     "committed_monthly_recurring_revenue": "committedMonthlyRecurringRevenue",
@@ -929,14 +1285,20 @@ export const MetricsTotals$inboundSchema: z.ZodType<
 export type MetricsTotals$Outbound = {
   orders: number | number;
   revenue: number | number;
+  net_revenue: number | number;
   cumulative_revenue: number | number;
+  net_cumulative_revenue: number | number;
   average_order_value: number | number;
+  net_average_order_value: number | number;
   one_time_products: number | number;
   one_time_products_revenue: number | number;
+  one_time_products_net_revenue: number | number;
   new_subscriptions: number | number;
   new_subscriptions_revenue: number | number;
+  new_subscriptions_net_revenue: number | number;
   renewed_subscriptions: number | number;
   renewed_subscriptions_revenue: number | number;
+  renewed_subscriptions_net_revenue: number | number;
   active_subscriptions: number | number;
   monthly_recurring_revenue: number | number;
   committed_monthly_recurring_revenue: number | number;
@@ -953,14 +1315,20 @@ export const MetricsTotals$outboundSchema: z.ZodType<
 > = z.object({
   orders: z.union([z.number().int(), z.number()]),
   revenue: z.union([z.number().int(), z.number()]),
+  netRevenue: z.union([z.number().int(), z.number()]),
   cumulativeRevenue: z.union([z.number().int(), z.number()]),
+  netCumulativeRevenue: z.union([z.number().int(), z.number()]),
   averageOrderValue: z.union([z.number().int(), z.number()]),
+  netAverageOrderValue: z.union([z.number().int(), z.number()]),
   oneTimeProducts: z.union([z.number().int(), z.number()]),
   oneTimeProductsRevenue: z.union([z.number().int(), z.number()]),
+  oneTimeProductsNetRevenue: z.union([z.number().int(), z.number()]),
   newSubscriptions: z.union([z.number().int(), z.number()]),
   newSubscriptionsRevenue: z.union([z.number().int(), z.number()]),
+  newSubscriptionsNetRevenue: z.union([z.number().int(), z.number()]),
   renewedSubscriptions: z.union([z.number().int(), z.number()]),
   renewedSubscriptionsRevenue: z.union([z.number().int(), z.number()]),
+  renewedSubscriptionsNetRevenue: z.union([z.number().int(), z.number()]),
   activeSubscriptions: z.union([z.number().int(), z.number()]),
   monthlyRecurringRevenue: z.union([z.number().int(), z.number()]),
   committedMonthlyRecurringRevenue: z.union([z.number().int(), z.number()]),
@@ -969,14 +1337,20 @@ export const MetricsTotals$outboundSchema: z.ZodType<
   checkoutsConversion: z.union([z.number().int(), z.number()]),
 }).transform((v) => {
   return remap$(v, {
+    netRevenue: "net_revenue",
     cumulativeRevenue: "cumulative_revenue",
+    netCumulativeRevenue: "net_cumulative_revenue",
     averageOrderValue: "average_order_value",
+    netAverageOrderValue: "net_average_order_value",
     oneTimeProducts: "one_time_products",
     oneTimeProductsRevenue: "one_time_products_revenue",
+    oneTimeProductsNetRevenue: "one_time_products_net_revenue",
     newSubscriptions: "new_subscriptions",
     newSubscriptionsRevenue: "new_subscriptions_revenue",
+    newSubscriptionsNetRevenue: "new_subscriptions_net_revenue",
     renewedSubscriptions: "renewed_subscriptions",
     renewedSubscriptionsRevenue: "renewed_subscriptions_revenue",
+    renewedSubscriptionsNetRevenue: "renewed_subscriptions_net_revenue",
     activeSubscriptions: "active_subscriptions",
     monthlyRecurringRevenue: "monthly_recurring_revenue",
     committedMonthlyRecurringRevenue: "committed_monthly_recurring_revenue",

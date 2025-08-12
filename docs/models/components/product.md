@@ -64,20 +64,20 @@ let value: Product = {
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2025-07-28T05:12:23.569Z"),
-        modifiedAt: null,
+        createdAt: new Date("2025-03-12T05:06:14.960Z"),
+        modifiedAt: new Date("2024-10-13T01:08:42.069Z"),
         id: "<value>",
-        metadata: {},
-        type: "select",
+        metadata: {
+          "key": false,
+        },
+        type: "number",
         slug: "<value>",
         name: "<value>",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {
-          options: [],
-        },
+        properties: {},
       },
-      order: 650710,
-      required: true,
+      order: 19275,
+      required: false,
     },
   ],
 };
