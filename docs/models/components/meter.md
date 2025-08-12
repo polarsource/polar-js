@@ -15,10 +15,7 @@ let value: Meter = {
     conjunction: "and",
     clauses: [],
   },
-  aggregation: {
-    func: "max",
-    property: "<value>",
-  },
+  aggregation: {},
   organizationId: "<value>",
 };
 ```

@@ -25,6 +25,11 @@ import {
 } from "./paymentstatus.js";
 
 /**
+ * Additional metadata from the payment processor for internal use.
+ */
+export type ProcessorMetadata = {};
+
+/**
  * Schema of a payment with a card payment method.
  */
 export type CardPayment = {
@@ -75,10 +80,62 @@ export type CardPayment = {
    */
   orderId: string | null;
   /**
+   * Additional metadata from the payment processor for internal use.
+   */
+  processorMetadata?: ProcessorMetadata | undefined;
+  /**
    * Additional metadata for a card payment method.
    */
   methodMetadata: CardPaymentMetadata;
 };
+
+/** @internal */
+export const ProcessorMetadata$inboundSchema: z.ZodType<
+  ProcessorMetadata,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+
+/** @internal */
+export type ProcessorMetadata$Outbound = {};
+
+/** @internal */
+export const ProcessorMetadata$outboundSchema: z.ZodType<
+  ProcessorMetadata$Outbound,
+  z.ZodTypeDef,
+  ProcessorMetadata
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ProcessorMetadata$ {
+  /** @deprecated use `ProcessorMetadata$inboundSchema` instead. */
+  export const inboundSchema = ProcessorMetadata$inboundSchema;
+  /** @deprecated use `ProcessorMetadata$outboundSchema` instead. */
+  export const outboundSchema = ProcessorMetadata$outboundSchema;
+  /** @deprecated use `ProcessorMetadata$Outbound` instead. */
+  export type Outbound = ProcessorMetadata$Outbound;
+}
+
+export function processorMetadataToJSON(
+  processorMetadata: ProcessorMetadata,
+): string {
+  return JSON.stringify(
+    ProcessorMetadata$outboundSchema.parse(processorMetadata),
+  );
+}
+
+export function processorMetadataFromJSON(
+  jsonString: string,
+): SafeParseResult<ProcessorMetadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProcessorMetadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProcessorMetadata' from JSON`,
+  );
+}
 
 /** @internal */
 export const CardPayment$inboundSchema: z.ZodType<
@@ -101,6 +158,7 @@ export const CardPayment$inboundSchema: z.ZodType<
   organization_id: z.string(),
   checkout_id: z.nullable(z.string()),
   order_id: z.nullable(z.string()),
+  processor_metadata: z.lazy(() => ProcessorMetadata$inboundSchema).optional(),
   method_metadata: CardPaymentMetadata$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -111,6 +169,7 @@ export const CardPayment$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
     "checkout_id": "checkoutId",
     "order_id": "orderId",
+    "processor_metadata": "processorMetadata",
     "method_metadata": "methodMetadata",
   });
 });
@@ -130,6 +189,7 @@ export type CardPayment$Outbound = {
   organization_id: string;
   checkout_id: string | null;
   order_id: string | null;
+  processor_metadata?: ProcessorMetadata$Outbound | undefined;
   method_metadata: CardPaymentMetadata$Outbound;
 };
 
@@ -152,6 +212,7 @@ export const CardPayment$outboundSchema: z.ZodType<
   organizationId: z.string(),
   checkoutId: z.nullable(z.string()),
   orderId: z.nullable(z.string()),
+  processorMetadata: z.lazy(() => ProcessorMetadata$outboundSchema).optional(),
   methodMetadata: CardPaymentMetadata$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -162,6 +223,7 @@ export const CardPayment$outboundSchema: z.ZodType<
     organizationId: "organization_id",
     checkoutId: "checkout_id",
     orderId: "order_id",
+    processorMetadata: "processor_metadata",
     methodMetadata: "method_metadata",
   });
 });
