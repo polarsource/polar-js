@@ -19,11 +19,6 @@ import {
 } from "./paymentstatus.js";
 
 /**
- * Additional metadata from the payment processor for internal use.
- */
-export type GenericPaymentProcessorMetadata = {};
-
-/**
  * Schema of a payment with a generic payment method.
  */
 export type GenericPayment = {
@@ -76,58 +71,8 @@ export type GenericPayment = {
   /**
    * Additional metadata from the payment processor for internal use.
    */
-  processorMetadata?: GenericPaymentProcessorMetadata | undefined;
+  processorMetadata?: { [k: string]: any } | undefined;
 };
-
-/** @internal */
-export const GenericPaymentProcessorMetadata$inboundSchema: z.ZodType<
-  GenericPaymentProcessorMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type GenericPaymentProcessorMetadata$Outbound = {};
-
-/** @internal */
-export const GenericPaymentProcessorMetadata$outboundSchema: z.ZodType<
-  GenericPaymentProcessorMetadata$Outbound,
-  z.ZodTypeDef,
-  GenericPaymentProcessorMetadata
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GenericPaymentProcessorMetadata$ {
-  /** @deprecated use `GenericPaymentProcessorMetadata$inboundSchema` instead. */
-  export const inboundSchema = GenericPaymentProcessorMetadata$inboundSchema;
-  /** @deprecated use `GenericPaymentProcessorMetadata$outboundSchema` instead. */
-  export const outboundSchema = GenericPaymentProcessorMetadata$outboundSchema;
-  /** @deprecated use `GenericPaymentProcessorMetadata$Outbound` instead. */
-  export type Outbound = GenericPaymentProcessorMetadata$Outbound;
-}
-
-export function genericPaymentProcessorMetadataToJSON(
-  genericPaymentProcessorMetadata: GenericPaymentProcessorMetadata,
-): string {
-  return JSON.stringify(
-    GenericPaymentProcessorMetadata$outboundSchema.parse(
-      genericPaymentProcessorMetadata,
-    ),
-  );
-}
-
-export function genericPaymentProcessorMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<GenericPaymentProcessorMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GenericPaymentProcessorMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GenericPaymentProcessorMetadata' from JSON`,
-  );
-}
 
 /** @internal */
 export const GenericPayment$inboundSchema: z.ZodType<
@@ -150,9 +95,7 @@ export const GenericPayment$inboundSchema: z.ZodType<
   organization_id: z.string(),
   checkout_id: z.nullable(z.string()),
   order_id: z.nullable(z.string()),
-  processor_metadata: z.lazy(() =>
-    GenericPaymentProcessorMetadata$inboundSchema
-  ).optional(),
+  processor_metadata: z.record(z.any()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -181,7 +124,7 @@ export type GenericPayment$Outbound = {
   organization_id: string;
   checkout_id: string | null;
   order_id: string | null;
-  processor_metadata?: GenericPaymentProcessorMetadata$Outbound | undefined;
+  processor_metadata?: { [k: string]: any } | undefined;
 };
 
 /** @internal */
@@ -203,9 +146,7 @@ export const GenericPayment$outboundSchema: z.ZodType<
   organizationId: z.string(),
   checkoutId: z.nullable(z.string()),
   orderId: z.nullable(z.string()),
-  processorMetadata: z.lazy(() =>
-    GenericPaymentProcessorMetadata$outboundSchema
-  ).optional(),
+  processorMetadata: z.record(z.any()).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

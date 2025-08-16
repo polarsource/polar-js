@@ -24,7 +24,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.34.11
+  version: 0.34.12
   additionalDependencies:
     dependencies:
       standardwebhooks: ^1.0.0
@@ -65,4 +65,5 @@ typescript:
   packageName: '@polar-sh/sdk'
   responseFormat: flat
   templateVersion: v2
+  usageSDKInitImports: []
   useIndexModules: false
