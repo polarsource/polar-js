@@ -17,7 +17,10 @@ let value: ListResourceMeter = {
         conjunction: "and",
         clauses: [],
       },
-      aggregation: {},
+      aggregation: {
+        func: "max",
+        property: "<value>",
+      },
       organizationId: "<value>",
     },
   ],

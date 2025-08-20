@@ -1,11 +1,11 @@
-# CustomerPortalOrdersRetryPaymentRequest
+# CustomerPortalOrdersGetPaymentStatusRequest
 
 ## Example Usage
 
 ```typescript
-import { CustomerPortalOrdersRetryPaymentRequest } from "@polar-sh/sdk/models/operations/customerportalordersretrypayment.js";
+import { CustomerPortalOrdersGetPaymentStatusRequest } from "@polar-sh/sdk/models/operations/customerportalordersgetpaymentstatus.js";
 
-let value: CustomerPortalOrdersRetryPaymentRequest = {
+let value: CustomerPortalOrdersGetPaymentStatusRequest = {
   id: "<value>",
 };
 ```

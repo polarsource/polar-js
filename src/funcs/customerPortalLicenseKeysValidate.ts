@@ -43,6 +43,11 @@ import { Result } from "../types/fp.js";
  *
  * @remarks
  * Validate a license key.
+ *
+ * > This endpoint doesn't require authentication and can be safely used on a public
+ * > client, like a desktop application or a mobile app.
+ * > If you plan to validate a license key on a server, use the `/v1/license-keys/validate`
+ * > endpoint instead.
  */
 export function customerPortalLicenseKeysValidate(
   client: PolarCore,

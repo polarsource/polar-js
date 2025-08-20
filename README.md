@@ -494,7 +494,8 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [update](docs/sdks/polarorders/README.md#update) - Update Order
 * [generateInvoice](docs/sdks/polarorders/README.md#generateinvoice) - Generate Order Invoice
 * [invoice](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
-* [retryPayment](docs/sdks/polarorders/README.md#retrypayment) - Retry Payment
+* [getPaymentStatus](docs/sdks/polarorders/README.md#getpaymentstatus) - Get Order Payment Status
+* [confirmRetryPayment](docs/sdks/polarorders/README.md#confirmretrypayment) - Confirm Retry Payment
 
 #### [customerPortal.organizations](docs/sdks/polarorganizations/README.md)
 
@@ -561,6 +562,9 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req: Request, r
 * [get](docs/sdks/licensekeys/README.md#get) - Get License Key
 * [update](docs/sdks/licensekeys/README.md#update) - Update License Key
 * [getActivation](docs/sdks/licensekeys/README.md#getactivation) - Get Activation
+* [validate](docs/sdks/licensekeys/README.md#validate) - Validate License Key
+* [activate](docs/sdks/licensekeys/README.md#activate) - Activate License Key
+* [deactivate](docs/sdks/licensekeys/README.md#deactivate) - Deactivate License Key
 
 ### [meters](docs/sdks/meters/README.md)
 
@@ -690,11 +694,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`customerPortalLicenseKeysGet`](docs/sdks/polarlicensekeys/README.md#get) - Get License Key
 - [`customerPortalLicenseKeysList`](docs/sdks/polarlicensekeys/README.md#list) - List License Keys
 - [`customerPortalLicenseKeysValidate`](docs/sdks/polarlicensekeys/README.md#validate) - Validate License Key
+- [`customerPortalOrdersConfirmRetryPayment`](docs/sdks/polarorders/README.md#confirmretrypayment) - Confirm Retry Payment
 - [`customerPortalOrdersGenerateInvoice`](docs/sdks/polarorders/README.md#generateinvoice) - Generate Order Invoice
 - [`customerPortalOrdersGet`](docs/sdks/polarorders/README.md#get) - Get Order
+- [`customerPortalOrdersGetPaymentStatus`](docs/sdks/polarorders/README.md#getpaymentstatus) - Get Order Payment Status
 - [`customerPortalOrdersInvoice`](docs/sdks/polarorders/README.md#invoice) - Get Order Invoice
 - [`customerPortalOrdersList`](docs/sdks/polarorders/README.md#list) - List Orders
-- [`customerPortalOrdersRetryPayment`](docs/sdks/polarorders/README.md#retrypayment) - Retry Payment
 - [`customerPortalOrdersUpdate`](docs/sdks/polarorders/README.md#update) - Update Order
 - [`customerPortalOrganizationsGet`](docs/sdks/polarorganizations/README.md#get) - Get Organization
 - [`customerPortalSubscriptionsCancel`](docs/sdks/polarsubscriptions/README.md#cancel) - Cancel Subscription
@@ -731,10 +736,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`filesList`](docs/sdks/files/README.md#list) - List Files
 - [`filesUpdate`](docs/sdks/files/README.md#update) - Update File
 - [`filesUploaded`](docs/sdks/files/README.md#uploaded) - Complete File Upload
+- [`licenseKeysActivate`](docs/sdks/licensekeys/README.md#activate) - Activate License Key
+- [`licenseKeysDeactivate`](docs/sdks/licensekeys/README.md#deactivate) - Deactivate License Key
 - [`licenseKeysGet`](docs/sdks/licensekeys/README.md#get) - Get License Key
 - [`licenseKeysGetActivation`](docs/sdks/licensekeys/README.md#getactivation) - Get Activation
 - [`licenseKeysList`](docs/sdks/licensekeys/README.md#list) - List License Keys
 - [`licenseKeysUpdate`](docs/sdks/licensekeys/README.md#update) - Update License Key
+- [`licenseKeysValidate`](docs/sdks/licensekeys/README.md#validate) - Validate License Key
 - [`metersCreate`](docs/sdks/meters/README.md#create) - Create Meter
 - [`metersGet`](docs/sdks/meters/README.md#get) - Get Meter
 - [`metersList`](docs/sdks/meters/README.md#list) - List Meters
@@ -950,22 +958,22 @@ run();
 
 
 **Inherit from [`PolarError`](./src/models/errors/polarerror.ts)**:
-* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 72 of 124 methods.*
-* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 9 of 124 methods.*
-* [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 124 methods.*
-* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 124 methods.*
-* [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 124 methods.*
-* [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 124 methods.*
-* [`PaymentNotReady`](./src/models/errors/paymentnotready.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 124 methods.*
-* [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 124 methods.*
-* [`InvoiceAlreadyExists`](./src/models/errors/invoicealreadyexists.ts): Order already has an invoice. Status code `409`. Applicable to 2 of 124 methods.*
-* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 124 methods.*
-* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 124 methods.*
-* [`RefundAmountTooHigh`](./src/models/errors/refundamounttoohigh.ts): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 124 methods.*
-* [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 124 methods.*
-* [`RefundedAlready`](./src/models/errors/refundedalready.ts): Order is already fully refunded. Status code `403`. Applicable to 1 of 124 methods.*
-* [`PaymentAlreadyInProgress`](./src/models/errors/paymentalreadyinprogress.ts): Payment already in progress. Status code `409`. Applicable to 1 of 124 methods.*
-* [`OrderNotEligibleForRetry`](./src/models/errors/ordernoteligibleforretry.ts): Order not eligible for retry. Status code `422`. Applicable to 1 of 124 methods.*
+* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 76 of 128 methods.*
+* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 10 of 128 methods.*
+* [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 128 methods.*
+* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 128 methods.*
+* [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 128 methods.*
+* [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 128 methods.*
+* [`PaymentNotReady`](./src/models/errors/paymentnotready.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 128 methods.*
+* [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 128 methods.*
+* [`InvoiceAlreadyExists`](./src/models/errors/invoicealreadyexists.ts): Order already has an invoice. Status code `409`. Applicable to 2 of 128 methods.*
+* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 128 methods.*
+* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 128 methods.*
+* [`RefundAmountTooHigh`](./src/models/errors/refundamounttoohigh.ts): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 128 methods.*
+* [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 128 methods.*
+* [`RefundedAlready`](./src/models/errors/refundedalready.ts): Order is already fully refunded. Status code `403`. Applicable to 1 of 128 methods.*
+* [`PaymentAlreadyInProgress`](./src/models/errors/paymentalreadyinprogress.ts): Payment already in progress. Status code `409`. Applicable to 1 of 128 methods.*
+* [`OrderNotEligibleForRetry`](./src/models/errors/ordernoteligibleforretry.ts): Order not eligible for retry or payment confirmation failed. Status code `422`. Applicable to 1 of 128 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
