@@ -74,6 +74,11 @@ export class PolarLicenseKeys extends ClientSDK {
    *
    * @remarks
    * Validate a license key.
+   *
+   * > This endpoint doesn't require authentication and can be safely used on a public
+   * > client, like a desktop application or a mobile app.
+   * > If you plan to validate a license key on a server, use the `/v1/license-keys/validate`
+   * > endpoint instead.
    */
   async validate(
     request: LicenseKeyValidate,
@@ -91,6 +96,11 @@ export class PolarLicenseKeys extends ClientSDK {
    *
    * @remarks
    * Activate a license key instance.
+   *
+   * > This endpoint doesn't require authentication and can be safely used on a public
+   * > client, like a desktop application or a mobile app.
+   * > If you plan to validate a license key on a server, use the `/v1/license-keys/activate`
+   * > endpoint instead.
    */
   async activate(
     request: LicenseKeyActivate,
@@ -108,6 +118,11 @@ export class PolarLicenseKeys extends ClientSDK {
    *
    * @remarks
    * Deactivate a license key instance.
+   *
+   * > This endpoint doesn't require authentication and can be safely used on a public
+   * > client, like a desktop application or a mobile app.
+   * > If you plan to validate a license key on a server, use the `/v1/license-keys/deactivate`
+   * > endpoint instead.
    */
   async deactivate(
     request: LicenseKeyDeactivate,

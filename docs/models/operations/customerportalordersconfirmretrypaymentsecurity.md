@@ -1,11 +1,11 @@
-# CustomerPortalOrdersRetryPaymentSecurity
+# CustomerPortalOrdersConfirmRetryPaymentSecurity
 
 ## Example Usage
 
 ```typescript
-import { CustomerPortalOrdersRetryPaymentSecurity } from "@polar-sh/sdk/models/operations/customerportalordersretrypayment.js";
+import { CustomerPortalOrdersConfirmRetryPaymentSecurity } from "@polar-sh/sdk/models/operations/customerportalordersconfirmretrypayment.js";
 
-let value: CustomerPortalOrdersRetryPaymentSecurity = {
+let value: CustomerPortalOrdersConfirmRetryPaymentSecurity = {
   customerSession: "<value>",
 };
 ```

@@ -10,7 +10,8 @@
 * [update](#update) - Update Order
 * [generateInvoice](#generateinvoice) - Generate Order Invoice
 * [invoice](#invoice) - Get Order Invoice
-* [retryPayment](#retrypayment) - Retry Payment
+* [getPaymentStatus](#getpaymentstatus) - Get Order Payment Status
+* [confirmRetryPayment](#confirmretrypayment) - Confirm Retry Payment
 
 ## list
 
@@ -418,22 +419,22 @@ run();
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
-## retryPayment
+## getPaymentStatus
 
-Manually retry payment for a failed order.
+Get the current payment status for an order.
 
-**Scopes**: `customer_portal:write`
+**Scopes**: `customer_portal:read` `customer_portal:write`
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="customer_portal:orders:retry_payment" method="post" path="/v1/customer-portal/orders/{id}/retry-payment" -->
+<!-- UsageSnippet language="typescript" operationID="customer_portal:orders:get_payment_status" method="get" path="/v1/customer-portal/orders/{id}/payment-status" -->
 ```typescript
 import { Polar } from "@polar-sh/sdk";
 
 const polar = new Polar();
 
 async function run() {
-  const result = await polar.customerPortal.orders.retryPayment({
+  const result = await polar.customerPortal.orders.getPaymentStatus({
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   }, {
     id: "<value>",
@@ -451,14 +452,14 @@ The standalone function version of this method:
 
 ```typescript
 import { PolarCore } from "@polar-sh/sdk/core.js";
-import { customerPortalOrdersRetryPayment } from "@polar-sh/sdk/funcs/customerPortalOrdersRetryPayment.js";
+import { customerPortalOrdersGetPaymentStatus } from "@polar-sh/sdk/funcs/customerPortalOrdersGetPaymentStatus.js";
 
 // Use `PolarCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const polar = new PolarCore();
 
 async function run() {
-  const res = await customerPortalOrdersRetryPayment(polar, {
+  const res = await customerPortalOrdersGetPaymentStatus(polar, {
     customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
   }, {
     id: "<value>",
@@ -467,7 +468,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("customerPortalOrdersRetryPayment failed:", res.error);
+    console.log("customerPortalOrdersGetPaymentStatus failed:", res.error);
   }
 }
 
@@ -478,15 +479,99 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CustomerPortalOrdersRetryPaymentRequest](../../models/operations/customerportalordersretrypaymentrequest.md)                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.CustomerPortalOrdersRetryPaymentSecurity](../../models/operations/customerportalordersretrypaymentsecurity.md)                                                     | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalOrdersGetPaymentStatusRequest](../../models/operations/customerportalordersgetpaymentstatusrequest.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.CustomerPortalOrdersGetPaymentStatusSecurity](../../models/operations/customerportalordersgetpaymentstatussecurity.md)                                             | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[any](../../models/.md)\>**
+**Promise\<[components.CustomerOrderPaymentStatus](../../models/components/customerorderpaymentstatus.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## confirmRetryPayment
+
+Confirm a retry payment using a Stripe confirmation token.
+
+**Scopes**: `customer_portal:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="customer_portal:orders:confirm_retry_payment" method="post" path="/v1/customer-portal/orders/{id}/confirm-payment" -->
+```typescript
+import { Polar } from "@polar-sh/sdk";
+
+const polar = new Polar();
+
+async function run() {
+  const result = await polar.customerPortal.orders.confirmRetryPayment({
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {
+    id: "<value>",
+    customerOrderConfirmPayment: {
+      confirmationTokenId: "<id>",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { PolarCore } from "@polar-sh/sdk/core.js";
+import { customerPortalOrdersConfirmRetryPayment } from "@polar-sh/sdk/funcs/customerPortalOrdersConfirmRetryPayment.js";
+
+// Use `PolarCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const polar = new PolarCore();
+
+async function run() {
+  const res = await customerPortalOrdersConfirmRetryPayment(polar, {
+    customerSession: process.env["POLAR_CUSTOMER_SESSION"] ?? "",
+  }, {
+    id: "<value>",
+    customerOrderConfirmPayment: {
+      confirmationTokenId: "<id>",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customerPortalOrdersConfirmRetryPayment failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CustomerPortalOrdersConfirmRetryPaymentRequest](../../models/operations/customerportalordersconfirmretrypaymentrequest.md)                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.CustomerPortalOrdersConfirmRetryPaymentSecurity](../../models/operations/customerportalordersconfirmretrypaymentsecurity.md)                                       | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.CustomerOrderPaymentConfirmation](../../models/components/customerorderpaymentconfirmation.md)\>**
 
 ### Errors
 

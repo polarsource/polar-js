@@ -113,12 +113,6 @@ export type Order = {
    */
   netAmount: number;
   /**
-   * Amount in cents, after discounts but before taxes.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  amount: number;
-  /**
    * Sales tax amount in cents.
    */
   taxAmount: number;
@@ -351,7 +345,6 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     subtotal_amount: z.number().int(),
     discount_amount: z.number().int(),
     net_amount: z.number().int(),
-    amount: z.number().int(),
     tax_amount: z.number().int(),
     total_amount: z.number().int(),
     refunded_amount: z.number().int(),
@@ -427,7 +420,6 @@ export type Order$Outbound = {
   subtotal_amount: number;
   discount_amount: number;
   net_amount: number;
-  amount: number;
   tax_amount: number;
   total_amount: number;
   refunded_amount: number;
@@ -473,7 +465,6 @@ export const Order$outboundSchema: z.ZodType<
   subtotalAmount: z.number().int(),
   discountAmount: z.number().int(),
   netAmount: z.number().int(),
-  amount: z.number().int(),
   taxAmount: z.number().int(),
   totalAmount: z.number().int(),
   refundedAmount: z.number().int(),
