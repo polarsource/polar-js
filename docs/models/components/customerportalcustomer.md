@@ -12,14 +12,18 @@ let value: CustomerPortalCustomer = {
   email: "Katharina.Frami89@gmail.com",
   emailVerified: true,
   name: "<value>",
-  billingAddress: {
-    country: "US",
-  },
+  billingName: "<value>",
+  billingAddress: null,
   taxId: [
     "911144442",
     "us_ein",
   ],
-  oauthAccounts: {},
+  oauthAccounts: {
+    "key": {
+      accountId: "<id>",
+      accountUsername: "<value>",
+    },
+  },
 };
 ```
 
@@ -33,6 +37,7 @@ let value: CustomerPortalCustomer = {
 | `email`                                                                                                        | *string*                                                                                                       | :heavy_check_mark:                                                                                             | N/A                                                                                                            |                                                                                                                |
 | `emailVerified`                                                                                                | *boolean*                                                                                                      | :heavy_check_mark:                                                                                             | N/A                                                                                                            |                                                                                                                |
 | `name`                                                                                                         | *string*                                                                                                       | :heavy_check_mark:                                                                                             | N/A                                                                                                            |                                                                                                                |
+| `billingName`                                                                                                  | *string*                                                                                                       | :heavy_check_mark:                                                                                             | N/A                                                                                                            |                                                                                                                |
 | `billingAddress`                                                                                               | [components.Address](../../models/components/address.md)                                                       | :heavy_check_mark:                                                                                             | N/A                                                                                                            |                                                                                                                |
 | `taxId`                                                                                                        | *components.CustomerPortalCustomerTaxId*[]                                                                     | :heavy_check_mark:                                                                                             | N/A                                                                                                            | [<br/>"911144442",<br/>"us_ein"<br/>]                                                                          |
 | `oauthAccounts`                                                                                                | Record<string, [components.CustomerPortalOAuthAccount](../../models/components/customerportaloauthaccount.md)> | :heavy_check_mark:                                                                                             | N/A                                                                                                            |                                                                                                                |

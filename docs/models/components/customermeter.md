@@ -51,7 +51,7 @@ let value: CustomerMeter = {
       clauses: [],
     },
     aggregation: {
-      func: "max",
+      func: "min",
       property: "<value>",
     },
     organizationId: "<value>",

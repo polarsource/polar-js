@@ -15,8 +15,7 @@ import {
 } from "./address.js";
 
 export type CustomerPortalCustomerUpdate = {
-  email?: string | null | undefined;
-  name?: string | null | undefined;
+  billingName?: string | null | undefined;
   billingAddress?: Address | null | undefined;
   taxId?: string | null | undefined;
 };
@@ -27,12 +26,12 @@ export const CustomerPortalCustomerUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  email: z.nullable(z.string()).optional(),
-  name: z.nullable(z.string()).optional(),
+  billing_name: z.nullable(z.string()).optional(),
   billing_address: z.nullable(Address$inboundSchema).optional(),
   tax_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "billing_name": "billingName",
     "billing_address": "billingAddress",
     "tax_id": "taxId",
   });
@@ -40,8 +39,7 @@ export const CustomerPortalCustomerUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerPortalCustomerUpdate$Outbound = {
-  email?: string | null | undefined;
-  name?: string | null | undefined;
+  billing_name?: string | null | undefined;
   billing_address?: Address$Outbound | null | undefined;
   tax_id?: string | null | undefined;
 };
@@ -52,12 +50,12 @@ export const CustomerPortalCustomerUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerPortalCustomerUpdate
 > = z.object({
-  email: z.nullable(z.string()).optional(),
-  name: z.nullable(z.string()).optional(),
+  billingName: z.nullable(z.string()).optional(),
   billingAddress: z.nullable(Address$outboundSchema).optional(),
   taxId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    billingName: "billing_name",
     billingAddress: "billing_address",
     taxId: "tax_id",
   });

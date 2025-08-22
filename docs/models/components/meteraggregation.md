@@ -41,6 +41,14 @@ const value: components.PropertyAggregation = {
 };
 ```
 
+### `components.UniqueAggregation`
+
+```typescript
+const value: components.UniqueAggregation = {
+  property: "<value>",
+};
+```
+
 ### `components.CountAggregation`
 
 ```typescript

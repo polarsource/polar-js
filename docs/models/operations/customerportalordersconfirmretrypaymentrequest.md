@@ -7,9 +7,7 @@ import { CustomerPortalOrdersConfirmRetryPaymentRequest } from "@polar-sh/sdk/mo
 
 let value: CustomerPortalOrdersConfirmRetryPaymentRequest = {
   id: "<value>",
-  customerOrderConfirmPayment: {
-    confirmationTokenId: "<id>",
-  },
+  customerOrderConfirmPayment: {},
 };
 ```
 

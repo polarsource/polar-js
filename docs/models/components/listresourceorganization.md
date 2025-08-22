@@ -17,22 +17,23 @@ let value: ListResourceOrganization = {
       email: "Jonathon_Jacobson65@gmail.com",
       website: "<value>",
       socials: [],
-      detailsSubmittedAt: new Date("2024-01-23T19:08:17.452Z"),
+      status: "active",
+      detailsSubmittedAt: new Date("2023-02-28T07:49:59.254Z"),
       featureSettings: null,
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
-        prorationBehavior: "prorate",
+        prorationBehavior: "invoice",
       },
       notificationSettings: {
         newOrder: true,
-        newSubscription: true,
+        newSubscription: false,
       },
     },
   ],
   pagination: {
-    totalCount: 47105,
-    maxPage: 607201,
+    totalCount: 607201,
+    maxPage: 808600,
   },
 };
 ```

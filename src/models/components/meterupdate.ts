@@ -24,6 +24,12 @@ import {
   PropertyAggregation$Outbound,
   PropertyAggregation$outboundSchema,
 } from "./propertyaggregation.js";
+import {
+  UniqueAggregation,
+  UniqueAggregation$inboundSchema,
+  UniqueAggregation$Outbound,
+  UniqueAggregation$outboundSchema,
+} from "./uniqueaggregation.js";
 
 export type MeterUpdateMetadata = string | number | number | boolean;
 
@@ -32,6 +38,7 @@ export type Aggregation =
   | (PropertyAggregation & { func: "max" })
   | (PropertyAggregation & { func: "min" })
   | (PropertyAggregation & { func: "sum" })
+  | (UniqueAggregation & { func: "unique" })
   | (CountAggregation & { func: "count" });
 
 export type MeterUpdate = {
@@ -67,6 +74,7 @@ export type MeterUpdate = {
     | (PropertyAggregation & { func: "max" })
     | (PropertyAggregation & { func: "min" })
     | (PropertyAggregation & { func: "sum" })
+    | (UniqueAggregation & { func: "unique" })
     | (CountAggregation & { func: "count" })
     | null
     | undefined;
@@ -138,6 +146,11 @@ export const Aggregation$inboundSchema: z.ZodType<
   PropertyAggregation$inboundSchema.and(
     z.object({ func: z.literal("sum") }).transform((v) => ({ func: v.func })),
   ),
+  UniqueAggregation$inboundSchema.and(
+    z.object({ func: z.literal("unique") }).transform((v) => ({
+      func: v.func,
+    })),
+  ),
   CountAggregation$inboundSchema.and(
     z.object({ func: z.literal("count") }).transform((v) => ({ func: v.func })),
   ),
@@ -149,6 +162,7 @@ export type Aggregation$Outbound =
   | (PropertyAggregation$Outbound & { func: "max" })
   | (PropertyAggregation$Outbound & { func: "min" })
   | (PropertyAggregation$Outbound & { func: "sum" })
+  | (UniqueAggregation$Outbound & { func: "unique" })
   | (CountAggregation$Outbound & { func: "count" });
 
 /** @internal */
@@ -168,6 +182,11 @@ export const Aggregation$outboundSchema: z.ZodType<
   ),
   PropertyAggregation$outboundSchema.and(
     z.object({ func: z.literal("sum") }).transform((v) => ({ func: v.func })),
+  ),
+  UniqueAggregation$outboundSchema.and(
+    z.object({ func: z.literal("unique") }).transform((v) => ({
+      func: v.func,
+    })),
   ),
   CountAggregation$outboundSchema.and(
     z.object({ func: z.literal("count") }).transform((v) => ({ func: v.func })),
@@ -234,6 +253,11 @@ export const MeterUpdate$inboundSchema: z.ZodType<
           func: v.func,
         })),
       ),
+      UniqueAggregation$inboundSchema.and(
+        z.object({ func: z.literal("unique") }).transform((v) => ({
+          func: v.func,
+        })),
+      ),
       CountAggregation$inboundSchema.and(
         z.object({ func: z.literal("count") }).transform((v) => ({
           func: v.func,
@@ -253,6 +277,7 @@ export type MeterUpdate$Outbound = {
     | (PropertyAggregation$Outbound & { func: "max" })
     | (PropertyAggregation$Outbound & { func: "min" })
     | (PropertyAggregation$Outbound & { func: "sum" })
+    | (UniqueAggregation$Outbound & { func: "unique" })
     | (CountAggregation$Outbound & { func: "count" })
     | null
     | undefined;
@@ -288,6 +313,11 @@ export const MeterUpdate$outboundSchema: z.ZodType<
       ),
       PropertyAggregation$outboundSchema.and(
         z.object({ func: z.literal("sum") }).transform((v) => ({
+          func: v.func,
+        })),
+      ),
+      UniqueAggregation$outboundSchema.and(
+        z.object({ func: z.literal("unique") }).transform((v) => ({
           func: v.func,
         })),
       ),
