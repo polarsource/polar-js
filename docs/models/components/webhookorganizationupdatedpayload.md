@@ -21,16 +21,17 @@ let value: WebhookOrganizationUpdatedPayload = {
     email: "Jovan0@yahoo.com",
     website: "<value>",
     socials: [],
-    detailsSubmittedAt: new Date("2023-09-16T13:33:14.923Z"),
+    status: "active",
+    detailsSubmittedAt: new Date("2023-10-14T23:14:45.952Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: false,
       allowCustomerUpdates: false,
-      prorationBehavior: "prorate",
+      prorationBehavior: "invoice",
     },
     notificationSettings: {
       newOrder: true,
-      newSubscription: true,
+      newSubscription: false,
     },
   },
 };

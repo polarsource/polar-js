@@ -43,6 +43,7 @@ export type CustomerPortalCustomer = {
   email: string;
   emailVerified: boolean;
   name: string | null;
+  billingName: string | null;
   billingAddress: Address | null;
   taxId: Array<string | TaxIDFormat | null> | null;
   oauthAccounts: { [k: string]: CustomerPortalOAuthAccount };
@@ -113,6 +114,7 @@ export const CustomerPortalCustomer$inboundSchema: z.ZodType<
   email: z.string(),
   email_verified: z.boolean(),
   name: z.nullable(z.string()),
+  billing_name: z.nullable(z.string()),
   billing_address: z.nullable(Address$inboundSchema),
   tax_id: z.nullable(
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
@@ -124,6 +126,7 @@ export const CustomerPortalCustomer$inboundSchema: z.ZodType<
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
     "email_verified": "emailVerified",
+    "billing_name": "billingName",
     "billing_address": "billingAddress",
     "tax_id": "taxId",
     "oauth_accounts": "oauthAccounts",
@@ -139,6 +142,7 @@ export type CustomerPortalCustomer$Outbound = {
   email: string;
   email_verified: boolean;
   name: string | null;
+  billing_name: string | null;
   billing_address: Address$Outbound | null;
   tax_id: Array<string | string | null> | null;
   oauth_accounts: { [k: string]: CustomerPortalOAuthAccount$Outbound };
@@ -157,6 +161,7 @@ export const CustomerPortalCustomer$outboundSchema: z.ZodType<
   email: z.string(),
   emailVerified: z.boolean(),
   name: z.nullable(z.string()),
+  billingName: z.nullable(z.string()),
   billingAddress: z.nullable(Address$outboundSchema),
   taxId: z.nullable(
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
@@ -168,6 +173,7 @@ export const CustomerPortalCustomer$outboundSchema: z.ZodType<
     createdAt: "created_at",
     modifiedAt: "modified_at",
     emailVerified: "email_verified",
+    billingName: "billing_name",
     billingAddress: "billing_address",
     taxId: "tax_id",
     oauthAccounts: "oauth_accounts",

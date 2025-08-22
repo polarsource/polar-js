@@ -27,6 +27,7 @@ let value: CustomerPortalBenefitGrantsListResponse = {
           email: "Sedrick_Paucek@hotmail.com",
           emailVerified: true,
           name: "<value>",
+          billingName: "<value>",
           billingAddress: {
             country: "US",
           },
@@ -34,12 +35,7 @@ let value: CustomerPortalBenefitGrantsListResponse = {
             "911144442",
             "us_ein",
           ],
-          oauthAccounts: {
-            "key": {
-              accountId: "<id>",
-              accountUsername: "<value>",
-            },
-          },
+          oauthAccounts: {},
         },
         benefit: {
           id: "<value>",
@@ -67,18 +63,19 @@ let value: CustomerPortalBenefitGrantsListResponse = {
                 url: "https://expert-elevation.org",
               },
             ],
-            detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+            status: "denied",
+            detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
             featureSettings: {
               issueFundingEnabled: false,
             },
             subscriptionSettings: {
               allowMultipleSubscriptions: false,
               allowCustomerUpdates: false,
-              prorationBehavior: "prorate",
+              prorationBehavior: "invoice",
             },
             notificationSettings: {
               newOrder: true,
-              newSubscription: true,
+              newSubscription: false,
             },
           },
           properties: {
@@ -95,8 +92,8 @@ let value: CustomerPortalBenefitGrantsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 47105,
-      maxPage: 607201,
+      totalCount: 607201,
+      maxPage: 808600,
     },
   },
 };

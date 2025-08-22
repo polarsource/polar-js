@@ -16,7 +16,6 @@ let value: CustomerPortalCustomerUpdate = {
 
 | Field                                                    | Type                                                     | Required                                                 | Description                                              |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `email`                                                  | *string*                                                 | :heavy_minus_sign:                                       | N/A                                                      |
-| `name`                                                   | *string*                                                 | :heavy_minus_sign:                                       | N/A                                                      |
+| `billingName`                                            | *string*                                                 | :heavy_minus_sign:                                       | N/A                                                      |
 | `billingAddress`                                         | [components.Address](../../models/components/address.md) | :heavy_minus_sign:                                       | N/A                                                      |
 | `taxId`                                                  | *string*                                                 | :heavy_minus_sign:                                       | N/A                                                      |

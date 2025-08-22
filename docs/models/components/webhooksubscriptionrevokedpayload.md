@@ -209,7 +209,7 @@ let value: WebhookSubscriptionRevokedPayload = {
             clauses: [],
           },
           aggregation: {
-            func: "max",
+            func: "min",
             property: "<value>",
           },
           organizationId: "<value>",

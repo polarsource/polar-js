@@ -9,8 +9,8 @@ let value: DiscountsListResponse = {
   result: {
     items: [],
     pagination: {
-      totalCount: 47105,
-      maxPage: 607201,
+      totalCount: 607201,
+      maxPage: 808600,
     },
   },
 };

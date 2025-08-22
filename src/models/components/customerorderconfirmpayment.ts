@@ -14,13 +14,17 @@ import {
 } from "./paymentprocessor.js";
 
 /**
- * Schema to confirm a retry payment using a Stripe confirmation token.
+ * Schema to confirm a retry payment using either a saved payment method or a new confirmation token.
  */
 export type CustomerOrderConfirmPayment = {
   /**
-   * ID of the Stripe confirmation token.
+   * ID of the Stripe confirmation token for new payment methods.
    */
-  confirmationTokenId: string;
+  confirmationTokenId?: string | null | undefined;
+  /**
+   * ID of an existing saved payment method.
+   */
+  paymentMethodId?: string | null | undefined;
   paymentProcessor?: PaymentProcessor | undefined;
 };
 
@@ -30,18 +34,21 @@ export const CustomerOrderConfirmPayment$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  confirmation_token_id: z.string(),
+  confirmation_token_id: z.nullable(z.string()).optional(),
+  payment_method_id: z.nullable(z.string()).optional(),
   payment_processor: PaymentProcessor$inboundSchema.optional(),
 }).transform((v) => {
   return remap$(v, {
     "confirmation_token_id": "confirmationTokenId",
+    "payment_method_id": "paymentMethodId",
     "payment_processor": "paymentProcessor",
   });
 });
 
 /** @internal */
 export type CustomerOrderConfirmPayment$Outbound = {
-  confirmation_token_id: string;
+  confirmation_token_id?: string | null | undefined;
+  payment_method_id?: string | null | undefined;
   payment_processor?: string | undefined;
 };
 
@@ -51,11 +58,13 @@ export const CustomerOrderConfirmPayment$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerOrderConfirmPayment
 > = z.object({
-  confirmationTokenId: z.string(),
+  confirmationTokenId: z.nullable(z.string()).optional(),
+  paymentMethodId: z.nullable(z.string()).optional(),
   paymentProcessor: PaymentProcessor$outboundSchema.optional(),
 }).transform((v) => {
   return remap$(v, {
     confirmationTokenId: "confirmation_token_id",
+    paymentMethodId: "payment_method_id",
     paymentProcessor: "payment_processor",
   });
 });

@@ -75,16 +75,17 @@ let value: ListResourceCustomerOrder = {
               url: "https://expert-elevation.org",
             },
           ],
-          detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+          status: "denied",
+          detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
           featureSettings: {},
           subscriptionSettings: {
             allowMultipleSubscriptions: false,
             allowCustomerUpdates: false,
-            prorationBehavior: "prorate",
+            prorationBehavior: "invoice",
           },
           notificationSettings: {
             newOrder: true,
-            newSubscription: true,
+            newSubscription: false,
           },
         },
       },
@@ -125,8 +126,8 @@ let value: ListResourceCustomerOrder = {
     },
   ],
   pagination: {
-    totalCount: 47105,
-    maxPage: 607201,
+    totalCount: 607201,
+    maxPage: 808600,
   },
 };
 ```

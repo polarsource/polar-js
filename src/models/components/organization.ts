@@ -31,6 +31,11 @@ import {
   OrganizationSubscriptionSettings$Outbound,
   OrganizationSubscriptionSettings$outboundSchema,
 } from "./organizationsubscriptionsettings.js";
+import {
+  Status,
+  Status$inboundSchema,
+  Status$outboundSchema,
+} from "./status.js";
 
 export type Organization = {
   /**
@@ -69,6 +74,7 @@ export type Organization = {
    * Links to social profiles.
    */
   socials: Array<OrganizationSocialLink>;
+  status: Status;
   /**
    * When the business details were submitted.
    */
@@ -98,6 +104,7 @@ export const Organization$inboundSchema: z.ZodType<
   email: z.nullable(z.string()),
   website: z.nullable(z.string()),
   socials: z.array(OrganizationSocialLink$inboundSchema),
+  status: Status$inboundSchema,
   details_submitted_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
@@ -127,6 +134,7 @@ export type Organization$Outbound = {
   email: string | null;
   website: string | null;
   socials: Array<OrganizationSocialLink$Outbound>;
+  status: string;
   details_submitted_at: string | null;
   feature_settings: OrganizationFeatureSettings$Outbound | null;
   subscription_settings: OrganizationSubscriptionSettings$Outbound;
@@ -148,6 +156,7 @@ export const Organization$outboundSchema: z.ZodType<
   email: z.nullable(z.string()),
   website: z.nullable(z.string()),
   socials: z.array(OrganizationSocialLink$outboundSchema),
+  status: Status$outboundSchema,
   detailsSubmittedAt: z.nullable(z.date().transform(v => v.toISOString())),
   featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema),
   subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,

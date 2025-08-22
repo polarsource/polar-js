@@ -25,6 +25,7 @@ const value: components.CustomerBenefitGrantDiscord = {
     email: "Sedrick_Paucek@hotmail.com",
     emailVerified: true,
     name: "<value>",
+    billingName: "<value>",
     billingAddress: {
       country: "US",
     },
@@ -32,12 +33,7 @@ const value: components.CustomerBenefitGrantDiscord = {
       "911144442",
       "us_ein",
     ],
-    oauthAccounts: {
-      "key": {
-        accountId: "<id>",
-        accountUsername: "<value>",
-      },
-    },
+    oauthAccounts: {},
   },
   benefit: {
     id: "<value>",
@@ -67,16 +63,17 @@ const value: components.CustomerBenefitGrantDiscord = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      status: "denied",
+      detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
-        prorationBehavior: "prorate",
+        prorationBehavior: "invoice",
       },
       notificationSettings: {
         newOrder: true,
-        newSubscription: true,
+        newSubscription: false,
       },
     },
     properties: {
@@ -109,6 +106,7 @@ const value: components.CustomerBenefitGrantGitHubRepository = {
     email: "Sedrick_Paucek@hotmail.com",
     emailVerified: true,
     name: "<value>",
+    billingName: "<value>",
     billingAddress: {
       country: "US",
     },
@@ -116,12 +114,7 @@ const value: components.CustomerBenefitGrantGitHubRepository = {
       "911144442",
       "us_ein",
     ],
-    oauthAccounts: {
-      "key": {
-        accountId: "<id>",
-        accountUsername: "<value>",
-      },
-    },
+    oauthAccounts: {},
   },
   benefit: {
     id: "<value>",
@@ -150,16 +143,17 @@ const value: components.CustomerBenefitGrantGitHubRepository = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      status: "denied",
+      detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
-        prorationBehavior: "prorate",
+        prorationBehavior: "invoice",
       },
       notificationSettings: {
         newOrder: true,
-        newSubscription: true,
+        newSubscription: false,
       },
     },
     properties: {
@@ -193,6 +187,7 @@ const value: components.CustomerBenefitGrantDownloadables = {
     email: "Sedrick_Paucek@hotmail.com",
     emailVerified: true,
     name: "<value>",
+    billingName: "<value>",
     billingAddress: {
       country: "US",
     },
@@ -200,12 +195,7 @@ const value: components.CustomerBenefitGrantDownloadables = {
       "911144442",
       "us_ein",
     ],
-    oauthAccounts: {
-      "key": {
-        accountId: "<id>",
-        accountUsername: "<value>",
-      },
-    },
+    oauthAccounts: {},
   },
   benefit: {
     id: "<value>",
@@ -232,16 +222,17 @@ const value: components.CustomerBenefitGrantDownloadables = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      status: "denied",
+      detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
-        prorationBehavior: "prorate",
+        prorationBehavior: "invoice",
       },
       notificationSettings: {
         newOrder: true,
-        newSubscription: true,
+        newSubscription: false,
       },
     },
     properties: {
@@ -278,6 +269,7 @@ const value: components.CustomerBenefitGrantLicenseKeys = {
     email: "Sedrick_Paucek@hotmail.com",
     emailVerified: true,
     name: "<value>",
+    billingName: "<value>",
     billingAddress: {
       country: "US",
     },
@@ -285,12 +277,7 @@ const value: components.CustomerBenefitGrantLicenseKeys = {
       "911144442",
       "us_ein",
     ],
-    oauthAccounts: {
-      "key": {
-        accountId: "<id>",
-        accountUsername: "<value>",
-      },
-    },
+    oauthAccounts: {},
   },
   benefit: {
     id: "<value>",
@@ -319,16 +306,17 @@ const value: components.CustomerBenefitGrantLicenseKeys = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      status: "denied",
+      detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
-        prorationBehavior: "prorate",
+        prorationBehavior: "invoice",
       },
       notificationSettings: {
         newOrder: true,
-        newSubscription: true,
+        newSubscription: false,
       },
     },
     properties: {
@@ -370,6 +358,7 @@ const value: components.CustomerBenefitGrantCustom = {
     email: "Sedrick_Paucek@hotmail.com",
     emailVerified: true,
     name: "<value>",
+    billingName: "<value>",
     billingAddress: {
       country: "US",
     },
@@ -377,12 +366,7 @@ const value: components.CustomerBenefitGrantCustom = {
       "911144442",
       "us_ein",
     ],
-    oauthAccounts: {
-      "key": {
-        accountId: "<id>",
-        accountUsername: "<value>",
-      },
-    },
+    oauthAccounts: {},
   },
   benefit: {
     id: "<value>",
@@ -412,16 +396,17 @@ const value: components.CustomerBenefitGrantCustom = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      status: "denied",
+      detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
-        prorationBehavior: "prorate",
+        prorationBehavior: "invoice",
       },
       notificationSettings: {
         newOrder: true,
-        newSubscription: true,
+        newSubscription: false,
       },
     },
     properties: {
@@ -454,6 +439,7 @@ const value: components.CustomerBenefitGrantMeterCredit = {
     email: "Sedrick_Paucek@hotmail.com",
     emailVerified: true,
     name: "<value>",
+    billingName: "<value>",
     billingAddress: {
       country: "US",
     },
@@ -461,12 +447,7 @@ const value: components.CustomerBenefitGrantMeterCredit = {
       "911144442",
       "us_ein",
     ],
-    oauthAccounts: {
-      "key": {
-        accountId: "<id>",
-        accountUsername: "<value>",
-      },
-    },
+    oauthAccounts: {},
   },
   benefit: {
     id: "<value>",
@@ -494,16 +475,17 @@ const value: components.CustomerBenefitGrantMeterCredit = {
           url: "https://expert-elevation.org",
         },
       ],
-      detailsSubmittedAt: new Date("2025-12-07T19:21:48.818Z"),
+      status: "denied",
+      detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
         allowCustomerUpdates: false,
-        prorationBehavior: "prorate",
+        prorationBehavior: "invoice",
       },
       notificationSettings: {
         newOrder: true,
-        newSubscription: true,
+        newSubscription: false,
       },
     },
     properties: {

@@ -20,16 +20,17 @@ let value: Organization = {
       url: "https://expert-elevation.org",
     },
   ],
-  detailsSubmittedAt: new Date("2025-10-04T08:15:14.612Z"),
+  status: "under_review",
+  detailsSubmittedAt: new Date("2025-10-05T17:13:52.775Z"),
   featureSettings: {},
   subscriptionSettings: {
     allowMultipleSubscriptions: false,
     allowCustomerUpdates: false,
-    prorationBehavior: "prorate",
+    prorationBehavior: "invoice",
   },
   notificationSettings: {
     newOrder: true,
-    newSubscription: true,
+    newSubscription: false,
   },
 };
 ```
@@ -47,6 +48,7 @@ let value: Organization = {
 | `email`                                                                                                    | *string*                                                                                                   | :heavy_check_mark:                                                                                         | Public support email.                                                                                      |                                                                                                            |
 | `website`                                                                                                  | *string*                                                                                                   | :heavy_check_mark:                                                                                         | Official website of the organization.                                                                      |                                                                                                            |
 | `socials`                                                                                                  | [components.OrganizationSocialLink](../../models/components/organizationsociallink.md)[]                   | :heavy_check_mark:                                                                                         | Links to social profiles.                                                                                  |                                                                                                            |
+| `status`                                                                                                   | [components.Status](../../models/components/status.md)                                                     | :heavy_check_mark:                                                                                         | N/A                                                                                                        |                                                                                                            |
 | `detailsSubmittedAt`                                                                                       | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)              | :heavy_check_mark:                                                                                         | When the business details were submitted.                                                                  |                                                                                                            |
 | `featureSettings`                                                                                          | [components.OrganizationFeatureSettings](../../models/components/organizationfeaturesettings.md)           | :heavy_check_mark:                                                                                         | Organization feature settings                                                                              |                                                                                                            |
 | `subscriptionSettings`                                                                                     | [components.OrganizationSubscriptionSettings](../../models/components/organizationsubscriptionsettings.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |                                                                                                            |
