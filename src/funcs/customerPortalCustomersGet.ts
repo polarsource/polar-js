@@ -5,7 +5,7 @@
 import { PolarCore } from "../core.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
-import { RequestOptions } from "../lib/sdks.js";
+import { RequestOptions, DEFAULT_RETRY_CODES } from "../lib/sdks.js";
 import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
@@ -106,7 +106,7 @@ async function $do(
     retryConfig: options?.retries
       || client._options.retryConfig
       || { strategy: "none" },
-    retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
+    retryCodes: options?.retryCodes || DEFAULT_RETRY_CODES,
   };
 
   const requestRes = client._createRequest(context, {

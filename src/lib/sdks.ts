@@ -56,6 +56,8 @@ export type RequestOptions = {
   fetchOptions?: Omit<RequestInit, "method" | "body">;
 } & Omit<RequestInit, "method" | "body">;
 
+export const DEFAULT_RETRY_CODES: string[] = ["429", "500", "502", "503", "504"];
+
 type RequestConfig = {
   method: string;
   path: string;
