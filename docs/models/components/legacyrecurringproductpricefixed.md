@@ -17,7 +17,7 @@ let value: LegacyRecurringProductPriceFixed = {
   isArchived: false,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "year",
+  recurringInterval: "month",
   priceCurrency: "<value>",
   priceAmount: 555601,
   legacy: true,

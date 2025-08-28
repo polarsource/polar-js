@@ -325,6 +325,7 @@ run();
 | ---------------------------------- | ---------------------------------- | ---------------------------------- |
 | errors.AlreadyCanceledSubscription | 403                                | application/json                   |
 | errors.ResourceNotFound            | 404                                | application/json                   |
+| errors.SubscriptionLocked          | 409                                | application/json                   |
 | errors.HTTPValidationError         | 422                                | application/json                   |
 | errors.SDKError                    | 4XX, 5XX                           | \*/\*                              |
 
@@ -403,5 +404,6 @@ run();
 | ---------------------------------- | ---------------------------------- | ---------------------------------- |
 | errors.AlreadyCanceledSubscription | 403                                | application/json                   |
 | errors.ResourceNotFound            | 404                                | application/json                   |
+| errors.SubscriptionLocked          | 409                                | application/json                   |
 | errors.HTTPValidationError         | 422                                | application/json                   |
 | errors.SDKError                    | 4XX, 5XX                           | \*/\*                              |

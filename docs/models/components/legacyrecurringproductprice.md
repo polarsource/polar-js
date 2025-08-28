@@ -14,7 +14,7 @@ const value: components.LegacyRecurringProductPriceCustom = {
   isArchived: true,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "month",
+  recurringInterval: "day",
   priceCurrency: "<value>",
   minimumAmount: 96295,
   maximumAmount: 385918,
@@ -34,7 +34,7 @@ const value: components.LegacyRecurringProductPriceFixed = {
   isArchived: false,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "year",
+  recurringInterval: "month",
   priceCurrency: "<value>",
   priceAmount: 555601,
   legacy: true,
@@ -52,7 +52,7 @@ const value: components.LegacyRecurringProductPriceFree = {
   isArchived: true,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "year",
+  recurringInterval: "month",
   legacy: true,
 };
 ```

@@ -37,6 +37,10 @@ import {
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
+  SubscriptionLocked,
+  SubscriptionLocked$inboundSchema,
+} from "../models/errors/subscriptionlocked.js";
+import {
   SubscriptionsUpdateRequest,
   SubscriptionsUpdateRequest$outboundSchema,
 } from "../models/operations/subscriptionsupdate.js";
@@ -60,6 +64,7 @@ export function subscriptionsUpdate(
     Subscription,
     | AlreadyCanceledSubscription
     | ResourceNotFound
+    | SubscriptionLocked
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -88,6 +93,7 @@ async function $do(
       Subscription,
       | AlreadyCanceledSubscription
       | ResourceNotFound
+      | SubscriptionLocked
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -164,7 +170,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["403", "404", "422", "4XX", "5XX"],
+    errorCodes: ["403", "404", "409", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -181,6 +187,7 @@ async function $do(
     Subscription,
     | AlreadyCanceledSubscription
     | ResourceNotFound
+    | SubscriptionLocked
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -194,6 +201,7 @@ async function $do(
     M.json(200, Subscription$inboundSchema),
     M.jsonErr(403, AlreadyCanceledSubscription$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(409, SubscriptionLocked$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

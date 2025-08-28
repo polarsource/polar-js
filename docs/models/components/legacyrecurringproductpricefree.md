@@ -17,7 +17,7 @@ let value: LegacyRecurringProductPriceFree = {
   isArchived: true,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "year",
+  recurringInterval: "month",
   legacy: true,
 };
 ```

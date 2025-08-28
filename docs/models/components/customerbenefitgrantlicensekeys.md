@@ -47,13 +47,13 @@ let value: CustomerBenefitGrantLicenseKeys = {
       "key": true,
     },
     organization: {
-      createdAt: new Date("2025-01-01T18:22:02.718Z"),
-      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+      createdAt: new Date("2025-10-05T12:57:48.267Z"),
+      modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: null,
-      email: "Hannah_Price@gmail.com",
+      avatarUrl: "https://medium-object.org",
+      email: "Elena.Barton@hotmail.com",
       website: "<value>",
       socials: [
         {
@@ -62,7 +62,7 @@ let value: CustomerBenefitGrantLicenseKeys = {
         },
       ],
       status: "denied",
-      detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
+      detailsSubmittedAt: new Date("2024-02-17T13:14:03.864Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: false,
@@ -77,12 +77,12 @@ let value: CustomerBenefitGrantLicenseKeys = {
     properties: {
       prefix: "<value>",
       expires: {
-        ttl: 56931,
-        timeframe: "month",
+        ttl: 93452,
+        timeframe: "day",
       },
       activations: {
-        limit: 936323,
-        enableCustomerAdmin: false,
+        limit: 777902,
+        enableCustomerAdmin: true,
       },
       limitUsage: 596467,
     },

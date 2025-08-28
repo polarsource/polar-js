@@ -33,7 +33,7 @@ const value: components.ProductPriceFixed = {
   isArchived: true,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "year",
+  recurringInterval: "month",
   priceCurrency: "<value>",
   priceAmount: 286494,
 };
@@ -65,7 +65,7 @@ const value: components.ProductPriceMeteredUnit = {
   isArchived: false,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "year",
+  recurringInterval: "month",
   priceCurrency: "<value>",
   unitAmount: "<value>",
   capAmount: 700651,

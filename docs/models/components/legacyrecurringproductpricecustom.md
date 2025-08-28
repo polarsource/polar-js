@@ -17,7 +17,7 @@ let value: LegacyRecurringProductPriceCustom = {
   isArchived: true,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "month",
+  recurringInterval: "day",
   priceCurrency: "<value>",
   minimumAmount: 96295,
   maximumAmount: 385918,

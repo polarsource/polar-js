@@ -80,7 +80,7 @@ let value: WebhookOrderCreatedPayload = {
       id: "<value>",
       name: "<value>",
       description: null,
-      recurringInterval: "month",
+      recurringInterval: "day",
       isRecurring: false,
       isArchived: false,
       organizationId: "<value>",

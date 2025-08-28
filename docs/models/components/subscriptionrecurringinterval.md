@@ -11,5 +11,5 @@ let value: SubscriptionRecurringInterval = "year";
 ## Values
 
 ```typescript
-"month" | "year"
+"day" | "week" | "month" | "year"
 ```
