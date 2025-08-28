@@ -14,7 +14,7 @@ let value: OrderSubscription = {
   id: "<value>",
   amount: 850155,
   currency: "Pataca",
-  recurringInterval: "year",
+  recurringInterval: "month",
   status: "past_due",
   currentPeriodStart: new Date("2025-01-12T21:23:56.904Z"),
   currentPeriodEnd: null,

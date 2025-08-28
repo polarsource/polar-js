@@ -15,7 +15,7 @@ let value: ProductPriceFixed = {
   isArchived: true,
   productId: "<value>",
   type: "recurring",
-  recurringInterval: "year",
+  recurringInterval: "month",
   priceCurrency: "<value>",
   priceAmount: 286494,
 };

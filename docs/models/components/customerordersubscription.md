@@ -11,7 +11,7 @@ let value: CustomerOrderSubscription = {
   id: "<value>",
   amount: 213517,
   currency: "Riel",
-  recurringInterval: "year",
+  recurringInterval: "month",
   status: "incomplete",
   currentPeriodStart: new Date("2023-04-07T23:21:33.368Z"),
   currentPeriodEnd: new Date("2024-11-21T15:31:03.002Z"),

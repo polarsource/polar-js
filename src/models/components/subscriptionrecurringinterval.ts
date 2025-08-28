@@ -6,6 +6,8 @@ import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 
 export const SubscriptionRecurringInterval = {
+  Day: "day",
+  Week: "week",
   Month: "month",
   Year: "year",
 } as const;

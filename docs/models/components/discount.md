@@ -59,7 +59,7 @@ const value: components.DiscountFixedRepeatDuration = {
       name: "<value>",
       description:
         "lively trained clear-cut wonderfully brightly unfortunate because peppery",
-      recurringInterval: "month",
+      recurringInterval: "week",
       isRecurring: true,
       isArchived: false,
       organizationId: "<value>",
@@ -95,7 +95,7 @@ const value: components.DiscountPercentageOnceForeverDuration = {
       name: "<value>",
       description:
         "lively trained clear-cut wonderfully brightly unfortunate because peppery",
-      recurringInterval: "month",
+      recurringInterval: "week",
       isRecurring: true,
       isArchived: false,
       organizationId: "<value>",
@@ -132,7 +132,7 @@ const value: components.DiscountPercentageRepeatDuration = {
       name: "<value>",
       description:
         "lively trained clear-cut wonderfully brightly unfortunate because peppery",
-      recurringInterval: "month",
+      recurringInterval: "week",
       isRecurring: true,
       isArchived: false,
       organizationId: "<value>",

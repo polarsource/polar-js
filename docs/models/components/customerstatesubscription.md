@@ -17,7 +17,7 @@ let value: CustomerStateSubscription = {
   status: "active",
   amount: 1000,
   currency: "usd",
-  recurringInterval: "month",
+  recurringInterval: "week",
   currentPeriodStart: new Date("2025-02-03T13:37:00Z"),
   currentPeriodEnd: new Date("2025-03-03T13:37:00Z"),
   cancelAtPeriodEnd: false,

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 325f9072ad8465148f22517ea0de69e4
+  docChecksum: eeb0f1f42fb9628db8079036aafd6205
   docVersion: 0.1.0
-  speakeasyVersion: 1.606.2
-  generationVersion: 2.687.1
-  releaseVersion: 0.34.13
-  configChecksum: ace6bd5e965352976e41513db917f1e2
+  speakeasyVersion: 1.606.8
+  generationVersion: 2.687.13
+  releaseVersion: 0.34.14
+  configChecksum: 637d0272d6ece215373674540edcfab9
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -680,6 +680,7 @@ generatedFiles:
   - docs/models/errors/refundamounttoohigh.md
   - docs/models/errors/refundedalready.md
   - docs/models/errors/resourcenotfound.md
+  - docs/models/errors/subscriptionlocked.md
   - docs/models/errors/unauthorized.md
   - docs/models/operations/benefitidfilter.md
   - docs/models/operations/benefitsdeleterequest.md
@@ -1591,6 +1592,7 @@ generatedFiles:
   - src/models/errors/responsevalidationerror.ts
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/subscriptionlocked.ts
   - src/models/errors/unauthorized.ts
   - src/models/operations/benefitsdelete.ts
   - src/models/operations/benefitsget.ts
@@ -2082,6 +2084,8 @@ examples:
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
           application/json: {}
+        "409":
+          application/json: {"error": "SubscriptionLocked", "detail": "<value>"}
   subscriptions:revoke:
     speakeasy-default-subscriptions:revoke:
       parameters:
@@ -2096,6 +2100,8 @@ examples:
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
           application/json: {}
+        "409":
+          application/json: {"error": "SubscriptionLocked", "detail": "<value>"}
   oauth2:authorize:
     speakeasy-default-oauth2-:authorize:
       responses:
@@ -3602,4 +3608,7 @@ examples:
           application/json: {"error": "OrderNotEligibleForRetry", "detail": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## SDK Changes Detected:\n* `polar.customerPortal.customers.update()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.billing_name` **Added**\n* `polar.customerPortal.customers.get()`:  `response.billing_name` **Added**\n* `polar.customerPortal.subscriptions.list()`:  `response.items.[].product.organization.status` **Added**\n* `polar.organizations.update()`:  `response.status` **Added**\n* `polar.subscriptions.list()`:  `response.items.[].meters.[].meter.aggregation.[max]` **Added**\n* `polar.subscriptions.get()`:  `response.meters.[].meter.aggregation.[max]` **Added**\n* `polar.subscriptions.revoke()`:  `response.meters.[].meter.aggregation.[max]` **Added**\n* `polar.subscriptions.update()`:  `response.meters.[].meter.aggregation.[max]` **Added**\n* `polar.checkouts.clientGet()`:  `response.organization.status` **Added**\n* `polar.checkouts.clientUpdate()`:  `response.organization.status` **Added**\n* `polar.checkouts.clientConfirm()`:  `response.organization.status` **Added**\n* `polar.customerPortal.benefitGrants.list()`:  `response.items.[].[customerBenefitGrantCustom]` **Changed**\n* `polar.customerPortal.benefitGrants.get()`:  `response.[customerbenefitgrantdiscord]` **Changed**\n* `polar.customerPortal.benefitGrants.update()`:  `response.[customerbenefitgrantdownloadables]` **Changed**\n* `polar.organizations.list()`:  `response.items.[].status` **Added**\n* `polar.organizations.get()`:  `response.status` **Added**\n* `polar.organizations.create()`:  `response.status` **Added**\n* `polar.customerPortal.subscriptions.cancel()`:  `response.product.organization.status` **Added**\n* `polar.customerPortal.orders.update()`:  `response.product.organization.status` **Added**\n* `polar.customerPortal.orders.confirmRetryPayment()`: \n  *  `request.customerOrderConfirmPayment` **Changed**\n* `polar.customerPortal.organizations.get()`:  `response.organization.status` **Added**\n* `polar.customerPortal.orders.list()`:  `response.items.[].product.organization.status` **Added**\n* `polar.customerPortal.subscriptions.get()`:  `response.product.organization.status` **Added**\n* `polar.customerPortal.orders.get()`:  `response.product.organization.status` **Added**\n* `polar.customerPortal.subscriptions.update()`:  `response.product.organization.status` **Added**\n* `polar.meters.list()`:  `response.items.[].aggregation.[max]` **Added**\n* `polar.meters.create()`: \n  *  `request.aggregation.[max]` **Added**\n  *  `response.aggregation.[max]` **Added**\n* `polar.meters.get()`:  `response.aggregation.[max]` **Added**\n* `polar.meters.update()`: \n  *  `request.meterUpdate.aggregation.[max]` **Added**\n  *  `response.aggregation.[max]` **Added**\n* `polar.customerMeters.list()`:  `response.items.[].meter.aggregation.[max]` **Added**\n* `polar.customerMeters.get()`:  `response.meter.aggregation.[max]` **Added**\n"
+releaseNotes: |
+  ## SDK Changes Detected:
+  * `polar.subscriptions.revoke()`:  `error.status[409]` **Added**
+  * `polar.subscriptions.update()`:  `error.status[409]` **Added**
