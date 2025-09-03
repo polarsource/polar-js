@@ -40,7 +40,7 @@ let value: BenefitUpdatedEvent = {
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "discord",
+    benefitType: "github_repository",
   },
 };
 ```

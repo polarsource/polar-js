@@ -40,6 +40,10 @@ export type MetersListRequest = {
    */
   query?: string | null | undefined;
   /**
+   * Filter on archived meters.
+   */
+  isArchived?: boolean | null | undefined;
+  /**
    * Page number, defaults to 1.
    */
   page?: number | undefined;
@@ -131,6 +135,7 @@ export const MetersListRequest$inboundSchema: z.ZodType<
   organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   query: z.nullable(z.string()).optional(),
+  is_archived: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(MeterSortProperty$inboundSchema)).optional(),
@@ -138,6 +143,7 @@ export const MetersListRequest$inboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
+    "is_archived": "isArchived",
   });
 });
 
@@ -145,6 +151,7 @@ export const MetersListRequest$inboundSchema: z.ZodType<
 export type MetersListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   query?: string | null | undefined;
+  is_archived?: boolean | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -160,6 +167,7 @@ export const MetersListRequest$outboundSchema: z.ZodType<
   organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   query: z.nullable(z.string()).optional(),
+  isArchived: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(MeterSortProperty$outboundSchema)).optional(),
@@ -167,6 +175,7 @@ export const MetersListRequest$outboundSchema: z.ZodType<
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
+    isArchived: "is_archived",
   });
 });
 

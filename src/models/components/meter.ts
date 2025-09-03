@@ -78,6 +78,10 @@ export type Meter = {
    * The ID of the organization owning the meter.
    */
   organizationId: string;
+  /**
+   * Whether the meter is archived and the time it was archived.
+   */
+  archivedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -268,11 +272,15 @@ export const Meter$inboundSchema: z.ZodType<Meter, z.ZodTypeDef, unknown> = z
       ),
     ]),
     organization_id: z.string(),
+    archived_at: z.nullable(
+      z.string().datetime({ offset: true }).transform(v => new Date(v)),
+    ).optional(),
   }).transform((v) => {
     return remap$(v, {
       "created_at": "createdAt",
       "modified_at": "modifiedAt",
       "organization_id": "organizationId",
+      "archived_at": "archivedAt",
     });
   });
 
@@ -292,6 +300,7 @@ export type Meter$Outbound = {
     | (UniqueAggregation$Outbound & { func: "unique" })
     | (CountAggregation$Outbound & { func: "count" });
   organization_id: string;
+  archived_at?: string | null | undefined;
 };
 
 /** @internal */
@@ -333,11 +342,13 @@ export const Meter$outboundSchema: z.ZodType<
     ),
   ]),
   organizationId: z.string(),
+  archivedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
     organizationId: "organization_id",
+    archivedAt: "archived_at",
   });
 });
 

@@ -42,6 +42,24 @@ import {
   MeterResetEvent$Outbound,
   MeterResetEvent$outboundSchema,
 } from "./meterresetevent.js";
+import {
+  SubscriptionCycledEvent,
+  SubscriptionCycledEvent$inboundSchema,
+  SubscriptionCycledEvent$Outbound,
+  SubscriptionCycledEvent$outboundSchema,
+} from "./subscriptioncycledevent.js";
+import {
+  SubscriptionProductUpdatedEvent,
+  SubscriptionProductUpdatedEvent$inboundSchema,
+  SubscriptionProductUpdatedEvent$Outbound,
+  SubscriptionProductUpdatedEvent$outboundSchema,
+} from "./subscriptionproductupdatedevent.js";
+import {
+  SubscriptionRevokedEvent,
+  SubscriptionRevokedEvent$inboundSchema,
+  SubscriptionRevokedEvent$Outbound,
+  SubscriptionRevokedEvent$outboundSchema,
+} from "./subscriptionrevokedevent.js";
 
 export type SystemEvent =
   | (BenefitCycledEvent & { name: "benefit.cycled" })
@@ -49,7 +67,10 @@ export type SystemEvent =
   | (BenefitRevokedEvent & { name: "benefit.revoked" })
   | (BenefitUpdatedEvent & { name: "benefit.updated" })
   | (MeterCreditEvent & { name: "meter.credited" })
-  | (MeterResetEvent & { name: "meter.reset" });
+  | (MeterResetEvent & { name: "meter.reset" })
+  | (SubscriptionCycledEvent & { name: "subscription.cycled" })
+  | (SubscriptionProductUpdatedEvent & { name: "subscription.product_updated" })
+  | (SubscriptionRevokedEvent & { name: "subscription.revoked" });
 
 /** @internal */
 export const SystemEvent$inboundSchema: z.ZodType<
@@ -87,6 +108,21 @@ export const SystemEvent$inboundSchema: z.ZodType<
       name: v.name,
     })),
   ),
+  SubscriptionCycledEvent$inboundSchema.and(
+    z.object({ name: z.literal("subscription.cycled") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
+  SubscriptionProductUpdatedEvent$inboundSchema.and(
+    z.object({ name: z.literal("subscription.product_updated") }).transform((
+      v,
+    ) => ({ name: v.name })),
+  ),
+  SubscriptionRevokedEvent$inboundSchema.and(
+    z.object({ name: z.literal("subscription.revoked") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
 ]);
 
 /** @internal */
@@ -96,7 +132,12 @@ export type SystemEvent$Outbound =
   | (BenefitRevokedEvent$Outbound & { name: "benefit.revoked" })
   | (BenefitUpdatedEvent$Outbound & { name: "benefit.updated" })
   | (MeterCreditEvent$Outbound & { name: "meter.credited" })
-  | (MeterResetEvent$Outbound & { name: "meter.reset" });
+  | (MeterResetEvent$Outbound & { name: "meter.reset" })
+  | (SubscriptionCycledEvent$Outbound & { name: "subscription.cycled" })
+  | (SubscriptionProductUpdatedEvent$Outbound & {
+    name: "subscription.product_updated";
+  })
+  | (SubscriptionRevokedEvent$Outbound & { name: "subscription.revoked" });
 
 /** @internal */
 export const SystemEvent$outboundSchema: z.ZodType<
@@ -131,6 +172,21 @@ export const SystemEvent$outboundSchema: z.ZodType<
   ),
   MeterResetEvent$outboundSchema.and(
     z.object({ name: z.literal("meter.reset") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
+  SubscriptionCycledEvent$outboundSchema.and(
+    z.object({ name: z.literal("subscription.cycled") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
+  SubscriptionProductUpdatedEvent$outboundSchema.and(
+    z.object({ name: z.literal("subscription.product_updated") }).transform((
+      v,
+    ) => ({ name: v.name })),
+  ),
+  SubscriptionRevokedEvent$outboundSchema.and(
+    z.object({ name: z.literal("subscription.revoked") }).transform((v) => ({
       name: v.name,
     })),
   ),

@@ -40,7 +40,7 @@ let value: BenefitRevokedEvent = {
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
-    benefitType: "discord",
+    benefitType: "github_repository",
   },
 };
 ```
