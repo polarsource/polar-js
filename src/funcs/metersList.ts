@@ -122,6 +122,7 @@ async function $do(
       "metadata": payload.metadata,
     }),
     encodeFormQuery({
+      "is_archived": payload.is_archived,
       "limit": payload.limit,
       "organization_id": payload.organization_id,
       "page": payload.page,

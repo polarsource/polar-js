@@ -12,7 +12,7 @@ let value: Meter = {
   id: "<value>",
   name: "<value>",
   filter: {
-    conjunction: "or",
+    conjunction: "and",
     clauses: [],
   },
   aggregation: {
@@ -35,3 +35,4 @@ let value: Meter = {
 | `filter`                                                                                      | [components.Filter](../../models/components/filter.md)                                        | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `aggregation`                                                                                 | *components.MeterAggregation*                                                                 | :heavy_check_mark:                                                                            | The aggregation to apply on the filtered events to calculate the meter.                       |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the organization owning the meter.                                                  |
+| `archivedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | Whether the meter is archived and the time it was archived.                                   |

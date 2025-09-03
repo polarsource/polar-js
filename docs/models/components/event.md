@@ -35,11 +35,11 @@ const value: components.SystemEvent = {
   },
   externalCustomerId: "<id>",
   source: "system",
-  name: "benefit.updated",
+  name: "meter.credited",
   metadata: {
-    benefitId: "<id>",
-    benefitGrantId: "<id>",
-    benefitType: "discord",
+    meterId: "<id>",
+    units: 329918,
+    rollover: true,
   },
 };
 ```

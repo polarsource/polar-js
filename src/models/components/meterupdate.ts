@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -78,6 +79,10 @@ export type MeterUpdate = {
     | (CountAggregation & { func: "count" })
     | null
     | undefined;
+  /**
+   * Whether the meter is archived. Archived meters are no longer used for billing.
+   */
+  isArchived?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -265,6 +270,11 @@ export const MeterUpdate$inboundSchema: z.ZodType<
       ),
     ]),
   ).optional(),
+  is_archived: z.nullable(z.boolean()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "is_archived": "isArchived",
+  });
 });
 
 /** @internal */
@@ -281,6 +291,7 @@ export type MeterUpdate$Outbound = {
     | (CountAggregation$Outbound & { func: "count" })
     | null
     | undefined;
+  is_archived?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -328,6 +339,11 @@ export const MeterUpdate$outboundSchema: z.ZodType<
       ),
     ]),
   ).optional(),
+  isArchived: z.nullable(z.boolean()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    isArchived: "is_archived",
+  });
 });
 
 /**

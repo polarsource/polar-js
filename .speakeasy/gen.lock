@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: eeb0f1f42fb9628db8079036aafd6205
+  docChecksum: 0af22990b5b3efb6f4d574b1012e95e2
   docVersion: 0.1.0
-  speakeasyVersion: 1.606.8
-  generationVersion: 2.687.13
-  releaseVersion: 0.34.14
-  configChecksum: 637d0272d6ece215373674540edcfab9
+  speakeasyVersion: 1.607.1
+  generationVersion: 2.690.1
+  releaseVersion: 0.34.15
+  configChecksum: 27b2a33358d1b962aea17f9981ed60c3
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.20
+    core: 3.21.21
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.0
@@ -596,12 +596,18 @@ generatedFiles:
   - docs/models/components/subscriptioncancel.md
   - docs/models/components/subscriptioncustomer.md
   - docs/models/components/subscriptioncustomermetadata.md
+  - docs/models/components/subscriptioncycledevent.md
+  - docs/models/components/subscriptioncycledmetadata.md
   - docs/models/components/subscriptiondiscount.md
   - docs/models/components/subscriptionmeter.md
   - docs/models/components/subscriptionprices.md
+  - docs/models/components/subscriptionproductupdatedevent.md
+  - docs/models/components/subscriptionproductupdatedmetadata.md
   - docs/models/components/subscriptionprorationbehavior.md
   - docs/models/components/subscriptionrecurringinterval.md
   - docs/models/components/subscriptionrevoke.md
+  - docs/models/components/subscriptionrevokedevent.md
+  - docs/models/components/subscriptionrevokedmetadata.md
   - docs/models/components/subscriptionsortproperty.md
   - docs/models/components/subscriptionstatus.md
   - docs/models/components/subscriptionupdate.md
@@ -676,6 +682,7 @@ generatedFiles:
   - docs/models/errors/ordersgenerateinvoiceresponse422ordersgenerateinvoice.md
   - docs/models/errors/paymentalreadyinprogress.md
   - docs/models/errors/paymenterror.md
+  - docs/models/errors/paymentmethodinusebyactivesubscription.md
   - docs/models/errors/paymentnotready.md
   - docs/models/errors/refundamounttoohigh.md
   - docs/models/errors/refundedalready.md
@@ -1513,10 +1520,16 @@ generatedFiles:
   - src/models/components/subscription.ts
   - src/models/components/subscriptioncancel.ts
   - src/models/components/subscriptioncustomer.ts
+  - src/models/components/subscriptioncycledevent.ts
+  - src/models/components/subscriptioncycledmetadata.ts
   - src/models/components/subscriptionmeter.ts
+  - src/models/components/subscriptionproductupdatedevent.ts
+  - src/models/components/subscriptionproductupdatedmetadata.ts
   - src/models/components/subscriptionprorationbehavior.ts
   - src/models/components/subscriptionrecurringinterval.ts
   - src/models/components/subscriptionrevoke.ts
+  - src/models/components/subscriptionrevokedevent.ts
+  - src/models/components/subscriptionrevokedmetadata.ts
   - src/models/components/subscriptionslist.ts
   - src/models/components/subscriptionsortproperty.ts
   - src/models/components/subscriptionstatus.ts
@@ -1584,6 +1597,7 @@ generatedFiles:
   - src/models/errors/ordersgenerateinvoice.ts
   - src/models/errors/paymentalreadyinprogress.ts
   - src/models/errors/paymenterror.ts
+  - src/models/errors/paymentmethodinusebyactivesubscription.ts
   - src/models/errors/paymentnotready.ts
   - src/models/errors/polarerror.ts
   - src/models/errors/refundamounttoohigh.ts
@@ -3003,6 +3017,8 @@ examples:
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
           application/json: {}
+        "400":
+          application/json: {"error": "PaymentMethodInUseByActiveSubscription", "detail": "<value>"}
   customer_portal:customer_meters:list:
     speakeasy-default-customer-portal:customer-meters:list:
       parameters:
@@ -3608,7 +3624,4 @@ examples:
           application/json: {"error": "OrderNotEligibleForRetry", "detail": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## SDK Changes Detected:
-  * `polar.subscriptions.revoke()`:  `error.status[409]` **Added**
-  * `polar.subscriptions.update()`:  `error.status[409]` **Added**
+releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.subscriptions.list()`:  `response.items.[].meters.[].meter.archivedAt` **Added**\n* `polar.subscriptions.get()`:  `response.meters.[].meter.archivedAt` **Added**\n* `polar.subscriptions.revoke()`:  `response.meters.[].meter.archivedAt` **Added**\n* `polar.subscriptions.update()`:  `response.meters.[].meter.archivedAt` **Added**\n* `polar.customerPortal.customers.deletePaymentMethod()`:  `error.status[400]` **Added**\n* `polar.events.list()`:  `response.items.[].[systemEvent]` **Changed**\n* `polar.events.get()`:  `response.[systemevent]` **Changed**\n* `polar.meters.list()`: \n  *  `request.isArchived` **Added**\n  *  `response.items.[].archivedAt` **Added**\n* `polar.meters.create()`:  `response.archived_at` **Added**\n* `polar.meters.get()`:  `response.archived_at` **Added**\n* `polar.meters.update()`: \n  *  `request.meterUpdate.isArchived` **Added**\n  *  `response.archived_at` **Added**\n* `polar.customerMeters.list()`:  `response.items.[].meter.archivedAt` **Added**\n* `polar.customerMeters.get()`:  `response.meter.archivedAt` **Added**\n"
