@@ -9,7 +9,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerBenefitGrantGitHubRepositoryPropertiesUpdate = {
-  accountId: string;
+  accountId: string | null;
 };
 
 /** @internal */
@@ -19,7 +19,7 @@ export const CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    account_id: z.string(),
+    account_id: z.nullable(z.string()),
   }).transform((v) => {
     return remap$(v, {
       "account_id": "accountId",
@@ -28,7 +28,7 @@ export const CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$inboundSchema:
 
 /** @internal */
 export type CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$Outbound = {
-  account_id: string;
+  account_id: string | null;
 };
 
 /** @internal */
@@ -38,7 +38,7 @@ export const CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$outboundSchema
     z.ZodTypeDef,
     CustomerBenefitGrantGitHubRepositoryPropertiesUpdate
   > = z.object({
-    accountId: z.string(),
+    accountId: z.nullable(z.string()),
   }).transform((v) => {
     return remap$(v, {
       accountId: "account_id",

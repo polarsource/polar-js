@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 0af22990b5b3efb6f4d574b1012e95e2
+  docChecksum: a5858ba3386834d5e2c542946cae3a50
   docVersion: 0.1.0
-  speakeasyVersion: 1.607.1
-  generationVersion: 2.690.1
-  releaseVersion: 0.34.15
-  configChecksum: 27b2a33358d1b962aea17f9981ed60c3
+  speakeasyVersion: 1.609.0
+  generationVersion: 2.692.0
+  releaseVersion: 0.34.16
+  configChecksum: c2070cf18b09abeee5dd34749747d5df
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.21
+    core: 3.21.22
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.0
@@ -3624,4 +3624,4 @@ examples:
           application/json: {"error": "OrderNotEligibleForRetry", "detail": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.subscriptions.list()`:  `response.items.[].meters.[].meter.archivedAt` **Added**\n* `polar.subscriptions.get()`:  `response.meters.[].meter.archivedAt` **Added**\n* `polar.subscriptions.revoke()`:  `response.meters.[].meter.archivedAt` **Added**\n* `polar.subscriptions.update()`:  `response.meters.[].meter.archivedAt` **Added**\n* `polar.customerPortal.customers.deletePaymentMethod()`:  `error.status[400]` **Added**\n* `polar.events.list()`:  `response.items.[].[systemEvent]` **Changed**\n* `polar.events.get()`:  `response.[systemevent]` **Changed**\n* `polar.meters.list()`: \n  *  `request.isArchived` **Added**\n  *  `response.items.[].archivedAt` **Added**\n* `polar.meters.create()`:  `response.archived_at` **Added**\n* `polar.meters.get()`:  `response.archived_at` **Added**\n* `polar.meters.update()`: \n  *  `request.meterUpdate.isArchived` **Added**\n  *  `response.archived_at` **Added**\n* `polar.customerMeters.list()`:  `response.items.[].meter.archivedAt` **Added**\n* `polar.customerMeters.get()`:  `response.meter.archivedAt` **Added**\n"
+releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.benefits.grants()`:  `response.items.[].properties` **Changed** **Breaking** :warning:\n* `polar.customers.getState()`:  `response.granted_benefits.[].properties` **Changed** **Breaking** :warning:\n* `polar.customers.getStateExternal()`:  `response.granted_benefits.[].properties` **Changed** **Breaking** :warning:\n* `polar.customerPortal.benefitGrants.list()`:  `response.items.[]` **Changed** **Breaking** :warning:\n* `polar.customerPortal.benefitGrants.get()`:  `response` **Changed** **Breaking** :warning:\n* `polar.customerPortal.benefitGrants.update()`: \n  *  `request.customerBenefitGrantUpdate` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n"

@@ -21,10 +21,11 @@ export type BenefitGrantGitHubRepositoryPropertiesPermission = ClosedEnum<
 >;
 
 export type BenefitGrantGitHubRepositoryProperties = {
-  accountId?: string | undefined;
+  accountId?: string | null | undefined;
   repositoryOwner?: string | undefined;
   repositoryName?: string | undefined;
   permission?: BenefitGrantGitHubRepositoryPropertiesPermission | undefined;
+  grantedAccountId?: string | undefined;
 };
 
 /** @internal */
@@ -56,25 +57,28 @@ export const BenefitGrantGitHubRepositoryProperties$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  account_id: z.string().optional(),
+  account_id: z.nullable(z.string()).optional(),
   repository_owner: z.string().optional(),
   repository_name: z.string().optional(),
   permission: BenefitGrantGitHubRepositoryPropertiesPermission$inboundSchema
     .optional(),
+  granted_account_id: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
     "account_id": "accountId",
     "repository_owner": "repositoryOwner",
     "repository_name": "repositoryName",
+    "granted_account_id": "grantedAccountId",
   });
 });
 
 /** @internal */
 export type BenefitGrantGitHubRepositoryProperties$Outbound = {
-  account_id?: string | undefined;
+  account_id?: string | null | undefined;
   repository_owner?: string | undefined;
   repository_name?: string | undefined;
   permission?: string | undefined;
+  granted_account_id?: string | undefined;
 };
 
 /** @internal */
@@ -83,16 +87,18 @@ export const BenefitGrantGitHubRepositoryProperties$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGrantGitHubRepositoryProperties
 > = z.object({
-  accountId: z.string().optional(),
+  accountId: z.nullable(z.string()).optional(),
   repositoryOwner: z.string().optional(),
   repositoryName: z.string().optional(),
   permission: BenefitGrantGitHubRepositoryPropertiesPermission$outboundSchema
     .optional(),
+  grantedAccountId: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
     accountId: "account_id",
     repositoryOwner: "repository_owner",
     repositoryName: "repository_name",
+    grantedAccountId: "granted_account_id",
   });
 });
 
