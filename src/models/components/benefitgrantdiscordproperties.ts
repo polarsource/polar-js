@@ -9,9 +9,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitGrantDiscordProperties = {
-  accountId?: string | undefined;
+  accountId?: string | null | undefined;
   guildId?: string | undefined;
   roleId?: string | undefined;
+  grantedAccountId?: string | undefined;
 };
 
 /** @internal */
@@ -20,22 +21,25 @@ export const BenefitGrantDiscordProperties$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  account_id: z.string().optional(),
+  account_id: z.nullable(z.string()).optional(),
   guild_id: z.string().optional(),
   role_id: z.string().optional(),
+  granted_account_id: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
     "account_id": "accountId",
     "guild_id": "guildId",
     "role_id": "roleId",
+    "granted_account_id": "grantedAccountId",
   });
 });
 
 /** @internal */
 export type BenefitGrantDiscordProperties$Outbound = {
-  account_id?: string | undefined;
+  account_id?: string | null | undefined;
   guild_id?: string | undefined;
   role_id?: string | undefined;
+  granted_account_id?: string | undefined;
 };
 
 /** @internal */
@@ -44,14 +48,16 @@ export const BenefitGrantDiscordProperties$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGrantDiscordProperties
 > = z.object({
-  accountId: z.string().optional(),
+  accountId: z.nullable(z.string()).optional(),
   guildId: z.string().optional(),
   roleId: z.string().optional(),
+  grantedAccountId: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
     accountId: "account_id",
     guildId: "guild_id",
     roleId: "role_id",
+    grantedAccountId: "granted_account_id",
   });
 });
 

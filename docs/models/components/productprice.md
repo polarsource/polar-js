@@ -3,29 +3,6 @@
 
 ## Supported Types
 
-### `components.ProductPriceMeteredUnit`
-
-```typescript
-const value: components.ProductPriceMeteredUnit = {
-  createdAt: new Date("2023-10-22T15:18:33.510Z"),
-  modifiedAt: null,
-  id: "<value>",
-  amountType: "metered_unit",
-  isArchived: false,
-  productId: "<value>",
-  type: "recurring",
-  recurringInterval: "month",
-  priceCurrency: "<value>",
-  unitAmount: "<value>",
-  capAmount: 700651,
-  meterId: "<value>",
-  meter: {
-    id: "<value>",
-    name: "<value>",
-  },
-};
-```
-
 ### `components.ProductPriceCustom`
 
 ```typescript
@@ -74,6 +51,29 @@ const value: components.ProductPriceFree = {
   productId: "<value>",
   type: "recurring",
   recurringInterval: "year",
+};
+```
+
+### `components.ProductPriceMeteredUnit`
+
+```typescript
+const value: components.ProductPriceMeteredUnit = {
+  createdAt: new Date("2023-10-22T15:18:33.510Z"),
+  modifiedAt: null,
+  id: "<value>",
+  amountType: "metered_unit",
+  isArchived: false,
+  productId: "<value>",
+  type: "recurring",
+  recurringInterval: "month",
+  priceCurrency: "<value>",
+  unitAmount: "<value>",
+  capAmount: 700651,
+  meterId: "<value>",
+  meter: {
+    id: "<value>",
+    name: "<value>",
+  },
 };
 ```
 
