@@ -15,11 +15,14 @@ import { WebhookCustomerUpdatedPayload } from "@polar-sh/sdk/models/components/w
 
 let value: WebhookCustomerUpdatedPayload = {
   type: "customer.updated",
+  timestamp: new Date("2023-04-17T17:52:21.274Z"),
   data: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-07-14T00:49:20.816Z"),
-    modifiedAt: new Date("2023-10-13T13:15:56.261Z"),
-    metadata: {},
+    createdAt: new Date("2025-01-09T10:52:27.442Z"),
+    modifiedAt: new Date("2023-09-14T11:32:42.486Z"),
+    metadata: {
+      "key": "<value>",
+    },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
@@ -32,7 +35,7 @@ let value: WebhookCustomerUpdatedPayload = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2024-01-10T21:34:54.851Z"),
+    deletedAt: new Date("2024-09-19T01:01:52.549Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
 };
@@ -40,7 +43,8 @@ let value: WebhookCustomerUpdatedPayload = {
 
 ## Fields
 
-| Field                                                      | Type                                                       | Required                                                   | Description                                                | Example                                                    |
-| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `type`                                                     | *string*                                                   | :heavy_check_mark:                                         | N/A                                                        | customer.updated                                           |
-| `data`                                                     | [components.Customer](../../models/components/customer.md) | :heavy_check_mark:                                         | A customer in an organization.                             |                                                            |
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | customer.updated                                                                              |
+| `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `data`                                                                                        | [components.Customer](../../models/components/customer.md)                                    | :heavy_check_mark:                                                                            | A customer in an organization.                                                                |                                                                                               |

@@ -22,6 +22,7 @@ import {
  */
 export type WebhookOrderRefundedPayload = {
   type: "order.refunded";
+  timestamp: Date;
   data: Order;
 };
 
@@ -32,12 +33,14 @@ export const WebhookOrderRefundedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("order.refunded"),
+  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Order$inboundSchema,
 });
 
 /** @internal */
 export type WebhookOrderRefundedPayload$Outbound = {
   type: "order.refunded";
+  timestamp: string;
   data: Order$Outbound;
 };
 
@@ -48,6 +51,7 @@ export const WebhookOrderRefundedPayload$outboundSchema: z.ZodType<
   WebhookOrderRefundedPayload
 > = z.object({
   type: z.literal("order.refunded"),
+  timestamp: z.date().transform(v => v.toISOString()),
   data: Order$outboundSchema,
 });
 

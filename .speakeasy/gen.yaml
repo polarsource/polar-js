@@ -19,12 +19,13 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.34.16
+  version: 0.34.17
   additionalDependencies:
     dependencies:
       standardwebhooks: ^1.0.0
@@ -64,6 +65,7 @@ typescript:
   outputModelSuffix: output
   packageName: '@polar-sh/sdk'
   responseFormat: flat
+  sseFlatResponse: false
   templateVersion: v2
   usageSDKInitImports: []
   useIndexModules: false

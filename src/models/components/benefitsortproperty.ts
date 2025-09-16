@@ -10,6 +10,8 @@ export const BenefitSortProperty = {
   MinusCreatedAt: "-created_at",
   Description: "description",
   MinusDescription: "-description",
+  Type: "type",
+  MinusType: "-type",
 } as const;
 export type BenefitSortProperty = ClosedEnum<typeof BenefitSortProperty>;
 

@@ -9,9 +9,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitGrantMeterCreditProperties = {
-  lastCreditedMeterId: string;
-  lastCreditedUnits: number;
-  lastCreditedAt: string;
+  lastCreditedMeterId?: string | undefined;
+  lastCreditedUnits?: number | undefined;
+  lastCreditedAt?: string | undefined;
 };
 
 /** @internal */
@@ -20,9 +20,9 @@ export const BenefitGrantMeterCreditProperties$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  last_credited_meter_id: z.string(),
-  last_credited_units: z.number().int(),
-  last_credited_at: z.string(),
+  last_credited_meter_id: z.string().optional(),
+  last_credited_units: z.number().int().optional(),
+  last_credited_at: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
     "last_credited_meter_id": "lastCreditedMeterId",
@@ -33,9 +33,9 @@ export const BenefitGrantMeterCreditProperties$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BenefitGrantMeterCreditProperties$Outbound = {
-  last_credited_meter_id: string;
-  last_credited_units: number;
-  last_credited_at: string;
+  last_credited_meter_id?: string | undefined;
+  last_credited_units?: number | undefined;
+  last_credited_at?: string | undefined;
 };
 
 /** @internal */
@@ -44,9 +44,9 @@ export const BenefitGrantMeterCreditProperties$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BenefitGrantMeterCreditProperties
 > = z.object({
-  lastCreditedMeterId: z.string(),
-  lastCreditedUnits: z.number().int(),
-  lastCreditedAt: z.string(),
+  lastCreditedMeterId: z.string().optional(),
+  lastCreditedUnits: z.number().int().optional(),
+  lastCreditedAt: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
     lastCreditedMeterId: "last_credited_meter_id",

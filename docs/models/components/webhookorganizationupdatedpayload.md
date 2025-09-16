@@ -11,27 +11,33 @@ import { WebhookOrganizationUpdatedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookOrganizationUpdatedPayload = {
   type: "organization.updated",
+  timestamp: new Date("2023-07-16T02:28:27.582Z"),
   data: {
-    createdAt: new Date("2023-07-16T02:28:27.582Z"),
-    modifiedAt: new Date("2023-12-18T01:01:13.059Z"),
+    createdAt: new Date("2025-03-30T11:56:13.023Z"),
+    modifiedAt: new Date("2023-10-06T16:38:10.291Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://watery-numeric.net/",
-    email: "Jovan0@yahoo.com",
-    website: "<value>",
-    socials: [],
-    status: "active",
-    detailsSubmittedAt: new Date("2023-10-14T23:14:45.952Z"),
+    avatarUrl: "https://plain-reboot.info",
+    email: "Lola.Keebler@yahoo.com",
+    website: null,
+    socials: [
+      {
+        platform: "github",
+        url: "https://scratchy-midwife.net/",
+      },
+    ],
+    status: "onboarding_started",
+    detailsSubmittedAt: null,
     featureSettings: {},
     subscriptionSettings: {
-      allowMultipleSubscriptions: false,
-      allowCustomerUpdates: false,
+      allowMultipleSubscriptions: true,
+      allowCustomerUpdates: true,
       prorationBehavior: "invoice",
     },
     notificationSettings: {
-      newOrder: true,
-      newSubscription: false,
+      newOrder: false,
+      newSubscription: true,
     },
   },
 };
@@ -39,7 +45,8 @@ let value: WebhookOrganizationUpdatedPayload = {
 
 ## Fields
 
-| Field                                                              | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `type`                                                             | *string*                                                           | :heavy_check_mark:                                                 | N/A                                                                | organization.updated                                               |
-| `data`                                                             | [components.Organization](../../models/components/organization.md) | :heavy_check_mark:                                                 | N/A                                                                |                                                                    |
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | organization.updated                                                                          |
+| `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `data`                                                                                        | [components.Organization](../../models/components/organization.md)                            | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

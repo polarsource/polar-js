@@ -23,6 +23,7 @@ import {
  */
 export type WebhookBenefitGrantCycledPayload = {
   type: "benefit_grant.cycled";
+  timestamp: Date;
   data: BenefitGrantWebhook;
 };
 
@@ -33,12 +34,14 @@ export const WebhookBenefitGrantCycledPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("benefit_grant.cycled"),
+  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: BenefitGrantWebhook$inboundSchema,
 });
 
 /** @internal */
 export type WebhookBenefitGrantCycledPayload$Outbound = {
   type: "benefit_grant.cycled";
+  timestamp: string;
   data: BenefitGrantWebhook$Outbound;
 };
 
@@ -49,6 +52,7 @@ export const WebhookBenefitGrantCycledPayload$outboundSchema: z.ZodType<
   WebhookBenefitGrantCycledPayload
 > = z.object({
   type: z.literal("benefit_grant.cycled"),
+  timestamp: z.date().transform(v => v.toISOString()),
   data: BenefitGrantWebhook$outboundSchema,
 });
 

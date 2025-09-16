@@ -28,6 +28,7 @@ import {
  */
 export type WebhookCustomerStateChangedPayload = {
   type: "customer.state_changed";
+  timestamp: Date;
   /**
    * A customer along with additional state information:
    *
@@ -47,12 +48,14 @@ export const WebhookCustomerStateChangedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("customer.state_changed"),
+  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: CustomerState$inboundSchema,
 });
 
 /** @internal */
 export type WebhookCustomerStateChangedPayload$Outbound = {
   type: "customer.state_changed";
+  timestamp: string;
   data: CustomerState$Outbound;
 };
 
@@ -63,6 +66,7 @@ export const WebhookCustomerStateChangedPayload$outboundSchema: z.ZodType<
   WebhookCustomerStateChangedPayload
 > = z.object({
   type: z.literal("customer.state_changed"),
+  timestamp: z.date().transform(v => v.toISOString()),
   data: CustomerState$outboundSchema,
 });
 

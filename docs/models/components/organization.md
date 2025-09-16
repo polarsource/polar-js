@@ -16,21 +16,21 @@ let value: Organization = {
   website: null,
   socials: [
     {
-      platform: "youtube",
-      url: "https://expert-elevation.org",
+      platform: "github",
+      url: "https://scratchy-midwife.net/",
     },
   ],
   status: "under_review",
-  detailsSubmittedAt: new Date("2025-10-05T17:13:52.775Z"),
+  detailsSubmittedAt: new Date("2023-09-29T21:37:54.552Z"),
   featureSettings: {},
   subscriptionSettings: {
-    allowMultipleSubscriptions: false,
-    allowCustomerUpdates: false,
+    allowMultipleSubscriptions: true,
+    allowCustomerUpdates: true,
     prorationBehavior: "invoice",
   },
   notificationSettings: {
-    newOrder: true,
-    newSubscription: false,
+    newOrder: false,
+    newSubscription: true,
   },
 };
 ```

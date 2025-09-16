@@ -31,13 +31,17 @@ export type WebhookDelivery = {
    */
   id: string;
   /**
-   * The HTTP code returned by the URL. `null` if the endpoint was unreachable.
-   */
-  httpCode?: number | null | undefined;
-  /**
    * Whether the delivery was successful.
    */
   succeeded: boolean;
+  /**
+   * The HTTP code returned by the URL. `null` if the endpoint was unreachable.
+   */
+  httpCode: number | null;
+  /**
+   * The response body returned by the URL, or the error message if the endpoint was unreachable.
+   */
+  response: string | null;
   /**
    * A webhook event.
    *
@@ -63,8 +67,9 @@ export const WebhookDelivery$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   id: z.string(),
-  http_code: z.nullable(z.number().int()).optional(),
   succeeded: z.boolean(),
+  http_code: z.nullable(z.number().int()),
+  response: z.nullable(z.string()),
   webhook_event: WebhookEvent$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -80,8 +85,9 @@ export type WebhookDelivery$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  http_code?: number | null | undefined;
   succeeded: boolean;
+  http_code: number | null;
+  response: string | null;
   webhook_event: WebhookEvent$Outbound;
 };
 
@@ -94,8 +100,9 @@ export const WebhookDelivery$outboundSchema: z.ZodType<
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
   id: z.string(),
-  httpCode: z.nullable(z.number().int()).optional(),
   succeeded: z.boolean(),
+  httpCode: z.nullable(z.number().int()),
+  response: z.nullable(z.string()),
   webhookEvent: WebhookEvent$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

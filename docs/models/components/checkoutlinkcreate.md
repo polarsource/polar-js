@@ -1,4 +1,4 @@
-# CheckoutLinksCreateCheckoutLinkCreate
+# CheckoutLinkCreate
 
 
 ## Supported Types
@@ -29,6 +29,7 @@ const value: components.CheckoutLinkCreateProducts = {
   products: [
     "<value 1>",
     "<value 2>",
+    "<value 3>",
   ],
 };
 ```

@@ -11,30 +11,29 @@ import { WebhookBenefitCreatedPayload } from "@polar-sh/sdk/models/components/we
 
 let value: WebhookBenefitCreatedPayload = {
   type: "benefit.created",
+  timestamp: new Date("2025-02-08T18:43:22.755Z"),
   data: {
     id: "<value>",
-    createdAt: new Date("2025-01-07T07:50:46.923Z"),
-    modifiedAt: new Date("2023-11-11T10:54:49.602Z"),
+    createdAt: new Date("2025-01-16T07:13:19.224Z"),
+    modifiedAt: new Date("2025-06-11T23:07:15.256Z"),
     type: "license_keys",
     description:
-      "nervously psst neck fearless offensively close good-natured from portly",
+      "while sticky hm saturate inasmuch quizzically although formation helpful",
     selectable: true,
-    deletable: true,
+    deletable: false,
     organizationId: "<value>",
-    metadata: {
-      "key": "<value>",
-    },
+    metadata: {},
     properties: {
-      prefix: null,
+      prefix: "<value>",
       expires: {
-        ttl: 56931,
-        timeframe: "month",
+        ttl: 93452,
+        timeframe: "day",
       },
       activations: {
-        limit: 936323,
-        enableCustomerAdmin: false,
+        limit: 777902,
+        enableCustomerAdmin: true,
       },
-      limitUsage: 702937,
+      limitUsage: null,
     },
   },
 };
@@ -42,7 +41,8 @@ let value: WebhookBenefitCreatedPayload = {
 
 ## Fields
 
-| Field                | Type                 | Required             | Description          | Example              |
-| -------------------- | -------------------- | -------------------- | -------------------- | -------------------- |
-| `type`               | *string*             | :heavy_check_mark:   | N/A                  | benefit.created      |
-| `data`               | *components.Benefit* | :heavy_check_mark:   | N/A                  |                      |
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | benefit.created                                                                               |
+| `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `data`                                                                                        | *components.Benefit*                                                                          | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

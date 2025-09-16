@@ -18,6 +18,8 @@ let value: WebhookEvent = {
   modifiedAt: null,
   id: "<value>",
   payload: "<value>",
+  type: "subscription.active",
+  isArchived: true,
 };
 ```
 
@@ -31,3 +33,5 @@ let value: WebhookEvent = {
 | `lastHttpCode`                                                                                                   | *number*                                                                                                         | :heavy_minus_sign:                                                                                               | Last HTTP code returned by the URL. `null` if no delviery has been attempted or if the endpoint was unreachable. |
 | `succeeded`                                                                                                      | *boolean*                                                                                                        | :heavy_minus_sign:                                                                                               | Whether this event was successfully delivered. `null` if no delivery has been attempted.                         |
 | `payload`                                                                                                        | *string*                                                                                                         | :heavy_check_mark:                                                                                               | The payload of the webhook event.                                                                                |
+| `type`                                                                                                           | [components.WebhookEventType](../../models/components/webhookeventtype.md)                                       | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `isArchived`                                                                                                     | *boolean*                                                                                                        | :heavy_check_mark:                                                                                               | Whether this event is archived. Archived events can't be redelivered, and the payload is not accessible anymore. |

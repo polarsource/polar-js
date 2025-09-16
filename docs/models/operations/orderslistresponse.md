@@ -38,10 +38,10 @@ let value: OrdersListResponse = {
         },
         customer: {
           id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-          createdAt: new Date("2025-11-29T23:08:09.503Z"),
-          modifiedAt: new Date("2025-04-19T04:57:52.293Z"),
+          createdAt: new Date("2023-07-02T05:54:26.991Z"),
+          modifiedAt: new Date("2023-12-03T03:44:13.678Z"),
           metadata: {
-            "key": 9564.92,
+            "key": false,
           },
           externalId: "usr_1337",
           email: "customer@example.com",
@@ -55,13 +55,13 @@ let value: OrdersListResponse = {
             "us_ein",
           ],
           organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-          deletedAt: new Date("2024-08-01T02:10:59.019Z"),
+          deletedAt: new Date("2024-08-18T23:02:56.814Z"),
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
         },
         userId: "<value>",
         product: {
           metadata: {
-            "key": "<value>",
+            "key": 131.87,
           },
           createdAt: new Date("2024-09-10T09:53:33.542Z"),
           modifiedAt: new Date("2023-01-29T03:42:25.281Z"),

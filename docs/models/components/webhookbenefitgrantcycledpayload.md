@@ -12,11 +12,12 @@ import { WebhookBenefitGrantCycledPayload } from "@polar-sh/sdk/models/component
 
 let value: WebhookBenefitGrantCycledPayload = {
   type: "benefit_grant.cycled",
+  timestamp: new Date("2023-11-18T20:31:19.582Z"),
   data: {
-    createdAt: new Date("2025-10-02T04:38:09.243Z"),
-    modifiedAt: new Date("2023-10-21T01:27:19.889Z"),
+    createdAt: new Date("2024-12-12T14:18:47.000Z"),
+    modifiedAt: new Date("2025-02-02T08:48:30.457Z"),
     id: "<value>",
-    isGranted: true,
+    isGranted: false,
     isRevoked: false,
     subscriptionId: "<value>",
     orderId: "<value>",
@@ -24,10 +25,10 @@ let value: WebhookBenefitGrantCycledPayload = {
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2023-07-12T03:53:00.913Z"),
-      modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
+      createdAt: new Date("2024-04-26T10:19:45.222Z"),
+      modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
       metadata: {
-        "key": 5951.8,
+        "key": "<value>",
       },
       externalId: "usr_1337",
       email: "customer@example.com",
@@ -41,33 +42,36 @@ let value: WebhookBenefitGrantCycledPayload = {
         "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2024-07-29T02:37:49.390Z"),
+      deletedAt: new Date("2025-09-01T02:27:46.266Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
     },
-    properties: {},
     benefit: {
       id: "<value>",
-      createdAt: new Date("2024-10-15T22:21:01.919Z"),
-      modifiedAt: new Date("2023-02-16T12:33:48.786Z"),
+      createdAt: new Date("2023-08-12T07:30:21.850Z"),
+      modifiedAt: new Date("2023-04-19T07:07:21.162Z"),
       type: "github_repository",
-      description: "ouch woot geez wheel analyse duh",
-      selectable: false,
-      deletable: false,
+      description: "vicinity spectate publication athwart likely far",
+      selectable: true,
+      deletable: true,
       organizationId: "<value>",
-      metadata: {},
+      metadata: {
+        "key": false,
+      },
       properties: {
         repositoryOwner: "polarsource",
         repositoryName: "private_repo",
         permission: "admin",
       },
     },
+    properties: {},
   },
 };
 ```
 
 ## Fields
 
-| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `type`                                                                           | *string*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              | benefit_grant.cycled                                                             |
-| `data`                                                                           | [components.BenefitGrantWebhook](../../models/components/benefitgrantwebhook.md) | :heavy_check_mark:                                                               | N/A                                                                              |                                                                                  |
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | benefit_grant.cycled                                                                          |
+| `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `data`                                                                                        | *components.BenefitGrantWebhook*                                                              | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

@@ -22,6 +22,7 @@ import {
  */
 export type WebhookCheckoutUpdatedPayload = {
   type: "checkout.updated";
+  timestamp: Date;
   /**
    * Checkout session data retrieved using an access token.
    */
@@ -35,12 +36,14 @@ export const WebhookCheckoutUpdatedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("checkout.updated"),
+  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Checkout$inboundSchema,
 });
 
 /** @internal */
 export type WebhookCheckoutUpdatedPayload$Outbound = {
   type: "checkout.updated";
+  timestamp: string;
   data: Checkout$Outbound;
 };
 
@@ -51,6 +54,7 @@ export const WebhookCheckoutUpdatedPayload$outboundSchema: z.ZodType<
   WebhookCheckoutUpdatedPayload
 > = z.object({
   type: z.literal("checkout.updated"),
+  timestamp: z.date().transform(v => v.toISOString()),
   data: Checkout$outboundSchema,
 });
 
