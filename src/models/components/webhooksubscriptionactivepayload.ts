@@ -23,6 +23,7 @@ import {
  */
 export type WebhookSubscriptionActivePayload = {
   type: "subscription.active";
+  timestamp: Date;
   data: Subscription;
 };
 
@@ -33,12 +34,14 @@ export const WebhookSubscriptionActivePayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("subscription.active"),
+  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Subscription$inboundSchema,
 });
 
 /** @internal */
 export type WebhookSubscriptionActivePayload$Outbound = {
   type: "subscription.active";
+  timestamp: string;
   data: Subscription$Outbound;
 };
 
@@ -49,6 +52,7 @@ export const WebhookSubscriptionActivePayload$outboundSchema: z.ZodType<
   WebhookSubscriptionActivePayload
 > = z.object({
   type: z.literal("subscription.active"),
+  timestamp: z.date().transform(v => v.toISOString()),
   data: Subscription$outboundSchema,
 });
 

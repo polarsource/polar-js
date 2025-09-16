@@ -22,6 +22,7 @@ import {
  */
 export type WebhookProductCreatedPayload = {
   type: "product.created";
+  timestamp: Date;
   /**
    * A product.
    */
@@ -35,12 +36,14 @@ export const WebhookProductCreatedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("product.created"),
+  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Product$inboundSchema,
 });
 
 /** @internal */
 export type WebhookProductCreatedPayload$Outbound = {
   type: "product.created";
+  timestamp: string;
   data: Product$Outbound;
 };
 
@@ -51,6 +54,7 @@ export const WebhookProductCreatedPayload$outboundSchema: z.ZodType<
   WebhookProductCreatedPayload
 > = z.object({
   type: z.literal("product.created"),
+  timestamp: z.date().transform(v => v.toISOString()),
   data: Product$outboundSchema,
 });
 

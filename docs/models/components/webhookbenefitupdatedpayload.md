@@ -11,16 +11,19 @@ import { WebhookBenefitUpdatedPayload } from "@polar-sh/sdk/models/components/we
 
 let value: WebhookBenefitUpdatedPayload = {
   type: "benefit.updated",
+  timestamp: new Date("2024-04-12T19:00:24.836Z"),
   data: {
     id: "<value>",
-    createdAt: new Date("2024-05-19T01:49:21.918Z"),
-    modifiedAt: new Date("2023-08-26T23:40:36.460Z"),
+    createdAt: new Date("2024-08-16T12:57:27.941Z"),
+    modifiedAt: new Date("2025-01-19T10:49:02.218Z"),
     type: "github_repository",
-    description: "hotfoot than fortunately woefully unlawful yuck pfft apud",
+    description: "porter whoever nasalise what",
     selectable: true,
-    deletable: true,
+    deletable: false,
     organizationId: "<value>",
-    metadata: {},
+    metadata: {
+      "key": false,
+    },
     properties: {
       repositoryOwner: "polarsource",
       repositoryName: "private_repo",
@@ -32,7 +35,8 @@ let value: WebhookBenefitUpdatedPayload = {
 
 ## Fields
 
-| Field                | Type                 | Required             | Description          | Example              |
-| -------------------- | -------------------- | -------------------- | -------------------- | -------------------- |
-| `type`               | *string*             | :heavy_check_mark:   | N/A                  | benefit.updated      |
-| `data`               | *components.Benefit* | :heavy_check_mark:   | N/A                  |                      |
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | benefit.updated                                                                               |
+| `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `data`                                                                                        | *components.Benefit*                                                                          | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

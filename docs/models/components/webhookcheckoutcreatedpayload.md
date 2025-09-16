@@ -11,36 +11,37 @@ import { WebhookCheckoutCreatedPayload } from "@polar-sh/sdk/models/components/w
 
 let value: WebhookCheckoutCreatedPayload = {
   type: "checkout.created",
+  timestamp: new Date("2024-06-17T23:01:40.328Z"),
   data: {
-    createdAt: new Date("2024-06-17T23:01:40.328Z"),
-    modifiedAt: new Date("2025-09-11T03:11:17.221Z"),
+    createdAt: new Date("2023-08-20T15:49:44.498Z"),
+    modifiedAt: new Date("2024-03-18T23:27:57.994Z"),
     id: "<value>",
     paymentProcessor: "stripe",
-    status: "confirmed",
+    status: "failed",
     clientSecret: "<value>",
-    url: "https://petty-independence.org",
-    expiresAt: new Date("2025-11-27T18:34:09.514Z"),
-    successUrl: "https://super-horde.org",
+    url: "https://leading-vibraphone.org",
+    expiresAt: new Date("2025-04-27T02:23:43.493Z"),
+    successUrl: "https://interesting-video.name",
     embedOrigin: "<value>",
-    amount: 112135,
-    discountAmount: 449681,
-    netAmount: 564684,
-    taxAmount: 723360,
-    totalAmount: 750787,
-    currency: "Egyptian Pound",
+    amount: 449681,
+    discountAmount: 564684,
+    netAmount: 247095,
+    taxAmount: 750787,
+    totalAmount: 250844,
+    currency: "Won",
     productId: "<value>",
     productPriceId: "<value>",
     discountId: "<value>",
-    allowDiscountCodes: true,
-    requireBillingAddress: false,
+    allowDiscountCodes: false,
+    requireBillingAddress: true,
     isDiscountApplicable: true,
-    isFreeProductPrice: true,
+    isFreeProductPrice: false,
     isPaymentRequired: false,
-    isPaymentSetupRequired: false,
-    isPaymentFormRequired: true,
+    isPaymentSetupRequired: true,
+    isPaymentFormRequired: false,
     customerId: "<value>",
     isBusinessCustomer: true,
-    customerName: null,
+    customerName: "<value>",
     customerEmail: "<value>",
     customerIpAddress: "<value>",
     customerBillingName: "<value>",
@@ -48,21 +49,16 @@ let value: WebhookCheckoutCreatedPayload = {
       country: "US",
     },
     customerTaxId: "<id>",
-    paymentProcessorMetadata: {
-      "key": "<value>",
-      "key1": "<value>",
-    },
+    paymentProcessorMetadata: {},
     billingAddressFields: {
-      country: "required",
-      state: "disabled",
-      city: "optional",
+      country: "disabled",
+      state: "optional",
+      city: "required",
       postalCode: "required",
-      line1: "required",
+      line1: "disabled",
       line2: "disabled",
     },
-    metadata: {
-      "key": "<value>",
-    },
+    metadata: {},
     externalCustomerId: "<id>",
     customerExternalId: "<id>",
     products: [
@@ -204,7 +200,8 @@ let value: WebhookCheckoutCreatedPayload = {
 
 ## Fields
 
-| Field                                                      | Type                                                       | Required                                                   | Description                                                | Example                                                    |
-| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `type`                                                     | *string*                                                   | :heavy_check_mark:                                         | N/A                                                        | checkout.created                                           |
-| `data`                                                     | [components.Checkout](../../models/components/checkout.md) | :heavy_check_mark:                                         | Checkout session data retrieved using an access token.     |                                                            |
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | checkout.created                                                                              |
+| `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `data`                                                                                        | [components.Checkout](../../models/components/checkout.md)                                    | :heavy_check_mark:                                                                            | Checkout session data retrieved using an access token.                                        |                                                                                               |

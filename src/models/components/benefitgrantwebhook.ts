@@ -3,416 +3,90 @@
  */
 
 import * as z from "zod";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  Benefit,
-  Benefit$inboundSchema,
-  Benefit$Outbound,
-  Benefit$outboundSchema,
-} from "./benefit.js";
+  BenefitGrantCustomWebhook,
+  BenefitGrantCustomWebhook$inboundSchema,
+  BenefitGrantCustomWebhook$Outbound,
+  BenefitGrantCustomWebhook$outboundSchema,
+} from "./benefitgrantcustomwebhook.js";
 import {
-  BenefitGrantCustomProperties,
-  BenefitGrantCustomProperties$inboundSchema,
-  BenefitGrantCustomProperties$Outbound,
-  BenefitGrantCustomProperties$outboundSchema,
-} from "./benefitgrantcustomproperties.js";
+  BenefitGrantDiscordWebhook,
+  BenefitGrantDiscordWebhook$inboundSchema,
+  BenefitGrantDiscordWebhook$Outbound,
+  BenefitGrantDiscordWebhook$outboundSchema,
+} from "./benefitgrantdiscordwebhook.js";
 import {
-  BenefitGrantDiscordProperties,
-  BenefitGrantDiscordProperties$inboundSchema,
-  BenefitGrantDiscordProperties$Outbound,
-  BenefitGrantDiscordProperties$outboundSchema,
-} from "./benefitgrantdiscordproperties.js";
+  BenefitGrantDownloadablesWebhook,
+  BenefitGrantDownloadablesWebhook$inboundSchema,
+  BenefitGrantDownloadablesWebhook$Outbound,
+  BenefitGrantDownloadablesWebhook$outboundSchema,
+} from "./benefitgrantdownloadableswebhook.js";
 import {
-  BenefitGrantDownloadablesProperties,
-  BenefitGrantDownloadablesProperties$inboundSchema,
-  BenefitGrantDownloadablesProperties$Outbound,
-  BenefitGrantDownloadablesProperties$outboundSchema,
-} from "./benefitgrantdownloadablesproperties.js";
+  BenefitGrantGitHubRepositoryWebhook,
+  BenefitGrantGitHubRepositoryWebhook$inboundSchema,
+  BenefitGrantGitHubRepositoryWebhook$Outbound,
+  BenefitGrantGitHubRepositoryWebhook$outboundSchema,
+} from "./benefitgrantgithubrepositorywebhook.js";
 import {
-  BenefitGrantError,
-  BenefitGrantError$inboundSchema,
-  BenefitGrantError$Outbound,
-  BenefitGrantError$outboundSchema,
-} from "./benefitgranterror.js";
+  BenefitGrantLicenseKeysWebhook,
+  BenefitGrantLicenseKeysWebhook$inboundSchema,
+  BenefitGrantLicenseKeysWebhook$Outbound,
+  BenefitGrantLicenseKeysWebhook$outboundSchema,
+} from "./benefitgrantlicensekeyswebhook.js";
 import {
-  BenefitGrantGitHubRepositoryProperties,
-  BenefitGrantGitHubRepositoryProperties$inboundSchema,
-  BenefitGrantGitHubRepositoryProperties$Outbound,
-  BenefitGrantGitHubRepositoryProperties$outboundSchema,
-} from "./benefitgrantgithubrepositoryproperties.js";
-import {
-  BenefitGrantLicenseKeysProperties,
-  BenefitGrantLicenseKeysProperties$inboundSchema,
-  BenefitGrantLicenseKeysProperties$Outbound,
-  BenefitGrantLicenseKeysProperties$outboundSchema,
-} from "./benefitgrantlicensekeysproperties.js";
-import {
-  Customer,
-  Customer$inboundSchema,
-  Customer$Outbound,
-  Customer$outboundSchema,
-} from "./customer.js";
+  BenefitGrantMeterCreditWebhook,
+  BenefitGrantMeterCreditWebhook$inboundSchema,
+  BenefitGrantMeterCreditWebhook$Outbound,
+  BenefitGrantMeterCreditWebhook$outboundSchema,
+} from "./benefitgrantmetercreditwebhook.js";
 
-export type BenefitGrantWebhookProperties =
-  | BenefitGrantDiscordProperties
-  | BenefitGrantGitHubRepositoryProperties
-  | BenefitGrantDownloadablesProperties
-  | BenefitGrantLicenseKeysProperties
-  | BenefitGrantCustomProperties;
-
-export type PreviousProperties =
-  | BenefitGrantDiscordProperties
-  | BenefitGrantGitHubRepositoryProperties
-  | BenefitGrantDownloadablesProperties
-  | BenefitGrantLicenseKeysProperties
-  | BenefitGrantCustomProperties;
-
-export type BenefitGrantWebhook = {
-  /**
-   * Creation timestamp of the object.
-   */
-  createdAt: Date;
-  /**
-   * Last modification timestamp of the object.
-   */
-  modifiedAt: Date | null;
-  /**
-   * The ID of the grant.
-   */
-  id: string;
-  /**
-   * The timestamp when the benefit was granted. If `None`, the benefit is not granted.
-   */
-  grantedAt?: Date | null | undefined;
-  /**
-   * Whether the benefit is granted.
-   */
-  isGranted: boolean;
-  /**
-   * The timestamp when the benefit was revoked. If `None`, the benefit is not revoked.
-   */
-  revokedAt?: Date | null | undefined;
-  /**
-   * Whether the benefit is revoked.
-   */
-  isRevoked: boolean;
-  /**
-   * The ID of the subscription that granted this benefit.
-   */
-  subscriptionId: string | null;
-  /**
-   * The ID of the order that granted this benefit.
-   */
-  orderId: string | null;
-  /**
-   * The ID of the customer concerned by this grant.
-   */
-  customerId: string;
-  /**
-   * The ID of the benefit concerned by this grant.
-   */
-  benefitId: string;
-  /**
-   * The error information if the benefit grant failed with an unrecoverable error.
-   */
-  error?: BenefitGrantError | null | undefined;
-  /**
-   * A customer in an organization.
-   */
-  customer: Customer;
-  properties:
-    | BenefitGrantDiscordProperties
-    | BenefitGrantGitHubRepositoryProperties
-    | BenefitGrantDownloadablesProperties
-    | BenefitGrantLicenseKeysProperties
-    | BenefitGrantCustomProperties;
-  benefit: Benefit;
-  previousProperties?:
-    | BenefitGrantDiscordProperties
-    | BenefitGrantGitHubRepositoryProperties
-    | BenefitGrantDownloadablesProperties
-    | BenefitGrantLicenseKeysProperties
-    | BenefitGrantCustomProperties
-    | null
-    | undefined;
-};
-
-/** @internal */
-export const BenefitGrantWebhookProperties$inboundSchema: z.ZodType<
-  BenefitGrantWebhookProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  BenefitGrantDiscordProperties$inboundSchema,
-  BenefitGrantGitHubRepositoryProperties$inboundSchema,
-  BenefitGrantDownloadablesProperties$inboundSchema,
-  BenefitGrantLicenseKeysProperties$inboundSchema,
-  BenefitGrantCustomProperties$inboundSchema,
-]);
-
-/** @internal */
-export type BenefitGrantWebhookProperties$Outbound =
-  | BenefitGrantDiscordProperties$Outbound
-  | BenefitGrantGitHubRepositoryProperties$Outbound
-  | BenefitGrantDownloadablesProperties$Outbound
-  | BenefitGrantLicenseKeysProperties$Outbound
-  | BenefitGrantCustomProperties$Outbound;
-
-/** @internal */
-export const BenefitGrantWebhookProperties$outboundSchema: z.ZodType<
-  BenefitGrantWebhookProperties$Outbound,
-  z.ZodTypeDef,
-  BenefitGrantWebhookProperties
-> = z.union([
-  BenefitGrantDiscordProperties$outboundSchema,
-  BenefitGrantGitHubRepositoryProperties$outboundSchema,
-  BenefitGrantDownloadablesProperties$outboundSchema,
-  BenefitGrantLicenseKeysProperties$outboundSchema,
-  BenefitGrantCustomProperties$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantWebhookProperties$ {
-  /** @deprecated use `BenefitGrantWebhookProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantWebhookProperties$inboundSchema;
-  /** @deprecated use `BenefitGrantWebhookProperties$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrantWebhookProperties$outboundSchema;
-  /** @deprecated use `BenefitGrantWebhookProperties$Outbound` instead. */
-  export type Outbound = BenefitGrantWebhookProperties$Outbound;
-}
-
-export function benefitGrantWebhookPropertiesToJSON(
-  benefitGrantWebhookProperties: BenefitGrantWebhookProperties,
-): string {
-  return JSON.stringify(
-    BenefitGrantWebhookProperties$outboundSchema.parse(
-      benefitGrantWebhookProperties,
-    ),
-  );
-}
-
-export function benefitGrantWebhookPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitGrantWebhookProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitGrantWebhookProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitGrantWebhookProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const PreviousProperties$inboundSchema: z.ZodType<
-  PreviousProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  BenefitGrantDiscordProperties$inboundSchema,
-  BenefitGrantGitHubRepositoryProperties$inboundSchema,
-  BenefitGrantDownloadablesProperties$inboundSchema,
-  BenefitGrantLicenseKeysProperties$inboundSchema,
-  BenefitGrantCustomProperties$inboundSchema,
-]);
-
-/** @internal */
-export type PreviousProperties$Outbound =
-  | BenefitGrantDiscordProperties$Outbound
-  | BenefitGrantGitHubRepositoryProperties$Outbound
-  | BenefitGrantDownloadablesProperties$Outbound
-  | BenefitGrantLicenseKeysProperties$Outbound
-  | BenefitGrantCustomProperties$Outbound;
-
-/** @internal */
-export const PreviousProperties$outboundSchema: z.ZodType<
-  PreviousProperties$Outbound,
-  z.ZodTypeDef,
-  PreviousProperties
-> = z.union([
-  BenefitGrantDiscordProperties$outboundSchema,
-  BenefitGrantGitHubRepositoryProperties$outboundSchema,
-  BenefitGrantDownloadablesProperties$outboundSchema,
-  BenefitGrantLicenseKeysProperties$outboundSchema,
-  BenefitGrantCustomProperties$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PreviousProperties$ {
-  /** @deprecated use `PreviousProperties$inboundSchema` instead. */
-  export const inboundSchema = PreviousProperties$inboundSchema;
-  /** @deprecated use `PreviousProperties$outboundSchema` instead. */
-  export const outboundSchema = PreviousProperties$outboundSchema;
-  /** @deprecated use `PreviousProperties$Outbound` instead. */
-  export type Outbound = PreviousProperties$Outbound;
-}
-
-export function previousPropertiesToJSON(
-  previousProperties: PreviousProperties,
-): string {
-  return JSON.stringify(
-    PreviousProperties$outboundSchema.parse(previousProperties),
-  );
-}
-
-export function previousPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<PreviousProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => PreviousProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'PreviousProperties' from JSON`,
-  );
-}
+export type BenefitGrantWebhook =
+  | BenefitGrantDiscordWebhook
+  | BenefitGrantCustomWebhook
+  | BenefitGrantGitHubRepositoryWebhook
+  | BenefitGrantDownloadablesWebhook
+  | BenefitGrantLicenseKeysWebhook
+  | BenefitGrantMeterCreditWebhook;
 
 /** @internal */
 export const BenefitGrantWebhook$inboundSchema: z.ZodType<
   BenefitGrantWebhook,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  modified_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ),
-  id: z.string(),
-  granted_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-  is_granted: z.boolean(),
-  revoked_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-  is_revoked: z.boolean(),
-  subscription_id: z.nullable(z.string()),
-  order_id: z.nullable(z.string()),
-  customer_id: z.string(),
-  benefit_id: z.string(),
-  error: z.nullable(BenefitGrantError$inboundSchema).optional(),
-  customer: Customer$inboundSchema,
-  properties: z.union([
-    BenefitGrantDiscordProperties$inboundSchema,
-    BenefitGrantGitHubRepositoryProperties$inboundSchema,
-    BenefitGrantDownloadablesProperties$inboundSchema,
-    BenefitGrantLicenseKeysProperties$inboundSchema,
-    BenefitGrantCustomProperties$inboundSchema,
-  ]),
-  benefit: Benefit$inboundSchema,
-  previous_properties: z.nullable(
-    z.union([
-      BenefitGrantDiscordProperties$inboundSchema,
-      BenefitGrantGitHubRepositoryProperties$inboundSchema,
-      BenefitGrantDownloadablesProperties$inboundSchema,
-      BenefitGrantLicenseKeysProperties$inboundSchema,
-      BenefitGrantCustomProperties$inboundSchema,
-    ]),
-  ).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "created_at": "createdAt",
-    "modified_at": "modifiedAt",
-    "granted_at": "grantedAt",
-    "is_granted": "isGranted",
-    "revoked_at": "revokedAt",
-    "is_revoked": "isRevoked",
-    "subscription_id": "subscriptionId",
-    "order_id": "orderId",
-    "customer_id": "customerId",
-    "benefit_id": "benefitId",
-    "previous_properties": "previousProperties",
-  });
-});
+> = z.union([
+  BenefitGrantDiscordWebhook$inboundSchema,
+  BenefitGrantCustomWebhook$inboundSchema,
+  BenefitGrantGitHubRepositoryWebhook$inboundSchema,
+  BenefitGrantDownloadablesWebhook$inboundSchema,
+  BenefitGrantLicenseKeysWebhook$inboundSchema,
+  BenefitGrantMeterCreditWebhook$inboundSchema,
+]);
 
 /** @internal */
-export type BenefitGrantWebhook$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  granted_at?: string | null | undefined;
-  is_granted: boolean;
-  revoked_at?: string | null | undefined;
-  is_revoked: boolean;
-  subscription_id: string | null;
-  order_id: string | null;
-  customer_id: string;
-  benefit_id: string;
-  error?: BenefitGrantError$Outbound | null | undefined;
-  customer: Customer$Outbound;
-  properties:
-    | BenefitGrantDiscordProperties$Outbound
-    | BenefitGrantGitHubRepositoryProperties$Outbound
-    | BenefitGrantDownloadablesProperties$Outbound
-    | BenefitGrantLicenseKeysProperties$Outbound
-    | BenefitGrantCustomProperties$Outbound;
-  benefit: Benefit$Outbound;
-  previous_properties?:
-    | BenefitGrantDiscordProperties$Outbound
-    | BenefitGrantGitHubRepositoryProperties$Outbound
-    | BenefitGrantDownloadablesProperties$Outbound
-    | BenefitGrantLicenseKeysProperties$Outbound
-    | BenefitGrantCustomProperties$Outbound
-    | null
-    | undefined;
-};
+export type BenefitGrantWebhook$Outbound =
+  | BenefitGrantDiscordWebhook$Outbound
+  | BenefitGrantCustomWebhook$Outbound
+  | BenefitGrantGitHubRepositoryWebhook$Outbound
+  | BenefitGrantDownloadablesWebhook$Outbound
+  | BenefitGrantLicenseKeysWebhook$Outbound
+  | BenefitGrantMeterCreditWebhook$Outbound;
 
 /** @internal */
 export const BenefitGrantWebhook$outboundSchema: z.ZodType<
   BenefitGrantWebhook$Outbound,
   z.ZodTypeDef,
   BenefitGrantWebhook
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  grantedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
-  isGranted: z.boolean(),
-  revokedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
-  isRevoked: z.boolean(),
-  subscriptionId: z.nullable(z.string()),
-  orderId: z.nullable(z.string()),
-  customerId: z.string(),
-  benefitId: z.string(),
-  error: z.nullable(BenefitGrantError$outboundSchema).optional(),
-  customer: Customer$outboundSchema,
-  properties: z.union([
-    BenefitGrantDiscordProperties$outboundSchema,
-    BenefitGrantGitHubRepositoryProperties$outboundSchema,
-    BenefitGrantDownloadablesProperties$outboundSchema,
-    BenefitGrantLicenseKeysProperties$outboundSchema,
-    BenefitGrantCustomProperties$outboundSchema,
-  ]),
-  benefit: Benefit$outboundSchema,
-  previousProperties: z.nullable(
-    z.union([
-      BenefitGrantDiscordProperties$outboundSchema,
-      BenefitGrantGitHubRepositoryProperties$outboundSchema,
-      BenefitGrantDownloadablesProperties$outboundSchema,
-      BenefitGrantLicenseKeysProperties$outboundSchema,
-      BenefitGrantCustomProperties$outboundSchema,
-    ]),
-  ).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    grantedAt: "granted_at",
-    isGranted: "is_granted",
-    revokedAt: "revoked_at",
-    isRevoked: "is_revoked",
-    subscriptionId: "subscription_id",
-    orderId: "order_id",
-    customerId: "customer_id",
-    benefitId: "benefit_id",
-    previousProperties: "previous_properties",
-  });
-});
+> = z.union([
+  BenefitGrantDiscordWebhook$outboundSchema,
+  BenefitGrantCustomWebhook$outboundSchema,
+  BenefitGrantGitHubRepositoryWebhook$outboundSchema,
+  BenefitGrantDownloadablesWebhook$outboundSchema,
+  BenefitGrantLicenseKeysWebhook$outboundSchema,
+  BenefitGrantMeterCreditWebhook$outboundSchema,
+]);
 
 /**
  * @internal

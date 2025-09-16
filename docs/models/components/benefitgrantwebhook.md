@@ -1,26 +1,27 @@
 # BenefitGrantWebhook
 
-## Example Usage
+
+## Supported Types
+
+### `components.BenefitGrantDiscordWebhook`
 
 ```typescript
-import { BenefitGrantWebhook } from "@polar-sh/sdk/models/components/benefitgrantwebhook.js";
-
-let value: BenefitGrantWebhook = {
-  createdAt: new Date("2025-05-20T06:29:58.394Z"),
-  modifiedAt: new Date("2024-08-03T22:31:58.796Z"),
+const value: components.BenefitGrantDiscordWebhook = {
+  createdAt: new Date("2025-04-01T03:14:09.160Z"),
+  modifiedAt: new Date("2024-07-28T13:13:39.901Z"),
   id: "<value>",
-  isGranted: false,
-  isRevoked: false,
+  isGranted: true,
+  isRevoked: true,
   subscriptionId: "<value>",
-  orderId: null,
+  orderId: "<value>",
   customerId: "<value>",
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-07-12T03:53:00.913Z"),
-    modifiedAt: new Date("2024-04-26T10:19:45.222Z"),
+    createdAt: new Date("2024-04-26T10:19:45.222Z"),
+    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
     metadata: {
-      "key": 5951.8,
+      "key": "<value>",
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -34,21 +35,20 @@ let value: BenefitGrantWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2024-07-29T02:37:49.390Z"),
+    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
-  properties: {},
   benefit: {
     id: "<value>",
-    createdAt: new Date("2024-01-11T21:20:50.199Z"),
-    modifiedAt: new Date("2024-02-10T10:41:30.057Z"),
+    createdAt: new Date("2025-03-24T01:24:22.231Z"),
+    modifiedAt: new Date("2025-09-09T16:14:57.265Z"),
     type: "discord",
-    description: "toward while fooey democratize or er um twin elver",
+    description: "contrast crystallize robust finally",
     selectable: false,
     deletable: false,
     organizationId: "<value>",
     metadata: {
-      "key": 463328,
+      "key": 386.61,
     },
     properties: {
       guildId: "<id>",
@@ -57,26 +57,296 @@ let value: BenefitGrantWebhook = {
       guildToken: "<value>",
     },
   },
+  properties: {},
 };
 ```
 
-## Fields
+### `components.BenefitGrantCustomWebhook`
 
-| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Creation timestamp of the object.                                                             |
-| `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |
-| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the grant.                                                                          |
-| `grantedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | The timestamp when the benefit was granted. If `None`, the benefit is not granted.            |
-| `isGranted`                                                                                   | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is granted.                                                               |
-| `revokedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_minus_sign:                                                                            | The timestamp when the benefit was revoked. If `None`, the benefit is not revoked.            |
-| `isRevoked`                                                                                   | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the benefit is revoked.                                                               |
-| `subscriptionId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the subscription that granted this benefit.                                         |
-| `orderId`                                                                                     | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the order that granted this benefit.                                                |
-| `customerId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the customer concerned by this grant.                                               |
-| `benefitId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the benefit concerned by this grant.                                                |
-| `error`                                                                                       | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                  | :heavy_minus_sign:                                                                            | The error information if the benefit grant failed with an unrecoverable error.                |
-| `customer`                                                                                    | [components.Customer](../../models/components/customer.md)                                    | :heavy_check_mark:                                                                            | A customer in an organization.                                                                |
-| `properties`                                                                                  | *components.BenefitGrantWebhookProperties*                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `benefit`                                                                                     | *components.Benefit*                                                                          | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `previousProperties`                                                                          | *components.PreviousProperties*                                                               | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+```typescript
+const value: components.BenefitGrantCustomWebhook = {
+  createdAt: new Date("2023-04-19T19:54:48.401Z"),
+  modifiedAt: new Date("2025-04-22T15:54:09.627Z"),
+  id: "<value>",
+  isGranted: true,
+  isRevoked: true,
+  subscriptionId: "<value>",
+  orderId: "<value>",
+  customerId: "<value>",
+  benefitId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2024-04-26T10:19:45.222Z"),
+    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  benefit: {
+    id: "<value>",
+    createdAt: new Date("2024-01-20T02:50:19.451Z"),
+    modifiedAt: new Date("2024-06-16T20:41:24.432Z"),
+    type: "custom",
+    description: "cassava vainly vague father",
+    selectable: true,
+    deletable: true,
+    organizationId: "<value>",
+    metadata: {},
+    properties: {
+      note: "<value>",
+    },
+  },
+  properties: {},
+};
+```
+
+### `components.BenefitGrantGitHubRepositoryWebhook`
+
+```typescript
+const value: components.BenefitGrantGitHubRepositoryWebhook = {
+  createdAt: new Date("2024-03-08T15:32:24.757Z"),
+  modifiedAt: new Date("2023-12-20T06:43:20.508Z"),
+  id: "<value>",
+  isGranted: false,
+  isRevoked: true,
+  subscriptionId: "<value>",
+  orderId: "<value>",
+  customerId: "<value>",
+  benefitId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2024-04-26T10:19:45.222Z"),
+    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  benefit: {
+    id: "<value>",
+    createdAt: new Date("2023-08-12T07:30:21.850Z"),
+    modifiedAt: new Date("2023-04-19T07:07:21.162Z"),
+    type: "github_repository",
+    description: "vicinity spectate publication athwart likely far",
+    selectable: true,
+    deletable: true,
+    organizationId: "<value>",
+    metadata: {
+      "key": false,
+    },
+    properties: {
+      repositoryOwner: "polarsource",
+      repositoryName: "private_repo",
+      permission: "admin",
+    },
+  },
+  properties: {},
+};
+```
+
+### `components.BenefitGrantDownloadablesWebhook`
+
+```typescript
+const value: components.BenefitGrantDownloadablesWebhook = {
+  createdAt: new Date("2025-09-16T06:48:34.889Z"),
+  modifiedAt: new Date("2023-05-19T09:10:18.729Z"),
+  id: "<value>",
+  isGranted: true,
+  isRevoked: false,
+  subscriptionId: null,
+  orderId: "<value>",
+  customerId: "<value>",
+  benefitId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2024-04-26T10:19:45.222Z"),
+    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  benefit: {
+    id: "<value>",
+    createdAt: new Date("2025-02-09T09:21:30.385Z"),
+    modifiedAt: new Date("2023-09-01T08:02:14.520Z"),
+    type: "downloadables",
+    description: "gladly rapidly record excluding because ill",
+    selectable: false,
+    deletable: true,
+    organizationId: "<value>",
+    metadata: {
+      "key": 834881,
+    },
+    properties: {
+      archived: {
+        "key": false,
+      },
+      files: [
+        "<value 1>",
+        "<value 2>",
+      ],
+    },
+  },
+  properties: {},
+};
+```
+
+### `components.BenefitGrantLicenseKeysWebhook`
+
+```typescript
+const value: components.BenefitGrantLicenseKeysWebhook = {
+  createdAt: new Date("2023-03-28T04:10:14.057Z"),
+  modifiedAt: new Date("2025-11-09T06:34:32.498Z"),
+  id: "<value>",
+  isGranted: true,
+  isRevoked: false,
+  subscriptionId: null,
+  orderId: "<value>",
+  customerId: "<value>",
+  benefitId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2024-04-26T10:19:45.222Z"),
+    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  benefit: {
+    id: "<value>",
+    createdAt: new Date("2024-01-09T05:46:42.550Z"),
+    modifiedAt: new Date("2025-02-03T07:44:40.734Z"),
+    type: "license_keys",
+    description: "monasticism when that",
+    selectable: true,
+    deletable: true,
+    organizationId: "<value>",
+    metadata: {},
+    properties: {
+      prefix: "<value>",
+      expires: {
+        ttl: 93452,
+        timeframe: "day",
+      },
+      activations: {
+        limit: 777902,
+        enableCustomerAdmin: true,
+      },
+      limitUsage: null,
+    },
+  },
+  properties: {},
+};
+```
+
+### `components.BenefitGrantMeterCreditWebhook`
+
+```typescript
+const value: components.BenefitGrantMeterCreditWebhook = {
+  createdAt: new Date("2024-03-25T07:43:23.918Z"),
+  modifiedAt: new Date("2024-05-01T18:17:06.742Z"),
+  id: "<value>",
+  isGranted: true,
+  isRevoked: true,
+  subscriptionId: "<value>",
+  orderId: "<value>",
+  customerId: "<value>",
+  benefitId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2024-04-26T10:19:45.222Z"),
+    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  benefit: {
+    id: "<value>",
+    createdAt: new Date("2024-01-16T07:44:47.570Z"),
+    modifiedAt: new Date("2023-08-20T06:58:17.350Z"),
+    type: "meter_credit",
+    description:
+      "greedily analyse near horde pocket-watch neglected shrilly or aha coaxingly",
+    selectable: false,
+    deletable: false,
+    organizationId: "<value>",
+    metadata: {},
+    properties: {
+      units: 298008,
+      rollover: false,
+      meterId: "<value>",
+    },
+  },
+  properties: {},
+};
+```
+

@@ -15,6 +15,10 @@ import {
   CheckoutLink$inboundSchema,
 } from "../models/components/checkoutlink.js";
 import {
+  CheckoutLinkCreate,
+  CheckoutLinkCreate$outboundSchema,
+} from "../models/components/checkoutlinkcreate.js";
+import {
   ConnectionError,
   InvalidRequestError,
   RequestAbortedError,
@@ -28,10 +32,6 @@ import {
 import { PolarError } from "../models/errors/polarerror.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import {
-  CheckoutLinksCreateCheckoutLinkCreate,
-  CheckoutLinksCreateCheckoutLinkCreate$outboundSchema,
-} from "../models/operations/checkoutlinkscreate.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
@@ -45,7 +45,7 @@ import { Result } from "../types/fp.js";
  */
 export function checkoutLinksCreate(
   client: PolarCore,
-  request: CheckoutLinksCreateCheckoutLinkCreate,
+  request: CheckoutLinkCreate,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -70,7 +70,7 @@ export function checkoutLinksCreate(
 
 async function $do(
   client: PolarCore,
-  request: CheckoutLinksCreateCheckoutLinkCreate,
+  request: CheckoutLinkCreate,
   options?: RequestOptions,
 ): Promise<
   [
@@ -91,8 +91,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      CheckoutLinksCreateCheckoutLinkCreate$outboundSchema.parse(value),
+    (value) => CheckoutLinkCreate$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {

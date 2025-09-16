@@ -7,6 +7,11 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  WebhookEventType,
+  WebhookEventType$inboundSchema,
+  WebhookEventType$outboundSchema,
+} from "./webhookeventtype.js";
 
 /**
  * A webhook event.
@@ -43,7 +48,12 @@ export type WebhookEvent = {
   /**
    * The payload of the webhook event.
    */
-  payload: string;
+  payload: string | null;
+  type: WebhookEventType;
+  /**
+   * Whether this event is archived. Archived events can't be redelivered, and the payload is not accessible anymore.
+   */
+  isArchived: boolean;
 };
 
 /** @internal */
@@ -59,12 +69,15 @@ export const WebhookEvent$inboundSchema: z.ZodType<
   id: z.string(),
   last_http_code: z.nullable(z.number().int()).optional(),
   succeeded: z.nullable(z.boolean()).optional(),
-  payload: z.string(),
+  payload: z.nullable(z.string()),
+  type: WebhookEventType$inboundSchema,
+  is_archived: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
     "last_http_code": "lastHttpCode",
+    "is_archived": "isArchived",
   });
 });
 
@@ -75,7 +88,9 @@ export type WebhookEvent$Outbound = {
   id: string;
   last_http_code?: number | null | undefined;
   succeeded?: boolean | null | undefined;
-  payload: string;
+  payload: string | null;
+  type: string;
+  is_archived: boolean;
 };
 
 /** @internal */
@@ -89,12 +104,15 @@ export const WebhookEvent$outboundSchema: z.ZodType<
   id: z.string(),
   lastHttpCode: z.nullable(z.number().int()).optional(),
   succeeded: z.nullable(z.boolean()).optional(),
-  payload: z.string(),
+  payload: z.nullable(z.string()),
+  type: WebhookEventType$outboundSchema,
+  isArchived: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
     lastHttpCode: "last_http_code",
+    isArchived: "is_archived",
   });
 });
 

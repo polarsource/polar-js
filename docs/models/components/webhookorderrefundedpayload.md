@@ -11,40 +11,39 @@ import { WebhookOrderRefundedPayload } from "@polar-sh/sdk/models/components/web
 
 let value: WebhookOrderRefundedPayload = {
   type: "order.refunded",
+  timestamp: new Date("2025-12-02T13:09:55.292Z"),
   data: {
     id: "<value>",
-    createdAt: new Date("2023-10-06T17:04:58.025Z"),
-    modifiedAt: new Date("2023-04-27T22:48:08.753Z"),
-    status: "refunded",
+    createdAt: new Date("2024-12-27T21:37:16.242Z"),
+    modifiedAt: new Date("2025-01-02T09:32:03.168Z"),
+    status: "paid",
     paid: true,
-    subtotalAmount: 467357,
-    discountAmount: 1812,
-    netAmount: 693089,
-    taxAmount: 893426,
-    totalAmount: 334746,
-    refundedAmount: 866654,
-    refundedTaxAmount: 493644,
-    currency: "North Korean Won",
+    subtotalAmount: 1812,
+    discountAmount: 693089,
+    netAmount: 893426,
+    taxAmount: 334746,
+    totalAmount: 866654,
+    refundedAmount: 493644,
+    refundedTaxAmount: 460641,
+    currency: "Tanzanian Shilling",
     billingReason: "subscription_update",
     billingName: "<value>",
     billingAddress: {
       country: "US",
     },
-    isInvoiceGenerated: false,
+    isInvoiceGenerated: true,
     customerId: "<value>",
     productId: "<value>",
     discountId: "<value>",
     subscriptionId: "<value>",
     checkoutId: "<value>",
-    metadata: {
-      "key": 166283,
-    },
+    metadata: {},
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2025-11-29T23:08:09.503Z"),
-      modifiedAt: new Date("2025-04-19T04:57:52.293Z"),
+      createdAt: new Date("2023-07-02T05:54:26.991Z"),
+      modifiedAt: new Date("2023-12-03T03:44:13.678Z"),
       metadata: {
-        "key": 9564.92,
+        "key": false,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
@@ -58,13 +57,13 @@ let value: WebhookOrderRefundedPayload = {
         "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2024-08-01T02:10:59.019Z"),
+      deletedAt: new Date("2024-08-18T23:02:56.814Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
     },
     userId: "<value>",
     product: {
       metadata: {
-        "key": "<value>",
+        "key": 131.87,
       },
       createdAt: new Date("2024-09-10T09:53:33.542Z"),
       modifiedAt: new Date("2023-01-29T03:42:25.281Z"),
@@ -127,7 +126,8 @@ let value: WebhookOrderRefundedPayload = {
 
 ## Fields
 
-| Field                                                | Type                                                 | Required                                             | Description                                          | Example                                              |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| `type`                                               | *string*                                             | :heavy_check_mark:                                   | N/A                                                  | order.refunded                                       |
-| `data`                                               | [components.Order](../../models/components/order.md) | :heavy_check_mark:                                   | N/A                                                  |                                                      |
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | order.refunded                                                                                |
+| `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `data`                                                                                        | [components.Order](../../models/components/order.md)                                          | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

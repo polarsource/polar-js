@@ -22,6 +22,7 @@ import {
  */
 export type WebhookBenefitGrantCreatedPayload = {
   type: "benefit_grant.created";
+  timestamp: Date;
   data: BenefitGrantWebhook;
 };
 
@@ -32,12 +33,14 @@ export const WebhookBenefitGrantCreatedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("benefit_grant.created"),
+  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: BenefitGrantWebhook$inboundSchema,
 });
 
 /** @internal */
 export type WebhookBenefitGrantCreatedPayload$Outbound = {
   type: "benefit_grant.created";
+  timestamp: string;
   data: BenefitGrantWebhook$Outbound;
 };
 
@@ -48,6 +51,7 @@ export const WebhookBenefitGrantCreatedPayload$outboundSchema: z.ZodType<
   WebhookBenefitGrantCreatedPayload
 > = z.object({
   type: z.literal("benefit_grant.created"),
+  timestamp: z.date().transform(v => v.toISOString()),
   data: BenefitGrantWebhook$outboundSchema,
 });
 

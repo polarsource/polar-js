@@ -48,11 +48,11 @@ let value: Checkout = {
     "key": "<value>",
   },
   billingAddressFields: {
-    country: "required",
-    state: "disabled",
-    city: "optional",
+    country: "disabled",
+    state: "optional",
+    city: "required",
     postalCode: "required",
-    line1: "required",
+    line1: "disabled",
     line2: "disabled",
   },
   metadata: {

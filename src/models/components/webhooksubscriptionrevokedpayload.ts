@@ -23,6 +23,7 @@ import {
  */
 export type WebhookSubscriptionRevokedPayload = {
   type: "subscription.revoked";
+  timestamp: Date;
   data: Subscription;
 };
 
@@ -33,12 +34,14 @@ export const WebhookSubscriptionRevokedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("subscription.revoked"),
+  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Subscription$inboundSchema,
 });
 
 /** @internal */
 export type WebhookSubscriptionRevokedPayload$Outbound = {
   type: "subscription.revoked";
+  timestamp: string;
   data: Subscription$Outbound;
 };
 
@@ -49,6 +52,7 @@ export const WebhookSubscriptionRevokedPayload$outboundSchema: z.ZodType<
   WebhookSubscriptionRevokedPayload
 > = z.object({
   type: z.literal("subscription.revoked"),
+  timestamp: z.date().transform(v => v.toISOString()),
   data: Subscription$outboundSchema,
 });
 

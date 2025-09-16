@@ -18,7 +18,7 @@ const polar = new Polar({
 });
 
 async function main() {
-  const result = await polar.list({});
+  const result = await polar.organizations.list({});
 
   for await (const page of result) {
     console.log(page);

@@ -22,6 +22,7 @@ import {
  */
 export type WebhookCustomerDeletedPayload = {
   type: "customer.deleted";
+  timestamp: Date;
   /**
    * A customer in an organization.
    */
@@ -35,12 +36,14 @@ export const WebhookCustomerDeletedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("customer.deleted"),
+  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Customer$inboundSchema,
 });
 
 /** @internal */
 export type WebhookCustomerDeletedPayload$Outbound = {
   type: "customer.deleted";
+  timestamp: string;
   data: Customer$Outbound;
 };
 
@@ -51,6 +54,7 @@ export const WebhookCustomerDeletedPayload$outboundSchema: z.ZodType<
   WebhookCustomerDeletedPayload
 > = z.object({
   type: z.literal("customer.deleted"),
+  timestamp: z.date().transform(v => v.toISOString()),
   data: Customer$outboundSchema,
 });
 

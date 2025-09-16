@@ -22,6 +22,7 @@ import {
  */
 export type WebhookBenefitGrantRevokedPayload = {
   type: "benefit_grant.revoked";
+  timestamp: Date;
   data: BenefitGrantWebhook;
 };
 
@@ -32,12 +33,14 @@ export const WebhookBenefitGrantRevokedPayload$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("benefit_grant.revoked"),
+  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: BenefitGrantWebhook$inboundSchema,
 });
 
 /** @internal */
 export type WebhookBenefitGrantRevokedPayload$Outbound = {
   type: "benefit_grant.revoked";
+  timestamp: string;
   data: BenefitGrantWebhook$Outbound;
 };
 
@@ -48,6 +51,7 @@ export const WebhookBenefitGrantRevokedPayload$outboundSchema: z.ZodType<
   WebhookBenefitGrantRevokedPayload
 > = z.object({
   type: z.literal("benefit_grant.revoked"),
+  timestamp: z.date().transform(v => v.toISOString()),
   data: BenefitGrantWebhook$outboundSchema,
 });
 

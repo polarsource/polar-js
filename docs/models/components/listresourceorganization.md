@@ -21,13 +21,13 @@ let value: ListResourceOrganization = {
       detailsSubmittedAt: new Date("2023-02-28T07:49:59.254Z"),
       featureSettings: null,
       subscriptionSettings: {
-        allowMultipleSubscriptions: false,
-        allowCustomerUpdates: false,
+        allowMultipleSubscriptions: true,
+        allowCustomerUpdates: true,
         prorationBehavior: "invoice",
       },
       notificationSettings: {
-        newOrder: true,
-        newSubscription: false,
+        newOrder: false,
+        newSubscription: true,
       },
     },
   ],
