@@ -16,13 +16,13 @@ let value: BenefitGitHubRepositorySubscriber = {
   organizationId: "<value>",
   metadata: {},
   organization: {
-    createdAt: new Date("2025-10-05T12:57:48.267Z"),
-    modifiedAt: new Date("2025-09-05T05:45:42.406Z"),
+    createdAt: new Date("2025-01-01T18:22:02.718Z"),
+    modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://medium-object.org",
-    email: "Elena.Barton@hotmail.com",
+    avatarUrl: null,
+    email: "Hannah_Price@gmail.com",
     website: "<value>",
     socials: [
       {
@@ -31,7 +31,7 @@ let value: BenefitGitHubRepositorySubscriber = {
       },
     ],
     status: "denied",
-    detailsSubmittedAt: new Date("2024-02-17T13:14:03.864Z"),
+    detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: true,

@@ -12,6 +12,10 @@ export const OrganizationSortProperty = {
   MinusSlug: "-slug",
   Name: "name",
   MinusName: "-name",
+  NextReviewThreshold: "next_review_threshold",
+  MinusNextReviewThreshold: "-next_review_threshold",
+  DaysInStatus: "days_in_status",
+  MinusDaysInStatus: "-days_in_status",
 } as const;
 export type OrganizationSortProperty = ClosedEnum<
   typeof OrganizationSortProperty
