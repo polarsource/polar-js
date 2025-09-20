@@ -129,10 +129,7 @@ let value: WebhookSubscriptionUpdatedPayload = {
             conjunction: "or",
             clauses: [],
           },
-          aggregation: {
-            func: "max",
-            property: "<value>",
-          },
+          aggregation: {},
           organizationId: "<value>",
         },
       },

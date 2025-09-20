@@ -26,22 +26,40 @@ let value: Product = {
       createdAt: new Date("2023-10-31T03:45:05.104Z"),
       modifiedAt: new Date("2024-09-29T17:58:16.689Z"),
       id: "<value>",
-      amountType: "metered_unit",
+      amountType: "free",
       isArchived: false,
       productId: "<value>",
       type: "one_time",
       recurringInterval: "year",
-      priceCurrency: "<value>",
-      unitAmount: "<value>",
-      capAmount: 713445,
-      meterId: "<value>",
-      meter: {
-        id: "<value>",
-        name: "<value>",
+      legacy: true,
+    },
+  ],
+  benefits: [
+    {
+      id: "<value>",
+      createdAt: new Date("2023-01-08T14:30:25.036Z"),
+      modifiedAt: new Date("2025-05-30T08:17:38.670Z"),
+      type: "license_keys",
+      description:
+        "separate once vibration overcharge apud strictly over inside pfft sanity",
+      selectable: true,
+      deletable: false,
+      organizationId: "<value>",
+      metadata: {},
+      properties: {
+        prefix: "<value>",
+        expires: {
+          ttl: 693280,
+          timeframe: "day",
+        },
+        activations: {
+          limit: 533992,
+          enableCustomerAdmin: true,
+        },
+        limitUsage: 221353,
       },
     },
   ],
-  benefits: [],
   medias: [
     {
       id: "<value>",
@@ -63,26 +81,7 @@ let value: Product = {
       publicUrl: "https://warlike-tinderbox.com",
     },
   ],
-  attachedCustomFields: [
-    {
-      customFieldId: "<value>",
-      customField: {
-        createdAt: new Date("2025-02-17T09:28:43.135Z"),
-        modifiedAt: new Date("2024-12-12T07:00:59.178Z"),
-        id: "<value>",
-        metadata: {
-          "key": 8232.57,
-        },
-        type: "text",
-        slug: "<value>",
-        name: "<value>",
-        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {},
-      },
-      order: 723045,
-      required: false,
-    },
-  ],
+  attachedCustomFields: [],
 };
 ```
 

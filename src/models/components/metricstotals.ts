@@ -52,6 +52,24 @@ export type MetricsTotalsSucceededCheckouts = number | number;
 
 export type MetricsTotalsCheckoutsConversion = number | number;
 
+export type MetricsTotalsCanceledSubscriptions = number | number;
+
+export type MetricsTotalsCanceledSubscriptionsCustomerService = number | number;
+
+export type MetricsTotalsCanceledSubscriptionsLowQuality = number | number;
+
+export type MetricsTotalsCanceledSubscriptionsMissingFeatures = number | number;
+
+export type MetricsTotalsCanceledSubscriptionsSwitchedService = number | number;
+
+export type MetricsTotalsCanceledSubscriptionsTooComplex = number | number;
+
+export type MetricsTotalsCanceledSubscriptionsTooExpensive = number | number;
+
+export type MetricsTotalsCanceledSubscriptionsUnused = number | number;
+
+export type MetricsTotalsCanceledSubscriptionsOther = number | number;
+
 export type MetricsTotals = {
   orders: number | number;
   revenue: number | number;
@@ -75,6 +93,15 @@ export type MetricsTotals = {
   checkouts: number | number;
   succeededCheckouts: number | number;
   checkoutsConversion: number | number;
+  canceledSubscriptions: number | number;
+  canceledSubscriptionsCustomerService: number | number;
+  canceledSubscriptionsLowQuality: number | number;
+  canceledSubscriptionsMissingFeatures: number | number;
+  canceledSubscriptionsSwitchedService: number | number;
+  canceledSubscriptionsTooComplex: number | number;
+  canceledSubscriptionsTooExpensive: number | number;
+  canceledSubscriptionsUnused: number | number;
+  canceledSubscriptionsOther: number | number;
 };
 
 /** @internal */
@@ -1230,6 +1257,558 @@ export function metricsTotalsCheckoutsConversionFromJSON(
 }
 
 /** @internal */
+export const MetricsTotalsCanceledSubscriptions$inboundSchema: z.ZodType<
+  MetricsTotalsCanceledSubscriptions,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCanceledSubscriptions$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptions$outboundSchema: z.ZodType<
+  MetricsTotalsCanceledSubscriptions$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsCanceledSubscriptions
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCanceledSubscriptions$ {
+  /** @deprecated use `MetricsTotalsCanceledSubscriptions$inboundSchema` instead. */
+  export const inboundSchema = MetricsTotalsCanceledSubscriptions$inboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptions$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsCanceledSubscriptions$outboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptions$Outbound` instead. */
+  export type Outbound = MetricsTotalsCanceledSubscriptions$Outbound;
+}
+
+export function metricsTotalsCanceledSubscriptionsToJSON(
+  metricsTotalsCanceledSubscriptions: MetricsTotalsCanceledSubscriptions,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCanceledSubscriptions$outboundSchema.parse(
+      metricsTotalsCanceledSubscriptions,
+    ),
+  );
+}
+
+export function metricsTotalsCanceledSubscriptionsFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsCanceledSubscriptions, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsCanceledSubscriptions$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsCanceledSubscriptions' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsCustomerService$inboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsCustomerService,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCanceledSubscriptionsCustomerService$Outbound =
+  | number
+  | number;
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsCustomerService$outboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsCustomerService$Outbound,
+    z.ZodTypeDef,
+    MetricsTotalsCanceledSubscriptionsCustomerService
+  > = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCanceledSubscriptionsCustomerService$ {
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsCustomerService$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsCanceledSubscriptionsCustomerService$inboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsCustomerService$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsCanceledSubscriptionsCustomerService$outboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsCustomerService$Outbound` instead. */
+  export type Outbound =
+    MetricsTotalsCanceledSubscriptionsCustomerService$Outbound;
+}
+
+export function metricsTotalsCanceledSubscriptionsCustomerServiceToJSON(
+  metricsTotalsCanceledSubscriptionsCustomerService:
+    MetricsTotalsCanceledSubscriptionsCustomerService,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCanceledSubscriptionsCustomerService$outboundSchema.parse(
+      metricsTotalsCanceledSubscriptionsCustomerService,
+    ),
+  );
+}
+
+export function metricsTotalsCanceledSubscriptionsCustomerServiceFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsTotalsCanceledSubscriptionsCustomerService,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsCanceledSubscriptionsCustomerService$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsTotalsCanceledSubscriptionsCustomerService' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsLowQuality$inboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsLowQuality,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCanceledSubscriptionsLowQuality$Outbound =
+  | number
+  | number;
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsLowQuality$outboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsLowQuality$Outbound,
+    z.ZodTypeDef,
+    MetricsTotalsCanceledSubscriptionsLowQuality
+  > = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCanceledSubscriptionsLowQuality$ {
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsLowQuality$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsCanceledSubscriptionsLowQuality$inboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsLowQuality$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsCanceledSubscriptionsLowQuality$outboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsLowQuality$Outbound` instead. */
+  export type Outbound = MetricsTotalsCanceledSubscriptionsLowQuality$Outbound;
+}
+
+export function metricsTotalsCanceledSubscriptionsLowQualityToJSON(
+  metricsTotalsCanceledSubscriptionsLowQuality:
+    MetricsTotalsCanceledSubscriptionsLowQuality,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCanceledSubscriptionsLowQuality$outboundSchema.parse(
+      metricsTotalsCanceledSubscriptionsLowQuality,
+    ),
+  );
+}
+
+export function metricsTotalsCanceledSubscriptionsLowQualityFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsTotalsCanceledSubscriptionsLowQuality,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsCanceledSubscriptionsLowQuality$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsTotalsCanceledSubscriptionsLowQuality' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsMissingFeatures$inboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsMissingFeatures,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCanceledSubscriptionsMissingFeatures$Outbound =
+  | number
+  | number;
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsMissingFeatures$outboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsMissingFeatures$Outbound,
+    z.ZodTypeDef,
+    MetricsTotalsCanceledSubscriptionsMissingFeatures
+  > = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCanceledSubscriptionsMissingFeatures$ {
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsMissingFeatures$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsCanceledSubscriptionsMissingFeatures$inboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsMissingFeatures$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsCanceledSubscriptionsMissingFeatures$outboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsMissingFeatures$Outbound` instead. */
+  export type Outbound =
+    MetricsTotalsCanceledSubscriptionsMissingFeatures$Outbound;
+}
+
+export function metricsTotalsCanceledSubscriptionsMissingFeaturesToJSON(
+  metricsTotalsCanceledSubscriptionsMissingFeatures:
+    MetricsTotalsCanceledSubscriptionsMissingFeatures,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCanceledSubscriptionsMissingFeatures$outboundSchema.parse(
+      metricsTotalsCanceledSubscriptionsMissingFeatures,
+    ),
+  );
+}
+
+export function metricsTotalsCanceledSubscriptionsMissingFeaturesFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsTotalsCanceledSubscriptionsMissingFeatures,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsCanceledSubscriptionsMissingFeatures$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsTotalsCanceledSubscriptionsMissingFeatures' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsSwitchedService$inboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsSwitchedService,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCanceledSubscriptionsSwitchedService$Outbound =
+  | number
+  | number;
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsSwitchedService$outboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsSwitchedService$Outbound,
+    z.ZodTypeDef,
+    MetricsTotalsCanceledSubscriptionsSwitchedService
+  > = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCanceledSubscriptionsSwitchedService$ {
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsSwitchedService$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsCanceledSubscriptionsSwitchedService$inboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsSwitchedService$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsCanceledSubscriptionsSwitchedService$outboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsSwitchedService$Outbound` instead. */
+  export type Outbound =
+    MetricsTotalsCanceledSubscriptionsSwitchedService$Outbound;
+}
+
+export function metricsTotalsCanceledSubscriptionsSwitchedServiceToJSON(
+  metricsTotalsCanceledSubscriptionsSwitchedService:
+    MetricsTotalsCanceledSubscriptionsSwitchedService,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCanceledSubscriptionsSwitchedService$outboundSchema.parse(
+      metricsTotalsCanceledSubscriptionsSwitchedService,
+    ),
+  );
+}
+
+export function metricsTotalsCanceledSubscriptionsSwitchedServiceFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsTotalsCanceledSubscriptionsSwitchedService,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsCanceledSubscriptionsSwitchedService$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsTotalsCanceledSubscriptionsSwitchedService' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsTooComplex$inboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsTooComplex,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCanceledSubscriptionsTooComplex$Outbound =
+  | number
+  | number;
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsTooComplex$outboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsTooComplex$Outbound,
+    z.ZodTypeDef,
+    MetricsTotalsCanceledSubscriptionsTooComplex
+  > = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCanceledSubscriptionsTooComplex$ {
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooComplex$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsCanceledSubscriptionsTooComplex$inboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooComplex$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsCanceledSubscriptionsTooComplex$outboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooComplex$Outbound` instead. */
+  export type Outbound = MetricsTotalsCanceledSubscriptionsTooComplex$Outbound;
+}
+
+export function metricsTotalsCanceledSubscriptionsTooComplexToJSON(
+  metricsTotalsCanceledSubscriptionsTooComplex:
+    MetricsTotalsCanceledSubscriptionsTooComplex,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCanceledSubscriptionsTooComplex$outboundSchema.parse(
+      metricsTotalsCanceledSubscriptionsTooComplex,
+    ),
+  );
+}
+
+export function metricsTotalsCanceledSubscriptionsTooComplexFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsTotalsCanceledSubscriptionsTooComplex,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsCanceledSubscriptionsTooComplex$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsTotalsCanceledSubscriptionsTooComplex' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsTooExpensive$inboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsTooExpensive,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCanceledSubscriptionsTooExpensive$Outbound =
+  | number
+  | number;
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsTooExpensive$outboundSchema:
+  z.ZodType<
+    MetricsTotalsCanceledSubscriptionsTooExpensive$Outbound,
+    z.ZodTypeDef,
+    MetricsTotalsCanceledSubscriptionsTooExpensive
+  > = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCanceledSubscriptionsTooExpensive$ {
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooExpensive$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsCanceledSubscriptionsTooExpensive$inboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooExpensive$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsCanceledSubscriptionsTooExpensive$outboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooExpensive$Outbound` instead. */
+  export type Outbound =
+    MetricsTotalsCanceledSubscriptionsTooExpensive$Outbound;
+}
+
+export function metricsTotalsCanceledSubscriptionsTooExpensiveToJSON(
+  metricsTotalsCanceledSubscriptionsTooExpensive:
+    MetricsTotalsCanceledSubscriptionsTooExpensive,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCanceledSubscriptionsTooExpensive$outboundSchema.parse(
+      metricsTotalsCanceledSubscriptionsTooExpensive,
+    ),
+  );
+}
+
+export function metricsTotalsCanceledSubscriptionsTooExpensiveFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsTotalsCanceledSubscriptionsTooExpensive,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsCanceledSubscriptionsTooExpensive$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsTotalsCanceledSubscriptionsTooExpensive' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsUnused$inboundSchema: z.ZodType<
+  MetricsTotalsCanceledSubscriptionsUnused,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCanceledSubscriptionsUnused$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsUnused$outboundSchema: z.ZodType<
+  MetricsTotalsCanceledSubscriptionsUnused$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsCanceledSubscriptionsUnused
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCanceledSubscriptionsUnused$ {
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsUnused$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsCanceledSubscriptionsUnused$inboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsUnused$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsCanceledSubscriptionsUnused$outboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsUnused$Outbound` instead. */
+  export type Outbound = MetricsTotalsCanceledSubscriptionsUnused$Outbound;
+}
+
+export function metricsTotalsCanceledSubscriptionsUnusedToJSON(
+  metricsTotalsCanceledSubscriptionsUnused:
+    MetricsTotalsCanceledSubscriptionsUnused,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCanceledSubscriptionsUnused$outboundSchema.parse(
+      metricsTotalsCanceledSubscriptionsUnused,
+    ),
+  );
+}
+
+export function metricsTotalsCanceledSubscriptionsUnusedFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsTotalsCanceledSubscriptionsUnused,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsCanceledSubscriptionsUnused$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsTotalsCanceledSubscriptionsUnused' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsOther$inboundSchema: z.ZodType<
+  MetricsTotalsCanceledSubscriptionsOther,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCanceledSubscriptionsOther$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsCanceledSubscriptionsOther$outboundSchema: z.ZodType<
+  MetricsTotalsCanceledSubscriptionsOther$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsCanceledSubscriptionsOther
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCanceledSubscriptionsOther$ {
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsOther$inboundSchema` instead. */
+  export const inboundSchema =
+    MetricsTotalsCanceledSubscriptionsOther$inboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsOther$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsCanceledSubscriptionsOther$outboundSchema;
+  /** @deprecated use `MetricsTotalsCanceledSubscriptionsOther$Outbound` instead. */
+  export type Outbound = MetricsTotalsCanceledSubscriptionsOther$Outbound;
+}
+
+export function metricsTotalsCanceledSubscriptionsOtherToJSON(
+  metricsTotalsCanceledSubscriptionsOther:
+    MetricsTotalsCanceledSubscriptionsOther,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCanceledSubscriptionsOther$outboundSchema.parse(
+      metricsTotalsCanceledSubscriptionsOther,
+    ),
+  );
+}
+
+export function metricsTotalsCanceledSubscriptionsOtherFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MetricsTotalsCanceledSubscriptionsOther,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsCanceledSubscriptionsOther$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MetricsTotalsCanceledSubscriptionsOther' from JSON`,
+  );
+}
+
+/** @internal */
 export const MetricsTotals$inboundSchema: z.ZodType<
   MetricsTotals,
   z.ZodTypeDef,
@@ -1257,6 +1836,24 @@ export const MetricsTotals$inboundSchema: z.ZodType<
   checkouts: z.union([z.number().int(), z.number()]),
   succeeded_checkouts: z.union([z.number().int(), z.number()]),
   checkouts_conversion: z.union([z.number().int(), z.number()]),
+  canceled_subscriptions: z.union([z.number().int(), z.number()]),
+  canceled_subscriptions_customer_service: z.union([
+    z.number().int(),
+    z.number(),
+  ]),
+  canceled_subscriptions_low_quality: z.union([z.number().int(), z.number()]),
+  canceled_subscriptions_missing_features: z.union([
+    z.number().int(),
+    z.number(),
+  ]),
+  canceled_subscriptions_switched_service: z.union([
+    z.number().int(),
+    z.number(),
+  ]),
+  canceled_subscriptions_too_complex: z.union([z.number().int(), z.number()]),
+  canceled_subscriptions_too_expensive: z.union([z.number().int(), z.number()]),
+  canceled_subscriptions_unused: z.union([z.number().int(), z.number()]),
+  canceled_subscriptions_other: z.union([z.number().int(), z.number()]),
 }).transform((v) => {
   return remap$(v, {
     "net_revenue": "netRevenue",
@@ -1278,6 +1875,18 @@ export const MetricsTotals$inboundSchema: z.ZodType<
     "committed_monthly_recurring_revenue": "committedMonthlyRecurringRevenue",
     "succeeded_checkouts": "succeededCheckouts",
     "checkouts_conversion": "checkoutsConversion",
+    "canceled_subscriptions": "canceledSubscriptions",
+    "canceled_subscriptions_customer_service":
+      "canceledSubscriptionsCustomerService",
+    "canceled_subscriptions_low_quality": "canceledSubscriptionsLowQuality",
+    "canceled_subscriptions_missing_features":
+      "canceledSubscriptionsMissingFeatures",
+    "canceled_subscriptions_switched_service":
+      "canceledSubscriptionsSwitchedService",
+    "canceled_subscriptions_too_complex": "canceledSubscriptionsTooComplex",
+    "canceled_subscriptions_too_expensive": "canceledSubscriptionsTooExpensive",
+    "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
+    "canceled_subscriptions_other": "canceledSubscriptionsOther",
   });
 });
 
@@ -1305,6 +1914,15 @@ export type MetricsTotals$Outbound = {
   checkouts: number | number;
   succeeded_checkouts: number | number;
   checkouts_conversion: number | number;
+  canceled_subscriptions: number | number;
+  canceled_subscriptions_customer_service: number | number;
+  canceled_subscriptions_low_quality: number | number;
+  canceled_subscriptions_missing_features: number | number;
+  canceled_subscriptions_switched_service: number | number;
+  canceled_subscriptions_too_complex: number | number;
+  canceled_subscriptions_too_expensive: number | number;
+  canceled_subscriptions_unused: number | number;
+  canceled_subscriptions_other: number | number;
 };
 
 /** @internal */
@@ -1335,6 +1953,15 @@ export const MetricsTotals$outboundSchema: z.ZodType<
   checkouts: z.union([z.number().int(), z.number()]),
   succeededCheckouts: z.union([z.number().int(), z.number()]),
   checkoutsConversion: z.union([z.number().int(), z.number()]),
+  canceledSubscriptions: z.union([z.number().int(), z.number()]),
+  canceledSubscriptionsCustomerService: z.union([z.number().int(), z.number()]),
+  canceledSubscriptionsLowQuality: z.union([z.number().int(), z.number()]),
+  canceledSubscriptionsMissingFeatures: z.union([z.number().int(), z.number()]),
+  canceledSubscriptionsSwitchedService: z.union([z.number().int(), z.number()]),
+  canceledSubscriptionsTooComplex: z.union([z.number().int(), z.number()]),
+  canceledSubscriptionsTooExpensive: z.union([z.number().int(), z.number()]),
+  canceledSubscriptionsUnused: z.union([z.number().int(), z.number()]),
+  canceledSubscriptionsOther: z.union([z.number().int(), z.number()]),
 }).transform((v) => {
   return remap$(v, {
     netRevenue: "net_revenue",
@@ -1356,6 +1983,18 @@ export const MetricsTotals$outboundSchema: z.ZodType<
     committedMonthlyRecurringRevenue: "committed_monthly_recurring_revenue",
     succeededCheckouts: "succeeded_checkouts",
     checkoutsConversion: "checkouts_conversion",
+    canceledSubscriptions: "canceled_subscriptions",
+    canceledSubscriptionsCustomerService:
+      "canceled_subscriptions_customer_service",
+    canceledSubscriptionsLowQuality: "canceled_subscriptions_low_quality",
+    canceledSubscriptionsMissingFeatures:
+      "canceled_subscriptions_missing_features",
+    canceledSubscriptionsSwitchedService:
+      "canceled_subscriptions_switched_service",
+    canceledSubscriptionsTooComplex: "canceled_subscriptions_too_complex",
+    canceledSubscriptionsTooExpensive: "canceled_subscriptions_too_expensive",
+    canceledSubscriptionsUnused: "canceled_subscriptions_unused",
+    canceledSubscriptionsOther: "canceled_subscriptions_other",
   });
 });
 

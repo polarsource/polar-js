@@ -48,10 +48,7 @@ let value: CustomerMeter = {
       conjunction: "or",
       clauses: [],
     },
-    aggregation: {
-      func: "max",
-      property: "<value>",
-    },
+    aggregation: {},
     organizationId: "<value>",
   },
 };

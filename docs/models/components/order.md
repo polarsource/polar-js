@@ -16,27 +16,28 @@ let value: Order = {
   netAmount: 795990,
   taxAmount: 390856,
   totalAmount: 863634,
-  refundedAmount: 250136,
-  refundedTaxAmount: 782415,
-  currency: "Convertible Marks",
-  billingReason: "subscription_cycle",
-  billingName: null,
+  fromBalanceAmount: 250136,
+  refundedAmount: 782415,
+  refundedTaxAmount: 65687,
+  currency: "Cordoba Oro",
+  billingReason: "purchase",
+  billingName: "<value>",
   billingAddress: {
     country: "US",
   },
-  isInvoiceGenerated: false,
+  isInvoiceGenerated: true,
   customerId: "<value>",
   productId: "<value>",
   discountId: "<value>",
   subscriptionId: "<value>",
-  checkoutId: "<value>",
+  checkoutId: null,
   metadata: {},
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-07-02T05:54:26.991Z"),
-    modifiedAt: new Date("2023-12-03T03:44:13.678Z"),
+    createdAt: new Date("2025-11-29T23:08:09.503Z"),
+    modifiedAt: new Date("2025-04-19T04:57:52.293Z"),
     metadata: {
-      "key": false,
+      "key": 9564.92,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -50,13 +51,13 @@ let value: Order = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2024-08-18T23:02:56.814Z"),
+    deletedAt: new Date("2024-08-01T02:10:59.019Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   userId: "<value>",
   product: {
     metadata: {
-      "key": 131.87,
+      "key": "<value>",
     },
     createdAt: new Date("2024-09-10T09:53:33.542Z"),
     modifiedAt: new Date("2023-01-29T03:42:25.281Z"),
@@ -68,25 +69,7 @@ let value: Order = {
     isArchived: false,
     organizationId: "<value>",
   },
-  discount: {
-    duration: "forever",
-    type: "fixed",
-    amount: 730131,
-    currency: "Argentine Peso",
-    createdAt: new Date("2023-09-25T16:35:51.122Z"),
-    modifiedAt: new Date("2023-02-17T22:27:48.746Z"),
-    id: "<value>",
-    metadata: {
-      "key": 2446.34,
-    },
-    name: "<value>",
-    code: "<value>",
-    startsAt: new Date("2024-01-16T07:39:17.060Z"),
-    endsAt: new Date("2024-07-16T03:03:58.095Z"),
-    maxRedemptions: 328255,
-    redemptionsCount: 466795,
-    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  },
+  discount: null,
   subscription: {
     metadata: {
       "key": "<value>",
@@ -141,6 +124,7 @@ let value: Order = {
 | `netAmount`                                                                                                             | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Amount in cents, after discounts but before taxes.                                                                      |                                                                                                                         |
 | `taxAmount`                                                                                                             | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Sales tax amount in cents.                                                                                              |                                                                                                                         |
 | `totalAmount`                                                                                                           | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Amount in cents, after discounts and taxes.                                                                             |                                                                                                                         |
+| `fromBalanceAmount`                                                                                                     | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | How much of this invoice was paid using the customer's balance. Amount in cents.                                        |                                                                                                                         |
 | `refundedAmount`                                                                                                        | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Amount refunded in cents.                                                                                               |                                                                                                                         |
 | `refundedTaxAmount`                                                                                                     | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | Sales tax refunded in cents.                                                                                            |                                                                                                                         |
 | `currency`                                                                                                              | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |

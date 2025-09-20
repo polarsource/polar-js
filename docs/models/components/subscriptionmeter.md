@@ -25,10 +25,7 @@ let value: SubscriptionMeter = {
       conjunction: "or",
       clauses: [],
     },
-    aggregation: {
-      func: "max",
-      property: "<value>",
-    },
+    aggregation: {},
     organizationId: "<value>",
   },
 };

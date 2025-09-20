@@ -103,6 +103,42 @@ export type Metrics = {
    * Information about a metric.
    */
   checkoutsConversion: Metric;
+  /**
+   * Information about a metric.
+   */
+  canceledSubscriptions: Metric;
+  /**
+   * Information about a metric.
+   */
+  canceledSubscriptionsCustomerService: Metric;
+  /**
+   * Information about a metric.
+   */
+  canceledSubscriptionsLowQuality: Metric;
+  /**
+   * Information about a metric.
+   */
+  canceledSubscriptionsMissingFeatures: Metric;
+  /**
+   * Information about a metric.
+   */
+  canceledSubscriptionsSwitchedService: Metric;
+  /**
+   * Information about a metric.
+   */
+  canceledSubscriptionsTooComplex: Metric;
+  /**
+   * Information about a metric.
+   */
+  canceledSubscriptionsTooExpensive: Metric;
+  /**
+   * Information about a metric.
+   */
+  canceledSubscriptionsUnused: Metric;
+  /**
+   * Information about a metric.
+   */
+  canceledSubscriptionsOther: Metric;
 };
 
 /** @internal */
@@ -130,6 +166,15 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
     checkouts: Metric$inboundSchema,
     succeeded_checkouts: Metric$inboundSchema,
     checkouts_conversion: Metric$inboundSchema,
+    canceled_subscriptions: Metric$inboundSchema,
+    canceled_subscriptions_customer_service: Metric$inboundSchema,
+    canceled_subscriptions_low_quality: Metric$inboundSchema,
+    canceled_subscriptions_missing_features: Metric$inboundSchema,
+    canceled_subscriptions_switched_service: Metric$inboundSchema,
+    canceled_subscriptions_too_complex: Metric$inboundSchema,
+    canceled_subscriptions_too_expensive: Metric$inboundSchema,
+    canceled_subscriptions_unused: Metric$inboundSchema,
+    canceled_subscriptions_other: Metric$inboundSchema,
   }).transform((v) => {
     return remap$(v, {
       "net_revenue": "netRevenue",
@@ -151,6 +196,19 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
       "committed_monthly_recurring_revenue": "committedMonthlyRecurringRevenue",
       "succeeded_checkouts": "succeededCheckouts",
       "checkouts_conversion": "checkoutsConversion",
+      "canceled_subscriptions": "canceledSubscriptions",
+      "canceled_subscriptions_customer_service":
+        "canceledSubscriptionsCustomerService",
+      "canceled_subscriptions_low_quality": "canceledSubscriptionsLowQuality",
+      "canceled_subscriptions_missing_features":
+        "canceledSubscriptionsMissingFeatures",
+      "canceled_subscriptions_switched_service":
+        "canceledSubscriptionsSwitchedService",
+      "canceled_subscriptions_too_complex": "canceledSubscriptionsTooComplex",
+      "canceled_subscriptions_too_expensive":
+        "canceledSubscriptionsTooExpensive",
+      "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
+      "canceled_subscriptions_other": "canceledSubscriptionsOther",
     });
   });
 
@@ -178,6 +236,15 @@ export type Metrics$Outbound = {
   checkouts: Metric$Outbound;
   succeeded_checkouts: Metric$Outbound;
   checkouts_conversion: Metric$Outbound;
+  canceled_subscriptions: Metric$Outbound;
+  canceled_subscriptions_customer_service: Metric$Outbound;
+  canceled_subscriptions_low_quality: Metric$Outbound;
+  canceled_subscriptions_missing_features: Metric$Outbound;
+  canceled_subscriptions_switched_service: Metric$Outbound;
+  canceled_subscriptions_too_complex: Metric$Outbound;
+  canceled_subscriptions_too_expensive: Metric$Outbound;
+  canceled_subscriptions_unused: Metric$Outbound;
+  canceled_subscriptions_other: Metric$Outbound;
 };
 
 /** @internal */
@@ -208,6 +275,15 @@ export const Metrics$outboundSchema: z.ZodType<
   checkouts: Metric$outboundSchema,
   succeededCheckouts: Metric$outboundSchema,
   checkoutsConversion: Metric$outboundSchema,
+  canceledSubscriptions: Metric$outboundSchema,
+  canceledSubscriptionsCustomerService: Metric$outboundSchema,
+  canceledSubscriptionsLowQuality: Metric$outboundSchema,
+  canceledSubscriptionsMissingFeatures: Metric$outboundSchema,
+  canceledSubscriptionsSwitchedService: Metric$outboundSchema,
+  canceledSubscriptionsTooComplex: Metric$outboundSchema,
+  canceledSubscriptionsTooExpensive: Metric$outboundSchema,
+  canceledSubscriptionsUnused: Metric$outboundSchema,
+  canceledSubscriptionsOther: Metric$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     netRevenue: "net_revenue",
@@ -229,6 +305,18 @@ export const Metrics$outboundSchema: z.ZodType<
     committedMonthlyRecurringRevenue: "committed_monthly_recurring_revenue",
     succeededCheckouts: "succeeded_checkouts",
     checkoutsConversion: "checkouts_conversion",
+    canceledSubscriptions: "canceled_subscriptions",
+    canceledSubscriptionsCustomerService:
+      "canceled_subscriptions_customer_service",
+    canceledSubscriptionsLowQuality: "canceled_subscriptions_low_quality",
+    canceledSubscriptionsMissingFeatures:
+      "canceled_subscriptions_missing_features",
+    canceledSubscriptionsSwitchedService:
+      "canceled_subscriptions_switched_service",
+    canceledSubscriptionsTooComplex: "canceled_subscriptions_too_complex",
+    canceledSubscriptionsTooExpensive: "canceled_subscriptions_too_expensive",
+    canceledSubscriptionsUnused: "canceled_subscriptions_unused",
+    canceledSubscriptionsOther: "canceled_subscriptions_other",
   });
 });
 
