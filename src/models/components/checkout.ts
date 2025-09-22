@@ -77,6 +77,11 @@ import {
   ProductPrice$Outbound,
   ProductPrice$outboundSchema,
 } from "./productprice.js";
+import {
+  TrialInterval,
+  TrialInterval$inboundSchema,
+  TrialInterval$outboundSchema,
+} from "./trialinterval.js";
 
 export type CheckoutCustomFieldData = string | number | boolean | Date;
 
@@ -100,6 +105,10 @@ export type CustomerMetadata = string | number | boolean;
  */
 export type Checkout = {
   /**
+   * The ID of the object.
+   */
+  id: string;
+  /**
    * Creation timestamp of the object.
    */
   createdAt: Date;
@@ -107,10 +116,6 @@ export type Checkout = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the object.
-   */
-  id: string;
   /**
    * Key-value object storing custom field values.
    */
@@ -163,6 +168,18 @@ export type Checkout = {
    * Currency code of the checkout session.
    */
   currency: string;
+  /**
+   * Interval unit of the trial period, if any. This value is either set from the checkout, if `trial_interval` is set, or from the selected product.
+   */
+  activeTrialInterval: TrialInterval | null;
+  /**
+   * Number of interval units of the trial period, if any. This value is either set from the checkout, if `trial_interval_count` is set, or from the selected product.
+   */
+  activeTrialIntervalCount: number | null;
+  /**
+   * End date and time of the trial period, if any.
+   */
+  trialEnd: Date | null;
   /**
    * ID of the product to checkout.
    */
@@ -222,6 +239,14 @@ export type Checkout = {
   customerTaxId: string | null;
   paymentProcessorMetadata: { [k: string]: string };
   billingAddressFields: CheckoutBillingAddressFields;
+  /**
+   * The interval unit for the trial period.
+   */
+  trialInterval: TrialInterval | null;
+  /**
+   * The number of interval units for the trial period.
+   */
+  trialIntervalCount: number | null;
   metadata: { [k: string]: string | number | number | boolean };
   /**
    * ID of the customer in your system. If a matching customer exists on Polar, the resulting order will be linked to this customer. Otherwise, a new customer will be created with this external ID set.
@@ -536,11 +561,11 @@ export const Checkout$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
   custom_field_data: z.record(
     z.nullable(
       z.union([
@@ -564,6 +589,11 @@ export const Checkout$inboundSchema: z.ZodType<
   tax_amount: z.nullable(z.number().int()),
   total_amount: z.number().int(),
   currency: z.string(),
+  active_trial_interval: z.nullable(TrialInterval$inboundSchema),
+  active_trial_interval_count: z.nullable(z.number().int()),
+  trial_end: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
   product_id: z.string(),
   product_price_id: z.string(),
   discount_id: z.nullable(z.string()),
@@ -584,6 +614,8 @@ export const Checkout$inboundSchema: z.ZodType<
   customer_tax_id: z.nullable(z.string()),
   payment_processor_metadata: z.record(z.string()),
   billing_address_fields: CheckoutBillingAddressFields$inboundSchema,
+  trial_interval: z.nullable(TrialInterval$inboundSchema),
+  trial_interval_count: z.nullable(z.number().int()),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
@@ -622,6 +654,9 @@ export const Checkout$inboundSchema: z.ZodType<
     "net_amount": "netAmount",
     "tax_amount": "taxAmount",
     "total_amount": "totalAmount",
+    "active_trial_interval": "activeTrialInterval",
+    "active_trial_interval_count": "activeTrialIntervalCount",
+    "trial_end": "trialEnd",
     "product_id": "productId",
     "product_price_id": "productPriceId",
     "discount_id": "discountId",
@@ -642,6 +677,8 @@ export const Checkout$inboundSchema: z.ZodType<
     "customer_tax_id": "customerTaxId",
     "payment_processor_metadata": "paymentProcessorMetadata",
     "billing_address_fields": "billingAddressFields",
+    "trial_interval": "trialInterval",
+    "trial_interval_count": "trialIntervalCount",
     "external_customer_id": "externalCustomerId",
     "customer_external_id": "customerExternalId",
     "product_price": "productPrice",
@@ -653,9 +690,9 @@ export const Checkout$inboundSchema: z.ZodType<
 
 /** @internal */
 export type Checkout$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
@@ -672,6 +709,9 @@ export type Checkout$Outbound = {
   tax_amount: number | null;
   total_amount: number;
   currency: string;
+  active_trial_interval: string | null;
+  active_trial_interval_count: number | null;
+  trial_end: string | null;
   product_id: string;
   product_price_id: string;
   discount_id: string | null;
@@ -692,6 +732,8 @@ export type Checkout$Outbound = {
   customer_tax_id: string | null;
   payment_processor_metadata: { [k: string]: string };
   billing_address_fields: CheckoutBillingAddressFields$Outbound;
+  trial_interval: string | null;
+  trial_interval_count: number | null;
   metadata: { [k: string]: string | number | number | boolean };
   external_customer_id: string | null;
   customer_external_id: string | null;
@@ -715,9 +757,9 @@ export const Checkout$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Checkout
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
   customFieldData: z.record(
     z.nullable(
       z.union([
@@ -741,6 +783,9 @@ export const Checkout$outboundSchema: z.ZodType<
   taxAmount: z.nullable(z.number().int()),
   totalAmount: z.number().int(),
   currency: z.string(),
+  activeTrialInterval: z.nullable(TrialInterval$outboundSchema),
+  activeTrialIntervalCount: z.nullable(z.number().int()),
+  trialEnd: z.nullable(z.date().transform(v => v.toISOString())),
   productId: z.string(),
   productPriceId: z.string(),
   discountId: z.nullable(z.string()),
@@ -761,6 +806,8 @@ export const Checkout$outboundSchema: z.ZodType<
   customerTaxId: z.nullable(z.string()),
   paymentProcessorMetadata: z.record(z.string()),
   billingAddressFields: CheckoutBillingAddressFields$outboundSchema,
+  trialInterval: z.nullable(TrialInterval$outboundSchema),
+  trialIntervalCount: z.nullable(z.number().int()),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
@@ -799,6 +846,9 @@ export const Checkout$outboundSchema: z.ZodType<
     netAmount: "net_amount",
     taxAmount: "tax_amount",
     totalAmount: "total_amount",
+    activeTrialInterval: "active_trial_interval",
+    activeTrialIntervalCount: "active_trial_interval_count",
+    trialEnd: "trial_end",
     productId: "product_id",
     productPriceId: "product_price_id",
     discountId: "discount_id",
@@ -819,6 +869,8 @@ export const Checkout$outboundSchema: z.ZodType<
     customerTaxId: "customer_tax_id",
     paymentProcessorMetadata: "payment_processor_metadata",
     billingAddressFields: "billing_address_fields",
+    trialInterval: "trial_interval",
+    trialIntervalCount: "trial_interval_count",
     externalCustomerId: "external_customer_id",
     customerExternalId: "customer_external_id",
     productPrice: "product_price",

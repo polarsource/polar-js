@@ -8,12 +8,12 @@ import { BenefitLicenseKeysProperties } from "@polar-sh/sdk/models/components/be
 let value: BenefitLicenseKeysProperties = {
   prefix: "<value>",
   expires: {
-    ttl: 693280,
-    timeframe: "day",
+    ttl: 56931,
+    timeframe: "month",
   },
   activations: {
-    limit: 533992,
-    enableCustomerAdmin: true,
+    limit: 936323,
+    enableCustomerAdmin: false,
   },
   limitUsage: 224846,
 };

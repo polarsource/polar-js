@@ -48,6 +48,11 @@ import {
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
+import {
+  TrialInterval,
+  TrialInterval$inboundSchema,
+  TrialInterval$outboundSchema,
+} from "./trialinterval.js";
 
 export type ProductUpdateMetadata = string | number | number | boolean;
 
@@ -78,6 +83,14 @@ export type ProductUpdate = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
+  /**
+   * The interval unit for the trial period.
+   */
+  trialInterval?: TrialInterval | null | undefined;
+  /**
+   * The number of interval units for the trial period.
+   */
+  trialIntervalCount?: number | null | undefined;
   name?: string | null | undefined;
   /**
    * The description of the product.
@@ -233,6 +246,8 @@ export const ProductUpdate$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
+  trial_interval: z.nullable(TrialInterval$inboundSchema).optional(),
+  trial_interval_count: z.nullable(z.number().int()).optional(),
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema)
@@ -255,6 +270,8 @@ export const ProductUpdate$inboundSchema: z.ZodType<
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "trial_interval": "trialInterval",
+    "trial_interval_count": "trialIntervalCount",
     "recurring_interval": "recurringInterval",
     "is_archived": "isArchived",
     "attached_custom_fields": "attachedCustomFields",
@@ -264,6 +281,8 @@ export const ProductUpdate$inboundSchema: z.ZodType<
 /** @internal */
 export type ProductUpdate$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
+  trial_interval?: string | null | undefined;
+  trial_interval_count?: number | null | undefined;
   name?: string | null | undefined;
   description?: string | null | undefined;
   recurring_interval?: string | null | undefined;
@@ -294,6 +313,8 @@ export const ProductUpdate$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
+  trialInterval: z.nullable(TrialInterval$outboundSchema).optional(),
+  trialIntervalCount: z.nullable(z.number().int()).optional(),
   name: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
   recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema)
@@ -316,6 +337,8 @@ export const ProductUpdate$outboundSchema: z.ZodType<
   ).optional(),
 }).transform((v) => {
   return remap$(v, {
+    trialInterval: "trial_interval",
+    trialIntervalCount: "trial_interval_count",
     recurringInterval: "recurring_interval",
     isArchived: "is_archived",
     attachedCustomFields: "attached_custom_fields",

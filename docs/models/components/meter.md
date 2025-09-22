@@ -12,13 +12,15 @@ let value: Meter = {
   id: "<value>",
   name: "<value>",
   filter: {
-    conjunction: "or",
-    clauses: [],
+    conjunction: "and",
+    clauses: [
+      {
+        conjunction: "or",
+        clauses: [],
+      },
+    ],
   },
-  aggregation: {
-    func: "max",
-    property: "<value>",
-  },
+  aggregation: {},
   organizationId: "<value>",
 };
 ```

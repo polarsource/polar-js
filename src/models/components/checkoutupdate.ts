@@ -13,6 +13,11 @@ import {
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
+import {
+  TrialInterval,
+  TrialInterval$inboundSchema,
+  TrialInterval$outboundSchema,
+} from "./trialinterval.js";
 
 export type CheckoutUpdateCustomFieldData = string | number | boolean | Date;
 
@@ -47,6 +52,14 @@ export type CheckoutUpdate = {
   customerBillingName?: string | null | undefined;
   customerBillingAddress?: AddressInput | null | undefined;
   customerTaxId?: string | null | undefined;
+  /**
+   * The interval unit for the trial period.
+   */
+  trialInterval?: TrialInterval | null | undefined;
+  /**
+   * The number of interval units for the trial period.
+   */
+  trialIntervalCount?: number | null | undefined;
   /**
    * Key-value object allowing you to store additional information.
    *
@@ -300,6 +313,8 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   customer_billing_name: z.nullable(z.string()).optional(),
   customer_billing_address: z.nullable(AddressInput$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
+  trial_interval: z.nullable(TrialInterval$inboundSchema).optional(),
+  trial_interval_count: z.nullable(z.number().int()).optional(),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
@@ -323,6 +338,8 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
     "customer_billing_name": "customerBillingName",
     "customer_billing_address": "customerBillingAddress",
     "customer_tax_id": "customerTaxId",
+    "trial_interval": "trialInterval",
+    "trial_interval_count": "trialIntervalCount",
     "discount_id": "discountId",
     "allow_discount_codes": "allowDiscountCodes",
     "require_billing_address": "requireBillingAddress",
@@ -347,6 +364,8 @@ export type CheckoutUpdate$Outbound = {
   customer_billing_name?: string | null | undefined;
   customer_billing_address?: AddressInput$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
+  trial_interval?: string | null | undefined;
+  trial_interval_count?: number | null | undefined;
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   discount_id?: string | null | undefined;
   allow_discount_codes?: boolean | null | undefined;
@@ -385,6 +404,8 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   customerBillingName: z.nullable(z.string()).optional(),
   customerBillingAddress: z.nullable(AddressInput$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
+  trialInterval: z.nullable(TrialInterval$outboundSchema).optional(),
+  trialIntervalCount: z.nullable(z.number().int()).optional(),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
@@ -408,6 +429,8 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
     customerBillingName: "customer_billing_name",
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
+    trialInterval: "trial_interval",
+    trialIntervalCount: "trial_interval_count",
     discountId: "discount_id",
     allowDiscountCodes: "allow_discount_codes",
     requireBillingAddress: "require_billing_address",

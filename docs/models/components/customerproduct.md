@@ -8,31 +8,30 @@ Schema of a product for customer portal.
 import { CustomerProduct } from "@polar-sh/sdk/models/components/customerproduct.js";
 
 let value: CustomerProduct = {
+  id: "<value>",
   createdAt: new Date("2023-08-02T14:57:17.701Z"),
   modifiedAt: null,
-  id: "<value>",
+  trialInterval: "week",
+  trialIntervalCount: 275288,
   name: "<value>",
-  description: "uh-huh govern soon swine oh",
-  recurringInterval: "month",
+  description: "wherever relative who above speedily",
+  recurringInterval: "day",
   isRecurring: true,
   isArchived: false,
   organizationId: "<value>",
-  prices: [
+  prices: [],
+  benefits: [
     {
-      createdAt: new Date("2025-10-27T15:04:52.495Z"),
-      modifiedAt: new Date("2025-12-18T13:12:35.966Z"),
       id: "<value>",
-      amountType: "fixed",
-      isArchived: true,
-      productId: "<value>",
-      type: "recurring",
-      recurringInterval: "year",
-      priceCurrency: "<value>",
-      priceAmount: 366806,
-      legacy: true,
+      createdAt: new Date("2025-05-25T16:58:54.608Z"),
+      modifiedAt: new Date("2023-09-04T14:15:13.546Z"),
+      type: "meter_credit",
+      description: "pity and paltry shakily even fair aha as masquerade versus",
+      selectable: false,
+      deletable: false,
+      organizationId: "<value>",
     },
   ],
-  benefits: [],
   medias: [],
 };
 ```
@@ -41,9 +40,11 @@ let value: CustomerProduct = {
 
 | Field                                                                                                                                                             | Type                                                                                                                                                              | Required                                                                                                                                                          | Description                                                                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                                                              | *string*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | The ID of the object.                                                                                                                                             |
 | `createdAt`                                                                                                                                                       | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                     | :heavy_check_mark:                                                                                                                                                | Creation timestamp of the object.                                                                                                                                 |
 | `modifiedAt`                                                                                                                                                      | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                     | :heavy_check_mark:                                                                                                                                                | Last modification timestamp of the object.                                                                                                                        |
-| `id`                                                                                                                                                              | *string*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | The ID of the product.                                                                                                                                            |
+| `trialInterval`                                                                                                                                                   | [components.TrialInterval](../../models/components/trialinterval.md)                                                                                              | :heavy_check_mark:                                                                                                                                                | The interval unit for the trial period.                                                                                                                           |
+| `trialIntervalCount`                                                                                                                                              | *number*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | The number of interval units for the trial period.                                                                                                                |
 | `name`                                                                                                                                                            | *string*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | The name of the product.                                                                                                                                          |
 | `description`                                                                                                                                                     | *string*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | The description of the product.                                                                                                                                   |
 | `recurringInterval`                                                                                                                                               | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                                                              | :heavy_check_mark:                                                                                                                                                | The recurring interval of the product. If `None`, the product is a one-time purchase.Note that the `day` and `week` values are for internal Polar staff use only. |

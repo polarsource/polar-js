@@ -9,51 +9,62 @@ let value: ProductsListResponse = {
   result: {
     items: [
       {
+        id: "<value>",
         createdAt: new Date("2024-04-08T02:10:23.808Z"),
         modifiedAt: new Date("2025-01-20T07:32:44.012Z"),
-        id: "<value>",
+        trialInterval: "month",
+        trialIntervalCount: 175754,
         name: "<value>",
-        description: "warmhearted wealthy which geez scruple innocent why",
-        recurringInterval: "month",
+        description: "unlined why alongside beyond sandy softly",
+        recurringInterval: "year",
         isRecurring: false,
         isArchived: true,
         organizationId: "<value>",
         metadata: {
-          "key": "<value>",
+          "key": true,
         },
         prices: [
           {
-            createdAt: new Date("2024-11-03T13:15:47.525Z"),
-            modifiedAt: new Date("2025-12-24T03:50:27.310Z"),
+            createdAt: new Date("2024-01-20T19:38:49.234Z"),
+            modifiedAt: new Date("2024-11-03T13:15:47.525Z"),
             id: "<value>",
             amountType: "free",
             isArchived: true,
             productId: "<value>",
             type: "recurring",
-            recurringInterval: "day",
+            recurringInterval: "year",
             legacy: true,
           },
         ],
-        benefits: [
+        benefits: [],
+        medias: [],
+        attachedCustomFields: [
           {
-            id: "<value>",
-            createdAt: new Date("2024-02-06T13:17:11.278Z"),
-            modifiedAt: new Date("2025-04-26T10:13:16.029Z"),
-            type: "github_repository",
-            description: "tall pack rundown even",
-            selectable: false,
-            deletable: false,
-            organizationId: "<value>",
-            metadata: {},
-            properties: {
-              repositoryOwner: "polarsource",
-              repositoryName: "private_repo",
-              permission: "admin",
+            customFieldId: "<value>",
+            customField: {
+              createdAt: new Date("2023-01-17T02:26:08.207Z"),
+              modifiedAt: new Date("2025-04-09T14:51:17.764Z"),
+              id: "<value>",
+              metadata: {
+                "key": true,
+              },
+              type: "select",
+              slug: "<value>",
+              name: "<value>",
+              organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+              properties: {
+                options: [
+                  {
+                    value: "<value>",
+                    label: "<value>",
+                  },
+                ],
+              },
             },
+            order: 252765,
+            required: false,
           },
         ],
-        medias: [],
-        attachedCustomFields: [],
       },
     ],
     pagination: {

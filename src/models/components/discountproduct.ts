@@ -12,6 +12,11 @@ import {
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
+import {
+  TrialInterval,
+  TrialInterval$inboundSchema,
+  TrialInterval$outboundSchema,
+} from "./trialinterval.js";
 
 export type DiscountProductMetadata = string | number | number | boolean;
 
@@ -21,6 +26,10 @@ export type DiscountProductMetadata = string | number | number | boolean;
 export type DiscountProduct = {
   metadata: { [k: string]: string | number | number | boolean };
   /**
+   * The ID of the object.
+   */
+  id: string;
+  /**
    * Creation timestamp of the object.
    */
   createdAt: Date;
@@ -29,9 +38,13 @@ export type DiscountProduct = {
    */
   modifiedAt: Date | null;
   /**
-   * The ID of the product.
+   * The interval unit for the trial period.
    */
-  id: string;
+  trialInterval: TrialInterval | null;
+  /**
+   * The number of interval units for the trial period.
+   */
+  trialIntervalCount: number | null;
   /**
    * The name of the product.
    */
@@ -119,11 +132,13 @@ export const DiscountProduct$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  trial_interval: z.nullable(TrialInterval$inboundSchema),
+  trial_interval_count: z.nullable(z.number().int()),
   name: z.string(),
   description: z.nullable(z.string()),
   recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
@@ -134,6 +149,8 @@ export const DiscountProduct$inboundSchema: z.ZodType<
   return remap$(v, {
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
+    "trial_interval": "trialInterval",
+    "trial_interval_count": "trialIntervalCount",
     "recurring_interval": "recurringInterval",
     "is_recurring": "isRecurring",
     "is_archived": "isArchived",
@@ -144,9 +161,11 @@ export const DiscountProduct$inboundSchema: z.ZodType<
 /** @internal */
 export type DiscountProduct$Outbound = {
   metadata: { [k: string]: string | number | number | boolean };
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  trial_interval: string | null;
+  trial_interval_count: number | null;
   name: string;
   description: string | null;
   recurring_interval: string | null;
@@ -164,9 +183,11 @@ export const DiscountProduct$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  trialInterval: z.nullable(TrialInterval$outboundSchema),
+  trialIntervalCount: z.nullable(z.number().int()),
   name: z.string(),
   description: z.nullable(z.string()),
   recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
@@ -177,6 +198,8 @@ export const DiscountProduct$outboundSchema: z.ZodType<
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
+    trialInterval: "trial_interval",
+    trialIntervalCount: "trial_interval_count",
     recurringInterval: "recurring_interval",
     isRecurring: "is_recurring",
     isArchived: "is_archived",

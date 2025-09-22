@@ -7,6 +7,11 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  TrialInterval,
+  TrialInterval$inboundSchema,
+  TrialInterval$outboundSchema,
+} from "./trialinterval.js";
 
 export type CheckoutLinkUpdateMetadata = string | number | number | boolean;
 
@@ -14,6 +19,14 @@ export type CheckoutLinkUpdateMetadata = string | number | number | boolean;
  * Schema to update an existing checkout link.
  */
 export type CheckoutLinkUpdate = {
+  /**
+   * The interval unit for the trial period.
+   */
+  trialInterval?: TrialInterval | null | undefined;
+  /**
+   * The number of interval units for the trial period.
+   */
+  trialIntervalCount?: number | null | undefined;
   /**
    * Key-value object allowing you to store additional information.
    *
@@ -111,6 +124,8 @@ export const CheckoutLinkUpdate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  trial_interval: z.nullable(TrialInterval$inboundSchema).optional(),
+  trial_interval_count: z.nullable(z.number().int()).optional(),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
@@ -122,6 +137,8 @@ export const CheckoutLinkUpdate$inboundSchema: z.ZodType<
   success_url: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "trial_interval": "trialInterval",
+    "trial_interval_count": "trialIntervalCount",
     "allow_discount_codes": "allowDiscountCodes",
     "require_billing_address": "requireBillingAddress",
     "discount_id": "discountId",
@@ -131,6 +148,8 @@ export const CheckoutLinkUpdate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutLinkUpdate$Outbound = {
+  trial_interval?: string | null | undefined;
+  trial_interval_count?: number | null | undefined;
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   products?: Array<string> | null | undefined;
   label?: string | null | undefined;
@@ -146,6 +165,8 @@ export const CheckoutLinkUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutLinkUpdate
 > = z.object({
+  trialInterval: z.nullable(TrialInterval$outboundSchema).optional(),
+  trialIntervalCount: z.nullable(z.number().int()).optional(),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
@@ -157,6 +178,8 @@ export const CheckoutLinkUpdate$outboundSchema: z.ZodType<
   successUrl: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    trialInterval: "trial_interval",
+    trialIntervalCount: "trial_interval_count",
     allowDiscountCodes: "allow_discount_codes",
     requireBillingAddress: "require_billing_address",
     discountId: "discount_id",

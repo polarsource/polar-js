@@ -48,13 +48,13 @@ let value: CustomerBenefitGrantDiscord = {
       "key": 185641,
     },
     organization: {
-      createdAt: new Date("2025-01-01T18:22:02.718Z"),
-      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+      createdAt: new Date("2024-11-05T15:53:05.692Z"),
+      modifiedAt: new Date("2024-06-26T04:46:17.661Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: null,
-      email: "Hannah_Price@gmail.com",
+      avatarUrl: "https://moist-amendment.biz/",
+      email: "Olaf.Mills@yahoo.com",
       website: "<value>",
       socials: [
         {
@@ -62,9 +62,9 @@ let value: CustomerBenefitGrantDiscord = {
           url: "https://scratchy-midwife.net/",
         },
       ],
-      status: "denied",
-      detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
-      featureSettings: {},
+      status: "active",
+      detailsSubmittedAt: new Date("2023-07-28T11:30:45.712Z"),
+      featureSettings: null,
       subscriptionSettings: {
         allowMultipleSubscriptions: true,
         allowCustomerUpdates: true,

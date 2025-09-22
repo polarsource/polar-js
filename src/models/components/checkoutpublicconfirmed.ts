@@ -78,6 +78,11 @@ import {
   ProductPrice$Outbound,
   ProductPrice$outboundSchema,
 } from "./productprice.js";
+import {
+  TrialInterval,
+  TrialInterval$inboundSchema,
+  TrialInterval$outboundSchema,
+} from "./trialinterval.js";
 
 export type CheckoutPublicConfirmedCustomFieldData =
   | string
@@ -108,6 +113,10 @@ export type CheckoutPublicConfirmedDiscount =
  */
 export type CheckoutPublicConfirmed = {
   /**
+   * The ID of the object.
+   */
+  id: string;
+  /**
    * Creation timestamp of the object.
    */
   createdAt: Date;
@@ -115,10 +124,6 @@ export type CheckoutPublicConfirmed = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  /**
-   * The ID of the object.
-   */
-  id: string;
   /**
    * Key-value object storing custom field values.
    */
@@ -171,6 +176,18 @@ export type CheckoutPublicConfirmed = {
    * Currency code of the checkout session.
    */
   currency: string;
+  /**
+   * Interval unit of the trial period, if any. This value is either set from the checkout, if `trial_interval` is set, or from the selected product.
+   */
+  activeTrialInterval: TrialInterval | null;
+  /**
+   * Number of interval units of the trial period, if any. This value is either set from the checkout, if `trial_interval_count` is set, or from the selected product.
+   */
+  activeTrialIntervalCount: number | null;
+  /**
+   * End date and time of the trial period, if any.
+   */
+  trialEnd: Date | null;
   /**
    * ID of the product to checkout.
    */
@@ -452,11 +469,11 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
   custom_field_data: z.record(
     z.nullable(
       z.union([
@@ -480,6 +497,11 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
   tax_amount: z.nullable(z.number().int()),
   total_amount: z.number().int(),
   currency: z.string(),
+  active_trial_interval: z.nullable(TrialInterval$inboundSchema),
+  active_trial_interval_count: z.nullable(z.number().int()),
+  trial_end: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
   product_id: z.string(),
   product_price_id: z.string(),
   discount_id: z.nullable(z.string()),
@@ -531,6 +553,9 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
     "net_amount": "netAmount",
     "tax_amount": "taxAmount",
     "total_amount": "totalAmount",
+    "active_trial_interval": "activeTrialInterval",
+    "active_trial_interval_count": "activeTrialIntervalCount",
+    "trial_end": "trialEnd",
     "product_id": "productId",
     "product_price_id": "productPriceId",
     "discount_id": "discountId",
@@ -559,9 +584,9 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutPublicConfirmed$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
@@ -578,6 +603,9 @@ export type CheckoutPublicConfirmed$Outbound = {
   tax_amount: number | null;
   total_amount: number;
   currency: string;
+  active_trial_interval: string | null;
+  active_trial_interval_count: number | null;
+  trial_end: string | null;
   product_id: string;
   product_price_id: string;
   discount_id: string | null;
@@ -618,9 +646,9 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutPublicConfirmed
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
   customFieldData: z.record(
     z.nullable(
       z.union([
@@ -644,6 +672,9 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
   taxAmount: z.nullable(z.number().int()),
   totalAmount: z.number().int(),
   currency: z.string(),
+  activeTrialInterval: z.nullable(TrialInterval$outboundSchema),
+  activeTrialIntervalCount: z.nullable(z.number().int()),
+  trialEnd: z.nullable(z.date().transform(v => v.toISOString())),
   productId: z.string(),
   productPriceId: z.string(),
   discountId: z.nullable(z.string()),
@@ -695,6 +726,9 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
     netAmount: "net_amount",
     taxAmount: "tax_amount",
     totalAmount: "total_amount",
+    activeTrialInterval: "active_trial_interval",
+    activeTrialIntervalCount: "active_trial_interval_count",
+    trialEnd: "trial_end",
     productId: "product_id",
     productPriceId: "product_price_id",
     discountId: "discount_id",

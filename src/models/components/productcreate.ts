@@ -3,301 +3,48 @@
  */
 
 import * as z from "zod";
-import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AttachedCustomFieldCreate,
-  AttachedCustomFieldCreate$inboundSchema,
-  AttachedCustomFieldCreate$Outbound,
-  AttachedCustomFieldCreate$outboundSchema,
-} from "./attachedcustomfieldcreate.js";
+  ProductCreateOneTime,
+  ProductCreateOneTime$inboundSchema,
+  ProductCreateOneTime$Outbound,
+  ProductCreateOneTime$outboundSchema,
+} from "./productcreateonetime.js";
 import {
-  ProductPriceCustomCreate,
-  ProductPriceCustomCreate$inboundSchema,
-  ProductPriceCustomCreate$Outbound,
-  ProductPriceCustomCreate$outboundSchema,
-} from "./productpricecustomcreate.js";
-import {
-  ProductPriceFixedCreate,
-  ProductPriceFixedCreate$inboundSchema,
-  ProductPriceFixedCreate$Outbound,
-  ProductPriceFixedCreate$outboundSchema,
-} from "./productpricefixedcreate.js";
-import {
-  ProductPriceFreeCreate,
-  ProductPriceFreeCreate$inboundSchema,
-  ProductPriceFreeCreate$Outbound,
-  ProductPriceFreeCreate$outboundSchema,
-} from "./productpricefreecreate.js";
-import {
-  ProductPriceMeteredUnitCreate,
-  ProductPriceMeteredUnitCreate$inboundSchema,
-  ProductPriceMeteredUnitCreate$Outbound,
-  ProductPriceMeteredUnitCreate$outboundSchema,
-} from "./productpricemeteredunitcreate.js";
-import {
-  SubscriptionRecurringInterval,
-  SubscriptionRecurringInterval$inboundSchema,
-  SubscriptionRecurringInterval$outboundSchema,
-} from "./subscriptionrecurringinterval.js";
+  ProductCreateRecurring,
+  ProductCreateRecurring$inboundSchema,
+  ProductCreateRecurring$Outbound,
+  ProductCreateRecurring$outboundSchema,
+} from "./productcreaterecurring.js";
 
-export type ProductCreateMetadata = string | number | number | boolean;
-
-export type ProductCreatePrices =
-  | ProductPriceMeteredUnitCreate
-  | ProductPriceFixedCreate
-  | ProductPriceCustomCreate
-  | ProductPriceFreeCreate;
-
-/**
- * Schema to create a product.
- */
-export type ProductCreate = {
-  /**
-   * Key-value object allowing you to store additional information.
-   *
-   * @remarks
-   *
-   * The key must be a string with a maximum length of **40 characters**.
-   * The value must be either:
-   *
-   * * A string with a maximum length of **500 characters**
-   * * An integer
-   * * A floating-point number
-   * * A boolean
-   *
-   * You can store up to **50 key-value pairs**.
-   */
-  metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  /**
-   * The name of the product.
-   */
-  name: string;
-  /**
-   * The description of the product.
-   */
-  description?: string | null | undefined;
-  /**
-   * The recurring interval of the product. If `None`, the product is a one-time purchase.Note that the `day` and `week` values are for internal Polar staff use only.
-   */
-  recurringInterval: SubscriptionRecurringInterval | null;
-  /**
-   * List of available prices for this product. It should contain at most one static price (fixed, custom or free), and any number of metered prices. Metered prices are not supported on one-time purchase products.
-   */
-  prices: Array<
-    | ProductPriceMeteredUnitCreate
-    | ProductPriceFixedCreate
-    | ProductPriceCustomCreate
-    | ProductPriceFreeCreate
-  >;
-  /**
-   * List of file IDs. Each one must be on the same organization as the product, of type `product_media` and correctly uploaded.
-   */
-  medias?: Array<string> | null | undefined;
-  /**
-   * List of custom fields to attach.
-   */
-  attachedCustomFields?: Array<AttachedCustomFieldCreate> | undefined;
-  /**
-   * The ID of the organization owning the product. **Required unless you use an organization token.**
-   */
-  organizationId?: string | null | undefined;
-};
-
-/** @internal */
-export const ProductCreateMetadata$inboundSchema: z.ZodType<
-  ProductCreateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
-export type ProductCreateMetadata$Outbound = string | number | number | boolean;
-
-/** @internal */
-export const ProductCreateMetadata$outboundSchema: z.ZodType<
-  ProductCreateMetadata$Outbound,
-  z.ZodTypeDef,
-  ProductCreateMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductCreateMetadata$ {
-  /** @deprecated use `ProductCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema = ProductCreateMetadata$inboundSchema;
-  /** @deprecated use `ProductCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema = ProductCreateMetadata$outboundSchema;
-  /** @deprecated use `ProductCreateMetadata$Outbound` instead. */
-  export type Outbound = ProductCreateMetadata$Outbound;
-}
-
-export function productCreateMetadataToJSON(
-  productCreateMetadata: ProductCreateMetadata,
-): string {
-  return JSON.stringify(
-    ProductCreateMetadata$outboundSchema.parse(productCreateMetadata),
-  );
-}
-
-export function productCreateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductCreateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductCreateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductCreateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const ProductCreatePrices$inboundSchema: z.ZodType<
-  ProductCreatePrices,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  ProductPriceMeteredUnitCreate$inboundSchema,
-  ProductPriceFixedCreate$inboundSchema,
-  ProductPriceCustomCreate$inboundSchema,
-  ProductPriceFreeCreate$inboundSchema,
-]);
-
-/** @internal */
-export type ProductCreatePrices$Outbound =
-  | ProductPriceMeteredUnitCreate$Outbound
-  | ProductPriceFixedCreate$Outbound
-  | ProductPriceCustomCreate$Outbound
-  | ProductPriceFreeCreate$Outbound;
-
-/** @internal */
-export const ProductCreatePrices$outboundSchema: z.ZodType<
-  ProductCreatePrices$Outbound,
-  z.ZodTypeDef,
-  ProductCreatePrices
-> = z.union([
-  ProductPriceMeteredUnitCreate$outboundSchema,
-  ProductPriceFixedCreate$outboundSchema,
-  ProductPriceCustomCreate$outboundSchema,
-  ProductPriceFreeCreate$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductCreatePrices$ {
-  /** @deprecated use `ProductCreatePrices$inboundSchema` instead. */
-  export const inboundSchema = ProductCreatePrices$inboundSchema;
-  /** @deprecated use `ProductCreatePrices$outboundSchema` instead. */
-  export const outboundSchema = ProductCreatePrices$outboundSchema;
-  /** @deprecated use `ProductCreatePrices$Outbound` instead. */
-  export type Outbound = ProductCreatePrices$Outbound;
-}
-
-export function productCreatePricesToJSON(
-  productCreatePrices: ProductCreatePrices,
-): string {
-  return JSON.stringify(
-    ProductCreatePrices$outboundSchema.parse(productCreatePrices),
-  );
-}
-
-export function productCreatePricesFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductCreatePrices, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductCreatePrices$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductCreatePrices' from JSON`,
-  );
-}
+export type ProductCreate = ProductCreateRecurring | ProductCreateOneTime;
 
 /** @internal */
 export const ProductCreate$inboundSchema: z.ZodType<
   ProductCreate,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  name: z.string(),
-  description: z.nullable(z.string()).optional(),
-  recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
-  prices: z.array(
-    z.union([
-      ProductPriceMeteredUnitCreate$inboundSchema,
-      ProductPriceFixedCreate$inboundSchema,
-      ProductPriceCustomCreate$inboundSchema,
-      ProductPriceFreeCreate$inboundSchema,
-    ]),
-  ),
-  medias: z.nullable(z.array(z.string())).optional(),
-  attached_custom_fields: z.array(AttachedCustomFieldCreate$inboundSchema)
-    .optional(),
-  organization_id: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "recurring_interval": "recurringInterval",
-    "attached_custom_fields": "attachedCustomFields",
-    "organization_id": "organizationId",
-  });
-});
+> = z.union([
+  ProductCreateRecurring$inboundSchema,
+  ProductCreateOneTime$inboundSchema,
+]);
 
 /** @internal */
-export type ProductCreate$Outbound = {
-  metadata?: { [k: string]: string | number | number | boolean } | undefined;
-  name: string;
-  description?: string | null | undefined;
-  recurring_interval: string | null;
-  prices: Array<
-    | ProductPriceMeteredUnitCreate$Outbound
-    | ProductPriceFixedCreate$Outbound
-    | ProductPriceCustomCreate$Outbound
-    | ProductPriceFreeCreate$Outbound
-  >;
-  medias?: Array<string> | null | undefined;
-  attached_custom_fields?:
-    | Array<AttachedCustomFieldCreate$Outbound>
-    | undefined;
-  organization_id?: string | null | undefined;
-};
+export type ProductCreate$Outbound =
+  | ProductCreateRecurring$Outbound
+  | ProductCreateOneTime$Outbound;
 
 /** @internal */
 export const ProductCreate$outboundSchema: z.ZodType<
   ProductCreate$Outbound,
   z.ZodTypeDef,
   ProductCreate
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  name: z.string(),
-  description: z.nullable(z.string()).optional(),
-  recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
-  prices: z.array(
-    z.union([
-      ProductPriceMeteredUnitCreate$outboundSchema,
-      ProductPriceFixedCreate$outboundSchema,
-      ProductPriceCustomCreate$outboundSchema,
-      ProductPriceFreeCreate$outboundSchema,
-    ]),
-  ),
-  medias: z.nullable(z.array(z.string())).optional(),
-  attachedCustomFields: z.array(AttachedCustomFieldCreate$outboundSchema)
-    .optional(),
-  organizationId: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    recurringInterval: "recurring_interval",
-    attachedCustomFields: "attached_custom_fields",
-    organizationId: "organization_id",
-  });
-});
+> = z.union([
+  ProductCreateRecurring$outboundSchema,
+  ProductCreateOneTime$outboundSchema,
+]);
 
 /**
  * @internal

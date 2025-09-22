@@ -83,6 +83,14 @@ export type CustomerSubscription = {
    */
   currentPeriodEnd: Date | null;
   /**
+   * The start timestamp of the trial period, if any.
+   */
+  trialStart: Date | null;
+  /**
+   * The end timestamp of the trial period, if any.
+   */
+  trialEnd: Date | null;
+  /**
    * Whether the subscription will be canceled at the end of the current period.
    */
   cancelAtPeriodEnd: boolean;
@@ -205,6 +213,12 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
   current_period_end: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
+  trial_start: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
+  trial_end: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
   cancel_at_period_end: z.boolean(),
   canceled_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
@@ -241,6 +255,8 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
     "recurring_interval": "recurringInterval",
     "current_period_start": "currentPeriodStart",
     "current_period_end": "currentPeriodEnd",
+    "trial_start": "trialStart",
+    "trial_end": "trialEnd",
     "cancel_at_period_end": "cancelAtPeriodEnd",
     "canceled_at": "canceledAt",
     "started_at": "startedAt",
@@ -266,6 +282,8 @@ export type CustomerSubscription$Outbound = {
   status: string;
   current_period_start: string;
   current_period_end: string | null;
+  trial_start: string | null;
+  trial_end: string | null;
   cancel_at_period_end: boolean;
   canceled_at: string | null;
   started_at: string | null;
@@ -297,6 +315,8 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
   status: SubscriptionStatus$outboundSchema,
   currentPeriodStart: z.date().transform(v => v.toISOString()),
   currentPeriodEnd: z.nullable(z.date().transform(v => v.toISOString())),
+  trialStart: z.nullable(z.date().transform(v => v.toISOString())),
+  trialEnd: z.nullable(z.date().transform(v => v.toISOString())),
   cancelAtPeriodEnd: z.boolean(),
   canceledAt: z.nullable(z.date().transform(v => v.toISOString())),
   startedAt: z.nullable(z.date().transform(v => v.toISOString())),
@@ -325,6 +345,8 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
     recurringInterval: "recurring_interval",
     currentPeriodStart: "current_period_start",
     currentPeriodEnd: "current_period_end",
+    trialStart: "trial_start",
+    trialEnd: "trial_end",
     cancelAtPeriodEnd: "cancel_at_period_end",
     canceledAt: "canceled_at",
     startedAt: "started_at",
