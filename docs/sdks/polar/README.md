@@ -2,6 +2,6 @@
 
 ## Overview
 
-Read the docs at https://docs.polar.sh/api-reference
+Read the docs at https://polar.sh/docs/api-reference
 
 ### Available Operations

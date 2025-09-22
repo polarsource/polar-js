@@ -3,6 +3,7 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
+import { BenefitGrants } from "./benefitgrants.js";
 import { Benefits } from "./benefits.js";
 import { CheckoutLinks } from "./checkoutlinks.js";
 import { Checkouts } from "./checkouts.js";
@@ -45,6 +46,11 @@ export class Polar extends ClientSDK {
   private _benefits?: Benefits;
   get benefits(): Benefits {
     return (this._benefits ??= new Benefits(this._options));
+  }
+
+  private _benefitGrants?: BenefitGrants;
+  get benefitGrants(): BenefitGrants {
+    return (this._benefitGrants ??= new BenefitGrants(this._options));
   }
 
   private _webhooks?: Webhooks;

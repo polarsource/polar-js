@@ -8,15 +8,15 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  Address,
-  Address$inboundSchema,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
+  AddressInput,
+  AddressInput$inboundSchema,
+  AddressInput$Outbound,
+  AddressInput$outboundSchema,
+} from "./addressinput.js";
 
 export type CustomerPortalCustomerUpdate = {
   billingName?: string | null | undefined;
-  billingAddress?: Address | null | undefined;
+  billingAddress?: AddressInput | null | undefined;
   taxId?: string | null | undefined;
 };
 
@@ -27,7 +27,7 @@ export const CustomerPortalCustomerUpdate$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   billing_name: z.nullable(z.string()).optional(),
-  billing_address: z.nullable(Address$inboundSchema).optional(),
+  billing_address: z.nullable(AddressInput$inboundSchema).optional(),
   tax_id: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -40,7 +40,7 @@ export const CustomerPortalCustomerUpdate$inboundSchema: z.ZodType<
 /** @internal */
 export type CustomerPortalCustomerUpdate$Outbound = {
   billing_name?: string | null | undefined;
-  billing_address?: Address$Outbound | null | undefined;
+  billing_address?: AddressInput$Outbound | null | undefined;
   tax_id?: string | null | undefined;
 };
 
@@ -51,7 +51,7 @@ export const CustomerPortalCustomerUpdate$outboundSchema: z.ZodType<
   CustomerPortalCustomerUpdate
 > = z.object({
   billingName: z.nullable(z.string()).optional(),
-  billingAddress: z.nullable(Address$outboundSchema).optional(),
+  billingAddress: z.nullable(AddressInput$outboundSchema).optional(),
   taxId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {

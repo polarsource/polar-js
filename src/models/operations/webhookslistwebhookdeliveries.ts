@@ -25,6 +25,14 @@ export type WebhooksListWebhookDeliveriesRequest = {
    */
   endpointId?: string | Array<string> | null | undefined;
   /**
+   * Filter deliveries after this timestamp.
+   */
+  startTimestamp?: Date | null | undefined;
+  /**
+   * Filter deliveries before this timestamp.
+   */
+  endTimestamp?: Date | null | undefined;
+  /**
    * Page number, defaults to 1.
    */
   page?: number | undefined;
@@ -90,17 +98,27 @@ export const WebhooksListWebhookDeliveriesRequest$inboundSchema: z.ZodType<
 > = z.object({
   endpoint_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  start_timestamp: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  end_timestamp: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
   return remap$(v, {
     "endpoint_id": "endpointId",
+    "start_timestamp": "startTimestamp",
+    "end_timestamp": "endTimestamp",
   });
 });
 
 /** @internal */
 export type WebhooksListWebhookDeliveriesRequest$Outbound = {
   endpoint_id?: string | Array<string> | null | undefined;
+  start_timestamp?: string | null | undefined;
+  end_timestamp?: string | null | undefined;
   page: number;
   limit: number;
 };
@@ -112,11 +130,16 @@ export const WebhooksListWebhookDeliveriesRequest$outboundSchema: z.ZodType<
   WebhooksListWebhookDeliveriesRequest
 > = z.object({
   endpointId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
+  startTimestamp: z.nullable(z.date().transform(v => v.toISOString()))
+    .optional(),
+  endTimestamp: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
   return remap$(v, {
     endpointId: "endpoint_id",
+    startTimestamp: "start_timestamp",
+    endTimestamp: "end_timestamp",
   });
 });
 

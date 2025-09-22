@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  Address,
-  Address$inboundSchema,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
+  AddressInput,
+  AddressInput$inboundSchema,
+  AddressInput$Outbound,
+  AddressInput$outboundSchema,
+} from "./addressinput.js";
 
 /**
  * Schema to update an order.
@@ -25,7 +25,7 @@ export type CustomerOrderUpdate = {
   /**
    * The address of the customer that should appear on the invoice. Can't be updated after the invoice is generated.
    */
-  billingAddress: Address | null;
+  billingAddress: AddressInput | null;
 };
 
 /** @internal */
@@ -35,7 +35,7 @@ export const CustomerOrderUpdate$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   billing_name: z.nullable(z.string()),
-  billing_address: z.nullable(Address$inboundSchema),
+  billing_address: z.nullable(AddressInput$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "billing_name": "billingName",
@@ -46,7 +46,7 @@ export const CustomerOrderUpdate$inboundSchema: z.ZodType<
 /** @internal */
 export type CustomerOrderUpdate$Outbound = {
   billing_name: string | null;
-  billing_address: Address$Outbound | null;
+  billing_address: AddressInput$Outbound | null;
 };
 
 /** @internal */
@@ -56,7 +56,7 @@ export const CustomerOrderUpdate$outboundSchema: z.ZodType<
   CustomerOrderUpdate
 > = z.object({
   billingName: z.nullable(z.string()),
-  billingAddress: z.nullable(Address$outboundSchema),
+  billingAddress: z.nullable(AddressInput$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     billingName: "billing_name",

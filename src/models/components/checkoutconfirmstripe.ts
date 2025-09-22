@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  Address,
-  Address$inboundSchema,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
+  AddressInput,
+  AddressInput$inboundSchema,
+  AddressInput$Outbound,
+  AddressInput$outboundSchema,
+} from "./addressinput.js";
 
 export type CheckoutConfirmStripeCustomFieldData =
   | string
@@ -45,7 +45,7 @@ export type CheckoutConfirmStripe = {
   customerName?: string | null | undefined;
   customerEmail?: string | null | undefined;
   customerBillingName?: string | null | undefined;
-  customerBillingAddress?: Address | null | undefined;
+  customerBillingAddress?: AddressInput | null | undefined;
   customerTaxId?: string | null | undefined;
   /**
    * Discount code to apply to the checkout.
@@ -147,7 +147,7 @@ export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
   customer_name: z.nullable(z.string()).optional(),
   customer_email: z.nullable(z.string()).optional(),
   customer_billing_name: z.nullable(z.string()).optional(),
-  customer_billing_address: z.nullable(Address$inboundSchema).optional(),
+  customer_billing_address: z.nullable(AddressInput$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
   discount_code: z.nullable(z.string()).optional(),
   confirmation_token_id: z.nullable(z.string()).optional(),
@@ -179,7 +179,7 @@ export type CheckoutConfirmStripe$Outbound = {
   customer_name?: string | null | undefined;
   customer_email?: string | null | undefined;
   customer_billing_name?: string | null | undefined;
-  customer_billing_address?: Address$Outbound | null | undefined;
+  customer_billing_address?: AddressInput$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
   discount_code?: string | null | undefined;
   confirmation_token_id?: string | null | undefined;
@@ -208,7 +208,7 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
   customerName: z.nullable(z.string()).optional(),
   customerEmail: z.nullable(z.string()).optional(),
   customerBillingName: z.nullable(z.string()).optional(),
-  customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
+  customerBillingAddress: z.nullable(AddressInput$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
   discountCode: z.nullable(z.string()).optional(),
   confirmationTokenId: z.nullable(z.string()).optional(),

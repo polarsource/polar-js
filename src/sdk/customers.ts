@@ -5,6 +5,7 @@
 import { customersCreate } from "../funcs/customersCreate.js";
 import { customersDelete } from "../funcs/customersDelete.js";
 import { customersDeleteExternal } from "../funcs/customersDeleteExternal.js";
+import { customersExport } from "../funcs/customersExport.js";
 import { customersGet } from "../funcs/customersGet.js";
 import { customersGetExternal } from "../funcs/customersGetExternal.js";
 import { customersGetState } from "../funcs/customersGetState.js";
@@ -18,6 +19,7 @@ import { CustomerCreate } from "../models/components/customercreate.js";
 import { CustomerState } from "../models/components/customerstate.js";
 import { CustomersDeleteRequest } from "../models/operations/customersdelete.js";
 import { CustomersDeleteExternalRequest } from "../models/operations/customersdeleteexternal.js";
+import { CustomersExportRequest } from "../models/operations/customersexport.js";
 import { CustomersGetRequest } from "../models/operations/customersget.js";
 import { CustomersGetExternalRequest } from "../models/operations/customersgetexternal.js";
 import { CustomersGetStateRequest } from "../models/operations/customersgetstate.js";
@@ -64,6 +66,25 @@ export class Customers extends ClientSDK {
     options?: RequestOptions,
   ): Promise<Customer> {
     return unwrapAsync(customersCreate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Export Customers
+   *
+   * @remarks
+   * Export customers as a CSV file.
+   *
+   * **Scopes**: `customers:read` `customers:write`
+   */
+  async export(
+    request: CustomersExportRequest,
+    options?: RequestOptions,
+  ): Promise<any> {
+    return unwrapAsync(customersExport(
       this,
       request,
       options,

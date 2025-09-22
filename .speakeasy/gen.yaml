@@ -25,7 +25,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.34.17
+  version: 0.35.0
   additionalDependencies:
     dependencies:
       standardwebhooks: ^1.0.0
@@ -61,6 +61,7 @@ typescript:
   jsonpath: legacy
   maxMethodParams: 0
   methodArguments: require-security-and-request
+  modelPropertyCasing: camel
   moduleFormat: dual
   outputModelSuffix: output
   packageName: '@polar-sh/sdk'

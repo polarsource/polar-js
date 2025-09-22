@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  Address,
-  Address$inboundSchema,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
+  AddressInput,
+  AddressInput$inboundSchema,
+  AddressInput$Outbound,
+  AddressInput$outboundSchema,
+} from "./addressinput.js";
 import {
   TaxIDFormat,
   TaxIDFormat$inboundSchema,
@@ -52,7 +52,7 @@ export type CustomerCreate = {
    * The name of the customer.
    */
   name?: string | null | undefined;
-  billingAddress?: Address | null | undefined;
+  billingAddress?: AddressInput | null | undefined;
   taxId?: Array<string | TaxIDFormat | null> | null | undefined;
   /**
    * The ID of the organization owning the customer. **Required unless you use an organization token.**
@@ -172,7 +172,7 @@ export const CustomerCreate$inboundSchema: z.ZodType<
   external_id: z.nullable(z.string()).optional(),
   email: z.string(),
   name: z.nullable(z.string()).optional(),
-  billing_address: z.nullable(Address$inboundSchema).optional(),
+  billing_address: z.nullable(AddressInput$inboundSchema).optional(),
   tax_id: z.nullable(
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
   ).optional(),
@@ -192,7 +192,7 @@ export type CustomerCreate$Outbound = {
   external_id?: string | null | undefined;
   email: string;
   name?: string | null | undefined;
-  billing_address?: Address$Outbound | null | undefined;
+  billing_address?: AddressInput$Outbound | null | undefined;
   tax_id?: Array<string | string | null> | null | undefined;
   organization_id?: string | null | undefined;
 };
@@ -209,7 +209,7 @@ export const CustomerCreate$outboundSchema: z.ZodType<
   externalId: z.nullable(z.string()).optional(),
   email: z.string(),
   name: z.nullable(z.string()).optional(),
-  billingAddress: z.nullable(Address$outboundSchema).optional(),
+  billingAddress: z.nullable(AddressInput$outboundSchema).optional(),
   taxId: z.nullable(
     z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
   ).optional(),
