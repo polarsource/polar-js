@@ -3,8 +3,8 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
-import { BenefitGrants } from "./benefitgrants.js";
 import { Downloadables } from "./downloadables.js";
+import { PolarBenefitGrants } from "./polarbenefitgrants.js";
 import { PolarCustomerMeters } from "./polarcustomermeters.js";
 import { PolarCustomers } from "./polarcustomers.js";
 import { PolarLicenseKeys } from "./polarlicensekeys.js";
@@ -13,9 +13,9 @@ import { PolarOrganizations } from "./polarorganizations.js";
 import { PolarSubscriptions } from "./polarsubscriptions.js";
 
 export class CustomerPortal extends ClientSDK {
-  private _benefitGrants?: BenefitGrants;
-  get benefitGrants(): BenefitGrants {
-    return (this._benefitGrants ??= new BenefitGrants(this._options));
+  private _benefitGrants?: PolarBenefitGrants;
+  get benefitGrants(): PolarBenefitGrants {
+    return (this._benefitGrants ??= new PolarBenefitGrants(this._options));
   }
 
   private _customers?: PolarCustomers;

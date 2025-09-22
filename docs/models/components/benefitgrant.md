@@ -37,6 +37,22 @@ let value: BenefitGrant = {
     deletedAt: new Date("2025-09-01T02:27:46.266Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
+  benefit: {
+    id: "<value>",
+    createdAt: new Date("2023-10-28T06:21:23.052Z"),
+    modifiedAt: new Date("2025-06-23T08:48:04.338Z"),
+    type: "custom",
+    description: "geez against aha ugh um across serpentine",
+    selectable: true,
+    deletable: true,
+    organizationId: "<value>",
+    metadata: {
+      "key": 430936,
+    },
+    properties: {
+      note: "<value>",
+    },
+  },
   properties: {},
 };
 ```
@@ -58,4 +74,5 @@ let value: BenefitGrant = {
 | `benefitId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the benefit concerned by this grant.                                                |
 | `error`                                                                                       | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                  | :heavy_minus_sign:                                                                            | The error information if the benefit grant failed with an unrecoverable error.                |
 | `customer`                                                                                    | [components.Customer](../../models/components/customer.md)                                    | :heavy_check_mark:                                                                            | A customer in an organization.                                                                |
+| `benefit`                                                                                     | *components.Benefit*                                                                          | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `properties`                                                                                  | *components.Properties*                                                                       | :heavy_check_mark:                                                                            | N/A                                                                                           |

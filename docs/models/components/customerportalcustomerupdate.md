@@ -14,8 +14,8 @@ let value: CustomerPortalCustomerUpdate = {
 
 ## Fields
 
-| Field                                                    | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `billingName`                                            | *string*                                                 | :heavy_minus_sign:                                       | N/A                                                      |
-| `billingAddress`                                         | [components.Address](../../models/components/address.md) | :heavy_minus_sign:                                       | N/A                                                      |
-| `taxId`                                                  | *string*                                                 | :heavy_minus_sign:                                       | N/A                                                      |
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `billingName`                                                      | *string*                                                           | :heavy_minus_sign:                                                 | N/A                                                                |
+| `billingAddress`                                                   | [components.AddressInput](../../models/components/addressinput.md) | :heavy_minus_sign:                                                 | N/A                                                                |
+| `taxId`                                                            | *string*                                                           | :heavy_minus_sign:                                                 | N/A                                                                |

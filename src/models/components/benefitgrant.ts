@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  Benefit,
+  Benefit$inboundSchema,
+  Benefit$Outbound,
+  Benefit$outboundSchema,
+} from "./benefit.js";
+import {
   BenefitGrantCustomProperties,
   BenefitGrantCustomProperties$inboundSchema,
   BenefitGrantCustomProperties$Outbound,
@@ -110,6 +116,7 @@ export type BenefitGrant = {
    * A customer in an organization.
    */
   customer: Customer;
+  benefit: Benefit;
   properties:
     | BenefitGrantDiscordProperties
     | BenefitGrantGitHubRepositoryProperties
@@ -204,6 +211,7 @@ export const BenefitGrant$inboundSchema: z.ZodType<
   benefit_id: z.string(),
   error: z.nullable(BenefitGrantError$inboundSchema).optional(),
   customer: Customer$inboundSchema,
+  benefit: Benefit$inboundSchema,
   properties: z.union([
     BenefitGrantDiscordProperties$inboundSchema,
     BenefitGrantGitHubRepositoryProperties$inboundSchema,
@@ -241,6 +249,7 @@ export type BenefitGrant$Outbound = {
   benefit_id: string;
   error?: BenefitGrantError$Outbound | null | undefined;
   customer: Customer$Outbound;
+  benefit: Benefit$Outbound;
   properties:
     | BenefitGrantDiscordProperties$Outbound
     | BenefitGrantGitHubRepositoryProperties$Outbound
@@ -268,6 +277,7 @@ export const BenefitGrant$outboundSchema: z.ZodType<
   benefitId: z.string(),
   error: z.nullable(BenefitGrantError$outboundSchema).optional(),
   customer: Customer$outboundSchema,
+  benefit: Benefit$outboundSchema,
   properties: z.union([
     BenefitGrantDiscordProperties$outboundSchema,
     BenefitGrantGitHubRepositoryProperties$outboundSchema,

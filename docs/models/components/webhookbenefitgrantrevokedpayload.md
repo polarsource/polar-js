@@ -57,14 +57,14 @@ let value: WebhookBenefitGrantRevokedPayload = {
       properties: {
         prefix: "<value>",
         expires: {
-          ttl: 93452,
+          ttl: 693280,
           timeframe: "day",
         },
         activations: {
-          limit: 777902,
+          limit: 533992,
           enableCustomerAdmin: true,
         },
-        limitUsage: null,
+        limitUsage: 221353,
       },
     },
     properties: {},

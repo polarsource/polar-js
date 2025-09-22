@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  Address,
-  Address$inboundSchema,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
+  AddressInput,
+  AddressInput$inboundSchema,
+  AddressInput$Outbound,
+  AddressInput$outboundSchema,
+} from "./addressinput.js";
 
 export type CheckoutUpdateCustomFieldData = string | number | boolean | Date;
 
@@ -45,7 +45,7 @@ export type CheckoutUpdate = {
   customerName?: string | null | undefined;
   customerEmail?: string | null | undefined;
   customerBillingName?: string | null | undefined;
-  customerBillingAddress?: Address | null | undefined;
+  customerBillingAddress?: AddressInput | null | undefined;
   customerTaxId?: string | null | undefined;
   /**
    * Key-value object allowing you to store additional information.
@@ -298,7 +298,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   customer_name: z.nullable(z.string()).optional(),
   customer_email: z.nullable(z.string()).optional(),
   customer_billing_name: z.nullable(z.string()).optional(),
-  customer_billing_address: z.nullable(Address$inboundSchema).optional(),
+  customer_billing_address: z.nullable(AddressInput$inboundSchema).optional(),
   customer_tax_id: z.nullable(z.string()).optional(),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
@@ -345,7 +345,7 @@ export type CheckoutUpdate$Outbound = {
   customer_name?: string | null | undefined;
   customer_email?: string | null | undefined;
   customer_billing_name?: string | null | undefined;
-  customer_billing_address?: Address$Outbound | null | undefined;
+  customer_billing_address?: AddressInput$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   discount_id?: string | null | undefined;
@@ -383,7 +383,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   customerName: z.nullable(z.string()).optional(),
   customerEmail: z.nullable(z.string()).optional(),
   customerBillingName: z.nullable(z.string()).optional(),
-  customerBillingAddress: z.nullable(Address$outboundSchema).optional(),
+  customerBillingAddress: z.nullable(AddressInput$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),

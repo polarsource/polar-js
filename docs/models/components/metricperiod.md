@@ -29,6 +29,15 @@ let value: MetricPeriod = {
   checkouts: 66450,
   succeededCheckouts: 687843,
   checkoutsConversion: 397403,
+  canceledSubscriptions: 324523,
+  canceledSubscriptionsCustomerService: 8399.94,
+  canceledSubscriptionsLowQuality: 5324.71,
+  canceledSubscriptionsMissingFeatures: 297943,
+  canceledSubscriptionsSwitchedService: 3738.48,
+  canceledSubscriptionsTooComplex: 249718,
+  canceledSubscriptionsTooExpensive: 826661,
+  canceledSubscriptionsUnused: 2864.09,
+  canceledSubscriptionsOther: 238.25,
 };
 ```
 
@@ -59,3 +68,12 @@ let value: MetricPeriod = {
 | `checkouts`                                                                                   | *components.Checkouts*                                                                        | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `succeededCheckouts`                                                                          | *components.SucceededCheckouts*                                                               | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `checkoutsConversion`                                                                         | *components.CheckoutsConversion*                                                              | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `canceledSubscriptions`                                                                       | *components.CanceledSubscriptions*                                                            | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `canceledSubscriptionsCustomerService`                                                        | *components.CanceledSubscriptionsCustomerService*                                             | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `canceledSubscriptionsLowQuality`                                                             | *components.CanceledSubscriptionsLowQuality*                                                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `canceledSubscriptionsMissingFeatures`                                                        | *components.CanceledSubscriptionsMissingFeatures*                                             | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `canceledSubscriptionsSwitchedService`                                                        | *components.CanceledSubscriptionsSwitchedService*                                             | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `canceledSubscriptionsTooComplex`                                                             | *components.CanceledSubscriptionsTooComplex*                                                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `canceledSubscriptionsTooExpensive`                                                           | *components.CanceledSubscriptionsTooExpensive*                                                | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `canceledSubscriptionsUnused`                                                                 | *components.CanceledSubscriptionsUnused*                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `canceledSubscriptionsOther`                                                                  | *components.CanceledSubscriptionsOther*                                                       | :heavy_check_mark:                                                                            | N/A                                                                                           |

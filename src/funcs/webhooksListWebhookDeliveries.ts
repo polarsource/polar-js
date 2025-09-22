@@ -116,9 +116,11 @@ async function $do(
   const path = pathToFunc("/v1/webhooks/deliveries")();
 
   const query = encodeFormQuery({
+    "end_timestamp": payload.end_timestamp,
     "endpoint_id": payload.endpoint_id,
     "limit": payload.limit,
     "page": payload.page,
+    "start_timestamp": payload.start_timestamp,
   });
 
   const headers = new Headers(compactMap({
