@@ -8,42 +8,95 @@ Checkout link data.
 import { CheckoutLink } from "@polar-sh/sdk/models/components/checkoutlink.js";
 
 let value: CheckoutLink = {
+  id: "<value>",
   createdAt: new Date("2025-09-22T20:17:02.127Z"),
   modifiedAt: new Date("2023-01-22T14:32:59.611Z"),
-  id: "<value>",
+  trialInterval: "year",
+  trialIntervalCount: 826,
   metadata: {
     "key": true,
   },
   paymentProcessor: "stripe",
   clientSecret: "<value>",
-  successUrl: null,
+  successUrl: "https://shallow-icebreaker.net/",
   label: "<value>",
-  allowDiscountCodes: false,
+  allowDiscountCodes: true,
   requireBillingAddress: true,
   discountId: "<value>",
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  products: [],
+  products: [
+    {
+      metadata: {
+        "key": 286697,
+      },
+      id: "<value>",
+      createdAt: new Date("2024-08-04T15:56:23.244Z"),
+      modifiedAt: new Date("2025-07-13T16:36:37.984Z"),
+      trialInterval: "week",
+      trialIntervalCount: 560922,
+      name: "<value>",
+      description:
+        "roughly lest sternly while metabolise hence who lasting wee spherical",
+      recurringInterval: "month",
+      isRecurring: false,
+      isArchived: false,
+      organizationId: "<value>",
+      prices: [],
+      benefits: [
+        {
+          id: "<value>",
+          createdAt: new Date("2025-05-25T16:58:54.608Z"),
+          modifiedAt: new Date("2023-09-04T14:15:13.546Z"),
+          type: "meter_credit",
+          description:
+            "pity and paltry shakily even fair aha as masquerade versus",
+          selectable: false,
+          deletable: false,
+          organizationId: "<value>",
+        },
+      ],
+      medias: [
+        {
+          id: "<value>",
+          organizationId: "<value>",
+          name: "<value>",
+          path: "/sbin",
+          mimeType: "<value>",
+          size: 498972,
+          storageVersion: "<value>",
+          checksumEtag: "<value>",
+          checksumSha256Base64: "<value>",
+          checksumSha256Hex: "<value>",
+          lastModifiedAt: new Date("2023-09-13T15:53:42.753Z"),
+          version: "<value>",
+          service: "product_media",
+          isUploaded: false,
+          createdAt: new Date("2024-08-06T00:24:30.544Z"),
+          sizeReadable: "<value>",
+          publicUrl: "https://enchanting-bell.net/",
+        },
+      ],
+    },
+  ],
   discount: {
     duration: "repeating",
-    durationInMonths: 279416,
     type: "fixed",
-    amount: 217979,
-    currency: "Malaysian Ringgit",
-    createdAt: new Date("2024-07-12T22:17:50.856Z"),
-    modifiedAt: new Date("2024-10-23T02:02:47.171Z"),
+    basisPoints: 656243,
+    createdAt: new Date("2025-07-30T08:08:42.784Z"),
+    modifiedAt: new Date("2024-11-03T14:01:12.012Z"),
     id: "<value>",
     metadata: {
-      "key": 656243,
+      "key": false,
     },
     name: "<value>",
     code: "<value>",
-    startsAt: new Date("2024-11-03T14:01:12.012Z"),
-    endsAt: new Date("2025-05-02T09:38:01.654Z"),
-    maxRedemptions: 683398,
-    redemptionsCount: 590968,
+    startsAt: new Date("2023-09-11T21:19:06.321Z"),
+    endsAt: new Date("2024-02-22T15:23:18.774Z"),
+    maxRedemptions: 850103,
+    redemptionsCount: 847946,
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   },
-  url: "https://immense-goat.biz/",
+  url: "https://proper-fat.info",
 };
 ```
 
@@ -51,9 +104,11 @@ let value: CheckoutLink = {
 
 | Field                                                                                                                                                                                                | Type                                                                                                                                                                                                 | Required                                                                                                                                                                                             | Description                                                                                                                                                                                          | Example                                                                                                                                                                                              |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                                                                                                 | *string*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | The ID of the object.                                                                                                                                                                                |                                                                                                                                                                                                      |
 | `createdAt`                                                                                                                                                                                          | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                                        | :heavy_check_mark:                                                                                                                                                                                   | Creation timestamp of the object.                                                                                                                                                                    |                                                                                                                                                                                                      |
 | `modifiedAt`                                                                                                                                                                                         | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                                        | :heavy_check_mark:                                                                                                                                                                                   | Last modification timestamp of the object.                                                                                                                                                           |                                                                                                                                                                                                      |
-| `id`                                                                                                                                                                                                 | *string*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | The ID of the object.                                                                                                                                                                                |                                                                                                                                                                                                      |
+| `trialInterval`                                                                                                                                                                                      | [components.TrialInterval](../../models/components/trialinterval.md)                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                   | The interval unit for the trial period.                                                                                                                                                              |                                                                                                                                                                                                      |
+| `trialIntervalCount`                                                                                                                                                                                 | *number*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | The number of interval units for the trial period.                                                                                                                                                   |                                                                                                                                                                                                      |
 | `metadata`                                                                                                                                                                                           | Record<string, *components.CheckoutLinkMetadata*>                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                   | N/A                                                                                                                                                                                                  |                                                                                                                                                                                                      |
 | `paymentProcessor`                                                                                                                                                                                   | [components.PaymentProcessor](../../models/components/paymentprocessor.md)                                                                                                                           | :heavy_check_mark:                                                                                                                                                                                   | N/A                                                                                                                                                                                                  |                                                                                                                                                                                                      |
 | `clientSecret`                                                                                                                                                                                       | *string*                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                   | Client secret used to access the checkout link.                                                                                                                                                      |                                                                                                                                                                                                      |

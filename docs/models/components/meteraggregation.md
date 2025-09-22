@@ -14,6 +14,12 @@ const value: components.PropertyAggregation = {
 };
 ```
 
+### `components.CountAggregation`
+
+```typescript
+const value: components.CountAggregation = {};
+```
+
 ### `components.PropertyAggregation`
 
 ```typescript
@@ -47,11 +53,5 @@ const value: components.PropertyAggregation = {
 const value: components.UniqueAggregation = {
   property: "<value>",
 };
-```
-
-### `components.CountAggregation`
-
-```typescript
-const value: components.CountAggregation = {};
 ```
 

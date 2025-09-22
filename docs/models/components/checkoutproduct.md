@@ -8,70 +8,32 @@ Product data for a checkout session.
 import { CheckoutProduct } from "@polar-sh/sdk/models/components/checkoutproduct.js";
 
 let value: CheckoutProduct = {
+  id: "<value>",
   createdAt: new Date("2023-07-11T03:33:42.639Z"),
   modifiedAt: new Date("2025-08-26T16:53:10.047Z"),
-  id: "<value>",
+  trialInterval: "year",
+  trialIntervalCount: 654499,
   name: "<value>",
   description:
-    "on softly elegantly knotty duh tepid slather woot fervently lest",
+    "criminal bourgeoisie gadzooks afterwards wilted intensely make chasuble",
   recurringInterval: "day",
   isRecurring: true,
   isArchived: true,
   organizationId: "<value>",
-  prices: [
-    {
-      createdAt: new Date("2023-04-20T12:52:58.852Z"),
-      modifiedAt: new Date("2023-04-03T08:59:52.381Z"),
-      id: "<value>",
-      amountType: "metered_unit",
-      isArchived: false,
-      productId: "<value>",
-      type: "recurring",
-      recurringInterval: "year",
-      priceCurrency: "<value>",
-      unitAmount: "<value>",
-      capAmount: 660745,
-      meterId: "<value>",
-      meter: {
-        id: "<value>",
-        name: "<value>",
-      },
-    },
-  ],
+  prices: [],
   benefits: [
     {
       id: "<value>",
-      createdAt: new Date("2025-01-02T09:29:19.773Z"),
-      modifiedAt: new Date("2025-02-05T18:27:31.976Z"),
-      type: "downloadables",
-      description:
-        "considering superior about toward fortunately eek internationalize wedge enrage",
-      selectable: true,
+      createdAt: new Date("2025-05-25T16:58:54.608Z"),
+      modifiedAt: new Date("2023-09-04T14:15:13.546Z"),
+      type: "meter_credit",
+      description: "pity and paltry shakily even fair aha as masquerade versus",
+      selectable: false,
       deletable: false,
       organizationId: "<value>",
     },
   ],
-  medias: [
-    {
-      id: "<value>",
-      organizationId: "<value>",
-      name: "<value>",
-      path: "/usr/X11R6",
-      mimeType: "<value>",
-      size: 327832,
-      storageVersion: "<value>",
-      checksumEtag: "<value>",
-      checksumSha256Base64: "<value>",
-      checksumSha256Hex: "<value>",
-      lastModifiedAt: null,
-      version: "<value>",
-      service: "product_media",
-      isUploaded: true,
-      createdAt: new Date("2023-11-10T03:13:37.813Z"),
-      sizeReadable: "<value>",
-      publicUrl: "https://warlike-tinderbox.com",
-    },
-  ],
+  medias: [],
 };
 ```
 
@@ -79,9 +41,11 @@ let value: CheckoutProduct = {
 
 | Field                                                                                                                                                             | Type                                                                                                                                                              | Required                                                                                                                                                          | Description                                                                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                                                              | *string*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | The ID of the object.                                                                                                                                             |
 | `createdAt`                                                                                                                                                       | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                     | :heavy_check_mark:                                                                                                                                                | Creation timestamp of the object.                                                                                                                                 |
 | `modifiedAt`                                                                                                                                                      | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                     | :heavy_check_mark:                                                                                                                                                | Last modification timestamp of the object.                                                                                                                        |
-| `id`                                                                                                                                                              | *string*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | The ID of the product.                                                                                                                                            |
+| `trialInterval`                                                                                                                                                   | [components.TrialInterval](../../models/components/trialinterval.md)                                                                                              | :heavy_check_mark:                                                                                                                                                | The interval unit for the trial period.                                                                                                                           |
+| `trialIntervalCount`                                                                                                                                              | *number*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | The number of interval units for the trial period.                                                                                                                |
 | `name`                                                                                                                                                            | *string*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | The name of the product.                                                                                                                                          |
 | `description`                                                                                                                                                     | *string*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | The description of the product.                                                                                                                                   |
 | `recurringInterval`                                                                                                                                               | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                                                              | :heavy_check_mark:                                                                                                                                                | The recurring interval of the product. If `None`, the product is a one-time purchase.Note that the `day` and `week` values are for internal Polar staff use only. |

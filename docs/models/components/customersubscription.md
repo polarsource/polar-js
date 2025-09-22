@@ -15,51 +15,56 @@ let value: CustomerSubscription = {
   status: "active",
   currentPeriodStart: new Date("2023-03-10T15:25:48.651Z"),
   currentPeriodEnd: new Date("2025-09-11T13:49:33.195Z"),
+  trialStart: null,
+  trialEnd: new Date("2025-03-15T17:36:38.777Z"),
   cancelAtPeriodEnd: true,
-  canceledAt: new Date("2025-03-15T17:36:38.777Z"),
-  startedAt: new Date("2023-09-02T14:51:23.839Z"),
-  endsAt: new Date("2023-04-03T10:51:32.868Z"),
-  endedAt: new Date("2025-08-17T12:53:53.746Z"),
+  canceledAt: new Date("2024-11-02T22:59:24.322Z"),
+  startedAt: null,
+  endsAt: new Date("2025-08-17T12:53:53.746Z"),
+  endedAt: new Date("2024-09-03T09:58:11.148Z"),
   customerId: "<value>",
   productId: "<value>",
   discountId: "<value>",
   checkoutId: "<value>",
-  customerCancellationReason: "too_expensive",
-  customerCancellationComment: "<value>",
+  customerCancellationReason: "missing_features",
+  customerCancellationComment: null,
   product: {
-    createdAt: new Date("2023-10-20T22:40:18.625Z"),
-    modifiedAt: null,
     id: "<value>",
+    createdAt: new Date("2025-05-03T10:12:25.310Z"),
+    modifiedAt: new Date("2025-02-27T00:40:12.894Z"),
+    trialInterval: "year",
+    trialIntervalCount: null,
     name: "<value>",
-    description:
-      "gee sniff after beneath tomatillo cautiously reassuringly tangible exotic deliberately",
-    recurringInterval: "week",
-    isRecurring: true,
-    isArchived: true,
+    description: "huzzah illiterate yuck fooey judgementally coil murky",
+    recurringInterval: "day",
+    isRecurring: false,
+    isArchived: false,
     organizationId: "<value>",
-    prices: [],
-    benefits: [
+    prices: [
       {
+        createdAt: new Date("2023-09-27T05:47:49.325Z"),
+        modifiedAt: new Date("2024-12-12T23:23:35.523Z"),
         id: "<value>",
-        createdAt: new Date("2025-01-02T09:29:19.773Z"),
-        modifiedAt: new Date("2025-02-05T18:27:31.976Z"),
-        type: "downloadables",
-        description:
-          "considering superior about toward fortunately eek internationalize wedge enrage",
-        selectable: true,
-        deletable: false,
-        organizationId: "<value>",
+        amountType: "fixed",
+        isArchived: true,
+        productId: "<value>",
+        type: "recurring",
+        recurringInterval: "day",
+        priceCurrency: "<value>",
+        priceAmount: 166915,
+        legacy: true,
       },
     ],
+    benefits: [],
     medias: [],
     organization: {
-      createdAt: new Date("2025-01-01T18:22:02.718Z"),
-      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+      createdAt: new Date("2024-11-05T15:53:05.692Z"),
+      modifiedAt: new Date("2024-06-26T04:46:17.661Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: null,
-      email: "Hannah_Price@gmail.com",
+      avatarUrl: "https://moist-amendment.biz/",
+      email: "Olaf.Mills@yahoo.com",
       website: "<value>",
       socials: [
         {
@@ -67,9 +72,9 @@ let value: CustomerSubscription = {
           url: "https://scratchy-midwife.net/",
         },
       ],
-      status: "denied",
-      detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
-      featureSettings: {},
+      status: "active",
+      detailsSubmittedAt: new Date("2023-07-28T11:30:45.712Z"),
+      featureSettings: null,
       subscriptionSettings: {
         allowMultipleSubscriptions: true,
         allowCustomerUpdates: true,
@@ -82,23 +87,7 @@ let value: CustomerSubscription = {
     },
   },
   prices: [],
-  meters: [
-    {
-      createdAt: new Date("2023-09-30T02:03:52.048Z"),
-      modifiedAt: new Date("2025-02-16T18:07:59.288Z"),
-      id: "<value>",
-      consumedUnits: 25,
-      creditedUnits: 100,
-      amount: 0,
-      meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
-      meter: {
-        createdAt: new Date("2025-10-13T05:14:46.856Z"),
-        modifiedAt: null,
-        id: "<value>",
-        name: "<value>",
-      },
-    },
-  ],
+  meters: [],
 };
 ```
 
@@ -115,6 +104,8 @@ let value: CustomerSubscription = {
 | `status`                                                                                                                      | [components.SubscriptionStatus](../../models/components/subscriptionstatus.md)                                                | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `currentPeriodStart`                                                                                                          | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The start timestamp of the current billing period.                                                                            |
 | `currentPeriodEnd`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The end timestamp of the current billing period.                                                                              |
+| `trialStart`                                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The start timestamp of the trial period, if any.                                                                              |
+| `trialEnd`                                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The end timestamp of the trial period, if any.                                                                                |
 | `cancelAtPeriodEnd`                                                                                                           | *boolean*                                                                                                                     | :heavy_check_mark:                                                                                                            | Whether the subscription will be canceled at the end of the current period.                                                   |
 | `canceledAt`                                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The timestamp when the subscription was canceled. The subscription might still be active if `cancel_at_period_end` is `true`. |
 | `startedAt`                                                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The timestamp when the subscription started.                                                                                  |

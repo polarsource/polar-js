@@ -8,9 +8,9 @@ Checkout session data retrieved using an access token.
 import { Checkout } from "@polar-sh/sdk/models/components/checkout.js";
 
 let value: Checkout = {
+  id: "<value>",
   createdAt: new Date("2024-05-25T00:29:55.609Z"),
   modifiedAt: new Date("2025-10-11T19:30:55.646Z"),
-  id: "<value>",
   paymentProcessor: "stripe",
   status: "confirmed",
   clientSecret: "<value>",
@@ -24,18 +24,21 @@ let value: Checkout = {
   taxAmount: 907995,
   totalAmount: 380392,
   currency: "Cuban Peso",
+  activeTrialInterval: "month",
+  activeTrialIntervalCount: 556182,
+  trialEnd: new Date("2025-05-05T04:11:05.173Z"),
   productId: "<value>",
   productPriceId: "<value>",
   discountId: "<value>",
   allowDiscountCodes: false,
   requireBillingAddress: false,
   isDiscountApplicable: false,
-  isFreeProductPrice: true,
-  isPaymentRequired: false,
-  isPaymentSetupRequired: true,
+  isFreeProductPrice: false,
+  isPaymentRequired: true,
+  isPaymentSetupRequired: false,
   isPaymentFormRequired: false,
   customerId: "<value>",
-  isBusinessCustomer: false,
+  isBusinessCustomer: true,
   customerName: "<value>",
   customerEmail: "<value>",
   customerIpAddress: "<value>",
@@ -46,139 +49,158 @@ let value: Checkout = {
   customerTaxId: "<id>",
   paymentProcessorMetadata: {
     "key": "<value>",
+    "key1": "<value>",
   },
   billingAddressFields: {
-    country: "disabled",
-    state: "optional",
+    country: "required",
+    state: "disabled",
     city: "required",
-    postalCode: "required",
+    postalCode: "disabled",
     line1: "disabled",
-    line2: "disabled",
+    line2: "required",
   },
-  metadata: {
-    "key": "<value>",
-  },
+  trialInterval: "week",
+  trialIntervalCount: 967495,
+  metadata: {},
   externalCustomerId: "<id>",
   customerExternalId: "<id>",
   products: [
     {
-      createdAt: new Date("2025-07-05T05:38:23.285Z"),
-      modifiedAt: null,
       id: "<value>",
+      createdAt: new Date("2025-04-08T15:41:31.131Z"),
+      modifiedAt: new Date("2023-01-22T17:24:46.361Z"),
+      trialInterval: "week",
+      trialIntervalCount: null,
       name: "<value>",
-      description: "onto weep singe etch even obnoxiously so among",
-      recurringInterval: "day",
-      isRecurring: true,
-      isArchived: true,
+      description: null,
+      recurringInterval: "week",
+      isRecurring: false,
+      isArchived: false,
       organizationId: "<value>",
       prices: [
         {
-          createdAt: new Date("2025-02-28T01:09:21.212Z"),
-          modifiedAt: new Date("2023-02-15T16:10:30.309Z"),
+          createdAt: new Date("2025-02-09T15:59:15.006Z"),
+          modifiedAt: null,
           id: "<value>",
           amountType: "free",
           isArchived: false,
           productId: "<value>",
           type: "recurring",
-          recurringInterval: "month",
+          recurringInterval: "year",
           legacy: true,
         },
       ],
-      benefits: [],
+      benefits: [
+        {
+          id: "<value>",
+          createdAt: new Date("2025-05-25T16:58:54.608Z"),
+          modifiedAt: new Date("2023-09-04T14:15:13.546Z"),
+          type: "meter_credit",
+          description:
+            "pity and paltry shakily even fair aha as masquerade versus",
+          selectable: false,
+          deletable: false,
+          organizationId: "<value>",
+        },
+      ],
       medias: [
         {
           id: "<value>",
           organizationId: "<value>",
           name: "<value>",
-          path: "/usr/X11R6",
+          path: "/sbin",
           mimeType: "<value>",
-          size: 327832,
+          size: 498972,
           storageVersion: "<value>",
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
           checksumSha256Hex: "<value>",
-          lastModifiedAt: null,
+          lastModifiedAt: new Date("2023-09-13T15:53:42.753Z"),
           version: "<value>",
           service: "product_media",
-          isUploaded: true,
-          createdAt: new Date("2023-11-10T03:13:37.813Z"),
+          isUploaded: false,
+          createdAt: new Date("2024-08-06T00:24:30.544Z"),
           sizeReadable: "<value>",
-          publicUrl: "https://warlike-tinderbox.com",
+          publicUrl: "https://enchanting-bell.net/",
         },
       ],
     },
   ],
   product: {
-    createdAt: new Date("2025-01-02T11:48:03.532Z"),
-    modifiedAt: new Date("2024-04-15T06:23:21.766Z"),
     id: "<value>",
+    createdAt: new Date("2024-03-23T20:28:23.610Z"),
+    modifiedAt: new Date("2024-09-12T11:02:22.469Z"),
+    trialInterval: "week",
+    trialIntervalCount: 101690,
     name: "<value>",
-    description:
-      "continually amidst gentle quadruple ha bah pace alive noisily gad",
-    recurringInterval: "day",
+    description: "singe etch even obnoxiously so among um yippee afore aboard",
+    recurringInterval: "year",
     isRecurring: true,
     isArchived: false,
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2024-08-30T16:26:00.743Z"),
-        modifiedAt: new Date("2023-10-09T02:00:40.564Z"),
+        createdAt: new Date("2025-02-25T00:31:36.186Z"),
+        modifiedAt: new Date("2023-01-07T15:57:16.017Z"),
         id: "<value>",
-        amountType: "custom",
+        amountType: "free",
         isArchived: true,
         productId: "<value>",
         type: "recurring",
-        recurringInterval: "year",
-        priceCurrency: "<value>",
-        minimumAmount: 547038,
-        maximumAmount: 407367,
-        presetAmount: null,
+        recurringInterval: "day",
         legacy: true,
       },
     ],
     benefits: [],
-    medias: [],
+    medias: [
+      {
+        id: "<value>",
+        organizationId: "<value>",
+        name: "<value>",
+        path: "/sbin",
+        mimeType: "<value>",
+        size: 498972,
+        storageVersion: "<value>",
+        checksumEtag: "<value>",
+        checksumSha256Base64: "<value>",
+        checksumSha256Hex: "<value>",
+        lastModifiedAt: new Date("2023-09-13T15:53:42.753Z"),
+        version: "<value>",
+        service: "product_media",
+        isUploaded: false,
+        createdAt: new Date("2024-08-06T00:24:30.544Z"),
+        sizeReadable: "<value>",
+        publicUrl: "https://enchanting-bell.net/",
+      },
+    ],
   },
   productPrice: {
-    createdAt: new Date("2023-12-28T04:11:54.477Z"),
-    modifiedAt: new Date("2025-11-26T08:58:45.009Z"),
+    createdAt: new Date("2023-10-13T09:32:56.042Z"),
+    modifiedAt: new Date("2025-08-16T11:25:11.688Z"),
     id: "<value>",
     amountType: "custom",
-    isArchived: true,
+    isArchived: false,
     productId: "<value>",
     type: "recurring",
-    recurringInterval: "month",
+    recurringInterval: "day",
     priceCurrency: "<value>",
-    minimumAmount: 723764,
-    maximumAmount: null,
-    presetAmount: 381355,
+    minimumAmount: 137381,
+    maximumAmount: 813898,
+    presetAmount: 790604,
     legacy: true,
   },
-  discount: null,
-  subscriptionId: null,
-  attachedCustomFields: [
-    {
-      customFieldId: "<value>",
-      customField: {
-        createdAt: new Date("2025-03-12T05:06:14.960Z"),
-        modifiedAt: new Date("2024-10-13T01:08:42.069Z"),
-        id: "<value>",
-        metadata: {
-          "key": false,
-        },
-        type: "number",
-        slug: "<value>",
-        name: "<value>",
-        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {},
-      },
-      order: 19275,
-      required: false,
-    },
-  ],
-  customerMetadata: {
-    "key": 851994,
+  discount: {
+    duration: "repeating",
+    durationInMonths: 315415,
+    type: "fixed",
+    basisPoints: 184713,
+    id: "<value>",
+    name: "<value>",
+    code: "<value>",
   },
+  subscriptionId: "<value>",
+  attachedCustomFields: [],
+  customerMetadata: {},
 };
 ```
 
@@ -186,9 +208,9 @@ let value: Checkout = {
 
 | Field                                                                                                                                                                                                                                                                                     | Type                                                                                                                                                                                                                                                                                      | Required                                                                                                                                                                                                                                                                                  | Description                                                                                                                                                                                                                                                                               |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                                                                                                                                                                                      | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | The ID of the object.                                                                                                                                                                                                                                                                     |
 | `createdAt`                                                                                                                                                                                                                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Creation timestamp of the object.                                                                                                                                                                                                                                                         |
 | `modifiedAt`                                                                                                                                                                                                                                                                              | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Last modification timestamp of the object.                                                                                                                                                                                                                                                |
-| `id`                                                                                                                                                                                                                                                                                      | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | The ID of the object.                                                                                                                                                                                                                                                                     |
 | `customFieldData`                                                                                                                                                                                                                                                                         | Record<string, *components.CheckoutCustomFieldData*>                                                                                                                                                                                                                                      | :heavy_minus_sign:                                                                                                                                                                                                                                                                        | Key-value object storing custom field values.                                                                                                                                                                                                                                             |
 | `paymentProcessor`                                                                                                                                                                                                                                                                        | [components.PaymentProcessor](../../models/components/paymentprocessor.md)                                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `status`                                                                                                                                                                                                                                                                                  | [components.CheckoutStatus](../../models/components/checkoutstatus.md)                                                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
@@ -203,6 +225,9 @@ let value: Checkout = {
 | `taxAmount`                                                                                                                                                                                                                                                                               | *number*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Sales tax amount in cents. If `null`, it means there is no enough information yet to calculate it.                                                                                                                                                                                        |
 | `totalAmount`                                                                                                                                                                                                                                                                             | *number*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Amount in cents, after discounts and taxes.                                                                                                                                                                                                                                               |
 | `currency`                                                                                                                                                                                                                                                                                | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Currency code of the checkout session.                                                                                                                                                                                                                                                    |
+| `activeTrialInterval`                                                                                                                                                                                                                                                                     | [components.TrialInterval](../../models/components/trialinterval.md)                                                                                                                                                                                                                      | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Interval unit of the trial period, if any. This value is either set from the checkout, if `trial_interval` is set, or from the selected product.                                                                                                                                          |
+| `activeTrialIntervalCount`                                                                                                                                                                                                                                                                | *number*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Number of interval units of the trial period, if any. This value is either set from the checkout, if `trial_interval_count` is set, or from the selected product.                                                                                                                         |
+| `trialEnd`                                                                                                                                                                                                                                                                                | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                                                                                        | End date and time of the trial period, if any.                                                                                                                                                                                                                                            |
 | `productId`                                                                                                                                                                                                                                                                               | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | ID of the product to checkout.                                                                                                                                                                                                                                                            |
 | `productPriceId`                                                                                                                                                                                                                                                                          | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | ID of the product price to checkout.                                                                                                                                                                                                                                                      |
 | `discountId`                                                                                                                                                                                                                                                                              | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | ID of the discount applied to the checkout.                                                                                                                                                                                                                                               |
@@ -223,6 +248,8 @@ let value: Checkout = {
 | `customerTaxId`                                                                                                                                                                                                                                                                           | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `paymentProcessorMetadata`                                                                                                                                                                                                                                                                | Record<string, *string*>                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `billingAddressFields`                                                                                                                                                                                                                                                                    | [components.CheckoutBillingAddressFields](../../models/components/checkoutbillingaddressfields.md)                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
+| `trialInterval`                                                                                                                                                                                                                                                                           | [components.TrialInterval](../../models/components/trialinterval.md)                                                                                                                                                                                                                      | :heavy_check_mark:                                                                                                                                                                                                                                                                        | The interval unit for the trial period.                                                                                                                                                                                                                                                   |
+| `trialIntervalCount`                                                                                                                                                                                                                                                                      | *number*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | The number of interval units for the trial period.                                                                                                                                                                                                                                        |
 | `metadata`                                                                                                                                                                                                                                                                                | Record<string, *components.CheckoutMetadata*>                                                                                                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `externalCustomerId`                                                                                                                                                                                                                                                                      | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | ID of the customer in your system. If a matching customer exists on Polar, the resulting order will be linked to this customer. Otherwise, a new customer will be created with this external ID set.                                                                                      |
 | ~~`customerExternalId`~~                                                                                                                                                                                                                                                                  | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                                                                                                                                   |

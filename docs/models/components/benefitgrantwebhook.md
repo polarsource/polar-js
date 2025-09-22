@@ -278,16 +278,16 @@ const value: components.BenefitGrantLicenseKeysWebhook = {
     organizationId: "<value>",
     metadata: {},
     properties: {
-      prefix: "<value>",
+      prefix: null,
       expires: {
-        ttl: 693280,
-        timeframe: "day",
+        ttl: 56931,
+        timeframe: "month",
       },
       activations: {
-        limit: 533992,
-        enableCustomerAdmin: true,
+        limit: 936323,
+        enableCustomerAdmin: false,
       },
-      limitUsage: 221353,
+      limitUsage: 702937,
     },
   },
   properties: {},

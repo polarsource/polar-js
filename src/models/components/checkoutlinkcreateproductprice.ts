@@ -7,6 +7,11 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  TrialInterval,
+  TrialInterval$inboundSchema,
+  TrialInterval$outboundSchema,
+} from "./trialinterval.js";
 
 export type CheckoutLinkCreateProductPriceMetadata =
   | string
@@ -38,6 +43,14 @@ export type CheckoutLinkCreateProductPrice = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
+  /**
+   * The interval unit for the trial period.
+   */
+  trialInterval?: TrialInterval | null | undefined;
+  /**
+   * The number of interval units for the trial period.
+   */
+  trialIntervalCount?: number | null | undefined;
   /**
    * Payment processor to use. Currently only Stripe is supported.
    */
@@ -132,6 +145,8 @@ export const CheckoutLinkCreateProductPrice$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
+  trial_interval: z.nullable(TrialInterval$inboundSchema).optional(),
+  trial_interval_count: z.nullable(z.number().int()).optional(),
   payment_processor: z.literal("stripe"),
   label: z.nullable(z.string()).optional(),
   allow_discount_codes: z.boolean().default(true),
@@ -141,6 +156,8 @@ export const CheckoutLinkCreateProductPrice$inboundSchema: z.ZodType<
   product_price_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
+    "trial_interval": "trialInterval",
+    "trial_interval_count": "trialIntervalCount",
     "payment_processor": "paymentProcessor",
     "allow_discount_codes": "allowDiscountCodes",
     "require_billing_address": "requireBillingAddress",
@@ -153,6 +170,8 @@ export const CheckoutLinkCreateProductPrice$inboundSchema: z.ZodType<
 /** @internal */
 export type CheckoutLinkCreateProductPrice$Outbound = {
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
+  trial_interval?: string | null | undefined;
+  trial_interval_count?: number | null | undefined;
   payment_processor: "stripe";
   label?: string | null | undefined;
   allow_discount_codes: boolean;
@@ -171,6 +190,8 @@ export const CheckoutLinkCreateProductPrice$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
+  trialInterval: z.nullable(TrialInterval$outboundSchema).optional(),
+  trialIntervalCount: z.nullable(z.number().int()).optional(),
   paymentProcessor: z.literal("stripe"),
   label: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.boolean().default(true),
@@ -180,6 +201,8 @@ export const CheckoutLinkCreateProductPrice$outboundSchema: z.ZodType<
   productPriceId: z.string(),
 }).transform((v) => {
   return remap$(v, {
+    trialInterval: "trial_interval",
+    trialIntervalCount: "trial_interval_count",
     paymentProcessor: "payment_processor",
     allowDiscountCodes: "allow_discount_codes",
     requireBillingAddress: "require_billing_address",

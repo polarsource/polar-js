@@ -15,14 +15,16 @@ let value: CustomerOrderSubscription = {
   status: "incomplete",
   currentPeriodStart: new Date("2023-04-07T23:21:33.368Z"),
   currentPeriodEnd: new Date("2024-11-21T15:31:03.002Z"),
+  trialStart: new Date("2024-11-07T21:48:28.573Z"),
+  trialEnd: null,
   cancelAtPeriodEnd: false,
-  canceledAt: new Date("2023-04-18T14:11:32.641Z"),
-  startedAt: new Date("2025-11-11T04:45:40.458Z"),
-  endsAt: new Date("2023-10-30T02:21:13.769Z"),
-  endedAt: new Date("2024-11-05T11:19:16.023Z"),
+  canceledAt: new Date("2023-12-27T07:22:58.963Z"),
+  startedAt: new Date("2025-11-27T15:11:49.548Z"),
+  endsAt: new Date("2023-03-11T07:17:08.683Z"),
+  endedAt: new Date("2024-08-15T05:37:50.458Z"),
   customerId: "<value>",
   productId: "<value>",
-  discountId: null,
+  discountId: "<value>",
   checkoutId: "<value>",
   customerCancellationReason: "too_expensive",
   customerCancellationComment: "<value>",
@@ -42,6 +44,8 @@ let value: CustomerOrderSubscription = {
 | `status`                                                                                                                      | [components.SubscriptionStatus](../../models/components/subscriptionstatus.md)                                                | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
 | `currentPeriodStart`                                                                                                          | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The start timestamp of the current billing period.                                                                            |
 | `currentPeriodEnd`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The end timestamp of the current billing period.                                                                              |
+| `trialStart`                                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The start timestamp of the trial period, if any.                                                                              |
+| `trialEnd`                                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The end timestamp of the trial period, if any.                                                                                |
 | `cancelAtPeriodEnd`                                                                                                           | *boolean*                                                                                                                     | :heavy_check_mark:                                                                                                            | Whether the subscription will be canceled at the end of the current period.                                                   |
 | `canceledAt`                                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The timestamp when the subscription was canceled. The subscription might still be active if `cancel_at_period_end` is `true`. |
 | `startedAt`                                                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                 | :heavy_check_mark:                                                                                                            | The timestamp when the subscription started.                                                                                  |

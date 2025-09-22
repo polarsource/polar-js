@@ -14,8 +14,8 @@ let value: CustomerSubscriptionMeter = {
   amount: 0,
   meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
   meter: {
-    createdAt: new Date("2025-10-13T05:14:46.856Z"),
-    modifiedAt: null,
+    createdAt: new Date("2023-05-13T23:55:31.561Z"),
+    modifiedAt: new Date("2023-08-11T07:10:38.626Z"),
     id: "<value>",
     name: "<value>",
   },

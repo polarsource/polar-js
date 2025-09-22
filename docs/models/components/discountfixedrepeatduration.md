@@ -30,14 +30,15 @@ let value: DiscountFixedRepeatDuration = {
   products: [
     {
       metadata: {},
+      id: "<value>",
       createdAt: new Date("2023-02-05T00:21:18.363Z"),
       modifiedAt: new Date("2025-07-04T11:58:51.297Z"),
-      id: "<value>",
+      trialInterval: "month",
+      trialIntervalCount: 4883,
       name: "<value>",
-      description:
-        "lively trained clear-cut wonderfully brightly unfortunate because peppery",
-      recurringInterval: "week",
-      isRecurring: true,
+      description: "youthful upon alert entire meanwhile lest partridge",
+      recurringInterval: "month",
+      isRecurring: false,
       isArchived: false,
       organizationId: "<value>",
     },

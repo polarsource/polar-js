@@ -42,6 +42,11 @@ import {
   PaymentProcessor$inboundSchema,
   PaymentProcessor$outboundSchema,
 } from "./paymentprocessor.js";
+import {
+  TrialInterval,
+  TrialInterval$inboundSchema,
+  TrialInterval$outboundSchema,
+} from "./trialinterval.js";
 
 export type CheckoutLinkMetadata = string | number | number | boolean;
 
@@ -56,6 +61,10 @@ export type CheckoutLinkDiscount =
  */
 export type CheckoutLink = {
   /**
+   * The ID of the object.
+   */
+  id: string;
+  /**
    * Creation timestamp of the object.
    */
   createdAt: Date;
@@ -64,9 +73,13 @@ export type CheckoutLink = {
    */
   modifiedAt: Date | null;
   /**
-   * The ID of the object.
+   * The interval unit for the trial period.
    */
-  id: string;
+  trialInterval: TrialInterval | null;
+  /**
+   * The number of interval units for the trial period.
+   */
+  trialIntervalCount: number | null;
   metadata: { [k: string]: string | number | number | boolean };
   paymentProcessor: PaymentProcessor;
   /**
@@ -223,11 +236,13 @@ export const CheckoutLink$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   created_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   modified_at: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  id: z.string(),
+  trial_interval: z.nullable(TrialInterval$inboundSchema),
+  trial_interval_count: z.nullable(z.number().int()),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
@@ -253,6 +268,8 @@ export const CheckoutLink$inboundSchema: z.ZodType<
   return remap$(v, {
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
+    "trial_interval": "trialInterval",
+    "trial_interval_count": "trialIntervalCount",
     "payment_processor": "paymentProcessor",
     "client_secret": "clientSecret",
     "success_url": "successUrl",
@@ -265,9 +282,11 @@ export const CheckoutLink$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutLink$Outbound = {
+  id: string;
   created_at: string;
   modified_at: string | null;
-  id: string;
+  trial_interval: string | null;
+  trial_interval_count: number | null;
   metadata: { [k: string]: string | number | number | boolean };
   payment_processor: string;
   client_secret: string;
@@ -293,9 +312,11 @@ export const CheckoutLink$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutLink
 > = z.object({
+  id: z.string(),
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
+  trialInterval: z.nullable(TrialInterval$outboundSchema),
+  trialIntervalCount: z.nullable(z.number().int()),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
@@ -321,6 +342,8 @@ export const CheckoutLink$outboundSchema: z.ZodType<
   return remap$(v, {
     createdAt: "created_at",
     modifiedAt: "modified_at",
+    trialInterval: "trial_interval",
+    trialIntervalCount: "trial_interval_count",
     paymentProcessor: "payment_processor",
     clientSecret: "client_secret",
     successUrl: "success_url",

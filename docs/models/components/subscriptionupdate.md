@@ -19,6 +19,14 @@ const value: components.SubscriptionUpdateDiscount = {
 };
 ```
 
+### `components.SubscriptionUpdateTrial`
+
+```typescript
+const value: components.SubscriptionUpdateTrial = {
+  trialEnd: new Date("2023-10-12T00:45:49.772Z"),
+};
+```
+
 ### `components.SubscriptionCancel`
 
 ```typescript

@@ -1,4 +1,4 @@
-# ProductCreatePrices
+# ProductCreateRecurringPrices
 
 
 ## Supported Types

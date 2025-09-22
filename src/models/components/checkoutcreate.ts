@@ -13,6 +13,11 @@ import {
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
+import {
+  TrialInterval,
+  TrialInterval$inboundSchema,
+  TrialInterval$outboundSchema,
+} from "./trialinterval.js";
 
 export type CheckoutCreateMetadata = string | number | number | boolean;
 
@@ -30,6 +35,14 @@ export type CheckoutCreateCustomerMetadata = string | number | number | boolean;
  * to the resulting order and/or subscription.
  */
 export type CheckoutCreate = {
+  /**
+   * The interval unit for the trial period.
+   */
+  trialInterval?: TrialInterval | null | undefined;
+  /**
+   * The number of interval units for the trial period.
+   */
+  trialIntervalCount?: number | null | undefined;
   /**
    * Key-value object allowing you to store additional information.
    *
@@ -295,6 +308,8 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  trial_interval: z.nullable(TrialInterval$inboundSchema).optional(),
+  trial_interval_count: z.nullable(z.number().int()).optional(),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
@@ -330,6 +345,8 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
   products: z.array(z.string()),
 }).transform((v) => {
   return remap$(v, {
+    "trial_interval": "trialInterval",
+    "trial_interval_count": "trialIntervalCount",
     "custom_field_data": "customFieldData",
     "discount_id": "discountId",
     "allow_discount_codes": "allowDiscountCodes",
@@ -352,6 +369,8 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CheckoutCreate$Outbound = {
+  trial_interval?: string | null | undefined;
+  trial_interval_count?: number | null | undefined;
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
@@ -384,6 +403,8 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutCreate
 > = z.object({
+  trialInterval: z.nullable(TrialInterval$outboundSchema).optional(),
+  trialIntervalCount: z.nullable(z.number().int()).optional(),
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ).optional(),
@@ -419,6 +440,8 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
   products: z.array(z.string()),
 }).transform((v) => {
   return remap$(v, {
+    trialInterval: "trial_interval",
+    trialIntervalCount: "trial_interval_count",
     customFieldData: "custom_field_data",
     discountId: "discount_id",
     allowDiscountCodes: "allow_discount_codes",

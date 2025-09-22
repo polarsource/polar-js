@@ -30,10 +30,17 @@ import {
   SubscriptionUpdateProduct$Outbound,
   SubscriptionUpdateProduct$outboundSchema,
 } from "./subscriptionupdateproduct.js";
+import {
+  SubscriptionUpdateTrial,
+  SubscriptionUpdateTrial$inboundSchema,
+  SubscriptionUpdateTrial$Outbound,
+  SubscriptionUpdateTrial$outboundSchema,
+} from "./subscriptionupdatetrial.js";
 
 export type SubscriptionUpdate =
   | SubscriptionUpdateProduct
   | SubscriptionUpdateDiscount
+  | SubscriptionUpdateTrial
   | SubscriptionCancel
   | SubscriptionRevoke;
 
@@ -45,6 +52,7 @@ export const SubscriptionUpdate$inboundSchema: z.ZodType<
 > = z.union([
   SubscriptionUpdateProduct$inboundSchema,
   SubscriptionUpdateDiscount$inboundSchema,
+  SubscriptionUpdateTrial$inboundSchema,
   SubscriptionCancel$inboundSchema,
   SubscriptionRevoke$inboundSchema,
 ]);
@@ -53,6 +61,7 @@ export const SubscriptionUpdate$inboundSchema: z.ZodType<
 export type SubscriptionUpdate$Outbound =
   | SubscriptionUpdateProduct$Outbound
   | SubscriptionUpdateDiscount$Outbound
+  | SubscriptionUpdateTrial$Outbound
   | SubscriptionCancel$Outbound
   | SubscriptionRevoke$Outbound;
 
@@ -64,6 +73,7 @@ export const SubscriptionUpdate$outboundSchema: z.ZodType<
 > = z.union([
   SubscriptionUpdateProduct$outboundSchema,
   SubscriptionUpdateDiscount$outboundSchema,
+  SubscriptionUpdateTrial$outboundSchema,
   SubscriptionCancel$outboundSchema,
   SubscriptionRevoke$outboundSchema,
 ]);

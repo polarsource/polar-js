@@ -110,7 +110,6 @@ const polar = new Polar({
 async function run() {
   const result = await polar.products.create({
     name: "<value>",
-    recurringInterval: "year",
     prices: [
       {
         amountType: "fixed",
@@ -122,6 +121,7 @@ async function run() {
       },
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    recurringInterval: "year",
   });
 
   console.log(result);
@@ -147,7 +147,6 @@ const polar = new PolarCore({
 async function run() {
   const res = await productsCreate(polar, {
     name: "<value>",
-    recurringInterval: "year",
     prices: [
       {
         amountType: "fixed",
@@ -159,6 +158,7 @@ async function run() {
       },
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    recurringInterval: "year",
   });
   if (res.ok) {
     const { value: result } = res;
