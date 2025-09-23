@@ -55,7 +55,7 @@ let value: CustomerMetersListResponse = {
             ],
           },
           aggregation: {
-            func: "min",
+            func: "sum",
             property: "<value>",
           },
           organizationId: "<value>",

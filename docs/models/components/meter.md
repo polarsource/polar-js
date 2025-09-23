@@ -20,7 +20,10 @@ let value: Meter = {
       },
     ],
   },
-  aggregation: {},
+  aggregation: {
+    func: "max",
+    property: "<value>",
+  },
   organizationId: "<value>",
 };
 ```
