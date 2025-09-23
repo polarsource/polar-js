@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -31,6 +32,14 @@ export type CustomerStateSubscriptionMetadata =
   | number
   | boolean;
 
+export const CustomerStateSubscriptionStatus = {
+  Active: "active",
+  Trialing: "trialing",
+} as const;
+export type CustomerStateSubscriptionStatus = ClosedEnum<
+  typeof CustomerStateSubscriptionStatus
+>;
+
 /**
  * An active customer subscription.
  */
@@ -54,7 +63,7 @@ export type CustomerStateSubscription = {
     | { [k: string]: string | number | boolean | Date | null }
     | undefined;
   metadata: { [k: string]: string | number | number | boolean };
-  status: "active";
+  status: CustomerStateSubscriptionStatus;
   /**
    * The amount of the subscription.
    */
@@ -72,6 +81,14 @@ export type CustomerStateSubscription = {
    * The end timestamp of the current billing period.
    */
   currentPeriodEnd: Date | null;
+  /**
+   * The start timestamp of the trial period, if any.
+   */
+  trialStart: Date | null;
+  /**
+   * The end timestamp of the trial period, if any.
+   */
+  trialEnd: Date | null;
   /**
    * Whether the subscription will be canceled at the end of the current period.
    */
@@ -231,6 +248,27 @@ export function customerStateSubscriptionMetadataFromJSON(
 }
 
 /** @internal */
+export const CustomerStateSubscriptionStatus$inboundSchema: z.ZodNativeEnum<
+  typeof CustomerStateSubscriptionStatus
+> = z.nativeEnum(CustomerStateSubscriptionStatus);
+
+/** @internal */
+export const CustomerStateSubscriptionStatus$outboundSchema: z.ZodNativeEnum<
+  typeof CustomerStateSubscriptionStatus
+> = CustomerStateSubscriptionStatus$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomerStateSubscriptionStatus$ {
+  /** @deprecated use `CustomerStateSubscriptionStatus$inboundSchema` instead. */
+  export const inboundSchema = CustomerStateSubscriptionStatus$inboundSchema;
+  /** @deprecated use `CustomerStateSubscriptionStatus$outboundSchema` instead. */
+  export const outboundSchema = CustomerStateSubscriptionStatus$outboundSchema;
+}
+
+/** @internal */
 export const CustomerStateSubscription$inboundSchema: z.ZodType<
   CustomerStateSubscription,
   z.ZodTypeDef,
@@ -254,7 +292,7 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  status: z.literal("active"),
+  status: CustomerStateSubscriptionStatus$inboundSchema,
   amount: z.number().int(),
   currency: z.string(),
   recurring_interval: SubscriptionRecurringInterval$inboundSchema,
@@ -262,6 +300,12 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
     new Date(v)
   ),
   current_period_end: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
+  trial_start: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ),
+  trial_end: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
   cancel_at_period_end: z.boolean(),
@@ -285,6 +329,8 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
     "recurring_interval": "recurringInterval",
     "current_period_start": "currentPeriodStart",
     "current_period_end": "currentPeriodEnd",
+    "trial_start": "trialStart",
+    "trial_end": "trialEnd",
     "cancel_at_period_end": "cancelAtPeriodEnd",
     "canceled_at": "canceledAt",
     "started_at": "startedAt",
@@ -303,12 +349,14 @@ export type CustomerStateSubscription$Outbound = {
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
   metadata: { [k: string]: string | number | number | boolean };
-  status: "active";
+  status: string;
   amount: number;
   currency: string;
   recurring_interval: string;
   current_period_start: string;
   current_period_end: string | null;
+  trial_start: string | null;
+  trial_end: string | null;
   cancel_at_period_end: boolean;
   canceled_at: string | null;
   started_at: string | null;
@@ -340,12 +388,14 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  status: z.literal("active"),
+  status: CustomerStateSubscriptionStatus$outboundSchema,
   amount: z.number().int(),
   currency: z.string(),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,
   currentPeriodStart: z.date().transform(v => v.toISOString()),
   currentPeriodEnd: z.nullable(z.date().transform(v => v.toISOString())),
+  trialStart: z.nullable(z.date().transform(v => v.toISOString())),
+  trialEnd: z.nullable(z.date().transform(v => v.toISOString())),
   cancelAtPeriodEnd: z.boolean(),
   canceledAt: z.nullable(z.date().transform(v => v.toISOString())),
   startedAt: z.nullable(z.date().transform(v => v.toISOString())),
@@ -361,6 +411,8 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
     recurringInterval: "recurring_interval",
     currentPeriodStart: "current_period_start",
     currentPeriodEnd: "current_period_end",
+    trialStart: "trial_start",
+    trialEnd: "trial_end",
     cancelAtPeriodEnd: "cancel_at_period_end",
     canceledAt: "canceled_at",
     startedAt: "started_at",

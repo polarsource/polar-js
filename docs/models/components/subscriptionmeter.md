@@ -31,7 +31,7 @@ let value: SubscriptionMeter = {
       ],
     },
     aggregation: {
-      func: "min",
+      func: "sum",
       property: "<value>",
     },
     organizationId: "<value>",

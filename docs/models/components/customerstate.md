@@ -39,6 +39,8 @@ let value: CustomerState = {
       recurringInterval: "week",
       currentPeriodStart: new Date("2025-02-03T13:37:00Z"),
       currentPeriodEnd: new Date("2025-03-03T13:37:00Z"),
+      trialStart: new Date("2025-02-03T13:37:00Z"),
+      trialEnd: new Date("2025-03-03T13:37:00Z"),
       cancelAtPeriodEnd: false,
       canceledAt: null,
       startedAt: new Date("2025-01-03T13:37:00Z"),

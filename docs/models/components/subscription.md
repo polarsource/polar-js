@@ -198,7 +198,7 @@ let value: Subscription = {
           ],
         },
         aggregation: {
-          func: "min",
+          func: "sum",
           property: "<value>",
         },
         organizationId: "<value>",

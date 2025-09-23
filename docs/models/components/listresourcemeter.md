@@ -23,7 +23,7 @@ let value: ListResourceMeter = {
         ],
       },
       aggregation: {
-        func: "max",
+        func: "min",
         property: "<value>",
       },
       organizationId: "<value>",
