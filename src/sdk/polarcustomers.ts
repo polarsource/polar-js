@@ -3,16 +3,19 @@
  */
 
 import { customerPortalCustomersAddPaymentMethod } from "../funcs/customerPortalCustomersAddPaymentMethod.js";
+import { customerPortalCustomersConfirmPaymentMethod } from "../funcs/customerPortalCustomersConfirmPaymentMethod.js";
 import { customerPortalCustomersDeletePaymentMethod } from "../funcs/customerPortalCustomersDeletePaymentMethod.js";
 import { customerPortalCustomersGet } from "../funcs/customerPortalCustomersGet.js";
 import { customerPortalCustomersListPaymentMethods } from "../funcs/customerPortalCustomersListPaymentMethods.js";
 import { customerPortalCustomersUpdate } from "../funcs/customerPortalCustomersUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import { CustomerPaymentMethod } from "../models/components/customerpaymentmethod.js";
+import { CustomerPaymentMethodConfirm } from "../models/components/customerpaymentmethodconfirm.js";
 import { CustomerPaymentMethodCreate } from "../models/components/customerpaymentmethodcreate.js";
+import { CustomerPaymentMethodCreateResponse } from "../models/components/customerpaymentmethodcreateresponse.js";
 import { CustomerPortalCustomer } from "../models/components/customerportalcustomer.js";
 import { CustomerPortalCustomerUpdate } from "../models/components/customerportalcustomerupdate.js";
 import { CustomerPortalCustomersAddPaymentMethodSecurity } from "../models/operations/customerportalcustomersaddpaymentmethod.js";
+import { CustomerPortalCustomersConfirmPaymentMethodSecurity } from "../models/operations/customerportalcustomersconfirmpaymentmethod.js";
 import {
   CustomerPortalCustomersDeletePaymentMethodRequest,
   CustomerPortalCustomersDeletePaymentMethodSecurity,
@@ -106,8 +109,29 @@ export class PolarCustomers extends ClientSDK {
     security: CustomerPortalCustomersAddPaymentMethodSecurity,
     request: CustomerPaymentMethodCreate,
     options?: RequestOptions,
-  ): Promise<CustomerPaymentMethod> {
+  ): Promise<CustomerPaymentMethodCreateResponse> {
     return unwrapAsync(customerPortalCustomersAddPaymentMethod(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Confirm Customer Payment Method
+   *
+   * @remarks
+   * Confirm a payment method for the authenticated customer.
+   *
+   * **Scopes**: `customer_portal:read` `customer_portal:write`
+   */
+  async confirmPaymentMethod(
+    security: CustomerPortalCustomersConfirmPaymentMethodSecurity,
+    request: CustomerPaymentMethodConfirm,
+    options?: RequestOptions,
+  ): Promise<CustomerPaymentMethodCreateResponse> {
+    return unwrapAsync(customerPortalCustomersConfirmPaymentMethod(
       this,
       security,
       request,

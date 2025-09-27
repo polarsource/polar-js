@@ -34,6 +34,7 @@ let value: WebhookOrderPaidPayload = {
     billingAddress: {
       country: "US",
     },
+    invoiceNumber: "<value>",
     isInvoiceGenerated: true,
     customerId: "<value>",
     productId: "<value>",

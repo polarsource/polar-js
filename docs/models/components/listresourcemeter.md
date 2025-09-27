@@ -14,16 +14,11 @@ let value: ListResourceMeter = {
       id: "<value>",
       name: "<value>",
       filter: {
-        conjunction: "and",
-        clauses: [
-          {
-            conjunction: "or",
-            clauses: [],
-          },
-        ],
+        conjunction: "or",
+        clauses: [],
       },
       aggregation: {
-        func: "min",
+        func: "max",
         property: "<value>",
       },
       organizationId: "<value>",

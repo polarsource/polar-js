@@ -45,12 +45,11 @@ let value: CheckoutLink = {
       benefits: [
         {
           id: "<value>",
-          createdAt: new Date("2025-05-25T16:58:54.608Z"),
-          modifiedAt: new Date("2023-09-04T14:15:13.546Z"),
-          type: "meter_credit",
-          description:
-            "pity and paltry shakily even fair aha as masquerade versus",
-          selectable: false,
+          createdAt: new Date("2023-09-04T12:35:29.724Z"),
+          modifiedAt: new Date("2024-05-27T08:53:02.662Z"),
+          type: "downloadables",
+          description: "cautiously pike true considering superior about",
+          selectable: true,
           deletable: false,
           organizationId: "<value>",
         },

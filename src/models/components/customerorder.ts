@@ -100,6 +100,10 @@ export type CustomerOrder = {
   billingName: string | null;
   billingAddress: Address | null;
   /**
+   * The invoice number associated with this order.
+   */
+  invoiceNumber: string;
+  /**
    * Whether an invoice has been generated for this order.
    */
   isInvoiceGenerated: boolean;
@@ -149,6 +153,7 @@ export const CustomerOrder$inboundSchema: z.ZodType<
   billing_reason: OrderBillingReason$inboundSchema,
   billing_name: z.nullable(z.string()),
   billing_address: z.nullable(Address$inboundSchema),
+  invoice_number: z.string(),
   is_invoice_generated: z.boolean(),
   customer_id: z.string(),
   product_id: z.string(),
@@ -177,6 +182,7 @@ export const CustomerOrder$inboundSchema: z.ZodType<
     "billing_reason": "billingReason",
     "billing_name": "billingName",
     "billing_address": "billingAddress",
+    "invoice_number": "invoiceNumber",
     "is_invoice_generated": "isInvoiceGenerated",
     "customer_id": "customerId",
     "product_id": "productId",
@@ -207,6 +213,7 @@ export type CustomerOrder$Outbound = {
   billing_reason: string;
   billing_name: string | null;
   billing_address: Address$Outbound | null;
+  invoice_number: string;
   is_invoice_generated: boolean;
   customer_id: string;
   product_id: string;
@@ -243,6 +250,7 @@ export const CustomerOrder$outboundSchema: z.ZodType<
   billingReason: OrderBillingReason$outboundSchema,
   billingName: z.nullable(z.string()),
   billingAddress: z.nullable(Address$outboundSchema),
+  invoiceNumber: z.string(),
   isInvoiceGenerated: z.boolean(),
   customerId: z.string(),
   productId: z.string(),
@@ -270,6 +278,7 @@ export const CustomerOrder$outboundSchema: z.ZodType<
     billingReason: "billing_reason",
     billingName: "billing_name",
     billingAddress: "billing_address",
+    invoiceNumber: "invoice_number",
     isInvoiceGenerated: "is_invoice_generated",
     customerId: "customer_id",
     productId: "product_id",

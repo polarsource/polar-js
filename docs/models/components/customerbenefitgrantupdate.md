@@ -3,6 +3,14 @@
 
 ## Supported Types
 
+### `components.CustomerBenefitGrantCustomUpdate`
+
+```typescript
+const value: components.CustomerBenefitGrantCustomUpdate = {
+  benefitType: "custom",
+};
+```
+
 ### `components.CustomerBenefitGrantDiscordUpdate`
 
 ```typescript
@@ -14,6 +22,14 @@ const value: components.CustomerBenefitGrantDiscordUpdate = {
 };
 ```
 
+### `components.CustomerBenefitGrantDownloadablesUpdate`
+
+```typescript
+const value: components.CustomerBenefitGrantDownloadablesUpdate = {
+  benefitType: "downloadables",
+};
+```
+
 ### `components.CustomerBenefitGrantGitHubRepositoryUpdate`
 
 ```typescript
@@ -22,22 +38,6 @@ const value: components.CustomerBenefitGrantGitHubRepositoryUpdate = {
   properties: {
     accountId: "<id>",
   },
-};
-```
-
-### `components.CustomerBenefitGrantCustomUpdate`
-
-```typescript
-const value: components.CustomerBenefitGrantCustomUpdate = {
-  benefitType: "custom",
-};
-```
-
-### `components.CustomerBenefitGrantDownloadablesUpdate`
-
-```typescript
-const value: components.CustomerBenefitGrantDownloadablesUpdate = {
-  benefitType: "downloadables",
 };
 ```
 

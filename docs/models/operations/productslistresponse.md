@@ -42,27 +42,18 @@ let value: ProductsListResponse = {
           {
             customFieldId: "<value>",
             customField: {
-              createdAt: new Date("2023-01-17T02:26:08.207Z"),
-              modifiedAt: new Date("2025-04-09T14:51:17.764Z"),
+              createdAt: new Date("2025-07-24T07:04:35.503Z"),
+              modifiedAt: new Date("2025-01-27T16:26:36.069Z"),
               id: "<value>",
-              metadata: {
-                "key": true,
-              },
-              type: "select",
+              metadata: {},
+              type: "text",
               slug: "<value>",
               name: "<value>",
               organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-              properties: {
-                options: [
-                  {
-                    value: "<value>",
-                    label: "<value>",
-                  },
-                ],
-              },
+              properties: {},
             },
-            order: 252765,
-            required: false,
+            order: 758601,
+            required: true,
           },
         ],
       },
