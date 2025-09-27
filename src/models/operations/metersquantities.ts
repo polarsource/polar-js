@@ -7,6 +7,11 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
+  AggregationFunction,
+  AggregationFunction$inboundSchema,
+  AggregationFunction$outboundSchema,
+} from "../components/aggregationfunction.js";
+import {
   MetadataQuery,
   MetadataQuery$inboundSchema,
   MetadataQuery$Outbound,
@@ -56,6 +61,10 @@ export type MetersQuantitiesRequest = {
    * Filter by external customer ID.
    */
   externalCustomerId?: string | Array<string> | null | undefined;
+  /**
+   * If set, will first compute the quantities per customer before aggregating them using the given function. If not set, the quantities will be aggregated across all events.
+   */
+  customerAggregationFunction?: AggregationFunction | null | undefined;
   /**
    * Filter by metadata key-value pairs. It uses the `deepObject` style, e.g. `?metadata[key]=value`.
    */
@@ -204,6 +213,8 @@ export const MetersQuantitiesRequest$inboundSchema: z.ZodType<
     .optional(),
   external_customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  customer_aggregation_function: z.nullable(AggregationFunction$inboundSchema)
+    .optional(),
   metadata: z.nullable(z.record(MetadataQuery$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -211,6 +222,7 @@ export const MetersQuantitiesRequest$inboundSchema: z.ZodType<
     "end_timestamp": "endTimestamp",
     "customer_id": "customerId",
     "external_customer_id": "externalCustomerId",
+    "customer_aggregation_function": "customerAggregationFunction",
   });
 });
 
@@ -222,6 +234,7 @@ export type MetersQuantitiesRequest$Outbound = {
   interval: string;
   customer_id?: string | Array<string> | null | undefined;
   external_customer_id?: string | Array<string> | null | undefined;
+  customer_aggregation_function?: string | null | undefined;
   metadata?: { [k: string]: MetadataQuery$Outbound } | null | undefined;
 };
 
@@ -238,6 +251,8 @@ export const MetersQuantitiesRequest$outboundSchema: z.ZodType<
   customerId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   externalCustomerId: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
+  customerAggregationFunction: z.nullable(AggregationFunction$outboundSchema)
+    .optional(),
   metadata: z.nullable(z.record(MetadataQuery$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -245,6 +260,7 @@ export const MetersQuantitiesRequest$outboundSchema: z.ZodType<
     endTimestamp: "end_timestamp",
     customerId: "customer_id",
     externalCustomerId: "external_customer_id",
+    customerAggregationFunction: "customer_aggregation_function",
   });
 });
 

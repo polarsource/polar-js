@@ -134,6 +134,10 @@ export type CustomerSubscription = {
    * List of meters associated with the subscription.
    */
   meters: Array<CustomerSubscriptionMeter>;
+  /**
+   * Whether the subscription is managed by Polar.
+   */
+  isPolarManaged: boolean;
 };
 
 /** @internal */
@@ -248,6 +252,7 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
     ]),
   ),
   meters: z.array(CustomerSubscriptionMeter$inboundSchema),
+  is_polar_managed: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -268,6 +273,7 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
     "checkout_id": "checkoutId",
     "customer_cancellation_reason": "customerCancellationReason",
     "customer_cancellation_comment": "customerCancellationComment",
+    "is_polar_managed": "isPolarManaged",
   });
 });
 
@@ -298,6 +304,7 @@ export type CustomerSubscription$Outbound = {
   product: CustomerSubscriptionProduct$Outbound;
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
   meters: Array<CustomerSubscriptionMeter$Outbound>;
+  is_polar_managed: boolean;
 };
 
 /** @internal */
@@ -338,6 +345,7 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
     ]),
   ),
   meters: z.array(CustomerSubscriptionMeter$outboundSchema),
+  isPolarManaged: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -358,6 +366,7 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
     checkoutId: "checkout_id",
     customerCancellationReason: "customer_cancellation_reason",
     customerCancellationComment: "customer_cancellation_comment",
+    isPolarManaged: "is_polar_managed",
   });
 });
 
