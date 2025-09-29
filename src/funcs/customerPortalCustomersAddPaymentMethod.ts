@@ -11,13 +11,13 @@ import { RequestOptions } from "../lib/sdks.js";
 import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  CustomerPaymentMethod,
-  CustomerPaymentMethod$inboundSchema,
-} from "../models/components/customerpaymentmethod.js";
-import {
   CustomerPaymentMethodCreate,
   CustomerPaymentMethodCreate$outboundSchema,
 } from "../models/components/customerpaymentmethodcreate.js";
+import {
+  CustomerPaymentMethodCreateResponse,
+  CustomerPaymentMethodCreateResponse$inboundSchema,
+} from "../models/components/customerpaymentmethodcreateresponse.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -51,7 +51,7 @@ export function customerPortalCustomersAddPaymentMethod(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    CustomerPaymentMethod,
+    CustomerPaymentMethodCreateResponse,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -79,7 +79,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      CustomerPaymentMethod,
+      CustomerPaymentMethodCreateResponse,
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -167,7 +167,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    CustomerPaymentMethod,
+    CustomerPaymentMethodCreateResponse,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -178,7 +178,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, CustomerPaymentMethod$inboundSchema),
+    M.json(201, CustomerPaymentMethodCreateResponse$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

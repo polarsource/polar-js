@@ -28,6 +28,7 @@ let value: OrdersListResponse = {
         billingAddress: {
           country: "US",
         },
+        invoiceNumber: "<value>",
         isInvoiceGenerated: false,
         customerId: "<value>",
         productId: "<value>",

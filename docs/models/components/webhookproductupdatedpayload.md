@@ -31,25 +31,27 @@ let value: WebhookProductUpdatedPayload = {
     benefits: [
       {
         id: "<value>",
-        createdAt: new Date("2023-01-16T01:29:59.311Z"),
-        modifiedAt: new Date("2023-05-02T03:13:00.458Z"),
+        createdAt: new Date("2025-07-22T11:48:28.197Z"),
+        modifiedAt: new Date("2025-01-23T12:47:54.549Z"),
         type: "license_keys",
-        description: "out beneath off phew",
+        description: "duh behind via for enchanting negotiation source sore",
         selectable: false,
-        deletable: false,
+        deletable: true,
         organizationId: "<value>",
-        metadata: {},
+        metadata: {
+          "key": true,
+        },
         properties: {
           prefix: null,
           expires: {
-            ttl: 56931,
-            timeframe: "month",
+            ttl: 84298,
+            timeframe: "year",
           },
           activations: {
-            limit: 936323,
+            limit: 202982,
             enableCustomerAdmin: false,
           },
-          limitUsage: 702937,
+          limitUsage: 666374,
         },
       },
     ],
@@ -58,27 +60,18 @@ let value: WebhookProductUpdatedPayload = {
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2023-01-17T02:26:08.207Z"),
-          modifiedAt: new Date("2025-04-09T14:51:17.764Z"),
+          createdAt: new Date("2025-07-24T07:04:35.503Z"),
+          modifiedAt: new Date("2025-01-27T16:26:36.069Z"),
           id: "<value>",
-          metadata: {
-            "key": true,
-          },
-          type: "select",
+          metadata: {},
+          type: "text",
           slug: "<value>",
           name: "<value>",
           organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-          properties: {
-            options: [
-              {
-                value: "<value>",
-                label: "<value>",
-              },
-            ],
-          },
+          properties: {},
         },
-        order: 252765,
-        required: false,
+        order: 758601,
+        required: true,
       },
     ],
   },

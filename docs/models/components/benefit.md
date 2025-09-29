@@ -114,14 +114,14 @@ const value: components.BenefitLicenseKeys = {
   properties: {
     prefix: null,
     expires: {
-      ttl: 56931,
-      timeframe: "month",
+      ttl: 84298,
+      timeframe: "year",
     },
     activations: {
-      limit: 936323,
+      limit: 202982,
       enableCustomerAdmin: false,
     },
-    limitUsage: 702937,
+    limitUsage: 666374,
   },
 };
 ```

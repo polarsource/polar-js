@@ -25,6 +25,7 @@ let value: CustomerOrder = {
   billingAddress: {
     country: "US",
   },
+  invoiceNumber: "<value>",
   isInvoiceGenerated: false,
   customerId: "<value>",
   productId: "<value>",
@@ -48,25 +49,24 @@ let value: CustomerOrder = {
     benefits: [
       {
         id: "<value>",
-        createdAt: new Date("2025-05-25T16:58:54.608Z"),
-        modifiedAt: new Date("2023-09-04T14:15:13.546Z"),
-        type: "meter_credit",
-        description:
-          "pity and paltry shakily even fair aha as masquerade versus",
-        selectable: false,
+        createdAt: new Date("2023-09-04T12:35:29.724Z"),
+        modifiedAt: new Date("2024-05-27T08:53:02.662Z"),
+        type: "downloadables",
+        description: "cautiously pike true considering superior about",
+        selectable: true,
         deletable: false,
         organizationId: "<value>",
       },
     ],
     medias: [],
     organization: {
-      createdAt: new Date("2024-11-05T15:53:05.692Z"),
-      modifiedAt: new Date("2024-06-26T04:46:17.661Z"),
+      createdAt: new Date("2025-01-01T18:22:02.718Z"),
+      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://moist-amendment.biz/",
-      email: "Olaf.Mills@yahoo.com",
+      avatarUrl: null,
+      email: "Hannah_Price@gmail.com",
       website: "<value>",
       socials: [
         {
@@ -74,9 +74,9 @@ let value: CustomerOrder = {
           url: "https://scratchy-midwife.net/",
         },
       ],
-      status: "active",
-      detailsSubmittedAt: new Date("2023-07-28T11:30:45.712Z"),
-      featureSettings: null,
+      status: "denied",
+      detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
+      featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: true,
         allowCustomerUpdates: true,
@@ -148,6 +148,7 @@ let value: CustomerOrder = {
 | `billingReason`                                                                                                         | [components.OrderBillingReason](../../models/components/orderbillingreason.md)                                          | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
 | `billingName`                                                                                                           | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The name of the customer that should appear on the invoice.                                                             |                                                                                                                         |
 | `billingAddress`                                                                                                        | [components.Address](../../models/components/address.md)                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
+| `invoiceNumber`                                                                                                         | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The invoice number associated with this order.                                                                          |                                                                                                                         |
 | `isInvoiceGenerated`                                                                                                    | *boolean*                                                                                                               | :heavy_check_mark:                                                                                                      | Whether an invoice has been generated for this order.                                                                   |                                                                                                                         |
 | `customerId`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
 | `productId`                                                                                                             | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |                                                                                                                         |
