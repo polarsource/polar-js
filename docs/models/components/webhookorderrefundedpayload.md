@@ -32,6 +32,7 @@ let value: WebhookOrderRefundedPayload = {
     billingAddress: {
       country: "US",
     },
+    invoiceNumber: "<value>",
     isInvoiceGenerated: true,
     customerId: "<value>",
     productId: "<value>",

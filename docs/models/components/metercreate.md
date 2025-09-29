@@ -8,13 +8,8 @@ import { MeterCreate } from "@polar-sh/sdk/models/components/metercreate.js";
 let value: MeterCreate = {
   name: "<value>",
   filter: {
-    conjunction: "and",
-    clauses: [
-      {
-        conjunction: "or",
-        clauses: [],
-      },
-    ],
+    conjunction: "or",
+    clauses: [],
   },
   aggregation: {
     func: "avg",

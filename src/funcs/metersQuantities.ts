@@ -125,6 +125,7 @@ async function $do(
       "metadata": payload.metadata,
     }),
     encodeFormQuery({
+      "customer_aggregation_function": payload.customer_aggregation_function,
       "customer_id": payload.customer_id,
       "end_timestamp": payload.end_timestamp,
       "external_customer_id": payload.external_customer_id,
