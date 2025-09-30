@@ -153,6 +153,10 @@ export type CheckoutPublic = {
    */
   amount: number;
   /**
+   * Number of seats for seat-based pricing.
+   */
+  seats?: number | null | undefined;
+  /**
    * Discount amount in cents.
    */
   discountAmount: number;
@@ -476,6 +480,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   success_url: z.string(),
   embed_origin: z.nullable(z.string()),
   amount: z.number().int(),
+  seats: z.nullable(z.number().int()).optional(),
   discount_amount: z.number().int(),
   net_amount: z.number().int(),
   tax_amount: z.nullable(z.number().int()),
@@ -580,6 +585,7 @@ export type CheckoutPublic$Outbound = {
   success_url: string;
   embed_origin: string | null;
   amount: number;
+  seats?: number | null | undefined;
   discount_amount: number;
   net_amount: number;
   tax_amount: number | null;
@@ -648,6 +654,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   successUrl: z.string(),
   embedOrigin: z.nullable(z.string()),
   amount: z.number().int(),
+  seats: z.nullable(z.number().int()).optional(),
   discountAmount: z.number().int(),
   netAmount: z.number().int(),
   taxAmount: z.nullable(z.number().int()),

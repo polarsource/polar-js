@@ -46,13 +46,13 @@ let value: CustomerBenefitGrantMeterCredit = {
     organizationId: "<value>",
     metadata: {},
     organization: {
-      createdAt: new Date("2025-01-01T18:22:02.718Z"),
-      modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+      createdAt: new Date("2025-11-26T13:33:51.948Z"),
+      modifiedAt: new Date("2025-01-01T18:22:02.718Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: null,
-      email: "Hannah_Price@gmail.com",
+      avatarUrl: "https://annual-comparison.biz",
+      email: "Maxime52@hotmail.com",
       website: "<value>",
       socials: [
         {
@@ -60,8 +60,8 @@ let value: CustomerBenefitGrantMeterCredit = {
           url: "https://scratchy-midwife.net/",
         },
       ],
-      status: "denied",
-      detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
+      status: "onboarding_started",
+      detailsSubmittedAt: new Date("2023-01-14T17:51:08.613Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: true,

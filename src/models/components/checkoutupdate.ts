@@ -46,6 +46,10 @@ export type CheckoutUpdate = {
    */
   productPriceId?: string | null | undefined;
   amount?: number | null | undefined;
+  /**
+   * Number of seats for seat-based pricing.
+   */
+  seats?: number | null | undefined;
   isBusinessCustomer?: boolean | null | undefined;
   customerName?: string | null | undefined;
   customerEmail?: string | null | undefined;
@@ -307,6 +311,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
   product_id: z.nullable(z.string()).optional(),
   product_price_id: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
+  seats: z.nullable(z.number().int()).optional(),
   is_business_customer: z.nullable(z.boolean()).optional(),
   customer_name: z.nullable(z.string()).optional(),
   customer_email: z.nullable(z.string()).optional(),
@@ -358,6 +363,7 @@ export type CheckoutUpdate$Outbound = {
   product_id?: string | null | undefined;
   product_price_id?: string | null | undefined;
   amount?: number | null | undefined;
+  seats?: number | null | undefined;
   is_business_customer?: boolean | null | undefined;
   customer_name?: string | null | undefined;
   customer_email?: string | null | undefined;
@@ -398,6 +404,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   productId: z.nullable(z.string()).optional(),
   productPriceId: z.nullable(z.string()).optional(),
   amount: z.nullable(z.number().int()).optional(),
+  seats: z.nullable(z.number().int()).optional(),
   isBusinessCustomer: z.nullable(z.boolean()).optional(),
   customerName: z.nullable(z.string()).optional(),
   customerEmail: z.nullable(z.string()).optional(),

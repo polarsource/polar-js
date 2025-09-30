@@ -10,6 +10,7 @@ let value: OrganizationFeatureSettings = {};
 
 ## Fields
 
-| Field                                          | Type                                           | Required                                       | Description                                    |
-| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| `issueFundingEnabled`                          | *boolean*                                      | :heavy_minus_sign:                             | If this organization has issue funding enabled |
+| Field                                               | Type                                                | Required                                            | Description                                         |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| `issueFundingEnabled`                               | *boolean*                                           | :heavy_minus_sign:                                  | If this organization has issue funding enabled      |
+| `seatBasedPricingEnabled`                           | *boolean*                                           | :heavy_minus_sign:                                  | If this organization has seat-based pricing enabled |

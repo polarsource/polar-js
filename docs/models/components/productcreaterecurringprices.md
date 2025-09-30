@@ -28,6 +28,15 @@ const value: components.ProductPriceFreeCreate = {
 };
 ```
 
+### `components.ProductPriceSeatBasedCreate`
+
+```typescript
+const value: components.ProductPriceSeatBasedCreate = {
+  amountType: "seat_based",
+  pricePerSeat: 375262,
+};
+```
+
 ### `components.ProductPriceMeteredUnitCreate`
 
 ```typescript

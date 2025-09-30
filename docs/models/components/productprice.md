@@ -77,3 +77,20 @@ const value: components.ProductPriceMeteredUnit = {
 };
 ```
 
+### `components.ProductPriceSeatBased`
+
+```typescript
+const value: components.ProductPriceSeatBased = {
+  createdAt: new Date("2023-09-18T05:03:38.369Z"),
+  modifiedAt: new Date("2025-08-16T14:25:55.727Z"),
+  id: "<value>",
+  amountType: "seat_based",
+  isArchived: true,
+  productId: "<value>",
+  type: "recurring",
+  recurringInterval: "month",
+  priceCurrency: "<value>",
+  pricePerSeat: 558084,
+};
+```
+
