@@ -37,10 +37,11 @@ let value: CustomerSubscriptionProduct = {
   benefits: [
     {
       id: "<value>",
-      createdAt: new Date("2023-09-04T12:35:29.724Z"),
-      modifiedAt: new Date("2024-05-27T08:53:02.662Z"),
-      type: "downloadables",
-      description: "cautiously pike true considering superior about",
+      createdAt: new Date("2023-06-16T00:40:28.022Z"),
+      modifiedAt: new Date("2025-09-07T23:37:19.259Z"),
+      type: "meter_credit",
+      description:
+        "rationalize well grimy unscramble pish excitedly er bleakly",
       selectable: true,
       deletable: false,
       organizationId: "<value>",
@@ -48,13 +49,13 @@ let value: CustomerSubscriptionProduct = {
   ],
   medias: [],
   organization: {
-    createdAt: new Date("2025-01-01T18:22:02.718Z"),
-    modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+    createdAt: new Date("2025-11-26T13:33:51.948Z"),
+    modifiedAt: new Date("2025-01-01T18:22:02.718Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: null,
-    email: "Hannah_Price@gmail.com",
+    avatarUrl: "https://annual-comparison.biz",
+    email: "Maxime52@hotmail.com",
     website: "<value>",
     socials: [
       {
@@ -62,8 +63,8 @@ let value: CustomerSubscriptionProduct = {
         url: "https://scratchy-midwife.net/",
       },
     ],
-    status: "denied",
-    detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
+    status: "onboarding_started",
+    detailsSubmittedAt: new Date("2023-01-14T17:51:08.613Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: true,

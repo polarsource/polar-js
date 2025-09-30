@@ -30,11 +30,18 @@ import {
   ProductPriceMeteredUnit$Outbound,
   ProductPriceMeteredUnit$outboundSchema,
 } from "./productpricemeteredunit.js";
+import {
+  ProductPriceSeatBased,
+  ProductPriceSeatBased$inboundSchema,
+  ProductPriceSeatBased$Outbound,
+  ProductPriceSeatBased$outboundSchema,
+} from "./productpriceseatbased.js";
 
 export type ProductPrice =
   | (ProductPriceMeteredUnit & { amountType: "metered_unit" })
   | (ProductPriceCustom & { amountType: "custom" })
   | (ProductPriceFixed & { amountType: "fixed" })
+  | (ProductPriceSeatBased & { amountType: "seat_based" })
   | (ProductPriceFree & { amountType: "free" });
 
 /** @internal */
@@ -58,6 +65,11 @@ export const ProductPrice$inboundSchema: z.ZodType<
       amountType: v.amount_type,
     })),
   ),
+  ProductPriceSeatBased$inboundSchema.and(
+    z.object({ amount_type: z.literal("seat_based") }).transform((v) => ({
+      amountType: v.amount_type,
+    })),
+  ),
   ProductPriceFree$inboundSchema.and(
     z.object({ amount_type: z.literal("free") }).transform((v) => ({
       amountType: v.amount_type,
@@ -70,6 +82,7 @@ export type ProductPrice$Outbound =
   | (ProductPriceMeteredUnit$Outbound & { amount_type: "metered_unit" })
   | (ProductPriceCustom$Outbound & { amount_type: "custom" })
   | (ProductPriceFixed$Outbound & { amount_type: "fixed" })
+  | (ProductPriceSeatBased$Outbound & { amount_type: "seat_based" })
   | (ProductPriceFree$Outbound & { amount_type: "free" });
 
 /** @internal */
@@ -90,6 +103,11 @@ export const ProductPrice$outboundSchema: z.ZodType<
   ),
   ProductPriceFixed$outboundSchema.and(
     z.object({ amountType: z.literal("fixed") }).transform((v) => ({
+      amount_type: v.amountType,
+    })),
+  ),
+  ProductPriceSeatBased$outboundSchema.and(
+    z.object({ amountType: z.literal("seat_based") }).transform((v) => ({
       amount_type: v.amountType,
     })),
   ),

@@ -30,11 +30,19 @@ const value: components.ProductPrice = {
   createdAt: new Date("2023-11-12T09:36:50.641Z"),
   modifiedAt: null,
   id: "<value>",
-  amountType: "free",
+  amountType: "metered_unit",
   isArchived: false,
   productId: "<value>",
   type: "one_time",
   recurringInterval: "year",
+  priceCurrency: "<value>",
+  unitAmount: "<value>",
+  capAmount: 519813,
+  meterId: "<value>",
+  meter: {
+    id: "<value>",
+    name: "<value>",
+  },
 };
 ```
 

@@ -44,6 +44,12 @@ import {
   ProductPriceMeteredUnitCreate$outboundSchema,
 } from "./productpricemeteredunitcreate.js";
 import {
+  ProductPriceSeatBasedCreate,
+  ProductPriceSeatBasedCreate$inboundSchema,
+  ProductPriceSeatBasedCreate$Outbound,
+  ProductPriceSeatBasedCreate$outboundSchema,
+} from "./productpriceseatbasedcreate.js";
+import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
@@ -59,6 +65,7 @@ export type ProductUpdateMetadata = string | number | number | boolean;
 export type ProductUpdatePrices =
   | ProductPriceMeteredUnitCreate
   | ProductPriceFixedCreate
+  | ProductPriceSeatBasedCreate
   | ExistingProductPrice
   | ProductPriceCustomCreate
   | ProductPriceFreeCreate;
@@ -111,6 +118,7 @@ export type ProductUpdate = {
     | Array<
       | ProductPriceMeteredUnitCreate
       | ProductPriceFixedCreate
+      | ProductPriceSeatBasedCreate
       | ExistingProductPrice
       | ProductPriceCustomCreate
       | ProductPriceFreeCreate
@@ -180,6 +188,7 @@ export const ProductUpdatePrices$inboundSchema: z.ZodType<
 > = z.union([
   ProductPriceMeteredUnitCreate$inboundSchema,
   ProductPriceFixedCreate$inboundSchema,
+  ProductPriceSeatBasedCreate$inboundSchema,
   ExistingProductPrice$inboundSchema,
   ProductPriceCustomCreate$inboundSchema,
   ProductPriceFreeCreate$inboundSchema,
@@ -189,6 +198,7 @@ export const ProductUpdatePrices$inboundSchema: z.ZodType<
 export type ProductUpdatePrices$Outbound =
   | ProductPriceMeteredUnitCreate$Outbound
   | ProductPriceFixedCreate$Outbound
+  | ProductPriceSeatBasedCreate$Outbound
   | ExistingProductPrice$Outbound
   | ProductPriceCustomCreate$Outbound
   | ProductPriceFreeCreate$Outbound;
@@ -201,6 +211,7 @@ export const ProductUpdatePrices$outboundSchema: z.ZodType<
 > = z.union([
   ProductPriceMeteredUnitCreate$outboundSchema,
   ProductPriceFixedCreate$outboundSchema,
+  ProductPriceSeatBasedCreate$outboundSchema,
   ExistingProductPrice$outboundSchema,
   ProductPriceCustomCreate$outboundSchema,
   ProductPriceFreeCreate$outboundSchema,
@@ -258,6 +269,7 @@ export const ProductUpdate$inboundSchema: z.ZodType<
       z.union([
         ProductPriceMeteredUnitCreate$inboundSchema,
         ProductPriceFixedCreate$inboundSchema,
+        ProductPriceSeatBasedCreate$inboundSchema,
         ExistingProductPrice$inboundSchema,
         ProductPriceCustomCreate$inboundSchema,
         ProductPriceFreeCreate$inboundSchema,
@@ -291,6 +303,7 @@ export type ProductUpdate$Outbound = {
     | Array<
       | ProductPriceMeteredUnitCreate$Outbound
       | ProductPriceFixedCreate$Outbound
+      | ProductPriceSeatBasedCreate$Outbound
       | ExistingProductPrice$Outbound
       | ProductPriceCustomCreate$Outbound
       | ProductPriceFreeCreate$Outbound
@@ -325,6 +338,7 @@ export const ProductUpdate$outboundSchema: z.ZodType<
       z.union([
         ProductPriceMeteredUnitCreate$outboundSchema,
         ProductPriceFixedCreate$outboundSchema,
+        ProductPriceSeatBasedCreate$outboundSchema,
         ExistingProductPrice$outboundSchema,
         ProductPriceCustomCreate$outboundSchema,
         ProductPriceFreeCreate$outboundSchema,

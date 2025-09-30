@@ -10,11 +10,13 @@ const value: components.ProductCreateRecurring = {
   name: "<value>",
   prices: [
     {
-      amountType: "free",
+      amountType: "seat_based",
+      priceCurrency: "usd",
+      pricePerSeat: 944171,
     },
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  recurringInterval: "year",
+  recurringInterval: "month",
 };
 ```
 

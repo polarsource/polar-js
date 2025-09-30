@@ -76,23 +76,49 @@ let value: CheckoutPublic = {
           createdAt: new Date("2025-02-09T15:59:15.006Z"),
           modifiedAt: null,
           id: "<value>",
-          amountType: "metered_unit",
+          amountType: "seat_based",
           isArchived: false,
           productId: "<value>",
           type: "recurring",
           recurringInterval: "year",
           priceCurrency: "<value>",
-          unitAmount: "<value>",
-          capAmount: 799004,
-          meterId: "<value>",
-          meter: {
-            id: "<value>",
-            name: "<value>",
-          },
+          pricePerSeat: 808414,
         },
       ],
-      benefits: [],
-      medias: [],
+      benefits: [
+        {
+          id: "<value>",
+          createdAt: new Date("2023-06-16T00:40:28.022Z"),
+          modifiedAt: new Date("2025-09-07T23:37:19.259Z"),
+          type: "meter_credit",
+          description:
+            "rationalize well grimy unscramble pish excitedly er bleakly",
+          selectable: true,
+          deletable: false,
+          organizationId: "<value>",
+        },
+      ],
+      medias: [
+        {
+          id: "<value>",
+          organizationId: "<value>",
+          name: "<value>",
+          path: "/sbin",
+          mimeType: "<value>",
+          size: 498972,
+          storageVersion: "<value>",
+          checksumEtag: "<value>",
+          checksumSha256Base64: "<value>",
+          checksumSha256Hex: "<value>",
+          lastModifiedAt: new Date("2023-09-13T15:53:42.753Z"),
+          version: "<value>",
+          service: "product_media",
+          isUploaded: false,
+          createdAt: new Date("2024-08-06T00:24:30.544Z"),
+          sizeReadable: "<value>",
+          publicUrl: "https://enchanting-bell.net/",
+        },
+      ],
     },
   ],
   product: {
@@ -147,29 +173,36 @@ let value: CheckoutPublic = {
     createdAt: new Date("2023-03-10T21:45:07.468Z"),
     modifiedAt: new Date("2023-08-16T12:01:10.984Z"),
     id: "<value>",
-    amountType: "free",
+    amountType: "metered_unit",
     isArchived: true,
     productId: "<value>",
     type: "recurring",
     recurringInterval: "year",
-    legacy: true,
+    priceCurrency: "<value>",
+    unitAmount: "<value>",
+    capAmount: 581503,
+    meterId: "<value>",
+    meter: {
+      id: "<value>",
+      name: "<value>",
+    },
   },
   discount: {
     duration: "forever",
-    type: "percentage",
-    basisPoints: 967669,
+    type: "fixed",
+    basisPoints: 260399,
     id: "<value>",
     name: "<value>",
     code: "<value>",
   },
   organization: {
-    createdAt: new Date("2025-01-01T18:22:02.718Z"),
-    modifiedAt: new Date("2024-07-27T17:28:22.859Z"),
+    createdAt: new Date("2025-11-26T13:33:51.948Z"),
+    modifiedAt: new Date("2025-01-01T18:22:02.718Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: null,
-    email: "Hannah_Price@gmail.com",
+    avatarUrl: "https://annual-comparison.biz",
+    email: "Maxime52@hotmail.com",
     website: "<value>",
     socials: [
       {
@@ -177,8 +210,8 @@ let value: CheckoutPublic = {
         url: "https://scratchy-midwife.net/",
       },
     ],
-    status: "denied",
-    detailsSubmittedAt: new Date("2023-09-01T05:50:45.596Z"),
+    status: "onboarding_started",
+    detailsSubmittedAt: new Date("2023-01-14T17:51:08.613Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: true,
@@ -210,6 +243,7 @@ let value: CheckoutPublic = {
 | `successUrl`                                                                                                                                                                                                                                                                              | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | URL where the customer will be redirected after a successful payment.                                                                                                                                                                                                                     |
 | `embedOrigin`                                                                                                                                                                                                                                                                             | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | When checkout is embedded, represents the Origin of the page embedding the checkout. Used as a security measure to send messages only to the embedding page.                                                                                                                              |
 | `amount`                                                                                                                                                                                                                                                                                  | *number*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Amount in cents, before discounts and taxes.                                                                                                                                                                                                                                              |
+| `seats`                                                                                                                                                                                                                                                                                   | *number*                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                        | Number of seats for seat-based pricing.                                                                                                                                                                                                                                                   |
 | `discountAmount`                                                                                                                                                                                                                                                                          | *number*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Discount amount in cents.                                                                                                                                                                                                                                                                 |
 | `netAmount`                                                                                                                                                                                                                                                                               | *number*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Amount in cents, after discounts but before taxes.                                                                                                                                                                                                                                        |
 | `taxAmount`                                                                                                                                                                                                                                                                               | *number*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Sales tax amount in cents. If `null`, it means there is no enough information yet to calculate it.                                                                                                                                                                                        |

@@ -13,6 +13,10 @@ export type OrganizationFeatureSettings = {
    * If this organization has issue funding enabled
    */
   issueFundingEnabled?: boolean | undefined;
+  /**
+   * If this organization has seat-based pricing enabled
+   */
+  seatBasedPricingEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -22,15 +26,18 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   issue_funding_enabled: z.boolean().default(false),
+  seat_based_pricing_enabled: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     "issue_funding_enabled": "issueFundingEnabled",
+    "seat_based_pricing_enabled": "seatBasedPricingEnabled",
   });
 });
 
 /** @internal */
 export type OrganizationFeatureSettings$Outbound = {
   issue_funding_enabled: boolean;
+  seat_based_pricing_enabled: boolean;
 };
 
 /** @internal */
@@ -40,9 +47,11 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodType<
   OrganizationFeatureSettings
 > = z.object({
   issueFundingEnabled: z.boolean().default(false),
+  seatBasedPricingEnabled: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     issueFundingEnabled: "issue_funding_enabled",
+    seatBasedPricingEnabled: "seat_based_pricing_enabled",
   });
 });
 
