@@ -128,21 +128,21 @@ Create a `.cursor/mcp.json` file in your project root with the following content
 
 </details>
 
-You can also run MCP servers as a standalone binary with no additional dependencies. You must pull these binaries from available Github releases:
+You can also run MCP servers as a standalone binary with no additional dependencies. Download the binaries from the Polar SDK GitHub releases:
 
 ```bash
 curl -L -o mcp-server \
-    https://github.com/{org}/{repo}/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
+    https://github.com/polarsource/polar-js/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
 chmod +x mcp-server
 ```
 
-If the repo is a private repo you must add your Github PAT to download a release `-H "Authorization: Bearer {GITHUB_PAT}"`.
+Replace `{tag}` with the desired release tag. See available tags at https://github.com/polarsource/polar-js/releases. If the repo is private, add your GitHub PAT header: `-H "Authorization: Bearer {GITHUB_PAT}"`.
 
 
 ```json
 {
   "mcpServers": {
-    "Todos": {
+    "Polar": {
       "command": "./DOWNLOAD/PATH/mcp-server",
       "args": [
         "start"
