@@ -41,9 +41,21 @@ export type DiscountUpdate = {
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
   name?: string | null | undefined;
+  /**
+   * Code customers can use to apply the discount during checkout. Must be between 3 and 256 characters long and contain only alphanumeric characters.If not provided, the discount can only be applied via the API.
+   */
   code?: string | null | undefined;
+  /**
+   * Optional timestamp after which the discount is redeemable.
+   */
   startsAt?: Date | null | undefined;
+  /**
+   * Optional timestamp after which the discount is no longer redeemable.
+   */
   endsAt?: Date | null | undefined;
+  /**
+   * Optional maximum number of times the discount can be redeemed.
+   */
   maxRedemptions?: number | null | undefined;
   duration?: DiscountDuration | null | undefined;
   durationInMonths?: number | null | undefined;
@@ -128,7 +140,7 @@ export const DiscountUpdate$inboundSchema: z.ZodType<
   duration_in_months: z.nullable(z.number().int()).optional(),
   type: z.nullable(DiscountType$inboundSchema).optional(),
   amount: z.nullable(z.number().int()).optional(),
-  currency: z.nullable(z.string().default("usd")),
+  currency: z.nullable(z.string()).optional(),
   basis_points: z.nullable(z.number().int()).optional(),
   products: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
@@ -153,7 +165,7 @@ export type DiscountUpdate$Outbound = {
   duration_in_months?: number | null | undefined;
   type?: string | null | undefined;
   amount?: number | null | undefined;
-  currency: string | null;
+  currency?: string | null | undefined;
   basis_points?: number | null | undefined;
   products?: Array<string> | null | undefined;
 };
@@ -176,7 +188,7 @@ export const DiscountUpdate$outboundSchema: z.ZodType<
   durationInMonths: z.nullable(z.number().int()).optional(),
   type: z.nullable(DiscountType$outboundSchema).optional(),
   amount: z.nullable(z.number().int()).optional(),
-  currency: z.nullable(z.string().default("usd")),
+  currency: z.nullable(z.string()).optional(),
   basisPoints: z.nullable(z.number().int()).optional(),
   products: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
