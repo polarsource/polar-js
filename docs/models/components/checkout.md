@@ -88,22 +88,17 @@ let value: Checkout = {
           type: "recurring",
           recurringInterval: "year",
           priceCurrency: "<value>",
-          pricePerSeat: 808414,
+          seatTiers: {
+            tiers: [
+              {
+                minSeats: 799004,
+                pricePerSeat: 151485,
+              },
+            ],
+          },
         },
       ],
-      benefits: [
-        {
-          id: "<value>",
-          createdAt: new Date("2023-06-16T00:40:28.022Z"),
-          modifiedAt: new Date("2025-09-07T23:37:19.259Z"),
-          type: "meter_credit",
-          description:
-            "rationalize well grimy unscramble pish excitedly er bleakly",
-          selectable: true,
-          deletable: false,
-          organizationId: "<value>",
-        },
-      ],
+      benefits: [],
       medias: [
         {
           id: "<value>",
@@ -176,17 +171,17 @@ let value: Checkout = {
     ],
   },
   productPrice: {
-    createdAt: new Date("2024-07-01T08:41:58.254Z"),
-    modifiedAt: new Date("2024-04-28T16:06:37.710Z"),
+    createdAt: new Date("2023-04-13T01:07:31.651Z"),
+    modifiedAt: new Date("2024-05-06T15:17:16.585Z"),
     id: "<value>",
     amountType: "metered_unit",
-    isArchived: false,
+    isArchived: true,
     productId: "<value>",
-    type: "one_time",
+    type: "recurring",
     recurringInterval: "month",
     priceCurrency: "<value>",
     unitAmount: "<value>",
-    capAmount: 615240,
+    capAmount: 23948,
     meterId: "<value>",
     meter: {
       id: "<value>",
@@ -194,9 +189,9 @@ let value: Checkout = {
     },
   },
   discount: {
-    duration: "forever",
+    duration: "once",
     type: "fixed",
-    basisPoints: 260399,
+    basisPoints: 951126,
     id: "<value>",
     name: "<value>",
     code: "<value>",
@@ -221,7 +216,7 @@ let value: Checkout = {
     },
   ],
   customerMetadata: {
-    "key": true,
+    "key": false,
   },
 };
 ```

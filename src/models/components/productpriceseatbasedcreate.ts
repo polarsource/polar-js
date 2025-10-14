@@ -7,9 +7,15 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  ProductPriceSeatTiers,
+  ProductPriceSeatTiers$inboundSchema,
+  ProductPriceSeatTiers$Outbound,
+  ProductPriceSeatTiers$outboundSchema,
+} from "./productpriceseattiers.js";
 
 /**
- * Schema to create a seat-based price.
+ * Schema to create a seat-based price with volume-based tiers.
  */
 export type ProductPriceSeatBasedCreate = {
   amountType: "seat_based";
@@ -18,9 +24,9 @@ export type ProductPriceSeatBasedCreate = {
    */
   priceCurrency?: string | undefined;
   /**
-   * The price per seat in cents.
+   * List of pricing tiers for seat-based pricing.
    */
-  pricePerSeat: number;
+  seatTiers: ProductPriceSeatTiers;
 };
 
 /** @internal */
@@ -31,12 +37,12 @@ export const ProductPriceSeatBasedCreate$inboundSchema: z.ZodType<
 > = z.object({
   amount_type: z.literal("seat_based"),
   price_currency: z.string().default("usd"),
-  price_per_seat: z.number().int(),
+  seat_tiers: ProductPriceSeatTiers$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "amount_type": "amountType",
     "price_currency": "priceCurrency",
-    "price_per_seat": "pricePerSeat",
+    "seat_tiers": "seatTiers",
   });
 });
 
@@ -44,7 +50,7 @@ export const ProductPriceSeatBasedCreate$inboundSchema: z.ZodType<
 export type ProductPriceSeatBasedCreate$Outbound = {
   amount_type: "seat_based";
   price_currency: string;
-  price_per_seat: number;
+  seat_tiers: ProductPriceSeatTiers$Outbound;
 };
 
 /** @internal */
@@ -55,12 +61,12 @@ export const ProductPriceSeatBasedCreate$outboundSchema: z.ZodType<
 > = z.object({
   amountType: z.literal("seat_based"),
   priceCurrency: z.string().default("usd"),
-  pricePerSeat: z.number().int(),
+  seatTiers: ProductPriceSeatTiers$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     amountType: "amount_type",
     priceCurrency: "price_currency",
-    pricePerSeat: "price_per_seat",
+    seatTiers: "seat_tiers",
   });
 });
 

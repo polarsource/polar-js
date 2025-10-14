@@ -90,7 +90,14 @@ const value: components.ProductPriceSeatBased = {
   type: "recurring",
   recurringInterval: "month",
   priceCurrency: "<value>",
-  pricePerSeat: 558084,
+  seatTiers: {
+    tiers: [
+      {
+        minSeats: 799004,
+        pricePerSeat: 151485,
+      },
+    ],
+  },
 };
 ```
 

@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  ProductPriceSeatTiers,
+  ProductPriceSeatTiers$inboundSchema,
+  ProductPriceSeatTiers$Outbound,
+  ProductPriceSeatTiers$outboundSchema,
+} from "./productpriceseattiers.js";
+import {
   ProductPriceType,
   ProductPriceType$inboundSchema,
   ProductPriceType$outboundSchema,
@@ -53,9 +59,9 @@ export type ProductPriceSeatBased = {
    */
   priceCurrency: string;
   /**
-   * The price per seat in cents.
+   * List of pricing tiers for seat-based pricing.
    */
-  pricePerSeat: number;
+  seatTiers: ProductPriceSeatTiers;
 };
 
 /** @internal */
@@ -75,7 +81,7 @@ export const ProductPriceSeatBased$inboundSchema: z.ZodType<
   type: ProductPriceType$inboundSchema,
   recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
   price_currency: z.string(),
-  price_per_seat: z.number().int(),
+  seat_tiers: ProductPriceSeatTiers$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -85,7 +91,7 @@ export const ProductPriceSeatBased$inboundSchema: z.ZodType<
     "product_id": "productId",
     "recurring_interval": "recurringInterval",
     "price_currency": "priceCurrency",
-    "price_per_seat": "pricePerSeat",
+    "seat_tiers": "seatTiers",
   });
 });
 
@@ -100,7 +106,7 @@ export type ProductPriceSeatBased$Outbound = {
   type: string;
   recurring_interval: string | null;
   price_currency: string;
-  price_per_seat: number;
+  seat_tiers: ProductPriceSeatTiers$Outbound;
 };
 
 /** @internal */
@@ -118,7 +124,7 @@ export const ProductPriceSeatBased$outboundSchema: z.ZodType<
   type: ProductPriceType$outboundSchema,
   recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
   priceCurrency: z.string(),
-  pricePerSeat: z.number().int(),
+  seatTiers: ProductPriceSeatTiers$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -128,7 +134,7 @@ export const ProductPriceSeatBased$outboundSchema: z.ZodType<
     productId: "product_id",
     recurringInterval: "recurring_interval",
     priceCurrency: "price_currency",
-    pricePerSeat: "price_per_seat",
+    seatTiers: "seat_tiers",
   });
 });
 

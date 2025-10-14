@@ -17,7 +17,14 @@ let value: ProductPriceSeatBased = {
   type: "recurring",
   recurringInterval: "month",
   priceCurrency: "<value>",
-  pricePerSeat: 558084,
+  seatTiers: {
+    tiers: [
+      {
+        minSeats: 799004,
+        pricePerSeat: 151485,
+      },
+    ],
+  },
 };
 ```
 
@@ -34,4 +41,4 @@ let value: ProductPriceSeatBased = {
 | `type`                                                                                                                  | [components.ProductPriceType](../../models/components/productpricetype.md)                                              | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | ~~`recurringInterval`~~                                                                                                 | [components.SubscriptionRecurringInterval](../../models/components/subscriptionrecurringinterval.md)                    | :heavy_check_mark:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. |
 | `priceCurrency`                                                                                                         | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The currency.                                                                                                           |
-| `pricePerSeat`                                                                                                          | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | The price per seat in cents.                                                                                            |
+| `seatTiers`                                                                                                             | [components.ProductPriceSeatTiers](../../models/components/productpriceseattiers.md)                                    | :heavy_check_mark:                                                                                                      | List of pricing tiers for seat-based pricing.                                                                           |
