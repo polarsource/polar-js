@@ -157,6 +157,10 @@ export type CheckoutPublic = {
    */
   seats?: number | null | undefined;
   /**
+   * Price per seat in cents for the current seat count, based on the applicable tier. Only relevant for seat-based pricing.
+   */
+  pricePerSeat?: number | null | undefined;
+  /**
    * Discount amount in cents.
    */
   discountAmount: number;
@@ -481,6 +485,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   embed_origin: z.nullable(z.string()),
   amount: z.number().int(),
   seats: z.nullable(z.number().int()).optional(),
+  price_per_seat: z.nullable(z.number().int()).optional(),
   discount_amount: z.number().int(),
   net_amount: z.number().int(),
   tax_amount: z.nullable(z.number().int()),
@@ -537,6 +542,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     "expires_at": "expiresAt",
     "success_url": "successUrl",
     "embed_origin": "embedOrigin",
+    "price_per_seat": "pricePerSeat",
     "discount_amount": "discountAmount",
     "net_amount": "netAmount",
     "tax_amount": "taxAmount",
@@ -586,6 +592,7 @@ export type CheckoutPublic$Outbound = {
   embed_origin: string | null;
   amount: number;
   seats?: number | null | undefined;
+  price_per_seat?: number | null | undefined;
   discount_amount: number;
   net_amount: number;
   tax_amount: number | null;
@@ -655,6 +662,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   embedOrigin: z.nullable(z.string()),
   amount: z.number().int(),
   seats: z.nullable(z.number().int()).optional(),
+  pricePerSeat: z.nullable(z.number().int()).optional(),
   discountAmount: z.number().int(),
   netAmount: z.number().int(),
   taxAmount: z.nullable(z.number().int()),
@@ -709,6 +717,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
     expiresAt: "expires_at",
     successUrl: "success_url",
     embedOrigin: "embed_origin",
+    pricePerSeat: "price_per_seat",
     discountAmount: "discount_amount",
     netAmount: "net_amount",
     taxAmount: "tax_amount",

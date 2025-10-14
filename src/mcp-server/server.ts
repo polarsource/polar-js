@@ -57,7 +57,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Polar",
-    version: "0.36.0",
+    version: "0.36.1",
   });
 
   const client = new PolarCore({
