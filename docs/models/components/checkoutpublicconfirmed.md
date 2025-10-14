@@ -122,9 +122,9 @@ let value: CheckoutPublicConfirmed = {
     legacy: true,
   },
   discount: {
-    duration: "forever",
+    duration: "once",
     type: "fixed",
-    basisPoints: 260399,
+    basisPoints: 951126,
     id: "<value>",
     name: "<value>",
     code: "<value>",

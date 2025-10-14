@@ -12,11 +12,18 @@ const value: components.ProductCreateRecurring = {
     {
       amountType: "seat_based",
       priceCurrency: "usd",
-      pricePerSeat: 944171,
+      seatTiers: {
+        tiers: [
+          {
+            minSeats: 799004,
+            pricePerSeat: 151485,
+          },
+        ],
+      },
     },
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  recurringInterval: "month",
+  recurringInterval: "year",
 };
 ```
 

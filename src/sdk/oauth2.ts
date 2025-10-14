@@ -17,8 +17,14 @@ import { Oauth2AuthorizeResponseOauth2Authorize } from "../models/operations/oau
 import { Oauth2RequestTokenRequestBody } from "../models/operations/oauth2requesttoken.js";
 import { Oauth2UserinfoResponseOauth2Userinfo } from "../models/operations/oauth2userinfo.js";
 import { unwrapAsync } from "../types/fp.js";
+import { Clients } from "./clients.js";
 
 export class Oauth2 extends ClientSDK {
+  private _clients?: Clients;
+  get clients(): Clients {
+    return (this._clients ??= new Clients(this._options));
+  }
+
   /**
    * Authorize
    */

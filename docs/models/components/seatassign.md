@@ -1,0 +1,20 @@
+# SeatAssign
+
+## Example Usage
+
+```typescript
+import { SeatAssign } from "@polar-sh/sdk/models/components/seatassign.js";
+
+let value: SeatAssign = {};
+```
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `subscriptionId`                                                                        | *string*                                                                                | :heavy_minus_sign:                                                                      | Subscription ID. Required if checkout_id is not provided.                               |
+| `checkoutId`                                                                            | *string*                                                                                | :heavy_minus_sign:                                                                      | Checkout ID. Used to look up subscription. Required if subscription_id is not provided. |
+| `email`                                                                                 | *string*                                                                                | :heavy_minus_sign:                                                                      | Email of the customer to assign the seat to                                             |
+| `externalCustomerId`                                                                    | *string*                                                                                | :heavy_minus_sign:                                                                      | External customer ID for the seat assignment                                            |
+| `customerId`                                                                            | *string*                                                                                | :heavy_minus_sign:                                                                      | Customer ID for the seat assignment                                                     |
+| `metadata`                                                                              | Record<string, *any*>                                                                   | :heavy_minus_sign:                                                                      | Additional metadata for the seat (max 10 keys, 1KB total)                               |

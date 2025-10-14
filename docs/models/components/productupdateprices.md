@@ -41,7 +41,14 @@ const value: components.ProductPriceFreeCreate = {
 ```typescript
 const value: components.ProductPriceSeatBasedCreate = {
   amountType: "seat_based",
-  pricePerSeat: 375262,
+  seatTiers: {
+    tiers: [
+      {
+        minSeats: 799004,
+        pricePerSeat: 151485,
+      },
+    ],
+  },
 };
 ```
 

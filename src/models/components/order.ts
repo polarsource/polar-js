@@ -121,9 +121,13 @@ export type Order = {
    */
   totalAmount: number;
   /**
-   * How much of this invoice was paid using the customer's balance. Amount in cents.
+   * Customer's balance amount applied to this invoice. Can increase the total amount paid, if the customer has a negative balance,  or decrease it, if the customer has a positive balance.Amount in cents.
    */
-  fromBalanceAmount: number;
+  appliedBalanceAmount: number;
+  /**
+   * Amount in cents that is due for this order.
+   */
+  dueAmount: number;
   /**
    * Amount refunded in cents.
    */
@@ -355,7 +359,8 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
     net_amount: z.number().int(),
     tax_amount: z.number().int(),
     total_amount: z.number().int(),
-    from_balance_amount: z.number().int(),
+    applied_balance_amount: z.number().int(),
+    due_amount: z.number().int(),
     refunded_amount: z.number().int(),
     refunded_tax_amount: z.number().int(),
     currency: z.string(),
@@ -404,7 +409,8 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       "net_amount": "netAmount",
       "tax_amount": "taxAmount",
       "total_amount": "totalAmount",
-      "from_balance_amount": "fromBalanceAmount",
+      "applied_balance_amount": "appliedBalanceAmount",
+      "due_amount": "dueAmount",
       "refunded_amount": "refundedAmount",
       "refunded_tax_amount": "refundedTaxAmount",
       "billing_reason": "billingReason",
@@ -434,7 +440,8 @@ export type Order$Outbound = {
   net_amount: number;
   tax_amount: number;
   total_amount: number;
-  from_balance_amount: number;
+  applied_balance_amount: number;
+  due_amount: number;
   refunded_amount: number;
   refunded_tax_amount: number;
   currency: string;
@@ -481,7 +488,8 @@ export const Order$outboundSchema: z.ZodType<
   netAmount: z.number().int(),
   taxAmount: z.number().int(),
   totalAmount: z.number().int(),
-  fromBalanceAmount: z.number().int(),
+  appliedBalanceAmount: z.number().int(),
+  dueAmount: z.number().int(),
   refundedAmount: z.number().int(),
   refundedTaxAmount: z.number().int(),
   currency: z.string(),
@@ -530,7 +538,8 @@ export const Order$outboundSchema: z.ZodType<
     netAmount: "net_amount",
     taxAmount: "tax_amount",
     totalAmount: "total_amount",
-    fromBalanceAmount: "from_balance_amount",
+    appliedBalanceAmount: "applied_balance_amount",
+    dueAmount: "due_amount",
     refundedAmount: "refunded_amount",
     refundedTaxAmount: "refunded_tax_amount",
     billingReason: "billing_reason",

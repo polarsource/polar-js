@@ -1,6 +1,6 @@
 # ProductPriceSeatBasedCreate
 
-Schema to create a seat-based price.
+Schema to create a seat-based price with volume-based tiers.
 
 ## Example Usage
 
@@ -9,14 +9,21 @@ import { ProductPriceSeatBasedCreate } from "@polar-sh/sdk/models/components/pro
 
 let value: ProductPriceSeatBasedCreate = {
   amountType: "seat_based",
-  pricePerSeat: 375262,
+  seatTiers: {
+    tiers: [
+      {
+        minSeats: 799004,
+        pricePerSeat: 151485,
+      },
+    ],
+  },
 };
 ```
 
 ## Fields
 
-| Field                                             | Type                                              | Required                                          | Description                                       |
-| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| `amountType`                                      | *string*                                          | :heavy_check_mark:                                | N/A                                               |
-| `priceCurrency`                                   | *string*                                          | :heavy_minus_sign:                                | The currency. Currently, only `usd` is supported. |
-| `pricePerSeat`                                    | *number*                                          | :heavy_check_mark:                                | The price per seat in cents.                      |
+| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `amountType`                                                                         | *string*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
+| `priceCurrency`                                                                      | *string*                                                                             | :heavy_minus_sign:                                                                   | The currency. Currently, only `usd` is supported.                                    |
+| `seatTiers`                                                                          | [components.ProductPriceSeatTiers](../../models/components/productpriceseattiers.md) | :heavy_check_mark:                                                                   | List of pricing tiers for seat-based pricing.                                        |

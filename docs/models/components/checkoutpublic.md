@@ -82,22 +82,17 @@ let value: CheckoutPublic = {
           type: "recurring",
           recurringInterval: "year",
           priceCurrency: "<value>",
-          pricePerSeat: 808414,
+          seatTiers: {
+            tiers: [
+              {
+                minSeats: 799004,
+                pricePerSeat: 151485,
+              },
+            ],
+          },
         },
       ],
-      benefits: [
-        {
-          id: "<value>",
-          createdAt: new Date("2023-06-16T00:40:28.022Z"),
-          modifiedAt: new Date("2025-09-07T23:37:19.259Z"),
-          type: "meter_credit",
-          description:
-            "rationalize well grimy unscramble pish excitedly er bleakly",
-          selectable: true,
-          deletable: false,
-          organizationId: "<value>",
-        },
-      ],
+      benefits: [],
       medias: [
         {
           id: "<value>",
@@ -188,9 +183,9 @@ let value: CheckoutPublic = {
     },
   },
   discount: {
-    duration: "forever",
+    duration: "once",
     type: "fixed",
-    basisPoints: 260399,
+    basisPoints: 951126,
     id: "<value>",
     name: "<value>",
     code: "<value>",

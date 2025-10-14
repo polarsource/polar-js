@@ -37,11 +37,10 @@ let value: CustomerSubscriptionProduct = {
   benefits: [
     {
       id: "<value>",
-      createdAt: new Date("2023-06-16T00:40:28.022Z"),
-      modifiedAt: new Date("2025-09-07T23:37:19.259Z"),
-      type: "meter_credit",
-      description:
-        "rationalize well grimy unscramble pish excitedly er bleakly",
+      createdAt: new Date("2023-09-04T12:35:29.724Z"),
+      modifiedAt: new Date("2024-05-27T08:53:02.662Z"),
+      type: "downloadables",
+      description: "cautiously pike true considering superior about",
       selectable: true,
       deletable: false,
       organizationId: "<value>",
