@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  OrganizationCustomerEmailSettings,
+  OrganizationCustomerEmailSettings$inboundSchema,
+  OrganizationCustomerEmailSettings$Outbound,
+  OrganizationCustomerEmailSettings$outboundSchema,
+} from "./organizationcustomeremailsettings.js";
+import {
   OrganizationFeatureSettings,
   OrganizationFeatureSettings$inboundSchema,
   OrganizationFeatureSettings$Outbound,
@@ -85,6 +91,7 @@ export type Organization = {
   featureSettings: OrganizationFeatureSettings | null;
   subscriptionSettings: OrganizationSubscriptionSettings;
   notificationSettings: OrganizationNotificationSettings;
+  customerEmailSettings: OrganizationCustomerEmailSettings;
 };
 
 /** @internal */
@@ -111,6 +118,7 @@ export const Organization$inboundSchema: z.ZodType<
   feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema),
   subscription_settings: OrganizationSubscriptionSettings$inboundSchema,
   notification_settings: OrganizationNotificationSettings$inboundSchema,
+  customer_email_settings: OrganizationCustomerEmailSettings$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -120,6 +128,7 @@ export const Organization$inboundSchema: z.ZodType<
     "feature_settings": "featureSettings",
     "subscription_settings": "subscriptionSettings",
     "notification_settings": "notificationSettings",
+    "customer_email_settings": "customerEmailSettings",
   });
 });
 
@@ -139,6 +148,7 @@ export type Organization$Outbound = {
   feature_settings: OrganizationFeatureSettings$Outbound | null;
   subscription_settings: OrganizationSubscriptionSettings$Outbound;
   notification_settings: OrganizationNotificationSettings$Outbound;
+  customer_email_settings: OrganizationCustomerEmailSettings$Outbound;
 };
 
 /** @internal */
@@ -161,6 +171,7 @@ export const Organization$outboundSchema: z.ZodType<
   featureSettings: z.nullable(OrganizationFeatureSettings$outboundSchema),
   subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,
   notificationSettings: OrganizationNotificationSettings$outboundSchema,
+  customerEmailSettings: OrganizationCustomerEmailSettings$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -170,6 +181,7 @@ export const Organization$outboundSchema: z.ZodType<
     featureSettings: "feature_settings",
     subscriptionSettings: "subscription_settings",
     notificationSettings: "notification_settings",
+    customerEmailSettings: "customer_email_settings",
   });
 });
 

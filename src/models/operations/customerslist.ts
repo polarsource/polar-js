@@ -42,7 +42,7 @@ export type CustomersListRequest = {
    */
   email?: string | null | undefined;
   /**
-   * Filter by name or email.
+   * Filter by name, email, or external ID.
    */
   query?: string | null | undefined;
   /**

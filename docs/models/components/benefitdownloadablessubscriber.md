@@ -37,6 +37,16 @@ let value: BenefitDownloadablesSubscriber = {
       newOrder: false,
       newSubscription: true,
     },
+    customerEmailSettings: {
+      orderConfirmation: true,
+      subscriptionCancellation: true,
+      subscriptionConfirmation: true,
+      subscriptionCycled: false,
+      subscriptionPastDue: true,
+      subscriptionRevoked: false,
+      subscriptionUncanceled: false,
+      subscriptionUpdated: false,
+    },
   },
   properties: {
     activeFiles: [
