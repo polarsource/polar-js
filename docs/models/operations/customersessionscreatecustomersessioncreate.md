@@ -7,6 +7,7 @@
 
 ```typescript
 const value: components.CustomerSessionCustomerIDCreate = {
+  returnUrl: "https://example.com/account",
   customerId: "<value>",
 };
 ```
@@ -15,6 +16,7 @@ const value: components.CustomerSessionCustomerIDCreate = {
 
 ```typescript
 const value: components.CustomerSessionCustomerExternalIDCreate = {
+  returnUrl: "https://example.com/account",
   externalCustomerId: "<id>",
 };
 ```

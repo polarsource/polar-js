@@ -11,54 +11,13 @@ const value: components.ExistingProductPrice = {
 };
 ```
 
-### `components.ProductPriceFixedCreate`
+### `components.Two`
 
 ```typescript
-const value: components.ProductPriceFixedCreate = {
+const value: components.Two = {
   amountType: "fixed",
-  priceAmount: 578074,
-};
-```
-
-### `components.ProductPriceCustomCreate`
-
-```typescript
-const value: components.ProductPriceCustomCreate = {
-  amountType: "custom",
-};
-```
-
-### `components.ProductPriceFreeCreate`
-
-```typescript
-const value: components.ProductPriceFreeCreate = {
-  amountType: "free",
-};
-```
-
-### `components.ProductPriceSeatBasedCreate`
-
-```typescript
-const value: components.ProductPriceSeatBasedCreate = {
-  amountType: "seat_based",
-  seatTiers: {
-    tiers: [
-      {
-        minSeats: 799004,
-        pricePerSeat: 151485,
-      },
-    ],
-  },
-};
-```
-
-### `components.ProductPriceMeteredUnitCreate`
-
-```typescript
-const value: components.ProductPriceMeteredUnitCreate = {
-  amountType: "metered_unit",
-  meterId: "<value>",
-  unitAmount: "<value>",
+  priceAmount: 871516,
+  priceCurrency: "usd",
 };
 ```
 
