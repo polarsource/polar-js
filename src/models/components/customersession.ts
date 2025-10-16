@@ -32,6 +32,7 @@ export type CustomerSession = {
   id: string;
   token: string;
   expiresAt: Date;
+  returnUrl: string | null;
   customerPortalUrl: string;
   customerId: string;
   /**
@@ -53,6 +54,7 @@ export const CustomerSession$inboundSchema: z.ZodType<
   id: z.string(),
   token: z.string(),
   expires_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  return_url: z.nullable(z.string()),
   customer_portal_url: z.string(),
   customer_id: z.string(),
   customer: Customer$inboundSchema,
@@ -61,6 +63,7 @@ export const CustomerSession$inboundSchema: z.ZodType<
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
     "expires_at": "expiresAt",
+    "return_url": "returnUrl",
     "customer_portal_url": "customerPortalUrl",
     "customer_id": "customerId",
   });
@@ -73,6 +76,7 @@ export type CustomerSession$Outbound = {
   id: string;
   token: string;
   expires_at: string;
+  return_url: string | null;
   customer_portal_url: string;
   customer_id: string;
   customer: Customer$Outbound;
@@ -89,6 +93,7 @@ export const CustomerSession$outboundSchema: z.ZodType<
   id: z.string(),
   token: z.string(),
   expiresAt: z.date().transform(v => v.toISOString()),
+  returnUrl: z.nullable(z.string()),
   customerPortalUrl: z.string(),
   customerId: z.string(),
   customer: Customer$outboundSchema,
@@ -97,6 +102,7 @@ export const CustomerSession$outboundSchema: z.ZodType<
     createdAt: "created_at",
     modifiedAt: "modified_at",
     expiresAt: "expires_at",
+    returnUrl: "return_url",
     customerPortalUrl: "customer_portal_url",
     customerId: "customer_id",
   });

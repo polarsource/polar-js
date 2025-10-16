@@ -13,6 +13,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type CustomerSessionCustomerIDCreate = {
   /**
+   * When set, a back button will be shown in the customer portal to return to this URL.
+   */
+  returnUrl?: string | null | undefined;
+  /**
    * ID of the customer to create a session for.
    */
   customerId: string;
@@ -24,15 +28,18 @@ export const CustomerSessionCustomerIDCreate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  return_url: z.nullable(z.string()).optional(),
   customer_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
+    "return_url": "returnUrl",
     "customer_id": "customerId",
   });
 });
 
 /** @internal */
 export type CustomerSessionCustomerIDCreate$Outbound = {
+  return_url?: string | null | undefined;
   customer_id: string;
 };
 
@@ -42,9 +49,11 @@ export const CustomerSessionCustomerIDCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerSessionCustomerIDCreate
 > = z.object({
+  returnUrl: z.nullable(z.string()).optional(),
   customerId: z.string(),
 }).transform((v) => {
   return remap$(v, {
+    returnUrl: "return_url",
     customerId: "customer_id",
   });
 });

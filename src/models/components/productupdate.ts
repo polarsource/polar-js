@@ -62,13 +62,20 @@ import {
 
 export type ProductUpdateMetadata = string | number | number | boolean;
 
+export type Two =
+  | (ProductPriceMeteredUnitCreate & { amountType: "metered_unit" })
+  | (ProductPriceFixedCreate & { amountType: "fixed" })
+  | (ProductPriceSeatBasedCreate & { amountType: "seat_based" })
+  | (ProductPriceCustomCreate & { amountType: "custom" })
+  | (ProductPriceFreeCreate & { amountType: "free" });
+
 export type ProductUpdatePrices =
-  | ProductPriceMeteredUnitCreate
-  | ProductPriceFixedCreate
-  | ProductPriceSeatBasedCreate
   | ExistingProductPrice
-  | ProductPriceCustomCreate
-  | ProductPriceFreeCreate;
+  | (ProductPriceMeteredUnitCreate & { amountType: "metered_unit" })
+  | (ProductPriceFixedCreate & { amountType: "fixed" })
+  | (ProductPriceSeatBasedCreate & { amountType: "seat_based" })
+  | (ProductPriceCustomCreate & { amountType: "custom" })
+  | (ProductPriceFreeCreate & { amountType: "free" });
 
 /**
  * Schema to update a product.
@@ -116,12 +123,12 @@ export type ProductUpdate = {
    */
   prices?:
     | Array<
-      | ProductPriceMeteredUnitCreate
-      | ProductPriceFixedCreate
-      | ProductPriceSeatBasedCreate
       | ExistingProductPrice
-      | ProductPriceCustomCreate
-      | ProductPriceFreeCreate
+      | (ProductPriceMeteredUnitCreate & { amountType: "metered_unit" })
+      | (ProductPriceFixedCreate & { amountType: "fixed" })
+      | (ProductPriceSeatBasedCreate & { amountType: "seat_based" })
+      | (ProductPriceCustomCreate & { amountType: "custom" })
+      | (ProductPriceFreeCreate & { amountType: "free" })
     >
     | null
     | undefined;
@@ -181,27 +188,145 @@ export function productUpdateMetadataFromJSON(
 }
 
 /** @internal */
+export const Two$inboundSchema: z.ZodType<Two, z.ZodTypeDef, unknown> = z.union(
+  [
+    ProductPriceMeteredUnitCreate$inboundSchema.and(
+      z.object({ amount_type: z.literal("metered_unit") }).transform((v) => ({
+        amountType: v.amount_type,
+      })),
+    ),
+    ProductPriceFixedCreate$inboundSchema.and(
+      z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
+        amountType: v.amount_type,
+      })),
+    ),
+    ProductPriceSeatBasedCreate$inboundSchema.and(
+      z.object({ amount_type: z.literal("seat_based") }).transform((v) => ({
+        amountType: v.amount_type,
+      })),
+    ),
+    ProductPriceCustomCreate$inboundSchema.and(
+      z.object({ amount_type: z.literal("custom") }).transform((v) => ({
+        amountType: v.amount_type,
+      })),
+    ),
+    ProductPriceFreeCreate$inboundSchema.and(
+      z.object({ amount_type: z.literal("free") }).transform((v) => ({
+        amountType: v.amount_type,
+      })),
+    ),
+  ],
+);
+
+/** @internal */
+export type Two$Outbound =
+  | (ProductPriceMeteredUnitCreate$Outbound & { amount_type: "metered_unit" })
+  | (ProductPriceFixedCreate$Outbound & { amount_type: "fixed" })
+  | (ProductPriceSeatBasedCreate$Outbound & { amount_type: "seat_based" })
+  | (ProductPriceCustomCreate$Outbound & { amount_type: "custom" })
+  | (ProductPriceFreeCreate$Outbound & { amount_type: "free" });
+
+/** @internal */
+export const Two$outboundSchema: z.ZodType<Two$Outbound, z.ZodTypeDef, Two> = z
+  .union([
+    ProductPriceMeteredUnitCreate$outboundSchema.and(
+      z.object({ amountType: z.literal("metered_unit") }).transform((v) => ({
+        amount_type: v.amountType,
+      })),
+    ),
+    ProductPriceFixedCreate$outboundSchema.and(
+      z.object({ amountType: z.literal("fixed") }).transform((v) => ({
+        amount_type: v.amountType,
+      })),
+    ),
+    ProductPriceSeatBasedCreate$outboundSchema.and(
+      z.object({ amountType: z.literal("seat_based") }).transform((v) => ({
+        amount_type: v.amountType,
+      })),
+    ),
+    ProductPriceCustomCreate$outboundSchema.and(
+      z.object({ amountType: z.literal("custom") }).transform((v) => ({
+        amount_type: v.amountType,
+      })),
+    ),
+    ProductPriceFreeCreate$outboundSchema.and(
+      z.object({ amountType: z.literal("free") }).transform((v) => ({
+        amount_type: v.amountType,
+      })),
+    ),
+  ]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Two$ {
+  /** @deprecated use `Two$inboundSchema` instead. */
+  export const inboundSchema = Two$inboundSchema;
+  /** @deprecated use `Two$outboundSchema` instead. */
+  export const outboundSchema = Two$outboundSchema;
+  /** @deprecated use `Two$Outbound` instead. */
+  export type Outbound = Two$Outbound;
+}
+
+export function twoToJSON(two: Two): string {
+  return JSON.stringify(Two$outboundSchema.parse(two));
+}
+
+export function twoFromJSON(
+  jsonString: string,
+): SafeParseResult<Two, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Two$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Two' from JSON`,
+  );
+}
+
+/** @internal */
 export const ProductUpdatePrices$inboundSchema: z.ZodType<
   ProductUpdatePrices,
   z.ZodTypeDef,
   unknown
 > = z.union([
-  ProductPriceMeteredUnitCreate$inboundSchema,
-  ProductPriceFixedCreate$inboundSchema,
-  ProductPriceSeatBasedCreate$inboundSchema,
   ExistingProductPrice$inboundSchema,
-  ProductPriceCustomCreate$inboundSchema,
-  ProductPriceFreeCreate$inboundSchema,
+  z.union([
+    ProductPriceMeteredUnitCreate$inboundSchema.and(
+      z.object({ amount_type: z.literal("metered_unit") }).transform((v) => ({
+        amountType: v.amount_type,
+      })),
+    ),
+    ProductPriceFixedCreate$inboundSchema.and(
+      z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
+        amountType: v.amount_type,
+      })),
+    ),
+    ProductPriceSeatBasedCreate$inboundSchema.and(
+      z.object({ amount_type: z.literal("seat_based") }).transform((v) => ({
+        amountType: v.amount_type,
+      })),
+    ),
+    ProductPriceCustomCreate$inboundSchema.and(
+      z.object({ amount_type: z.literal("custom") }).transform((v) => ({
+        amountType: v.amount_type,
+      })),
+    ),
+    ProductPriceFreeCreate$inboundSchema.and(
+      z.object({ amount_type: z.literal("free") }).transform((v) => ({
+        amountType: v.amount_type,
+      })),
+    ),
+  ]),
 ]);
 
 /** @internal */
 export type ProductUpdatePrices$Outbound =
-  | ProductPriceMeteredUnitCreate$Outbound
-  | ProductPriceFixedCreate$Outbound
-  | ProductPriceSeatBasedCreate$Outbound
   | ExistingProductPrice$Outbound
-  | ProductPriceCustomCreate$Outbound
-  | ProductPriceFreeCreate$Outbound;
+  | (ProductPriceMeteredUnitCreate$Outbound & { amount_type: "metered_unit" })
+  | (ProductPriceFixedCreate$Outbound & { amount_type: "fixed" })
+  | (ProductPriceSeatBasedCreate$Outbound & { amount_type: "seat_based" })
+  | (ProductPriceCustomCreate$Outbound & { amount_type: "custom" })
+  | (ProductPriceFreeCreate$Outbound & { amount_type: "free" });
 
 /** @internal */
 export const ProductUpdatePrices$outboundSchema: z.ZodType<
@@ -209,12 +334,34 @@ export const ProductUpdatePrices$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductUpdatePrices
 > = z.union([
-  ProductPriceMeteredUnitCreate$outboundSchema,
-  ProductPriceFixedCreate$outboundSchema,
-  ProductPriceSeatBasedCreate$outboundSchema,
   ExistingProductPrice$outboundSchema,
-  ProductPriceCustomCreate$outboundSchema,
-  ProductPriceFreeCreate$outboundSchema,
+  z.union([
+    ProductPriceMeteredUnitCreate$outboundSchema.and(
+      z.object({ amountType: z.literal("metered_unit") }).transform((v) => ({
+        amount_type: v.amountType,
+      })),
+    ),
+    ProductPriceFixedCreate$outboundSchema.and(
+      z.object({ amountType: z.literal("fixed") }).transform((v) => ({
+        amount_type: v.amountType,
+      })),
+    ),
+    ProductPriceSeatBasedCreate$outboundSchema.and(
+      z.object({ amountType: z.literal("seat_based") }).transform((v) => ({
+        amount_type: v.amountType,
+      })),
+    ),
+    ProductPriceCustomCreate$outboundSchema.and(
+      z.object({ amountType: z.literal("custom") }).transform((v) => ({
+        amount_type: v.amountType,
+      })),
+    ),
+    ProductPriceFreeCreate$outboundSchema.and(
+      z.object({ amountType: z.literal("free") }).transform((v) => ({
+        amount_type: v.amountType,
+      })),
+    ),
+  ]),
 ]);
 
 /**
@@ -267,12 +414,34 @@ export const ProductUpdate$inboundSchema: z.ZodType<
   prices: z.nullable(
     z.array(
       z.union([
-        ProductPriceMeteredUnitCreate$inboundSchema,
-        ProductPriceFixedCreate$inboundSchema,
-        ProductPriceSeatBasedCreate$inboundSchema,
         ExistingProductPrice$inboundSchema,
-        ProductPriceCustomCreate$inboundSchema,
-        ProductPriceFreeCreate$inboundSchema,
+        z.union([
+          ProductPriceMeteredUnitCreate$inboundSchema.and(
+            z.object({ amount_type: z.literal("metered_unit") }).transform((
+              v,
+            ) => ({ amountType: v.amount_type })),
+          ),
+          ProductPriceFixedCreate$inboundSchema.and(
+            z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
+              amountType: v.amount_type,
+            })),
+          ),
+          ProductPriceSeatBasedCreate$inboundSchema.and(
+            z.object({ amount_type: z.literal("seat_based") }).transform((
+              v,
+            ) => ({ amountType: v.amount_type })),
+          ),
+          ProductPriceCustomCreate$inboundSchema.and(
+            z.object({ amount_type: z.literal("custom") }).transform((v) => ({
+              amountType: v.amount_type,
+            })),
+          ),
+          ProductPriceFreeCreate$inboundSchema.and(
+            z.object({ amount_type: z.literal("free") }).transform((v) => ({
+              amountType: v.amount_type,
+            })),
+          ),
+        ]),
       ]),
     ),
   ).optional(),
@@ -301,12 +470,14 @@ export type ProductUpdate$Outbound = {
   is_archived?: boolean | null | undefined;
   prices?:
     | Array<
-      | ProductPriceMeteredUnitCreate$Outbound
-      | ProductPriceFixedCreate$Outbound
-      | ProductPriceSeatBasedCreate$Outbound
       | ExistingProductPrice$Outbound
-      | ProductPriceCustomCreate$Outbound
-      | ProductPriceFreeCreate$Outbound
+      | (ProductPriceMeteredUnitCreate$Outbound & {
+        amount_type: "metered_unit";
+      })
+      | (ProductPriceFixedCreate$Outbound & { amount_type: "fixed" })
+      | (ProductPriceSeatBasedCreate$Outbound & { amount_type: "seat_based" })
+      | (ProductPriceCustomCreate$Outbound & { amount_type: "custom" })
+      | (ProductPriceFreeCreate$Outbound & { amount_type: "free" })
     >
     | null
     | undefined;
@@ -336,12 +507,34 @@ export const ProductUpdate$outboundSchema: z.ZodType<
   prices: z.nullable(
     z.array(
       z.union([
-        ProductPriceMeteredUnitCreate$outboundSchema,
-        ProductPriceFixedCreate$outboundSchema,
-        ProductPriceSeatBasedCreate$outboundSchema,
         ExistingProductPrice$outboundSchema,
-        ProductPriceCustomCreate$outboundSchema,
-        ProductPriceFreeCreate$outboundSchema,
+        z.union([
+          ProductPriceMeteredUnitCreate$outboundSchema.and(
+            z.object({ amountType: z.literal("metered_unit") }).transform((
+              v,
+            ) => ({ amount_type: v.amountType })),
+          ),
+          ProductPriceFixedCreate$outboundSchema.and(
+            z.object({ amountType: z.literal("fixed") }).transform((v) => ({
+              amount_type: v.amountType,
+            })),
+          ),
+          ProductPriceSeatBasedCreate$outboundSchema.and(
+            z.object({ amountType: z.literal("seat_based") }).transform((
+              v,
+            ) => ({ amount_type: v.amountType })),
+          ),
+          ProductPriceCustomCreate$outboundSchema.and(
+            z.object({ amountType: z.literal("custom") }).transform((v) => ({
+              amount_type: v.amountType,
+            })),
+          ),
+          ProductPriceFreeCreate$outboundSchema.and(
+            z.object({ amountType: z.literal("free") }).transform((v) => ({
+              amount_type: v.amountType,
+            })),
+          ),
+        ]),
       ]),
     ),
   ).optional(),

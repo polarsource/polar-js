@@ -26,3 +26,14 @@ const value: components.RefreshTokenRequest = {
 };
 ```
 
+### `components.WebTokenRequest`
+
+```typescript
+const value: components.WebTokenRequest = {
+  grantType: "web",
+  clientId: "<id>",
+  clientSecret: "<value>",
+  sessionToken: "<value>",
+};
+```
+

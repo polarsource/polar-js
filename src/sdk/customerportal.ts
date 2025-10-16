@@ -3,6 +3,7 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
+import { CustomerSession } from "./customersession.js";
 import { Downloadables } from "./downloadables.js";
 import { PolarBenefitGrants } from "./polarbenefitgrants.js";
 import { PolarCustomerMeters } from "./polarcustomermeters.js";
@@ -32,6 +33,11 @@ export class CustomerPortal extends ClientSDK {
   private _seats?: Seats;
   get seats(): Seats {
     return (this._seats ??= new Seats(this._options));
+  }
+
+  private _customerSession?: CustomerSession;
+  get customerSession(): CustomerSession {
+    return (this._customerSession ??= new CustomerSession(this._options));
   }
 
   private _downloadables?: Downloadables;

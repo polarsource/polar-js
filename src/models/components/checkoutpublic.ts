@@ -145,6 +145,10 @@ export type CheckoutPublic = {
    */
   successUrl: string;
   /**
+   * When set, a back button will be shown in the checkout to return to this URL.
+   */
+  returnUrl: string | null;
+  /**
    * When checkout is embedded, represents the Origin of the page embedding the checkout. Used as a security measure to send messages only to the embedding page.
    */
   embedOrigin: string | null;
@@ -482,6 +486,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   url: z.string(),
   expires_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   success_url: z.string(),
+  return_url: z.nullable(z.string()),
   embed_origin: z.nullable(z.string()),
   amount: z.number().int(),
   seats: z.nullable(z.number().int()).optional(),
@@ -541,6 +546,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     "client_secret": "clientSecret",
     "expires_at": "expiresAt",
     "success_url": "successUrl",
+    "return_url": "returnUrl",
     "embed_origin": "embedOrigin",
     "price_per_seat": "pricePerSeat",
     "discount_amount": "discountAmount",
@@ -589,6 +595,7 @@ export type CheckoutPublic$Outbound = {
   url: string;
   expires_at: string;
   success_url: string;
+  return_url: string | null;
   embed_origin: string | null;
   amount: number;
   seats?: number | null | undefined;
@@ -659,6 +666,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   url: z.string(),
   expiresAt: z.date().transform(v => v.toISOString()),
   successUrl: z.string(),
+  returnUrl: z.nullable(z.string()),
   embedOrigin: z.nullable(z.string()),
   amount: z.number().int(),
   seats: z.nullable(z.number().int()).optional(),
@@ -716,6 +724,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
     clientSecret: "client_secret",
     expiresAt: "expires_at",
     successUrl: "success_url",
+    returnUrl: "return_url",
     embedOrigin: "embed_origin",
     pricePerSeat: "price_per_seat",
     discountAmount: "discount_amount",

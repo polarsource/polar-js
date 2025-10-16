@@ -117,6 +117,10 @@ export type CheckoutUpdate = {
    */
   successUrl?: string | null | undefined;
   /**
+   * When set, a back button will be shown in the checkout to return to this URL.
+   */
+  returnUrl?: string | null | undefined;
+  /**
    * If you plan to embed the checkout session, set this to the Origin of the embedding page. It'll allow the Polar iframe to communicate with the parent page.
    */
   embedOrigin?: string | null | undefined;
@@ -331,6 +335,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
     z.record(z.union([z.string(), z.number().int(), z.number(), z.boolean()])),
   ).optional(),
   success_url: z.nullable(z.string()).optional(),
+  return_url: z.nullable(z.string()).optional(),
   embed_origin: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -351,6 +356,7 @@ export const CheckoutUpdate$inboundSchema: z.ZodType<
     "customer_ip_address": "customerIpAddress",
     "customer_metadata": "customerMetadata",
     "success_url": "successUrl",
+    "return_url": "returnUrl",
     "embed_origin": "embedOrigin",
   });
 });
@@ -382,6 +388,7 @@ export type CheckoutUpdate$Outbound = {
     | null
     | undefined;
   success_url?: string | null | undefined;
+  return_url?: string | null | undefined;
   embed_origin?: string | null | undefined;
 };
 
@@ -424,6 +431,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
     z.record(z.union([z.string(), z.number().int(), z.number(), z.boolean()])),
   ).optional(),
   successUrl: z.nullable(z.string()).optional(),
+  returnUrl: z.nullable(z.string()).optional(),
   embedOrigin: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -444,6 +452,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
     customerIpAddress: "customer_ip_address",
     customerMetadata: "customer_metadata",
     successUrl: "success_url",
+    returnUrl: "return_url",
     embedOrigin: "embed_origin",
   });
 });

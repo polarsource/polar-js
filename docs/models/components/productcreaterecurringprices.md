@@ -3,20 +3,20 @@
 
 ## Supported Types
 
+### `components.ProductPriceCustomCreate`
+
+```typescript
+const value: components.ProductPriceCustomCreate = {
+  amountType: "custom",
+};
+```
+
 ### `components.ProductPriceFixedCreate`
 
 ```typescript
 const value: components.ProductPriceFixedCreate = {
   amountType: "fixed",
   priceAmount: 578074,
-};
-```
-
-### `components.ProductPriceCustomCreate`
-
-```typescript
-const value: components.ProductPriceCustomCreate = {
-  amountType: "custom",
 };
 ```
 
@@ -28,6 +28,16 @@ const value: components.ProductPriceFreeCreate = {
 };
 ```
 
+### `components.ProductPriceMeteredUnitCreate`
+
+```typescript
+const value: components.ProductPriceMeteredUnitCreate = {
+  amountType: "metered_unit",
+  meterId: "<value>",
+  unitAmount: "<value>",
+};
+```
+
 ### `components.ProductPriceSeatBasedCreate`
 
 ```typescript
@@ -36,21 +46,11 @@ const value: components.ProductPriceSeatBasedCreate = {
   seatTiers: {
     tiers: [
       {
-        minSeats: 799004,
-        pricePerSeat: 151485,
+        minSeats: 63601,
+        pricePerSeat: 931587,
       },
     ],
   },
-};
-```
-
-### `components.ProductPriceMeteredUnitCreate`
-
-```typescript
-const value: components.ProductPriceMeteredUnitCreate = {
-  amountType: "metered_unit",
-  meterId: "<value>",
-  unitAmount: "<value>",
 };
 ```
 

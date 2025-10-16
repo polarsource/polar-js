@@ -47,22 +47,17 @@ let value: CustomerBenefitGrantGitHubRepository = {
       "key": 9187.27,
     },
     organization: {
-      createdAt: new Date("2025-11-26T13:33:51.948Z"),
-      modifiedAt: new Date("2025-01-01T18:22:02.718Z"),
+      createdAt: new Date("2025-02-03T21:10:18.351Z"),
+      modifiedAt: new Date("2024-01-24T22:47:46.870Z"),
       id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://annual-comparison.biz",
-      email: "Maxime52@hotmail.com",
+      avatarUrl: "https://super-ocelot.org",
+      email: "Adolph.Kuhn40@gmail.com",
       website: "<value>",
-      socials: [
-        {
-          platform: "github",
-          url: "https://scratchy-midwife.net/",
-        },
-      ],
+      socials: [],
       status: "onboarding_started",
-      detailsSubmittedAt: new Date("2023-01-14T17:51:08.613Z"),
+      detailsSubmittedAt: new Date("2023-06-02T11:26:30.723Z"),
       featureSettings: {},
       subscriptionSettings: {
         allowMultipleSubscriptions: true,

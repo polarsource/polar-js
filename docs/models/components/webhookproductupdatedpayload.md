@@ -60,17 +60,26 @@ let value: WebhookProductUpdatedPayload = {
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2025-07-24T07:04:35.503Z"),
-          modifiedAt: new Date("2025-01-27T16:26:36.069Z"),
+          createdAt: new Date("2023-06-16T00:40:28.022Z"),
+          modifiedAt: new Date("2025-09-07T23:37:19.259Z"),
           id: "<value>",
-          metadata: {},
-          type: "text",
+          metadata: {
+            "key": 931.08,
+          },
+          type: "select",
           slug: "<value>",
           name: "<value>",
           organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-          properties: {},
+          properties: {
+            options: [
+              {
+                value: "<value>",
+                label: "<value>",
+              },
+            ],
+          },
         },
-        order: 758601,
+        order: 448574,
         required: true,
       },
     ],

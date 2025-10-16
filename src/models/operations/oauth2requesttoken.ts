@@ -17,11 +17,18 @@ import {
   RefreshTokenRequest$Outbound,
   RefreshTokenRequest$outboundSchema,
 } from "../components/refreshtokenrequest.js";
+import {
+  WebTokenRequest,
+  WebTokenRequest$inboundSchema,
+  WebTokenRequest$Outbound,
+  WebTokenRequest$outboundSchema,
+} from "../components/webtokenrequest.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Oauth2RequestTokenRequestBody =
   | AuthorizationCodeTokenRequest
-  | RefreshTokenRequest;
+  | RefreshTokenRequest
+  | WebTokenRequest;
 
 /** @internal */
 export const Oauth2RequestTokenRequestBody$inboundSchema: z.ZodType<
@@ -31,12 +38,14 @@ export const Oauth2RequestTokenRequestBody$inboundSchema: z.ZodType<
 > = z.union([
   AuthorizationCodeTokenRequest$inboundSchema,
   RefreshTokenRequest$inboundSchema,
+  WebTokenRequest$inboundSchema,
 ]);
 
 /** @internal */
 export type Oauth2RequestTokenRequestBody$Outbound =
   | AuthorizationCodeTokenRequest$Outbound
-  | RefreshTokenRequest$Outbound;
+  | RefreshTokenRequest$Outbound
+  | WebTokenRequest$Outbound;
 
 /** @internal */
 export const Oauth2RequestTokenRequestBody$outboundSchema: z.ZodType<
@@ -46,6 +55,7 @@ export const Oauth2RequestTokenRequestBody$outboundSchema: z.ZodType<
 > = z.union([
   AuthorizationCodeTokenRequest$outboundSchema,
   RefreshTokenRequest$outboundSchema,
+  WebTokenRequest$outboundSchema,
 ]);
 
 /**

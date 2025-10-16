@@ -57,11 +57,11 @@ import {
 export type ProductCreateRecurringMetadata = string | number | number | boolean;
 
 export type ProductCreateRecurringPrices =
-  | ProductPriceMeteredUnitCreate
-  | ProductPriceFixedCreate
-  | ProductPriceSeatBasedCreate
-  | ProductPriceCustomCreate
-  | ProductPriceFreeCreate;
+  | (ProductPriceMeteredUnitCreate & { amountType: "metered_unit" })
+  | (ProductPriceFixedCreate & { amountType: "fixed" })
+  | (ProductPriceSeatBasedCreate & { amountType: "seat_based" })
+  | (ProductPriceCustomCreate & { amountType: "custom" })
+  | (ProductPriceFreeCreate & { amountType: "free" });
 
 export type ProductCreateRecurring = {
   /**
@@ -92,11 +92,11 @@ export type ProductCreateRecurring = {
    * List of available prices for this product. It should contain at most one static price (fixed, custom or free), and any number of metered prices. Metered prices are not supported on one-time purchase products.
    */
   prices: Array<
-    | ProductPriceMeteredUnitCreate
-    | ProductPriceFixedCreate
-    | ProductPriceSeatBasedCreate
-    | ProductPriceCustomCreate
-    | ProductPriceFreeCreate
+    | (ProductPriceMeteredUnitCreate & { amountType: "metered_unit" })
+    | (ProductPriceFixedCreate & { amountType: "fixed" })
+    | (ProductPriceSeatBasedCreate & { amountType: "seat_based" })
+    | (ProductPriceCustomCreate & { amountType: "custom" })
+    | (ProductPriceFreeCreate & { amountType: "free" })
   >;
   /**
    * List of file IDs. Each one must be on the same organization as the product, of type `product_media` and correctly uploaded.
@@ -181,20 +181,40 @@ export const ProductCreateRecurringPrices$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  ProductPriceMeteredUnitCreate$inboundSchema,
-  ProductPriceFixedCreate$inboundSchema,
-  ProductPriceSeatBasedCreate$inboundSchema,
-  ProductPriceCustomCreate$inboundSchema,
-  ProductPriceFreeCreate$inboundSchema,
+  ProductPriceMeteredUnitCreate$inboundSchema.and(
+    z.object({ amount_type: z.literal("metered_unit") }).transform((v) => ({
+      amountType: v.amount_type,
+    })),
+  ),
+  ProductPriceFixedCreate$inboundSchema.and(
+    z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
+      amountType: v.amount_type,
+    })),
+  ),
+  ProductPriceSeatBasedCreate$inboundSchema.and(
+    z.object({ amount_type: z.literal("seat_based") }).transform((v) => ({
+      amountType: v.amount_type,
+    })),
+  ),
+  ProductPriceCustomCreate$inboundSchema.and(
+    z.object({ amount_type: z.literal("custom") }).transform((v) => ({
+      amountType: v.amount_type,
+    })),
+  ),
+  ProductPriceFreeCreate$inboundSchema.and(
+    z.object({ amount_type: z.literal("free") }).transform((v) => ({
+      amountType: v.amount_type,
+    })),
+  ),
 ]);
 
 /** @internal */
 export type ProductCreateRecurringPrices$Outbound =
-  | ProductPriceMeteredUnitCreate$Outbound
-  | ProductPriceFixedCreate$Outbound
-  | ProductPriceSeatBasedCreate$Outbound
-  | ProductPriceCustomCreate$Outbound
-  | ProductPriceFreeCreate$Outbound;
+  | (ProductPriceMeteredUnitCreate$Outbound & { amount_type: "metered_unit" })
+  | (ProductPriceFixedCreate$Outbound & { amount_type: "fixed" })
+  | (ProductPriceSeatBasedCreate$Outbound & { amount_type: "seat_based" })
+  | (ProductPriceCustomCreate$Outbound & { amount_type: "custom" })
+  | (ProductPriceFreeCreate$Outbound & { amount_type: "free" });
 
 /** @internal */
 export const ProductCreateRecurringPrices$outboundSchema: z.ZodType<
@@ -202,11 +222,31 @@ export const ProductCreateRecurringPrices$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProductCreateRecurringPrices
 > = z.union([
-  ProductPriceMeteredUnitCreate$outboundSchema,
-  ProductPriceFixedCreate$outboundSchema,
-  ProductPriceSeatBasedCreate$outboundSchema,
-  ProductPriceCustomCreate$outboundSchema,
-  ProductPriceFreeCreate$outboundSchema,
+  ProductPriceMeteredUnitCreate$outboundSchema.and(
+    z.object({ amountType: z.literal("metered_unit") }).transform((v) => ({
+      amount_type: v.amountType,
+    })),
+  ),
+  ProductPriceFixedCreate$outboundSchema.and(
+    z.object({ amountType: z.literal("fixed") }).transform((v) => ({
+      amount_type: v.amountType,
+    })),
+  ),
+  ProductPriceSeatBasedCreate$outboundSchema.and(
+    z.object({ amountType: z.literal("seat_based") }).transform((v) => ({
+      amount_type: v.amountType,
+    })),
+  ),
+  ProductPriceCustomCreate$outboundSchema.and(
+    z.object({ amountType: z.literal("custom") }).transform((v) => ({
+      amount_type: v.amountType,
+    })),
+  ),
+  ProductPriceFreeCreate$outboundSchema.and(
+    z.object({ amountType: z.literal("free") }).transform((v) => ({
+      amount_type: v.amountType,
+    })),
+  ),
 ]);
 
 /**
@@ -255,11 +295,31 @@ export const ProductCreateRecurring$inboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   prices: z.array(
     z.union([
-      ProductPriceMeteredUnitCreate$inboundSchema,
-      ProductPriceFixedCreate$inboundSchema,
-      ProductPriceSeatBasedCreate$inboundSchema,
-      ProductPriceCustomCreate$inboundSchema,
-      ProductPriceFreeCreate$inboundSchema,
+      ProductPriceMeteredUnitCreate$inboundSchema.and(
+        z.object({ amount_type: z.literal("metered_unit") }).transform((v) => ({
+          amountType: v.amount_type,
+        })),
+      ),
+      ProductPriceFixedCreate$inboundSchema.and(
+        z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
+          amountType: v.amount_type,
+        })),
+      ),
+      ProductPriceSeatBasedCreate$inboundSchema.and(
+        z.object({ amount_type: z.literal("seat_based") }).transform((v) => ({
+          amountType: v.amount_type,
+        })),
+      ),
+      ProductPriceCustomCreate$inboundSchema.and(
+        z.object({ amount_type: z.literal("custom") }).transform((v) => ({
+          amountType: v.amount_type,
+        })),
+      ),
+      ProductPriceFreeCreate$inboundSchema.and(
+        z.object({ amount_type: z.literal("free") }).transform((v) => ({
+          amountType: v.amount_type,
+        })),
+      ),
     ]),
   ),
   medias: z.nullable(z.array(z.string())).optional(),
@@ -285,11 +345,11 @@ export type ProductCreateRecurring$Outbound = {
   name: string;
   description?: string | null | undefined;
   prices: Array<
-    | ProductPriceMeteredUnitCreate$Outbound
-    | ProductPriceFixedCreate$Outbound
-    | ProductPriceSeatBasedCreate$Outbound
-    | ProductPriceCustomCreate$Outbound
-    | ProductPriceFreeCreate$Outbound
+    | (ProductPriceMeteredUnitCreate$Outbound & { amount_type: "metered_unit" })
+    | (ProductPriceFixedCreate$Outbound & { amount_type: "fixed" })
+    | (ProductPriceSeatBasedCreate$Outbound & { amount_type: "seat_based" })
+    | (ProductPriceCustomCreate$Outbound & { amount_type: "custom" })
+    | (ProductPriceFreeCreate$Outbound & { amount_type: "free" })
   >;
   medias?: Array<string> | null | undefined;
   attached_custom_fields?:
@@ -314,11 +374,31 @@ export const ProductCreateRecurring$outboundSchema: z.ZodType<
   description: z.nullable(z.string()).optional(),
   prices: z.array(
     z.union([
-      ProductPriceMeteredUnitCreate$outboundSchema,
-      ProductPriceFixedCreate$outboundSchema,
-      ProductPriceSeatBasedCreate$outboundSchema,
-      ProductPriceCustomCreate$outboundSchema,
-      ProductPriceFreeCreate$outboundSchema,
+      ProductPriceMeteredUnitCreate$outboundSchema.and(
+        z.object({ amountType: z.literal("metered_unit") }).transform((v) => ({
+          amount_type: v.amountType,
+        })),
+      ),
+      ProductPriceFixedCreate$outboundSchema.and(
+        z.object({ amountType: z.literal("fixed") }).transform((v) => ({
+          amount_type: v.amountType,
+        })),
+      ),
+      ProductPriceSeatBasedCreate$outboundSchema.and(
+        z.object({ amountType: z.literal("seat_based") }).transform((v) => ({
+          amount_type: v.amountType,
+        })),
+      ),
+      ProductPriceCustomCreate$outboundSchema.and(
+        z.object({ amountType: z.literal("custom") }).transform((v) => ({
+          amount_type: v.amountType,
+        })),
+      ),
+      ProductPriceFreeCreate$outboundSchema.and(
+        z.object({ amountType: z.literal("free") }).transform((v) => ({
+          amount_type: v.amountType,
+        })),
+      ),
     ]),
   ),
   medias: z.nullable(z.array(z.string())).optional(),

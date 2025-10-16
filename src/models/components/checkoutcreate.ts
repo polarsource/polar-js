@@ -127,6 +127,10 @@ export type CheckoutCreate = {
    */
   successUrl?: string | null | undefined;
   /**
+   * When set, a back button will be shown in the checkout to return to this URL.
+   */
+  returnUrl?: string | null | undefined;
+  /**
    * If you plan to embed the checkout session, set this to the Origin of the embedding page. It'll allow the Polar iframe to communicate with the parent page.
    */
   embedOrigin?: string | null | undefined;
@@ -346,6 +350,7 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
   ).optional(),
   subscription_id: z.nullable(z.string()).optional(),
   success_url: z.nullable(z.string()).optional(),
+  return_url: z.nullable(z.string()).optional(),
   embed_origin: z.nullable(z.string()).optional(),
   products: z.array(z.string()),
 }).transform((v) => {
@@ -368,6 +373,7 @@ export const CheckoutCreate$inboundSchema: z.ZodType<
     "customer_metadata": "customerMetadata",
     "subscription_id": "subscriptionId",
     "success_url": "successUrl",
+    "return_url": "returnUrl",
     "embed_origin": "embedOrigin",
   });
 });
@@ -399,6 +405,7 @@ export type CheckoutCreate$Outbound = {
     | undefined;
   subscription_id?: string | null | undefined;
   success_url?: string | null | undefined;
+  return_url?: string | null | undefined;
   embed_origin?: string | null | undefined;
   products: Array<string>;
 };
@@ -443,6 +450,7 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
   ).optional(),
   subscriptionId: z.nullable(z.string()).optional(),
   successUrl: z.nullable(z.string()).optional(),
+  returnUrl: z.nullable(z.string()).optional(),
   embedOrigin: z.nullable(z.string()).optional(),
   products: z.array(z.string()),
 }).transform((v) => {
@@ -465,6 +473,7 @@ export const CheckoutCreate$outboundSchema: z.ZodType<
     customerMetadata: "customer_metadata",
     subscriptionId: "subscription_id",
     successUrl: "success_url",
+    returnUrl: "return_url",
     embedOrigin: "embed_origin",
   });
 });
