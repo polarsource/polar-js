@@ -43,7 +43,6 @@ typescript:
   constFieldsAlwaysOptional: false
   defaultErrorName: SDKError
   enableCustomCodeRegions: false
-  enableMCPServer: true
   enableReactQuery: false
   enumFormat: union
   envVarPrefix: POLAR

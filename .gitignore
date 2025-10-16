@@ -6,8 +6,6 @@
 **/.speakeasy/logs/
 .speakeasy/temp/
 .DS_Store
-/mcp-server
-/bin
 /.eslintcache
 /.speakeasy/reports
 /react-query
