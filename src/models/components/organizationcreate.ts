@@ -8,6 +8,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  OrganizationCustomerEmailSettings,
+  OrganizationCustomerEmailSettings$inboundSchema,
+  OrganizationCustomerEmailSettings$Outbound,
+  OrganizationCustomerEmailSettings$outboundSchema,
+} from "./organizationcustomeremailsettings.js";
+import {
   OrganizationDetails,
   OrganizationDetails$inboundSchema,
   OrganizationDetails$Outbound,
@@ -61,6 +67,7 @@ export type OrganizationCreate = {
   featureSettings?: OrganizationFeatureSettings | null | undefined;
   subscriptionSettings?: OrganizationSubscriptionSettings | null | undefined;
   notificationSettings?: OrganizationNotificationSettings | null | undefined;
+  customerEmailSettings?: OrganizationCustomerEmailSettings | null | undefined;
 };
 
 /** @internal */
@@ -84,12 +91,16 @@ export const OrganizationCreate$inboundSchema: z.ZodType<
   notification_settings: z.nullable(
     OrganizationNotificationSettings$inboundSchema,
   ).optional(),
+  customer_email_settings: z.nullable(
+    OrganizationCustomerEmailSettings$inboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     "avatar_url": "avatarUrl",
     "feature_settings": "featureSettings",
     "subscription_settings": "subscriptionSettings",
     "notification_settings": "notificationSettings",
+    "customer_email_settings": "customerEmailSettings",
   });
 });
 
@@ -109,6 +120,10 @@ export type OrganizationCreate$Outbound = {
     | undefined;
   notification_settings?:
     | OrganizationNotificationSettings$Outbound
+    | null
+    | undefined;
+  customer_email_settings?:
+    | OrganizationCustomerEmailSettings$Outbound
     | null
     | undefined;
 };
@@ -135,12 +150,16 @@ export const OrganizationCreate$outboundSchema: z.ZodType<
   notificationSettings: z.nullable(
     OrganizationNotificationSettings$outboundSchema,
   ).optional(),
+  customerEmailSettings: z.nullable(
+    OrganizationCustomerEmailSettings$outboundSchema,
+  ).optional(),
 }).transform((v) => {
   return remap$(v, {
     avatarUrl: "avatar_url",
     featureSettings: "feature_settings",
     subscriptionSettings: "subscription_settings",
     notificationSettings: "notification_settings",
+    customerEmailSettings: "customer_email_settings",
   });
 });
 

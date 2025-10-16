@@ -38,6 +38,16 @@ let value: BenefitCustomSubscriber = {
       newOrder: false,
       newSubscription: true,
     },
+    customerEmailSettings: {
+      orderConfirmation: true,
+      subscriptionCancellation: true,
+      subscriptionConfirmation: true,
+      subscriptionCycled: false,
+      subscriptionPastDue: true,
+      subscriptionRevoked: false,
+      subscriptionUncanceled: false,
+      subscriptionUpdated: false,
+    },
   },
   properties: {
     note: "<value>",

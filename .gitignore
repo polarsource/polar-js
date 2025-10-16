@@ -1,3 +1,5 @@
+/mcp-server
+/bin
 /examples/node_modules
 .env
 .env.local
