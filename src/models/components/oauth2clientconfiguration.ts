@@ -8,6 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  SubType,
+  SubType$inboundSchema,
+  SubType$outboundSchema,
+} from "./subtype.js";
 
 export const TokenEndpointAuthMethod = {
   ClientSecretBasic: "client_secret_basic",
@@ -35,6 +40,7 @@ export type OAuth2ClientConfiguration = {
   logoUri?: string | null | undefined;
   tosUri?: string | null | undefined;
   policyUri?: string | null | undefined;
+  defaultSubType?: SubType | undefined;
 };
 
 /** @internal */
@@ -97,6 +103,7 @@ export const OAuth2ClientConfiguration$inboundSchema: z.ZodType<
   logo_uri: z.nullable(z.string()).optional(),
   tos_uri: z.nullable(z.string()).optional(),
   policy_uri: z.nullable(z.string()).optional(),
+  default_sub_type: SubType$inboundSchema.optional(),
 }).transform((v) => {
   return remap$(v, {
     "redirect_uris": "redirectUris",
@@ -108,6 +115,7 @@ export const OAuth2ClientConfiguration$inboundSchema: z.ZodType<
     "logo_uri": "logoUri",
     "tos_uri": "tosUri",
     "policy_uri": "policyUri",
+    "default_sub_type": "defaultSubType",
   });
 });
 
@@ -123,6 +131,7 @@ export type OAuth2ClientConfiguration$Outbound = {
   logo_uri?: string | null | undefined;
   tos_uri?: string | null | undefined;
   policy_uri?: string | null | undefined;
+  default_sub_type?: string | undefined;
 };
 
 /** @internal */
@@ -145,6 +154,7 @@ export const OAuth2ClientConfiguration$outboundSchema: z.ZodType<
   logoUri: z.nullable(z.string()).optional(),
   tosUri: z.nullable(z.string()).optional(),
   policyUri: z.nullable(z.string()).optional(),
+  defaultSubType: SubType$outboundSchema.optional(),
 }).transform((v) => {
   return remap$(v, {
     redirectUris: "redirect_uris",
@@ -156,6 +166,7 @@ export const OAuth2ClientConfiguration$outboundSchema: z.ZodType<
     logoUri: "logo_uri",
     tosUri: "tos_uri",
     policyUri: "policy_uri",
+    defaultSubType: "default_sub_type",
   });
 });
 

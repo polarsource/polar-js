@@ -52,33 +52,30 @@ let value: WebhookOrderCreatedPayload = {
     metadata: {
       "key": 765700,
     },
+    platformFeeAmount: 913850,
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2025-09-28T13:54:31.917Z"),
-      modifiedAt: new Date("2025-11-14T07:33:56.379Z"),
+      createdAt: new Date("2025-01-25T07:39:50.630Z"),
+      modifiedAt: new Date("2025-06-25T21:41:29.268Z"),
       metadata: {
-        "key": 5274.55,
+        "key": 7095.92,
       },
       externalId: "usr_1337",
       email: "customer@example.com",
       emailVerified: true,
       name: "John Doe",
-      billingAddress: {
-        country: "US",
-      },
+      billingAddress: null,
       taxId: [
         "911144442",
         "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: null,
+      deletedAt: new Date("2024-03-11T14:18:46.896Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
     },
     userId: "<value>",
     product: {
-      metadata: {
-        "key": 25688,
-      },
+      metadata: {},
       id: "<value>",
       createdAt: new Date("2023-04-15T23:46:14.322Z"),
       modifiedAt: new Date("2023-08-21T23:53:48.706Z"),

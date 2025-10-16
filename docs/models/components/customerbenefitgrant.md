@@ -70,6 +70,16 @@ const value: components.CustomerBenefitGrantDiscord = {
         newOrder: false,
         newSubscription: true,
       },
+      customerEmailSettings: {
+        orderConfirmation: true,
+        subscriptionCancellation: true,
+        subscriptionConfirmation: true,
+        subscriptionCycled: false,
+        subscriptionPastDue: true,
+        subscriptionRevoked: false,
+        subscriptionUncanceled: false,
+        subscriptionUpdated: false,
+      },
     },
     properties: {
       guildId: "<id>",
@@ -145,6 +155,16 @@ const value: components.CustomerBenefitGrantGitHubRepository = {
         newOrder: false,
         newSubscription: true,
       },
+      customerEmailSettings: {
+        orderConfirmation: true,
+        subscriptionCancellation: true,
+        subscriptionConfirmation: true,
+        subscriptionCycled: false,
+        subscriptionPastDue: true,
+        subscriptionRevoked: false,
+        subscriptionUncanceled: false,
+        subscriptionUpdated: false,
+      },
     },
     properties: {
       repositoryOwner: "polarsource",
@@ -218,6 +238,16 @@ const value: components.CustomerBenefitGrantDownloadables = {
       notificationSettings: {
         newOrder: false,
         newSubscription: true,
+      },
+      customerEmailSettings: {
+        orderConfirmation: true,
+        subscriptionCancellation: true,
+        subscriptionConfirmation: true,
+        subscriptionCycled: false,
+        subscriptionPastDue: true,
+        subscriptionRevoked: false,
+        subscriptionUncanceled: false,
+        subscriptionUpdated: false,
       },
     },
     properties: {
@@ -297,6 +327,16 @@ const value: components.CustomerBenefitGrantLicenseKeys = {
       notificationSettings: {
         newOrder: false,
         newSubscription: true,
+      },
+      customerEmailSettings: {
+        orderConfirmation: true,
+        subscriptionCancellation: true,
+        subscriptionConfirmation: true,
+        subscriptionCycled: false,
+        subscriptionPastDue: true,
+        subscriptionRevoked: false,
+        subscriptionUncanceled: false,
+        subscriptionUpdated: false,
       },
     },
     properties: {
@@ -383,6 +423,16 @@ const value: components.CustomerBenefitGrantCustom = {
         newOrder: false,
         newSubscription: true,
       },
+      customerEmailSettings: {
+        orderConfirmation: true,
+        subscriptionCancellation: true,
+        subscriptionConfirmation: true,
+        subscriptionCycled: false,
+        subscriptionPastDue: true,
+        subscriptionRevoked: false,
+        subscriptionUncanceled: false,
+        subscriptionUpdated: false,
+      },
     },
     properties: {
       note: "<value>",
@@ -456,6 +506,16 @@ const value: components.CustomerBenefitGrantMeterCredit = {
       notificationSettings: {
         newOrder: false,
         newSubscription: true,
+      },
+      customerEmailSettings: {
+        orderConfirmation: true,
+        subscriptionCancellation: true,
+        subscriptionConfirmation: true,
+        subscriptionCycled: false,
+        subscriptionPastDue: true,
+        subscriptionRevoked: false,
+        subscriptionUncanceled: false,
+        subscriptionUpdated: false,
       },
     },
     properties: {
