@@ -163,6 +163,10 @@ export type Order = {
   customFieldData?:
     | { [k: string]: string | number | boolean | Date | null }
     | undefined;
+  /**
+   * Platform fee amount in cents.
+   */
+  platformFeeAmount: number;
   customer: OrderCustomer;
   /**
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -387,6 +391,7 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
         ]),
       ),
     ).optional(),
+    platform_fee_amount: z.number().int(),
     customer: OrderCustomer$inboundSchema,
     user_id: z.string(),
     product: OrderProduct$inboundSchema,
@@ -424,6 +429,7 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       "subscription_id": "subscriptionId",
       "checkout_id": "checkoutId",
       "custom_field_data": "customFieldData",
+      "platform_fee_amount": "platformFeeAmount",
       "user_id": "userId",
     });
   });
@@ -459,6 +465,7 @@ export type Order$Outbound = {
   custom_field_data?:
     | { [k: string]: string | number | boolean | string | null }
     | undefined;
+  platform_fee_amount: number;
   customer: OrderCustomer$Outbound;
   user_id: string;
   product: OrderProduct$Outbound;
@@ -516,6 +523,7 @@ export const Order$outboundSchema: z.ZodType<
       ]),
     ),
   ).optional(),
+  platformFeeAmount: z.number().int(),
   customer: OrderCustomer$outboundSchema,
   userId: z.string(),
   product: OrderProduct$outboundSchema,
@@ -553,6 +561,7 @@ export const Order$outboundSchema: z.ZodType<
     subscriptionId: "subscription_id",
     checkoutId: "checkout_id",
     customFieldData: "custom_field_data",
+    platformFeeAmount: "platform_fee_amount",
     userId: "user_id",
   });
 });

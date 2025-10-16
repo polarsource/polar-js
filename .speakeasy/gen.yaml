@@ -25,7 +25,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.36.2
+  version: 0.37.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies:
@@ -43,6 +43,7 @@ typescript:
   constFieldsAlwaysOptional: false
   defaultErrorName: SDKError
   enableCustomCodeRegions: false
+  enableMCPServer: false
   enableReactQuery: false
   enumFormat: union
   envVarPrefix: POLAR

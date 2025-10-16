@@ -34,33 +34,30 @@ let value: Order = {
   subscriptionId: null,
   checkoutId: "<value>",
   metadata: {},
+  platformFeeAmount: 270108,
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-09-28T13:54:31.917Z"),
-    modifiedAt: new Date("2025-11-14T07:33:56.379Z"),
+    createdAt: new Date("2025-01-25T07:39:50.630Z"),
+    modifiedAt: new Date("2025-06-25T21:41:29.268Z"),
     metadata: {
-      "key": 5274.55,
+      "key": 7095.92,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
-    billingAddress: {
-      country: "US",
-    },
+    billingAddress: null,
     taxId: [
       "911144442",
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: null,
+    deletedAt: new Date("2024-03-11T14:18:46.896Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   userId: "<value>",
   product: {
-    metadata: {
-      "key": 25688,
-    },
+    metadata: {},
     id: "<value>",
     createdAt: new Date("2023-04-15T23:46:14.322Z"),
     modifiedAt: new Date("2023-08-21T23:53:48.706Z"),
@@ -74,49 +71,37 @@ let value: Order = {
     organizationId: "<value>",
   },
   discount: {
-    duration: "repeating",
-    type: "fixed",
-    basisPoints: 475844,
-    createdAt: new Date("2024-08-25T16:24:44.378Z"),
-    modifiedAt: new Date("2025-03-12T15:53:30.275Z"),
+    duration: "once",
+    durationInMonths: 475844,
+    type: "percentage",
+    basisPoints: 908156,
+    createdAt: new Date("2025-03-12T15:53:30.275Z"),
+    modifiedAt: null,
     id: "<value>",
-    metadata: {},
+    metadata: {
+      "key": 3703.24,
+    },
     name: "<value>",
     code: "<value>",
-    startsAt: new Date("2024-02-10T21:00:41.494Z"),
-    endsAt: new Date("2024-06-05T21:57:00.887Z"),
-    maxRedemptions: 152772,
-    redemptionsCount: 392060,
+    startsAt: new Date("2023-07-04T19:05:44.913Z"),
+    endsAt: new Date("2024-03-05T16:45:17.962Z"),
+    maxRedemptions: 855122,
+    redemptionsCount: 230524,
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   },
-  subscription: {
-    metadata: {
-      "key": "<value>",
+  subscription: null,
+  items: [
+    {
+      createdAt: new Date("2025-08-10T23:49:13.193Z"),
+      modifiedAt: new Date("2023-12-03T01:20:11.188Z"),
+      id: "<value>",
+      label: "<value>",
+      amount: 523627,
+      taxAmount: 115419,
+      proration: false,
+      productPriceId: "<value>",
     },
-    createdAt: new Date("2023-02-20T20:45:14.664Z"),
-    modifiedAt: new Date("2025-08-10T23:49:13.193Z"),
-    id: "<value>",
-    amount: 375941,
-    currency: "Gibraltar Pound",
-    recurringInterval: "month",
-    status: "incomplete",
-    currentPeriodStart: new Date("2025-03-30T19:14:29.604Z"),
-    currentPeriodEnd: new Date("2024-01-19T17:21:32.801Z"),
-    trialStart: new Date("2023-01-12T02:36:36.955Z"),
-    trialEnd: new Date("2023-05-28T14:42:14.625Z"),
-    cancelAtPeriodEnd: false,
-    canceledAt: new Date("2025-06-13T22:38:11.482Z"),
-    startedAt: new Date("2025-10-30T21:43:19.090Z"),
-    endsAt: new Date("2024-11-17T19:13:16.335Z"),
-    endedAt: new Date("2025-01-04T03:58:49.542Z"),
-    customerId: "<value>",
-    productId: "<value>",
-    discountId: "<value>",
-    checkoutId: "<value>",
-    customerCancellationReason: "unused",
-    customerCancellationComment: null,
-  },
-  items: [],
+  ],
 };
 ```
 
@@ -151,6 +136,7 @@ let value: Order = {
 | `checkoutId`                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `metadata`                                                                                                                                                                                              | Record<string, *components.OrderMetadata*>                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `customFieldData`                                                                                                                                                                                       | Record<string, *components.OrderCustomFieldData*>                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                      | Key-value object storing custom field values.                                                                                                                                                           |                                                                                                                                                                                                         |
+| `platformFeeAmount`                                                                                                                                                                                     | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Platform fee amount in cents.                                                                                                                                                                           |                                                                                                                                                                                                         |
 | `customer`                                                                                                                                                                                              | [components.OrderCustomer](../../models/components/ordercustomer.md)                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | ~~`userId`~~                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                                                 |                                                                                                                                                                                                         |
 | `product`                                                                                                                                                                                               | [components.OrderProduct](../../models/components/orderproduct.md)                                                                                                                                      | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |

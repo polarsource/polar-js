@@ -80,20 +80,22 @@ let value: CheckoutLink = {
   discount: {
     duration: "repeating",
     type: "fixed",
-    basisPoints: 475844,
-    createdAt: new Date("2024-08-25T16:24:44.378Z"),
-    modifiedAt: new Date("2025-03-12T15:53:30.275Z"),
+    basisPoints: 656243,
+    createdAt: new Date("2025-07-30T08:08:42.784Z"),
+    modifiedAt: new Date("2024-11-03T14:01:12.012Z"),
     id: "<value>",
-    metadata: {},
+    metadata: {
+      "key": false,
+    },
     name: "<value>",
     code: "<value>",
-    startsAt: new Date("2024-02-10T21:00:41.494Z"),
-    endsAt: new Date("2024-06-05T21:57:00.887Z"),
-    maxRedemptions: 152772,
-    redemptionsCount: 392060,
+    startsAt: new Date("2023-09-11T21:19:06.321Z"),
+    endsAt: new Date("2024-02-22T15:23:18.774Z"),
+    maxRedemptions: 850103,
+    redemptionsCount: 847946,
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   },
-  url: "https://flawed-peony.org",
+  url: "https://proper-fat.info",
 };
 ```
 

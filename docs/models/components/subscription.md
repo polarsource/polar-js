@@ -101,8 +101,8 @@ let value: Subscription = {
   ],
   meters: [
     {
-      createdAt: new Date("2024-02-17T20:04:32.852Z"),
-      modifiedAt: new Date("2024-05-28T01:02:31.690Z"),
+      createdAt: new Date("2024-07-12T20:27:35.737Z"),
+      modifiedAt: new Date("2023-12-15T20:47:20.890Z"),
       id: "<value>",
       consumedUnits: 25,
       creditedUnits: 100,
@@ -110,8 +110,8 @@ let value: Subscription = {
       meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
       meter: {
         metadata: {},
-        createdAt: new Date("2023-04-30T10:26:58.812Z"),
-        modifiedAt: new Date("2025-02-17T07:09:21.144Z"),
+        createdAt: new Date("2024-12-25T11:01:27.696Z"),
+        modifiedAt: new Date("2023-08-06T11:43:08.985Z"),
         id: "<value>",
         name: "<value>",
         filter: {
