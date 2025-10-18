@@ -11,16 +11,16 @@ let value: Order = {
   modifiedAt: new Date("2024-09-24T15:32:02.340Z"),
   status: "pending",
   paid: true,
-  subtotalAmount: 485235,
-  discountAmount: 870722,
-  netAmount: 795990,
-  taxAmount: 390856,
-  totalAmount: 863634,
-  appliedBalanceAmount: 250136,
-  dueAmount: 782415,
-  refundedAmount: 65687,
-  refundedTaxAmount: 623249,
-  currency: "Australian Dollar",
+  subtotalAmount: 10000,
+  discountAmount: 1000,
+  netAmount: 9000,
+  taxAmount: 720,
+  totalAmount: 9720,
+  appliedBalanceAmount: 0,
+  dueAmount: 0,
+  refundedAmount: 0,
+  refundedTaxAmount: 0,
+  currency: "usd",
   billingReason: "subscription_create",
   billingName: "<value>",
   billingAddress: {
@@ -31,75 +31,99 @@ let value: Order = {
   customerId: "<value>",
   productId: "<value>",
   discountId: "<value>",
-  subscriptionId: null,
+  subscriptionId: "<value>",
   checkoutId: "<value>",
   metadata: {},
-  platformFeeAmount: 270108,
+  platformFeeAmount: 500,
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-01-25T07:39:50.630Z"),
-    modifiedAt: new Date("2025-06-25T21:41:29.268Z"),
-    metadata: {
-      "key": 7095.92,
-    },
+    createdAt: new Date("2025-03-15T16:51:44.459Z"),
+    modifiedAt: new Date("2024-05-14T04:26:31.780Z"),
+    metadata: {},
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
     name: "John Doe",
-    billingAddress: null,
+    billingAddress: {
+      country: "US",
+    },
     taxId: [
       "911144442",
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2024-03-11T14:18:46.896Z"),
+    deletedAt: new Date("2023-07-02T05:54:26.991Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   userId: "<value>",
   product: {
-    metadata: {},
+    metadata: {
+      "key": 765700,
+    },
     id: "<value>",
-    createdAt: new Date("2023-04-15T23:46:14.322Z"),
-    modifiedAt: new Date("2023-08-21T23:53:48.706Z"),
+    createdAt: new Date("2025-09-28T13:54:31.917Z"),
+    modifiedAt: new Date("2025-11-14T07:33:56.379Z"),
     trialInterval: "month",
-    trialIntervalCount: 68538,
+    trialIntervalCount: 709592,
     name: "<value>",
-    description: "mmm judicious fortunately",
-    recurringInterval: "month",
-    isRecurring: false,
-    isArchived: false,
+    description: null,
+    recurringInterval: "week",
+    isRecurring: true,
+    isArchived: true,
     organizationId: "<value>",
   },
   discount: {
-    duration: "once",
-    durationInMonths: 475844,
+    duration: "repeating",
     type: "percentage",
-    basisPoints: 908156,
-    createdAt: new Date("2025-03-12T15:53:30.275Z"),
+    amount: 1000,
+    currency: "usd",
+    createdAt: new Date("2024-09-03T13:37:44.614Z"),
     modifiedAt: null,
     id: "<value>",
-    metadata: {
-      "key": 3703.24,
-    },
+    metadata: {},
     name: "<value>",
-    code: "<value>",
-    startsAt: new Date("2023-07-04T19:05:44.913Z"),
-    endsAt: new Date("2024-03-05T16:45:17.962Z"),
-    maxRedemptions: 855122,
-    redemptionsCount: 230524,
+    code: null,
+    startsAt: new Date("2023-02-14T18:58:15.064Z"),
+    endsAt: new Date("2024-09-18T21:55:24.536Z"),
+    maxRedemptions: null,
+    redemptionsCount: 516035,
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   },
-  subscription: null,
+  subscription: {
+    metadata: {},
+    createdAt: new Date("2024-06-27T07:56:50.097Z"),
+    modifiedAt: new Date("2024-01-16T07:39:17.060Z"),
+    id: "<value>",
+    amount: 10000,
+    currency: "usd",
+    recurringInterval: "month",
+    status: "active",
+    currentPeriodStart: new Date("2024-04-29T10:34:50.731Z"),
+    currentPeriodEnd: new Date("2024-05-26T14:35:18.792Z"),
+    trialStart: new Date("2025-03-17T04:48:05.046Z"),
+    trialEnd: null,
+    cancelAtPeriodEnd: true,
+    canceledAt: new Date("2023-05-04T20:55:46.311Z"),
+    startedAt: new Date("2025-10-27T14:16:47.398Z"),
+    endsAt: new Date("2023-01-05T15:34:29.499Z"),
+    endedAt: null,
+    customerId: "<value>",
+    productId: "<value>",
+    discountId: "<value>",
+    checkoutId: "<value>",
+    customerCancellationReason: "switched_service",
+    customerCancellationComment: "<value>",
+  },
   items: [
     {
-      createdAt: new Date("2025-08-10T23:49:13.193Z"),
-      modifiedAt: new Date("2023-12-03T01:20:11.188Z"),
+      createdAt: new Date("2024-02-16T11:18:39.347Z"),
+      modifiedAt: new Date("2023-11-25T23:33:09.773Z"),
       id: "<value>",
-      label: "<value>",
-      amount: 523627,
-      taxAmount: 115419,
+      label: "Pro Plan",
+      amount: 10000,
+      taxAmount: 720,
       proration: false,
-      productPriceId: "<value>",
+      productPriceId: null,
     },
   ],
 };
@@ -114,16 +138,16 @@ let value: Order = {
 | `modifiedAt`                                                                                                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                                           | :heavy_check_mark:                                                                                                                                                                                      | Last modification timestamp of the object.                                                                                                                                                              |                                                                                                                                                                                                         |
 | `status`                                                                                                                                                                                                | [components.OrderStatus](../../models/components/orderstatus.md)                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `paid`                                                                                                                                                                                                  | *boolean*                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                      | Whether the order has been paid for.                                                                                                                                                                    | true                                                                                                                                                                                                    |
-| `subtotalAmount`                                                                                                                                                                                        | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount in cents, before discounts and taxes.                                                                                                                                                            |                                                                                                                                                                                                         |
-| `discountAmount`                                                                                                                                                                                        | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Discount amount in cents.                                                                                                                                                                               |                                                                                                                                                                                                         |
-| `netAmount`                                                                                                                                                                                             | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount in cents, after discounts but before taxes.                                                                                                                                                      |                                                                                                                                                                                                         |
-| `taxAmount`                                                                                                                                                                                             | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Sales tax amount in cents.                                                                                                                                                                              |                                                                                                                                                                                                         |
-| `totalAmount`                                                                                                                                                                                           | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount in cents, after discounts and taxes.                                                                                                                                                             |                                                                                                                                                                                                         |
-| `appliedBalanceAmount`                                                                                                                                                                                  | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Customer's balance amount applied to this invoice. Can increase the total amount paid, if the customer has a negative balance,  or decrease it, if the customer has a positive balance.Amount in cents. |                                                                                                                                                                                                         |
-| `dueAmount`                                                                                                                                                                                             | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount in cents that is due for this order.                                                                                                                                                             |                                                                                                                                                                                                         |
-| `refundedAmount`                                                                                                                                                                                        | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount refunded in cents.                                                                                                                                                                               |                                                                                                                                                                                                         |
-| `refundedTaxAmount`                                                                                                                                                                                     | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Sales tax refunded in cents.                                                                                                                                                                            |                                                                                                                                                                                                         |
-| `currency`                                                                                                                                                                                              | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
+| `subtotalAmount`                                                                                                                                                                                        | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount in cents, before discounts and taxes.                                                                                                                                                            | 10000                                                                                                                                                                                                   |
+| `discountAmount`                                                                                                                                                                                        | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Discount amount in cents.                                                                                                                                                                               | 1000                                                                                                                                                                                                    |
+| `netAmount`                                                                                                                                                                                             | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount in cents, after discounts but before taxes.                                                                                                                                                      | 9000                                                                                                                                                                                                    |
+| `taxAmount`                                                                                                                                                                                             | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Sales tax amount in cents.                                                                                                                                                                              | 720                                                                                                                                                                                                     |
+| `totalAmount`                                                                                                                                                                                           | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount in cents, after discounts and taxes.                                                                                                                                                             | 9720                                                                                                                                                                                                    |
+| `appliedBalanceAmount`                                                                                                                                                                                  | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Customer's balance amount applied to this invoice. Can increase the total amount paid, if the customer has a negative balance,  or decrease it, if the customer has a positive balance.Amount in cents. | 0                                                                                                                                                                                                       |
+| `dueAmount`                                                                                                                                                                                             | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount in cents that is due for this order.                                                                                                                                                             | 0                                                                                                                                                                                                       |
+| `refundedAmount`                                                                                                                                                                                        | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Amount refunded in cents.                                                                                                                                                                               | 0                                                                                                                                                                                                       |
+| `refundedTaxAmount`                                                                                                                                                                                     | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Sales tax refunded in cents.                                                                                                                                                                            | 0                                                                                                                                                                                                       |
+| `currency`                                                                                                                                                                                              | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     | usd                                                                                                                                                                                                     |
 | `billingReason`                                                                                                                                                                                         | [components.OrderBillingReason](../../models/components/orderbillingreason.md)                                                                                                                          | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `billingName`                                                                                                                                                                                           | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | The name of the customer that should appear on the invoice.                                                                                                                                             |                                                                                                                                                                                                         |
 | `billingAddress`                                                                                                                                                                                        | [components.Address](../../models/components/address.md)                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
@@ -136,7 +160,7 @@ let value: Order = {
 | `checkoutId`                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `metadata`                                                                                                                                                                                              | Record<string, *components.OrderMetadata*>                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `customFieldData`                                                                                                                                                                                       | Record<string, *components.OrderCustomFieldData*>                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                      | Key-value object storing custom field values.                                                                                                                                                           |                                                                                                                                                                                                         |
-| `platformFeeAmount`                                                                                                                                                                                     | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Platform fee amount in cents.                                                                                                                                                                           |                                                                                                                                                                                                         |
+| `platformFeeAmount`                                                                                                                                                                                     | *number*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | Platform fee amount in cents.                                                                                                                                                                           | 500                                                                                                                                                                                                     |
 | `customer`                                                                                                                                                                                              | [components.OrderCustomer](../../models/components/ordercustomer.md)                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | ~~`userId`~~                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.                                                                                 |                                                                                                                                                                                                         |
 | `product`                                                                                                                                                                                               | [components.OrderProduct](../../models/components/orderproduct.md)                                                                                                                                      | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |

@@ -10,22 +10,22 @@ import { CheckoutDiscountFixedOnceForeverDuration } from "@polar-sh/sdk/models/c
 let value: CheckoutDiscountFixedOnceForeverDuration = {
   duration: "forever",
   type: "percentage",
-  amount: 700624,
-  currency: "Nuevo Sol",
+  amount: 1000,
+  currency: "usd",
   id: "<value>",
   name: "<value>",
-  code: null,
+  code: "<value>",
 };
 ```
 
 ## Fields
 
-| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `duration`                                                                 | [components.DiscountDuration](../../models/components/discountduration.md) | :heavy_check_mark:                                                         | N/A                                                                        |
-| `type`                                                                     | [components.DiscountType](../../models/components/discounttype.md)         | :heavy_check_mark:                                                         | N/A                                                                        |
-| `amount`                                                                   | *number*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
-| `currency`                                                                 | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
-| `id`                                                                       | *string*                                                                   | :heavy_check_mark:                                                         | The ID of the object.                                                      |
-| `name`                                                                     | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
-| `code`                                                                     | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `duration`                                                                 | [components.DiscountDuration](../../models/components/discountduration.md) | :heavy_check_mark:                                                         | N/A                                                                        |                                                                            |
+| `type`                                                                     | [components.DiscountType](../../models/components/discounttype.md)         | :heavy_check_mark:                                                         | N/A                                                                        |                                                                            |
+| `amount`                                                                   | *number*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        | 1000                                                                       |
+| `currency`                                                                 | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        | usd                                                                        |
+| `id`                                                                       | *string*                                                                   | :heavy_check_mark:                                                         | The ID of the object.                                                      |                                                                            |
+| `name`                                                                     | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |                                                                            |
+| `code`                                                                     | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |                                                                            |
