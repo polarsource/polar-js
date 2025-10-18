@@ -107,7 +107,7 @@ let value: Checkout = {
   discount: {
     duration: "once",
     type: "percentage",
-    basisPoints: 848701,
+    basisPoints: 1000,
     id: "<value>",
     name: "<value>",
     code: "<value>",
@@ -117,31 +117,22 @@ let value: Checkout = {
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2023-06-16T00:40:28.022Z"),
-        modifiedAt: new Date("2025-09-07T23:37:19.259Z"),
+        createdAt: new Date("2024-06-30T20:57:53.724Z"),
+        modifiedAt: new Date("2024-03-04T15:14:18.502Z"),
         id: "<value>",
-        metadata: {
-          "key": 931.08,
-        },
-        type: "select",
+        metadata: {},
+        type: "number",
         slug: "<value>",
         name: "<value>",
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {
-          options: [
-            {
-              value: "<value>",
-              label: "<value>",
-            },
-          ],
-        },
+        properties: {},
       },
-      order: 448574,
+      order: 763945,
       required: true,
     },
   ],
   customerMetadata: {
-    "key": 671539,
+    "key": true,
   },
 };
 ```

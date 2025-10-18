@@ -40,13 +40,18 @@ let value: CustomerMeter = {
   },
   meter: {
     metadata: {},
-    createdAt: new Date("2024-12-25T11:01:27.696Z"),
-    modifiedAt: new Date("2023-08-06T11:43:08.985Z"),
+    createdAt: new Date("2024-10-27T01:55:18.902Z"),
+    modifiedAt: new Date("2024-06-09T17:37:57.976Z"),
     id: "<value>",
     name: "<value>",
     filter: {
-      conjunction: "or",
-      clauses: [],
+      conjunction: "and",
+      clauses: [
+        {
+          conjunction: "or",
+          clauses: [],
+        },
+      ],
     },
     aggregation: {},
     organizationId: "<value>",
