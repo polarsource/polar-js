@@ -14,11 +14,11 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 import {
-  AttachedCustomFieldOutput,
-  AttachedCustomFieldOutput$inboundSchema,
-  AttachedCustomFieldOutput$Outbound,
-  AttachedCustomFieldOutput$outboundSchema,
-} from "./attachedcustomfieldoutput.js";
+  AttachedCustomField,
+  AttachedCustomField$inboundSchema,
+  AttachedCustomField$Outbound,
+  AttachedCustomField$outboundSchema,
+} from "./attachedcustomfield.js";
 import {
   CheckoutBillingAddressFields,
   CheckoutBillingAddressFields$inboundSchema,
@@ -61,11 +61,11 @@ import {
   CheckoutStatus$outboundSchema,
 } from "./checkoutstatus.js";
 import {
-  LegacyRecurringProductPriceOutput,
-  LegacyRecurringProductPriceOutput$inboundSchema,
-  LegacyRecurringProductPriceOutput$Outbound,
-  LegacyRecurringProductPriceOutput$outboundSchema,
-} from "./legacyrecurringproductpriceoutput.js";
+  LegacyRecurringProductPrice,
+  LegacyRecurringProductPrice$inboundSchema,
+  LegacyRecurringProductPrice$Outbound,
+  LegacyRecurringProductPrice$outboundSchema,
+} from "./legacyrecurringproductprice.js";
 import {
   Organization,
   Organization$inboundSchema,
@@ -78,11 +78,11 @@ import {
   PaymentProcessor$outboundSchema,
 } from "./paymentprocessor.js";
 import {
-  ProductPriceOutput,
-  ProductPriceOutput$inboundSchema,
-  ProductPriceOutput$Outbound,
-  ProductPriceOutput$outboundSchema,
-} from "./productpriceoutput.js";
+  ProductPrice,
+  ProductPrice$inboundSchema,
+  ProductPrice$Outbound,
+  ProductPrice$outboundSchema,
+} from "./productprice.js";
 import {
   TrialInterval,
   TrialInterval$inboundSchema,
@@ -95,8 +95,8 @@ export type CheckoutPublicCustomFieldData = string | number | boolean | Date;
  * Price of the selected product.
  */
 export type CheckoutPublicProductPrice =
-  | LegacyRecurringProductPriceOutput
-  | ProductPriceOutput;
+  | LegacyRecurringProductPrice
+  | ProductPrice;
 
 export type CheckoutPublicDiscount =
   | CheckoutDiscountFixedRepeatDuration
@@ -266,7 +266,7 @@ export type CheckoutPublic = {
   /**
    * Price of the selected product.
    */
-  productPrice: LegacyRecurringProductPriceOutput | ProductPriceOutput;
+  productPrice: LegacyRecurringProductPrice | ProductPrice;
   discount:
     | CheckoutDiscountFixedRepeatDuration
     | CheckoutDiscountFixedOnceForeverDuration
@@ -274,7 +274,7 @@ export type CheckoutPublic = {
     | CheckoutDiscountPercentageOnceForeverDuration
     | null;
   organization: Organization;
-  attachedCustomFields: Array<AttachedCustomFieldOutput>;
+  attachedCustomFields: Array<AttachedCustomField>;
 };
 
 /** @internal */
@@ -347,14 +347,14 @@ export const CheckoutPublicProductPrice$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  LegacyRecurringProductPriceOutput$inboundSchema,
-  ProductPriceOutput$inboundSchema,
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
 ]);
 
 /** @internal */
 export type CheckoutPublicProductPrice$Outbound =
-  | LegacyRecurringProductPriceOutput$Outbound
-  | ProductPriceOutput$Outbound;
+  | LegacyRecurringProductPrice$Outbound
+  | ProductPrice$Outbound;
 
 /** @internal */
 export const CheckoutPublicProductPrice$outboundSchema: z.ZodType<
@@ -362,8 +362,8 @@ export const CheckoutPublicProductPrice$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CheckoutPublicProductPrice
 > = z.union([
-  LegacyRecurringProductPriceOutput$outboundSchema,
-  ProductPriceOutput$outboundSchema,
+  LegacyRecurringProductPrice$outboundSchema,
+  ProductPrice$outboundSchema,
 ]);
 
 /**
@@ -524,8 +524,8 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   products: z.array(CheckoutProduct$inboundSchema),
   product: CheckoutProduct$inboundSchema,
   product_price: z.union([
-    LegacyRecurringProductPriceOutput$inboundSchema,
-    ProductPriceOutput$inboundSchema,
+    LegacyRecurringProductPrice$inboundSchema,
+    ProductPrice$inboundSchema,
   ]),
   discount: z.nullable(
     z.union([
@@ -536,7 +536,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     ]),
   ),
   organization: Organization$inboundSchema,
-  attached_custom_fields: z.array(AttachedCustomFieldOutput$inboundSchema),
+  attached_custom_fields: z.array(AttachedCustomField$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -630,9 +630,7 @@ export type CheckoutPublic$Outbound = {
   billing_address_fields: CheckoutBillingAddressFields$Outbound;
   products: Array<CheckoutProduct$Outbound>;
   product: CheckoutProduct$Outbound;
-  product_price:
-    | LegacyRecurringProductPriceOutput$Outbound
-    | ProductPriceOutput$Outbound;
+  product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
   discount:
     | CheckoutDiscountFixedRepeatDuration$Outbound
     | CheckoutDiscountFixedOnceForeverDuration$Outbound
@@ -640,7 +638,7 @@ export type CheckoutPublic$Outbound = {
     | CheckoutDiscountPercentageOnceForeverDuration$Outbound
     | null;
   organization: Organization$Outbound;
-  attached_custom_fields: Array<AttachedCustomFieldOutput$Outbound>;
+  attached_custom_fields: Array<AttachedCustomField$Outbound>;
 };
 
 /** @internal */
@@ -704,8 +702,8 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   products: z.array(CheckoutProduct$outboundSchema),
   product: CheckoutProduct$outboundSchema,
   productPrice: z.union([
-    LegacyRecurringProductPriceOutput$outboundSchema,
-    ProductPriceOutput$outboundSchema,
+    LegacyRecurringProductPrice$outboundSchema,
+    ProductPrice$outboundSchema,
   ]),
   discount: z.nullable(
     z.union([
@@ -716,7 +714,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
     ]),
   ),
   organization: Organization$outboundSchema,
-  attachedCustomFields: z.array(AttachedCustomFieldOutput$outboundSchema),
+  attachedCustomFields: z.array(AttachedCustomField$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

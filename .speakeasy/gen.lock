@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: de7ecdd703b773b4918fdbdffc8a7291
+  docChecksum: d98f0afb6456414d1ff72ca3b167e5fd
   docVersion: 0.1.0
   speakeasyVersion: 1.637.3
   generationVersion: 2.727.9
-  releaseVersion: 0.38.0
-  configChecksum: 4750ad5240d8d65e1591b693a721a52b
+  releaseVersion: 0.38.1
+  configChecksum: 3b256adb8c214bcfe452048fa7615308
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -52,8 +52,8 @@ generatedFiles:
   - docs/models/components/addressinput.md
   - docs/models/components/aggregation.md
   - docs/models/components/aggregationfunction.md
+  - docs/models/components/attachedcustomfield.md
   - docs/models/components/attachedcustomfieldcreate.md
-  - docs/models/components/attachedcustomfieldoutput.md
   - docs/models/components/authorizationcodetokenrequest.md
   - docs/models/components/authorizeorganization.md
   - docs/models/components/authorizeresponseorganization.md
@@ -79,7 +79,7 @@ generatedFiles:
   - docs/models/components/benefitdiscordcreatemetadata.md
   - docs/models/components/benefitdiscordcreateproperties.md
   - docs/models/components/benefitdiscordmetadata.md
-  - docs/models/components/benefitdiscordpropertiesoutput.md
+  - docs/models/components/benefitdiscordproperties.md
   - docs/models/components/benefitdiscordsubscriber.md
   - docs/models/components/benefitdiscordsubscribermetadata.md
   - docs/models/components/benefitdiscordsubscriberproperties.md
@@ -202,6 +202,7 @@ generatedFiles:
   - docs/models/components/checkoutlinkupdatemetadata.md
   - docs/models/components/checkoutmetadata.md
   - docs/models/components/checkoutproduct.md
+  - docs/models/components/checkoutproductprice.md
   - docs/models/components/checkoutproductprices.md
   - docs/models/components/checkoutpublic.md
   - docs/models/components/checkoutpublicconfirmed.md
@@ -275,7 +276,7 @@ generatedFiles:
   - docs/models/components/customerpaymentmethodcreate.md
   - docs/models/components/customerpaymentmethodcreaterequiresactionresponse.md
   - docs/models/components/customerpaymentmethodcreateresponse.md
-  - docs/models/components/customerpaymentmethodcreatesucceededresponseoutput.md
+  - docs/models/components/customerpaymentmethodcreatesucceededresponse.md
   - docs/models/components/customerportalcustomer.md
   - docs/models/components/customerportalcustomertaxid.md
   - docs/models/components/customerportalcustomerupdate.md
@@ -423,10 +424,10 @@ generatedFiles:
   - docs/models/components/introspecttokenrequest.md
   - docs/models/components/introspecttokenrequesttokentypehint.md
   - docs/models/components/introspecttokenresponse.md
-  - docs/models/components/legacyrecurringproductpricecustomoutput.md
-  - docs/models/components/legacyrecurringproductpricefixedoutput.md
-  - docs/models/components/legacyrecurringproductpricefreeoutput.md
-  - docs/models/components/legacyrecurringproductpriceoutput.md
+  - docs/models/components/legacyrecurringproductprice.md
+  - docs/models/components/legacyrecurringproductpricecustom.md
+  - docs/models/components/legacyrecurringproductpricefixed.md
+  - docs/models/components/legacyrecurringproductpricefree.md
   - docs/models/components/licensekeyactivate.md
   - docs/models/components/licensekeyactivateconditions.md
   - docs/models/components/licensekeyactivatemeta.md
@@ -490,10 +491,10 @@ generatedFiles:
   - docs/models/components/meterupdatemetadata.md
   - docs/models/components/metric.md
   - docs/models/components/metricperiod.md
+  - docs/models/components/metrics.md
   - docs/models/components/metricsintervallimit.md
   - docs/models/components/metricsintervalslimits.md
   - docs/models/components/metricslimits.md
-  - docs/models/components/metricsoutput.md
   - docs/models/components/metricsresponse.md
   - docs/models/components/metricstotals.md
   - docs/models/components/metricstotalsactivesubscriptions.md
@@ -598,18 +599,17 @@ generatedFiles:
   - docs/models/components/productmediafileread.md
   - docs/models/components/productmetadata.md
   - docs/models/components/productprice.md
+  - docs/models/components/productpricecustom.md
   - docs/models/components/productpricecustomcreate.md
-  - docs/models/components/productpricecustomoutput.md
+  - docs/models/components/productpricefixed.md
   - docs/models/components/productpricefixedcreate.md
-  - docs/models/components/productpricefixedoutput.md
+  - docs/models/components/productpricefree.md
   - docs/models/components/productpricefreecreate.md
-  - docs/models/components/productpricefreeoutput.md
   - docs/models/components/productpricemeter.md
+  - docs/models/components/productpricemeteredunit.md
   - docs/models/components/productpricemeteredunitcreate.md
-  - docs/models/components/productpricemeteredunitoutput.md
-  - docs/models/components/productpriceoutput.md
+  - docs/models/components/productpriceseatbased.md
   - docs/models/components/productpriceseatbasedcreate.md
-  - docs/models/components/productpriceseatbasedoutput.md
   - docs/models/components/productpriceseattier.md
   - docs/models/components/productpriceseattiers.md
   - docs/models/components/productpricetype.md
@@ -726,27 +726,27 @@ generatedFiles:
   - docs/models/components/webtokenrequest.md
   - docs/models/components/webtokenrequestsubtype.md
   - docs/models/errors/alreadyactivesubscriptionerror.md
+  - docs/models/errors/alreadycanceledsubscription.md
   - docs/models/errors/checkoutforbiddenerror.md
   - docs/models/errors/customernotready.md
   - docs/models/errors/customerportalordersgenerateinvoiceresponse422customerportalordersgenerateinvoice.md
   - docs/models/errors/expiredcheckouterror.md
   - docs/models/errors/httpvalidationerror.md
+  - docs/models/errors/invoicealreadyexists.md
+  - docs/models/errors/missinginvoicebillingdetails.md
   - docs/models/errors/notopencheckout.md
+  - docs/models/errors/notpaidorder.md
+  - docs/models/errors/notpermitted.md
   - docs/models/errors/ordernoteligibleforretry.md
   - docs/models/errors/ordersgenerateinvoiceresponse422ordersgenerateinvoice.md
   - docs/models/errors/paymentalreadyinprogress.md
   - docs/models/errors/paymenterror.md
   - docs/models/errors/paymentmethodinusebyactivesubscription.md
   - docs/models/errors/paymentnotready.md
-  - docs/models/errors/polarexceptionsalreadycanceledsubscription.md
-  - docs/models/errors/polarexceptionsinvoicealreadyexists.md
-  - docs/models/errors/polarexceptionsmissinginvoicebillingdetails.md
-  - docs/models/errors/polarexceptionsnotpaidorder.md
-  - docs/models/errors/polarexceptionsnotpermitted.md
-  - docs/models/errors/polarexceptionsresourcenotfound.md
-  - docs/models/errors/polarexceptionssubscriptionlocked.md
   - docs/models/errors/refundamounttoohigh.md
   - docs/models/errors/refundedalready.md
+  - docs/models/errors/resourcenotfound.md
+  - docs/models/errors/subscriptionlocked.md
   - docs/models/errors/unauthorized.md
   - docs/models/operations/benefitgrantslistqueryparamcustomeridfilter.md
   - docs/models/operations/benefitgrantslistqueryparamorganizationidfilter.md
@@ -1213,8 +1213,8 @@ generatedFiles:
   - src/models/components/address.ts
   - src/models/components/addressinput.ts
   - src/models/components/aggregationfunction.ts
+  - src/models/components/attachedcustomfield.ts
   - src/models/components/attachedcustomfieldcreate.ts
-  - src/models/components/attachedcustomfieldoutput.ts
   - src/models/components/authorizationcodetokenrequest.ts
   - src/models/components/authorizeorganization.ts
   - src/models/components/authorizeresponseorganization.ts
@@ -1233,7 +1233,7 @@ generatedFiles:
   - src/models/components/benefitdiscord.ts
   - src/models/components/benefitdiscordcreate.ts
   - src/models/components/benefitdiscordcreateproperties.ts
-  - src/models/components/benefitdiscordpropertiesoutput.ts
+  - src/models/components/benefitdiscordproperties.ts
   - src/models/components/benefitdiscordsubscriber.ts
   - src/models/components/benefitdiscordsubscriberproperties.ts
   - src/models/components/benefitdiscordupdate.ts
@@ -1360,7 +1360,7 @@ generatedFiles:
   - src/models/components/customerpaymentmethodcreate.ts
   - src/models/components/customerpaymentmethodcreaterequiresactionresponse.ts
   - src/models/components/customerpaymentmethodcreateresponse.ts
-  - src/models/components/customerpaymentmethodcreatesucceededresponseoutput.ts
+  - src/models/components/customerpaymentmethodcreatesucceededresponse.ts
   - src/models/components/customerportalcustomer.ts
   - src/models/components/customerportalcustomerupdate.ts
   - src/models/components/customerportaloauthaccount.ts
@@ -1458,10 +1458,10 @@ generatedFiles:
   - src/models/components/genericpayment.ts
   - src/models/components/introspecttokenrequest.ts
   - src/models/components/introspecttokenresponse.ts
-  - src/models/components/legacyrecurringproductpricecustomoutput.ts
-  - src/models/components/legacyrecurringproductpricefixedoutput.ts
-  - src/models/components/legacyrecurringproductpricefreeoutput.ts
-  - src/models/components/legacyrecurringproductpriceoutput.ts
+  - src/models/components/legacyrecurringproductprice.ts
+  - src/models/components/legacyrecurringproductpricecustom.ts
+  - src/models/components/legacyrecurringproductpricefixed.ts
+  - src/models/components/legacyrecurringproductpricefree.ts
   - src/models/components/licensekeyactivate.ts
   - src/models/components/licensekeyactivationbase.ts
   - src/models/components/licensekeyactivationread.ts
@@ -1511,10 +1511,10 @@ generatedFiles:
   - src/models/components/meterupdate.ts
   - src/models/components/metric.ts
   - src/models/components/metricperiod.ts
+  - src/models/components/metrics.ts
   - src/models/components/metricsintervallimit.ts
   - src/models/components/metricsintervalslimits.ts
   - src/models/components/metricslimits.ts
-  - src/models/components/metricsoutput.ts
   - src/models/components/metricsresponse.ts
   - src/models/components/metricstotals.ts
   - src/models/components/metrictype.ts
@@ -1560,18 +1560,18 @@ generatedFiles:
   - src/models/components/productcreaterecurring.ts
   - src/models/components/productmediafilecreate.ts
   - src/models/components/productmediafileread.ts
+  - src/models/components/productprice.ts
+  - src/models/components/productpricecustom.ts
   - src/models/components/productpricecustomcreate.ts
-  - src/models/components/productpricecustomoutput.ts
+  - src/models/components/productpricefixed.ts
   - src/models/components/productpricefixedcreate.ts
-  - src/models/components/productpricefixedoutput.ts
+  - src/models/components/productpricefree.ts
   - src/models/components/productpricefreecreate.ts
-  - src/models/components/productpricefreeoutput.ts
   - src/models/components/productpricemeter.ts
+  - src/models/components/productpricemeteredunit.ts
   - src/models/components/productpricemeteredunitcreate.ts
-  - src/models/components/productpricemeteredunitoutput.ts
-  - src/models/components/productpriceoutput.ts
+  - src/models/components/productpriceseatbased.ts
   - src/models/components/productpriceseatbasedcreate.ts
-  - src/models/components/productpriceseatbasedoutput.ts
   - src/models/components/productpriceseattier.ts
   - src/models/components/productpriceseattiers.ts
   - src/models/components/productpricetype.ts
@@ -1666,13 +1666,18 @@ generatedFiles:
   - src/models/components/webhooksubscriptionupdatedpayload.ts
   - src/models/components/webtokenrequest.ts
   - src/models/errors/alreadyactivesubscriptionerror.ts
+  - src/models/errors/alreadycanceledsubscription.ts
   - src/models/errors/checkoutforbiddenerror.ts
   - src/models/errors/customernotready.ts
   - src/models/errors/customerportalordersgenerateinvoice.ts
   - src/models/errors/expiredcheckouterror.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/httpvalidationerror.ts
+  - src/models/errors/invoicealreadyexists.ts
+  - src/models/errors/missinginvoicebillingdetails.ts
   - src/models/errors/notopencheckout.ts
+  - src/models/errors/notpaidorder.ts
+  - src/models/errors/notpermitted.ts
   - src/models/errors/ordernoteligibleforretry.ts
   - src/models/errors/ordersgenerateinvoice.ts
   - src/models/errors/paymentalreadyinprogress.ts
@@ -1680,18 +1685,13 @@ generatedFiles:
   - src/models/errors/paymentmethodinusebyactivesubscription.ts
   - src/models/errors/paymentnotready.ts
   - src/models/errors/polarerror.ts
-  - src/models/errors/polarexceptionsalreadycanceledsubscription.ts
-  - src/models/errors/polarexceptionsinvoicealreadyexists.ts
-  - src/models/errors/polarexceptionsmissinginvoicebillingdetails.ts
-  - src/models/errors/polarexceptionsnotpaidorder.ts
-  - src/models/errors/polarexceptionsnotpermitted.ts
-  - src/models/errors/polarexceptionsresourcenotfound.ts
-  - src/models/errors/polarexceptionssubscriptionlocked.ts
   - src/models/errors/refundamounttoohigh.ts
   - src/models/errors/refundedalready.ts
+  - src/models/errors/resourcenotfound.ts
   - src/models/errors/responsevalidationerror.ts
   - src/models/errors/sdkerror.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/subscriptionlocked.ts
   - src/models/errors/unauthorized.ts
   - src/models/operations/benefitgrantslist.ts
   - src/models/operations/benefitsdelete.ts

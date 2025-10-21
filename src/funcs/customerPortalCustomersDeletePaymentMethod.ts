@@ -28,9 +28,9 @@ import {
 } from "../models/errors/paymentmethodinusebyactivesubscription.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import {
-  PolarExceptionsResourceNotFound,
-  PolarExceptionsResourceNotFound$inboundSchema,
-} from "../models/errors/polarexceptionsresourcenotfound.js";
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
@@ -58,7 +58,7 @@ export function customerPortalCustomersDeletePaymentMethod(
   Result<
     void,
     | PaymentMethodInUseByActiveSubscription
-    | PolarExceptionsResourceNotFound
+    | ResourceNotFound
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -88,7 +88,7 @@ async function $do(
     Result<
       void,
       | PaymentMethodInUseByActiveSubscription
-      | PolarExceptionsResourceNotFound
+      | ResourceNotFound
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -189,7 +189,7 @@ async function $do(
   const [result] = await M.match<
     void,
     | PaymentMethodInUseByActiveSubscription
-    | PolarExceptionsResourceNotFound
+    | ResourceNotFound
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -202,7 +202,7 @@ async function $do(
   >(
     M.nil(204, z.void()),
     M.jsonErr(400, PaymentMethodInUseByActiveSubscription$inboundSchema),
-    M.jsonErr(404, PolarExceptionsResourceNotFound$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
