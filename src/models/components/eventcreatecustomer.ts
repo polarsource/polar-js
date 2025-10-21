@@ -7,26 +7,14 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export type EventCreateCustomerMetadata = string | number | number | boolean;
+import {
+  EventMetadataInput,
+  EventMetadataInput$inboundSchema,
+  EventMetadataInput$Outbound,
+  EventMetadataInput$outboundSchema,
+} from "./eventmetadatainput.js";
 
 export type EventCreateCustomer = {
-  /**
-   * Key-value object allowing you to store additional information.
-   *
-   * @remarks
-   *
-   * The key must be a string with a maximum length of **40 characters**.
-   * The value must be either:
-   *
-   * * A string with a maximum length of **500 characters**
-   * * An integer
-   * * A floating-point number
-   * * A boolean
-   *
-   * You can store up to **50 key-value pairs**.
-   */
-  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   /**
    * The timestamp of the event.
    */
@@ -39,6 +27,7 @@ export type EventCreateCustomer = {
    * The ID of the organization owning the event. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
+  metadata?: { [k: string]: EventMetadataInput } | undefined;
   /**
    * ID of the customer in your Polar organization associated with the event.
    */
@@ -46,72 +35,16 @@ export type EventCreateCustomer = {
 };
 
 /** @internal */
-export const EventCreateCustomerMetadata$inboundSchema: z.ZodType<
-  EventCreateCustomerMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
-export type EventCreateCustomerMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const EventCreateCustomerMetadata$outboundSchema: z.ZodType<
-  EventCreateCustomerMetadata$Outbound,
-  z.ZodTypeDef,
-  EventCreateCustomerMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventCreateCustomerMetadata$ {
-  /** @deprecated use `EventCreateCustomerMetadata$inboundSchema` instead. */
-  export const inboundSchema = EventCreateCustomerMetadata$inboundSchema;
-  /** @deprecated use `EventCreateCustomerMetadata$outboundSchema` instead. */
-  export const outboundSchema = EventCreateCustomerMetadata$outboundSchema;
-  /** @deprecated use `EventCreateCustomerMetadata$Outbound` instead. */
-  export type Outbound = EventCreateCustomerMetadata$Outbound;
-}
-
-export function eventCreateCustomerMetadataToJSON(
-  eventCreateCustomerMetadata: EventCreateCustomerMetadata,
-): string {
-  return JSON.stringify(
-    EventCreateCustomerMetadata$outboundSchema.parse(
-      eventCreateCustomerMetadata,
-    ),
-  );
-}
-
-export function eventCreateCustomerMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<EventCreateCustomerMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EventCreateCustomerMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EventCreateCustomerMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const EventCreateCustomer$inboundSchema: z.ZodType<
   EventCreateCustomer,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
   name: z.string(),
   organization_id: z.nullable(z.string()).optional(),
+  metadata: z.record(EventMetadataInput$inboundSchema).optional(),
   customer_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
@@ -122,10 +55,10 @@ export const EventCreateCustomer$inboundSchema: z.ZodType<
 
 /** @internal */
 export type EventCreateCustomer$Outbound = {
-  metadata?: { [k: string]: string | number | number | boolean } | undefined;
   timestamp?: string | undefined;
   name: string;
   organization_id?: string | null | undefined;
+  metadata?: { [k: string]: EventMetadataInput$Outbound } | undefined;
   customer_id: string;
 };
 
@@ -135,12 +68,10 @@ export const EventCreateCustomer$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EventCreateCustomer
 > = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
   timestamp: z.date().transform(v => v.toISOString()).optional(),
   name: z.string(),
   organizationId: z.nullable(z.string()).optional(),
+  metadata: z.record(EventMetadataInput$outboundSchema).optional(),
   customerId: z.string(),
 }).transform((v) => {
   return remap$(v, {

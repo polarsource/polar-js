@@ -1,28 +1,28 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
-  Polar-OAS:
-    inputs:
-      - location: https://api.polar.sh/openapi.json
-    overlays:
-      - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/security.yml
-      - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/type_parameter.yml
-      - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/read_only.yml
-      - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/event_discriminator.yml
-      - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/timezone_enum.yml
-      - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/event_metadata.yml
-    registry:
-      location: registry.speakeasyapi.dev/polar/polar/polar-oas
+    Polar-OAS:
+        inputs:
+            - location: https://api.polar.sh/openapi.json
+        overlays:
+            - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/security.yml
+            - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/type_parameter.yml
+            - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/read_only.yml
+            - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/event_discriminator.yml
+            - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/timezone_enum.yml
+            - location: https://raw.githubusercontent.com/polarsource/polar/main/sdk/overlays/event_metadata.yml
+        registry:
+            location: registry.speakeasyapi.dev/polar/polar/polar-oas
 targets:
-  polar:
-    target: typescript
-    source: Polar-OAS
-    publish:
-      npm:
-        token: $npm_token
-    codeSamples:
-      output: codeSamples.yaml
-      registry:
-        location: registry.speakeasyapi.dev/polar/polar/polar-oas-ts-code-samples
-      labelOverride:
-        fixedValue: Typescript (SDK)
+    polar:
+        target: typescript
+        source: Polar-OAS
+        publish:
+            npm:
+                token: $npm_token
+        codeSamples:
+            output: codeSamples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/polar/polar/polar-oas-ts-code-samples
+            labelOverride:
+                fixedValue: Typescript (SDK)

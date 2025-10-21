@@ -254,11 +254,11 @@ run();
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ResourceNotFound    | 404                        | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
+| errors.HTTPValidationError             | 422                                    | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
 
 ## update
 
@@ -341,14 +341,14 @@ run();
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| errors.AlreadyActiveSubscriptionError | 403                                   | application/json                      |
-| errors.NotOpenCheckout                | 403                                   | application/json                      |
-| errors.PaymentNotReady                | 403                                   | application/json                      |
-| errors.ResourceNotFound               | 404                                   | application/json                      |
-| errors.HTTPValidationError            | 422                                   | application/json                      |
-| errors.SDKError                       | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.AlreadyActiveSubscriptionError  | 403                                    | application/json                       |
+| errors.NotOpenCheckout                 | 403                                    | application/json                       |
+| errors.PaymentNotReady                 | 403                                    | application/json                       |
+| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
+| errors.HTTPValidationError             | 422                                    | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
 
 ## clientGet
 
@@ -415,12 +415,12 @@ run();
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ResourceNotFound     | 404                         | application/json            |
-| errors.ExpiredCheckoutError | 410                         | application/json            |
-| errors.HTTPValidationError  | 422                         | application/json            |
-| errors.SDKError             | 4XX, 5XX                    | \*/\*                       |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
+| errors.ExpiredCheckoutError            | 410                                    | application/json                       |
+| errors.HTTPValidationError             | 422                                    | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
 
 ## clientUpdate
 
@@ -497,15 +497,15 @@ run();
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| errors.AlreadyActiveSubscriptionError | 403                                   | application/json                      |
-| errors.NotOpenCheckout                | 403                                   | application/json                      |
-| errors.PaymentNotReady                | 403                                   | application/json                      |
-| errors.ResourceNotFound               | 404                                   | application/json                      |
-| errors.ExpiredCheckoutError           | 410                                   | application/json                      |
-| errors.HTTPValidationError            | 422                                   | application/json                      |
-| errors.SDKError                       | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.AlreadyActiveSubscriptionError  | 403                                    | application/json                       |
+| errors.NotOpenCheckout                 | 403                                    | application/json                       |
+| errors.PaymentNotReady                 | 403                                    | application/json                       |
+| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
+| errors.ExpiredCheckoutError            | 410                                    | application/json                       |
+| errors.HTTPValidationError             | 422                                    | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
 
 ## clientConfirm
 
@@ -588,13 +588,13 @@ run();
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| errors.PaymentError                   | 400                                   | application/json                      |
-| errors.AlreadyActiveSubscriptionError | 403                                   | application/json                      |
-| errors.NotOpenCheckout                | 403                                   | application/json                      |
-| errors.PaymentNotReady                | 403                                   | application/json                      |
-| errors.ResourceNotFound               | 404                                   | application/json                      |
-| errors.ExpiredCheckoutError           | 410                                   | application/json                      |
-| errors.HTTPValidationError            | 422                                   | application/json                      |
-| errors.SDKError                       | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.PaymentError                    | 400                                    | application/json                       |
+| errors.AlreadyActiveSubscriptionError  | 403                                    | application/json                       |
+| errors.NotOpenCheckout                 | 403                                    | application/json                       |
+| errors.PaymentNotReady                 | 403                                    | application/json                       |
+| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
+| errors.ExpiredCheckoutError            | 410                                    | application/json                       |
+| errors.HTTPValidationError             | 422                                    | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |

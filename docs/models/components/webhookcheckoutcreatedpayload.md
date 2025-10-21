@@ -121,17 +121,32 @@ let value: WebhookCheckoutCreatedPayload = {
     discount: {
       duration: "once",
       type: "fixed",
-      amount: 128198,
-      currency: "Belize Dollar",
+      amount: 1000,
+      currency: "usd",
       id: "<value>",
       name: "<value>",
       code: "<value>",
     },
     subscriptionId: "<value>",
-    attachedCustomFields: [],
-    customerMetadata: {
-      "key": 124713,
-    },
+    attachedCustomFields: [
+      {
+        customFieldId: "<value>",
+        customField: {
+          createdAt: new Date("2024-06-30T20:57:53.724Z"),
+          modifiedAt: new Date("2024-03-04T15:14:18.502Z"),
+          id: "<value>",
+          metadata: {},
+          type: "number",
+          slug: "<value>",
+          name: "<value>",
+          organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+          properties: {},
+        },
+        order: 763945,
+        required: true,
+      },
+    ],
+    customerMetadata: {},
   },
 };
 ```

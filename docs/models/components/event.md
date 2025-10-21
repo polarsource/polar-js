@@ -48,13 +48,10 @@ const value: components.SystemEvent = {
 
 ```typescript
 const value: components.UserEvent = {
-  metadata: {
-    "key": 455520,
-  },
   id: "<value>",
-  timestamp: new Date("2025-07-02T08:53:17.572Z"),
+  timestamp: new Date("2025-05-06T21:56:49.639Z"),
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  customerId: null,
+  customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
     createdAt: new Date("2024-04-26T10:19:45.222Z"),
@@ -80,6 +77,7 @@ const value: components.UserEvent = {
   externalCustomerId: "<id>",
   name: "<value>",
   source: "user",
+  metadata: {},
 };
 ```
 

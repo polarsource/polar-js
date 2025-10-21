@@ -12,24 +12,18 @@ const value: components.CustomerPaymentMethodCreateRequiresActionResponse = {
 };
 ```
 
-### `components.CustomerPaymentMethodCreateSucceededResponse`
+### `components.CustomerPaymentMethodCreateSucceededResponseOutput`
 
 ```typescript
-const value: components.CustomerPaymentMethodCreateSucceededResponse = {
+const value: components.CustomerPaymentMethodCreateSucceededResponseOutput = {
   status: "succeeded",
   paymentMethod: {
     id: "<value>",
-    createdAt: new Date("2024-10-23T19:49:37.911Z"),
-    modifiedAt: new Date("2023-09-26T15:17:52.236Z"),
+    createdAt: new Date("2024-11-15T20:39:26.296Z"),
+    modifiedAt: new Date("2025-01-26T13:09:14.316Z"),
     processor: "stripe",
     customerId: "<value>",
-    type: "card",
-    methodMetadata: {
-      brand: "<value>",
-      last4: "<value>",
-      expMonth: 438108,
-      expYear: 447179,
-    },
+    type: "<value>",
   },
 };
 ```

@@ -13,11 +13,11 @@ import {
   MetricPeriod$outboundSchema,
 } from "./metricperiod.js";
 import {
-  Metrics,
-  Metrics$inboundSchema,
-  Metrics$Outbound,
-  Metrics$outboundSchema,
-} from "./metrics.js";
+  MetricsOutput,
+  MetricsOutput$inboundSchema,
+  MetricsOutput$Outbound,
+  MetricsOutput$outboundSchema,
+} from "./metricsoutput.js";
 import {
   MetricsTotals,
   MetricsTotals$inboundSchema,
@@ -34,7 +34,7 @@ export type MetricsResponse = {
    */
   periods: Array<MetricPeriod>;
   totals: MetricsTotals;
-  metrics: Metrics;
+  metrics: MetricsOutput;
 };
 
 /** @internal */
@@ -45,14 +45,14 @@ export const MetricsResponse$inboundSchema: z.ZodType<
 > = z.object({
   periods: z.array(MetricPeriod$inboundSchema),
   totals: MetricsTotals$inboundSchema,
-  metrics: Metrics$inboundSchema,
+  metrics: MetricsOutput$inboundSchema,
 });
 
 /** @internal */
 export type MetricsResponse$Outbound = {
   periods: Array<MetricPeriod$Outbound>;
   totals: MetricsTotals$Outbound;
-  metrics: Metrics$Outbound;
+  metrics: MetricsOutput$Outbound;
 };
 
 /** @internal */
@@ -63,7 +63,7 @@ export const MetricsResponse$outboundSchema: z.ZodType<
 > = z.object({
   periods: z.array(MetricPeriod$outboundSchema),
   totals: MetricsTotals$outboundSchema,
-  metrics: Metrics$outboundSchema,
+  metrics: MetricsOutput$outboundSchema,
 });
 
 /**

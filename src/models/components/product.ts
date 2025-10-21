@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AttachedCustomField,
-  AttachedCustomField$inboundSchema,
-  AttachedCustomField$Outbound,
-  AttachedCustomField$outboundSchema,
-} from "./attachedcustomfield.js";
+  AttachedCustomFieldOutput,
+  AttachedCustomFieldOutput$inboundSchema,
+  AttachedCustomFieldOutput$Outbound,
+  AttachedCustomFieldOutput$outboundSchema,
+} from "./attachedcustomfieldoutput.js";
 import {
   Benefit,
   Benefit$inboundSchema,
@@ -20,11 +20,11 @@ import {
   Benefit$outboundSchema,
 } from "./benefit.js";
 import {
-  LegacyRecurringProductPrice,
-  LegacyRecurringProductPrice$inboundSchema,
-  LegacyRecurringProductPrice$Outbound,
-  LegacyRecurringProductPrice$outboundSchema,
-} from "./legacyrecurringproductprice.js";
+  LegacyRecurringProductPriceOutput,
+  LegacyRecurringProductPriceOutput$inboundSchema,
+  LegacyRecurringProductPriceOutput$Outbound,
+  LegacyRecurringProductPriceOutput$outboundSchema,
+} from "./legacyrecurringproductpriceoutput.js";
 import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
@@ -32,11 +32,11 @@ import {
   ProductMediaFileRead$outboundSchema,
 } from "./productmediafileread.js";
 import {
-  ProductPrice,
-  ProductPrice$inboundSchema,
-  ProductPrice$Outbound,
-  ProductPrice$outboundSchema,
-} from "./productprice.js";
+  ProductPriceOutput,
+  ProductPriceOutput$inboundSchema,
+  ProductPriceOutput$Outbound,
+  ProductPriceOutput$outboundSchema,
+} from "./productpriceoutput.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
@@ -50,7 +50,7 @@ import {
 
 export type ProductMetadata = string | number | number | boolean;
 
-export type Prices = LegacyRecurringProductPrice | ProductPrice;
+export type Prices = LegacyRecurringProductPriceOutput | ProductPriceOutput;
 
 /**
  * A product.
@@ -104,7 +104,7 @@ export type Product = {
   /**
    * List of prices for this product.
    */
-  prices: Array<LegacyRecurringProductPrice | ProductPrice>;
+  prices: Array<LegacyRecurringProductPriceOutput | ProductPriceOutput>;
   /**
    * List of benefits granted by the product.
    */
@@ -116,7 +116,7 @@ export type Product = {
   /**
    * List of custom fields attached to the product.
    */
-  attachedCustomFields: Array<AttachedCustomField>;
+  attachedCustomFields: Array<AttachedCustomFieldOutput>;
 };
 
 /** @internal */
@@ -168,14 +168,14 @@ export function productMetadataFromJSON(
 /** @internal */
 export const Prices$inboundSchema: z.ZodType<Prices, z.ZodTypeDef, unknown> = z
   .union([
-    LegacyRecurringProductPrice$inboundSchema,
-    ProductPrice$inboundSchema,
+    LegacyRecurringProductPriceOutput$inboundSchema,
+    ProductPriceOutput$inboundSchema,
   ]);
 
 /** @internal */
 export type Prices$Outbound =
-  | LegacyRecurringProductPrice$Outbound
-  | ProductPrice$Outbound;
+  | LegacyRecurringProductPriceOutput$Outbound
+  | ProductPriceOutput$Outbound;
 
 /** @internal */
 export const Prices$outboundSchema: z.ZodType<
@@ -183,8 +183,8 @@ export const Prices$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Prices
 > = z.union([
-  LegacyRecurringProductPrice$outboundSchema,
-  ProductPrice$outboundSchema,
+  LegacyRecurringProductPriceOutput$outboundSchema,
+  ProductPriceOutput$outboundSchema,
 ]);
 
 /**
@@ -237,13 +237,13 @@ export const Product$inboundSchema: z.ZodType<Product, z.ZodTypeDef, unknown> =
     ),
     prices: z.array(
       z.union([
-        LegacyRecurringProductPrice$inboundSchema,
-        ProductPrice$inboundSchema,
+        LegacyRecurringProductPriceOutput$inboundSchema,
+        ProductPriceOutput$inboundSchema,
       ]),
     ),
     benefits: z.array(Benefit$inboundSchema),
     medias: z.array(ProductMediaFileRead$inboundSchema),
-    attached_custom_fields: z.array(AttachedCustomField$inboundSchema),
+    attached_custom_fields: z.array(AttachedCustomFieldOutput$inboundSchema),
   }).transform((v) => {
     return remap$(v, {
       "created_at": "createdAt",
@@ -272,10 +272,12 @@ export type Product$Outbound = {
   is_archived: boolean;
   organization_id: string;
   metadata: { [k: string]: string | number | number | boolean };
-  prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
+  prices: Array<
+    LegacyRecurringProductPriceOutput$Outbound | ProductPriceOutput$Outbound
+  >;
   benefits: Array<Benefit$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
-  attached_custom_fields: Array<AttachedCustomField$Outbound>;
+  attached_custom_fields: Array<AttachedCustomFieldOutput$Outbound>;
 };
 
 /** @internal */
@@ -300,13 +302,13 @@ export const Product$outboundSchema: z.ZodType<
   ),
   prices: z.array(
     z.union([
-      LegacyRecurringProductPrice$outboundSchema,
-      ProductPrice$outboundSchema,
+      LegacyRecurringProductPriceOutput$outboundSchema,
+      ProductPriceOutput$outboundSchema,
     ]),
   ),
   benefits: z.array(Benefit$outboundSchema),
   medias: z.array(ProductMediaFileRead$outboundSchema),
-  attachedCustomFields: z.array(AttachedCustomField$outboundSchema),
+  attachedCustomFields: z.array(AttachedCustomFieldOutput$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

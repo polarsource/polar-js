@@ -3,12 +3,12 @@
 
 ## Supported Types
 
-### `components.LegacyRecurringProductPrice`
+### `components.LegacyRecurringProductPriceOutput`
 
 ```typescript
-const value: components.LegacyRecurringProductPrice = {
-  createdAt: new Date("2025-03-28T17:53:12.899Z"),
-  modifiedAt: new Date("2025-10-27T07:25:25.401Z"),
+const value: components.LegacyRecurringProductPriceOutput = {
+  createdAt: new Date("2024-02-21T03:40:23.245Z"),
+  modifiedAt: null,
   id: "<value>",
   amountType: "custom",
   isArchived: false,
@@ -16,33 +16,27 @@ const value: components.LegacyRecurringProductPrice = {
   type: "recurring",
   recurringInterval: "year",
   priceCurrency: "<value>",
-  minimumAmount: 904838,
-  maximumAmount: 47410,
-  presetAmount: 774085,
+  minimumAmount: 714639,
+  maximumAmount: 632380,
+  presetAmount: 459918,
   legacy: true,
 };
 ```
 
-### `components.ProductPrice`
+### `components.ProductPriceOutput`
 
 ```typescript
-const value: components.ProductPrice = {
-  createdAt: new Date("2023-11-12T09:36:50.641Z"),
-  modifiedAt: null,
+const value: components.ProductPriceOutput = {
+  createdAt: new Date("2024-04-20T08:56:48.445Z"),
+  modifiedAt: new Date("2025-12-01T06:09:25.237Z"),
   id: "<value>",
-  amountType: "metered_unit",
-  isArchived: false,
+  amountType: "fixed",
+  isArchived: true,
   productId: "<value>",
-  type: "one_time",
-  recurringInterval: "year",
+  type: "recurring",
+  recurringInterval: "month",
   priceCurrency: "<value>",
-  unitAmount: "<value>",
-  capAmount: 519813,
-  meterId: "<value>",
-  meter: {
-    id: "<value>",
-    name: "<value>",
-  },
+  priceAmount: 965900,
 };
 ```
 

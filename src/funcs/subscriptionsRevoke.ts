@@ -15,10 +15,6 @@ import {
   Subscription$inboundSchema,
 } from "../models/components/subscription.js";
 import {
-  AlreadyCanceledSubscription,
-  AlreadyCanceledSubscription$inboundSchema,
-} from "../models/errors/alreadycanceledsubscription.js";
-import {
   ConnectionError,
   InvalidRequestError,
   RequestAbortedError,
@@ -31,15 +27,19 @@ import {
 } from "../models/errors/httpvalidationerror.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import {
-  ResourceNotFound,
-  ResourceNotFound$inboundSchema,
-} from "../models/errors/resourcenotfound.js";
+  PolarExceptionsAlreadyCanceledSubscription,
+  PolarExceptionsAlreadyCanceledSubscription$inboundSchema,
+} from "../models/errors/polarexceptionsalreadycanceledsubscription.js";
+import {
+  PolarExceptionsResourceNotFound,
+  PolarExceptionsResourceNotFound$inboundSchema,
+} from "../models/errors/polarexceptionsresourcenotfound.js";
+import {
+  PolarExceptionsSubscriptionLocked,
+  PolarExceptionsSubscriptionLocked$inboundSchema,
+} from "../models/errors/polarexceptionssubscriptionlocked.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import {
-  SubscriptionLocked,
-  SubscriptionLocked$inboundSchema,
-} from "../models/errors/subscriptionlocked.js";
 import {
   SubscriptionsRevokeRequest,
   SubscriptionsRevokeRequest$outboundSchema,
@@ -62,9 +62,9 @@ export function subscriptionsRevoke(
 ): APIPromise<
   Result<
     Subscription,
-    | AlreadyCanceledSubscription
-    | ResourceNotFound
-    | SubscriptionLocked
+    | PolarExceptionsAlreadyCanceledSubscription
+    | PolarExceptionsResourceNotFound
+    | PolarExceptionsSubscriptionLocked
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -91,9 +91,9 @@ async function $do(
   [
     Result<
       Subscription,
-      | AlreadyCanceledSubscription
-      | ResourceNotFound
-      | SubscriptionLocked
+      | PolarExceptionsAlreadyCanceledSubscription
+      | PolarExceptionsResourceNotFound
+      | PolarExceptionsSubscriptionLocked
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -182,9 +182,9 @@ async function $do(
 
   const [result] = await M.match<
     Subscription,
-    | AlreadyCanceledSubscription
-    | ResourceNotFound
-    | SubscriptionLocked
+    | PolarExceptionsAlreadyCanceledSubscription
+    | PolarExceptionsResourceNotFound
+    | PolarExceptionsSubscriptionLocked
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -196,9 +196,9 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, Subscription$inboundSchema),
-    M.jsonErr(403, AlreadyCanceledSubscription$inboundSchema),
-    M.jsonErr(404, ResourceNotFound$inboundSchema),
-    M.jsonErr(409, SubscriptionLocked$inboundSchema),
+    M.jsonErr(403, PolarExceptionsAlreadyCanceledSubscription$inboundSchema),
+    M.jsonErr(404, PolarExceptionsResourceNotFound$inboundSchema),
+    M.jsonErr(409, PolarExceptionsSubscriptionLocked$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

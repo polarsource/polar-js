@@ -27,9 +27,9 @@ import {
 } from "../models/errors/httpvalidationerror.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import {
-  ResourceNotFound,
-  ResourceNotFound$inboundSchema,
-} from "../models/errors/resourcenotfound.js";
+  PolarExceptionsResourceNotFound,
+  PolarExceptionsResourceNotFound$inboundSchema,
+} from "../models/errors/polarexceptionsresourcenotfound.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
@@ -56,7 +56,7 @@ export function customerPortalCustomerMetersGet(
 ): APIPromise<
   Result<
     CustomerCustomerMeter,
-    | ResourceNotFound
+    | PolarExceptionsResourceNotFound
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -85,7 +85,7 @@ async function $do(
   [
     Result<
       CustomerCustomerMeter,
-      | ResourceNotFound
+      | PolarExceptionsResourceNotFound
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -181,7 +181,7 @@ async function $do(
 
   const [result] = await M.match<
     CustomerCustomerMeter,
-    | ResourceNotFound
+    | PolarExceptionsResourceNotFound
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -193,7 +193,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, CustomerCustomerMeter$inboundSchema),
-    M.jsonErr(404, ResourceNotFound$inboundSchema),
+    M.jsonErr(404, PolarExceptionsResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

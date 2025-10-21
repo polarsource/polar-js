@@ -80,22 +80,22 @@ let value: CheckoutLink = {
   discount: {
     duration: "repeating",
     type: "fixed",
-    basisPoints: 656243,
-    createdAt: new Date("2025-07-30T08:08:42.784Z"),
-    modifiedAt: new Date("2024-11-03T14:01:12.012Z"),
+    basisPoints: 1000,
+    createdAt: new Date("2024-12-20T05:49:14.049Z"),
+    modifiedAt: new Date("2024-05-06T01:19:34.835Z"),
     id: "<value>",
     metadata: {
       "key": false,
     },
     name: "<value>",
     code: "<value>",
-    startsAt: new Date("2023-09-11T21:19:06.321Z"),
-    endsAt: new Date("2024-02-22T15:23:18.774Z"),
-    maxRedemptions: 850103,
-    redemptionsCount: 847946,
+    startsAt: new Date("2024-10-09T16:49:56.134Z"),
+    endsAt: new Date("2024-03-09T11:07:39.349Z"),
+    maxRedemptions: 231585,
+    redemptionsCount: 850103,
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   },
-  url: "https://proper-fat.info",
+  url: "https://winding-pantyhose.biz",
 };
 ```
 

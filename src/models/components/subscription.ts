@@ -37,11 +37,11 @@ import {
   DiscountPercentageRepeatDurationBase$outboundSchema,
 } from "./discountpercentagerepeatdurationbase.js";
 import {
-  LegacyRecurringProductPrice,
-  LegacyRecurringProductPrice$inboundSchema,
-  LegacyRecurringProductPrice$Outbound,
-  LegacyRecurringProductPrice$outboundSchema,
-} from "./legacyrecurringproductprice.js";
+  LegacyRecurringProductPriceOutput,
+  LegacyRecurringProductPriceOutput$inboundSchema,
+  LegacyRecurringProductPriceOutput$Outbound,
+  LegacyRecurringProductPriceOutput$outboundSchema,
+} from "./legacyrecurringproductpriceoutput.js";
 import {
   Product,
   Product$inboundSchema,
@@ -49,11 +49,11 @@ import {
   Product$outboundSchema,
 } from "./product.js";
 import {
-  ProductPrice,
-  ProductPrice$inboundSchema,
-  ProductPrice$Outbound,
-  ProductPrice$outboundSchema,
-} from "./productprice.js";
+  ProductPriceOutput,
+  ProductPriceOutput$inboundSchema,
+  ProductPriceOutput$Outbound,
+  ProductPriceOutput$outboundSchema,
+} from "./productpriceoutput.js";
 import {
   SubscriptionCustomer,
   SubscriptionCustomer$inboundSchema,
@@ -87,7 +87,9 @@ export type SubscriptionDiscount =
   | DiscountPercentageRepeatDurationBase
   | DiscountPercentageOnceForeverDurationBase;
 
-export type SubscriptionPrices = LegacyRecurringProductPrice | ProductPrice;
+export type SubscriptionPrices =
+  | LegacyRecurringProductPriceOutput
+  | ProductPriceOutput;
 
 export type Subscription = {
   /**
@@ -184,7 +186,7 @@ export type Subscription = {
   /**
    * List of enabled prices for the subscription.
    */
-  prices: Array<LegacyRecurringProductPrice | ProductPrice>;
+  prices: Array<LegacyRecurringProductPriceOutput | ProductPriceOutput>;
   /**
    * List of meters associated with the subscription.
    */
@@ -359,14 +361,14 @@ export const SubscriptionPrices$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  LegacyRecurringProductPrice$inboundSchema,
-  ProductPrice$inboundSchema,
+  LegacyRecurringProductPriceOutput$inboundSchema,
+  ProductPriceOutput$inboundSchema,
 ]);
 
 /** @internal */
 export type SubscriptionPrices$Outbound =
-  | LegacyRecurringProductPrice$Outbound
-  | ProductPrice$Outbound;
+  | LegacyRecurringProductPriceOutput$Outbound
+  | ProductPriceOutput$Outbound;
 
 /** @internal */
 export const SubscriptionPrices$outboundSchema: z.ZodType<
@@ -374,8 +376,8 @@ export const SubscriptionPrices$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SubscriptionPrices
 > = z.union([
-  LegacyRecurringProductPrice$outboundSchema,
-  ProductPrice$outboundSchema,
+  LegacyRecurringProductPriceOutput$outboundSchema,
+  ProductPriceOutput$outboundSchema,
 ]);
 
 /**
@@ -482,8 +484,8 @@ export const Subscription$inboundSchema: z.ZodType<
   ),
   prices: z.array(
     z.union([
-      LegacyRecurringProductPrice$inboundSchema,
-      ProductPrice$inboundSchema,
+      LegacyRecurringProductPriceOutput$inboundSchema,
+      ProductPriceOutput$inboundSchema,
     ]),
   ),
   meters: z.array(SubscriptionMeter$inboundSchema),
@@ -547,7 +549,9 @@ export type Subscription$Outbound = {
     | DiscountPercentageRepeatDurationBase$Outbound
     | DiscountPercentageOnceForeverDurationBase$Outbound
     | null;
-  prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
+  prices: Array<
+    LegacyRecurringProductPriceOutput$Outbound | ProductPriceOutput$Outbound
+  >;
   meters: Array<SubscriptionMeter$Outbound>;
 };
 
@@ -606,8 +610,8 @@ export const Subscription$outboundSchema: z.ZodType<
   ),
   prices: z.array(
     z.union([
-      LegacyRecurringProductPrice$outboundSchema,
-      ProductPrice$outboundSchema,
+      LegacyRecurringProductPriceOutput$outboundSchema,
+      ProductPriceOutput$outboundSchema,
     ]),
   ),
   meters: z.array(SubscriptionMeter$outboundSchema),

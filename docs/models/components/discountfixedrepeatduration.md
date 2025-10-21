@@ -12,37 +12,22 @@ let value: DiscountFixedRepeatDuration = {
   duration: "repeating",
   durationInMonths: 311967,
   type: "fixed",
-  amount: 563161,
-  currency: "Tala",
-  createdAt: new Date("2023-02-15T15:13:22.827Z"),
-  modifiedAt: new Date("2025-08-25T16:06:20.303Z"),
+  amount: 1000,
+  currency: "usd",
+  createdAt: new Date("2024-09-09T05:22:20.302Z"),
+  modifiedAt: new Date("2023-02-15T15:13:22.827Z"),
   id: "<value>",
   metadata: {
-    "key": 101203,
+    "key": false,
   },
   name: "<value>",
   code: "<value>",
-  startsAt: new Date("2023-11-25T04:10:44.032Z"),
-  endsAt: null,
-  maxRedemptions: 211553,
-  redemptionsCount: 173121,
+  startsAt: new Date("2024-01-13T16:02:29.532Z"),
+  endsAt: new Date("2023-11-25T04:10:44.032Z"),
+  maxRedemptions: null,
+  redemptionsCount: 496351,
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  products: [
-    {
-      metadata: {},
-      id: "<value>",
-      createdAt: new Date("2023-02-05T00:21:18.363Z"),
-      modifiedAt: new Date("2025-07-04T11:58:51.297Z"),
-      trialInterval: "month",
-      trialIntervalCount: 4883,
-      name: "<value>",
-      description: "youthful upon alert entire meanwhile lest partridge",
-      recurringInterval: "month",
-      isRecurring: false,
-      isArchived: false,
-      organizationId: "<value>",
-    },
-  ],
+  products: [],
 };
 ```
 
@@ -53,8 +38,8 @@ let value: DiscountFixedRepeatDuration = {
 | `duration`                                                                                    | [components.DiscountDuration](../../models/components/discountduration.md)                    | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `durationInMonths`                                                                            | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `type`                                                                                        | [components.DiscountType](../../models/components/discounttype.md)                            | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
-| `amount`                                                                                      | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
-| `currency`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `amount`                                                                                      | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | 1000                                                                                          |
+| `currency`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | usd                                                                                           |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Creation timestamp of the object.                                                             |                                                                                               |
 | `modifiedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Last modification timestamp of the object.                                                    |                                                                                               |
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the object.                                                                         |                                                                                               |

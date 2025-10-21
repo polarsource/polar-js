@@ -6,25 +6,25 @@ import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
-  MissingInvoiceBillingDetails,
-  MissingInvoiceBillingDetails$inboundSchema,
-  MissingInvoiceBillingDetails$Outbound,
-  MissingInvoiceBillingDetails$outboundSchema,
-} from "./missinginvoicebillingdetails.js";
+  PolarExceptionsMissingInvoiceBillingDetails,
+  PolarExceptionsMissingInvoiceBillingDetails$inboundSchema,
+  PolarExceptionsMissingInvoiceBillingDetails$Outbound,
+  PolarExceptionsMissingInvoiceBillingDetails$outboundSchema,
+} from "./polarexceptionsmissinginvoicebillingdetails.js";
 import {
-  NotPaidOrder,
-  NotPaidOrder$inboundSchema,
-  NotPaidOrder$Outbound,
-  NotPaidOrder$outboundSchema,
-} from "./notpaidorder.js";
+  PolarExceptionsNotPaidOrder,
+  PolarExceptionsNotPaidOrder$inboundSchema,
+  PolarExceptionsNotPaidOrder$Outbound,
+  PolarExceptionsNotPaidOrder$outboundSchema,
+} from "./polarexceptionsnotpaidorder.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 /**
  * Order is not paid or is missing billing name or address.
  */
 export type OrdersGenerateInvoiceResponse422OrdersGenerateInvoice =
-  | MissingInvoiceBillingDetails
-  | NotPaidOrder;
+  | PolarExceptionsMissingInvoiceBillingDetails
+  | PolarExceptionsNotPaidOrder;
 
 /** @internal */
 export const OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$inboundSchema:
@@ -33,14 +33,14 @@ export const OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$inboundSchema
     z.ZodTypeDef,
     unknown
   > = z.union([
-    MissingInvoiceBillingDetails$inboundSchema,
-    NotPaidOrder$inboundSchema,
+    PolarExceptionsMissingInvoiceBillingDetails$inboundSchema,
+    PolarExceptionsNotPaidOrder$inboundSchema,
   ]);
 
 /** @internal */
 export type OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$Outbound =
-  | MissingInvoiceBillingDetails$Outbound
-  | NotPaidOrder$Outbound;
+  | PolarExceptionsMissingInvoiceBillingDetails$Outbound
+  | PolarExceptionsNotPaidOrder$Outbound;
 
 /** @internal */
 export const OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$outboundSchema:
@@ -49,8 +49,8 @@ export const OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$outboundSchem
     z.ZodTypeDef,
     OrdersGenerateInvoiceResponse422OrdersGenerateInvoice
   > = z.union([
-    MissingInvoiceBillingDetails$outboundSchema,
-    NotPaidOrder$outboundSchema,
+    PolarExceptionsMissingInvoiceBillingDetails$outboundSchema,
+    PolarExceptionsNotPaidOrder$outboundSchema,
   ]);
 
 /**

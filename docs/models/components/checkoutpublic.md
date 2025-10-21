@@ -107,24 +107,24 @@ let value: CheckoutPublic = {
     duration: "forever",
     durationInMonths: 34557,
     type: "fixed",
-    amount: 277944,
-    currency: "Jamaican Dollar",
+    amount: 1000,
+    currency: "usd",
     id: "<value>",
     name: "<value>",
     code: "<value>",
   },
   organization: {
-    createdAt: new Date("2025-02-03T21:10:18.351Z"),
-    modifiedAt: new Date("2024-01-24T22:47:46.870Z"),
+    createdAt: new Date("2024-03-27T03:55:24.068Z"),
+    modifiedAt: new Date("2025-02-03T21:10:18.351Z"),
     id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://super-ocelot.org",
-    email: "Adolph.Kuhn40@gmail.com",
+    avatarUrl: "https://huge-lid.net/",
+    email: "Dalton_Anderson49@hotmail.com",
     website: "<value>",
     socials: [],
-    status: "onboarding_started",
-    detailsSubmittedAt: new Date("2023-06-02T11:26:30.723Z"),
+    status: "under_review",
+    detailsSubmittedAt: new Date("2024-02-22T02:01:31.430Z"),
     featureSettings: {},
     subscriptionSettings: {
       allowMultipleSubscriptions: true,
@@ -146,33 +146,7 @@ let value: CheckoutPublic = {
       subscriptionUpdated: false,
     },
   },
-  attachedCustomFields: [
-    {
-      customFieldId: "<value>",
-      customField: {
-        createdAt: new Date("2023-06-16T00:40:28.022Z"),
-        modifiedAt: new Date("2025-09-07T23:37:19.259Z"),
-        id: "<value>",
-        metadata: {
-          "key": 931.08,
-        },
-        type: "select",
-        slug: "<value>",
-        name: "<value>",
-        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {
-          options: [
-            {
-              value: "<value>",
-              label: "<value>",
-            },
-          ],
-        },
-      },
-      order: 448574,
-      required: true,
-    },
-  ],
+  attachedCustomFields: [],
 };
 ```
 
@@ -228,4 +202,4 @@ let value: CheckoutPublic = {
 | `productPrice`                                                                                                                                                                                                                                                                            | *components.CheckoutPublicProductPrice*                                                                                                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Price of the selected product.                                                                                                                                                                                                                                                            |
 | `discount`                                                                                                                                                                                                                                                                                | *components.CheckoutPublicDiscount*                                                                                                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `organization`                                                                                                                                                                                                                                                                            | [components.Organization](../../models/components/organization.md)                                                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
-| `attachedCustomFields`                                                                                                                                                                                                                                                                    | [components.AttachedCustomField](../../models/components/attachedcustomfield.md)[]                                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
+| `attachedCustomFields`                                                                                                                                                                                                                                                                    | [components.AttachedCustomFieldOutput](../../models/components/attachedcustomfieldoutput.md)[]                                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
