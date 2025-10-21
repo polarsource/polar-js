@@ -711,18 +711,18 @@ run();
 
 
 **Inherit from [`PolarError`](./src/models/errors/polarerror.ts)**:
-* [`PolarExceptionsResourceNotFound`](./src/models/errors/polarexceptionsresourcenotfound.ts): Status code `404`. Applicable to 77 of 142 methods.*
-* [`PolarExceptionsNotPermitted`](./src/models/errors/polarexceptionsnotpermitted.ts): Status code `403`. Applicable to 10 of 142 methods.*
+* [`ResourceNotFound`](./src/models/errors/resourcenotfound.ts): Status code `404`. Applicable to 77 of 142 methods.*
+* [`NotPermitted`](./src/models/errors/notpermitted.ts): Status code `403`. Applicable to 10 of 142 methods.*
 * [`Unauthorized`](./src/models/errors/unauthorized.ts): Not authorized to manage license key. Status code `401`. Applicable to 5 of 142 methods.*
-* [`PolarExceptionsAlreadyCanceledSubscription`](./src/models/errors/polarexceptionsalreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 142 methods.*
+* [`AlreadyCanceledSubscription`](./src/models/errors/alreadycanceledsubscription.ts): Status code `403`. Applicable to 4 of 142 methods.*
 * [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 142 methods.*
 * [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 142 methods.*
 * [`PaymentNotReady`](./src/models/errors/paymentnotready.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 142 methods.*
 * [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 142 methods.*
-* [`PolarExceptionsSubscriptionLocked`](./src/models/errors/polarexceptionssubscriptionlocked.ts): Subscription is pending an update. Status code `409`. Applicable to 2 of 142 methods.*
-* [`PolarExceptionsInvoiceAlreadyExists`](./src/models/errors/polarexceptionsinvoicealreadyexists.ts): Order already has an invoice. Status code `409`. Applicable to 2 of 142 methods.*
-* [`PolarExceptionsMissingInvoiceBillingDetails`](./src/models/errors/polarexceptionsmissinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 142 methods.*
-* [`PolarExceptionsNotPaidOrder`](./src/models/errors/polarexceptionsnotpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 142 methods.*
+* [`SubscriptionLocked`](./src/models/errors/subscriptionlocked.ts): Subscription is pending an update. Status code `409`. Applicable to 2 of 142 methods.*
+* [`InvoiceAlreadyExists`](./src/models/errors/invoicealreadyexists.ts): Order already has an invoice. Status code `409`. Applicable to 2 of 142 methods.*
+* [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 142 methods.*
+* [`NotPaidOrder`](./src/models/errors/notpaidorder.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 142 methods.*
 * [`RefundAmountTooHigh`](./src/models/errors/refundamounttoohigh.ts): Refund amount exceeds remaining order balance. Status code `400`. Applicable to 1 of 142 methods.*
 * [`PaymentError`](./src/models/errors/paymenterror.ts): The payment failed. Status code `400`. Applicable to 1 of 142 methods.*
 * [`CustomerNotReady`](./src/models/errors/customernotready.ts): Customer is not ready to confirm a payment method. Status code `400`. Applicable to 1 of 142 methods.*

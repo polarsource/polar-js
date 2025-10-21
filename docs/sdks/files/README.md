@@ -294,12 +294,12 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.PolarExceptionsNotPermitted     | 403                                    | application/json                       |
-| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
-| errors.HTTPValidationError             | 422                                    | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.NotPermitted        | 403                        | application/json           |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update
 
@@ -374,12 +374,12 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.PolarExceptionsNotPermitted     | 403                                    | application/json                       |
-| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
-| errors.HTTPValidationError             | 422                                    | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.NotPermitted        | 403                        | application/json           |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## delete
 
@@ -452,9 +452,9 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.PolarExceptionsNotPermitted     | 403                                    | application/json                       |
-| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
-| errors.HTTPValidationError             | 422                                    | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.NotPermitted        | 403                        | application/json           |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |

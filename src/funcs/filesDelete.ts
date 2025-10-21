@@ -22,15 +22,15 @@ import {
   HTTPValidationError,
   HTTPValidationError$inboundSchema,
 } from "../models/errors/httpvalidationerror.js";
+import {
+  NotPermitted,
+  NotPermitted$inboundSchema,
+} from "../models/errors/notpermitted.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import {
-  PolarExceptionsNotPermitted,
-  PolarExceptionsNotPermitted$inboundSchema,
-} from "../models/errors/polarexceptionsnotpermitted.js";
-import {
-  PolarExceptionsResourceNotFound,
-  PolarExceptionsResourceNotFound$inboundSchema,
-} from "../models/errors/polarexceptionsresourcenotfound.js";
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
@@ -55,8 +55,8 @@ export function filesDelete(
 ): APIPromise<
   Result<
     void,
-    | PolarExceptionsNotPermitted
-    | PolarExceptionsResourceNotFound
+    | NotPermitted
+    | ResourceNotFound
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -83,8 +83,8 @@ async function $do(
   [
     Result<
       void,
-      | PolarExceptionsNotPermitted
-      | PolarExceptionsResourceNotFound
+      | NotPermitted
+      | ResourceNotFound
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -173,8 +173,8 @@ async function $do(
 
   const [result] = await M.match<
     void,
-    | PolarExceptionsNotPermitted
-    | PolarExceptionsResourceNotFound
+    | NotPermitted
+    | ResourceNotFound
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -186,8 +186,8 @@ async function $do(
     | SDKValidationError
   >(
     M.nil(204, z.void()),
-    M.jsonErr(403, PolarExceptionsNotPermitted$inboundSchema),
-    M.jsonErr(404, PolarExceptionsResourceNotFound$inboundSchema),
+    M.jsonErr(403, NotPermitted$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

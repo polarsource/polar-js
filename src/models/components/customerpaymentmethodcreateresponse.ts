@@ -13,19 +13,17 @@ import {
   CustomerPaymentMethodCreateRequiresActionResponse$outboundSchema,
 } from "./customerpaymentmethodcreaterequiresactionresponse.js";
 import {
-  CustomerPaymentMethodCreateSucceededResponseOutput,
-  CustomerPaymentMethodCreateSucceededResponseOutput$inboundSchema,
-  CustomerPaymentMethodCreateSucceededResponseOutput$Outbound,
-  CustomerPaymentMethodCreateSucceededResponseOutput$outboundSchema,
-} from "./customerpaymentmethodcreatesucceededresponseoutput.js";
+  CustomerPaymentMethodCreateSucceededResponse,
+  CustomerPaymentMethodCreateSucceededResponse$inboundSchema,
+  CustomerPaymentMethodCreateSucceededResponse$Outbound,
+  CustomerPaymentMethodCreateSucceededResponse$outboundSchema,
+} from "./customerpaymentmethodcreatesucceededresponse.js";
 
 export type CustomerPaymentMethodCreateResponse =
   | (CustomerPaymentMethodCreateRequiresActionResponse & {
     status: "requires_action";
   })
-  | (CustomerPaymentMethodCreateSucceededResponseOutput & {
-    status: "succeeded";
-  });
+  | (CustomerPaymentMethodCreateSucceededResponse & { status: "succeeded" });
 
 /** @internal */
 export const CustomerPaymentMethodCreateResponse$inboundSchema: z.ZodType<
@@ -38,7 +36,7 @@ export const CustomerPaymentMethodCreateResponse$inboundSchema: z.ZodType<
       status: v.status,
     })),
   ),
-  CustomerPaymentMethodCreateSucceededResponseOutput$inboundSchema.and(
+  CustomerPaymentMethodCreateSucceededResponse$inboundSchema.and(
     z.object({ status: z.literal("succeeded") }).transform((v) => ({
       status: v.status,
     })),
@@ -50,7 +48,7 @@ export type CustomerPaymentMethodCreateResponse$Outbound =
   | (CustomerPaymentMethodCreateRequiresActionResponse$Outbound & {
     status: "requires_action";
   })
-  | (CustomerPaymentMethodCreateSucceededResponseOutput$Outbound & {
+  | (CustomerPaymentMethodCreateSucceededResponse$Outbound & {
     status: "succeeded";
   });
 
@@ -65,7 +63,7 @@ export const CustomerPaymentMethodCreateResponse$outboundSchema: z.ZodType<
       status: v.status,
     })),
   ),
-  CustomerPaymentMethodCreateSucceededResponseOutput$outboundSchema.and(
+  CustomerPaymentMethodCreateSucceededResponse$outboundSchema.and(
     z.object({ status: z.literal("succeeded") }).transform((v) => ({
       status: v.status,
     })),

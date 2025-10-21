@@ -166,11 +166,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
-| errors.HTTPValidationError             | 422                                    | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## update
 
@@ -256,11 +256,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
-| errors.HTTPValidationError             | 422                                    | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## generateInvoice
 
@@ -334,12 +334,12 @@ run();
 
 ### Errors
 
-| Error Type                                         | Status Code                                        | Content Type                                       |
-| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| errors.PolarExceptionsInvoiceAlreadyExists         | 409                                                | application/json                                   |
-| errors.PolarExceptionsMissingInvoiceBillingDetails | 422                                                | application/json                                   |
-| errors.PolarExceptionsNotPaidOrder                 | 422                                                | application/json                                   |
-| errors.SDKError                                    | 4XX, 5XX                                           | \*/\*                                              |
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| errors.InvoiceAlreadyExists         | 409                                 | application/json                    |
+| errors.MissingInvoiceBillingDetails | 422                                 | application/json                    |
+| errors.NotPaidOrder                 | 422                                 | application/json                    |
+| errors.SDKError                     | 4XX, 5XX                            | \*/\*                               |
 
 ## invoice
 
@@ -413,11 +413,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
-| errors.HTTPValidationError             | 422                                    | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## getPaymentStatus
 
@@ -491,11 +491,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
-| errors.HTTPValidationError             | 422                                    | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResourceNotFound    | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## confirmRetryPayment
 
@@ -571,9 +571,9 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.PolarExceptionsResourceNotFound | 404                                    | application/json                       |
-| errors.PaymentAlreadyInProgress        | 409                                    | application/json                       |
-| errors.OrderNotEligibleForRetry        | 422                                    | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ResourceNotFound         | 404                             | application/json                |
+| errors.PaymentAlreadyInProgress | 409                             | application/json                |
+| errors.OrderNotEligibleForRetry | 422                             | application/json                |
+| errors.SDKError                 | 4XX, 5XX                        | \*/\*                           |

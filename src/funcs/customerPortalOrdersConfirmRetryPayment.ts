@@ -31,9 +31,9 @@ import {
 } from "../models/errors/paymentalreadyinprogress.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import {
-  PolarExceptionsResourceNotFound,
-  PolarExceptionsResourceNotFound$inboundSchema,
-} from "../models/errors/polarexceptionsresourcenotfound.js";
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
@@ -60,7 +60,7 @@ export function customerPortalOrdersConfirmRetryPayment(
 ): APIPromise<
   Result<
     CustomerOrderPaymentConfirmation,
-    | PolarExceptionsResourceNotFound
+    | ResourceNotFound
     | PaymentAlreadyInProgress
     | OrderNotEligibleForRetry
     | PolarError
@@ -90,7 +90,7 @@ async function $do(
   [
     Result<
       CustomerOrderPaymentConfirmation,
-      | PolarExceptionsResourceNotFound
+      | ResourceNotFound
       | PaymentAlreadyInProgress
       | OrderNotEligibleForRetry
       | PolarError
@@ -194,7 +194,7 @@ async function $do(
 
   const [result] = await M.match<
     CustomerOrderPaymentConfirmation,
-    | PolarExceptionsResourceNotFound
+    | ResourceNotFound
     | PaymentAlreadyInProgress
     | OrderNotEligibleForRetry
     | PolarError
@@ -207,7 +207,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, CustomerOrderPaymentConfirmation$inboundSchema),
-    M.jsonErr(404, PolarExceptionsResourceNotFound$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(409, PaymentAlreadyInProgress$inboundSchema),
     M.jsonErr(422, OrderNotEligibleForRetry$inboundSchema),
     M.fail("4XX"),

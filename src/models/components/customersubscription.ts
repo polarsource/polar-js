@@ -25,17 +25,17 @@ import {
   CustomerSubscriptionProduct$outboundSchema,
 } from "./customersubscriptionproduct.js";
 import {
-  LegacyRecurringProductPriceOutput,
-  LegacyRecurringProductPriceOutput$inboundSchema,
-  LegacyRecurringProductPriceOutput$Outbound,
-  LegacyRecurringProductPriceOutput$outboundSchema,
-} from "./legacyrecurringproductpriceoutput.js";
+  LegacyRecurringProductPrice,
+  LegacyRecurringProductPrice$inboundSchema,
+  LegacyRecurringProductPrice$Outbound,
+  LegacyRecurringProductPrice$outboundSchema,
+} from "./legacyrecurringproductprice.js";
 import {
-  ProductPriceOutput,
-  ProductPriceOutput$inboundSchema,
-  ProductPriceOutput$Outbound,
-  ProductPriceOutput$outboundSchema,
-} from "./productpriceoutput.js";
+  ProductPrice,
+  ProductPrice$inboundSchema,
+  ProductPrice$Outbound,
+  ProductPrice$outboundSchema,
+} from "./productprice.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
@@ -48,8 +48,8 @@ import {
 } from "./subscriptionstatus.js";
 
 export type CustomerSubscriptionPrices =
-  | LegacyRecurringProductPriceOutput
-  | ProductPriceOutput;
+  | LegacyRecurringProductPrice
+  | ProductPrice;
 
 export type CustomerSubscription = {
   /**
@@ -129,7 +129,7 @@ export type CustomerSubscription = {
   /**
    * List of enabled prices for the subscription.
    */
-  prices: Array<LegacyRecurringProductPriceOutput | ProductPriceOutput>;
+  prices: Array<LegacyRecurringProductPrice | ProductPrice>;
   /**
    * List of meters associated with the subscription.
    */
@@ -146,14 +146,14 @@ export const CustomerSubscriptionPrices$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  LegacyRecurringProductPriceOutput$inboundSchema,
-  ProductPriceOutput$inboundSchema,
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
 ]);
 
 /** @internal */
 export type CustomerSubscriptionPrices$Outbound =
-  | LegacyRecurringProductPriceOutput$Outbound
-  | ProductPriceOutput$Outbound;
+  | LegacyRecurringProductPrice$Outbound
+  | ProductPrice$Outbound;
 
 /** @internal */
 export const CustomerSubscriptionPrices$outboundSchema: z.ZodType<
@@ -161,8 +161,8 @@ export const CustomerSubscriptionPrices$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerSubscriptionPrices
 > = z.union([
-  LegacyRecurringProductPriceOutput$outboundSchema,
-  ProductPriceOutput$outboundSchema,
+  LegacyRecurringProductPrice$outboundSchema,
+  ProductPrice$outboundSchema,
 ]);
 
 /**
@@ -247,8 +247,8 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
   product: CustomerSubscriptionProduct$inboundSchema,
   prices: z.array(
     z.union([
-      LegacyRecurringProductPriceOutput$inboundSchema,
-      ProductPriceOutput$inboundSchema,
+      LegacyRecurringProductPrice$inboundSchema,
+      ProductPrice$inboundSchema,
     ]),
   ),
   meters: z.array(CustomerSubscriptionMeter$inboundSchema),
@@ -302,9 +302,7 @@ export type CustomerSubscription$Outbound = {
   customer_cancellation_reason: string | null;
   customer_cancellation_comment: string | null;
   product: CustomerSubscriptionProduct$Outbound;
-  prices: Array<
-    LegacyRecurringProductPriceOutput$Outbound | ProductPriceOutput$Outbound
-  >;
+  prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
   meters: Array<CustomerSubscriptionMeter$Outbound>;
   is_polar_managed: boolean;
 };
@@ -342,8 +340,8 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
   product: CustomerSubscriptionProduct$outboundSchema,
   prices: z.array(
     z.union([
-      LegacyRecurringProductPriceOutput$outboundSchema,
-      ProductPriceOutput$outboundSchema,
+      LegacyRecurringProductPrice$outboundSchema,
+      ProductPrice$outboundSchema,
     ]),
   ),
   meters: z.array(CustomerSubscriptionMeter$outboundSchema),

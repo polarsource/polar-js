@@ -24,9 +24,9 @@ import {
 } from "../models/errors/httpvalidationerror.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import {
-  PolarExceptionsResourceNotFound,
-  PolarExceptionsResourceNotFound$inboundSchema,
-} from "../models/errors/polarexceptionsresourcenotfound.js";
+  ResourceNotFound,
+  ResourceNotFound$inboundSchema,
+} from "../models/errors/resourcenotfound.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
@@ -65,7 +65,7 @@ export function customerPortalLicenseKeysList(
     Result<
       CustomerPortalLicenseKeysListResponse,
       | Unauthorized
-      | PolarExceptionsResourceNotFound
+      | ResourceNotFound
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -98,7 +98,7 @@ async function $do(
       Result<
         CustomerPortalLicenseKeysListResponse,
         | Unauthorized
-        | PolarExceptionsResourceNotFound
+        | ResourceNotFound
         | HTTPValidationError
         | PolarError
         | ResponseValidationError
@@ -197,7 +197,7 @@ async function $do(
   const [result, raw] = await M.match<
     CustomerPortalLicenseKeysListResponse,
     | Unauthorized
-    | PolarExceptionsResourceNotFound
+    | ResourceNotFound
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -212,7 +212,7 @@ async function $do(
       key: "Result",
     }),
     M.jsonErr(401, Unauthorized$inboundSchema),
-    M.jsonErr(404, PolarExceptionsResourceNotFound$inboundSchema),
+    M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
@@ -232,7 +232,7 @@ async function $do(
       Result<
         CustomerPortalLicenseKeysListResponse,
         | Unauthorized
-        | PolarExceptionsResourceNotFound
+        | ResourceNotFound
         | HTTPValidationError
         | PolarError
         | ResponseValidationError
