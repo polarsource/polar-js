@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BenefitDiscordProperties,
-  BenefitDiscordProperties$inboundSchema,
-  BenefitDiscordProperties$Outbound,
-  BenefitDiscordProperties$outboundSchema,
-} from "./benefitdiscordproperties.js";
+  BenefitDiscordPropertiesOutput,
+  BenefitDiscordPropertiesOutput$inboundSchema,
+  BenefitDiscordPropertiesOutput$Outbound,
+  BenefitDiscordPropertiesOutput$outboundSchema,
+} from "./benefitdiscordpropertiesoutput.js";
 
 export type BenefitDiscordMetadata = string | number | number | boolean;
 
@@ -57,7 +57,7 @@ export type BenefitDiscord = {
   /**
    * Properties for a benefit of type `discord`.
    */
-  properties: BenefitDiscordProperties;
+  properties: BenefitDiscordPropertiesOutput;
 };
 
 /** @internal */
@@ -131,7 +131,7 @@ export const BenefitDiscord$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  properties: BenefitDiscordProperties$inboundSchema,
+  properties: BenefitDiscordPropertiesOutput$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -151,7 +151,7 @@ export type BenefitDiscord$Outbound = {
   deletable: boolean;
   organization_id: string;
   metadata: { [k: string]: string | number | number | boolean };
-  properties: BenefitDiscordProperties$Outbound;
+  properties: BenefitDiscordPropertiesOutput$Outbound;
 };
 
 /** @internal */
@@ -171,7 +171,7 @@ export const BenefitDiscord$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  properties: BenefitDiscordProperties$outboundSchema,
+  properties: BenefitDiscordPropertiesOutput$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

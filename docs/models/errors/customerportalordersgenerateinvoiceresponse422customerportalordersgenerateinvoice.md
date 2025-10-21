@@ -5,19 +5,19 @@ Order is not paid or is missing billing name or address.
 
 ## Supported Types
 
-### `errors.MissingInvoiceBillingDetails`
+### `errors.PolarExceptionsMissingInvoiceBillingDetails`
 
 ```typescript
-const value: errors.MissingInvoiceBillingDetails = {
+const value: errors.PolarExceptionsMissingInvoiceBillingDetails = {
   error: "MissingInvoiceBillingDetails",
   detail: "<value>",
 };
 ```
 
-### `errors.NotPaidOrder`
+### `errors.PolarExceptionsNotPaidOrder`
 
 ```typescript
-const value: errors.NotPaidOrder = {
+const value: errors.PolarExceptionsNotPaidOrder = {
   error: "NotPaidOrder",
   detail: "<value>",
 };

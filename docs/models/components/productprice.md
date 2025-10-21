@@ -1,33 +1,36 @@
 # ProductPrice
 
+Price of the selected product.
+
 
 ## Supported Types
 
-### `components.ProductPriceCustom`
+### `components.LegacyRecurringProductPriceOutput`
 
 ```typescript
-const value: components.ProductPriceCustom = {
-  createdAt: new Date("2023-06-12T19:38:31.503Z"),
-  modifiedAt: new Date("2025-07-14T10:09:27.768Z"),
+const value: components.LegacyRecurringProductPriceOutput = {
+  createdAt: new Date("2024-02-21T03:40:23.245Z"),
+  modifiedAt: null,
   id: "<value>",
   amountType: "custom",
   isArchived: false,
   productId: "<value>",
-  type: "one_time",
+  type: "recurring",
   recurringInterval: "year",
   priceCurrency: "<value>",
-  minimumAmount: 508827,
-  maximumAmount: 793062,
-  presetAmount: 879510,
+  minimumAmount: 714639,
+  maximumAmount: 632380,
+  presetAmount: 459918,
+  legacy: true,
 };
 ```
 
-### `components.ProductPriceFixed`
+### `components.ProductPriceOutput`
 
 ```typescript
-const value: components.ProductPriceFixed = {
-  createdAt: new Date("2025-12-26T12:23:44.317Z"),
-  modifiedAt: new Date("2025-06-01T02:05:27.121Z"),
+const value: components.ProductPriceOutput = {
+  createdAt: new Date("2024-04-20T08:56:48.445Z"),
+  modifiedAt: new Date("2025-12-01T06:09:25.237Z"),
   id: "<value>",
   amountType: "fixed",
   isArchived: true,
@@ -35,69 +38,7 @@ const value: components.ProductPriceFixed = {
   type: "recurring",
   recurringInterval: "month",
   priceCurrency: "<value>",
-  priceAmount: 286494,
-};
-```
-
-### `components.ProductPriceFree`
-
-```typescript
-const value: components.ProductPriceFree = {
-  createdAt: new Date("2023-09-10T01:59:19.952Z"),
-  modifiedAt: new Date("2023-06-15T13:47:01.466Z"),
-  id: "<value>",
-  amountType: "free",
-  isArchived: false,
-  productId: "<value>",
-  type: "recurring",
-  recurringInterval: "year",
-};
-```
-
-### `components.ProductPriceMeteredUnit`
-
-```typescript
-const value: components.ProductPriceMeteredUnit = {
-  createdAt: new Date("2023-10-22T15:18:33.510Z"),
-  modifiedAt: null,
-  id: "<value>",
-  amountType: "metered_unit",
-  isArchived: false,
-  productId: "<value>",
-  type: "recurring",
-  recurringInterval: "month",
-  priceCurrency: "<value>",
-  unitAmount: "<value>",
-  capAmount: 700651,
-  meterId: "<value>",
-  meter: {
-    id: "<value>",
-    name: "<value>",
-  },
-};
-```
-
-### `components.ProductPriceSeatBased`
-
-```typescript
-const value: components.ProductPriceSeatBased = {
-  createdAt: new Date("2023-09-18T05:03:38.369Z"),
-  modifiedAt: new Date("2025-08-16T14:25:55.727Z"),
-  id: "<value>",
-  amountType: "seat_based",
-  isArchived: true,
-  productId: "<value>",
-  type: "recurring",
-  recurringInterval: "month",
-  priceCurrency: "<value>",
-  seatTiers: {
-    tiers: [
-      {
-        minSeats: 63601,
-        pricePerSeat: 931587,
-      },
-    ],
-  },
+  priceAmount: 965900,
 };
 ```
 

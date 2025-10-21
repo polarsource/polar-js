@@ -19,14 +19,14 @@ import {
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
 import {
-  InvoiceAlreadyExists,
-  InvoiceAlreadyExists$inboundSchema,
-} from "../models/errors/invoicealreadyexists.js";
-import {
   OrdersGenerateInvoiceResponse422OrdersGenerateInvoice,
   OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$inboundSchema,
 } from "../models/errors/ordersgenerateinvoice.js";
 import { PolarError } from "../models/errors/polarerror.js";
+import {
+  PolarExceptionsInvoiceAlreadyExists,
+  PolarExceptionsInvoiceAlreadyExists$inboundSchema,
+} from "../models/errors/polarexceptionsinvoicealreadyexists.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
@@ -51,7 +51,7 @@ export function ordersGenerateInvoice(
 ): APIPromise<
   Result<
     any,
-    | InvoiceAlreadyExists
+    | PolarExceptionsInvoiceAlreadyExists
     | OrdersGenerateInvoiceResponse422OrdersGenerateInvoice
     | PolarError
     | ResponseValidationError
@@ -78,7 +78,7 @@ async function $do(
   [
     Result<
       any,
-      | InvoiceAlreadyExists
+      | PolarExceptionsInvoiceAlreadyExists
       | OrdersGenerateInvoiceResponse422OrdersGenerateInvoice
       | PolarError
       | ResponseValidationError
@@ -167,7 +167,7 @@ async function $do(
 
   const [result] = await M.match<
     any,
-    | InvoiceAlreadyExists
+    | PolarExceptionsInvoiceAlreadyExists
     | OrdersGenerateInvoiceResponse422OrdersGenerateInvoice
     | PolarError
     | ResponseValidationError
@@ -179,7 +179,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(202, z.any()),
-    M.jsonErr(409, InvoiceAlreadyExists$inboundSchema),
+    M.jsonErr(409, PolarExceptionsInvoiceAlreadyExists$inboundSchema),
     M.jsonErr(
       422,
       OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$inboundSchema,

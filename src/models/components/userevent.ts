@@ -13,14 +13,17 @@ import {
   Customer$Outbound,
   Customer$outboundSchema,
 } from "./customer.js";
-
-export type UserEventMetadata = string | number | number | boolean;
+import {
+  EventMetadataOutput,
+  EventMetadataOutput$inboundSchema,
+  EventMetadataOutput$Outbound,
+  EventMetadataOutput$outboundSchema,
+} from "./eventmetadataoutput.js";
 
 /**
  * An event you created through the ingestion API.
  */
 export type UserEvent = {
-  metadata: { [k: string]: string | number | number | boolean };
   /**
    * The ID of the object.
    */
@@ -53,55 +56,8 @@ export type UserEvent = {
    * The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API.
    */
   source: "user";
+  metadata: { [k: string]: EventMetadataOutput };
 };
-
-/** @internal */
-export const UserEventMetadata$inboundSchema: z.ZodType<
-  UserEventMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
-export type UserEventMetadata$Outbound = string | number | number | boolean;
-
-/** @internal */
-export const UserEventMetadata$outboundSchema: z.ZodType<
-  UserEventMetadata$Outbound,
-  z.ZodTypeDef,
-  UserEventMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UserEventMetadata$ {
-  /** @deprecated use `UserEventMetadata$inboundSchema` instead. */
-  export const inboundSchema = UserEventMetadata$inboundSchema;
-  /** @deprecated use `UserEventMetadata$outboundSchema` instead. */
-  export const outboundSchema = UserEventMetadata$outboundSchema;
-  /** @deprecated use `UserEventMetadata$Outbound` instead. */
-  export type Outbound = UserEventMetadata$Outbound;
-}
-
-export function userEventMetadataToJSON(
-  userEventMetadata: UserEventMetadata,
-): string {
-  return JSON.stringify(
-    UserEventMetadata$outboundSchema.parse(userEventMetadata),
-  );
-}
-
-export function userEventMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<UserEventMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => UserEventMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'UserEventMetadata' from JSON`,
-  );
-}
 
 /** @internal */
 export const UserEvent$inboundSchema: z.ZodType<
@@ -109,9 +65,6 @@ export const UserEvent$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   id: z.string(),
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   organization_id: z.string(),
@@ -120,6 +73,7 @@ export const UserEvent$inboundSchema: z.ZodType<
   external_customer_id: z.nullable(z.string()),
   name: z.string(),
   source: z.literal("user"),
+  metadata: z.record(EventMetadataOutput$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
@@ -130,7 +84,6 @@ export const UserEvent$inboundSchema: z.ZodType<
 
 /** @internal */
 export type UserEvent$Outbound = {
-  metadata: { [k: string]: string | number | number | boolean };
   id: string;
   timestamp: string;
   organization_id: string;
@@ -139,6 +92,7 @@ export type UserEvent$Outbound = {
   external_customer_id: string | null;
   name: string;
   source: "user";
+  metadata: { [k: string]: EventMetadataOutput$Outbound };
 };
 
 /** @internal */
@@ -147,9 +101,6 @@ export const UserEvent$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UserEvent
 > = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
   id: z.string(),
   timestamp: z.date().transform(v => v.toISOString()),
   organizationId: z.string(),
@@ -158,6 +109,7 @@ export const UserEvent$outboundSchema: z.ZodType<
   externalCustomerId: z.nullable(z.string()),
   name: z.string(),
   source: z.literal("user"),
+  metadata: z.record(EventMetadataOutput$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",

@@ -9,11 +9,8 @@ let value: EventsListResponse = {
   result: {
     items: [
       {
-        metadata: {
-          "key": "<value>",
-        },
         id: "<value>",
-        timestamp: new Date("2025-03-10T07:46:20.739Z"),
+        timestamp: new Date("2025-04-30T06:44:33.208Z"),
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
         customerId: "<value>",
         customer: {
@@ -41,6 +38,7 @@ let value: EventsListResponse = {
         externalCustomerId: "<id>",
         name: "<value>",
         source: "user",
+        metadata: {},
       },
     ],
     pagination: {
