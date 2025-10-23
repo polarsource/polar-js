@@ -12,8 +12,8 @@ let value: ProductPriceSeatBasedCreate = {
   seatTiers: {
     tiers: [
       {
-        minSeats: 63601,
-        pricePerSeat: 931587,
+        minSeats: 922152,
+        pricePerSeat: 415895,
       },
     ],
   },

@@ -63,6 +63,7 @@ let value: CustomerPortalBenefitGrantsListResponse = {
             featureSettings: {
               issueFundingEnabled: false,
               seatBasedPricingEnabled: false,
+              revopsEnabled: false,
             },
             subscriptionSettings: {
               allowMultipleSubscriptions: true,
