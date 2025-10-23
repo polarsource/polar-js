@@ -10,6 +10,7 @@ import { Checkouts } from "./checkouts.js";
 import { CustomerMeters } from "./customermeters.js";
 import { CustomerPortal } from "./customerportal.js";
 import { Customers } from "./customers.js";
+import { CustomerSeats } from "./customerseats.js";
 import { CustomerSessions } from "./customersessions.js";
 import { CustomFields } from "./customfields.js";
 import { Discounts } from "./discounts.js";
@@ -116,6 +117,11 @@ export class Polar extends ClientSDK {
   private _customerPortal?: CustomerPortal;
   get customerPortal(): CustomerPortal {
     return (this._customerPortal ??= new CustomerPortal(this._options));
+  }
+
+  private _customerSeats?: CustomerSeats;
+  get customerSeats(): CustomerSeats {
+    return (this._customerSeats ??= new CustomerSeats(this._options));
   }
 
   private _customerSessions?: CustomerSessions;

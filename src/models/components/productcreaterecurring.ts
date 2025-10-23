@@ -120,7 +120,7 @@ export type ProductCreateRecurring = {
   trialIntervalCount?: number | null | undefined;
   recurringInterval: SubscriptionRecurringInterval;
   /**
-   * Number of interval units of the subscription.If this is set to 1 the charge will happen every interval (e.g. every month),if set to 2 it will be every other month, and so on.
+   * Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on.
    */
   recurringIntervalCount?: number | undefined;
 };
