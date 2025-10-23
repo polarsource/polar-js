@@ -74,7 +74,7 @@ export type CustomerSubscription = {
   currency: string;
   recurringInterval: SubscriptionRecurringInterval;
   /**
-   * Number of interval units of the subscription.If this is set to 1 the charge will happen every interval (e.g. every month),if set to 2 it will be every other month, and so on.
+   * Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on.
    */
   recurringIntervalCount: number;
   status: SubscriptionStatus;
@@ -129,6 +129,10 @@ export type CustomerSubscription = {
   checkoutId: string | null;
   customerCancellationReason: CustomerCancellationReason | null;
   customerCancellationComment: string | null;
+  /**
+   * Number of seats included in the subscription (for seat-based pricing).
+   */
+  seats?: number | null | undefined;
   product: CustomerSubscriptionProduct;
   /**
    * List of enabled prices for the subscription.
@@ -249,6 +253,7 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
     CustomerCancellationReason$inboundSchema,
   ),
   customer_cancellation_comment: z.nullable(z.string()),
+  seats: z.nullable(z.number().int()).optional(),
   product: CustomerSubscriptionProduct$inboundSchema,
   prices: z.array(
     z.union([
@@ -308,6 +313,7 @@ export type CustomerSubscription$Outbound = {
   checkout_id: string | null;
   customer_cancellation_reason: string | null;
   customer_cancellation_comment: string | null;
+  seats?: number | null | undefined;
   product: CustomerSubscriptionProduct$Outbound;
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
   meters: Array<CustomerSubscriptionMeter$Outbound>;
@@ -345,6 +351,7 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
     CustomerCancellationReason$outboundSchema,
   ),
   customerCancellationComment: z.nullable(z.string()),
+  seats: z.nullable(z.number().int()).optional(),
   product: CustomerSubscriptionProduct$outboundSchema,
   prices: z.array(
     z.union([

@@ -89,7 +89,7 @@ export type Product = {
    */
   recurringInterval: SubscriptionRecurringInterval | null;
   /**
-   * Number of interval units of the subscription.If this is set to 1 the charge will happen every interval (e.g. every month),if set to 2 it will be every other month, and so on. None for one-time products.
+   * Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on. None for one-time products.
    */
   recurringIntervalCount: number | null;
   /**

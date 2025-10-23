@@ -46,7 +46,7 @@ export type CustomerOrderSubscription = {
   currency: string;
   recurringInterval: SubscriptionRecurringInterval;
   /**
-   * Number of interval units of the subscription.If this is set to 1 the charge will happen every interval (e.g. every month),if set to 2 it will be every other month, and so on.
+   * Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on.
    */
   recurringIntervalCount: number;
   status: SubscriptionStatus;
@@ -101,6 +101,10 @@ export type CustomerOrderSubscription = {
   checkoutId: string | null;
   customerCancellationReason: CustomerCancellationReason | null;
   customerCancellationComment: string | null;
+  /**
+   * Number of seats included in the subscription (for seat-based pricing).
+   */
+  seats?: number | null | undefined;
 };
 
 /** @internal */
@@ -152,6 +156,7 @@ export const CustomerOrderSubscription$inboundSchema: z.ZodType<
     CustomerCancellationReason$inboundSchema,
   ),
   customer_cancellation_comment: z.nullable(z.string()),
+  seats: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -201,6 +206,7 @@ export type CustomerOrderSubscription$Outbound = {
   checkout_id: string | null;
   customer_cancellation_reason: string | null;
   customer_cancellation_comment: string | null;
+  seats?: number | null | undefined;
 };
 
 /** @internal */
@@ -234,6 +240,7 @@ export const CustomerOrderSubscription$outboundSchema: z.ZodType<
     CustomerCancellationReason$outboundSchema,
   ),
   customerCancellationComment: z.nullable(z.string()),
+  seats: z.nullable(z.number().int()).optional(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

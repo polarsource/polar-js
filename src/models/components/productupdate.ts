@@ -115,7 +115,7 @@ export type ProductUpdate = {
    */
   recurringInterval?: SubscriptionRecurringInterval | null | undefined;
   /**
-   * Number of interval units of the subscription.If this is set to 1 the charge will happen every interval (e.g. every month),if set to 2 it will be every other month, and so on.
+   * Number of interval units of the subscription. If this is set to 1 the charge will happen every interval (e.g. every month), if set to 2 it will be every other month, and so on. Once set, it can't be changed.**
    */
   recurringIntervalCount?: number | null | undefined;
   /**
