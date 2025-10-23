@@ -14,3 +14,4 @@ let value: OrganizationFeatureSettings = {};
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
 | `issueFundingEnabled`                               | *boolean*                                           | :heavy_minus_sign:                                  | If this organization has issue funding enabled      |
 | `seatBasedPricingEnabled`                           | *boolean*                                           | :heavy_minus_sign:                                  | If this organization has seat-based pricing enabled |
+| `revopsEnabled`                                     | *boolean*                                           | :heavy_minus_sign:                                  | If this organization has RevOps enabled             |

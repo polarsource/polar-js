@@ -31,36 +31,24 @@ let value: CustomerOrder = {
   customerId: "<value>",
   productId: "<value>",
   discountId: "<value>",
-  subscriptionId: "<value>",
-  checkoutId: null,
+  subscriptionId: null,
+  checkoutId: "<value>",
   userId: "<value>",
   product: {
     id: "<value>",
-    createdAt: new Date("2023-10-04T14:18:57.229Z"),
-    modifiedAt: new Date("2024-05-31T12:38:58.045Z"),
-    trialInterval: "day",
-    trialIntervalCount: null,
+    createdAt: new Date("2024-05-31T12:38:58.045Z"),
+    modifiedAt: new Date("2023-07-02T22:48:54.737Z"),
+    trialInterval: null,
+    trialIntervalCount: 57218,
     name: "<value>",
-    description: "emotional dearly joyously",
-    recurringInterval: "week",
-    isRecurring: false,
-    isArchived: true,
+    description:
+      "arraign but insistent provided apud um furiously palate devise yowza",
+    recurringInterval: "day",
+    recurringIntervalCount: 622455,
+    isRecurring: true,
+    isArchived: false,
     organizationId: "<value>",
-    prices: [
-      {
-        createdAt: new Date("2023-03-18T03:28:52.944Z"),
-        modifiedAt: new Date("2023-10-09T19:42:21.526Z"),
-        id: "<value>",
-        amountType: "fixed",
-        isArchived: false,
-        productId: "<value>",
-        type: "recurring",
-        recurringInterval: "month",
-        priceCurrency: "<value>",
-        priceAmount: 556329,
-        legacy: true,
-      },
-    ],
+    prices: [],
     benefits: [],
     medias: [],
     organization: {
@@ -98,30 +86,43 @@ let value: CustomerOrder = {
     },
   },
   subscription: {
-    createdAt: new Date("2024-03-06T19:03:50.234Z"),
-    modifiedAt: new Date("2024-09-01T07:31:10.688Z"),
+    createdAt: new Date("2024-07-13T22:13:37.550Z"),
+    modifiedAt: new Date("2023-07-08T08:21:02.517Z"),
     id: "<value>",
     amount: 10000,
     currency: "usd",
-    recurringInterval: "day",
-    status: "active",
-    currentPeriodStart: new Date("2025-07-01T15:38:18.028Z"),
-    currentPeriodEnd: new Date("2024-04-02T15:56:55.286Z"),
-    trialStart: new Date("2023-03-23T00:47:15.496Z"),
-    trialEnd: new Date("2023-06-22T17:34:45.530Z"),
-    cancelAtPeriodEnd: true,
-    canceledAt: new Date("2023-01-30T05:51:07.887Z"),
-    startedAt: null,
-    endsAt: new Date("2025-05-27T19:20:07.033Z"),
-    endedAt: new Date("2023-12-07T08:15:27.487Z"),
+    recurringInterval: "week",
+    recurringIntervalCount: 893964,
+    status: "trialing",
+    currentPeriodStart: new Date("2024-10-10T08:15:03.005Z"),
+    currentPeriodEnd: new Date("2025-04-25T19:12:17.639Z"),
+    trialStart: new Date("2024-07-25T01:03:46.818Z"),
+    trialEnd: new Date("2025-09-06T02:36:50.793Z"),
+    cancelAtPeriodEnd: false,
+    canceledAt: new Date("2024-02-28T03:03:35.134Z"),
+    startedAt: new Date("2023-12-12T17:15:19.456Z"),
+    endsAt: new Date("2025-05-22T22:43:11.961Z"),
+    endedAt: new Date("2025-06-01T22:56:15.909Z"),
     customerId: "<value>",
     productId: "<value>",
     discountId: "<value>",
     checkoutId: "<value>",
-    customerCancellationReason: "switched_service",
+    customerCancellationReason: null,
     customerCancellationComment: "<value>",
   },
-  items: [],
+  items: [
+    {
+      createdAt: new Date("2024-02-10T21:00:41.494Z"),
+      modifiedAt: new Date("2024-06-05T21:57:00.887Z"),
+      id: "<value>",
+      label: "Pro Plan",
+      amount: 10000,
+      taxAmount: 720,
+      proration: false,
+      productPriceId: "<value>",
+    },
+  ],
+  description: "Pro Plan",
 };
 ```
 
@@ -149,6 +150,7 @@ let value: CustomerOrder = {
 | `billingAddress`                                                                                                                                                                                        | [components.Address](../../models/components/address.md)                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `invoiceNumber`                                                                                                                                                                                         | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | The invoice number associated with this order.                                                                                                                                                          |                                                                                                                                                                                                         |
 | `isInvoiceGenerated`                                                                                                                                                                                    | *boolean*                                                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                                                      | Whether an invoice has been generated for this order.                                                                                                                                                   |                                                                                                                                                                                                         |
+| `seats`                                                                                                                                                                                                 | *number*                                                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                                                      | Number of seats purchased (for seat-based one-time orders).                                                                                                                                             |                                                                                                                                                                                                         |
 | `customerId`                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `productId`                                                                                                                                                                                             | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `discountId`                                                                                                                                                                                            | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
@@ -158,4 +160,5 @@ let value: CustomerOrder = {
 | `product`                                                                                                                                                                                               | [components.CustomerOrderProduct](../../models/components/customerorderproduct.md)                                                                                                                      | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `subscription`                                                                                                                                                                                          | [components.CustomerOrderSubscription](../../models/components/customerordersubscription.md)                                                                                                            | :heavy_check_mark:                                                                                                                                                                                      | N/A                                                                                                                                                                                                     |                                                                                                                                                                                                         |
 | `items`                                                                                                                                                                                                 | [components.OrderItemSchema](../../models/components/orderitemschema.md)[]                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                      | Line items composing the order.                                                                                                                                                                         |                                                                                                                                                                                                         |
+| `description`                                                                                                                                                                                           | *string*                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                      | A summary description of the order.                                                                                                                                                                     | Pro Plan                                                                                                                                                                                                |
 | `nextPaymentAttemptAt`                                                                                                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                      | When the next payment retry is scheduled                                                                                                                                                                |                                                                                                                                                                                                         |

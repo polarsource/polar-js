@@ -131,6 +131,7 @@ async function $do(
       "name": payload.name,
       "organization_id": payload.organization_id,
       "page": payload.page,
+      "query": payload.query,
       "sorting": payload.sorting,
       "source": payload.source,
       "start_timestamp": payload.start_timestamp,

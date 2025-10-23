@@ -88,8 +88,9 @@ const value: components.DiscountPercentageOnceForeverDuration = {
       description:
         "shinny psst cram usefully buttery aggressive bestride conservative sympathetically",
       recurringInterval: "day",
-      isRecurring: false,
-      isArchived: true,
+      recurringIntervalCount: 432858,
+      isRecurring: true,
+      isArchived: false,
       organizationId: "<value>",
     },
   ],

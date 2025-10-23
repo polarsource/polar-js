@@ -330,7 +330,6 @@ run();
 
 | Error Type                          | Status Code                         | Content Type                        |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| errors.InvoiceAlreadyExists         | 409                                 | application/json                    |
 | errors.MissingInvoiceBillingDetails | 422                                 | application/json                    |
 | errors.NotPaidOrder                 | 422                                 | application/json                    |
 | errors.SDKError                     | 4XX, 5XX                            | \*/\*                               |

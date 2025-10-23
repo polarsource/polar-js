@@ -105,6 +105,7 @@ async function $do(
   const path = pathToFunc("/v1/customer-portal/seats")();
 
   const query = encodeFormQuery({
+    "order_id": payload.order_id,
     "subscription_id": payload.subscription_id,
   });
 

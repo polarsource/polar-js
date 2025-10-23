@@ -8,157 +8,167 @@ import { Metrics } from "@polar-sh/sdk/models/components/metrics.js";
 let value: Metrics = {
   orders: {
     slug: "<value>",
-    displayName: "Jimmie_Renner86",
-    type: "currency",
+    displayName: "Sandrine.Hermann51",
+    type: "scalar",
   },
   revenue: {
     slug: "<value>",
-    displayName: "Jacinthe66",
+    displayName: "Makenna_Rutherford59",
     type: "percentage",
   },
   netRevenue: {
     slug: "<value>",
-    displayName: "Matteo_Block",
-    type: "scalar",
+    displayName: "Timmothy_Dibbert76",
+    type: "percentage",
   },
   cumulativeRevenue: {
     slug: "<value>",
-    displayName: "Nedra_Ebert92",
-    type: "currency",
+    displayName: "Tiffany55",
+    type: "scalar",
   },
   netCumulativeRevenue: {
     slug: "<value>",
-    displayName: "Domingo.Rosenbaum",
-    type: "percentage",
+    displayName: "Sedrick.Sipes",
+    type: "scalar",
+  },
+  costs: {
+    slug: "<value>",
+    displayName: "Dakota_Turner",
+    type: "scalar",
+  },
+  cumulativeCosts: {
+    slug: "<value>",
+    displayName: "Earlene_Kuvalis-Hegmann14",
+    type: "currency",
   },
   averageOrderValue: {
     slug: "<value>",
-    displayName: "Coleman.Luettgen22",
+    displayName: "Dan_Morissette1",
     type: "percentage",
   },
   netAverageOrderValue: {
     slug: "<value>",
-    displayName: "Orval28",
+    displayName: "Florence_Daniel12",
     type: "currency",
   },
   oneTimeProducts: {
     slug: "<value>",
-    displayName: "Ewell.Corkery55",
-    type: "scalar",
+    displayName: "Ellsworth_Kshlerin53",
+    type: "percentage",
   },
   oneTimeProductsRevenue: {
     slug: "<value>",
-    displayName: "Lew.Ankunding",
+    displayName: "Paul68",
     type: "currency",
   },
   oneTimeProductsNetRevenue: {
     slug: "<value>",
-    displayName: "Chaim.Christiansen38",
-    type: "currency",
+    displayName: "Candelario25",
+    type: "scalar",
   },
   newSubscriptions: {
     slug: "<value>",
-    displayName: "Jayden70",
+    displayName: "Eloy37",
     type: "percentage",
   },
   newSubscriptionsRevenue: {
     slug: "<value>",
-    displayName: "Jayde_Parisian39",
-    type: "currency",
+    displayName: "Yvonne26",
+    type: "scalar",
   },
   newSubscriptionsNetRevenue: {
     slug: "<value>",
-    displayName: "Lenny_Funk1",
-    type: "scalar",
+    displayName: "Kristy_Bayer",
+    type: "currency",
   },
   renewedSubscriptions: {
     slug: "<value>",
-    displayName: "Lavina73",
-    type: "scalar",
+    displayName: "Peter99",
+    type: "percentage",
   },
   renewedSubscriptionsRevenue: {
     slug: "<value>",
-    displayName: "Antwan_Glover",
+    displayName: "Jaiden.Gutmann",
     type: "currency",
   },
   renewedSubscriptionsNetRevenue: {
     slug: "<value>",
-    displayName: "Alverta40",
-    type: "scalar",
+    displayName: "Abdullah_Weber",
+    type: "percentage",
   },
   activeSubscriptions: {
     slug: "<value>",
-    displayName: "Omari_Zieme",
-    type: "scalar",
+    displayName: "Jerrold_Spinka",
+    type: "percentage",
   },
   monthlyRecurringRevenue: {
     slug: "<value>",
-    displayName: "Ellie_Stokes37",
-    type: "scalar",
+    displayName: "Ben18",
+    type: "percentage",
   },
   committedMonthlyRecurringRevenue: {
     slug: "<value>",
-    displayName: "Trent.McClure",
+    displayName: "Lennie31",
     type: "currency",
   },
   checkouts: {
     slug: "<value>",
-    displayName: "Rory.West89",
-    type: "scalar",
+    displayName: "Sophie_Hoppe-Brekke69",
+    type: "currency",
   },
   succeededCheckouts: {
     slug: "<value>",
-    displayName: "Shanie_Denesik",
+    displayName: "Rhett_Harber88",
     type: "scalar",
   },
   checkoutsConversion: {
     slug: "<value>",
-    displayName: "Ashley65",
-    type: "percentage",
-  },
-  canceledSubscriptions: {
-    slug: "<value>",
-    displayName: "Geraldine_Reilly",
-    type: "percentage",
-  },
-  canceledSubscriptionsCustomerService: {
-    slug: "<value>",
-    displayName: "Hunter_Ortiz21",
-    type: "currency",
-  },
-  canceledSubscriptionsLowQuality: {
-    slug: "<value>",
-    displayName: "Wyatt80",
+    displayName: "Lon80",
     type: "scalar",
   },
-  canceledSubscriptionsMissingFeatures: {
+  canceledSubscriptions: {
     slug: "<value>",
     displayName: "Camila22",
     type: "percentage",
   },
-  canceledSubscriptionsSwitchedService: {
+  canceledSubscriptionsCustomerService: {
     slug: "<value>",
     displayName: "Vesta_Prohaska36",
     type: "percentage",
   },
-  canceledSubscriptionsTooComplex: {
+  canceledSubscriptionsLowQuality: {
     slug: "<value>",
     displayName: "Leland.Parisian11",
     type: "currency",
   },
-  canceledSubscriptionsTooExpensive: {
+  canceledSubscriptionsMissingFeatures: {
     slug: "<value>",
     displayName: "Syble32",
     type: "currency",
   },
-  canceledSubscriptionsUnused: {
+  canceledSubscriptionsSwitchedService: {
     slug: "<value>",
     displayName: "Nathanael.Gottlieb28",
     type: "scalar",
   },
-  canceledSubscriptionsOther: {
+  canceledSubscriptionsTooComplex: {
     slug: "<value>",
     displayName: "Keyon_Sipes",
+    type: "currency",
+  },
+  canceledSubscriptionsTooExpensive: {
+    slug: "<value>",
+    displayName: "Moriah82",
+    type: "percentage",
+  },
+  canceledSubscriptionsUnused: {
+    slug: "<value>",
+    displayName: "Ferne.Borer57",
+    type: "percentage",
+  },
+  canceledSubscriptionsOther: {
+    slug: "<value>",
+    displayName: "Colten23",
     type: "currency",
   },
 };
@@ -173,6 +183,8 @@ let value: Metrics = {
 | `netRevenue`                                           | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `cumulativeRevenue`                                    | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `netCumulativeRevenue`                                 | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
+| `costs`                                                | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
+| `cumulativeCosts`                                      | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `averageOrderValue`                                    | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `netAverageOrderValue`                                 | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |
 | `oneTimeProducts`                                      | [components.Metric](../../models/components/metric.md) | :heavy_check_mark:                                     | Information about a metric.                            |

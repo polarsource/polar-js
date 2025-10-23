@@ -342,12 +342,12 @@ const value: components.CustomerBenefitGrantLicenseKeys = {
     properties: {
       prefix: "<value>",
       expires: {
-        ttl: 84298,
-        timeframe: "year",
+        ttl: 93452,
+        timeframe: "day",
       },
       activations: {
-        limit: 202982,
-        enableCustomerAdmin: false,
+        limit: 777902,
+        enableCustomerAdmin: true,
       },
       limitUsage: 596467,
     },

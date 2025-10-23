@@ -17,12 +17,11 @@ let value: ProductsListResponse = {
         name: "<value>",
         description: "unlined why alongside beyond sandy softly",
         recurringInterval: "year",
+        recurringIntervalCount: 324286,
         isRecurring: false,
-        isArchived: true,
+        isArchived: false,
         organizationId: "<value>",
-        metadata: {
-          "key": true,
-        },
+        metadata: {},
         prices: [
           {
             createdAt: new Date("2024-01-20T19:38:49.234Z"),
@@ -42,18 +41,20 @@ let value: ProductsListResponse = {
           {
             customFieldId: "<value>",
             customField: {
-              createdAt: new Date("2024-06-30T20:57:53.724Z"),
-              modifiedAt: new Date("2024-03-04T15:14:18.502Z"),
+              createdAt: new Date("2025-05-25T16:58:54.608Z"),
+              modifiedAt: new Date("2023-09-04T14:15:13.546Z"),
               id: "<value>",
-              metadata: {},
-              type: "number",
+              metadata: {
+                "key": false,
+              },
+              type: "text",
               slug: "<value>",
               name: "<value>",
               organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
               properties: {},
             },
-            order: 763945,
-            required: true,
+            order: 93108,
+            required: false,
           },
         ],
       },
