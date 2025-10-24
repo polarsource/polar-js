@@ -18,7 +18,7 @@ let value: WebhookEvent = {
   modifiedAt: null,
   id: "<value>",
   payload: "<value>",
-  type: "subscription.active",
+  type: "subscription.updated",
   isArchived: true,
 };
 ```

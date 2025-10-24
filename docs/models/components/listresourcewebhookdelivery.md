@@ -19,7 +19,7 @@ let value: ListResourceWebhookDelivery = {
         modifiedAt: new Date("2023-11-22T09:27:46.946Z"),
         id: "<value>",
         payload: "<value>",
-        type: "subscription.canceled",
+        type: "subscription.active",
         isArchived: false,
       },
     },

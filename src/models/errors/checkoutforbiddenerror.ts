@@ -51,7 +51,7 @@ export type CheckoutForbiddenError$Outbound =
 export const CheckoutForbiddenError$outboundSchema: z.ZodType<
   CheckoutForbiddenError$Outbound,
   z.ZodTypeDef,
-  CheckoutForbiddenError
+  unknown
 > = z.union([
   AlreadyActiveSubscriptionError$outboundSchema,
   NotOpenCheckout$outboundSchema,

@@ -27,3 +27,9 @@ const value: number = 1284.03;
 const value: boolean = true;
 ```
 
+### `components.Five`
+
+```typescript
+const value: components.Five = {};
+```
+

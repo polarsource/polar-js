@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 653b1e1852dd6db0921e35e30aa27ac6
+  docChecksum: 865a3c803da2fe3ba3f4fe4060ab7d07
   docVersion: 0.1.0
-  speakeasyVersion: 1.638.1
-  generationVersion: 2.729.2
-  releaseVersion: 0.39.1
-  configChecksum: e78716981b48d3b2a894b36404b51504
+  speakeasyVersion: 1.639.2
+  generationVersion: 2.730.5
+  releaseVersion: 0.40.0
+  configChecksum: 66a58a405e00ede062042147c427f1bd
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.23.0
+    core: 3.24.1
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.1
@@ -312,6 +312,7 @@ generatedFiles:
   - docs/models/components/customersubscriptionsortproperty.md
   - docs/models/components/customersubscriptionupdate.md
   - docs/models/components/customersubscriptionupdateproduct.md
+  - docs/models/components/customersubscriptionupdateseats.md
   - docs/models/components/customertaxid.md
   - docs/models/components/customerupdate.md
   - docs/models/components/customerupdateexternalid.md
@@ -401,6 +402,7 @@ generatedFiles:
   - docs/models/components/eventcreatecustomer.md
   - docs/models/components/eventcreateexternalcustomer.md
   - docs/models/components/eventmetadatainput.md
+  - docs/models/components/eventmetadatainput5.md
   - docs/models/components/eventmetadataoutput.md
   - docs/models/components/eventname.md
   - docs/models/components/eventnamessortproperty.md
@@ -421,6 +423,7 @@ generatedFiles:
   - docs/models/components/filterclause.md
   - docs/models/components/filterconjunction.md
   - docs/models/components/filteroperator.md
+  - docs/models/components/five.md
   - docs/models/components/func.md
   - docs/models/components/genericpayment.md
   - docs/models/components/granttypes.md
@@ -654,6 +657,10 @@ generatedFiles:
   - docs/models/components/status.md
   - docs/models/components/subscription.md
   - docs/models/components/subscriptioncancel.md
+  - docs/models/components/subscriptioncreatecustomer.md
+  - docs/models/components/subscriptioncreatecustomermetadata.md
+  - docs/models/components/subscriptioncreateexternalcustomer.md
+  - docs/models/components/subscriptioncreateexternalcustomermetadata.md
   - docs/models/components/subscriptioncustomer.md
   - docs/models/components/subscriptioncustomermetadata.md
   - docs/models/components/subscriptioncycledevent.md
@@ -673,6 +680,7 @@ generatedFiles:
   - docs/models/components/subscriptionupdate.md
   - docs/models/components/subscriptionupdatediscount.md
   - docs/models/components/subscriptionupdateproduct.md
+  - docs/models/components/subscriptionupdateseats.md
   - docs/models/components/subscriptionupdatetrial.md
   - docs/models/components/subtype.md
   - docs/models/components/succeededcheckouts.md
@@ -706,6 +714,9 @@ generatedFiles:
   - docs/models/components/webhookcheckoutupdatedpayload.md
   - docs/models/components/webhookcustomercreatedpayload.md
   - docs/models/components/webhookcustomerdeletedpayload.md
+  - docs/models/components/webhookcustomerseatassignedpayload.md
+  - docs/models/components/webhookcustomerseatclaimedpayload.md
+  - docs/models/components/webhookcustomerseatrevokedpayload.md
   - docs/models/components/webhookcustomerstatechangedpayload.md
   - docs/models/components/webhookcustomerupdatedpayload.md
   - docs/models/components/webhookdelivery.md
@@ -1005,6 +1016,7 @@ generatedFiles:
   - docs/models/operations/sourcefilter.md
   - docs/models/operations/statusfilter.md
   - docs/models/operations/subscriptionidfilter.md
+  - docs/models/operations/subscriptionscreatesubscriptioncreate.md
   - docs/models/operations/subscriptionsexportrequest.md
   - docs/models/operations/subscriptionsgetrequest.md
   - docs/models/operations/subscriptionslistrequest.md
@@ -1199,6 +1211,7 @@ generatedFiles:
   - src/funcs/productsUpdateBenefits.ts
   - src/funcs/refundsCreate.ts
   - src/funcs/refundsList.ts
+  - src/funcs/subscriptionsCreate.ts
   - src/funcs/subscriptionsExport.ts
   - src/funcs/subscriptionsGet.ts
   - src/funcs/subscriptionsList.ts
@@ -1405,6 +1418,7 @@ generatedFiles:
   - src/models/components/customersubscriptionsortproperty.ts
   - src/models/components/customersubscriptionupdate.ts
   - src/models/components/customersubscriptionupdateproduct.ts
+  - src/models/components/customersubscriptionupdateseats.ts
   - src/models/components/customerupdate.ts
   - src/models/components/customerupdateexternalid.ts
   - src/models/components/customfield.ts
@@ -1624,6 +1638,8 @@ generatedFiles:
   - src/models/components/status.ts
   - src/models/components/subscription.ts
   - src/models/components/subscriptioncancel.ts
+  - src/models/components/subscriptioncreatecustomer.ts
+  - src/models/components/subscriptioncreateexternalcustomer.ts
   - src/models/components/subscriptioncustomer.ts
   - src/models/components/subscriptioncycledevent.ts
   - src/models/components/subscriptioncycledmetadata.ts
@@ -1641,6 +1657,7 @@ generatedFiles:
   - src/models/components/subscriptionupdate.ts
   - src/models/components/subscriptionupdatediscount.ts
   - src/models/components/subscriptionupdateproduct.ts
+  - src/models/components/subscriptionupdateseats.ts
   - src/models/components/subscriptionupdatetrial.ts
   - src/models/components/subtype.ts
   - src/models/components/systemevent.ts
@@ -1664,6 +1681,9 @@ generatedFiles:
   - src/models/components/webhookcheckoutupdatedpayload.ts
   - src/models/components/webhookcustomercreatedpayload.ts
   - src/models/components/webhookcustomerdeletedpayload.ts
+  - src/models/components/webhookcustomerseatassignedpayload.ts
+  - src/models/components/webhookcustomerseatclaimedpayload.ts
+  - src/models/components/webhookcustomerseatrevokedpayload.ts
   - src/models/components/webhookcustomerstatechangedpayload.ts
   - src/models/components/webhookcustomerupdatedpayload.ts
   - src/models/components/webhookdelivery.ts
@@ -1828,6 +1848,7 @@ generatedFiles:
   - src/models/operations/productsupdate.ts
   - src/models/operations/productsupdatebenefits.ts
   - src/models/operations/refundslist.ts
+  - src/models/operations/subscriptionscreate.ts
   - src/models/operations/subscriptionsexport.ts
   - src/models/operations/subscriptionsget.ts
   - src/models/operations/subscriptionslist.ts
@@ -3911,6 +3932,42 @@ examples:
           application/json: {"seat": {"created_at": "2025-04-12T14:34:03.720Z", "modified_at": "2024-11-19T23:36:35.489Z", "id": "f64b62d8-93fd-4163-a769-ecd646971709", "status": "revoked"}, "customer_session_token": "<value>"}
         "422":
           application/json: {}
+  _endpointcustomer_seat_assigned_post:
+    speakeasy-default-endpointcustomer-seat-assigned-post:
+      requestBody:
+        application/json: {"type": "customer_seat.assigned", "timestamp": "2023-01-24T21:46:22.729Z", "data": {"created_at": "2024-04-02T01:55:00.575Z", "modified_at": "2025-03-27T17:16:29.966Z", "id": "ded032fb-362e-4ae1-83b9-4f4bcab6f430", "status": "revoked"}}
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  _endpointcustomer_seat_claimed_post:
+    speakeasy-default-endpointcustomer-seat-claimed-post:
+      requestBody:
+        application/json: {"type": "customer_seat.claimed", "timestamp": "2023-08-22T13:16:39.616Z", "data": {"created_at": "2023-05-10T18:50:40.033Z", "modified_at": "2023-07-12T19:06:41.896Z", "id": "35ac8c8c-dc4e-44ea-9684-2a2c2b600002", "status": "pending"}}
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  _endpointcustomer_seat_revoked_post:
+    speakeasy-default-endpointcustomer-seat-revoked-post:
+      requestBody:
+        application/json: {"type": "customer_seat.revoked", "timestamp": "2023-11-12T11:49:39.839Z", "data": {"created_at": "2024-08-05T10:54:13.336Z", "modified_at": "2023-12-02T21:24:11.844Z", "id": "518899df-02c0-4220-abaf-0f2f32e97539", "status": "pending"}}
+      responses:
+        "200":
+          application/json: "<value>"
+        "422":
+          application/json: {}
+  subscriptions:create:
+    speakeasy-default-subscriptions:create:
+      requestBody:
+        application/json: {"product_id": "d8dd2de1-21b7-4a41-8bc3-ce909c0cfe23", "customer_id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b"}
+      responses:
+        "201":
+          application/json: {"created_at": "2024-05-07T09:41:55.474Z", "modified_at": "2024-07-21T03:47:24.582Z", "id": "<value>", "amount": 10000, "currency": "usd", "recurring_interval": "month", "recurring_interval_count": 261853, "status": "incomplete", "current_period_start": "2025-05-30T22:14:44.546Z", "current_period_end": "2024-03-11T09:56:01.675Z", "trial_start": null, "trial_end": "2024-06-17T00:10:04.156Z", "cancel_at_period_end": true, "canceled_at": "2024-10-16T05:43:54.436Z", "started_at": "2023-08-13T14:15:39.992Z", "ends_at": "2023-02-26T21:36:33.823Z", "ended_at": null, "customer_id": "<value>", "product_id": "<value>", "discount_id": "<value>", "checkout_id": "<value>", "customer_cancellation_reason": "missing_features", "customer_cancellation_comment": "<value>", "metadata": {}, "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-05-11T11:37:46.426Z", "modified_at": "2023-08-28T20:40:19.067Z", "metadata": {"key": "<value>"}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2023-05-09T04:32:44.403Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}, "product": {"id": "<value>", "created_at": "2024-03-12T12:11:55.173Z", "modified_at": "2025-12-06T22:23:14.254Z", "trial_interval": "week", "trial_interval_count": 71746, "name": "<value>", "description": "uneven lest shocked alongside", "recurring_interval": null, "recurring_interval_count": 106391, "is_recurring": false, "is_archived": true, "organization_id": "<value>", "metadata": {}, "prices": [], "benefits": [{"id": "<value>", "created_at": "2025-08-08T23:08:58.031Z", "modified_at": "2023-08-16T21:10:10.979Z", "type": "downloadables", "description": "consign ick circle", "selectable": false, "deletable": false, "organization_id": "<value>", "metadata": {"key": "<value>"}, "properties": {"archived": {"key": false, "key1": true, "key2": false}, "files": ["<value 1>", "<value 2>", "<value 3>"]}}], "medias": [], "attached_custom_fields": [{"custom_field_id": "<value>", "custom_field": {"created_at": "2024-12-25T03:27:59.537Z", "modified_at": "2025-03-22T12:04:54.293Z", "id": "<value>", "metadata": {}, "type": "date", "slug": "<value>", "name": "<value>", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "properties": {}}, "order": 335043, "required": true}]}, "discount": {"duration": "repeating", "duration_in_months": 470978, "type": "percentage", "basis_points": 1000, "created_at": "2023-01-02T12:02:59.434Z", "modified_at": "2024-12-18T23:17:27.575Z", "id": "<value>", "metadata": {"key": 583422}, "name": "<value>", "code": "<value>", "starts_at": "2024-06-09T18:09:09.489Z", "ends_at": "2025-04-22T20:10:26.485Z", "max_redemptions": 345910, "redemptions_count": 235299, "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737"}, "prices": [{"created_at": "2023-08-05T18:43:39.547Z", "modified_at": "2023-03-08T07:36:56.095Z", "id": "<value>", "amount_type": "fixed", "is_archived": true, "product_id": "<value>", "type": "recurring", "recurring_interval": "week", "price_currency": "<value>", "price_amount": 984500, "legacy": true}], "meters": []}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.orders.export()`: **Added**\n* `polar.customerSeats.assignSeat()`: **Added**\n* `polar.customerSeats.listSeats()`: **Added**\n* `polar.customerSeats.revokeSeat()`: **Added**\n* `polar.customerSeats.resendInvitation()`: **Added**\n* `polar.customerSeats.getClaimInfo()`: **Added**\n* `polar.customerSeats.claimSeat()`: **Added**\n* `polar.EndpointorderCreatedPost()`: \n  *  `request.data.subscription.seats` **Added**\n* `polar.EndpointorderUpdatedPost()`: \n  *  `request.data.subscription.seats` **Added**\n* `polar.EndpointorderPaidPost()`: \n  *  `request.data.subscription.seats` **Added**\n* `polar.EndpointorderRefundedPost()`: \n  *  `request.data.subscription.seats` **Added**\n* `polar.EndpointsubscriptionCreatedPost()`: \n  *  `request.data.seats` **Added**\n* `polar.EndpointsubscriptionUpdatedPost()`: \n  *  `request.data.seats` **Added**\n* `polar.EndpointsubscriptionActivePost()`: \n  *  `request.data.seats` **Added**\n* `polar.EndpointsubscriptionCanceledPost()`: \n  *  `request.data.seats` **Added**\n* `polar.EndpointsubscriptionUncanceledPost()`: \n  *  `request.data.seats` **Added**\n* `polar.EndpointsubscriptionRevokedPost()`: \n  *  `request.data.seats` **Added**\n* `polar.subscriptions.list()`:  `response.items.[].seats` **Added**\n* `polar.subscriptions.get()`:  `response.seats` **Added**\n* `polar.subscriptions.revoke()`:  `response.seats` **Added**\n* `polar.subscriptions.update()`:  `response.seats` **Added**\n* `polar.orders.list()`:  `response.items.[].subscription.seats` **Added**\n* `polar.orders.get()`:  `response.subscription.seats` **Added**\n* `polar.orders.update()`:  `response.subscription.seats` **Added**\n* `polar.customerPortal.seats.listClaimedSubscriptions()`:  `response.[].seats` **Added**\n* `polar.customerPortal.orders.list()`:  `response.items.[].subscription.seats` **Added**\n* `polar.customerPortal.orders.get()`:  `response.subscription.seats` **Added**\n* `polar.customerPortal.orders.update()`:  `response.subscription.seats` **Added**\n* `polar.customerPortal.subscriptions.list()`:  `response.items.[].seats` **Added**\n* `polar.customerPortal.subscriptions.get()`:  `response.seats` **Added**\n* `polar.customerPortal.subscriptions.cancel()`:  `response.seats` **Added**\n* `polar.customerPortal.subscriptions.update()`:  `response.seats` **Added**\n"
+releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.EndpointcustomerSeatAssignedPost()`: **Added**\n* `polar.EndpointcustomerSeatClaimedPost()`: **Added**\n* `polar.EndpointcustomerSeatRevokedPost()`: **Added**\n* `polar.subscriptions.create()`: **Added**\n* `polar.subscriptions.update()`: \n  *  `request.subscriptionUpdate.[subscriptionUpdateSeats]` **Added**\n* `polar.customerPortal.subscriptions.update()`: \n  *  `request.customerSubscriptionUpdate.[customerSubscriptionUpdateSeats]` **Added**\n* `polar.events.list()`:  `response.items.[].[userEvent].metadata.{}.[5]` **Added**\n* `polar.events.get()`:  `response.[userevent].metadata.{}.[5]` **Added**\n* `polar.events.ingest()`: \n  *  `request.events.[].[eventCreateExternalCustomer].metadata.{}.[5]` **Added**\n"

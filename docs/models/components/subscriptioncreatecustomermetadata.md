@@ -1,4 +1,4 @@
-# EventMetadataInput
+# SubscriptionCreateCustomerMetadata
 
 
 ## Supported Types
@@ -25,11 +25,5 @@ const value: number = 1284.03;
 
 ```typescript
 const value: boolean = true;
-```
-
-### `components.EventMetadataInput5`
-
-```typescript
-const value: components.EventMetadataInput5 = {};
 ```
 

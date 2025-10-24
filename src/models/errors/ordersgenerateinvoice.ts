@@ -47,7 +47,7 @@ export const OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$outboundSchem
   z.ZodType<
     OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$Outbound,
     z.ZodTypeDef,
-    OrdersGenerateInvoiceResponse422OrdersGenerateInvoice
+    unknown
   > = z.union([
     MissingInvoiceBillingDetails$outboundSchema,
     NotPaidOrder$outboundSchema,
