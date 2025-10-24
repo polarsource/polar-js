@@ -127,12 +127,12 @@ export type CustomerSubscription = {
    */
   discountId: string | null;
   checkoutId: string | null;
-  customerCancellationReason: CustomerCancellationReason | null;
-  customerCancellationComment: string | null;
   /**
-   * Number of seats included in the subscription (for seat-based pricing).
+   * The number of seats for seat-based subscriptions. None for non-seat subscriptions.
    */
   seats?: number | null | undefined;
+  customerCancellationReason: CustomerCancellationReason | null;
+  customerCancellationComment: string | null;
   product: CustomerSubscriptionProduct;
   /**
    * List of enabled prices for the subscription.
@@ -249,11 +249,11 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
   product_id: z.string(),
   discount_id: z.nullable(z.string()),
   checkout_id: z.nullable(z.string()),
+  seats: z.nullable(z.number().int()).optional(),
   customer_cancellation_reason: z.nullable(
     CustomerCancellationReason$inboundSchema,
   ),
   customer_cancellation_comment: z.nullable(z.string()),
-  seats: z.nullable(z.number().int()).optional(),
   product: CustomerSubscriptionProduct$inboundSchema,
   prices: z.array(
     z.union([
@@ -311,9 +311,9 @@ export type CustomerSubscription$Outbound = {
   product_id: string;
   discount_id: string | null;
   checkout_id: string | null;
+  seats?: number | null | undefined;
   customer_cancellation_reason: string | null;
   customer_cancellation_comment: string | null;
-  seats?: number | null | undefined;
   product: CustomerSubscriptionProduct$Outbound;
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
   meters: Array<CustomerSubscriptionMeter$Outbound>;
@@ -347,11 +347,11 @@ export const CustomerSubscription$outboundSchema: z.ZodType<
   productId: z.string(),
   discountId: z.nullable(z.string()),
   checkoutId: z.nullable(z.string()),
+  seats: z.nullable(z.number().int()).optional(),
   customerCancellationReason: z.nullable(
     CustomerCancellationReason$outboundSchema,
   ),
   customerCancellationComment: z.nullable(z.string()),
-  seats: z.nullable(z.number().int()).optional(),
   product: CustomerSubscriptionProduct$outboundSchema,
   prices: z.array(
     z.union([

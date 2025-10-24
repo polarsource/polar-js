@@ -18,9 +18,16 @@ import {
   CustomerSubscriptionUpdateProduct$Outbound,
   CustomerSubscriptionUpdateProduct$outboundSchema,
 } from "./customersubscriptionupdateproduct.js";
+import {
+  CustomerSubscriptionUpdateSeats,
+  CustomerSubscriptionUpdateSeats$inboundSchema,
+  CustomerSubscriptionUpdateSeats$Outbound,
+  CustomerSubscriptionUpdateSeats$outboundSchema,
+} from "./customersubscriptionupdateseats.js";
 
 export type CustomerSubscriptionUpdate =
   | CustomerSubscriptionUpdateProduct
+  | CustomerSubscriptionUpdateSeats
   | CustomerSubscriptionCancel;
 
 /** @internal */
@@ -30,12 +37,14 @@ export const CustomerSubscriptionUpdate$inboundSchema: z.ZodType<
   unknown
 > = z.union([
   CustomerSubscriptionUpdateProduct$inboundSchema,
+  CustomerSubscriptionUpdateSeats$inboundSchema,
   CustomerSubscriptionCancel$inboundSchema,
 ]);
 
 /** @internal */
 export type CustomerSubscriptionUpdate$Outbound =
   | CustomerSubscriptionUpdateProduct$Outbound
+  | CustomerSubscriptionUpdateSeats$Outbound
   | CustomerSubscriptionCancel$Outbound;
 
 /** @internal */
@@ -45,6 +54,7 @@ export const CustomerSubscriptionUpdate$outboundSchema: z.ZodType<
   CustomerSubscriptionUpdate
 > = z.union([
   CustomerSubscriptionUpdateProduct$outboundSchema,
+  CustomerSubscriptionUpdateSeats$outboundSchema,
   CustomerSubscriptionCancel$outboundSchema,
 ]);
 

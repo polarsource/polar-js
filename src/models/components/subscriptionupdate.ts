@@ -31,6 +31,12 @@ import {
   SubscriptionUpdateProduct$outboundSchema,
 } from "./subscriptionupdateproduct.js";
 import {
+  SubscriptionUpdateSeats,
+  SubscriptionUpdateSeats$inboundSchema,
+  SubscriptionUpdateSeats$Outbound,
+  SubscriptionUpdateSeats$outboundSchema,
+} from "./subscriptionupdateseats.js";
+import {
   SubscriptionUpdateTrial,
   SubscriptionUpdateTrial$inboundSchema,
   SubscriptionUpdateTrial$Outbound,
@@ -41,6 +47,7 @@ export type SubscriptionUpdate =
   | SubscriptionUpdateProduct
   | SubscriptionUpdateDiscount
   | SubscriptionUpdateTrial
+  | SubscriptionUpdateSeats
   | SubscriptionCancel
   | SubscriptionRevoke;
 
@@ -53,6 +60,7 @@ export const SubscriptionUpdate$inboundSchema: z.ZodType<
   SubscriptionUpdateProduct$inboundSchema,
   SubscriptionUpdateDiscount$inboundSchema,
   SubscriptionUpdateTrial$inboundSchema,
+  SubscriptionUpdateSeats$inboundSchema,
   SubscriptionCancel$inboundSchema,
   SubscriptionRevoke$inboundSchema,
 ]);
@@ -62,6 +70,7 @@ export type SubscriptionUpdate$Outbound =
   | SubscriptionUpdateProduct$Outbound
   | SubscriptionUpdateDiscount$Outbound
   | SubscriptionUpdateTrial$Outbound
+  | SubscriptionUpdateSeats$Outbound
   | SubscriptionCancel$Outbound
   | SubscriptionRevoke$Outbound;
 
@@ -74,6 +83,7 @@ export const SubscriptionUpdate$outboundSchema: z.ZodType<
   SubscriptionUpdateProduct$outboundSchema,
   SubscriptionUpdateDiscount$outboundSchema,
   SubscriptionUpdateTrial$outboundSchema,
+  SubscriptionUpdateSeats$outboundSchema,
   SubscriptionCancel$outboundSchema,
   SubscriptionRevoke$outboundSchema,
 ]);

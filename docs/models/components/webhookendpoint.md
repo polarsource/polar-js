@@ -16,7 +16,7 @@ let value: WebhookEndpoint = {
   secret: "polar_whs_ovyN6cPrTv56AApvzCaJno08SSmGJmgbWilb33N2JuK",
   organizationId: "<value>",
   events: [
-    "order.paid",
+    "order.created",
   ],
 };
 ```

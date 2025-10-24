@@ -7,24 +7,96 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type EventMetadataInput = string | number | number | boolean;
+export type EventMetadataInput5 = {};
+
+export type EventMetadataInput =
+  | string
+  | number
+  | number
+  | boolean
+  | EventMetadataInput5;
+
+/** @internal */
+export const EventMetadataInput5$inboundSchema: z.ZodType<
+  EventMetadataInput5,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
+
+/** @internal */
+export type EventMetadataInput5$Outbound = {};
+
+/** @internal */
+export const EventMetadataInput5$outboundSchema: z.ZodType<
+  EventMetadataInput5$Outbound,
+  z.ZodTypeDef,
+  EventMetadataInput5
+> = z.object({});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace EventMetadataInput5$ {
+  /** @deprecated use `EventMetadataInput5$inboundSchema` instead. */
+  export const inboundSchema = EventMetadataInput5$inboundSchema;
+  /** @deprecated use `EventMetadataInput5$outboundSchema` instead. */
+  export const outboundSchema = EventMetadataInput5$outboundSchema;
+  /** @deprecated use `EventMetadataInput5$Outbound` instead. */
+  export type Outbound = EventMetadataInput5$Outbound;
+}
+
+export function eventMetadataInput5ToJSON(
+  eventMetadataInput5: EventMetadataInput5,
+): string {
+  return JSON.stringify(
+    EventMetadataInput5$outboundSchema.parse(eventMetadataInput5),
+  );
+}
+
+export function eventMetadataInput5FromJSON(
+  jsonString: string,
+): SafeParseResult<EventMetadataInput5, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EventMetadataInput5$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EventMetadataInput5' from JSON`,
+  );
+}
 
 /** @internal */
 export const EventMetadataInput$inboundSchema: z.ZodType<
   EventMetadataInput,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.number(),
+  z.boolean(),
+  z.lazy(() => EventMetadataInput5$inboundSchema),
+]);
 
 /** @internal */
-export type EventMetadataInput$Outbound = string | number | number | boolean;
+export type EventMetadataInput$Outbound =
+  | string
+  | number
+  | number
+  | boolean
+  | EventMetadataInput5$Outbound;
 
 /** @internal */
 export const EventMetadataInput$outboundSchema: z.ZodType<
   EventMetadataInput$Outbound,
   z.ZodTypeDef,
   EventMetadataInput
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
+> = z.union([
+  z.string(),
+  z.number().int(),
+  z.number(),
+  z.boolean(),
+  z.lazy(() => EventMetadataInput5$outboundSchema),
+]);
 
 /**
  * @internal

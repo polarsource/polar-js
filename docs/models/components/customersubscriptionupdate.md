@@ -11,6 +11,14 @@ const value: components.CustomerSubscriptionUpdateProduct = {
 };
 ```
 
+### `components.CustomerSubscriptionUpdateSeats`
+
+```typescript
+const value: components.CustomerSubscriptionUpdateSeats = {
+  seats: 779936,
+};
+```
+
 ### `components.CustomerSubscriptionCancel`
 
 ```typescript
