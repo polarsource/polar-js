@@ -6,63 +6,26 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export type EventMetadataInput5 = {};
+import {
+  CostMetadataInput,
+  CostMetadataInput$inboundSchema,
+  CostMetadataInput$Outbound,
+  CostMetadataInput$outboundSchema,
+} from "./costmetadatainput.js";
+import {
+  LLMMetadata,
+  LLMMetadata$inboundSchema,
+  LLMMetadata$Outbound,
+  LLMMetadata$outboundSchema,
+} from "./llmmetadata.js";
 
 export type EventMetadataInput =
+  | LLMMetadata
+  | CostMetadataInput
   | string
   | number
   | number
-  | boolean
-  | EventMetadataInput5;
-
-/** @internal */
-export const EventMetadataInput5$inboundSchema: z.ZodType<
-  EventMetadataInput5,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type EventMetadataInput5$Outbound = {};
-
-/** @internal */
-export const EventMetadataInput5$outboundSchema: z.ZodType<
-  EventMetadataInput5$Outbound,
-  z.ZodTypeDef,
-  EventMetadataInput5
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventMetadataInput5$ {
-  /** @deprecated use `EventMetadataInput5$inboundSchema` instead. */
-  export const inboundSchema = EventMetadataInput5$inboundSchema;
-  /** @deprecated use `EventMetadataInput5$outboundSchema` instead. */
-  export const outboundSchema = EventMetadataInput5$outboundSchema;
-  /** @deprecated use `EventMetadataInput5$Outbound` instead. */
-  export type Outbound = EventMetadataInput5$Outbound;
-}
-
-export function eventMetadataInput5ToJSON(
-  eventMetadataInput5: EventMetadataInput5,
-): string {
-  return JSON.stringify(
-    EventMetadataInput5$outboundSchema.parse(eventMetadataInput5),
-  );
-}
-
-export function eventMetadataInput5FromJSON(
-  jsonString: string,
-): SafeParseResult<EventMetadataInput5, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EventMetadataInput5$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EventMetadataInput5' from JSON`,
-  );
-}
+  | boolean;
 
 /** @internal */
 export const EventMetadataInput$inboundSchema: z.ZodType<
@@ -70,20 +33,22 @@ export const EventMetadataInput$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  LLMMetadata$inboundSchema,
+  CostMetadataInput$inboundSchema,
   z.string(),
   z.number().int(),
   z.number(),
   z.boolean(),
-  z.lazy(() => EventMetadataInput5$inboundSchema),
 ]);
 
 /** @internal */
 export type EventMetadataInput$Outbound =
+  | LLMMetadata$Outbound
+  | CostMetadataInput$Outbound
   | string
   | number
   | number
-  | boolean
-  | EventMetadataInput5$Outbound;
+  | boolean;
 
 /** @internal */
 export const EventMetadataInput$outboundSchema: z.ZodType<
@@ -91,11 +56,12 @@ export const EventMetadataInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EventMetadataInput
 > = z.union([
+  LLMMetadata$outboundSchema,
+  CostMetadataInput$outboundSchema,
   z.string(),
   z.number().int(),
   z.number(),
   z.boolean(),
-  z.lazy(() => EventMetadataInput5$outboundSchema),
 ]);
 
 /**
