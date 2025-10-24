@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 865a3c803da2fe3ba3f4fe4060ab7d07
+  docChecksum: 4d324769aa9c8ac234758879c91f4e03
   docVersion: 0.1.0
-  speakeasyVersion: 1.639.2
+  speakeasyVersion: 1.639.3
   generationVersion: 2.730.5
-  releaseVersion: 0.40.0
-  configChecksum: 66a58a405e00ede062042147c427f1bd
+  releaseVersion: 0.40.1
+  configChecksum: a05294f99037b79fb7b087f4d473b5bd
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -52,6 +52,7 @@ generatedFiles:
   - docs/models/components/addressinput.md
   - docs/models/components/aggregation.md
   - docs/models/components/aggregationfunction.md
+  - docs/models/components/amount.md
   - docs/models/components/attachedcustomfield.md
   - docs/models/components/attachedcustomfieldcreate.md
   - docs/models/components/authorizationcodetokenrequest.md
@@ -225,6 +226,8 @@ generatedFiles:
   - docs/models/components/clauses.md
   - docs/models/components/committedmonthlyrecurringrevenue.md
   - docs/models/components/conditions.md
+  - docs/models/components/costmetadatainput.md
+  - docs/models/components/costmetadataoutput.md
   - docs/models/components/costs.md
   - docs/models/components/countaggregation.md
   - docs/models/components/countryalpha2.md
@@ -402,7 +405,6 @@ generatedFiles:
   - docs/models/components/eventcreatecustomer.md
   - docs/models/components/eventcreateexternalcustomer.md
   - docs/models/components/eventmetadatainput.md
-  - docs/models/components/eventmetadatainput5.md
   - docs/models/components/eventmetadataoutput.md
   - docs/models/components/eventname.md
   - docs/models/components/eventnamessortproperty.md
@@ -423,7 +425,6 @@ generatedFiles:
   - docs/models/components/filterclause.md
   - docs/models/components/filterconjunction.md
   - docs/models/components/filteroperator.md
-  - docs/models/components/five.md
   - docs/models/components/func.md
   - docs/models/components/genericpayment.md
   - docs/models/components/granttypes.md
@@ -476,6 +477,7 @@ generatedFiles:
   - docs/models/components/listresourcesubscription.md
   - docs/models/components/listresourcewebhookdelivery.md
   - docs/models/components/listresourcewebhookendpoint.md
+  - docs/models/components/llmmetadata.md
   - docs/models/components/loc.md
   - docs/models/components/meta.md
   - docs/models/components/metadata.md
@@ -1351,6 +1353,8 @@ generatedFiles:
   - src/models/components/checkoutstatus.ts
   - src/models/components/checkoutupdate.ts
   - src/models/components/checkoutupdatepublic.ts
+  - src/models/components/costmetadatainput.ts
+  - src/models/components/costmetadataoutput.ts
   - src/models/components/countaggregation.ts
   - src/models/components/customer.ts
   - src/models/components/customerbalance.ts
@@ -1535,6 +1539,7 @@ generatedFiles:
   - src/models/components/listresourcesubscription.ts
   - src/models/components/listresourcewebhookdelivery.ts
   - src/models/components/listresourcewebhookendpoint.ts
+  - src/models/components/llmmetadata.ts
   - src/models/components/meter.ts
   - src/models/components/metercreate.ts
   - src/models/components/metercreditedmetadata.ts
@@ -3970,4 +3975,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.EndpointcustomerSeatAssignedPost()`: **Added**\n* `polar.EndpointcustomerSeatClaimedPost()`: **Added**\n* `polar.EndpointcustomerSeatRevokedPost()`: **Added**\n* `polar.subscriptions.create()`: **Added**\n* `polar.subscriptions.update()`: \n  *  `request.subscriptionUpdate.[subscriptionUpdateSeats]` **Added**\n* `polar.customerPortal.subscriptions.update()`: \n  *  `request.customerSubscriptionUpdate.[customerSubscriptionUpdateSeats]` **Added**\n* `polar.events.list()`:  `response.items.[].[userEvent].metadata.{}.[5]` **Added**\n* `polar.events.get()`:  `response.[userevent].metadata.{}.[5]` **Added**\n* `polar.events.ingest()`: \n  *  `request.events.[].[eventCreateExternalCustomer].metadata.{}.[5]` **Added**\n"
+releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.events.ingest()`: \n  *  `request.events.[].[eventCreateCustomer].metadata.{}` **Changed** **Breaking** :warning:\n* `polar.events.list()`:  `response.items.[].[userEvent].metadata.{}` **Changed**\n* `polar.events.get()`:  `response.[userevent].metadata.{}` **Changed**\n"

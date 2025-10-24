@@ -6,48 +6,26 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  CostMetadataOutput,
+  CostMetadataOutput$inboundSchema,
+  CostMetadataOutput$Outbound,
+  CostMetadataOutput$outboundSchema,
+} from "./costmetadataoutput.js";
+import {
+  LLMMetadata,
+  LLMMetadata$inboundSchema,
+  LLMMetadata$Outbound,
+  LLMMetadata$outboundSchema,
+} from "./llmmetadata.js";
 
-export type Five = {};
-
-export type EventMetadataOutput = string | number | number | boolean | Five;
-
-/** @internal */
-export const Five$inboundSchema: z.ZodType<Five, z.ZodTypeDef, unknown> = z
-  .object({});
-
-/** @internal */
-export type Five$Outbound = {};
-
-/** @internal */
-export const Five$outboundSchema: z.ZodType<Five$Outbound, z.ZodTypeDef, Five> =
-  z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Five$ {
-  /** @deprecated use `Five$inboundSchema` instead. */
-  export const inboundSchema = Five$inboundSchema;
-  /** @deprecated use `Five$outboundSchema` instead. */
-  export const outboundSchema = Five$outboundSchema;
-  /** @deprecated use `Five$Outbound` instead. */
-  export type Outbound = Five$Outbound;
-}
-
-export function fiveToJSON(five: Five): string {
-  return JSON.stringify(Five$outboundSchema.parse(five));
-}
-
-export function fiveFromJSON(
-  jsonString: string,
-): SafeParseResult<Five, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Five$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Five' from JSON`,
-  );
-}
+export type EventMetadataOutput =
+  | LLMMetadata
+  | CostMetadataOutput
+  | string
+  | number
+  | number
+  | boolean;
 
 /** @internal */
 export const EventMetadataOutput$inboundSchema: z.ZodType<
@@ -55,20 +33,22 @@ export const EventMetadataOutput$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  LLMMetadata$inboundSchema,
+  CostMetadataOutput$inboundSchema,
   z.string(),
   z.number().int(),
   z.number(),
   z.boolean(),
-  z.lazy(() => Five$inboundSchema),
 ]);
 
 /** @internal */
 export type EventMetadataOutput$Outbound =
+  | LLMMetadata$Outbound
+  | CostMetadataOutput$Outbound
   | string
   | number
   | number
-  | boolean
-  | Five$Outbound;
+  | boolean;
 
 /** @internal */
 export const EventMetadataOutput$outboundSchema: z.ZodType<
@@ -76,11 +56,12 @@ export const EventMetadataOutput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EventMetadataOutput
 > = z.union([
+  LLMMetadata$outboundSchema,
+  CostMetadataOutput$outboundSchema,
   z.string(),
   z.number().int(),
   z.number(),
   z.boolean(),
-  z.lazy(() => Five$outboundSchema),
 ]);
 
 /**
