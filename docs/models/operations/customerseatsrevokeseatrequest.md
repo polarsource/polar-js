@@ -6,7 +6,7 @@
 import { CustomerSeatsRevokeSeatRequest } from "@polar-sh/sdk/models/operations/customerseatsrevokeseat.js";
 
 let value: CustomerSeatsRevokeSeatRequest = {
-  seatId: "<id>",
+  seatId: "<value>",
 };
 ```
 

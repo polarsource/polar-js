@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 4d324769aa9c8ac234758879c91f4e03
+  docChecksum: bab9eb2e71c9c30ff4e8051a830a08df
   docVersion: 0.1.0
   speakeasyVersion: 1.639.3
   generationVersion: 2.730.5
-  releaseVersion: 0.40.1
-  configChecksum: a05294f99037b79fb7b087f4d473b5bd
+  releaseVersion: 0.40.2
+  configChecksum: 8707efee3c39634b3ef8de47a30b156f
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -3975,4 +3975,3 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.events.ingest()`: \n  *  `request.events.[].[eventCreateCustomer].metadata.{}` **Changed** **Breaking** :warning:\n* `polar.events.list()`:  `response.items.[].[userEvent].metadata.{}` **Changed**\n* `polar.events.get()`:  `response.[userevent].metadata.{}` **Changed**\n"
