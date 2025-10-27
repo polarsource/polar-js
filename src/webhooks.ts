@@ -30,6 +30,9 @@ import { WebhookCustomerCreatedPayload$inboundSchema } from "./models/components
 import { WebhookCustomerUpdatedPayload$inboundSchema } from "./models/components/webhookcustomerupdatedpayload.js";
 import { WebhookCustomerDeletedPayload$inboundSchema } from "./models/components/webhookcustomerdeletedpayload.js";
 import { WebhookCustomerStateChangedPayload$inboundSchema } from "./models/components/webhookcustomerstatechangedpayload.js";
+import { WebhookCustomerSeatAssignedPayload$inboundSchema } from "./models/components/webhookcustomerseatassignedpayload.js";
+import { WebhookCustomerSeatClaimedPayload$inboundSchema } from "./models/components/webhookcustomerseatclaimedpayload.js";
+import { WebhookCustomerSeatRevokedPayload$inboundSchema } from "./models/components/webhookcustomerseatrevokedpayload.js";
 import { SDKValidationError } from "./models/errors/sdkvalidationerror.js";
 
 class WebhookVerificationError extends Error {
@@ -50,6 +53,12 @@ const parseEvent = (parsed: any) => {
         return WebhookCustomerDeletedPayload$inboundSchema.parse(parsed);
       case "customer.state_changed":
         return WebhookCustomerStateChangedPayload$inboundSchema.parse(parsed);
+      case "customer_seat.assigned":
+        return WebhookCustomerSeatAssignedPayload$inboundSchema.parse(parsed);
+      case "customer_seat.claimed":
+        return WebhookCustomerSeatClaimedPayload$inboundSchema.parse(parsed);
+      case "customer_seat.revoked":
+        return WebhookCustomerSeatRevokedPayload$inboundSchema.parse(parsed);
       case "benefit.created":
         return WebhookBenefitCreatedPayload$inboundSchema.parse(parsed);
       case "benefit_grant.created":
