@@ -21,6 +21,10 @@ export type OrganizationFeatureSettings = {
    * If this organization has RevOps enabled
    */
   revopsEnabled?: boolean | undefined;
+  /**
+   * If this organization has Wallets enabled
+   */
+  walletsEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -32,11 +36,13 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodType<
   issue_funding_enabled: z.boolean().default(false),
   seat_based_pricing_enabled: z.boolean().default(false),
   revops_enabled: z.boolean().default(false),
+  wallets_enabled: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     "issue_funding_enabled": "issueFundingEnabled",
     "seat_based_pricing_enabled": "seatBasedPricingEnabled",
     "revops_enabled": "revopsEnabled",
+    "wallets_enabled": "walletsEnabled",
   });
 });
 
@@ -45,6 +51,7 @@ export type OrganizationFeatureSettings$Outbound = {
   issue_funding_enabled: boolean;
   seat_based_pricing_enabled: boolean;
   revops_enabled: boolean;
+  wallets_enabled: boolean;
 };
 
 /** @internal */
@@ -56,11 +63,13 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodType<
   issueFundingEnabled: z.boolean().default(false),
   seatBasedPricingEnabled: z.boolean().default(false),
   revopsEnabled: z.boolean().default(false),
+  walletsEnabled: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     issueFundingEnabled: "issue_funding_enabled",
     seatBasedPricingEnabled: "seat_based_pricing_enabled",
     revopsEnabled: "revops_enabled",
+    walletsEnabled: "wallets_enabled",
   });
 });
 

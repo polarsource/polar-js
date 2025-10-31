@@ -31,6 +31,24 @@ import {
   BenefitUpdatedEvent$outboundSchema,
 } from "./benefitupdatedevent.js";
 import {
+  CustomerCreatedEvent,
+  CustomerCreatedEvent$inboundSchema,
+  CustomerCreatedEvent$Outbound,
+  CustomerCreatedEvent$outboundSchema,
+} from "./customercreatedevent.js";
+import {
+  CustomerDeletedEvent,
+  CustomerDeletedEvent$inboundSchema,
+  CustomerDeletedEvent$Outbound,
+  CustomerDeletedEvent$outboundSchema,
+} from "./customerdeletedevent.js";
+import {
+  CustomerUpdatedEvent,
+  CustomerUpdatedEvent$inboundSchema,
+  CustomerUpdatedEvent$Outbound,
+  CustomerUpdatedEvent$outboundSchema,
+} from "./customerupdatedevent.js";
+import {
   MeterCreditEvent,
   MeterCreditEvent$inboundSchema,
   MeterCreditEvent$Outbound,
@@ -42,6 +60,18 @@ import {
   MeterResetEvent$Outbound,
   MeterResetEvent$outboundSchema,
 } from "./meterresetevent.js";
+import {
+  OrderPaidEvent,
+  OrderPaidEvent$inboundSchema,
+  OrderPaidEvent$Outbound,
+  OrderPaidEvent$outboundSchema,
+} from "./orderpaidevent.js";
+import {
+  OrderRefundedEvent,
+  OrderRefundedEvent$inboundSchema,
+  OrderRefundedEvent$Outbound,
+  OrderRefundedEvent$outboundSchema,
+} from "./orderrefundedevent.js";
 import {
   SubscriptionCycledEvent,
   SubscriptionCycledEvent$inboundSchema,
@@ -66,8 +96,13 @@ export type SystemEvent =
   | (BenefitGrantedEvent & { name: "benefit.granted" })
   | (BenefitRevokedEvent & { name: "benefit.revoked" })
   | (BenefitUpdatedEvent & { name: "benefit.updated" })
+  | (CustomerCreatedEvent & { name: "customer.created" })
+  | (CustomerDeletedEvent & { name: "customer.deleted" })
+  | (CustomerUpdatedEvent & { name: "customer.updated" })
   | (MeterCreditEvent & { name: "meter.credited" })
   | (MeterResetEvent & { name: "meter.reset" })
+  | (OrderPaidEvent & { name: "order.paid" })
+  | (OrderRefundedEvent & { name: "order.refunded" })
   | (SubscriptionCycledEvent & { name: "subscription.cycled" })
   | (SubscriptionProductUpdatedEvent & { name: "subscription.product_updated" })
   | (SubscriptionRevokedEvent & { name: "subscription.revoked" });
@@ -98,6 +133,21 @@ export const SystemEvent$inboundSchema: z.ZodType<
       name: v.name,
     })),
   ),
+  CustomerCreatedEvent$inboundSchema.and(
+    z.object({ name: z.literal("customer.created") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
+  CustomerDeletedEvent$inboundSchema.and(
+    z.object({ name: z.literal("customer.deleted") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
+  CustomerUpdatedEvent$inboundSchema.and(
+    z.object({ name: z.literal("customer.updated") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
   MeterCreditEvent$inboundSchema.and(
     z.object({ name: z.literal("meter.credited") }).transform((v) => ({
       name: v.name,
@@ -105,6 +155,16 @@ export const SystemEvent$inboundSchema: z.ZodType<
   ),
   MeterResetEvent$inboundSchema.and(
     z.object({ name: z.literal("meter.reset") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
+  OrderPaidEvent$inboundSchema.and(
+    z.object({ name: z.literal("order.paid") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
+  OrderRefundedEvent$inboundSchema.and(
+    z.object({ name: z.literal("order.refunded") }).transform((v) => ({
       name: v.name,
     })),
   ),
@@ -131,8 +191,13 @@ export type SystemEvent$Outbound =
   | (BenefitGrantedEvent$Outbound & { name: "benefit.granted" })
   | (BenefitRevokedEvent$Outbound & { name: "benefit.revoked" })
   | (BenefitUpdatedEvent$Outbound & { name: "benefit.updated" })
+  | (CustomerCreatedEvent$Outbound & { name: "customer.created" })
+  | (CustomerDeletedEvent$Outbound & { name: "customer.deleted" })
+  | (CustomerUpdatedEvent$Outbound & { name: "customer.updated" })
   | (MeterCreditEvent$Outbound & { name: "meter.credited" })
   | (MeterResetEvent$Outbound & { name: "meter.reset" })
+  | (OrderPaidEvent$Outbound & { name: "order.paid" })
+  | (OrderRefundedEvent$Outbound & { name: "order.refunded" })
   | (SubscriptionCycledEvent$Outbound & { name: "subscription.cycled" })
   | (SubscriptionProductUpdatedEvent$Outbound & {
     name: "subscription.product_updated";
@@ -165,6 +230,21 @@ export const SystemEvent$outboundSchema: z.ZodType<
       name: v.name,
     })),
   ),
+  CustomerCreatedEvent$outboundSchema.and(
+    z.object({ name: z.literal("customer.created") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
+  CustomerDeletedEvent$outboundSchema.and(
+    z.object({ name: z.literal("customer.deleted") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
+  CustomerUpdatedEvent$outboundSchema.and(
+    z.object({ name: z.literal("customer.updated") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
   MeterCreditEvent$outboundSchema.and(
     z.object({ name: z.literal("meter.credited") }).transform((v) => ({
       name: v.name,
@@ -172,6 +252,16 @@ export const SystemEvent$outboundSchema: z.ZodType<
   ),
   MeterResetEvent$outboundSchema.and(
     z.object({ name: z.literal("meter.reset") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
+  OrderPaidEvent$outboundSchema.and(
+    z.object({ name: z.literal("order.paid") }).transform((v) => ({
+      name: v.name,
+    })),
+  ),
+  OrderRefundedEvent$outboundSchema.and(
+    z.object({ name: z.literal("order.refunded") }).transform((v) => ({
       name: v.name,
     })),
   ),

@@ -32,13 +32,11 @@ export type CustomerStateSubscriptionMetadata =
   | number
   | boolean;
 
-export const CustomerStateSubscriptionStatus = {
+export const Status = {
   Active: "active",
   Trialing: "trialing",
 } as const;
-export type CustomerStateSubscriptionStatus = ClosedEnum<
-  typeof CustomerStateSubscriptionStatus
->;
+export type Status = ClosedEnum<typeof Status>;
 
 /**
  * An active customer subscription.
@@ -63,7 +61,7 @@ export type CustomerStateSubscription = {
     | { [k: string]: string | number | boolean | Date | null }
     | undefined;
   metadata: { [k: string]: string | number | number | boolean };
-  status: CustomerStateSubscriptionStatus;
+  status: Status;
   /**
    * The amount of the subscription.
    */
@@ -248,24 +246,22 @@ export function customerStateSubscriptionMetadataFromJSON(
 }
 
 /** @internal */
-export const CustomerStateSubscriptionStatus$inboundSchema: z.ZodNativeEnum<
-  typeof CustomerStateSubscriptionStatus
-> = z.nativeEnum(CustomerStateSubscriptionStatus);
+export const Status$inboundSchema: z.ZodNativeEnum<typeof Status> = z
+  .nativeEnum(Status);
 
 /** @internal */
-export const CustomerStateSubscriptionStatus$outboundSchema: z.ZodNativeEnum<
-  typeof CustomerStateSubscriptionStatus
-> = CustomerStateSubscriptionStatus$inboundSchema;
+export const Status$outboundSchema: z.ZodNativeEnum<typeof Status> =
+  Status$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CustomerStateSubscriptionStatus$ {
-  /** @deprecated use `CustomerStateSubscriptionStatus$inboundSchema` instead. */
-  export const inboundSchema = CustomerStateSubscriptionStatus$inboundSchema;
-  /** @deprecated use `CustomerStateSubscriptionStatus$outboundSchema` instead. */
-  export const outboundSchema = CustomerStateSubscriptionStatus$outboundSchema;
+export namespace Status$ {
+  /** @deprecated use `Status$inboundSchema` instead. */
+  export const inboundSchema = Status$inboundSchema;
+  /** @deprecated use `Status$outboundSchema` instead. */
+  export const outboundSchema = Status$outboundSchema;
 }
 
 /** @internal */
@@ -292,7 +288,7 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  status: CustomerStateSubscriptionStatus$inboundSchema,
+  status: Status$inboundSchema,
   amount: z.number().int(),
   currency: z.string(),
   recurring_interval: SubscriptionRecurringInterval$inboundSchema,
@@ -388,7 +384,7 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  status: CustomerStateSubscriptionStatus$outboundSchema,
+  status: Status$outboundSchema,
   amount: z.number().int(),
   currency: z.string(),
   recurringInterval: SubscriptionRecurringInterval$outboundSchema,

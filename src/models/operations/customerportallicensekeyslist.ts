@@ -18,18 +18,7 @@ export type CustomerPortalLicenseKeysListSecurity = {
   customerSession: string;
 };
 
-/**
- * Filter by organization ID.
- */
-export type CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter =
-  | string
-  | Array<string>;
-
 export type CustomerPortalLicenseKeysListRequest = {
-  /**
-   * Filter by organization ID.
-   */
-  organizationId?: string | Array<string> | null | undefined;
   /**
    * Filter by a specific benefit
    */
@@ -116,88 +105,22 @@ export function customerPortalLicenseKeysListSecurityFromJSON(
 }
 
 /** @internal */
-export const CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<
-    CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
-export type CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$Outbound =
-  | string
-  | Array<string>;
-
-/** @internal */
-export const CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$outboundSchema:
-  z.ZodType<
-    CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$Outbound,
-    z.ZodTypeDef,
-    CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$Outbound;
-}
-
-export function customerPortalLicenseKeysListQueryParamOrganizationIDFilterToJSON(
-  customerPortalLicenseKeysListQueryParamOrganizationIDFilter:
-    CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter,
-): string {
-  return JSON.stringify(
-    CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$outboundSchema
-      .parse(customerPortalLicenseKeysListQueryParamOrganizationIDFilter),
-  );
-}
-
-export function customerPortalLicenseKeysListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
 export const CustomerPortalLicenseKeysListRequest$inboundSchema: z.ZodType<
   CustomerPortalLicenseKeysListRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
   benefit_id: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
   return remap$(v, {
-    "organization_id": "organizationId",
     "benefit_id": "benefitId",
   });
 });
 
 /** @internal */
 export type CustomerPortalLicenseKeysListRequest$Outbound = {
-  organization_id?: string | Array<string> | null | undefined;
   benefit_id?: string | null | undefined;
   page: number;
   limit: number;
@@ -209,14 +132,11 @@ export const CustomerPortalLicenseKeysListRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerPortalLicenseKeysListRequest
 > = z.object({
-  organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
   benefitId: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
   return remap$(v, {
-    organizationId: "organization_id",
     benefitId: "benefit_id",
   });
 });

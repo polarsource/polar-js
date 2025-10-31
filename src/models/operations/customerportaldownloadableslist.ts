@@ -19,13 +19,6 @@ export type CustomerPortalDownloadablesListSecurity = {
 };
 
 /**
- * Filter by organization ID.
- */
-export type CustomerPortalDownloadablesListQueryParamOrganizationIDFilter =
-  | string
-  | Array<string>;
-
-/**
  * Filter by benefit ID.
  */
 export type CustomerPortalDownloadablesListQueryParamBenefitIDFilter =
@@ -33,10 +26,6 @@ export type CustomerPortalDownloadablesListQueryParamBenefitIDFilter =
   | Array<string>;
 
 export type CustomerPortalDownloadablesListRequest = {
-  /**
-   * Filter by organization ID.
-   */
-  organizationId?: string | Array<string> | null | undefined;
   /**
    * Filter by benefit ID.
    */
@@ -129,68 +118,6 @@ export function customerPortalDownloadablesListSecurityFromJSON(
 }
 
 /** @internal */
-export const CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<
-    CustomerPortalDownloadablesListQueryParamOrganizationIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
-export type CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$Outbound =
-  | string
-  | Array<string>;
-
-/** @internal */
-export const CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$outboundSchema:
-  z.ZodType<
-    CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$Outbound,
-    z.ZodTypeDef,
-    CustomerPortalDownloadablesListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$Outbound;
-}
-
-export function customerPortalDownloadablesListQueryParamOrganizationIDFilterToJSON(
-  customerPortalDownloadablesListQueryParamOrganizationIDFilter:
-    CustomerPortalDownloadablesListQueryParamOrganizationIDFilter,
-): string {
-  return JSON.stringify(
-    CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$outboundSchema
-      .parse(customerPortalDownloadablesListQueryParamOrganizationIDFilter),
-  );
-}
-
-export function customerPortalDownloadablesListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalDownloadablesListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalDownloadablesListQueryParamOrganizationIDFilter$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalDownloadablesListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
 export const CustomerPortalDownloadablesListQueryParamBenefitIDFilter$inboundSchema:
   z.ZodType<
     CustomerPortalDownloadablesListQueryParamBenefitIDFilter,
@@ -258,21 +185,17 @@ export const CustomerPortalDownloadablesListRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
   benefit_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
   return remap$(v, {
-    "organization_id": "organizationId",
     "benefit_id": "benefitId",
   });
 });
 
 /** @internal */
 export type CustomerPortalDownloadablesListRequest$Outbound = {
-  organization_id?: string | Array<string> | null | undefined;
   benefit_id?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
@@ -284,14 +207,11 @@ export const CustomerPortalDownloadablesListRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerPortalDownloadablesListRequest
 > = z.object({
-  organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
   benefitId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
 }).transform((v) => {
   return remap$(v, {
-    organizationId: "organization_id",
     benefitId: "benefit_id",
   });
 });

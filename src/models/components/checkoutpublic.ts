@@ -91,9 +91,6 @@ import {
 
 export type CheckoutPublicCustomFieldData = string | number | boolean | Date;
 
-/**
- * Price of the selected product.
- */
 export type CheckoutPublicProductPrice =
   | LegacyRecurringProductPrice
   | ProductPrice;
@@ -197,13 +194,17 @@ export type CheckoutPublic = {
    */
   trialEnd: Date | null;
   /**
+   * ID of the organization owning the checkout session.
+   */
+  organizationId: string;
+  /**
    * ID of the product to checkout.
    */
-  productId: string;
+  productId: string | null;
   /**
    * ID of the product price to checkout.
    */
-  productPriceId: string;
+  productPriceId: string | null;
   /**
    * ID of the discount applied to the checkout.
    */
@@ -260,13 +261,13 @@ export type CheckoutPublic = {
    */
   products: Array<CheckoutProduct>;
   /**
-   * Product data for a checkout session.
+   * Product selected to checkout.
    */
-  product: CheckoutProduct;
+  product: CheckoutProduct | null;
   /**
    * Price of the selected product.
    */
-  productPrice: LegacyRecurringProductPrice | ProductPrice;
+  productPrice: LegacyRecurringProductPrice | ProductPrice | null;
   discount:
     | CheckoutDiscountFixedRepeatDuration
     | CheckoutDiscountFixedOnceForeverDuration
@@ -274,7 +275,7 @@ export type CheckoutPublic = {
     | CheckoutDiscountPercentageOnceForeverDuration
     | null;
   organization: Organization;
-  attachedCustomFields: Array<AttachedCustomField>;
+  attachedCustomFields: Array<AttachedCustomField> | null;
 };
 
 /** @internal */
@@ -501,8 +502,9 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   trial_end: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ),
-  product_id: z.string(),
-  product_price_id: z.string(),
+  organization_id: z.string(),
+  product_id: z.nullable(z.string()),
+  product_price_id: z.nullable(z.string()),
   discount_id: z.nullable(z.string()),
   allow_discount_codes: z.boolean(),
   require_billing_address: z.boolean(),
@@ -522,11 +524,13 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   payment_processor_metadata: z.record(z.string()),
   billing_address_fields: CheckoutBillingAddressFields$inboundSchema,
   products: z.array(CheckoutProduct$inboundSchema),
-  product: CheckoutProduct$inboundSchema,
-  product_price: z.union([
-    LegacyRecurringProductPrice$inboundSchema,
-    ProductPrice$inboundSchema,
-  ]),
+  product: z.nullable(CheckoutProduct$inboundSchema),
+  product_price: z.nullable(
+    z.union([
+      LegacyRecurringProductPrice$inboundSchema,
+      ProductPrice$inboundSchema,
+    ]),
+  ),
   discount: z.nullable(
     z.union([
       CheckoutDiscountFixedRepeatDuration$inboundSchema,
@@ -536,7 +540,9 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     ]),
   ),
   organization: Organization$inboundSchema,
-  attached_custom_fields: z.array(AttachedCustomField$inboundSchema),
+  attached_custom_fields: z.nullable(
+    z.array(AttachedCustomField$inboundSchema),
+  ),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -556,6 +562,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     "active_trial_interval": "activeTrialInterval",
     "active_trial_interval_count": "activeTrialIntervalCount",
     "trial_end": "trialEnd",
+    "organization_id": "organizationId",
     "product_id": "productId",
     "product_price_id": "productPriceId",
     "discount_id": "discountId",
@@ -608,8 +615,9 @@ export type CheckoutPublic$Outbound = {
   active_trial_interval: string | null;
   active_trial_interval_count: number | null;
   trial_end: string | null;
-  product_id: string;
-  product_price_id: string;
+  organization_id: string;
+  product_id: string | null;
+  product_price_id: string | null;
   discount_id: string | null;
   allow_discount_codes: boolean;
   require_billing_address: boolean;
@@ -629,8 +637,11 @@ export type CheckoutPublic$Outbound = {
   payment_processor_metadata: { [k: string]: string };
   billing_address_fields: CheckoutBillingAddressFields$Outbound;
   products: Array<CheckoutProduct$Outbound>;
-  product: CheckoutProduct$Outbound;
-  product_price: LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound;
+  product: CheckoutProduct$Outbound | null;
+  product_price:
+    | LegacyRecurringProductPrice$Outbound
+    | ProductPrice$Outbound
+    | null;
   discount:
     | CheckoutDiscountFixedRepeatDuration$Outbound
     | CheckoutDiscountFixedOnceForeverDuration$Outbound
@@ -638,7 +649,7 @@ export type CheckoutPublic$Outbound = {
     | CheckoutDiscountPercentageOnceForeverDuration$Outbound
     | null;
   organization: Organization$Outbound;
-  attached_custom_fields: Array<AttachedCustomField$Outbound>;
+  attached_custom_fields: Array<AttachedCustomField$Outbound> | null;
 };
 
 /** @internal */
@@ -679,8 +690,9 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   activeTrialInterval: z.nullable(TrialInterval$outboundSchema),
   activeTrialIntervalCount: z.nullable(z.number().int()),
   trialEnd: z.nullable(z.date().transform(v => v.toISOString())),
-  productId: z.string(),
-  productPriceId: z.string(),
+  organizationId: z.string(),
+  productId: z.nullable(z.string()),
+  productPriceId: z.nullable(z.string()),
   discountId: z.nullable(z.string()),
   allowDiscountCodes: z.boolean(),
   requireBillingAddress: z.boolean(),
@@ -700,11 +712,13 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
   paymentProcessorMetadata: z.record(z.string()),
   billingAddressFields: CheckoutBillingAddressFields$outboundSchema,
   products: z.array(CheckoutProduct$outboundSchema),
-  product: CheckoutProduct$outboundSchema,
-  productPrice: z.union([
-    LegacyRecurringProductPrice$outboundSchema,
-    ProductPrice$outboundSchema,
-  ]),
+  product: z.nullable(CheckoutProduct$outboundSchema),
+  productPrice: z.nullable(
+    z.union([
+      LegacyRecurringProductPrice$outboundSchema,
+      ProductPrice$outboundSchema,
+    ]),
+  ),
   discount: z.nullable(
     z.union([
       CheckoutDiscountFixedRepeatDuration$outboundSchema,
@@ -714,7 +728,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
     ]),
   ),
   organization: Organization$outboundSchema,
-  attachedCustomFields: z.array(AttachedCustomField$outboundSchema),
+  attachedCustomFields: z.nullable(z.array(AttachedCustomField$outboundSchema)),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",
@@ -734,6 +748,7 @@ export const CheckoutPublic$outboundSchema: z.ZodType<
     activeTrialInterval: "active_trial_interval",
     activeTrialIntervalCount: "active_trial_interval_count",
     trialEnd: "trial_end",
+    organizationId: "organization_id",
     productId: "product_id",
     productPriceId: "product_price_id",
     discountId: "discount_id",

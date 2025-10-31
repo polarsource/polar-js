@@ -1,7 +1,5 @@
 # CheckoutProductPrice
 
-Price of the selected product.
-
 
 ## Supported Types
 

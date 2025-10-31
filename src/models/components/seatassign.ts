@@ -37,6 +37,10 @@ export type SeatAssign = {
    * Additional metadata for the seat (max 10 keys, 1KB total)
    */
   metadata?: { [k: string]: any } | null | undefined;
+  /**
+   * If true, the seat will be immediately claimed without sending an invitation email. API-only feature.
+   */
+  immediateClaim?: boolean | undefined;
 };
 
 /** @internal */
@@ -52,6 +56,7 @@ export const SeatAssign$inboundSchema: z.ZodType<
   external_customer_id: z.nullable(z.string()).optional(),
   customer_id: z.nullable(z.string()).optional(),
   metadata: z.nullable(z.record(z.any())).optional(),
+  immediate_claim: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     "subscription_id": "subscriptionId",
@@ -59,6 +64,7 @@ export const SeatAssign$inboundSchema: z.ZodType<
     "order_id": "orderId",
     "external_customer_id": "externalCustomerId",
     "customer_id": "customerId",
+    "immediate_claim": "immediateClaim",
   });
 });
 
@@ -71,6 +77,7 @@ export type SeatAssign$Outbound = {
   external_customer_id?: string | null | undefined;
   customer_id?: string | null | undefined;
   metadata?: { [k: string]: any } | null | undefined;
+  immediate_claim: boolean;
 };
 
 /** @internal */
@@ -86,6 +93,7 @@ export const SeatAssign$outboundSchema: z.ZodType<
   externalCustomerId: z.nullable(z.string()).optional(),
   customerId: z.nullable(z.string()).optional(),
   metadata: z.nullable(z.record(z.any())).optional(),
+  immediateClaim: z.boolean().default(false),
 }).transform((v) => {
   return remap$(v, {
     subscriptionId: "subscription_id",
@@ -93,6 +101,7 @@ export const SeatAssign$outboundSchema: z.ZodType<
     orderId: "order_id",
     externalCustomerId: "external_customer_id",
     customerId: "customer_id",
+    immediateClaim: "immediate_claim",
   });
 });
 

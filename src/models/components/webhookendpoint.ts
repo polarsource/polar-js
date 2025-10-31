@@ -51,6 +51,10 @@ export type WebhookEndpoint = {
    * The events that will trigger the webhook.
    */
   events: Array<WebhookEventType>;
+  /**
+   * Whether the webhook endpoint is enabled and will receive events.
+   */
+  enabled: boolean;
 };
 
 /** @internal */
@@ -69,6 +73,7 @@ export const WebhookEndpoint$inboundSchema: z.ZodType<
   secret: z.string(),
   organization_id: z.string(),
   events: z.array(WebhookEventType$inboundSchema),
+  enabled: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -87,6 +92,7 @@ export type WebhookEndpoint$Outbound = {
   secret: string;
   organization_id: string;
   events: Array<string>;
+  enabled: boolean;
 };
 
 /** @internal */
@@ -103,6 +109,7 @@ export const WebhookEndpoint$outboundSchema: z.ZodType<
   secret: z.string(),
   organizationId: z.string(),
   events: z.array(WebhookEventType$outboundSchema),
+  enabled: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

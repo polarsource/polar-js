@@ -121,7 +121,6 @@ async function $do(
   const query = encodeFormQuery({
     "active": payload.active,
     "limit": payload.limit,
-    "organization_id": payload.organization_id,
     "page": payload.page,
     "product_id": payload.product_id,
     "query": payload.query,

@@ -26,6 +26,7 @@ import { Payments } from "./payments.js";
 import { Products } from "./products.js";
 import { Refunds } from "./refunds.js";
 import { Subscriptions } from "./subscriptions.js";
+import { Wallets } from "./wallets.js";
 import { Webhooks } from "./webhooks.js";
 
 export class Polar extends ClientSDK {
@@ -147,5 +148,10 @@ export class Polar extends ClientSDK {
   private _payments?: Payments;
   get payments(): Payments {
     return (this._payments ??= new Payments(this._options));
+  }
+
+  private _wallets?: Wallets;
+  get wallets(): Wallets {
+    return (this._wallets ??= new Wallets(this._options));
   }
 }

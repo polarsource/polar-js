@@ -28,6 +28,10 @@ export type WebhookEndpointUpdate = {
   secret?: string | null | undefined;
   format?: WebhookFormat | null | undefined;
   events?: Array<WebhookEventType> | null | undefined;
+  /**
+   * Whether the webhook endpoint is enabled.
+   */
+  enabled?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -40,6 +44,7 @@ export const WebhookEndpointUpdate$inboundSchema: z.ZodType<
   secret: z.nullable(z.string()).optional(),
   format: z.nullable(WebhookFormat$inboundSchema).optional(),
   events: z.nullable(z.array(WebhookEventType$inboundSchema)).optional(),
+  enabled: z.nullable(z.boolean()).optional(),
 });
 
 /** @internal */
@@ -48,6 +53,7 @@ export type WebhookEndpointUpdate$Outbound = {
   secret?: string | null | undefined;
   format?: string | null | undefined;
   events?: Array<string> | null | undefined;
+  enabled?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -60,6 +66,7 @@ export const WebhookEndpointUpdate$outboundSchema: z.ZodType<
   secret: z.nullable(z.string()).optional(),
   format: z.nullable(WebhookFormat$outboundSchema).optional(),
   events: z.nullable(z.array(WebhookEventType$outboundSchema)).optional(),
+  enabled: z.nullable(z.boolean()).optional(),
 });
 
 /**
