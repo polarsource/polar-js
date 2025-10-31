@@ -10,7 +10,7 @@ import { Metric } from "@polar-sh/sdk/models/components/metric.js";
 let value: Metric = {
   slug: "<value>",
   displayName: "Providenci_OHara",
-  type: "currency",
+  type: "currency_sub_cent",
 };
 ```
 

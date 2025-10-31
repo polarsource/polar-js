@@ -17,6 +17,7 @@ let value: WebhooksListWebhookEndpointsResponse = {
         secret: "polar_whs_ovyN6cPrTv56AApvzCaJno08SSmGJmgbWilb33N2JuK",
         organizationId: "<value>",
         events: [],
+        enabled: false,
       },
     ],
     pagination: {

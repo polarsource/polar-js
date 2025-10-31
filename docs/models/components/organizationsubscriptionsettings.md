@@ -9,6 +9,7 @@ let value: OrganizationSubscriptionSettings = {
   allowMultipleSubscriptions: true,
   allowCustomerUpdates: true,
   prorationBehavior: "prorate",
+  benefitRevocationGracePeriod: 560557,
 };
 ```
 
@@ -19,3 +20,4 @@ let value: OrganizationSubscriptionSettings = {
 | `allowMultipleSubscriptions`                                                                         | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `allowCustomerUpdates`                                                                               | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `prorationBehavior`                                                                                  | [components.SubscriptionProrationBehavior](../../models/components/subscriptionprorationbehavior.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `benefitRevocationGracePeriod`                                                                       | *number*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

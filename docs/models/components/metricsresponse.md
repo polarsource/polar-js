@@ -19,196 +19,238 @@ let value: MetricsResponse = {
     cumulativeCosts: 5333.11,
     averageOrderValue: 1430.84,
     netAverageOrderValue: 393486,
-    oneTimeProducts: 732402,
-    oneTimeProductsRevenue: 5510.54,
-    oneTimeProductsNetRevenue: 275204,
-    newSubscriptions: 7126.24,
-    newSubscriptionsRevenue: 649176,
-    newSubscriptionsNetRevenue: 7565.12,
-    renewedSubscriptions: 599395,
-    renewedSubscriptionsRevenue: 4330.56,
-    renewedSubscriptionsNetRevenue: 927370,
-    activeSubscriptions: 2009.09,
-    monthlyRecurringRevenue: 4489.71,
-    committedMonthlyRecurringRevenue: 3552.82,
-    checkouts: 838606,
-    succeededCheckouts: 187.61,
-    checkoutsConversion: 737797,
-    canceledSubscriptions: 2804.26,
-    canceledSubscriptionsCustomerService: 419988,
-    canceledSubscriptionsLowQuality: 659995,
-    canceledSubscriptionsMissingFeatures: 3799.2,
-    canceledSubscriptionsSwitchedService: 36.68,
-    canceledSubscriptionsTooComplex: 1450.37,
-    canceledSubscriptionsTooExpensive: 577796,
-    canceledSubscriptionsUnused: 7217.84,
-    canceledSubscriptionsOther: 5797.29,
+    averageRevenuePerUser: 732402,
+    costPerUser: 5510.54,
+    activeUserByEvent: 275204,
+    oneTimeProducts: 7126.24,
+    oneTimeProductsRevenue: 649176,
+    oneTimeProductsNetRevenue: 7565.12,
+    newSubscriptions: 599395,
+    newSubscriptionsRevenue: 4330.56,
+    newSubscriptionsNetRevenue: 927370,
+    renewedSubscriptions: 2009.09,
+    renewedSubscriptionsRevenue: 4489.71,
+    renewedSubscriptionsNetRevenue: 3552.82,
+    activeSubscriptions: 838606,
+    monthlyRecurringRevenue: 187.61,
+    committedMonthlyRecurringRevenue: 737797,
+    checkouts: 2804.26,
+    succeededCheckouts: 419988,
+    checkoutsConversion: 659995,
+    canceledSubscriptions: 3799.2,
+    canceledSubscriptionsCustomerService: 36.68,
+    canceledSubscriptionsLowQuality: 1450.37,
+    canceledSubscriptionsMissingFeatures: 577796,
+    canceledSubscriptionsSwitchedService: 7217.84,
+    canceledSubscriptionsTooComplex: 5797.29,
+    canceledSubscriptionsTooExpensive: 2977.65,
+    canceledSubscriptionsUnused: 453830,
+    canceledSubscriptionsOther: 875.39,
+    churnRate: 662602,
+    grossMargin: 7723.65,
+    grossMarginPercentage: 5961.14,
+    cashflow: 781715,
   },
   metrics: {
     orders: {
       slug: "<value>",
-      displayName: "Sandrine.Hermann51",
-      type: "scalar",
+      displayName: "Timmothy_Dibbert76",
+      type: "currency_sub_cent",
     },
     revenue: {
-      slug: "<value>",
-      displayName: "Makenna_Rutherford59",
-      type: "percentage",
-    },
-    netRevenue: {
-      slug: "<value>",
-      displayName: "Timmothy_Dibbert76",
-      type: "percentage",
-    },
-    cumulativeRevenue: {
       slug: "<value>",
       displayName: "Tiffany55",
       type: "scalar",
     },
-    netCumulativeRevenue: {
+    netRevenue: {
       slug: "<value>",
       displayName: "Sedrick.Sipes",
       type: "scalar",
     },
-    costs: {
+    cumulativeRevenue: {
       slug: "<value>",
       displayName: "Dakota_Turner",
       type: "scalar",
     },
-    cumulativeCosts: {
+    netCumulativeRevenue: {
       slug: "<value>",
       displayName: "Earlene_Kuvalis-Hegmann14",
-      type: "currency",
+      type: "currency_sub_cent",
     },
-    averageOrderValue: {
+    costs: {
       slug: "<value>",
       displayName: "Dan_Morissette1",
       type: "percentage",
     },
-    netAverageOrderValue: {
+    cumulativeCosts: {
       slug: "<value>",
       displayName: "Florence_Daniel12",
       type: "currency",
     },
-    oneTimeProducts: {
+    averageOrderValue: {
       slug: "<value>",
       displayName: "Ellsworth_Kshlerin53",
-      type: "percentage",
+      type: "currency_sub_cent",
     },
-    oneTimeProductsRevenue: {
+    netAverageOrderValue: {
       slug: "<value>",
       displayName: "Paul68",
       type: "currency",
     },
-    oneTimeProductsNetRevenue: {
+    averageRevenuePerUser: {
       slug: "<value>",
       displayName: "Candelario25",
       type: "scalar",
     },
-    newSubscriptions: {
+    costPerUser: {
       slug: "<value>",
       displayName: "Eloy37",
-      type: "percentage",
+      type: "currency_sub_cent",
     },
-    newSubscriptionsRevenue: {
+    activeUserByEvent: {
       slug: "<value>",
       displayName: "Yvonne26",
       type: "scalar",
     },
-    newSubscriptionsNetRevenue: {
+    oneTimeProducts: {
       slug: "<value>",
       displayName: "Kristy_Bayer",
       type: "currency",
     },
-    renewedSubscriptions: {
+    oneTimeProductsRevenue: {
       slug: "<value>",
       displayName: "Peter99",
       type: "percentage",
     },
-    renewedSubscriptionsRevenue: {
+    oneTimeProductsNetRevenue: {
       slug: "<value>",
       displayName: "Jaiden.Gutmann",
       type: "currency",
     },
-    renewedSubscriptionsNetRevenue: {
+    newSubscriptions: {
       slug: "<value>",
       displayName: "Abdullah_Weber",
-      type: "percentage",
+      type: "currency_sub_cent",
     },
-    activeSubscriptions: {
+    newSubscriptionsRevenue: {
       slug: "<value>",
       displayName: "Jerrold_Spinka",
       type: "percentage",
     },
-    monthlyRecurringRevenue: {
+    newSubscriptionsNetRevenue: {
       slug: "<value>",
       displayName: "Ben18",
       type: "percentage",
     },
-    committedMonthlyRecurringRevenue: {
+    renewedSubscriptions: {
       slug: "<value>",
       displayName: "Lennie31",
-      type: "currency",
+      type: "currency_sub_cent",
     },
-    checkouts: {
+    renewedSubscriptionsRevenue: {
       slug: "<value>",
       displayName: "Sophie_Hoppe-Brekke69",
       type: "currency",
     },
-    succeededCheckouts: {
+    renewedSubscriptionsNetRevenue: {
       slug: "<value>",
       displayName: "Rhett_Harber88",
       type: "scalar",
     },
-    checkoutsConversion: {
+    activeSubscriptions: {
       slug: "<value>",
       displayName: "Lon80",
       type: "scalar",
     },
-    canceledSubscriptions: {
+    monthlyRecurringRevenue: {
       slug: "<value>",
       displayName: "Camila22",
       type: "percentage",
     },
-    canceledSubscriptionsCustomerService: {
+    committedMonthlyRecurringRevenue: {
       slug: "<value>",
       displayName: "Vesta_Prohaska36",
       type: "percentage",
     },
-    canceledSubscriptionsLowQuality: {
+    checkouts: {
       slug: "<value>",
       displayName: "Leland.Parisian11",
       type: "currency",
     },
-    canceledSubscriptionsMissingFeatures: {
+    succeededCheckouts: {
       slug: "<value>",
       displayName: "Syble32",
-      type: "currency",
+      type: "currency_sub_cent",
     },
-    canceledSubscriptionsSwitchedService: {
+    checkoutsConversion: {
       slug: "<value>",
       displayName: "Nathanael.Gottlieb28",
-      type: "scalar",
+      type: "currency",
     },
-    canceledSubscriptionsTooComplex: {
+    canceledSubscriptions: {
       slug: "<value>",
       displayName: "Keyon_Sipes",
       type: "currency",
     },
-    canceledSubscriptionsTooExpensive: {
+    canceledSubscriptionsCustomerService: {
       slug: "<value>",
       displayName: "Moriah82",
-      type: "percentage",
+      type: "currency_sub_cent",
     },
-    canceledSubscriptionsUnused: {
+    canceledSubscriptionsLowQuality: {
       slug: "<value>",
       displayName: "Ferne.Borer57",
       type: "percentage",
     },
-    canceledSubscriptionsOther: {
+    canceledSubscriptionsMissingFeatures: {
       slug: "<value>",
       displayName: "Colten23",
+      type: "currency_sub_cent",
+    },
+    canceledSubscriptionsSwitchedService: {
+      slug: "<value>",
+      displayName: "Jordi_Kirlin52",
+      type: "currency_sub_cent",
+    },
+    canceledSubscriptionsTooComplex: {
+      slug: "<value>",
+      displayName: "Kaylin16",
+      type: "currency_sub_cent",
+    },
+    canceledSubscriptionsTooExpensive: {
+      slug: "<value>",
+      displayName: "Alejandra_Bins11",
       type: "currency",
+    },
+    canceledSubscriptionsUnused: {
+      slug: "<value>",
+      displayName: "Korey.Bergstrom",
+      type: "currency",
+    },
+    canceledSubscriptionsOther: {
+      slug: "<value>",
+      displayName: "Baron92",
+      type: "percentage",
+    },
+    churnRate: {
+      slug: "<value>",
+      displayName: "Geo86",
+      type: "scalar",
+    },
+    grossMargin: {
+      slug: "<value>",
+      displayName: "Joey.Reinger",
+      type: "scalar",
+    },
+    grossMarginPercentage: {
+      slug: "<value>",
+      displayName: "Sabryna6",
+      type: "percentage",
+    },
+    cashflow: {
+      slug: "<value>",
+      displayName: "Caterina17",
+      type: "currency_sub_cent",
     },
   },
 };

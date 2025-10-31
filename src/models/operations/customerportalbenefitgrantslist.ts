@@ -41,13 +41,6 @@ export type CustomerPortalBenefitGrantsListQueryParamBenefitIDFilter =
   | Array<string>;
 
 /**
- * Filter by organization ID.
- */
-export type CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter =
-  | string
-  | Array<string>;
-
-/**
  * Filter by checkout ID.
  */
 export type QueryParamCheckoutIDFilter = string | Array<string>;
@@ -71,10 +64,6 @@ export type CustomerPortalBenefitGrantsListRequest = {
    * Filter by benefit ID.
    */
   benefitId?: string | Array<string> | null | undefined;
-  /**
-   * Filter by organization ID.
-   */
-  organizationId?: string | Array<string> | null | undefined;
   /**
    * Filter by checkout ID.
    */
@@ -291,68 +280,6 @@ export function customerPortalBenefitGrantsListQueryParamBenefitIDFilterFromJSON
 }
 
 /** @internal */
-export const CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<
-    CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
-export type CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$Outbound =
-  | string
-  | Array<string>;
-
-/** @internal */
-export const CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$outboundSchema:
-  z.ZodType<
-    CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$Outbound,
-    z.ZodTypeDef,
-    CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$Outbound;
-}
-
-export function customerPortalBenefitGrantsListQueryParamOrganizationIDFilterToJSON(
-  customerPortalBenefitGrantsListQueryParamOrganizationIDFilter:
-    CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter,
-): string {
-  return JSON.stringify(
-    CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$outboundSchema
-      .parse(customerPortalBenefitGrantsListQueryParamOrganizationIDFilter),
-  );
-}
-
-export function customerPortalBenefitGrantsListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalBenefitGrantsListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
 export const QueryParamCheckoutIDFilter$inboundSchema: z.ZodType<
   QueryParamCheckoutIDFilter,
   z.ZodTypeDef,
@@ -508,8 +435,6 @@ export const CustomerPortalBenefitGrantsListRequest$inboundSchema: z.ZodType<
     z.union([BenefitType$inboundSchema, z.array(BenefitType$inboundSchema)]),
   ).optional(),
   benefit_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
   checkout_id: z.nullable(z.union([z.string(), z.array(z.string())]))
     .optional(),
   order_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
@@ -523,7 +448,6 @@ export const CustomerPortalBenefitGrantsListRequest$inboundSchema: z.ZodType<
   return remap$(v, {
     "type_filter": "typeFilter",
     "benefit_id": "benefitId",
-    "organization_id": "organizationId",
     "checkout_id": "checkoutId",
     "order_id": "orderId",
     "subscription_id": "subscriptionId",
@@ -534,7 +458,6 @@ export const CustomerPortalBenefitGrantsListRequest$inboundSchema: z.ZodType<
 export type CustomerPortalBenefitGrantsListRequest$Outbound = {
   type_filter?: string | Array<string> | null | undefined;
   benefit_id?: string | Array<string> | null | undefined;
-  organization_id?: string | Array<string> | null | undefined;
   checkout_id?: string | Array<string> | null | undefined;
   order_id?: string | Array<string> | null | undefined;
   subscription_id?: string | Array<string> | null | undefined;
@@ -553,8 +476,6 @@ export const CustomerPortalBenefitGrantsListRequest$outboundSchema: z.ZodType<
     z.union([BenefitType$outboundSchema, z.array(BenefitType$outboundSchema)]),
   ).optional(),
   benefitId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
   checkoutId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   orderId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   subscriptionId: z.nullable(z.union([z.string(), z.array(z.string())]))
@@ -567,7 +488,6 @@ export const CustomerPortalBenefitGrantsListRequest$outboundSchema: z.ZodType<
   return remap$(v, {
     typeFilter: "type_filter",
     benefitId: "benefit_id",
-    organizationId: "organization_id",
     checkoutId: "checkout_id",
     orderId: "order_id",
     subscriptionId: "subscription_id",

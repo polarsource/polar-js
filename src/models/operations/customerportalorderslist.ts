@@ -29,13 +29,6 @@ export type CustomerPortalOrdersListSecurity = {
 };
 
 /**
- * Filter by organization ID.
- */
-export type CustomerPortalOrdersListQueryParamOrganizationIDFilter =
-  | string
-  | Array<string>;
-
-/**
  * Filter by product ID.
  */
 export type CustomerPortalOrdersListQueryParamProductIDFilter =
@@ -57,10 +50,6 @@ export type CustomerPortalOrdersListQueryParamSubscriptionIDFilter =
   | Array<string>;
 
 export type CustomerPortalOrdersListRequest = {
-  /**
-   * Filter by organization ID.
-   */
-  organizationId?: string | Array<string> | null | undefined;
   /**
    * Filter by product ID.
    */
@@ -160,69 +149,6 @@ export function customerPortalOrdersListSecurityFromJSON(
     jsonString,
     (x) => CustomerPortalOrdersListSecurity$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'CustomerPortalOrdersListSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalOrdersListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersListQueryParamOrganizationIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
-export type CustomerPortalOrdersListQueryParamOrganizationIDFilter$Outbound =
-  | string
-  | Array<string>;
-
-/** @internal */
-export const CustomerPortalOrdersListQueryParamOrganizationIDFilter$outboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersListQueryParamOrganizationIDFilter$Outbound,
-    z.ZodTypeDef,
-    CustomerPortalOrdersListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `CustomerPortalOrdersListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalOrdersListQueryParamOrganizationIDFilter$Outbound;
-}
-
-export function customerPortalOrdersListQueryParamOrganizationIDFilterToJSON(
-  customerPortalOrdersListQueryParamOrganizationIDFilter:
-    CustomerPortalOrdersListQueryParamOrganizationIDFilter,
-): string {
-  return JSON.stringify(
-    CustomerPortalOrdersListQueryParamOrganizationIDFilter$outboundSchema.parse(
-      customerPortalOrdersListQueryParamOrganizationIDFilter,
-    ),
-  );
-}
-
-export function customerPortalOrdersListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalOrdersListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersListQueryParamOrganizationIDFilter$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersListQueryParamOrganizationIDFilter' from JSON`,
   );
 }
 
@@ -427,8 +353,6 @@ export const CustomerPortalOrdersListRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
   product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   product_billing_type: z.nullable(
     z.union([
@@ -445,7 +369,6 @@ export const CustomerPortalOrdersListRequest$inboundSchema: z.ZodType<
     .optional(),
 }).transform((v) => {
   return remap$(v, {
-    "organization_id": "organizationId",
     "product_id": "productId",
     "product_billing_type": "productBillingType",
     "subscription_id": "subscriptionId",
@@ -454,7 +377,6 @@ export const CustomerPortalOrdersListRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CustomerPortalOrdersListRequest$Outbound = {
-  organization_id?: string | Array<string> | null | undefined;
   product_id?: string | Array<string> | null | undefined;
   product_billing_type?: string | Array<string> | null | undefined;
   subscription_id?: string | Array<string> | null | undefined;
@@ -470,8 +392,6 @@ export const CustomerPortalOrdersListRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CustomerPortalOrdersListRequest
 > = z.object({
-  organizationId: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
   productId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   productBillingType: z.nullable(
     z.union([
@@ -488,7 +408,6 @@ export const CustomerPortalOrdersListRequest$outboundSchema: z.ZodType<
     .optional(),
 }).transform((v) => {
   return remap$(v, {
-    organizationId: "organization_id",
     productId: "product_id",
     productBillingType: "product_billing_type",
     subscriptionId: "subscription_id",

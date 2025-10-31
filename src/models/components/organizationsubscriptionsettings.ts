@@ -17,6 +17,7 @@ export type OrganizationSubscriptionSettings = {
   allowMultipleSubscriptions: boolean;
   allowCustomerUpdates: boolean;
   prorationBehavior: SubscriptionProrationBehavior;
+  benefitRevocationGracePeriod: number;
 };
 
 /** @internal */
@@ -28,11 +29,13 @@ export const OrganizationSubscriptionSettings$inboundSchema: z.ZodType<
   allow_multiple_subscriptions: z.boolean(),
   allow_customer_updates: z.boolean(),
   proration_behavior: SubscriptionProrationBehavior$inboundSchema,
+  benefit_revocation_grace_period: z.number().int(),
 }).transform((v) => {
   return remap$(v, {
     "allow_multiple_subscriptions": "allowMultipleSubscriptions",
     "allow_customer_updates": "allowCustomerUpdates",
     "proration_behavior": "prorationBehavior",
+    "benefit_revocation_grace_period": "benefitRevocationGracePeriod",
   });
 });
 
@@ -41,6 +44,7 @@ export type OrganizationSubscriptionSettings$Outbound = {
   allow_multiple_subscriptions: boolean;
   allow_customer_updates: boolean;
   proration_behavior: string;
+  benefit_revocation_grace_period: number;
 };
 
 /** @internal */
@@ -52,11 +56,13 @@ export const OrganizationSubscriptionSettings$outboundSchema: z.ZodType<
   allowMultipleSubscriptions: z.boolean(),
   allowCustomerUpdates: z.boolean(),
   prorationBehavior: SubscriptionProrationBehavior$outboundSchema,
+  benefitRevocationGracePeriod: z.number().int(),
 }).transform((v) => {
   return remap$(v, {
     allowMultipleSubscriptions: "allow_multiple_subscriptions",
     allowCustomerUpdates: "allow_customer_updates",
     prorationBehavior: "proration_behavior",
+    benefitRevocationGracePeriod: "benefit_revocation_grace_period",
   });
 });
 

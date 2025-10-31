@@ -15,30 +15,37 @@ let value: MetricsTotals = {
   cumulativeCosts: 489082,
   averageOrderValue: 9678.06,
   netAverageOrderValue: 8009.16,
-  oneTimeProducts: 8492.83,
-  oneTimeProductsRevenue: 830439,
-  oneTimeProductsNetRevenue: 1946.31,
-  newSubscriptions: 892930,
-  newSubscriptionsRevenue: 7077.98,
-  newSubscriptionsNetRevenue: 694.09,
-  renewedSubscriptions: 146536,
-  renewedSubscriptionsRevenue: 6421.7,
-  renewedSubscriptionsNetRevenue: 4667.88,
-  activeSubscriptions: 8052.18,
-  monthlyRecurringRevenue: 6575.27,
-  committedMonthlyRecurringRevenue: 7545.29,
-  checkouts: 79480,
-  succeededCheckouts: 2246.25,
-  checkoutsConversion: 623748,
-  canceledSubscriptions: 6809.21,
-  canceledSubscriptionsCustomerService: 6520.22,
-  canceledSubscriptionsLowQuality: 936901,
-  canceledSubscriptionsMissingFeatures: 1370.43,
-  canceledSubscriptionsSwitchedService: 4441.58,
-  canceledSubscriptionsTooComplex: 8832.53,
-  canceledSubscriptionsTooExpensive: 9028.1,
-  canceledSubscriptionsUnused: 927372,
-  canceledSubscriptionsOther: 54958,
+  averageRevenuePerUser: 8492.83,
+  costPerUser: 830439,
+  activeUserByEvent: 1946.31,
+  oneTimeProducts: 892930,
+  oneTimeProductsRevenue: 7077.98,
+  oneTimeProductsNetRevenue: 694.09,
+  newSubscriptions: 146536,
+  newSubscriptionsRevenue: 6421.7,
+  newSubscriptionsNetRevenue: 4667.88,
+  renewedSubscriptions: 8052.18,
+  renewedSubscriptionsRevenue: 6575.27,
+  renewedSubscriptionsNetRevenue: 7545.29,
+  activeSubscriptions: 79480,
+  monthlyRecurringRevenue: 2246.25,
+  committedMonthlyRecurringRevenue: 623748,
+  checkouts: 6809.21,
+  succeededCheckouts: 6520.22,
+  checkoutsConversion: 936901,
+  canceledSubscriptions: 1370.43,
+  canceledSubscriptionsCustomerService: 4441.58,
+  canceledSubscriptionsLowQuality: 8832.53,
+  canceledSubscriptionsMissingFeatures: 9028.1,
+  canceledSubscriptionsSwitchedService: 927372,
+  canceledSubscriptionsTooComplex: 54958,
+  canceledSubscriptionsTooExpensive: 51193,
+  canceledSubscriptionsUnused: 8139.5,
+  canceledSubscriptionsOther: 2639.76,
+  churnRate: 453158,
+  grossMargin: 8676.75,
+  grossMarginPercentage: 1596,
+  cashflow: 392465,
 };
 ```
 
@@ -55,6 +62,9 @@ let value: MetricsTotals = {
 | `cumulativeCosts`                                              | *components.MetricsTotalsCumulativeCosts*                      | :heavy_check_mark:                                             | N/A                                                            |
 | `averageOrderValue`                                            | *components.MetricsTotalsAverageOrderValue*                    | :heavy_check_mark:                                             | N/A                                                            |
 | `netAverageOrderValue`                                         | *components.MetricsTotalsNetAverageOrderValue*                 | :heavy_check_mark:                                             | N/A                                                            |
+| `averageRevenuePerUser`                                        | *components.MetricsTotalsAverageRevenuePerUser*                | :heavy_check_mark:                                             | N/A                                                            |
+| `costPerUser`                                                  | *components.MetricsTotalsCostPerUser*                          | :heavy_check_mark:                                             | N/A                                                            |
+| `activeUserByEvent`                                            | *components.MetricsTotalsActiveUserByEvent*                    | :heavy_check_mark:                                             | N/A                                                            |
 | `oneTimeProducts`                                              | *components.MetricsTotalsOneTimeProducts*                      | :heavy_check_mark:                                             | N/A                                                            |
 | `oneTimeProductsRevenue`                                       | *components.MetricsTotalsOneTimeProductsRevenue*               | :heavy_check_mark:                                             | N/A                                                            |
 | `oneTimeProductsNetRevenue`                                    | *components.MetricsTotalsOneTimeProductsNetRevenue*            | :heavy_check_mark:                                             | N/A                                                            |
@@ -79,3 +89,7 @@ let value: MetricsTotals = {
 | `canceledSubscriptionsTooExpensive`                            | *components.MetricsTotalsCanceledSubscriptionsTooExpensive*    | :heavy_check_mark:                                             | N/A                                                            |
 | `canceledSubscriptionsUnused`                                  | *components.MetricsTotalsCanceledSubscriptionsUnused*          | :heavy_check_mark:                                             | N/A                                                            |
 | `canceledSubscriptionsOther`                                   | *components.MetricsTotalsCanceledSubscriptionsOther*           | :heavy_check_mark:                                             | N/A                                                            |
+| `churnRate`                                                    | *components.MetricsTotalsChurnRate*                            | :heavy_check_mark:                                             | N/A                                                            |
+| `grossMargin`                                                  | *components.MetricsTotalsGrossMargin*                          | :heavy_check_mark:                                             | N/A                                                            |
+| `grossMarginPercentage`                                        | *components.MetricsTotalsGrossMarginPercentage*                | :heavy_check_mark:                                             | N/A                                                            |
+| `cashflow`                                                     | *components.MetricsTotalsCashflow*                             | :heavy_check_mark:                                             | N/A                                                            |

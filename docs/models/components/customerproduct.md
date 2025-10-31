@@ -24,13 +24,12 @@ let value: CustomerProduct = {
   benefits: [
     {
       id: "<value>",
-      createdAt: new Date("2023-01-24T18:47:57.919Z"),
-      modifiedAt: new Date("2025-10-21T11:30:14.929Z"),
-      type: "github_repository",
-      description:
-        "mockingly despite aw guidance defensive once at understated admonish",
+      createdAt: new Date("2024-07-18T20:58:15.548Z"),
+      modifiedAt: new Date("2023-12-09T12:16:31.978Z"),
+      type: "discord",
+      description: "watery flight fellow",
       selectable: false,
-      deletable: true,
+      deletable: false,
       organizationId: "<value>",
     },
   ],

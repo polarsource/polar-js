@@ -1,4 +1,4 @@
-# CustomerPortalLicenseKeysListQueryParamOrganizationIDFilter
+# WalletsListQueryParamOrganizationIDFilter
 
 Filter by organization ID.
 

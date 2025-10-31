@@ -54,6 +54,18 @@ export type Metrics = {
   /**
    * Information about a metric.
    */
+  averageRevenuePerUser: Metric;
+  /**
+   * Information about a metric.
+   */
+  costPerUser: Metric;
+  /**
+   * Information about a metric.
+   */
+  activeUserByEvent: Metric;
+  /**
+   * Information about a metric.
+   */
   oneTimeProducts: Metric;
   /**
    * Information about a metric.
@@ -147,6 +159,22 @@ export type Metrics = {
    * Information about a metric.
    */
   canceledSubscriptionsOther: Metric;
+  /**
+   * Information about a metric.
+   */
+  churnRate: Metric;
+  /**
+   * Information about a metric.
+   */
+  grossMargin: Metric;
+  /**
+   * Information about a metric.
+   */
+  grossMarginPercentage: Metric;
+  /**
+   * Information about a metric.
+   */
+  cashflow: Metric;
 };
 
 /** @internal */
@@ -161,6 +189,9 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
     cumulative_costs: Metric$inboundSchema,
     average_order_value: Metric$inboundSchema,
     net_average_order_value: Metric$inboundSchema,
+    average_revenue_per_user: Metric$inboundSchema,
+    cost_per_user: Metric$inboundSchema,
+    active_user_by_event: Metric$inboundSchema,
     one_time_products: Metric$inboundSchema,
     one_time_products_revenue: Metric$inboundSchema,
     one_time_products_net_revenue: Metric$inboundSchema,
@@ -185,6 +216,10 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
     canceled_subscriptions_too_expensive: Metric$inboundSchema,
     canceled_subscriptions_unused: Metric$inboundSchema,
     canceled_subscriptions_other: Metric$inboundSchema,
+    churn_rate: Metric$inboundSchema,
+    gross_margin: Metric$inboundSchema,
+    gross_margin_percentage: Metric$inboundSchema,
+    cashflow: Metric$inboundSchema,
   }).transform((v) => {
     return remap$(v, {
       "net_revenue": "netRevenue",
@@ -193,6 +228,9 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
       "cumulative_costs": "cumulativeCosts",
       "average_order_value": "averageOrderValue",
       "net_average_order_value": "netAverageOrderValue",
+      "average_revenue_per_user": "averageRevenuePerUser",
+      "cost_per_user": "costPerUser",
+      "active_user_by_event": "activeUserByEvent",
       "one_time_products": "oneTimeProducts",
       "one_time_products_revenue": "oneTimeProductsRevenue",
       "one_time_products_net_revenue": "oneTimeProductsNetRevenue",
@@ -220,6 +258,9 @@ export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
         "canceledSubscriptionsTooExpensive",
       "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
       "canceled_subscriptions_other": "canceledSubscriptionsOther",
+      "churn_rate": "churnRate",
+      "gross_margin": "grossMargin",
+      "gross_margin_percentage": "grossMarginPercentage",
     });
   });
 
@@ -234,6 +275,9 @@ export type Metrics$Outbound = {
   cumulative_costs: Metric$Outbound;
   average_order_value: Metric$Outbound;
   net_average_order_value: Metric$Outbound;
+  average_revenue_per_user: Metric$Outbound;
+  cost_per_user: Metric$Outbound;
+  active_user_by_event: Metric$Outbound;
   one_time_products: Metric$Outbound;
   one_time_products_revenue: Metric$Outbound;
   one_time_products_net_revenue: Metric$Outbound;
@@ -258,6 +302,10 @@ export type Metrics$Outbound = {
   canceled_subscriptions_too_expensive: Metric$Outbound;
   canceled_subscriptions_unused: Metric$Outbound;
   canceled_subscriptions_other: Metric$Outbound;
+  churn_rate: Metric$Outbound;
+  gross_margin: Metric$Outbound;
+  gross_margin_percentage: Metric$Outbound;
+  cashflow: Metric$Outbound;
 };
 
 /** @internal */
@@ -275,6 +323,9 @@ export const Metrics$outboundSchema: z.ZodType<
   cumulativeCosts: Metric$outboundSchema,
   averageOrderValue: Metric$outboundSchema,
   netAverageOrderValue: Metric$outboundSchema,
+  averageRevenuePerUser: Metric$outboundSchema,
+  costPerUser: Metric$outboundSchema,
+  activeUserByEvent: Metric$outboundSchema,
   oneTimeProducts: Metric$outboundSchema,
   oneTimeProductsRevenue: Metric$outboundSchema,
   oneTimeProductsNetRevenue: Metric$outboundSchema,
@@ -299,6 +350,10 @@ export const Metrics$outboundSchema: z.ZodType<
   canceledSubscriptionsTooExpensive: Metric$outboundSchema,
   canceledSubscriptionsUnused: Metric$outboundSchema,
   canceledSubscriptionsOther: Metric$outboundSchema,
+  churnRate: Metric$outboundSchema,
+  grossMargin: Metric$outboundSchema,
+  grossMarginPercentage: Metric$outboundSchema,
+  cashflow: Metric$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     netRevenue: "net_revenue",
@@ -307,6 +362,9 @@ export const Metrics$outboundSchema: z.ZodType<
     cumulativeCosts: "cumulative_costs",
     averageOrderValue: "average_order_value",
     netAverageOrderValue: "net_average_order_value",
+    averageRevenuePerUser: "average_revenue_per_user",
+    costPerUser: "cost_per_user",
+    activeUserByEvent: "active_user_by_event",
     oneTimeProducts: "one_time_products",
     oneTimeProductsRevenue: "one_time_products_revenue",
     oneTimeProductsNetRevenue: "one_time_products_net_revenue",
@@ -333,6 +391,9 @@ export const Metrics$outboundSchema: z.ZodType<
     canceledSubscriptionsTooExpensive: "canceled_subscriptions_too_expensive",
     canceledSubscriptionsUnused: "canceled_subscriptions_unused",
     canceledSubscriptionsOther: "canceled_subscriptions_other",
+    churnRate: "churn_rate",
+    grossMargin: "gross_margin",
+    grossMarginPercentage: "gross_margin_percentage",
   });
 });
 

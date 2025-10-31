@@ -1,0 +1,39 @@
+# OrderRefundedEvent
+
+An event created by Polar when an order is refunded.
+
+## Example Usage
+
+```typescript
+import { OrderRefundedEvent } from "@polar-sh/sdk/models/components/orderrefundedevent.js";
+
+let value: OrderRefundedEvent = {
+  id: "<value>",
+  timestamp: new Date("2024-09-23T19:32:36.318Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: null,
+  externalCustomerId: "<id>",
+  source: "system",
+  name: "order.refunded",
+  metadata: {
+    orderId: "<id>",
+    refundedAmount: 839516,
+    currency: "Lek",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                                          | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    | Example                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                                                                                                                           | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | The ID of the object.                                                                                                          |                                                                                                                                |
+| `timestamp`                                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                  | :heavy_check_mark:                                                                                                             | The timestamp of the event.                                                                                                    |                                                                                                                                |
+| `organizationId`                                                                                                               | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | The ID of the organization owning the event.                                                                                   | 1dbfc517-0bbf-4301-9ba8-555ca42b9737                                                                                           |
+| `customerId`                                                                                                                   | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | ID of the customer in your Polar organization associated with the event.                                                       |                                                                                                                                |
+| `customer`                                                                                                                     | [components.Customer](../../models/components/customer.md)                                                                     | :heavy_check_mark:                                                                                                             | The customer associated with the event.                                                                                        |                                                                                                                                |
+| `externalCustomerId`                                                                                                           | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | ID of the customer in your system associated with the event.                                                                   |                                                                                                                                |
+| `source`                                                                                                                       | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API. |                                                                                                                                |
+| `name`                                                                                                                         | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | The name of the event.                                                                                                         |                                                                                                                                |
+| `metadata`                                                                                                                     | [components.OrderRefundedMetadata](../../models/components/orderrefundedmetadata.md)                                           | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |                                                                                                                                |

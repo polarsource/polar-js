@@ -27,20 +27,21 @@ let value: Organization = {
     allowMultipleSubscriptions: true,
     allowCustomerUpdates: true,
     prorationBehavior: "invoice",
+    benefitRevocationGracePeriod: 916709,
   },
   notificationSettings: {
-    newOrder: false,
+    newOrder: true,
     newSubscription: true,
   },
   customerEmailSettings: {
     orderConfirmation: true,
     subscriptionCancellation: true,
-    subscriptionConfirmation: true,
-    subscriptionCycled: false,
-    subscriptionPastDue: true,
+    subscriptionConfirmation: false,
+    subscriptionCycled: true,
+    subscriptionPastDue: false,
     subscriptionRevoked: false,
     subscriptionUncanceled: false,
-    subscriptionUpdated: false,
+    subscriptionUpdated: true,
   },
 };
 ```
@@ -58,7 +59,7 @@ let value: Organization = {
 | `email`                                                                                                      | *string*                                                                                                     | :heavy_check_mark:                                                                                           | Public support email.                                                                                        |                                                                                                              |
 | `website`                                                                                                    | *string*                                                                                                     | :heavy_check_mark:                                                                                           | Official website of the organization.                                                                        |                                                                                                              |
 | `socials`                                                                                                    | [components.OrganizationSocialLink](../../models/components/organizationsociallink.md)[]                     | :heavy_check_mark:                                                                                           | Links to social profiles.                                                                                    |                                                                                                              |
-| `status`                                                                                                     | [components.Status](../../models/components/status.md)                                                       | :heavy_check_mark:                                                                                           | N/A                                                                                                          |                                                                                                              |
+| `status`                                                                                                     | [components.OrganizationStatus](../../models/components/organizationstatus.md)                               | :heavy_check_mark:                                                                                           | N/A                                                                                                          |                                                                                                              |
 | `detailsSubmittedAt`                                                                                         | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                | :heavy_check_mark:                                                                                           | When the business details were submitted.                                                                    |                                                                                                              |
 | `featureSettings`                                                                                            | [components.OrganizationFeatureSettings](../../models/components/organizationfeaturesettings.md)             | :heavy_check_mark:                                                                                           | Organization feature settings                                                                                |                                                                                                              |
 | `subscriptionSettings`                                                                                       | [components.OrganizationSubscriptionSettings](../../models/components/organizationsubscriptionsettings.md)   | :heavy_check_mark:                                                                                           | N/A                                                                                                          |                                                                                                              |

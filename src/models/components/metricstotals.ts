@@ -26,6 +26,12 @@ export type MetricsTotalsAverageOrderValue = number | number;
 
 export type MetricsTotalsNetAverageOrderValue = number | number;
 
+export type MetricsTotalsAverageRevenuePerUser = number | number;
+
+export type MetricsTotalsCostPerUser = number | number;
+
+export type MetricsTotalsActiveUserByEvent = number | number;
+
 export type MetricsTotalsOneTimeProducts = number | number;
 
 export type MetricsTotalsOneTimeProductsRevenue = number | number;
@@ -74,6 +80,14 @@ export type MetricsTotalsCanceledSubscriptionsUnused = number | number;
 
 export type MetricsTotalsCanceledSubscriptionsOther = number | number;
 
+export type MetricsTotalsChurnRate = number | number;
+
+export type MetricsTotalsGrossMargin = number | number;
+
+export type MetricsTotalsGrossMarginPercentage = number | number;
+
+export type MetricsTotalsCashflow = number | number;
+
 export type MetricsTotals = {
   orders: number | number;
   revenue: number | number;
@@ -84,6 +98,9 @@ export type MetricsTotals = {
   cumulativeCosts: number | number;
   averageOrderValue: number | number;
   netAverageOrderValue: number | number;
+  averageRevenuePerUser: number | number;
+  costPerUser: number | number;
+  activeUserByEvent: number | number;
   oneTimeProducts: number | number;
   oneTimeProductsRevenue: number | number;
   oneTimeProductsNetRevenue: number | number;
@@ -108,6 +125,10 @@ export type MetricsTotals = {
   canceledSubscriptionsTooExpensive: number | number;
   canceledSubscriptionsUnused: number | number;
   canceledSubscriptionsOther: number | number;
+  churnRate: number | number;
+  grossMargin: number | number;
+  grossMarginPercentage: number | number;
+  cashflow: number | number;
 };
 
 /** @internal */
@@ -551,6 +572,156 @@ export function metricsTotalsNetAverageOrderValueFromJSON(
     jsonString,
     (x) => MetricsTotalsNetAverageOrderValue$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'MetricsTotalsNetAverageOrderValue' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsAverageRevenuePerUser$inboundSchema: z.ZodType<
+  MetricsTotalsAverageRevenuePerUser,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsAverageRevenuePerUser$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsAverageRevenuePerUser$outboundSchema: z.ZodType<
+  MetricsTotalsAverageRevenuePerUser$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsAverageRevenuePerUser
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsAverageRevenuePerUser$ {
+  /** @deprecated use `MetricsTotalsAverageRevenuePerUser$inboundSchema` instead. */
+  export const inboundSchema = MetricsTotalsAverageRevenuePerUser$inboundSchema;
+  /** @deprecated use `MetricsTotalsAverageRevenuePerUser$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsAverageRevenuePerUser$outboundSchema;
+  /** @deprecated use `MetricsTotalsAverageRevenuePerUser$Outbound` instead. */
+  export type Outbound = MetricsTotalsAverageRevenuePerUser$Outbound;
+}
+
+export function metricsTotalsAverageRevenuePerUserToJSON(
+  metricsTotalsAverageRevenuePerUser: MetricsTotalsAverageRevenuePerUser,
+): string {
+  return JSON.stringify(
+    MetricsTotalsAverageRevenuePerUser$outboundSchema.parse(
+      metricsTotalsAverageRevenuePerUser,
+    ),
+  );
+}
+
+export function metricsTotalsAverageRevenuePerUserFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsAverageRevenuePerUser, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsAverageRevenuePerUser$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsAverageRevenuePerUser' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsCostPerUser$inboundSchema: z.ZodType<
+  MetricsTotalsCostPerUser,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCostPerUser$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsCostPerUser$outboundSchema: z.ZodType<
+  MetricsTotalsCostPerUser$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsCostPerUser
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCostPerUser$ {
+  /** @deprecated use `MetricsTotalsCostPerUser$inboundSchema` instead. */
+  export const inboundSchema = MetricsTotalsCostPerUser$inboundSchema;
+  /** @deprecated use `MetricsTotalsCostPerUser$outboundSchema` instead. */
+  export const outboundSchema = MetricsTotalsCostPerUser$outboundSchema;
+  /** @deprecated use `MetricsTotalsCostPerUser$Outbound` instead. */
+  export type Outbound = MetricsTotalsCostPerUser$Outbound;
+}
+
+export function metricsTotalsCostPerUserToJSON(
+  metricsTotalsCostPerUser: MetricsTotalsCostPerUser,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCostPerUser$outboundSchema.parse(metricsTotalsCostPerUser),
+  );
+}
+
+export function metricsTotalsCostPerUserFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsCostPerUser, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsTotalsCostPerUser$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsCostPerUser' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsActiveUserByEvent$inboundSchema: z.ZodType<
+  MetricsTotalsActiveUserByEvent,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsActiveUserByEvent$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsActiveUserByEvent$outboundSchema: z.ZodType<
+  MetricsTotalsActiveUserByEvent$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsActiveUserByEvent
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsActiveUserByEvent$ {
+  /** @deprecated use `MetricsTotalsActiveUserByEvent$inboundSchema` instead. */
+  export const inboundSchema = MetricsTotalsActiveUserByEvent$inboundSchema;
+  /** @deprecated use `MetricsTotalsActiveUserByEvent$outboundSchema` instead. */
+  export const outboundSchema = MetricsTotalsActiveUserByEvent$outboundSchema;
+  /** @deprecated use `MetricsTotalsActiveUserByEvent$Outbound` instead. */
+  export type Outbound = MetricsTotalsActiveUserByEvent$Outbound;
+}
+
+export function metricsTotalsActiveUserByEventToJSON(
+  metricsTotalsActiveUserByEvent: MetricsTotalsActiveUserByEvent,
+): string {
+  return JSON.stringify(
+    MetricsTotalsActiveUserByEvent$outboundSchema.parse(
+      metricsTotalsActiveUserByEvent,
+    ),
+  );
+}
+
+export function metricsTotalsActiveUserByEventFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsActiveUserByEvent, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsTotalsActiveUserByEvent$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsActiveUserByEvent' from JSON`,
   );
 }
 
@@ -1913,6 +2084,202 @@ export function metricsTotalsCanceledSubscriptionsOtherFromJSON(
 }
 
 /** @internal */
+export const MetricsTotalsChurnRate$inboundSchema: z.ZodType<
+  MetricsTotalsChurnRate,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsChurnRate$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsChurnRate$outboundSchema: z.ZodType<
+  MetricsTotalsChurnRate$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsChurnRate
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsChurnRate$ {
+  /** @deprecated use `MetricsTotalsChurnRate$inboundSchema` instead. */
+  export const inboundSchema = MetricsTotalsChurnRate$inboundSchema;
+  /** @deprecated use `MetricsTotalsChurnRate$outboundSchema` instead. */
+  export const outboundSchema = MetricsTotalsChurnRate$outboundSchema;
+  /** @deprecated use `MetricsTotalsChurnRate$Outbound` instead. */
+  export type Outbound = MetricsTotalsChurnRate$Outbound;
+}
+
+export function metricsTotalsChurnRateToJSON(
+  metricsTotalsChurnRate: MetricsTotalsChurnRate,
+): string {
+  return JSON.stringify(
+    MetricsTotalsChurnRate$outboundSchema.parse(metricsTotalsChurnRate),
+  );
+}
+
+export function metricsTotalsChurnRateFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsChurnRate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsTotalsChurnRate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsChurnRate' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsGrossMargin$inboundSchema: z.ZodType<
+  MetricsTotalsGrossMargin,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsGrossMargin$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsGrossMargin$outboundSchema: z.ZodType<
+  MetricsTotalsGrossMargin$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsGrossMargin
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsGrossMargin$ {
+  /** @deprecated use `MetricsTotalsGrossMargin$inboundSchema` instead. */
+  export const inboundSchema = MetricsTotalsGrossMargin$inboundSchema;
+  /** @deprecated use `MetricsTotalsGrossMargin$outboundSchema` instead. */
+  export const outboundSchema = MetricsTotalsGrossMargin$outboundSchema;
+  /** @deprecated use `MetricsTotalsGrossMargin$Outbound` instead. */
+  export type Outbound = MetricsTotalsGrossMargin$Outbound;
+}
+
+export function metricsTotalsGrossMarginToJSON(
+  metricsTotalsGrossMargin: MetricsTotalsGrossMargin,
+): string {
+  return JSON.stringify(
+    MetricsTotalsGrossMargin$outboundSchema.parse(metricsTotalsGrossMargin),
+  );
+}
+
+export function metricsTotalsGrossMarginFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsGrossMargin, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsTotalsGrossMargin$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsGrossMargin' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsGrossMarginPercentage$inboundSchema: z.ZodType<
+  MetricsTotalsGrossMarginPercentage,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsGrossMarginPercentage$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsGrossMarginPercentage$outboundSchema: z.ZodType<
+  MetricsTotalsGrossMarginPercentage$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsGrossMarginPercentage
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsGrossMarginPercentage$ {
+  /** @deprecated use `MetricsTotalsGrossMarginPercentage$inboundSchema` instead. */
+  export const inboundSchema = MetricsTotalsGrossMarginPercentage$inboundSchema;
+  /** @deprecated use `MetricsTotalsGrossMarginPercentage$outboundSchema` instead. */
+  export const outboundSchema =
+    MetricsTotalsGrossMarginPercentage$outboundSchema;
+  /** @deprecated use `MetricsTotalsGrossMarginPercentage$Outbound` instead. */
+  export type Outbound = MetricsTotalsGrossMarginPercentage$Outbound;
+}
+
+export function metricsTotalsGrossMarginPercentageToJSON(
+  metricsTotalsGrossMarginPercentage: MetricsTotalsGrossMarginPercentage,
+): string {
+  return JSON.stringify(
+    MetricsTotalsGrossMarginPercentage$outboundSchema.parse(
+      metricsTotalsGrossMarginPercentage,
+    ),
+  );
+}
+
+export function metricsTotalsGrossMarginPercentageFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsGrossMarginPercentage, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MetricsTotalsGrossMarginPercentage$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsGrossMarginPercentage' from JSON`,
+  );
+}
+
+/** @internal */
+export const MetricsTotalsCashflow$inboundSchema: z.ZodType<
+  MetricsTotalsCashflow,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.number().int(), z.number()]);
+
+/** @internal */
+export type MetricsTotalsCashflow$Outbound = number | number;
+
+/** @internal */
+export const MetricsTotalsCashflow$outboundSchema: z.ZodType<
+  MetricsTotalsCashflow$Outbound,
+  z.ZodTypeDef,
+  MetricsTotalsCashflow
+> = z.union([z.number().int(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace MetricsTotalsCashflow$ {
+  /** @deprecated use `MetricsTotalsCashflow$inboundSchema` instead. */
+  export const inboundSchema = MetricsTotalsCashflow$inboundSchema;
+  /** @deprecated use `MetricsTotalsCashflow$outboundSchema` instead. */
+  export const outboundSchema = MetricsTotalsCashflow$outboundSchema;
+  /** @deprecated use `MetricsTotalsCashflow$Outbound` instead. */
+  export type Outbound = MetricsTotalsCashflow$Outbound;
+}
+
+export function metricsTotalsCashflowToJSON(
+  metricsTotalsCashflow: MetricsTotalsCashflow,
+): string {
+  return JSON.stringify(
+    MetricsTotalsCashflow$outboundSchema.parse(metricsTotalsCashflow),
+  );
+}
+
+export function metricsTotalsCashflowFromJSON(
+  jsonString: string,
+): SafeParseResult<MetricsTotalsCashflow, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MetricsTotalsCashflow$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MetricsTotalsCashflow' from JSON`,
+  );
+}
+
+/** @internal */
 export const MetricsTotals$inboundSchema: z.ZodType<
   MetricsTotals,
   z.ZodTypeDef,
@@ -1927,6 +2294,9 @@ export const MetricsTotals$inboundSchema: z.ZodType<
   cumulative_costs: z.union([z.number().int(), z.number()]),
   average_order_value: z.union([z.number().int(), z.number()]),
   net_average_order_value: z.union([z.number().int(), z.number()]),
+  average_revenue_per_user: z.union([z.number().int(), z.number()]),
+  cost_per_user: z.union([z.number().int(), z.number()]),
+  active_user_by_event: z.union([z.number().int(), z.number()]),
   one_time_products: z.union([z.number().int(), z.number()]),
   one_time_products_revenue: z.union([z.number().int(), z.number()]),
   one_time_products_net_revenue: z.union([z.number().int(), z.number()]),
@@ -1960,6 +2330,10 @@ export const MetricsTotals$inboundSchema: z.ZodType<
   canceled_subscriptions_too_expensive: z.union([z.number().int(), z.number()]),
   canceled_subscriptions_unused: z.union([z.number().int(), z.number()]),
   canceled_subscriptions_other: z.union([z.number().int(), z.number()]),
+  churn_rate: z.union([z.number().int(), z.number()]),
+  gross_margin: z.union([z.number().int(), z.number()]),
+  gross_margin_percentage: z.union([z.number().int(), z.number()]),
+  cashflow: z.union([z.number().int(), z.number()]),
 }).transform((v) => {
   return remap$(v, {
     "net_revenue": "netRevenue",
@@ -1968,6 +2342,9 @@ export const MetricsTotals$inboundSchema: z.ZodType<
     "cumulative_costs": "cumulativeCosts",
     "average_order_value": "averageOrderValue",
     "net_average_order_value": "netAverageOrderValue",
+    "average_revenue_per_user": "averageRevenuePerUser",
+    "cost_per_user": "costPerUser",
+    "active_user_by_event": "activeUserByEvent",
     "one_time_products": "oneTimeProducts",
     "one_time_products_revenue": "oneTimeProductsRevenue",
     "one_time_products_net_revenue": "oneTimeProductsNetRevenue",
@@ -1994,6 +2371,9 @@ export const MetricsTotals$inboundSchema: z.ZodType<
     "canceled_subscriptions_too_expensive": "canceledSubscriptionsTooExpensive",
     "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
     "canceled_subscriptions_other": "canceledSubscriptionsOther",
+    "churn_rate": "churnRate",
+    "gross_margin": "grossMargin",
+    "gross_margin_percentage": "grossMarginPercentage",
   });
 });
 
@@ -2008,6 +2388,9 @@ export type MetricsTotals$Outbound = {
   cumulative_costs: number | number;
   average_order_value: number | number;
   net_average_order_value: number | number;
+  average_revenue_per_user: number | number;
+  cost_per_user: number | number;
+  active_user_by_event: number | number;
   one_time_products: number | number;
   one_time_products_revenue: number | number;
   one_time_products_net_revenue: number | number;
@@ -2032,6 +2415,10 @@ export type MetricsTotals$Outbound = {
   canceled_subscriptions_too_expensive: number | number;
   canceled_subscriptions_unused: number | number;
   canceled_subscriptions_other: number | number;
+  churn_rate: number | number;
+  gross_margin: number | number;
+  gross_margin_percentage: number | number;
+  cashflow: number | number;
 };
 
 /** @internal */
@@ -2049,6 +2436,9 @@ export const MetricsTotals$outboundSchema: z.ZodType<
   cumulativeCosts: z.union([z.number().int(), z.number()]),
   averageOrderValue: z.union([z.number().int(), z.number()]),
   netAverageOrderValue: z.union([z.number().int(), z.number()]),
+  averageRevenuePerUser: z.union([z.number().int(), z.number()]),
+  costPerUser: z.union([z.number().int(), z.number()]),
+  activeUserByEvent: z.union([z.number().int(), z.number()]),
   oneTimeProducts: z.union([z.number().int(), z.number()]),
   oneTimeProductsRevenue: z.union([z.number().int(), z.number()]),
   oneTimeProductsNetRevenue: z.union([z.number().int(), z.number()]),
@@ -2073,6 +2463,10 @@ export const MetricsTotals$outboundSchema: z.ZodType<
   canceledSubscriptionsTooExpensive: z.union([z.number().int(), z.number()]),
   canceledSubscriptionsUnused: z.union([z.number().int(), z.number()]),
   canceledSubscriptionsOther: z.union([z.number().int(), z.number()]),
+  churnRate: z.union([z.number().int(), z.number()]),
+  grossMargin: z.union([z.number().int(), z.number()]),
+  grossMarginPercentage: z.union([z.number().int(), z.number()]),
+  cashflow: z.union([z.number().int(), z.number()]),
 }).transform((v) => {
   return remap$(v, {
     netRevenue: "net_revenue",
@@ -2081,6 +2475,9 @@ export const MetricsTotals$outboundSchema: z.ZodType<
     cumulativeCosts: "cumulative_costs",
     averageOrderValue: "average_order_value",
     netAverageOrderValue: "net_average_order_value",
+    averageRevenuePerUser: "average_revenue_per_user",
+    costPerUser: "cost_per_user",
+    activeUserByEvent: "active_user_by_event",
     oneTimeProducts: "one_time_products",
     oneTimeProductsRevenue: "one_time_products_revenue",
     oneTimeProductsNetRevenue: "one_time_products_net_revenue",
@@ -2107,6 +2504,9 @@ export const MetricsTotals$outboundSchema: z.ZodType<
     canceledSubscriptionsTooExpensive: "canceled_subscriptions_too_expensive",
     canceledSubscriptionsUnused: "canceled_subscriptions_unused",
     canceledSubscriptionsOther: "canceled_subscriptions_other",
+    churnRate: "churn_rate",
+    grossMargin: "gross_margin",
+    grossMarginPercentage: "gross_margin_percentage",
   });
 });
 

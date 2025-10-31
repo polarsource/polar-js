@@ -18,6 +18,7 @@ let value: WebhookEndpoint = {
   events: [
     "order.created",
   ],
+  enabled: false,
 };
 ```
 
@@ -33,3 +34,4 @@ let value: WebhookEndpoint = {
 | `secret`                                                                                      | *string*                                                                                      | :heavy_check_mark:                                                                            | The secret used to sign the webhook events.                                                   | polar_whs_ovyN6cPrTv56AApvzCaJno08SSmGJmgbWilb33N2JuK                                         |
 | `organizationId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The organization ID associated with the webhook endpoint.                                     |                                                                                               |
 | `events`                                                                                      | [components.WebhookEventType](../../models/components/webhookeventtype.md)[]                  | :heavy_check_mark:                                                                            | The events that will trigger the webhook.                                                     |                                                                                               |
+| `enabled`                                                                                     | *boolean*                                                                                     | :heavy_check_mark:                                                                            | Whether the webhook endpoint is enabled and will receive events.                              |                                                                                               |

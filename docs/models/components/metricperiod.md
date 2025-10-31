@@ -16,30 +16,37 @@ let value: MetricPeriod = {
   cumulativeCosts: 2756.5,
   averageOrderValue: 996362,
   netAverageOrderValue: 180802,
-  oneTimeProducts: 167605,
-  oneTimeProductsRevenue: 2292.45,
-  oneTimeProductsNetRevenue: 627146,
-  newSubscriptions: 9269.73,
-  newSubscriptionsRevenue: 949492,
-  newSubscriptionsNetRevenue: 47251,
-  renewedSubscriptions: 172713,
-  renewedSubscriptionsRevenue: 5850.99,
-  renewedSubscriptionsNetRevenue: 300280,
-  activeSubscriptions: 159933,
-  monthlyRecurringRevenue: 66450,
-  committedMonthlyRecurringRevenue: 687843,
-  checkouts: 397403,
-  succeededCheckouts: 324523,
-  checkoutsConversion: 8399.94,
-  canceledSubscriptions: 5324.71,
-  canceledSubscriptionsCustomerService: 297943,
-  canceledSubscriptionsLowQuality: 3738.48,
-  canceledSubscriptionsMissingFeatures: 249718,
-  canceledSubscriptionsSwitchedService: 826661,
-  canceledSubscriptionsTooComplex: 2864.09,
-  canceledSubscriptionsTooExpensive: 238.25,
-  canceledSubscriptionsUnused: 6263.54,
-  canceledSubscriptionsOther: 279.99,
+  averageRevenuePerUser: 167605,
+  costPerUser: 2292.45,
+  activeUserByEvent: 627146,
+  oneTimeProducts: 9269.73,
+  oneTimeProductsRevenue: 949492,
+  oneTimeProductsNetRevenue: 47251,
+  newSubscriptions: 172713,
+  newSubscriptionsRevenue: 5850.99,
+  newSubscriptionsNetRevenue: 300280,
+  renewedSubscriptions: 159933,
+  renewedSubscriptionsRevenue: 66450,
+  renewedSubscriptionsNetRevenue: 687843,
+  activeSubscriptions: 397403,
+  monthlyRecurringRevenue: 324523,
+  committedMonthlyRecurringRevenue: 8399.94,
+  checkouts: 5324.71,
+  succeededCheckouts: 297943,
+  checkoutsConversion: 3738.48,
+  canceledSubscriptions: 249718,
+  canceledSubscriptionsCustomerService: 826661,
+  canceledSubscriptionsLowQuality: 2864.09,
+  canceledSubscriptionsMissingFeatures: 238.25,
+  canceledSubscriptionsSwitchedService: 6263.54,
+  canceledSubscriptionsTooComplex: 279.99,
+  canceledSubscriptionsTooExpensive: 7462.17,
+  canceledSubscriptionsUnused: 9646.7,
+  canceledSubscriptionsOther: 131528,
+  churnRate: 7914.5,
+  grossMargin: 637942,
+  grossMarginPercentage: 48133,
+  cashflow: 572961,
 };
 ```
 
@@ -57,6 +64,9 @@ let value: MetricPeriod = {
 | `cumulativeCosts`                                                                             | *components.CumulativeCosts*                                                                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `averageOrderValue`                                                                           | *components.AverageOrderValue*                                                                | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `netAverageOrderValue`                                                                        | *components.NetAverageOrderValue*                                                             | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `averageRevenuePerUser`                                                                       | *components.AverageRevenuePerUser*                                                            | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `costPerUser`                                                                                 | *components.CostPerUser*                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `activeUserByEvent`                                                                           | *components.ActiveUserByEvent*                                                                | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `oneTimeProducts`                                                                             | *components.OneTimeProducts*                                                                  | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `oneTimeProductsRevenue`                                                                      | *components.OneTimeProductsRevenue*                                                           | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `oneTimeProductsNetRevenue`                                                                   | *components.OneTimeProductsNetRevenue*                                                        | :heavy_check_mark:                                                                            | N/A                                                                                           |
@@ -81,3 +91,7 @@ let value: MetricPeriod = {
 | `canceledSubscriptionsTooExpensive`                                                           | *components.CanceledSubscriptionsTooExpensive*                                                | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `canceledSubscriptionsUnused`                                                                 | *components.CanceledSubscriptionsUnused*                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `canceledSubscriptionsOther`                                                                  | *components.CanceledSubscriptionsOther*                                                       | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `churnRate`                                                                                   | *components.ChurnRate*                                                                        | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `grossMargin`                                                                                 | *components.GrossMargin*                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `grossMarginPercentage`                                                                       | *components.GrossMarginPercentage*                                                            | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `cashflow`                                                                                    | *components.Cashflow*                                                                         | :heavy_check_mark:                                                                            | N/A                                                                                           |
