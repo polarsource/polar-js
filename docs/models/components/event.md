@@ -34,6 +34,7 @@ const value: components.SystemEvent = {
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  childCount: 0,
   source: "system",
   name: "meter.credited",
   metadata: {

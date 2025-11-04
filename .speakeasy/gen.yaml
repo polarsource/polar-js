@@ -27,7 +27,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.40.3
+  version: 0.41.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies:
@@ -39,6 +39,7 @@ typescript:
       jest: '*'
       ts-jest: '*'
   additionalPackageJSON: {}
+  additionalScripts: {}
   author: Speakeasy
   baseErrorName: PolarError
   clientServerStatusCodesAsErrors: true

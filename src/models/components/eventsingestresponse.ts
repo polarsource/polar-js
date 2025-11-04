@@ -12,6 +12,10 @@ export type EventsIngestResponse = {
    * Number of events inserted.
    */
   inserted: number;
+  /**
+   * Number of duplicate events skipped.
+   */
+  duplicates?: number | undefined;
 };
 
 /** @internal */
@@ -21,11 +25,13 @@ export const EventsIngestResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   inserted: z.number().int(),
+  duplicates: z.number().int().default(0),
 });
 
 /** @internal */
 export type EventsIngestResponse$Outbound = {
   inserted: number;
+  duplicates: number;
 };
 
 /** @internal */
@@ -35,6 +41,7 @@ export const EventsIngestResponse$outboundSchema: z.ZodType<
   EventsIngestResponse
 > = z.object({
   inserted: z.number().int(),
+  duplicates: z.number().int().default(0),
 });
 
 /**

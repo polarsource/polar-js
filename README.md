@@ -791,7 +791,7 @@ You can override the default server globally by passing a server name to the `se
 import { Polar } from "@polar-sh/sdk";
 
 const polar = new Polar({
-  server: "sandbox",
+  server: "production",
   accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
 });
 

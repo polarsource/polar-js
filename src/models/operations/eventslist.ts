@@ -97,6 +97,10 @@ export type EventsListRequest = {
    */
   query?: string | null | undefined;
   /**
+   * Filter events by parent event ID. When not specified, returns root events only.
+   */
+  parentId?: string | null | undefined;
+  /**
    * Page number, defaults to 1.
    */
   page?: number | undefined;
@@ -401,6 +405,7 @@ export const EventsListRequest$inboundSchema: z.ZodType<
     z.union([EventSource$inboundSchema, z.array(EventSource$inboundSchema)]),
   ).optional(),
   query: z.nullable(z.string()).optional(),
+  parent_id: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(EventSortProperty$inboundSchema)).optional(),
@@ -413,6 +418,7 @@ export const EventsListRequest$inboundSchema: z.ZodType<
     "customer_id": "customerId",
     "external_customer_id": "externalCustomerId",
     "meter_id": "meterId",
+    "parent_id": "parentId",
   });
 });
 
@@ -428,6 +434,7 @@ export type EventsListRequest$Outbound = {
   name?: string | Array<string> | null | undefined;
   source?: string | Array<string> | null | undefined;
   query?: string | null | undefined;
+  parent_id?: string | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -455,6 +462,7 @@ export const EventsListRequest$outboundSchema: z.ZodType<
     z.union([EventSource$outboundSchema, z.array(EventSource$outboundSchema)]),
   ).optional(),
   query: z.nullable(z.string()).optional(),
+  parentId: z.nullable(z.string()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(EventSortProperty$outboundSchema)).optional(),
@@ -467,6 +475,7 @@ export const EventsListRequest$outboundSchema: z.ZodType<
     customerId: "customer_id",
     externalCustomerId: "external_customer_id",
     meterId: "meter_id",
+    parentId: "parent_id",
   });
 });
 

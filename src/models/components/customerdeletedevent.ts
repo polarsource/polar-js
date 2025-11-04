@@ -49,6 +49,10 @@ export type CustomerDeletedEvent = {
    */
   externalCustomerId: string | null;
   /**
+   * Number of direct child events linked to this event.
+   */
+  childCount?: number | undefined;
+  /**
    * The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API.
    */
   source: "system";
@@ -71,6 +75,7 @@ export const CustomerDeletedEvent$inboundSchema: z.ZodType<
   customer_id: z.nullable(z.string()),
   customer: z.nullable(Customer$inboundSchema),
   external_customer_id: z.nullable(z.string()),
+  child_count: z.number().int().default(0),
   source: z.literal("system"),
   name: z.literal("customer.deleted"),
   metadata: CustomerDeletedMetadata$inboundSchema,
@@ -79,6 +84,7 @@ export const CustomerDeletedEvent$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
     "customer_id": "customerId",
     "external_customer_id": "externalCustomerId",
+    "child_count": "childCount",
   });
 });
 
@@ -90,6 +96,7 @@ export type CustomerDeletedEvent$Outbound = {
   customer_id: string | null;
   customer: Customer$Outbound | null;
   external_customer_id: string | null;
+  child_count: number;
   source: "system";
   name: "customer.deleted";
   metadata: CustomerDeletedMetadata$Outbound;
@@ -107,6 +114,7 @@ export const CustomerDeletedEvent$outboundSchema: z.ZodType<
   customerId: z.nullable(z.string()),
   customer: z.nullable(Customer$outboundSchema),
   externalCustomerId: z.nullable(z.string()),
+  childCount: z.number().int().default(0),
   source: z.literal("system"),
   name: z.literal("customer.deleted"),
   metadata: CustomerDeletedMetadata$outboundSchema,
@@ -115,6 +123,7 @@ export const CustomerDeletedEvent$outboundSchema: z.ZodType<
     organizationId: "organization_id",
     customerId: "customer_id",
     externalCustomerId: "external_customer_id",
+    childCount: "child_count",
   });
 });
 

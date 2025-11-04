@@ -36,6 +36,7 @@ let value: EventsListResponse = {
           avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
         },
         externalCustomerId: "<id>",
+        childCount: 0,
         name: "<value>",
         source: "user",
         metadata: {},

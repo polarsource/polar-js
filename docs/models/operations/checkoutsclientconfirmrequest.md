@@ -8,6 +8,7 @@ import { CheckoutsClientConfirmRequest } from "@polar-sh/sdk/models/operations/c
 let value: CheckoutsClientConfirmRequest = {
   clientSecret: "<value>",
   checkoutConfirmStripe: {
+    customerName: "John Doe",
     customerBillingAddress: {
       country: "US",
     },

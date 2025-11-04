@@ -49,6 +49,10 @@ export type UserEvent = {
    */
   externalCustomerId: string | null;
   /**
+   * Number of direct child events linked to this event.
+   */
+  childCount?: number | undefined;
+  /**
    * The name of the event.
    */
   name: string;
@@ -71,6 +75,7 @@ export const UserEvent$inboundSchema: z.ZodType<
   customer_id: z.nullable(z.string()),
   customer: z.nullable(Customer$inboundSchema),
   external_customer_id: z.nullable(z.string()),
+  child_count: z.number().int().default(0),
   name: z.string(),
   source: z.literal("user"),
   metadata: z.record(EventMetadataOutput$inboundSchema),
@@ -79,6 +84,7 @@ export const UserEvent$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
     "customer_id": "customerId",
     "external_customer_id": "externalCustomerId",
+    "child_count": "childCount",
   });
 });
 
@@ -90,6 +96,7 @@ export type UserEvent$Outbound = {
   customer_id: string | null;
   customer: Customer$Outbound | null;
   external_customer_id: string | null;
+  child_count: number;
   name: string;
   source: "user";
   metadata: { [k: string]: EventMetadataOutput$Outbound };
@@ -107,6 +114,7 @@ export const UserEvent$outboundSchema: z.ZodType<
   customerId: z.nullable(z.string()),
   customer: z.nullable(Customer$outboundSchema),
   externalCustomerId: z.nullable(z.string()),
+  childCount: z.number().int().default(0),
   name: z.string(),
   source: z.literal("user"),
   metadata: z.record(EventMetadataOutput$outboundSchema),
@@ -115,6 +123,7 @@ export const UserEvent$outboundSchema: z.ZodType<
     organizationId: "organization_id",
     customerId: "customer_id",
     externalCustomerId: "external_customer_id",
+    childCount: "child_count",
   });
 });
 
