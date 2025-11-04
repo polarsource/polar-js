@@ -86,7 +86,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.create({\n    customerBillingAddress: {\n      country: \"US\",\n    },\n    products: [\n      \"<value 1>\",\n      \"<value 2>\",\n      \"<value 3>\",\n    ],\n  });\n\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.create({\n    customerName: \"John Doe\",\n    customerBillingAddress: {\n      country: \"US\",\n    },\n    products: [\n      \"<value 1>\",\n      \"<value 2>\",\n      \"<value 3>\",\n    ],\n  });\n\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/checkouts/client/{client_secret}"]["get"]
     update:
       "x-codeSamples":
@@ -98,13 +98,13 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.checkouts.clientUpdate({\n    clientSecret: \"<value>\",\n    checkoutUpdatePublic: {\n      customerBillingAddress: null,\n    },\n  });\n\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar();\n\nasync function run() {\n  const result = await polar.checkouts.clientUpdate({\n    clientSecret: \"<value>\",\n    checkoutUpdatePublic: {\n      customerName: \"John Doe\",\n      customerBillingAddress: null,\n    },\n  });\n\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/checkouts/client/{client_secret}/confirm"]["post"]
     update:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.clientConfirm({\n    clientSecret: \"<value>\",\n    checkoutConfirmStripe: {\n      customerBillingAddress: {\n        country: \"US\",\n      },\n    },\n  });\n\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.clientConfirm({\n    clientSecret: \"<value>\",\n    checkoutConfirmStripe: {\n      customerName: \"John Doe\",\n      customerBillingAddress: {\n        country: \"US\",\n      },\n    },\n  });\n\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/checkouts/{id}"]["get"]
     update:
       "x-codeSamples":
@@ -116,7 +116,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.update({\n    id: \"<value>\",\n    checkoutUpdate: {\n      customerBillingAddress: {\n        country: \"US\",\n      },\n    },\n  });\n\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.checkouts.update({\n    id: \"<value>\",\n    checkoutUpdate: {\n      customerName: \"John Doe\",\n      customerBillingAddress: {\n        country: \"US\",\n      },\n    },\n  });\n\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/custom-fields/"]["get"]
     update:
       "x-codeSamples":

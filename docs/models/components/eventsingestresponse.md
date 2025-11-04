@@ -12,6 +12,7 @@ let value: EventsIngestResponse = {
 
 ## Fields
 
-| Field                      | Type                       | Required                   | Description                |
-| -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| `inserted`                 | *number*                   | :heavy_check_mark:         | Number of events inserted. |
+| Field                               | Type                                | Required                            | Description                         |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| `inserted`                          | *number*                            | :heavy_check_mark:                  | Number of events inserted.          |
+| `duplicates`                        | *number*                            | :heavy_minus_sign:                  | Number of duplicate events skipped. |

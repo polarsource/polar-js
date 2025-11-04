@@ -27,6 +27,14 @@ export type EventCreateExternalCustomer = {
    * The ID of the organization owning the event. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
+  /**
+   * Your unique identifier for this event. Useful for deduplication and parent-child relationships.
+   */
+  externalId?: string | null | undefined;
+  /**
+   * The ID of the parent event. Can be either a Polar event ID (UUID) or an external event ID.
+   */
+  parentId?: string | null | undefined;
   metadata?: { [k: string]: EventMetadataInput } | undefined;
   /**
    * ID of the customer in your system associated with the event.
@@ -44,11 +52,15 @@ export const EventCreateExternalCustomer$inboundSchema: z.ZodType<
     .optional(),
   name: z.string(),
   organization_id: z.nullable(z.string()).optional(),
+  external_id: z.nullable(z.string()).optional(),
+  parent_id: z.nullable(z.string()).optional(),
   metadata: z.record(EventMetadataInput$inboundSchema).optional(),
   external_customer_id: z.string(),
 }).transform((v) => {
   return remap$(v, {
     "organization_id": "organizationId",
+    "external_id": "externalId",
+    "parent_id": "parentId",
     "external_customer_id": "externalCustomerId",
   });
 });
@@ -58,6 +70,8 @@ export type EventCreateExternalCustomer$Outbound = {
   timestamp?: string | undefined;
   name: string;
   organization_id?: string | null | undefined;
+  external_id?: string | null | undefined;
+  parent_id?: string | null | undefined;
   metadata?: { [k: string]: EventMetadataInput$Outbound } | undefined;
   external_customer_id: string;
 };
@@ -71,11 +85,15 @@ export const EventCreateExternalCustomer$outboundSchema: z.ZodType<
   timestamp: z.date().transform(v => v.toISOString()).optional(),
   name: z.string(),
   organizationId: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()).optional(),
+  parentId: z.nullable(z.string()).optional(),
   metadata: z.record(EventMetadataInput$outboundSchema).optional(),
   externalCustomerId: z.string(),
 }).transform((v) => {
   return remap$(v, {
     organizationId: "organization_id",
+    externalId: "external_id",
+    parentId: "parent_id",
     externalCustomerId: "external_customer_id",
   });
 });

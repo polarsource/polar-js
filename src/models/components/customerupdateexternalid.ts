@@ -48,9 +48,6 @@ export type CustomerUpdateExternalID = {
    * The email address of the customer. This must be unique within the organization.
    */
   email?: string | null | undefined;
-  /**
-   * The name of the customer.
-   */
   name?: string | null | undefined;
   billingAddress?: AddressInput | null | undefined;
   taxId?: Array<string | TaxIDFormat | null> | null | undefined;
