@@ -14,11 +14,11 @@ import {
   BenefitMeterCreditSubscriberProperties$outboundSchema,
 } from "./benefitmetercreditsubscriberproperties.js";
 import {
-  Organization,
-  Organization$inboundSchema,
-  Organization$Outbound,
-  Organization$outboundSchema,
-} from "./organization.js";
+  BenefitSubscriberOrganization,
+  BenefitSubscriberOrganization$inboundSchema,
+  BenefitSubscriberOrganization$Outbound,
+  BenefitSubscriberOrganization$outboundSchema,
+} from "./benefitsubscriberorganization.js";
 
 export type BenefitMeterCreditSubscriberMetadata =
   | string
@@ -57,7 +57,7 @@ export type BenefitMeterCreditSubscriber = {
    */
   organizationId: string;
   metadata: { [k: string]: string | number | number | boolean };
-  organization: Organization;
+  organization: BenefitSubscriberOrganization;
   /**
    * Properties available to subscribers for a benefit of type `meter_unit`.
    */
@@ -140,7 +140,7 @@ export const BenefitMeterCreditSubscriber$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  organization: Organization$inboundSchema,
+  organization: BenefitSubscriberOrganization$inboundSchema,
   properties: BenefitMeterCreditSubscriberProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -161,7 +161,7 @@ export type BenefitMeterCreditSubscriber$Outbound = {
   deletable: boolean;
   organization_id: string;
   metadata: { [k: string]: string | number | number | boolean };
-  organization: Organization$Outbound;
+  organization: BenefitSubscriberOrganization$Outbound;
   properties: BenefitMeterCreditSubscriberProperties$Outbound;
 };
 
@@ -182,7 +182,7 @@ export const BenefitMeterCreditSubscriber$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  organization: Organization$outboundSchema,
+  organization: BenefitSubscriberOrganization$outboundSchema,
   properties: BenefitMeterCreditSubscriberProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

@@ -126,6 +126,7 @@ async function $do(
       "end_timestamp": payload.end_timestamp,
       "external_customer_id": payload.external_customer_id,
       "filter": payload.filter,
+      "hierarchical": payload.hierarchical,
       "limit": payload.limit,
       "meter_id": payload.meter_id,
       "name": payload.name,

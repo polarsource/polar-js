@@ -1,19 +1,19 @@
-# CustomerOrganization
+# CheckoutOrganization
 
 ## Example Usage
 
 ```typescript
-import { CustomerOrganization } from "@polar-sh/sdk/models/components/customerorganization.js";
+import { CheckoutOrganization } from "@polar-sh/sdk/models/components/checkoutorganization.js";
 
-let value: CustomerOrganization = {
-  createdAt: new Date("2025-04-15T05:48:03.283Z"),
-  modifiedAt: null,
+let value: CheckoutOrganization = {
+  createdAt: new Date("2023-12-16T13:26:37.014Z"),
+  modifiedAt: new Date("2024-02-14T18:17:21.202Z"),
   id: "<value>",
   name: "<value>",
   slug: "<value>",
-  avatarUrl: "https://astonishing-foodstuffs.biz/",
-  prorationBehavior: "invoice",
-  allowCustomerUpdates: true,
+  avatarUrl: "https://unsightly-hunt.org",
+  prorationBehavior: "prorate",
+  allowCustomerUpdates: false,
 };
 ```
 

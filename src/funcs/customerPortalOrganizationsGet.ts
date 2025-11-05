@@ -10,9 +10,9 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  CustomerOrganization,
-  CustomerOrganization$inboundSchema,
-} from "../models/components/customerorganization.js";
+  CustomerOrganizationData,
+  CustomerOrganizationData$inboundSchema,
+} from "../models/components/customerorganizationdata.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -50,7 +50,7 @@ export function customerPortalOrganizationsGet(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    CustomerOrganization,
+    CustomerOrganizationData,
     | ResourceNotFound
     | HTTPValidationError
     | PolarError
@@ -77,7 +77,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      CustomerOrganization,
+      CustomerOrganizationData,
       | ResourceNotFound
       | HTTPValidationError
       | PolarError
@@ -164,7 +164,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    CustomerOrganization,
+    CustomerOrganizationData,
     | ResourceNotFound
     | HTTPValidationError
     | PolarError
@@ -176,7 +176,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, CustomerOrganization$inboundSchema),
+    M.json(200, CustomerOrganizationData$inboundSchema),
     M.jsonErr(404, ResourceNotFound$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),

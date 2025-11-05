@@ -14,17 +14,17 @@ import {
   BenefitPublic$outboundSchema,
 } from "./benefitpublic.js";
 import {
+  CustomerOrganization,
+  CustomerOrganization$inboundSchema,
+  CustomerOrganization$Outbound,
+  CustomerOrganization$outboundSchema,
+} from "./customerorganization.js";
+import {
   LegacyRecurringProductPrice,
   LegacyRecurringProductPrice$inboundSchema,
   LegacyRecurringProductPrice$Outbound,
   LegacyRecurringProductPrice$outboundSchema,
 } from "./legacyrecurringproductprice.js";
-import {
-  Organization,
-  Organization$inboundSchema,
-  Organization$Outbound,
-  Organization$outboundSchema,
-} from "./organization.js";
 import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
@@ -113,7 +113,7 @@ export type CustomerSubscriptionProduct = {
    * List of medias associated to the product.
    */
   medias: Array<ProductMediaFileRead>;
-  organization: Organization;
+  organization: CustomerOrganization;
 };
 
 /** @internal */
@@ -203,7 +203,7 @@ export const CustomerSubscriptionProduct$inboundSchema: z.ZodType<
   ),
   benefits: z.array(BenefitPublic$inboundSchema),
   medias: z.array(ProductMediaFileRead$inboundSchema),
-  organization: Organization$inboundSchema,
+  organization: CustomerOrganization$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "created_at": "createdAt",
@@ -235,7 +235,7 @@ export type CustomerSubscriptionProduct$Outbound = {
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
   benefits: Array<BenefitPublic$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
-  organization: Organization$Outbound;
+  organization: CustomerOrganization$Outbound;
 };
 
 /** @internal */
@@ -264,7 +264,7 @@ export const CustomerSubscriptionProduct$outboundSchema: z.ZodType<
   ),
   benefits: z.array(BenefitPublic$outboundSchema),
   medias: z.array(ProductMediaFileRead$outboundSchema),
-  organization: Organization$outboundSchema,
+  organization: CustomerOrganization$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
     createdAt: "created_at",

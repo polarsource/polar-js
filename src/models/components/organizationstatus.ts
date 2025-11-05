@@ -8,7 +8,8 @@ import { ClosedEnum } from "../../types/enums.js";
 export const OrganizationStatus = {
   Created: "created",
   OnboardingStarted: "onboarding_started",
-  UnderReview: "under_review",
+  InitialReview: "initial_review",
+  OngoingReview: "ongoing_review",
   Denied: "denied",
   Active: "active",
 } as const;

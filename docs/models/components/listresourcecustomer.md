@@ -27,8 +27,8 @@ let value: ListResourceCustomer = {
     },
   ],
   pagination: {
-    totalCount: 607201,
-    maxPage: 808600,
+    totalCount: 279990,
+    maxPage: 718643,
   },
 };
 ```

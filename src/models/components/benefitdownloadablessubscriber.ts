@@ -14,11 +14,11 @@ import {
   BenefitDownloadablesSubscriberProperties$outboundSchema,
 } from "./benefitdownloadablessubscriberproperties.js";
 import {
-  Organization,
-  Organization$inboundSchema,
-  Organization$Outbound,
-  Organization$outboundSchema,
-} from "./organization.js";
+  BenefitSubscriberOrganization,
+  BenefitSubscriberOrganization$inboundSchema,
+  BenefitSubscriberOrganization$Outbound,
+  BenefitSubscriberOrganization$outboundSchema,
+} from "./benefitsubscriberorganization.js";
 
 export type BenefitDownloadablesSubscriberMetadata =
   | string
@@ -57,7 +57,7 @@ export type BenefitDownloadablesSubscriber = {
    */
   organizationId: string;
   metadata: { [k: string]: string | number | number | boolean };
-  organization: Organization;
+  organization: BenefitSubscriberOrganization;
   properties: BenefitDownloadablesSubscriberProperties;
 };
 
@@ -138,7 +138,7 @@ export const BenefitDownloadablesSubscriber$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  organization: Organization$inboundSchema,
+  organization: BenefitSubscriberOrganization$inboundSchema,
   properties: BenefitDownloadablesSubscriberProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -159,7 +159,7 @@ export type BenefitDownloadablesSubscriber$Outbound = {
   deletable: boolean;
   organization_id: string;
   metadata: { [k: string]: string | number | number | boolean };
-  organization: Organization$Outbound;
+  organization: BenefitSubscriberOrganization$Outbound;
   properties: BenefitDownloadablesSubscriberProperties$Outbound;
 };
 
@@ -180,7 +180,7 @@ export const BenefitDownloadablesSubscriber$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  organization: Organization$outboundSchema,
+  organization: BenefitSubscriberOrganization$outboundSchema,
   properties: BenefitDownloadablesSubscriberProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
