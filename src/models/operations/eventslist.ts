@@ -97,9 +97,13 @@ export type EventsListRequest = {
    */
   query?: string | null | undefined;
   /**
-   * Filter events by parent event ID. When not specified, returns root events only.
+   * Filter events by parent event ID when hierarchical is set to true. When not specified or null, returns root events only.
    */
   parentId?: string | null | undefined;
+  /**
+   * When true, filters by parent_id (root events if not specified). When false, returns all events regardless of hierarchy.
+   */
+  hierarchical?: boolean | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -406,6 +410,7 @@ export const EventsListRequest$inboundSchema: z.ZodType<
   ).optional(),
   query: z.nullable(z.string()).optional(),
   parent_id: z.nullable(z.string()).optional(),
+  hierarchical: z.boolean().default(false),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(EventSortProperty$inboundSchema)).optional(),
@@ -435,6 +440,7 @@ export type EventsListRequest$Outbound = {
   source?: string | Array<string> | null | undefined;
   query?: string | null | undefined;
   parent_id?: string | null | undefined;
+  hierarchical: boolean;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -463,6 +469,7 @@ export const EventsListRequest$outboundSchema: z.ZodType<
   ).optional(),
   query: z.nullable(z.string()).optional(),
   parentId: z.nullable(z.string()).optional(),
+  hierarchical: z.boolean().default(false),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(EventSortProperty$outboundSchema)).optional(),

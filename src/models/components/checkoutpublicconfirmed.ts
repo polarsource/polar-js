@@ -50,6 +50,12 @@ import {
   CheckoutDiscountPercentageRepeatDuration$outboundSchema,
 } from "./checkoutdiscountpercentagerepeatduration.js";
 import {
+  CheckoutOrganization,
+  CheckoutOrganization$inboundSchema,
+  CheckoutOrganization$Outbound,
+  CheckoutOrganization$outboundSchema,
+} from "./checkoutorganization.js";
+import {
   CheckoutProduct,
   CheckoutProduct$inboundSchema,
   CheckoutProduct$Outbound,
@@ -61,12 +67,6 @@ import {
   LegacyRecurringProductPrice$Outbound,
   LegacyRecurringProductPrice$outboundSchema,
 } from "./legacyrecurringproductprice.js";
-import {
-  Organization,
-  Organization$inboundSchema,
-  Organization$Outbound,
-  Organization$outboundSchema,
-} from "./organization.js";
 import {
   PaymentProcessor,
   PaymentProcessor$inboundSchema,
@@ -278,7 +278,7 @@ export type CheckoutPublicConfirmed = {
     | CheckoutDiscountPercentageRepeatDuration
     | CheckoutDiscountPercentageOnceForeverDuration
     | null;
-  organization: Organization;
+  organization: CheckoutOrganization;
   attachedCustomFields: Array<AttachedCustomField> | null;
   customerSessionToken: string;
 };
@@ -555,7 +555,7 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodType<
       CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
     ]),
   ),
-  organization: Organization$inboundSchema,
+  organization: CheckoutOrganization$inboundSchema,
   attached_custom_fields: z.nullable(
     z.array(AttachedCustomField$inboundSchema),
   ),
@@ -666,7 +666,7 @@ export type CheckoutPublicConfirmed$Outbound = {
     | CheckoutDiscountPercentageRepeatDuration$Outbound
     | CheckoutDiscountPercentageOnceForeverDuration$Outbound
     | null;
-  organization: Organization$Outbound;
+  organization: CheckoutOrganization$Outbound;
   attached_custom_fields: Array<AttachedCustomField$Outbound> | null;
   customer_session_token: string;
 };
@@ -746,7 +746,7 @@ export const CheckoutPublicConfirmed$outboundSchema: z.ZodType<
       CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
     ]),
   ),
-  organization: Organization$outboundSchema,
+  organization: CheckoutOrganization$outboundSchema,
   attachedCustomFields: z.nullable(z.array(AttachedCustomField$outboundSchema)),
   customerSessionToken: z.string(),
 }).transform((v) => {

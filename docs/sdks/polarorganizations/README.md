@@ -68,7 +68,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomerOrganization](../../models/components/customerorganization.md)\>**
+**Promise\<[components.CustomerOrganizationData](../../models/components/customerorganizationdata.md)\>**
 
 ### Errors
 

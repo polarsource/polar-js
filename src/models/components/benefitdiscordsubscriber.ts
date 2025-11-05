@@ -14,11 +14,11 @@ import {
   BenefitDiscordSubscriberProperties$outboundSchema,
 } from "./benefitdiscordsubscriberproperties.js";
 import {
-  Organization,
-  Organization$inboundSchema,
-  Organization$Outbound,
-  Organization$outboundSchema,
-} from "./organization.js";
+  BenefitSubscriberOrganization,
+  BenefitSubscriberOrganization$inboundSchema,
+  BenefitSubscriberOrganization$Outbound,
+  BenefitSubscriberOrganization$outboundSchema,
+} from "./benefitsubscriberorganization.js";
 
 export type BenefitDiscordSubscriberMetadata =
   | string
@@ -57,7 +57,7 @@ export type BenefitDiscordSubscriber = {
    */
   organizationId: string;
   metadata: { [k: string]: string | number | number | boolean };
-  organization: Organization;
+  organization: BenefitSubscriberOrganization;
   /**
    * Properties available to subscribers for a benefit of type `discord`.
    */
@@ -137,7 +137,7 @@ export const BenefitDiscordSubscriber$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  organization: Organization$inboundSchema,
+  organization: BenefitSubscriberOrganization$inboundSchema,
   properties: BenefitDiscordSubscriberProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -158,7 +158,7 @@ export type BenefitDiscordSubscriber$Outbound = {
   deletable: boolean;
   organization_id: string;
   metadata: { [k: string]: string | number | number | boolean };
-  organization: Organization$Outbound;
+  organization: BenefitSubscriberOrganization$Outbound;
   properties: BenefitDiscordSubscriberProperties$Outbound;
 };
 
@@ -179,7 +179,7 @@ export const BenefitDiscordSubscriber$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  organization: Organization$outboundSchema,
+  organization: BenefitSubscriberOrganization$outboundSchema,
   properties: BenefitDiscordSubscriberProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

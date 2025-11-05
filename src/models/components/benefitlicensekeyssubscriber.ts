@@ -14,11 +14,11 @@ import {
   BenefitLicenseKeysSubscriberProperties$outboundSchema,
 } from "./benefitlicensekeyssubscriberproperties.js";
 import {
-  Organization,
-  Organization$inboundSchema,
-  Organization$Outbound,
-  Organization$outboundSchema,
-} from "./organization.js";
+  BenefitSubscriberOrganization,
+  BenefitSubscriberOrganization$inboundSchema,
+  BenefitSubscriberOrganization$Outbound,
+  BenefitSubscriberOrganization$outboundSchema,
+} from "./benefitsubscriberorganization.js";
 
 export type BenefitLicenseKeysSubscriberMetadata =
   | string
@@ -57,7 +57,7 @@ export type BenefitLicenseKeysSubscriber = {
    */
   organizationId: string;
   metadata: { [k: string]: string | number | number | boolean };
-  organization: Organization;
+  organization: BenefitSubscriberOrganization;
   properties: BenefitLicenseKeysSubscriberProperties;
 };
 
@@ -137,7 +137,7 @@ export const BenefitLicenseKeysSubscriber$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  organization: Organization$inboundSchema,
+  organization: BenefitSubscriberOrganization$inboundSchema,
   properties: BenefitLicenseKeysSubscriberProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -158,7 +158,7 @@ export type BenefitLicenseKeysSubscriber$Outbound = {
   deletable: boolean;
   organization_id: string;
   metadata: { [k: string]: string | number | number | boolean };
-  organization: Organization$Outbound;
+  organization: BenefitSubscriberOrganization$Outbound;
   properties: BenefitLicenseKeysSubscriberProperties$Outbound;
 };
 
@@ -179,7 +179,7 @@ export const BenefitLicenseKeysSubscriber$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  organization: Organization$outboundSchema,
+  organization: BenefitSubscriberOrganization$outboundSchema,
   properties: BenefitLicenseKeysSubscriberProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

@@ -11,5 +11,5 @@ let value: OrganizationStatus = "onboarding_started";
 ## Values
 
 ```typescript
-"created" | "onboarding_started" | "under_review" | "denied" | "active"
+"created" | "onboarding_started" | "initial_review" | "ongoing_review" | "denied" | "active"
 ```

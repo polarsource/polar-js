@@ -42,6 +42,11 @@ import {
   OrganizationSubscriptionSettings$Outbound,
   OrganizationSubscriptionSettings$outboundSchema,
 } from "./organizationsubscriptionsettings.js";
+import {
+  SubscriptionProrationBehavior,
+  SubscriptionProrationBehavior$inboundSchema,
+  SubscriptionProrationBehavior$outboundSchema,
+} from "./subscriptionprorationbehavior.js";
 
 export type Organization = {
   /**
@@ -53,7 +58,7 @@ export type Organization = {
    */
   modifiedAt: Date | null;
   /**
-   * The organization ID.
+   * The ID of the object.
    */
   id: string;
   /**
@@ -68,6 +73,11 @@ export type Organization = {
    * Avatar URL shown in checkout, customer portal, emails etc.
    */
   avatarUrl: string | null;
+  prorationBehavior: SubscriptionProrationBehavior;
+  /**
+   * Whether customers can update their subscriptions from the customer portal.
+   */
+  allowCustomerUpdates: boolean;
   /**
    * Public support email.
    */
@@ -108,6 +118,8 @@ export const Organization$inboundSchema: z.ZodType<
   name: z.string(),
   slug: z.string(),
   avatar_url: z.nullable(z.string()),
+  proration_behavior: SubscriptionProrationBehavior$inboundSchema,
+  allow_customer_updates: z.boolean(),
   email: z.nullable(z.string()),
   website: z.nullable(z.string()),
   socials: z.array(OrganizationSocialLink$inboundSchema),
@@ -124,6 +136,8 @@ export const Organization$inboundSchema: z.ZodType<
     "created_at": "createdAt",
     "modified_at": "modifiedAt",
     "avatar_url": "avatarUrl",
+    "proration_behavior": "prorationBehavior",
+    "allow_customer_updates": "allowCustomerUpdates",
     "details_submitted_at": "detailsSubmittedAt",
     "feature_settings": "featureSettings",
     "subscription_settings": "subscriptionSettings",
@@ -140,6 +154,8 @@ export type Organization$Outbound = {
   name: string;
   slug: string;
   avatar_url: string | null;
+  proration_behavior: string;
+  allow_customer_updates: boolean;
   email: string | null;
   website: string | null;
   socials: Array<OrganizationSocialLink$Outbound>;
@@ -163,6 +179,8 @@ export const Organization$outboundSchema: z.ZodType<
   name: z.string(),
   slug: z.string(),
   avatarUrl: z.nullable(z.string()),
+  prorationBehavior: SubscriptionProrationBehavior$outboundSchema,
+  allowCustomerUpdates: z.boolean(),
   email: z.nullable(z.string()),
   website: z.nullable(z.string()),
   socials: z.array(OrganizationSocialLink$outboundSchema),
@@ -177,6 +195,8 @@ export const Organization$outboundSchema: z.ZodType<
     createdAt: "created_at",
     modifiedAt: "modified_at",
     avatarUrl: "avatar_url",
+    prorationBehavior: "proration_behavior",
+    allowCustomerUpdates: "allow_customer_updates",
     detailsSubmittedAt: "details_submitted_at",
     featureSettings: "feature_settings",
     subscriptionSettings: "subscription_settings",

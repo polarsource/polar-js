@@ -14,11 +14,11 @@ import {
   BenefitGitHubRepositorySubscriberProperties$outboundSchema,
 } from "./benefitgithubrepositorysubscriberproperties.js";
 import {
-  Organization,
-  Organization$inboundSchema,
-  Organization$Outbound,
-  Organization$outboundSchema,
-} from "./organization.js";
+  BenefitSubscriberOrganization,
+  BenefitSubscriberOrganization$inboundSchema,
+  BenefitSubscriberOrganization$Outbound,
+  BenefitSubscriberOrganization$outboundSchema,
+} from "./benefitsubscriberorganization.js";
 
 export type BenefitGitHubRepositorySubscriberMetadata =
   | string
@@ -57,7 +57,7 @@ export type BenefitGitHubRepositorySubscriber = {
    */
   organizationId: string;
   metadata: { [k: string]: string | number | number | boolean };
-  organization: Organization;
+  organization: BenefitSubscriberOrganization;
   /**
    * Properties available to subscribers for a benefit of type `github_repository`.
    */
@@ -147,7 +147,7 @@ export const BenefitGitHubRepositorySubscriber$inboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  organization: Organization$inboundSchema,
+  organization: BenefitSubscriberOrganization$inboundSchema,
   properties: BenefitGitHubRepositorySubscriberProperties$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
@@ -168,7 +168,7 @@ export type BenefitGitHubRepositorySubscriber$Outbound = {
   deletable: boolean;
   organization_id: string;
   metadata: { [k: string]: string | number | number | boolean };
-  organization: Organization$Outbound;
+  organization: BenefitSubscriberOrganization$Outbound;
   properties: BenefitGitHubRepositorySubscriberProperties$Outbound;
 };
 
@@ -189,7 +189,7 @@ export const BenefitGitHubRepositorySubscriber$outboundSchema: z.ZodType<
   metadata: z.record(
     z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
   ),
-  organization: Organization$outboundSchema,
+  organization: BenefitSubscriberOrganization$outboundSchema,
   properties: BenefitGitHubRepositorySubscriberProperties$outboundSchema,
 }).transform((v) => {
   return remap$(v, {

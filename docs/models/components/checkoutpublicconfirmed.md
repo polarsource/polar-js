@@ -201,36 +201,12 @@ let value: CheckoutPublicConfirmed = {
   organization: {
     createdAt: new Date("2024-04-23T21:20:15.611Z"),
     modifiedAt: new Date("2024-05-22T15:08:17.767Z"),
-    id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    id: "<value>",
     name: "<value>",
     slug: "<value>",
     avatarUrl: "https://late-cutover.org",
-    email: "Phyllis_Romaguera@gmail.com",
-    website: "<value>",
-    socials: [],
-    status: "denied",
-    detailsSubmittedAt: new Date("2025-03-30T02:02:42.344Z"),
-    featureSettings: null,
-    subscriptionSettings: {
-      allowMultipleSubscriptions: true,
-      allowCustomerUpdates: true,
-      prorationBehavior: "invoice",
-      benefitRevocationGracePeriod: 916709,
-    },
-    notificationSettings: {
-      newOrder: true,
-      newSubscription: true,
-    },
-    customerEmailSettings: {
-      orderConfirmation: true,
-      subscriptionCancellation: true,
-      subscriptionConfirmation: false,
-      subscriptionCycled: true,
-      subscriptionPastDue: false,
-      subscriptionRevoked: false,
-      subscriptionUncanceled: false,
-      subscriptionUpdated: true,
-    },
+    prorationBehavior: "prorate",
+    allowCustomerUpdates: true,
   },
   attachedCustomFields: [
     {
@@ -313,6 +289,6 @@ let value: CheckoutPublicConfirmed = {
 | `product`                                                                                                                                                                                                                                                                                 | [components.CheckoutProduct](../../models/components/checkoutproduct.md)                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Product selected to checkout.                                                                                                                                                                                                                                                             |
 | `productPrice`                                                                                                                                                                                                                                                                            | *components.CheckoutPublicConfirmedProductPrice*                                                                                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                                                                                                                        | Price of the selected product.                                                                                                                                                                                                                                                            |
 | `discount`                                                                                                                                                                                                                                                                                | *components.CheckoutPublicConfirmedDiscount*                                                                                                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
-| `organization`                                                                                                                                                                                                                                                                            | [components.Organization](../../models/components/organization.md)                                                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
+| `organization`                                                                                                                                                                                                                                                                            | [components.CheckoutOrganization](../../models/components/checkoutorganization.md)                                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `attachedCustomFields`                                                                                                                                                                                                                                                                    | [components.AttachedCustomField](../../models/components/attachedcustomfield.md)[]                                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |
 | `customerSessionToken`                                                                                                                                                                                                                                                                    | *string*                                                                                                                                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                                                                                                                                                       |

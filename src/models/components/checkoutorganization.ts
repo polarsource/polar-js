@@ -13,7 +13,7 @@ import {
   SubscriptionProrationBehavior$outboundSchema,
 } from "./subscriptionprorationbehavior.js";
 
-export type CustomerOrganization = {
+export type CheckoutOrganization = {
   /**
    * Creation timestamp of the object.
    */
@@ -46,8 +46,8 @@ export type CustomerOrganization = {
 };
 
 /** @internal */
-export const CustomerOrganization$inboundSchema: z.ZodType<
-  CustomerOrganization,
+export const CheckoutOrganization$inboundSchema: z.ZodType<
+  CheckoutOrganization,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -72,7 +72,7 @@ export const CustomerOrganization$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type CustomerOrganization$Outbound = {
+export type CheckoutOrganization$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
@@ -84,10 +84,10 @@ export type CustomerOrganization$Outbound = {
 };
 
 /** @internal */
-export const CustomerOrganization$outboundSchema: z.ZodType<
-  CustomerOrganization$Outbound,
+export const CheckoutOrganization$outboundSchema: z.ZodType<
+  CheckoutOrganization$Outbound,
   z.ZodTypeDef,
-  CustomerOrganization
+  CheckoutOrganization
 > = z.object({
   createdAt: z.date().transform(v => v.toISOString()),
   modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
@@ -111,29 +111,29 @@ export const CustomerOrganization$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace CustomerOrganization$ {
-  /** @deprecated use `CustomerOrganization$inboundSchema` instead. */
-  export const inboundSchema = CustomerOrganization$inboundSchema;
-  /** @deprecated use `CustomerOrganization$outboundSchema` instead. */
-  export const outboundSchema = CustomerOrganization$outboundSchema;
-  /** @deprecated use `CustomerOrganization$Outbound` instead. */
-  export type Outbound = CustomerOrganization$Outbound;
+export namespace CheckoutOrganization$ {
+  /** @deprecated use `CheckoutOrganization$inboundSchema` instead. */
+  export const inboundSchema = CheckoutOrganization$inboundSchema;
+  /** @deprecated use `CheckoutOrganization$outboundSchema` instead. */
+  export const outboundSchema = CheckoutOrganization$outboundSchema;
+  /** @deprecated use `CheckoutOrganization$Outbound` instead. */
+  export type Outbound = CheckoutOrganization$Outbound;
 }
 
-export function customerOrganizationToJSON(
-  customerOrganization: CustomerOrganization,
+export function checkoutOrganizationToJSON(
+  checkoutOrganization: CheckoutOrganization,
 ): string {
   return JSON.stringify(
-    CustomerOrganization$outboundSchema.parse(customerOrganization),
+    CheckoutOrganization$outboundSchema.parse(checkoutOrganization),
   );
 }
 
-export function customerOrganizationFromJSON(
+export function checkoutOrganizationFromJSON(
   jsonString: string,
-): SafeParseResult<CustomerOrganization, SDKValidationError> {
+): SafeParseResult<CheckoutOrganization, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => CustomerOrganization$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerOrganization' from JSON`,
+    (x) => CheckoutOrganization$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutOrganization' from JSON`,
   );
 }

@@ -53,6 +53,10 @@ export type BenefitGrantedEvent = {
    */
   childCount?: number | undefined;
   /**
+   * The ID of the parent event.
+   */
+  parentId?: string | null | undefined;
+  /**
    * The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API.
    */
   source: "system";
@@ -76,6 +80,7 @@ export const BenefitGrantedEvent$inboundSchema: z.ZodType<
   customer: z.nullable(Customer$inboundSchema),
   external_customer_id: z.nullable(z.string()),
   child_count: z.number().int().default(0),
+  parent_id: z.nullable(z.string()).optional(),
   source: z.literal("system"),
   name: z.literal("benefit.granted"),
   metadata: BenefitGrantMetadata$inboundSchema,
@@ -85,6 +90,7 @@ export const BenefitGrantedEvent$inboundSchema: z.ZodType<
     "customer_id": "customerId",
     "external_customer_id": "externalCustomerId",
     "child_count": "childCount",
+    "parent_id": "parentId",
   });
 });
 
@@ -97,6 +103,7 @@ export type BenefitGrantedEvent$Outbound = {
   customer: Customer$Outbound | null;
   external_customer_id: string | null;
   child_count: number;
+  parent_id?: string | null | undefined;
   source: "system";
   name: "benefit.granted";
   metadata: BenefitGrantMetadata$Outbound;
@@ -115,6 +122,7 @@ export const BenefitGrantedEvent$outboundSchema: z.ZodType<
   customer: z.nullable(Customer$outboundSchema),
   externalCustomerId: z.nullable(z.string()),
   childCount: z.number().int().default(0),
+  parentId: z.nullable(z.string()).optional(),
   source: z.literal("system"),
   name: z.literal("benefit.granted"),
   metadata: BenefitGrantMetadata$outboundSchema,
@@ -124,6 +132,7 @@ export const BenefitGrantedEvent$outboundSchema: z.ZodType<
     customerId: "customer_id",
     externalCustomerId: "external_customer_id",
     childCount: "child_count",
+    parentId: "parent_id",
   });
 });
 
