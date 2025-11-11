@@ -76,7 +76,6 @@ export const ProductPrice$inboundSchema: z.ZodType<
     })),
   ),
 ]);
-
 /** @internal */
 export type ProductPrice$Outbound =
   | (ProductPriceMeteredUnit$Outbound & { amount_type: "metered_unit" })
@@ -118,23 +117,9 @@ export const ProductPrice$outboundSchema: z.ZodType<
   ),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPrice$ {
-  /** @deprecated use `ProductPrice$inboundSchema` instead. */
-  export const inboundSchema = ProductPrice$inboundSchema;
-  /** @deprecated use `ProductPrice$outboundSchema` instead. */
-  export const outboundSchema = ProductPrice$outboundSchema;
-  /** @deprecated use `ProductPrice$Outbound` instead. */
-  export type Outbound = ProductPrice$Outbound;
-}
-
 export function productPriceToJSON(productPrice: ProductPrice): string {
   return JSON.stringify(ProductPrice$outboundSchema.parse(productPrice));
 }
-
 export function productPriceFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductPrice, SDKValidationError> {

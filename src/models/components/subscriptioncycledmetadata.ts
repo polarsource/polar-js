@@ -25,45 +25,6 @@ export const SubscriptionCycledMetadata$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type SubscriptionCycledMetadata$Outbound = {
-  subscription_id: string;
-};
-
-/** @internal */
-export const SubscriptionCycledMetadata$outboundSchema: z.ZodType<
-  SubscriptionCycledMetadata$Outbound,
-  z.ZodTypeDef,
-  SubscriptionCycledMetadata
-> = z.object({
-  subscriptionId: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    subscriptionId: "subscription_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionCycledMetadata$ {
-  /** @deprecated use `SubscriptionCycledMetadata$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionCycledMetadata$inboundSchema;
-  /** @deprecated use `SubscriptionCycledMetadata$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionCycledMetadata$outboundSchema;
-  /** @deprecated use `SubscriptionCycledMetadata$Outbound` instead. */
-  export type Outbound = SubscriptionCycledMetadata$Outbound;
-}
-
-export function subscriptionCycledMetadataToJSON(
-  subscriptionCycledMetadata: SubscriptionCycledMetadata,
-): string {
-  return JSON.stringify(
-    SubscriptionCycledMetadata$outboundSchema.parse(subscriptionCycledMetadata),
-  );
-}
-
 export function subscriptionCycledMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<SubscriptionCycledMetadata, SDKValidationError> {

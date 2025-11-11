@@ -116,7 +116,6 @@ export const OrderSubscriptionMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type OrderSubscriptionMetadata$Outbound =
   | string
@@ -131,19 +130,6 @@ export const OrderSubscriptionMetadata$outboundSchema: z.ZodType<
   OrderSubscriptionMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderSubscriptionMetadata$ {
-  /** @deprecated use `OrderSubscriptionMetadata$inboundSchema` instead. */
-  export const inboundSchema = OrderSubscriptionMetadata$inboundSchema;
-  /** @deprecated use `OrderSubscriptionMetadata$outboundSchema` instead. */
-  export const outboundSchema = OrderSubscriptionMetadata$outboundSchema;
-  /** @deprecated use `OrderSubscriptionMetadata$Outbound` instead. */
-  export type Outbound = OrderSubscriptionMetadata$Outbound;
-}
-
 export function orderSubscriptionMetadataToJSON(
   orderSubscriptionMetadata: OrderSubscriptionMetadata,
 ): string {
@@ -151,7 +137,6 @@ export function orderSubscriptionMetadataToJSON(
     OrderSubscriptionMetadata$outboundSchema.parse(orderSubscriptionMetadata),
   );
 }
-
 export function orderSubscriptionMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderSubscriptionMetadata, SDKValidationError> {
@@ -238,7 +223,6 @@ export const OrderSubscription$inboundSchema: z.ZodType<
     "customer_cancellation_comment": "customerCancellationComment",
   });
 });
-
 /** @internal */
 export type OrderSubscription$Outbound = {
   metadata: { [k: string]: string | number | number | boolean };
@@ -327,19 +311,6 @@ export const OrderSubscription$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderSubscription$ {
-  /** @deprecated use `OrderSubscription$inboundSchema` instead. */
-  export const inboundSchema = OrderSubscription$inboundSchema;
-  /** @deprecated use `OrderSubscription$outboundSchema` instead. */
-  export const outboundSchema = OrderSubscription$outboundSchema;
-  /** @deprecated use `OrderSubscription$Outbound` instead. */
-  export type Outbound = OrderSubscription$Outbound;
-}
-
 export function orderSubscriptionToJSON(
   orderSubscription: OrderSubscription,
 ): string {
@@ -347,7 +318,6 @@ export function orderSubscriptionToJSON(
     OrderSubscription$outboundSchema.parse(orderSubscription),
   );
 }
-
 export function orderSubscriptionFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderSubscription, SDKValidationError> {

@@ -10,13 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LicenseKeyCustomer,
   LicenseKeyCustomer$inboundSchema,
-  LicenseKeyCustomer$Outbound,
-  LicenseKeyCustomer$outboundSchema,
 } from "./licensekeycustomer.js";
 import {
   LicenseKeyStatus,
   LicenseKeyStatus$inboundSchema,
-  LicenseKeyStatus$outboundSchema,
 } from "./licensekeystatus.js";
 
 export type LicenseKeyRead = {
@@ -92,80 +89,6 @@ export const LicenseKeyRead$inboundSchema: z.ZodType<
     "expires_at": "expiresAt",
   });
 });
-
-/** @internal */
-export type LicenseKeyRead$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  organization_id: string;
-  customer_id: string;
-  customer: LicenseKeyCustomer$Outbound;
-  benefit_id: string;
-  key: string;
-  display_key: string;
-  status: string;
-  limit_activations: number | null;
-  usage: number;
-  limit_usage: number | null;
-  validations: number;
-  last_validated_at: string | null;
-  expires_at: string | null;
-};
-
-/** @internal */
-export const LicenseKeyRead$outboundSchema: z.ZodType<
-  LicenseKeyRead$Outbound,
-  z.ZodTypeDef,
-  LicenseKeyRead
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  organizationId: z.string(),
-  customerId: z.string(),
-  customer: LicenseKeyCustomer$outboundSchema,
-  benefitId: z.string(),
-  key: z.string(),
-  displayKey: z.string(),
-  status: LicenseKeyStatus$outboundSchema,
-  limitActivations: z.nullable(z.number().int()),
-  usage: z.number().int(),
-  limitUsage: z.nullable(z.number().int()),
-  validations: z.number().int(),
-  lastValidatedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  expiresAt: z.nullable(z.date().transform(v => v.toISOString())),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    organizationId: "organization_id",
-    customerId: "customer_id",
-    benefitId: "benefit_id",
-    displayKey: "display_key",
-    limitActivations: "limit_activations",
-    limitUsage: "limit_usage",
-    lastValidatedAt: "last_validated_at",
-    expiresAt: "expires_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeyRead$ {
-  /** @deprecated use `LicenseKeyRead$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyRead$inboundSchema;
-  /** @deprecated use `LicenseKeyRead$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyRead$outboundSchema;
-  /** @deprecated use `LicenseKeyRead$Outbound` instead. */
-  export type Outbound = LicenseKeyRead$Outbound;
-}
-
-export function licenseKeyReadToJSON(licenseKeyRead: LicenseKeyRead): string {
-  return JSON.stringify(LicenseKeyRead$outboundSchema.parse(licenseKeyRead));
-}
 
 export function licenseKeyReadFromJSON(
   jsonString: string,

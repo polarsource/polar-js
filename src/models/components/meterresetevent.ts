@@ -7,17 +7,10 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Customer,
-  Customer$inboundSchema,
-  Customer$Outbound,
-  Customer$outboundSchema,
-} from "./customer.js";
+import { Customer, Customer$inboundSchema } from "./customer.js";
 import {
   MeterResetMetadata,
   MeterResetMetadata$inboundSchema,
-  MeterResetMetadata$Outbound,
-  MeterResetMetadata$outboundSchema,
 } from "./meterresetmetadata.js";
 
 /**
@@ -93,67 +86,6 @@ export const MeterResetEvent$inboundSchema: z.ZodType<
     "parent_id": "parentId",
   });
 });
-
-/** @internal */
-export type MeterResetEvent$Outbound = {
-  id: string;
-  timestamp: string;
-  organization_id: string;
-  customer_id: string | null;
-  customer: Customer$Outbound | null;
-  external_customer_id: string | null;
-  child_count: number;
-  parent_id?: string | null | undefined;
-  source: "system";
-  name: "meter.reset";
-  metadata: MeterResetMetadata$Outbound;
-};
-
-/** @internal */
-export const MeterResetEvent$outboundSchema: z.ZodType<
-  MeterResetEvent$Outbound,
-  z.ZodTypeDef,
-  MeterResetEvent
-> = z.object({
-  id: z.string(),
-  timestamp: z.date().transform(v => v.toISOString()),
-  organizationId: z.string(),
-  customerId: z.nullable(z.string()),
-  customer: z.nullable(Customer$outboundSchema),
-  externalCustomerId: z.nullable(z.string()),
-  childCount: z.number().int().default(0),
-  parentId: z.nullable(z.string()).optional(),
-  source: z.literal("system"),
-  name: z.literal("meter.reset"),
-  metadata: MeterResetMetadata$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    organizationId: "organization_id",
-    customerId: "customer_id",
-    externalCustomerId: "external_customer_id",
-    childCount: "child_count",
-    parentId: "parent_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MeterResetEvent$ {
-  /** @deprecated use `MeterResetEvent$inboundSchema` instead. */
-  export const inboundSchema = MeterResetEvent$inboundSchema;
-  /** @deprecated use `MeterResetEvent$outboundSchema` instead. */
-  export const outboundSchema = MeterResetEvent$outboundSchema;
-  /** @deprecated use `MeterResetEvent$Outbound` instead. */
-  export type Outbound = MeterResetEvent$Outbound;
-}
-
-export function meterResetEventToJSON(
-  meterResetEvent: MeterResetEvent,
-): string {
-  return JSON.stringify(MeterResetEvent$outboundSchema.parse(meterResetEvent));
-}
 
 export function meterResetEventFromJSON(
   jsonString: string,

@@ -7,40 +7,21 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  BenefitPublic,
-  BenefitPublic$inboundSchema,
-  BenefitPublic$Outbound,
-  BenefitPublic$outboundSchema,
-} from "./benefitpublic.js";
+import { BenefitPublic, BenefitPublic$inboundSchema } from "./benefitpublic.js";
 import {
   LegacyRecurringProductPrice,
   LegacyRecurringProductPrice$inboundSchema,
-  LegacyRecurringProductPrice$Outbound,
-  LegacyRecurringProductPrice$outboundSchema,
 } from "./legacyrecurringproductprice.js";
 import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
-  ProductMediaFileRead$Outbound,
-  ProductMediaFileRead$outboundSchema,
 } from "./productmediafileread.js";
-import {
-  ProductPrice,
-  ProductPrice$inboundSchema,
-  ProductPrice$Outbound,
-  ProductPrice$outboundSchema,
-} from "./productprice.js";
+import { ProductPrice, ProductPrice$inboundSchema } from "./productprice.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
-  SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
-import {
-  TrialInterval,
-  TrialInterval$inboundSchema,
-  TrialInterval$outboundSchema,
-} from "./trialinterval.js";
+import { TrialInterval, TrialInterval$inboundSchema } from "./trialinterval.js";
 
 export type CheckoutLinkProductMetadata = string | number | number | boolean;
 
@@ -122,43 +103,6 @@ export const CheckoutLinkProductMetadata$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/** @internal */
-export type CheckoutLinkProductMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const CheckoutLinkProductMetadata$outboundSchema: z.ZodType<
-  CheckoutLinkProductMetadata$Outbound,
-  z.ZodTypeDef,
-  CheckoutLinkProductMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkProductMetadata$ {
-  /** @deprecated use `CheckoutLinkProductMetadata$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkProductMetadata$inboundSchema;
-  /** @deprecated use `CheckoutLinkProductMetadata$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinkProductMetadata$outboundSchema;
-  /** @deprecated use `CheckoutLinkProductMetadata$Outbound` instead. */
-  export type Outbound = CheckoutLinkProductMetadata$Outbound;
-}
-
-export function checkoutLinkProductMetadataToJSON(
-  checkoutLinkProductMetadata: CheckoutLinkProductMetadata,
-): string {
-  return JSON.stringify(
-    CheckoutLinkProductMetadata$outboundSchema.parse(
-      checkoutLinkProductMetadata,
-    ),
-  );
-}
-
 export function checkoutLinkProductMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutLinkProductMetadata, SDKValidationError> {
@@ -178,42 +122,6 @@ export const CheckoutLinkProductPrices$inboundSchema: z.ZodType<
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
-
-/** @internal */
-export type CheckoutLinkProductPrices$Outbound =
-  | LegacyRecurringProductPrice$Outbound
-  | ProductPrice$Outbound;
-
-/** @internal */
-export const CheckoutLinkProductPrices$outboundSchema: z.ZodType<
-  CheckoutLinkProductPrices$Outbound,
-  z.ZodTypeDef,
-  CheckoutLinkProductPrices
-> = z.union([
-  LegacyRecurringProductPrice$outboundSchema,
-  ProductPrice$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkProductPrices$ {
-  /** @deprecated use `CheckoutLinkProductPrices$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkProductPrices$inboundSchema;
-  /** @deprecated use `CheckoutLinkProductPrices$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinkProductPrices$outboundSchema;
-  /** @deprecated use `CheckoutLinkProductPrices$Outbound` instead. */
-  export type Outbound = CheckoutLinkProductPrices$Outbound;
-}
-
-export function checkoutLinkProductPricesToJSON(
-  checkoutLinkProductPrices: CheckoutLinkProductPrices,
-): string {
-  return JSON.stringify(
-    CheckoutLinkProductPrices$outboundSchema.parse(checkoutLinkProductPrices),
-  );
-}
 
 export function checkoutLinkProductPricesFromJSON(
   jsonString: string,
@@ -269,90 +177,6 @@ export const CheckoutLinkProduct$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type CheckoutLinkProduct$Outbound = {
-  metadata: { [k: string]: string | number | number | boolean };
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  trial_interval: string | null;
-  trial_interval_count: number | null;
-  name: string;
-  description: string | null;
-  recurring_interval: string | null;
-  recurring_interval_count: number | null;
-  is_recurring: boolean;
-  is_archived: boolean;
-  organization_id: string;
-  prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
-  benefits: Array<BenefitPublic$Outbound>;
-  medias: Array<ProductMediaFileRead$Outbound>;
-};
-
-/** @internal */
-export const CheckoutLinkProduct$outboundSchema: z.ZodType<
-  CheckoutLinkProduct$Outbound,
-  z.ZodTypeDef,
-  CheckoutLinkProduct
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  trialInterval: z.nullable(TrialInterval$outboundSchema),
-  trialIntervalCount: z.nullable(z.number().int()),
-  name: z.string(),
-  description: z.nullable(z.string()),
-  recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
-  recurringIntervalCount: z.nullable(z.number().int()),
-  isRecurring: z.boolean(),
-  isArchived: z.boolean(),
-  organizationId: z.string(),
-  prices: z.array(
-    z.union([
-      LegacyRecurringProductPrice$outboundSchema,
-      ProductPrice$outboundSchema,
-    ]),
-  ),
-  benefits: z.array(BenefitPublic$outboundSchema),
-  medias: z.array(ProductMediaFileRead$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    trialInterval: "trial_interval",
-    trialIntervalCount: "trial_interval_count",
-    recurringInterval: "recurring_interval",
-    recurringIntervalCount: "recurring_interval_count",
-    isRecurring: "is_recurring",
-    isArchived: "is_archived",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkProduct$ {
-  /** @deprecated use `CheckoutLinkProduct$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkProduct$inboundSchema;
-  /** @deprecated use `CheckoutLinkProduct$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinkProduct$outboundSchema;
-  /** @deprecated use `CheckoutLinkProduct$Outbound` instead. */
-  export type Outbound = CheckoutLinkProduct$Outbound;
-}
-
-export function checkoutLinkProductToJSON(
-  checkoutLinkProduct: CheckoutLinkProduct,
-): string {
-  return JSON.stringify(
-    CheckoutLinkProduct$outboundSchema.parse(checkoutLinkProduct),
-  );
-}
 
 export function checkoutLinkProductFromJSON(
   jsonString: string,

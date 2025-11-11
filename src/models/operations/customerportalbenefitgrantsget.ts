@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalBenefitGrantsGetSecurity = {
   customerSession: string;
@@ -18,19 +15,6 @@ export type CustomerPortalBenefitGrantsGetRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const CustomerPortalBenefitGrantsGetSecurity$inboundSchema: z.ZodType<
-  CustomerPortalBenefitGrantsGetSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
 
 /** @internal */
 export type CustomerPortalBenefitGrantsGetSecurity$Outbound = {
@@ -50,21 +34,6 @@ export const CustomerPortalBenefitGrantsGetSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalBenefitGrantsGetSecurity$ {
-  /** @deprecated use `CustomerPortalBenefitGrantsGetSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalBenefitGrantsGetSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalBenefitGrantsGetSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalBenefitGrantsGetSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalBenefitGrantsGetSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalBenefitGrantsGetSecurity$Outbound;
-}
-
 export function customerPortalBenefitGrantsGetSecurityToJSON(
   customerPortalBenefitGrantsGetSecurity:
     CustomerPortalBenefitGrantsGetSecurity,
@@ -75,26 +44,6 @@ export function customerPortalBenefitGrantsGetSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalBenefitGrantsGetSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalBenefitGrantsGetSecurity, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalBenefitGrantsGetSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalBenefitGrantsGetSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalBenefitGrantsGetRequest$inboundSchema: z.ZodType<
-  CustomerPortalBenefitGrantsGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type CustomerPortalBenefitGrantsGetRequest$Outbound = {
@@ -110,21 +59,6 @@ export const CustomerPortalBenefitGrantsGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalBenefitGrantsGetRequest$ {
-  /** @deprecated use `CustomerPortalBenefitGrantsGetRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalBenefitGrantsGetRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalBenefitGrantsGetRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalBenefitGrantsGetRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalBenefitGrantsGetRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalBenefitGrantsGetRequest$Outbound;
-}
-
 export function customerPortalBenefitGrantsGetRequestToJSON(
   customerPortalBenefitGrantsGetRequest: CustomerPortalBenefitGrantsGetRequest,
 ): string {
@@ -132,16 +66,5 @@ export function customerPortalBenefitGrantsGetRequestToJSON(
     CustomerPortalBenefitGrantsGetRequest$outboundSchema.parse(
       customerPortalBenefitGrantsGetRequest,
     ),
-  );
-}
-
-export function customerPortalBenefitGrantsGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalBenefitGrantsGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalBenefitGrantsGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalBenefitGrantsGetRequest' from JSON`,
   );
 }

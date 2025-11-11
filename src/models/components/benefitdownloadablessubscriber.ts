@@ -10,14 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitDownloadablesSubscriberProperties,
   BenefitDownloadablesSubscriberProperties$inboundSchema,
-  BenefitDownloadablesSubscriberProperties$Outbound,
-  BenefitDownloadablesSubscriberProperties$outboundSchema,
 } from "./benefitdownloadablessubscriberproperties.js";
 import {
   BenefitSubscriberOrganization,
   BenefitSubscriberOrganization$inboundSchema,
-  BenefitSubscriberOrganization$Outbound,
-  BenefitSubscriberOrganization$outboundSchema,
 } from "./benefitsubscriberorganization.js";
 
 export type BenefitDownloadablesSubscriberMetadata =
@@ -68,46 +64,6 @@ export const BenefitDownloadablesSubscriberMetadata$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/** @internal */
-export type BenefitDownloadablesSubscriberMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const BenefitDownloadablesSubscriberMetadata$outboundSchema: z.ZodType<
-  BenefitDownloadablesSubscriberMetadata$Outbound,
-  z.ZodTypeDef,
-  BenefitDownloadablesSubscriberMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadablesSubscriberMetadata$ {
-  /** @deprecated use `BenefitDownloadablesSubscriberMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitDownloadablesSubscriberMetadata$inboundSchema;
-  /** @deprecated use `BenefitDownloadablesSubscriberMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitDownloadablesSubscriberMetadata$outboundSchema;
-  /** @deprecated use `BenefitDownloadablesSubscriberMetadata$Outbound` instead. */
-  export type Outbound = BenefitDownloadablesSubscriberMetadata$Outbound;
-}
-
-export function benefitDownloadablesSubscriberMetadataToJSON(
-  benefitDownloadablesSubscriberMetadata:
-    BenefitDownloadablesSubscriberMetadata,
-): string {
-  return JSON.stringify(
-    BenefitDownloadablesSubscriberMetadata$outboundSchema.parse(
-      benefitDownloadablesSubscriberMetadata,
-    ),
-  );
-}
-
 export function benefitDownloadablesSubscriberMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitDownloadablesSubscriberMetadata, SDKValidationError> {
@@ -147,71 +103,6 @@ export const BenefitDownloadablesSubscriber$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type BenefitDownloadablesSubscriber$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  type: "downloadables";
-  description: string;
-  selectable: boolean;
-  deletable: boolean;
-  organization_id: string;
-  metadata: { [k: string]: string | number | number | boolean };
-  organization: BenefitSubscriberOrganization$Outbound;
-  properties: BenefitDownloadablesSubscriberProperties$Outbound;
-};
-
-/** @internal */
-export const BenefitDownloadablesSubscriber$outboundSchema: z.ZodType<
-  BenefitDownloadablesSubscriber$Outbound,
-  z.ZodTypeDef,
-  BenefitDownloadablesSubscriber
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  type: z.literal("downloadables"),
-  description: z.string(),
-  selectable: z.boolean(),
-  deletable: z.boolean(),
-  organizationId: z.string(),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  organization: BenefitSubscriberOrganization$outboundSchema,
-  properties: BenefitDownloadablesSubscriberProperties$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadablesSubscriber$ {
-  /** @deprecated use `BenefitDownloadablesSubscriber$inboundSchema` instead. */
-  export const inboundSchema = BenefitDownloadablesSubscriber$inboundSchema;
-  /** @deprecated use `BenefitDownloadablesSubscriber$outboundSchema` instead. */
-  export const outboundSchema = BenefitDownloadablesSubscriber$outboundSchema;
-  /** @deprecated use `BenefitDownloadablesSubscriber$Outbound` instead. */
-  export type Outbound = BenefitDownloadablesSubscriber$Outbound;
-}
-
-export function benefitDownloadablesSubscriberToJSON(
-  benefitDownloadablesSubscriber: BenefitDownloadablesSubscriber,
-): string {
-  return JSON.stringify(
-    BenefitDownloadablesSubscriber$outboundSchema.parse(
-      benefitDownloadablesSubscriber,
-    ),
-  );
-}
 
 export function benefitDownloadablesSubscriberFromJSON(
   jsonString: string,

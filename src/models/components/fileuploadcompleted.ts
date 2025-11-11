@@ -3,12 +3,8 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   S3FileUploadCompletedPart,
-  S3FileUploadCompletedPart$inboundSchema,
   S3FileUploadCompletedPart$Outbound,
   S3FileUploadCompletedPart$outboundSchema,
 } from "./s3fileuploadcompletedpart.js";
@@ -18,17 +14,6 @@ export type FileUploadCompleted = {
   path: string;
   parts: Array<S3FileUploadCompletedPart>;
 };
-
-/** @internal */
-export const FileUploadCompleted$inboundSchema: z.ZodType<
-  FileUploadCompleted,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  path: z.string(),
-  parts: z.array(S3FileUploadCompletedPart$inboundSchema),
-});
 
 /** @internal */
 export type FileUploadCompleted$Outbound = {
@@ -48,33 +33,10 @@ export const FileUploadCompleted$outboundSchema: z.ZodType<
   parts: z.array(S3FileUploadCompletedPart$outboundSchema),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FileUploadCompleted$ {
-  /** @deprecated use `FileUploadCompleted$inboundSchema` instead. */
-  export const inboundSchema = FileUploadCompleted$inboundSchema;
-  /** @deprecated use `FileUploadCompleted$outboundSchema` instead. */
-  export const outboundSchema = FileUploadCompleted$outboundSchema;
-  /** @deprecated use `FileUploadCompleted$Outbound` instead. */
-  export type Outbound = FileUploadCompleted$Outbound;
-}
-
 export function fileUploadCompletedToJSON(
   fileUploadCompleted: FileUploadCompleted,
 ): string {
   return JSON.stringify(
     FileUploadCompleted$outboundSchema.parse(fileUploadCompleted),
-  );
-}
-
-export function fileUploadCompletedFromJSON(
-  jsonString: string,
-): SafeParseResult<FileUploadCompleted, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FileUploadCompleted$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FileUploadCompleted' from JSON`,
   );
 }

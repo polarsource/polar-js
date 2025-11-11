@@ -15,19 +15,7 @@ export type ProductPriceType = ClosedEnum<typeof ProductPriceType>;
 export const ProductPriceType$inboundSchema: z.ZodNativeEnum<
   typeof ProductPriceType
 > = z.nativeEnum(ProductPriceType);
-
 /** @internal */
 export const ProductPriceType$outboundSchema: z.ZodNativeEnum<
   typeof ProductPriceType
 > = ProductPriceType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceType$ {
-  /** @deprecated use `ProductPriceType$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceType$inboundSchema;
-  /** @deprecated use `ProductPriceType$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceType$outboundSchema;
-}

@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   EventMetadataInput,
-  EventMetadataInput$inboundSchema,
   EventMetadataInput$Outbound,
   EventMetadataInput$outboundSchema,
 } from "./eventmetadatainput.js";
@@ -41,29 +37,6 @@ export type EventCreateExternalCustomer = {
    */
   externalCustomerId: string;
 };
-
-/** @internal */
-export const EventCreateExternalCustomer$inboundSchema: z.ZodType<
-  EventCreateExternalCustomer,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  name: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  external_id: z.nullable(z.string()).optional(),
-  parent_id: z.nullable(z.string()).optional(),
-  metadata: z.record(EventMetadataInput$inboundSchema).optional(),
-  external_customer_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "external_id": "externalId",
-    "parent_id": "parentId",
-    "external_customer_id": "externalCustomerId",
-  });
-});
 
 /** @internal */
 export type EventCreateExternalCustomer$Outbound = {
@@ -98,19 +71,6 @@ export const EventCreateExternalCustomer$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventCreateExternalCustomer$ {
-  /** @deprecated use `EventCreateExternalCustomer$inboundSchema` instead. */
-  export const inboundSchema = EventCreateExternalCustomer$inboundSchema;
-  /** @deprecated use `EventCreateExternalCustomer$outboundSchema` instead. */
-  export const outboundSchema = EventCreateExternalCustomer$outboundSchema;
-  /** @deprecated use `EventCreateExternalCustomer$Outbound` instead. */
-  export type Outbound = EventCreateExternalCustomer$Outbound;
-}
-
 export function eventCreateExternalCustomerToJSON(
   eventCreateExternalCustomer: EventCreateExternalCustomer,
 ): string {
@@ -118,15 +78,5 @@ export function eventCreateExternalCustomerToJSON(
     EventCreateExternalCustomer$outboundSchema.parse(
       eventCreateExternalCustomer,
     ),
-  );
-}
-
-export function eventCreateExternalCustomerFromJSON(
-  jsonString: string,
-): SafeParseResult<EventCreateExternalCustomer, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EventCreateExternalCustomer$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EventCreateExternalCustomer' from JSON`,
   );
 }

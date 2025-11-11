@@ -7,17 +7,8 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Address,
-  Address$inboundSchema,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
-import {
-  TaxIDFormat,
-  TaxIDFormat$inboundSchema,
-  TaxIDFormat$outboundSchema,
-} from "./taxidformat.js";
+import { Address, Address$inboundSchema } from "./address.js";
+import { TaxIDFormat, TaxIDFormat$inboundSchema } from "./taxidformat.js";
 
 export type LicenseKeyCustomerMetadata = string | number | number | boolean;
 
@@ -73,41 +64,6 @@ export const LicenseKeyCustomerMetadata$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/** @internal */
-export type LicenseKeyCustomerMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const LicenseKeyCustomerMetadata$outboundSchema: z.ZodType<
-  LicenseKeyCustomerMetadata$Outbound,
-  z.ZodTypeDef,
-  LicenseKeyCustomerMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeyCustomerMetadata$ {
-  /** @deprecated use `LicenseKeyCustomerMetadata$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyCustomerMetadata$inboundSchema;
-  /** @deprecated use `LicenseKeyCustomerMetadata$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyCustomerMetadata$outboundSchema;
-  /** @deprecated use `LicenseKeyCustomerMetadata$Outbound` instead. */
-  export type Outbound = LicenseKeyCustomerMetadata$Outbound;
-}
-
-export function licenseKeyCustomerMetadataToJSON(
-  licenseKeyCustomerMetadata: LicenseKeyCustomerMetadata,
-): string {
-  return JSON.stringify(
-    LicenseKeyCustomerMetadata$outboundSchema.parse(licenseKeyCustomerMetadata),
-  );
-}
-
 export function licenseKeyCustomerMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<LicenseKeyCustomerMetadata, SDKValidationError> {
@@ -124,37 +80,6 @@ export const LicenseKeyCustomerTaxId$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), TaxIDFormat$inboundSchema]);
-
-/** @internal */
-export type LicenseKeyCustomerTaxId$Outbound = string | string;
-
-/** @internal */
-export const LicenseKeyCustomerTaxId$outboundSchema: z.ZodType<
-  LicenseKeyCustomerTaxId$Outbound,
-  z.ZodTypeDef,
-  LicenseKeyCustomerTaxId
-> = z.union([z.string(), TaxIDFormat$outboundSchema]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeyCustomerTaxId$ {
-  /** @deprecated use `LicenseKeyCustomerTaxId$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyCustomerTaxId$inboundSchema;
-  /** @deprecated use `LicenseKeyCustomerTaxId$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyCustomerTaxId$outboundSchema;
-  /** @deprecated use `LicenseKeyCustomerTaxId$Outbound` instead. */
-  export type Outbound = LicenseKeyCustomerTaxId$Outbound;
-}
-
-export function licenseKeyCustomerTaxIdToJSON(
-  licenseKeyCustomerTaxId: LicenseKeyCustomerTaxId,
-): string {
-  return JSON.stringify(
-    LicenseKeyCustomerTaxId$outboundSchema.parse(licenseKeyCustomerTaxId),
-  );
-}
 
 export function licenseKeyCustomerTaxIdFromJSON(
   jsonString: string,
@@ -206,81 +131,6 @@ export const LicenseKeyCustomer$inboundSchema: z.ZodType<
     "avatar_url": "avatarUrl",
   });
 });
-
-/** @internal */
-export type LicenseKeyCustomer$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  metadata: { [k: string]: string | number | number | boolean };
-  external_id: string | null;
-  email: string;
-  email_verified: boolean;
-  name: string | null;
-  billing_address: Address$Outbound | null;
-  tax_id: Array<string | string | null> | null;
-  organization_id: string;
-  deleted_at: string | null;
-  avatar_url: string;
-};
-
-/** @internal */
-export const LicenseKeyCustomer$outboundSchema: z.ZodType<
-  LicenseKeyCustomer$Outbound,
-  z.ZodTypeDef,
-  LicenseKeyCustomer
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  externalId: z.nullable(z.string()),
-  email: z.string(),
-  emailVerified: z.boolean(),
-  name: z.nullable(z.string()),
-  billingAddress: z.nullable(Address$outboundSchema),
-  taxId: z.nullable(
-    z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
-  ),
-  organizationId: z.string(),
-  deletedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  avatarUrl: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    externalId: "external_id",
-    emailVerified: "email_verified",
-    billingAddress: "billing_address",
-    taxId: "tax_id",
-    organizationId: "organization_id",
-    deletedAt: "deleted_at",
-    avatarUrl: "avatar_url",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeyCustomer$ {
-  /** @deprecated use `LicenseKeyCustomer$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyCustomer$inboundSchema;
-  /** @deprecated use `LicenseKeyCustomer$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyCustomer$outboundSchema;
-  /** @deprecated use `LicenseKeyCustomer$Outbound` instead. */
-  export type Outbound = LicenseKeyCustomer$Outbound;
-}
-
-export function licenseKeyCustomerToJSON(
-  licenseKeyCustomer: LicenseKeyCustomer,
-): string {
-  return JSON.stringify(
-    LicenseKeyCustomer$outboundSchema.parse(licenseKeyCustomer),
-  );
-}
 
 export function licenseKeyCustomerFromJSON(
   jsonString: string,

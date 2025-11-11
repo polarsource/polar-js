@@ -10,41 +10,27 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerCancellationReason,
   CustomerCancellationReason$inboundSchema,
-  CustomerCancellationReason$outboundSchema,
 } from "./customercancellationreason.js";
 import {
   CustomerSubscriptionMeter,
   CustomerSubscriptionMeter$inboundSchema,
-  CustomerSubscriptionMeter$Outbound,
-  CustomerSubscriptionMeter$outboundSchema,
 } from "./customersubscriptionmeter.js";
 import {
   CustomerSubscriptionProduct,
   CustomerSubscriptionProduct$inboundSchema,
-  CustomerSubscriptionProduct$Outbound,
-  CustomerSubscriptionProduct$outboundSchema,
 } from "./customersubscriptionproduct.js";
 import {
   LegacyRecurringProductPrice,
   LegacyRecurringProductPrice$inboundSchema,
-  LegacyRecurringProductPrice$Outbound,
-  LegacyRecurringProductPrice$outboundSchema,
 } from "./legacyrecurringproductprice.js";
-import {
-  ProductPrice,
-  ProductPrice$inboundSchema,
-  ProductPrice$Outbound,
-  ProductPrice$outboundSchema,
-} from "./productprice.js";
+import { ProductPrice, ProductPrice$inboundSchema } from "./productprice.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
-  SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
 import {
   SubscriptionStatus,
   SubscriptionStatus$inboundSchema,
-  SubscriptionStatus$outboundSchema,
 } from "./subscriptionstatus.js";
 
 export type CustomerSubscriptionPrices =
@@ -158,42 +144,6 @@ export const CustomerSubscriptionPrices$inboundSchema: z.ZodType<
   ProductPrice$inboundSchema,
 ]);
 
-/** @internal */
-export type CustomerSubscriptionPrices$Outbound =
-  | LegacyRecurringProductPrice$Outbound
-  | ProductPrice$Outbound;
-
-/** @internal */
-export const CustomerSubscriptionPrices$outboundSchema: z.ZodType<
-  CustomerSubscriptionPrices$Outbound,
-  z.ZodTypeDef,
-  CustomerSubscriptionPrices
-> = z.union([
-  LegacyRecurringProductPrice$outboundSchema,
-  ProductPrice$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSubscriptionPrices$ {
-  /** @deprecated use `CustomerSubscriptionPrices$inboundSchema` instead. */
-  export const inboundSchema = CustomerSubscriptionPrices$inboundSchema;
-  /** @deprecated use `CustomerSubscriptionPrices$outboundSchema` instead. */
-  export const outboundSchema = CustomerSubscriptionPrices$outboundSchema;
-  /** @deprecated use `CustomerSubscriptionPrices$Outbound` instead. */
-  export type Outbound = CustomerSubscriptionPrices$Outbound;
-}
-
-export function customerSubscriptionPricesToJSON(
-  customerSubscriptionPrices: CustomerSubscriptionPrices,
-): string {
-  return JSON.stringify(
-    CustomerSubscriptionPrices$outboundSchema.parse(customerSubscriptionPrices),
-  );
-}
-
 export function customerSubscriptionPricesFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerSubscriptionPrices, SDKValidationError> {
@@ -287,125 +237,6 @@ export const CustomerSubscription$inboundSchema: z.ZodType<
     "is_polar_managed": "isPolarManaged",
   });
 });
-
-/** @internal */
-export type CustomerSubscription$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  amount: number;
-  currency: string;
-  recurring_interval: string;
-  recurring_interval_count: number;
-  status: string;
-  current_period_start: string;
-  current_period_end: string | null;
-  trial_start: string | null;
-  trial_end: string | null;
-  cancel_at_period_end: boolean;
-  canceled_at: string | null;
-  started_at: string | null;
-  ends_at: string | null;
-  ended_at: string | null;
-  customer_id: string;
-  product_id: string;
-  discount_id: string | null;
-  checkout_id: string | null;
-  seats?: number | null | undefined;
-  customer_cancellation_reason: string | null;
-  customer_cancellation_comment: string | null;
-  product: CustomerSubscriptionProduct$Outbound;
-  prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
-  meters: Array<CustomerSubscriptionMeter$Outbound>;
-  is_polar_managed: boolean;
-};
-
-/** @internal */
-export const CustomerSubscription$outboundSchema: z.ZodType<
-  CustomerSubscription$Outbound,
-  z.ZodTypeDef,
-  CustomerSubscription
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  amount: z.number().int(),
-  currency: z.string(),
-  recurringInterval: SubscriptionRecurringInterval$outboundSchema,
-  recurringIntervalCount: z.number().int(),
-  status: SubscriptionStatus$outboundSchema,
-  currentPeriodStart: z.date().transform(v => v.toISOString()),
-  currentPeriodEnd: z.nullable(z.date().transform(v => v.toISOString())),
-  trialStart: z.nullable(z.date().transform(v => v.toISOString())),
-  trialEnd: z.nullable(z.date().transform(v => v.toISOString())),
-  cancelAtPeriodEnd: z.boolean(),
-  canceledAt: z.nullable(z.date().transform(v => v.toISOString())),
-  startedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  endsAt: z.nullable(z.date().transform(v => v.toISOString())),
-  endedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  customerId: z.string(),
-  productId: z.string(),
-  discountId: z.nullable(z.string()),
-  checkoutId: z.nullable(z.string()),
-  seats: z.nullable(z.number().int()).optional(),
-  customerCancellationReason: z.nullable(
-    CustomerCancellationReason$outboundSchema,
-  ),
-  customerCancellationComment: z.nullable(z.string()),
-  product: CustomerSubscriptionProduct$outboundSchema,
-  prices: z.array(
-    z.union([
-      LegacyRecurringProductPrice$outboundSchema,
-      ProductPrice$outboundSchema,
-    ]),
-  ),
-  meters: z.array(CustomerSubscriptionMeter$outboundSchema),
-  isPolarManaged: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    recurringInterval: "recurring_interval",
-    recurringIntervalCount: "recurring_interval_count",
-    currentPeriodStart: "current_period_start",
-    currentPeriodEnd: "current_period_end",
-    trialStart: "trial_start",
-    trialEnd: "trial_end",
-    cancelAtPeriodEnd: "cancel_at_period_end",
-    canceledAt: "canceled_at",
-    startedAt: "started_at",
-    endsAt: "ends_at",
-    endedAt: "ended_at",
-    customerId: "customer_id",
-    productId: "product_id",
-    discountId: "discount_id",
-    checkoutId: "checkout_id",
-    customerCancellationReason: "customer_cancellation_reason",
-    customerCancellationComment: "customer_cancellation_comment",
-    isPolarManaged: "is_polar_managed",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSubscription$ {
-  /** @deprecated use `CustomerSubscription$inboundSchema` instead. */
-  export const inboundSchema = CustomerSubscription$inboundSchema;
-  /** @deprecated use `CustomerSubscription$outboundSchema` instead. */
-  export const outboundSchema = CustomerSubscription$outboundSchema;
-  /** @deprecated use `CustomerSubscription$Outbound` instead. */
-  export type Outbound = CustomerSubscription$Outbound;
-}
-
-export function customerSubscriptionToJSON(
-  customerSubscription: CustomerSubscription,
-): string {
-  return JSON.stringify(
-    CustomerSubscription$outboundSchema.parse(customerSubscription),
-  );
-}
 
 export function customerSubscriptionFromJSON(
   jsonString: string,

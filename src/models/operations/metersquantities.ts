@@ -4,25 +4,19 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   AggregationFunction,
-  AggregationFunction$inboundSchema,
   AggregationFunction$outboundSchema,
 } from "../components/aggregationfunction.js";
 import {
   MetadataQuery,
-  MetadataQuery$inboundSchema,
   MetadataQuery$Outbound,
   MetadataQuery$outboundSchema,
 } from "../components/subscriptionslist.js";
 import {
   TimeInterval,
-  TimeInterval$inboundSchema,
   TimeInterval$outboundSchema,
 } from "../components/timeinterval.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by customer ID.
@@ -72,11 +66,6 @@ export type MetersQuantitiesRequest = {
 };
 
 /** @internal */
-export const MetersQuantitiesQueryParamCustomerIDFilter$inboundSchema:
-  z.ZodType<MetersQuantitiesQueryParamCustomerIDFilter, z.ZodTypeDef, unknown> =
-    z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type MetersQuantitiesQueryParamCustomerIDFilter$Outbound =
   | string
   | Array<string>;
@@ -89,21 +78,6 @@ export const MetersQuantitiesQueryParamCustomerIDFilter$outboundSchema:
     MetersQuantitiesQueryParamCustomerIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetersQuantitiesQueryParamCustomerIDFilter$ {
-  /** @deprecated use `MetersQuantitiesQueryParamCustomerIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    MetersQuantitiesQueryParamCustomerIDFilter$inboundSchema;
-  /** @deprecated use `MetersQuantitiesQueryParamCustomerIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    MetersQuantitiesQueryParamCustomerIDFilter$outboundSchema;
-  /** @deprecated use `MetersQuantitiesQueryParamCustomerIDFilter$Outbound` instead. */
-  export type Outbound = MetersQuantitiesQueryParamCustomerIDFilter$Outbound;
-}
-
 export function metersQuantitiesQueryParamCustomerIDFilterToJSON(
   metersQuantitiesQueryParamCustomerIDFilter:
     MetersQuantitiesQueryParamCustomerIDFilter,
@@ -114,30 +88,6 @@ export function metersQuantitiesQueryParamCustomerIDFilterToJSON(
     ),
   );
 }
-
-export function metersQuantitiesQueryParamCustomerIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  MetersQuantitiesQueryParamCustomerIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      MetersQuantitiesQueryParamCustomerIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'MetersQuantitiesQueryParamCustomerIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const MetersQuantitiesQueryParamExternalCustomerIDFilter$inboundSchema:
-  z.ZodType<
-    MetersQuantitiesQueryParamExternalCustomerIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type MetersQuantitiesQueryParamExternalCustomerIDFilter$Outbound =
@@ -152,22 +102,6 @@ export const MetersQuantitiesQueryParamExternalCustomerIDFilter$outboundSchema:
     MetersQuantitiesQueryParamExternalCustomerIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetersQuantitiesQueryParamExternalCustomerIDFilter$ {
-  /** @deprecated use `MetersQuantitiesQueryParamExternalCustomerIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    MetersQuantitiesQueryParamExternalCustomerIDFilter$inboundSchema;
-  /** @deprecated use `MetersQuantitiesQueryParamExternalCustomerIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    MetersQuantitiesQueryParamExternalCustomerIDFilter$outboundSchema;
-  /** @deprecated use `MetersQuantitiesQueryParamExternalCustomerIDFilter$Outbound` instead. */
-  export type Outbound =
-    MetersQuantitiesQueryParamExternalCustomerIDFilter$Outbound;
-}
-
 export function metersQuantitiesQueryParamExternalCustomerIDFilterToJSON(
   metersQuantitiesQueryParamExternalCustomerIDFilter:
     MetersQuantitiesQueryParamExternalCustomerIDFilter,
@@ -178,53 +112,6 @@ export function metersQuantitiesQueryParamExternalCustomerIDFilterToJSON(
     ),
   );
 }
-
-export function metersQuantitiesQueryParamExternalCustomerIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  MetersQuantitiesQueryParamExternalCustomerIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      MetersQuantitiesQueryParamExternalCustomerIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'MetersQuantitiesQueryParamExternalCustomerIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const MetersQuantitiesRequest$inboundSchema: z.ZodType<
-  MetersQuantitiesRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  start_timestamp: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
-  ),
-  end_timestamp: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
-  ),
-  interval: TimeInterval$inboundSchema,
-  customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  external_customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  customer_aggregation_function: z.nullable(AggregationFunction$inboundSchema)
-    .optional(),
-  metadata: z.nullable(z.record(MetadataQuery$inboundSchema)).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "start_timestamp": "startTimestamp",
-    "end_timestamp": "endTimestamp",
-    "customer_id": "customerId",
-    "external_customer_id": "externalCustomerId",
-    "customer_aggregation_function": "customerAggregationFunction",
-  });
-});
 
 /** @internal */
 export type MetersQuantitiesRequest$Outbound = {
@@ -264,33 +151,10 @@ export const MetersQuantitiesRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetersQuantitiesRequest$ {
-  /** @deprecated use `MetersQuantitiesRequest$inboundSchema` instead. */
-  export const inboundSchema = MetersQuantitiesRequest$inboundSchema;
-  /** @deprecated use `MetersQuantitiesRequest$outboundSchema` instead. */
-  export const outboundSchema = MetersQuantitiesRequest$outboundSchema;
-  /** @deprecated use `MetersQuantitiesRequest$Outbound` instead. */
-  export type Outbound = MetersQuantitiesRequest$Outbound;
-}
-
 export function metersQuantitiesRequestToJSON(
   metersQuantitiesRequest: MetersQuantitiesRequest,
 ): string {
   return JSON.stringify(
     MetersQuantitiesRequest$outboundSchema.parse(metersQuantitiesRequest),
-  );
-}
-
-export function metersQuantitiesRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<MetersQuantitiesRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => MetersQuantitiesRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MetersQuantitiesRequest' from JSON`,
   );
 }

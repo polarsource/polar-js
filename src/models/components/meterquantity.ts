@@ -28,39 +28,6 @@ export const MeterQuantity$inboundSchema: z.ZodType<
   quantity: z.number(),
 });
 
-/** @internal */
-export type MeterQuantity$Outbound = {
-  timestamp: string;
-  quantity: number;
-};
-
-/** @internal */
-export const MeterQuantity$outboundSchema: z.ZodType<
-  MeterQuantity$Outbound,
-  z.ZodTypeDef,
-  MeterQuantity
-> = z.object({
-  timestamp: z.date().transform(v => v.toISOString()),
-  quantity: z.number(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MeterQuantity$ {
-  /** @deprecated use `MeterQuantity$inboundSchema` instead. */
-  export const inboundSchema = MeterQuantity$inboundSchema;
-  /** @deprecated use `MeterQuantity$outboundSchema` instead. */
-  export const outboundSchema = MeterQuantity$outboundSchema;
-  /** @deprecated use `MeterQuantity$Outbound` instead. */
-  export type Outbound = MeterQuantity$Outbound;
-}
-
-export function meterQuantityToJSON(meterQuantity: MeterQuantity): string {
-  return JSON.stringify(MeterQuantity$outboundSchema.parse(meterQuantity));
-}
-
 export function meterQuantityFromJSON(
   jsonString: string,
 ): SafeParseResult<MeterQuantity, SDKValidationError> {

@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrdersGenerateInvoiceRequest = {
   /**
@@ -13,15 +10,6 @@ export type OrdersGenerateInvoiceRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const OrdersGenerateInvoiceRequest$inboundSchema: z.ZodType<
-  OrdersGenerateInvoiceRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type OrdersGenerateInvoiceRequest$Outbound = {
@@ -37,19 +25,6 @@ export const OrdersGenerateInvoiceRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrdersGenerateInvoiceRequest$ {
-  /** @deprecated use `OrdersGenerateInvoiceRequest$inboundSchema` instead. */
-  export const inboundSchema = OrdersGenerateInvoiceRequest$inboundSchema;
-  /** @deprecated use `OrdersGenerateInvoiceRequest$outboundSchema` instead. */
-  export const outboundSchema = OrdersGenerateInvoiceRequest$outboundSchema;
-  /** @deprecated use `OrdersGenerateInvoiceRequest$Outbound` instead. */
-  export type Outbound = OrdersGenerateInvoiceRequest$Outbound;
-}
-
 export function ordersGenerateInvoiceRequestToJSON(
   ordersGenerateInvoiceRequest: OrdersGenerateInvoiceRequest,
 ): string {
@@ -57,15 +32,5 @@ export function ordersGenerateInvoiceRequestToJSON(
     OrdersGenerateInvoiceRequest$outboundSchema.parse(
       ordersGenerateInvoiceRequest,
     ),
-  );
-}
-
-export function ordersGenerateInvoiceRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<OrdersGenerateInvoiceRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrdersGenerateInvoiceRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrdersGenerateInvoiceRequest' from JSON`,
   );
 }

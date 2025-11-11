@@ -6,17 +6,10 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 import {
   WebhookEndpoint,
   WebhookEndpoint$inboundSchema,
-  WebhookEndpoint$Outbound,
-  WebhookEndpoint$outboundSchema,
 } from "./webhookendpoint.js";
 
 export type ListResourceWebhookEndpoint = {
@@ -33,45 +26,6 @@ export const ListResourceWebhookEndpoint$inboundSchema: z.ZodType<
   items: z.array(WebhookEndpoint$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceWebhookEndpoint$Outbound = {
-  items: Array<WebhookEndpoint$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceWebhookEndpoint$outboundSchema: z.ZodType<
-  ListResourceWebhookEndpoint$Outbound,
-  z.ZodTypeDef,
-  ListResourceWebhookEndpoint
-> = z.object({
-  items: z.array(WebhookEndpoint$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceWebhookEndpoint$ {
-  /** @deprecated use `ListResourceWebhookEndpoint$inboundSchema` instead. */
-  export const inboundSchema = ListResourceWebhookEndpoint$inboundSchema;
-  /** @deprecated use `ListResourceWebhookEndpoint$outboundSchema` instead. */
-  export const outboundSchema = ListResourceWebhookEndpoint$outboundSchema;
-  /** @deprecated use `ListResourceWebhookEndpoint$Outbound` instead. */
-  export type Outbound = ListResourceWebhookEndpoint$Outbound;
-}
-
-export function listResourceWebhookEndpointToJSON(
-  listResourceWebhookEndpoint: ListResourceWebhookEndpoint,
-): string {
-  return JSON.stringify(
-    ListResourceWebhookEndpoint$outboundSchema.parse(
-      listResourceWebhookEndpoint,
-    ),
-  );
-}
 
 export function listResourceWebhookEndpointFromJSON(
   jsonString: string,

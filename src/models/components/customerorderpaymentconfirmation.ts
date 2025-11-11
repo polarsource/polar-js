@@ -41,51 +41,6 @@ export const CustomerOrderPaymentConfirmation$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type CustomerOrderPaymentConfirmation$Outbound = {
-  status: string;
-  client_secret?: string | null | undefined;
-  error?: string | null | undefined;
-};
-
-/** @internal */
-export const CustomerOrderPaymentConfirmation$outboundSchema: z.ZodType<
-  CustomerOrderPaymentConfirmation$Outbound,
-  z.ZodTypeDef,
-  CustomerOrderPaymentConfirmation
-> = z.object({
-  status: z.string(),
-  clientSecret: z.nullable(z.string()).optional(),
-  error: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    clientSecret: "client_secret",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerOrderPaymentConfirmation$ {
-  /** @deprecated use `CustomerOrderPaymentConfirmation$inboundSchema` instead. */
-  export const inboundSchema = CustomerOrderPaymentConfirmation$inboundSchema;
-  /** @deprecated use `CustomerOrderPaymentConfirmation$outboundSchema` instead. */
-  export const outboundSchema = CustomerOrderPaymentConfirmation$outboundSchema;
-  /** @deprecated use `CustomerOrderPaymentConfirmation$Outbound` instead. */
-  export type Outbound = CustomerOrderPaymentConfirmation$Outbound;
-}
-
-export function customerOrderPaymentConfirmationToJSON(
-  customerOrderPaymentConfirmation: CustomerOrderPaymentConfirmation,
-): string {
-  return JSON.stringify(
-    CustomerOrderPaymentConfirmation$outboundSchema.parse(
-      customerOrderPaymentConfirmation,
-    ),
-  );
-}
-
 export function customerOrderPaymentConfirmationFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerOrderPaymentConfirmation, SDKValidationError> {

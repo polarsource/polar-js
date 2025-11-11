@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LicenseKeyRead,
   LicenseKeyRead$inboundSchema,
-  LicenseKeyRead$Outbound,
-  LicenseKeyRead$outboundSchema,
 } from "./licensekeyread.js";
 
 export type LicenseKeyActivationReadMeta = string | number | number | boolean;
@@ -32,43 +30,6 @@ export const LicenseKeyActivationReadMeta$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
-export type LicenseKeyActivationReadMeta$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const LicenseKeyActivationReadMeta$outboundSchema: z.ZodType<
-  LicenseKeyActivationReadMeta$Outbound,
-  z.ZodTypeDef,
-  LicenseKeyActivationReadMeta
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeyActivationReadMeta$ {
-  /** @deprecated use `LicenseKeyActivationReadMeta$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyActivationReadMeta$inboundSchema;
-  /** @deprecated use `LicenseKeyActivationReadMeta$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyActivationReadMeta$outboundSchema;
-  /** @deprecated use `LicenseKeyActivationReadMeta$Outbound` instead. */
-  export type Outbound = LicenseKeyActivationReadMeta$Outbound;
-}
-
-export function licenseKeyActivationReadMetaToJSON(
-  licenseKeyActivationReadMeta: LicenseKeyActivationReadMeta,
-): string {
-  return JSON.stringify(
-    LicenseKeyActivationReadMeta$outboundSchema.parse(
-      licenseKeyActivationReadMeta,
-    ),
-  );
-}
 
 export function licenseKeyActivationReadMetaFromJSON(
   jsonString: string,
@@ -105,62 +66,6 @@ export const LicenseKeyActivationRead$inboundSchema: z.ZodType<
     "license_key": "licenseKey",
   });
 });
-
-/** @internal */
-export type LicenseKeyActivationRead$Outbound = {
-  id: string;
-  license_key_id: string;
-  label: string;
-  meta: { [k: string]: string | number | number | boolean };
-  created_at: string;
-  modified_at: string | null;
-  license_key: LicenseKeyRead$Outbound;
-};
-
-/** @internal */
-export const LicenseKeyActivationRead$outboundSchema: z.ZodType<
-  LicenseKeyActivationRead$Outbound,
-  z.ZodTypeDef,
-  LicenseKeyActivationRead
-> = z.object({
-  id: z.string(),
-  licenseKeyId: z.string(),
-  label: z.string(),
-  meta: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  licenseKey: LicenseKeyRead$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    licenseKeyId: "license_key_id",
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    licenseKey: "license_key",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeyActivationRead$ {
-  /** @deprecated use `LicenseKeyActivationRead$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyActivationRead$inboundSchema;
-  /** @deprecated use `LicenseKeyActivationRead$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyActivationRead$outboundSchema;
-  /** @deprecated use `LicenseKeyActivationRead$Outbound` instead. */
-  export type Outbound = LicenseKeyActivationRead$Outbound;
-}
-
-export function licenseKeyActivationReadToJSON(
-  licenseKeyActivationRead: LicenseKeyActivationRead,
-): string {
-  return JSON.stringify(
-    LicenseKeyActivationRead$outboundSchema.parse(licenseKeyActivationRead),
-  );
-}
 
 export function licenseKeyActivationReadFromJSON(
   jsonString: string,

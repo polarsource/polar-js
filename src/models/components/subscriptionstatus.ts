@@ -20,19 +20,7 @@ export type SubscriptionStatus = ClosedEnum<typeof SubscriptionStatus>;
 export const SubscriptionStatus$inboundSchema: z.ZodNativeEnum<
   typeof SubscriptionStatus
 > = z.nativeEnum(SubscriptionStatus);
-
 /** @internal */
 export const SubscriptionStatus$outboundSchema: z.ZodNativeEnum<
   typeof SubscriptionStatus
 > = SubscriptionStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionStatus$ {
-  /** @deprecated use `SubscriptionStatus$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionStatus$inboundSchema;
-  /** @deprecated use `SubscriptionStatus$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionStatus$outboundSchema;
-}

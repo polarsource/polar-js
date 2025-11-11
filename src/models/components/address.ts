@@ -275,22 +275,10 @@ export type Address = {
 export const CountryAlpha2$inboundSchema: z.ZodNativeEnum<
   typeof CountryAlpha2
 > = z.nativeEnum(CountryAlpha2);
-
 /** @internal */
 export const CountryAlpha2$outboundSchema: z.ZodNativeEnum<
   typeof CountryAlpha2
 > = CountryAlpha2$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CountryAlpha2$ {
-  /** @deprecated use `CountryAlpha2$inboundSchema` instead. */
-  export const inboundSchema = CountryAlpha2$inboundSchema;
-  /** @deprecated use `CountryAlpha2$outboundSchema` instead. */
-  export const outboundSchema = CountryAlpha2$outboundSchema;
-}
 
 /** @internal */
 export const Address$inboundSchema: z.ZodType<Address, z.ZodTypeDef, unknown> =
@@ -306,7 +294,6 @@ export const Address$inboundSchema: z.ZodType<Address, z.ZodTypeDef, unknown> =
       "postal_code": "postalCode",
     });
   });
-
 /** @internal */
 export type Address$Outbound = {
   line1?: string | null | undefined;
@@ -335,23 +322,9 @@ export const Address$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Address$ {
-  /** @deprecated use `Address$inboundSchema` instead. */
-  export const inboundSchema = Address$inboundSchema;
-  /** @deprecated use `Address$outboundSchema` instead. */
-  export const outboundSchema = Address$outboundSchema;
-  /** @deprecated use `Address$Outbound` instead. */
-  export type Outbound = Address$Outbound;
-}
-
 export function addressToJSON(address: Address): string {
   return JSON.stringify(Address$outboundSchema.parse(address));
 }
-
 export function addressFromJSON(
   jsonString: string,
 ): SafeParseResult<Address, SDKValidationError> {

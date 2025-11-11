@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitLicenseKeysCreateProperties,
-  BenefitLicenseKeysCreateProperties$inboundSchema,
   BenefitLicenseKeysCreateProperties$Outbound,
   BenefitLicenseKeysCreateProperties$outboundSchema,
 } from "./benefitlicensekeyscreateproperties.js";
@@ -50,13 +46,6 @@ export type BenefitLicenseKeysCreate = {
 };
 
 /** @internal */
-export const BenefitLicenseKeysCreateMetadata$inboundSchema: z.ZodType<
-  BenefitLicenseKeysCreateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type BenefitLicenseKeysCreateMetadata$Outbound =
   | string
   | number
@@ -70,19 +59,6 @@ export const BenefitLicenseKeysCreateMetadata$outboundSchema: z.ZodType<
   BenefitLicenseKeysCreateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeysCreateMetadata$ {
-  /** @deprecated use `BenefitLicenseKeysCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitLicenseKeysCreateMetadata$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeysCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitLicenseKeysCreateMetadata$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeysCreateMetadata$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeysCreateMetadata$Outbound;
-}
-
 export function benefitLicenseKeysCreateMetadataToJSON(
   benefitLicenseKeysCreateMetadata: BenefitLicenseKeysCreateMetadata,
 ): string {
@@ -92,35 +68,6 @@ export function benefitLicenseKeysCreateMetadataToJSON(
     ),
   );
 }
-
-export function benefitLicenseKeysCreateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitLicenseKeysCreateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitLicenseKeysCreateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitLicenseKeysCreateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitLicenseKeysCreate$inboundSchema: z.ZodType<
-  BenefitLicenseKeysCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  type: z.literal("license_keys"),
-  description: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  properties: BenefitLicenseKeysCreateProperties$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type BenefitLicenseKeysCreate$Outbound = {
@@ -150,33 +97,10 @@ export const BenefitLicenseKeysCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeysCreate$ {
-  /** @deprecated use `BenefitLicenseKeysCreate$inboundSchema` instead. */
-  export const inboundSchema = BenefitLicenseKeysCreate$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeysCreate$outboundSchema` instead. */
-  export const outboundSchema = BenefitLicenseKeysCreate$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeysCreate$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeysCreate$Outbound;
-}
-
 export function benefitLicenseKeysCreateToJSON(
   benefitLicenseKeysCreate: BenefitLicenseKeysCreate,
 ): string {
   return JSON.stringify(
     BenefitLicenseKeysCreate$outboundSchema.parse(benefitLicenseKeysCreate),
-  );
-}
-
-export function benefitLicenseKeysCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitLicenseKeysCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitLicenseKeysCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitLicenseKeysCreate' from JSON`,
   );
 }

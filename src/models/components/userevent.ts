@@ -7,17 +7,10 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Customer,
-  Customer$inboundSchema,
-  Customer$Outbound,
-  Customer$outboundSchema,
-} from "./customer.js";
+import { Customer, Customer$inboundSchema } from "./customer.js";
 import {
   EventMetadataOutput,
   EventMetadataOutput$inboundSchema,
-  EventMetadataOutput$Outbound,
-  EventMetadataOutput$outboundSchema,
 } from "./eventmetadataoutput.js";
 
 /**
@@ -93,65 +86,6 @@ export const UserEvent$inboundSchema: z.ZodType<
     "parent_id": "parentId",
   });
 });
-
-/** @internal */
-export type UserEvent$Outbound = {
-  id: string;
-  timestamp: string;
-  organization_id: string;
-  customer_id: string | null;
-  customer: Customer$Outbound | null;
-  external_customer_id: string | null;
-  child_count: number;
-  parent_id?: string | null | undefined;
-  name: string;
-  source: "user";
-  metadata: { [k: string]: EventMetadataOutput$Outbound };
-};
-
-/** @internal */
-export const UserEvent$outboundSchema: z.ZodType<
-  UserEvent$Outbound,
-  z.ZodTypeDef,
-  UserEvent
-> = z.object({
-  id: z.string(),
-  timestamp: z.date().transform(v => v.toISOString()),
-  organizationId: z.string(),
-  customerId: z.nullable(z.string()),
-  customer: z.nullable(Customer$outboundSchema),
-  externalCustomerId: z.nullable(z.string()),
-  childCount: z.number().int().default(0),
-  parentId: z.nullable(z.string()).optional(),
-  name: z.string(),
-  source: z.literal("user"),
-  metadata: z.record(EventMetadataOutput$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    organizationId: "organization_id",
-    customerId: "customer_id",
-    externalCustomerId: "external_customer_id",
-    childCount: "child_count",
-    parentId: "parent_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UserEvent$ {
-  /** @deprecated use `UserEvent$inboundSchema` instead. */
-  export const inboundSchema = UserEvent$inboundSchema;
-  /** @deprecated use `UserEvent$outboundSchema` instead. */
-  export const outboundSchema = UserEvent$outboundSchema;
-  /** @deprecated use `UserEvent$Outbound` instead. */
-  export type Outbound = UserEvent$Outbound;
-}
-
-export function userEventToJSON(userEvent: UserEvent): string {
-  return JSON.stringify(UserEvent$outboundSchema.parse(userEvent));
-}
 
 export function userEventFromJSON(
   jsonString: string,

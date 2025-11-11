@@ -4,19 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
-  DiscountDuration$inboundSchema,
   DiscountDuration$outboundSchema,
 } from "./discountduration.js";
-import {
-  DiscountType,
-  DiscountType$inboundSchema,
-  DiscountType$outboundSchema,
-} from "./discounttype.js";
+import { DiscountType, DiscountType$outboundSchema } from "./discounttype.js";
 
 export type DiscountUpdateMetadata = string | number | number | boolean;
 
@@ -67,13 +59,6 @@ export type DiscountUpdate = {
 };
 
 /** @internal */
-export const DiscountUpdateMetadata$inboundSchema: z.ZodType<
-  DiscountUpdateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type DiscountUpdateMetadata$Outbound =
   | string
   | number
@@ -87,19 +72,6 @@ export const DiscountUpdateMetadata$outboundSchema: z.ZodType<
   DiscountUpdateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountUpdateMetadata$ {
-  /** @deprecated use `DiscountUpdateMetadata$inboundSchema` instead. */
-  export const inboundSchema = DiscountUpdateMetadata$inboundSchema;
-  /** @deprecated use `DiscountUpdateMetadata$outboundSchema` instead. */
-  export const outboundSchema = DiscountUpdateMetadata$outboundSchema;
-  /** @deprecated use `DiscountUpdateMetadata$Outbound` instead. */
-  export type Outbound = DiscountUpdateMetadata$Outbound;
-}
-
 export function discountUpdateMetadataToJSON(
   discountUpdateMetadata: DiscountUpdateMetadata,
 ): string {
@@ -107,51 +79,6 @@ export function discountUpdateMetadataToJSON(
     DiscountUpdateMetadata$outboundSchema.parse(discountUpdateMetadata),
   );
 }
-
-export function discountUpdateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<DiscountUpdateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DiscountUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DiscountUpdateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const DiscountUpdate$inboundSchema: z.ZodType<
-  DiscountUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  name: z.nullable(z.string()).optional(),
-  code: z.nullable(z.string()).optional(),
-  starts_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-  ends_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-  max_redemptions: z.nullable(z.number().int()).optional(),
-  duration: z.nullable(DiscountDuration$inboundSchema).optional(),
-  duration_in_months: z.nullable(z.number().int()).optional(),
-  type: z.nullable(DiscountType$inboundSchema).optional(),
-  amount: z.nullable(z.number().int()).optional(),
-  currency: z.nullable(z.string()).optional(),
-  basis_points: z.nullable(z.number().int()).optional(),
-  products: z.nullable(z.array(z.string())).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "starts_at": "startsAt",
-    "ends_at": "endsAt",
-    "max_redemptions": "maxRedemptions",
-    "duration_in_months": "durationInMonths",
-    "basis_points": "basisPoints",
-  });
-});
 
 /** @internal */
 export type DiscountUpdate$Outbound = {
@@ -201,29 +128,6 @@ export const DiscountUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountUpdate$ {
-  /** @deprecated use `DiscountUpdate$inboundSchema` instead. */
-  export const inboundSchema = DiscountUpdate$inboundSchema;
-  /** @deprecated use `DiscountUpdate$outboundSchema` instead. */
-  export const outboundSchema = DiscountUpdate$outboundSchema;
-  /** @deprecated use `DiscountUpdate$Outbound` instead. */
-  export type Outbound = DiscountUpdate$Outbound;
-}
-
 export function discountUpdateToJSON(discountUpdate: DiscountUpdate): string {
   return JSON.stringify(DiscountUpdate$outboundSchema.parse(discountUpdate));
-}
-
-export function discountUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<DiscountUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DiscountUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DiscountUpdate' from JSON`,
-  );
 }

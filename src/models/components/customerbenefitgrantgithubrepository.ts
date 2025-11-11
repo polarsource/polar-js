@@ -10,20 +10,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGitHubRepositorySubscriber,
   BenefitGitHubRepositorySubscriber$inboundSchema,
-  BenefitGitHubRepositorySubscriber$Outbound,
-  BenefitGitHubRepositorySubscriber$outboundSchema,
 } from "./benefitgithubrepositorysubscriber.js";
 import {
   BenefitGrantGitHubRepositoryProperties,
   BenefitGrantGitHubRepositoryProperties$inboundSchema,
-  BenefitGrantGitHubRepositoryProperties$Outbound,
-  BenefitGrantGitHubRepositoryProperties$outboundSchema,
 } from "./benefitgrantgithubrepositoryproperties.js";
 import {
   CustomerPortalCustomer,
   CustomerPortalCustomer$inboundSchema,
-  CustomerPortalCustomer$Outbound,
-  CustomerPortalCustomer$outboundSchema,
 } from "./customerportalcustomer.js";
 
 export type CustomerBenefitGrantGitHubRepository = {
@@ -92,84 +86,6 @@ export const CustomerBenefitGrantGitHubRepository$inboundSchema: z.ZodType<
     "is_revoked": "isRevoked",
   });
 });
-
-/** @internal */
-export type CustomerBenefitGrantGitHubRepository$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  granted_at: string | null;
-  revoked_at: string | null;
-  customer_id: string;
-  benefit_id: string;
-  subscription_id: string | null;
-  order_id: string | null;
-  is_granted: boolean;
-  is_revoked: boolean;
-  customer: CustomerPortalCustomer$Outbound;
-  benefit: BenefitGitHubRepositorySubscriber$Outbound;
-  properties: BenefitGrantGitHubRepositoryProperties$Outbound;
-};
-
-/** @internal */
-export const CustomerBenefitGrantGitHubRepository$outboundSchema: z.ZodType<
-  CustomerBenefitGrantGitHubRepository$Outbound,
-  z.ZodTypeDef,
-  CustomerBenefitGrantGitHubRepository
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  grantedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  revokedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  customerId: z.string(),
-  benefitId: z.string(),
-  subscriptionId: z.nullable(z.string()),
-  orderId: z.nullable(z.string()),
-  isGranted: z.boolean(),
-  isRevoked: z.boolean(),
-  customer: CustomerPortalCustomer$outboundSchema,
-  benefit: BenefitGitHubRepositorySubscriber$outboundSchema,
-  properties: BenefitGrantGitHubRepositoryProperties$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    grantedAt: "granted_at",
-    revokedAt: "revoked_at",
-    customerId: "customer_id",
-    benefitId: "benefit_id",
-    subscriptionId: "subscription_id",
-    orderId: "order_id",
-    isGranted: "is_granted",
-    isRevoked: "is_revoked",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantGitHubRepository$ {
-  /** @deprecated use `CustomerBenefitGrantGitHubRepository$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerBenefitGrantGitHubRepository$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantGitHubRepository$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantGitHubRepository$outboundSchema;
-  /** @deprecated use `CustomerBenefitGrantGitHubRepository$Outbound` instead. */
-  export type Outbound = CustomerBenefitGrantGitHubRepository$Outbound;
-}
-
-export function customerBenefitGrantGitHubRepositoryToJSON(
-  customerBenefitGrantGitHubRepository: CustomerBenefitGrantGitHubRepository,
-): string {
-  return JSON.stringify(
-    CustomerBenefitGrantGitHubRepository$outboundSchema.parse(
-      customerBenefitGrantGitHubRepository,
-    ),
-  );
-}
 
 export function customerBenefitGrantGitHubRepositoryFromJSON(
   jsonString: string,

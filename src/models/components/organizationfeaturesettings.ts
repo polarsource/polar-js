@@ -45,7 +45,6 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodType<
     "wallets_enabled": "walletsEnabled",
   });
 });
-
 /** @internal */
 export type OrganizationFeatureSettings$Outbound = {
   issue_funding_enabled: boolean;
@@ -73,19 +72,6 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationFeatureSettings$ {
-  /** @deprecated use `OrganizationFeatureSettings$inboundSchema` instead. */
-  export const inboundSchema = OrganizationFeatureSettings$inboundSchema;
-  /** @deprecated use `OrganizationFeatureSettings$outboundSchema` instead. */
-  export const outboundSchema = OrganizationFeatureSettings$outboundSchema;
-  /** @deprecated use `OrganizationFeatureSettings$Outbound` instead. */
-  export type Outbound = OrganizationFeatureSettings$Outbound;
-}
-
 export function organizationFeatureSettingsToJSON(
   organizationFeatureSettings: OrganizationFeatureSettings,
 ): string {
@@ -95,7 +81,6 @@ export function organizationFeatureSettingsToJSON(
     ),
   );
 }
-
 export function organizationFeatureSettingsFromJSON(
   jsonString: string,
 ): SafeParseResult<OrganizationFeatureSettings, SDKValidationError> {

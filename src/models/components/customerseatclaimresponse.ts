@@ -7,12 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  CustomerSeat,
-  CustomerSeat$inboundSchema,
-  CustomerSeat$Outbound,
-  CustomerSeat$outboundSchema,
-} from "./customerseat.js";
+import { CustomerSeat, CustomerSeat$inboundSchema } from "./customerseat.js";
 
 /**
  * Response after successfully claiming a seat.
@@ -38,47 +33,6 @@ export const CustomerSeatClaimResponse$inboundSchema: z.ZodType<
     "customer_session_token": "customerSessionToken",
   });
 });
-
-/** @internal */
-export type CustomerSeatClaimResponse$Outbound = {
-  seat: CustomerSeat$Outbound;
-  customer_session_token: string;
-};
-
-/** @internal */
-export const CustomerSeatClaimResponse$outboundSchema: z.ZodType<
-  CustomerSeatClaimResponse$Outbound,
-  z.ZodTypeDef,
-  CustomerSeatClaimResponse
-> = z.object({
-  seat: CustomerSeat$outboundSchema,
-  customerSessionToken: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    customerSessionToken: "customer_session_token",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSeatClaimResponse$ {
-  /** @deprecated use `CustomerSeatClaimResponse$inboundSchema` instead. */
-  export const inboundSchema = CustomerSeatClaimResponse$inboundSchema;
-  /** @deprecated use `CustomerSeatClaimResponse$outboundSchema` instead. */
-  export const outboundSchema = CustomerSeatClaimResponse$outboundSchema;
-  /** @deprecated use `CustomerSeatClaimResponse$Outbound` instead. */
-  export type Outbound = CustomerSeatClaimResponse$Outbound;
-}
-
-export function customerSeatClaimResponseToJSON(
-  customerSeatClaimResponse: CustomerSeatClaimResponse,
-): string {
-  return JSON.stringify(
-    CustomerSeatClaimResponse$outboundSchema.parse(customerSeatClaimResponse),
-  );
-}
 
 export function customerSeatClaimResponseFromJSON(
   jsonString: string,

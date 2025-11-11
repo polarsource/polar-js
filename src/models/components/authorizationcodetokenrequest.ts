@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AuthorizationCodeTokenRequest = {
   grantType: "authorization_code";
@@ -15,26 +12,6 @@ export type AuthorizationCodeTokenRequest = {
   code: string;
   redirectUri: string;
 };
-
-/** @internal */
-export const AuthorizationCodeTokenRequest$inboundSchema: z.ZodType<
-  AuthorizationCodeTokenRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  grant_type: z.literal("authorization_code"),
-  client_id: z.string(),
-  client_secret: z.string(),
-  code: z.string(),
-  redirect_uri: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "grant_type": "grantType",
-    "client_id": "clientId",
-    "client_secret": "clientSecret",
-    "redirect_uri": "redirectUri",
-  });
-});
 
 /** @internal */
 export type AuthorizationCodeTokenRequest$Outbound = {
@@ -65,19 +42,6 @@ export const AuthorizationCodeTokenRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizationCodeTokenRequest$ {
-  /** @deprecated use `AuthorizationCodeTokenRequest$inboundSchema` instead. */
-  export const inboundSchema = AuthorizationCodeTokenRequest$inboundSchema;
-  /** @deprecated use `AuthorizationCodeTokenRequest$outboundSchema` instead. */
-  export const outboundSchema = AuthorizationCodeTokenRequest$outboundSchema;
-  /** @deprecated use `AuthorizationCodeTokenRequest$Outbound` instead. */
-  export type Outbound = AuthorizationCodeTokenRequest$Outbound;
-}
-
 export function authorizationCodeTokenRequestToJSON(
   authorizationCodeTokenRequest: AuthorizationCodeTokenRequest,
 ): string {
@@ -85,15 +49,5 @@ export function authorizationCodeTokenRequestToJSON(
     AuthorizationCodeTokenRequest$outboundSchema.parse(
       authorizationCodeTokenRequest,
     ),
-  );
-}
-
-export function authorizationCodeTokenRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<AuthorizationCodeTokenRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AuthorizationCodeTokenRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AuthorizationCodeTokenRequest' from JSON`,
   );
 }

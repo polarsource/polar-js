@@ -18,19 +18,7 @@ export type CheckoutStatus = ClosedEnum<typeof CheckoutStatus>;
 export const CheckoutStatus$inboundSchema: z.ZodNativeEnum<
   typeof CheckoutStatus
 > = z.nativeEnum(CheckoutStatus);
-
 /** @internal */
 export const CheckoutStatus$outboundSchema: z.ZodNativeEnum<
   typeof CheckoutStatus
 > = CheckoutStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutStatus$ {
-  /** @deprecated use `CheckoutStatus$inboundSchema` instead. */
-  export const inboundSchema = CheckoutStatus$inboundSchema;
-  /** @deprecated use `CheckoutStatus$outboundSchema` instead. */
-  export const outboundSchema = CheckoutStatus$outboundSchema;
-}

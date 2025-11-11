@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   MetricsIntervalLimit,
   MetricsIntervalLimit$inboundSchema,
-  MetricsIntervalLimit$Outbound,
-  MetricsIntervalLimit$outboundSchema,
 } from "./metricsintervallimit.js";
 
 /**
@@ -51,49 +49,6 @@ export const MetricsIntervalsLimits$inboundSchema: z.ZodType<
   month: MetricsIntervalLimit$inboundSchema,
   year: MetricsIntervalLimit$inboundSchema,
 });
-
-/** @internal */
-export type MetricsIntervalsLimits$Outbound = {
-  hour: MetricsIntervalLimit$Outbound;
-  day: MetricsIntervalLimit$Outbound;
-  week: MetricsIntervalLimit$Outbound;
-  month: MetricsIntervalLimit$Outbound;
-  year: MetricsIntervalLimit$Outbound;
-};
-
-/** @internal */
-export const MetricsIntervalsLimits$outboundSchema: z.ZodType<
-  MetricsIntervalsLimits$Outbound,
-  z.ZodTypeDef,
-  MetricsIntervalsLimits
-> = z.object({
-  hour: MetricsIntervalLimit$outboundSchema,
-  day: MetricsIntervalLimit$outboundSchema,
-  week: MetricsIntervalLimit$outboundSchema,
-  month: MetricsIntervalLimit$outboundSchema,
-  year: MetricsIntervalLimit$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsIntervalsLimits$ {
-  /** @deprecated use `MetricsIntervalsLimits$inboundSchema` instead. */
-  export const inboundSchema = MetricsIntervalsLimits$inboundSchema;
-  /** @deprecated use `MetricsIntervalsLimits$outboundSchema` instead. */
-  export const outboundSchema = MetricsIntervalsLimits$outboundSchema;
-  /** @deprecated use `MetricsIntervalsLimits$Outbound` instead. */
-  export type Outbound = MetricsIntervalsLimits$Outbound;
-}
-
-export function metricsIntervalsLimitsToJSON(
-  metricsIntervalsLimits: MetricsIntervalsLimits,
-): string {
-  return JSON.stringify(
-    MetricsIntervalsLimits$outboundSchema.parse(metricsIntervalsLimits),
-  );
-}
 
 export function metricsIntervalsLimitsFromJSON(
   jsonString: string,

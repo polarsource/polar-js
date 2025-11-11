@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  BenefitGrant,
-  BenefitGrant$inboundSchema,
-  BenefitGrant$Outbound,
-  BenefitGrant$outboundSchema,
-} from "./benefitgrant.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { BenefitGrant, BenefitGrant$inboundSchema } from "./benefitgrant.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceBenefitGrant = {
   items: Array<BenefitGrant>;
@@ -33,43 +23,6 @@ export const ListResourceBenefitGrant$inboundSchema: z.ZodType<
   items: z.array(BenefitGrant$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceBenefitGrant$Outbound = {
-  items: Array<BenefitGrant$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceBenefitGrant$outboundSchema: z.ZodType<
-  ListResourceBenefitGrant$Outbound,
-  z.ZodTypeDef,
-  ListResourceBenefitGrant
-> = z.object({
-  items: z.array(BenefitGrant$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceBenefitGrant$ {
-  /** @deprecated use `ListResourceBenefitGrant$inboundSchema` instead. */
-  export const inboundSchema = ListResourceBenefitGrant$inboundSchema;
-  /** @deprecated use `ListResourceBenefitGrant$outboundSchema` instead. */
-  export const outboundSchema = ListResourceBenefitGrant$outboundSchema;
-  /** @deprecated use `ListResourceBenefitGrant$Outbound` instead. */
-  export type Outbound = ListResourceBenefitGrant$Outbound;
-}
-
-export function listResourceBenefitGrantToJSON(
-  listResourceBenefitGrant: ListResourceBenefitGrant,
-): string {
-  return JSON.stringify(
-    ListResourceBenefitGrant$outboundSchema.parse(listResourceBenefitGrant),
-  );
-}
 
 export function listResourceBenefitGrantFromJSON(
   jsonString: string,

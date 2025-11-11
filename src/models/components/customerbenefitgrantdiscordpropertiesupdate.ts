@@ -4,27 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerBenefitGrantDiscordPropertiesUpdate = {
   accountId: string | null;
 };
-
-/** @internal */
-export const CustomerBenefitGrantDiscordPropertiesUpdate$inboundSchema:
-  z.ZodType<
-    CustomerBenefitGrantDiscordPropertiesUpdate,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    account_id: z.nullable(z.string()),
-  }).transform((v) => {
-    return remap$(v, {
-      "account_id": "accountId",
-    });
-  });
 
 /** @internal */
 export type CustomerBenefitGrantDiscordPropertiesUpdate$Outbound = {
@@ -45,21 +28,6 @@ export const CustomerBenefitGrantDiscordPropertiesUpdate$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantDiscordPropertiesUpdate$ {
-  /** @deprecated use `CustomerBenefitGrantDiscordPropertiesUpdate$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerBenefitGrantDiscordPropertiesUpdate$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDiscordPropertiesUpdate$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantDiscordPropertiesUpdate$outboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDiscordPropertiesUpdate$Outbound` instead. */
-  export type Outbound = CustomerBenefitGrantDiscordPropertiesUpdate$Outbound;
-}
-
 export function customerBenefitGrantDiscordPropertiesUpdateToJSON(
   customerBenefitGrantDiscordPropertiesUpdate:
     CustomerBenefitGrantDiscordPropertiesUpdate,
@@ -68,21 +36,5 @@ export function customerBenefitGrantDiscordPropertiesUpdateToJSON(
     CustomerBenefitGrantDiscordPropertiesUpdate$outboundSchema.parse(
       customerBenefitGrantDiscordPropertiesUpdate,
     ),
-  );
-}
-
-export function customerBenefitGrantDiscordPropertiesUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerBenefitGrantDiscordPropertiesUpdate,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerBenefitGrantDiscordPropertiesUpdate$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerBenefitGrantDiscordPropertiesUpdate' from JSON`,
   );
 }

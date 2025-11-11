@@ -123,6 +123,7 @@ async function $do(
     }),
     encodeFormQuery({
       "active": payload.active,
+      "cancel_at_period_end": payload.cancel_at_period_end,
       "customer_id": payload.customer_id,
       "discount_id": payload.discount_id,
       "external_customer_id": payload.external_customer_id,

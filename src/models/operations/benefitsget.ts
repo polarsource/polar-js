@@ -3,22 +3,10 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitsGetRequest = {
   id: string;
 };
-
-/** @internal */
-export const BenefitsGetRequest$inboundSchema: z.ZodType<
-  BenefitsGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type BenefitsGetRequest$Outbound = {
@@ -34,33 +22,10 @@ export const BenefitsGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitsGetRequest$ {
-  /** @deprecated use `BenefitsGetRequest$inboundSchema` instead. */
-  export const inboundSchema = BenefitsGetRequest$inboundSchema;
-  /** @deprecated use `BenefitsGetRequest$outboundSchema` instead. */
-  export const outboundSchema = BenefitsGetRequest$outboundSchema;
-  /** @deprecated use `BenefitsGetRequest$Outbound` instead. */
-  export type Outbound = BenefitsGetRequest$Outbound;
-}
-
 export function benefitsGetRequestToJSON(
   benefitsGetRequest: BenefitsGetRequest,
 ): string {
   return JSON.stringify(
     BenefitsGetRequest$outboundSchema.parse(benefitsGetRequest),
-  );
-}
-
-export function benefitsGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitsGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitsGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitsGetRequest' from JSON`,
   );
 }

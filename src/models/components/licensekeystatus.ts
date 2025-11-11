@@ -16,19 +16,7 @@ export type LicenseKeyStatus = ClosedEnum<typeof LicenseKeyStatus>;
 export const LicenseKeyStatus$inboundSchema: z.ZodNativeEnum<
   typeof LicenseKeyStatus
 > = z.nativeEnum(LicenseKeyStatus);
-
 /** @internal */
 export const LicenseKeyStatus$outboundSchema: z.ZodNativeEnum<
   typeof LicenseKeyStatus
 > = LicenseKeyStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeyStatus$ {
-  /** @deprecated use `LicenseKeyStatus$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyStatus$inboundSchema;
-  /** @deprecated use `LicenseKeyStatus$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyStatus$outboundSchema;
-}

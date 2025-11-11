@@ -54,7 +54,6 @@ export const CheckoutDiscountPercentageOnceForeverDuration$inboundSchema:
       "basis_points": "basisPoints",
     });
   });
-
 /** @internal */
 export type CheckoutDiscountPercentageOnceForeverDuration$Outbound = {
   duration: string;
@@ -84,21 +83,6 @@ export const CheckoutDiscountPercentageOnceForeverDuration$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutDiscountPercentageOnceForeverDuration$ {
-  /** @deprecated use `CheckoutDiscountPercentageOnceForeverDuration$inboundSchema` instead. */
-  export const inboundSchema =
-    CheckoutDiscountPercentageOnceForeverDuration$inboundSchema;
-  /** @deprecated use `CheckoutDiscountPercentageOnceForeverDuration$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutDiscountPercentageOnceForeverDuration$outboundSchema;
-  /** @deprecated use `CheckoutDiscountPercentageOnceForeverDuration$Outbound` instead. */
-  export type Outbound = CheckoutDiscountPercentageOnceForeverDuration$Outbound;
-}
-
 export function checkoutDiscountPercentageOnceForeverDurationToJSON(
   checkoutDiscountPercentageOnceForeverDuration:
     CheckoutDiscountPercentageOnceForeverDuration,
@@ -109,7 +93,6 @@ export function checkoutDiscountPercentageOnceForeverDurationToJSON(
     ),
   );
 }
-
 export function checkoutDiscountPercentageOnceForeverDurationFromJSON(
   jsonString: string,
 ): SafeParseResult<

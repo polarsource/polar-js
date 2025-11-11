@@ -52,34 +52,3 @@ export const RefundedAlready$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type RefundedAlready$Outbound = {
-  error: "RefundedAlready";
-  detail: string;
-};
-
-/** @internal */
-export const RefundedAlready$outboundSchema: z.ZodType<
-  RefundedAlready$Outbound,
-  z.ZodTypeDef,
-  RefundedAlready
-> = z.instanceof(RefundedAlready)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("RefundedAlready"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RefundedAlready$ {
-  /** @deprecated use `RefundedAlready$inboundSchema` instead. */
-  export const inboundSchema = RefundedAlready$inboundSchema;
-  /** @deprecated use `RefundedAlready$outboundSchema` instead. */
-  export const outboundSchema = RefundedAlready$outboundSchema;
-  /** @deprecated use `RefundedAlready$Outbound` instead. */
-  export type Outbound = RefundedAlready$Outbound;
-}

@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PaymentProcessor,
-  PaymentProcessor$inboundSchema,
   PaymentProcessor$outboundSchema,
 } from "./paymentprocessor.js";
 
@@ -27,23 +23,6 @@ export type CustomerOrderConfirmPayment = {
   paymentMethodId?: string | null | undefined;
   paymentProcessor?: PaymentProcessor | undefined;
 };
-
-/** @internal */
-export const CustomerOrderConfirmPayment$inboundSchema: z.ZodType<
-  CustomerOrderConfirmPayment,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  confirmation_token_id: z.nullable(z.string()).optional(),
-  payment_method_id: z.nullable(z.string()).optional(),
-  payment_processor: PaymentProcessor$inboundSchema.optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "confirmation_token_id": "confirmationTokenId",
-    "payment_method_id": "paymentMethodId",
-    "payment_processor": "paymentProcessor",
-  });
-});
 
 /** @internal */
 export type CustomerOrderConfirmPayment$Outbound = {
@@ -69,19 +48,6 @@ export const CustomerOrderConfirmPayment$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerOrderConfirmPayment$ {
-  /** @deprecated use `CustomerOrderConfirmPayment$inboundSchema` instead. */
-  export const inboundSchema = CustomerOrderConfirmPayment$inboundSchema;
-  /** @deprecated use `CustomerOrderConfirmPayment$outboundSchema` instead. */
-  export const outboundSchema = CustomerOrderConfirmPayment$outboundSchema;
-  /** @deprecated use `CustomerOrderConfirmPayment$Outbound` instead. */
-  export type Outbound = CustomerOrderConfirmPayment$Outbound;
-}
-
 export function customerOrderConfirmPaymentToJSON(
   customerOrderConfirmPayment: CustomerOrderConfirmPayment,
 ): string {
@@ -89,15 +55,5 @@ export function customerOrderConfirmPaymentToJSON(
     CustomerOrderConfirmPayment$outboundSchema.parse(
       customerOrderConfirmPayment,
     ),
-  );
-}
-
-export function customerOrderConfirmPaymentFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerOrderConfirmPayment, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerOrderConfirmPayment$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerOrderConfirmPayment' from JSON`,
   );
 }

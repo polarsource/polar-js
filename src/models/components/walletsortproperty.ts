@@ -14,22 +14,6 @@ export const WalletSortProperty = {
 export type WalletSortProperty = ClosedEnum<typeof WalletSortProperty>;
 
 /** @internal */
-export const WalletSortProperty$inboundSchema: z.ZodNativeEnum<
-  typeof WalletSortProperty
-> = z.nativeEnum(WalletSortProperty);
-
-/** @internal */
 export const WalletSortProperty$outboundSchema: z.ZodNativeEnum<
   typeof WalletSortProperty
-> = WalletSortProperty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WalletSortProperty$ {
-  /** @deprecated use `WalletSortProperty$inboundSchema` instead. */
-  export const inboundSchema = WalletSortProperty$inboundSchema;
-  /** @deprecated use `WalletSortProperty$outboundSchema` instead. */
-  export const outboundSchema = WalletSortProperty$outboundSchema;
-}
+> = z.nativeEnum(WalletSortProperty);

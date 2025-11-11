@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutLinksGetRequest = {
   /**
@@ -13,15 +10,6 @@ export type CheckoutLinksGetRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const CheckoutLinksGetRequest$inboundSchema: z.ZodType<
-  CheckoutLinksGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type CheckoutLinksGetRequest$Outbound = {
@@ -37,33 +25,10 @@ export const CheckoutLinksGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinksGetRequest$ {
-  /** @deprecated use `CheckoutLinksGetRequest$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinksGetRequest$inboundSchema;
-  /** @deprecated use `CheckoutLinksGetRequest$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinksGetRequest$outboundSchema;
-  /** @deprecated use `CheckoutLinksGetRequest$Outbound` instead. */
-  export type Outbound = CheckoutLinksGetRequest$Outbound;
-}
-
 export function checkoutLinksGetRequestToJSON(
   checkoutLinksGetRequest: CheckoutLinksGetRequest,
 ): string {
   return JSON.stringify(
     CheckoutLinksGetRequest$outboundSchema.parse(checkoutLinksGetRequest),
-  );
-}
-
-export function checkoutLinksGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutLinksGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutLinksGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutLinksGetRequest' from JSON`,
   );
 }

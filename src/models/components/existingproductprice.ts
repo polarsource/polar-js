@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * A price that already exists for this product.
@@ -17,15 +14,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type ExistingProductPrice = {
   id: string;
 };
-
-/** @internal */
-export const ExistingProductPrice$inboundSchema: z.ZodType<
-  ExistingProductPrice,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type ExistingProductPrice$Outbound = {
@@ -41,33 +29,10 @@ export const ExistingProductPrice$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ExistingProductPrice$ {
-  /** @deprecated use `ExistingProductPrice$inboundSchema` instead. */
-  export const inboundSchema = ExistingProductPrice$inboundSchema;
-  /** @deprecated use `ExistingProductPrice$outboundSchema` instead. */
-  export const outboundSchema = ExistingProductPrice$outboundSchema;
-  /** @deprecated use `ExistingProductPrice$Outbound` instead. */
-  export type Outbound = ExistingProductPrice$Outbound;
-}
-
 export function existingProductPriceToJSON(
   existingProductPrice: ExistingProductPrice,
 ): string {
   return JSON.stringify(
     ExistingProductPrice$outboundSchema.parse(existingProductPrice),
-  );
-}
-
-export function existingProductPriceFromJSON(
-  jsonString: string,
-): SafeParseResult<ExistingProductPrice, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ExistingProductPrice$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ExistingProductPrice' from JSON`,
   );
 }

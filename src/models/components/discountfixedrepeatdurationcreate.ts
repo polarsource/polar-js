@@ -4,19 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
-  DiscountDuration$inboundSchema,
   DiscountDuration$outboundSchema,
 } from "./discountduration.js";
-import {
-  DiscountType,
-  DiscountType$inboundSchema,
-  DiscountType$outboundSchema,
-} from "./discounttype.js";
+import { DiscountType, DiscountType$outboundSchema } from "./discounttype.js";
 
 export type DiscountFixedRepeatDurationCreateMetadata =
   | string
@@ -94,13 +86,6 @@ export type DiscountFixedRepeatDurationCreate = {
 };
 
 /** @internal */
-export const DiscountFixedRepeatDurationCreateMetadata$inboundSchema: z.ZodType<
-  DiscountFixedRepeatDurationCreateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type DiscountFixedRepeatDurationCreateMetadata$Outbound =
   | string
   | number
@@ -115,21 +100,6 @@ export const DiscountFixedRepeatDurationCreateMetadata$outboundSchema:
     DiscountFixedRepeatDurationCreateMetadata
   > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountFixedRepeatDurationCreateMetadata$ {
-  /** @deprecated use `DiscountFixedRepeatDurationCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountFixedRepeatDurationCreateMetadata$inboundSchema;
-  /** @deprecated use `DiscountFixedRepeatDurationCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountFixedRepeatDurationCreateMetadata$outboundSchema;
-  /** @deprecated use `DiscountFixedRepeatDurationCreateMetadata$Outbound` instead. */
-  export type Outbound = DiscountFixedRepeatDurationCreateMetadata$Outbound;
-}
-
 export function discountFixedRepeatDurationCreateMetadataToJSON(
   discountFixedRepeatDurationCreateMetadata:
     DiscountFixedRepeatDurationCreateMetadata,
@@ -140,57 +110,6 @@ export function discountFixedRepeatDurationCreateMetadataToJSON(
     ),
   );
 }
-
-export function discountFixedRepeatDurationCreateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DiscountFixedRepeatDurationCreateMetadata,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DiscountFixedRepeatDurationCreateMetadata$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DiscountFixedRepeatDurationCreateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const DiscountFixedRepeatDurationCreate$inboundSchema: z.ZodType<
-  DiscountFixedRepeatDurationCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  duration: DiscountDuration$inboundSchema,
-  duration_in_months: z.number().int(),
-  type: DiscountType$inboundSchema,
-  amount: z.number().int(),
-  currency: z.string().default("usd"),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  name: z.string(),
-  code: z.nullable(z.string()).optional(),
-  starts_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-  ends_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-  max_redemptions: z.nullable(z.number().int()).optional(),
-  products: z.nullable(z.array(z.string())).optional(),
-  organization_id: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "duration_in_months": "durationInMonths",
-    "starts_at": "startsAt",
-    "ends_at": "endsAt",
-    "max_redemptions": "maxRedemptions",
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type DiscountFixedRepeatDurationCreate$Outbound = {
@@ -240,20 +159,6 @@ export const DiscountFixedRepeatDurationCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountFixedRepeatDurationCreate$ {
-  /** @deprecated use `DiscountFixedRepeatDurationCreate$inboundSchema` instead. */
-  export const inboundSchema = DiscountFixedRepeatDurationCreate$inboundSchema;
-  /** @deprecated use `DiscountFixedRepeatDurationCreate$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountFixedRepeatDurationCreate$outboundSchema;
-  /** @deprecated use `DiscountFixedRepeatDurationCreate$Outbound` instead. */
-  export type Outbound = DiscountFixedRepeatDurationCreate$Outbound;
-}
-
 export function discountFixedRepeatDurationCreateToJSON(
   discountFixedRepeatDurationCreate: DiscountFixedRepeatDurationCreate,
 ): string {
@@ -261,15 +166,5 @@ export function discountFixedRepeatDurationCreateToJSON(
     DiscountFixedRepeatDurationCreate$outboundSchema.parse(
       discountFixedRepeatDurationCreate,
     ),
-  );
-}
-
-export function discountFixedRepeatDurationCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<DiscountFixedRepeatDurationCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DiscountFixedRepeatDurationCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DiscountFixedRepeatDurationCreate' from JSON`,
   );
 }

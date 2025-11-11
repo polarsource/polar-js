@@ -9,8 +9,6 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ListResourceLicenseKeyRead,
   ListResourceLicenseKeyRead$inboundSchema,
-  ListResourceLicenseKeyRead$Outbound,
-  ListResourceLicenseKeyRead$outboundSchema,
 } from "../components/listresourcelicensekeyread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -38,19 +36,6 @@ export type CustomerPortalLicenseKeysListResponse = {
 };
 
 /** @internal */
-export const CustomerPortalLicenseKeysListSecurity$inboundSchema: z.ZodType<
-  CustomerPortalLicenseKeysListSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
-
-/** @internal */
 export type CustomerPortalLicenseKeysListSecurity$Outbound = {
   customer_session: string;
 };
@@ -68,21 +53,6 @@ export const CustomerPortalLicenseKeysListSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalLicenseKeysListSecurity$ {
-  /** @deprecated use `CustomerPortalLicenseKeysListSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalLicenseKeysListSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysListSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalLicenseKeysListSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysListSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalLicenseKeysListSecurity$Outbound;
-}
-
 export function customerPortalLicenseKeysListSecurityToJSON(
   customerPortalLicenseKeysListSecurity: CustomerPortalLicenseKeysListSecurity,
 ): string {
@@ -92,32 +62,6 @@ export function customerPortalLicenseKeysListSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalLicenseKeysListSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalLicenseKeysListSecurity, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalLicenseKeysListSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalLicenseKeysListSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalLicenseKeysListRequest$inboundSchema: z.ZodType<
-  CustomerPortalLicenseKeysListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  benefit_id: z.nullable(z.string()).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-}).transform((v) => {
-  return remap$(v, {
-    "benefit_id": "benefitId",
-  });
-});
 
 /** @internal */
 export type CustomerPortalLicenseKeysListRequest$Outbound = {
@@ -141,21 +85,6 @@ export const CustomerPortalLicenseKeysListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalLicenseKeysListRequest$ {
-  /** @deprecated use `CustomerPortalLicenseKeysListRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalLicenseKeysListRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysListRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalLicenseKeysListRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysListRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalLicenseKeysListRequest$Outbound;
-}
-
 export function customerPortalLicenseKeysListRequestToJSON(
   customerPortalLicenseKeysListRequest: CustomerPortalLicenseKeysListRequest,
 ): string {
@@ -163,17 +92,6 @@ export function customerPortalLicenseKeysListRequestToJSON(
     CustomerPortalLicenseKeysListRequest$outboundSchema.parse(
       customerPortalLicenseKeysListRequest,
     ),
-  );
-}
-
-export function customerPortalLicenseKeysListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalLicenseKeysListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalLicenseKeysListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalLicenseKeysListRequest' from JSON`,
   );
 }
 
@@ -189,49 +107,6 @@ export const CustomerPortalLicenseKeysListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type CustomerPortalLicenseKeysListResponse$Outbound = {
-  Result: ListResourceLicenseKeyRead$Outbound;
-};
-
-/** @internal */
-export const CustomerPortalLicenseKeysListResponse$outboundSchema: z.ZodType<
-  CustomerPortalLicenseKeysListResponse$Outbound,
-  z.ZodTypeDef,
-  CustomerPortalLicenseKeysListResponse
-> = z.object({
-  result: ListResourceLicenseKeyRead$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalLicenseKeysListResponse$ {
-  /** @deprecated use `CustomerPortalLicenseKeysListResponse$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalLicenseKeysListResponse$inboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysListResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalLicenseKeysListResponse$outboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysListResponse$Outbound` instead. */
-  export type Outbound = CustomerPortalLicenseKeysListResponse$Outbound;
-}
-
-export function customerPortalLicenseKeysListResponseToJSON(
-  customerPortalLicenseKeysListResponse: CustomerPortalLicenseKeysListResponse,
-): string {
-  return JSON.stringify(
-    CustomerPortalLicenseKeysListResponse$outboundSchema.parse(
-      customerPortalLicenseKeysListResponse,
-    ),
-  );
-}
 
 export function customerPortalLicenseKeysListResponseFromJSON(
   jsonString: string,

@@ -49,7 +49,6 @@ export const AttachedCustomField$inboundSchema: z.ZodType<
     "custom_field": "customField",
   });
 });
-
 /** @internal */
 export type AttachedCustomField$Outbound = {
   custom_field_id: string;
@@ -75,19 +74,6 @@ export const AttachedCustomField$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AttachedCustomField$ {
-  /** @deprecated use `AttachedCustomField$inboundSchema` instead. */
-  export const inboundSchema = AttachedCustomField$inboundSchema;
-  /** @deprecated use `AttachedCustomField$outboundSchema` instead. */
-  export const outboundSchema = AttachedCustomField$outboundSchema;
-  /** @deprecated use `AttachedCustomField$Outbound` instead. */
-  export type Outbound = AttachedCustomField$Outbound;
-}
-
 export function attachedCustomFieldToJSON(
   attachedCustomField: AttachedCustomField,
 ): string {
@@ -95,7 +81,6 @@ export function attachedCustomFieldToJSON(
     AttachedCustomField$outboundSchema.parse(attachedCustomField),
   );
 }
-
 export function attachedCustomFieldFromJSON(
   jsonString: string,
 ): SafeParseResult<AttachedCustomField, SDKValidationError> {

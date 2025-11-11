@@ -4,14 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  RefundReason,
-  RefundReason$inboundSchema,
-  RefundReason$outboundSchema,
-} from "./refundreason.js";
+import { RefundReason, RefundReason$outboundSchema } from "./refundreason.js";
 
 export type RefundCreateMetadata = string | number | number | boolean;
 
@@ -56,13 +49,6 @@ export type RefundCreate = {
 };
 
 /** @internal */
-export const RefundCreateMetadata$inboundSchema: z.ZodType<
-  RefundCreateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type RefundCreateMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
@@ -72,19 +58,6 @@ export const RefundCreateMetadata$outboundSchema: z.ZodType<
   RefundCreateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RefundCreateMetadata$ {
-  /** @deprecated use `RefundCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema = RefundCreateMetadata$inboundSchema;
-  /** @deprecated use `RefundCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema = RefundCreateMetadata$outboundSchema;
-  /** @deprecated use `RefundCreateMetadata$Outbound` instead. */
-  export type Outbound = RefundCreateMetadata$Outbound;
-}
-
 export function refundCreateMetadataToJSON(
   refundCreateMetadata: RefundCreateMetadata,
 ): string {
@@ -92,37 +65,6 @@ export function refundCreateMetadataToJSON(
     RefundCreateMetadata$outboundSchema.parse(refundCreateMetadata),
   );
 }
-
-export function refundCreateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<RefundCreateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => RefundCreateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'RefundCreateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const RefundCreate$inboundSchema: z.ZodType<
-  RefundCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  order_id: z.string(),
-  reason: RefundReason$inboundSchema,
-  amount: z.number().int(),
-  comment: z.nullable(z.string()).optional(),
-  revoke_benefits: z.boolean().default(false),
-}).transform((v) => {
-  return remap$(v, {
-    "order_id": "orderId",
-    "revoke_benefits": "revokeBenefits",
-  });
-});
 
 /** @internal */
 export type RefundCreate$Outbound = {
@@ -155,29 +97,6 @@ export const RefundCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RefundCreate$ {
-  /** @deprecated use `RefundCreate$inboundSchema` instead. */
-  export const inboundSchema = RefundCreate$inboundSchema;
-  /** @deprecated use `RefundCreate$outboundSchema` instead. */
-  export const outboundSchema = RefundCreate$outboundSchema;
-  /** @deprecated use `RefundCreate$Outbound` instead. */
-  export type Outbound = RefundCreate$Outbound;
-}
-
 export function refundCreateToJSON(refundCreate: RefundCreate): string {
   return JSON.stringify(RefundCreate$outboundSchema.parse(refundCreate));
-}
-
-export function refundCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<RefundCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => RefundCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'RefundCreate' from JSON`,
-  );
 }

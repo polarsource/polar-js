@@ -56,7 +56,6 @@ export const BenefitLicenseKeysMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type BenefitLicenseKeysMetadata$Outbound =
   | string
@@ -71,19 +70,6 @@ export const BenefitLicenseKeysMetadata$outboundSchema: z.ZodType<
   BenefitLicenseKeysMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeysMetadata$ {
-  /** @deprecated use `BenefitLicenseKeysMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitLicenseKeysMetadata$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeysMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitLicenseKeysMetadata$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeysMetadata$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeysMetadata$Outbound;
-}
-
 export function benefitLicenseKeysMetadataToJSON(
   benefitLicenseKeysMetadata: BenefitLicenseKeysMetadata,
 ): string {
@@ -91,7 +77,6 @@ export function benefitLicenseKeysMetadataToJSON(
     BenefitLicenseKeysMetadata$outboundSchema.parse(benefitLicenseKeysMetadata),
   );
 }
-
 export function benefitLicenseKeysMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitLicenseKeysMetadata, SDKValidationError> {
@@ -129,7 +114,6 @@ export const BenefitLicenseKeys$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type BenefitLicenseKeys$Outbound = {
   id: string;
@@ -170,19 +154,6 @@ export const BenefitLicenseKeys$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeys$ {
-  /** @deprecated use `BenefitLicenseKeys$inboundSchema` instead. */
-  export const inboundSchema = BenefitLicenseKeys$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeys$outboundSchema` instead. */
-  export const outboundSchema = BenefitLicenseKeys$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeys$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeys$Outbound;
-}
-
 export function benefitLicenseKeysToJSON(
   benefitLicenseKeys: BenefitLicenseKeys,
 ): string {
@@ -190,7 +161,6 @@ export function benefitLicenseKeysToJSON(
     BenefitLicenseKeys$outboundSchema.parse(benefitLicenseKeys),
   );
 }
-
 export function benefitLicenseKeysFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitLicenseKeys, SDKValidationError> {

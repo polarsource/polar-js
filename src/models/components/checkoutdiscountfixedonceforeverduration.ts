@@ -47,7 +47,6 @@ export const CheckoutDiscountFixedOnceForeverDuration$inboundSchema: z.ZodType<
   name: z.string(),
   code: z.nullable(z.string()),
 });
-
 /** @internal */
 export type CheckoutDiscountFixedOnceForeverDuration$Outbound = {
   duration: string;
@@ -74,21 +73,6 @@ export const CheckoutDiscountFixedOnceForeverDuration$outboundSchema: z.ZodType<
   code: z.nullable(z.string()),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutDiscountFixedOnceForeverDuration$ {
-  /** @deprecated use `CheckoutDiscountFixedOnceForeverDuration$inboundSchema` instead. */
-  export const inboundSchema =
-    CheckoutDiscountFixedOnceForeverDuration$inboundSchema;
-  /** @deprecated use `CheckoutDiscountFixedOnceForeverDuration$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutDiscountFixedOnceForeverDuration$outboundSchema;
-  /** @deprecated use `CheckoutDiscountFixedOnceForeverDuration$Outbound` instead. */
-  export type Outbound = CheckoutDiscountFixedOnceForeverDuration$Outbound;
-}
-
 export function checkoutDiscountFixedOnceForeverDurationToJSON(
   checkoutDiscountFixedOnceForeverDuration:
     CheckoutDiscountFixedOnceForeverDuration,
@@ -99,7 +83,6 @@ export function checkoutDiscountFixedOnceForeverDurationToJSON(
     ),
   );
 }
-
 export function checkoutDiscountFixedOnceForeverDurationFromJSON(
   jsonString: string,
 ): SafeParseResult<

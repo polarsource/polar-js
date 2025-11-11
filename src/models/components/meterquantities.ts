@@ -6,12 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  MeterQuantity,
-  MeterQuantity$inboundSchema,
-  MeterQuantity$Outbound,
-  MeterQuantity$outboundSchema,
-} from "./meterquantity.js";
+import { MeterQuantity, MeterQuantity$inboundSchema } from "./meterquantity.js";
 
 export type MeterQuantities = {
   quantities: Array<MeterQuantity>;
@@ -30,41 +25,6 @@ export const MeterQuantities$inboundSchema: z.ZodType<
   quantities: z.array(MeterQuantity$inboundSchema),
   total: z.number(),
 });
-
-/** @internal */
-export type MeterQuantities$Outbound = {
-  quantities: Array<MeterQuantity$Outbound>;
-  total: number;
-};
-
-/** @internal */
-export const MeterQuantities$outboundSchema: z.ZodType<
-  MeterQuantities$Outbound,
-  z.ZodTypeDef,
-  MeterQuantities
-> = z.object({
-  quantities: z.array(MeterQuantity$outboundSchema),
-  total: z.number(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MeterQuantities$ {
-  /** @deprecated use `MeterQuantities$inboundSchema` instead. */
-  export const inboundSchema = MeterQuantities$inboundSchema;
-  /** @deprecated use `MeterQuantities$outboundSchema` instead. */
-  export const outboundSchema = MeterQuantities$outboundSchema;
-  /** @deprecated use `MeterQuantities$Outbound` instead. */
-  export type Outbound = MeterQuantities$Outbound;
-}
-
-export function meterQuantitiesToJSON(
-  meterQuantities: MeterQuantities,
-): string {
-  return JSON.stringify(MeterQuantities$outboundSchema.parse(meterQuantities));
-}
 
 export function meterQuantitiesFromJSON(
   jsonString: string,

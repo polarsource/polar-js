@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LicenseKeyActivateConditions = string | number | number | boolean;
 
@@ -51,13 +48,6 @@ export type LicenseKeyActivate = {
 };
 
 /** @internal */
-export const LicenseKeyActivateConditions$inboundSchema: z.ZodType<
-  LicenseKeyActivateConditions,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type LicenseKeyActivateConditions$Outbound =
   | string
   | number
@@ -71,19 +61,6 @@ export const LicenseKeyActivateConditions$outboundSchema: z.ZodType<
   LicenseKeyActivateConditions
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeyActivateConditions$ {
-  /** @deprecated use `LicenseKeyActivateConditions$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyActivateConditions$inboundSchema;
-  /** @deprecated use `LicenseKeyActivateConditions$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyActivateConditions$outboundSchema;
-  /** @deprecated use `LicenseKeyActivateConditions$Outbound` instead. */
-  export type Outbound = LicenseKeyActivateConditions$Outbound;
-}
-
 export function licenseKeyActivateConditionsToJSON(
   licenseKeyActivateConditions: LicenseKeyActivateConditions,
 ): string {
@@ -93,23 +70,6 @@ export function licenseKeyActivateConditionsToJSON(
     ),
   );
 }
-
-export function licenseKeyActivateConditionsFromJSON(
-  jsonString: string,
-): SafeParseResult<LicenseKeyActivateConditions, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => LicenseKeyActivateConditions$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LicenseKeyActivateConditions' from JSON`,
-  );
-}
-
-/** @internal */
-export const LicenseKeyActivateMeta$inboundSchema: z.ZodType<
-  LicenseKeyActivateMeta,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type LicenseKeyActivateMeta$Outbound =
@@ -125,19 +85,6 @@ export const LicenseKeyActivateMeta$outboundSchema: z.ZodType<
   LicenseKeyActivateMeta
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeyActivateMeta$ {
-  /** @deprecated use `LicenseKeyActivateMeta$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyActivateMeta$inboundSchema;
-  /** @deprecated use `LicenseKeyActivateMeta$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyActivateMeta$outboundSchema;
-  /** @deprecated use `LicenseKeyActivateMeta$Outbound` instead. */
-  export type Outbound = LicenseKeyActivateMeta$Outbound;
-}
-
 export function licenseKeyActivateMetaToJSON(
   licenseKeyActivateMeta: LicenseKeyActivateMeta,
 ): string {
@@ -145,37 +92,6 @@ export function licenseKeyActivateMetaToJSON(
     LicenseKeyActivateMeta$outboundSchema.parse(licenseKeyActivateMeta),
   );
 }
-
-export function licenseKeyActivateMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<LicenseKeyActivateMeta, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => LicenseKeyActivateMeta$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LicenseKeyActivateMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const LicenseKeyActivate$inboundSchema: z.ZodType<
-  LicenseKeyActivate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  key: z.string(),
-  organization_id: z.string(),
-  label: z.string(),
-  conditions: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  meta: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type LicenseKeyActivate$Outbound = {
@@ -207,33 +123,10 @@ export const LicenseKeyActivate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeyActivate$ {
-  /** @deprecated use `LicenseKeyActivate$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyActivate$inboundSchema;
-  /** @deprecated use `LicenseKeyActivate$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyActivate$outboundSchema;
-  /** @deprecated use `LicenseKeyActivate$Outbound` instead. */
-  export type Outbound = LicenseKeyActivate$Outbound;
-}
-
 export function licenseKeyActivateToJSON(
   licenseKeyActivate: LicenseKeyActivate,
 ): string {
   return JSON.stringify(
     LicenseKeyActivate$outboundSchema.parse(licenseKeyActivate),
-  );
-}
-
-export function licenseKeyActivateFromJSON(
-  jsonString: string,
-): SafeParseResult<LicenseKeyActivate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => LicenseKeyActivate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LicenseKeyActivate' from JSON`,
   );
 }

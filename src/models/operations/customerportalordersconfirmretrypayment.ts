@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomerOrderConfirmPayment,
-  CustomerOrderConfirmPayment$inboundSchema,
   CustomerOrderConfirmPayment$Outbound,
   CustomerOrderConfirmPayment$outboundSchema,
 } from "../components/customerorderconfirmpayment.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalOrdersConfirmRetryPaymentSecurity = {
   customerSession: string;
@@ -25,20 +21,6 @@ export type CustomerPortalOrdersConfirmRetryPaymentRequest = {
   id: string;
   customerOrderConfirmPayment: CustomerOrderConfirmPayment;
 };
-
-/** @internal */
-export const CustomerPortalOrdersConfirmRetryPaymentSecurity$inboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersConfirmRetryPaymentSecurity,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    customer_session: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "customer_session": "customerSession",
-    });
-  });
 
 /** @internal */
 export type CustomerPortalOrdersConfirmRetryPaymentSecurity$Outbound = {
@@ -59,22 +41,6 @@ export const CustomerPortalOrdersConfirmRetryPaymentSecurity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersConfirmRetryPaymentSecurity$ {
-  /** @deprecated use `CustomerPortalOrdersConfirmRetryPaymentSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersConfirmRetryPaymentSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersConfirmRetryPaymentSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersConfirmRetryPaymentSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersConfirmRetryPaymentSecurity$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalOrdersConfirmRetryPaymentSecurity$Outbound;
-}
-
 export function customerPortalOrdersConfirmRetryPaymentSecurityToJSON(
   customerPortalOrdersConfirmRetryPaymentSecurity:
     CustomerPortalOrdersConfirmRetryPaymentSecurity,
@@ -85,37 +51,6 @@ export function customerPortalOrdersConfirmRetryPaymentSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalOrdersConfirmRetryPaymentSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalOrdersConfirmRetryPaymentSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersConfirmRetryPaymentSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalOrdersConfirmRetryPaymentSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalOrdersConfirmRetryPaymentRequest$inboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersConfirmRetryPaymentRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.string(),
-    CustomerOrderConfirmPayment: CustomerOrderConfirmPayment$inboundSchema,
-  }).transform((v) => {
-    return remap$(v, {
-      "CustomerOrderConfirmPayment": "customerOrderConfirmPayment",
-    });
-  });
 
 /** @internal */
 export type CustomerPortalOrdersConfirmRetryPaymentRequest$Outbound = {
@@ -138,22 +73,6 @@ export const CustomerPortalOrdersConfirmRetryPaymentRequest$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersConfirmRetryPaymentRequest$ {
-  /** @deprecated use `CustomerPortalOrdersConfirmRetryPaymentRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersConfirmRetryPaymentRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersConfirmRetryPaymentRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersConfirmRetryPaymentRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersConfirmRetryPaymentRequest$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalOrdersConfirmRetryPaymentRequest$Outbound;
-}
-
 export function customerPortalOrdersConfirmRetryPaymentRequestToJSON(
   customerPortalOrdersConfirmRetryPaymentRequest:
     CustomerPortalOrdersConfirmRetryPaymentRequest,
@@ -162,21 +81,5 @@ export function customerPortalOrdersConfirmRetryPaymentRequestToJSON(
     CustomerPortalOrdersConfirmRetryPaymentRequest$outboundSchema.parse(
       customerPortalOrdersConfirmRetryPaymentRequest,
     ),
-  );
-}
-
-export function customerPortalOrdersConfirmRetryPaymentRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalOrdersConfirmRetryPaymentRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersConfirmRetryPaymentRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalOrdersConfirmRetryPaymentRequest' from JSON`,
   );
 }

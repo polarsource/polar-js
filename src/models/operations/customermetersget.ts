@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerMetersGetRequest = {
   /**
@@ -13,15 +10,6 @@ export type CustomerMetersGetRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const CustomerMetersGetRequest$inboundSchema: z.ZodType<
-  CustomerMetersGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type CustomerMetersGetRequest$Outbound = {
@@ -37,33 +25,10 @@ export const CustomerMetersGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerMetersGetRequest$ {
-  /** @deprecated use `CustomerMetersGetRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomerMetersGetRequest$inboundSchema;
-  /** @deprecated use `CustomerMetersGetRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomerMetersGetRequest$outboundSchema;
-  /** @deprecated use `CustomerMetersGetRequest$Outbound` instead. */
-  export type Outbound = CustomerMetersGetRequest$Outbound;
-}
-
 export function customerMetersGetRequestToJSON(
   customerMetersGetRequest: CustomerMetersGetRequest,
 ): string {
   return JSON.stringify(
     CustomerMetersGetRequest$outboundSchema.parse(customerMetersGetRequest),
-  );
-}
-
-export function customerMetersGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerMetersGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerMetersGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerMetersGetRequest' from JSON`,
   );
 }

@@ -18,22 +18,6 @@ export const ProductSortProperty = {
 export type ProductSortProperty = ClosedEnum<typeof ProductSortProperty>;
 
 /** @internal */
-export const ProductSortProperty$inboundSchema: z.ZodNativeEnum<
-  typeof ProductSortProperty
-> = z.nativeEnum(ProductSortProperty);
-
-/** @internal */
 export const ProductSortProperty$outboundSchema: z.ZodNativeEnum<
   typeof ProductSortProperty
-> = ProductSortProperty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductSortProperty$ {
-  /** @deprecated use `ProductSortProperty$inboundSchema` instead. */
-  export const inboundSchema = ProductSortProperty$inboundSchema;
-  /** @deprecated use `ProductSortProperty$outboundSchema` instead. */
-  export const outboundSchema = ProductSortProperty$outboundSchema;
-}
+> = z.nativeEnum(ProductSortProperty);

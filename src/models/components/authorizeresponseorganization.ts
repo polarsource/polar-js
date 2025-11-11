@@ -10,16 +10,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AuthorizeOrganization,
   AuthorizeOrganization$inboundSchema,
-  AuthorizeOrganization$Outbound,
-  AuthorizeOrganization$outboundSchema,
 } from "./authorizeorganization.js";
 import {
   OAuth2ClientPublic,
   OAuth2ClientPublic$inboundSchema,
-  OAuth2ClientPublic$Outbound,
-  OAuth2ClientPublic$outboundSchema,
 } from "./oauth2clientpublic.js";
-import { Scope, Scope$inboundSchema, Scope$outboundSchema } from "./scope.js";
+import { Scope, Scope$inboundSchema } from "./scope.js";
 
 export type AuthorizeResponseOrganization = {
   client: OAuth2ClientPublic;
@@ -45,55 +41,6 @@ export const AuthorizeResponseOrganization$inboundSchema: z.ZodType<
     "sub_type": "subType",
   });
 });
-
-/** @internal */
-export type AuthorizeResponseOrganization$Outbound = {
-  client: OAuth2ClientPublic$Outbound;
-  sub_type: "organization";
-  sub: AuthorizeOrganization$Outbound | null;
-  scopes: Array<string>;
-  organizations: Array<AuthorizeOrganization$Outbound>;
-};
-
-/** @internal */
-export const AuthorizeResponseOrganization$outboundSchema: z.ZodType<
-  AuthorizeResponseOrganization$Outbound,
-  z.ZodTypeDef,
-  AuthorizeResponseOrganization
-> = z.object({
-  client: OAuth2ClientPublic$outboundSchema,
-  subType: z.literal("organization"),
-  sub: z.nullable(AuthorizeOrganization$outboundSchema),
-  scopes: z.array(Scope$outboundSchema),
-  organizations: z.array(AuthorizeOrganization$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    subType: "sub_type",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizeResponseOrganization$ {
-  /** @deprecated use `AuthorizeResponseOrganization$inboundSchema` instead. */
-  export const inboundSchema = AuthorizeResponseOrganization$inboundSchema;
-  /** @deprecated use `AuthorizeResponseOrganization$outboundSchema` instead. */
-  export const outboundSchema = AuthorizeResponseOrganization$outboundSchema;
-  /** @deprecated use `AuthorizeResponseOrganization$Outbound` instead. */
-  export type Outbound = AuthorizeResponseOrganization$Outbound;
-}
-
-export function authorizeResponseOrganizationToJSON(
-  authorizeResponseOrganization: AuthorizeResponseOrganization,
-): string {
-  return JSON.stringify(
-    AuthorizeResponseOrganization$outboundSchema.parse(
-      authorizeResponseOrganization,
-    ),
-  );
-}
 
 export function authorizeResponseOrganizationFromJSON(
   jsonString: string,

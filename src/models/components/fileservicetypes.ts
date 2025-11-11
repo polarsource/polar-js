@@ -16,19 +16,3 @@ export type FileServiceTypes = ClosedEnum<typeof FileServiceTypes>;
 export const FileServiceTypes$inboundSchema: z.ZodNativeEnum<
   typeof FileServiceTypes
 > = z.nativeEnum(FileServiceTypes);
-
-/** @internal */
-export const FileServiceTypes$outboundSchema: z.ZodNativeEnum<
-  typeof FileServiceTypes
-> = FileServiceTypes$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FileServiceTypes$ {
-  /** @deprecated use `FileServiceTypes$inboundSchema` instead. */
-  export const inboundSchema = FileServiceTypes$inboundSchema;
-  /** @deprecated use `FileServiceTypes$outboundSchema` instead. */
-  export const outboundSchema = FileServiceTypes$outboundSchema;
-}

@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldTextProperties,
-  CustomFieldTextProperties$inboundSchema,
   CustomFieldTextProperties$Outbound,
   CustomFieldTextProperties$outboundSchema,
 } from "./customfieldtextproperties.js";
@@ -53,13 +49,6 @@ export type CustomFieldCreateText = {
 };
 
 /** @internal */
-export const CustomFieldCreateTextMetadata$inboundSchema: z.ZodType<
-  CustomFieldCreateTextMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type CustomFieldCreateTextMetadata$Outbound =
   | string
   | number
@@ -73,19 +62,6 @@ export const CustomFieldCreateTextMetadata$outboundSchema: z.ZodType<
   CustomFieldCreateTextMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateTextMetadata$ {
-  /** @deprecated use `CustomFieldCreateTextMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateTextMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldCreateTextMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateTextMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldCreateTextMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldCreateTextMetadata$Outbound;
-}
-
 export function customFieldCreateTextMetadataToJSON(
   customFieldCreateTextMetadata: CustomFieldCreateTextMetadata,
 ): string {
@@ -95,36 +71,6 @@ export function customFieldCreateTextMetadataToJSON(
     ),
   );
 }
-
-export function customFieldCreateTextMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldCreateTextMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldCreateTextMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldCreateTextMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomFieldCreateText$inboundSchema: z.ZodType<
-  CustomFieldCreateText,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  type: z.literal("text"),
-  slug: z.string(),
-  name: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  properties: CustomFieldTextProperties$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type CustomFieldCreateText$Outbound = {
@@ -156,33 +102,10 @@ export const CustomFieldCreateText$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateText$ {
-  /** @deprecated use `CustomFieldCreateText$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateText$inboundSchema;
-  /** @deprecated use `CustomFieldCreateText$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateText$outboundSchema;
-  /** @deprecated use `CustomFieldCreateText$Outbound` instead. */
-  export type Outbound = CustomFieldCreateText$Outbound;
-}
-
 export function customFieldCreateTextToJSON(
   customFieldCreateText: CustomFieldCreateText,
 ): string {
   return JSON.stringify(
     CustomFieldCreateText$outboundSchema.parse(customFieldCreateText),
-  );
-}
-
-export function customFieldCreateTextFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldCreateText, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldCreateText$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldCreateText' from JSON`,
   );
 }

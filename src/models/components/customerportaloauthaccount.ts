@@ -28,48 +28,6 @@ export const CustomerPortalOAuthAccount$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type CustomerPortalOAuthAccount$Outbound = {
-  account_id: string;
-  account_username: string | null;
-};
-
-/** @internal */
-export const CustomerPortalOAuthAccount$outboundSchema: z.ZodType<
-  CustomerPortalOAuthAccount$Outbound,
-  z.ZodTypeDef,
-  CustomerPortalOAuthAccount
-> = z.object({
-  accountId: z.string(),
-  accountUsername: z.nullable(z.string()),
-}).transform((v) => {
-  return remap$(v, {
-    accountId: "account_id",
-    accountUsername: "account_username",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOAuthAccount$ {
-  /** @deprecated use `CustomerPortalOAuthAccount$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalOAuthAccount$inboundSchema;
-  /** @deprecated use `CustomerPortalOAuthAccount$outboundSchema` instead. */
-  export const outboundSchema = CustomerPortalOAuthAccount$outboundSchema;
-  /** @deprecated use `CustomerPortalOAuthAccount$Outbound` instead. */
-  export type Outbound = CustomerPortalOAuthAccount$Outbound;
-}
-
-export function customerPortalOAuthAccountToJSON(
-  customerPortalOAuthAccount: CustomerPortalOAuthAccount,
-): string {
-  return JSON.stringify(
-    CustomerPortalOAuthAccount$outboundSchema.parse(customerPortalOAuthAccount),
-  );
-}
-
 export function customerPortalOAuthAccountFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerPortalOAuthAccount, SDKValidationError> {

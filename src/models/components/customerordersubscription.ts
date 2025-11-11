@@ -10,17 +10,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerCancellationReason,
   CustomerCancellationReason$inboundSchema,
-  CustomerCancellationReason$outboundSchema,
 } from "./customercancellationreason.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
-  SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
 import {
   SubscriptionStatus,
   SubscriptionStatus$inboundSchema,
-  SubscriptionStatus$outboundSchema,
 } from "./subscriptionstatus.js";
 
 export type CustomerOrderSubscription = {
@@ -180,111 +177,6 @@ export const CustomerOrderSubscription$inboundSchema: z.ZodType<
     "customer_cancellation_comment": "customerCancellationComment",
   });
 });
-
-/** @internal */
-export type CustomerOrderSubscription$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  amount: number;
-  currency: string;
-  recurring_interval: string;
-  recurring_interval_count: number;
-  status: string;
-  current_period_start: string;
-  current_period_end: string | null;
-  trial_start: string | null;
-  trial_end: string | null;
-  cancel_at_period_end: boolean;
-  canceled_at: string | null;
-  started_at: string | null;
-  ends_at: string | null;
-  ended_at: string | null;
-  customer_id: string;
-  product_id: string;
-  discount_id: string | null;
-  checkout_id: string | null;
-  seats?: number | null | undefined;
-  customer_cancellation_reason: string | null;
-  customer_cancellation_comment: string | null;
-};
-
-/** @internal */
-export const CustomerOrderSubscription$outboundSchema: z.ZodType<
-  CustomerOrderSubscription$Outbound,
-  z.ZodTypeDef,
-  CustomerOrderSubscription
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  amount: z.number().int(),
-  currency: z.string(),
-  recurringInterval: SubscriptionRecurringInterval$outboundSchema,
-  recurringIntervalCount: z.number().int(),
-  status: SubscriptionStatus$outboundSchema,
-  currentPeriodStart: z.date().transform(v => v.toISOString()),
-  currentPeriodEnd: z.nullable(z.date().transform(v => v.toISOString())),
-  trialStart: z.nullable(z.date().transform(v => v.toISOString())),
-  trialEnd: z.nullable(z.date().transform(v => v.toISOString())),
-  cancelAtPeriodEnd: z.boolean(),
-  canceledAt: z.nullable(z.date().transform(v => v.toISOString())),
-  startedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  endsAt: z.nullable(z.date().transform(v => v.toISOString())),
-  endedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  customerId: z.string(),
-  productId: z.string(),
-  discountId: z.nullable(z.string()),
-  checkoutId: z.nullable(z.string()),
-  seats: z.nullable(z.number().int()).optional(),
-  customerCancellationReason: z.nullable(
-    CustomerCancellationReason$outboundSchema,
-  ),
-  customerCancellationComment: z.nullable(z.string()),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    recurringInterval: "recurring_interval",
-    recurringIntervalCount: "recurring_interval_count",
-    currentPeriodStart: "current_period_start",
-    currentPeriodEnd: "current_period_end",
-    trialStart: "trial_start",
-    trialEnd: "trial_end",
-    cancelAtPeriodEnd: "cancel_at_period_end",
-    canceledAt: "canceled_at",
-    startedAt: "started_at",
-    endsAt: "ends_at",
-    endedAt: "ended_at",
-    customerId: "customer_id",
-    productId: "product_id",
-    discountId: "discount_id",
-    checkoutId: "checkout_id",
-    customerCancellationReason: "customer_cancellation_reason",
-    customerCancellationComment: "customer_cancellation_comment",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerOrderSubscription$ {
-  /** @deprecated use `CustomerOrderSubscription$inboundSchema` instead. */
-  export const inboundSchema = CustomerOrderSubscription$inboundSchema;
-  /** @deprecated use `CustomerOrderSubscription$outboundSchema` instead. */
-  export const outboundSchema = CustomerOrderSubscription$outboundSchema;
-  /** @deprecated use `CustomerOrderSubscription$Outbound` instead. */
-  export type Outbound = CustomerOrderSubscription$Outbound;
-}
-
-export function customerOrderSubscriptionToJSON(
-  customerOrderSubscription: CustomerOrderSubscription,
-): string {
-  return JSON.stringify(
-    CustomerOrderSubscription$outboundSchema.parse(customerOrderSubscription),
-  );
-}
 
 export function customerOrderSubscriptionFromJSON(
   jsonString: string,

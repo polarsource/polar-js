@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   WebhookEndpointUpdate,
-  WebhookEndpointUpdate$inboundSchema,
   WebhookEndpointUpdate$Outbound,
   WebhookEndpointUpdate$outboundSchema,
 } from "../components/webhookendpointupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type WebhooksUpdateWebhookEndpointRequest = {
   /**
@@ -21,20 +17,6 @@ export type WebhooksUpdateWebhookEndpointRequest = {
   id: string;
   webhookEndpointUpdate: WebhookEndpointUpdate;
 };
-
-/** @internal */
-export const WebhooksUpdateWebhookEndpointRequest$inboundSchema: z.ZodType<
-  WebhooksUpdateWebhookEndpointRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  WebhookEndpointUpdate: WebhookEndpointUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "WebhookEndpointUpdate": "webhookEndpointUpdate",
-  });
-});
 
 /** @internal */
 export type WebhooksUpdateWebhookEndpointRequest$Outbound = {
@@ -56,21 +38,6 @@ export const WebhooksUpdateWebhookEndpointRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhooksUpdateWebhookEndpointRequest$ {
-  /** @deprecated use `WebhooksUpdateWebhookEndpointRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    WebhooksUpdateWebhookEndpointRequest$inboundSchema;
-  /** @deprecated use `WebhooksUpdateWebhookEndpointRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhooksUpdateWebhookEndpointRequest$outboundSchema;
-  /** @deprecated use `WebhooksUpdateWebhookEndpointRequest$Outbound` instead. */
-  export type Outbound = WebhooksUpdateWebhookEndpointRequest$Outbound;
-}
-
 export function webhooksUpdateWebhookEndpointRequestToJSON(
   webhooksUpdateWebhookEndpointRequest: WebhooksUpdateWebhookEndpointRequest,
 ): string {
@@ -78,16 +45,5 @@ export function webhooksUpdateWebhookEndpointRequestToJSON(
     WebhooksUpdateWebhookEndpointRequest$outboundSchema.parse(
       webhooksUpdateWebhookEndpointRequest,
     ),
-  );
-}
-
-export function webhooksUpdateWebhookEndpointRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<WebhooksUpdateWebhookEndpointRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      WebhooksUpdateWebhookEndpointRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WebhooksUpdateWebhookEndpointRequest' from JSON`,
   );
 }

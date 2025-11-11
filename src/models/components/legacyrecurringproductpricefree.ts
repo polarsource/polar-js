@@ -77,7 +77,6 @@ export const LegacyRecurringProductPriceFree$inboundSchema: z.ZodType<
     "recurring_interval": "recurringInterval",
   });
 });
-
 /** @internal */
 export type LegacyRecurringProductPriceFree$Outbound = {
   created_at: string;
@@ -117,19 +116,6 @@ export const LegacyRecurringProductPriceFree$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LegacyRecurringProductPriceFree$ {
-  /** @deprecated use `LegacyRecurringProductPriceFree$inboundSchema` instead. */
-  export const inboundSchema = LegacyRecurringProductPriceFree$inboundSchema;
-  /** @deprecated use `LegacyRecurringProductPriceFree$outboundSchema` instead. */
-  export const outboundSchema = LegacyRecurringProductPriceFree$outboundSchema;
-  /** @deprecated use `LegacyRecurringProductPriceFree$Outbound` instead. */
-  export type Outbound = LegacyRecurringProductPriceFree$Outbound;
-}
-
 export function legacyRecurringProductPriceFreeToJSON(
   legacyRecurringProductPriceFree: LegacyRecurringProductPriceFree,
 ): string {
@@ -139,7 +125,6 @@ export function legacyRecurringProductPriceFreeToJSON(
     ),
   );
 }
-
 export function legacyRecurringProductPriceFreeFromJSON(
   jsonString: string,
 ): SafeParseResult<LegacyRecurringProductPriceFree, SDKValidationError> {

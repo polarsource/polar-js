@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type WebhooksDeleteWebhookEndpointRequest = {
   /**
@@ -13,15 +10,6 @@ export type WebhooksDeleteWebhookEndpointRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const WebhooksDeleteWebhookEndpointRequest$inboundSchema: z.ZodType<
-  WebhooksDeleteWebhookEndpointRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type WebhooksDeleteWebhookEndpointRequest$Outbound = {
@@ -37,21 +25,6 @@ export const WebhooksDeleteWebhookEndpointRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhooksDeleteWebhookEndpointRequest$ {
-  /** @deprecated use `WebhooksDeleteWebhookEndpointRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    WebhooksDeleteWebhookEndpointRequest$inboundSchema;
-  /** @deprecated use `WebhooksDeleteWebhookEndpointRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhooksDeleteWebhookEndpointRequest$outboundSchema;
-  /** @deprecated use `WebhooksDeleteWebhookEndpointRequest$Outbound` instead. */
-  export type Outbound = WebhooksDeleteWebhookEndpointRequest$Outbound;
-}
-
 export function webhooksDeleteWebhookEndpointRequestToJSON(
   webhooksDeleteWebhookEndpointRequest: WebhooksDeleteWebhookEndpointRequest,
 ): string {
@@ -59,16 +32,5 @@ export function webhooksDeleteWebhookEndpointRequestToJSON(
     WebhooksDeleteWebhookEndpointRequest$outboundSchema.parse(
       webhooksDeleteWebhookEndpointRequest,
     ),
-  );
-}
-
-export function webhooksDeleteWebhookEndpointRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<WebhooksDeleteWebhookEndpointRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      WebhooksDeleteWebhookEndpointRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WebhooksDeleteWebhookEndpointRequest' from JSON`,
   );
 }

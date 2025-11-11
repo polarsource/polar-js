@@ -21,7 +21,6 @@ export const UniqueAggregation$inboundSchema: z.ZodType<
   func: z.literal("unique").default("unique"),
   property: z.string(),
 });
-
 /** @internal */
 export type UniqueAggregation$Outbound = {
   func: "unique";
@@ -38,19 +37,6 @@ export const UniqueAggregation$outboundSchema: z.ZodType<
   property: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UniqueAggregation$ {
-  /** @deprecated use `UniqueAggregation$inboundSchema` instead. */
-  export const inboundSchema = UniqueAggregation$inboundSchema;
-  /** @deprecated use `UniqueAggregation$outboundSchema` instead. */
-  export const outboundSchema = UniqueAggregation$outboundSchema;
-  /** @deprecated use `UniqueAggregation$Outbound` instead. */
-  export type Outbound = UniqueAggregation$Outbound;
-}
-
 export function uniqueAggregationToJSON(
   uniqueAggregation: UniqueAggregation,
 ): string {
@@ -58,7 +44,6 @@ export function uniqueAggregationToJSON(
     UniqueAggregation$outboundSchema.parse(uniqueAggregation),
   );
 }
-
 export function uniqueAggregationFromJSON(
   jsonString: string,
 ): SafeParseResult<UniqueAggregation, SDKValidationError> {

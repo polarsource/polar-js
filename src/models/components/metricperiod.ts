@@ -139,33 +139,6 @@ export type MetricPeriod = {
 export const Orders$inboundSchema: z.ZodType<Orders, z.ZodTypeDef, unknown> = z
   .union([z.number().int(), z.number()]);
 
-/** @internal */
-export type Orders$Outbound = number | number;
-
-/** @internal */
-export const Orders$outboundSchema: z.ZodType<
-  Orders$Outbound,
-  z.ZodTypeDef,
-  Orders
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Orders$ {
-  /** @deprecated use `Orders$inboundSchema` instead. */
-  export const inboundSchema = Orders$inboundSchema;
-  /** @deprecated use `Orders$outboundSchema` instead. */
-  export const outboundSchema = Orders$outboundSchema;
-  /** @deprecated use `Orders$Outbound` instead. */
-  export type Outbound = Orders$Outbound;
-}
-
-export function ordersToJSON(orders: Orders): string {
-  return JSON.stringify(Orders$outboundSchema.parse(orders));
-}
-
 export function ordersFromJSON(
   jsonString: string,
 ): SafeParseResult<Orders, SDKValidationError> {
@@ -179,33 +152,6 @@ export function ordersFromJSON(
 /** @internal */
 export const Revenue$inboundSchema: z.ZodType<Revenue, z.ZodTypeDef, unknown> =
   z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type Revenue$Outbound = number | number;
-
-/** @internal */
-export const Revenue$outboundSchema: z.ZodType<
-  Revenue$Outbound,
-  z.ZodTypeDef,
-  Revenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Revenue$ {
-  /** @deprecated use `Revenue$inboundSchema` instead. */
-  export const inboundSchema = Revenue$inboundSchema;
-  /** @deprecated use `Revenue$outboundSchema` instead. */
-  export const outboundSchema = Revenue$outboundSchema;
-  /** @deprecated use `Revenue$Outbound` instead. */
-  export type Outbound = Revenue$Outbound;
-}
-
-export function revenueToJSON(revenue: Revenue): string {
-  return JSON.stringify(Revenue$outboundSchema.parse(revenue));
-}
 
 export function revenueFromJSON(
   jsonString: string,
@@ -224,33 +170,6 @@ export const NetRevenue$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type NetRevenue$Outbound = number | number;
-
-/** @internal */
-export const NetRevenue$outboundSchema: z.ZodType<
-  NetRevenue$Outbound,
-  z.ZodTypeDef,
-  NetRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NetRevenue$ {
-  /** @deprecated use `NetRevenue$inboundSchema` instead. */
-  export const inboundSchema = NetRevenue$inboundSchema;
-  /** @deprecated use `NetRevenue$outboundSchema` instead. */
-  export const outboundSchema = NetRevenue$outboundSchema;
-  /** @deprecated use `NetRevenue$Outbound` instead. */
-  export type Outbound = NetRevenue$Outbound;
-}
-
-export function netRevenueToJSON(netRevenue: NetRevenue): string {
-  return JSON.stringify(NetRevenue$outboundSchema.parse(netRevenue));
-}
-
 export function netRevenueFromJSON(
   jsonString: string,
 ): SafeParseResult<NetRevenue, SDKValidationError> {
@@ -267,37 +186,6 @@ export const CumulativeRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type CumulativeRevenue$Outbound = number | number;
-
-/** @internal */
-export const CumulativeRevenue$outboundSchema: z.ZodType<
-  CumulativeRevenue$Outbound,
-  z.ZodTypeDef,
-  CumulativeRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CumulativeRevenue$ {
-  /** @deprecated use `CumulativeRevenue$inboundSchema` instead. */
-  export const inboundSchema = CumulativeRevenue$inboundSchema;
-  /** @deprecated use `CumulativeRevenue$outboundSchema` instead. */
-  export const outboundSchema = CumulativeRevenue$outboundSchema;
-  /** @deprecated use `CumulativeRevenue$Outbound` instead. */
-  export type Outbound = CumulativeRevenue$Outbound;
-}
-
-export function cumulativeRevenueToJSON(
-  cumulativeRevenue: CumulativeRevenue,
-): string {
-  return JSON.stringify(
-    CumulativeRevenue$outboundSchema.parse(cumulativeRevenue),
-  );
-}
 
 export function cumulativeRevenueFromJSON(
   jsonString: string,
@@ -316,37 +204,6 @@ export const NetCumulativeRevenue$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type NetCumulativeRevenue$Outbound = number | number;
-
-/** @internal */
-export const NetCumulativeRevenue$outboundSchema: z.ZodType<
-  NetCumulativeRevenue$Outbound,
-  z.ZodTypeDef,
-  NetCumulativeRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NetCumulativeRevenue$ {
-  /** @deprecated use `NetCumulativeRevenue$inboundSchema` instead. */
-  export const inboundSchema = NetCumulativeRevenue$inboundSchema;
-  /** @deprecated use `NetCumulativeRevenue$outboundSchema` instead. */
-  export const outboundSchema = NetCumulativeRevenue$outboundSchema;
-  /** @deprecated use `NetCumulativeRevenue$Outbound` instead. */
-  export type Outbound = NetCumulativeRevenue$Outbound;
-}
-
-export function netCumulativeRevenueToJSON(
-  netCumulativeRevenue: NetCumulativeRevenue,
-): string {
-  return JSON.stringify(
-    NetCumulativeRevenue$outboundSchema.parse(netCumulativeRevenue),
-  );
-}
-
 export function netCumulativeRevenueFromJSON(
   jsonString: string,
 ): SafeParseResult<NetCumulativeRevenue, SDKValidationError> {
@@ -360,33 +217,6 @@ export function netCumulativeRevenueFromJSON(
 /** @internal */
 export const Costs$inboundSchema: z.ZodType<Costs, z.ZodTypeDef, unknown> = z
   .union([z.number().int(), z.number()]);
-
-/** @internal */
-export type Costs$Outbound = number | number;
-
-/** @internal */
-export const Costs$outboundSchema: z.ZodType<
-  Costs$Outbound,
-  z.ZodTypeDef,
-  Costs
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Costs$ {
-  /** @deprecated use `Costs$inboundSchema` instead. */
-  export const inboundSchema = Costs$inboundSchema;
-  /** @deprecated use `Costs$outboundSchema` instead. */
-  export const outboundSchema = Costs$outboundSchema;
-  /** @deprecated use `Costs$Outbound` instead. */
-  export type Outbound = Costs$Outbound;
-}
-
-export function costsToJSON(costs: Costs): string {
-  return JSON.stringify(Costs$outboundSchema.parse(costs));
-}
 
 export function costsFromJSON(
   jsonString: string,
@@ -405,35 +235,6 @@ export const CumulativeCosts$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type CumulativeCosts$Outbound = number | number;
-
-/** @internal */
-export const CumulativeCosts$outboundSchema: z.ZodType<
-  CumulativeCosts$Outbound,
-  z.ZodTypeDef,
-  CumulativeCosts
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CumulativeCosts$ {
-  /** @deprecated use `CumulativeCosts$inboundSchema` instead. */
-  export const inboundSchema = CumulativeCosts$inboundSchema;
-  /** @deprecated use `CumulativeCosts$outboundSchema` instead. */
-  export const outboundSchema = CumulativeCosts$outboundSchema;
-  /** @deprecated use `CumulativeCosts$Outbound` instead. */
-  export type Outbound = CumulativeCosts$Outbound;
-}
-
-export function cumulativeCostsToJSON(
-  cumulativeCosts: CumulativeCosts,
-): string {
-  return JSON.stringify(CumulativeCosts$outboundSchema.parse(cumulativeCosts));
-}
-
 export function cumulativeCostsFromJSON(
   jsonString: string,
 ): SafeParseResult<CumulativeCosts, SDKValidationError> {
@@ -450,37 +251,6 @@ export const AverageOrderValue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type AverageOrderValue$Outbound = number | number;
-
-/** @internal */
-export const AverageOrderValue$outboundSchema: z.ZodType<
-  AverageOrderValue$Outbound,
-  z.ZodTypeDef,
-  AverageOrderValue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AverageOrderValue$ {
-  /** @deprecated use `AverageOrderValue$inboundSchema` instead. */
-  export const inboundSchema = AverageOrderValue$inboundSchema;
-  /** @deprecated use `AverageOrderValue$outboundSchema` instead. */
-  export const outboundSchema = AverageOrderValue$outboundSchema;
-  /** @deprecated use `AverageOrderValue$Outbound` instead. */
-  export type Outbound = AverageOrderValue$Outbound;
-}
-
-export function averageOrderValueToJSON(
-  averageOrderValue: AverageOrderValue,
-): string {
-  return JSON.stringify(
-    AverageOrderValue$outboundSchema.parse(averageOrderValue),
-  );
-}
 
 export function averageOrderValueFromJSON(
   jsonString: string,
@@ -499,37 +269,6 @@ export const NetAverageOrderValue$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type NetAverageOrderValue$Outbound = number | number;
-
-/** @internal */
-export const NetAverageOrderValue$outboundSchema: z.ZodType<
-  NetAverageOrderValue$Outbound,
-  z.ZodTypeDef,
-  NetAverageOrderValue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NetAverageOrderValue$ {
-  /** @deprecated use `NetAverageOrderValue$inboundSchema` instead. */
-  export const inboundSchema = NetAverageOrderValue$inboundSchema;
-  /** @deprecated use `NetAverageOrderValue$outboundSchema` instead. */
-  export const outboundSchema = NetAverageOrderValue$outboundSchema;
-  /** @deprecated use `NetAverageOrderValue$Outbound` instead. */
-  export type Outbound = NetAverageOrderValue$Outbound;
-}
-
-export function netAverageOrderValueToJSON(
-  netAverageOrderValue: NetAverageOrderValue,
-): string {
-  return JSON.stringify(
-    NetAverageOrderValue$outboundSchema.parse(netAverageOrderValue),
-  );
-}
-
 export function netAverageOrderValueFromJSON(
   jsonString: string,
 ): SafeParseResult<NetAverageOrderValue, SDKValidationError> {
@@ -546,37 +285,6 @@ export const AverageRevenuePerUser$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type AverageRevenuePerUser$Outbound = number | number;
-
-/** @internal */
-export const AverageRevenuePerUser$outboundSchema: z.ZodType<
-  AverageRevenuePerUser$Outbound,
-  z.ZodTypeDef,
-  AverageRevenuePerUser
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AverageRevenuePerUser$ {
-  /** @deprecated use `AverageRevenuePerUser$inboundSchema` instead. */
-  export const inboundSchema = AverageRevenuePerUser$inboundSchema;
-  /** @deprecated use `AverageRevenuePerUser$outboundSchema` instead. */
-  export const outboundSchema = AverageRevenuePerUser$outboundSchema;
-  /** @deprecated use `AverageRevenuePerUser$Outbound` instead. */
-  export type Outbound = AverageRevenuePerUser$Outbound;
-}
-
-export function averageRevenuePerUserToJSON(
-  averageRevenuePerUser: AverageRevenuePerUser,
-): string {
-  return JSON.stringify(
-    AverageRevenuePerUser$outboundSchema.parse(averageRevenuePerUser),
-  );
-}
 
 export function averageRevenuePerUserFromJSON(
   jsonString: string,
@@ -595,33 +303,6 @@ export const CostPerUser$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type CostPerUser$Outbound = number | number;
-
-/** @internal */
-export const CostPerUser$outboundSchema: z.ZodType<
-  CostPerUser$Outbound,
-  z.ZodTypeDef,
-  CostPerUser
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CostPerUser$ {
-  /** @deprecated use `CostPerUser$inboundSchema` instead. */
-  export const inboundSchema = CostPerUser$inboundSchema;
-  /** @deprecated use `CostPerUser$outboundSchema` instead. */
-  export const outboundSchema = CostPerUser$outboundSchema;
-  /** @deprecated use `CostPerUser$Outbound` instead. */
-  export type Outbound = CostPerUser$Outbound;
-}
-
-export function costPerUserToJSON(costPerUser: CostPerUser): string {
-  return JSON.stringify(CostPerUser$outboundSchema.parse(costPerUser));
-}
-
 export function costPerUserFromJSON(
   jsonString: string,
 ): SafeParseResult<CostPerUser, SDKValidationError> {
@@ -638,37 +319,6 @@ export const ActiveUserByEvent$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type ActiveUserByEvent$Outbound = number | number;
-
-/** @internal */
-export const ActiveUserByEvent$outboundSchema: z.ZodType<
-  ActiveUserByEvent$Outbound,
-  z.ZodTypeDef,
-  ActiveUserByEvent
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ActiveUserByEvent$ {
-  /** @deprecated use `ActiveUserByEvent$inboundSchema` instead. */
-  export const inboundSchema = ActiveUserByEvent$inboundSchema;
-  /** @deprecated use `ActiveUserByEvent$outboundSchema` instead. */
-  export const outboundSchema = ActiveUserByEvent$outboundSchema;
-  /** @deprecated use `ActiveUserByEvent$Outbound` instead. */
-  export type Outbound = ActiveUserByEvent$Outbound;
-}
-
-export function activeUserByEventToJSON(
-  activeUserByEvent: ActiveUserByEvent,
-): string {
-  return JSON.stringify(
-    ActiveUserByEvent$outboundSchema.parse(activeUserByEvent),
-  );
-}
 
 export function activeUserByEventFromJSON(
   jsonString: string,
@@ -687,35 +337,6 @@ export const OneTimeProducts$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type OneTimeProducts$Outbound = number | number;
-
-/** @internal */
-export const OneTimeProducts$outboundSchema: z.ZodType<
-  OneTimeProducts$Outbound,
-  z.ZodTypeDef,
-  OneTimeProducts
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OneTimeProducts$ {
-  /** @deprecated use `OneTimeProducts$inboundSchema` instead. */
-  export const inboundSchema = OneTimeProducts$inboundSchema;
-  /** @deprecated use `OneTimeProducts$outboundSchema` instead. */
-  export const outboundSchema = OneTimeProducts$outboundSchema;
-  /** @deprecated use `OneTimeProducts$Outbound` instead. */
-  export type Outbound = OneTimeProducts$Outbound;
-}
-
-export function oneTimeProductsToJSON(
-  oneTimeProducts: OneTimeProducts,
-): string {
-  return JSON.stringify(OneTimeProducts$outboundSchema.parse(oneTimeProducts));
-}
-
 export function oneTimeProductsFromJSON(
   jsonString: string,
 ): SafeParseResult<OneTimeProducts, SDKValidationError> {
@@ -732,37 +353,6 @@ export const OneTimeProductsRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type OneTimeProductsRevenue$Outbound = number | number;
-
-/** @internal */
-export const OneTimeProductsRevenue$outboundSchema: z.ZodType<
-  OneTimeProductsRevenue$Outbound,
-  z.ZodTypeDef,
-  OneTimeProductsRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OneTimeProductsRevenue$ {
-  /** @deprecated use `OneTimeProductsRevenue$inboundSchema` instead. */
-  export const inboundSchema = OneTimeProductsRevenue$inboundSchema;
-  /** @deprecated use `OneTimeProductsRevenue$outboundSchema` instead. */
-  export const outboundSchema = OneTimeProductsRevenue$outboundSchema;
-  /** @deprecated use `OneTimeProductsRevenue$Outbound` instead. */
-  export type Outbound = OneTimeProductsRevenue$Outbound;
-}
-
-export function oneTimeProductsRevenueToJSON(
-  oneTimeProductsRevenue: OneTimeProductsRevenue,
-): string {
-  return JSON.stringify(
-    OneTimeProductsRevenue$outboundSchema.parse(oneTimeProductsRevenue),
-  );
-}
 
 export function oneTimeProductsRevenueFromJSON(
   jsonString: string,
@@ -781,37 +371,6 @@ export const OneTimeProductsNetRevenue$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type OneTimeProductsNetRevenue$Outbound = number | number;
-
-/** @internal */
-export const OneTimeProductsNetRevenue$outboundSchema: z.ZodType<
-  OneTimeProductsNetRevenue$Outbound,
-  z.ZodTypeDef,
-  OneTimeProductsNetRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OneTimeProductsNetRevenue$ {
-  /** @deprecated use `OneTimeProductsNetRevenue$inboundSchema` instead. */
-  export const inboundSchema = OneTimeProductsNetRevenue$inboundSchema;
-  /** @deprecated use `OneTimeProductsNetRevenue$outboundSchema` instead. */
-  export const outboundSchema = OneTimeProductsNetRevenue$outboundSchema;
-  /** @deprecated use `OneTimeProductsNetRevenue$Outbound` instead. */
-  export type Outbound = OneTimeProductsNetRevenue$Outbound;
-}
-
-export function oneTimeProductsNetRevenueToJSON(
-  oneTimeProductsNetRevenue: OneTimeProductsNetRevenue,
-): string {
-  return JSON.stringify(
-    OneTimeProductsNetRevenue$outboundSchema.parse(oneTimeProductsNetRevenue),
-  );
-}
-
 export function oneTimeProductsNetRevenueFromJSON(
   jsonString: string,
 ): SafeParseResult<OneTimeProductsNetRevenue, SDKValidationError> {
@@ -828,37 +387,6 @@ export const NewSubscriptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type NewSubscriptions$Outbound = number | number;
-
-/** @internal */
-export const NewSubscriptions$outboundSchema: z.ZodType<
-  NewSubscriptions$Outbound,
-  z.ZodTypeDef,
-  NewSubscriptions
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NewSubscriptions$ {
-  /** @deprecated use `NewSubscriptions$inboundSchema` instead. */
-  export const inboundSchema = NewSubscriptions$inboundSchema;
-  /** @deprecated use `NewSubscriptions$outboundSchema` instead. */
-  export const outboundSchema = NewSubscriptions$outboundSchema;
-  /** @deprecated use `NewSubscriptions$Outbound` instead. */
-  export type Outbound = NewSubscriptions$Outbound;
-}
-
-export function newSubscriptionsToJSON(
-  newSubscriptions: NewSubscriptions,
-): string {
-  return JSON.stringify(
-    NewSubscriptions$outboundSchema.parse(newSubscriptions),
-  );
-}
 
 export function newSubscriptionsFromJSON(
   jsonString: string,
@@ -877,37 +405,6 @@ export const NewSubscriptionsRevenue$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type NewSubscriptionsRevenue$Outbound = number | number;
-
-/** @internal */
-export const NewSubscriptionsRevenue$outboundSchema: z.ZodType<
-  NewSubscriptionsRevenue$Outbound,
-  z.ZodTypeDef,
-  NewSubscriptionsRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NewSubscriptionsRevenue$ {
-  /** @deprecated use `NewSubscriptionsRevenue$inboundSchema` instead. */
-  export const inboundSchema = NewSubscriptionsRevenue$inboundSchema;
-  /** @deprecated use `NewSubscriptionsRevenue$outboundSchema` instead. */
-  export const outboundSchema = NewSubscriptionsRevenue$outboundSchema;
-  /** @deprecated use `NewSubscriptionsRevenue$Outbound` instead. */
-  export type Outbound = NewSubscriptionsRevenue$Outbound;
-}
-
-export function newSubscriptionsRevenueToJSON(
-  newSubscriptionsRevenue: NewSubscriptionsRevenue,
-): string {
-  return JSON.stringify(
-    NewSubscriptionsRevenue$outboundSchema.parse(newSubscriptionsRevenue),
-  );
-}
-
 export function newSubscriptionsRevenueFromJSON(
   jsonString: string,
 ): SafeParseResult<NewSubscriptionsRevenue, SDKValidationError> {
@@ -924,37 +421,6 @@ export const NewSubscriptionsNetRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type NewSubscriptionsNetRevenue$Outbound = number | number;
-
-/** @internal */
-export const NewSubscriptionsNetRevenue$outboundSchema: z.ZodType<
-  NewSubscriptionsNetRevenue$Outbound,
-  z.ZodTypeDef,
-  NewSubscriptionsNetRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NewSubscriptionsNetRevenue$ {
-  /** @deprecated use `NewSubscriptionsNetRevenue$inboundSchema` instead. */
-  export const inboundSchema = NewSubscriptionsNetRevenue$inboundSchema;
-  /** @deprecated use `NewSubscriptionsNetRevenue$outboundSchema` instead. */
-  export const outboundSchema = NewSubscriptionsNetRevenue$outboundSchema;
-  /** @deprecated use `NewSubscriptionsNetRevenue$Outbound` instead. */
-  export type Outbound = NewSubscriptionsNetRevenue$Outbound;
-}
-
-export function newSubscriptionsNetRevenueToJSON(
-  newSubscriptionsNetRevenue: NewSubscriptionsNetRevenue,
-): string {
-  return JSON.stringify(
-    NewSubscriptionsNetRevenue$outboundSchema.parse(newSubscriptionsNetRevenue),
-  );
-}
 
 export function newSubscriptionsNetRevenueFromJSON(
   jsonString: string,
@@ -973,37 +439,6 @@ export const RenewedSubscriptions$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type RenewedSubscriptions$Outbound = number | number;
-
-/** @internal */
-export const RenewedSubscriptions$outboundSchema: z.ZodType<
-  RenewedSubscriptions$Outbound,
-  z.ZodTypeDef,
-  RenewedSubscriptions
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RenewedSubscriptions$ {
-  /** @deprecated use `RenewedSubscriptions$inboundSchema` instead. */
-  export const inboundSchema = RenewedSubscriptions$inboundSchema;
-  /** @deprecated use `RenewedSubscriptions$outboundSchema` instead. */
-  export const outboundSchema = RenewedSubscriptions$outboundSchema;
-  /** @deprecated use `RenewedSubscriptions$Outbound` instead. */
-  export type Outbound = RenewedSubscriptions$Outbound;
-}
-
-export function renewedSubscriptionsToJSON(
-  renewedSubscriptions: RenewedSubscriptions,
-): string {
-  return JSON.stringify(
-    RenewedSubscriptions$outboundSchema.parse(renewedSubscriptions),
-  );
-}
-
 export function renewedSubscriptionsFromJSON(
   jsonString: string,
 ): SafeParseResult<RenewedSubscriptions, SDKValidationError> {
@@ -1020,39 +455,6 @@ export const RenewedSubscriptionsRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type RenewedSubscriptionsRevenue$Outbound = number | number;
-
-/** @internal */
-export const RenewedSubscriptionsRevenue$outboundSchema: z.ZodType<
-  RenewedSubscriptionsRevenue$Outbound,
-  z.ZodTypeDef,
-  RenewedSubscriptionsRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RenewedSubscriptionsRevenue$ {
-  /** @deprecated use `RenewedSubscriptionsRevenue$inboundSchema` instead. */
-  export const inboundSchema = RenewedSubscriptionsRevenue$inboundSchema;
-  /** @deprecated use `RenewedSubscriptionsRevenue$outboundSchema` instead. */
-  export const outboundSchema = RenewedSubscriptionsRevenue$outboundSchema;
-  /** @deprecated use `RenewedSubscriptionsRevenue$Outbound` instead. */
-  export type Outbound = RenewedSubscriptionsRevenue$Outbound;
-}
-
-export function renewedSubscriptionsRevenueToJSON(
-  renewedSubscriptionsRevenue: RenewedSubscriptionsRevenue,
-): string {
-  return JSON.stringify(
-    RenewedSubscriptionsRevenue$outboundSchema.parse(
-      renewedSubscriptionsRevenue,
-    ),
-  );
-}
 
 export function renewedSubscriptionsRevenueFromJSON(
   jsonString: string,
@@ -1071,39 +473,6 @@ export const RenewedSubscriptionsNetRevenue$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type RenewedSubscriptionsNetRevenue$Outbound = number | number;
-
-/** @internal */
-export const RenewedSubscriptionsNetRevenue$outboundSchema: z.ZodType<
-  RenewedSubscriptionsNetRevenue$Outbound,
-  z.ZodTypeDef,
-  RenewedSubscriptionsNetRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RenewedSubscriptionsNetRevenue$ {
-  /** @deprecated use `RenewedSubscriptionsNetRevenue$inboundSchema` instead. */
-  export const inboundSchema = RenewedSubscriptionsNetRevenue$inboundSchema;
-  /** @deprecated use `RenewedSubscriptionsNetRevenue$outboundSchema` instead. */
-  export const outboundSchema = RenewedSubscriptionsNetRevenue$outboundSchema;
-  /** @deprecated use `RenewedSubscriptionsNetRevenue$Outbound` instead. */
-  export type Outbound = RenewedSubscriptionsNetRevenue$Outbound;
-}
-
-export function renewedSubscriptionsNetRevenueToJSON(
-  renewedSubscriptionsNetRevenue: RenewedSubscriptionsNetRevenue,
-): string {
-  return JSON.stringify(
-    RenewedSubscriptionsNetRevenue$outboundSchema.parse(
-      renewedSubscriptionsNetRevenue,
-    ),
-  );
-}
-
 export function renewedSubscriptionsNetRevenueFromJSON(
   jsonString: string,
 ): SafeParseResult<RenewedSubscriptionsNetRevenue, SDKValidationError> {
@@ -1120,37 +489,6 @@ export const ActiveSubscriptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type ActiveSubscriptions$Outbound = number | number;
-
-/** @internal */
-export const ActiveSubscriptions$outboundSchema: z.ZodType<
-  ActiveSubscriptions$Outbound,
-  z.ZodTypeDef,
-  ActiveSubscriptions
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ActiveSubscriptions$ {
-  /** @deprecated use `ActiveSubscriptions$inboundSchema` instead. */
-  export const inboundSchema = ActiveSubscriptions$inboundSchema;
-  /** @deprecated use `ActiveSubscriptions$outboundSchema` instead. */
-  export const outboundSchema = ActiveSubscriptions$outboundSchema;
-  /** @deprecated use `ActiveSubscriptions$Outbound` instead. */
-  export type Outbound = ActiveSubscriptions$Outbound;
-}
-
-export function activeSubscriptionsToJSON(
-  activeSubscriptions: ActiveSubscriptions,
-): string {
-  return JSON.stringify(
-    ActiveSubscriptions$outboundSchema.parse(activeSubscriptions),
-  );
-}
 
 export function activeSubscriptionsFromJSON(
   jsonString: string,
@@ -1169,37 +507,6 @@ export const MonthlyRecurringRevenue$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MonthlyRecurringRevenue$Outbound = number | number;
-
-/** @internal */
-export const MonthlyRecurringRevenue$outboundSchema: z.ZodType<
-  MonthlyRecurringRevenue$Outbound,
-  z.ZodTypeDef,
-  MonthlyRecurringRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MonthlyRecurringRevenue$ {
-  /** @deprecated use `MonthlyRecurringRevenue$inboundSchema` instead. */
-  export const inboundSchema = MonthlyRecurringRevenue$inboundSchema;
-  /** @deprecated use `MonthlyRecurringRevenue$outboundSchema` instead. */
-  export const outboundSchema = MonthlyRecurringRevenue$outboundSchema;
-  /** @deprecated use `MonthlyRecurringRevenue$Outbound` instead. */
-  export type Outbound = MonthlyRecurringRevenue$Outbound;
-}
-
-export function monthlyRecurringRevenueToJSON(
-  monthlyRecurringRevenue: MonthlyRecurringRevenue,
-): string {
-  return JSON.stringify(
-    MonthlyRecurringRevenue$outboundSchema.parse(monthlyRecurringRevenue),
-  );
-}
-
 export function monthlyRecurringRevenueFromJSON(
   jsonString: string,
 ): SafeParseResult<MonthlyRecurringRevenue, SDKValidationError> {
@@ -1216,39 +523,6 @@ export const CommittedMonthlyRecurringRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type CommittedMonthlyRecurringRevenue$Outbound = number | number;
-
-/** @internal */
-export const CommittedMonthlyRecurringRevenue$outboundSchema: z.ZodType<
-  CommittedMonthlyRecurringRevenue$Outbound,
-  z.ZodTypeDef,
-  CommittedMonthlyRecurringRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CommittedMonthlyRecurringRevenue$ {
-  /** @deprecated use `CommittedMonthlyRecurringRevenue$inboundSchema` instead. */
-  export const inboundSchema = CommittedMonthlyRecurringRevenue$inboundSchema;
-  /** @deprecated use `CommittedMonthlyRecurringRevenue$outboundSchema` instead. */
-  export const outboundSchema = CommittedMonthlyRecurringRevenue$outboundSchema;
-  /** @deprecated use `CommittedMonthlyRecurringRevenue$Outbound` instead. */
-  export type Outbound = CommittedMonthlyRecurringRevenue$Outbound;
-}
-
-export function committedMonthlyRecurringRevenueToJSON(
-  committedMonthlyRecurringRevenue: CommittedMonthlyRecurringRevenue,
-): string {
-  return JSON.stringify(
-    CommittedMonthlyRecurringRevenue$outboundSchema.parse(
-      committedMonthlyRecurringRevenue,
-    ),
-  );
-}
 
 export function committedMonthlyRecurringRevenueFromJSON(
   jsonString: string,
@@ -1267,33 +541,6 @@ export const Checkouts$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type Checkouts$Outbound = number | number;
-
-/** @internal */
-export const Checkouts$outboundSchema: z.ZodType<
-  Checkouts$Outbound,
-  z.ZodTypeDef,
-  Checkouts
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Checkouts$ {
-  /** @deprecated use `Checkouts$inboundSchema` instead. */
-  export const inboundSchema = Checkouts$inboundSchema;
-  /** @deprecated use `Checkouts$outboundSchema` instead. */
-  export const outboundSchema = Checkouts$outboundSchema;
-  /** @deprecated use `Checkouts$Outbound` instead. */
-  export type Outbound = Checkouts$Outbound;
-}
-
-export function checkoutsToJSON(checkouts: Checkouts): string {
-  return JSON.stringify(Checkouts$outboundSchema.parse(checkouts));
-}
-
 export function checkoutsFromJSON(
   jsonString: string,
 ): SafeParseResult<Checkouts, SDKValidationError> {
@@ -1310,37 +557,6 @@ export const SucceededCheckouts$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type SucceededCheckouts$Outbound = number | number;
-
-/** @internal */
-export const SucceededCheckouts$outboundSchema: z.ZodType<
-  SucceededCheckouts$Outbound,
-  z.ZodTypeDef,
-  SucceededCheckouts
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SucceededCheckouts$ {
-  /** @deprecated use `SucceededCheckouts$inboundSchema` instead. */
-  export const inboundSchema = SucceededCheckouts$inboundSchema;
-  /** @deprecated use `SucceededCheckouts$outboundSchema` instead. */
-  export const outboundSchema = SucceededCheckouts$outboundSchema;
-  /** @deprecated use `SucceededCheckouts$Outbound` instead. */
-  export type Outbound = SucceededCheckouts$Outbound;
-}
-
-export function succeededCheckoutsToJSON(
-  succeededCheckouts: SucceededCheckouts,
-): string {
-  return JSON.stringify(
-    SucceededCheckouts$outboundSchema.parse(succeededCheckouts),
-  );
-}
 
 export function succeededCheckoutsFromJSON(
   jsonString: string,
@@ -1359,37 +575,6 @@ export const CheckoutsConversion$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type CheckoutsConversion$Outbound = number | number;
-
-/** @internal */
-export const CheckoutsConversion$outboundSchema: z.ZodType<
-  CheckoutsConversion$Outbound,
-  z.ZodTypeDef,
-  CheckoutsConversion
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutsConversion$ {
-  /** @deprecated use `CheckoutsConversion$inboundSchema` instead. */
-  export const inboundSchema = CheckoutsConversion$inboundSchema;
-  /** @deprecated use `CheckoutsConversion$outboundSchema` instead. */
-  export const outboundSchema = CheckoutsConversion$outboundSchema;
-  /** @deprecated use `CheckoutsConversion$Outbound` instead. */
-  export type Outbound = CheckoutsConversion$Outbound;
-}
-
-export function checkoutsConversionToJSON(
-  checkoutsConversion: CheckoutsConversion,
-): string {
-  return JSON.stringify(
-    CheckoutsConversion$outboundSchema.parse(checkoutsConversion),
-  );
-}
-
 export function checkoutsConversionFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutsConversion, SDKValidationError> {
@@ -1407,37 +592,6 @@ export const CanceledSubscriptions$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type CanceledSubscriptions$Outbound = number | number;
-
-/** @internal */
-export const CanceledSubscriptions$outboundSchema: z.ZodType<
-  CanceledSubscriptions$Outbound,
-  z.ZodTypeDef,
-  CanceledSubscriptions
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CanceledSubscriptions$ {
-  /** @deprecated use `CanceledSubscriptions$inboundSchema` instead. */
-  export const inboundSchema = CanceledSubscriptions$inboundSchema;
-  /** @deprecated use `CanceledSubscriptions$outboundSchema` instead. */
-  export const outboundSchema = CanceledSubscriptions$outboundSchema;
-  /** @deprecated use `CanceledSubscriptions$Outbound` instead. */
-  export type Outbound = CanceledSubscriptions$Outbound;
-}
-
-export function canceledSubscriptionsToJSON(
-  canceledSubscriptions: CanceledSubscriptions,
-): string {
-  return JSON.stringify(
-    CanceledSubscriptions$outboundSchema.parse(canceledSubscriptions),
-  );
-}
-
 export function canceledSubscriptionsFromJSON(
   jsonString: string,
 ): SafeParseResult<CanceledSubscriptions, SDKValidationError> {
@@ -1454,41 +608,6 @@ export const CanceledSubscriptionsCustomerService$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type CanceledSubscriptionsCustomerService$Outbound = number | number;
-
-/** @internal */
-export const CanceledSubscriptionsCustomerService$outboundSchema: z.ZodType<
-  CanceledSubscriptionsCustomerService$Outbound,
-  z.ZodTypeDef,
-  CanceledSubscriptionsCustomerService
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CanceledSubscriptionsCustomerService$ {
-  /** @deprecated use `CanceledSubscriptionsCustomerService$inboundSchema` instead. */
-  export const inboundSchema =
-    CanceledSubscriptionsCustomerService$inboundSchema;
-  /** @deprecated use `CanceledSubscriptionsCustomerService$outboundSchema` instead. */
-  export const outboundSchema =
-    CanceledSubscriptionsCustomerService$outboundSchema;
-  /** @deprecated use `CanceledSubscriptionsCustomerService$Outbound` instead. */
-  export type Outbound = CanceledSubscriptionsCustomerService$Outbound;
-}
-
-export function canceledSubscriptionsCustomerServiceToJSON(
-  canceledSubscriptionsCustomerService: CanceledSubscriptionsCustomerService,
-): string {
-  return JSON.stringify(
-    CanceledSubscriptionsCustomerService$outboundSchema.parse(
-      canceledSubscriptionsCustomerService,
-    ),
-  );
-}
 
 export function canceledSubscriptionsCustomerServiceFromJSON(
   jsonString: string,
@@ -1508,39 +627,6 @@ export const CanceledSubscriptionsLowQuality$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type CanceledSubscriptionsLowQuality$Outbound = number | number;
-
-/** @internal */
-export const CanceledSubscriptionsLowQuality$outboundSchema: z.ZodType<
-  CanceledSubscriptionsLowQuality$Outbound,
-  z.ZodTypeDef,
-  CanceledSubscriptionsLowQuality
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CanceledSubscriptionsLowQuality$ {
-  /** @deprecated use `CanceledSubscriptionsLowQuality$inboundSchema` instead. */
-  export const inboundSchema = CanceledSubscriptionsLowQuality$inboundSchema;
-  /** @deprecated use `CanceledSubscriptionsLowQuality$outboundSchema` instead. */
-  export const outboundSchema = CanceledSubscriptionsLowQuality$outboundSchema;
-  /** @deprecated use `CanceledSubscriptionsLowQuality$Outbound` instead. */
-  export type Outbound = CanceledSubscriptionsLowQuality$Outbound;
-}
-
-export function canceledSubscriptionsLowQualityToJSON(
-  canceledSubscriptionsLowQuality: CanceledSubscriptionsLowQuality,
-): string {
-  return JSON.stringify(
-    CanceledSubscriptionsLowQuality$outboundSchema.parse(
-      canceledSubscriptionsLowQuality,
-    ),
-  );
-}
-
 export function canceledSubscriptionsLowQualityFromJSON(
   jsonString: string,
 ): SafeParseResult<CanceledSubscriptionsLowQuality, SDKValidationError> {
@@ -1557,41 +643,6 @@ export const CanceledSubscriptionsMissingFeatures$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type CanceledSubscriptionsMissingFeatures$Outbound = number | number;
-
-/** @internal */
-export const CanceledSubscriptionsMissingFeatures$outboundSchema: z.ZodType<
-  CanceledSubscriptionsMissingFeatures$Outbound,
-  z.ZodTypeDef,
-  CanceledSubscriptionsMissingFeatures
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CanceledSubscriptionsMissingFeatures$ {
-  /** @deprecated use `CanceledSubscriptionsMissingFeatures$inboundSchema` instead. */
-  export const inboundSchema =
-    CanceledSubscriptionsMissingFeatures$inboundSchema;
-  /** @deprecated use `CanceledSubscriptionsMissingFeatures$outboundSchema` instead. */
-  export const outboundSchema =
-    CanceledSubscriptionsMissingFeatures$outboundSchema;
-  /** @deprecated use `CanceledSubscriptionsMissingFeatures$Outbound` instead. */
-  export type Outbound = CanceledSubscriptionsMissingFeatures$Outbound;
-}
-
-export function canceledSubscriptionsMissingFeaturesToJSON(
-  canceledSubscriptionsMissingFeatures: CanceledSubscriptionsMissingFeatures,
-): string {
-  return JSON.stringify(
-    CanceledSubscriptionsMissingFeatures$outboundSchema.parse(
-      canceledSubscriptionsMissingFeatures,
-    ),
-  );
-}
 
 export function canceledSubscriptionsMissingFeaturesFromJSON(
   jsonString: string,
@@ -1611,41 +662,6 @@ export const CanceledSubscriptionsSwitchedService$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type CanceledSubscriptionsSwitchedService$Outbound = number | number;
-
-/** @internal */
-export const CanceledSubscriptionsSwitchedService$outboundSchema: z.ZodType<
-  CanceledSubscriptionsSwitchedService$Outbound,
-  z.ZodTypeDef,
-  CanceledSubscriptionsSwitchedService
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CanceledSubscriptionsSwitchedService$ {
-  /** @deprecated use `CanceledSubscriptionsSwitchedService$inboundSchema` instead. */
-  export const inboundSchema =
-    CanceledSubscriptionsSwitchedService$inboundSchema;
-  /** @deprecated use `CanceledSubscriptionsSwitchedService$outboundSchema` instead. */
-  export const outboundSchema =
-    CanceledSubscriptionsSwitchedService$outboundSchema;
-  /** @deprecated use `CanceledSubscriptionsSwitchedService$Outbound` instead. */
-  export type Outbound = CanceledSubscriptionsSwitchedService$Outbound;
-}
-
-export function canceledSubscriptionsSwitchedServiceToJSON(
-  canceledSubscriptionsSwitchedService: CanceledSubscriptionsSwitchedService,
-): string {
-  return JSON.stringify(
-    CanceledSubscriptionsSwitchedService$outboundSchema.parse(
-      canceledSubscriptionsSwitchedService,
-    ),
-  );
-}
-
 export function canceledSubscriptionsSwitchedServiceFromJSON(
   jsonString: string,
 ): SafeParseResult<CanceledSubscriptionsSwitchedService, SDKValidationError> {
@@ -1664,39 +680,6 @@ export const CanceledSubscriptionsTooComplex$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type CanceledSubscriptionsTooComplex$Outbound = number | number;
-
-/** @internal */
-export const CanceledSubscriptionsTooComplex$outboundSchema: z.ZodType<
-  CanceledSubscriptionsTooComplex$Outbound,
-  z.ZodTypeDef,
-  CanceledSubscriptionsTooComplex
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CanceledSubscriptionsTooComplex$ {
-  /** @deprecated use `CanceledSubscriptionsTooComplex$inboundSchema` instead. */
-  export const inboundSchema = CanceledSubscriptionsTooComplex$inboundSchema;
-  /** @deprecated use `CanceledSubscriptionsTooComplex$outboundSchema` instead. */
-  export const outboundSchema = CanceledSubscriptionsTooComplex$outboundSchema;
-  /** @deprecated use `CanceledSubscriptionsTooComplex$Outbound` instead. */
-  export type Outbound = CanceledSubscriptionsTooComplex$Outbound;
-}
-
-export function canceledSubscriptionsTooComplexToJSON(
-  canceledSubscriptionsTooComplex: CanceledSubscriptionsTooComplex,
-): string {
-  return JSON.stringify(
-    CanceledSubscriptionsTooComplex$outboundSchema.parse(
-      canceledSubscriptionsTooComplex,
-    ),
-  );
-}
-
 export function canceledSubscriptionsTooComplexFromJSON(
   jsonString: string,
 ): SafeParseResult<CanceledSubscriptionsTooComplex, SDKValidationError> {
@@ -1713,40 +696,6 @@ export const CanceledSubscriptionsTooExpensive$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type CanceledSubscriptionsTooExpensive$Outbound = number | number;
-
-/** @internal */
-export const CanceledSubscriptionsTooExpensive$outboundSchema: z.ZodType<
-  CanceledSubscriptionsTooExpensive$Outbound,
-  z.ZodTypeDef,
-  CanceledSubscriptionsTooExpensive
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CanceledSubscriptionsTooExpensive$ {
-  /** @deprecated use `CanceledSubscriptionsTooExpensive$inboundSchema` instead. */
-  export const inboundSchema = CanceledSubscriptionsTooExpensive$inboundSchema;
-  /** @deprecated use `CanceledSubscriptionsTooExpensive$outboundSchema` instead. */
-  export const outboundSchema =
-    CanceledSubscriptionsTooExpensive$outboundSchema;
-  /** @deprecated use `CanceledSubscriptionsTooExpensive$Outbound` instead. */
-  export type Outbound = CanceledSubscriptionsTooExpensive$Outbound;
-}
-
-export function canceledSubscriptionsTooExpensiveToJSON(
-  canceledSubscriptionsTooExpensive: CanceledSubscriptionsTooExpensive,
-): string {
-  return JSON.stringify(
-    CanceledSubscriptionsTooExpensive$outboundSchema.parse(
-      canceledSubscriptionsTooExpensive,
-    ),
-  );
-}
 
 export function canceledSubscriptionsTooExpensiveFromJSON(
   jsonString: string,
@@ -1765,39 +714,6 @@ export const CanceledSubscriptionsUnused$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type CanceledSubscriptionsUnused$Outbound = number | number;
-
-/** @internal */
-export const CanceledSubscriptionsUnused$outboundSchema: z.ZodType<
-  CanceledSubscriptionsUnused$Outbound,
-  z.ZodTypeDef,
-  CanceledSubscriptionsUnused
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CanceledSubscriptionsUnused$ {
-  /** @deprecated use `CanceledSubscriptionsUnused$inboundSchema` instead. */
-  export const inboundSchema = CanceledSubscriptionsUnused$inboundSchema;
-  /** @deprecated use `CanceledSubscriptionsUnused$outboundSchema` instead. */
-  export const outboundSchema = CanceledSubscriptionsUnused$outboundSchema;
-  /** @deprecated use `CanceledSubscriptionsUnused$Outbound` instead. */
-  export type Outbound = CanceledSubscriptionsUnused$Outbound;
-}
-
-export function canceledSubscriptionsUnusedToJSON(
-  canceledSubscriptionsUnused: CanceledSubscriptionsUnused,
-): string {
-  return JSON.stringify(
-    CanceledSubscriptionsUnused$outboundSchema.parse(
-      canceledSubscriptionsUnused,
-    ),
-  );
-}
-
 export function canceledSubscriptionsUnusedFromJSON(
   jsonString: string,
 ): SafeParseResult<CanceledSubscriptionsUnused, SDKValidationError> {
@@ -1814,37 +730,6 @@ export const CanceledSubscriptionsOther$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type CanceledSubscriptionsOther$Outbound = number | number;
-
-/** @internal */
-export const CanceledSubscriptionsOther$outboundSchema: z.ZodType<
-  CanceledSubscriptionsOther$Outbound,
-  z.ZodTypeDef,
-  CanceledSubscriptionsOther
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CanceledSubscriptionsOther$ {
-  /** @deprecated use `CanceledSubscriptionsOther$inboundSchema` instead. */
-  export const inboundSchema = CanceledSubscriptionsOther$inboundSchema;
-  /** @deprecated use `CanceledSubscriptionsOther$outboundSchema` instead. */
-  export const outboundSchema = CanceledSubscriptionsOther$outboundSchema;
-  /** @deprecated use `CanceledSubscriptionsOther$Outbound` instead. */
-  export type Outbound = CanceledSubscriptionsOther$Outbound;
-}
-
-export function canceledSubscriptionsOtherToJSON(
-  canceledSubscriptionsOther: CanceledSubscriptionsOther,
-): string {
-  return JSON.stringify(
-    CanceledSubscriptionsOther$outboundSchema.parse(canceledSubscriptionsOther),
-  );
-}
 
 export function canceledSubscriptionsOtherFromJSON(
   jsonString: string,
@@ -1863,33 +748,6 @@ export const ChurnRate$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type ChurnRate$Outbound = number | number;
-
-/** @internal */
-export const ChurnRate$outboundSchema: z.ZodType<
-  ChurnRate$Outbound,
-  z.ZodTypeDef,
-  ChurnRate
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ChurnRate$ {
-  /** @deprecated use `ChurnRate$inboundSchema` instead. */
-  export const inboundSchema = ChurnRate$inboundSchema;
-  /** @deprecated use `ChurnRate$outboundSchema` instead. */
-  export const outboundSchema = ChurnRate$outboundSchema;
-  /** @deprecated use `ChurnRate$Outbound` instead. */
-  export type Outbound = ChurnRate$Outbound;
-}
-
-export function churnRateToJSON(churnRate: ChurnRate): string {
-  return JSON.stringify(ChurnRate$outboundSchema.parse(churnRate));
-}
-
 export function churnRateFromJSON(
   jsonString: string,
 ): SafeParseResult<ChurnRate, SDKValidationError> {
@@ -1906,33 +764,6 @@ export const GrossMargin$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type GrossMargin$Outbound = number | number;
-
-/** @internal */
-export const GrossMargin$outboundSchema: z.ZodType<
-  GrossMargin$Outbound,
-  z.ZodTypeDef,
-  GrossMargin
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GrossMargin$ {
-  /** @deprecated use `GrossMargin$inboundSchema` instead. */
-  export const inboundSchema = GrossMargin$inboundSchema;
-  /** @deprecated use `GrossMargin$outboundSchema` instead. */
-  export const outboundSchema = GrossMargin$outboundSchema;
-  /** @deprecated use `GrossMargin$Outbound` instead. */
-  export type Outbound = GrossMargin$Outbound;
-}
-
-export function grossMarginToJSON(grossMargin: GrossMargin): string {
-  return JSON.stringify(GrossMargin$outboundSchema.parse(grossMargin));
-}
 
 export function grossMarginFromJSON(
   jsonString: string,
@@ -1951,37 +782,6 @@ export const GrossMarginPercentage$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type GrossMarginPercentage$Outbound = number | number;
-
-/** @internal */
-export const GrossMarginPercentage$outboundSchema: z.ZodType<
-  GrossMarginPercentage$Outbound,
-  z.ZodTypeDef,
-  GrossMarginPercentage
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GrossMarginPercentage$ {
-  /** @deprecated use `GrossMarginPercentage$inboundSchema` instead. */
-  export const inboundSchema = GrossMarginPercentage$inboundSchema;
-  /** @deprecated use `GrossMarginPercentage$outboundSchema` instead. */
-  export const outboundSchema = GrossMarginPercentage$outboundSchema;
-  /** @deprecated use `GrossMarginPercentage$Outbound` instead. */
-  export type Outbound = GrossMarginPercentage$Outbound;
-}
-
-export function grossMarginPercentageToJSON(
-  grossMarginPercentage: GrossMarginPercentage,
-): string {
-  return JSON.stringify(
-    GrossMarginPercentage$outboundSchema.parse(grossMarginPercentage),
-  );
-}
-
 export function grossMarginPercentageFromJSON(
   jsonString: string,
 ): SafeParseResult<GrossMarginPercentage, SDKValidationError> {
@@ -1998,33 +798,6 @@ export const Cashflow$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type Cashflow$Outbound = number | number;
-
-/** @internal */
-export const Cashflow$outboundSchema: z.ZodType<
-  Cashflow$Outbound,
-  z.ZodTypeDef,
-  Cashflow
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Cashflow$ {
-  /** @deprecated use `Cashflow$inboundSchema` instead. */
-  export const inboundSchema = Cashflow$inboundSchema;
-  /** @deprecated use `Cashflow$outboundSchema` instead. */
-  export const outboundSchema = Cashflow$outboundSchema;
-  /** @deprecated use `Cashflow$Outbound` instead. */
-  export type Outbound = Cashflow$Outbound;
-}
-
-export function cashflowToJSON(cashflow: Cashflow): string {
-  return JSON.stringify(Cashflow$outboundSchema.parse(cashflow));
-}
 
 export function cashflowFromJSON(
   jsonString: string,
@@ -2134,158 +907,6 @@ export const MetricPeriod$inboundSchema: z.ZodType<
     "gross_margin_percentage": "grossMarginPercentage",
   });
 });
-
-/** @internal */
-export type MetricPeriod$Outbound = {
-  timestamp: string;
-  orders: number | number;
-  revenue: number | number;
-  net_revenue: number | number;
-  cumulative_revenue: number | number;
-  net_cumulative_revenue: number | number;
-  costs: number | number;
-  cumulative_costs: number | number;
-  average_order_value: number | number;
-  net_average_order_value: number | number;
-  average_revenue_per_user: number | number;
-  cost_per_user: number | number;
-  active_user_by_event: number | number;
-  one_time_products: number | number;
-  one_time_products_revenue: number | number;
-  one_time_products_net_revenue: number | number;
-  new_subscriptions: number | number;
-  new_subscriptions_revenue: number | number;
-  new_subscriptions_net_revenue: number | number;
-  renewed_subscriptions: number | number;
-  renewed_subscriptions_revenue: number | number;
-  renewed_subscriptions_net_revenue: number | number;
-  active_subscriptions: number | number;
-  monthly_recurring_revenue: number | number;
-  committed_monthly_recurring_revenue: number | number;
-  checkouts: number | number;
-  succeeded_checkouts: number | number;
-  checkouts_conversion: number | number;
-  canceled_subscriptions: number | number;
-  canceled_subscriptions_customer_service: number | number;
-  canceled_subscriptions_low_quality: number | number;
-  canceled_subscriptions_missing_features: number | number;
-  canceled_subscriptions_switched_service: number | number;
-  canceled_subscriptions_too_complex: number | number;
-  canceled_subscriptions_too_expensive: number | number;
-  canceled_subscriptions_unused: number | number;
-  canceled_subscriptions_other: number | number;
-  churn_rate: number | number;
-  gross_margin: number | number;
-  gross_margin_percentage: number | number;
-  cashflow: number | number;
-};
-
-/** @internal */
-export const MetricPeriod$outboundSchema: z.ZodType<
-  MetricPeriod$Outbound,
-  z.ZodTypeDef,
-  MetricPeriod
-> = z.object({
-  timestamp: z.date().transform(v => v.toISOString()),
-  orders: z.union([z.number().int(), z.number()]),
-  revenue: z.union([z.number().int(), z.number()]),
-  netRevenue: z.union([z.number().int(), z.number()]),
-  cumulativeRevenue: z.union([z.number().int(), z.number()]),
-  netCumulativeRevenue: z.union([z.number().int(), z.number()]),
-  costs: z.union([z.number().int(), z.number()]),
-  cumulativeCosts: z.union([z.number().int(), z.number()]),
-  averageOrderValue: z.union([z.number().int(), z.number()]),
-  netAverageOrderValue: z.union([z.number().int(), z.number()]),
-  averageRevenuePerUser: z.union([z.number().int(), z.number()]),
-  costPerUser: z.union([z.number().int(), z.number()]),
-  activeUserByEvent: z.union([z.number().int(), z.number()]),
-  oneTimeProducts: z.union([z.number().int(), z.number()]),
-  oneTimeProductsRevenue: z.union([z.number().int(), z.number()]),
-  oneTimeProductsNetRevenue: z.union([z.number().int(), z.number()]),
-  newSubscriptions: z.union([z.number().int(), z.number()]),
-  newSubscriptionsRevenue: z.union([z.number().int(), z.number()]),
-  newSubscriptionsNetRevenue: z.union([z.number().int(), z.number()]),
-  renewedSubscriptions: z.union([z.number().int(), z.number()]),
-  renewedSubscriptionsRevenue: z.union([z.number().int(), z.number()]),
-  renewedSubscriptionsNetRevenue: z.union([z.number().int(), z.number()]),
-  activeSubscriptions: z.union([z.number().int(), z.number()]),
-  monthlyRecurringRevenue: z.union([z.number().int(), z.number()]),
-  committedMonthlyRecurringRevenue: z.union([z.number().int(), z.number()]),
-  checkouts: z.union([z.number().int(), z.number()]),
-  succeededCheckouts: z.union([z.number().int(), z.number()]),
-  checkoutsConversion: z.union([z.number().int(), z.number()]),
-  canceledSubscriptions: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsCustomerService: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsLowQuality: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsMissingFeatures: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsSwitchedService: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsTooComplex: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsTooExpensive: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsUnused: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsOther: z.union([z.number().int(), z.number()]),
-  churnRate: z.union([z.number().int(), z.number()]),
-  grossMargin: z.union([z.number().int(), z.number()]),
-  grossMarginPercentage: z.union([z.number().int(), z.number()]),
-  cashflow: z.union([z.number().int(), z.number()]),
-}).transform((v) => {
-  return remap$(v, {
-    netRevenue: "net_revenue",
-    cumulativeRevenue: "cumulative_revenue",
-    netCumulativeRevenue: "net_cumulative_revenue",
-    cumulativeCosts: "cumulative_costs",
-    averageOrderValue: "average_order_value",
-    netAverageOrderValue: "net_average_order_value",
-    averageRevenuePerUser: "average_revenue_per_user",
-    costPerUser: "cost_per_user",
-    activeUserByEvent: "active_user_by_event",
-    oneTimeProducts: "one_time_products",
-    oneTimeProductsRevenue: "one_time_products_revenue",
-    oneTimeProductsNetRevenue: "one_time_products_net_revenue",
-    newSubscriptions: "new_subscriptions",
-    newSubscriptionsRevenue: "new_subscriptions_revenue",
-    newSubscriptionsNetRevenue: "new_subscriptions_net_revenue",
-    renewedSubscriptions: "renewed_subscriptions",
-    renewedSubscriptionsRevenue: "renewed_subscriptions_revenue",
-    renewedSubscriptionsNetRevenue: "renewed_subscriptions_net_revenue",
-    activeSubscriptions: "active_subscriptions",
-    monthlyRecurringRevenue: "monthly_recurring_revenue",
-    committedMonthlyRecurringRevenue: "committed_monthly_recurring_revenue",
-    succeededCheckouts: "succeeded_checkouts",
-    checkoutsConversion: "checkouts_conversion",
-    canceledSubscriptions: "canceled_subscriptions",
-    canceledSubscriptionsCustomerService:
-      "canceled_subscriptions_customer_service",
-    canceledSubscriptionsLowQuality: "canceled_subscriptions_low_quality",
-    canceledSubscriptionsMissingFeatures:
-      "canceled_subscriptions_missing_features",
-    canceledSubscriptionsSwitchedService:
-      "canceled_subscriptions_switched_service",
-    canceledSubscriptionsTooComplex: "canceled_subscriptions_too_complex",
-    canceledSubscriptionsTooExpensive: "canceled_subscriptions_too_expensive",
-    canceledSubscriptionsUnused: "canceled_subscriptions_unused",
-    canceledSubscriptionsOther: "canceled_subscriptions_other",
-    churnRate: "churn_rate",
-    grossMargin: "gross_margin",
-    grossMarginPercentage: "gross_margin_percentage",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricPeriod$ {
-  /** @deprecated use `MetricPeriod$inboundSchema` instead. */
-  export const inboundSchema = MetricPeriod$inboundSchema;
-  /** @deprecated use `MetricPeriod$outboundSchema` instead. */
-  export const outboundSchema = MetricPeriod$outboundSchema;
-  /** @deprecated use `MetricPeriod$Outbound` instead. */
-  export type Outbound = MetricPeriod$Outbound;
-}
-
-export function metricPeriodToJSON(metricPeriod: MetricPeriod): string {
-  return JSON.stringify(MetricPeriod$outboundSchema.parse(metricPeriod));
-}
 
 export function metricPeriodFromJSON(
   jsonString: string,

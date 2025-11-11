@@ -7,23 +7,12 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Address,
-  Address$inboundSchema,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
+import { Address, Address$inboundSchema } from "./address.js";
 import {
   CustomerPortalOAuthAccount,
   CustomerPortalOAuthAccount$inboundSchema,
-  CustomerPortalOAuthAccount$Outbound,
-  CustomerPortalOAuthAccount$outboundSchema,
 } from "./customerportaloauthaccount.js";
-import {
-  TaxIDFormat,
-  TaxIDFormat$inboundSchema,
-  TaxIDFormat$outboundSchema,
-} from "./taxidformat.js";
+import { TaxIDFormat, TaxIDFormat$inboundSchema } from "./taxidformat.js";
 
 export type CustomerPortalCustomerTaxId = string | TaxIDFormat;
 
@@ -56,39 +45,6 @@ export const CustomerPortalCustomerTaxId$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), TaxIDFormat$inboundSchema]);
-
-/** @internal */
-export type CustomerPortalCustomerTaxId$Outbound = string | string;
-
-/** @internal */
-export const CustomerPortalCustomerTaxId$outboundSchema: z.ZodType<
-  CustomerPortalCustomerTaxId$Outbound,
-  z.ZodTypeDef,
-  CustomerPortalCustomerTaxId
-> = z.union([z.string(), TaxIDFormat$outboundSchema]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomerTaxId$ {
-  /** @deprecated use `CustomerPortalCustomerTaxId$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalCustomerTaxId$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomerTaxId$outboundSchema` instead. */
-  export const outboundSchema = CustomerPortalCustomerTaxId$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomerTaxId$Outbound` instead. */
-  export type Outbound = CustomerPortalCustomerTaxId$Outbound;
-}
-
-export function customerPortalCustomerTaxIdToJSON(
-  customerPortalCustomerTaxId: CustomerPortalCustomerTaxId,
-): string {
-  return JSON.stringify(
-    CustomerPortalCustomerTaxId$outboundSchema.parse(
-      customerPortalCustomerTaxId,
-    ),
-  );
-}
 
 export function customerPortalCustomerTaxIdFromJSON(
   jsonString: string,
@@ -133,74 +89,6 @@ export const CustomerPortalCustomer$inboundSchema: z.ZodType<
     "default_payment_method_id": "defaultPaymentMethodId",
   });
 });
-
-/** @internal */
-export type CustomerPortalCustomer$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  email: string;
-  email_verified: boolean;
-  name: string | null;
-  billing_name: string | null;
-  billing_address: Address$Outbound | null;
-  tax_id: Array<string | string | null> | null;
-  oauth_accounts: { [k: string]: CustomerPortalOAuthAccount$Outbound };
-  default_payment_method_id?: string | null | undefined;
-};
-
-/** @internal */
-export const CustomerPortalCustomer$outboundSchema: z.ZodType<
-  CustomerPortalCustomer$Outbound,
-  z.ZodTypeDef,
-  CustomerPortalCustomer
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  email: z.string(),
-  emailVerified: z.boolean(),
-  name: z.nullable(z.string()),
-  billingName: z.nullable(z.string()),
-  billingAddress: z.nullable(Address$outboundSchema),
-  taxId: z.nullable(
-    z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
-  ),
-  oauthAccounts: z.record(CustomerPortalOAuthAccount$outboundSchema),
-  defaultPaymentMethodId: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    emailVerified: "email_verified",
-    billingName: "billing_name",
-    billingAddress: "billing_address",
-    taxId: "tax_id",
-    oauthAccounts: "oauth_accounts",
-    defaultPaymentMethodId: "default_payment_method_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomer$ {
-  /** @deprecated use `CustomerPortalCustomer$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalCustomer$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomer$outboundSchema` instead. */
-  export const outboundSchema = CustomerPortalCustomer$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomer$Outbound` instead. */
-  export type Outbound = CustomerPortalCustomer$Outbound;
-}
-
-export function customerPortalCustomerToJSON(
-  customerPortalCustomer: CustomerPortalCustomer,
-): string {
-  return JSON.stringify(
-    CustomerPortalCustomer$outboundSchema.parse(customerPortalCustomer),
-  );
-}
 
 export function customerPortalCustomerFromJSON(
   jsonString: string,

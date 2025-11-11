@@ -90,7 +90,6 @@ export const MeterMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type MeterMetadata$Outbound = string | number | number | boolean;
 
@@ -101,23 +100,9 @@ export const MeterMetadata$outboundSchema: z.ZodType<
   MeterMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MeterMetadata$ {
-  /** @deprecated use `MeterMetadata$inboundSchema` instead. */
-  export const inboundSchema = MeterMetadata$inboundSchema;
-  /** @deprecated use `MeterMetadata$outboundSchema` instead. */
-  export const outboundSchema = MeterMetadata$outboundSchema;
-  /** @deprecated use `MeterMetadata$Outbound` instead. */
-  export type Outbound = MeterMetadata$Outbound;
-}
-
 export function meterMetadataToJSON(meterMetadata: MeterMetadata): string {
   return JSON.stringify(MeterMetadata$outboundSchema.parse(meterMetadata));
 }
-
 export function meterMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<MeterMetadata, SDKValidationError> {
@@ -155,7 +140,6 @@ export const MeterAggregation$inboundSchema: z.ZodType<
     z.object({ func: z.literal("count") }).transform((v) => ({ func: v.func })),
   ),
 ]);
-
 /** @internal */
 export type MeterAggregation$Outbound =
   | (PropertyAggregation$Outbound & { func: "avg" })
@@ -193,19 +177,6 @@ export const MeterAggregation$outboundSchema: z.ZodType<
   ),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MeterAggregation$ {
-  /** @deprecated use `MeterAggregation$inboundSchema` instead. */
-  export const inboundSchema = MeterAggregation$inboundSchema;
-  /** @deprecated use `MeterAggregation$outboundSchema` instead. */
-  export const outboundSchema = MeterAggregation$outboundSchema;
-  /** @deprecated use `MeterAggregation$Outbound` instead. */
-  export type Outbound = MeterAggregation$Outbound;
-}
-
 export function meterAggregationToJSON(
   meterAggregation: MeterAggregation,
 ): string {
@@ -213,7 +184,6 @@ export function meterAggregationToJSON(
     MeterAggregation$outboundSchema.parse(meterAggregation),
   );
 }
-
 export function meterAggregationFromJSON(
   jsonString: string,
 ): SafeParseResult<MeterAggregation, SDKValidationError> {
@@ -283,7 +253,6 @@ export const Meter$inboundSchema: z.ZodType<Meter, z.ZodTypeDef, unknown> = z
       "archived_at": "archivedAt",
     });
   });
-
 /** @internal */
 export type Meter$Outbound = {
   metadata: { [k: string]: string | number | number | boolean };
@@ -352,23 +321,9 @@ export const Meter$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Meter$ {
-  /** @deprecated use `Meter$inboundSchema` instead. */
-  export const inboundSchema = Meter$inboundSchema;
-  /** @deprecated use `Meter$outboundSchema` instead. */
-  export const outboundSchema = Meter$outboundSchema;
-  /** @deprecated use `Meter$Outbound` instead. */
-  export type Outbound = Meter$Outbound;
-}
-
 export function meterToJSON(meter: Meter): string {
   return JSON.stringify(Meter$outboundSchema.parse(meter));
 }
-
 export function meterFromJSON(
   jsonString: string,
 ): SafeParseResult<Meter, SDKValidationError> {

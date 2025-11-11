@@ -4,19 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
-  DiscountDuration$inboundSchema,
   DiscountDuration$outboundSchema,
 } from "./discountduration.js";
-import {
-  DiscountType,
-  DiscountType$inboundSchema,
-  DiscountType$outboundSchema,
-} from "./discounttype.js";
+import { DiscountType, DiscountType$outboundSchema } from "./discounttype.js";
 
 export type DiscountPercentageRepeatDurationCreateMetadata =
   | string
@@ -95,14 +87,6 @@ export type DiscountPercentageRepeatDurationCreate = {
 };
 
 /** @internal */
-export const DiscountPercentageRepeatDurationCreateMetadata$inboundSchema:
-  z.ZodType<
-    DiscountPercentageRepeatDurationCreateMetadata,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type DiscountPercentageRepeatDurationCreateMetadata$Outbound =
   | string
   | number
@@ -117,22 +101,6 @@ export const DiscountPercentageRepeatDurationCreateMetadata$outboundSchema:
     DiscountPercentageRepeatDurationCreateMetadata
   > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountPercentageRepeatDurationCreateMetadata$ {
-  /** @deprecated use `DiscountPercentageRepeatDurationCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountPercentageRepeatDurationCreateMetadata$inboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDurationCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountPercentageRepeatDurationCreateMetadata$outboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDurationCreateMetadata$Outbound` instead. */
-  export type Outbound =
-    DiscountPercentageRepeatDurationCreateMetadata$Outbound;
-}
-
 export function discountPercentageRepeatDurationCreateMetadataToJSON(
   discountPercentageRepeatDurationCreateMetadata:
     DiscountPercentageRepeatDurationCreateMetadata,
@@ -143,57 +111,6 @@ export function discountPercentageRepeatDurationCreateMetadataToJSON(
     ),
   );
 }
-
-export function discountPercentageRepeatDurationCreateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DiscountPercentageRepeatDurationCreateMetadata,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DiscountPercentageRepeatDurationCreateMetadata$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DiscountPercentageRepeatDurationCreateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const DiscountPercentageRepeatDurationCreate$inboundSchema: z.ZodType<
-  DiscountPercentageRepeatDurationCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  duration: DiscountDuration$inboundSchema,
-  duration_in_months: z.number().int(),
-  type: DiscountType$inboundSchema,
-  basis_points: z.number().int(),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  name: z.string(),
-  code: z.nullable(z.string()).optional(),
-  starts_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-  ends_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-  max_redemptions: z.nullable(z.number().int()).optional(),
-  products: z.nullable(z.array(z.string())).optional(),
-  organization_id: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "duration_in_months": "durationInMonths",
-    "basis_points": "basisPoints",
-    "starts_at": "startsAt",
-    "ends_at": "endsAt",
-    "max_redemptions": "maxRedemptions",
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type DiscountPercentageRepeatDurationCreate$Outbound = {
@@ -242,21 +159,6 @@ export const DiscountPercentageRepeatDurationCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountPercentageRepeatDurationCreate$ {
-  /** @deprecated use `DiscountPercentageRepeatDurationCreate$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountPercentageRepeatDurationCreate$inboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDurationCreate$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountPercentageRepeatDurationCreate$outboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDurationCreate$Outbound` instead. */
-  export type Outbound = DiscountPercentageRepeatDurationCreate$Outbound;
-}
-
 export function discountPercentageRepeatDurationCreateToJSON(
   discountPercentageRepeatDurationCreate:
     DiscountPercentageRepeatDurationCreate,
@@ -265,16 +167,5 @@ export function discountPercentageRepeatDurationCreateToJSON(
     DiscountPercentageRepeatDurationCreate$outboundSchema.parse(
       discountPercentageRepeatDurationCreate,
     ),
-  );
-}
-
-export function discountPercentageRepeatDurationCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<DiscountPercentageRepeatDurationCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DiscountPercentageRepeatDurationCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DiscountPercentageRepeatDurationCreate' from JSON`,
   );
 }

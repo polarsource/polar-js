@@ -20,22 +20,6 @@ export type CustomFieldSortProperty = ClosedEnum<
 >;
 
 /** @internal */
-export const CustomFieldSortProperty$inboundSchema: z.ZodNativeEnum<
-  typeof CustomFieldSortProperty
-> = z.nativeEnum(CustomFieldSortProperty);
-
-/** @internal */
 export const CustomFieldSortProperty$outboundSchema: z.ZodNativeEnum<
   typeof CustomFieldSortProperty
-> = CustomFieldSortProperty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldSortProperty$ {
-  /** @deprecated use `CustomFieldSortProperty$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldSortProperty$inboundSchema;
-  /** @deprecated use `CustomFieldSortProperty$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldSortProperty$outboundSchema;
-}
+> = z.nativeEnum(CustomFieldSortProperty);

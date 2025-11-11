@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalOrdersGetPaymentStatusSecurity = {
   customerSession: string;
@@ -18,20 +15,6 @@ export type CustomerPortalOrdersGetPaymentStatusRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const CustomerPortalOrdersGetPaymentStatusSecurity$inboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersGetPaymentStatusSecurity,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    customer_session: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "customer_session": "customerSession",
-    });
-  });
 
 /** @internal */
 export type CustomerPortalOrdersGetPaymentStatusSecurity$Outbound = {
@@ -52,21 +35,6 @@ export const CustomerPortalOrdersGetPaymentStatusSecurity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersGetPaymentStatusSecurity$ {
-  /** @deprecated use `CustomerPortalOrdersGetPaymentStatusSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersGetPaymentStatusSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGetPaymentStatusSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersGetPaymentStatusSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGetPaymentStatusSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersGetPaymentStatusSecurity$Outbound;
-}
-
 export function customerPortalOrdersGetPaymentStatusSecurityToJSON(
   customerPortalOrdersGetPaymentStatusSecurity:
     CustomerPortalOrdersGetPaymentStatusSecurity,
@@ -77,32 +45,6 @@ export function customerPortalOrdersGetPaymentStatusSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalOrdersGetPaymentStatusSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalOrdersGetPaymentStatusSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersGetPaymentStatusSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalOrdersGetPaymentStatusSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalOrdersGetPaymentStatusRequest$inboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersGetPaymentStatusRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.string(),
-  });
 
 /** @internal */
 export type CustomerPortalOrdersGetPaymentStatusRequest$Outbound = {
@@ -119,21 +61,6 @@ export const CustomerPortalOrdersGetPaymentStatusRequest$outboundSchema:
     id: z.string(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersGetPaymentStatusRequest$ {
-  /** @deprecated use `CustomerPortalOrdersGetPaymentStatusRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersGetPaymentStatusRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGetPaymentStatusRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersGetPaymentStatusRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGetPaymentStatusRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersGetPaymentStatusRequest$Outbound;
-}
-
 export function customerPortalOrdersGetPaymentStatusRequestToJSON(
   customerPortalOrdersGetPaymentStatusRequest:
     CustomerPortalOrdersGetPaymentStatusRequest,
@@ -142,21 +69,5 @@ export function customerPortalOrdersGetPaymentStatusRequestToJSON(
     CustomerPortalOrdersGetPaymentStatusRequest$outboundSchema.parse(
       customerPortalOrdersGetPaymentStatusRequest,
     ),
-  );
-}
-
-export function customerPortalOrdersGetPaymentStatusRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalOrdersGetPaymentStatusRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersGetPaymentStatusRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalOrdersGetPaymentStatusRequest' from JSON`,
   );
 }

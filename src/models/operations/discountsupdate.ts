@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   DiscountUpdate,
-  DiscountUpdate$inboundSchema,
   DiscountUpdate$Outbound,
   DiscountUpdate$outboundSchema,
 } from "../components/discountupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DiscountsUpdateRequest = {
   /**
@@ -21,20 +17,6 @@ export type DiscountsUpdateRequest = {
   id: string;
   discountUpdate: DiscountUpdate;
 };
-
-/** @internal */
-export const DiscountsUpdateRequest$inboundSchema: z.ZodType<
-  DiscountsUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  DiscountUpdate: DiscountUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "DiscountUpdate": "discountUpdate",
-  });
-});
 
 /** @internal */
 export type DiscountsUpdateRequest$Outbound = {
@@ -56,33 +38,10 @@ export const DiscountsUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountsUpdateRequest$ {
-  /** @deprecated use `DiscountsUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = DiscountsUpdateRequest$inboundSchema;
-  /** @deprecated use `DiscountsUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = DiscountsUpdateRequest$outboundSchema;
-  /** @deprecated use `DiscountsUpdateRequest$Outbound` instead. */
-  export type Outbound = DiscountsUpdateRequest$Outbound;
-}
-
 export function discountsUpdateRequestToJSON(
   discountsUpdateRequest: DiscountsUpdateRequest,
 ): string {
   return JSON.stringify(
     DiscountsUpdateRequest$outboundSchema.parse(discountsUpdateRequest),
-  );
-}
-
-export function discountsUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<DiscountsUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DiscountsUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DiscountsUpdateRequest' from JSON`,
   );
 }

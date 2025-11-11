@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalOrdersInvoiceSecurity = {
   customerSession: string;
@@ -18,19 +15,6 @@ export type CustomerPortalOrdersInvoiceRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const CustomerPortalOrdersInvoiceSecurity$inboundSchema: z.ZodType<
-  CustomerPortalOrdersInvoiceSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
 
 /** @internal */
 export type CustomerPortalOrdersInvoiceSecurity$Outbound = {
@@ -50,21 +34,6 @@ export const CustomerPortalOrdersInvoiceSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersInvoiceSecurity$ {
-  /** @deprecated use `CustomerPortalOrdersInvoiceSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersInvoiceSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersInvoiceSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersInvoiceSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersInvoiceSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersInvoiceSecurity$Outbound;
-}
-
 export function customerPortalOrdersInvoiceSecurityToJSON(
   customerPortalOrdersInvoiceSecurity: CustomerPortalOrdersInvoiceSecurity,
 ): string {
@@ -74,26 +43,6 @@ export function customerPortalOrdersInvoiceSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalOrdersInvoiceSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalOrdersInvoiceSecurity, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersInvoiceSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersInvoiceSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalOrdersInvoiceRequest$inboundSchema: z.ZodType<
-  CustomerPortalOrdersInvoiceRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type CustomerPortalOrdersInvoiceRequest$Outbound = {
@@ -109,20 +58,6 @@ export const CustomerPortalOrdersInvoiceRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersInvoiceRequest$ {
-  /** @deprecated use `CustomerPortalOrdersInvoiceRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalOrdersInvoiceRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersInvoiceRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersInvoiceRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersInvoiceRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersInvoiceRequest$Outbound;
-}
-
 export function customerPortalOrdersInvoiceRequestToJSON(
   customerPortalOrdersInvoiceRequest: CustomerPortalOrdersInvoiceRequest,
 ): string {
@@ -130,16 +65,5 @@ export function customerPortalOrdersInvoiceRequestToJSON(
     CustomerPortalOrdersInvoiceRequest$outboundSchema.parse(
       customerPortalOrdersInvoiceRequest,
     ),
-  );
-}
-
-export function customerPortalOrdersInvoiceRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalOrdersInvoiceRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersInvoiceRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersInvoiceRequest' from JSON`,
   );
 }

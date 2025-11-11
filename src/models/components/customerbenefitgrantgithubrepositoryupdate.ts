@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerBenefitGrantGitHubRepositoryPropertiesUpdate,
-  CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$inboundSchema,
   CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$Outbound,
   CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$outboundSchema,
 } from "./customerbenefitgrantgithubrepositorypropertiesupdate.js";
@@ -18,19 +14,6 @@ export type CustomerBenefitGrantGitHubRepositoryUpdate = {
   benefitType: "github_repository";
   properties: CustomerBenefitGrantGitHubRepositoryPropertiesUpdate;
 };
-
-/** @internal */
-export const CustomerBenefitGrantGitHubRepositoryUpdate$inboundSchema:
-  z.ZodType<CustomerBenefitGrantGitHubRepositoryUpdate, z.ZodTypeDef, unknown> =
-    z.object({
-      benefit_type: z.literal("github_repository"),
-      properties:
-        CustomerBenefitGrantGitHubRepositoryPropertiesUpdate$inboundSchema,
-    }).transform((v) => {
-      return remap$(v, {
-        "benefit_type": "benefitType",
-      });
-    });
 
 /** @internal */
 export type CustomerBenefitGrantGitHubRepositoryUpdate$Outbound = {
@@ -54,21 +37,6 @@ export const CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantGitHubRepositoryUpdate$ {
-  /** @deprecated use `CustomerBenefitGrantGitHubRepositoryUpdate$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerBenefitGrantGitHubRepositoryUpdate$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema;
-  /** @deprecated use `CustomerBenefitGrantGitHubRepositoryUpdate$Outbound` instead. */
-  export type Outbound = CustomerBenefitGrantGitHubRepositoryUpdate$Outbound;
-}
-
 export function customerBenefitGrantGitHubRepositoryUpdateToJSON(
   customerBenefitGrantGitHubRepositoryUpdate:
     CustomerBenefitGrantGitHubRepositoryUpdate,
@@ -77,21 +45,5 @@ export function customerBenefitGrantGitHubRepositoryUpdateToJSON(
     CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema.parse(
       customerBenefitGrantGitHubRepositoryUpdate,
     ),
-  );
-}
-
-export function customerBenefitGrantGitHubRepositoryUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerBenefitGrantGitHubRepositoryUpdate,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerBenefitGrantGitHubRepositoryUpdate$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerBenefitGrantGitHubRepositoryUpdate' from JSON`,
   );
 }

@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalCustomersGetSecurity = {
   customerSession: string;
 };
-
-/** @internal */
-export const CustomerPortalCustomersGetSecurity$inboundSchema: z.ZodType<
-  CustomerPortalCustomersGetSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
 
 /** @internal */
 export type CustomerPortalCustomersGetSecurity$Outbound = {
@@ -43,20 +27,6 @@ export const CustomerPortalCustomersGetSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomersGetSecurity$ {
-  /** @deprecated use `CustomerPortalCustomersGetSecurity$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalCustomersGetSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomersGetSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomersGetSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomersGetSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalCustomersGetSecurity$Outbound;
-}
-
 export function customerPortalCustomersGetSecurityToJSON(
   customerPortalCustomersGetSecurity: CustomerPortalCustomersGetSecurity,
 ): string {
@@ -64,16 +34,5 @@ export function customerPortalCustomersGetSecurityToJSON(
     CustomerPortalCustomersGetSecurity$outboundSchema.parse(
       customerPortalCustomersGetSecurity,
     ),
-  );
-}
-
-export function customerPortalCustomersGetSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalCustomersGetSecurity, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalCustomersGetSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalCustomersGetSecurity' from JSON`,
   );
 }

@@ -26,41 +26,6 @@ export const CustomerOrderInvoice$inboundSchema: z.ZodType<
   url: z.string(),
 });
 
-/** @internal */
-export type CustomerOrderInvoice$Outbound = {
-  url: string;
-};
-
-/** @internal */
-export const CustomerOrderInvoice$outboundSchema: z.ZodType<
-  CustomerOrderInvoice$Outbound,
-  z.ZodTypeDef,
-  CustomerOrderInvoice
-> = z.object({
-  url: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerOrderInvoice$ {
-  /** @deprecated use `CustomerOrderInvoice$inboundSchema` instead. */
-  export const inboundSchema = CustomerOrderInvoice$inboundSchema;
-  /** @deprecated use `CustomerOrderInvoice$outboundSchema` instead. */
-  export const outboundSchema = CustomerOrderInvoice$outboundSchema;
-  /** @deprecated use `CustomerOrderInvoice$Outbound` instead. */
-  export type Outbound = CustomerOrderInvoice$Outbound;
-}
-
-export function customerOrderInvoiceToJSON(
-  customerOrderInvoice: CustomerOrderInvoice,
-): string {
-  return JSON.stringify(
-    CustomerOrderInvoice$outboundSchema.parse(customerOrderInvoice),
-  );
-}
-
 export function customerOrderInvoiceFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerOrderInvoice, SDKValidationError> {

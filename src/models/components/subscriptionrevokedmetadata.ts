@@ -25,47 +25,6 @@ export const SubscriptionRevokedMetadata$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type SubscriptionRevokedMetadata$Outbound = {
-  subscription_id: string;
-};
-
-/** @internal */
-export const SubscriptionRevokedMetadata$outboundSchema: z.ZodType<
-  SubscriptionRevokedMetadata$Outbound,
-  z.ZodTypeDef,
-  SubscriptionRevokedMetadata
-> = z.object({
-  subscriptionId: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    subscriptionId: "subscription_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionRevokedMetadata$ {
-  /** @deprecated use `SubscriptionRevokedMetadata$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionRevokedMetadata$inboundSchema;
-  /** @deprecated use `SubscriptionRevokedMetadata$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionRevokedMetadata$outboundSchema;
-  /** @deprecated use `SubscriptionRevokedMetadata$Outbound` instead. */
-  export type Outbound = SubscriptionRevokedMetadata$Outbound;
-}
-
-export function subscriptionRevokedMetadataToJSON(
-  subscriptionRevokedMetadata: SubscriptionRevokedMetadata,
-): string {
-  return JSON.stringify(
-    SubscriptionRevokedMetadata$outboundSchema.parse(
-      subscriptionRevokedMetadata,
-    ),
-  );
-}
-
 export function subscriptionRevokedMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<SubscriptionRevokedMetadata, SDKValidationError> {

@@ -18,22 +18,6 @@ export type CustomerBenefitGrantSortProperty = ClosedEnum<
 >;
 
 /** @internal */
-export const CustomerBenefitGrantSortProperty$inboundSchema: z.ZodNativeEnum<
-  typeof CustomerBenefitGrantSortProperty
-> = z.nativeEnum(CustomerBenefitGrantSortProperty);
-
-/** @internal */
 export const CustomerBenefitGrantSortProperty$outboundSchema: z.ZodNativeEnum<
   typeof CustomerBenefitGrantSortProperty
-> = CustomerBenefitGrantSortProperty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantSortProperty$ {
-  /** @deprecated use `CustomerBenefitGrantSortProperty$inboundSchema` instead. */
-  export const inboundSchema = CustomerBenefitGrantSortProperty$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantSortProperty$outboundSchema` instead. */
-  export const outboundSchema = CustomerBenefitGrantSortProperty$outboundSchema;
-}
+> = z.nativeEnum(CustomerBenefitGrantSortProperty);

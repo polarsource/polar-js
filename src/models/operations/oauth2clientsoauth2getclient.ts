@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Oauth2ClientsOauth2GetClientRequest = {
   clientId: string;
 };
-
-/** @internal */
-export const Oauth2ClientsOauth2GetClientRequest$inboundSchema: z.ZodType<
-  Oauth2ClientsOauth2GetClientRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  client_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "client_id": "clientId",
-  });
-});
 
 /** @internal */
 export type Oauth2ClientsOauth2GetClientRequest$Outbound = {
@@ -43,21 +27,6 @@ export const Oauth2ClientsOauth2GetClientRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Oauth2ClientsOauth2GetClientRequest$ {
-  /** @deprecated use `Oauth2ClientsOauth2GetClientRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    Oauth2ClientsOauth2GetClientRequest$inboundSchema;
-  /** @deprecated use `Oauth2ClientsOauth2GetClientRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    Oauth2ClientsOauth2GetClientRequest$outboundSchema;
-  /** @deprecated use `Oauth2ClientsOauth2GetClientRequest$Outbound` instead. */
-  export type Outbound = Oauth2ClientsOauth2GetClientRequest$Outbound;
-}
-
 export function oauth2ClientsOauth2GetClientRequestToJSON(
   oauth2ClientsOauth2GetClientRequest: Oauth2ClientsOauth2GetClientRequest,
 ): string {
@@ -65,16 +34,5 @@ export function oauth2ClientsOauth2GetClientRequestToJSON(
     Oauth2ClientsOauth2GetClientRequest$outboundSchema.parse(
       oauth2ClientsOauth2GetClientRequest,
     ),
-  );
-}
-
-export function oauth2ClientsOauth2GetClientRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<Oauth2ClientsOauth2GetClientRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      Oauth2ClientsOauth2GetClientRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Oauth2ClientsOauth2GetClientRequest' from JSON`,
   );
 }

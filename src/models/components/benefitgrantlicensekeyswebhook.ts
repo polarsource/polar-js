@@ -135,7 +135,6 @@ export const BenefitGrantLicenseKeysWebhook$inboundSchema: z.ZodType<
     "previous_properties": "previousProperties",
   });
 });
-
 /** @internal */
 export type BenefitGrantLicenseKeysWebhook$Outbound = {
   created_at: string;
@@ -199,19 +198,6 @@ export const BenefitGrantLicenseKeysWebhook$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantLicenseKeysWebhook$ {
-  /** @deprecated use `BenefitGrantLicenseKeysWebhook$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantLicenseKeysWebhook$inboundSchema;
-  /** @deprecated use `BenefitGrantLicenseKeysWebhook$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrantLicenseKeysWebhook$outboundSchema;
-  /** @deprecated use `BenefitGrantLicenseKeysWebhook$Outbound` instead. */
-  export type Outbound = BenefitGrantLicenseKeysWebhook$Outbound;
-}
-
 export function benefitGrantLicenseKeysWebhookToJSON(
   benefitGrantLicenseKeysWebhook: BenefitGrantLicenseKeysWebhook,
 ): string {
@@ -221,7 +207,6 @@ export function benefitGrantLicenseKeysWebhookToJSON(
     ),
   );
 }
-
 export function benefitGrantLicenseKeysWebhookFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantLicenseKeysWebhook, SDKValidationError> {

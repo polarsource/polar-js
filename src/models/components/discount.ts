@@ -9,26 +9,18 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountFixedOnceForeverDuration,
   DiscountFixedOnceForeverDuration$inboundSchema,
-  DiscountFixedOnceForeverDuration$Outbound,
-  DiscountFixedOnceForeverDuration$outboundSchema,
 } from "./discountfixedonceforeverduration.js";
 import {
   DiscountFixedRepeatDuration,
   DiscountFixedRepeatDuration$inboundSchema,
-  DiscountFixedRepeatDuration$Outbound,
-  DiscountFixedRepeatDuration$outboundSchema,
 } from "./discountfixedrepeatduration.js";
 import {
   DiscountPercentageOnceForeverDuration,
   DiscountPercentageOnceForeverDuration$inboundSchema,
-  DiscountPercentageOnceForeverDuration$Outbound,
-  DiscountPercentageOnceForeverDuration$outboundSchema,
 } from "./discountpercentageonceforeverduration.js";
 import {
   DiscountPercentageRepeatDuration,
   DiscountPercentageRepeatDuration$inboundSchema,
-  DiscountPercentageRepeatDuration$Outbound,
-  DiscountPercentageRepeatDuration$outboundSchema,
 } from "./discountpercentagerepeatduration.js";
 
 export type Discount =
@@ -48,42 +40,6 @@ export const Discount$inboundSchema: z.ZodType<
   DiscountPercentageRepeatDuration$inboundSchema,
   DiscountPercentageOnceForeverDuration$inboundSchema,
 ]);
-
-/** @internal */
-export type Discount$Outbound =
-  | DiscountFixedRepeatDuration$Outbound
-  | DiscountFixedOnceForeverDuration$Outbound
-  | DiscountPercentageRepeatDuration$Outbound
-  | DiscountPercentageOnceForeverDuration$Outbound;
-
-/** @internal */
-export const Discount$outboundSchema: z.ZodType<
-  Discount$Outbound,
-  z.ZodTypeDef,
-  Discount
-> = z.union([
-  DiscountFixedRepeatDuration$outboundSchema,
-  DiscountFixedOnceForeverDuration$outboundSchema,
-  DiscountPercentageRepeatDuration$outboundSchema,
-  DiscountPercentageOnceForeverDuration$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Discount$ {
-  /** @deprecated use `Discount$inboundSchema` instead. */
-  export const inboundSchema = Discount$inboundSchema;
-  /** @deprecated use `Discount$outboundSchema` instead. */
-  export const outboundSchema = Discount$outboundSchema;
-  /** @deprecated use `Discount$Outbound` instead. */
-  export type Outbound = Discount$Outbound;
-}
-
-export function discountToJSON(discount: Discount): string {
-  return JSON.stringify(Discount$outboundSchema.parse(discount));
-}
 
 export function discountFromJSON(
   jsonString: string,

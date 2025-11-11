@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -21,13 +18,6 @@ export type SubscriptionsExportRequest = {
 };
 
 /** @internal */
-export const OrganizationId$inboundSchema: z.ZodType<
-  OrganizationId,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type OrganizationId$Outbound = string | Array<string>;
 
 /** @internal */
@@ -37,46 +27,9 @@ export const OrganizationId$outboundSchema: z.ZodType<
   OrganizationId
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationId$ {
-  /** @deprecated use `OrganizationId$inboundSchema` instead. */
-  export const inboundSchema = OrganizationId$inboundSchema;
-  /** @deprecated use `OrganizationId$outboundSchema` instead. */
-  export const outboundSchema = OrganizationId$outboundSchema;
-  /** @deprecated use `OrganizationId$Outbound` instead. */
-  export type Outbound = OrganizationId$Outbound;
-}
-
 export function organizationIdToJSON(organizationId: OrganizationId): string {
   return JSON.stringify(OrganizationId$outboundSchema.parse(organizationId));
 }
-
-export function organizationIdFromJSON(
-  jsonString: string,
-): SafeParseResult<OrganizationId, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrganizationId$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrganizationId' from JSON`,
-  );
-}
-
-/** @internal */
-export const SubscriptionsExportRequest$inboundSchema: z.ZodType<
-  SubscriptionsExportRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type SubscriptionsExportRequest$Outbound = {
@@ -97,33 +50,10 @@ export const SubscriptionsExportRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionsExportRequest$ {
-  /** @deprecated use `SubscriptionsExportRequest$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionsExportRequest$inboundSchema;
-  /** @deprecated use `SubscriptionsExportRequest$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionsExportRequest$outboundSchema;
-  /** @deprecated use `SubscriptionsExportRequest$Outbound` instead. */
-  export type Outbound = SubscriptionsExportRequest$Outbound;
-}
-
 export function subscriptionsExportRequestToJSON(
   subscriptionsExportRequest: SubscriptionsExportRequest,
 ): string {
   return JSON.stringify(
     SubscriptionsExportRequest$outboundSchema.parse(subscriptionsExportRequest),
-  );
-}
-
-export function subscriptionsExportRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionsExportRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionsExportRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionsExportRequest' from JSON`,
   );
 }

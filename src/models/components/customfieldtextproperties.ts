@@ -38,7 +38,6 @@ export const CustomFieldTextProperties$inboundSchema: z.ZodType<
     "max_length": "maxLength",
   });
 });
-
 /** @internal */
 export type CustomFieldTextProperties$Outbound = {
   form_label?: string | undefined;
@@ -71,19 +70,6 @@ export const CustomFieldTextProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldTextProperties$ {
-  /** @deprecated use `CustomFieldTextProperties$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldTextProperties$inboundSchema;
-  /** @deprecated use `CustomFieldTextProperties$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldTextProperties$outboundSchema;
-  /** @deprecated use `CustomFieldTextProperties$Outbound` instead. */
-  export type Outbound = CustomFieldTextProperties$Outbound;
-}
-
 export function customFieldTextPropertiesToJSON(
   customFieldTextProperties: CustomFieldTextProperties,
 ): string {
@@ -91,7 +77,6 @@ export function customFieldTextPropertiesToJSON(
     CustomFieldTextProperties$outboundSchema.parse(customFieldTextProperties),
   );
 }
-
 export function customFieldTextPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldTextProperties, SDKValidationError> {

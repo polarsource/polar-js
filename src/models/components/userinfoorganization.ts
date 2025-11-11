@@ -22,43 +22,6 @@ export const UserInfoOrganization$inboundSchema: z.ZodType<
   name: z.nullable(z.string()).optional(),
 });
 
-/** @internal */
-export type UserInfoOrganization$Outbound = {
-  sub: string;
-  name?: string | null | undefined;
-};
-
-/** @internal */
-export const UserInfoOrganization$outboundSchema: z.ZodType<
-  UserInfoOrganization$Outbound,
-  z.ZodTypeDef,
-  UserInfoOrganization
-> = z.object({
-  sub: z.string(),
-  name: z.nullable(z.string()).optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UserInfoOrganization$ {
-  /** @deprecated use `UserInfoOrganization$inboundSchema` instead. */
-  export const inboundSchema = UserInfoOrganization$inboundSchema;
-  /** @deprecated use `UserInfoOrganization$outboundSchema` instead. */
-  export const outboundSchema = UserInfoOrganization$outboundSchema;
-  /** @deprecated use `UserInfoOrganization$Outbound` instead. */
-  export type Outbound = UserInfoOrganization$Outbound;
-}
-
-export function userInfoOrganizationToJSON(
-  userInfoOrganization: UserInfoOrganization,
-): string {
-  return JSON.stringify(
-    UserInfoOrganization$outboundSchema.parse(userInfoOrganization),
-  );
-}
-
 export function userInfoOrganizationFromJSON(
   jsonString: string,
 ): SafeParseResult<UserInfoOrganization, SDKValidationError> {

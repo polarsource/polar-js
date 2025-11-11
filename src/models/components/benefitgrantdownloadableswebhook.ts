@@ -135,7 +135,6 @@ export const BenefitGrantDownloadablesWebhook$inboundSchema: z.ZodType<
     "previous_properties": "previousProperties",
   });
 });
-
 /** @internal */
 export type BenefitGrantDownloadablesWebhook$Outbound = {
   created_at: string;
@@ -199,19 +198,6 @@ export const BenefitGrantDownloadablesWebhook$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantDownloadablesWebhook$ {
-  /** @deprecated use `BenefitGrantDownloadablesWebhook$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantDownloadablesWebhook$inboundSchema;
-  /** @deprecated use `BenefitGrantDownloadablesWebhook$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrantDownloadablesWebhook$outboundSchema;
-  /** @deprecated use `BenefitGrantDownloadablesWebhook$Outbound` instead. */
-  export type Outbound = BenefitGrantDownloadablesWebhook$Outbound;
-}
-
 export function benefitGrantDownloadablesWebhookToJSON(
   benefitGrantDownloadablesWebhook: BenefitGrantDownloadablesWebhook,
 ): string {
@@ -221,7 +207,6 @@ export function benefitGrantDownloadablesWebhookToJSON(
     ),
   );
 }
-
 export function benefitGrantDownloadablesWebhookFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantDownloadablesWebhook, SDKValidationError> {

@@ -9,8 +9,6 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ListResourceLicenseKeyRead,
   ListResourceLicenseKeyRead$inboundSchema,
-  ListResourceLicenseKeyRead$Outbound,
-  ListResourceLicenseKeyRead$outboundSchema,
 } from "../components/listresourcelicensekeyread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -50,14 +48,6 @@ export type LicenseKeysListResponse = {
 };
 
 /** @internal */
-export const LicenseKeysListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<
-    LicenseKeysListQueryParamOrganizationIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type LicenseKeysListQueryParamOrganizationIDFilter$Outbound =
   | string
   | Array<string>;
@@ -70,21 +60,6 @@ export const LicenseKeysListQueryParamOrganizationIDFilter$outboundSchema:
     LicenseKeysListQueryParamOrganizationIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeysListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `LicenseKeysListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    LicenseKeysListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `LicenseKeysListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    LicenseKeysListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `LicenseKeysListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound = LicenseKeysListQueryParamOrganizationIDFilter$Outbound;
-}
-
 export function licenseKeysListQueryParamOrganizationIDFilterToJSON(
   licenseKeysListQueryParamOrganizationIDFilter:
     LicenseKeysListQueryParamOrganizationIDFilter,
@@ -96,29 +71,6 @@ export function licenseKeysListQueryParamOrganizationIDFilterToJSON(
   );
 }
 
-export function licenseKeysListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  LicenseKeysListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      LicenseKeysListQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'LicenseKeysListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const QueryParamBenefitIDFilter$inboundSchema: z.ZodType<
-  QueryParamBenefitIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
 /** @internal */
 export type QueryParamBenefitIDFilter$Outbound = string | Array<string>;
 
@@ -129,19 +81,6 @@ export const QueryParamBenefitIDFilter$outboundSchema: z.ZodType<
   QueryParamBenefitIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryParamBenefitIDFilter$ {
-  /** @deprecated use `QueryParamBenefitIDFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamBenefitIDFilter$inboundSchema;
-  /** @deprecated use `QueryParamBenefitIDFilter$outboundSchema` instead. */
-  export const outboundSchema = QueryParamBenefitIDFilter$outboundSchema;
-  /** @deprecated use `QueryParamBenefitIDFilter$Outbound` instead. */
-  export type Outbound = QueryParamBenefitIDFilter$Outbound;
-}
-
 export function queryParamBenefitIDFilterToJSON(
   queryParamBenefitIDFilter: QueryParamBenefitIDFilter,
 ): string {
@@ -149,34 +88,6 @@ export function queryParamBenefitIDFilterToJSON(
     QueryParamBenefitIDFilter$outboundSchema.parse(queryParamBenefitIDFilter),
   );
 }
-
-export function queryParamBenefitIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<QueryParamBenefitIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => QueryParamBenefitIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamBenefitIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const LicenseKeysListRequest$inboundSchema: z.ZodType<
-  LicenseKeysListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  benefit_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "benefit_id": "benefitId",
-  });
-});
 
 /** @internal */
 export type LicenseKeysListRequest$Outbound = {
@@ -204,34 +115,11 @@ export const LicenseKeysListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeysListRequest$ {
-  /** @deprecated use `LicenseKeysListRequest$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeysListRequest$inboundSchema;
-  /** @deprecated use `LicenseKeysListRequest$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeysListRequest$outboundSchema;
-  /** @deprecated use `LicenseKeysListRequest$Outbound` instead. */
-  export type Outbound = LicenseKeysListRequest$Outbound;
-}
-
 export function licenseKeysListRequestToJSON(
   licenseKeysListRequest: LicenseKeysListRequest,
 ): string {
   return JSON.stringify(
     LicenseKeysListRequest$outboundSchema.parse(licenseKeysListRequest),
-  );
-}
-
-export function licenseKeysListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<LicenseKeysListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => LicenseKeysListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LicenseKeysListRequest' from JSON`,
   );
 }
 
@@ -247,45 +135,6 @@ export const LicenseKeysListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type LicenseKeysListResponse$Outbound = {
-  Result: ListResourceLicenseKeyRead$Outbound;
-};
-
-/** @internal */
-export const LicenseKeysListResponse$outboundSchema: z.ZodType<
-  LicenseKeysListResponse$Outbound,
-  z.ZodTypeDef,
-  LicenseKeysListResponse
-> = z.object({
-  result: ListResourceLicenseKeyRead$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeysListResponse$ {
-  /** @deprecated use `LicenseKeysListResponse$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeysListResponse$inboundSchema;
-  /** @deprecated use `LicenseKeysListResponse$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeysListResponse$outboundSchema;
-  /** @deprecated use `LicenseKeysListResponse$Outbound` instead. */
-  export type Outbound = LicenseKeysListResponse$Outbound;
-}
-
-export function licenseKeysListResponseToJSON(
-  licenseKeysListResponse: LicenseKeysListResponse,
-): string {
-  return JSON.stringify(
-    LicenseKeysListResponse$outboundSchema.parse(licenseKeysListResponse),
-  );
-}
 
 export function licenseKeysListResponseFromJSON(
   jsonString: string,

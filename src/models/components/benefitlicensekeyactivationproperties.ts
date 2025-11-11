@@ -26,7 +26,6 @@ export const BenefitLicenseKeyActivationProperties$inboundSchema: z.ZodType<
     "enable_customer_admin": "enableCustomerAdmin",
   });
 });
-
 /** @internal */
 export type BenefitLicenseKeyActivationProperties$Outbound = {
   limit: number;
@@ -47,21 +46,6 @@ export const BenefitLicenseKeyActivationProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeyActivationProperties$ {
-  /** @deprecated use `BenefitLicenseKeyActivationProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitLicenseKeyActivationProperties$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeyActivationProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitLicenseKeyActivationProperties$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeyActivationProperties$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeyActivationProperties$Outbound;
-}
-
 export function benefitLicenseKeyActivationPropertiesToJSON(
   benefitLicenseKeyActivationProperties: BenefitLicenseKeyActivationProperties,
 ): string {
@@ -71,7 +55,6 @@ export function benefitLicenseKeyActivationPropertiesToJSON(
     ),
   );
 }
-
 export function benefitLicenseKeyActivationPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitLicenseKeyActivationProperties, SDKValidationError> {

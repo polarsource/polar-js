@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CheckoutUpdatePublic,
-  CheckoutUpdatePublic$inboundSchema,
   CheckoutUpdatePublic$Outbound,
   CheckoutUpdatePublic$outboundSchema,
 } from "../components/checkoutupdatepublic.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutsClientUpdateRequest = {
   /**
@@ -21,21 +17,6 @@ export type CheckoutsClientUpdateRequest = {
   clientSecret: string;
   checkoutUpdatePublic: CheckoutUpdatePublic;
 };
-
-/** @internal */
-export const CheckoutsClientUpdateRequest$inboundSchema: z.ZodType<
-  CheckoutsClientUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  client_secret: z.string(),
-  CheckoutUpdatePublic: CheckoutUpdatePublic$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "client_secret": "clientSecret",
-    "CheckoutUpdatePublic": "checkoutUpdatePublic",
-  });
-});
 
 /** @internal */
 export type CheckoutsClientUpdateRequest$Outbound = {
@@ -58,19 +39,6 @@ export const CheckoutsClientUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutsClientUpdateRequest$ {
-  /** @deprecated use `CheckoutsClientUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = CheckoutsClientUpdateRequest$inboundSchema;
-  /** @deprecated use `CheckoutsClientUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = CheckoutsClientUpdateRequest$outboundSchema;
-  /** @deprecated use `CheckoutsClientUpdateRequest$Outbound` instead. */
-  export type Outbound = CheckoutsClientUpdateRequest$Outbound;
-}
-
 export function checkoutsClientUpdateRequestToJSON(
   checkoutsClientUpdateRequest: CheckoutsClientUpdateRequest,
 ): string {
@@ -78,15 +46,5 @@ export function checkoutsClientUpdateRequestToJSON(
     CheckoutsClientUpdateRequest$outboundSchema.parse(
       checkoutsClientUpdateRequest,
     ),
-  );
-}
-
-export function checkoutsClientUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutsClientUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutsClientUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutsClientUpdateRequest' from JSON`,
   );
 }

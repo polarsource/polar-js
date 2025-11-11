@@ -52,34 +52,3 @@ export const NotPaidOrder$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type NotPaidOrder$Outbound = {
-  error: "NotPaidOrder";
-  detail: string;
-};
-
-/** @internal */
-export const NotPaidOrder$outboundSchema: z.ZodType<
-  NotPaidOrder$Outbound,
-  z.ZodTypeDef,
-  NotPaidOrder
-> = z.instanceof(NotPaidOrder)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("NotPaidOrder"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NotPaidOrder$ {
-  /** @deprecated use `NotPaidOrder$inboundSchema` instead. */
-  export const inboundSchema = NotPaidOrder$inboundSchema;
-  /** @deprecated use `NotPaidOrder$outboundSchema` instead. */
-  export const outboundSchema = NotPaidOrder$outboundSchema;
-  /** @deprecated use `NotPaidOrder$Outbound` instead. */
-  export type Outbound = NotPaidOrder$Outbound;
-}

@@ -7,12 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  WebhookEvent,
-  WebhookEvent$inboundSchema,
-  WebhookEvent$Outbound,
-  WebhookEvent$outboundSchema,
-} from "./webhookevent.js";
+import { WebhookEvent, WebhookEvent$inboundSchema } from "./webhookevent.js";
 
 /**
  * A webhook delivery for a webhook event.
@@ -79,58 +74,6 @@ export const WebhookDelivery$inboundSchema: z.ZodType<
     "webhook_event": "webhookEvent",
   });
 });
-
-/** @internal */
-export type WebhookDelivery$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  succeeded: boolean;
-  http_code: number | null;
-  response: string | null;
-  webhook_event: WebhookEvent$Outbound;
-};
-
-/** @internal */
-export const WebhookDelivery$outboundSchema: z.ZodType<
-  WebhookDelivery$Outbound,
-  z.ZodTypeDef,
-  WebhookDelivery
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  succeeded: z.boolean(),
-  httpCode: z.nullable(z.number().int()),
-  response: z.nullable(z.string()),
-  webhookEvent: WebhookEvent$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    httpCode: "http_code",
-    webhookEvent: "webhook_event",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookDelivery$ {
-  /** @deprecated use `WebhookDelivery$inboundSchema` instead. */
-  export const inboundSchema = WebhookDelivery$inboundSchema;
-  /** @deprecated use `WebhookDelivery$outboundSchema` instead. */
-  export const outboundSchema = WebhookDelivery$outboundSchema;
-  /** @deprecated use `WebhookDelivery$Outbound` instead. */
-  export type Outbound = WebhookDelivery$Outbound;
-}
-
-export function webhookDeliveryToJSON(
-  webhookDelivery: WebhookDelivery,
-): string {
-  return JSON.stringify(WebhookDelivery$outboundSchema.parse(webhookDelivery));
-}
 
 export function webhookDeliveryFromJSON(
   jsonString: string,

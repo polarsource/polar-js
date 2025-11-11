@@ -7,40 +7,21 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  BenefitPublic,
-  BenefitPublic$inboundSchema,
-  BenefitPublic$Outbound,
-  BenefitPublic$outboundSchema,
-} from "./benefitpublic.js";
+import { BenefitPublic, BenefitPublic$inboundSchema } from "./benefitpublic.js";
 import {
   LegacyRecurringProductPrice,
   LegacyRecurringProductPrice$inboundSchema,
-  LegacyRecurringProductPrice$Outbound,
-  LegacyRecurringProductPrice$outboundSchema,
 } from "./legacyrecurringproductprice.js";
 import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
-  ProductMediaFileRead$Outbound,
-  ProductMediaFileRead$outboundSchema,
 } from "./productmediafileread.js";
-import {
-  ProductPrice,
-  ProductPrice$inboundSchema,
-  ProductPrice$Outbound,
-  ProductPrice$outboundSchema,
-} from "./productprice.js";
+import { ProductPrice, ProductPrice$inboundSchema } from "./productprice.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
-  SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
-import {
-  TrialInterval,
-  TrialInterval$inboundSchema,
-  TrialInterval$outboundSchema,
-} from "./trialinterval.js";
+import { TrialInterval, TrialInterval$inboundSchema } from "./trialinterval.js";
 
 export type CustomerProductPrices = LegacyRecurringProductPrice | ProductPrice;
 
@@ -120,42 +101,6 @@ export const CustomerProductPrices$inboundSchema: z.ZodType<
   ProductPrice$inboundSchema,
 ]);
 
-/** @internal */
-export type CustomerProductPrices$Outbound =
-  | LegacyRecurringProductPrice$Outbound
-  | ProductPrice$Outbound;
-
-/** @internal */
-export const CustomerProductPrices$outboundSchema: z.ZodType<
-  CustomerProductPrices$Outbound,
-  z.ZodTypeDef,
-  CustomerProductPrices
-> = z.union([
-  LegacyRecurringProductPrice$outboundSchema,
-  ProductPrice$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerProductPrices$ {
-  /** @deprecated use `CustomerProductPrices$inboundSchema` instead. */
-  export const inboundSchema = CustomerProductPrices$inboundSchema;
-  /** @deprecated use `CustomerProductPrices$outboundSchema` instead. */
-  export const outboundSchema = CustomerProductPrices$outboundSchema;
-  /** @deprecated use `CustomerProductPrices$Outbound` instead. */
-  export type Outbound = CustomerProductPrices$Outbound;
-}
-
-export function customerProductPricesToJSON(
-  customerProductPrices: CustomerProductPrices,
-): string {
-  return JSON.stringify(
-    CustomerProductPrices$outboundSchema.parse(customerProductPrices),
-  );
-}
-
 export function customerProductPricesFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerProductPrices, SDKValidationError> {
@@ -207,84 +152,6 @@ export const CustomerProduct$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type CustomerProduct$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  trial_interval: string | null;
-  trial_interval_count: number | null;
-  name: string;
-  description: string | null;
-  recurring_interval: string | null;
-  recurring_interval_count: number | null;
-  is_recurring: boolean;
-  is_archived: boolean;
-  organization_id: string;
-  prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
-  benefits: Array<BenefitPublic$Outbound>;
-  medias: Array<ProductMediaFileRead$Outbound>;
-};
-
-/** @internal */
-export const CustomerProduct$outboundSchema: z.ZodType<
-  CustomerProduct$Outbound,
-  z.ZodTypeDef,
-  CustomerProduct
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  trialInterval: z.nullable(TrialInterval$outboundSchema),
-  trialIntervalCount: z.nullable(z.number().int()),
-  name: z.string(),
-  description: z.nullable(z.string()),
-  recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
-  recurringIntervalCount: z.nullable(z.number().int()),
-  isRecurring: z.boolean(),
-  isArchived: z.boolean(),
-  organizationId: z.string(),
-  prices: z.array(
-    z.union([
-      LegacyRecurringProductPrice$outboundSchema,
-      ProductPrice$outboundSchema,
-    ]),
-  ),
-  benefits: z.array(BenefitPublic$outboundSchema),
-  medias: z.array(ProductMediaFileRead$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    trialInterval: "trial_interval",
-    trialIntervalCount: "trial_interval_count",
-    recurringInterval: "recurring_interval",
-    recurringIntervalCount: "recurring_interval_count",
-    isRecurring: "is_recurring",
-    isArchived: "is_archived",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerProduct$ {
-  /** @deprecated use `CustomerProduct$inboundSchema` instead. */
-  export const inboundSchema = CustomerProduct$inboundSchema;
-  /** @deprecated use `CustomerProduct$outboundSchema` instead. */
-  export const outboundSchema = CustomerProduct$outboundSchema;
-  /** @deprecated use `CustomerProduct$Outbound` instead. */
-  export type Outbound = CustomerProduct$Outbound;
-}
-
-export function customerProductToJSON(
-  customerProduct: CustomerProduct,
-): string {
-  return JSON.stringify(CustomerProduct$outboundSchema.parse(customerProduct));
-}
 
 export function customerProductFromJSON(
   jsonString: string,

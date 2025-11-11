@@ -39,7 +39,6 @@ export const WebhookCheckoutUpdatedPayload$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Checkout$inboundSchema,
 });
-
 /** @internal */
 export type WebhookCheckoutUpdatedPayload$Outbound = {
   type: "checkout.updated";
@@ -58,19 +57,6 @@ export const WebhookCheckoutUpdatedPayload$outboundSchema: z.ZodType<
   data: Checkout$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookCheckoutUpdatedPayload$ {
-  /** @deprecated use `WebhookCheckoutUpdatedPayload$inboundSchema` instead. */
-  export const inboundSchema = WebhookCheckoutUpdatedPayload$inboundSchema;
-  /** @deprecated use `WebhookCheckoutUpdatedPayload$outboundSchema` instead. */
-  export const outboundSchema = WebhookCheckoutUpdatedPayload$outboundSchema;
-  /** @deprecated use `WebhookCheckoutUpdatedPayload$Outbound` instead. */
-  export type Outbound = WebhookCheckoutUpdatedPayload$Outbound;
-}
-
 export function webhookCheckoutUpdatedPayloadToJSON(
   webhookCheckoutUpdatedPayload: WebhookCheckoutUpdatedPayload,
 ): string {
@@ -80,7 +66,6 @@ export function webhookCheckoutUpdatedPayloadToJSON(
     ),
   );
 }
-
 export function webhookCheckoutUpdatedPayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhookCheckoutUpdatedPayload, SDKValidationError> {

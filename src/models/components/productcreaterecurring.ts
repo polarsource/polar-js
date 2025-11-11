@@ -4,53 +4,42 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AttachedCustomFieldCreate,
-  AttachedCustomFieldCreate$inboundSchema,
   AttachedCustomFieldCreate$Outbound,
   AttachedCustomFieldCreate$outboundSchema,
 } from "./attachedcustomfieldcreate.js";
 import {
   ProductPriceCustomCreate,
-  ProductPriceCustomCreate$inboundSchema,
   ProductPriceCustomCreate$Outbound,
   ProductPriceCustomCreate$outboundSchema,
 } from "./productpricecustomcreate.js";
 import {
   ProductPriceFixedCreate,
-  ProductPriceFixedCreate$inboundSchema,
   ProductPriceFixedCreate$Outbound,
   ProductPriceFixedCreate$outboundSchema,
 } from "./productpricefixedcreate.js";
 import {
   ProductPriceFreeCreate,
-  ProductPriceFreeCreate$inboundSchema,
   ProductPriceFreeCreate$Outbound,
   ProductPriceFreeCreate$outboundSchema,
 } from "./productpricefreecreate.js";
 import {
   ProductPriceMeteredUnitCreate,
-  ProductPriceMeteredUnitCreate$inboundSchema,
   ProductPriceMeteredUnitCreate$Outbound,
   ProductPriceMeteredUnitCreate$outboundSchema,
 } from "./productpricemeteredunitcreate.js";
 import {
   ProductPriceSeatBasedCreate,
-  ProductPriceSeatBasedCreate$inboundSchema,
   ProductPriceSeatBasedCreate$Outbound,
   ProductPriceSeatBasedCreate$outboundSchema,
 } from "./productpriceseatbasedcreate.js";
 import {
   SubscriptionRecurringInterval,
-  SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
 import {
   TrialInterval,
-  TrialInterval$inboundSchema,
   TrialInterval$outboundSchema,
 } from "./trialinterval.js";
 
@@ -126,13 +115,6 @@ export type ProductCreateRecurring = {
 };
 
 /** @internal */
-export const ProductCreateRecurringMetadata$inboundSchema: z.ZodType<
-  ProductCreateRecurringMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type ProductCreateRecurringMetadata$Outbound =
   | string
   | number
@@ -146,19 +128,6 @@ export const ProductCreateRecurringMetadata$outboundSchema: z.ZodType<
   ProductCreateRecurringMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductCreateRecurringMetadata$ {
-  /** @deprecated use `ProductCreateRecurringMetadata$inboundSchema` instead. */
-  export const inboundSchema = ProductCreateRecurringMetadata$inboundSchema;
-  /** @deprecated use `ProductCreateRecurringMetadata$outboundSchema` instead. */
-  export const outboundSchema = ProductCreateRecurringMetadata$outboundSchema;
-  /** @deprecated use `ProductCreateRecurringMetadata$Outbound` instead. */
-  export type Outbound = ProductCreateRecurringMetadata$Outbound;
-}
-
 export function productCreateRecurringMetadataToJSON(
   productCreateRecurringMetadata: ProductCreateRecurringMetadata,
 ): string {
@@ -168,49 +137,6 @@ export function productCreateRecurringMetadataToJSON(
     ),
   );
 }
-
-export function productCreateRecurringMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductCreateRecurringMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductCreateRecurringMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductCreateRecurringMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const ProductCreateRecurringPrices$inboundSchema: z.ZodType<
-  ProductCreateRecurringPrices,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  ProductPriceMeteredUnitCreate$inboundSchema.and(
-    z.object({ amount_type: z.literal("metered_unit") }).transform((v) => ({
-      amountType: v.amount_type,
-    })),
-  ),
-  ProductPriceFixedCreate$inboundSchema.and(
-    z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
-      amountType: v.amount_type,
-    })),
-  ),
-  ProductPriceSeatBasedCreate$inboundSchema.and(
-    z.object({ amount_type: z.literal("seat_based") }).transform((v) => ({
-      amountType: v.amount_type,
-    })),
-  ),
-  ProductPriceCustomCreate$inboundSchema.and(
-    z.object({ amount_type: z.literal("custom") }).transform((v) => ({
-      amountType: v.amount_type,
-    })),
-  ),
-  ProductPriceFreeCreate$inboundSchema.and(
-    z.object({ amount_type: z.literal("free") }).transform((v) => ({
-      amountType: v.amount_type,
-    })),
-  ),
-]);
 
 /** @internal */
 export type ProductCreateRecurringPrices$Outbound =
@@ -253,19 +179,6 @@ export const ProductCreateRecurringPrices$outboundSchema: z.ZodType<
   ),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductCreateRecurringPrices$ {
-  /** @deprecated use `ProductCreateRecurringPrices$inboundSchema` instead. */
-  export const inboundSchema = ProductCreateRecurringPrices$inboundSchema;
-  /** @deprecated use `ProductCreateRecurringPrices$outboundSchema` instead. */
-  export const outboundSchema = ProductCreateRecurringPrices$outboundSchema;
-  /** @deprecated use `ProductCreateRecurringPrices$Outbound` instead. */
-  export type Outbound = ProductCreateRecurringPrices$Outbound;
-}
-
 export function productCreateRecurringPricesToJSON(
   productCreateRecurringPrices: ProductCreateRecurringPrices,
 ): string {
@@ -275,75 +188,6 @@ export function productCreateRecurringPricesToJSON(
     ),
   );
 }
-
-export function productCreateRecurringPricesFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductCreateRecurringPrices, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductCreateRecurringPrices$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductCreateRecurringPrices' from JSON`,
-  );
-}
-
-/** @internal */
-export const ProductCreateRecurring$inboundSchema: z.ZodType<
-  ProductCreateRecurring,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  name: z.string(),
-  description: z.nullable(z.string()).optional(),
-  prices: z.array(
-    z.union([
-      ProductPriceMeteredUnitCreate$inboundSchema.and(
-        z.object({ amount_type: z.literal("metered_unit") }).transform((v) => ({
-          amountType: v.amount_type,
-        })),
-      ),
-      ProductPriceFixedCreate$inboundSchema.and(
-        z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
-          amountType: v.amount_type,
-        })),
-      ),
-      ProductPriceSeatBasedCreate$inboundSchema.and(
-        z.object({ amount_type: z.literal("seat_based") }).transform((v) => ({
-          amountType: v.amount_type,
-        })),
-      ),
-      ProductPriceCustomCreate$inboundSchema.and(
-        z.object({ amount_type: z.literal("custom") }).transform((v) => ({
-          amountType: v.amount_type,
-        })),
-      ),
-      ProductPriceFreeCreate$inboundSchema.and(
-        z.object({ amount_type: z.literal("free") }).transform((v) => ({
-          amountType: v.amount_type,
-        })),
-      ),
-    ]),
-  ),
-  medias: z.nullable(z.array(z.string())).optional(),
-  attached_custom_fields: z.array(AttachedCustomFieldCreate$inboundSchema)
-    .optional(),
-  organization_id: z.nullable(z.string()).optional(),
-  trial_interval: z.nullable(TrialInterval$inboundSchema).optional(),
-  trial_interval_count: z.nullable(z.number().int()).optional(),
-  recurring_interval: SubscriptionRecurringInterval$inboundSchema,
-  recurring_interval_count: z.number().int().default(1),
-}).transform((v) => {
-  return remap$(v, {
-    "attached_custom_fields": "attachedCustomFields",
-    "organization_id": "organizationId",
-    "trial_interval": "trialInterval",
-    "trial_interval_count": "trialIntervalCount",
-    "recurring_interval": "recurringInterval",
-    "recurring_interval_count": "recurringIntervalCount",
-  });
-});
 
 /** @internal */
 export type ProductCreateRecurring$Outbound = {
@@ -427,33 +271,10 @@ export const ProductCreateRecurring$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductCreateRecurring$ {
-  /** @deprecated use `ProductCreateRecurring$inboundSchema` instead. */
-  export const inboundSchema = ProductCreateRecurring$inboundSchema;
-  /** @deprecated use `ProductCreateRecurring$outboundSchema` instead. */
-  export const outboundSchema = ProductCreateRecurring$outboundSchema;
-  /** @deprecated use `ProductCreateRecurring$Outbound` instead. */
-  export type Outbound = ProductCreateRecurring$Outbound;
-}
-
 export function productCreateRecurringToJSON(
   productCreateRecurring: ProductCreateRecurring,
 ): string {
   return JSON.stringify(
     ProductCreateRecurring$outboundSchema.parse(productCreateRecurring),
-  );
-}
-
-export function productCreateRecurringFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductCreateRecurring, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductCreateRecurring$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductCreateRecurring' from JSON`,
   );
 }

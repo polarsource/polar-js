@@ -6,17 +6,10 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  CardPayment,
-  CardPayment$inboundSchema,
-  CardPayment$Outbound,
-  CardPayment$outboundSchema,
-} from "./cardpayment.js";
+import { CardPayment, CardPayment$inboundSchema } from "./cardpayment.js";
 import {
   GenericPayment,
   GenericPayment$inboundSchema,
-  GenericPayment$Outbound,
-  GenericPayment$outboundSchema,
 } from "./genericpayment.js";
 
 export type Payment = CardPayment | GenericPayment;
@@ -24,33 +17,6 @@ export type Payment = CardPayment | GenericPayment;
 /** @internal */
 export const Payment$inboundSchema: z.ZodType<Payment, z.ZodTypeDef, unknown> =
   z.union([CardPayment$inboundSchema, GenericPayment$inboundSchema]);
-
-/** @internal */
-export type Payment$Outbound = CardPayment$Outbound | GenericPayment$Outbound;
-
-/** @internal */
-export const Payment$outboundSchema: z.ZodType<
-  Payment$Outbound,
-  z.ZodTypeDef,
-  Payment
-> = z.union([CardPayment$outboundSchema, GenericPayment$outboundSchema]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Payment$ {
-  /** @deprecated use `Payment$inboundSchema` instead. */
-  export const inboundSchema = Payment$inboundSchema;
-  /** @deprecated use `Payment$outboundSchema` instead. */
-  export const outboundSchema = Payment$outboundSchema;
-  /** @deprecated use `Payment$Outbound` instead. */
-  export type Outbound = Payment$Outbound;
-}
-
-export function paymentToJSON(payment: Payment): string {
-  return JSON.stringify(Payment$outboundSchema.parse(payment));
-}
 
 export function paymentFromJSON(
   jsonString: string,

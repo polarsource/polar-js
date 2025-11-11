@@ -72,7 +72,6 @@ export const OrderCustomerMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type OrderCustomerMetadata$Outbound = string | number | number | boolean;
 
@@ -83,19 +82,6 @@ export const OrderCustomerMetadata$outboundSchema: z.ZodType<
   OrderCustomerMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderCustomerMetadata$ {
-  /** @deprecated use `OrderCustomerMetadata$inboundSchema` instead. */
-  export const inboundSchema = OrderCustomerMetadata$inboundSchema;
-  /** @deprecated use `OrderCustomerMetadata$outboundSchema` instead. */
-  export const outboundSchema = OrderCustomerMetadata$outboundSchema;
-  /** @deprecated use `OrderCustomerMetadata$Outbound` instead. */
-  export type Outbound = OrderCustomerMetadata$Outbound;
-}
-
 export function orderCustomerMetadataToJSON(
   orderCustomerMetadata: OrderCustomerMetadata,
 ): string {
@@ -103,7 +89,6 @@ export function orderCustomerMetadataToJSON(
     OrderCustomerMetadata$outboundSchema.parse(orderCustomerMetadata),
   );
 }
-
 export function orderCustomerMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderCustomerMetadata, SDKValidationError> {
@@ -120,7 +105,6 @@ export const OrderCustomerTaxId$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), TaxIDFormat$inboundSchema]);
-
 /** @internal */
 export type OrderCustomerTaxId$Outbound = string | string;
 
@@ -131,19 +115,6 @@ export const OrderCustomerTaxId$outboundSchema: z.ZodType<
   OrderCustomerTaxId
 > = z.union([z.string(), TaxIDFormat$outboundSchema]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderCustomerTaxId$ {
-  /** @deprecated use `OrderCustomerTaxId$inboundSchema` instead. */
-  export const inboundSchema = OrderCustomerTaxId$inboundSchema;
-  /** @deprecated use `OrderCustomerTaxId$outboundSchema` instead. */
-  export const outboundSchema = OrderCustomerTaxId$outboundSchema;
-  /** @deprecated use `OrderCustomerTaxId$Outbound` instead. */
-  export type Outbound = OrderCustomerTaxId$Outbound;
-}
-
 export function orderCustomerTaxIdToJSON(
   orderCustomerTaxId: OrderCustomerTaxId,
 ): string {
@@ -151,7 +122,6 @@ export function orderCustomerTaxIdToJSON(
     OrderCustomerTaxId$outboundSchema.parse(orderCustomerTaxId),
   );
 }
-
 export function orderCustomerTaxIdFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderCustomerTaxId, SDKValidationError> {
@@ -202,7 +172,6 @@ export const OrderCustomer$inboundSchema: z.ZodType<
     "avatar_url": "avatarUrl",
   });
 });
-
 /** @internal */
 export type OrderCustomer$Outbound = {
   id: string;
@@ -257,23 +226,9 @@ export const OrderCustomer$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderCustomer$ {
-  /** @deprecated use `OrderCustomer$inboundSchema` instead. */
-  export const inboundSchema = OrderCustomer$inboundSchema;
-  /** @deprecated use `OrderCustomer$outboundSchema` instead. */
-  export const outboundSchema = OrderCustomer$outboundSchema;
-  /** @deprecated use `OrderCustomer$Outbound` instead. */
-  export type Outbound = OrderCustomer$Outbound;
-}
-
 export function orderCustomerToJSON(orderCustomer: OrderCustomer): string {
   return JSON.stringify(OrderCustomer$outboundSchema.parse(orderCustomer));
 }
-
 export function orderCustomerFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderCustomer, SDKValidationError> {

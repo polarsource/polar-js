@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type MetadataQuery =
   | string
@@ -14,20 +11,6 @@ export type MetadataQuery =
   | Array<string>
   | Array<number>
   | Array<boolean>;
-
-/** @internal */
-export const MetadataQuery$inboundSchema: z.ZodType<
-  MetadataQuery,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  z.string(),
-  z.number().int(),
-  z.boolean(),
-  z.array(z.string()),
-  z.array(z.number().int()),
-  z.array(z.boolean()),
-]);
 
 /** @internal */
 export type MetadataQuery$Outbound =
@@ -52,29 +35,6 @@ export const MetadataQuery$outboundSchema: z.ZodType<
   z.array(z.boolean()),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetadataQuery$ {
-  /** @deprecated use `MetadataQuery$inboundSchema` instead. */
-  export const inboundSchema = MetadataQuery$inboundSchema;
-  /** @deprecated use `MetadataQuery$outboundSchema` instead. */
-  export const outboundSchema = MetadataQuery$outboundSchema;
-  /** @deprecated use `MetadataQuery$Outbound` instead. */
-  export type Outbound = MetadataQuery$Outbound;
-}
-
 export function metadataQueryToJSON(metadataQuery: MetadataQuery): string {
   return JSON.stringify(MetadataQuery$outboundSchema.parse(metadataQuery));
-}
-
-export function metadataQueryFromJSON(
-  jsonString: string,
-): SafeParseResult<MetadataQuery, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => MetadataQuery$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MetadataQuery' from JSON`,
-  );
 }

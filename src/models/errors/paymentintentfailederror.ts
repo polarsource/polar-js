@@ -52,34 +52,3 @@ export const PaymentIntentFailedError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type PaymentIntentFailedError$Outbound = {
-  error: "PaymentIntentFailedError";
-  detail: string;
-};
-
-/** @internal */
-export const PaymentIntentFailedError$outboundSchema: z.ZodType<
-  PaymentIntentFailedError$Outbound,
-  z.ZodTypeDef,
-  PaymentIntentFailedError
-> = z.instanceof(PaymentIntentFailedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("PaymentIntentFailedError"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentIntentFailedError$ {
-  /** @deprecated use `PaymentIntentFailedError$inboundSchema` instead. */
-  export const inboundSchema = PaymentIntentFailedError$inboundSchema;
-  /** @deprecated use `PaymentIntentFailedError$outboundSchema` instead. */
-  export const outboundSchema = PaymentIntentFailedError$outboundSchema;
-  /** @deprecated use `PaymentIntentFailedError$Outbound` instead. */
-  export type Outbound = PaymentIntentFailedError$Outbound;
-}

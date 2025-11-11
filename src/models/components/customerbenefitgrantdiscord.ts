@@ -10,20 +10,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitDiscordSubscriber,
   BenefitDiscordSubscriber$inboundSchema,
-  BenefitDiscordSubscriber$Outbound,
-  BenefitDiscordSubscriber$outboundSchema,
 } from "./benefitdiscordsubscriber.js";
 import {
   BenefitGrantDiscordProperties,
   BenefitGrantDiscordProperties$inboundSchema,
-  BenefitGrantDiscordProperties$Outbound,
-  BenefitGrantDiscordProperties$outboundSchema,
 } from "./benefitgrantdiscordproperties.js";
 import {
   CustomerPortalCustomer,
   CustomerPortalCustomer$inboundSchema,
-  CustomerPortalCustomer$Outbound,
-  CustomerPortalCustomer$outboundSchema,
 } from "./customerportalcustomer.js";
 
 export type CustomerBenefitGrantDiscord = {
@@ -92,82 +86,6 @@ export const CustomerBenefitGrantDiscord$inboundSchema: z.ZodType<
     "is_revoked": "isRevoked",
   });
 });
-
-/** @internal */
-export type CustomerBenefitGrantDiscord$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  granted_at: string | null;
-  revoked_at: string | null;
-  customer_id: string;
-  benefit_id: string;
-  subscription_id: string | null;
-  order_id: string | null;
-  is_granted: boolean;
-  is_revoked: boolean;
-  customer: CustomerPortalCustomer$Outbound;
-  benefit: BenefitDiscordSubscriber$Outbound;
-  properties: BenefitGrantDiscordProperties$Outbound;
-};
-
-/** @internal */
-export const CustomerBenefitGrantDiscord$outboundSchema: z.ZodType<
-  CustomerBenefitGrantDiscord$Outbound,
-  z.ZodTypeDef,
-  CustomerBenefitGrantDiscord
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  grantedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  revokedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  customerId: z.string(),
-  benefitId: z.string(),
-  subscriptionId: z.nullable(z.string()),
-  orderId: z.nullable(z.string()),
-  isGranted: z.boolean(),
-  isRevoked: z.boolean(),
-  customer: CustomerPortalCustomer$outboundSchema,
-  benefit: BenefitDiscordSubscriber$outboundSchema,
-  properties: BenefitGrantDiscordProperties$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    grantedAt: "granted_at",
-    revokedAt: "revoked_at",
-    customerId: "customer_id",
-    benefitId: "benefit_id",
-    subscriptionId: "subscription_id",
-    orderId: "order_id",
-    isGranted: "is_granted",
-    isRevoked: "is_revoked",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantDiscord$ {
-  /** @deprecated use `CustomerBenefitGrantDiscord$inboundSchema` instead. */
-  export const inboundSchema = CustomerBenefitGrantDiscord$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDiscord$outboundSchema` instead. */
-  export const outboundSchema = CustomerBenefitGrantDiscord$outboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDiscord$Outbound` instead. */
-  export type Outbound = CustomerBenefitGrantDiscord$Outbound;
-}
-
-export function customerBenefitGrantDiscordToJSON(
-  customerBenefitGrantDiscord: CustomerBenefitGrantDiscord,
-): string {
-  return JSON.stringify(
-    CustomerBenefitGrantDiscord$outboundSchema.parse(
-      customerBenefitGrantDiscord,
-    ),
-  );
-}
 
 export function customerBenefitGrantDiscordFromJSON(
   jsonString: string,

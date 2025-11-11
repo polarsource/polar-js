@@ -4,32 +4,12 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPaymentMethodCreate = {
   confirmationTokenId: string;
   setDefault: boolean;
   returnUrl: string;
 };
-
-/** @internal */
-export const CustomerPaymentMethodCreate$inboundSchema: z.ZodType<
-  CustomerPaymentMethodCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  confirmation_token_id: z.string(),
-  set_default: z.boolean(),
-  return_url: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "confirmation_token_id": "confirmationTokenId",
-    "set_default": "setDefault",
-    "return_url": "returnUrl",
-  });
-});
 
 /** @internal */
 export type CustomerPaymentMethodCreate$Outbound = {
@@ -55,19 +35,6 @@ export const CustomerPaymentMethodCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPaymentMethodCreate$ {
-  /** @deprecated use `CustomerPaymentMethodCreate$inboundSchema` instead. */
-  export const inboundSchema = CustomerPaymentMethodCreate$inboundSchema;
-  /** @deprecated use `CustomerPaymentMethodCreate$outboundSchema` instead. */
-  export const outboundSchema = CustomerPaymentMethodCreate$outboundSchema;
-  /** @deprecated use `CustomerPaymentMethodCreate$Outbound` instead. */
-  export type Outbound = CustomerPaymentMethodCreate$Outbound;
-}
-
 export function customerPaymentMethodCreateToJSON(
   customerPaymentMethodCreate: CustomerPaymentMethodCreate,
 ): string {
@@ -75,15 +42,5 @@ export function customerPaymentMethodCreateToJSON(
     CustomerPaymentMethodCreate$outboundSchema.parse(
       customerPaymentMethodCreate,
     ),
-  );
-}
-
-export function customerPaymentMethodCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPaymentMethodCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerPaymentMethodCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPaymentMethodCreate' from JSON`,
   );
 }

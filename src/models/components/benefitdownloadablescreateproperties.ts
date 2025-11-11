@@ -3,24 +3,11 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitDownloadablesCreateProperties = {
   archived?: { [k: string]: boolean } | undefined;
   files: Array<string>;
 };
-
-/** @internal */
-export const BenefitDownloadablesCreateProperties$inboundSchema: z.ZodType<
-  BenefitDownloadablesCreateProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  archived: z.record(z.boolean()).optional(),
-  files: z.array(z.string()),
-});
 
 /** @internal */
 export type BenefitDownloadablesCreateProperties$Outbound = {
@@ -38,21 +25,6 @@ export const BenefitDownloadablesCreateProperties$outboundSchema: z.ZodType<
   files: z.array(z.string()),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadablesCreateProperties$ {
-  /** @deprecated use `BenefitDownloadablesCreateProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitDownloadablesCreateProperties$inboundSchema;
-  /** @deprecated use `BenefitDownloadablesCreateProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitDownloadablesCreateProperties$outboundSchema;
-  /** @deprecated use `BenefitDownloadablesCreateProperties$Outbound` instead. */
-  export type Outbound = BenefitDownloadablesCreateProperties$Outbound;
-}
-
 export function benefitDownloadablesCreatePropertiesToJSON(
   benefitDownloadablesCreateProperties: BenefitDownloadablesCreateProperties,
 ): string {
@@ -60,16 +32,5 @@ export function benefitDownloadablesCreatePropertiesToJSON(
     BenefitDownloadablesCreateProperties$outboundSchema.parse(
       benefitDownloadablesCreateProperties,
     ),
-  );
-}
-
-export function benefitDownloadablesCreatePropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitDownloadablesCreateProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      BenefitDownloadablesCreateProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitDownloadablesCreateProperties' from JSON`,
   );
 }

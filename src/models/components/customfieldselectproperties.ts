@@ -38,7 +38,6 @@ export const CustomFieldSelectProperties$inboundSchema: z.ZodType<
     "form_placeholder": "formPlaceholder",
   });
 });
-
 /** @internal */
 export type CustomFieldSelectProperties$Outbound = {
   form_label?: string | undefined;
@@ -65,19 +64,6 @@ export const CustomFieldSelectProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldSelectProperties$ {
-  /** @deprecated use `CustomFieldSelectProperties$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldSelectProperties$inboundSchema;
-  /** @deprecated use `CustomFieldSelectProperties$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldSelectProperties$outboundSchema;
-  /** @deprecated use `CustomFieldSelectProperties$Outbound` instead. */
-  export type Outbound = CustomFieldSelectProperties$Outbound;
-}
-
 export function customFieldSelectPropertiesToJSON(
   customFieldSelectProperties: CustomFieldSelectProperties,
 ): string {
@@ -87,7 +73,6 @@ export function customFieldSelectPropertiesToJSON(
     ),
   );
 }
-
 export function customFieldSelectPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldSelectProperties, SDKValidationError> {

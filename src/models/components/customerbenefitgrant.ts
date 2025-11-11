@@ -9,38 +9,26 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerBenefitGrantCustom,
   CustomerBenefitGrantCustom$inboundSchema,
-  CustomerBenefitGrantCustom$Outbound,
-  CustomerBenefitGrantCustom$outboundSchema,
 } from "./customerbenefitgrantcustom.js";
 import {
   CustomerBenefitGrantDiscord,
   CustomerBenefitGrantDiscord$inboundSchema,
-  CustomerBenefitGrantDiscord$Outbound,
-  CustomerBenefitGrantDiscord$outboundSchema,
 } from "./customerbenefitgrantdiscord.js";
 import {
   CustomerBenefitGrantDownloadables,
   CustomerBenefitGrantDownloadables$inboundSchema,
-  CustomerBenefitGrantDownloadables$Outbound,
-  CustomerBenefitGrantDownloadables$outboundSchema,
 } from "./customerbenefitgrantdownloadables.js";
 import {
   CustomerBenefitGrantGitHubRepository,
   CustomerBenefitGrantGitHubRepository$inboundSchema,
-  CustomerBenefitGrantGitHubRepository$Outbound,
-  CustomerBenefitGrantGitHubRepository$outboundSchema,
 } from "./customerbenefitgrantgithubrepository.js";
 import {
   CustomerBenefitGrantLicenseKeys,
   CustomerBenefitGrantLicenseKeys$inboundSchema,
-  CustomerBenefitGrantLicenseKeys$Outbound,
-  CustomerBenefitGrantLicenseKeys$outboundSchema,
 } from "./customerbenefitgrantlicensekeys.js";
 import {
   CustomerBenefitGrantMeterCredit,
   CustomerBenefitGrantMeterCredit$inboundSchema,
-  CustomerBenefitGrantMeterCredit$Outbound,
-  CustomerBenefitGrantMeterCredit$outboundSchema,
 } from "./customerbenefitgrantmetercredit.js";
 
 export type CustomerBenefitGrant =
@@ -64,50 +52,6 @@ export const CustomerBenefitGrant$inboundSchema: z.ZodType<
   CustomerBenefitGrantCustom$inboundSchema,
   CustomerBenefitGrantMeterCredit$inboundSchema,
 ]);
-
-/** @internal */
-export type CustomerBenefitGrant$Outbound =
-  | CustomerBenefitGrantDiscord$Outbound
-  | CustomerBenefitGrantGitHubRepository$Outbound
-  | CustomerBenefitGrantDownloadables$Outbound
-  | CustomerBenefitGrantLicenseKeys$Outbound
-  | CustomerBenefitGrantCustom$Outbound
-  | CustomerBenefitGrantMeterCredit$Outbound;
-
-/** @internal */
-export const CustomerBenefitGrant$outboundSchema: z.ZodType<
-  CustomerBenefitGrant$Outbound,
-  z.ZodTypeDef,
-  CustomerBenefitGrant
-> = z.union([
-  CustomerBenefitGrantDiscord$outboundSchema,
-  CustomerBenefitGrantGitHubRepository$outboundSchema,
-  CustomerBenefitGrantDownloadables$outboundSchema,
-  CustomerBenefitGrantLicenseKeys$outboundSchema,
-  CustomerBenefitGrantCustom$outboundSchema,
-  CustomerBenefitGrantMeterCredit$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrant$ {
-  /** @deprecated use `CustomerBenefitGrant$inboundSchema` instead. */
-  export const inboundSchema = CustomerBenefitGrant$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrant$outboundSchema` instead. */
-  export const outboundSchema = CustomerBenefitGrant$outboundSchema;
-  /** @deprecated use `CustomerBenefitGrant$Outbound` instead. */
-  export type Outbound = CustomerBenefitGrant$Outbound;
-}
-
-export function customerBenefitGrantToJSON(
-  customerBenefitGrant: CustomerBenefitGrant,
-): string {
-  return JSON.stringify(
-    CustomerBenefitGrant$outboundSchema.parse(customerBenefitGrant),
-  );
-}
 
 export function customerBenefitGrantFromJSON(
   jsonString: string,

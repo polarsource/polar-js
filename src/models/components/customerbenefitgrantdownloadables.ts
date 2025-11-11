@@ -10,20 +10,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitDownloadablesSubscriber,
   BenefitDownloadablesSubscriber$inboundSchema,
-  BenefitDownloadablesSubscriber$Outbound,
-  BenefitDownloadablesSubscriber$outboundSchema,
 } from "./benefitdownloadablessubscriber.js";
 import {
   BenefitGrantDownloadablesProperties,
   BenefitGrantDownloadablesProperties$inboundSchema,
-  BenefitGrantDownloadablesProperties$Outbound,
-  BenefitGrantDownloadablesProperties$outboundSchema,
 } from "./benefitgrantdownloadablesproperties.js";
 import {
   CustomerPortalCustomer,
   CustomerPortalCustomer$inboundSchema,
-  CustomerPortalCustomer$Outbound,
-  CustomerPortalCustomer$outboundSchema,
 } from "./customerportalcustomer.js";
 
 export type CustomerBenefitGrantDownloadables = {
@@ -92,83 +86,6 @@ export const CustomerBenefitGrantDownloadables$inboundSchema: z.ZodType<
     "is_revoked": "isRevoked",
   });
 });
-
-/** @internal */
-export type CustomerBenefitGrantDownloadables$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  granted_at: string | null;
-  revoked_at: string | null;
-  customer_id: string;
-  benefit_id: string;
-  subscription_id: string | null;
-  order_id: string | null;
-  is_granted: boolean;
-  is_revoked: boolean;
-  customer: CustomerPortalCustomer$Outbound;
-  benefit: BenefitDownloadablesSubscriber$Outbound;
-  properties: BenefitGrantDownloadablesProperties$Outbound;
-};
-
-/** @internal */
-export const CustomerBenefitGrantDownloadables$outboundSchema: z.ZodType<
-  CustomerBenefitGrantDownloadables$Outbound,
-  z.ZodTypeDef,
-  CustomerBenefitGrantDownloadables
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  grantedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  revokedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  customerId: z.string(),
-  benefitId: z.string(),
-  subscriptionId: z.nullable(z.string()),
-  orderId: z.nullable(z.string()),
-  isGranted: z.boolean(),
-  isRevoked: z.boolean(),
-  customer: CustomerPortalCustomer$outboundSchema,
-  benefit: BenefitDownloadablesSubscriber$outboundSchema,
-  properties: BenefitGrantDownloadablesProperties$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    grantedAt: "granted_at",
-    revokedAt: "revoked_at",
-    customerId: "customer_id",
-    benefitId: "benefit_id",
-    subscriptionId: "subscription_id",
-    orderId: "order_id",
-    isGranted: "is_granted",
-    isRevoked: "is_revoked",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantDownloadables$ {
-  /** @deprecated use `CustomerBenefitGrantDownloadables$inboundSchema` instead. */
-  export const inboundSchema = CustomerBenefitGrantDownloadables$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDownloadables$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantDownloadables$outboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDownloadables$Outbound` instead. */
-  export type Outbound = CustomerBenefitGrantDownloadables$Outbound;
-}
-
-export function customerBenefitGrantDownloadablesToJSON(
-  customerBenefitGrantDownloadables: CustomerBenefitGrantDownloadables,
-): string {
-  return JSON.stringify(
-    CustomerBenefitGrantDownloadables$outboundSchema.parse(
-      customerBenefitGrantDownloadables,
-    ),
-  );
-}
 
 export function customerBenefitGrantDownloadablesFromJSON(
   jsonString: string,

@@ -12,22 +12,6 @@ export const ProductBillingType = {
 export type ProductBillingType = ClosedEnum<typeof ProductBillingType>;
 
 /** @internal */
-export const ProductBillingType$inboundSchema: z.ZodNativeEnum<
-  typeof ProductBillingType
-> = z.nativeEnum(ProductBillingType);
-
-/** @internal */
 export const ProductBillingType$outboundSchema: z.ZodNativeEnum<
   typeof ProductBillingType
-> = ProductBillingType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductBillingType$ {
-  /** @deprecated use `ProductBillingType$inboundSchema` instead. */
-  export const inboundSchema = ProductBillingType$inboundSchema;
-  /** @deprecated use `ProductBillingType$outboundSchema` instead. */
-  export const outboundSchema = ProductBillingType$outboundSchema;
-}
+> = z.nativeEnum(ProductBillingType);

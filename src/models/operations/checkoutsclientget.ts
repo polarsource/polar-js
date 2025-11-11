@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutsClientGetRequest = {
   /**
@@ -14,19 +11,6 @@ export type CheckoutsClientGetRequest = {
    */
   clientSecret: string;
 };
-
-/** @internal */
-export const CheckoutsClientGetRequest$inboundSchema: z.ZodType<
-  CheckoutsClientGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  client_secret: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "client_secret": "clientSecret",
-  });
-});
 
 /** @internal */
 export type CheckoutsClientGetRequest$Outbound = {
@@ -46,33 +30,10 @@ export const CheckoutsClientGetRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutsClientGetRequest$ {
-  /** @deprecated use `CheckoutsClientGetRequest$inboundSchema` instead. */
-  export const inboundSchema = CheckoutsClientGetRequest$inboundSchema;
-  /** @deprecated use `CheckoutsClientGetRequest$outboundSchema` instead. */
-  export const outboundSchema = CheckoutsClientGetRequest$outboundSchema;
-  /** @deprecated use `CheckoutsClientGetRequest$Outbound` instead. */
-  export type Outbound = CheckoutsClientGetRequest$Outbound;
-}
-
 export function checkoutsClientGetRequestToJSON(
   checkoutsClientGetRequest: CheckoutsClientGetRequest,
 ): string {
   return JSON.stringify(
     CheckoutsClientGetRequest$outboundSchema.parse(checkoutsClientGetRequest),
-  );
-}
-
-export function checkoutsClientGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutsClientGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutsClientGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutsClientGetRequest' from JSON`,
   );
 }

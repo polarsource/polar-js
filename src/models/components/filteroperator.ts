@@ -21,19 +21,7 @@ export type FilterOperator = ClosedEnum<typeof FilterOperator>;
 export const FilterOperator$inboundSchema: z.ZodNativeEnum<
   typeof FilterOperator
 > = z.nativeEnum(FilterOperator);
-
 /** @internal */
 export const FilterOperator$outboundSchema: z.ZodNativeEnum<
   typeof FilterOperator
 > = FilterOperator$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FilterOperator$ {
-  /** @deprecated use `FilterOperator$inboundSchema` instead. */
-  export const inboundSchema = FilterOperator$inboundSchema;
-  /** @deprecated use `FilterOperator$outboundSchema` instead. */
-  export const outboundSchema = FilterOperator$outboundSchema;
-}

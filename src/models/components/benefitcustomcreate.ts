@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitCustomCreateProperties,
-  BenefitCustomCreateProperties$inboundSchema,
   BenefitCustomCreateProperties$Outbound,
   BenefitCustomCreateProperties$outboundSchema,
 } from "./benefitcustomcreateproperties.js";
@@ -52,13 +48,6 @@ export type BenefitCustomCreate = {
 };
 
 /** @internal */
-export const BenefitCustomCreateMetadata$inboundSchema: z.ZodType<
-  BenefitCustomCreateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type BenefitCustomCreateMetadata$Outbound =
   | string
   | number
@@ -72,19 +61,6 @@ export const BenefitCustomCreateMetadata$outboundSchema: z.ZodType<
   BenefitCustomCreateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustomCreateMetadata$ {
-  /** @deprecated use `BenefitCustomCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustomCreateMetadata$inboundSchema;
-  /** @deprecated use `BenefitCustomCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustomCreateMetadata$outboundSchema;
-  /** @deprecated use `BenefitCustomCreateMetadata$Outbound` instead. */
-  export type Outbound = BenefitCustomCreateMetadata$Outbound;
-}
-
 export function benefitCustomCreateMetadataToJSON(
   benefitCustomCreateMetadata: BenefitCustomCreateMetadata,
 ): string {
@@ -94,35 +70,6 @@ export function benefitCustomCreateMetadataToJSON(
     ),
   );
 }
-
-export function benefitCustomCreateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitCustomCreateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitCustomCreateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitCustomCreateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitCustomCreate$inboundSchema: z.ZodType<
-  BenefitCustomCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  type: z.literal("custom"),
-  description: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  properties: BenefitCustomCreateProperties$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type BenefitCustomCreate$Outbound = {
@@ -152,33 +99,10 @@ export const BenefitCustomCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustomCreate$ {
-  /** @deprecated use `BenefitCustomCreate$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustomCreate$inboundSchema;
-  /** @deprecated use `BenefitCustomCreate$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustomCreate$outboundSchema;
-  /** @deprecated use `BenefitCustomCreate$Outbound` instead. */
-  export type Outbound = BenefitCustomCreate$Outbound;
-}
-
 export function benefitCustomCreateToJSON(
   benefitCustomCreate: BenefitCustomCreate,
 ): string {
   return JSON.stringify(
     BenefitCustomCreate$outboundSchema.parse(benefitCustomCreate),
-  );
-}
-
-export function benefitCustomCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitCustomCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitCustomCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitCustomCreate' from JSON`,
   );
 }

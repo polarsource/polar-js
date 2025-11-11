@@ -10,7 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   WebhookEventType,
   WebhookEventType$inboundSchema,
-  WebhookEventType$outboundSchema,
 } from "./webhookeventtype.js";
 
 /**
@@ -80,58 +79,6 @@ export const WebhookEvent$inboundSchema: z.ZodType<
     "is_archived": "isArchived",
   });
 });
-
-/** @internal */
-export type WebhookEvent$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  last_http_code?: number | null | undefined;
-  succeeded?: boolean | null | undefined;
-  payload: string | null;
-  type: string;
-  is_archived: boolean;
-};
-
-/** @internal */
-export const WebhookEvent$outboundSchema: z.ZodType<
-  WebhookEvent$Outbound,
-  z.ZodTypeDef,
-  WebhookEvent
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  lastHttpCode: z.nullable(z.number().int()).optional(),
-  succeeded: z.nullable(z.boolean()).optional(),
-  payload: z.nullable(z.string()),
-  type: WebhookEventType$outboundSchema,
-  isArchived: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    lastHttpCode: "last_http_code",
-    isArchived: "is_archived",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookEvent$ {
-  /** @deprecated use `WebhookEvent$inboundSchema` instead. */
-  export const inboundSchema = WebhookEvent$inboundSchema;
-  /** @deprecated use `WebhookEvent$outboundSchema` instead. */
-  export const outboundSchema = WebhookEvent$outboundSchema;
-  /** @deprecated use `WebhookEvent$Outbound` instead. */
-  export type Outbound = WebhookEvent$Outbound;
-}
-
-export function webhookEventToJSON(webhookEvent: WebhookEvent): string {
-  return JSON.stringify(WebhookEvent$outboundSchema.parse(webhookEvent));
-}
 
 export function webhookEventFromJSON(
   jsonString: string,

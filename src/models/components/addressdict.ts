@@ -35,51 +35,6 @@ export const AddressDict$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type AddressDict$Outbound = {
-  line1?: string | undefined;
-  line2?: string | undefined;
-  postal_code?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  country: string;
-};
-
-/** @internal */
-export const AddressDict$outboundSchema: z.ZodType<
-  AddressDict$Outbound,
-  z.ZodTypeDef,
-  AddressDict
-> = z.object({
-  line1: z.string().optional(),
-  line2: z.string().optional(),
-  postalCode: z.string().optional(),
-  city: z.string().optional(),
-  state: z.string().optional(),
-  country: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    postalCode: "postal_code",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AddressDict$ {
-  /** @deprecated use `AddressDict$inboundSchema` instead. */
-  export const inboundSchema = AddressDict$inboundSchema;
-  /** @deprecated use `AddressDict$outboundSchema` instead. */
-  export const outboundSchema = AddressDict$outboundSchema;
-  /** @deprecated use `AddressDict$Outbound` instead. */
-  export type Outbound = AddressDict$Outbound;
-}
-
-export function addressDictToJSON(addressDict: AddressDict): string {
-  return JSON.stringify(AddressDict$outboundSchema.parse(addressDict));
-}
-
 export function addressDictFromJSON(
   jsonString: string,
 ): SafeParseResult<AddressDict, SDKValidationError> {

@@ -8,15 +8,8 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   MissingInvoiceBillingDetails,
   MissingInvoiceBillingDetails$inboundSchema,
-  MissingInvoiceBillingDetails$Outbound,
-  MissingInvoiceBillingDetails$outboundSchema,
 } from "./missinginvoicebillingdetails.js";
-import {
-  NotPaidOrder,
-  NotPaidOrder$inboundSchema,
-  NotPaidOrder$Outbound,
-  NotPaidOrder$outboundSchema,
-} from "./notpaidorder.js";
+import { NotPaidOrder, NotPaidOrder$inboundSchema } from "./notpaidorder.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 /**
@@ -36,49 +29,6 @@ export const OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$inboundSchema
     MissingInvoiceBillingDetails$inboundSchema,
     NotPaidOrder$inboundSchema,
   ]);
-
-/** @internal */
-export type OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$Outbound =
-  | MissingInvoiceBillingDetails$Outbound
-  | NotPaidOrder$Outbound;
-
-/** @internal */
-export const OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$outboundSchema:
-  z.ZodType<
-    OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$Outbound,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([
-    MissingInvoiceBillingDetails$outboundSchema,
-    NotPaidOrder$outboundSchema,
-  ]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$ {
-  /** @deprecated use `OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$inboundSchema` instead. */
-  export const inboundSchema =
-    OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$inboundSchema;
-  /** @deprecated use `OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$outboundSchema` instead. */
-  export const outboundSchema =
-    OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$outboundSchema;
-  /** @deprecated use `OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$Outbound` instead. */
-  export type Outbound =
-    OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$Outbound;
-}
-
-export function ordersGenerateInvoiceResponse422OrdersGenerateInvoiceToJSON(
-  ordersGenerateInvoiceResponse422OrdersGenerateInvoice:
-    OrdersGenerateInvoiceResponse422OrdersGenerateInvoice,
-): string {
-  return JSON.stringify(
-    OrdersGenerateInvoiceResponse422OrdersGenerateInvoice$outboundSchema.parse(
-      ordersGenerateInvoiceResponse422OrdersGenerateInvoice,
-    ),
-  );
-}
 
 export function ordersGenerateInvoiceResponse422OrdersGenerateInvoiceFromJSON(
   jsonString: string,

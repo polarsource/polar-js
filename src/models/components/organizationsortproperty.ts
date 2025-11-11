@@ -22,22 +22,6 @@ export type OrganizationSortProperty = ClosedEnum<
 >;
 
 /** @internal */
-export const OrganizationSortProperty$inboundSchema: z.ZodNativeEnum<
-  typeof OrganizationSortProperty
-> = z.nativeEnum(OrganizationSortProperty);
-
-/** @internal */
 export const OrganizationSortProperty$outboundSchema: z.ZodNativeEnum<
   typeof OrganizationSortProperty
-> = OrganizationSortProperty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationSortProperty$ {
-  /** @deprecated use `OrganizationSortProperty$inboundSchema` instead. */
-  export const inboundSchema = OrganizationSortProperty$inboundSchema;
-  /** @deprecated use `OrganizationSortProperty$outboundSchema` instead. */
-  export const outboundSchema = OrganizationSortProperty$outboundSchema;
-}
+> = z.nativeEnum(OrganizationSortProperty);

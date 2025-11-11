@@ -38,54 +38,6 @@ export const BenefitGitHubRepositorySubscriberProperties$inboundSchema:
     });
   });
 
-/** @internal */
-export type BenefitGitHubRepositorySubscriberProperties$Outbound = {
-  repository_owner: string;
-  repository_name: string;
-};
-
-/** @internal */
-export const BenefitGitHubRepositorySubscriberProperties$outboundSchema:
-  z.ZodType<
-    BenefitGitHubRepositorySubscriberProperties$Outbound,
-    z.ZodTypeDef,
-    BenefitGitHubRepositorySubscriberProperties
-  > = z.object({
-    repositoryOwner: z.string(),
-    repositoryName: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      repositoryOwner: "repository_owner",
-      repositoryName: "repository_name",
-    });
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositorySubscriberProperties$ {
-  /** @deprecated use `BenefitGitHubRepositorySubscriberProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitGitHubRepositorySubscriberProperties$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositorySubscriberProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGitHubRepositorySubscriberProperties$outboundSchema;
-  /** @deprecated use `BenefitGitHubRepositorySubscriberProperties$Outbound` instead. */
-  export type Outbound = BenefitGitHubRepositorySubscriberProperties$Outbound;
-}
-
-export function benefitGitHubRepositorySubscriberPropertiesToJSON(
-  benefitGitHubRepositorySubscriberProperties:
-    BenefitGitHubRepositorySubscriberProperties,
-): string {
-  return JSON.stringify(
-    BenefitGitHubRepositorySubscriberProperties$outboundSchema.parse(
-      benefitGitHubRepositorySubscriberProperties,
-    ),
-  );
-}
-
 export function benefitGitHubRepositorySubscriberPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<

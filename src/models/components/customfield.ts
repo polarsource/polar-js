@@ -72,7 +72,6 @@ export const CustomField$inboundSchema: z.ZodType<
     z.object({ type: z.literal("text") }).transform((v) => ({ type: v.type })),
   ),
 ]);
-
 /** @internal */
 export type CustomField$Outbound =
   | (CustomFieldCheckbox$Outbound & { type: "checkbox" })
@@ -110,23 +109,9 @@ export const CustomField$outboundSchema: z.ZodType<
   ),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomField$ {
-  /** @deprecated use `CustomField$inboundSchema` instead. */
-  export const inboundSchema = CustomField$inboundSchema;
-  /** @deprecated use `CustomField$outboundSchema` instead. */
-  export const outboundSchema = CustomField$outboundSchema;
-  /** @deprecated use `CustomField$Outbound` instead. */
-  export type Outbound = CustomField$Outbound;
-}
-
 export function customFieldToJSON(customField: CustomField): string {
   return JSON.stringify(CustomField$outboundSchema.parse(customField));
 }
-
 export function customFieldFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomField, SDKValidationError> {

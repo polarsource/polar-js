@@ -10,7 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SubscriptionProrationBehavior,
   SubscriptionProrationBehavior$inboundSchema,
-  SubscriptionProrationBehavior$outboundSchema,
 } from "./subscriptionprorationbehavior.js";
 
 export type BenefitSubscriberOrganization = {
@@ -70,65 +69,6 @@ export const BenefitSubscriberOrganization$inboundSchema: z.ZodType<
     "allow_customer_updates": "allowCustomerUpdates",
   });
 });
-
-/** @internal */
-export type BenefitSubscriberOrganization$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  name: string;
-  slug: string;
-  avatar_url: string | null;
-  proration_behavior: string;
-  allow_customer_updates: boolean;
-};
-
-/** @internal */
-export const BenefitSubscriberOrganization$outboundSchema: z.ZodType<
-  BenefitSubscriberOrganization$Outbound,
-  z.ZodTypeDef,
-  BenefitSubscriberOrganization
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  name: z.string(),
-  slug: z.string(),
-  avatarUrl: z.nullable(z.string()),
-  prorationBehavior: SubscriptionProrationBehavior$outboundSchema,
-  allowCustomerUpdates: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    avatarUrl: "avatar_url",
-    prorationBehavior: "proration_behavior",
-    allowCustomerUpdates: "allow_customer_updates",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitSubscriberOrganization$ {
-  /** @deprecated use `BenefitSubscriberOrganization$inboundSchema` instead. */
-  export const inboundSchema = BenefitSubscriberOrganization$inboundSchema;
-  /** @deprecated use `BenefitSubscriberOrganization$outboundSchema` instead. */
-  export const outboundSchema = BenefitSubscriberOrganization$outboundSchema;
-  /** @deprecated use `BenefitSubscriberOrganization$Outbound` instead. */
-  export type Outbound = BenefitSubscriberOrganization$Outbound;
-}
-
-export function benefitSubscriberOrganizationToJSON(
-  benefitSubscriberOrganization: BenefitSubscriberOrganization,
-): string {
-  return JSON.stringify(
-    BenefitSubscriberOrganization$outboundSchema.parse(
-      benefitSubscriberOrganization,
-    ),
-  );
-}
 
 export function benefitSubscriberOrganizationFromJSON(
   jsonString: string,

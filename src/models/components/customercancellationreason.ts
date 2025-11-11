@@ -23,19 +23,7 @@ export type CustomerCancellationReason = ClosedEnum<
 export const CustomerCancellationReason$inboundSchema: z.ZodNativeEnum<
   typeof CustomerCancellationReason
 > = z.nativeEnum(CustomerCancellationReason);
-
 /** @internal */
 export const CustomerCancellationReason$outboundSchema: z.ZodNativeEnum<
   typeof CustomerCancellationReason
 > = CustomerCancellationReason$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerCancellationReason$ {
-  /** @deprecated use `CustomerCancellationReason$inboundSchema` instead. */
-  export const inboundSchema = CustomerCancellationReason$inboundSchema;
-  /** @deprecated use `CustomerCancellationReason$outboundSchema` instead. */
-  export const outboundSchema = CustomerCancellationReason$outboundSchema;
-}

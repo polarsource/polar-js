@@ -10,7 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SubscriptionProrationBehavior,
   SubscriptionProrationBehavior$inboundSchema,
-  SubscriptionProrationBehavior$outboundSchema,
 } from "./subscriptionprorationbehavior.js";
 
 export type CustomerOrganization = {
@@ -70,63 +69,6 @@ export const CustomerOrganization$inboundSchema: z.ZodType<
     "allow_customer_updates": "allowCustomerUpdates",
   });
 });
-
-/** @internal */
-export type CustomerOrganization$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  name: string;
-  slug: string;
-  avatar_url: string | null;
-  proration_behavior: string;
-  allow_customer_updates: boolean;
-};
-
-/** @internal */
-export const CustomerOrganization$outboundSchema: z.ZodType<
-  CustomerOrganization$Outbound,
-  z.ZodTypeDef,
-  CustomerOrganization
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  name: z.string(),
-  slug: z.string(),
-  avatarUrl: z.nullable(z.string()),
-  prorationBehavior: SubscriptionProrationBehavior$outboundSchema,
-  allowCustomerUpdates: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    avatarUrl: "avatar_url",
-    prorationBehavior: "proration_behavior",
-    allowCustomerUpdates: "allow_customer_updates",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerOrganization$ {
-  /** @deprecated use `CustomerOrganization$inboundSchema` instead. */
-  export const inboundSchema = CustomerOrganization$inboundSchema;
-  /** @deprecated use `CustomerOrganization$outboundSchema` instead. */
-  export const outboundSchema = CustomerOrganization$outboundSchema;
-  /** @deprecated use `CustomerOrganization$Outbound` instead. */
-  export type Outbound = CustomerOrganization$Outbound;
-}
-
-export function customerOrganizationToJSON(
-  customerOrganization: CustomerOrganization,
-): string {
-  return JSON.stringify(
-    CustomerOrganization$outboundSchema.parse(customerOrganization),
-  );
-}
 
 export function customerOrganizationFromJSON(
   jsonString: string,

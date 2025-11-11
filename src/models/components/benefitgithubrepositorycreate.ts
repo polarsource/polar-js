@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGitHubRepositoryCreateProperties,
-  BenefitGitHubRepositoryCreateProperties$inboundSchema,
   BenefitGitHubRepositoryCreateProperties$Outbound,
   BenefitGitHubRepositoryCreateProperties$outboundSchema,
 } from "./benefitgithubrepositorycreateproperties.js";
@@ -53,13 +49,6 @@ export type BenefitGitHubRepositoryCreate = {
 };
 
 /** @internal */
-export const BenefitGitHubRepositoryCreateMetadata$inboundSchema: z.ZodType<
-  BenefitGitHubRepositoryCreateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type BenefitGitHubRepositoryCreateMetadata$Outbound =
   | string
   | number
@@ -73,21 +62,6 @@ export const BenefitGitHubRepositoryCreateMetadata$outboundSchema: z.ZodType<
   BenefitGitHubRepositoryCreateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositoryCreateMetadata$ {
-  /** @deprecated use `BenefitGitHubRepositoryCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitGitHubRepositoryCreateMetadata$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGitHubRepositoryCreateMetadata$outboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryCreateMetadata$Outbound` instead. */
-  export type Outbound = BenefitGitHubRepositoryCreateMetadata$Outbound;
-}
-
 export function benefitGitHubRepositoryCreateMetadataToJSON(
   benefitGitHubRepositoryCreateMetadata: BenefitGitHubRepositoryCreateMetadata,
 ): string {
@@ -97,36 +71,6 @@ export function benefitGitHubRepositoryCreateMetadataToJSON(
     ),
   );
 }
-
-export function benefitGitHubRepositoryCreateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitGitHubRepositoryCreateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      BenefitGitHubRepositoryCreateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitGitHubRepositoryCreateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitGitHubRepositoryCreate$inboundSchema: z.ZodType<
-  BenefitGitHubRepositoryCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  type: z.literal("github_repository"),
-  description: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  properties: BenefitGitHubRepositoryCreateProperties$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type BenefitGitHubRepositoryCreate$Outbound = {
@@ -156,19 +100,6 @@ export const BenefitGitHubRepositoryCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositoryCreate$ {
-  /** @deprecated use `BenefitGitHubRepositoryCreate$inboundSchema` instead. */
-  export const inboundSchema = BenefitGitHubRepositoryCreate$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryCreate$outboundSchema` instead. */
-  export const outboundSchema = BenefitGitHubRepositoryCreate$outboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryCreate$Outbound` instead. */
-  export type Outbound = BenefitGitHubRepositoryCreate$Outbound;
-}
-
 export function benefitGitHubRepositoryCreateToJSON(
   benefitGitHubRepositoryCreate: BenefitGitHubRepositoryCreate,
 ): string {
@@ -176,15 +107,5 @@ export function benefitGitHubRepositoryCreateToJSON(
     BenefitGitHubRepositoryCreate$outboundSchema.parse(
       benefitGitHubRepositoryCreate,
     ),
-  );
-}
-
-export function benefitGitHubRepositoryCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitGitHubRepositoryCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitGitHubRepositoryCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitGitHubRepositoryCreate' from JSON`,
   );
 }

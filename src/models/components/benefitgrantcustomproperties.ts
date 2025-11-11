@@ -15,7 +15,6 @@ export const BenefitGrantCustomProperties$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
 /** @internal */
 export type BenefitGrantCustomProperties$Outbound = {};
 
@@ -26,19 +25,6 @@ export const BenefitGrantCustomProperties$outboundSchema: z.ZodType<
   BenefitGrantCustomProperties
 > = z.object({});
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantCustomProperties$ {
-  /** @deprecated use `BenefitGrantCustomProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantCustomProperties$inboundSchema;
-  /** @deprecated use `BenefitGrantCustomProperties$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrantCustomProperties$outboundSchema;
-  /** @deprecated use `BenefitGrantCustomProperties$Outbound` instead. */
-  export type Outbound = BenefitGrantCustomProperties$Outbound;
-}
-
 export function benefitGrantCustomPropertiesToJSON(
   benefitGrantCustomProperties: BenefitGrantCustomProperties,
 ): string {
@@ -48,7 +34,6 @@ export function benefitGrantCustomPropertiesToJSON(
     ),
   );
 }
-
 export function benefitGrantCustomPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantCustomProperties, SDKValidationError> {

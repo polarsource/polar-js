@@ -54,66 +54,6 @@ export const OAuth2ClientPublic$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type OAuth2ClientPublic$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  client_id: string;
-  client_name: string | null;
-  client_uri: string | null;
-  logo_uri: string | null;
-  tos_uri: string | null;
-  policy_uri: string | null;
-};
-
-/** @internal */
-export const OAuth2ClientPublic$outboundSchema: z.ZodType<
-  OAuth2ClientPublic$Outbound,
-  z.ZodTypeDef,
-  OAuth2ClientPublic
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  clientId: z.string(),
-  clientName: z.nullable(z.string()),
-  clientUri: z.nullable(z.string()),
-  logoUri: z.nullable(z.string()),
-  tosUri: z.nullable(z.string()),
-  policyUri: z.nullable(z.string()),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    clientId: "client_id",
-    clientName: "client_name",
-    clientUri: "client_uri",
-    logoUri: "logo_uri",
-    tosUri: "tos_uri",
-    policyUri: "policy_uri",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OAuth2ClientPublic$ {
-  /** @deprecated use `OAuth2ClientPublic$inboundSchema` instead. */
-  export const inboundSchema = OAuth2ClientPublic$inboundSchema;
-  /** @deprecated use `OAuth2ClientPublic$outboundSchema` instead. */
-  export const outboundSchema = OAuth2ClientPublic$outboundSchema;
-  /** @deprecated use `OAuth2ClientPublic$Outbound` instead. */
-  export type Outbound = OAuth2ClientPublic$Outbound;
-}
-
-export function oAuth2ClientPublicToJSON(
-  oAuth2ClientPublic: OAuth2ClientPublic,
-): string {
-  return JSON.stringify(
-    OAuth2ClientPublic$outboundSchema.parse(oAuth2ClientPublic),
-  );
-}
-
 export function oAuth2ClientPublicFromJSON(
   jsonString: string,
 ): SafeParseResult<OAuth2ClientPublic, SDKValidationError> {

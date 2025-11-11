@@ -9,12 +9,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ListResourceWallet,
   ListResourceWallet$inboundSchema,
-  ListResourceWallet$Outbound,
-  ListResourceWallet$outboundSchema,
 } from "../components/listresourcewallet.js";
 import {
   WalletSortProperty,
-  WalletSortProperty$inboundSchema,
   WalletSortProperty$outboundSchema,
 } from "../components/walletsortproperty.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -57,13 +54,6 @@ export type WalletsListResponse = {
 };
 
 /** @internal */
-export const WalletsListQueryParamOrganizationIDFilter$inboundSchema: z.ZodType<
-  WalletsListQueryParamOrganizationIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type WalletsListQueryParamOrganizationIDFilter$Outbound =
   | string
   | Array<string>;
@@ -76,21 +66,6 @@ export const WalletsListQueryParamOrganizationIDFilter$outboundSchema:
     WalletsListQueryParamOrganizationIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WalletsListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `WalletsListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    WalletsListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `WalletsListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    WalletsListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `WalletsListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound = WalletsListQueryParamOrganizationIDFilter$Outbound;
-}
-
 export function walletsListQueryParamOrganizationIDFilterToJSON(
   walletsListQueryParamOrganizationIDFilter:
     WalletsListQueryParamOrganizationIDFilter,
@@ -101,29 +76,6 @@ export function walletsListQueryParamOrganizationIDFilterToJSON(
     ),
   );
 }
-
-export function walletsListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  WalletsListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      WalletsListQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'WalletsListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const WalletsListQueryParamCustomerIDFilter$inboundSchema: z.ZodType<
-  WalletsListQueryParamCustomerIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type WalletsListQueryParamCustomerIDFilter$Outbound =
@@ -137,21 +89,6 @@ export const WalletsListQueryParamCustomerIDFilter$outboundSchema: z.ZodType<
   WalletsListQueryParamCustomerIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WalletsListQueryParamCustomerIDFilter$ {
-  /** @deprecated use `WalletsListQueryParamCustomerIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    WalletsListQueryParamCustomerIDFilter$inboundSchema;
-  /** @deprecated use `WalletsListQueryParamCustomerIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    WalletsListQueryParamCustomerIDFilter$outboundSchema;
-  /** @deprecated use `WalletsListQueryParamCustomerIDFilter$Outbound` instead. */
-  export type Outbound = WalletsListQueryParamCustomerIDFilter$Outbound;
-}
-
 export function walletsListQueryParamCustomerIDFilterToJSON(
   walletsListQueryParamCustomerIDFilter: WalletsListQueryParamCustomerIDFilter,
 ): string {
@@ -161,37 +98,6 @@ export function walletsListQueryParamCustomerIDFilterToJSON(
     ),
   );
 }
-
-export function walletsListQueryParamCustomerIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<WalletsListQueryParamCustomerIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      WalletsListQueryParamCustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WalletsListQueryParamCustomerIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const WalletsListRequest$inboundSchema: z.ZodType<
-  WalletsListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(WalletSortProperty$inboundSchema)).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "customer_id": "customerId",
-  });
-});
 
 /** @internal */
 export type WalletsListRequest$Outbound = {
@@ -221,34 +127,11 @@ export const WalletsListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WalletsListRequest$ {
-  /** @deprecated use `WalletsListRequest$inboundSchema` instead. */
-  export const inboundSchema = WalletsListRequest$inboundSchema;
-  /** @deprecated use `WalletsListRequest$outboundSchema` instead. */
-  export const outboundSchema = WalletsListRequest$outboundSchema;
-  /** @deprecated use `WalletsListRequest$Outbound` instead. */
-  export type Outbound = WalletsListRequest$Outbound;
-}
-
 export function walletsListRequestToJSON(
   walletsListRequest: WalletsListRequest,
 ): string {
   return JSON.stringify(
     WalletsListRequest$outboundSchema.parse(walletsListRequest),
-  );
-}
-
-export function walletsListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<WalletsListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => WalletsListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WalletsListRequest' from JSON`,
   );
 }
 
@@ -264,45 +147,6 @@ export const WalletsListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type WalletsListResponse$Outbound = {
-  Result: ListResourceWallet$Outbound;
-};
-
-/** @internal */
-export const WalletsListResponse$outboundSchema: z.ZodType<
-  WalletsListResponse$Outbound,
-  z.ZodTypeDef,
-  WalletsListResponse
-> = z.object({
-  result: ListResourceWallet$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WalletsListResponse$ {
-  /** @deprecated use `WalletsListResponse$inboundSchema` instead. */
-  export const inboundSchema = WalletsListResponse$inboundSchema;
-  /** @deprecated use `WalletsListResponse$outboundSchema` instead. */
-  export const outboundSchema = WalletsListResponse$outboundSchema;
-  /** @deprecated use `WalletsListResponse$Outbound` instead. */
-  export type Outbound = WalletsListResponse$Outbound;
-}
-
-export function walletsListResponseToJSON(
-  walletsListResponse: WalletsListResponse,
-): string {
-  return JSON.stringify(
-    WalletsListResponse$outboundSchema.parse(walletsListResponse),
-  );
-}
 
 export function walletsListResponseFromJSON(
   jsonString: string,

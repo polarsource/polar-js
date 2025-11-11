@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AddressInput,
-  AddressInput$inboundSchema,
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
@@ -56,22 +52,14 @@ export type CheckoutConfirmStripe = {
    */
   discountCode?: string | null | undefined;
   /**
+   * Disable the trial period for the checkout session. It's mainly useful when the trial is blocked because the customer already redeemed one.
+   */
+  allowTrial?: false | null | undefined;
+  /**
    * ID of the Stripe confirmation token. Required for fixed prices and custom prices.
    */
   confirmationTokenId?: string | null | undefined;
 };
-
-/** @internal */
-export const CheckoutConfirmStripeCustomFieldData$inboundSchema: z.ZodType<
-  CheckoutConfirmStripeCustomFieldData,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  z.string(),
-  z.number().int(),
-  z.boolean(),
-  z.string().datetime({ offset: true }).transform(v => new Date(v)),
-]);
 
 /** @internal */
 export type CheckoutConfirmStripeCustomFieldData$Outbound =
@@ -92,21 +80,6 @@ export const CheckoutConfirmStripeCustomFieldData$outboundSchema: z.ZodType<
   z.date().transform(v => v.toISOString()),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutConfirmStripeCustomFieldData$ {
-  /** @deprecated use `CheckoutConfirmStripeCustomFieldData$inboundSchema` instead. */
-  export const inboundSchema =
-    CheckoutConfirmStripeCustomFieldData$inboundSchema;
-  /** @deprecated use `CheckoutConfirmStripeCustomFieldData$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutConfirmStripeCustomFieldData$outboundSchema;
-  /** @deprecated use `CheckoutConfirmStripeCustomFieldData$Outbound` instead. */
-  export type Outbound = CheckoutConfirmStripeCustomFieldData$Outbound;
-}
-
 export function checkoutConfirmStripeCustomFieldDataToJSON(
   checkoutConfirmStripeCustomFieldData: CheckoutConfirmStripeCustomFieldData,
 ): string {
@@ -116,61 +89,6 @@ export function checkoutConfirmStripeCustomFieldDataToJSON(
     ),
   );
 }
-
-export function checkoutConfirmStripeCustomFieldDataFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutConfirmStripeCustomFieldData, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CheckoutConfirmStripeCustomFieldData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutConfirmStripeCustomFieldData' from JSON`,
-  );
-}
-
-/** @internal */
-export const CheckoutConfirmStripe$inboundSchema: z.ZodType<
-  CheckoutConfirmStripe,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  custom_field_data: z.record(
-    z.nullable(
-      z.union([
-        z.string(),
-        z.number().int(),
-        z.boolean(),
-        z.string().datetime({ offset: true }).transform(v => new Date(v)),
-      ]),
-    ),
-  ).optional(),
-  product_id: z.nullable(z.string()).optional(),
-  product_price_id: z.nullable(z.string()).optional(),
-  amount: z.nullable(z.number().int()).optional(),
-  seats: z.nullable(z.number().int()).optional(),
-  is_business_customer: z.nullable(z.boolean()).optional(),
-  customer_name: z.nullable(z.string()).optional(),
-  customer_email: z.nullable(z.string()).optional(),
-  customer_billing_name: z.nullable(z.string()).optional(),
-  customer_billing_address: z.nullable(AddressInput$inboundSchema).optional(),
-  customer_tax_id: z.nullable(z.string()).optional(),
-  discount_code: z.nullable(z.string()).optional(),
-  confirmation_token_id: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "custom_field_data": "customFieldData",
-    "product_id": "productId",
-    "product_price_id": "productPriceId",
-    "is_business_customer": "isBusinessCustomer",
-    "customer_name": "customerName",
-    "customer_email": "customerEmail",
-    "customer_billing_name": "customerBillingName",
-    "customer_billing_address": "customerBillingAddress",
-    "customer_tax_id": "customerTaxId",
-    "discount_code": "discountCode",
-    "confirmation_token_id": "confirmationTokenId",
-  });
-});
 
 /** @internal */
 export type CheckoutConfirmStripe$Outbound = {
@@ -188,6 +106,7 @@ export type CheckoutConfirmStripe$Outbound = {
   customer_billing_address?: AddressInput$Outbound | null | undefined;
   customer_tax_id?: string | null | undefined;
   discount_code?: string | null | undefined;
+  allow_trial?: false | null | undefined;
   confirmation_token_id?: string | null | undefined;
 };
 
@@ -218,6 +137,7 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
   customerBillingAddress: z.nullable(AddressInput$outboundSchema).optional(),
   customerTaxId: z.nullable(z.string()).optional(),
   discountCode: z.nullable(z.string()).optional(),
+  allowTrial: z.nullable(z.literal(false)).optional(),
   confirmationTokenId: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -231,37 +151,15 @@ export const CheckoutConfirmStripe$outboundSchema: z.ZodType<
     customerBillingAddress: "customer_billing_address",
     customerTaxId: "customer_tax_id",
     discountCode: "discount_code",
+    allowTrial: "allow_trial",
     confirmationTokenId: "confirmation_token_id",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutConfirmStripe$ {
-  /** @deprecated use `CheckoutConfirmStripe$inboundSchema` instead. */
-  export const inboundSchema = CheckoutConfirmStripe$inboundSchema;
-  /** @deprecated use `CheckoutConfirmStripe$outboundSchema` instead. */
-  export const outboundSchema = CheckoutConfirmStripe$outboundSchema;
-  /** @deprecated use `CheckoutConfirmStripe$Outbound` instead. */
-  export type Outbound = CheckoutConfirmStripe$Outbound;
-}
 
 export function checkoutConfirmStripeToJSON(
   checkoutConfirmStripe: CheckoutConfirmStripe,
 ): string {
   return JSON.stringify(
     CheckoutConfirmStripe$outboundSchema.parse(checkoutConfirmStripe),
-  );
-}
-
-export function checkoutConfirmStripeFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutConfirmStripe, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutConfirmStripe$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutConfirmStripe' from JSON`,
   );
 }

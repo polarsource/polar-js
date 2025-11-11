@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Security = {
   accessToken?: string | undefined;
 };
-
-/** @internal */
-export const Security$inboundSchema: z.ZodType<
-  Security,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  access_token: z.string().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "access_token": "accessToken",
-  });
-});
 
 /** @internal */
 export type Security$Outbound = {
@@ -43,29 +27,6 @@ export const Security$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Security$ {
-  /** @deprecated use `Security$inboundSchema` instead. */
-  export const inboundSchema = Security$inboundSchema;
-  /** @deprecated use `Security$outboundSchema` instead. */
-  export const outboundSchema = Security$outboundSchema;
-  /** @deprecated use `Security$Outbound` instead. */
-  export type Outbound = Security$Outbound;
-}
-
 export function securityToJSON(security: Security): string {
   return JSON.stringify(Security$outboundSchema.parse(security));
-}
-
-export function securityFromJSON(
-  jsonString: string,
-): SafeParseResult<Security, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Security$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Security' from JSON`,
-  );
 }

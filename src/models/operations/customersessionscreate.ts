@@ -3,36 +3,20 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomerSessionCustomerExternalIDCreate,
-  CustomerSessionCustomerExternalIDCreate$inboundSchema,
   CustomerSessionCustomerExternalIDCreate$Outbound,
   CustomerSessionCustomerExternalIDCreate$outboundSchema,
 } from "../components/customersessioncustomerexternalidcreate.js";
 import {
   CustomerSessionCustomerIDCreate,
-  CustomerSessionCustomerIDCreate$inboundSchema,
   CustomerSessionCustomerIDCreate$Outbound,
   CustomerSessionCustomerIDCreate$outboundSchema,
 } from "../components/customersessioncustomeridcreate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerSessionsCreateCustomerSessionCreate =
   | CustomerSessionCustomerIDCreate
   | CustomerSessionCustomerExternalIDCreate;
-
-/** @internal */
-export const CustomerSessionsCreateCustomerSessionCreate$inboundSchema:
-  z.ZodType<
-    CustomerSessionsCreateCustomerSessionCreate,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([
-    CustomerSessionCustomerIDCreate$inboundSchema,
-    CustomerSessionCustomerExternalIDCreate$inboundSchema,
-  ]);
 
 /** @internal */
 export type CustomerSessionsCreateCustomerSessionCreate$Outbound =
@@ -50,21 +34,6 @@ export const CustomerSessionsCreateCustomerSessionCreate$outboundSchema:
     CustomerSessionCustomerExternalIDCreate$outboundSchema,
   ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSessionsCreateCustomerSessionCreate$ {
-  /** @deprecated use `CustomerSessionsCreateCustomerSessionCreate$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerSessionsCreateCustomerSessionCreate$inboundSchema;
-  /** @deprecated use `CustomerSessionsCreateCustomerSessionCreate$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerSessionsCreateCustomerSessionCreate$outboundSchema;
-  /** @deprecated use `CustomerSessionsCreateCustomerSessionCreate$Outbound` instead. */
-  export type Outbound = CustomerSessionsCreateCustomerSessionCreate$Outbound;
-}
-
 export function customerSessionsCreateCustomerSessionCreateToJSON(
   customerSessionsCreateCustomerSessionCreate:
     CustomerSessionsCreateCustomerSessionCreate,
@@ -73,21 +42,5 @@ export function customerSessionsCreateCustomerSessionCreateToJSON(
     CustomerSessionsCreateCustomerSessionCreate$outboundSchema.parse(
       customerSessionsCreateCustomerSessionCreate,
     ),
-  );
-}
-
-export function customerSessionsCreateCustomerSessionCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerSessionsCreateCustomerSessionCreate,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerSessionsCreateCustomerSessionCreate$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerSessionsCreateCustomerSessionCreate' from JSON`,
   );
 }

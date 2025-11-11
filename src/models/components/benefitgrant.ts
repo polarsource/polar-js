@@ -7,54 +7,32 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Benefit,
-  Benefit$inboundSchema,
-  Benefit$Outbound,
-  Benefit$outboundSchema,
-} from "./benefit.js";
+import { Benefit, Benefit$inboundSchema } from "./benefit.js";
 import {
   BenefitGrantCustomProperties,
   BenefitGrantCustomProperties$inboundSchema,
-  BenefitGrantCustomProperties$Outbound,
-  BenefitGrantCustomProperties$outboundSchema,
 } from "./benefitgrantcustomproperties.js";
 import {
   BenefitGrantDiscordProperties,
   BenefitGrantDiscordProperties$inboundSchema,
-  BenefitGrantDiscordProperties$Outbound,
-  BenefitGrantDiscordProperties$outboundSchema,
 } from "./benefitgrantdiscordproperties.js";
 import {
   BenefitGrantDownloadablesProperties,
   BenefitGrantDownloadablesProperties$inboundSchema,
-  BenefitGrantDownloadablesProperties$Outbound,
-  BenefitGrantDownloadablesProperties$outboundSchema,
 } from "./benefitgrantdownloadablesproperties.js";
 import {
   BenefitGrantError,
   BenefitGrantError$inboundSchema,
-  BenefitGrantError$Outbound,
-  BenefitGrantError$outboundSchema,
 } from "./benefitgranterror.js";
 import {
   BenefitGrantGitHubRepositoryProperties,
   BenefitGrantGitHubRepositoryProperties$inboundSchema,
-  BenefitGrantGitHubRepositoryProperties$Outbound,
-  BenefitGrantGitHubRepositoryProperties$outboundSchema,
 } from "./benefitgrantgithubrepositoryproperties.js";
 import {
   BenefitGrantLicenseKeysProperties,
   BenefitGrantLicenseKeysProperties$inboundSchema,
-  BenefitGrantLicenseKeysProperties$Outbound,
-  BenefitGrantLicenseKeysProperties$outboundSchema,
 } from "./benefitgrantlicensekeysproperties.js";
-import {
-  Customer,
-  Customer$inboundSchema,
-  Customer$Outbound,
-  Customer$outboundSchema,
-} from "./customer.js";
+import { Customer, Customer$inboundSchema } from "./customer.js";
 
 export type Properties =
   | BenefitGrantDiscordProperties
@@ -138,44 +116,6 @@ export const Properties$inboundSchema: z.ZodType<
   BenefitGrantCustomProperties$inboundSchema,
 ]);
 
-/** @internal */
-export type Properties$Outbound =
-  | BenefitGrantDiscordProperties$Outbound
-  | BenefitGrantGitHubRepositoryProperties$Outbound
-  | BenefitGrantDownloadablesProperties$Outbound
-  | BenefitGrantLicenseKeysProperties$Outbound
-  | BenefitGrantCustomProperties$Outbound;
-
-/** @internal */
-export const Properties$outboundSchema: z.ZodType<
-  Properties$Outbound,
-  z.ZodTypeDef,
-  Properties
-> = z.union([
-  BenefitGrantDiscordProperties$outboundSchema,
-  BenefitGrantGitHubRepositoryProperties$outboundSchema,
-  BenefitGrantDownloadablesProperties$outboundSchema,
-  BenefitGrantLicenseKeysProperties$outboundSchema,
-  BenefitGrantCustomProperties$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Properties$ {
-  /** @deprecated use `Properties$inboundSchema` instead. */
-  export const inboundSchema = Properties$inboundSchema;
-  /** @deprecated use `Properties$outboundSchema` instead. */
-  export const outboundSchema = Properties$outboundSchema;
-  /** @deprecated use `Properties$Outbound` instead. */
-  export type Outbound = Properties$Outbound;
-}
-
-export function propertiesToJSON(properties: Properties): string {
-  return JSON.stringify(Properties$outboundSchema.parse(properties));
-}
-
 export function propertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<Properties, SDKValidationError> {
@@ -233,89 +173,6 @@ export const BenefitGrant$inboundSchema: z.ZodType<
     "benefit_id": "benefitId",
   });
 });
-
-/** @internal */
-export type BenefitGrant$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  granted_at?: string | null | undefined;
-  is_granted: boolean;
-  revoked_at?: string | null | undefined;
-  is_revoked: boolean;
-  subscription_id: string | null;
-  order_id: string | null;
-  customer_id: string;
-  benefit_id: string;
-  error?: BenefitGrantError$Outbound | null | undefined;
-  customer: Customer$Outbound;
-  benefit: Benefit$Outbound;
-  properties:
-    | BenefitGrantDiscordProperties$Outbound
-    | BenefitGrantGitHubRepositoryProperties$Outbound
-    | BenefitGrantDownloadablesProperties$Outbound
-    | BenefitGrantLicenseKeysProperties$Outbound
-    | BenefitGrantCustomProperties$Outbound;
-};
-
-/** @internal */
-export const BenefitGrant$outboundSchema: z.ZodType<
-  BenefitGrant$Outbound,
-  z.ZodTypeDef,
-  BenefitGrant
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  grantedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
-  isGranted: z.boolean(),
-  revokedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
-  isRevoked: z.boolean(),
-  subscriptionId: z.nullable(z.string()),
-  orderId: z.nullable(z.string()),
-  customerId: z.string(),
-  benefitId: z.string(),
-  error: z.nullable(BenefitGrantError$outboundSchema).optional(),
-  customer: Customer$outboundSchema,
-  benefit: Benefit$outboundSchema,
-  properties: z.union([
-    BenefitGrantDiscordProperties$outboundSchema,
-    BenefitGrantGitHubRepositoryProperties$outboundSchema,
-    BenefitGrantDownloadablesProperties$outboundSchema,
-    BenefitGrantLicenseKeysProperties$outboundSchema,
-    BenefitGrantCustomProperties$outboundSchema,
-  ]),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    grantedAt: "granted_at",
-    isGranted: "is_granted",
-    revokedAt: "revoked_at",
-    isRevoked: "is_revoked",
-    subscriptionId: "subscription_id",
-    orderId: "order_id",
-    customerId: "customer_id",
-    benefitId: "benefit_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrant$ {
-  /** @deprecated use `BenefitGrant$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrant$inboundSchema;
-  /** @deprecated use `BenefitGrant$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrant$outboundSchema;
-  /** @deprecated use `BenefitGrant$Outbound` instead. */
-  export type Outbound = BenefitGrant$Outbound;
-}
-
-export function benefitGrantToJSON(benefitGrant: BenefitGrant): string {
-  return JSON.stringify(BenefitGrant$outboundSchema.parse(benefitGrant));
-}
 
 export function benefitGrantFromJSON(
   jsonString: string,

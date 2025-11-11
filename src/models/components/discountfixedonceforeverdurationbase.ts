@@ -79,7 +79,6 @@ export const DiscountFixedOnceForeverDurationBaseMetadata$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type DiscountFixedOnceForeverDurationBaseMetadata$Outbound =
   | string
@@ -95,21 +94,6 @@ export const DiscountFixedOnceForeverDurationBaseMetadata$outboundSchema:
     DiscountFixedOnceForeverDurationBaseMetadata
   > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountFixedOnceForeverDurationBaseMetadata$ {
-  /** @deprecated use `DiscountFixedOnceForeverDurationBaseMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountFixedOnceForeverDurationBaseMetadata$inboundSchema;
-  /** @deprecated use `DiscountFixedOnceForeverDurationBaseMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountFixedOnceForeverDurationBaseMetadata$outboundSchema;
-  /** @deprecated use `DiscountFixedOnceForeverDurationBaseMetadata$Outbound` instead. */
-  export type Outbound = DiscountFixedOnceForeverDurationBaseMetadata$Outbound;
-}
-
 export function discountFixedOnceForeverDurationBaseMetadataToJSON(
   discountFixedOnceForeverDurationBaseMetadata:
     DiscountFixedOnceForeverDurationBaseMetadata,
@@ -120,7 +104,6 @@ export function discountFixedOnceForeverDurationBaseMetadataToJSON(
     ),
   );
 }
-
 export function discountFixedOnceForeverDurationBaseMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -177,7 +160,6 @@ export const DiscountFixedOnceForeverDurationBase$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type DiscountFixedOnceForeverDurationBase$Outbound = {
   duration: string;
@@ -232,21 +214,6 @@ export const DiscountFixedOnceForeverDurationBase$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountFixedOnceForeverDurationBase$ {
-  /** @deprecated use `DiscountFixedOnceForeverDurationBase$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountFixedOnceForeverDurationBase$inboundSchema;
-  /** @deprecated use `DiscountFixedOnceForeverDurationBase$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountFixedOnceForeverDurationBase$outboundSchema;
-  /** @deprecated use `DiscountFixedOnceForeverDurationBase$Outbound` instead. */
-  export type Outbound = DiscountFixedOnceForeverDurationBase$Outbound;
-}
-
 export function discountFixedOnceForeverDurationBaseToJSON(
   discountFixedOnceForeverDurationBase: DiscountFixedOnceForeverDurationBase,
 ): string {
@@ -256,7 +223,6 @@ export function discountFixedOnceForeverDurationBaseToJSON(
     ),
   );
 }
-
 export function discountFixedOnceForeverDurationBaseFromJSON(
   jsonString: string,
 ): SafeParseResult<DiscountFixedOnceForeverDurationBase, SDKValidationError> {

@@ -145,7 +145,6 @@ export const Organization$inboundSchema: z.ZodType<
     "customer_email_settings": "customerEmailSettings",
   });
 });
-
 /** @internal */
 export type Organization$Outbound = {
   created_at: string;
@@ -205,23 +204,9 @@ export const Organization$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Organization$ {
-  /** @deprecated use `Organization$inboundSchema` instead. */
-  export const inboundSchema = Organization$inboundSchema;
-  /** @deprecated use `Organization$outboundSchema` instead. */
-  export const outboundSchema = Organization$outboundSchema;
-  /** @deprecated use `Organization$Outbound` instead. */
-  export type Outbound = Organization$Outbound;
-}
-
 export function organizationToJSON(organization: Organization): string {
   return JSON.stringify(Organization$outboundSchema.parse(organization));
 }
-
 export function organizationFromJSON(
   jsonString: string,
 ): SafeParseResult<Organization, SDKValidationError> {

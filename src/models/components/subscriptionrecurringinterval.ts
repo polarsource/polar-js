@@ -19,19 +19,7 @@ export type SubscriptionRecurringInterval = ClosedEnum<
 export const SubscriptionRecurringInterval$inboundSchema: z.ZodNativeEnum<
   typeof SubscriptionRecurringInterval
 > = z.nativeEnum(SubscriptionRecurringInterval);
-
 /** @internal */
 export const SubscriptionRecurringInterval$outboundSchema: z.ZodNativeEnum<
   typeof SubscriptionRecurringInterval
 > = SubscriptionRecurringInterval$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionRecurringInterval$ {
-  /** @deprecated use `SubscriptionRecurringInterval$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionRecurringInterval$inboundSchema;
-  /** @deprecated use `SubscriptionRecurringInterval$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionRecurringInterval$outboundSchema;
-}

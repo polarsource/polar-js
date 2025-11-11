@@ -7,19 +7,12 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AuthorizeUser,
-  AuthorizeUser$inboundSchema,
-  AuthorizeUser$Outbound,
-  AuthorizeUser$outboundSchema,
-} from "./authorizeuser.js";
+import { AuthorizeUser, AuthorizeUser$inboundSchema } from "./authorizeuser.js";
 import {
   OAuth2ClientPublic,
   OAuth2ClientPublic$inboundSchema,
-  OAuth2ClientPublic$Outbound,
-  OAuth2ClientPublic$outboundSchema,
 } from "./oauth2clientpublic.js";
-import { Scope, Scope$inboundSchema, Scope$outboundSchema } from "./scope.js";
+import { Scope, Scope$inboundSchema } from "./scope.js";
 
 export type AuthorizeResponseUser = {
   client: OAuth2ClientPublic;
@@ -43,51 +36,6 @@ export const AuthorizeResponseUser$inboundSchema: z.ZodType<
     "sub_type": "subType",
   });
 });
-
-/** @internal */
-export type AuthorizeResponseUser$Outbound = {
-  client: OAuth2ClientPublic$Outbound;
-  sub_type: "user";
-  sub: AuthorizeUser$Outbound | null;
-  scopes: Array<string>;
-};
-
-/** @internal */
-export const AuthorizeResponseUser$outboundSchema: z.ZodType<
-  AuthorizeResponseUser$Outbound,
-  z.ZodTypeDef,
-  AuthorizeResponseUser
-> = z.object({
-  client: OAuth2ClientPublic$outboundSchema,
-  subType: z.literal("user"),
-  sub: z.nullable(AuthorizeUser$outboundSchema),
-  scopes: z.array(Scope$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    subType: "sub_type",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizeResponseUser$ {
-  /** @deprecated use `AuthorizeResponseUser$inboundSchema` instead. */
-  export const inboundSchema = AuthorizeResponseUser$inboundSchema;
-  /** @deprecated use `AuthorizeResponseUser$outboundSchema` instead. */
-  export const outboundSchema = AuthorizeResponseUser$outboundSchema;
-  /** @deprecated use `AuthorizeResponseUser$Outbound` instead. */
-  export type Outbound = AuthorizeResponseUser$Outbound;
-}
-
-export function authorizeResponseUserToJSON(
-  authorizeResponseUser: AuthorizeResponseUser,
-): string {
-  return JSON.stringify(
-    AuthorizeResponseUser$outboundSchema.parse(authorizeResponseUser),
-  );
-}
 
 export function authorizeResponseUserFromJSON(
   jsonString: string,

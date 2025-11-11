@@ -42,7 +42,6 @@ export const ProductPriceSeatTier$inboundSchema: z.ZodType<
     "price_per_seat": "pricePerSeat",
   });
 });
-
 /** @internal */
 export type ProductPriceSeatTier$Outbound = {
   min_seats: number;
@@ -67,19 +66,6 @@ export const ProductPriceSeatTier$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceSeatTier$ {
-  /** @deprecated use `ProductPriceSeatTier$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceSeatTier$inboundSchema;
-  /** @deprecated use `ProductPriceSeatTier$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceSeatTier$outboundSchema;
-  /** @deprecated use `ProductPriceSeatTier$Outbound` instead. */
-  export type Outbound = ProductPriceSeatTier$Outbound;
-}
-
 export function productPriceSeatTierToJSON(
   productPriceSeatTier: ProductPriceSeatTier,
 ): string {
@@ -87,7 +73,6 @@ export function productPriceSeatTierToJSON(
     ProductPriceSeatTier$outboundSchema.parse(productPriceSeatTier),
   );
 }
-
 export function productPriceSeatTierFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductPriceSeatTier, SDKValidationError> {

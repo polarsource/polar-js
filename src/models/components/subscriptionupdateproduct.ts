@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SubscriptionProrationBehavior,
-  SubscriptionProrationBehavior$inboundSchema,
   SubscriptionProrationBehavior$outboundSchema,
 } from "./subscriptionprorationbehavior.js";
 
@@ -23,22 +19,6 @@ export type SubscriptionUpdateProduct = {
    */
   prorationBehavior?: SubscriptionProrationBehavior | null | undefined;
 };
-
-/** @internal */
-export const SubscriptionUpdateProduct$inboundSchema: z.ZodType<
-  SubscriptionUpdateProduct,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  product_id: z.string(),
-  proration_behavior: z.nullable(SubscriptionProrationBehavior$inboundSchema)
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "product_id": "productId",
-    "proration_behavior": "prorationBehavior",
-  });
-});
 
 /** @internal */
 export type SubscriptionUpdateProduct$Outbound = {
@@ -62,33 +42,10 @@ export const SubscriptionUpdateProduct$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionUpdateProduct$ {
-  /** @deprecated use `SubscriptionUpdateProduct$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionUpdateProduct$inboundSchema;
-  /** @deprecated use `SubscriptionUpdateProduct$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionUpdateProduct$outboundSchema;
-  /** @deprecated use `SubscriptionUpdateProduct$Outbound` instead. */
-  export type Outbound = SubscriptionUpdateProduct$Outbound;
-}
-
 export function subscriptionUpdateProductToJSON(
   subscriptionUpdateProduct: SubscriptionUpdateProduct,
 ): string {
   return JSON.stringify(
     SubscriptionUpdateProduct$outboundSchema.parse(subscriptionUpdateProduct),
-  );
-}
-
-export function subscriptionUpdateProductFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionUpdateProduct, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionUpdateProduct$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionUpdateProduct' from JSON`,
   );
 }

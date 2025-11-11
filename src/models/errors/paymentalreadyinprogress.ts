@@ -52,34 +52,3 @@ export const PaymentAlreadyInProgress$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type PaymentAlreadyInProgress$Outbound = {
-  error: "PaymentAlreadyInProgress";
-  detail: string;
-};
-
-/** @internal */
-export const PaymentAlreadyInProgress$outboundSchema: z.ZodType<
-  PaymentAlreadyInProgress$Outbound,
-  z.ZodTypeDef,
-  PaymentAlreadyInProgress
-> = z.instanceof(PaymentAlreadyInProgress)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("PaymentAlreadyInProgress"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentAlreadyInProgress$ {
-  /** @deprecated use `PaymentAlreadyInProgress$inboundSchema` instead. */
-  export const inboundSchema = PaymentAlreadyInProgress$inboundSchema;
-  /** @deprecated use `PaymentAlreadyInProgress$outboundSchema` instead. */
-  export const outboundSchema = PaymentAlreadyInProgress$outboundSchema;
-  /** @deprecated use `PaymentAlreadyInProgress$Outbound` instead. */
-  export type Outbound = PaymentAlreadyInProgress$Outbound;
-}

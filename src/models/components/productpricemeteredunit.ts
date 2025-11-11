@@ -111,7 +111,6 @@ export const ProductPriceMeteredUnit$inboundSchema: z.ZodType<
     "meter_id": "meterId",
   });
 });
-
 /** @internal */
 export type ProductPriceMeteredUnit$Outbound = {
   created_at: string;
@@ -163,19 +162,6 @@ export const ProductPriceMeteredUnit$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceMeteredUnit$ {
-  /** @deprecated use `ProductPriceMeteredUnit$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceMeteredUnit$inboundSchema;
-  /** @deprecated use `ProductPriceMeteredUnit$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceMeteredUnit$outboundSchema;
-  /** @deprecated use `ProductPriceMeteredUnit$Outbound` instead. */
-  export type Outbound = ProductPriceMeteredUnit$Outbound;
-}
-
 export function productPriceMeteredUnitToJSON(
   productPriceMeteredUnit: ProductPriceMeteredUnit,
 ): string {
@@ -183,7 +169,6 @@ export function productPriceMeteredUnitToJSON(
     ProductPriceMeteredUnit$outboundSchema.parse(productPriceMeteredUnit),
   );
 }
-
 export function productPriceMeteredUnitFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductPriceMeteredUnit, SDKValidationError> {

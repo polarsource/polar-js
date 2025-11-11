@@ -3,24 +3,18 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CheckoutLinkCreateProduct,
-  CheckoutLinkCreateProduct$inboundSchema,
   CheckoutLinkCreateProduct$Outbound,
   CheckoutLinkCreateProduct$outboundSchema,
 } from "./checkoutlinkcreateproduct.js";
 import {
   CheckoutLinkCreateProductPrice,
-  CheckoutLinkCreateProductPrice$inboundSchema,
   CheckoutLinkCreateProductPrice$Outbound,
   CheckoutLinkCreateProductPrice$outboundSchema,
 } from "./checkoutlinkcreateproductprice.js";
 import {
   CheckoutLinkCreateProducts,
-  CheckoutLinkCreateProducts$inboundSchema,
   CheckoutLinkCreateProducts$Outbound,
   CheckoutLinkCreateProducts$outboundSchema,
 } from "./checkoutlinkcreateproducts.js";
@@ -29,17 +23,6 @@ export type CheckoutLinkCreate =
   | CheckoutLinkCreateProductPrice
   | CheckoutLinkCreateProduct
   | CheckoutLinkCreateProducts;
-
-/** @internal */
-export const CheckoutLinkCreate$inboundSchema: z.ZodType<
-  CheckoutLinkCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  CheckoutLinkCreateProductPrice$inboundSchema,
-  CheckoutLinkCreateProduct$inboundSchema,
-  CheckoutLinkCreateProducts$inboundSchema,
-]);
 
 /** @internal */
 export type CheckoutLinkCreate$Outbound =
@@ -58,33 +41,10 @@ export const CheckoutLinkCreate$outboundSchema: z.ZodType<
   CheckoutLinkCreateProducts$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkCreate$ {
-  /** @deprecated use `CheckoutLinkCreate$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkCreate$inboundSchema;
-  /** @deprecated use `CheckoutLinkCreate$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinkCreate$outboundSchema;
-  /** @deprecated use `CheckoutLinkCreate$Outbound` instead. */
-  export type Outbound = CheckoutLinkCreate$Outbound;
-}
-
 export function checkoutLinkCreateToJSON(
   checkoutLinkCreate: CheckoutLinkCreate,
 ): string {
   return JSON.stringify(
     CheckoutLinkCreate$outboundSchema.parse(checkoutLinkCreate),
-  );
-}
-
-export function checkoutLinkCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutLinkCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutLinkCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutLinkCreate' from JSON`,
   );
 }

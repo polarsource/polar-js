@@ -3,24 +3,11 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type FilePatch = {
   name?: string | null | undefined;
   version?: string | null | undefined;
 };
-
-/** @internal */
-export const FilePatch$inboundSchema: z.ZodType<
-  FilePatch,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  name: z.nullable(z.string()).optional(),
-  version: z.nullable(z.string()).optional(),
-});
 
 /** @internal */
 export type FilePatch$Outbound = {
@@ -38,29 +25,6 @@ export const FilePatch$outboundSchema: z.ZodType<
   version: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FilePatch$ {
-  /** @deprecated use `FilePatch$inboundSchema` instead. */
-  export const inboundSchema = FilePatch$inboundSchema;
-  /** @deprecated use `FilePatch$outboundSchema` instead. */
-  export const outboundSchema = FilePatch$outboundSchema;
-  /** @deprecated use `FilePatch$Outbound` instead. */
-  export type Outbound = FilePatch$Outbound;
-}
-
 export function filePatchToJSON(filePatch: FilePatch): string {
   return JSON.stringify(FilePatch$outboundSchema.parse(filePatch));
-}
-
-export function filePatchFromJSON(
-  jsonString: string,
-): SafeParseResult<FilePatch, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FilePatch$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FilePatch' from JSON`,
-  );
 }

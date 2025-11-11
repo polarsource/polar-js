@@ -28,54 +28,6 @@ export const CustomerPaymentMethodCreateRequiresActionResponse$inboundSchema:
     });
   });
 
-/** @internal */
-export type CustomerPaymentMethodCreateRequiresActionResponse$Outbound = {
-  status: "requires_action";
-  client_secret: string;
-};
-
-/** @internal */
-export const CustomerPaymentMethodCreateRequiresActionResponse$outboundSchema:
-  z.ZodType<
-    CustomerPaymentMethodCreateRequiresActionResponse$Outbound,
-    z.ZodTypeDef,
-    CustomerPaymentMethodCreateRequiresActionResponse
-  > = z.object({
-    status: z.literal("requires_action"),
-    clientSecret: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      clientSecret: "client_secret",
-    });
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPaymentMethodCreateRequiresActionResponse$ {
-  /** @deprecated use `CustomerPaymentMethodCreateRequiresActionResponse$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPaymentMethodCreateRequiresActionResponse$inboundSchema;
-  /** @deprecated use `CustomerPaymentMethodCreateRequiresActionResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPaymentMethodCreateRequiresActionResponse$outboundSchema;
-  /** @deprecated use `CustomerPaymentMethodCreateRequiresActionResponse$Outbound` instead. */
-  export type Outbound =
-    CustomerPaymentMethodCreateRequiresActionResponse$Outbound;
-}
-
-export function customerPaymentMethodCreateRequiresActionResponseToJSON(
-  customerPaymentMethodCreateRequiresActionResponse:
-    CustomerPaymentMethodCreateRequiresActionResponse,
-): string {
-  return JSON.stringify(
-    CustomerPaymentMethodCreateRequiresActionResponse$outboundSchema.parse(
-      customerPaymentMethodCreateRequiresActionResponse,
-    ),
-  );
-}
-
 export function customerPaymentMethodCreateRequiresActionResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<

@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  CustomerMeter,
-  CustomerMeter$inboundSchema,
-  CustomerMeter$Outbound,
-  CustomerMeter$outboundSchema,
-} from "./customermeter.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { CustomerMeter, CustomerMeter$inboundSchema } from "./customermeter.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceCustomerMeter = {
   items: Array<CustomerMeter>;
@@ -33,43 +23,6 @@ export const ListResourceCustomerMeter$inboundSchema: z.ZodType<
   items: z.array(CustomerMeter$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceCustomerMeter$Outbound = {
-  items: Array<CustomerMeter$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceCustomerMeter$outboundSchema: z.ZodType<
-  ListResourceCustomerMeter$Outbound,
-  z.ZodTypeDef,
-  ListResourceCustomerMeter
-> = z.object({
-  items: z.array(CustomerMeter$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceCustomerMeter$ {
-  /** @deprecated use `ListResourceCustomerMeter$inboundSchema` instead. */
-  export const inboundSchema = ListResourceCustomerMeter$inboundSchema;
-  /** @deprecated use `ListResourceCustomerMeter$outboundSchema` instead. */
-  export const outboundSchema = ListResourceCustomerMeter$outboundSchema;
-  /** @deprecated use `ListResourceCustomerMeter$Outbound` instead. */
-  export type Outbound = ListResourceCustomerMeter$Outbound;
-}
-
-export function listResourceCustomerMeterToJSON(
-  listResourceCustomerMeter: ListResourceCustomerMeter,
-): string {
-  return JSON.stringify(
-    ListResourceCustomerMeter$outboundSchema.parse(listResourceCustomerMeter),
-  );
-}
 
 export function listResourceCustomerMeterFromJSON(
   jsonString: string,

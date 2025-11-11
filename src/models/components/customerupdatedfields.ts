@@ -7,12 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AddressDict,
-  AddressDict$inboundSchema,
-  AddressDict$Outbound,
-  AddressDict$outboundSchema,
-} from "./addressdict.js";
+import { AddressDict, AddressDict$inboundSchema } from "./addressdict.js";
 
 export type CustomerUpdatedFieldsMetadata = string | number | boolean;
 
@@ -30,39 +25,6 @@ export const CustomerUpdatedFieldsMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.boolean()]);
-
-/** @internal */
-export type CustomerUpdatedFieldsMetadata$Outbound = string | number | boolean;
-
-/** @internal */
-export const CustomerUpdatedFieldsMetadata$outboundSchema: z.ZodType<
-  CustomerUpdatedFieldsMetadata$Outbound,
-  z.ZodTypeDef,
-  CustomerUpdatedFieldsMetadata
-> = z.union([z.string(), z.number().int(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerUpdatedFieldsMetadata$ {
-  /** @deprecated use `CustomerUpdatedFieldsMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomerUpdatedFieldsMetadata$inboundSchema;
-  /** @deprecated use `CustomerUpdatedFieldsMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomerUpdatedFieldsMetadata$outboundSchema;
-  /** @deprecated use `CustomerUpdatedFieldsMetadata$Outbound` instead. */
-  export type Outbound = CustomerUpdatedFieldsMetadata$Outbound;
-}
-
-export function customerUpdatedFieldsMetadataToJSON(
-  customerUpdatedFieldsMetadata: CustomerUpdatedFieldsMetadata,
-): string {
-  return JSON.stringify(
-    CustomerUpdatedFieldsMetadata$outboundSchema.parse(
-      customerUpdatedFieldsMetadata,
-    ),
-  );
-}
 
 export function customerUpdatedFieldsMetadataFromJSON(
   jsonString: string,
@@ -93,56 +55,6 @@ export const CustomerUpdatedFields$inboundSchema: z.ZodType<
     "tax_id": "taxId",
   });
 });
-
-/** @internal */
-export type CustomerUpdatedFields$Outbound = {
-  name?: string | null | undefined;
-  email?: string | null | undefined;
-  billing_address?: AddressDict$Outbound | null | undefined;
-  tax_id?: string | null | undefined;
-  metadata?: { [k: string]: string | number | boolean } | null | undefined;
-};
-
-/** @internal */
-export const CustomerUpdatedFields$outboundSchema: z.ZodType<
-  CustomerUpdatedFields$Outbound,
-  z.ZodTypeDef,
-  CustomerUpdatedFields
-> = z.object({
-  name: z.nullable(z.string()).optional(),
-  email: z.nullable(z.string()).optional(),
-  billingAddress: z.nullable(AddressDict$outboundSchema).optional(),
-  taxId: z.nullable(z.string()).optional(),
-  metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.boolean()])),
-  ).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    billingAddress: "billing_address",
-    taxId: "tax_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerUpdatedFields$ {
-  /** @deprecated use `CustomerUpdatedFields$inboundSchema` instead. */
-  export const inboundSchema = CustomerUpdatedFields$inboundSchema;
-  /** @deprecated use `CustomerUpdatedFields$outboundSchema` instead. */
-  export const outboundSchema = CustomerUpdatedFields$outboundSchema;
-  /** @deprecated use `CustomerUpdatedFields$Outbound` instead. */
-  export type Outbound = CustomerUpdatedFields$Outbound;
-}
-
-export function customerUpdatedFieldsToJSON(
-  customerUpdatedFields: CustomerUpdatedFields,
-): string {
-  return JSON.stringify(
-    CustomerUpdatedFields$outboundSchema.parse(customerUpdatedFields),
-  );
-}
 
 export function customerUpdatedFieldsFromJSON(
   jsonString: string,

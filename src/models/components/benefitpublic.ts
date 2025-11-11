@@ -68,7 +68,6 @@ export const BenefitPublic$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type BenefitPublic$Outbound = {
   id: string;
@@ -103,23 +102,9 @@ export const BenefitPublic$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitPublic$ {
-  /** @deprecated use `BenefitPublic$inboundSchema` instead. */
-  export const inboundSchema = BenefitPublic$inboundSchema;
-  /** @deprecated use `BenefitPublic$outboundSchema` instead. */
-  export const outboundSchema = BenefitPublic$outboundSchema;
-  /** @deprecated use `BenefitPublic$Outbound` instead. */
-  export type Outbound = BenefitPublic$Outbound;
-}
-
 export function benefitPublicToJSON(benefitPublic: BenefitPublic): string {
   return JSON.stringify(BenefitPublic$outboundSchema.parse(benefitPublic));
 }
-
 export function benefitPublicFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitPublic, SDKValidationError> {

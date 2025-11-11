@@ -55,7 +55,6 @@ export const CustomFieldNumberMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type CustomFieldNumberMetadata$Outbound =
   | string
@@ -70,19 +69,6 @@ export const CustomFieldNumberMetadata$outboundSchema: z.ZodType<
   CustomFieldNumberMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldNumberMetadata$ {
-  /** @deprecated use `CustomFieldNumberMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldNumberMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldNumberMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldNumberMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldNumberMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldNumberMetadata$Outbound;
-}
-
 export function customFieldNumberMetadataToJSON(
   customFieldNumberMetadata: CustomFieldNumberMetadata,
 ): string {
@@ -90,7 +76,6 @@ export function customFieldNumberMetadataToJSON(
     CustomFieldNumberMetadata$outboundSchema.parse(customFieldNumberMetadata),
   );
 }
-
 export function customFieldNumberMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldNumberMetadata, SDKValidationError> {
@@ -127,7 +112,6 @@ export const CustomFieldNumber$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type CustomFieldNumber$Outbound = {
   created_at: string;
@@ -166,19 +150,6 @@ export const CustomFieldNumber$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldNumber$ {
-  /** @deprecated use `CustomFieldNumber$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldNumber$inboundSchema;
-  /** @deprecated use `CustomFieldNumber$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldNumber$outboundSchema;
-  /** @deprecated use `CustomFieldNumber$Outbound` instead. */
-  export type Outbound = CustomFieldNumber$Outbound;
-}
-
 export function customFieldNumberToJSON(
   customFieldNumber: CustomFieldNumber,
 ): string {
@@ -186,7 +157,6 @@ export function customFieldNumberToJSON(
     CustomFieldNumber$outboundSchema.parse(customFieldNumber),
   );
 }
-
 export function customFieldNumberFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldNumber, SDKValidationError> {

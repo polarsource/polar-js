@@ -39,7 +39,6 @@ export const CheckoutBillingAddressFields$inboundSchema: z.ZodType<
     "postal_code": "postalCode",
   });
 });
-
 /** @internal */
 export type CheckoutBillingAddressFields$Outbound = {
   country: string;
@@ -68,19 +67,6 @@ export const CheckoutBillingAddressFields$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutBillingAddressFields$ {
-  /** @deprecated use `CheckoutBillingAddressFields$inboundSchema` instead. */
-  export const inboundSchema = CheckoutBillingAddressFields$inboundSchema;
-  /** @deprecated use `CheckoutBillingAddressFields$outboundSchema` instead. */
-  export const outboundSchema = CheckoutBillingAddressFields$outboundSchema;
-  /** @deprecated use `CheckoutBillingAddressFields$Outbound` instead. */
-  export type Outbound = CheckoutBillingAddressFields$Outbound;
-}
-
 export function checkoutBillingAddressFieldsToJSON(
   checkoutBillingAddressFields: CheckoutBillingAddressFields,
 ): string {
@@ -90,7 +76,6 @@ export function checkoutBillingAddressFieldsToJSON(
     ),
   );
 }
-
 export function checkoutBillingAddressFieldsFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutBillingAddressFields, SDKValidationError> {

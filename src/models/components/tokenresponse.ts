@@ -39,55 +39,6 @@ export const TokenResponse$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type TokenResponse$Outbound = {
-  access_token: string;
-  token_type: "Bearer";
-  expires_in: number;
-  refresh_token: string | null;
-  scope: string;
-  id_token: string;
-};
-
-/** @internal */
-export const TokenResponse$outboundSchema: z.ZodType<
-  TokenResponse$Outbound,
-  z.ZodTypeDef,
-  TokenResponse
-> = z.object({
-  accessToken: z.string(),
-  tokenType: z.literal("Bearer"),
-  expiresIn: z.number().int(),
-  refreshToken: z.nullable(z.string()),
-  scope: z.string(),
-  idToken: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    accessToken: "access_token",
-    tokenType: "token_type",
-    expiresIn: "expires_in",
-    refreshToken: "refresh_token",
-    idToken: "id_token",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenResponse$ {
-  /** @deprecated use `TokenResponse$inboundSchema` instead. */
-  export const inboundSchema = TokenResponse$inboundSchema;
-  /** @deprecated use `TokenResponse$outboundSchema` instead. */
-  export const outboundSchema = TokenResponse$outboundSchema;
-  /** @deprecated use `TokenResponse$Outbound` instead. */
-  export type Outbound = TokenResponse$Outbound;
-}
-
-export function tokenResponseToJSON(tokenResponse: TokenResponse): string {
-  return JSON.stringify(TokenResponse$outboundSchema.parse(tokenResponse));
-}
-
 export function tokenResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<TokenResponse, SDKValidationError> {

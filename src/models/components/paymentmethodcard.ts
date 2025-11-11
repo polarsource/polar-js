@@ -10,13 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PaymentMethodCardMetadata,
   PaymentMethodCardMetadata$inboundSchema,
-  PaymentMethodCardMetadata$Outbound,
-  PaymentMethodCardMetadata$outboundSchema,
 } from "./paymentmethodcardmetadata.js";
 import {
   PaymentProcessor,
   PaymentProcessor$inboundSchema,
-  PaymentProcessor$outboundSchema,
 } from "./paymentprocessor.js";
 
 export type PaymentMethodCard = {
@@ -61,60 +58,6 @@ export const PaymentMethodCard$inboundSchema: z.ZodType<
     "method_metadata": "methodMetadata",
   });
 });
-
-/** @internal */
-export type PaymentMethodCard$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  processor: string;
-  customer_id: string;
-  type: "card";
-  method_metadata: PaymentMethodCardMetadata$Outbound;
-};
-
-/** @internal */
-export const PaymentMethodCard$outboundSchema: z.ZodType<
-  PaymentMethodCard$Outbound,
-  z.ZodTypeDef,
-  PaymentMethodCard
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  processor: PaymentProcessor$outboundSchema,
-  customerId: z.string(),
-  type: z.literal("card"),
-  methodMetadata: PaymentMethodCardMetadata$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    customerId: "customer_id",
-    methodMetadata: "method_metadata",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentMethodCard$ {
-  /** @deprecated use `PaymentMethodCard$inboundSchema` instead. */
-  export const inboundSchema = PaymentMethodCard$inboundSchema;
-  /** @deprecated use `PaymentMethodCard$outboundSchema` instead. */
-  export const outboundSchema = PaymentMethodCard$outboundSchema;
-  /** @deprecated use `PaymentMethodCard$Outbound` instead. */
-  export type Outbound = PaymentMethodCard$Outbound;
-}
-
-export function paymentMethodCardToJSON(
-  paymentMethodCard: PaymentMethodCard,
-): string {
-  return JSON.stringify(
-    PaymentMethodCard$outboundSchema.parse(paymentMethodCard),
-  );
-}
 
 export function paymentMethodCardFromJSON(
   jsonString: string,

@@ -111,7 +111,6 @@ export const CustomerStateMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type CustomerStateMetadata$Outbound = string | number | number | boolean;
 
@@ -122,19 +121,6 @@ export const CustomerStateMetadata$outboundSchema: z.ZodType<
   CustomerStateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerStateMetadata$ {
-  /** @deprecated use `CustomerStateMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomerStateMetadata$inboundSchema;
-  /** @deprecated use `CustomerStateMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomerStateMetadata$outboundSchema;
-  /** @deprecated use `CustomerStateMetadata$Outbound` instead. */
-  export type Outbound = CustomerStateMetadata$Outbound;
-}
-
 export function customerStateMetadataToJSON(
   customerStateMetadata: CustomerStateMetadata,
 ): string {
@@ -142,7 +128,6 @@ export function customerStateMetadataToJSON(
     CustomerStateMetadata$outboundSchema.parse(customerStateMetadata),
   );
 }
-
 export function customerStateMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerStateMetadata, SDKValidationError> {
@@ -159,7 +144,6 @@ export const CustomerStateTaxId$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), TaxIDFormat$inboundSchema]);
-
 /** @internal */
 export type CustomerStateTaxId$Outbound = string | string;
 
@@ -170,19 +154,6 @@ export const CustomerStateTaxId$outboundSchema: z.ZodType<
   CustomerStateTaxId
 > = z.union([z.string(), TaxIDFormat$outboundSchema]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerStateTaxId$ {
-  /** @deprecated use `CustomerStateTaxId$inboundSchema` instead. */
-  export const inboundSchema = CustomerStateTaxId$inboundSchema;
-  /** @deprecated use `CustomerStateTaxId$outboundSchema` instead. */
-  export const outboundSchema = CustomerStateTaxId$outboundSchema;
-  /** @deprecated use `CustomerStateTaxId$Outbound` instead. */
-  export type Outbound = CustomerStateTaxId$Outbound;
-}
-
 export function customerStateTaxIdToJSON(
   customerStateTaxId: CustomerStateTaxId,
 ): string {
@@ -190,7 +161,6 @@ export function customerStateTaxIdToJSON(
     CustomerStateTaxId$outboundSchema.parse(customerStateTaxId),
   );
 }
-
 export function customerStateTaxIdFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerStateTaxId, SDKValidationError> {
@@ -247,7 +217,6 @@ export const CustomerState$inboundSchema: z.ZodType<
     "avatar_url": "avatarUrl",
   });
 });
-
 /** @internal */
 export type CustomerState$Outbound = {
   id: string;
@@ -311,23 +280,9 @@ export const CustomerState$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerState$ {
-  /** @deprecated use `CustomerState$inboundSchema` instead. */
-  export const inboundSchema = CustomerState$inboundSchema;
-  /** @deprecated use `CustomerState$outboundSchema` instead. */
-  export const outboundSchema = CustomerState$outboundSchema;
-  /** @deprecated use `CustomerState$Outbound` instead. */
-  export type Outbound = CustomerState$Outbound;
-}
-
 export function customerStateToJSON(customerState: CustomerState): string {
   return JSON.stringify(CustomerState$outboundSchema.parse(customerState));
 }
-
 export function customerStateFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerState, SDKValidationError> {

@@ -52,36 +52,3 @@ export const PaymentMethodInUseByActiveSubscription$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type PaymentMethodInUseByActiveSubscription$Outbound = {
-  error: "PaymentMethodInUseByActiveSubscription";
-  detail: string;
-};
-
-/** @internal */
-export const PaymentMethodInUseByActiveSubscription$outboundSchema: z.ZodType<
-  PaymentMethodInUseByActiveSubscription$Outbound,
-  z.ZodTypeDef,
-  PaymentMethodInUseByActiveSubscription
-> = z.instanceof(PaymentMethodInUseByActiveSubscription)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("PaymentMethodInUseByActiveSubscription"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentMethodInUseByActiveSubscription$ {
-  /** @deprecated use `PaymentMethodInUseByActiveSubscription$inboundSchema` instead. */
-  export const inboundSchema =
-    PaymentMethodInUseByActiveSubscription$inboundSchema;
-  /** @deprecated use `PaymentMethodInUseByActiveSubscription$outboundSchema` instead. */
-  export const outboundSchema =
-    PaymentMethodInUseByActiveSubscription$outboundSchema;
-  /** @deprecated use `PaymentMethodInUseByActiveSubscription$Outbound` instead. */
-  export type Outbound = PaymentMethodInUseByActiveSubscription$Outbound;
-}

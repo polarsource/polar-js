@@ -64,56 +64,6 @@ export const SeatClaimInfo$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type SeatClaimInfo$Outbound = {
-  product_name: string;
-  product_id: string;
-  organization_name: string;
-  organization_slug: string;
-  customer_email: string;
-  can_claim: boolean;
-};
-
-/** @internal */
-export const SeatClaimInfo$outboundSchema: z.ZodType<
-  SeatClaimInfo$Outbound,
-  z.ZodTypeDef,
-  SeatClaimInfo
-> = z.object({
-  productName: z.string(),
-  productId: z.string(),
-  organizationName: z.string(),
-  organizationSlug: z.string(),
-  customerEmail: z.string(),
-  canClaim: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    productName: "product_name",
-    productId: "product_id",
-    organizationName: "organization_name",
-    organizationSlug: "organization_slug",
-    customerEmail: "customer_email",
-    canClaim: "can_claim",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SeatClaimInfo$ {
-  /** @deprecated use `SeatClaimInfo$inboundSchema` instead. */
-  export const inboundSchema = SeatClaimInfo$inboundSchema;
-  /** @deprecated use `SeatClaimInfo$outboundSchema` instead. */
-  export const outboundSchema = SeatClaimInfo$outboundSchema;
-  /** @deprecated use `SeatClaimInfo$Outbound` instead. */
-  export type Outbound = SeatClaimInfo$Outbound;
-}
-
-export function seatClaimInfoToJSON(seatClaimInfo: SeatClaimInfo): string {
-  return JSON.stringify(SeatClaimInfo$outboundSchema.parse(seatClaimInfo));
-}
-
 export function seatClaimInfoFromJSON(
   jsonString: string,
 ): SafeParseResult<SeatClaimInfo, SDKValidationError> {

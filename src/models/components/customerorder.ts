@@ -7,40 +7,24 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Address,
-  Address$inboundSchema,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
+import { Address, Address$inboundSchema } from "./address.js";
 import {
   CustomerOrderProduct,
   CustomerOrderProduct$inboundSchema,
-  CustomerOrderProduct$Outbound,
-  CustomerOrderProduct$outboundSchema,
 } from "./customerorderproduct.js";
 import {
   CustomerOrderSubscription,
   CustomerOrderSubscription$inboundSchema,
-  CustomerOrderSubscription$Outbound,
-  CustomerOrderSubscription$outboundSchema,
 } from "./customerordersubscription.js";
 import {
   OrderBillingReason,
   OrderBillingReason$inboundSchema,
-  OrderBillingReason$outboundSchema,
 } from "./orderbillingreason.js";
 import {
   OrderItemSchema,
   OrderItemSchema$inboundSchema,
-  OrderItemSchema$Outbound,
-  OrderItemSchema$outboundSchema,
 } from "./orderitemschema.js";
-import {
-  OrderStatus,
-  OrderStatus$inboundSchema,
-  OrderStatus$outboundSchema,
-} from "./orderstatus.js";
+import { OrderStatus, OrderStatus$inboundSchema } from "./orderstatus.js";
 
 export type CustomerOrder = {
   /**
@@ -209,126 +193,6 @@ export const CustomerOrder$inboundSchema: z.ZodType<
     "next_payment_attempt_at": "nextPaymentAttemptAt",
   });
 });
-
-/** @internal */
-export type CustomerOrder$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  status: string;
-  paid: boolean;
-  subtotal_amount: number;
-  discount_amount: number;
-  net_amount: number;
-  tax_amount: number;
-  total_amount: number;
-  applied_balance_amount: number;
-  due_amount: number;
-  refunded_amount: number;
-  refunded_tax_amount: number;
-  currency: string;
-  billing_reason: string;
-  billing_name: string | null;
-  billing_address: Address$Outbound | null;
-  invoice_number: string;
-  is_invoice_generated: boolean;
-  seats?: number | null | undefined;
-  customer_id: string;
-  product_id: string | null;
-  discount_id: string | null;
-  subscription_id: string | null;
-  checkout_id: string | null;
-  user_id: string;
-  product: CustomerOrderProduct$Outbound | null;
-  subscription: CustomerOrderSubscription$Outbound | null;
-  items: Array<OrderItemSchema$Outbound>;
-  description: string;
-  next_payment_attempt_at?: string | null | undefined;
-};
-
-/** @internal */
-export const CustomerOrder$outboundSchema: z.ZodType<
-  CustomerOrder$Outbound,
-  z.ZodTypeDef,
-  CustomerOrder
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  status: OrderStatus$outboundSchema,
-  paid: z.boolean(),
-  subtotalAmount: z.number().int(),
-  discountAmount: z.number().int(),
-  netAmount: z.number().int(),
-  taxAmount: z.number().int(),
-  totalAmount: z.number().int(),
-  appliedBalanceAmount: z.number().int(),
-  dueAmount: z.number().int(),
-  refundedAmount: z.number().int(),
-  refundedTaxAmount: z.number().int(),
-  currency: z.string(),
-  billingReason: OrderBillingReason$outboundSchema,
-  billingName: z.nullable(z.string()),
-  billingAddress: z.nullable(Address$outboundSchema),
-  invoiceNumber: z.string(),
-  isInvoiceGenerated: z.boolean(),
-  seats: z.nullable(z.number().int()).optional(),
-  customerId: z.string(),
-  productId: z.nullable(z.string()),
-  discountId: z.nullable(z.string()),
-  subscriptionId: z.nullable(z.string()),
-  checkoutId: z.nullable(z.string()),
-  userId: z.string(),
-  product: z.nullable(CustomerOrderProduct$outboundSchema),
-  subscription: z.nullable(CustomerOrderSubscription$outboundSchema),
-  items: z.array(OrderItemSchema$outboundSchema),
-  description: z.string(),
-  nextPaymentAttemptAt: z.nullable(z.date().transform(v => v.toISOString()))
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    subtotalAmount: "subtotal_amount",
-    discountAmount: "discount_amount",
-    netAmount: "net_amount",
-    taxAmount: "tax_amount",
-    totalAmount: "total_amount",
-    appliedBalanceAmount: "applied_balance_amount",
-    dueAmount: "due_amount",
-    refundedAmount: "refunded_amount",
-    refundedTaxAmount: "refunded_tax_amount",
-    billingReason: "billing_reason",
-    billingName: "billing_name",
-    billingAddress: "billing_address",
-    invoiceNumber: "invoice_number",
-    isInvoiceGenerated: "is_invoice_generated",
-    customerId: "customer_id",
-    productId: "product_id",
-    discountId: "discount_id",
-    subscriptionId: "subscription_id",
-    checkoutId: "checkout_id",
-    userId: "user_id",
-    nextPaymentAttemptAt: "next_payment_attempt_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerOrder$ {
-  /** @deprecated use `CustomerOrder$inboundSchema` instead. */
-  export const inboundSchema = CustomerOrder$inboundSchema;
-  /** @deprecated use `CustomerOrder$outboundSchema` instead. */
-  export const outboundSchema = CustomerOrder$outboundSchema;
-  /** @deprecated use `CustomerOrder$Outbound` instead. */
-  export type Outbound = CustomerOrder$Outbound;
-}
-
-export function customerOrderToJSON(customerOrder: CustomerOrder): string {
-  return JSON.stringify(CustomerOrder$outboundSchema.parse(customerOrder));
-}
 
 export function customerOrderFromJSON(
   jsonString: string,

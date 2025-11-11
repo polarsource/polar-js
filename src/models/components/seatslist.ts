@@ -7,12 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  CustomerSeat,
-  CustomerSeat$inboundSchema,
-  CustomerSeat$Outbound,
-  CustomerSeat$outboundSchema,
-} from "./customerseat.js";
+import { CustomerSeat, CustomerSeat$inboundSchema } from "./customerseat.js";
 
 export type SeatsList = {
   /**
@@ -44,46 +39,6 @@ export const SeatsList$inboundSchema: z.ZodType<
     "total_seats": "totalSeats",
   });
 });
-
-/** @internal */
-export type SeatsList$Outbound = {
-  seats: Array<CustomerSeat$Outbound>;
-  available_seats: number;
-  total_seats: number;
-};
-
-/** @internal */
-export const SeatsList$outboundSchema: z.ZodType<
-  SeatsList$Outbound,
-  z.ZodTypeDef,
-  SeatsList
-> = z.object({
-  seats: z.array(CustomerSeat$outboundSchema),
-  availableSeats: z.number().int(),
-  totalSeats: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    availableSeats: "available_seats",
-    totalSeats: "total_seats",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SeatsList$ {
-  /** @deprecated use `SeatsList$inboundSchema` instead. */
-  export const inboundSchema = SeatsList$inboundSchema;
-  /** @deprecated use `SeatsList$outboundSchema` instead. */
-  export const outboundSchema = SeatsList$outboundSchema;
-  /** @deprecated use `SeatsList$Outbound` instead. */
-  export type Outbound = SeatsList$Outbound;
-}
-
-export function seatsListToJSON(seatsList: SeatsList): string {
-  return JSON.stringify(SeatsList$outboundSchema.parse(seatsList));
-}
 
 export function seatsListFromJSON(
   jsonString: string,

@@ -34,54 +34,6 @@ export const CustomerDeletedMetadata$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type CustomerDeletedMetadata$Outbound = {
-  customer_id: string;
-  customer_email: string;
-  customer_name: string | null;
-  customer_external_id: string | null;
-};
-
-/** @internal */
-export const CustomerDeletedMetadata$outboundSchema: z.ZodType<
-  CustomerDeletedMetadata$Outbound,
-  z.ZodTypeDef,
-  CustomerDeletedMetadata
-> = z.object({
-  customerId: z.string(),
-  customerEmail: z.string(),
-  customerName: z.nullable(z.string()),
-  customerExternalId: z.nullable(z.string()),
-}).transform((v) => {
-  return remap$(v, {
-    customerId: "customer_id",
-    customerEmail: "customer_email",
-    customerName: "customer_name",
-    customerExternalId: "customer_external_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerDeletedMetadata$ {
-  /** @deprecated use `CustomerDeletedMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomerDeletedMetadata$inboundSchema;
-  /** @deprecated use `CustomerDeletedMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomerDeletedMetadata$outboundSchema;
-  /** @deprecated use `CustomerDeletedMetadata$Outbound` instead. */
-  export type Outbound = CustomerDeletedMetadata$Outbound;
-}
-
-export function customerDeletedMetadataToJSON(
-  customerDeletedMetadata: CustomerDeletedMetadata,
-): string {
-  return JSON.stringify(
-    CustomerDeletedMetadata$outboundSchema.parse(customerDeletedMetadata),
-  );
-}
-
 export function customerDeletedMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerDeletedMetadata, SDKValidationError> {

@@ -52,34 +52,3 @@ export const NotOpenCheckout$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type NotOpenCheckout$Outbound = {
-  error: "NotOpenCheckout";
-  detail: string;
-};
-
-/** @internal */
-export const NotOpenCheckout$outboundSchema: z.ZodType<
-  NotOpenCheckout$Outbound,
-  z.ZodTypeDef,
-  NotOpenCheckout
-> = z.instanceof(NotOpenCheckout)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("NotOpenCheckout"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NotOpenCheckout$ {
-  /** @deprecated use `NotOpenCheckout$inboundSchema` instead. */
-  export const inboundSchema = NotOpenCheckout$inboundSchema;
-  /** @deprecated use `NotOpenCheckout$outboundSchema` instead. */
-  export const outboundSchema = NotOpenCheckout$outboundSchema;
-  /** @deprecated use `NotOpenCheckout$Outbound` instead. */
-  export type Outbound = NotOpenCheckout$Outbound;
-}

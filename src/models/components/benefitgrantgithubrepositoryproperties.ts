@@ -32,24 +32,10 @@ export type BenefitGrantGitHubRepositoryProperties = {
 export const BenefitGrantGitHubRepositoryPropertiesPermission$inboundSchema:
   z.ZodNativeEnum<typeof BenefitGrantGitHubRepositoryPropertiesPermission> = z
     .nativeEnum(BenefitGrantGitHubRepositoryPropertiesPermission);
-
 /** @internal */
 export const BenefitGrantGitHubRepositoryPropertiesPermission$outboundSchema:
   z.ZodNativeEnum<typeof BenefitGrantGitHubRepositoryPropertiesPermission> =
     BenefitGrantGitHubRepositoryPropertiesPermission$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantGitHubRepositoryPropertiesPermission$ {
-  /** @deprecated use `BenefitGrantGitHubRepositoryPropertiesPermission$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitGrantGitHubRepositoryPropertiesPermission$inboundSchema;
-  /** @deprecated use `BenefitGrantGitHubRepositoryPropertiesPermission$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGrantGitHubRepositoryPropertiesPermission$outboundSchema;
-}
 
 /** @internal */
 export const BenefitGrantGitHubRepositoryProperties$inboundSchema: z.ZodType<
@@ -71,7 +57,6 @@ export const BenefitGrantGitHubRepositoryProperties$inboundSchema: z.ZodType<
     "granted_account_id": "grantedAccountId",
   });
 });
-
 /** @internal */
 export type BenefitGrantGitHubRepositoryProperties$Outbound = {
   account_id?: string | null | undefined;
@@ -102,21 +87,6 @@ export const BenefitGrantGitHubRepositoryProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantGitHubRepositoryProperties$ {
-  /** @deprecated use `BenefitGrantGitHubRepositoryProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitGrantGitHubRepositoryProperties$inboundSchema;
-  /** @deprecated use `BenefitGrantGitHubRepositoryProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGrantGitHubRepositoryProperties$outboundSchema;
-  /** @deprecated use `BenefitGrantGitHubRepositoryProperties$Outbound` instead. */
-  export type Outbound = BenefitGrantGitHubRepositoryProperties$Outbound;
-}
-
 export function benefitGrantGitHubRepositoryPropertiesToJSON(
   benefitGrantGitHubRepositoryProperties:
     BenefitGrantGitHubRepositoryProperties,
@@ -127,7 +97,6 @@ export function benefitGrantGitHubRepositoryPropertiesToJSON(
     ),
   );
 }
-
 export function benefitGrantGitHubRepositoryPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantGitHubRepositoryProperties, SDKValidationError> {

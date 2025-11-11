@@ -76,7 +76,6 @@ export const ProductPriceFree$inboundSchema: z.ZodType<
     "recurring_interval": "recurringInterval",
   });
 });
-
 /** @internal */
 export type ProductPriceFree$Outbound = {
   created_at: string;
@@ -114,19 +113,6 @@ export const ProductPriceFree$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceFree$ {
-  /** @deprecated use `ProductPriceFree$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceFree$inboundSchema;
-  /** @deprecated use `ProductPriceFree$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceFree$outboundSchema;
-  /** @deprecated use `ProductPriceFree$Outbound` instead. */
-  export type Outbound = ProductPriceFree$Outbound;
-}
-
 export function productPriceFreeToJSON(
   productPriceFree: ProductPriceFree,
 ): string {
@@ -134,7 +120,6 @@ export function productPriceFreeToJSON(
     ProductPriceFree$outboundSchema.parse(productPriceFree),
   );
 }
-
 export function productPriceFreeFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductPriceFree, SDKValidationError> {

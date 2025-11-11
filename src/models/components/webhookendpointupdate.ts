@@ -3,17 +3,12 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   WebhookEventType,
-  WebhookEventType$inboundSchema,
   WebhookEventType$outboundSchema,
 } from "./webhookeventtype.js";
 import {
   WebhookFormat,
-  WebhookFormat$inboundSchema,
   WebhookFormat$outboundSchema,
 } from "./webhookformat.js";
 
@@ -33,19 +28,6 @@ export type WebhookEndpointUpdate = {
    */
   enabled?: boolean | null | undefined;
 };
-
-/** @internal */
-export const WebhookEndpointUpdate$inboundSchema: z.ZodType<
-  WebhookEndpointUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  url: z.nullable(z.string()).optional(),
-  secret: z.nullable(z.string()).optional(),
-  format: z.nullable(WebhookFormat$inboundSchema).optional(),
-  events: z.nullable(z.array(WebhookEventType$inboundSchema)).optional(),
-  enabled: z.nullable(z.boolean()).optional(),
-});
 
 /** @internal */
 export type WebhookEndpointUpdate$Outbound = {
@@ -69,33 +51,10 @@ export const WebhookEndpointUpdate$outboundSchema: z.ZodType<
   enabled: z.nullable(z.boolean()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookEndpointUpdate$ {
-  /** @deprecated use `WebhookEndpointUpdate$inboundSchema` instead. */
-  export const inboundSchema = WebhookEndpointUpdate$inboundSchema;
-  /** @deprecated use `WebhookEndpointUpdate$outboundSchema` instead. */
-  export const outboundSchema = WebhookEndpointUpdate$outboundSchema;
-  /** @deprecated use `WebhookEndpointUpdate$Outbound` instead. */
-  export type Outbound = WebhookEndpointUpdate$Outbound;
-}
-
 export function webhookEndpointUpdateToJSON(
   webhookEndpointUpdate: WebhookEndpointUpdate,
 ): string {
   return JSON.stringify(
     WebhookEndpointUpdate$outboundSchema.parse(webhookEndpointUpdate),
-  );
-}
-
-export function webhookEndpointUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<WebhookEndpointUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => WebhookEndpointUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WebhookEndpointUpdate' from JSON`,
   );
 }

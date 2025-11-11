@@ -95,7 +95,6 @@ export const BenefitMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type BenefitMetadata$Outbound = string | number | number | boolean;
 
@@ -106,25 +105,11 @@ export const BenefitMetadata$outboundSchema: z.ZodType<
   BenefitMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitMetadata$ {
-  /** @deprecated use `BenefitMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitMetadata$inboundSchema;
-  /** @deprecated use `BenefitMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitMetadata$outboundSchema;
-  /** @deprecated use `BenefitMetadata$Outbound` instead. */
-  export type Outbound = BenefitMetadata$Outbound;
-}
-
 export function benefitMetadataToJSON(
   benefitMetadata: BenefitMetadata,
 ): string {
   return JSON.stringify(BenefitMetadata$outboundSchema.parse(benefitMetadata));
 }
-
 export function benefitMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitMetadata, SDKValidationError> {
@@ -147,7 +132,6 @@ export const CustomerStateBenefitGrantProperties$inboundSchema: z.ZodType<
   BenefitGrantLicenseKeysProperties$inboundSchema,
   BenefitGrantCustomProperties$inboundSchema,
 ]);
-
 /** @internal */
 export type CustomerStateBenefitGrantProperties$Outbound =
   | BenefitGrantDiscordProperties$Outbound
@@ -169,21 +153,6 @@ export const CustomerStateBenefitGrantProperties$outboundSchema: z.ZodType<
   BenefitGrantCustomProperties$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerStateBenefitGrantProperties$ {
-  /** @deprecated use `CustomerStateBenefitGrantProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerStateBenefitGrantProperties$inboundSchema;
-  /** @deprecated use `CustomerStateBenefitGrantProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerStateBenefitGrantProperties$outboundSchema;
-  /** @deprecated use `CustomerStateBenefitGrantProperties$Outbound` instead. */
-  export type Outbound = CustomerStateBenefitGrantProperties$Outbound;
-}
-
 export function customerStateBenefitGrantPropertiesToJSON(
   customerStateBenefitGrantProperties: CustomerStateBenefitGrantProperties,
 ): string {
@@ -193,7 +162,6 @@ export function customerStateBenefitGrantPropertiesToJSON(
     ),
   );
 }
-
 export function customerStateBenefitGrantPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerStateBenefitGrantProperties, SDKValidationError> {
@@ -239,7 +207,6 @@ export const CustomerStateBenefitGrant$inboundSchema: z.ZodType<
     "benefit_metadata": "benefitMetadata",
   });
 });
-
 /** @internal */
 export type CustomerStateBenefitGrant$Outbound = {
   id: string;
@@ -290,19 +257,6 @@ export const CustomerStateBenefitGrant$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerStateBenefitGrant$ {
-  /** @deprecated use `CustomerStateBenefitGrant$inboundSchema` instead. */
-  export const inboundSchema = CustomerStateBenefitGrant$inboundSchema;
-  /** @deprecated use `CustomerStateBenefitGrant$outboundSchema` instead. */
-  export const outboundSchema = CustomerStateBenefitGrant$outboundSchema;
-  /** @deprecated use `CustomerStateBenefitGrant$Outbound` instead. */
-  export type Outbound = CustomerStateBenefitGrant$Outbound;
-}
-
 export function customerStateBenefitGrantToJSON(
   customerStateBenefitGrant: CustomerStateBenefitGrant,
 ): string {
@@ -310,7 +264,6 @@ export function customerStateBenefitGrantToJSON(
     CustomerStateBenefitGrant$outboundSchema.parse(customerStateBenefitGrant),
   );
 }
-
 export function customerStateBenefitGrantFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerStateBenefitGrant, SDKValidationError> {

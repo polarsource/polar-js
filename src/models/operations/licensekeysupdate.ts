@@ -4,34 +4,16 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   LicenseKeyUpdate,
-  LicenseKeyUpdate$inboundSchema,
   LicenseKeyUpdate$Outbound,
   LicenseKeyUpdate$outboundSchema,
 } from "../components/licensekeyupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LicenseKeysUpdateRequest = {
   id: string;
   licenseKeyUpdate: LicenseKeyUpdate;
 };
-
-/** @internal */
-export const LicenseKeysUpdateRequest$inboundSchema: z.ZodType<
-  LicenseKeysUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  LicenseKeyUpdate: LicenseKeyUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "LicenseKeyUpdate": "licenseKeyUpdate",
-  });
-});
 
 /** @internal */
 export type LicenseKeysUpdateRequest$Outbound = {
@@ -53,33 +35,10 @@ export const LicenseKeysUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeysUpdateRequest$ {
-  /** @deprecated use `LicenseKeysUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeysUpdateRequest$inboundSchema;
-  /** @deprecated use `LicenseKeysUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeysUpdateRequest$outboundSchema;
-  /** @deprecated use `LicenseKeysUpdateRequest$Outbound` instead. */
-  export type Outbound = LicenseKeysUpdateRequest$Outbound;
-}
-
 export function licenseKeysUpdateRequestToJSON(
   licenseKeysUpdateRequest: LicenseKeysUpdateRequest,
 ): string {
   return JSON.stringify(
     LicenseKeysUpdateRequest$outboundSchema.parse(licenseKeysUpdateRequest),
-  );
-}
-
-export function licenseKeysUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<LicenseKeysUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => LicenseKeysUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LicenseKeysUpdateRequest' from JSON`,
   );
 }

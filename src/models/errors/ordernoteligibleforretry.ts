@@ -52,34 +52,3 @@ export const OrderNotEligibleForRetry$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type OrderNotEligibleForRetry$Outbound = {
-  error: "OrderNotEligibleForRetry";
-  detail: string;
-};
-
-/** @internal */
-export const OrderNotEligibleForRetry$outboundSchema: z.ZodType<
-  OrderNotEligibleForRetry$Outbound,
-  z.ZodTypeDef,
-  OrderNotEligibleForRetry
-> = z.instanceof(OrderNotEligibleForRetry)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("OrderNotEligibleForRetry"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderNotEligibleForRetry$ {
-  /** @deprecated use `OrderNotEligibleForRetry$inboundSchema` instead. */
-  export const inboundSchema = OrderNotEligibleForRetry$inboundSchema;
-  /** @deprecated use `OrderNotEligibleForRetry$outboundSchema` instead. */
-  export const outboundSchema = OrderNotEligibleForRetry$outboundSchema;
-  /** @deprecated use `OrderNotEligibleForRetry$Outbound` instead. */
-  export type Outbound = OrderNotEligibleForRetry$Outbound;
-}

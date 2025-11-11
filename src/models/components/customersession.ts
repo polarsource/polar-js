@@ -7,12 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Customer,
-  Customer$inboundSchema,
-  Customer$Outbound,
-  Customer$outboundSchema,
-} from "./customer.js";
+import { Customer, Customer$inboundSchema } from "./customer.js";
 
 /**
  * A customer session that can be used to authenticate as a customer.
@@ -68,64 +63,6 @@ export const CustomerSession$inboundSchema: z.ZodType<
     "customer_id": "customerId",
   });
 });
-
-/** @internal */
-export type CustomerSession$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  token: string;
-  expires_at: string;
-  return_url: string | null;
-  customer_portal_url: string;
-  customer_id: string;
-  customer: Customer$Outbound;
-};
-
-/** @internal */
-export const CustomerSession$outboundSchema: z.ZodType<
-  CustomerSession$Outbound,
-  z.ZodTypeDef,
-  CustomerSession
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  token: z.string(),
-  expiresAt: z.date().transform(v => v.toISOString()),
-  returnUrl: z.nullable(z.string()),
-  customerPortalUrl: z.string(),
-  customerId: z.string(),
-  customer: Customer$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    expiresAt: "expires_at",
-    returnUrl: "return_url",
-    customerPortalUrl: "customer_portal_url",
-    customerId: "customer_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSession$ {
-  /** @deprecated use `CustomerSession$inboundSchema` instead. */
-  export const inboundSchema = CustomerSession$inboundSchema;
-  /** @deprecated use `CustomerSession$outboundSchema` instead. */
-  export const outboundSchema = CustomerSession$outboundSchema;
-  /** @deprecated use `CustomerSession$Outbound` instead. */
-  export type Outbound = CustomerSession$Outbound;
-}
-
-export function customerSessionToJSON(
-  customerSession: CustomerSession,
-): string {
-  return JSON.stringify(CustomerSession$outboundSchema.parse(customerSession));
-}
 
 export function customerSessionFromJSON(
   jsonString: string,

@@ -3,22 +3,10 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitsDeleteRequest = {
   id: string;
 };
-
-/** @internal */
-export const BenefitsDeleteRequest$inboundSchema: z.ZodType<
-  BenefitsDeleteRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type BenefitsDeleteRequest$Outbound = {
@@ -34,33 +22,10 @@ export const BenefitsDeleteRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitsDeleteRequest$ {
-  /** @deprecated use `BenefitsDeleteRequest$inboundSchema` instead. */
-  export const inboundSchema = BenefitsDeleteRequest$inboundSchema;
-  /** @deprecated use `BenefitsDeleteRequest$outboundSchema` instead. */
-  export const outboundSchema = BenefitsDeleteRequest$outboundSchema;
-  /** @deprecated use `BenefitsDeleteRequest$Outbound` instead. */
-  export type Outbound = BenefitsDeleteRequest$Outbound;
-}
-
 export function benefitsDeleteRequestToJSON(
   benefitsDeleteRequest: BenefitsDeleteRequest,
 ): string {
   return JSON.stringify(
     BenefitsDeleteRequest$outboundSchema.parse(benefitsDeleteRequest),
-  );
-}
-
-export function benefitsDeleteRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitsDeleteRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitsDeleteRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitsDeleteRequest' from JSON`,
   );
 }

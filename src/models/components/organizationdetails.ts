@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const SwitchingFrom = {
   Paddle: "paddle",
@@ -54,50 +51,9 @@ export type OrganizationDetails = {
 };
 
 /** @internal */
-export const SwitchingFrom$inboundSchema: z.ZodNativeEnum<
-  typeof SwitchingFrom
-> = z.nativeEnum(SwitchingFrom);
-
-/** @internal */
 export const SwitchingFrom$outboundSchema: z.ZodNativeEnum<
   typeof SwitchingFrom
-> = SwitchingFrom$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SwitchingFrom$ {
-  /** @deprecated use `SwitchingFrom$inboundSchema` instead. */
-  export const inboundSchema = SwitchingFrom$inboundSchema;
-  /** @deprecated use `SwitchingFrom$outboundSchema` instead. */
-  export const outboundSchema = SwitchingFrom$outboundSchema;
-}
-
-/** @internal */
-export const OrganizationDetails$inboundSchema: z.ZodType<
-  OrganizationDetails,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  about: z.string(),
-  product_description: z.string(),
-  intended_use: z.string(),
-  customer_acquisition: z.array(z.string()),
-  future_annual_revenue: z.number().int(),
-  switching: z.boolean().default(true),
-  switching_from: z.nullable(SwitchingFrom$inboundSchema).optional(),
-  previous_annual_revenue: z.number().int().default(0),
-}).transform((v) => {
-  return remap$(v, {
-    "product_description": "productDescription",
-    "intended_use": "intendedUse",
-    "customer_acquisition": "customerAcquisition",
-    "future_annual_revenue": "futureAnnualRevenue",
-    "switching_from": "switchingFrom",
-    "previous_annual_revenue": "previousAnnualRevenue",
-  });
-});
+> = z.nativeEnum(SwitchingFrom);
 
 /** @internal */
 export type OrganizationDetails$Outbound = {
@@ -136,33 +92,10 @@ export const OrganizationDetails$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationDetails$ {
-  /** @deprecated use `OrganizationDetails$inboundSchema` instead. */
-  export const inboundSchema = OrganizationDetails$inboundSchema;
-  /** @deprecated use `OrganizationDetails$outboundSchema` instead. */
-  export const outboundSchema = OrganizationDetails$outboundSchema;
-  /** @deprecated use `OrganizationDetails$Outbound` instead. */
-  export type Outbound = OrganizationDetails$Outbound;
-}
-
 export function organizationDetailsToJSON(
   organizationDetails: OrganizationDetails,
 ): string {
   return JSON.stringify(
     OrganizationDetails$outboundSchema.parse(organizationDetails),
-  );
-}
-
-export function organizationDetailsFromJSON(
-  jsonString: string,
-): SafeParseResult<OrganizationDetails, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrganizationDetails$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrganizationDetails' from JSON`,
   );
 }

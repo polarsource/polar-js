@@ -31,45 +31,6 @@ export const MetricsIntervalLimit$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type MetricsIntervalLimit$Outbound = {
-  max_days: number;
-};
-
-/** @internal */
-export const MetricsIntervalLimit$outboundSchema: z.ZodType<
-  MetricsIntervalLimit$Outbound,
-  z.ZodTypeDef,
-  MetricsIntervalLimit
-> = z.object({
-  maxDays: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    maxDays: "max_days",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsIntervalLimit$ {
-  /** @deprecated use `MetricsIntervalLimit$inboundSchema` instead. */
-  export const inboundSchema = MetricsIntervalLimit$inboundSchema;
-  /** @deprecated use `MetricsIntervalLimit$outboundSchema` instead. */
-  export const outboundSchema = MetricsIntervalLimit$outboundSchema;
-  /** @deprecated use `MetricsIntervalLimit$Outbound` instead. */
-  export type Outbound = MetricsIntervalLimit$Outbound;
-}
-
-export function metricsIntervalLimitToJSON(
-  metricsIntervalLimit: MetricsIntervalLimit,
-): string {
-  return JSON.stringify(
-    MetricsIntervalLimit$outboundSchema.parse(metricsIntervalLimit),
-  );
-}
-
 export function metricsIntervalLimitFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsIntervalLimit, SDKValidationError> {

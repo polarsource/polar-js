@@ -18,22 +18,6 @@ export const DiscountSortProperty = {
 export type DiscountSortProperty = ClosedEnum<typeof DiscountSortProperty>;
 
 /** @internal */
-export const DiscountSortProperty$inboundSchema: z.ZodNativeEnum<
-  typeof DiscountSortProperty
-> = z.nativeEnum(DiscountSortProperty);
-
-/** @internal */
 export const DiscountSortProperty$outboundSchema: z.ZodNativeEnum<
   typeof DiscountSortProperty
-> = DiscountSortProperty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountSortProperty$ {
-  /** @deprecated use `DiscountSortProperty$inboundSchema` instead. */
-  export const inboundSchema = DiscountSortProperty$inboundSchema;
-  /** @deprecated use `DiscountSortProperty$outboundSchema` instead. */
-  export const outboundSchema = DiscountSortProperty$outboundSchema;
-}
+> = z.nativeEnum(DiscountSortProperty);

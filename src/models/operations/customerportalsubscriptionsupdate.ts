@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomerSubscriptionUpdate,
-  CustomerSubscriptionUpdate$inboundSchema,
   CustomerSubscriptionUpdate$Outbound,
   CustomerSubscriptionUpdate$outboundSchema,
 } from "../components/customersubscriptionupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalSubscriptionsUpdateSecurity = {
   customerSession: string;
@@ -25,19 +21,6 @@ export type CustomerPortalSubscriptionsUpdateRequest = {
   id: string;
   customerSubscriptionUpdate: CustomerSubscriptionUpdate;
 };
-
-/** @internal */
-export const CustomerPortalSubscriptionsUpdateSecurity$inboundSchema: z.ZodType<
-  CustomerPortalSubscriptionsUpdateSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
 
 /** @internal */
 export type CustomerPortalSubscriptionsUpdateSecurity$Outbound = {
@@ -58,21 +41,6 @@ export const CustomerPortalSubscriptionsUpdateSecurity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalSubscriptionsUpdateSecurity$ {
-  /** @deprecated use `CustomerPortalSubscriptionsUpdateSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalSubscriptionsUpdateSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalSubscriptionsUpdateSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalSubscriptionsUpdateSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalSubscriptionsUpdateSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalSubscriptionsUpdateSecurity$Outbound;
-}
-
 export function customerPortalSubscriptionsUpdateSecurityToJSON(
   customerPortalSubscriptionsUpdateSecurity:
     CustomerPortalSubscriptionsUpdateSecurity,
@@ -83,36 +51,6 @@ export function customerPortalSubscriptionsUpdateSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalSubscriptionsUpdateSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalSubscriptionsUpdateSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalSubscriptionsUpdateSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalSubscriptionsUpdateSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalSubscriptionsUpdateRequest$inboundSchema: z.ZodType<
-  CustomerPortalSubscriptionsUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  CustomerSubscriptionUpdate: CustomerSubscriptionUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "CustomerSubscriptionUpdate": "customerSubscriptionUpdate",
-  });
-});
 
 /** @internal */
 export type CustomerPortalSubscriptionsUpdateRequest$Outbound = {
@@ -134,21 +72,6 @@ export const CustomerPortalSubscriptionsUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalSubscriptionsUpdateRequest$ {
-  /** @deprecated use `CustomerPortalSubscriptionsUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalSubscriptionsUpdateRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalSubscriptionsUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalSubscriptionsUpdateRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalSubscriptionsUpdateRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalSubscriptionsUpdateRequest$Outbound;
-}
-
 export function customerPortalSubscriptionsUpdateRequestToJSON(
   customerPortalSubscriptionsUpdateRequest:
     CustomerPortalSubscriptionsUpdateRequest,
@@ -157,21 +80,5 @@ export function customerPortalSubscriptionsUpdateRequestToJSON(
     CustomerPortalSubscriptionsUpdateRequest$outboundSchema.parse(
       customerPortalSubscriptionsUpdateRequest,
     ),
-  );
-}
-
-export function customerPortalSubscriptionsUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalSubscriptionsUpdateRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalSubscriptionsUpdateRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalSubscriptionsUpdateRequest' from JSON`,
   );
 }

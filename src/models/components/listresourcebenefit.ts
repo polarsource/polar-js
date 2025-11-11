@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Benefit,
-  Benefit$inboundSchema,
-  Benefit$Outbound,
-  Benefit$outboundSchema,
-} from "./benefit.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Benefit, Benefit$inboundSchema } from "./benefit.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceBenefit = {
   items: Array<Benefit>;
@@ -33,43 +23,6 @@ export const ListResourceBenefit$inboundSchema: z.ZodType<
   items: z.array(Benefit$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceBenefit$Outbound = {
-  items: Array<Benefit$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceBenefit$outboundSchema: z.ZodType<
-  ListResourceBenefit$Outbound,
-  z.ZodTypeDef,
-  ListResourceBenefit
-> = z.object({
-  items: z.array(Benefit$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceBenefit$ {
-  /** @deprecated use `ListResourceBenefit$inboundSchema` instead. */
-  export const inboundSchema = ListResourceBenefit$inboundSchema;
-  /** @deprecated use `ListResourceBenefit$outboundSchema` instead. */
-  export const outboundSchema = ListResourceBenefit$outboundSchema;
-  /** @deprecated use `ListResourceBenefit$Outbound` instead. */
-  export type Outbound = ListResourceBenefit$Outbound;
-}
-
-export function listResourceBenefitToJSON(
-  listResourceBenefit: ListResourceBenefit,
-): string {
-  return JSON.stringify(
-    ListResourceBenefit$outboundSchema.parse(listResourceBenefit),
-  );
-}
 
 export function listResourceBenefitFromJSON(
   jsonString: string,

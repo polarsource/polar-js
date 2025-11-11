@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const WebTokenRequestSubType = {
   User: "user",
@@ -26,48 +23,9 @@ export type WebTokenRequest = {
 };
 
 /** @internal */
-export const WebTokenRequestSubType$inboundSchema: z.ZodNativeEnum<
-  typeof WebTokenRequestSubType
-> = z.nativeEnum(WebTokenRequestSubType);
-
-/** @internal */
 export const WebTokenRequestSubType$outboundSchema: z.ZodNativeEnum<
   typeof WebTokenRequestSubType
-> = WebTokenRequestSubType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebTokenRequestSubType$ {
-  /** @deprecated use `WebTokenRequestSubType$inboundSchema` instead. */
-  export const inboundSchema = WebTokenRequestSubType$inboundSchema;
-  /** @deprecated use `WebTokenRequestSubType$outboundSchema` instead. */
-  export const outboundSchema = WebTokenRequestSubType$outboundSchema;
-}
-
-/** @internal */
-export const WebTokenRequest$inboundSchema: z.ZodType<
-  WebTokenRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  grant_type: z.literal("web"),
-  client_id: z.string(),
-  client_secret: z.string(),
-  session_token: z.string(),
-  sub_type: WebTokenRequestSubType$inboundSchema.default("user"),
-  sub: z.nullable(z.string()).optional(),
-  scope: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "grant_type": "grantType",
-    "client_id": "clientId",
-    "client_secret": "clientSecret",
-    "session_token": "sessionToken",
-    "sub_type": "subType",
-  });
-});
+> = z.nativeEnum(WebTokenRequestSubType);
 
 /** @internal */
 export type WebTokenRequest$Outbound = {
@@ -103,31 +61,8 @@ export const WebTokenRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebTokenRequest$ {
-  /** @deprecated use `WebTokenRequest$inboundSchema` instead. */
-  export const inboundSchema = WebTokenRequest$inboundSchema;
-  /** @deprecated use `WebTokenRequest$outboundSchema` instead. */
-  export const outboundSchema = WebTokenRequest$outboundSchema;
-  /** @deprecated use `WebTokenRequest$Outbound` instead. */
-  export type Outbound = WebTokenRequest$Outbound;
-}
-
 export function webTokenRequestToJSON(
   webTokenRequest: WebTokenRequest,
 ): string {
   return JSON.stringify(WebTokenRequest$outboundSchema.parse(webTokenRequest));
-}
-
-export function webTokenRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<WebTokenRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => WebTokenRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WebTokenRequest' from JSON`,
-  );
 }

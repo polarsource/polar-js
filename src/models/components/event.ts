@@ -6,51 +6,14 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  SystemEvent,
-  SystemEvent$inboundSchema,
-  SystemEvent$Outbound,
-  SystemEvent$outboundSchema,
-} from "./systemevent.js";
-import {
-  UserEvent,
-  UserEvent$inboundSchema,
-  UserEvent$Outbound,
-  UserEvent$outboundSchema,
-} from "./userevent.js";
+import { SystemEvent, SystemEvent$inboundSchema } from "./systemevent.js";
+import { UserEvent, UserEvent$inboundSchema } from "./userevent.js";
 
 export type Event = UserEvent | SystemEvent;
 
 /** @internal */
 export const Event$inboundSchema: z.ZodType<Event, z.ZodTypeDef, unknown> = z
   .union([UserEvent$inboundSchema, SystemEvent$inboundSchema]);
-
-/** @internal */
-export type Event$Outbound = UserEvent$Outbound | SystemEvent$Outbound;
-
-/** @internal */
-export const Event$outboundSchema: z.ZodType<
-  Event$Outbound,
-  z.ZodTypeDef,
-  Event
-> = z.union([UserEvent$outboundSchema, SystemEvent$outboundSchema]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Event$ {
-  /** @deprecated use `Event$inboundSchema` instead. */
-  export const inboundSchema = Event$inboundSchema;
-  /** @deprecated use `Event$outboundSchema` instead. */
-  export const outboundSchema = Event$outboundSchema;
-  /** @deprecated use `Event$Outbound` instead. */
-  export type Outbound = Event$Outbound;
-}
-
-export function eventToJSON(event: Event): string {
-  return JSON.stringify(Event$outboundSchema.parse(event));
-}
 
 export function eventFromJSON(
   jsonString: string,

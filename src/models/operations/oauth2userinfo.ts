@@ -8,14 +8,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   UserInfoOrganization,
   UserInfoOrganization$inboundSchema,
-  UserInfoOrganization$Outbound,
-  UserInfoOrganization$outboundSchema,
 } from "../components/userinfoorganization.js";
 import {
   UserInfoUser,
   UserInfoUser$inboundSchema,
-  UserInfoUser$Outbound,
-  UserInfoUser$outboundSchema,
 } from "../components/userinfouser.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -32,43 +28,6 @@ export const Oauth2UserinfoResponseOauth2Userinfo$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([UserInfoUser$inboundSchema, UserInfoOrganization$inboundSchema]);
-
-/** @internal */
-export type Oauth2UserinfoResponseOauth2Userinfo$Outbound =
-  | UserInfoUser$Outbound
-  | UserInfoOrganization$Outbound;
-
-/** @internal */
-export const Oauth2UserinfoResponseOauth2Userinfo$outboundSchema: z.ZodType<
-  Oauth2UserinfoResponseOauth2Userinfo$Outbound,
-  z.ZodTypeDef,
-  Oauth2UserinfoResponseOauth2Userinfo
-> = z.union([UserInfoUser$outboundSchema, UserInfoOrganization$outboundSchema]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Oauth2UserinfoResponseOauth2Userinfo$ {
-  /** @deprecated use `Oauth2UserinfoResponseOauth2Userinfo$inboundSchema` instead. */
-  export const inboundSchema =
-    Oauth2UserinfoResponseOauth2Userinfo$inboundSchema;
-  /** @deprecated use `Oauth2UserinfoResponseOauth2Userinfo$outboundSchema` instead. */
-  export const outboundSchema =
-    Oauth2UserinfoResponseOauth2Userinfo$outboundSchema;
-  /** @deprecated use `Oauth2UserinfoResponseOauth2Userinfo$Outbound` instead. */
-  export type Outbound = Oauth2UserinfoResponseOauth2Userinfo$Outbound;
-}
-
-export function oauth2UserinfoResponseOauth2UserinfoToJSON(
-  oauth2UserinfoResponseOauth2Userinfo: Oauth2UserinfoResponseOauth2Userinfo,
-): string {
-  return JSON.stringify(
-    Oauth2UserinfoResponseOauth2Userinfo$outboundSchema.parse(
-      oauth2UserinfoResponseOauth2Userinfo,
-    ),
-  );
-}
 
 export function oauth2UserinfoResponseOauth2UserinfoFromJSON(
   jsonString: string,

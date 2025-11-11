@@ -23,7 +23,6 @@ export const BenefitGrantError$inboundSchema: z.ZodType<
   type: z.string(),
   timestamp: z.string(),
 });
-
 /** @internal */
 export type BenefitGrantError$Outbound = {
   message: string;
@@ -42,19 +41,6 @@ export const BenefitGrantError$outboundSchema: z.ZodType<
   timestamp: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantError$ {
-  /** @deprecated use `BenefitGrantError$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantError$inboundSchema;
-  /** @deprecated use `BenefitGrantError$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrantError$outboundSchema;
-  /** @deprecated use `BenefitGrantError$Outbound` instead. */
-  export type Outbound = BenefitGrantError$Outbound;
-}
-
 export function benefitGrantErrorToJSON(
   benefitGrantError: BenefitGrantError,
 ): string {
@@ -62,7 +48,6 @@ export function benefitGrantErrorToJSON(
     BenefitGrantError$outboundSchema.parse(benefitGrantError),
   );
 }
-
 export function benefitGrantErrorFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantError, SDKValidationError> {

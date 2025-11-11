@@ -36,7 +36,6 @@ export const WebhookBenefitGrantUpdatedPayload$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: BenefitGrantWebhook$inboundSchema,
 });
-
 /** @internal */
 export type WebhookBenefitGrantUpdatedPayload$Outbound = {
   type: "benefit_grant.updated";
@@ -55,20 +54,6 @@ export const WebhookBenefitGrantUpdatedPayload$outboundSchema: z.ZodType<
   data: BenefitGrantWebhook$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookBenefitGrantUpdatedPayload$ {
-  /** @deprecated use `WebhookBenefitGrantUpdatedPayload$inboundSchema` instead. */
-  export const inboundSchema = WebhookBenefitGrantUpdatedPayload$inboundSchema;
-  /** @deprecated use `WebhookBenefitGrantUpdatedPayload$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookBenefitGrantUpdatedPayload$outboundSchema;
-  /** @deprecated use `WebhookBenefitGrantUpdatedPayload$Outbound` instead. */
-  export type Outbound = WebhookBenefitGrantUpdatedPayload$Outbound;
-}
-
 export function webhookBenefitGrantUpdatedPayloadToJSON(
   webhookBenefitGrantUpdatedPayload: WebhookBenefitGrantUpdatedPayload,
 ): string {
@@ -78,7 +63,6 @@ export function webhookBenefitGrantUpdatedPayloadToJSON(
     ),
   );
 }
-
 export function webhookBenefitGrantUpdatedPayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhookBenefitGrantUpdatedPayload, SDKValidationError> {

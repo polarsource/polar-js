@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Organization,
-  Organization$inboundSchema,
-  Organization$Outbound,
-  Organization$outboundSchema,
-} from "./organization.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Organization, Organization$inboundSchema } from "./organization.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceOrganization = {
   items: Array<Organization>;
@@ -33,43 +23,6 @@ export const ListResourceOrganization$inboundSchema: z.ZodType<
   items: z.array(Organization$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceOrganization$Outbound = {
-  items: Array<Organization$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceOrganization$outboundSchema: z.ZodType<
-  ListResourceOrganization$Outbound,
-  z.ZodTypeDef,
-  ListResourceOrganization
-> = z.object({
-  items: z.array(Organization$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceOrganization$ {
-  /** @deprecated use `ListResourceOrganization$inboundSchema` instead. */
-  export const inboundSchema = ListResourceOrganization$inboundSchema;
-  /** @deprecated use `ListResourceOrganization$outboundSchema` instead. */
-  export const outboundSchema = ListResourceOrganization$outboundSchema;
-  /** @deprecated use `ListResourceOrganization$Outbound` instead. */
-  export type Outbound = ListResourceOrganization$Outbound;
-}
-
-export function listResourceOrganizationToJSON(
-  listResourceOrganization: ListResourceOrganization,
-): string {
-  return JSON.stringify(
-    ListResourceOrganization$outboundSchema.parse(listResourceOrganization),
-  );
-}
 
 export function listResourceOrganizationFromJSON(
   jsonString: string,

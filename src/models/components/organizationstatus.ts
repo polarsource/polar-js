@@ -19,19 +19,7 @@ export type OrganizationStatus = ClosedEnum<typeof OrganizationStatus>;
 export const OrganizationStatus$inboundSchema: z.ZodNativeEnum<
   typeof OrganizationStatus
 > = z.nativeEnum(OrganizationStatus);
-
 /** @internal */
 export const OrganizationStatus$outboundSchema: z.ZodNativeEnum<
   typeof OrganizationStatus
 > = OrganizationStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationStatus$ {
-  /** @deprecated use `OrganizationStatus$inboundSchema` instead. */
-  export const inboundSchema = OrganizationStatus$inboundSchema;
-  /** @deprecated use `OrganizationStatus$outboundSchema` instead. */
-  export const outboundSchema = OrganizationStatus$outboundSchema;
-}

@@ -9,17 +9,13 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ListResourceProduct,
   ListResourceProduct$inboundSchema,
-  ListResourceProduct$Outbound,
-  ListResourceProduct$outboundSchema,
 } from "../components/listresourceproduct.js";
 import {
   ProductSortProperty,
-  ProductSortProperty$inboundSchema,
   ProductSortProperty$outboundSchema,
 } from "../components/productsortproperty.js";
 import {
   MetadataQuery,
-  MetadataQuery$inboundSchema,
   MetadataQuery$Outbound,
   MetadataQuery$outboundSchema,
 } from "../components/subscriptionslist.js";
@@ -88,13 +84,6 @@ export type ProductsListResponse = {
 };
 
 /** @internal */
-export const QueryParamProductIDFilter$inboundSchema: z.ZodType<
-  QueryParamProductIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type QueryParamProductIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
@@ -104,19 +93,6 @@ export const QueryParamProductIDFilter$outboundSchema: z.ZodType<
   QueryParamProductIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryParamProductIDFilter$ {
-  /** @deprecated use `QueryParamProductIDFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamProductIDFilter$inboundSchema;
-  /** @deprecated use `QueryParamProductIDFilter$outboundSchema` instead. */
-  export const outboundSchema = QueryParamProductIDFilter$outboundSchema;
-  /** @deprecated use `QueryParamProductIDFilter$Outbound` instead. */
-  export type Outbound = QueryParamProductIDFilter$Outbound;
-}
-
 export function queryParamProductIDFilterToJSON(
   queryParamProductIDFilter: QueryParamProductIDFilter,
 ): string {
@@ -124,21 +100,6 @@ export function queryParamProductIDFilterToJSON(
     QueryParamProductIDFilter$outboundSchema.parse(queryParamProductIDFilter),
   );
 }
-
-export function queryParamProductIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<QueryParamProductIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => QueryParamProductIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamProductIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const ProductsListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<ProductsListQueryParamOrganizationIDFilter, z.ZodTypeDef, unknown> =
-    z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type ProductsListQueryParamOrganizationIDFilter$Outbound =
@@ -153,21 +114,6 @@ export const ProductsListQueryParamOrganizationIDFilter$outboundSchema:
     ProductsListQueryParamOrganizationIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductsListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `ProductsListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    ProductsListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `ProductsListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    ProductsListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `ProductsListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound = ProductsListQueryParamOrganizationIDFilter$Outbound;
-}
-
 export function productsListQueryParamOrganizationIDFilterToJSON(
   productsListQueryParamOrganizationIDFilter:
     ProductsListQueryParamOrganizationIDFilter,
@@ -179,29 +125,6 @@ export function productsListQueryParamOrganizationIDFilterToJSON(
   );
 }
 
-export function productsListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  ProductsListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      ProductsListQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'ProductsListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitIDFilter$inboundSchema: z.ZodType<
-  BenefitIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
 /** @internal */
 export type BenefitIDFilter$Outbound = string | Array<string>;
 
@@ -212,60 +135,11 @@ export const BenefitIDFilter$outboundSchema: z.ZodType<
   BenefitIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitIDFilter$ {
-  /** @deprecated use `BenefitIDFilter$inboundSchema` instead. */
-  export const inboundSchema = BenefitIDFilter$inboundSchema;
-  /** @deprecated use `BenefitIDFilter$outboundSchema` instead. */
-  export const outboundSchema = BenefitIDFilter$outboundSchema;
-  /** @deprecated use `BenefitIDFilter$Outbound` instead. */
-  export type Outbound = BenefitIDFilter$Outbound;
-}
-
 export function benefitIDFilterToJSON(
   benefitIDFilter: BenefitIDFilter,
 ): string {
   return JSON.stringify(BenefitIDFilter$outboundSchema.parse(benefitIDFilter));
 }
-
-export function benefitIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const ProductsListRequest$inboundSchema: z.ZodType<
-  ProductsListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  query: z.nullable(z.string()).optional(),
-  is_archived: z.nullable(z.boolean()).optional(),
-  is_recurring: z.nullable(z.boolean()).optional(),
-  benefit_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(ProductSortProperty$inboundSchema)).optional(),
-  metadata: z.nullable(z.record(MetadataQuery$inboundSchema)).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "is_archived": "isArchived",
-    "is_recurring": "isRecurring",
-    "benefit_id": "benefitId",
-  });
-});
 
 /** @internal */
 export type ProductsListRequest$Outbound = {
@@ -307,34 +181,11 @@ export const ProductsListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductsListRequest$ {
-  /** @deprecated use `ProductsListRequest$inboundSchema` instead. */
-  export const inboundSchema = ProductsListRequest$inboundSchema;
-  /** @deprecated use `ProductsListRequest$outboundSchema` instead. */
-  export const outboundSchema = ProductsListRequest$outboundSchema;
-  /** @deprecated use `ProductsListRequest$Outbound` instead. */
-  export type Outbound = ProductsListRequest$Outbound;
-}
-
 export function productsListRequestToJSON(
   productsListRequest: ProductsListRequest,
 ): string {
   return JSON.stringify(
     ProductsListRequest$outboundSchema.parse(productsListRequest),
-  );
-}
-
-export function productsListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductsListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductsListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductsListRequest' from JSON`,
   );
 }
 
@@ -350,45 +201,6 @@ export const ProductsListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type ProductsListResponse$Outbound = {
-  Result: ListResourceProduct$Outbound;
-};
-
-/** @internal */
-export const ProductsListResponse$outboundSchema: z.ZodType<
-  ProductsListResponse$Outbound,
-  z.ZodTypeDef,
-  ProductsListResponse
-> = z.object({
-  result: ListResourceProduct$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductsListResponse$ {
-  /** @deprecated use `ProductsListResponse$inboundSchema` instead. */
-  export const inboundSchema = ProductsListResponse$inboundSchema;
-  /** @deprecated use `ProductsListResponse$outboundSchema` instead. */
-  export const outboundSchema = ProductsListResponse$outboundSchema;
-  /** @deprecated use `ProductsListResponse$Outbound` instead. */
-  export type Outbound = ProductsListResponse$Outbound;
-}
-
-export function productsListResponseToJSON(
-  productsListResponse: ProductsListResponse,
-): string {
-  return JSON.stringify(
-    ProductsListResponse$outboundSchema.parse(productsListResponse),
-  );
-}
 
 export function productsListResponseFromJSON(
   jsonString: string,

@@ -9,12 +9,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ListResourceOrganization,
   ListResourceOrganization$inboundSchema,
-  ListResourceOrganization$Outbound,
-  ListResourceOrganization$outboundSchema,
 } from "../components/listresourceorganization.js";
 import {
   OrganizationSortProperty,
-  OrganizationSortProperty$inboundSchema,
   OrganizationSortProperty$outboundSchema,
 } from "../components/organizationsortproperty.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -43,19 +40,6 @@ export type OrganizationsListResponse = {
 };
 
 /** @internal */
-export const OrganizationsListRequest$inboundSchema: z.ZodType<
-  OrganizationsListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  slug: z.nullable(z.string()).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(OrganizationSortProperty$inboundSchema))
-    .optional(),
-});
-
-/** @internal */
 export type OrganizationsListRequest$Outbound = {
   slug?: string | null | undefined;
   page: number;
@@ -76,34 +60,11 @@ export const OrganizationsListRequest$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationsListRequest$ {
-  /** @deprecated use `OrganizationsListRequest$inboundSchema` instead. */
-  export const inboundSchema = OrganizationsListRequest$inboundSchema;
-  /** @deprecated use `OrganizationsListRequest$outboundSchema` instead. */
-  export const outboundSchema = OrganizationsListRequest$outboundSchema;
-  /** @deprecated use `OrganizationsListRequest$Outbound` instead. */
-  export type Outbound = OrganizationsListRequest$Outbound;
-}
-
 export function organizationsListRequestToJSON(
   organizationsListRequest: OrganizationsListRequest,
 ): string {
   return JSON.stringify(
     OrganizationsListRequest$outboundSchema.parse(organizationsListRequest),
-  );
-}
-
-export function organizationsListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<OrganizationsListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrganizationsListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrganizationsListRequest' from JSON`,
   );
 }
 
@@ -119,45 +80,6 @@ export const OrganizationsListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type OrganizationsListResponse$Outbound = {
-  Result: ListResourceOrganization$Outbound;
-};
-
-/** @internal */
-export const OrganizationsListResponse$outboundSchema: z.ZodType<
-  OrganizationsListResponse$Outbound,
-  z.ZodTypeDef,
-  OrganizationsListResponse
-> = z.object({
-  result: ListResourceOrganization$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationsListResponse$ {
-  /** @deprecated use `OrganizationsListResponse$inboundSchema` instead. */
-  export const inboundSchema = OrganizationsListResponse$inboundSchema;
-  /** @deprecated use `OrganizationsListResponse$outboundSchema` instead. */
-  export const outboundSchema = OrganizationsListResponse$outboundSchema;
-  /** @deprecated use `OrganizationsListResponse$Outbound` instead. */
-  export type Outbound = OrganizationsListResponse$Outbound;
-}
-
-export function organizationsListResponseToJSON(
-  organizationsListResponse: OrganizationsListResponse,
-): string {
-  return JSON.stringify(
-    OrganizationsListResponse$outboundSchema.parse(organizationsListResponse),
-  );
-}
 
 export function organizationsListResponseFromJSON(
   jsonString: string,

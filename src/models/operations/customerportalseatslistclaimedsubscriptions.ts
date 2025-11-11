@@ -4,27 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalSeatsListClaimedSubscriptionsSecurity = {
   customerSession: string;
 };
-
-/** @internal */
-export const CustomerPortalSeatsListClaimedSubscriptionsSecurity$inboundSchema:
-  z.ZodType<
-    CustomerPortalSeatsListClaimedSubscriptionsSecurity,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    customer_session: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "customer_session": "customerSession",
-    });
-  });
 
 /** @internal */
 export type CustomerPortalSeatsListClaimedSubscriptionsSecurity$Outbound = {
@@ -45,22 +28,6 @@ export const CustomerPortalSeatsListClaimedSubscriptionsSecurity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalSeatsListClaimedSubscriptionsSecurity$ {
-  /** @deprecated use `CustomerPortalSeatsListClaimedSubscriptionsSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalSeatsListClaimedSubscriptionsSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalSeatsListClaimedSubscriptionsSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalSeatsListClaimedSubscriptionsSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalSeatsListClaimedSubscriptionsSecurity$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalSeatsListClaimedSubscriptionsSecurity$Outbound;
-}
-
 export function customerPortalSeatsListClaimedSubscriptionsSecurityToJSON(
   customerPortalSeatsListClaimedSubscriptionsSecurity:
     CustomerPortalSeatsListClaimedSubscriptionsSecurity,
@@ -69,21 +36,5 @@ export function customerPortalSeatsListClaimedSubscriptionsSecurityToJSON(
     CustomerPortalSeatsListClaimedSubscriptionsSecurity$outboundSchema.parse(
       customerPortalSeatsListClaimedSubscriptionsSecurity,
     ),
-  );
-}
-
-export function customerPortalSeatsListClaimedSubscriptionsSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalSeatsListClaimedSubscriptionsSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalSeatsListClaimedSubscriptionsSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalSeatsListClaimedSubscriptionsSecurity' from JSON`,
   );
 }

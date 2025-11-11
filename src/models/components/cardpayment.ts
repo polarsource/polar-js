@@ -10,19 +10,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CardPaymentMetadata,
   CardPaymentMetadata$inboundSchema,
-  CardPaymentMetadata$Outbound,
-  CardPaymentMetadata$outboundSchema,
 } from "./cardpaymentmetadata.js";
 import {
   PaymentProcessor,
   PaymentProcessor$inboundSchema,
-  PaymentProcessor$outboundSchema,
 } from "./paymentprocessor.js";
-import {
-  PaymentStatus,
-  PaymentStatus$inboundSchema,
-  PaymentStatus$outboundSchema,
-} from "./paymentstatus.js";
+import { PaymentStatus, PaymentStatus$inboundSchema } from "./paymentstatus.js";
 
 /**
  * Schema of a payment with a card payment method.
@@ -120,77 +113,6 @@ export const CardPayment$inboundSchema: z.ZodType<
     "method_metadata": "methodMetadata",
   });
 });
-
-/** @internal */
-export type CardPayment$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  processor: string;
-  status: string;
-  amount: number;
-  currency: string;
-  method: "card";
-  decline_reason: string | null;
-  decline_message: string | null;
-  organization_id: string;
-  checkout_id: string | null;
-  order_id: string | null;
-  processor_metadata?: { [k: string]: any } | undefined;
-  method_metadata: CardPaymentMetadata$Outbound;
-};
-
-/** @internal */
-export const CardPayment$outboundSchema: z.ZodType<
-  CardPayment$Outbound,
-  z.ZodTypeDef,
-  CardPayment
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  processor: PaymentProcessor$outboundSchema,
-  status: PaymentStatus$outboundSchema,
-  amount: z.number().int(),
-  currency: z.string(),
-  method: z.literal("card"),
-  declineReason: z.nullable(z.string()),
-  declineMessage: z.nullable(z.string()),
-  organizationId: z.string(),
-  checkoutId: z.nullable(z.string()),
-  orderId: z.nullable(z.string()),
-  processorMetadata: z.record(z.any()).optional(),
-  methodMetadata: CardPaymentMetadata$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    declineReason: "decline_reason",
-    declineMessage: "decline_message",
-    organizationId: "organization_id",
-    checkoutId: "checkout_id",
-    orderId: "order_id",
-    processorMetadata: "processor_metadata",
-    methodMetadata: "method_metadata",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CardPayment$ {
-  /** @deprecated use `CardPayment$inboundSchema` instead. */
-  export const inboundSchema = CardPayment$inboundSchema;
-  /** @deprecated use `CardPayment$outboundSchema` instead. */
-  export const outboundSchema = CardPayment$outboundSchema;
-  /** @deprecated use `CardPayment$Outbound` instead. */
-  export type Outbound = CardPayment$Outbound;
-}
-
-export function cardPaymentToJSON(cardPayment: CardPayment): string {
-  return JSON.stringify(CardPayment$outboundSchema.parse(cardPayment));
-}
 
 export function cardPaymentFromJSON(
   jsonString: string,

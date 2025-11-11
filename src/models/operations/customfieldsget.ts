@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldsGetRequest = {
   /**
@@ -13,15 +10,6 @@ export type CustomFieldsGetRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const CustomFieldsGetRequest$inboundSchema: z.ZodType<
-  CustomFieldsGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type CustomFieldsGetRequest$Outbound = {
@@ -37,33 +25,10 @@ export const CustomFieldsGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldsGetRequest$ {
-  /** @deprecated use `CustomFieldsGetRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldsGetRequest$inboundSchema;
-  /** @deprecated use `CustomFieldsGetRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldsGetRequest$outboundSchema;
-  /** @deprecated use `CustomFieldsGetRequest$Outbound` instead. */
-  export type Outbound = CustomFieldsGetRequest$Outbound;
-}
-
 export function customFieldsGetRequestToJSON(
   customFieldsGetRequest: CustomFieldsGetRequest,
 ): string {
   return JSON.stringify(
     CustomFieldsGetRequest$outboundSchema.parse(customFieldsGetRequest),
-  );
-}
-
-export function customFieldsGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldsGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldsGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldsGetRequest' from JSON`,
   );
 }

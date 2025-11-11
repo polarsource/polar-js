@@ -10,19 +10,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
   DiscountDuration$inboundSchema,
-  DiscountDuration$outboundSchema,
 } from "./discountduration.js";
 import {
   DiscountProduct,
   DiscountProduct$inboundSchema,
-  DiscountProduct$Outbound,
-  DiscountProduct$outboundSchema,
 } from "./discountproduct.js";
-import {
-  DiscountType,
-  DiscountType$inboundSchema,
-  DiscountType$outboundSchema,
-} from "./discounttype.js";
+import { DiscountType, DiscountType$inboundSchema } from "./discounttype.js";
 
 export type DiscountPercentageOnceForeverDurationMetadata =
   | string
@@ -92,47 +85,6 @@ export const DiscountPercentageOnceForeverDurationMetadata$inboundSchema:
     unknown
   > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/** @internal */
-export type DiscountPercentageOnceForeverDurationMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const DiscountPercentageOnceForeverDurationMetadata$outboundSchema:
-  z.ZodType<
-    DiscountPercentageOnceForeverDurationMetadata$Outbound,
-    z.ZodTypeDef,
-    DiscountPercentageOnceForeverDurationMetadata
-  > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountPercentageOnceForeverDurationMetadata$ {
-  /** @deprecated use `DiscountPercentageOnceForeverDurationMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountPercentageOnceForeverDurationMetadata$inboundSchema;
-  /** @deprecated use `DiscountPercentageOnceForeverDurationMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountPercentageOnceForeverDurationMetadata$outboundSchema;
-  /** @deprecated use `DiscountPercentageOnceForeverDurationMetadata$Outbound` instead. */
-  export type Outbound = DiscountPercentageOnceForeverDurationMetadata$Outbound;
-}
-
-export function discountPercentageOnceForeverDurationMetadataToJSON(
-  discountPercentageOnceForeverDurationMetadata:
-    DiscountPercentageOnceForeverDurationMetadata,
-): string {
-  return JSON.stringify(
-    DiscountPercentageOnceForeverDurationMetadata$outboundSchema.parse(
-      discountPercentageOnceForeverDurationMetadata,
-    ),
-  );
-}
-
 export function discountPercentageOnceForeverDurationMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -190,86 +142,6 @@ export const DiscountPercentageOnceForeverDuration$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type DiscountPercentageOnceForeverDuration$Outbound = {
-  duration: string;
-  type: string;
-  basis_points: number;
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  metadata: { [k: string]: string | number | number | boolean };
-  name: string;
-  code: string | null;
-  starts_at: string | null;
-  ends_at: string | null;
-  max_redemptions: number | null;
-  redemptions_count: number;
-  organization_id: string;
-  products: Array<DiscountProduct$Outbound>;
-};
-
-/** @internal */
-export const DiscountPercentageOnceForeverDuration$outboundSchema: z.ZodType<
-  DiscountPercentageOnceForeverDuration$Outbound,
-  z.ZodTypeDef,
-  DiscountPercentageOnceForeverDuration
-> = z.object({
-  duration: DiscountDuration$outboundSchema,
-  type: DiscountType$outboundSchema,
-  basisPoints: z.number().int(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  name: z.string(),
-  code: z.nullable(z.string()),
-  startsAt: z.nullable(z.date().transform(v => v.toISOString())),
-  endsAt: z.nullable(z.date().transform(v => v.toISOString())),
-  maxRedemptions: z.nullable(z.number().int()),
-  redemptionsCount: z.number().int(),
-  organizationId: z.string(),
-  products: z.array(DiscountProduct$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    basisPoints: "basis_points",
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    startsAt: "starts_at",
-    endsAt: "ends_at",
-    maxRedemptions: "max_redemptions",
-    redemptionsCount: "redemptions_count",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountPercentageOnceForeverDuration$ {
-  /** @deprecated use `DiscountPercentageOnceForeverDuration$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountPercentageOnceForeverDuration$inboundSchema;
-  /** @deprecated use `DiscountPercentageOnceForeverDuration$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountPercentageOnceForeverDuration$outboundSchema;
-  /** @deprecated use `DiscountPercentageOnceForeverDuration$Outbound` instead. */
-  export type Outbound = DiscountPercentageOnceForeverDuration$Outbound;
-}
-
-export function discountPercentageOnceForeverDurationToJSON(
-  discountPercentageOnceForeverDuration: DiscountPercentageOnceForeverDuration,
-): string {
-  return JSON.stringify(
-    DiscountPercentageOnceForeverDuration$outboundSchema.parse(
-      discountPercentageOnceForeverDuration,
-    ),
-  );
-}
 
 export function discountPercentageOnceForeverDurationFromJSON(
   jsonString: string,

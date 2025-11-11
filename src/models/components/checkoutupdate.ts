@@ -4,18 +4,13 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AddressInput,
-  AddressInput$inboundSchema,
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
 import {
   TrialInterval,
-  TrialInterval$inboundSchema,
   TrialInterval$outboundSchema,
 } from "./trialinterval.js";
 
@@ -92,6 +87,10 @@ export type CheckoutUpdate = {
    * Whether to require the customer to fill their full billing address, instead of just the country. Customers in the US will always be required to fill their full address, regardless of this setting. If you preset the billing address, this setting will be automatically set to `true`.
    */
   requireBillingAddress?: boolean | null | undefined;
+  /**
+   * Whether to enable the trial period for the checkout session. If `false`, the trial period will be disabled, even if the selected product has a trial configured.
+   */
+  allowTrial?: boolean | null | undefined;
   customerIpAddress?: string | null | undefined;
   /**
    * Key-value object allowing you to store additional information that'll be copied to the created customer.
@@ -127,18 +126,6 @@ export type CheckoutUpdate = {
 };
 
 /** @internal */
-export const CheckoutUpdateCustomFieldData$inboundSchema: z.ZodType<
-  CheckoutUpdateCustomFieldData,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  z.string(),
-  z.number().int(),
-  z.boolean(),
-  z.string().datetime({ offset: true }).transform(v => new Date(v)),
-]);
-
-/** @internal */
 export type CheckoutUpdateCustomFieldData$Outbound =
   | string
   | number
@@ -157,19 +144,6 @@ export const CheckoutUpdateCustomFieldData$outboundSchema: z.ZodType<
   z.date().transform(v => v.toISOString()),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutUpdateCustomFieldData$ {
-  /** @deprecated use `CheckoutUpdateCustomFieldData$inboundSchema` instead. */
-  export const inboundSchema = CheckoutUpdateCustomFieldData$inboundSchema;
-  /** @deprecated use `CheckoutUpdateCustomFieldData$outboundSchema` instead. */
-  export const outboundSchema = CheckoutUpdateCustomFieldData$outboundSchema;
-  /** @deprecated use `CheckoutUpdateCustomFieldData$Outbound` instead. */
-  export type Outbound = CheckoutUpdateCustomFieldData$Outbound;
-}
-
 export function checkoutUpdateCustomFieldDataToJSON(
   checkoutUpdateCustomFieldData: CheckoutUpdateCustomFieldData,
 ): string {
@@ -179,23 +153,6 @@ export function checkoutUpdateCustomFieldDataToJSON(
     ),
   );
 }
-
-export function checkoutUpdateCustomFieldDataFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutUpdateCustomFieldData, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutUpdateCustomFieldData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutUpdateCustomFieldData' from JSON`,
-  );
-}
-
-/** @internal */
-export const CheckoutUpdateMetadata$inboundSchema: z.ZodType<
-  CheckoutUpdateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type CheckoutUpdateMetadata$Outbound =
@@ -211,19 +168,6 @@ export const CheckoutUpdateMetadata$outboundSchema: z.ZodType<
   CheckoutUpdateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutUpdateMetadata$ {
-  /** @deprecated use `CheckoutUpdateMetadata$inboundSchema` instead. */
-  export const inboundSchema = CheckoutUpdateMetadata$inboundSchema;
-  /** @deprecated use `CheckoutUpdateMetadata$outboundSchema` instead. */
-  export const outboundSchema = CheckoutUpdateMetadata$outboundSchema;
-  /** @deprecated use `CheckoutUpdateMetadata$Outbound` instead. */
-  export type Outbound = CheckoutUpdateMetadata$Outbound;
-}
-
 export function checkoutUpdateMetadataToJSON(
   checkoutUpdateMetadata: CheckoutUpdateMetadata,
 ): string {
@@ -231,23 +175,6 @@ export function checkoutUpdateMetadataToJSON(
     CheckoutUpdateMetadata$outboundSchema.parse(checkoutUpdateMetadata),
   );
 }
-
-export function checkoutUpdateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutUpdateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutUpdateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CheckoutUpdateCustomerMetadata$inboundSchema: z.ZodType<
-  CheckoutUpdateCustomerMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
 /** @internal */
 export type CheckoutUpdateCustomerMetadata$Outbound =
@@ -263,19 +190,6 @@ export const CheckoutUpdateCustomerMetadata$outboundSchema: z.ZodType<
   CheckoutUpdateCustomerMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutUpdateCustomerMetadata$ {
-  /** @deprecated use `CheckoutUpdateCustomerMetadata$inboundSchema` instead. */
-  export const inboundSchema = CheckoutUpdateCustomerMetadata$inboundSchema;
-  /** @deprecated use `CheckoutUpdateCustomerMetadata$outboundSchema` instead. */
-  export const outboundSchema = CheckoutUpdateCustomerMetadata$outboundSchema;
-  /** @deprecated use `CheckoutUpdateCustomerMetadata$Outbound` instead. */
-  export type Outbound = CheckoutUpdateCustomerMetadata$Outbound;
-}
-
 export function checkoutUpdateCustomerMetadataToJSON(
   checkoutUpdateCustomerMetadata: CheckoutUpdateCustomerMetadata,
 ): string {
@@ -285,81 +199,6 @@ export function checkoutUpdateCustomerMetadataToJSON(
     ),
   );
 }
-
-export function checkoutUpdateCustomerMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutUpdateCustomerMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutUpdateCustomerMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutUpdateCustomerMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CheckoutUpdate$inboundSchema: z.ZodType<
-  CheckoutUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  custom_field_data: z.record(
-    z.nullable(
-      z.union([
-        z.string(),
-        z.number().int(),
-        z.boolean(),
-        z.string().datetime({ offset: true }).transform(v => new Date(v)),
-      ]),
-    ),
-  ).optional(),
-  product_id: z.nullable(z.string()).optional(),
-  product_price_id: z.nullable(z.string()).optional(),
-  amount: z.nullable(z.number().int()).optional(),
-  seats: z.nullable(z.number().int()).optional(),
-  is_business_customer: z.nullable(z.boolean()).optional(),
-  customer_name: z.nullable(z.string()).optional(),
-  customer_email: z.nullable(z.string()).optional(),
-  customer_billing_name: z.nullable(z.string()).optional(),
-  customer_billing_address: z.nullable(AddressInput$inboundSchema).optional(),
-  customer_tax_id: z.nullable(z.string()).optional(),
-  trial_interval: z.nullable(TrialInterval$inboundSchema).optional(),
-  trial_interval_count: z.nullable(z.number().int()).optional(),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  discount_id: z.nullable(z.string()).optional(),
-  allow_discount_codes: z.nullable(z.boolean()).optional(),
-  require_billing_address: z.nullable(z.boolean()).optional(),
-  customer_ip_address: z.nullable(z.string()).optional(),
-  customer_metadata: z.nullable(
-    z.record(z.union([z.string(), z.number().int(), z.number(), z.boolean()])),
-  ).optional(),
-  success_url: z.nullable(z.string()).optional(),
-  return_url: z.nullable(z.string()).optional(),
-  embed_origin: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "custom_field_data": "customFieldData",
-    "product_id": "productId",
-    "product_price_id": "productPriceId",
-    "is_business_customer": "isBusinessCustomer",
-    "customer_name": "customerName",
-    "customer_email": "customerEmail",
-    "customer_billing_name": "customerBillingName",
-    "customer_billing_address": "customerBillingAddress",
-    "customer_tax_id": "customerTaxId",
-    "trial_interval": "trialInterval",
-    "trial_interval_count": "trialIntervalCount",
-    "discount_id": "discountId",
-    "allow_discount_codes": "allowDiscountCodes",
-    "require_billing_address": "requireBillingAddress",
-    "customer_ip_address": "customerIpAddress",
-    "customer_metadata": "customerMetadata",
-    "success_url": "successUrl",
-    "return_url": "returnUrl",
-    "embed_origin": "embedOrigin",
-  });
-});
 
 /** @internal */
 export type CheckoutUpdate$Outbound = {
@@ -382,6 +221,7 @@ export type CheckoutUpdate$Outbound = {
   discount_id?: string | null | undefined;
   allow_discount_codes?: boolean | null | undefined;
   require_billing_address?: boolean | null | undefined;
+  allow_trial?: boolean | null | undefined;
   customer_ip_address?: string | null | undefined;
   customer_metadata?:
     | { [k: string]: string | number | number | boolean }
@@ -426,6 +266,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   discountId: z.nullable(z.string()).optional(),
   allowDiscountCodes: z.nullable(z.boolean()).optional(),
   requireBillingAddress: z.nullable(z.boolean()).optional(),
+  allowTrial: z.nullable(z.boolean()).optional(),
   customerIpAddress: z.nullable(z.string()).optional(),
   customerMetadata: z.nullable(
     z.record(z.union([z.string(), z.number().int(), z.number(), z.boolean()])),
@@ -449,6 +290,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
     discountId: "discount_id",
     allowDiscountCodes: "allow_discount_codes",
     requireBillingAddress: "require_billing_address",
+    allowTrial: "allow_trial",
     customerIpAddress: "customer_ip_address",
     customerMetadata: "customer_metadata",
     successUrl: "success_url",
@@ -457,29 +299,6 @@ export const CheckoutUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutUpdate$ {
-  /** @deprecated use `CheckoutUpdate$inboundSchema` instead. */
-  export const inboundSchema = CheckoutUpdate$inboundSchema;
-  /** @deprecated use `CheckoutUpdate$outboundSchema` instead. */
-  export const outboundSchema = CheckoutUpdate$outboundSchema;
-  /** @deprecated use `CheckoutUpdate$Outbound` instead. */
-  export type Outbound = CheckoutUpdate$Outbound;
-}
-
 export function checkoutUpdateToJSON(checkoutUpdate: CheckoutUpdate): string {
   return JSON.stringify(CheckoutUpdate$outboundSchema.parse(checkoutUpdate));
-}
-
-export function checkoutUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutUpdate' from JSON`,
-  );
 }

@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalOrdersGenerateInvoiceSecurity = {
   customerSession: string;
@@ -18,20 +15,6 @@ export type CustomerPortalOrdersGenerateInvoiceRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const CustomerPortalOrdersGenerateInvoiceSecurity$inboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersGenerateInvoiceSecurity,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    customer_session: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "customer_session": "customerSession",
-    });
-  });
 
 /** @internal */
 export type CustomerPortalOrdersGenerateInvoiceSecurity$Outbound = {
@@ -52,21 +35,6 @@ export const CustomerPortalOrdersGenerateInvoiceSecurity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersGenerateInvoiceSecurity$ {
-  /** @deprecated use `CustomerPortalOrdersGenerateInvoiceSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersGenerateInvoiceSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGenerateInvoiceSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersGenerateInvoiceSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGenerateInvoiceSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersGenerateInvoiceSecurity$Outbound;
-}
-
 export function customerPortalOrdersGenerateInvoiceSecurityToJSON(
   customerPortalOrdersGenerateInvoiceSecurity:
     CustomerPortalOrdersGenerateInvoiceSecurity,
@@ -77,29 +45,6 @@ export function customerPortalOrdersGenerateInvoiceSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalOrdersGenerateInvoiceSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalOrdersGenerateInvoiceSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersGenerateInvoiceSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalOrdersGenerateInvoiceSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalOrdersGenerateInvoiceRequest$inboundSchema:
-  z.ZodType<CustomerPortalOrdersGenerateInvoiceRequest, z.ZodTypeDef, unknown> =
-    z.object({
-      id: z.string(),
-    });
 
 /** @internal */
 export type CustomerPortalOrdersGenerateInvoiceRequest$Outbound = {
@@ -116,21 +61,6 @@ export const CustomerPortalOrdersGenerateInvoiceRequest$outboundSchema:
     id: z.string(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersGenerateInvoiceRequest$ {
-  /** @deprecated use `CustomerPortalOrdersGenerateInvoiceRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersGenerateInvoiceRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGenerateInvoiceRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersGenerateInvoiceRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGenerateInvoiceRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersGenerateInvoiceRequest$Outbound;
-}
-
 export function customerPortalOrdersGenerateInvoiceRequestToJSON(
   customerPortalOrdersGenerateInvoiceRequest:
     CustomerPortalOrdersGenerateInvoiceRequest,
@@ -139,21 +69,5 @@ export function customerPortalOrdersGenerateInvoiceRequestToJSON(
     CustomerPortalOrdersGenerateInvoiceRequest$outboundSchema.parse(
       customerPortalOrdersGenerateInvoiceRequest,
     ),
-  );
-}
-
-export function customerPortalOrdersGenerateInvoiceRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalOrdersGenerateInvoiceRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersGenerateInvoiceRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalOrdersGenerateInvoiceRequest' from JSON`,
   );
 }

@@ -3,42 +3,33 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerBenefitGrantCustomUpdate,
-  CustomerBenefitGrantCustomUpdate$inboundSchema,
   CustomerBenefitGrantCustomUpdate$Outbound,
   CustomerBenefitGrantCustomUpdate$outboundSchema,
 } from "./customerbenefitgrantcustomupdate.js";
 import {
   CustomerBenefitGrantDiscordUpdate,
-  CustomerBenefitGrantDiscordUpdate$inboundSchema,
   CustomerBenefitGrantDiscordUpdate$Outbound,
   CustomerBenefitGrantDiscordUpdate$outboundSchema,
 } from "./customerbenefitgrantdiscordupdate.js";
 import {
   CustomerBenefitGrantDownloadablesUpdate,
-  CustomerBenefitGrantDownloadablesUpdate$inboundSchema,
   CustomerBenefitGrantDownloadablesUpdate$Outbound,
   CustomerBenefitGrantDownloadablesUpdate$outboundSchema,
 } from "./customerbenefitgrantdownloadablesupdate.js";
 import {
   CustomerBenefitGrantGitHubRepositoryUpdate,
-  CustomerBenefitGrantGitHubRepositoryUpdate$inboundSchema,
   CustomerBenefitGrantGitHubRepositoryUpdate$Outbound,
   CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema,
 } from "./customerbenefitgrantgithubrepositoryupdate.js";
 import {
   CustomerBenefitGrantLicenseKeysUpdate,
-  CustomerBenefitGrantLicenseKeysUpdate$inboundSchema,
   CustomerBenefitGrantLicenseKeysUpdate$Outbound,
   CustomerBenefitGrantLicenseKeysUpdate$outboundSchema,
 } from "./customerbenefitgrantlicensekeysupdate.js";
 import {
   CustomerBenefitGrantMeterCreditUpdate,
-  CustomerBenefitGrantMeterCreditUpdate$inboundSchema,
   CustomerBenefitGrantMeterCreditUpdate$Outbound,
   CustomerBenefitGrantMeterCreditUpdate$outboundSchema,
 } from "./customerbenefitgrantmetercreditupdate.js";
@@ -52,44 +43,6 @@ export type CustomerBenefitGrantUpdate =
   | (CustomerBenefitGrantDownloadablesUpdate & { benefitType: "downloadables" })
   | (CustomerBenefitGrantLicenseKeysUpdate & { benefitType: "license_keys" })
   | (CustomerBenefitGrantMeterCreditUpdate & { benefitType: "meter_credit" });
-
-/** @internal */
-export const CustomerBenefitGrantUpdate$inboundSchema: z.ZodType<
-  CustomerBenefitGrantUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  CustomerBenefitGrantDiscordUpdate$inboundSchema.and(
-    z.object({ benefit_type: z.literal("discord") }).transform((v) => ({
-      benefitType: v.benefit_type,
-    })),
-  ),
-  CustomerBenefitGrantGitHubRepositoryUpdate$inboundSchema.and(
-    z.object({ benefit_type: z.literal("github_repository") }).transform((
-      v,
-    ) => ({ benefitType: v.benefit_type })),
-  ),
-  CustomerBenefitGrantCustomUpdate$inboundSchema.and(
-    z.object({ benefit_type: z.literal("custom") }).transform((v) => ({
-      benefitType: v.benefit_type,
-    })),
-  ),
-  CustomerBenefitGrantDownloadablesUpdate$inboundSchema.and(
-    z.object({ benefit_type: z.literal("downloadables") }).transform((v) => ({
-      benefitType: v.benefit_type,
-    })),
-  ),
-  CustomerBenefitGrantLicenseKeysUpdate$inboundSchema.and(
-    z.object({ benefit_type: z.literal("license_keys") }).transform((v) => ({
-      benefitType: v.benefit_type,
-    })),
-  ),
-  CustomerBenefitGrantMeterCreditUpdate$inboundSchema.and(
-    z.object({ benefit_type: z.literal("meter_credit") }).transform((v) => ({
-      benefitType: v.benefit_type,
-    })),
-  ),
-]);
 
 /** @internal */
 export type CustomerBenefitGrantUpdate$Outbound =
@@ -146,33 +99,10 @@ export const CustomerBenefitGrantUpdate$outboundSchema: z.ZodType<
   ),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantUpdate$ {
-  /** @deprecated use `CustomerBenefitGrantUpdate$inboundSchema` instead. */
-  export const inboundSchema = CustomerBenefitGrantUpdate$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantUpdate$outboundSchema` instead. */
-  export const outboundSchema = CustomerBenefitGrantUpdate$outboundSchema;
-  /** @deprecated use `CustomerBenefitGrantUpdate$Outbound` instead. */
-  export type Outbound = CustomerBenefitGrantUpdate$Outbound;
-}
-
 export function customerBenefitGrantUpdateToJSON(
   customerBenefitGrantUpdate: CustomerBenefitGrantUpdate,
 ): string {
   return JSON.stringify(
     CustomerBenefitGrantUpdate$outboundSchema.parse(customerBenefitGrantUpdate),
-  );
-}
-
-export function customerBenefitGrantUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerBenefitGrantUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerBenefitGrantUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerBenefitGrantUpdate' from JSON`,
   );
 }

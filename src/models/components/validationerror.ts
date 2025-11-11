@@ -19,7 +19,6 @@ export type ValidationError = {
 export const Loc$inboundSchema: z.ZodType<Loc, z.ZodTypeDef, unknown> = z.union(
   [z.string(), z.number().int()],
 );
-
 /** @internal */
 export type Loc$Outbound = string | number;
 
@@ -27,23 +26,9 @@ export type Loc$Outbound = string | number;
 export const Loc$outboundSchema: z.ZodType<Loc$Outbound, z.ZodTypeDef, Loc> = z
   .union([z.string(), z.number().int()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Loc$ {
-  /** @deprecated use `Loc$inboundSchema` instead. */
-  export const inboundSchema = Loc$inboundSchema;
-  /** @deprecated use `Loc$outboundSchema` instead. */
-  export const outboundSchema = Loc$outboundSchema;
-  /** @deprecated use `Loc$Outbound` instead. */
-  export type Outbound = Loc$Outbound;
-}
-
 export function locToJSON(loc: Loc): string {
   return JSON.stringify(Loc$outboundSchema.parse(loc));
 }
-
 export function locFromJSON(
   jsonString: string,
 ): SafeParseResult<Loc, SDKValidationError> {
@@ -64,7 +49,6 @@ export const ValidationError$inboundSchema: z.ZodType<
   msg: z.string(),
   type: z.string(),
 });
-
 /** @internal */
 export type ValidationError$Outbound = {
   loc: Array<string | number>;
@@ -83,25 +67,11 @@ export const ValidationError$outboundSchema: z.ZodType<
   type: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ValidationError$ {
-  /** @deprecated use `ValidationError$inboundSchema` instead. */
-  export const inboundSchema = ValidationError$inboundSchema;
-  /** @deprecated use `ValidationError$outboundSchema` instead. */
-  export const outboundSchema = ValidationError$outboundSchema;
-  /** @deprecated use `ValidationError$Outbound` instead. */
-  export type Outbound = ValidationError$Outbound;
-}
-
 export function validationErrorToJSON(
   validationError: ValidationError,
 ): string {
   return JSON.stringify(ValidationError$outboundSchema.parse(validationError));
 }
-
 export function validationErrorFromJSON(
   jsonString: string,
 ): SafeParseResult<ValidationError, SDKValidationError> {

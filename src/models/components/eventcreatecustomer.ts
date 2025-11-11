@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   EventMetadataInput,
-  EventMetadataInput$inboundSchema,
   EventMetadataInput$Outbound,
   EventMetadataInput$outboundSchema,
 } from "./eventmetadatainput.js";
@@ -41,29 +37,6 @@ export type EventCreateCustomer = {
    */
   customerId: string;
 };
-
-/** @internal */
-export const EventCreateCustomer$inboundSchema: z.ZodType<
-  EventCreateCustomer,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  name: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  external_id: z.nullable(z.string()).optional(),
-  parent_id: z.nullable(z.string()).optional(),
-  metadata: z.record(EventMetadataInput$inboundSchema).optional(),
-  customer_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "external_id": "externalId",
-    "parent_id": "parentId",
-    "customer_id": "customerId",
-  });
-});
 
 /** @internal */
 export type EventCreateCustomer$Outbound = {
@@ -98,33 +71,10 @@ export const EventCreateCustomer$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventCreateCustomer$ {
-  /** @deprecated use `EventCreateCustomer$inboundSchema` instead. */
-  export const inboundSchema = EventCreateCustomer$inboundSchema;
-  /** @deprecated use `EventCreateCustomer$outboundSchema` instead. */
-  export const outboundSchema = EventCreateCustomer$outboundSchema;
-  /** @deprecated use `EventCreateCustomer$Outbound` instead. */
-  export type Outbound = EventCreateCustomer$Outbound;
-}
-
 export function eventCreateCustomerToJSON(
   eventCreateCustomer: EventCreateCustomer,
 ): string {
   return JSON.stringify(
     EventCreateCustomer$outboundSchema.parse(eventCreateCustomer),
-  );
-}
-
-export function eventCreateCustomerFromJSON(
-  jsonString: string,
-): SafeParseResult<EventCreateCustomer, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EventCreateCustomer$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EventCreateCustomer' from JSON`,
   );
 }

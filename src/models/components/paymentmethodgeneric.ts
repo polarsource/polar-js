@@ -10,7 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PaymentProcessor,
   PaymentProcessor$inboundSchema,
-  PaymentProcessor$outboundSchema,
 } from "./paymentprocessor.js";
 
 export type PaymentMethodGeneric = {
@@ -52,57 +51,6 @@ export const PaymentMethodGeneric$inboundSchema: z.ZodType<
     "customer_id": "customerId",
   });
 });
-
-/** @internal */
-export type PaymentMethodGeneric$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  processor: string;
-  customer_id: string;
-  type: string;
-};
-
-/** @internal */
-export const PaymentMethodGeneric$outboundSchema: z.ZodType<
-  PaymentMethodGeneric$Outbound,
-  z.ZodTypeDef,
-  PaymentMethodGeneric
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  processor: PaymentProcessor$outboundSchema,
-  customerId: z.string(),
-  type: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    customerId: "customer_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentMethodGeneric$ {
-  /** @deprecated use `PaymentMethodGeneric$inboundSchema` instead. */
-  export const inboundSchema = PaymentMethodGeneric$inboundSchema;
-  /** @deprecated use `PaymentMethodGeneric$outboundSchema` instead. */
-  export const outboundSchema = PaymentMethodGeneric$outboundSchema;
-  /** @deprecated use `PaymentMethodGeneric$Outbound` instead. */
-  export type Outbound = PaymentMethodGeneric$Outbound;
-}
-
-export function paymentMethodGenericToJSON(
-  paymentMethodGeneric: PaymentMethodGeneric,
-): string {
-  return JSON.stringify(
-    PaymentMethodGeneric$outboundSchema.parse(paymentMethodGeneric),
-  );
-}
 
 export function paymentMethodGenericFromJSON(
   jsonString: string,

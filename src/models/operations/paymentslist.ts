@@ -9,17 +9,13 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ListResource,
   ListResource$inboundSchema,
-  ListResource$Outbound,
-  ListResource$outboundSchema,
 } from "../components/listresource.js";
 import {
   PaymentSortProperty,
-  PaymentSortProperty$inboundSchema,
   PaymentSortProperty$outboundSchema,
 } from "../components/paymentsortproperty.js";
 import {
   PaymentStatus,
-  PaymentStatus$inboundSchema,
   PaymentStatus$outboundSchema,
 } from "../components/paymentstatus.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -98,11 +94,6 @@ export type PaymentsListResponse = {
 };
 
 /** @internal */
-export const PaymentsListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<PaymentsListQueryParamOrganizationIDFilter, z.ZodTypeDef, unknown> =
-    z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type PaymentsListQueryParamOrganizationIDFilter$Outbound =
   | string
   | Array<string>;
@@ -115,21 +106,6 @@ export const PaymentsListQueryParamOrganizationIDFilter$outboundSchema:
     PaymentsListQueryParamOrganizationIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentsListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `PaymentsListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    PaymentsListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `PaymentsListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    PaymentsListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `PaymentsListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound = PaymentsListQueryParamOrganizationIDFilter$Outbound;
-}
-
 export function paymentsListQueryParamOrganizationIDFilterToJSON(
   paymentsListQueryParamOrganizationIDFilter:
     PaymentsListQueryParamOrganizationIDFilter,
@@ -140,29 +116,6 @@ export function paymentsListQueryParamOrganizationIDFilterToJSON(
     ),
   );
 }
-
-export function paymentsListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  PaymentsListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      PaymentsListQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'PaymentsListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const PaymentsListQueryParamCheckoutIDFilter$inboundSchema: z.ZodType<
-  PaymentsListQueryParamCheckoutIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type PaymentsListQueryParamCheckoutIDFilter$Outbound =
@@ -176,21 +129,6 @@ export const PaymentsListQueryParamCheckoutIDFilter$outboundSchema: z.ZodType<
   PaymentsListQueryParamCheckoutIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentsListQueryParamCheckoutIDFilter$ {
-  /** @deprecated use `PaymentsListQueryParamCheckoutIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    PaymentsListQueryParamCheckoutIDFilter$inboundSchema;
-  /** @deprecated use `PaymentsListQueryParamCheckoutIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    PaymentsListQueryParamCheckoutIDFilter$outboundSchema;
-  /** @deprecated use `PaymentsListQueryParamCheckoutIDFilter$Outbound` instead. */
-  export type Outbound = PaymentsListQueryParamCheckoutIDFilter$Outbound;
-}
-
 export function paymentsListQueryParamCheckoutIDFilterToJSON(
   paymentsListQueryParamCheckoutIDFilter:
     PaymentsListQueryParamCheckoutIDFilter,
@@ -201,24 +139,6 @@ export function paymentsListQueryParamCheckoutIDFilterToJSON(
     ),
   );
 }
-
-export function paymentsListQueryParamCheckoutIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<PaymentsListQueryParamCheckoutIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      PaymentsListQueryParamCheckoutIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'PaymentsListQueryParamCheckoutIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const PaymentsListQueryParamOrderIDFilter$inboundSchema: z.ZodType<
-  PaymentsListQueryParamOrderIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type PaymentsListQueryParamOrderIDFilter$Outbound =
@@ -232,21 +152,6 @@ export const PaymentsListQueryParamOrderIDFilter$outboundSchema: z.ZodType<
   PaymentsListQueryParamOrderIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentsListQueryParamOrderIDFilter$ {
-  /** @deprecated use `PaymentsListQueryParamOrderIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    PaymentsListQueryParamOrderIDFilter$inboundSchema;
-  /** @deprecated use `PaymentsListQueryParamOrderIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    PaymentsListQueryParamOrderIDFilter$outboundSchema;
-  /** @deprecated use `PaymentsListQueryParamOrderIDFilter$Outbound` instead. */
-  export type Outbound = PaymentsListQueryParamOrderIDFilter$Outbound;
-}
-
 export function paymentsListQueryParamOrderIDFilterToJSON(
   paymentsListQueryParamOrderIDFilter: PaymentsListQueryParamOrderIDFilter,
 ): string {
@@ -256,27 +161,6 @@ export function paymentsListQueryParamOrderIDFilterToJSON(
     ),
   );
 }
-
-export function paymentsListQueryParamOrderIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<PaymentsListQueryParamOrderIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      PaymentsListQueryParamOrderIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'PaymentsListQueryParamOrderIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const QueryParamStatusFilter$inboundSchema: z.ZodType<
-  QueryParamStatusFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  PaymentStatus$inboundSchema,
-  z.array(PaymentStatus$inboundSchema),
-]);
 
 /** @internal */
 export type QueryParamStatusFilter$Outbound = string | Array<string>;
@@ -291,19 +175,6 @@ export const QueryParamStatusFilter$outboundSchema: z.ZodType<
   z.array(PaymentStatus$outboundSchema),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryParamStatusFilter$ {
-  /** @deprecated use `QueryParamStatusFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamStatusFilter$inboundSchema;
-  /** @deprecated use `QueryParamStatusFilter$outboundSchema` instead. */
-  export const outboundSchema = QueryParamStatusFilter$outboundSchema;
-  /** @deprecated use `QueryParamStatusFilter$Outbound` instead. */
-  export type Outbound = QueryParamStatusFilter$Outbound;
-}
-
 export function queryParamStatusFilterToJSON(
   queryParamStatusFilter: QueryParamStatusFilter,
 ): string {
@@ -311,23 +182,6 @@ export function queryParamStatusFilterToJSON(
     QueryParamStatusFilter$outboundSchema.parse(queryParamStatusFilter),
   );
 }
-
-export function queryParamStatusFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<QueryParamStatusFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => QueryParamStatusFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamStatusFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const MethodFilter$inboundSchema: z.ZodType<
-  MethodFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type MethodFilter$Outbound = string | Array<string>;
@@ -339,39 +193,9 @@ export const MethodFilter$outboundSchema: z.ZodType<
   MethodFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MethodFilter$ {
-  /** @deprecated use `MethodFilter$inboundSchema` instead. */
-  export const inboundSchema = MethodFilter$inboundSchema;
-  /** @deprecated use `MethodFilter$outboundSchema` instead. */
-  export const outboundSchema = MethodFilter$outboundSchema;
-  /** @deprecated use `MethodFilter$Outbound` instead. */
-  export type Outbound = MethodFilter$Outbound;
-}
-
 export function methodFilterToJSON(methodFilter: MethodFilter): string {
   return JSON.stringify(MethodFilter$outboundSchema.parse(methodFilter));
 }
-
-export function methodFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<MethodFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => MethodFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MethodFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerEmailFilter$inboundSchema: z.ZodType<
-  CustomerEmailFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type CustomerEmailFilter$Outbound = string | Array<string>;
@@ -383,19 +207,6 @@ export const CustomerEmailFilter$outboundSchema: z.ZodType<
   CustomerEmailFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerEmailFilter$ {
-  /** @deprecated use `CustomerEmailFilter$inboundSchema` instead. */
-  export const inboundSchema = CustomerEmailFilter$inboundSchema;
-  /** @deprecated use `CustomerEmailFilter$outboundSchema` instead. */
-  export const outboundSchema = CustomerEmailFilter$outboundSchema;
-  /** @deprecated use `CustomerEmailFilter$Outbound` instead. */
-  export type Outbound = CustomerEmailFilter$Outbound;
-}
-
 export function customerEmailFilterToJSON(
   customerEmailFilter: CustomerEmailFilter,
 ): string {
@@ -403,48 +214,6 @@ export function customerEmailFilterToJSON(
     CustomerEmailFilter$outboundSchema.parse(customerEmailFilter),
   );
 }
-
-export function customerEmailFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerEmailFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerEmailFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerEmailFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const PaymentsListRequest$inboundSchema: z.ZodType<
-  PaymentsListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  checkout_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  order_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  status: z.nullable(
-    z.union([
-      PaymentStatus$inboundSchema,
-      z.array(PaymentStatus$inboundSchema),
-    ]),
-  ).optional(),
-  method: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  customer_email: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(PaymentSortProperty$inboundSchema)).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "checkout_id": "checkoutId",
-    "order_id": "orderId",
-    "customer_email": "customerEmail",
-  });
-});
 
 /** @internal */
 export type PaymentsListRequest$Outbound = {
@@ -490,34 +259,11 @@ export const PaymentsListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentsListRequest$ {
-  /** @deprecated use `PaymentsListRequest$inboundSchema` instead. */
-  export const inboundSchema = PaymentsListRequest$inboundSchema;
-  /** @deprecated use `PaymentsListRequest$outboundSchema` instead. */
-  export const outboundSchema = PaymentsListRequest$outboundSchema;
-  /** @deprecated use `PaymentsListRequest$Outbound` instead. */
-  export type Outbound = PaymentsListRequest$Outbound;
-}
-
 export function paymentsListRequestToJSON(
   paymentsListRequest: PaymentsListRequest,
 ): string {
   return JSON.stringify(
     PaymentsListRequest$outboundSchema.parse(paymentsListRequest),
-  );
-}
-
-export function paymentsListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<PaymentsListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => PaymentsListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'PaymentsListRequest' from JSON`,
   );
 }
 
@@ -533,45 +279,6 @@ export const PaymentsListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type PaymentsListResponse$Outbound = {
-  Result: ListResource$Outbound;
-};
-
-/** @internal */
-export const PaymentsListResponse$outboundSchema: z.ZodType<
-  PaymentsListResponse$Outbound,
-  z.ZodTypeDef,
-  PaymentsListResponse
-> = z.object({
-  result: ListResource$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentsListResponse$ {
-  /** @deprecated use `PaymentsListResponse$inboundSchema` instead. */
-  export const inboundSchema = PaymentsListResponse$inboundSchema;
-  /** @deprecated use `PaymentsListResponse$outboundSchema` instead. */
-  export const outboundSchema = PaymentsListResponse$outboundSchema;
-  /** @deprecated use `PaymentsListResponse$Outbound` instead. */
-  export type Outbound = PaymentsListResponse$Outbound;
-}
-
-export function paymentsListResponseToJSON(
-  paymentsListResponse: PaymentsListResponse,
-): string {
-  return JSON.stringify(
-    PaymentsListResponse$outboundSchema.parse(paymentsListResponse),
-  );
-}
 
 export function paymentsListResponseFromJSON(
   jsonString: string,

@@ -9,14 +9,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerPaymentMethodCreateRequiresActionResponse,
   CustomerPaymentMethodCreateRequiresActionResponse$inboundSchema,
-  CustomerPaymentMethodCreateRequiresActionResponse$Outbound,
-  CustomerPaymentMethodCreateRequiresActionResponse$outboundSchema,
 } from "./customerpaymentmethodcreaterequiresactionresponse.js";
 import {
   CustomerPaymentMethodCreateSucceededResponse,
   CustomerPaymentMethodCreateSucceededResponse$inboundSchema,
-  CustomerPaymentMethodCreateSucceededResponse$Outbound,
-  CustomerPaymentMethodCreateSucceededResponse$outboundSchema,
 } from "./customerpaymentmethodcreatesucceededresponse.js";
 
 export type CustomerPaymentMethodCreateResponse =
@@ -42,58 +38,6 @@ export const CustomerPaymentMethodCreateResponse$inboundSchema: z.ZodType<
     })),
   ),
 ]);
-
-/** @internal */
-export type CustomerPaymentMethodCreateResponse$Outbound =
-  | (CustomerPaymentMethodCreateRequiresActionResponse$Outbound & {
-    status: "requires_action";
-  })
-  | (CustomerPaymentMethodCreateSucceededResponse$Outbound & {
-    status: "succeeded";
-  });
-
-/** @internal */
-export const CustomerPaymentMethodCreateResponse$outboundSchema: z.ZodType<
-  CustomerPaymentMethodCreateResponse$Outbound,
-  z.ZodTypeDef,
-  CustomerPaymentMethodCreateResponse
-> = z.union([
-  CustomerPaymentMethodCreateRequiresActionResponse$outboundSchema.and(
-    z.object({ status: z.literal("requires_action") }).transform((v) => ({
-      status: v.status,
-    })),
-  ),
-  CustomerPaymentMethodCreateSucceededResponse$outboundSchema.and(
-    z.object({ status: z.literal("succeeded") }).transform((v) => ({
-      status: v.status,
-    })),
-  ),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPaymentMethodCreateResponse$ {
-  /** @deprecated use `CustomerPaymentMethodCreateResponse$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPaymentMethodCreateResponse$inboundSchema;
-  /** @deprecated use `CustomerPaymentMethodCreateResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPaymentMethodCreateResponse$outboundSchema;
-  /** @deprecated use `CustomerPaymentMethodCreateResponse$Outbound` instead. */
-  export type Outbound = CustomerPaymentMethodCreateResponse$Outbound;
-}
-
-export function customerPaymentMethodCreateResponseToJSON(
-  customerPaymentMethodCreateResponse: CustomerPaymentMethodCreateResponse,
-): string {
-  return JSON.stringify(
-    CustomerPaymentMethodCreateResponse$outboundSchema.parse(
-      customerPaymentMethodCreateResponse,
-    ),
-  );
-}
 
 export function customerPaymentMethodCreateResponseFromJSON(
   jsonString: string,

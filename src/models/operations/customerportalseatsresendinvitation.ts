@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalSeatsResendInvitationSecurity = {
   customerSession: string;
@@ -15,20 +12,6 @@ export type CustomerPortalSeatsResendInvitationSecurity = {
 export type CustomerPortalSeatsResendInvitationRequest = {
   seatId: string;
 };
-
-/** @internal */
-export const CustomerPortalSeatsResendInvitationSecurity$inboundSchema:
-  z.ZodType<
-    CustomerPortalSeatsResendInvitationSecurity,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    customer_session: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "customer_session": "customerSession",
-    });
-  });
 
 /** @internal */
 export type CustomerPortalSeatsResendInvitationSecurity$Outbound = {
@@ -49,21 +32,6 @@ export const CustomerPortalSeatsResendInvitationSecurity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalSeatsResendInvitationSecurity$ {
-  /** @deprecated use `CustomerPortalSeatsResendInvitationSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalSeatsResendInvitationSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalSeatsResendInvitationSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalSeatsResendInvitationSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalSeatsResendInvitationSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalSeatsResendInvitationSecurity$Outbound;
-}
-
 export function customerPortalSeatsResendInvitationSecurityToJSON(
   customerPortalSeatsResendInvitationSecurity:
     CustomerPortalSeatsResendInvitationSecurity,
@@ -74,33 +42,6 @@ export function customerPortalSeatsResendInvitationSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalSeatsResendInvitationSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalSeatsResendInvitationSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalSeatsResendInvitationSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalSeatsResendInvitationSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalSeatsResendInvitationRequest$inboundSchema:
-  z.ZodType<CustomerPortalSeatsResendInvitationRequest, z.ZodTypeDef, unknown> =
-    z.object({
-      seat_id: z.string(),
-    }).transform((v) => {
-      return remap$(v, {
-        "seat_id": "seatId",
-      });
-    });
 
 /** @internal */
 export type CustomerPortalSeatsResendInvitationRequest$Outbound = {
@@ -121,21 +62,6 @@ export const CustomerPortalSeatsResendInvitationRequest$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalSeatsResendInvitationRequest$ {
-  /** @deprecated use `CustomerPortalSeatsResendInvitationRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalSeatsResendInvitationRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalSeatsResendInvitationRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalSeatsResendInvitationRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalSeatsResendInvitationRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalSeatsResendInvitationRequest$Outbound;
-}
-
 export function customerPortalSeatsResendInvitationRequestToJSON(
   customerPortalSeatsResendInvitationRequest:
     CustomerPortalSeatsResendInvitationRequest,
@@ -144,21 +70,5 @@ export function customerPortalSeatsResendInvitationRequestToJSON(
     CustomerPortalSeatsResendInvitationRequest$outboundSchema.parse(
       customerPortalSeatsResendInvitationRequest,
     ),
-  );
-}
-
-export function customerPortalSeatsResendInvitationRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalSeatsResendInvitationRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalSeatsResendInvitationRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalSeatsResendInvitationRequest' from JSON`,
   );
 }

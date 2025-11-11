@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalOrdersGetSecurity = {
   customerSession: string;
@@ -18,19 +15,6 @@ export type CustomerPortalOrdersGetRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const CustomerPortalOrdersGetSecurity$inboundSchema: z.ZodType<
-  CustomerPortalOrdersGetSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
 
 /** @internal */
 export type CustomerPortalOrdersGetSecurity$Outbound = {
@@ -50,19 +34,6 @@ export const CustomerPortalOrdersGetSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersGetSecurity$ {
-  /** @deprecated use `CustomerPortalOrdersGetSecurity$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalOrdersGetSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGetSecurity$outboundSchema` instead. */
-  export const outboundSchema = CustomerPortalOrdersGetSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGetSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersGetSecurity$Outbound;
-}
-
 export function customerPortalOrdersGetSecurityToJSON(
   customerPortalOrdersGetSecurity: CustomerPortalOrdersGetSecurity,
 ): string {
@@ -72,25 +43,6 @@ export function customerPortalOrdersGetSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalOrdersGetSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalOrdersGetSecurity, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerPortalOrdersGetSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersGetSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalOrdersGetRequest$inboundSchema: z.ZodType<
-  CustomerPortalOrdersGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type CustomerPortalOrdersGetRequest$Outbound = {
@@ -106,19 +58,6 @@ export const CustomerPortalOrdersGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersGetRequest$ {
-  /** @deprecated use `CustomerPortalOrdersGetRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalOrdersGetRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGetRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomerPortalOrdersGetRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersGetRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersGetRequest$Outbound;
-}
-
 export function customerPortalOrdersGetRequestToJSON(
   customerPortalOrdersGetRequest: CustomerPortalOrdersGetRequest,
 ): string {
@@ -126,15 +65,5 @@ export function customerPortalOrdersGetRequestToJSON(
     CustomerPortalOrdersGetRequest$outboundSchema.parse(
       customerPortalOrdersGetRequest,
     ),
-  );
-}
-
-export function customerPortalOrdersGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalOrdersGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerPortalOrdersGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersGetRequest' from JSON`,
   );
 }

@@ -4,30 +4,19 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CountAggregation,
-  CountAggregation$inboundSchema,
   CountAggregation$Outbound,
   CountAggregation$outboundSchema,
 } from "./countaggregation.js";
-import {
-  Filter,
-  Filter$inboundSchema,
-  Filter$Outbound,
-  Filter$outboundSchema,
-} from "./filter.js";
+import { Filter, Filter$Outbound, Filter$outboundSchema } from "./filter.js";
 import {
   PropertyAggregation,
-  PropertyAggregation$inboundSchema,
   PropertyAggregation$Outbound,
   PropertyAggregation$outboundSchema,
 } from "./propertyaggregation.js";
 import {
   UniqueAggregation,
-  UniqueAggregation$inboundSchema,
   UniqueAggregation$Outbound,
   UniqueAggregation$outboundSchema,
 } from "./uniqueaggregation.js";
@@ -86,13 +75,6 @@ export type MeterUpdate = {
 };
 
 /** @internal */
-export const MeterUpdateMetadata$inboundSchema: z.ZodType<
-  MeterUpdateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type MeterUpdateMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
@@ -102,19 +84,6 @@ export const MeterUpdateMetadata$outboundSchema: z.ZodType<
   MeterUpdateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MeterUpdateMetadata$ {
-  /** @deprecated use `MeterUpdateMetadata$inboundSchema` instead. */
-  export const inboundSchema = MeterUpdateMetadata$inboundSchema;
-  /** @deprecated use `MeterUpdateMetadata$outboundSchema` instead. */
-  export const outboundSchema = MeterUpdateMetadata$outboundSchema;
-  /** @deprecated use `MeterUpdateMetadata$Outbound` instead. */
-  export type Outbound = MeterUpdateMetadata$Outbound;
-}
-
 export function meterUpdateMetadataToJSON(
   meterUpdateMetadata: MeterUpdateMetadata,
 ): string {
@@ -122,44 +91,6 @@ export function meterUpdateMetadataToJSON(
     MeterUpdateMetadata$outboundSchema.parse(meterUpdateMetadata),
   );
 }
-
-export function meterUpdateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<MeterUpdateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => MeterUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MeterUpdateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const Aggregation$inboundSchema: z.ZodType<
-  Aggregation,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  PropertyAggregation$inboundSchema.and(
-    z.object({ func: z.literal("avg") }).transform((v) => ({ func: v.func })),
-  ),
-  PropertyAggregation$inboundSchema.and(
-    z.object({ func: z.literal("max") }).transform((v) => ({ func: v.func })),
-  ),
-  PropertyAggregation$inboundSchema.and(
-    z.object({ func: z.literal("min") }).transform((v) => ({ func: v.func })),
-  ),
-  PropertyAggregation$inboundSchema.and(
-    z.object({ func: z.literal("sum") }).transform((v) => ({ func: v.func })),
-  ),
-  UniqueAggregation$inboundSchema.and(
-    z.object({ func: z.literal("unique") }).transform((v) => ({
-      func: v.func,
-    })),
-  ),
-  CountAggregation$inboundSchema.and(
-    z.object({ func: z.literal("count") }).transform((v) => ({ func: v.func })),
-  ),
-]);
 
 /** @internal */
 export type Aggregation$Outbound =
@@ -198,84 +129,9 @@ export const Aggregation$outboundSchema: z.ZodType<
   ),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Aggregation$ {
-  /** @deprecated use `Aggregation$inboundSchema` instead. */
-  export const inboundSchema = Aggregation$inboundSchema;
-  /** @deprecated use `Aggregation$outboundSchema` instead. */
-  export const outboundSchema = Aggregation$outboundSchema;
-  /** @deprecated use `Aggregation$Outbound` instead. */
-  export type Outbound = Aggregation$Outbound;
-}
-
 export function aggregationToJSON(aggregation: Aggregation): string {
   return JSON.stringify(Aggregation$outboundSchema.parse(aggregation));
 }
-
-export function aggregationFromJSON(
-  jsonString: string,
-): SafeParseResult<Aggregation, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Aggregation$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Aggregation' from JSON`,
-  );
-}
-
-/** @internal */
-export const MeterUpdate$inboundSchema: z.ZodType<
-  MeterUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  name: z.nullable(z.string()).optional(),
-  filter: z.nullable(Filter$inboundSchema).optional(),
-  aggregation: z.nullable(
-    z.union([
-      PropertyAggregation$inboundSchema.and(
-        z.object({ func: z.literal("avg") }).transform((v) => ({
-          func: v.func,
-        })),
-      ),
-      PropertyAggregation$inboundSchema.and(
-        z.object({ func: z.literal("max") }).transform((v) => ({
-          func: v.func,
-        })),
-      ),
-      PropertyAggregation$inboundSchema.and(
-        z.object({ func: z.literal("min") }).transform((v) => ({
-          func: v.func,
-        })),
-      ),
-      PropertyAggregation$inboundSchema.and(
-        z.object({ func: z.literal("sum") }).transform((v) => ({
-          func: v.func,
-        })),
-      ),
-      UniqueAggregation$inboundSchema.and(
-        z.object({ func: z.literal("unique") }).transform((v) => ({
-          func: v.func,
-        })),
-      ),
-      CountAggregation$inboundSchema.and(
-        z.object({ func: z.literal("count") }).transform((v) => ({
-          func: v.func,
-        })),
-      ),
-    ]),
-  ).optional(),
-  is_archived: z.nullable(z.boolean()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "is_archived": "isArchived",
-  });
-});
 
 /** @internal */
 export type MeterUpdate$Outbound = {
@@ -346,29 +202,6 @@ export const MeterUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MeterUpdate$ {
-  /** @deprecated use `MeterUpdate$inboundSchema` instead. */
-  export const inboundSchema = MeterUpdate$inboundSchema;
-  /** @deprecated use `MeterUpdate$outboundSchema` instead. */
-  export const outboundSchema = MeterUpdate$outboundSchema;
-  /** @deprecated use `MeterUpdate$Outbound` instead. */
-  export type Outbound = MeterUpdate$Outbound;
-}
-
 export function meterUpdateToJSON(meterUpdate: MeterUpdate): string {
   return JSON.stringify(MeterUpdate$outboundSchema.parse(meterUpdate));
-}
-
-export function meterUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<MeterUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => MeterUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MeterUpdate' from JSON`,
-  );
 }

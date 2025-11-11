@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldNumberProperties,
-  CustomFieldNumberProperties$inboundSchema,
   CustomFieldNumberProperties$Outbound,
   CustomFieldNumberProperties$outboundSchema,
 } from "./customfieldnumberproperties.js";
@@ -57,13 +53,6 @@ export type CustomFieldCreateNumber = {
 };
 
 /** @internal */
-export const CustomFieldCreateNumberMetadata$inboundSchema: z.ZodType<
-  CustomFieldCreateNumberMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type CustomFieldCreateNumberMetadata$Outbound =
   | string
   | number
@@ -77,19 +66,6 @@ export const CustomFieldCreateNumberMetadata$outboundSchema: z.ZodType<
   CustomFieldCreateNumberMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateNumberMetadata$ {
-  /** @deprecated use `CustomFieldCreateNumberMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateNumberMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldCreateNumberMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateNumberMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldCreateNumberMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldCreateNumberMetadata$Outbound;
-}
-
 export function customFieldCreateNumberMetadataToJSON(
   customFieldCreateNumberMetadata: CustomFieldCreateNumberMetadata,
 ): string {
@@ -99,36 +75,6 @@ export function customFieldCreateNumberMetadataToJSON(
     ),
   );
 }
-
-export function customFieldCreateNumberMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldCreateNumberMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldCreateNumberMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldCreateNumberMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomFieldCreateNumber$inboundSchema: z.ZodType<
-  CustomFieldCreateNumber,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  type: z.literal("number"),
-  slug: z.string(),
-  name: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  properties: CustomFieldNumberProperties$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type CustomFieldCreateNumber$Outbound = {
@@ -160,33 +106,10 @@ export const CustomFieldCreateNumber$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateNumber$ {
-  /** @deprecated use `CustomFieldCreateNumber$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateNumber$inboundSchema;
-  /** @deprecated use `CustomFieldCreateNumber$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateNumber$outboundSchema;
-  /** @deprecated use `CustomFieldCreateNumber$Outbound` instead. */
-  export type Outbound = CustomFieldCreateNumber$Outbound;
-}
-
 export function customFieldCreateNumberToJSON(
   customFieldCreateNumber: CustomFieldCreateNumber,
 ): string {
   return JSON.stringify(
     CustomFieldCreateNumber$outboundSchema.parse(customFieldCreateNumber),
-  );
-}
-
-export function customFieldCreateNumberFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldCreateNumber, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldCreateNumber$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldCreateNumber' from JSON`,
   );
 }

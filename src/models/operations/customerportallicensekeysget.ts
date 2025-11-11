@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalLicenseKeysGetSecurity = {
   customerSession: string;
@@ -15,19 +12,6 @@ export type CustomerPortalLicenseKeysGetSecurity = {
 export type CustomerPortalLicenseKeysGetRequest = {
   id: string;
 };
-
-/** @internal */
-export const CustomerPortalLicenseKeysGetSecurity$inboundSchema: z.ZodType<
-  CustomerPortalLicenseKeysGetSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
 
 /** @internal */
 export type CustomerPortalLicenseKeysGetSecurity$Outbound = {
@@ -47,21 +31,6 @@ export const CustomerPortalLicenseKeysGetSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalLicenseKeysGetSecurity$ {
-  /** @deprecated use `CustomerPortalLicenseKeysGetSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalLicenseKeysGetSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysGetSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalLicenseKeysGetSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysGetSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalLicenseKeysGetSecurity$Outbound;
-}
-
 export function customerPortalLicenseKeysGetSecurityToJSON(
   customerPortalLicenseKeysGetSecurity: CustomerPortalLicenseKeysGetSecurity,
 ): string {
@@ -71,26 +40,6 @@ export function customerPortalLicenseKeysGetSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalLicenseKeysGetSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalLicenseKeysGetSecurity, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalLicenseKeysGetSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalLicenseKeysGetSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalLicenseKeysGetRequest$inboundSchema: z.ZodType<
-  CustomerPortalLicenseKeysGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type CustomerPortalLicenseKeysGetRequest$Outbound = {
@@ -106,21 +55,6 @@ export const CustomerPortalLicenseKeysGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalLicenseKeysGetRequest$ {
-  /** @deprecated use `CustomerPortalLicenseKeysGetRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalLicenseKeysGetRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysGetRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalLicenseKeysGetRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalLicenseKeysGetRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalLicenseKeysGetRequest$Outbound;
-}
-
 export function customerPortalLicenseKeysGetRequestToJSON(
   customerPortalLicenseKeysGetRequest: CustomerPortalLicenseKeysGetRequest,
 ): string {
@@ -128,16 +62,5 @@ export function customerPortalLicenseKeysGetRequestToJSON(
     CustomerPortalLicenseKeysGetRequest$outboundSchema.parse(
       customerPortalLicenseKeysGetRequest,
     ),
-  );
-}
-
-export function customerPortalLicenseKeysGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalLicenseKeysGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalLicenseKeysGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalLicenseKeysGetRequest' from JSON`,
   );
 }

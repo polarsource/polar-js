@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CheckoutConfirmStripe,
-  CheckoutConfirmStripe$inboundSchema,
   CheckoutConfirmStripe$Outbound,
   CheckoutConfirmStripe$outboundSchema,
 } from "../components/checkoutconfirmstripe.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutsClientConfirmRequest = {
   /**
@@ -21,21 +17,6 @@ export type CheckoutsClientConfirmRequest = {
   clientSecret: string;
   checkoutConfirmStripe: CheckoutConfirmStripe;
 };
-
-/** @internal */
-export const CheckoutsClientConfirmRequest$inboundSchema: z.ZodType<
-  CheckoutsClientConfirmRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  client_secret: z.string(),
-  CheckoutConfirmStripe: CheckoutConfirmStripe$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "client_secret": "clientSecret",
-    "CheckoutConfirmStripe": "checkoutConfirmStripe",
-  });
-});
 
 /** @internal */
 export type CheckoutsClientConfirmRequest$Outbound = {
@@ -58,19 +39,6 @@ export const CheckoutsClientConfirmRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutsClientConfirmRequest$ {
-  /** @deprecated use `CheckoutsClientConfirmRequest$inboundSchema` instead. */
-  export const inboundSchema = CheckoutsClientConfirmRequest$inboundSchema;
-  /** @deprecated use `CheckoutsClientConfirmRequest$outboundSchema` instead. */
-  export const outboundSchema = CheckoutsClientConfirmRequest$outboundSchema;
-  /** @deprecated use `CheckoutsClientConfirmRequest$Outbound` instead. */
-  export type Outbound = CheckoutsClientConfirmRequest$Outbound;
-}
-
 export function checkoutsClientConfirmRequestToJSON(
   checkoutsClientConfirmRequest: CheckoutsClientConfirmRequest,
 ): string {
@@ -78,15 +46,5 @@ export function checkoutsClientConfirmRequestToJSON(
     CheckoutsClientConfirmRequest$outboundSchema.parse(
       checkoutsClientConfirmRequest,
     ),
-  );
-}
-
-export function checkoutsClientConfirmRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutsClientConfirmRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutsClientConfirmRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutsClientConfirmRequest' from JSON`,
   );
 }

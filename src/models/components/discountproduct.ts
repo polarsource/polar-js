@@ -10,13 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
-  SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
-import {
-  TrialInterval,
-  TrialInterval$inboundSchema,
-  TrialInterval$outboundSchema,
-} from "./trialinterval.js";
+import { TrialInterval, TrialInterval$inboundSchema } from "./trialinterval.js";
 
 export type DiscountProductMetadata = string | number | number | boolean;
 
@@ -82,41 +77,6 @@ export const DiscountProductMetadata$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/** @internal */
-export type DiscountProductMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const DiscountProductMetadata$outboundSchema: z.ZodType<
-  DiscountProductMetadata$Outbound,
-  z.ZodTypeDef,
-  DiscountProductMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountProductMetadata$ {
-  /** @deprecated use `DiscountProductMetadata$inboundSchema` instead. */
-  export const inboundSchema = DiscountProductMetadata$inboundSchema;
-  /** @deprecated use `DiscountProductMetadata$outboundSchema` instead. */
-  export const outboundSchema = DiscountProductMetadata$outboundSchema;
-  /** @deprecated use `DiscountProductMetadata$Outbound` instead. */
-  export type Outbound = DiscountProductMetadata$Outbound;
-}
-
-export function discountProductMetadataToJSON(
-  discountProductMetadata: DiscountProductMetadata,
-): string {
-  return JSON.stringify(
-    DiscountProductMetadata$outboundSchema.parse(discountProductMetadata),
-  );
-}
-
 export function discountProductMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<DiscountProductMetadata, SDKValidationError> {
@@ -163,77 +123,6 @@ export const DiscountProduct$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type DiscountProduct$Outbound = {
-  metadata: { [k: string]: string | number | number | boolean };
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  trial_interval: string | null;
-  trial_interval_count: number | null;
-  name: string;
-  description: string | null;
-  recurring_interval: string | null;
-  recurring_interval_count: number | null;
-  is_recurring: boolean;
-  is_archived: boolean;
-  organization_id: string;
-};
-
-/** @internal */
-export const DiscountProduct$outboundSchema: z.ZodType<
-  DiscountProduct$Outbound,
-  z.ZodTypeDef,
-  DiscountProduct
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  trialInterval: z.nullable(TrialInterval$outboundSchema),
-  trialIntervalCount: z.nullable(z.number().int()),
-  name: z.string(),
-  description: z.nullable(z.string()),
-  recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
-  recurringIntervalCount: z.nullable(z.number().int()),
-  isRecurring: z.boolean(),
-  isArchived: z.boolean(),
-  organizationId: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    trialInterval: "trial_interval",
-    trialIntervalCount: "trial_interval_count",
-    recurringInterval: "recurring_interval",
-    recurringIntervalCount: "recurring_interval_count",
-    isRecurring: "is_recurring",
-    isArchived: "is_archived",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountProduct$ {
-  /** @deprecated use `DiscountProduct$inboundSchema` instead. */
-  export const inboundSchema = DiscountProduct$inboundSchema;
-  /** @deprecated use `DiscountProduct$outboundSchema` instead. */
-  export const outboundSchema = DiscountProduct$outboundSchema;
-  /** @deprecated use `DiscountProduct$Outbound` instead. */
-  export type Outbound = DiscountProduct$Outbound;
-}
-
-export function discountProductToJSON(
-  discountProduct: DiscountProduct,
-): string {
-  return JSON.stringify(DiscountProduct$outboundSchema.parse(discountProduct));
-}
 
 export function discountProductFromJSON(
   jsonString: string,

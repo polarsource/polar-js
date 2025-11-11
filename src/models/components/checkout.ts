@@ -178,6 +178,10 @@ export type Checkout = {
    */
   currency: string;
   /**
+   * Whether to enable the trial period for the checkout session. If `false`, the trial period will be disabled, even if the selected product has a trial configured.
+   */
+  allowTrial: boolean | null;
+  /**
    * Interval unit of the trial period, if any. This value is either set from the checkout, if `trial_interval` is set, or from the selected product.
    */
   activeTrialInterval: TrialInterval | null;
@@ -303,7 +307,6 @@ export const CheckoutCustomFieldData$inboundSchema: z.ZodType<
   z.boolean(),
   z.string().datetime({ offset: true }).transform(v => new Date(v)),
 ]);
-
 /** @internal */
 export type CheckoutCustomFieldData$Outbound =
   | string
@@ -323,19 +326,6 @@ export const CheckoutCustomFieldData$outboundSchema: z.ZodType<
   z.date().transform(v => v.toISOString()),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutCustomFieldData$ {
-  /** @deprecated use `CheckoutCustomFieldData$inboundSchema` instead. */
-  export const inboundSchema = CheckoutCustomFieldData$inboundSchema;
-  /** @deprecated use `CheckoutCustomFieldData$outboundSchema` instead. */
-  export const outboundSchema = CheckoutCustomFieldData$outboundSchema;
-  /** @deprecated use `CheckoutCustomFieldData$Outbound` instead. */
-  export type Outbound = CheckoutCustomFieldData$Outbound;
-}
-
 export function checkoutCustomFieldDataToJSON(
   checkoutCustomFieldData: CheckoutCustomFieldData,
 ): string {
@@ -343,7 +333,6 @@ export function checkoutCustomFieldDataToJSON(
     CheckoutCustomFieldData$outboundSchema.parse(checkoutCustomFieldData),
   );
 }
-
 export function checkoutCustomFieldDataFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutCustomFieldData, SDKValidationError> {
@@ -360,7 +349,6 @@ export const CheckoutMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type CheckoutMetadata$Outbound = string | number | number | boolean;
 
@@ -371,19 +359,6 @@ export const CheckoutMetadata$outboundSchema: z.ZodType<
   CheckoutMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutMetadata$ {
-  /** @deprecated use `CheckoutMetadata$inboundSchema` instead. */
-  export const inboundSchema = CheckoutMetadata$inboundSchema;
-  /** @deprecated use `CheckoutMetadata$outboundSchema` instead. */
-  export const outboundSchema = CheckoutMetadata$outboundSchema;
-  /** @deprecated use `CheckoutMetadata$Outbound` instead. */
-  export type Outbound = CheckoutMetadata$Outbound;
-}
-
 export function checkoutMetadataToJSON(
   checkoutMetadata: CheckoutMetadata,
 ): string {
@@ -391,7 +366,6 @@ export function checkoutMetadataToJSON(
     CheckoutMetadata$outboundSchema.parse(checkoutMetadata),
   );
 }
-
 export function checkoutMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutMetadata, SDKValidationError> {
@@ -411,7 +385,6 @@ export const CheckoutProductPrice$inboundSchema: z.ZodType<
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
-
 /** @internal */
 export type CheckoutProductPrice$Outbound =
   | LegacyRecurringProductPrice$Outbound
@@ -427,19 +400,6 @@ export const CheckoutProductPrice$outboundSchema: z.ZodType<
   ProductPrice$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutProductPrice$ {
-  /** @deprecated use `CheckoutProductPrice$inboundSchema` instead. */
-  export const inboundSchema = CheckoutProductPrice$inboundSchema;
-  /** @deprecated use `CheckoutProductPrice$outboundSchema` instead. */
-  export const outboundSchema = CheckoutProductPrice$outboundSchema;
-  /** @deprecated use `CheckoutProductPrice$Outbound` instead. */
-  export type Outbound = CheckoutProductPrice$Outbound;
-}
-
 export function checkoutProductPriceToJSON(
   checkoutProductPrice: CheckoutProductPrice,
 ): string {
@@ -447,7 +407,6 @@ export function checkoutProductPriceToJSON(
     CheckoutProductPrice$outboundSchema.parse(checkoutProductPrice),
   );
 }
-
 export function checkoutProductPriceFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutProductPrice, SDKValidationError> {
@@ -469,7 +428,6 @@ export const CheckoutDiscount$inboundSchema: z.ZodType<
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
   CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
 ]);
-
 /** @internal */
 export type CheckoutDiscount$Outbound =
   | CheckoutDiscountFixedRepeatDuration$Outbound
@@ -489,19 +447,6 @@ export const CheckoutDiscount$outboundSchema: z.ZodType<
   CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutDiscount$ {
-  /** @deprecated use `CheckoutDiscount$inboundSchema` instead. */
-  export const inboundSchema = CheckoutDiscount$inboundSchema;
-  /** @deprecated use `CheckoutDiscount$outboundSchema` instead. */
-  export const outboundSchema = CheckoutDiscount$outboundSchema;
-  /** @deprecated use `CheckoutDiscount$Outbound` instead. */
-  export type Outbound = CheckoutDiscount$Outbound;
-}
-
 export function checkoutDiscountToJSON(
   checkoutDiscount: CheckoutDiscount,
 ): string {
@@ -509,7 +454,6 @@ export function checkoutDiscountToJSON(
     CheckoutDiscount$outboundSchema.parse(checkoutDiscount),
   );
 }
-
 export function checkoutDiscountFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutDiscount, SDKValidationError> {
@@ -526,7 +470,6 @@ export const CustomerMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.boolean()]);
-
 /** @internal */
 export type CustomerMetadata$Outbound = string | number | boolean;
 
@@ -537,19 +480,6 @@ export const CustomerMetadata$outboundSchema: z.ZodType<
   CustomerMetadata
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerMetadata$ {
-  /** @deprecated use `CustomerMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomerMetadata$inboundSchema;
-  /** @deprecated use `CustomerMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomerMetadata$outboundSchema;
-  /** @deprecated use `CustomerMetadata$Outbound` instead. */
-  export type Outbound = CustomerMetadata$Outbound;
-}
-
 export function customerMetadataToJSON(
   customerMetadata: CustomerMetadata,
 ): string {
@@ -557,7 +487,6 @@ export function customerMetadataToJSON(
     CustomerMetadata$outboundSchema.parse(customerMetadata),
   );
 }
-
 export function customerMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerMetadata, SDKValidationError> {
@@ -605,6 +534,7 @@ export const Checkout$inboundSchema: z.ZodType<
   tax_amount: z.nullable(z.number().int()),
   total_amount: z.number().int(),
   currency: z.string(),
+  allow_trial: z.nullable(z.boolean()),
   active_trial_interval: z.nullable(TrialInterval$inboundSchema),
   active_trial_interval_count: z.nullable(z.number().int()),
   trial_end: z.nullable(
@@ -677,6 +607,7 @@ export const Checkout$inboundSchema: z.ZodType<
     "net_amount": "netAmount",
     "tax_amount": "taxAmount",
     "total_amount": "totalAmount",
+    "allow_trial": "allowTrial",
     "active_trial_interval": "activeTrialInterval",
     "active_trial_interval_count": "activeTrialIntervalCount",
     "trial_end": "trialEnd",
@@ -711,7 +642,6 @@ export const Checkout$inboundSchema: z.ZodType<
     "customer_metadata": "customerMetadata",
   });
 });
-
 /** @internal */
 export type Checkout$Outbound = {
   id: string;
@@ -736,6 +666,7 @@ export type Checkout$Outbound = {
   tax_amount: number | null;
   total_amount: number;
   currency: string;
+  allow_trial: boolean | null;
   active_trial_interval: string | null;
   active_trial_interval_count: number | null;
   trial_end: string | null;
@@ -817,6 +748,7 @@ export const Checkout$outboundSchema: z.ZodType<
   taxAmount: z.nullable(z.number().int()),
   totalAmount: z.number().int(),
   currency: z.string(),
+  allowTrial: z.nullable(z.boolean()),
   activeTrialInterval: z.nullable(TrialInterval$outboundSchema),
   activeTrialIntervalCount: z.nullable(z.number().int()),
   trialEnd: z.nullable(z.date().transform(v => v.toISOString())),
@@ -885,6 +817,7 @@ export const Checkout$outboundSchema: z.ZodType<
     netAmount: "net_amount",
     taxAmount: "tax_amount",
     totalAmount: "total_amount",
+    allowTrial: "allow_trial",
     activeTrialInterval: "active_trial_interval",
     activeTrialIntervalCount: "active_trial_interval_count",
     trialEnd: "trial_end",
@@ -920,23 +853,9 @@ export const Checkout$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Checkout$ {
-  /** @deprecated use `Checkout$inboundSchema` instead. */
-  export const inboundSchema = Checkout$inboundSchema;
-  /** @deprecated use `Checkout$outboundSchema` instead. */
-  export const outboundSchema = Checkout$outboundSchema;
-  /** @deprecated use `Checkout$Outbound` instead. */
-  export type Outbound = Checkout$Outbound;
-}
-
 export function checkoutToJSON(checkout: Checkout): string {
   return JSON.stringify(Checkout$outboundSchema.parse(checkout));
 }
-
 export function checkoutFromJSON(
   jsonString: string,
 ): SafeParseResult<Checkout, SDKValidationError> {

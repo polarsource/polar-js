@@ -8,23 +8,18 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   EventSortProperty,
-  EventSortProperty$inboundSchema,
   EventSortProperty$outboundSchema,
 } from "../components/eventsortproperty.js";
 import {
   EventSource,
-  EventSource$inboundSchema,
   EventSource$outboundSchema,
 } from "../components/eventsource.js";
 import {
   ListResourceEvent,
   ListResourceEvent$inboundSchema,
-  ListResourceEvent$Outbound,
-  ListResourceEvent$outboundSchema,
 } from "../components/listresourceevent.js";
 import {
   MetadataQuery,
-  MetadataQuery$inboundSchema,
   MetadataQuery$Outbound,
   MetadataQuery$outboundSchema,
 } from "../components/subscriptionslist.js";
@@ -127,13 +122,6 @@ export type EventsListResponse = {
 };
 
 /** @internal */
-export const EventsListQueryParamOrganizationIDFilter$inboundSchema: z.ZodType<
-  EventsListQueryParamOrganizationIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type EventsListQueryParamOrganizationIDFilter$Outbound =
   | string
   | Array<string>;
@@ -145,21 +133,6 @@ export const EventsListQueryParamOrganizationIDFilter$outboundSchema: z.ZodType<
   EventsListQueryParamOrganizationIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `EventsListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    EventsListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `EventsListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    EventsListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `EventsListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound = EventsListQueryParamOrganizationIDFilter$Outbound;
-}
-
 export function eventsListQueryParamOrganizationIDFilterToJSON(
   eventsListQueryParamOrganizationIDFilter:
     EventsListQueryParamOrganizationIDFilter,
@@ -170,29 +143,6 @@ export function eventsListQueryParamOrganizationIDFilterToJSON(
     ),
   );
 }
-
-export function eventsListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EventsListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EventsListQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EventsListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const EventsListQueryParamCustomerIDFilter$inboundSchema: z.ZodType<
-  EventsListQueryParamCustomerIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type EventsListQueryParamCustomerIDFilter$Outbound =
@@ -206,21 +156,6 @@ export const EventsListQueryParamCustomerIDFilter$outboundSchema: z.ZodType<
   EventsListQueryParamCustomerIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsListQueryParamCustomerIDFilter$ {
-  /** @deprecated use `EventsListQueryParamCustomerIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    EventsListQueryParamCustomerIDFilter$inboundSchema;
-  /** @deprecated use `EventsListQueryParamCustomerIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    EventsListQueryParamCustomerIDFilter$outboundSchema;
-  /** @deprecated use `EventsListQueryParamCustomerIDFilter$Outbound` instead. */
-  export type Outbound = EventsListQueryParamCustomerIDFilter$Outbound;
-}
-
 export function eventsListQueryParamCustomerIDFilterToJSON(
   eventsListQueryParamCustomerIDFilter: EventsListQueryParamCustomerIDFilter,
 ): string {
@@ -230,24 +165,6 @@ export function eventsListQueryParamCustomerIDFilterToJSON(
     ),
   );
 }
-
-export function eventsListQueryParamCustomerIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<EventsListQueryParamCustomerIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EventsListQueryParamCustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EventsListQueryParamCustomerIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const QueryParamExternalCustomerIDFilter$inboundSchema: z.ZodType<
-  QueryParamExternalCustomerIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type QueryParamExternalCustomerIDFilter$Outbound =
@@ -261,20 +178,6 @@ export const QueryParamExternalCustomerIDFilter$outboundSchema: z.ZodType<
   QueryParamExternalCustomerIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryParamExternalCustomerIDFilter$ {
-  /** @deprecated use `QueryParamExternalCustomerIDFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamExternalCustomerIDFilter$inboundSchema;
-  /** @deprecated use `QueryParamExternalCustomerIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    QueryParamExternalCustomerIDFilter$outboundSchema;
-  /** @deprecated use `QueryParamExternalCustomerIDFilter$Outbound` instead. */
-  export type Outbound = QueryParamExternalCustomerIDFilter$Outbound;
-}
-
 export function queryParamExternalCustomerIDFilterToJSON(
   queryParamExternalCustomerIDFilter: QueryParamExternalCustomerIDFilter,
 ): string {
@@ -284,24 +187,6 @@ export function queryParamExternalCustomerIDFilterToJSON(
     ),
   );
 }
-
-export function queryParamExternalCustomerIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<QueryParamExternalCustomerIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      QueryParamExternalCustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamExternalCustomerIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const NameFilter$inboundSchema: z.ZodType<
-  NameFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type NameFilter$Outbound = string | Array<string>;
@@ -313,39 +198,9 @@ export const NameFilter$outboundSchema: z.ZodType<
   NameFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NameFilter$ {
-  /** @deprecated use `NameFilter$inboundSchema` instead. */
-  export const inboundSchema = NameFilter$inboundSchema;
-  /** @deprecated use `NameFilter$outboundSchema` instead. */
-  export const outboundSchema = NameFilter$outboundSchema;
-  /** @deprecated use `NameFilter$Outbound` instead. */
-  export type Outbound = NameFilter$Outbound;
-}
-
 export function nameFilterToJSON(nameFilter: NameFilter): string {
   return JSON.stringify(NameFilter$outboundSchema.parse(nameFilter));
 }
-
-export function nameFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<NameFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => NameFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'NameFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const SourceFilter$inboundSchema: z.ZodType<
-  SourceFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([EventSource$inboundSchema, z.array(EventSource$inboundSchema)]);
 
 /** @internal */
 export type SourceFilter$Outbound = string | Array<string>;
@@ -357,75 +212,9 @@ export const SourceFilter$outboundSchema: z.ZodType<
   SourceFilter
 > = z.union([EventSource$outboundSchema, z.array(EventSource$outboundSchema)]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SourceFilter$ {
-  /** @deprecated use `SourceFilter$inboundSchema` instead. */
-  export const inboundSchema = SourceFilter$inboundSchema;
-  /** @deprecated use `SourceFilter$outboundSchema` instead. */
-  export const outboundSchema = SourceFilter$outboundSchema;
-  /** @deprecated use `SourceFilter$Outbound` instead. */
-  export type Outbound = SourceFilter$Outbound;
-}
-
 export function sourceFilterToJSON(sourceFilter: SourceFilter): string {
   return JSON.stringify(SourceFilter$outboundSchema.parse(sourceFilter));
 }
-
-export function sourceFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<SourceFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SourceFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SourceFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const EventsListRequest$inboundSchema: z.ZodType<
-  EventsListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  filter: z.nullable(z.string()).optional(),
-  start_timestamp: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-  end_timestamp: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  external_customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  meter_id: z.nullable(z.string()).optional(),
-  name: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  source: z.nullable(
-    z.union([EventSource$inboundSchema, z.array(EventSource$inboundSchema)]),
-  ).optional(),
-  query: z.nullable(z.string()).optional(),
-  parent_id: z.nullable(z.string()).optional(),
-  hierarchical: z.boolean().default(false),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(EventSortProperty$inboundSchema)).optional(),
-  metadata: z.nullable(z.record(MetadataQuery$inboundSchema)).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "start_timestamp": "startTimestamp",
-    "end_timestamp": "endTimestamp",
-    "organization_id": "organizationId",
-    "customer_id": "customerId",
-    "external_customer_id": "externalCustomerId",
-    "meter_id": "meterId",
-    "parent_id": "parentId",
-  });
-});
 
 /** @internal */
 export type EventsListRequest$Outbound = {
@@ -486,34 +275,11 @@ export const EventsListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsListRequest$ {
-  /** @deprecated use `EventsListRequest$inboundSchema` instead. */
-  export const inboundSchema = EventsListRequest$inboundSchema;
-  /** @deprecated use `EventsListRequest$outboundSchema` instead. */
-  export const outboundSchema = EventsListRequest$outboundSchema;
-  /** @deprecated use `EventsListRequest$Outbound` instead. */
-  export type Outbound = EventsListRequest$Outbound;
-}
-
 export function eventsListRequestToJSON(
   eventsListRequest: EventsListRequest,
 ): string {
   return JSON.stringify(
     EventsListRequest$outboundSchema.parse(eventsListRequest),
-  );
-}
-
-export function eventsListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<EventsListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EventsListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EventsListRequest' from JSON`,
   );
 }
 
@@ -529,45 +295,6 @@ export const EventsListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type EventsListResponse$Outbound = {
-  Result: ListResourceEvent$Outbound;
-};
-
-/** @internal */
-export const EventsListResponse$outboundSchema: z.ZodType<
-  EventsListResponse$Outbound,
-  z.ZodTypeDef,
-  EventsListResponse
-> = z.object({
-  result: ListResourceEvent$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsListResponse$ {
-  /** @deprecated use `EventsListResponse$inboundSchema` instead. */
-  export const inboundSchema = EventsListResponse$inboundSchema;
-  /** @deprecated use `EventsListResponse$outboundSchema` instead. */
-  export const outboundSchema = EventsListResponse$outboundSchema;
-  /** @deprecated use `EventsListResponse$Outbound` instead. */
-  export type Outbound = EventsListResponse$Outbound;
-}
-
-export function eventsListResponseToJSON(
-  eventsListResponse: EventsListResponse,
-): string {
-  return JSON.stringify(
-    EventsListResponse$outboundSchema.parse(eventsListResponse),
-  );
-}
 
 export function eventsListResponseFromJSON(
   jsonString: string,

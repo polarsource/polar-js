@@ -9,26 +9,19 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   DownloadableFileRead,
   DownloadableFileRead$inboundSchema,
-  DownloadableFileRead$Outbound,
-  DownloadableFileRead$outboundSchema,
 } from "../components/downloadablefileread.js";
 import {
   FileUploadCompleted,
-  FileUploadCompleted$inboundSchema,
   FileUploadCompleted$Outbound,
   FileUploadCompleted$outboundSchema,
 } from "../components/fileuploadcompleted.js";
 import {
   OrganizationAvatarFileRead,
   OrganizationAvatarFileRead$inboundSchema,
-  OrganizationAvatarFileRead$Outbound,
-  OrganizationAvatarFileRead$outboundSchema,
 } from "../components/organizationavatarfileread.js";
 import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
-  ProductMediaFileRead$Outbound,
-  ProductMediaFileRead$outboundSchema,
 } from "../components/productmediafileread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -47,20 +40,6 @@ export type FilesUploadedResponseFilesUploaded =
   | (ProductMediaFileRead & { service: "product_media" })
   | (OrganizationAvatarFileRead & { service: "organization_avatar" })
   | (DownloadableFileRead & { service: "downloadable" });
-
-/** @internal */
-export const FilesUploadedRequest$inboundSchema: z.ZodType<
-  FilesUploadedRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  FileUploadCompleted: FileUploadCompleted$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "FileUploadCompleted": "fileUploadCompleted",
-  });
-});
 
 /** @internal */
 export type FilesUploadedRequest$Outbound = {
@@ -82,34 +61,11 @@ export const FilesUploadedRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FilesUploadedRequest$ {
-  /** @deprecated use `FilesUploadedRequest$inboundSchema` instead. */
-  export const inboundSchema = FilesUploadedRequest$inboundSchema;
-  /** @deprecated use `FilesUploadedRequest$outboundSchema` instead. */
-  export const outboundSchema = FilesUploadedRequest$outboundSchema;
-  /** @deprecated use `FilesUploadedRequest$Outbound` instead. */
-  export type Outbound = FilesUploadedRequest$Outbound;
-}
-
 export function filesUploadedRequestToJSON(
   filesUploadedRequest: FilesUploadedRequest,
 ): string {
   return JSON.stringify(
     FilesUploadedRequest$outboundSchema.parse(filesUploadedRequest),
-  );
-}
-
-export function filesUploadedRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<FilesUploadedRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FilesUploadedRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FilesUploadedRequest' from JSON`,
   );
 }
 
@@ -135,59 +91,6 @@ export const FilesUploadedResponseFilesUploaded$inboundSchema: z.ZodType<
     })),
   ),
 ]);
-
-/** @internal */
-export type FilesUploadedResponseFilesUploaded$Outbound =
-  | (ProductMediaFileRead$Outbound & { service: "product_media" })
-  | (OrganizationAvatarFileRead$Outbound & { service: "organization_avatar" })
-  | (DownloadableFileRead$Outbound & { service: "downloadable" });
-
-/** @internal */
-export const FilesUploadedResponseFilesUploaded$outboundSchema: z.ZodType<
-  FilesUploadedResponseFilesUploaded$Outbound,
-  z.ZodTypeDef,
-  FilesUploadedResponseFilesUploaded
-> = z.union([
-  ProductMediaFileRead$outboundSchema.and(
-    z.object({ service: z.literal("product_media") }).transform((v) => ({
-      service: v.service,
-    })),
-  ),
-  OrganizationAvatarFileRead$outboundSchema.and(
-    z.object({ service: z.literal("organization_avatar") }).transform((v) => ({
-      service: v.service,
-    })),
-  ),
-  DownloadableFileRead$outboundSchema.and(
-    z.object({ service: z.literal("downloadable") }).transform((v) => ({
-      service: v.service,
-    })),
-  ),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FilesUploadedResponseFilesUploaded$ {
-  /** @deprecated use `FilesUploadedResponseFilesUploaded$inboundSchema` instead. */
-  export const inboundSchema = FilesUploadedResponseFilesUploaded$inboundSchema;
-  /** @deprecated use `FilesUploadedResponseFilesUploaded$outboundSchema` instead. */
-  export const outboundSchema =
-    FilesUploadedResponseFilesUploaded$outboundSchema;
-  /** @deprecated use `FilesUploadedResponseFilesUploaded$Outbound` instead. */
-  export type Outbound = FilesUploadedResponseFilesUploaded$Outbound;
-}
-
-export function filesUploadedResponseFilesUploadedToJSON(
-  filesUploadedResponseFilesUploaded: FilesUploadedResponseFilesUploaded,
-): string {
-  return JSON.stringify(
-    FilesUploadedResponseFilesUploaded$outboundSchema.parse(
-      filesUploadedResponseFilesUploaded,
-    ),
-  );
-}
 
 export function filesUploadedResponseFilesUploadedFromJSON(
   jsonString: string,

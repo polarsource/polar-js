@@ -81,7 +81,6 @@ export const DiscountPercentageOnceForeverDurationBaseMetadata$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type DiscountPercentageOnceForeverDurationBaseMetadata$Outbound =
   | string
@@ -97,22 +96,6 @@ export const DiscountPercentageOnceForeverDurationBaseMetadata$outboundSchema:
     DiscountPercentageOnceForeverDurationBaseMetadata
   > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountPercentageOnceForeverDurationBaseMetadata$ {
-  /** @deprecated use `DiscountPercentageOnceForeverDurationBaseMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountPercentageOnceForeverDurationBaseMetadata$inboundSchema;
-  /** @deprecated use `DiscountPercentageOnceForeverDurationBaseMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountPercentageOnceForeverDurationBaseMetadata$outboundSchema;
-  /** @deprecated use `DiscountPercentageOnceForeverDurationBaseMetadata$Outbound` instead. */
-  export type Outbound =
-    DiscountPercentageOnceForeverDurationBaseMetadata$Outbound;
-}
-
 export function discountPercentageOnceForeverDurationBaseMetadataToJSON(
   discountPercentageOnceForeverDurationBaseMetadata:
     DiscountPercentageOnceForeverDurationBaseMetadata,
@@ -123,7 +106,6 @@ export function discountPercentageOnceForeverDurationBaseMetadataToJSON(
     ),
   );
 }
-
 export function discountPercentageOnceForeverDurationBaseMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -180,7 +162,6 @@ export const DiscountPercentageOnceForeverDurationBase$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type DiscountPercentageOnceForeverDurationBase$Outbound = {
   duration: string;
@@ -235,21 +216,6 @@ export const DiscountPercentageOnceForeverDurationBase$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountPercentageOnceForeverDurationBase$ {
-  /** @deprecated use `DiscountPercentageOnceForeverDurationBase$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountPercentageOnceForeverDurationBase$inboundSchema;
-  /** @deprecated use `DiscountPercentageOnceForeverDurationBase$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountPercentageOnceForeverDurationBase$outboundSchema;
-  /** @deprecated use `DiscountPercentageOnceForeverDurationBase$Outbound` instead. */
-  export type Outbound = DiscountPercentageOnceForeverDurationBase$Outbound;
-}
-
 export function discountPercentageOnceForeverDurationBaseToJSON(
   discountPercentageOnceForeverDurationBase:
     DiscountPercentageOnceForeverDurationBase,
@@ -260,7 +226,6 @@ export function discountPercentageOnceForeverDurationBaseToJSON(
     ),
   );
 }
-
 export function discountPercentageOnceForeverDurationBaseFromJSON(
   jsonString: string,
 ): SafeParseResult<

@@ -18,19 +18,7 @@ export type BillingAddressFieldMode = ClosedEnum<
 export const BillingAddressFieldMode$inboundSchema: z.ZodNativeEnum<
   typeof BillingAddressFieldMode
 > = z.nativeEnum(BillingAddressFieldMode);
-
 /** @internal */
 export const BillingAddressFieldMode$outboundSchema: z.ZodNativeEnum<
   typeof BillingAddressFieldMode
 > = BillingAddressFieldMode$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BillingAddressFieldMode$ {
-  /** @deprecated use `BillingAddressFieldMode$inboundSchema` instead. */
-  export const inboundSchema = BillingAddressFieldMode$inboundSchema;
-  /** @deprecated use `BillingAddressFieldMode$outboundSchema` instead. */
-  export const outboundSchema = BillingAddressFieldMode$outboundSchema;
-}

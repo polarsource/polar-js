@@ -70,7 +70,6 @@ export const BenefitGitHubRepositoryMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type BenefitGitHubRepositoryMetadata$Outbound =
   | string
@@ -85,19 +84,6 @@ export const BenefitGitHubRepositoryMetadata$outboundSchema: z.ZodType<
   BenefitGitHubRepositoryMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositoryMetadata$ {
-  /** @deprecated use `BenefitGitHubRepositoryMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitGitHubRepositoryMetadata$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitGitHubRepositoryMetadata$outboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryMetadata$Outbound` instead. */
-  export type Outbound = BenefitGitHubRepositoryMetadata$Outbound;
-}
-
 export function benefitGitHubRepositoryMetadataToJSON(
   benefitGitHubRepositoryMetadata: BenefitGitHubRepositoryMetadata,
 ): string {
@@ -107,7 +93,6 @@ export function benefitGitHubRepositoryMetadataToJSON(
     ),
   );
 }
-
 export function benefitGitHubRepositoryMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGitHubRepositoryMetadata, SDKValidationError> {
@@ -145,7 +130,6 @@ export const BenefitGitHubRepository$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type BenefitGitHubRepository$Outbound = {
   id: string;
@@ -186,19 +170,6 @@ export const BenefitGitHubRepository$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepository$ {
-  /** @deprecated use `BenefitGitHubRepository$inboundSchema` instead. */
-  export const inboundSchema = BenefitGitHubRepository$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepository$outboundSchema` instead. */
-  export const outboundSchema = BenefitGitHubRepository$outboundSchema;
-  /** @deprecated use `BenefitGitHubRepository$Outbound` instead. */
-  export type Outbound = BenefitGitHubRepository$Outbound;
-}
-
 export function benefitGitHubRepositoryToJSON(
   benefitGitHubRepository: BenefitGitHubRepository,
 ): string {
@@ -206,7 +177,6 @@ export function benefitGitHubRepositoryToJSON(
     BenefitGitHubRepository$outboundSchema.parse(benefitGitHubRepository),
   );
 }
-
 export function benefitGitHubRepositoryFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGitHubRepository, SDKValidationError> {

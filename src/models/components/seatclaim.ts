@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SeatClaim = {
   /**
@@ -14,19 +11,6 @@ export type SeatClaim = {
    */
   invitationToken: string;
 };
-
-/** @internal */
-export const SeatClaim$inboundSchema: z.ZodType<
-  SeatClaim,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  invitation_token: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "invitation_token": "invitationToken",
-  });
-});
 
 /** @internal */
 export type SeatClaim$Outbound = {
@@ -46,29 +30,6 @@ export const SeatClaim$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SeatClaim$ {
-  /** @deprecated use `SeatClaim$inboundSchema` instead. */
-  export const inboundSchema = SeatClaim$inboundSchema;
-  /** @deprecated use `SeatClaim$outboundSchema` instead. */
-  export const outboundSchema = SeatClaim$outboundSchema;
-  /** @deprecated use `SeatClaim$Outbound` instead. */
-  export type Outbound = SeatClaim$Outbound;
-}
-
 export function seatClaimToJSON(seatClaim: SeatClaim): string {
   return JSON.stringify(SeatClaim$outboundSchema.parse(seatClaim));
-}
-
-export function seatClaimFromJSON(
-  jsonString: string,
-): SafeParseResult<SeatClaim, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SeatClaim$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SeatClaim' from JSON`,
-  );
 }

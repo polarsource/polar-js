@@ -51,7 +51,6 @@ export const WebhookCustomerStateChangedPayload$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: CustomerState$inboundSchema,
 });
-
 /** @internal */
 export type WebhookCustomerStateChangedPayload$Outbound = {
   type: "customer.state_changed";
@@ -70,20 +69,6 @@ export const WebhookCustomerStateChangedPayload$outboundSchema: z.ZodType<
   data: CustomerState$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookCustomerStateChangedPayload$ {
-  /** @deprecated use `WebhookCustomerStateChangedPayload$inboundSchema` instead. */
-  export const inboundSchema = WebhookCustomerStateChangedPayload$inboundSchema;
-  /** @deprecated use `WebhookCustomerStateChangedPayload$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookCustomerStateChangedPayload$outboundSchema;
-  /** @deprecated use `WebhookCustomerStateChangedPayload$Outbound` instead. */
-  export type Outbound = WebhookCustomerStateChangedPayload$Outbound;
-}
-
 export function webhookCustomerStateChangedPayloadToJSON(
   webhookCustomerStateChangedPayload: WebhookCustomerStateChangedPayload,
 ): string {
@@ -93,7 +78,6 @@ export function webhookCustomerStateChangedPayloadToJSON(
     ),
   );
 }
-
 export function webhookCustomerStateChangedPayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhookCustomerStateChangedPayload, SDKValidationError> {

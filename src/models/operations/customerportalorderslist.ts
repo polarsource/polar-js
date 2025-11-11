@@ -8,18 +8,14 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomerOrderSortProperty,
-  CustomerOrderSortProperty$inboundSchema,
   CustomerOrderSortProperty$outboundSchema,
 } from "../components/customerordersortproperty.js";
 import {
   ListResourceCustomerOrder,
   ListResourceCustomerOrder$inboundSchema,
-  ListResourceCustomerOrder$Outbound,
-  ListResourceCustomerOrder$outboundSchema,
 } from "../components/listresourcecustomerorder.js";
 import {
   ProductBillingType,
-  ProductBillingType$inboundSchema,
   ProductBillingType$outboundSchema,
 } from "../components/productbillingtype.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -89,19 +85,6 @@ export type CustomerPortalOrdersListResponse = {
 };
 
 /** @internal */
-export const CustomerPortalOrdersListSecurity$inboundSchema: z.ZodType<
-  CustomerPortalOrdersListSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
-
-/** @internal */
 export type CustomerPortalOrdersListSecurity$Outbound = {
   customer_session: string;
 };
@@ -119,19 +102,6 @@ export const CustomerPortalOrdersListSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersListSecurity$ {
-  /** @deprecated use `CustomerPortalOrdersListSecurity$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalOrdersListSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListSecurity$outboundSchema` instead. */
-  export const outboundSchema = CustomerPortalOrdersListSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersListSecurity$Outbound;
-}
-
 export function customerPortalOrdersListSecurityToJSON(
   customerPortalOrdersListSecurity: CustomerPortalOrdersListSecurity,
 ): string {
@@ -141,24 +111,6 @@ export function customerPortalOrdersListSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalOrdersListSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalOrdersListSecurity, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerPortalOrdersListSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersListSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalOrdersListQueryParamProductIDFilter$inboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersListQueryParamProductIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type CustomerPortalOrdersListQueryParamProductIDFilter$Outbound =
@@ -173,22 +125,6 @@ export const CustomerPortalOrdersListQueryParamProductIDFilter$outboundSchema:
     CustomerPortalOrdersListQueryParamProductIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersListQueryParamProductIDFilter$ {
-  /** @deprecated use `CustomerPortalOrdersListQueryParamProductIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersListQueryParamProductIDFilter$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListQueryParamProductIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersListQueryParamProductIDFilter$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListQueryParamProductIDFilter$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalOrdersListQueryParamProductIDFilter$Outbound;
-}
-
 export function customerPortalOrdersListQueryParamProductIDFilterToJSON(
   customerPortalOrdersListQueryParamProductIDFilter:
     CustomerPortalOrdersListQueryParamProductIDFilter,
@@ -199,33 +135,6 @@ export function customerPortalOrdersListQueryParamProductIDFilterToJSON(
     ),
   );
 }
-
-export function customerPortalOrdersListQueryParamProductIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalOrdersListQueryParamProductIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersListQueryParamProductIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalOrdersListQueryParamProductIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalOrdersListQueryParamProductBillingTypeFilter$inboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersListQueryParamProductBillingTypeFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([
-    ProductBillingType$inboundSchema,
-    z.array(ProductBillingType$inboundSchema),
-  ]);
 
 /** @internal */
 export type CustomerPortalOrdersListQueryParamProductBillingTypeFilter$Outbound =
@@ -243,22 +152,6 @@ export const CustomerPortalOrdersListQueryParamProductBillingTypeFilter$outbound
     z.array(ProductBillingType$outboundSchema),
   ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersListQueryParamProductBillingTypeFilter$ {
-  /** @deprecated use `CustomerPortalOrdersListQueryParamProductBillingTypeFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersListQueryParamProductBillingTypeFilter$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListQueryParamProductBillingTypeFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersListQueryParamProductBillingTypeFilter$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListQueryParamProductBillingTypeFilter$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalOrdersListQueryParamProductBillingTypeFilter$Outbound;
-}
-
 export function customerPortalOrdersListQueryParamProductBillingTypeFilterToJSON(
   customerPortalOrdersListQueryParamProductBillingTypeFilter:
     CustomerPortalOrdersListQueryParamProductBillingTypeFilter,
@@ -268,29 +161,6 @@ export function customerPortalOrdersListQueryParamProductBillingTypeFilterToJSON
       .parse(customerPortalOrdersListQueryParamProductBillingTypeFilter),
   );
 }
-
-export function customerPortalOrdersListQueryParamProductBillingTypeFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalOrdersListQueryParamProductBillingTypeFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersListQueryParamProductBillingTypeFilter$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersListQueryParamProductBillingTypeFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalOrdersListQueryParamSubscriptionIDFilter$inboundSchema:
-  z.ZodType<
-    CustomerPortalOrdersListQueryParamSubscriptionIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type CustomerPortalOrdersListQueryParamSubscriptionIDFilter$Outbound =
@@ -305,22 +175,6 @@ export const CustomerPortalOrdersListQueryParamSubscriptionIDFilter$outboundSche
     CustomerPortalOrdersListQueryParamSubscriptionIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersListQueryParamSubscriptionIDFilter$ {
-  /** @deprecated use `CustomerPortalOrdersListQueryParamSubscriptionIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalOrdersListQueryParamSubscriptionIDFilter$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListQueryParamSubscriptionIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersListQueryParamSubscriptionIDFilter$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListQueryParamSubscriptionIDFilter$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalOrdersListQueryParamSubscriptionIDFilter$Outbound;
-}
-
 export function customerPortalOrdersListQueryParamSubscriptionIDFilterToJSON(
   customerPortalOrdersListQueryParamSubscriptionIDFilter:
     CustomerPortalOrdersListQueryParamSubscriptionIDFilter,
@@ -331,49 +185,6 @@ export function customerPortalOrdersListQueryParamSubscriptionIDFilterToJSON(
     ),
   );
 }
-
-export function customerPortalOrdersListQueryParamSubscriptionIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalOrdersListQueryParamSubscriptionIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersListQueryParamSubscriptionIDFilter$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersListQueryParamSubscriptionIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalOrdersListRequest$inboundSchema: z.ZodType<
-  CustomerPortalOrdersListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  product_billing_type: z.nullable(
-    z.union([
-      ProductBillingType$inboundSchema,
-      z.array(ProductBillingType$inboundSchema),
-    ]),
-  ).optional(),
-  subscription_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  query: z.nullable(z.string()).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(CustomerOrderSortProperty$inboundSchema))
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "product_id": "productId",
-    "product_billing_type": "productBillingType",
-    "subscription_id": "subscriptionId",
-  });
-});
 
 /** @internal */
 export type CustomerPortalOrdersListRequest$Outbound = {
@@ -414,19 +225,6 @@ export const CustomerPortalOrdersListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersListRequest$ {
-  /** @deprecated use `CustomerPortalOrdersListRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalOrdersListRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomerPortalOrdersListRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersListRequest$Outbound;
-}
-
 export function customerPortalOrdersListRequestToJSON(
   customerPortalOrdersListRequest: CustomerPortalOrdersListRequest,
 ): string {
@@ -434,16 +232,6 @@ export function customerPortalOrdersListRequestToJSON(
     CustomerPortalOrdersListRequest$outboundSchema.parse(
       customerPortalOrdersListRequest,
     ),
-  );
-}
-
-export function customerPortalOrdersListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalOrdersListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerPortalOrdersListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersListRequest' from JSON`,
   );
 }
 
@@ -459,47 +247,6 @@ export const CustomerPortalOrdersListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type CustomerPortalOrdersListResponse$Outbound = {
-  Result: ListResourceCustomerOrder$Outbound;
-};
-
-/** @internal */
-export const CustomerPortalOrdersListResponse$outboundSchema: z.ZodType<
-  CustomerPortalOrdersListResponse$Outbound,
-  z.ZodTypeDef,
-  CustomerPortalOrdersListResponse
-> = z.object({
-  result: ListResourceCustomerOrder$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersListResponse$ {
-  /** @deprecated use `CustomerPortalOrdersListResponse$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalOrdersListResponse$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListResponse$outboundSchema` instead. */
-  export const outboundSchema = CustomerPortalOrdersListResponse$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersListResponse$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersListResponse$Outbound;
-}
-
-export function customerPortalOrdersListResponseToJSON(
-  customerPortalOrdersListResponse: CustomerPortalOrdersListResponse,
-): string {
-  return JSON.stringify(
-    CustomerPortalOrdersListResponse$outboundSchema.parse(
-      customerPortalOrdersListResponse,
-    ),
-  );
-}
 
 export function customerPortalOrdersListResponseFromJSON(
   jsonString: string,

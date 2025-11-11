@@ -9,15 +9,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerWallet,
   CustomerWallet$inboundSchema,
-  CustomerWallet$Outbound,
-  CustomerWallet$outboundSchema,
 } from "./customerwallet.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceCustomerWallet = {
   items: Array<CustomerWallet>;
@@ -33,43 +26,6 @@ export const ListResourceCustomerWallet$inboundSchema: z.ZodType<
   items: z.array(CustomerWallet$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceCustomerWallet$Outbound = {
-  items: Array<CustomerWallet$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceCustomerWallet$outboundSchema: z.ZodType<
-  ListResourceCustomerWallet$Outbound,
-  z.ZodTypeDef,
-  ListResourceCustomerWallet
-> = z.object({
-  items: z.array(CustomerWallet$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceCustomerWallet$ {
-  /** @deprecated use `ListResourceCustomerWallet$inboundSchema` instead. */
-  export const inboundSchema = ListResourceCustomerWallet$inboundSchema;
-  /** @deprecated use `ListResourceCustomerWallet$outboundSchema` instead. */
-  export const outboundSchema = ListResourceCustomerWallet$outboundSchema;
-  /** @deprecated use `ListResourceCustomerWallet$Outbound` instead. */
-  export type Outbound = ListResourceCustomerWallet$Outbound;
-}
-
-export function listResourceCustomerWalletToJSON(
-  listResourceCustomerWallet: ListResourceCustomerWallet,
-): string {
-  return JSON.stringify(
-    ListResourceCustomerWallet$outboundSchema.parse(listResourceCustomerWallet),
-  );
-}
 
 export function listResourceCustomerWalletFromJSON(
   jsonString: string,

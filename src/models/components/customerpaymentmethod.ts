@@ -9,14 +9,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PaymentMethodCard,
   PaymentMethodCard$inboundSchema,
-  PaymentMethodCard$Outbound,
-  PaymentMethodCard$outboundSchema,
 } from "./paymentmethodcard.js";
 import {
   PaymentMethodGeneric,
   PaymentMethodGeneric$inboundSchema,
-  PaymentMethodGeneric$Outbound,
-  PaymentMethodGeneric$outboundSchema,
 } from "./paymentmethodgeneric.js";
 
 export type CustomerPaymentMethod = PaymentMethodCard | PaymentMethodGeneric;
@@ -30,42 +26,6 @@ export const CustomerPaymentMethod$inboundSchema: z.ZodType<
   PaymentMethodCard$inboundSchema,
   PaymentMethodGeneric$inboundSchema,
 ]);
-
-/** @internal */
-export type CustomerPaymentMethod$Outbound =
-  | PaymentMethodCard$Outbound
-  | PaymentMethodGeneric$Outbound;
-
-/** @internal */
-export const CustomerPaymentMethod$outboundSchema: z.ZodType<
-  CustomerPaymentMethod$Outbound,
-  z.ZodTypeDef,
-  CustomerPaymentMethod
-> = z.union([
-  PaymentMethodCard$outboundSchema,
-  PaymentMethodGeneric$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPaymentMethod$ {
-  /** @deprecated use `CustomerPaymentMethod$inboundSchema` instead. */
-  export const inboundSchema = CustomerPaymentMethod$inboundSchema;
-  /** @deprecated use `CustomerPaymentMethod$outboundSchema` instead. */
-  export const outboundSchema = CustomerPaymentMethod$outboundSchema;
-  /** @deprecated use `CustomerPaymentMethod$Outbound` instead. */
-  export type Outbound = CustomerPaymentMethod$Outbound;
-}
-
-export function customerPaymentMethodToJSON(
-  customerPaymentMethod: CustomerPaymentMethod,
-): string {
-  return JSON.stringify(
-    CustomerPaymentMethod$outboundSchema.parse(customerPaymentMethod),
-  );
-}
 
 export function customerPaymentMethodFromJSON(
   jsonString: string,

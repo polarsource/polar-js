@@ -733,7 +733,7 @@ run();
 * [`PolarError`](./src/models/errors/polarerror.ts): The base class for HTTP error responses.
   * [`HTTPValidationError`](./src/models/errors/httpvalidationerror.ts): Validation Error. Status code `422`. *
 
-<details><summary>Less common errors (26)</summary>
+<details><summary>Less common errors (27)</summary>
 
 <br />
 
@@ -753,6 +753,7 @@ run();
 * [`AlreadyActiveSubscriptionError`](./src/models/errors/alreadyactivesubscriptionerror.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 155 methods.*
 * [`NotOpenCheckout`](./src/models/errors/notopencheckout.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 155 methods.*
 * [`PaymentNotReady`](./src/models/errors/paymentnotready.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 155 methods.*
+* [`TrialAlreadyRedeemed`](./src/models/errors/trialalreadyredeemed.ts): The checkout is expired, the customer already has an active subscription, or the organization is not ready to accept payments. Status code `403`. Applicable to 3 of 155 methods.*
 * [`ExpiredCheckoutError`](./src/models/errors/expiredcheckouterror.ts): The checkout session is expired. Status code `410`. Applicable to 3 of 155 methods.*
 * [`SubscriptionLocked`](./src/models/errors/subscriptionlocked.ts): Subscription is pending an update. Status code `409`. Applicable to 2 of 155 methods.*
 * [`MissingInvoiceBillingDetails`](./src/models/errors/missinginvoicebillingdetails.ts): Order is not paid or is missing billing name or address. Status code `422`. Applicable to 2 of 155 methods.*

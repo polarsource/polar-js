@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Event,
-  Event$inboundSchema,
-  Event$Outbound,
-  Event$outboundSchema,
-} from "./event.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Event, Event$inboundSchema } from "./event.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceEvent = {
   items: Array<Event>;
@@ -33,43 +23,6 @@ export const ListResourceEvent$inboundSchema: z.ZodType<
   items: z.array(Event$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceEvent$Outbound = {
-  items: Array<Event$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceEvent$outboundSchema: z.ZodType<
-  ListResourceEvent$Outbound,
-  z.ZodTypeDef,
-  ListResourceEvent
-> = z.object({
-  items: z.array(Event$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceEvent$ {
-  /** @deprecated use `ListResourceEvent$inboundSchema` instead. */
-  export const inboundSchema = ListResourceEvent$inboundSchema;
-  /** @deprecated use `ListResourceEvent$outboundSchema` instead. */
-  export const outboundSchema = ListResourceEvent$outboundSchema;
-  /** @deprecated use `ListResourceEvent$Outbound` instead. */
-  export type Outbound = ListResourceEvent$Outbound;
-}
-
-export function listResourceEventToJSON(
-  listResourceEvent: ListResourceEvent,
-): string {
-  return JSON.stringify(
-    ListResourceEvent$outboundSchema.parse(listResourceEvent),
-  );
-}
 
 export function listResourceEventFromJSON(
   jsonString: string,

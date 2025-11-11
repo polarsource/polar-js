@@ -8,18 +8,14 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomerSortProperty,
-  CustomerSortProperty$inboundSchema,
   CustomerSortProperty$outboundSchema,
 } from "../components/customersortproperty.js";
 import {
   ListResourceCustomer,
   ListResourceCustomer$inboundSchema,
-  ListResourceCustomer$Outbound,
-  ListResourceCustomer$outboundSchema,
 } from "../components/listresourcecustomer.js";
 import {
   MetadataQuery,
-  MetadataQuery$inboundSchema,
   MetadataQuery$Outbound,
   MetadataQuery$outboundSchema,
 } from "../components/subscriptionslist.js";
@@ -68,14 +64,6 @@ export type CustomersListResponse = {
 };
 
 /** @internal */
-export const CustomersListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<
-    CustomersListQueryParamOrganizationIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type CustomersListQueryParamOrganizationIDFilter$Outbound =
   | string
   | Array<string>;
@@ -88,21 +76,6 @@ export const CustomersListQueryParamOrganizationIDFilter$outboundSchema:
     CustomersListQueryParamOrganizationIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomersListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `CustomersListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomersListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `CustomersListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomersListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `CustomersListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound = CustomersListQueryParamOrganizationIDFilter$Outbound;
-}
-
 export function customersListQueryParamOrganizationIDFilterToJSON(
   customersListQueryParamOrganizationIDFilter:
     CustomersListQueryParamOrganizationIDFilter,
@@ -113,42 +86,6 @@ export function customersListQueryParamOrganizationIDFilterToJSON(
     ),
   );
 }
-
-export function customersListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomersListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomersListQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomersListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomersListRequest$inboundSchema: z.ZodType<
-  CustomersListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  email: z.nullable(z.string()).optional(),
-  query: z.nullable(z.string()).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(CustomerSortProperty$inboundSchema)).optional(),
-  metadata: z.nullable(z.record(MetadataQuery$inboundSchema)).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type CustomersListRequest$Outbound = {
@@ -181,34 +118,11 @@ export const CustomersListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomersListRequest$ {
-  /** @deprecated use `CustomersListRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomersListRequest$inboundSchema;
-  /** @deprecated use `CustomersListRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomersListRequest$outboundSchema;
-  /** @deprecated use `CustomersListRequest$Outbound` instead. */
-  export type Outbound = CustomersListRequest$Outbound;
-}
-
 export function customersListRequestToJSON(
   customersListRequest: CustomersListRequest,
 ): string {
   return JSON.stringify(
     CustomersListRequest$outboundSchema.parse(customersListRequest),
-  );
-}
-
-export function customersListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomersListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomersListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomersListRequest' from JSON`,
   );
 }
 
@@ -224,45 +138,6 @@ export const CustomersListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type CustomersListResponse$Outbound = {
-  Result: ListResourceCustomer$Outbound;
-};
-
-/** @internal */
-export const CustomersListResponse$outboundSchema: z.ZodType<
-  CustomersListResponse$Outbound,
-  z.ZodTypeDef,
-  CustomersListResponse
-> = z.object({
-  result: ListResourceCustomer$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomersListResponse$ {
-  /** @deprecated use `CustomersListResponse$inboundSchema` instead. */
-  export const inboundSchema = CustomersListResponse$inboundSchema;
-  /** @deprecated use `CustomersListResponse$outboundSchema` instead. */
-  export const outboundSchema = CustomersListResponse$outboundSchema;
-  /** @deprecated use `CustomersListResponse$Outbound` instead. */
-  export type Outbound = CustomersListResponse$Outbound;
-}
-
-export function customersListResponseToJSON(
-  customersListResponse: CustomersListResponse,
-): string {
-  return JSON.stringify(
-    CustomersListResponse$outboundSchema.parse(customersListResponse),
-  );
-}
 
 export function customersListResponseFromJSON(
   jsonString: string,

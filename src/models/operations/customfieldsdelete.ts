@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldsDeleteRequest = {
   /**
@@ -13,15 +10,6 @@ export type CustomFieldsDeleteRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const CustomFieldsDeleteRequest$inboundSchema: z.ZodType<
-  CustomFieldsDeleteRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type CustomFieldsDeleteRequest$Outbound = {
@@ -37,33 +25,10 @@ export const CustomFieldsDeleteRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldsDeleteRequest$ {
-  /** @deprecated use `CustomFieldsDeleteRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldsDeleteRequest$inboundSchema;
-  /** @deprecated use `CustomFieldsDeleteRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldsDeleteRequest$outboundSchema;
-  /** @deprecated use `CustomFieldsDeleteRequest$Outbound` instead. */
-  export type Outbound = CustomFieldsDeleteRequest$Outbound;
-}
-
 export function customFieldsDeleteRequestToJSON(
   customFieldsDeleteRequest: CustomFieldsDeleteRequest,
 ): string {
   return JSON.stringify(
     CustomFieldsDeleteRequest$outboundSchema.parse(customFieldsDeleteRequest),
-  );
-}
-
-export function customFieldsDeleteRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldsDeleteRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldsDeleteRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldsDeleteRequest' from JSON`,
   );
 }

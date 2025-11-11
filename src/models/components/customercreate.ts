@@ -4,20 +4,12 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AddressInput,
-  AddressInput$inboundSchema,
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
-import {
-  TaxIDFormat,
-  TaxIDFormat$inboundSchema,
-  TaxIDFormat$outboundSchema,
-} from "./taxidformat.js";
+import { TaxIDFormat, TaxIDFormat$outboundSchema } from "./taxidformat.js";
 
 export type CustomerCreateMetadata = string | number | number | boolean;
 
@@ -58,13 +50,6 @@ export type CustomerCreate = {
 };
 
 /** @internal */
-export const CustomerCreateMetadata$inboundSchema: z.ZodType<
-  CustomerCreateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type CustomerCreateMetadata$Outbound =
   | string
   | number
@@ -78,19 +63,6 @@ export const CustomerCreateMetadata$outboundSchema: z.ZodType<
   CustomerCreateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerCreateMetadata$ {
-  /** @deprecated use `CustomerCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomerCreateMetadata$inboundSchema;
-  /** @deprecated use `CustomerCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomerCreateMetadata$outboundSchema;
-  /** @deprecated use `CustomerCreateMetadata$Outbound` instead. */
-  export type Outbound = CustomerCreateMetadata$Outbound;
-}
-
 export function customerCreateMetadataToJSON(
   customerCreateMetadata: CustomerCreateMetadata,
 ): string {
@@ -98,23 +70,6 @@ export function customerCreateMetadataToJSON(
     CustomerCreateMetadata$outboundSchema.parse(customerCreateMetadata),
   );
 }
-
-export function customerCreateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerCreateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerCreateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerCreateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerCreateTaxId$inboundSchema: z.ZodType<
-  CustomerCreateTaxId,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), TaxIDFormat$inboundSchema]);
 
 /** @internal */
 export type CustomerCreateTaxId$Outbound = string | string;
@@ -126,19 +81,6 @@ export const CustomerCreateTaxId$outboundSchema: z.ZodType<
   CustomerCreateTaxId
 > = z.union([z.string(), TaxIDFormat$outboundSchema]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerCreateTaxId$ {
-  /** @deprecated use `CustomerCreateTaxId$inboundSchema` instead. */
-  export const inboundSchema = CustomerCreateTaxId$inboundSchema;
-  /** @deprecated use `CustomerCreateTaxId$outboundSchema` instead. */
-  export const outboundSchema = CustomerCreateTaxId$outboundSchema;
-  /** @deprecated use `CustomerCreateTaxId$Outbound` instead. */
-  export type Outbound = CustomerCreateTaxId$Outbound;
-}
-
 export function customerCreateTaxIdToJSON(
   customerCreateTaxId: CustomerCreateTaxId,
 ): string {
@@ -146,42 +88,6 @@ export function customerCreateTaxIdToJSON(
     CustomerCreateTaxId$outboundSchema.parse(customerCreateTaxId),
   );
 }
-
-export function customerCreateTaxIdFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerCreateTaxId, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerCreateTaxId$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerCreateTaxId' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerCreate$inboundSchema: z.ZodType<
-  CustomerCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  external_id: z.nullable(z.string()).optional(),
-  email: z.string(),
-  name: z.nullable(z.string()).optional(),
-  billing_address: z.nullable(AddressInput$inboundSchema).optional(),
-  tax_id: z.nullable(
-    z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
-  ).optional(),
-  organization_id: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "external_id": "externalId",
-    "billing_address": "billingAddress",
-    "tax_id": "taxId",
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type CustomerCreate$Outbound = {
@@ -220,29 +126,6 @@ export const CustomerCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerCreate$ {
-  /** @deprecated use `CustomerCreate$inboundSchema` instead. */
-  export const inboundSchema = CustomerCreate$inboundSchema;
-  /** @deprecated use `CustomerCreate$outboundSchema` instead. */
-  export const outboundSchema = CustomerCreate$outboundSchema;
-  /** @deprecated use `CustomerCreate$Outbound` instead. */
-  export type Outbound = CustomerCreate$Outbound;
-}
-
 export function customerCreateToJSON(customerCreate: CustomerCreate): string {
   return JSON.stringify(CustomerCreate$outboundSchema.parse(customerCreate));
-}
-
-export function customerCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerCreate' from JSON`,
-  );
 }

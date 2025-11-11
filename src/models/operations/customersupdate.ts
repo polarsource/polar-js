@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomerUpdate,
-  CustomerUpdate$inboundSchema,
   CustomerUpdate$Outbound,
   CustomerUpdate$outboundSchema,
 } from "../components/customerupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomersUpdateRequest = {
   /**
@@ -21,20 +17,6 @@ export type CustomersUpdateRequest = {
   id: string;
   customerUpdate: CustomerUpdate;
 };
-
-/** @internal */
-export const CustomersUpdateRequest$inboundSchema: z.ZodType<
-  CustomersUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  CustomerUpdate: CustomerUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "CustomerUpdate": "customerUpdate",
-  });
-});
 
 /** @internal */
 export type CustomersUpdateRequest$Outbound = {
@@ -56,33 +38,10 @@ export const CustomersUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomersUpdateRequest$ {
-  /** @deprecated use `CustomersUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomersUpdateRequest$inboundSchema;
-  /** @deprecated use `CustomersUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomersUpdateRequest$outboundSchema;
-  /** @deprecated use `CustomersUpdateRequest$Outbound` instead. */
-  export type Outbound = CustomersUpdateRequest$Outbound;
-}
-
 export function customersUpdateRequestToJSON(
   customersUpdateRequest: CustomersUpdateRequest,
 ): string {
   return JSON.stringify(
     CustomersUpdateRequest$outboundSchema.parse(customersUpdateRequest),
-  );
-}
-
-export function customersUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomersUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomersUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomersUpdateRequest' from JSON`,
   );
 }

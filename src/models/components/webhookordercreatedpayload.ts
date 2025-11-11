@@ -45,7 +45,6 @@ export const WebhookOrderCreatedPayload$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Order$inboundSchema,
 });
-
 /** @internal */
 export type WebhookOrderCreatedPayload$Outbound = {
   type: "order.created";
@@ -64,19 +63,6 @@ export const WebhookOrderCreatedPayload$outboundSchema: z.ZodType<
   data: Order$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookOrderCreatedPayload$ {
-  /** @deprecated use `WebhookOrderCreatedPayload$inboundSchema` instead. */
-  export const inboundSchema = WebhookOrderCreatedPayload$inboundSchema;
-  /** @deprecated use `WebhookOrderCreatedPayload$outboundSchema` instead. */
-  export const outboundSchema = WebhookOrderCreatedPayload$outboundSchema;
-  /** @deprecated use `WebhookOrderCreatedPayload$Outbound` instead. */
-  export type Outbound = WebhookOrderCreatedPayload$Outbound;
-}
-
 export function webhookOrderCreatedPayloadToJSON(
   webhookOrderCreatedPayload: WebhookOrderCreatedPayload,
 ): string {
@@ -84,7 +70,6 @@ export function webhookOrderCreatedPayloadToJSON(
     WebhookOrderCreatedPayload$outboundSchema.parse(webhookOrderCreatedPayload),
   );
 }
-
 export function webhookOrderCreatedPayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhookOrderCreatedPayload, SDKValidationError> {

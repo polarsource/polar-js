@@ -8,14 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   DiscountSortProperty,
-  DiscountSortProperty$inboundSchema,
   DiscountSortProperty$outboundSchema,
 } from "../components/discountsortproperty.js";
 import {
   ListResourceDiscount,
   ListResourceDiscount$inboundSchema,
-  ListResourceDiscount$Outbound,
-  ListResourceDiscount$outboundSchema,
 } from "../components/listresourcediscount.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -54,14 +51,6 @@ export type DiscountsListResponse = {
 };
 
 /** @internal */
-export const DiscountsListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<
-    DiscountsListQueryParamOrganizationIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type DiscountsListQueryParamOrganizationIDFilter$Outbound =
   | string
   | Array<string>;
@@ -74,21 +63,6 @@ export const DiscountsListQueryParamOrganizationIDFilter$outboundSchema:
     DiscountsListQueryParamOrganizationIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountsListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `DiscountsListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountsListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `DiscountsListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountsListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `DiscountsListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound = DiscountsListQueryParamOrganizationIDFilter$Outbound;
-}
-
 export function discountsListQueryParamOrganizationIDFilterToJSON(
   discountsListQueryParamOrganizationIDFilter:
     DiscountsListQueryParamOrganizationIDFilter,
@@ -99,40 +73,6 @@ export function discountsListQueryParamOrganizationIDFilterToJSON(
     ),
   );
 }
-
-export function discountsListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DiscountsListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DiscountsListQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DiscountsListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const DiscountsListRequest$inboundSchema: z.ZodType<
-  DiscountsListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  query: z.nullable(z.string()).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(DiscountSortProperty$inboundSchema)).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type DiscountsListRequest$Outbound = {
@@ -161,34 +101,11 @@ export const DiscountsListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountsListRequest$ {
-  /** @deprecated use `DiscountsListRequest$inboundSchema` instead. */
-  export const inboundSchema = DiscountsListRequest$inboundSchema;
-  /** @deprecated use `DiscountsListRequest$outboundSchema` instead. */
-  export const outboundSchema = DiscountsListRequest$outboundSchema;
-  /** @deprecated use `DiscountsListRequest$Outbound` instead. */
-  export type Outbound = DiscountsListRequest$Outbound;
-}
-
 export function discountsListRequestToJSON(
   discountsListRequest: DiscountsListRequest,
 ): string {
   return JSON.stringify(
     DiscountsListRequest$outboundSchema.parse(discountsListRequest),
-  );
-}
-
-export function discountsListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<DiscountsListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DiscountsListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DiscountsListRequest' from JSON`,
   );
 }
 
@@ -204,45 +121,6 @@ export const DiscountsListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type DiscountsListResponse$Outbound = {
-  Result: ListResourceDiscount$Outbound;
-};
-
-/** @internal */
-export const DiscountsListResponse$outboundSchema: z.ZodType<
-  DiscountsListResponse$Outbound,
-  z.ZodTypeDef,
-  DiscountsListResponse
-> = z.object({
-  result: ListResourceDiscount$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountsListResponse$ {
-  /** @deprecated use `DiscountsListResponse$inboundSchema` instead. */
-  export const inboundSchema = DiscountsListResponse$inboundSchema;
-  /** @deprecated use `DiscountsListResponse$outboundSchema` instead. */
-  export const outboundSchema = DiscountsListResponse$outboundSchema;
-  /** @deprecated use `DiscountsListResponse$Outbound` instead. */
-  export type Outbound = DiscountsListResponse$Outbound;
-}
-
-export function discountsListResponseToJSON(
-  discountsListResponse: DiscountsListResponse,
-): string {
-  return JSON.stringify(
-    DiscountsListResponse$outboundSchema.parse(discountsListResponse),
-  );
-}
 
 export function discountsListResponseFromJSON(
   jsonString: string,

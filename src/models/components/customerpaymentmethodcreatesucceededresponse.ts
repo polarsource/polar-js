@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerPaymentMethod,
   CustomerPaymentMethod$inboundSchema,
-  CustomerPaymentMethod$Outbound,
-  CustomerPaymentMethod$outboundSchema,
 } from "./customerpaymentmethod.js";
 
 export type CustomerPaymentMethodCreateSucceededResponse = {
@@ -33,53 +31,6 @@ export const CustomerPaymentMethodCreateSucceededResponse$inboundSchema:
       "payment_method": "paymentMethod",
     });
   });
-
-/** @internal */
-export type CustomerPaymentMethodCreateSucceededResponse$Outbound = {
-  status: "succeeded";
-  payment_method: CustomerPaymentMethod$Outbound;
-};
-
-/** @internal */
-export const CustomerPaymentMethodCreateSucceededResponse$outboundSchema:
-  z.ZodType<
-    CustomerPaymentMethodCreateSucceededResponse$Outbound,
-    z.ZodTypeDef,
-    CustomerPaymentMethodCreateSucceededResponse
-  > = z.object({
-    status: z.literal("succeeded"),
-    paymentMethod: CustomerPaymentMethod$outboundSchema,
-  }).transform((v) => {
-    return remap$(v, {
-      paymentMethod: "payment_method",
-    });
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPaymentMethodCreateSucceededResponse$ {
-  /** @deprecated use `CustomerPaymentMethodCreateSucceededResponse$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPaymentMethodCreateSucceededResponse$inboundSchema;
-  /** @deprecated use `CustomerPaymentMethodCreateSucceededResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPaymentMethodCreateSucceededResponse$outboundSchema;
-  /** @deprecated use `CustomerPaymentMethodCreateSucceededResponse$Outbound` instead. */
-  export type Outbound = CustomerPaymentMethodCreateSucceededResponse$Outbound;
-}
-
-export function customerPaymentMethodCreateSucceededResponseToJSON(
-  customerPaymentMethodCreateSucceededResponse:
-    CustomerPaymentMethodCreateSucceededResponse,
-): string {
-  return JSON.stringify(
-    CustomerPaymentMethodCreateSucceededResponse$outboundSchema.parse(
-      customerPaymentMethodCreateSucceededResponse,
-    ),
-  );
-}
 
 export function customerPaymentMethodCreateSucceededResponseFromJSON(
   jsonString: string,

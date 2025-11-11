@@ -17,19 +17,7 @@ export type OrderBillingReason = ClosedEnum<typeof OrderBillingReason>;
 export const OrderBillingReason$inboundSchema: z.ZodNativeEnum<
   typeof OrderBillingReason
 > = z.nativeEnum(OrderBillingReason);
-
 /** @internal */
 export const OrderBillingReason$outboundSchema: z.ZodNativeEnum<
   typeof OrderBillingReason
 > = OrderBillingReason$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderBillingReason$ {
-  /** @deprecated use `OrderBillingReason$inboundSchema` instead. */
-  export const inboundSchema = OrderBillingReason$inboundSchema;
-  /** @deprecated use `OrderBillingReason$outboundSchema` instead. */
-  export const outboundSchema = OrderBillingReason$outboundSchema;
-}

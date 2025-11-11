@@ -3,36 +3,28 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldUpdateCheckbox,
-  CustomFieldUpdateCheckbox$inboundSchema,
   CustomFieldUpdateCheckbox$Outbound,
   CustomFieldUpdateCheckbox$outboundSchema,
 } from "./customfieldupdatecheckbox.js";
 import {
   CustomFieldUpdateDate,
-  CustomFieldUpdateDate$inboundSchema,
   CustomFieldUpdateDate$Outbound,
   CustomFieldUpdateDate$outboundSchema,
 } from "./customfieldupdatedate.js";
 import {
   CustomFieldUpdateNumber,
-  CustomFieldUpdateNumber$inboundSchema,
   CustomFieldUpdateNumber$Outbound,
   CustomFieldUpdateNumber$outboundSchema,
 } from "./customfieldupdatenumber.js";
 import {
   CustomFieldUpdateSelect,
-  CustomFieldUpdateSelect$inboundSchema,
   CustomFieldUpdateSelect$Outbound,
   CustomFieldUpdateSelect$outboundSchema,
 } from "./customfieldupdateselect.js";
 import {
   CustomFieldUpdateText,
-  CustomFieldUpdateText$inboundSchema,
   CustomFieldUpdateText$Outbound,
   CustomFieldUpdateText$outboundSchema,
 } from "./customfieldupdatetext.js";
@@ -43,35 +35,6 @@ export type CustomFieldUpdate =
   | (CustomFieldUpdateNumber & { type: "number" })
   | (CustomFieldUpdateSelect & { type: "select" })
   | (CustomFieldUpdateText & { type: "text" });
-
-/** @internal */
-export const CustomFieldUpdate$inboundSchema: z.ZodType<
-  CustomFieldUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  CustomFieldUpdateCheckbox$inboundSchema.and(
-    z.object({ type: z.literal("checkbox") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  CustomFieldUpdateDate$inboundSchema.and(
-    z.object({ type: z.literal("date") }).transform((v) => ({ type: v.type })),
-  ),
-  CustomFieldUpdateNumber$inboundSchema.and(
-    z.object({ type: z.literal("number") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  CustomFieldUpdateSelect$inboundSchema.and(
-    z.object({ type: z.literal("select") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  CustomFieldUpdateText$inboundSchema.and(
-    z.object({ type: z.literal("text") }).transform((v) => ({ type: v.type })),
-  ),
-]);
 
 /** @internal */
 export type CustomFieldUpdate$Outbound =
@@ -110,33 +73,10 @@ export const CustomFieldUpdate$outboundSchema: z.ZodType<
   ),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdate$ {
-  /** @deprecated use `CustomFieldUpdate$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdate$inboundSchema;
-  /** @deprecated use `CustomFieldUpdate$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdate$outboundSchema;
-  /** @deprecated use `CustomFieldUpdate$Outbound` instead. */
-  export type Outbound = CustomFieldUpdate$Outbound;
-}
-
 export function customFieldUpdateToJSON(
   customFieldUpdate: CustomFieldUpdate,
 ): string {
   return JSON.stringify(
     CustomFieldUpdate$outboundSchema.parse(customFieldUpdate),
-  );
-}
-
-export function customFieldUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldUpdate' from JSON`,
   );
 }

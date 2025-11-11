@@ -10,13 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   FileServiceTypes,
   FileServiceTypes$inboundSchema,
-  FileServiceTypes$outboundSchema,
 } from "./fileservicetypes.js";
 import {
   S3FileUploadMultipart,
   S3FileUploadMultipart$inboundSchema,
-  S3FileUploadMultipart$Outbound,
-  S3FileUploadMultipart$outboundSchema,
 } from "./s3fileuploadmultipart.js";
 
 export type FileUpload = {
@@ -78,79 +75,6 @@ export const FileUpload$inboundSchema: z.ZodType<
     "size_readable": "sizeReadable",
   });
 });
-
-/** @internal */
-export type FileUpload$Outbound = {
-  id: string;
-  organization_id: string;
-  name: string;
-  path: string;
-  mime_type: string;
-  size: number;
-  storage_version: string | null;
-  checksum_etag: string | null;
-  checksum_sha256_base64: string | null;
-  checksum_sha256_hex: string | null;
-  last_modified_at: string | null;
-  upload: S3FileUploadMultipart$Outbound;
-  version: string | null;
-  is_uploaded: boolean;
-  service: string;
-  size_readable: string;
-};
-
-/** @internal */
-export const FileUpload$outboundSchema: z.ZodType<
-  FileUpload$Outbound,
-  z.ZodTypeDef,
-  FileUpload
-> = z.object({
-  id: z.string(),
-  organizationId: z.string(),
-  name: z.string(),
-  path: z.string(),
-  mimeType: z.string(),
-  size: z.number().int(),
-  storageVersion: z.nullable(z.string()),
-  checksumEtag: z.nullable(z.string()),
-  checksumSha256Base64: z.nullable(z.string()),
-  checksumSha256Hex: z.nullable(z.string()),
-  lastModifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  upload: S3FileUploadMultipart$outboundSchema,
-  version: z.nullable(z.string()),
-  isUploaded: z.boolean().default(false),
-  service: FileServiceTypes$outboundSchema,
-  sizeReadable: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    organizationId: "organization_id",
-    mimeType: "mime_type",
-    storageVersion: "storage_version",
-    checksumEtag: "checksum_etag",
-    checksumSha256Base64: "checksum_sha256_base64",
-    checksumSha256Hex: "checksum_sha256_hex",
-    lastModifiedAt: "last_modified_at",
-    isUploaded: "is_uploaded",
-    sizeReadable: "size_readable",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FileUpload$ {
-  /** @deprecated use `FileUpload$inboundSchema` instead. */
-  export const inboundSchema = FileUpload$inboundSchema;
-  /** @deprecated use `FileUpload$outboundSchema` instead. */
-  export const outboundSchema = FileUpload$outboundSchema;
-  /** @deprecated use `FileUpload$Outbound` instead. */
-  export type Outbound = FileUpload$Outbound;
-}
-
-export function fileUploadToJSON(fileUpload: FileUpload): string {
-  return JSON.stringify(FileUpload$outboundSchema.parse(fileUpload));
-}
 
 export function fileUploadFromJSON(
   jsonString: string,

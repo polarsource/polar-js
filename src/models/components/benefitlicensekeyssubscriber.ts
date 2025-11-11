@@ -10,14 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitLicenseKeysSubscriberProperties,
   BenefitLicenseKeysSubscriberProperties$inboundSchema,
-  BenefitLicenseKeysSubscriberProperties$Outbound,
-  BenefitLicenseKeysSubscriberProperties$outboundSchema,
 } from "./benefitlicensekeyssubscriberproperties.js";
 import {
   BenefitSubscriberOrganization,
   BenefitSubscriberOrganization$inboundSchema,
-  BenefitSubscriberOrganization$Outbound,
-  BenefitSubscriberOrganization$outboundSchema,
 } from "./benefitsubscriberorganization.js";
 
 export type BenefitLicenseKeysSubscriberMetadata =
@@ -68,45 +64,6 @@ export const BenefitLicenseKeysSubscriberMetadata$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/** @internal */
-export type BenefitLicenseKeysSubscriberMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const BenefitLicenseKeysSubscriberMetadata$outboundSchema: z.ZodType<
-  BenefitLicenseKeysSubscriberMetadata$Outbound,
-  z.ZodTypeDef,
-  BenefitLicenseKeysSubscriberMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeysSubscriberMetadata$ {
-  /** @deprecated use `BenefitLicenseKeysSubscriberMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitLicenseKeysSubscriberMetadata$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeysSubscriberMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitLicenseKeysSubscriberMetadata$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeysSubscriberMetadata$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeysSubscriberMetadata$Outbound;
-}
-
-export function benefitLicenseKeysSubscriberMetadataToJSON(
-  benefitLicenseKeysSubscriberMetadata: BenefitLicenseKeysSubscriberMetadata,
-): string {
-  return JSON.stringify(
-    BenefitLicenseKeysSubscriberMetadata$outboundSchema.parse(
-      benefitLicenseKeysSubscriberMetadata,
-    ),
-  );
-}
-
 export function benefitLicenseKeysSubscriberMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitLicenseKeysSubscriberMetadata, SDKValidationError> {
@@ -146,71 +103,6 @@ export const BenefitLicenseKeysSubscriber$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type BenefitLicenseKeysSubscriber$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  type: "license_keys";
-  description: string;
-  selectable: boolean;
-  deletable: boolean;
-  organization_id: string;
-  metadata: { [k: string]: string | number | number | boolean };
-  organization: BenefitSubscriberOrganization$Outbound;
-  properties: BenefitLicenseKeysSubscriberProperties$Outbound;
-};
-
-/** @internal */
-export const BenefitLicenseKeysSubscriber$outboundSchema: z.ZodType<
-  BenefitLicenseKeysSubscriber$Outbound,
-  z.ZodTypeDef,
-  BenefitLicenseKeysSubscriber
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  type: z.literal("license_keys"),
-  description: z.string(),
-  selectable: z.boolean(),
-  deletable: z.boolean(),
-  organizationId: z.string(),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  organization: BenefitSubscriberOrganization$outboundSchema,
-  properties: BenefitLicenseKeysSubscriberProperties$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeysSubscriber$ {
-  /** @deprecated use `BenefitLicenseKeysSubscriber$inboundSchema` instead. */
-  export const inboundSchema = BenefitLicenseKeysSubscriber$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeysSubscriber$outboundSchema` instead. */
-  export const outboundSchema = BenefitLicenseKeysSubscriber$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeysSubscriber$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeysSubscriber$Outbound;
-}
-
-export function benefitLicenseKeysSubscriberToJSON(
-  benefitLicenseKeysSubscriber: BenefitLicenseKeysSubscriber,
-): string {
-  return JSON.stringify(
-    BenefitLicenseKeysSubscriber$outboundSchema.parse(
-      benefitLicenseKeysSubscriber,
-    ),
-  );
-}
 
 export function benefitLicenseKeysSubscriberFromJSON(
   jsonString: string,

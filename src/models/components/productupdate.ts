@@ -4,59 +4,47 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AttachedCustomFieldCreate,
-  AttachedCustomFieldCreate$inboundSchema,
   AttachedCustomFieldCreate$Outbound,
   AttachedCustomFieldCreate$outboundSchema,
 } from "./attachedcustomfieldcreate.js";
 import {
   ExistingProductPrice,
-  ExistingProductPrice$inboundSchema,
   ExistingProductPrice$Outbound,
   ExistingProductPrice$outboundSchema,
 } from "./existingproductprice.js";
 import {
   ProductPriceCustomCreate,
-  ProductPriceCustomCreate$inboundSchema,
   ProductPriceCustomCreate$Outbound,
   ProductPriceCustomCreate$outboundSchema,
 } from "./productpricecustomcreate.js";
 import {
   ProductPriceFixedCreate,
-  ProductPriceFixedCreate$inboundSchema,
   ProductPriceFixedCreate$Outbound,
   ProductPriceFixedCreate$outboundSchema,
 } from "./productpricefixedcreate.js";
 import {
   ProductPriceFreeCreate,
-  ProductPriceFreeCreate$inboundSchema,
   ProductPriceFreeCreate$Outbound,
   ProductPriceFreeCreate$outboundSchema,
 } from "./productpricefreecreate.js";
 import {
   ProductPriceMeteredUnitCreate,
-  ProductPriceMeteredUnitCreate$inboundSchema,
   ProductPriceMeteredUnitCreate$Outbound,
   ProductPriceMeteredUnitCreate$outboundSchema,
 } from "./productpricemeteredunitcreate.js";
 import {
   ProductPriceSeatBasedCreate,
-  ProductPriceSeatBasedCreate$inboundSchema,
   ProductPriceSeatBasedCreate$Outbound,
   ProductPriceSeatBasedCreate$outboundSchema,
 } from "./productpriceseatbasedcreate.js";
 import {
   SubscriptionRecurringInterval,
-  SubscriptionRecurringInterval$inboundSchema,
   SubscriptionRecurringInterval$outboundSchema,
 } from "./subscriptionrecurringinterval.js";
 import {
   TrialInterval,
-  TrialInterval$inboundSchema,
   TrialInterval$outboundSchema,
 } from "./trialinterval.js";
 
@@ -144,13 +132,6 @@ export type ProductUpdate = {
 };
 
 /** @internal */
-export const ProductUpdateMetadata$inboundSchema: z.ZodType<
-  ProductUpdateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type ProductUpdateMetadata$Outbound = string | number | number | boolean;
 
 /** @internal */
@@ -160,19 +141,6 @@ export const ProductUpdateMetadata$outboundSchema: z.ZodType<
   ProductUpdateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductUpdateMetadata$ {
-  /** @deprecated use `ProductUpdateMetadata$inboundSchema` instead. */
-  export const inboundSchema = ProductUpdateMetadata$inboundSchema;
-  /** @deprecated use `ProductUpdateMetadata$outboundSchema` instead. */
-  export const outboundSchema = ProductUpdateMetadata$outboundSchema;
-  /** @deprecated use `ProductUpdateMetadata$Outbound` instead. */
-  export type Outbound = ProductUpdateMetadata$Outbound;
-}
-
 export function productUpdateMetadataToJSON(
   productUpdateMetadata: ProductUpdateMetadata,
 ): string {
@@ -180,47 +148,6 @@ export function productUpdateMetadataToJSON(
     ProductUpdateMetadata$outboundSchema.parse(productUpdateMetadata),
   );
 }
-
-export function productUpdateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductUpdateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductUpdateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const Two$inboundSchema: z.ZodType<Two, z.ZodTypeDef, unknown> = z.union(
-  [
-    ProductPriceMeteredUnitCreate$inboundSchema.and(
-      z.object({ amount_type: z.literal("metered_unit") }).transform((v) => ({
-        amountType: v.amount_type,
-      })),
-    ),
-    ProductPriceFixedCreate$inboundSchema.and(
-      z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
-        amountType: v.amount_type,
-      })),
-    ),
-    ProductPriceSeatBasedCreate$inboundSchema.and(
-      z.object({ amount_type: z.literal("seat_based") }).transform((v) => ({
-        amountType: v.amount_type,
-      })),
-    ),
-    ProductPriceCustomCreate$inboundSchema.and(
-      z.object({ amount_type: z.literal("custom") }).transform((v) => ({
-        amountType: v.amount_type,
-      })),
-    ),
-    ProductPriceFreeCreate$inboundSchema.and(
-      z.object({ amount_type: z.literal("free") }).transform((v) => ({
-        amountType: v.amount_type,
-      })),
-    ),
-  ],
-);
 
 /** @internal */
 export type Two$Outbound =
@@ -260,68 +187,9 @@ export const Two$outboundSchema: z.ZodType<Two$Outbound, z.ZodTypeDef, Two> = z
     ),
   ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Two$ {
-  /** @deprecated use `Two$inboundSchema` instead. */
-  export const inboundSchema = Two$inboundSchema;
-  /** @deprecated use `Two$outboundSchema` instead. */
-  export const outboundSchema = Two$outboundSchema;
-  /** @deprecated use `Two$Outbound` instead. */
-  export type Outbound = Two$Outbound;
-}
-
 export function twoToJSON(two: Two): string {
   return JSON.stringify(Two$outboundSchema.parse(two));
 }
-
-export function twoFromJSON(
-  jsonString: string,
-): SafeParseResult<Two, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Two$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Two' from JSON`,
-  );
-}
-
-/** @internal */
-export const ProductUpdatePrices$inboundSchema: z.ZodType<
-  ProductUpdatePrices,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  ExistingProductPrice$inboundSchema,
-  z.union([
-    ProductPriceMeteredUnitCreate$inboundSchema.and(
-      z.object({ amount_type: z.literal("metered_unit") }).transform((v) => ({
-        amountType: v.amount_type,
-      })),
-    ),
-    ProductPriceFixedCreate$inboundSchema.and(
-      z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
-        amountType: v.amount_type,
-      })),
-    ),
-    ProductPriceSeatBasedCreate$inboundSchema.and(
-      z.object({ amount_type: z.literal("seat_based") }).transform((v) => ({
-        amountType: v.amount_type,
-      })),
-    ),
-    ProductPriceCustomCreate$inboundSchema.and(
-      z.object({ amount_type: z.literal("custom") }).transform((v) => ({
-        amountType: v.amount_type,
-      })),
-    ),
-    ProductPriceFreeCreate$inboundSchema.and(
-      z.object({ amount_type: z.literal("free") }).transform((v) => ({
-        amountType: v.amount_type,
-      })),
-    ),
-  ]),
-]);
 
 /** @internal */
 export type ProductUpdatePrices$Outbound =
@@ -368,19 +236,6 @@ export const ProductUpdatePrices$outboundSchema: z.ZodType<
   ]),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductUpdatePrices$ {
-  /** @deprecated use `ProductUpdatePrices$inboundSchema` instead. */
-  export const inboundSchema = ProductUpdatePrices$inboundSchema;
-  /** @deprecated use `ProductUpdatePrices$outboundSchema` instead. */
-  export const outboundSchema = ProductUpdatePrices$outboundSchema;
-  /** @deprecated use `ProductUpdatePrices$Outbound` instead. */
-  export type Outbound = ProductUpdatePrices$Outbound;
-}
-
 export function productUpdatePricesToJSON(
   productUpdatePrices: ProductUpdatePrices,
 ): string {
@@ -388,82 +243,6 @@ export function productUpdatePricesToJSON(
     ProductUpdatePrices$outboundSchema.parse(productUpdatePrices),
   );
 }
-
-export function productUpdatePricesFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductUpdatePrices, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductUpdatePrices$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductUpdatePrices' from JSON`,
-  );
-}
-
-/** @internal */
-export const ProductUpdate$inboundSchema: z.ZodType<
-  ProductUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  trial_interval: z.nullable(TrialInterval$inboundSchema).optional(),
-  trial_interval_count: z.nullable(z.number().int()).optional(),
-  name: z.nullable(z.string()).optional(),
-  description: z.nullable(z.string()).optional(),
-  recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema)
-    .optional(),
-  recurring_interval_count: z.nullable(z.number().int()).optional(),
-  is_archived: z.nullable(z.boolean()).optional(),
-  prices: z.nullable(
-    z.array(
-      z.union([
-        ExistingProductPrice$inboundSchema,
-        z.union([
-          ProductPriceMeteredUnitCreate$inboundSchema.and(
-            z.object({ amount_type: z.literal("metered_unit") }).transform((
-              v,
-            ) => ({ amountType: v.amount_type })),
-          ),
-          ProductPriceFixedCreate$inboundSchema.and(
-            z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
-              amountType: v.amount_type,
-            })),
-          ),
-          ProductPriceSeatBasedCreate$inboundSchema.and(
-            z.object({ amount_type: z.literal("seat_based") }).transform((
-              v,
-            ) => ({ amountType: v.amount_type })),
-          ),
-          ProductPriceCustomCreate$inboundSchema.and(
-            z.object({ amount_type: z.literal("custom") }).transform((v) => ({
-              amountType: v.amount_type,
-            })),
-          ),
-          ProductPriceFreeCreate$inboundSchema.and(
-            z.object({ amount_type: z.literal("free") }).transform((v) => ({
-              amountType: v.amount_type,
-            })),
-          ),
-        ]),
-      ]),
-    ),
-  ).optional(),
-  medias: z.nullable(z.array(z.string())).optional(),
-  attached_custom_fields: z.nullable(
-    z.array(AttachedCustomFieldCreate$inboundSchema),
-  ).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "trial_interval": "trialInterval",
-    "trial_interval_count": "trialIntervalCount",
-    "recurring_interval": "recurringInterval",
-    "recurring_interval_count": "recurringIntervalCount",
-    "is_archived": "isArchived",
-    "attached_custom_fields": "attachedCustomFields",
-  });
-});
 
 /** @internal */
 export type ProductUpdate$Outbound = {
@@ -561,29 +340,6 @@ export const ProductUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductUpdate$ {
-  /** @deprecated use `ProductUpdate$inboundSchema` instead. */
-  export const inboundSchema = ProductUpdate$inboundSchema;
-  /** @deprecated use `ProductUpdate$outboundSchema` instead. */
-  export const outboundSchema = ProductUpdate$outboundSchema;
-  /** @deprecated use `ProductUpdate$Outbound` instead. */
-  export type Outbound = ProductUpdate$Outbound;
-}
-
 export function productUpdateToJSON(productUpdate: ProductUpdate): string {
   return JSON.stringify(ProductUpdate$outboundSchema.parse(productUpdate));
-}
-
-export function productUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductUpdate' from JSON`,
-  );
 }

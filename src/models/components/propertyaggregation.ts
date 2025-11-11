@@ -25,21 +25,9 @@ export type PropertyAggregation = {
 export const Func$inboundSchema: z.ZodNativeEnum<typeof Func> = z.nativeEnum(
   Func,
 );
-
 /** @internal */
 export const Func$outboundSchema: z.ZodNativeEnum<typeof Func> =
   Func$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Func$ {
-  /** @deprecated use `Func$inboundSchema` instead. */
-  export const inboundSchema = Func$inboundSchema;
-  /** @deprecated use `Func$outboundSchema` instead. */
-  export const outboundSchema = Func$outboundSchema;
-}
 
 /** @internal */
 export const PropertyAggregation$inboundSchema: z.ZodType<
@@ -50,7 +38,6 @@ export const PropertyAggregation$inboundSchema: z.ZodType<
   func: Func$inboundSchema,
   property: z.string(),
 });
-
 /** @internal */
 export type PropertyAggregation$Outbound = {
   func: string;
@@ -67,19 +54,6 @@ export const PropertyAggregation$outboundSchema: z.ZodType<
   property: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PropertyAggregation$ {
-  /** @deprecated use `PropertyAggregation$inboundSchema` instead. */
-  export const inboundSchema = PropertyAggregation$inboundSchema;
-  /** @deprecated use `PropertyAggregation$outboundSchema` instead. */
-  export const outboundSchema = PropertyAggregation$outboundSchema;
-  /** @deprecated use `PropertyAggregation$Outbound` instead. */
-  export type Outbound = PropertyAggregation$Outbound;
-}
-
 export function propertyAggregationToJSON(
   propertyAggregation: PropertyAggregation,
 ): string {
@@ -87,7 +61,6 @@ export function propertyAggregationToJSON(
     PropertyAggregation$outboundSchema.parse(propertyAggregation),
   );
 }
-
 export function propertyAggregationFromJSON(
   jsonString: string,
 ): SafeParseResult<PropertyAggregation, SDKValidationError> {

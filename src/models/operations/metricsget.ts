@@ -4,20 +4,15 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import {
   ProductBillingType,
-  ProductBillingType$inboundSchema,
   ProductBillingType$outboundSchema,
 } from "../components/productbillingtype.js";
 import {
   TimeInterval,
-  TimeInterval$inboundSchema,
   TimeInterval$outboundSchema,
 } from "../components/timeinterval.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -81,13 +76,6 @@ export type MetricsGetRequest = {
 };
 
 /** @internal */
-export const MetricsGetQueryParamOrganizationIDFilter$inboundSchema: z.ZodType<
-  MetricsGetQueryParamOrganizationIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type MetricsGetQueryParamOrganizationIDFilter$Outbound =
   | string
   | Array<string>;
@@ -99,21 +87,6 @@ export const MetricsGetQueryParamOrganizationIDFilter$outboundSchema: z.ZodType<
   MetricsGetQueryParamOrganizationIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsGetQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `MetricsGetQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsGetQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `MetricsGetQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsGetQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `MetricsGetQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound = MetricsGetQueryParamOrganizationIDFilter$Outbound;
-}
-
 export function metricsGetQueryParamOrganizationIDFilterToJSON(
   metricsGetQueryParamOrganizationIDFilter:
     MetricsGetQueryParamOrganizationIDFilter,
@@ -124,29 +97,6 @@ export function metricsGetQueryParamOrganizationIDFilterToJSON(
     ),
   );
 }
-
-export function metricsGetQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  MetricsGetQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      MetricsGetQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'MetricsGetQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const MetricsGetQueryParamProductIDFilter$inboundSchema: z.ZodType<
-  MetricsGetQueryParamProductIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type MetricsGetQueryParamProductIDFilter$Outbound =
@@ -160,21 +110,6 @@ export const MetricsGetQueryParamProductIDFilter$outboundSchema: z.ZodType<
   MetricsGetQueryParamProductIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsGetQueryParamProductIDFilter$ {
-  /** @deprecated use `MetricsGetQueryParamProductIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsGetQueryParamProductIDFilter$inboundSchema;
-  /** @deprecated use `MetricsGetQueryParamProductIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsGetQueryParamProductIDFilter$outboundSchema;
-  /** @deprecated use `MetricsGetQueryParamProductIDFilter$Outbound` instead. */
-  export type Outbound = MetricsGetQueryParamProductIDFilter$Outbound;
-}
-
 export function metricsGetQueryParamProductIDFilterToJSON(
   metricsGetQueryParamProductIDFilter: MetricsGetQueryParamProductIDFilter,
 ): string {
@@ -184,27 +119,6 @@ export function metricsGetQueryParamProductIDFilterToJSON(
     ),
   );
 }
-
-export function metricsGetQueryParamProductIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<MetricsGetQueryParamProductIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      MetricsGetQueryParamProductIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MetricsGetQueryParamProductIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const QueryParamProductBillingTypeFilter$inboundSchema: z.ZodType<
-  QueryParamProductBillingTypeFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  ProductBillingType$inboundSchema,
-  z.array(ProductBillingType$inboundSchema),
-]);
 
 /** @internal */
 export type QueryParamProductBillingTypeFilter$Outbound =
@@ -221,20 +135,6 @@ export const QueryParamProductBillingTypeFilter$outboundSchema: z.ZodType<
   z.array(ProductBillingType$outboundSchema),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryParamProductBillingTypeFilter$ {
-  /** @deprecated use `QueryParamProductBillingTypeFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamProductBillingTypeFilter$inboundSchema;
-  /** @deprecated use `QueryParamProductBillingTypeFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    QueryParamProductBillingTypeFilter$outboundSchema;
-  /** @deprecated use `QueryParamProductBillingTypeFilter$Outbound` instead. */
-  export type Outbound = QueryParamProductBillingTypeFilter$Outbound;
-}
-
 export function queryParamProductBillingTypeFilterToJSON(
   queryParamProductBillingTypeFilter: QueryParamProductBillingTypeFilter,
 ): string {
@@ -244,24 +144,6 @@ export function queryParamProductBillingTypeFilterToJSON(
     ),
   );
 }
-
-export function queryParamProductBillingTypeFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<QueryParamProductBillingTypeFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      QueryParamProductBillingTypeFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamProductBillingTypeFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const MetricsGetQueryParamCustomerIDFilter$inboundSchema: z.ZodType<
-  MetricsGetQueryParamCustomerIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type MetricsGetQueryParamCustomerIDFilter$Outbound =
@@ -275,21 +157,6 @@ export const MetricsGetQueryParamCustomerIDFilter$outboundSchema: z.ZodType<
   MetricsGetQueryParamCustomerIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsGetQueryParamCustomerIDFilter$ {
-  /** @deprecated use `MetricsGetQueryParamCustomerIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsGetQueryParamCustomerIDFilter$inboundSchema;
-  /** @deprecated use `MetricsGetQueryParamCustomerIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsGetQueryParamCustomerIDFilter$outboundSchema;
-  /** @deprecated use `MetricsGetQueryParamCustomerIDFilter$Outbound` instead. */
-  export type Outbound = MetricsGetQueryParamCustomerIDFilter$Outbound;
-}
-
 export function metricsGetQueryParamCustomerIDFilterToJSON(
   metricsGetQueryParamCustomerIDFilter: MetricsGetQueryParamCustomerIDFilter,
 ): string {
@@ -299,49 +166,6 @@ export function metricsGetQueryParamCustomerIDFilterToJSON(
     ),
   );
 }
-
-export function metricsGetQueryParamCustomerIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<MetricsGetQueryParamCustomerIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      MetricsGetQueryParamCustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MetricsGetQueryParamCustomerIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const MetricsGetRequest$inboundSchema: z.ZodType<
-  MetricsGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  start_date: z.string().transform(v => new RFCDate(v)),
-  end_date: z.string().transform(v => new RFCDate(v)),
-  timezone: z.string().default("UTC"),
-  interval: TimeInterval$inboundSchema,
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  billing_type: z.nullable(
-    z.union([
-      ProductBillingType$inboundSchema,
-      z.array(ProductBillingType$inboundSchema),
-    ]),
-  ).optional(),
-  customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "start_date": "startDate",
-    "end_date": "endDate",
-    "organization_id": "organizationId",
-    "product_id": "productId",
-    "billing_type": "billingType",
-    "customer_id": "customerId",
-  });
-});
 
 /** @internal */
 export type MetricsGetRequest$Outbound = {
@@ -386,33 +210,10 @@ export const MetricsGetRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsGetRequest$ {
-  /** @deprecated use `MetricsGetRequest$inboundSchema` instead. */
-  export const inboundSchema = MetricsGetRequest$inboundSchema;
-  /** @deprecated use `MetricsGetRequest$outboundSchema` instead. */
-  export const outboundSchema = MetricsGetRequest$outboundSchema;
-  /** @deprecated use `MetricsGetRequest$Outbound` instead. */
-  export type Outbound = MetricsGetRequest$Outbound;
-}
-
 export function metricsGetRequestToJSON(
   metricsGetRequest: MetricsGetRequest,
 ): string {
   return JSON.stringify(
     MetricsGetRequest$outboundSchema.parse(metricsGetRequest),
-  );
-}
-
-export function metricsGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<MetricsGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => MetricsGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MetricsGetRequest' from JSON`,
   );
 }

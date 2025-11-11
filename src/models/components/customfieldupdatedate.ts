@@ -3,12 +3,8 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldDateProperties,
-  CustomFieldDateProperties$inboundSchema,
   CustomFieldDateProperties$Outbound,
   CustomFieldDateProperties$outboundSchema,
 } from "./customfielddateproperties.js";
@@ -42,13 +38,6 @@ export type CustomFieldUpdateDate = {
 };
 
 /** @internal */
-export const CustomFieldUpdateDateMetadata$inboundSchema: z.ZodType<
-  CustomFieldUpdateDateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type CustomFieldUpdateDateMetadata$Outbound =
   | string
   | number
@@ -62,19 +51,6 @@ export const CustomFieldUpdateDateMetadata$outboundSchema: z.ZodType<
   CustomFieldUpdateDateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdateDateMetadata$ {
-  /** @deprecated use `CustomFieldUpdateDateMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdateDateMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldUpdateDateMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdateDateMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldUpdateDateMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldUpdateDateMetadata$Outbound;
-}
-
 export function customFieldUpdateDateMetadataToJSON(
   customFieldUpdateDateMetadata: CustomFieldUpdateDateMetadata,
 ): string {
@@ -84,31 +60,6 @@ export function customFieldUpdateDateMetadataToJSON(
     ),
   );
 }
-
-export function customFieldUpdateDateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldUpdateDateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldUpdateDateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldUpdateDateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomFieldUpdateDate$inboundSchema: z.ZodType<
-  CustomFieldUpdateDate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  name: z.nullable(z.string()).optional(),
-  slug: z.nullable(z.string()).optional(),
-  type: z.literal("date"),
-  properties: z.nullable(CustomFieldDateProperties$inboundSchema).optional(),
-});
 
 /** @internal */
 export type CustomFieldUpdateDate$Outbound = {
@@ -134,33 +85,10 @@ export const CustomFieldUpdateDate$outboundSchema: z.ZodType<
   properties: z.nullable(CustomFieldDateProperties$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdateDate$ {
-  /** @deprecated use `CustomFieldUpdateDate$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdateDate$inboundSchema;
-  /** @deprecated use `CustomFieldUpdateDate$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdateDate$outboundSchema;
-  /** @deprecated use `CustomFieldUpdateDate$Outbound` instead. */
-  export type Outbound = CustomFieldUpdateDate$Outbound;
-}
-
 export function customFieldUpdateDateToJSON(
   customFieldUpdateDate: CustomFieldUpdateDate,
 ): string {
   return JSON.stringify(
     CustomFieldUpdateDate$outboundSchema.parse(customFieldUpdateDate),
-  );
-}
-
-export function customFieldUpdateDateFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldUpdateDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldUpdateDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldUpdateDate' from JSON`,
   );
 }

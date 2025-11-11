@@ -33,7 +33,6 @@ export const BenefitGrantDiscordProperties$inboundSchema: z.ZodType<
     "granted_account_id": "grantedAccountId",
   });
 });
-
 /** @internal */
 export type BenefitGrantDiscordProperties$Outbound = {
   account_id?: string | null | undefined;
@@ -61,19 +60,6 @@ export const BenefitGrantDiscordProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantDiscordProperties$ {
-  /** @deprecated use `BenefitGrantDiscordProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantDiscordProperties$inboundSchema;
-  /** @deprecated use `BenefitGrantDiscordProperties$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrantDiscordProperties$outboundSchema;
-  /** @deprecated use `BenefitGrantDiscordProperties$Outbound` instead. */
-  export type Outbound = BenefitGrantDiscordProperties$Outbound;
-}
-
 export function benefitGrantDiscordPropertiesToJSON(
   benefitGrantDiscordProperties: BenefitGrantDiscordProperties,
 ): string {
@@ -83,7 +69,6 @@ export function benefitGrantDiscordPropertiesToJSON(
     ),
   );
 }
-
 export function benefitGrantDiscordPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantDiscordProperties, SDKValidationError> {
