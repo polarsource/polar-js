@@ -15,19 +15,7 @@ export type FilterConjunction = ClosedEnum<typeof FilterConjunction>;
 export const FilterConjunction$inboundSchema: z.ZodNativeEnum<
   typeof FilterConjunction
 > = z.nativeEnum(FilterConjunction);
-
 /** @internal */
 export const FilterConjunction$outboundSchema: z.ZodNativeEnum<
   typeof FilterConjunction
 > = FilterConjunction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FilterConjunction$ {
-  /** @deprecated use `FilterConjunction$inboundSchema` instead. */
-  export const inboundSchema = FilterConjunction$inboundSchema;
-  /** @deprecated use `FilterConjunction$outboundSchema` instead. */
-  export const outboundSchema = FilterConjunction$outboundSchema;
-}

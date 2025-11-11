@@ -18,6 +18,7 @@ export type OrganizationSubscriptionSettings = {
   allowCustomerUpdates: boolean;
   prorationBehavior: SubscriptionProrationBehavior;
   benefitRevocationGracePeriod: number;
+  preventTrialAbuse: boolean;
 };
 
 /** @internal */
@@ -30,21 +31,23 @@ export const OrganizationSubscriptionSettings$inboundSchema: z.ZodType<
   allow_customer_updates: z.boolean(),
   proration_behavior: SubscriptionProrationBehavior$inboundSchema,
   benefit_revocation_grace_period: z.number().int(),
+  prevent_trial_abuse: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     "allow_multiple_subscriptions": "allowMultipleSubscriptions",
     "allow_customer_updates": "allowCustomerUpdates",
     "proration_behavior": "prorationBehavior",
     "benefit_revocation_grace_period": "benefitRevocationGracePeriod",
+    "prevent_trial_abuse": "preventTrialAbuse",
   });
 });
-
 /** @internal */
 export type OrganizationSubscriptionSettings$Outbound = {
   allow_multiple_subscriptions: boolean;
   allow_customer_updates: boolean;
   proration_behavior: string;
   benefit_revocation_grace_period: number;
+  prevent_trial_abuse: boolean;
 };
 
 /** @internal */
@@ -57,27 +60,16 @@ export const OrganizationSubscriptionSettings$outboundSchema: z.ZodType<
   allowCustomerUpdates: z.boolean(),
   prorationBehavior: SubscriptionProrationBehavior$outboundSchema,
   benefitRevocationGracePeriod: z.number().int(),
+  preventTrialAbuse: z.boolean(),
 }).transform((v) => {
   return remap$(v, {
     allowMultipleSubscriptions: "allow_multiple_subscriptions",
     allowCustomerUpdates: "allow_customer_updates",
     prorationBehavior: "proration_behavior",
     benefitRevocationGracePeriod: "benefit_revocation_grace_period",
+    preventTrialAbuse: "prevent_trial_abuse",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationSubscriptionSettings$ {
-  /** @deprecated use `OrganizationSubscriptionSettings$inboundSchema` instead. */
-  export const inboundSchema = OrganizationSubscriptionSettings$inboundSchema;
-  /** @deprecated use `OrganizationSubscriptionSettings$outboundSchema` instead. */
-  export const outboundSchema = OrganizationSubscriptionSettings$outboundSchema;
-  /** @deprecated use `OrganizationSubscriptionSettings$Outbound` instead. */
-  export type Outbound = OrganizationSubscriptionSettings$Outbound;
-}
 
 export function organizationSubscriptionSettingsToJSON(
   organizationSubscriptionSettings: OrganizationSubscriptionSettings,
@@ -88,7 +80,6 @@ export function organizationSubscriptionSettingsToJSON(
     ),
   );
 }
-
 export function organizationSubscriptionSettingsFromJSON(
   jsonString: string,
 ): SafeParseResult<OrganizationSubscriptionSettings, SDKValidationError> {

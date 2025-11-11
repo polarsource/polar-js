@@ -17,19 +17,7 @@ export type TrialInterval = ClosedEnum<typeof TrialInterval>;
 export const TrialInterval$inboundSchema: z.ZodNativeEnum<
   typeof TrialInterval
 > = z.nativeEnum(TrialInterval);
-
 /** @internal */
 export const TrialInterval$outboundSchema: z.ZodNativeEnum<
   typeof TrialInterval
 > = TrialInterval$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TrialInterval$ {
-  /** @deprecated use `TrialInterval$inboundSchema` instead. */
-  export const inboundSchema = TrialInterval$inboundSchema;
-  /** @deprecated use `TrialInterval$outboundSchema` instead. */
-  export const outboundSchema = TrialInterval$outboundSchema;
-}

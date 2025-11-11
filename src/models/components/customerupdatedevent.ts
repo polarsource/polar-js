@@ -7,17 +7,10 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Customer,
-  Customer$inboundSchema,
-  Customer$Outbound,
-  Customer$outboundSchema,
-} from "./customer.js";
+import { Customer, Customer$inboundSchema } from "./customer.js";
 import {
   CustomerUpdatedMetadata,
   CustomerUpdatedMetadata$inboundSchema,
-  CustomerUpdatedMetadata$Outbound,
-  CustomerUpdatedMetadata$outboundSchema,
 } from "./customerupdatedmetadata.js";
 
 /**
@@ -93,69 +86,6 @@ export const CustomerUpdatedEvent$inboundSchema: z.ZodType<
     "parent_id": "parentId",
   });
 });
-
-/** @internal */
-export type CustomerUpdatedEvent$Outbound = {
-  id: string;
-  timestamp: string;
-  organization_id: string;
-  customer_id: string | null;
-  customer: Customer$Outbound | null;
-  external_customer_id: string | null;
-  child_count: number;
-  parent_id?: string | null | undefined;
-  source: "system";
-  name: "customer.updated";
-  metadata: CustomerUpdatedMetadata$Outbound;
-};
-
-/** @internal */
-export const CustomerUpdatedEvent$outboundSchema: z.ZodType<
-  CustomerUpdatedEvent$Outbound,
-  z.ZodTypeDef,
-  CustomerUpdatedEvent
-> = z.object({
-  id: z.string(),
-  timestamp: z.date().transform(v => v.toISOString()),
-  organizationId: z.string(),
-  customerId: z.nullable(z.string()),
-  customer: z.nullable(Customer$outboundSchema),
-  externalCustomerId: z.nullable(z.string()),
-  childCount: z.number().int().default(0),
-  parentId: z.nullable(z.string()).optional(),
-  source: z.literal("system"),
-  name: z.literal("customer.updated"),
-  metadata: CustomerUpdatedMetadata$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    organizationId: "organization_id",
-    customerId: "customer_id",
-    externalCustomerId: "external_customer_id",
-    childCount: "child_count",
-    parentId: "parent_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerUpdatedEvent$ {
-  /** @deprecated use `CustomerUpdatedEvent$inboundSchema` instead. */
-  export const inboundSchema = CustomerUpdatedEvent$inboundSchema;
-  /** @deprecated use `CustomerUpdatedEvent$outboundSchema` instead. */
-  export const outboundSchema = CustomerUpdatedEvent$outboundSchema;
-  /** @deprecated use `CustomerUpdatedEvent$Outbound` instead. */
-  export type Outbound = CustomerUpdatedEvent$Outbound;
-}
-
-export function customerUpdatedEventToJSON(
-  customerUpdatedEvent: CustomerUpdatedEvent,
-): string {
-  return JSON.stringify(
-    CustomerUpdatedEvent$outboundSchema.parse(customerUpdatedEvent),
-  );
-}
 
 export function customerUpdatedEventFromJSON(
   jsonString: string,

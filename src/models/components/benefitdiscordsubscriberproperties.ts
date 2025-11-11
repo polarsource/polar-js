@@ -31,48 +31,6 @@ export const BenefitDiscordSubscriberProperties$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type BenefitDiscordSubscriberProperties$Outbound = {
-  guild_id: string;
-};
-
-/** @internal */
-export const BenefitDiscordSubscriberProperties$outboundSchema: z.ZodType<
-  BenefitDiscordSubscriberProperties$Outbound,
-  z.ZodTypeDef,
-  BenefitDiscordSubscriberProperties
-> = z.object({
-  guildId: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    guildId: "guild_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDiscordSubscriberProperties$ {
-  /** @deprecated use `BenefitDiscordSubscriberProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitDiscordSubscriberProperties$inboundSchema;
-  /** @deprecated use `BenefitDiscordSubscriberProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitDiscordSubscriberProperties$outboundSchema;
-  /** @deprecated use `BenefitDiscordSubscriberProperties$Outbound` instead. */
-  export type Outbound = BenefitDiscordSubscriberProperties$Outbound;
-}
-
-export function benefitDiscordSubscriberPropertiesToJSON(
-  benefitDiscordSubscriberProperties: BenefitDiscordSubscriberProperties,
-): string {
-  return JSON.stringify(
-    BenefitDiscordSubscriberProperties$outboundSchema.parse(
-      benefitDiscordSubscriberProperties,
-    ),
-  );
-}
-
 export function benefitDiscordSubscriberPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitDiscordSubscriberProperties, SDKValidationError> {

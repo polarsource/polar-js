@@ -27,7 +27,6 @@ export const OrganizationNotificationSettings$inboundSchema: z.ZodType<
     "new_subscription": "newSubscription",
   });
 });
-
 /** @internal */
 export type OrganizationNotificationSettings$Outbound = {
   new_order: boolean;
@@ -49,19 +48,6 @@ export const OrganizationNotificationSettings$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationNotificationSettings$ {
-  /** @deprecated use `OrganizationNotificationSettings$inboundSchema` instead. */
-  export const inboundSchema = OrganizationNotificationSettings$inboundSchema;
-  /** @deprecated use `OrganizationNotificationSettings$outboundSchema` instead. */
-  export const outboundSchema = OrganizationNotificationSettings$outboundSchema;
-  /** @deprecated use `OrganizationNotificationSettings$Outbound` instead. */
-  export type Outbound = OrganizationNotificationSettings$Outbound;
-}
-
 export function organizationNotificationSettingsToJSON(
   organizationNotificationSettings: OrganizationNotificationSettings,
 ): string {
@@ -71,7 +57,6 @@ export function organizationNotificationSettingsToJSON(
     ),
   );
 }
-
 export function organizationNotificationSettingsFromJSON(
   jsonString: string,
 ): SafeParseResult<OrganizationNotificationSettings, SDKValidationError> {

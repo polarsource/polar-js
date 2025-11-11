@@ -74,7 +74,6 @@ export const ProductMediaFileRead$inboundSchema: z.ZodType<
     "public_url": "publicUrl",
   });
 });
-
 /** @internal */
 export type ProductMediaFileRead$Outbound = {
   id: string;
@@ -135,19 +134,6 @@ export const ProductMediaFileRead$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductMediaFileRead$ {
-  /** @deprecated use `ProductMediaFileRead$inboundSchema` instead. */
-  export const inboundSchema = ProductMediaFileRead$inboundSchema;
-  /** @deprecated use `ProductMediaFileRead$outboundSchema` instead. */
-  export const outboundSchema = ProductMediaFileRead$outboundSchema;
-  /** @deprecated use `ProductMediaFileRead$Outbound` instead. */
-  export type Outbound = ProductMediaFileRead$Outbound;
-}
-
 export function productMediaFileReadToJSON(
   productMediaFileRead: ProductMediaFileRead,
 ): string {
@@ -155,7 +141,6 @@ export function productMediaFileReadToJSON(
     ProductMediaFileRead$outboundSchema.parse(productMediaFileRead),
   );
 }
-
 export function productMediaFileReadFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductMediaFileRead, SDKValidationError> {

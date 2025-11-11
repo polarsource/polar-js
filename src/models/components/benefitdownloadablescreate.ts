@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitDownloadablesCreateProperties,
-  BenefitDownloadablesCreateProperties$inboundSchema,
   BenefitDownloadablesCreateProperties$Outbound,
   BenefitDownloadablesCreateProperties$outboundSchema,
 } from "./benefitdownloadablescreateproperties.js";
@@ -50,13 +46,6 @@ export type BenefitDownloadablesCreate = {
 };
 
 /** @internal */
-export const BenefitDownloadablesCreateMetadata$inboundSchema: z.ZodType<
-  BenefitDownloadablesCreateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type BenefitDownloadablesCreateMetadata$Outbound =
   | string
   | number
@@ -70,20 +59,6 @@ export const BenefitDownloadablesCreateMetadata$outboundSchema: z.ZodType<
   BenefitDownloadablesCreateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadablesCreateMetadata$ {
-  /** @deprecated use `BenefitDownloadablesCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitDownloadablesCreateMetadata$inboundSchema;
-  /** @deprecated use `BenefitDownloadablesCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitDownloadablesCreateMetadata$outboundSchema;
-  /** @deprecated use `BenefitDownloadablesCreateMetadata$Outbound` instead. */
-  export type Outbound = BenefitDownloadablesCreateMetadata$Outbound;
-}
-
 export function benefitDownloadablesCreateMetadataToJSON(
   benefitDownloadablesCreateMetadata: BenefitDownloadablesCreateMetadata,
 ): string {
@@ -93,36 +68,6 @@ export function benefitDownloadablesCreateMetadataToJSON(
     ),
   );
 }
-
-export function benefitDownloadablesCreateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitDownloadablesCreateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      BenefitDownloadablesCreateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitDownloadablesCreateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitDownloadablesCreate$inboundSchema: z.ZodType<
-  BenefitDownloadablesCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  type: z.literal("downloadables"),
-  description: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  properties: BenefitDownloadablesCreateProperties$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type BenefitDownloadablesCreate$Outbound = {
@@ -152,33 +97,10 @@ export const BenefitDownloadablesCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadablesCreate$ {
-  /** @deprecated use `BenefitDownloadablesCreate$inboundSchema` instead. */
-  export const inboundSchema = BenefitDownloadablesCreate$inboundSchema;
-  /** @deprecated use `BenefitDownloadablesCreate$outboundSchema` instead. */
-  export const outboundSchema = BenefitDownloadablesCreate$outboundSchema;
-  /** @deprecated use `BenefitDownloadablesCreate$Outbound` instead. */
-  export type Outbound = BenefitDownloadablesCreate$Outbound;
-}
-
 export function benefitDownloadablesCreateToJSON(
   benefitDownloadablesCreate: BenefitDownloadablesCreate,
 ): string {
   return JSON.stringify(
     BenefitDownloadablesCreate$outboundSchema.parse(benefitDownloadablesCreate),
-  );
-}
-
-export function benefitDownloadablesCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitDownloadablesCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitDownloadablesCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitDownloadablesCreate' from JSON`,
   );
 }

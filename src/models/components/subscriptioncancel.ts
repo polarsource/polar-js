@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerCancellationReason,
-  CustomerCancellationReason$inboundSchema,
   CustomerCancellationReason$outboundSchema,
 } from "./customercancellationreason.js";
 
@@ -61,25 +57,6 @@ export type SubscriptionCancel = {
 };
 
 /** @internal */
-export const SubscriptionCancel$inboundSchema: z.ZodType<
-  SubscriptionCancel,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_cancellation_reason: z.nullable(
-    CustomerCancellationReason$inboundSchema,
-  ).optional(),
-  customer_cancellation_comment: z.nullable(z.string()).optional(),
-  cancel_at_period_end: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_cancellation_reason": "customerCancellationReason",
-    "customer_cancellation_comment": "customerCancellationComment",
-    "cancel_at_period_end": "cancelAtPeriodEnd",
-  });
-});
-
-/** @internal */
 export type SubscriptionCancel$Outbound = {
   customer_cancellation_reason?: string | null | undefined;
   customer_cancellation_comment?: string | null | undefined;
@@ -105,33 +82,10 @@ export const SubscriptionCancel$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionCancel$ {
-  /** @deprecated use `SubscriptionCancel$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionCancel$inboundSchema;
-  /** @deprecated use `SubscriptionCancel$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionCancel$outboundSchema;
-  /** @deprecated use `SubscriptionCancel$Outbound` instead. */
-  export type Outbound = SubscriptionCancel$Outbound;
-}
-
 export function subscriptionCancelToJSON(
   subscriptionCancel: SubscriptionCancel,
 ): string {
   return JSON.stringify(
     SubscriptionCancel$outboundSchema.parse(subscriptionCancel),
-  );
-}
-
-export function subscriptionCancelFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionCancel, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionCancel$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionCancel' from JSON`,
   );
 }

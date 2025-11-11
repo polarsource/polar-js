@@ -3,35 +3,20 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   SubscriptionCreateCustomer,
-  SubscriptionCreateCustomer$inboundSchema,
   SubscriptionCreateCustomer$Outbound,
   SubscriptionCreateCustomer$outboundSchema,
 } from "../components/subscriptioncreatecustomer.js";
 import {
   SubscriptionCreateExternalCustomer,
-  SubscriptionCreateExternalCustomer$inboundSchema,
   SubscriptionCreateExternalCustomer$Outbound,
   SubscriptionCreateExternalCustomer$outboundSchema,
 } from "../components/subscriptioncreateexternalcustomer.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionsCreateSubscriptionCreate =
   | SubscriptionCreateCustomer
   | SubscriptionCreateExternalCustomer;
-
-/** @internal */
-export const SubscriptionsCreateSubscriptionCreate$inboundSchema: z.ZodType<
-  SubscriptionsCreateSubscriptionCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  SubscriptionCreateCustomer$inboundSchema,
-  SubscriptionCreateExternalCustomer$inboundSchema,
-]);
 
 /** @internal */
 export type SubscriptionsCreateSubscriptionCreate$Outbound =
@@ -48,21 +33,6 @@ export const SubscriptionsCreateSubscriptionCreate$outboundSchema: z.ZodType<
   SubscriptionCreateExternalCustomer$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionsCreateSubscriptionCreate$ {
-  /** @deprecated use `SubscriptionsCreateSubscriptionCreate$inboundSchema` instead. */
-  export const inboundSchema =
-    SubscriptionsCreateSubscriptionCreate$inboundSchema;
-  /** @deprecated use `SubscriptionsCreateSubscriptionCreate$outboundSchema` instead. */
-  export const outboundSchema =
-    SubscriptionsCreateSubscriptionCreate$outboundSchema;
-  /** @deprecated use `SubscriptionsCreateSubscriptionCreate$Outbound` instead. */
-  export type Outbound = SubscriptionsCreateSubscriptionCreate$Outbound;
-}
-
 export function subscriptionsCreateSubscriptionCreateToJSON(
   subscriptionsCreateSubscriptionCreate: SubscriptionsCreateSubscriptionCreate,
 ): string {
@@ -70,16 +40,5 @@ export function subscriptionsCreateSubscriptionCreateToJSON(
     SubscriptionsCreateSubscriptionCreate$outboundSchema.parse(
       subscriptionsCreateSubscriptionCreate,
     ),
-  );
-}
-
-export function subscriptionsCreateSubscriptionCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionsCreateSubscriptionCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      SubscriptionsCreateSubscriptionCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionsCreateSubscriptionCreate' from JSON`,
   );
 }

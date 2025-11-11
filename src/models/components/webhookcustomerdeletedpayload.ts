@@ -39,7 +39,6 @@ export const WebhookCustomerDeletedPayload$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Customer$inboundSchema,
 });
-
 /** @internal */
 export type WebhookCustomerDeletedPayload$Outbound = {
   type: "customer.deleted";
@@ -58,19 +57,6 @@ export const WebhookCustomerDeletedPayload$outboundSchema: z.ZodType<
   data: Customer$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookCustomerDeletedPayload$ {
-  /** @deprecated use `WebhookCustomerDeletedPayload$inboundSchema` instead. */
-  export const inboundSchema = WebhookCustomerDeletedPayload$inboundSchema;
-  /** @deprecated use `WebhookCustomerDeletedPayload$outboundSchema` instead. */
-  export const outboundSchema = WebhookCustomerDeletedPayload$outboundSchema;
-  /** @deprecated use `WebhookCustomerDeletedPayload$Outbound` instead. */
-  export type Outbound = WebhookCustomerDeletedPayload$Outbound;
-}
-
 export function webhookCustomerDeletedPayloadToJSON(
   webhookCustomerDeletedPayload: WebhookCustomerDeletedPayload,
 ): string {
@@ -80,7 +66,6 @@ export function webhookCustomerDeletedPayloadToJSON(
     ),
   );
 }
-
 export function webhookCustomerDeletedPayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhookCustomerDeletedPayload, SDKValidationError> {

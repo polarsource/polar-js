@@ -4,29 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPaymentMethodConfirm = {
   setupIntentId: string;
   setDefault: boolean;
 };
-
-/** @internal */
-export const CustomerPaymentMethodConfirm$inboundSchema: z.ZodType<
-  CustomerPaymentMethodConfirm,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  setup_intent_id: z.string(),
-  set_default: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    "setup_intent_id": "setupIntentId",
-    "set_default": "setDefault",
-  });
-});
 
 /** @internal */
 export type CustomerPaymentMethodConfirm$Outbound = {
@@ -49,19 +31,6 @@ export const CustomerPaymentMethodConfirm$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPaymentMethodConfirm$ {
-  /** @deprecated use `CustomerPaymentMethodConfirm$inboundSchema` instead. */
-  export const inboundSchema = CustomerPaymentMethodConfirm$inboundSchema;
-  /** @deprecated use `CustomerPaymentMethodConfirm$outboundSchema` instead. */
-  export const outboundSchema = CustomerPaymentMethodConfirm$outboundSchema;
-  /** @deprecated use `CustomerPaymentMethodConfirm$Outbound` instead. */
-  export type Outbound = CustomerPaymentMethodConfirm$Outbound;
-}
-
 export function customerPaymentMethodConfirmToJSON(
   customerPaymentMethodConfirm: CustomerPaymentMethodConfirm,
 ): string {
@@ -69,15 +38,5 @@ export function customerPaymentMethodConfirmToJSON(
     CustomerPaymentMethodConfirm$outboundSchema.parse(
       customerPaymentMethodConfirm,
     ),
-  );
-}
-
-export function customerPaymentMethodConfirmFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPaymentMethodConfirm, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerPaymentMethodConfirm$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPaymentMethodConfirm' from JSON`,
   );
 }

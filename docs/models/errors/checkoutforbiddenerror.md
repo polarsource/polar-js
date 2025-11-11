@@ -30,3 +30,12 @@ const value: errors.PaymentNotReady = {
 };
 ```
 
+### `errors.TrialAlreadyRedeemed`
+
+```typescript
+const value: errors.TrialAlreadyRedeemed = {
+  error: "TrialAlreadyRedeemed",
+  detail: "<value>",
+};
+```
+

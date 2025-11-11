@@ -32,54 +32,6 @@ export const BenefitMeterCreditSubscriberProperties$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type BenefitMeterCreditSubscriberProperties$Outbound = {
-  units: number;
-  rollover: boolean;
-  meter_id: string;
-};
-
-/** @internal */
-export const BenefitMeterCreditSubscriberProperties$outboundSchema: z.ZodType<
-  BenefitMeterCreditSubscriberProperties$Outbound,
-  z.ZodTypeDef,
-  BenefitMeterCreditSubscriberProperties
-> = z.object({
-  units: z.number().int(),
-  rollover: z.boolean(),
-  meterId: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    meterId: "meter_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitMeterCreditSubscriberProperties$ {
-  /** @deprecated use `BenefitMeterCreditSubscriberProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitMeterCreditSubscriberProperties$inboundSchema;
-  /** @deprecated use `BenefitMeterCreditSubscriberProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitMeterCreditSubscriberProperties$outboundSchema;
-  /** @deprecated use `BenefitMeterCreditSubscriberProperties$Outbound` instead. */
-  export type Outbound = BenefitMeterCreditSubscriberProperties$Outbound;
-}
-
-export function benefitMeterCreditSubscriberPropertiesToJSON(
-  benefitMeterCreditSubscriberProperties:
-    BenefitMeterCreditSubscriberProperties,
-): string {
-  return JSON.stringify(
-    BenefitMeterCreditSubscriberProperties$outboundSchema.parse(
-      benefitMeterCreditSubscriberProperties,
-    ),
-  );
-}
-
 export function benefitMeterCreditSubscriberPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitMeterCreditSubscriberProperties, SDKValidationError> {

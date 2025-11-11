@@ -65,7 +65,6 @@ export const LLMMetadata$inboundSchema: z.ZodType<
     "total_tokens": "totalTokens",
   });
 });
-
 /** @internal */
 export type LLMMetadata$Outbound = {
   vendor: string;
@@ -101,23 +100,9 @@ export const LLMMetadata$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LLMMetadata$ {
-  /** @deprecated use `LLMMetadata$inboundSchema` instead. */
-  export const inboundSchema = LLMMetadata$inboundSchema;
-  /** @deprecated use `LLMMetadata$outboundSchema` instead. */
-  export const outboundSchema = LLMMetadata$outboundSchema;
-  /** @deprecated use `LLMMetadata$Outbound` instead. */
-  export type Outbound = LLMMetadata$Outbound;
-}
-
 export function llmMetadataToJSON(llmMetadata: LLMMetadata): string {
   return JSON.stringify(LLMMetadata$outboundSchema.parse(llmMetadata));
 }
-
 export function llmMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<LLMMetadata, SDKValidationError> {

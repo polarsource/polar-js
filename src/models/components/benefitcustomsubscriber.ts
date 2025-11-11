@@ -10,14 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitCustomSubscriberProperties,
   BenefitCustomSubscriberProperties$inboundSchema,
-  BenefitCustomSubscriberProperties$Outbound,
-  BenefitCustomSubscriberProperties$outboundSchema,
 } from "./benefitcustomsubscriberproperties.js";
 import {
   BenefitSubscriberOrganization,
   BenefitSubscriberOrganization$inboundSchema,
-  BenefitSubscriberOrganization$Outbound,
-  BenefitSubscriberOrganization$outboundSchema,
 } from "./benefitsubscriberorganization.js";
 
 export type BenefitCustomSubscriberMetadata =
@@ -71,43 +67,6 @@ export const BenefitCustomSubscriberMetadata$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/** @internal */
-export type BenefitCustomSubscriberMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const BenefitCustomSubscriberMetadata$outboundSchema: z.ZodType<
-  BenefitCustomSubscriberMetadata$Outbound,
-  z.ZodTypeDef,
-  BenefitCustomSubscriberMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustomSubscriberMetadata$ {
-  /** @deprecated use `BenefitCustomSubscriberMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustomSubscriberMetadata$inboundSchema;
-  /** @deprecated use `BenefitCustomSubscriberMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustomSubscriberMetadata$outboundSchema;
-  /** @deprecated use `BenefitCustomSubscriberMetadata$Outbound` instead. */
-  export type Outbound = BenefitCustomSubscriberMetadata$Outbound;
-}
-
-export function benefitCustomSubscriberMetadataToJSON(
-  benefitCustomSubscriberMetadata: BenefitCustomSubscriberMetadata,
-): string {
-  return JSON.stringify(
-    BenefitCustomSubscriberMetadata$outboundSchema.parse(
-      benefitCustomSubscriberMetadata,
-    ),
-  );
-}
-
 export function benefitCustomSubscriberMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitCustomSubscriberMetadata, SDKValidationError> {
@@ -146,69 +105,6 @@ export const BenefitCustomSubscriber$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type BenefitCustomSubscriber$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  type: "custom";
-  description: string;
-  selectable: boolean;
-  deletable: boolean;
-  organization_id: string;
-  metadata: { [k: string]: string | number | number | boolean };
-  organization: BenefitSubscriberOrganization$Outbound;
-  properties: BenefitCustomSubscriberProperties$Outbound;
-};
-
-/** @internal */
-export const BenefitCustomSubscriber$outboundSchema: z.ZodType<
-  BenefitCustomSubscriber$Outbound,
-  z.ZodTypeDef,
-  BenefitCustomSubscriber
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  type: z.literal("custom"),
-  description: z.string(),
-  selectable: z.boolean(),
-  deletable: z.boolean(),
-  organizationId: z.string(),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  organization: BenefitSubscriberOrganization$outboundSchema,
-  properties: BenefitCustomSubscriberProperties$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustomSubscriber$ {
-  /** @deprecated use `BenefitCustomSubscriber$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustomSubscriber$inboundSchema;
-  /** @deprecated use `BenefitCustomSubscriber$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustomSubscriber$outboundSchema;
-  /** @deprecated use `BenefitCustomSubscriber$Outbound` instead. */
-  export type Outbound = BenefitCustomSubscriber$Outbound;
-}
-
-export function benefitCustomSubscriberToJSON(
-  benefitCustomSubscriber: BenefitCustomSubscriber,
-): string {
-  return JSON.stringify(
-    BenefitCustomSubscriber$outboundSchema.parse(benefitCustomSubscriber),
-  );
-}
 
 export function benefitCustomSubscriberFromJSON(
   jsonString: string,

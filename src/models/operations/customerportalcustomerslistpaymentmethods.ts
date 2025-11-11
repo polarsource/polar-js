@@ -9,8 +9,6 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ListResourceCustomerPaymentMethod,
   ListResourceCustomerPaymentMethod$inboundSchema,
-  ListResourceCustomerPaymentMethod$Outbound,
-  ListResourceCustomerPaymentMethod$outboundSchema,
 } from "../components/listresourcecustomerpaymentmethod.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -34,20 +32,6 @@ export type CustomerPortalCustomersListPaymentMethodsResponse = {
 };
 
 /** @internal */
-export const CustomerPortalCustomersListPaymentMethodsSecurity$inboundSchema:
-  z.ZodType<
-    CustomerPortalCustomersListPaymentMethodsSecurity,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    customer_session: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "customer_session": "customerSession",
-    });
-  });
-
-/** @internal */
 export type CustomerPortalCustomersListPaymentMethodsSecurity$Outbound = {
   customer_session: string;
 };
@@ -66,22 +50,6 @@ export const CustomerPortalCustomersListPaymentMethodsSecurity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomersListPaymentMethodsSecurity$ {
-  /** @deprecated use `CustomerPortalCustomersListPaymentMethodsSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalCustomersListPaymentMethodsSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomersListPaymentMethodsSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomersListPaymentMethodsSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomersListPaymentMethodsSecurity$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalCustomersListPaymentMethodsSecurity$Outbound;
-}
-
 export function customerPortalCustomersListPaymentMethodsSecurityToJSON(
   customerPortalCustomersListPaymentMethodsSecurity:
     CustomerPortalCustomersListPaymentMethodsSecurity,
@@ -92,33 +60,6 @@ export function customerPortalCustomersListPaymentMethodsSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalCustomersListPaymentMethodsSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalCustomersListPaymentMethodsSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalCustomersListPaymentMethodsSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalCustomersListPaymentMethodsSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalCustomersListPaymentMethodsRequest$inboundSchema:
-  z.ZodType<
-    CustomerPortalCustomersListPaymentMethodsRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    page: z.number().int().default(1),
-    limit: z.number().int().default(10),
-  });
 
 /** @internal */
 export type CustomerPortalCustomersListPaymentMethodsRequest$Outbound = {
@@ -137,22 +78,6 @@ export const CustomerPortalCustomersListPaymentMethodsRequest$outboundSchema:
     limit: z.number().int().default(10),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomersListPaymentMethodsRequest$ {
-  /** @deprecated use `CustomerPortalCustomersListPaymentMethodsRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalCustomersListPaymentMethodsRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomersListPaymentMethodsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomersListPaymentMethodsRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomersListPaymentMethodsRequest$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalCustomersListPaymentMethodsRequest$Outbound;
-}
-
 export function customerPortalCustomersListPaymentMethodsRequestToJSON(
   customerPortalCustomersListPaymentMethodsRequest:
     CustomerPortalCustomersListPaymentMethodsRequest,
@@ -161,22 +86,6 @@ export function customerPortalCustomersListPaymentMethodsRequestToJSON(
     CustomerPortalCustomersListPaymentMethodsRequest$outboundSchema.parse(
       customerPortalCustomersListPaymentMethodsRequest,
     ),
-  );
-}
-
-export function customerPortalCustomersListPaymentMethodsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalCustomersListPaymentMethodsRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalCustomersListPaymentMethodsRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalCustomersListPaymentMethodsRequest' from JSON`,
   );
 }
 
@@ -193,52 +102,6 @@ export const CustomerPortalCustomersListPaymentMethodsResponse$inboundSchema:
       "Result": "result",
     });
   });
-
-/** @internal */
-export type CustomerPortalCustomersListPaymentMethodsResponse$Outbound = {
-  Result: ListResourceCustomerPaymentMethod$Outbound;
-};
-
-/** @internal */
-export const CustomerPortalCustomersListPaymentMethodsResponse$outboundSchema:
-  z.ZodType<
-    CustomerPortalCustomersListPaymentMethodsResponse$Outbound,
-    z.ZodTypeDef,
-    CustomerPortalCustomersListPaymentMethodsResponse
-  > = z.object({
-    result: ListResourceCustomerPaymentMethod$outboundSchema,
-  }).transform((v) => {
-    return remap$(v, {
-      result: "Result",
-    });
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomersListPaymentMethodsResponse$ {
-  /** @deprecated use `CustomerPortalCustomersListPaymentMethodsResponse$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalCustomersListPaymentMethodsResponse$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomersListPaymentMethodsResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomersListPaymentMethodsResponse$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomersListPaymentMethodsResponse$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalCustomersListPaymentMethodsResponse$Outbound;
-}
-
-export function customerPortalCustomersListPaymentMethodsResponseToJSON(
-  customerPortalCustomersListPaymentMethodsResponse:
-    CustomerPortalCustomersListPaymentMethodsResponse,
-): string {
-  return JSON.stringify(
-    CustomerPortalCustomersListPaymentMethodsResponse$outboundSchema.parse(
-      customerPortalCustomersListPaymentMethodsResponse,
-    ),
-  );
-}
 
 export function customerPortalCustomersListPaymentMethodsResponseFromJSON(
   jsonString: string,

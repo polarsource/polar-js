@@ -8,14 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CheckoutLinkSortProperty,
-  CheckoutLinkSortProperty$inboundSchema,
   CheckoutLinkSortProperty$outboundSchema,
 } from "../components/checkoutlinksortproperty.js";
 import {
   ListResourceCheckoutLink,
   ListResourceCheckoutLink$inboundSchema,
-  ListResourceCheckoutLink$Outbound,
-  ListResourceCheckoutLink$outboundSchema,
 } from "../components/listresourcecheckoutlink.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -59,14 +56,6 @@ export type CheckoutLinksListResponse = {
 };
 
 /** @internal */
-export const CheckoutLinksListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<
-    CheckoutLinksListQueryParamOrganizationIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type CheckoutLinksListQueryParamOrganizationIDFilter$Outbound =
   | string
   | Array<string>;
@@ -79,22 +68,6 @@ export const CheckoutLinksListQueryParamOrganizationIDFilter$outboundSchema:
     CheckoutLinksListQueryParamOrganizationIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinksListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `CheckoutLinksListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CheckoutLinksListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `CheckoutLinksListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutLinksListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `CheckoutLinksListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound =
-    CheckoutLinksListQueryParamOrganizationIDFilter$Outbound;
-}
-
 export function checkoutLinksListQueryParamOrganizationIDFilterToJSON(
   checkoutLinksListQueryParamOrganizationIDFilter:
     CheckoutLinksListQueryParamOrganizationIDFilter,
@@ -105,27 +78,6 @@ export function checkoutLinksListQueryParamOrganizationIDFilterToJSON(
     ),
   );
 }
-
-export function checkoutLinksListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CheckoutLinksListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CheckoutLinksListQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CheckoutLinksListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CheckoutLinksListQueryParamProductIDFilter$inboundSchema:
-  z.ZodType<CheckoutLinksListQueryParamProductIDFilter, z.ZodTypeDef, unknown> =
-    z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type CheckoutLinksListQueryParamProductIDFilter$Outbound =
@@ -140,21 +92,6 @@ export const CheckoutLinksListQueryParamProductIDFilter$outboundSchema:
     CheckoutLinksListQueryParamProductIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinksListQueryParamProductIDFilter$ {
-  /** @deprecated use `CheckoutLinksListQueryParamProductIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CheckoutLinksListQueryParamProductIDFilter$inboundSchema;
-  /** @deprecated use `CheckoutLinksListQueryParamProductIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutLinksListQueryParamProductIDFilter$outboundSchema;
-  /** @deprecated use `CheckoutLinksListQueryParamProductIDFilter$Outbound` instead. */
-  export type Outbound = CheckoutLinksListQueryParamProductIDFilter$Outbound;
-}
-
 export function checkoutLinksListQueryParamProductIDFilterToJSON(
   checkoutLinksListQueryParamProductIDFilter:
     CheckoutLinksListQueryParamProductIDFilter,
@@ -165,42 +102,6 @@ export function checkoutLinksListQueryParamProductIDFilterToJSON(
     ),
   );
 }
-
-export function checkoutLinksListQueryParamProductIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CheckoutLinksListQueryParamProductIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CheckoutLinksListQueryParamProductIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CheckoutLinksListQueryParamProductIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CheckoutLinksListRequest$inboundSchema: z.ZodType<
-  CheckoutLinksListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(CheckoutLinkSortProperty$inboundSchema))
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "product_id": "productId",
-  });
-});
 
 /** @internal */
 export type CheckoutLinksListRequest$Outbound = {
@@ -231,34 +132,11 @@ export const CheckoutLinksListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinksListRequest$ {
-  /** @deprecated use `CheckoutLinksListRequest$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinksListRequest$inboundSchema;
-  /** @deprecated use `CheckoutLinksListRequest$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinksListRequest$outboundSchema;
-  /** @deprecated use `CheckoutLinksListRequest$Outbound` instead. */
-  export type Outbound = CheckoutLinksListRequest$Outbound;
-}
-
 export function checkoutLinksListRequestToJSON(
   checkoutLinksListRequest: CheckoutLinksListRequest,
 ): string {
   return JSON.stringify(
     CheckoutLinksListRequest$outboundSchema.parse(checkoutLinksListRequest),
-  );
-}
-
-export function checkoutLinksListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutLinksListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutLinksListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutLinksListRequest' from JSON`,
   );
 }
 
@@ -274,45 +152,6 @@ export const CheckoutLinksListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type CheckoutLinksListResponse$Outbound = {
-  Result: ListResourceCheckoutLink$Outbound;
-};
-
-/** @internal */
-export const CheckoutLinksListResponse$outboundSchema: z.ZodType<
-  CheckoutLinksListResponse$Outbound,
-  z.ZodTypeDef,
-  CheckoutLinksListResponse
-> = z.object({
-  result: ListResourceCheckoutLink$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinksListResponse$ {
-  /** @deprecated use `CheckoutLinksListResponse$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinksListResponse$inboundSchema;
-  /** @deprecated use `CheckoutLinksListResponse$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinksListResponse$outboundSchema;
-  /** @deprecated use `CheckoutLinksListResponse$Outbound` instead. */
-  export type Outbound = CheckoutLinksListResponse$Outbound;
-}
-
-export function checkoutLinksListResponseToJSON(
-  checkoutLinksListResponse: CheckoutLinksListResponse,
-): string {
-  return JSON.stringify(
-    CheckoutLinksListResponse$outboundSchema.parse(checkoutLinksListResponse),
-  );
-}
 
 export function checkoutLinksListResponseFromJSON(
   jsonString: string,

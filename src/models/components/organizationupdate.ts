@@ -4,42 +4,33 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   OrganizationCustomerEmailSettings,
-  OrganizationCustomerEmailSettings$inboundSchema,
   OrganizationCustomerEmailSettings$Outbound,
   OrganizationCustomerEmailSettings$outboundSchema,
 } from "./organizationcustomeremailsettings.js";
 import {
   OrganizationDetails,
-  OrganizationDetails$inboundSchema,
   OrganizationDetails$Outbound,
   OrganizationDetails$outboundSchema,
 } from "./organizationdetails.js";
 import {
   OrganizationFeatureSettings,
-  OrganizationFeatureSettings$inboundSchema,
   OrganizationFeatureSettings$Outbound,
   OrganizationFeatureSettings$outboundSchema,
 } from "./organizationfeaturesettings.js";
 import {
   OrganizationNotificationSettings,
-  OrganizationNotificationSettings$inboundSchema,
   OrganizationNotificationSettings$Outbound,
   OrganizationNotificationSettings$outboundSchema,
 } from "./organizationnotificationsettings.js";
 import {
   OrganizationSocialLink,
-  OrganizationSocialLink$inboundSchema,
   OrganizationSocialLink$Outbound,
   OrganizationSocialLink$outboundSchema,
 } from "./organizationsociallink.js";
 import {
   OrganizationSubscriptionSettings,
-  OrganizationSubscriptionSettings$inboundSchema,
   OrganizationSubscriptionSettings$Outbound,
   OrganizationSubscriptionSettings$outboundSchema,
 } from "./organizationsubscriptionsettings.js";
@@ -68,39 +59,6 @@ export type OrganizationUpdate = {
   notificationSettings?: OrganizationNotificationSettings | null | undefined;
   customerEmailSettings?: OrganizationCustomerEmailSettings | null | undefined;
 };
-
-/** @internal */
-export const OrganizationUpdate$inboundSchema: z.ZodType<
-  OrganizationUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  name: z.nullable(z.string()).optional(),
-  avatar_url: z.nullable(z.string()).optional(),
-  email: z.nullable(z.string()).optional(),
-  website: z.nullable(z.string()).optional(),
-  socials: z.nullable(z.array(OrganizationSocialLink$inboundSchema)).optional(),
-  details: z.nullable(OrganizationDetails$inboundSchema).optional(),
-  feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema)
-    .optional(),
-  subscription_settings: z.nullable(
-    OrganizationSubscriptionSettings$inboundSchema,
-  ).optional(),
-  notification_settings: z.nullable(
-    OrganizationNotificationSettings$inboundSchema,
-  ).optional(),
-  customer_email_settings: z.nullable(
-    OrganizationCustomerEmailSettings$inboundSchema,
-  ).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "avatar_url": "avatarUrl",
-    "feature_settings": "featureSettings",
-    "subscription_settings": "subscriptionSettings",
-    "notification_settings": "notificationSettings",
-    "customer_email_settings": "customerEmailSettings",
-  });
-});
 
 /** @internal */
 export type OrganizationUpdate$Outbound = {
@@ -159,33 +117,10 @@ export const OrganizationUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationUpdate$ {
-  /** @deprecated use `OrganizationUpdate$inboundSchema` instead. */
-  export const inboundSchema = OrganizationUpdate$inboundSchema;
-  /** @deprecated use `OrganizationUpdate$outboundSchema` instead. */
-  export const outboundSchema = OrganizationUpdate$outboundSchema;
-  /** @deprecated use `OrganizationUpdate$Outbound` instead. */
-  export type Outbound = OrganizationUpdate$Outbound;
-}
-
 export function organizationUpdateToJSON(
   organizationUpdate: OrganizationUpdate,
 ): string {
   return JSON.stringify(
     OrganizationUpdate$outboundSchema.parse(organizationUpdate),
-  );
-}
-
-export function organizationUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<OrganizationUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrganizationUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrganizationUpdate' from JSON`,
   );
 }

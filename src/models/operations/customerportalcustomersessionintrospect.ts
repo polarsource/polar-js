@@ -4,27 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalCustomerSessionIntrospectSecurity = {
   customerSession: string;
 };
-
-/** @internal */
-export const CustomerPortalCustomerSessionIntrospectSecurity$inboundSchema:
-  z.ZodType<
-    CustomerPortalCustomerSessionIntrospectSecurity,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    customer_session: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "customer_session": "customerSession",
-    });
-  });
 
 /** @internal */
 export type CustomerPortalCustomerSessionIntrospectSecurity$Outbound = {
@@ -45,22 +28,6 @@ export const CustomerPortalCustomerSessionIntrospectSecurity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomerSessionIntrospectSecurity$ {
-  /** @deprecated use `CustomerPortalCustomerSessionIntrospectSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalCustomerSessionIntrospectSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomerSessionIntrospectSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomerSessionIntrospectSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomerSessionIntrospectSecurity$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalCustomerSessionIntrospectSecurity$Outbound;
-}
-
 export function customerPortalCustomerSessionIntrospectSecurityToJSON(
   customerPortalCustomerSessionIntrospectSecurity:
     CustomerPortalCustomerSessionIntrospectSecurity,
@@ -69,21 +36,5 @@ export function customerPortalCustomerSessionIntrospectSecurityToJSON(
     CustomerPortalCustomerSessionIntrospectSecurity$outboundSchema.parse(
       customerPortalCustomerSessionIntrospectSecurity,
     ),
-  );
-}
-
-export function customerPortalCustomerSessionIntrospectSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalCustomerSessionIntrospectSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalCustomerSessionIntrospectSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalCustomerSessionIntrospectSecurity' from JSON`,
   );
 }

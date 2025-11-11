@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LicenseKeyStatus,
-  LicenseKeyStatus$inboundSchema,
   LicenseKeyStatus$outboundSchema,
 } from "./licensekeystatus.js";
 
@@ -20,27 +16,6 @@ export type LicenseKeyUpdate = {
   limitUsage?: number | null | undefined;
   expiresAt?: Date | null | undefined;
 };
-
-/** @internal */
-export const LicenseKeyUpdate$inboundSchema: z.ZodType<
-  LicenseKeyUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  status: z.nullable(LicenseKeyStatus$inboundSchema).optional(),
-  usage: z.number().int().default(0),
-  limit_activations: z.nullable(z.number().int()).optional(),
-  limit_usage: z.nullable(z.number().int()).optional(),
-  expires_at: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "limit_activations": "limitActivations",
-    "limit_usage": "limitUsage",
-    "expires_at": "expiresAt",
-  });
-});
 
 /** @internal */
 export type LicenseKeyUpdate$Outbound = {
@@ -70,33 +45,10 @@ export const LicenseKeyUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeyUpdate$ {
-  /** @deprecated use `LicenseKeyUpdate$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeyUpdate$inboundSchema;
-  /** @deprecated use `LicenseKeyUpdate$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeyUpdate$outboundSchema;
-  /** @deprecated use `LicenseKeyUpdate$Outbound` instead. */
-  export type Outbound = LicenseKeyUpdate$Outbound;
-}
-
 export function licenseKeyUpdateToJSON(
   licenseKeyUpdate: LicenseKeyUpdate,
 ): string {
   return JSON.stringify(
     LicenseKeyUpdate$outboundSchema.parse(licenseKeyUpdate),
-  );
-}
-
-export function licenseKeyUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<LicenseKeyUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => LicenseKeyUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LicenseKeyUpdate' from JSON`,
   );
 }

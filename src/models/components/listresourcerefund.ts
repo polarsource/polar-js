@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
-import {
-  Refund,
-  Refund$inboundSchema,
-  Refund$Outbound,
-  Refund$outboundSchema,
-} from "./refund.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
+import { Refund, Refund$inboundSchema } from "./refund.js";
 
 export type ListResourceRefund = {
   items: Array<Refund>;
@@ -33,43 +23,6 @@ export const ListResourceRefund$inboundSchema: z.ZodType<
   items: z.array(Refund$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceRefund$Outbound = {
-  items: Array<Refund$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceRefund$outboundSchema: z.ZodType<
-  ListResourceRefund$Outbound,
-  z.ZodTypeDef,
-  ListResourceRefund
-> = z.object({
-  items: z.array(Refund$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceRefund$ {
-  /** @deprecated use `ListResourceRefund$inboundSchema` instead. */
-  export const inboundSchema = ListResourceRefund$inboundSchema;
-  /** @deprecated use `ListResourceRefund$outboundSchema` instead. */
-  export const outboundSchema = ListResourceRefund$outboundSchema;
-  /** @deprecated use `ListResourceRefund$Outbound` instead. */
-  export type Outbound = ListResourceRefund$Outbound;
-}
-
-export function listResourceRefundToJSON(
-  listResourceRefund: ListResourceRefund,
-): string {
-  return JSON.stringify(
-    ListResourceRefund$outboundSchema.parse(listResourceRefund),
-  );
-}
 
 export function listResourceRefundFromJSON(
   jsonString: string,

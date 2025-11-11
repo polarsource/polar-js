@@ -8,14 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomerCustomerMeterSortProperty,
-  CustomerCustomerMeterSortProperty$inboundSchema,
   CustomerCustomerMeterSortProperty$outboundSchema,
 } from "../components/customercustomermetersortproperty.js";
 import {
   ListResourceCustomerCustomerMeter,
   ListResourceCustomerCustomerMeter$inboundSchema,
-  ListResourceCustomerCustomerMeter$Outbound,
-  ListResourceCustomerCustomerMeter$outboundSchema,
 } from "../components/listresourcecustomercustomermeter.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -56,19 +53,6 @@ export type CustomerPortalCustomerMetersListResponse = {
 };
 
 /** @internal */
-export const CustomerPortalCustomerMetersListSecurity$inboundSchema: z.ZodType<
-  CustomerPortalCustomerMetersListSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
-
-/** @internal */
 export type CustomerPortalCustomerMetersListSecurity$Outbound = {
   customer_session: string;
 };
@@ -86,21 +70,6 @@ export const CustomerPortalCustomerMetersListSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomerMetersListSecurity$ {
-  /** @deprecated use `CustomerPortalCustomerMetersListSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalCustomerMetersListSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomerMetersListSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomerMetersListSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomerMetersListSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalCustomerMetersListSecurity$Outbound;
-}
-
 export function customerPortalCustomerMetersListSecurityToJSON(
   customerPortalCustomerMetersListSecurity:
     CustomerPortalCustomerMetersListSecurity,
@@ -112,29 +81,6 @@ export function customerPortalCustomerMetersListSecurityToJSON(
   );
 }
 
-export function customerPortalCustomerMetersListSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalCustomerMetersListSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalCustomerMetersListSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalCustomerMetersListSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const MeterIDFilter$inboundSchema: z.ZodType<
-  MeterIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
 /** @internal */
 export type MeterIDFilter$Outbound = string | Array<string>;
 
@@ -145,50 +91,9 @@ export const MeterIDFilter$outboundSchema: z.ZodType<
   MeterIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MeterIDFilter$ {
-  /** @deprecated use `MeterIDFilter$inboundSchema` instead. */
-  export const inboundSchema = MeterIDFilter$inboundSchema;
-  /** @deprecated use `MeterIDFilter$outboundSchema` instead. */
-  export const outboundSchema = MeterIDFilter$outboundSchema;
-  /** @deprecated use `MeterIDFilter$Outbound` instead. */
-  export type Outbound = MeterIDFilter$Outbound;
-}
-
 export function meterIDFilterToJSON(meterIDFilter: MeterIDFilter): string {
   return JSON.stringify(MeterIDFilter$outboundSchema.parse(meterIDFilter));
 }
-
-export function meterIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<MeterIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => MeterIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MeterIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalCustomerMetersListRequest$inboundSchema: z.ZodType<
-  CustomerPortalCustomerMetersListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  meter_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  query: z.nullable(z.string()).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(CustomerCustomerMeterSortProperty$inboundSchema))
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "meter_id": "meterId",
-  });
-});
 
 /** @internal */
 export type CustomerPortalCustomerMetersListRequest$Outbound = {
@@ -217,21 +122,6 @@ export const CustomerPortalCustomerMetersListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomerMetersListRequest$ {
-  /** @deprecated use `CustomerPortalCustomerMetersListRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalCustomerMetersListRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomerMetersListRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomerMetersListRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomerMetersListRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalCustomerMetersListRequest$Outbound;
-}
-
 export function customerPortalCustomerMetersListRequestToJSON(
   customerPortalCustomerMetersListRequest:
     CustomerPortalCustomerMetersListRequest,
@@ -240,22 +130,6 @@ export function customerPortalCustomerMetersListRequestToJSON(
     CustomerPortalCustomerMetersListRequest$outboundSchema.parse(
       customerPortalCustomerMetersListRequest,
     ),
-  );
-}
-
-export function customerPortalCustomerMetersListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalCustomerMetersListRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalCustomerMetersListRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalCustomerMetersListRequest' from JSON`,
   );
 }
 
@@ -271,50 +145,6 @@ export const CustomerPortalCustomerMetersListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type CustomerPortalCustomerMetersListResponse$Outbound = {
-  Result: ListResourceCustomerCustomerMeter$Outbound;
-};
-
-/** @internal */
-export const CustomerPortalCustomerMetersListResponse$outboundSchema: z.ZodType<
-  CustomerPortalCustomerMetersListResponse$Outbound,
-  z.ZodTypeDef,
-  CustomerPortalCustomerMetersListResponse
-> = z.object({
-  result: ListResourceCustomerCustomerMeter$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomerMetersListResponse$ {
-  /** @deprecated use `CustomerPortalCustomerMetersListResponse$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalCustomerMetersListResponse$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomerMetersListResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomerMetersListResponse$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomerMetersListResponse$Outbound` instead. */
-  export type Outbound = CustomerPortalCustomerMetersListResponse$Outbound;
-}
-
-export function customerPortalCustomerMetersListResponseToJSON(
-  customerPortalCustomerMetersListResponse:
-    CustomerPortalCustomerMetersListResponse,
-): string {
-  return JSON.stringify(
-    CustomerPortalCustomerMetersListResponse$outboundSchema.parse(
-      customerPortalCustomerMetersListResponse,
-    ),
-  );
-}
 
 export function customerPortalCustomerMetersListResponseFromJSON(
   jsonString: string,

@@ -14,18 +14,6 @@ export type SubType = ClosedEnum<typeof SubType>;
 /** @internal */
 export const SubType$inboundSchema: z.ZodNativeEnum<typeof SubType> = z
   .nativeEnum(SubType);
-
 /** @internal */
 export const SubType$outboundSchema: z.ZodNativeEnum<typeof SubType> =
   SubType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubType$ {
-  /** @deprecated use `SubType$inboundSchema` instead. */
-  export const inboundSchema = SubType$inboundSchema;
-  /** @deprecated use `SubType$outboundSchema` instead. */
-  export const outboundSchema = SubType$outboundSchema;
-}

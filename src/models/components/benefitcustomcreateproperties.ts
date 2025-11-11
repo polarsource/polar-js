@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Properties for creating a benefit of type `custom`.
@@ -13,15 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export type BenefitCustomCreateProperties = {
   note?: string | null | undefined;
 };
-
-/** @internal */
-export const BenefitCustomCreateProperties$inboundSchema: z.ZodType<
-  BenefitCustomCreateProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  note: z.nullable(z.string()).optional(),
-});
 
 /** @internal */
 export type BenefitCustomCreateProperties$Outbound = {
@@ -37,19 +25,6 @@ export const BenefitCustomCreateProperties$outboundSchema: z.ZodType<
   note: z.nullable(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustomCreateProperties$ {
-  /** @deprecated use `BenefitCustomCreateProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustomCreateProperties$inboundSchema;
-  /** @deprecated use `BenefitCustomCreateProperties$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustomCreateProperties$outboundSchema;
-  /** @deprecated use `BenefitCustomCreateProperties$Outbound` instead. */
-  export type Outbound = BenefitCustomCreateProperties$Outbound;
-}
-
 export function benefitCustomCreatePropertiesToJSON(
   benefitCustomCreateProperties: BenefitCustomCreateProperties,
 ): string {
@@ -57,15 +32,5 @@ export function benefitCustomCreatePropertiesToJSON(
     BenefitCustomCreateProperties$outboundSchema.parse(
       benefitCustomCreateProperties,
     ),
-  );
-}
-
-export function benefitCustomCreatePropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitCustomCreateProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitCustomCreateProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitCustomCreateProperties' from JSON`,
   );
 }

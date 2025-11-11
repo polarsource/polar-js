@@ -30,7 +30,6 @@ export const BenefitGrantMeterCreditProperties$inboundSchema: z.ZodType<
     "last_credited_at": "lastCreditedAt",
   });
 });
-
 /** @internal */
 export type BenefitGrantMeterCreditProperties$Outbound = {
   last_credited_meter_id?: string | undefined;
@@ -55,20 +54,6 @@ export const BenefitGrantMeterCreditProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantMeterCreditProperties$ {
-  /** @deprecated use `BenefitGrantMeterCreditProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantMeterCreditProperties$inboundSchema;
-  /** @deprecated use `BenefitGrantMeterCreditProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGrantMeterCreditProperties$outboundSchema;
-  /** @deprecated use `BenefitGrantMeterCreditProperties$Outbound` instead. */
-  export type Outbound = BenefitGrantMeterCreditProperties$Outbound;
-}
-
 export function benefitGrantMeterCreditPropertiesToJSON(
   benefitGrantMeterCreditProperties: BenefitGrantMeterCreditProperties,
 ): string {
@@ -78,7 +63,6 @@ export function benefitGrantMeterCreditPropertiesToJSON(
     ),
   );
 }
-
 export function benefitGrantMeterCreditPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantMeterCreditProperties, SDKValidationError> {

@@ -138,37 +138,6 @@ export const MetricsTotalsOrders$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsOrders$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsOrders$outboundSchema: z.ZodType<
-  MetricsTotalsOrders$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsOrders
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsOrders$ {
-  /** @deprecated use `MetricsTotalsOrders$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsOrders$inboundSchema;
-  /** @deprecated use `MetricsTotalsOrders$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsOrders$outboundSchema;
-  /** @deprecated use `MetricsTotalsOrders$Outbound` instead. */
-  export type Outbound = MetricsTotalsOrders$Outbound;
-}
-
-export function metricsTotalsOrdersToJSON(
-  metricsTotalsOrders: MetricsTotalsOrders,
-): string {
-  return JSON.stringify(
-    MetricsTotalsOrders$outboundSchema.parse(metricsTotalsOrders),
-  );
-}
-
 export function metricsTotalsOrdersFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsOrders, SDKValidationError> {
@@ -185,37 +154,6 @@ export const MetricsTotalsRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsRevenue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsRevenue$outboundSchema: z.ZodType<
-  MetricsTotalsRevenue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsRevenue$ {
-  /** @deprecated use `MetricsTotalsRevenue$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsRevenue$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsRevenue$Outbound;
-}
-
-export function metricsTotalsRevenueToJSON(
-  metricsTotalsRevenue: MetricsTotalsRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsRevenue$outboundSchema.parse(metricsTotalsRevenue),
-  );
-}
 
 export function metricsTotalsRevenueFromJSON(
   jsonString: string,
@@ -234,37 +172,6 @@ export const MetricsTotalsNetRevenue$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsNetRevenue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsNetRevenue$outboundSchema: z.ZodType<
-  MetricsTotalsNetRevenue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsNetRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsNetRevenue$ {
-  /** @deprecated use `MetricsTotalsNetRevenue$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsNetRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsNetRevenue$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsNetRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsNetRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsNetRevenue$Outbound;
-}
-
-export function metricsTotalsNetRevenueToJSON(
-  metricsTotalsNetRevenue: MetricsTotalsNetRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsNetRevenue$outboundSchema.parse(metricsTotalsNetRevenue),
-  );
-}
-
 export function metricsTotalsNetRevenueFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsNetRevenue, SDKValidationError> {
@@ -281,39 +188,6 @@ export const MetricsTotalsCumulativeRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsCumulativeRevenue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsCumulativeRevenue$outboundSchema: z.ZodType<
-  MetricsTotalsCumulativeRevenue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsCumulativeRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCumulativeRevenue$ {
-  /** @deprecated use `MetricsTotalsCumulativeRevenue$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsCumulativeRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsCumulativeRevenue$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsCumulativeRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsCumulativeRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsCumulativeRevenue$Outbound;
-}
-
-export function metricsTotalsCumulativeRevenueToJSON(
-  metricsTotalsCumulativeRevenue: MetricsTotalsCumulativeRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCumulativeRevenue$outboundSchema.parse(
-      metricsTotalsCumulativeRevenue,
-    ),
-  );
-}
 
 export function metricsTotalsCumulativeRevenueFromJSON(
   jsonString: string,
@@ -332,40 +206,6 @@ export const MetricsTotalsNetCumulativeRevenue$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsNetCumulativeRevenue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsNetCumulativeRevenue$outboundSchema: z.ZodType<
-  MetricsTotalsNetCumulativeRevenue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsNetCumulativeRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsNetCumulativeRevenue$ {
-  /** @deprecated use `MetricsTotalsNetCumulativeRevenue$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsNetCumulativeRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsNetCumulativeRevenue$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsNetCumulativeRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsNetCumulativeRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsNetCumulativeRevenue$Outbound;
-}
-
-export function metricsTotalsNetCumulativeRevenueToJSON(
-  metricsTotalsNetCumulativeRevenue: MetricsTotalsNetCumulativeRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsNetCumulativeRevenue$outboundSchema.parse(
-      metricsTotalsNetCumulativeRevenue,
-    ),
-  );
-}
-
 export function metricsTotalsNetCumulativeRevenueFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsNetCumulativeRevenue, SDKValidationError> {
@@ -382,37 +222,6 @@ export const MetricsTotalsCosts$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsCosts$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsCosts$outboundSchema: z.ZodType<
-  MetricsTotalsCosts$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsCosts
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCosts$ {
-  /** @deprecated use `MetricsTotalsCosts$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsCosts$inboundSchema;
-  /** @deprecated use `MetricsTotalsCosts$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsCosts$outboundSchema;
-  /** @deprecated use `MetricsTotalsCosts$Outbound` instead. */
-  export type Outbound = MetricsTotalsCosts$Outbound;
-}
-
-export function metricsTotalsCostsToJSON(
-  metricsTotalsCosts: MetricsTotalsCosts,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCosts$outboundSchema.parse(metricsTotalsCosts),
-  );
-}
 
 export function metricsTotalsCostsFromJSON(
   jsonString: string,
@@ -431,39 +240,6 @@ export const MetricsTotalsCumulativeCosts$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsCumulativeCosts$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsCumulativeCosts$outboundSchema: z.ZodType<
-  MetricsTotalsCumulativeCosts$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsCumulativeCosts
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCumulativeCosts$ {
-  /** @deprecated use `MetricsTotalsCumulativeCosts$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsCumulativeCosts$inboundSchema;
-  /** @deprecated use `MetricsTotalsCumulativeCosts$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsCumulativeCosts$outboundSchema;
-  /** @deprecated use `MetricsTotalsCumulativeCosts$Outbound` instead. */
-  export type Outbound = MetricsTotalsCumulativeCosts$Outbound;
-}
-
-export function metricsTotalsCumulativeCostsToJSON(
-  metricsTotalsCumulativeCosts: MetricsTotalsCumulativeCosts,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCumulativeCosts$outboundSchema.parse(
-      metricsTotalsCumulativeCosts,
-    ),
-  );
-}
-
 export function metricsTotalsCumulativeCostsFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsCumulativeCosts, SDKValidationError> {
@@ -480,39 +256,6 @@ export const MetricsTotalsAverageOrderValue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsAverageOrderValue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsAverageOrderValue$outboundSchema: z.ZodType<
-  MetricsTotalsAverageOrderValue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsAverageOrderValue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsAverageOrderValue$ {
-  /** @deprecated use `MetricsTotalsAverageOrderValue$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsAverageOrderValue$inboundSchema;
-  /** @deprecated use `MetricsTotalsAverageOrderValue$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsAverageOrderValue$outboundSchema;
-  /** @deprecated use `MetricsTotalsAverageOrderValue$Outbound` instead. */
-  export type Outbound = MetricsTotalsAverageOrderValue$Outbound;
-}
-
-export function metricsTotalsAverageOrderValueToJSON(
-  metricsTotalsAverageOrderValue: MetricsTotalsAverageOrderValue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsAverageOrderValue$outboundSchema.parse(
-      metricsTotalsAverageOrderValue,
-    ),
-  );
-}
 
 export function metricsTotalsAverageOrderValueFromJSON(
   jsonString: string,
@@ -531,40 +274,6 @@ export const MetricsTotalsNetAverageOrderValue$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsNetAverageOrderValue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsNetAverageOrderValue$outboundSchema: z.ZodType<
-  MetricsTotalsNetAverageOrderValue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsNetAverageOrderValue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsNetAverageOrderValue$ {
-  /** @deprecated use `MetricsTotalsNetAverageOrderValue$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsNetAverageOrderValue$inboundSchema;
-  /** @deprecated use `MetricsTotalsNetAverageOrderValue$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsNetAverageOrderValue$outboundSchema;
-  /** @deprecated use `MetricsTotalsNetAverageOrderValue$Outbound` instead. */
-  export type Outbound = MetricsTotalsNetAverageOrderValue$Outbound;
-}
-
-export function metricsTotalsNetAverageOrderValueToJSON(
-  metricsTotalsNetAverageOrderValue: MetricsTotalsNetAverageOrderValue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsNetAverageOrderValue$outboundSchema.parse(
-      metricsTotalsNetAverageOrderValue,
-    ),
-  );
-}
-
 export function metricsTotalsNetAverageOrderValueFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsNetAverageOrderValue, SDKValidationError> {
@@ -581,40 +290,6 @@ export const MetricsTotalsAverageRevenuePerUser$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsAverageRevenuePerUser$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsAverageRevenuePerUser$outboundSchema: z.ZodType<
-  MetricsTotalsAverageRevenuePerUser$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsAverageRevenuePerUser
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsAverageRevenuePerUser$ {
-  /** @deprecated use `MetricsTotalsAverageRevenuePerUser$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsAverageRevenuePerUser$inboundSchema;
-  /** @deprecated use `MetricsTotalsAverageRevenuePerUser$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsAverageRevenuePerUser$outboundSchema;
-  /** @deprecated use `MetricsTotalsAverageRevenuePerUser$Outbound` instead. */
-  export type Outbound = MetricsTotalsAverageRevenuePerUser$Outbound;
-}
-
-export function metricsTotalsAverageRevenuePerUserToJSON(
-  metricsTotalsAverageRevenuePerUser: MetricsTotalsAverageRevenuePerUser,
-): string {
-  return JSON.stringify(
-    MetricsTotalsAverageRevenuePerUser$outboundSchema.parse(
-      metricsTotalsAverageRevenuePerUser,
-    ),
-  );
-}
 
 export function metricsTotalsAverageRevenuePerUserFromJSON(
   jsonString: string,
@@ -634,37 +309,6 @@ export const MetricsTotalsCostPerUser$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsCostPerUser$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsCostPerUser$outboundSchema: z.ZodType<
-  MetricsTotalsCostPerUser$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsCostPerUser
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCostPerUser$ {
-  /** @deprecated use `MetricsTotalsCostPerUser$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsCostPerUser$inboundSchema;
-  /** @deprecated use `MetricsTotalsCostPerUser$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsCostPerUser$outboundSchema;
-  /** @deprecated use `MetricsTotalsCostPerUser$Outbound` instead. */
-  export type Outbound = MetricsTotalsCostPerUser$Outbound;
-}
-
-export function metricsTotalsCostPerUserToJSON(
-  metricsTotalsCostPerUser: MetricsTotalsCostPerUser,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCostPerUser$outboundSchema.parse(metricsTotalsCostPerUser),
-  );
-}
-
 export function metricsTotalsCostPerUserFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsCostPerUser, SDKValidationError> {
@@ -681,39 +325,6 @@ export const MetricsTotalsActiveUserByEvent$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsActiveUserByEvent$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsActiveUserByEvent$outboundSchema: z.ZodType<
-  MetricsTotalsActiveUserByEvent$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsActiveUserByEvent
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsActiveUserByEvent$ {
-  /** @deprecated use `MetricsTotalsActiveUserByEvent$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsActiveUserByEvent$inboundSchema;
-  /** @deprecated use `MetricsTotalsActiveUserByEvent$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsActiveUserByEvent$outboundSchema;
-  /** @deprecated use `MetricsTotalsActiveUserByEvent$Outbound` instead. */
-  export type Outbound = MetricsTotalsActiveUserByEvent$Outbound;
-}
-
-export function metricsTotalsActiveUserByEventToJSON(
-  metricsTotalsActiveUserByEvent: MetricsTotalsActiveUserByEvent,
-): string {
-  return JSON.stringify(
-    MetricsTotalsActiveUserByEvent$outboundSchema.parse(
-      metricsTotalsActiveUserByEvent,
-    ),
-  );
-}
 
 export function metricsTotalsActiveUserByEventFromJSON(
   jsonString: string,
@@ -732,39 +343,6 @@ export const MetricsTotalsOneTimeProducts$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsOneTimeProducts$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsOneTimeProducts$outboundSchema: z.ZodType<
-  MetricsTotalsOneTimeProducts$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsOneTimeProducts
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsOneTimeProducts$ {
-  /** @deprecated use `MetricsTotalsOneTimeProducts$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsOneTimeProducts$inboundSchema;
-  /** @deprecated use `MetricsTotalsOneTimeProducts$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsOneTimeProducts$outboundSchema;
-  /** @deprecated use `MetricsTotalsOneTimeProducts$Outbound` instead. */
-  export type Outbound = MetricsTotalsOneTimeProducts$Outbound;
-}
-
-export function metricsTotalsOneTimeProductsToJSON(
-  metricsTotalsOneTimeProducts: MetricsTotalsOneTimeProducts,
-): string {
-  return JSON.stringify(
-    MetricsTotalsOneTimeProducts$outboundSchema.parse(
-      metricsTotalsOneTimeProducts,
-    ),
-  );
-}
-
 export function metricsTotalsOneTimeProductsFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsOneTimeProducts, SDKValidationError> {
@@ -781,41 +359,6 @@ export const MetricsTotalsOneTimeProductsRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsOneTimeProductsRevenue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsOneTimeProductsRevenue$outboundSchema: z.ZodType<
-  MetricsTotalsOneTimeProductsRevenue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsOneTimeProductsRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsOneTimeProductsRevenue$ {
-  /** @deprecated use `MetricsTotalsOneTimeProductsRevenue$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsOneTimeProductsRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsOneTimeProductsRevenue$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsOneTimeProductsRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsOneTimeProductsRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsOneTimeProductsRevenue$Outbound;
-}
-
-export function metricsTotalsOneTimeProductsRevenueToJSON(
-  metricsTotalsOneTimeProductsRevenue: MetricsTotalsOneTimeProductsRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsOneTimeProductsRevenue$outboundSchema.parse(
-      metricsTotalsOneTimeProductsRevenue,
-    ),
-  );
-}
 
 export function metricsTotalsOneTimeProductsRevenueFromJSON(
   jsonString: string,
@@ -835,42 +378,6 @@ export const MetricsTotalsOneTimeProductsNetRevenue$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsOneTimeProductsNetRevenue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsOneTimeProductsNetRevenue$outboundSchema: z.ZodType<
-  MetricsTotalsOneTimeProductsNetRevenue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsOneTimeProductsNetRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsOneTimeProductsNetRevenue$ {
-  /** @deprecated use `MetricsTotalsOneTimeProductsNetRevenue$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsOneTimeProductsNetRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsOneTimeProductsNetRevenue$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsOneTimeProductsNetRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsOneTimeProductsNetRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsOneTimeProductsNetRevenue$Outbound;
-}
-
-export function metricsTotalsOneTimeProductsNetRevenueToJSON(
-  metricsTotalsOneTimeProductsNetRevenue:
-    MetricsTotalsOneTimeProductsNetRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsOneTimeProductsNetRevenue$outboundSchema.parse(
-      metricsTotalsOneTimeProductsNetRevenue,
-    ),
-  );
-}
-
 export function metricsTotalsOneTimeProductsNetRevenueFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsOneTimeProductsNetRevenue, SDKValidationError> {
@@ -889,39 +396,6 @@ export const MetricsTotalsNewSubscriptions$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsNewSubscriptions$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsNewSubscriptions$outboundSchema: z.ZodType<
-  MetricsTotalsNewSubscriptions$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsNewSubscriptions
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsNewSubscriptions$ {
-  /** @deprecated use `MetricsTotalsNewSubscriptions$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsNewSubscriptions$inboundSchema;
-  /** @deprecated use `MetricsTotalsNewSubscriptions$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsNewSubscriptions$outboundSchema;
-  /** @deprecated use `MetricsTotalsNewSubscriptions$Outbound` instead. */
-  export type Outbound = MetricsTotalsNewSubscriptions$Outbound;
-}
-
-export function metricsTotalsNewSubscriptionsToJSON(
-  metricsTotalsNewSubscriptions: MetricsTotalsNewSubscriptions,
-): string {
-  return JSON.stringify(
-    MetricsTotalsNewSubscriptions$outboundSchema.parse(
-      metricsTotalsNewSubscriptions,
-    ),
-  );
-}
-
 export function metricsTotalsNewSubscriptionsFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsNewSubscriptions, SDKValidationError> {
@@ -938,41 +412,6 @@ export const MetricsTotalsNewSubscriptionsRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsNewSubscriptionsRevenue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsNewSubscriptionsRevenue$outboundSchema: z.ZodType<
-  MetricsTotalsNewSubscriptionsRevenue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsNewSubscriptionsRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsNewSubscriptionsRevenue$ {
-  /** @deprecated use `MetricsTotalsNewSubscriptionsRevenue$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsNewSubscriptionsRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsNewSubscriptionsRevenue$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsNewSubscriptionsRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsNewSubscriptionsRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsNewSubscriptionsRevenue$Outbound;
-}
-
-export function metricsTotalsNewSubscriptionsRevenueToJSON(
-  metricsTotalsNewSubscriptionsRevenue: MetricsTotalsNewSubscriptionsRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsNewSubscriptionsRevenue$outboundSchema.parse(
-      metricsTotalsNewSubscriptionsRevenue,
-    ),
-  );
-}
 
 export function metricsTotalsNewSubscriptionsRevenueFromJSON(
   jsonString: string,
@@ -991,42 +430,6 @@ export const MetricsTotalsNewSubscriptionsNetRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsNewSubscriptionsNetRevenue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsNewSubscriptionsNetRevenue$outboundSchema: z.ZodType<
-  MetricsTotalsNewSubscriptionsNetRevenue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsNewSubscriptionsNetRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsNewSubscriptionsNetRevenue$ {
-  /** @deprecated use `MetricsTotalsNewSubscriptionsNetRevenue$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsNewSubscriptionsNetRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsNewSubscriptionsNetRevenue$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsNewSubscriptionsNetRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsNewSubscriptionsNetRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsNewSubscriptionsNetRevenue$Outbound;
-}
-
-export function metricsTotalsNewSubscriptionsNetRevenueToJSON(
-  metricsTotalsNewSubscriptionsNetRevenue:
-    MetricsTotalsNewSubscriptionsNetRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsNewSubscriptionsNetRevenue$outboundSchema.parse(
-      metricsTotalsNewSubscriptionsNetRevenue,
-    ),
-  );
-}
 
 export function metricsTotalsNewSubscriptionsNetRevenueFromJSON(
   jsonString: string,
@@ -1051,40 +454,6 @@ export const MetricsTotalsRenewedSubscriptions$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsRenewedSubscriptions$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsRenewedSubscriptions$outboundSchema: z.ZodType<
-  MetricsTotalsRenewedSubscriptions$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsRenewedSubscriptions
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsRenewedSubscriptions$ {
-  /** @deprecated use `MetricsTotalsRenewedSubscriptions$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsRenewedSubscriptions$inboundSchema;
-  /** @deprecated use `MetricsTotalsRenewedSubscriptions$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsRenewedSubscriptions$outboundSchema;
-  /** @deprecated use `MetricsTotalsRenewedSubscriptions$Outbound` instead. */
-  export type Outbound = MetricsTotalsRenewedSubscriptions$Outbound;
-}
-
-export function metricsTotalsRenewedSubscriptionsToJSON(
-  metricsTotalsRenewedSubscriptions: MetricsTotalsRenewedSubscriptions,
-): string {
-  return JSON.stringify(
-    MetricsTotalsRenewedSubscriptions$outboundSchema.parse(
-      metricsTotalsRenewedSubscriptions,
-    ),
-  );
-}
-
 export function metricsTotalsRenewedSubscriptionsFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsRenewedSubscriptions, SDKValidationError> {
@@ -1101,42 +470,6 @@ export const MetricsTotalsRenewedSubscriptionsRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsRenewedSubscriptionsRevenue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsRenewedSubscriptionsRevenue$outboundSchema: z.ZodType<
-  MetricsTotalsRenewedSubscriptionsRevenue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsRenewedSubscriptionsRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsRenewedSubscriptionsRevenue$ {
-  /** @deprecated use `MetricsTotalsRenewedSubscriptionsRevenue$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsRenewedSubscriptionsRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsRenewedSubscriptionsRevenue$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsRenewedSubscriptionsRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsRenewedSubscriptionsRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsRenewedSubscriptionsRevenue$Outbound;
-}
-
-export function metricsTotalsRenewedSubscriptionsRevenueToJSON(
-  metricsTotalsRenewedSubscriptionsRevenue:
-    MetricsTotalsRenewedSubscriptionsRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsRenewedSubscriptionsRevenue$outboundSchema.parse(
-      metricsTotalsRenewedSubscriptionsRevenue,
-    ),
-  );
-}
 
 export function metricsTotalsRenewedSubscriptionsRevenueFromJSON(
   jsonString: string,
@@ -1162,45 +495,6 @@ export const MetricsTotalsRenewedSubscriptionsNetRevenue$inboundSchema:
     unknown
   > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsRenewedSubscriptionsNetRevenue$Outbound =
-  | number
-  | number;
-
-/** @internal */
-export const MetricsTotalsRenewedSubscriptionsNetRevenue$outboundSchema:
-  z.ZodType<
-    MetricsTotalsRenewedSubscriptionsNetRevenue$Outbound,
-    z.ZodTypeDef,
-    MetricsTotalsRenewedSubscriptionsNetRevenue
-  > = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsRenewedSubscriptionsNetRevenue$ {
-  /** @deprecated use `MetricsTotalsRenewedSubscriptionsNetRevenue$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsRenewedSubscriptionsNetRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsRenewedSubscriptionsNetRevenue$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsRenewedSubscriptionsNetRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsRenewedSubscriptionsNetRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsRenewedSubscriptionsNetRevenue$Outbound;
-}
-
-export function metricsTotalsRenewedSubscriptionsNetRevenueToJSON(
-  metricsTotalsRenewedSubscriptionsNetRevenue:
-    MetricsTotalsRenewedSubscriptionsNetRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsRenewedSubscriptionsNetRevenue$outboundSchema.parse(
-      metricsTotalsRenewedSubscriptionsNetRevenue,
-    ),
-  );
-}
-
 export function metricsTotalsRenewedSubscriptionsNetRevenueFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -1224,39 +518,6 @@ export const MetricsTotalsActiveSubscriptions$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsActiveSubscriptions$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsActiveSubscriptions$outboundSchema: z.ZodType<
-  MetricsTotalsActiveSubscriptions$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsActiveSubscriptions
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsActiveSubscriptions$ {
-  /** @deprecated use `MetricsTotalsActiveSubscriptions$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsActiveSubscriptions$inboundSchema;
-  /** @deprecated use `MetricsTotalsActiveSubscriptions$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsActiveSubscriptions$outboundSchema;
-  /** @deprecated use `MetricsTotalsActiveSubscriptions$Outbound` instead. */
-  export type Outbound = MetricsTotalsActiveSubscriptions$Outbound;
-}
-
-export function metricsTotalsActiveSubscriptionsToJSON(
-  metricsTotalsActiveSubscriptions: MetricsTotalsActiveSubscriptions,
-): string {
-  return JSON.stringify(
-    MetricsTotalsActiveSubscriptions$outboundSchema.parse(
-      metricsTotalsActiveSubscriptions,
-    ),
-  );
-}
-
 export function metricsTotalsActiveSubscriptionsFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsActiveSubscriptions, SDKValidationError> {
@@ -1273,41 +534,6 @@ export const MetricsTotalsMonthlyRecurringRevenue$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsMonthlyRecurringRevenue$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsMonthlyRecurringRevenue$outboundSchema: z.ZodType<
-  MetricsTotalsMonthlyRecurringRevenue$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsMonthlyRecurringRevenue
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsMonthlyRecurringRevenue$ {
-  /** @deprecated use `MetricsTotalsMonthlyRecurringRevenue$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsMonthlyRecurringRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsMonthlyRecurringRevenue$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsMonthlyRecurringRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsMonthlyRecurringRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsMonthlyRecurringRevenue$Outbound;
-}
-
-export function metricsTotalsMonthlyRecurringRevenueToJSON(
-  metricsTotalsMonthlyRecurringRevenue: MetricsTotalsMonthlyRecurringRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsMonthlyRecurringRevenue$outboundSchema.parse(
-      metricsTotalsMonthlyRecurringRevenue,
-    ),
-  );
-}
 
 export function metricsTotalsMonthlyRecurringRevenueFromJSON(
   jsonString: string,
@@ -1327,45 +553,6 @@ export const MetricsTotalsCommittedMonthlyRecurringRevenue$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsCommittedMonthlyRecurringRevenue$Outbound =
-  | number
-  | number;
-
-/** @internal */
-export const MetricsTotalsCommittedMonthlyRecurringRevenue$outboundSchema:
-  z.ZodType<
-    MetricsTotalsCommittedMonthlyRecurringRevenue$Outbound,
-    z.ZodTypeDef,
-    MetricsTotalsCommittedMonthlyRecurringRevenue
-  > = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCommittedMonthlyRecurringRevenue$ {
-  /** @deprecated use `MetricsTotalsCommittedMonthlyRecurringRevenue$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsCommittedMonthlyRecurringRevenue$inboundSchema;
-  /** @deprecated use `MetricsTotalsCommittedMonthlyRecurringRevenue$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsCommittedMonthlyRecurringRevenue$outboundSchema;
-  /** @deprecated use `MetricsTotalsCommittedMonthlyRecurringRevenue$Outbound` instead. */
-  export type Outbound = MetricsTotalsCommittedMonthlyRecurringRevenue$Outbound;
-}
-
-export function metricsTotalsCommittedMonthlyRecurringRevenueToJSON(
-  metricsTotalsCommittedMonthlyRecurringRevenue:
-    MetricsTotalsCommittedMonthlyRecurringRevenue,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCommittedMonthlyRecurringRevenue$outboundSchema.parse(
-      metricsTotalsCommittedMonthlyRecurringRevenue,
-    ),
-  );
-}
 
 export function metricsTotalsCommittedMonthlyRecurringRevenueFromJSON(
   jsonString: string,
@@ -1390,37 +577,6 @@ export const MetricsTotalsCheckouts$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsCheckouts$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsCheckouts$outboundSchema: z.ZodType<
-  MetricsTotalsCheckouts$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsCheckouts
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCheckouts$ {
-  /** @deprecated use `MetricsTotalsCheckouts$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsCheckouts$inboundSchema;
-  /** @deprecated use `MetricsTotalsCheckouts$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsCheckouts$outboundSchema;
-  /** @deprecated use `MetricsTotalsCheckouts$Outbound` instead. */
-  export type Outbound = MetricsTotalsCheckouts$Outbound;
-}
-
-export function metricsTotalsCheckoutsToJSON(
-  metricsTotalsCheckouts: MetricsTotalsCheckouts,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCheckouts$outboundSchema.parse(metricsTotalsCheckouts),
-  );
-}
-
 export function metricsTotalsCheckoutsFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsCheckouts, SDKValidationError> {
@@ -1437,39 +593,6 @@ export const MetricsTotalsSucceededCheckouts$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsSucceededCheckouts$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsSucceededCheckouts$outboundSchema: z.ZodType<
-  MetricsTotalsSucceededCheckouts$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsSucceededCheckouts
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsSucceededCheckouts$ {
-  /** @deprecated use `MetricsTotalsSucceededCheckouts$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsSucceededCheckouts$inboundSchema;
-  /** @deprecated use `MetricsTotalsSucceededCheckouts$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsSucceededCheckouts$outboundSchema;
-  /** @deprecated use `MetricsTotalsSucceededCheckouts$Outbound` instead. */
-  export type Outbound = MetricsTotalsSucceededCheckouts$Outbound;
-}
-
-export function metricsTotalsSucceededCheckoutsToJSON(
-  metricsTotalsSucceededCheckouts: MetricsTotalsSucceededCheckouts,
-): string {
-  return JSON.stringify(
-    MetricsTotalsSucceededCheckouts$outboundSchema.parse(
-      metricsTotalsSucceededCheckouts,
-    ),
-  );
-}
 
 export function metricsTotalsSucceededCheckoutsFromJSON(
   jsonString: string,
@@ -1488,39 +611,6 @@ export const MetricsTotalsCheckoutsConversion$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsCheckoutsConversion$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsCheckoutsConversion$outboundSchema: z.ZodType<
-  MetricsTotalsCheckoutsConversion$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsCheckoutsConversion
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCheckoutsConversion$ {
-  /** @deprecated use `MetricsTotalsCheckoutsConversion$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsCheckoutsConversion$inboundSchema;
-  /** @deprecated use `MetricsTotalsCheckoutsConversion$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsCheckoutsConversion$outboundSchema;
-  /** @deprecated use `MetricsTotalsCheckoutsConversion$Outbound` instead. */
-  export type Outbound = MetricsTotalsCheckoutsConversion$Outbound;
-}
-
-export function metricsTotalsCheckoutsConversionToJSON(
-  metricsTotalsCheckoutsConversion: MetricsTotalsCheckoutsConversion,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCheckoutsConversion$outboundSchema.parse(
-      metricsTotalsCheckoutsConversion,
-    ),
-  );
-}
-
 export function metricsTotalsCheckoutsConversionFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsCheckoutsConversion, SDKValidationError> {
@@ -1537,40 +627,6 @@ export const MetricsTotalsCanceledSubscriptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsCanceledSubscriptions$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsCanceledSubscriptions$outboundSchema: z.ZodType<
-  MetricsTotalsCanceledSubscriptions$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsCanceledSubscriptions
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCanceledSubscriptions$ {
-  /** @deprecated use `MetricsTotalsCanceledSubscriptions$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsCanceledSubscriptions$inboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptions$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsCanceledSubscriptions$outboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptions$Outbound` instead. */
-  export type Outbound = MetricsTotalsCanceledSubscriptions$Outbound;
-}
-
-export function metricsTotalsCanceledSubscriptionsToJSON(
-  metricsTotalsCanceledSubscriptions: MetricsTotalsCanceledSubscriptions,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCanceledSubscriptions$outboundSchema.parse(
-      metricsTotalsCanceledSubscriptions,
-    ),
-  );
-}
 
 export function metricsTotalsCanceledSubscriptionsFromJSON(
   jsonString: string,
@@ -1590,46 +646,6 @@ export const MetricsTotalsCanceledSubscriptionsCustomerService$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsCanceledSubscriptionsCustomerService$Outbound =
-  | number
-  | number;
-
-/** @internal */
-export const MetricsTotalsCanceledSubscriptionsCustomerService$outboundSchema:
-  z.ZodType<
-    MetricsTotalsCanceledSubscriptionsCustomerService$Outbound,
-    z.ZodTypeDef,
-    MetricsTotalsCanceledSubscriptionsCustomerService
-  > = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCanceledSubscriptionsCustomerService$ {
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsCustomerService$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsCanceledSubscriptionsCustomerService$inboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsCustomerService$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsCanceledSubscriptionsCustomerService$outboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsCustomerService$Outbound` instead. */
-  export type Outbound =
-    MetricsTotalsCanceledSubscriptionsCustomerService$Outbound;
-}
-
-export function metricsTotalsCanceledSubscriptionsCustomerServiceToJSON(
-  metricsTotalsCanceledSubscriptionsCustomerService:
-    MetricsTotalsCanceledSubscriptionsCustomerService,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCanceledSubscriptionsCustomerService$outboundSchema.parse(
-      metricsTotalsCanceledSubscriptionsCustomerService,
-    ),
-  );
-}
 
 export function metricsTotalsCanceledSubscriptionsCustomerServiceFromJSON(
   jsonString: string,
@@ -1655,45 +671,6 @@ export const MetricsTotalsCanceledSubscriptionsLowQuality$inboundSchema:
     unknown
   > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsCanceledSubscriptionsLowQuality$Outbound =
-  | number
-  | number;
-
-/** @internal */
-export const MetricsTotalsCanceledSubscriptionsLowQuality$outboundSchema:
-  z.ZodType<
-    MetricsTotalsCanceledSubscriptionsLowQuality$Outbound,
-    z.ZodTypeDef,
-    MetricsTotalsCanceledSubscriptionsLowQuality
-  > = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCanceledSubscriptionsLowQuality$ {
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsLowQuality$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsCanceledSubscriptionsLowQuality$inboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsLowQuality$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsCanceledSubscriptionsLowQuality$outboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsLowQuality$Outbound` instead. */
-  export type Outbound = MetricsTotalsCanceledSubscriptionsLowQuality$Outbound;
-}
-
-export function metricsTotalsCanceledSubscriptionsLowQualityToJSON(
-  metricsTotalsCanceledSubscriptionsLowQuality:
-    MetricsTotalsCanceledSubscriptionsLowQuality,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCanceledSubscriptionsLowQuality$outboundSchema.parse(
-      metricsTotalsCanceledSubscriptionsLowQuality,
-    ),
-  );
-}
-
 export function metricsTotalsCanceledSubscriptionsLowQualityFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -1717,46 +694,6 @@ export const MetricsTotalsCanceledSubscriptionsMissingFeatures$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsCanceledSubscriptionsMissingFeatures$Outbound =
-  | number
-  | number;
-
-/** @internal */
-export const MetricsTotalsCanceledSubscriptionsMissingFeatures$outboundSchema:
-  z.ZodType<
-    MetricsTotalsCanceledSubscriptionsMissingFeatures$Outbound,
-    z.ZodTypeDef,
-    MetricsTotalsCanceledSubscriptionsMissingFeatures
-  > = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCanceledSubscriptionsMissingFeatures$ {
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsMissingFeatures$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsCanceledSubscriptionsMissingFeatures$inboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsMissingFeatures$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsCanceledSubscriptionsMissingFeatures$outboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsMissingFeatures$Outbound` instead. */
-  export type Outbound =
-    MetricsTotalsCanceledSubscriptionsMissingFeatures$Outbound;
-}
-
-export function metricsTotalsCanceledSubscriptionsMissingFeaturesToJSON(
-  metricsTotalsCanceledSubscriptionsMissingFeatures:
-    MetricsTotalsCanceledSubscriptionsMissingFeatures,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCanceledSubscriptionsMissingFeatures$outboundSchema.parse(
-      metricsTotalsCanceledSubscriptionsMissingFeatures,
-    ),
-  );
-}
 
 export function metricsTotalsCanceledSubscriptionsMissingFeaturesFromJSON(
   jsonString: string,
@@ -1782,46 +719,6 @@ export const MetricsTotalsCanceledSubscriptionsSwitchedService$inboundSchema:
     unknown
   > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsCanceledSubscriptionsSwitchedService$Outbound =
-  | number
-  | number;
-
-/** @internal */
-export const MetricsTotalsCanceledSubscriptionsSwitchedService$outboundSchema:
-  z.ZodType<
-    MetricsTotalsCanceledSubscriptionsSwitchedService$Outbound,
-    z.ZodTypeDef,
-    MetricsTotalsCanceledSubscriptionsSwitchedService
-  > = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCanceledSubscriptionsSwitchedService$ {
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsSwitchedService$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsCanceledSubscriptionsSwitchedService$inboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsSwitchedService$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsCanceledSubscriptionsSwitchedService$outboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsSwitchedService$Outbound` instead. */
-  export type Outbound =
-    MetricsTotalsCanceledSubscriptionsSwitchedService$Outbound;
-}
-
-export function metricsTotalsCanceledSubscriptionsSwitchedServiceToJSON(
-  metricsTotalsCanceledSubscriptionsSwitchedService:
-    MetricsTotalsCanceledSubscriptionsSwitchedService,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCanceledSubscriptionsSwitchedService$outboundSchema.parse(
-      metricsTotalsCanceledSubscriptionsSwitchedService,
-    ),
-  );
-}
-
 export function metricsTotalsCanceledSubscriptionsSwitchedServiceFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -1845,45 +742,6 @@ export const MetricsTotalsCanceledSubscriptionsTooComplex$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsCanceledSubscriptionsTooComplex$Outbound =
-  | number
-  | number;
-
-/** @internal */
-export const MetricsTotalsCanceledSubscriptionsTooComplex$outboundSchema:
-  z.ZodType<
-    MetricsTotalsCanceledSubscriptionsTooComplex$Outbound,
-    z.ZodTypeDef,
-    MetricsTotalsCanceledSubscriptionsTooComplex
-  > = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCanceledSubscriptionsTooComplex$ {
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooComplex$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsCanceledSubscriptionsTooComplex$inboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooComplex$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsCanceledSubscriptionsTooComplex$outboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooComplex$Outbound` instead. */
-  export type Outbound = MetricsTotalsCanceledSubscriptionsTooComplex$Outbound;
-}
-
-export function metricsTotalsCanceledSubscriptionsTooComplexToJSON(
-  metricsTotalsCanceledSubscriptionsTooComplex:
-    MetricsTotalsCanceledSubscriptionsTooComplex,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCanceledSubscriptionsTooComplex$outboundSchema.parse(
-      metricsTotalsCanceledSubscriptionsTooComplex,
-    ),
-  );
-}
 
 export function metricsTotalsCanceledSubscriptionsTooComplexFromJSON(
   jsonString: string,
@@ -1909,46 +767,6 @@ export const MetricsTotalsCanceledSubscriptionsTooExpensive$inboundSchema:
     unknown
   > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsCanceledSubscriptionsTooExpensive$Outbound =
-  | number
-  | number;
-
-/** @internal */
-export const MetricsTotalsCanceledSubscriptionsTooExpensive$outboundSchema:
-  z.ZodType<
-    MetricsTotalsCanceledSubscriptionsTooExpensive$Outbound,
-    z.ZodTypeDef,
-    MetricsTotalsCanceledSubscriptionsTooExpensive
-  > = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCanceledSubscriptionsTooExpensive$ {
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooExpensive$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsCanceledSubscriptionsTooExpensive$inboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooExpensive$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsCanceledSubscriptionsTooExpensive$outboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsTooExpensive$Outbound` instead. */
-  export type Outbound =
-    MetricsTotalsCanceledSubscriptionsTooExpensive$Outbound;
-}
-
-export function metricsTotalsCanceledSubscriptionsTooExpensiveToJSON(
-  metricsTotalsCanceledSubscriptionsTooExpensive:
-    MetricsTotalsCanceledSubscriptionsTooExpensive,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCanceledSubscriptionsTooExpensive$outboundSchema.parse(
-      metricsTotalsCanceledSubscriptionsTooExpensive,
-    ),
-  );
-}
-
 export function metricsTotalsCanceledSubscriptionsTooExpensiveFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -1971,42 +789,6 @@ export const MetricsTotalsCanceledSubscriptionsUnused$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsCanceledSubscriptionsUnused$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsCanceledSubscriptionsUnused$outboundSchema: z.ZodType<
-  MetricsTotalsCanceledSubscriptionsUnused$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsCanceledSubscriptionsUnused
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCanceledSubscriptionsUnused$ {
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsUnused$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsCanceledSubscriptionsUnused$inboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsUnused$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsCanceledSubscriptionsUnused$outboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsUnused$Outbound` instead. */
-  export type Outbound = MetricsTotalsCanceledSubscriptionsUnused$Outbound;
-}
-
-export function metricsTotalsCanceledSubscriptionsUnusedToJSON(
-  metricsTotalsCanceledSubscriptionsUnused:
-    MetricsTotalsCanceledSubscriptionsUnused,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCanceledSubscriptionsUnused$outboundSchema.parse(
-      metricsTotalsCanceledSubscriptionsUnused,
-    ),
-  );
-}
 
 export function metricsTotalsCanceledSubscriptionsUnusedFromJSON(
   jsonString: string,
@@ -2031,42 +813,6 @@ export const MetricsTotalsCanceledSubscriptionsOther$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsCanceledSubscriptionsOther$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsCanceledSubscriptionsOther$outboundSchema: z.ZodType<
-  MetricsTotalsCanceledSubscriptionsOther$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsCanceledSubscriptionsOther
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCanceledSubscriptionsOther$ {
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsOther$inboundSchema` instead. */
-  export const inboundSchema =
-    MetricsTotalsCanceledSubscriptionsOther$inboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsOther$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsCanceledSubscriptionsOther$outboundSchema;
-  /** @deprecated use `MetricsTotalsCanceledSubscriptionsOther$Outbound` instead. */
-  export type Outbound = MetricsTotalsCanceledSubscriptionsOther$Outbound;
-}
-
-export function metricsTotalsCanceledSubscriptionsOtherToJSON(
-  metricsTotalsCanceledSubscriptionsOther:
-    MetricsTotalsCanceledSubscriptionsOther,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCanceledSubscriptionsOther$outboundSchema.parse(
-      metricsTotalsCanceledSubscriptionsOther,
-    ),
-  );
-}
-
 export function metricsTotalsCanceledSubscriptionsOtherFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -2090,37 +836,6 @@ export const MetricsTotalsChurnRate$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsChurnRate$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsChurnRate$outboundSchema: z.ZodType<
-  MetricsTotalsChurnRate$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsChurnRate
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsChurnRate$ {
-  /** @deprecated use `MetricsTotalsChurnRate$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsChurnRate$inboundSchema;
-  /** @deprecated use `MetricsTotalsChurnRate$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsChurnRate$outboundSchema;
-  /** @deprecated use `MetricsTotalsChurnRate$Outbound` instead. */
-  export type Outbound = MetricsTotalsChurnRate$Outbound;
-}
-
-export function metricsTotalsChurnRateToJSON(
-  metricsTotalsChurnRate: MetricsTotalsChurnRate,
-): string {
-  return JSON.stringify(
-    MetricsTotalsChurnRate$outboundSchema.parse(metricsTotalsChurnRate),
-  );
-}
-
 export function metricsTotalsChurnRateFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsChurnRate, SDKValidationError> {
@@ -2137,37 +852,6 @@ export const MetricsTotalsGrossMargin$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsGrossMargin$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsGrossMargin$outboundSchema: z.ZodType<
-  MetricsTotalsGrossMargin$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsGrossMargin
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsGrossMargin$ {
-  /** @deprecated use `MetricsTotalsGrossMargin$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsGrossMargin$inboundSchema;
-  /** @deprecated use `MetricsTotalsGrossMargin$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsGrossMargin$outboundSchema;
-  /** @deprecated use `MetricsTotalsGrossMargin$Outbound` instead. */
-  export type Outbound = MetricsTotalsGrossMargin$Outbound;
-}
-
-export function metricsTotalsGrossMarginToJSON(
-  metricsTotalsGrossMargin: MetricsTotalsGrossMargin,
-): string {
-  return JSON.stringify(
-    MetricsTotalsGrossMargin$outboundSchema.parse(metricsTotalsGrossMargin),
-  );
-}
 
 export function metricsTotalsGrossMarginFromJSON(
   jsonString: string,
@@ -2186,40 +870,6 @@ export const MetricsTotalsGrossMarginPercentage$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.number().int(), z.number()]);
 
-/** @internal */
-export type MetricsTotalsGrossMarginPercentage$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsGrossMarginPercentage$outboundSchema: z.ZodType<
-  MetricsTotalsGrossMarginPercentage$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsGrossMarginPercentage
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsGrossMarginPercentage$ {
-  /** @deprecated use `MetricsTotalsGrossMarginPercentage$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsGrossMarginPercentage$inboundSchema;
-  /** @deprecated use `MetricsTotalsGrossMarginPercentage$outboundSchema` instead. */
-  export const outboundSchema =
-    MetricsTotalsGrossMarginPercentage$outboundSchema;
-  /** @deprecated use `MetricsTotalsGrossMarginPercentage$Outbound` instead. */
-  export type Outbound = MetricsTotalsGrossMarginPercentage$Outbound;
-}
-
-export function metricsTotalsGrossMarginPercentageToJSON(
-  metricsTotalsGrossMarginPercentage: MetricsTotalsGrossMarginPercentage,
-): string {
-  return JSON.stringify(
-    MetricsTotalsGrossMarginPercentage$outboundSchema.parse(
-      metricsTotalsGrossMarginPercentage,
-    ),
-  );
-}
-
 export function metricsTotalsGrossMarginPercentageFromJSON(
   jsonString: string,
 ): SafeParseResult<MetricsTotalsGrossMarginPercentage, SDKValidationError> {
@@ -2237,37 +887,6 @@ export const MetricsTotalsCashflow$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.number().int(), z.number()]);
-
-/** @internal */
-export type MetricsTotalsCashflow$Outbound = number | number;
-
-/** @internal */
-export const MetricsTotalsCashflow$outboundSchema: z.ZodType<
-  MetricsTotalsCashflow$Outbound,
-  z.ZodTypeDef,
-  MetricsTotalsCashflow
-> = z.union([z.number().int(), z.number()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotalsCashflow$ {
-  /** @deprecated use `MetricsTotalsCashflow$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotalsCashflow$inboundSchema;
-  /** @deprecated use `MetricsTotalsCashflow$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotalsCashflow$outboundSchema;
-  /** @deprecated use `MetricsTotalsCashflow$Outbound` instead. */
-  export type Outbound = MetricsTotalsCashflow$Outbound;
-}
-
-export function metricsTotalsCashflowToJSON(
-  metricsTotalsCashflow: MetricsTotalsCashflow,
-): string {
-  return JSON.stringify(
-    MetricsTotalsCashflow$outboundSchema.parse(metricsTotalsCashflow),
-  );
-}
 
 export function metricsTotalsCashflowFromJSON(
   jsonString: string,
@@ -2376,156 +995,6 @@ export const MetricsTotals$inboundSchema: z.ZodType<
     "gross_margin_percentage": "grossMarginPercentage",
   });
 });
-
-/** @internal */
-export type MetricsTotals$Outbound = {
-  orders: number | number;
-  revenue: number | number;
-  net_revenue: number | number;
-  cumulative_revenue: number | number;
-  net_cumulative_revenue: number | number;
-  costs: number | number;
-  cumulative_costs: number | number;
-  average_order_value: number | number;
-  net_average_order_value: number | number;
-  average_revenue_per_user: number | number;
-  cost_per_user: number | number;
-  active_user_by_event: number | number;
-  one_time_products: number | number;
-  one_time_products_revenue: number | number;
-  one_time_products_net_revenue: number | number;
-  new_subscriptions: number | number;
-  new_subscriptions_revenue: number | number;
-  new_subscriptions_net_revenue: number | number;
-  renewed_subscriptions: number | number;
-  renewed_subscriptions_revenue: number | number;
-  renewed_subscriptions_net_revenue: number | number;
-  active_subscriptions: number | number;
-  monthly_recurring_revenue: number | number;
-  committed_monthly_recurring_revenue: number | number;
-  checkouts: number | number;
-  succeeded_checkouts: number | number;
-  checkouts_conversion: number | number;
-  canceled_subscriptions: number | number;
-  canceled_subscriptions_customer_service: number | number;
-  canceled_subscriptions_low_quality: number | number;
-  canceled_subscriptions_missing_features: number | number;
-  canceled_subscriptions_switched_service: number | number;
-  canceled_subscriptions_too_complex: number | number;
-  canceled_subscriptions_too_expensive: number | number;
-  canceled_subscriptions_unused: number | number;
-  canceled_subscriptions_other: number | number;
-  churn_rate: number | number;
-  gross_margin: number | number;
-  gross_margin_percentage: number | number;
-  cashflow: number | number;
-};
-
-/** @internal */
-export const MetricsTotals$outboundSchema: z.ZodType<
-  MetricsTotals$Outbound,
-  z.ZodTypeDef,
-  MetricsTotals
-> = z.object({
-  orders: z.union([z.number().int(), z.number()]),
-  revenue: z.union([z.number().int(), z.number()]),
-  netRevenue: z.union([z.number().int(), z.number()]),
-  cumulativeRevenue: z.union([z.number().int(), z.number()]),
-  netCumulativeRevenue: z.union([z.number().int(), z.number()]),
-  costs: z.union([z.number().int(), z.number()]),
-  cumulativeCosts: z.union([z.number().int(), z.number()]),
-  averageOrderValue: z.union([z.number().int(), z.number()]),
-  netAverageOrderValue: z.union([z.number().int(), z.number()]),
-  averageRevenuePerUser: z.union([z.number().int(), z.number()]),
-  costPerUser: z.union([z.number().int(), z.number()]),
-  activeUserByEvent: z.union([z.number().int(), z.number()]),
-  oneTimeProducts: z.union([z.number().int(), z.number()]),
-  oneTimeProductsRevenue: z.union([z.number().int(), z.number()]),
-  oneTimeProductsNetRevenue: z.union([z.number().int(), z.number()]),
-  newSubscriptions: z.union([z.number().int(), z.number()]),
-  newSubscriptionsRevenue: z.union([z.number().int(), z.number()]),
-  newSubscriptionsNetRevenue: z.union([z.number().int(), z.number()]),
-  renewedSubscriptions: z.union([z.number().int(), z.number()]),
-  renewedSubscriptionsRevenue: z.union([z.number().int(), z.number()]),
-  renewedSubscriptionsNetRevenue: z.union([z.number().int(), z.number()]),
-  activeSubscriptions: z.union([z.number().int(), z.number()]),
-  monthlyRecurringRevenue: z.union([z.number().int(), z.number()]),
-  committedMonthlyRecurringRevenue: z.union([z.number().int(), z.number()]),
-  checkouts: z.union([z.number().int(), z.number()]),
-  succeededCheckouts: z.union([z.number().int(), z.number()]),
-  checkoutsConversion: z.union([z.number().int(), z.number()]),
-  canceledSubscriptions: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsCustomerService: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsLowQuality: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsMissingFeatures: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsSwitchedService: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsTooComplex: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsTooExpensive: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsUnused: z.union([z.number().int(), z.number()]),
-  canceledSubscriptionsOther: z.union([z.number().int(), z.number()]),
-  churnRate: z.union([z.number().int(), z.number()]),
-  grossMargin: z.union([z.number().int(), z.number()]),
-  grossMarginPercentage: z.union([z.number().int(), z.number()]),
-  cashflow: z.union([z.number().int(), z.number()]),
-}).transform((v) => {
-  return remap$(v, {
-    netRevenue: "net_revenue",
-    cumulativeRevenue: "cumulative_revenue",
-    netCumulativeRevenue: "net_cumulative_revenue",
-    cumulativeCosts: "cumulative_costs",
-    averageOrderValue: "average_order_value",
-    netAverageOrderValue: "net_average_order_value",
-    averageRevenuePerUser: "average_revenue_per_user",
-    costPerUser: "cost_per_user",
-    activeUserByEvent: "active_user_by_event",
-    oneTimeProducts: "one_time_products",
-    oneTimeProductsRevenue: "one_time_products_revenue",
-    oneTimeProductsNetRevenue: "one_time_products_net_revenue",
-    newSubscriptions: "new_subscriptions",
-    newSubscriptionsRevenue: "new_subscriptions_revenue",
-    newSubscriptionsNetRevenue: "new_subscriptions_net_revenue",
-    renewedSubscriptions: "renewed_subscriptions",
-    renewedSubscriptionsRevenue: "renewed_subscriptions_revenue",
-    renewedSubscriptionsNetRevenue: "renewed_subscriptions_net_revenue",
-    activeSubscriptions: "active_subscriptions",
-    monthlyRecurringRevenue: "monthly_recurring_revenue",
-    committedMonthlyRecurringRevenue: "committed_monthly_recurring_revenue",
-    succeededCheckouts: "succeeded_checkouts",
-    checkoutsConversion: "checkouts_conversion",
-    canceledSubscriptions: "canceled_subscriptions",
-    canceledSubscriptionsCustomerService:
-      "canceled_subscriptions_customer_service",
-    canceledSubscriptionsLowQuality: "canceled_subscriptions_low_quality",
-    canceledSubscriptionsMissingFeatures:
-      "canceled_subscriptions_missing_features",
-    canceledSubscriptionsSwitchedService:
-      "canceled_subscriptions_switched_service",
-    canceledSubscriptionsTooComplex: "canceled_subscriptions_too_complex",
-    canceledSubscriptionsTooExpensive: "canceled_subscriptions_too_expensive",
-    canceledSubscriptionsUnused: "canceled_subscriptions_unused",
-    canceledSubscriptionsOther: "canceled_subscriptions_other",
-    churnRate: "churn_rate",
-    grossMargin: "gross_margin",
-    grossMarginPercentage: "gross_margin_percentage",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsTotals$ {
-  /** @deprecated use `MetricsTotals$inboundSchema` instead. */
-  export const inboundSchema = MetricsTotals$inboundSchema;
-  /** @deprecated use `MetricsTotals$outboundSchema` instead. */
-  export const outboundSchema = MetricsTotals$outboundSchema;
-  /** @deprecated use `MetricsTotals$Outbound` instead. */
-  export type Outbound = MetricsTotals$Outbound;
-}
-
-export function metricsTotalsToJSON(metricsTotals: MetricsTotals): string {
-  return JSON.stringify(MetricsTotals$outboundSchema.parse(metricsTotals));
-}
 
 export function metricsTotalsFromJSON(
   jsonString: string,

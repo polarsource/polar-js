@@ -3,42 +3,33 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitCustomCreate,
-  BenefitCustomCreate$inboundSchema,
   BenefitCustomCreate$Outbound,
   BenefitCustomCreate$outboundSchema,
 } from "./benefitcustomcreate.js";
 import {
   BenefitDiscordCreate,
-  BenefitDiscordCreate$inboundSchema,
   BenefitDiscordCreate$Outbound,
   BenefitDiscordCreate$outboundSchema,
 } from "./benefitdiscordcreate.js";
 import {
   BenefitDownloadablesCreate,
-  BenefitDownloadablesCreate$inboundSchema,
   BenefitDownloadablesCreate$Outbound,
   BenefitDownloadablesCreate$outboundSchema,
 } from "./benefitdownloadablescreate.js";
 import {
   BenefitGitHubRepositoryCreate,
-  BenefitGitHubRepositoryCreate$inboundSchema,
   BenefitGitHubRepositoryCreate$Outbound,
   BenefitGitHubRepositoryCreate$outboundSchema,
 } from "./benefitgithubrepositorycreate.js";
 import {
   BenefitLicenseKeysCreate,
-  BenefitLicenseKeysCreate$inboundSchema,
   BenefitLicenseKeysCreate$Outbound,
   BenefitLicenseKeysCreate$outboundSchema,
 } from "./benefitlicensekeyscreate.js";
 import {
   BenefitMeterCreditCreate,
-  BenefitMeterCreditCreate$inboundSchema,
   BenefitMeterCreditCreate$Outbound,
   BenefitMeterCreditCreate$outboundSchema,
 } from "./benefitmetercreditcreate.js";
@@ -50,44 +41,6 @@ export type BenefitCreate =
   | (BenefitGitHubRepositoryCreate & { type: "github_repository" })
   | (BenefitLicenseKeysCreate & { type: "license_keys" })
   | (BenefitMeterCreditCreate & { type: "meter_credit" });
-
-/** @internal */
-export const BenefitCreate$inboundSchema: z.ZodType<
-  BenefitCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  BenefitCustomCreate$inboundSchema.and(
-    z.object({ type: z.literal("custom") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  BenefitDiscordCreate$inboundSchema.and(
-    z.object({ type: z.literal("discord") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  BenefitDownloadablesCreate$inboundSchema.and(
-    z.object({ type: z.literal("downloadables") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  BenefitGitHubRepositoryCreate$inboundSchema.and(
-    z.object({ type: z.literal("github_repository") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  BenefitLicenseKeysCreate$inboundSchema.and(
-    z.object({ type: z.literal("license_keys") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  BenefitMeterCreditCreate$inboundSchema.and(
-    z.object({ type: z.literal("meter_credit") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-]);
 
 /** @internal */
 export type BenefitCreate$Outbound =
@@ -136,29 +89,6 @@ export const BenefitCreate$outboundSchema: z.ZodType<
   ),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCreate$ {
-  /** @deprecated use `BenefitCreate$inboundSchema` instead. */
-  export const inboundSchema = BenefitCreate$inboundSchema;
-  /** @deprecated use `BenefitCreate$outboundSchema` instead. */
-  export const outboundSchema = BenefitCreate$outboundSchema;
-  /** @deprecated use `BenefitCreate$Outbound` instead. */
-  export type Outbound = BenefitCreate$Outbound;
-}
-
 export function benefitCreateToJSON(benefitCreate: BenefitCreate): string {
   return JSON.stringify(BenefitCreate$outboundSchema.parse(benefitCreate));
-}
-
-export function benefitCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitCreate' from JSON`,
-  );
 }

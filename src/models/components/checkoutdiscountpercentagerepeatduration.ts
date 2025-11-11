@@ -59,7 +59,6 @@ export const CheckoutDiscountPercentageRepeatDuration$inboundSchema: z.ZodType<
     "basis_points": "basisPoints",
   });
 });
-
 /** @internal */
 export type CheckoutDiscountPercentageRepeatDuration$Outbound = {
   duration: string;
@@ -91,21 +90,6 @@ export const CheckoutDiscountPercentageRepeatDuration$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutDiscountPercentageRepeatDuration$ {
-  /** @deprecated use `CheckoutDiscountPercentageRepeatDuration$inboundSchema` instead. */
-  export const inboundSchema =
-    CheckoutDiscountPercentageRepeatDuration$inboundSchema;
-  /** @deprecated use `CheckoutDiscountPercentageRepeatDuration$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutDiscountPercentageRepeatDuration$outboundSchema;
-  /** @deprecated use `CheckoutDiscountPercentageRepeatDuration$Outbound` instead. */
-  export type Outbound = CheckoutDiscountPercentageRepeatDuration$Outbound;
-}
-
 export function checkoutDiscountPercentageRepeatDurationToJSON(
   checkoutDiscountPercentageRepeatDuration:
     CheckoutDiscountPercentageRepeatDuration,
@@ -116,7 +100,6 @@ export function checkoutDiscountPercentageRepeatDurationToJSON(
     ),
   );
 }
-
 export function checkoutDiscountPercentageRepeatDurationFromJSON(
   jsonString: string,
 ): SafeParseResult<

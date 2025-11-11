@@ -31,54 +31,6 @@ export const SubscriptionProductUpdatedMetadata$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type SubscriptionProductUpdatedMetadata$Outbound = {
-  subscription_id: string;
-  old_product_id: string;
-  new_product_id: string;
-};
-
-/** @internal */
-export const SubscriptionProductUpdatedMetadata$outboundSchema: z.ZodType<
-  SubscriptionProductUpdatedMetadata$Outbound,
-  z.ZodTypeDef,
-  SubscriptionProductUpdatedMetadata
-> = z.object({
-  subscriptionId: z.string(),
-  oldProductId: z.string(),
-  newProductId: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    subscriptionId: "subscription_id",
-    oldProductId: "old_product_id",
-    newProductId: "new_product_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionProductUpdatedMetadata$ {
-  /** @deprecated use `SubscriptionProductUpdatedMetadata$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionProductUpdatedMetadata$inboundSchema;
-  /** @deprecated use `SubscriptionProductUpdatedMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    SubscriptionProductUpdatedMetadata$outboundSchema;
-  /** @deprecated use `SubscriptionProductUpdatedMetadata$Outbound` instead. */
-  export type Outbound = SubscriptionProductUpdatedMetadata$Outbound;
-}
-
-export function subscriptionProductUpdatedMetadataToJSON(
-  subscriptionProductUpdatedMetadata: SubscriptionProductUpdatedMetadata,
-): string {
-  return JSON.stringify(
-    SubscriptionProductUpdatedMetadata$outboundSchema.parse(
-      subscriptionProductUpdatedMetadata,
-    ),
-  );
-}
-
 export function subscriptionProductUpdatedMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<SubscriptionProductUpdatedMetadata, SDKValidationError> {

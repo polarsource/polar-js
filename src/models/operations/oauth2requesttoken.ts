@@ -3,43 +3,26 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   AuthorizationCodeTokenRequest,
-  AuthorizationCodeTokenRequest$inboundSchema,
   AuthorizationCodeTokenRequest$Outbound,
   AuthorizationCodeTokenRequest$outboundSchema,
 } from "../components/authorizationcodetokenrequest.js";
 import {
   RefreshTokenRequest,
-  RefreshTokenRequest$inboundSchema,
   RefreshTokenRequest$Outbound,
   RefreshTokenRequest$outboundSchema,
 } from "../components/refreshtokenrequest.js";
 import {
   WebTokenRequest,
-  WebTokenRequest$inboundSchema,
   WebTokenRequest$Outbound,
   WebTokenRequest$outboundSchema,
 } from "../components/webtokenrequest.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Oauth2RequestTokenRequestBody =
   | AuthorizationCodeTokenRequest
   | RefreshTokenRequest
   | WebTokenRequest;
-
-/** @internal */
-export const Oauth2RequestTokenRequestBody$inboundSchema: z.ZodType<
-  Oauth2RequestTokenRequestBody,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  AuthorizationCodeTokenRequest$inboundSchema,
-  RefreshTokenRequest$inboundSchema,
-  WebTokenRequest$inboundSchema,
-]);
 
 /** @internal */
 export type Oauth2RequestTokenRequestBody$Outbound =
@@ -58,19 +41,6 @@ export const Oauth2RequestTokenRequestBody$outboundSchema: z.ZodType<
   WebTokenRequest$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Oauth2RequestTokenRequestBody$ {
-  /** @deprecated use `Oauth2RequestTokenRequestBody$inboundSchema` instead. */
-  export const inboundSchema = Oauth2RequestTokenRequestBody$inboundSchema;
-  /** @deprecated use `Oauth2RequestTokenRequestBody$outboundSchema` instead. */
-  export const outboundSchema = Oauth2RequestTokenRequestBody$outboundSchema;
-  /** @deprecated use `Oauth2RequestTokenRequestBody$Outbound` instead. */
-  export type Outbound = Oauth2RequestTokenRequestBody$Outbound;
-}
-
 export function oauth2RequestTokenRequestBodyToJSON(
   oauth2RequestTokenRequestBody: Oauth2RequestTokenRequestBody,
 ): string {
@@ -78,15 +48,5 @@ export function oauth2RequestTokenRequestBodyToJSON(
     Oauth2RequestTokenRequestBody$outboundSchema.parse(
       oauth2RequestTokenRequestBody,
     ),
-  );
-}
-
-export function oauth2RequestTokenRequestBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<Oauth2RequestTokenRequestBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Oauth2RequestTokenRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Oauth2RequestTokenRequestBody' from JSON`,
   );
 }

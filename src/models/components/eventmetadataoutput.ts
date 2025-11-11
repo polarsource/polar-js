@@ -9,15 +9,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CostMetadataOutput,
   CostMetadataOutput$inboundSchema,
-  CostMetadataOutput$Outbound,
-  CostMetadataOutput$outboundSchema,
 } from "./costmetadataoutput.js";
-import {
-  LLMMetadata,
-  LLMMetadata$inboundSchema,
-  LLMMetadata$Outbound,
-  LLMMetadata$outboundSchema,
-} from "./llmmetadata.js";
+import { LLMMetadata, LLMMetadata$inboundSchema } from "./llmmetadata.js";
 
 export type EventMetadataOutput =
   | LLMMetadata
@@ -40,50 +33,6 @@ export const EventMetadataOutput$inboundSchema: z.ZodType<
   z.number(),
   z.boolean(),
 ]);
-
-/** @internal */
-export type EventMetadataOutput$Outbound =
-  | LLMMetadata$Outbound
-  | CostMetadataOutput$Outbound
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const EventMetadataOutput$outboundSchema: z.ZodType<
-  EventMetadataOutput$Outbound,
-  z.ZodTypeDef,
-  EventMetadataOutput
-> = z.union([
-  LLMMetadata$outboundSchema,
-  CostMetadataOutput$outboundSchema,
-  z.string(),
-  z.number().int(),
-  z.number(),
-  z.boolean(),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventMetadataOutput$ {
-  /** @deprecated use `EventMetadataOutput$inboundSchema` instead. */
-  export const inboundSchema = EventMetadataOutput$inboundSchema;
-  /** @deprecated use `EventMetadataOutput$outboundSchema` instead. */
-  export const outboundSchema = EventMetadataOutput$outboundSchema;
-  /** @deprecated use `EventMetadataOutput$Outbound` instead. */
-  export type Outbound = EventMetadataOutput$Outbound;
-}
-
-export function eventMetadataOutputToJSON(
-  eventMetadataOutput: EventMetadataOutput,
-): string {
-  return JSON.stringify(
-    EventMetadataOutput$outboundSchema.parse(eventMetadataOutput),
-  );
-}
 
 export function eventMetadataOutputFromJSON(
   jsonString: string,

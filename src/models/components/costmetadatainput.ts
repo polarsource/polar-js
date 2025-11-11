@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The amount in cents.
@@ -24,10 +21,6 @@ export type CostMetadataInput = {
 };
 
 /** @internal */
-export const Amount$inboundSchema: z.ZodType<Amount, z.ZodTypeDef, unknown> = z
-  .union([z.number(), z.string()]);
-
-/** @internal */
 export type Amount$Outbound = number | string;
 
 /** @internal */
@@ -37,42 +30,9 @@ export const Amount$outboundSchema: z.ZodType<
   Amount
 > = z.union([z.number(), z.string()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Amount$ {
-  /** @deprecated use `Amount$inboundSchema` instead. */
-  export const inboundSchema = Amount$inboundSchema;
-  /** @deprecated use `Amount$outboundSchema` instead. */
-  export const outboundSchema = Amount$outboundSchema;
-  /** @deprecated use `Amount$Outbound` instead. */
-  export type Outbound = Amount$Outbound;
-}
-
 export function amountToJSON(amount: Amount): string {
   return JSON.stringify(Amount$outboundSchema.parse(amount));
 }
-
-export function amountFromJSON(
-  jsonString: string,
-): SafeParseResult<Amount, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Amount$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Amount' from JSON`,
-  );
-}
-
-/** @internal */
-export const CostMetadataInput$inboundSchema: z.ZodType<
-  CostMetadataInput,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  amount: z.union([z.number(), z.string()]),
-  currency: z.string(),
-});
 
 /** @internal */
 export type CostMetadataInput$Outbound = {
@@ -90,33 +50,10 @@ export const CostMetadataInput$outboundSchema: z.ZodType<
   currency: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CostMetadataInput$ {
-  /** @deprecated use `CostMetadataInput$inboundSchema` instead. */
-  export const inboundSchema = CostMetadataInput$inboundSchema;
-  /** @deprecated use `CostMetadataInput$outboundSchema` instead. */
-  export const outboundSchema = CostMetadataInput$outboundSchema;
-  /** @deprecated use `CostMetadataInput$Outbound` instead. */
-  export type Outbound = CostMetadataInput$Outbound;
-}
-
 export function costMetadataInputToJSON(
   costMetadataInput: CostMetadataInput,
 ): string {
   return JSON.stringify(
     CostMetadataInput$outboundSchema.parse(costMetadataInput),
-  );
-}
-
-export function costMetadataInputFromJSON(
-  jsonString: string,
-): SafeParseResult<CostMetadataInput, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CostMetadataInput$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CostMetadataInput' from JSON`,
   );
 }

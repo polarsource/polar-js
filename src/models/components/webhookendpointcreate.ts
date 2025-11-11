@@ -4,17 +4,12 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   WebhookEventType,
-  WebhookEventType$inboundSchema,
   WebhookEventType$outboundSchema,
 } from "./webhookeventtype.js";
 import {
   WebhookFormat,
-  WebhookFormat$inboundSchema,
   WebhookFormat$outboundSchema,
 } from "./webhookformat.js";
 
@@ -42,23 +37,6 @@ export type WebhookEndpointCreate = {
 };
 
 /** @internal */
-export const WebhookEndpointCreate$inboundSchema: z.ZodType<
-  WebhookEndpointCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  url: z.string(),
-  secret: z.nullable(z.string()).optional(),
-  format: WebhookFormat$inboundSchema,
-  events: z.array(WebhookEventType$inboundSchema),
-  organization_id: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
-
-/** @internal */
 export type WebhookEndpointCreate$Outbound = {
   url: string;
   secret?: string | null | undefined;
@@ -84,33 +62,10 @@ export const WebhookEndpointCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookEndpointCreate$ {
-  /** @deprecated use `WebhookEndpointCreate$inboundSchema` instead. */
-  export const inboundSchema = WebhookEndpointCreate$inboundSchema;
-  /** @deprecated use `WebhookEndpointCreate$outboundSchema` instead. */
-  export const outboundSchema = WebhookEndpointCreate$outboundSchema;
-  /** @deprecated use `WebhookEndpointCreate$Outbound` instead. */
-  export type Outbound = WebhookEndpointCreate$Outbound;
-}
-
 export function webhookEndpointCreateToJSON(
   webhookEndpointCreate: WebhookEndpointCreate,
 ): string {
   return JSON.stringify(
     WebhookEndpointCreate$outboundSchema.parse(webhookEndpointCreate),
-  );
-}
-
-export function webhookEndpointCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<WebhookEndpointCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => WebhookEndpointCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WebhookEndpointCreate' from JSON`,
   );
 }

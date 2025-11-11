@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerSeatsRevokeSeatRequest = {
   seatId: string;
 };
-
-/** @internal */
-export const CustomerSeatsRevokeSeatRequest$inboundSchema: z.ZodType<
-  CustomerSeatsRevokeSeatRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  seat_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "seat_id": "seatId",
-  });
-});
 
 /** @internal */
 export type CustomerSeatsRevokeSeatRequest$Outbound = {
@@ -43,19 +27,6 @@ export const CustomerSeatsRevokeSeatRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSeatsRevokeSeatRequest$ {
-  /** @deprecated use `CustomerSeatsRevokeSeatRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomerSeatsRevokeSeatRequest$inboundSchema;
-  /** @deprecated use `CustomerSeatsRevokeSeatRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomerSeatsRevokeSeatRequest$outboundSchema;
-  /** @deprecated use `CustomerSeatsRevokeSeatRequest$Outbound` instead. */
-  export type Outbound = CustomerSeatsRevokeSeatRequest$Outbound;
-}
-
 export function customerSeatsRevokeSeatRequestToJSON(
   customerSeatsRevokeSeatRequest: CustomerSeatsRevokeSeatRequest,
 ): string {
@@ -63,15 +34,5 @@ export function customerSeatsRevokeSeatRequestToJSON(
     CustomerSeatsRevokeSeatRequest$outboundSchema.parse(
       customerSeatsRevokeSeatRequest,
     ),
-  );
-}
-
-export function customerSeatsRevokeSeatRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerSeatsRevokeSeatRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerSeatsRevokeSeatRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerSeatsRevokeSeatRequest' from JSON`,
   );
 }

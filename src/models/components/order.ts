@@ -200,7 +200,6 @@ export const OrderMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type OrderMetadata$Outbound = string | number | number | boolean;
 
@@ -211,23 +210,9 @@ export const OrderMetadata$outboundSchema: z.ZodType<
   OrderMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderMetadata$ {
-  /** @deprecated use `OrderMetadata$inboundSchema` instead. */
-  export const inboundSchema = OrderMetadata$inboundSchema;
-  /** @deprecated use `OrderMetadata$outboundSchema` instead. */
-  export const outboundSchema = OrderMetadata$outboundSchema;
-  /** @deprecated use `OrderMetadata$Outbound` instead. */
-  export type Outbound = OrderMetadata$Outbound;
-}
-
 export function orderMetadataToJSON(orderMetadata: OrderMetadata): string {
   return JSON.stringify(OrderMetadata$outboundSchema.parse(orderMetadata));
 }
-
 export function orderMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderMetadata, SDKValidationError> {
@@ -249,7 +234,6 @@ export const OrderCustomFieldData$inboundSchema: z.ZodType<
   z.boolean(),
   z.string().datetime({ offset: true }).transform(v => new Date(v)),
 ]);
-
 /** @internal */
 export type OrderCustomFieldData$Outbound = string | number | boolean | string;
 
@@ -265,19 +249,6 @@ export const OrderCustomFieldData$outboundSchema: z.ZodType<
   z.date().transform(v => v.toISOString()),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderCustomFieldData$ {
-  /** @deprecated use `OrderCustomFieldData$inboundSchema` instead. */
-  export const inboundSchema = OrderCustomFieldData$inboundSchema;
-  /** @deprecated use `OrderCustomFieldData$outboundSchema` instead. */
-  export const outboundSchema = OrderCustomFieldData$outboundSchema;
-  /** @deprecated use `OrderCustomFieldData$Outbound` instead. */
-  export type Outbound = OrderCustomFieldData$Outbound;
-}
-
 export function orderCustomFieldDataToJSON(
   orderCustomFieldData: OrderCustomFieldData,
 ): string {
@@ -285,7 +256,6 @@ export function orderCustomFieldDataToJSON(
     OrderCustomFieldData$outboundSchema.parse(orderCustomFieldData),
   );
 }
-
 export function orderCustomFieldDataFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderCustomFieldData, SDKValidationError> {
@@ -307,7 +277,6 @@ export const OrderDiscount$inboundSchema: z.ZodType<
   DiscountPercentageRepeatDurationBase$inboundSchema,
   DiscountPercentageOnceForeverDurationBase$inboundSchema,
 ]);
-
 /** @internal */
 export type OrderDiscount$Outbound =
   | DiscountFixedRepeatDurationBase$Outbound
@@ -327,23 +296,9 @@ export const OrderDiscount$outboundSchema: z.ZodType<
   DiscountPercentageOnceForeverDurationBase$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderDiscount$ {
-  /** @deprecated use `OrderDiscount$inboundSchema` instead. */
-  export const inboundSchema = OrderDiscount$inboundSchema;
-  /** @deprecated use `OrderDiscount$outboundSchema` instead. */
-  export const outboundSchema = OrderDiscount$outboundSchema;
-  /** @deprecated use `OrderDiscount$Outbound` instead. */
-  export type Outbound = OrderDiscount$Outbound;
-}
-
 export function orderDiscountToJSON(orderDiscount: OrderDiscount): string {
   return JSON.stringify(OrderDiscount$outboundSchema.parse(orderDiscount));
 }
-
 export function orderDiscountFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderDiscount, SDKValidationError> {
@@ -443,7 +398,6 @@ export const Order$inboundSchema: z.ZodType<Order, z.ZodTypeDef, unknown> = z
       "user_id": "userId",
     });
   });
-
 /** @internal */
 export type Order$Outbound = {
   id: string;
@@ -580,23 +534,9 @@ export const Order$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Order$ {
-  /** @deprecated use `Order$inboundSchema` instead. */
-  export const inboundSchema = Order$inboundSchema;
-  /** @deprecated use `Order$outboundSchema` instead. */
-  export const outboundSchema = Order$outboundSchema;
-  /** @deprecated use `Order$Outbound` instead. */
-  export type Outbound = Order$Outbound;
-}
-
 export function orderToJSON(order: Order): string {
   return JSON.stringify(Order$outboundSchema.parse(order));
 }
-
 export function orderFromJSON(
   jsonString: string,
 ): SafeParseResult<Order, SDKValidationError> {

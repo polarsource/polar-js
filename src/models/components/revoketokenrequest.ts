@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const TokenTypeHint = {
   AccessToken: "access_token",
@@ -23,43 +20,9 @@ export type RevokeTokenRequest = {
 };
 
 /** @internal */
-export const TokenTypeHint$inboundSchema: z.ZodNativeEnum<
-  typeof TokenTypeHint
-> = z.nativeEnum(TokenTypeHint);
-
-/** @internal */
 export const TokenTypeHint$outboundSchema: z.ZodNativeEnum<
   typeof TokenTypeHint
-> = TokenTypeHint$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenTypeHint$ {
-  /** @deprecated use `TokenTypeHint$inboundSchema` instead. */
-  export const inboundSchema = TokenTypeHint$inboundSchema;
-  /** @deprecated use `TokenTypeHint$outboundSchema` instead. */
-  export const outboundSchema = TokenTypeHint$outboundSchema;
-}
-
-/** @internal */
-export const RevokeTokenRequest$inboundSchema: z.ZodType<
-  RevokeTokenRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  token: z.string(),
-  token_type_hint: z.nullable(TokenTypeHint$inboundSchema).optional(),
-  client_id: z.string(),
-  client_secret: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "token_type_hint": "tokenTypeHint",
-    "client_id": "clientId",
-    "client_secret": "clientSecret",
-  });
-});
+> = z.nativeEnum(TokenTypeHint);
 
 /** @internal */
 export type RevokeTokenRequest$Outbound = {
@@ -87,33 +50,10 @@ export const RevokeTokenRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RevokeTokenRequest$ {
-  /** @deprecated use `RevokeTokenRequest$inboundSchema` instead. */
-  export const inboundSchema = RevokeTokenRequest$inboundSchema;
-  /** @deprecated use `RevokeTokenRequest$outboundSchema` instead. */
-  export const outboundSchema = RevokeTokenRequest$outboundSchema;
-  /** @deprecated use `RevokeTokenRequest$Outbound` instead. */
-  export type Outbound = RevokeTokenRequest$Outbound;
-}
-
 export function revokeTokenRequestToJSON(
   revokeTokenRequest: RevokeTokenRequest,
 ): string {
   return JSON.stringify(
     RevokeTokenRequest$outboundSchema.parse(revokeTokenRequest),
-  );
-}
-
-export function revokeTokenRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<RevokeTokenRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => RevokeTokenRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'RevokeTokenRequest' from JSON`,
   );
 }

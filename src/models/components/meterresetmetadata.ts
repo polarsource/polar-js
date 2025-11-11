@@ -25,45 +25,6 @@ export const MeterResetMetadata$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type MeterResetMetadata$Outbound = {
-  meter_id: string;
-};
-
-/** @internal */
-export const MeterResetMetadata$outboundSchema: z.ZodType<
-  MeterResetMetadata$Outbound,
-  z.ZodTypeDef,
-  MeterResetMetadata
-> = z.object({
-  meterId: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    meterId: "meter_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MeterResetMetadata$ {
-  /** @deprecated use `MeterResetMetadata$inboundSchema` instead. */
-  export const inboundSchema = MeterResetMetadata$inboundSchema;
-  /** @deprecated use `MeterResetMetadata$outboundSchema` instead. */
-  export const outboundSchema = MeterResetMetadata$outboundSchema;
-  /** @deprecated use `MeterResetMetadata$Outbound` instead. */
-  export type Outbound = MeterResetMetadata$Outbound;
-}
-
-export function meterResetMetadataToJSON(
-  meterResetMetadata: MeterResetMetadata,
-): string {
-  return JSON.stringify(
-    MeterResetMetadata$outboundSchema.parse(meterResetMetadata),
-  );
-}
-
 export function meterResetMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<MeterResetMetadata, SDKValidationError> {

@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerUpdatedFields,
   CustomerUpdatedFields$inboundSchema,
-  CustomerUpdatedFields$Outbound,
-  CustomerUpdatedFields$outboundSchema,
 } from "./customerupdatedfields.js";
 
 export type CustomerUpdatedMetadata = {
@@ -42,57 +40,6 @@ export const CustomerUpdatedMetadata$inboundSchema: z.ZodType<
     "updated_fields": "updatedFields",
   });
 });
-
-/** @internal */
-export type CustomerUpdatedMetadata$Outbound = {
-  customer_id: string;
-  customer_email: string;
-  customer_name: string | null;
-  customer_external_id: string | null;
-  updated_fields: CustomerUpdatedFields$Outbound;
-};
-
-/** @internal */
-export const CustomerUpdatedMetadata$outboundSchema: z.ZodType<
-  CustomerUpdatedMetadata$Outbound,
-  z.ZodTypeDef,
-  CustomerUpdatedMetadata
-> = z.object({
-  customerId: z.string(),
-  customerEmail: z.string(),
-  customerName: z.nullable(z.string()),
-  customerExternalId: z.nullable(z.string()),
-  updatedFields: CustomerUpdatedFields$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    customerId: "customer_id",
-    customerEmail: "customer_email",
-    customerName: "customer_name",
-    customerExternalId: "customer_external_id",
-    updatedFields: "updated_fields",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerUpdatedMetadata$ {
-  /** @deprecated use `CustomerUpdatedMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomerUpdatedMetadata$inboundSchema;
-  /** @deprecated use `CustomerUpdatedMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomerUpdatedMetadata$outboundSchema;
-  /** @deprecated use `CustomerUpdatedMetadata$Outbound` instead. */
-  export type Outbound = CustomerUpdatedMetadata$Outbound;
-}
-
-export function customerUpdatedMetadataToJSON(
-  customerUpdatedMetadata: CustomerUpdatedMetadata,
-): string {
-  return JSON.stringify(
-    CustomerUpdatedMetadata$outboundSchema.parse(customerUpdatedMetadata),
-  );
-}
 
 export function customerUpdatedMetadataFromJSON(
   jsonString: string,

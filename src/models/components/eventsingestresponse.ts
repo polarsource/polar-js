@@ -28,43 +28,6 @@ export const EventsIngestResponse$inboundSchema: z.ZodType<
   duplicates: z.number().int().default(0),
 });
 
-/** @internal */
-export type EventsIngestResponse$Outbound = {
-  inserted: number;
-  duplicates: number;
-};
-
-/** @internal */
-export const EventsIngestResponse$outboundSchema: z.ZodType<
-  EventsIngestResponse$Outbound,
-  z.ZodTypeDef,
-  EventsIngestResponse
-> = z.object({
-  inserted: z.number().int(),
-  duplicates: z.number().int().default(0),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsIngestResponse$ {
-  /** @deprecated use `EventsIngestResponse$inboundSchema` instead. */
-  export const inboundSchema = EventsIngestResponse$inboundSchema;
-  /** @deprecated use `EventsIngestResponse$outboundSchema` instead. */
-  export const outboundSchema = EventsIngestResponse$outboundSchema;
-  /** @deprecated use `EventsIngestResponse$Outbound` instead. */
-  export type Outbound = EventsIngestResponse$Outbound;
-}
-
-export function eventsIngestResponseToJSON(
-  eventsIngestResponse: EventsIngestResponse,
-): string {
-  return JSON.stringify(
-    EventsIngestResponse$outboundSchema.parse(eventsIngestResponse),
-  );
-}
-
 export function eventsIngestResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<EventsIngestResponse, SDKValidationError> {

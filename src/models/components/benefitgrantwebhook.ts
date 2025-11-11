@@ -64,7 +64,6 @@ export const BenefitGrantWebhook$inboundSchema: z.ZodType<
   BenefitGrantLicenseKeysWebhook$inboundSchema,
   BenefitGrantMeterCreditWebhook$inboundSchema,
 ]);
-
 /** @internal */
 export type BenefitGrantWebhook$Outbound =
   | BenefitGrantDiscordWebhook$Outbound
@@ -88,19 +87,6 @@ export const BenefitGrantWebhook$outboundSchema: z.ZodType<
   BenefitGrantMeterCreditWebhook$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantWebhook$ {
-  /** @deprecated use `BenefitGrantWebhook$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantWebhook$inboundSchema;
-  /** @deprecated use `BenefitGrantWebhook$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrantWebhook$outboundSchema;
-  /** @deprecated use `BenefitGrantWebhook$Outbound` instead. */
-  export type Outbound = BenefitGrantWebhook$Outbound;
-}
-
 export function benefitGrantWebhookToJSON(
   benefitGrantWebhook: BenefitGrantWebhook,
 ): string {
@@ -108,7 +94,6 @@ export function benefitGrantWebhookToJSON(
     BenefitGrantWebhook$outboundSchema.parse(benefitGrantWebhook),
   );
 }
-
 export function benefitGrantWebhookFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantWebhook, SDKValidationError> {

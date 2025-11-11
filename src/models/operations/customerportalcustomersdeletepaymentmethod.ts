@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalCustomersDeletePaymentMethodSecurity = {
   customerSession: string;
@@ -15,20 +12,6 @@ export type CustomerPortalCustomersDeletePaymentMethodSecurity = {
 export type CustomerPortalCustomersDeletePaymentMethodRequest = {
   id: string;
 };
-
-/** @internal */
-export const CustomerPortalCustomersDeletePaymentMethodSecurity$inboundSchema:
-  z.ZodType<
-    CustomerPortalCustomersDeletePaymentMethodSecurity,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    customer_session: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "customer_session": "customerSession",
-    });
-  });
 
 /** @internal */
 export type CustomerPortalCustomersDeletePaymentMethodSecurity$Outbound = {
@@ -49,22 +32,6 @@ export const CustomerPortalCustomersDeletePaymentMethodSecurity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomersDeletePaymentMethodSecurity$ {
-  /** @deprecated use `CustomerPortalCustomersDeletePaymentMethodSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalCustomersDeletePaymentMethodSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomersDeletePaymentMethodSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomersDeletePaymentMethodSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomersDeletePaymentMethodSecurity$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalCustomersDeletePaymentMethodSecurity$Outbound;
-}
-
 export function customerPortalCustomersDeletePaymentMethodSecurityToJSON(
   customerPortalCustomersDeletePaymentMethodSecurity:
     CustomerPortalCustomersDeletePaymentMethodSecurity,
@@ -75,32 +42,6 @@ export function customerPortalCustomersDeletePaymentMethodSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalCustomersDeletePaymentMethodSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalCustomersDeletePaymentMethodSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalCustomersDeletePaymentMethodSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalCustomersDeletePaymentMethodSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalCustomersDeletePaymentMethodRequest$inboundSchema:
-  z.ZodType<
-    CustomerPortalCustomersDeletePaymentMethodRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.string(),
-  });
 
 /** @internal */
 export type CustomerPortalCustomersDeletePaymentMethodRequest$Outbound = {
@@ -117,22 +58,6 @@ export const CustomerPortalCustomersDeletePaymentMethodRequest$outboundSchema:
     id: z.string(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomersDeletePaymentMethodRequest$ {
-  /** @deprecated use `CustomerPortalCustomersDeletePaymentMethodRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalCustomersDeletePaymentMethodRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomersDeletePaymentMethodRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomersDeletePaymentMethodRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomersDeletePaymentMethodRequest$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalCustomersDeletePaymentMethodRequest$Outbound;
-}
-
 export function customerPortalCustomersDeletePaymentMethodRequestToJSON(
   customerPortalCustomersDeletePaymentMethodRequest:
     CustomerPortalCustomersDeletePaymentMethodRequest,
@@ -141,21 +66,5 @@ export function customerPortalCustomersDeletePaymentMethodRequestToJSON(
     CustomerPortalCustomersDeletePaymentMethodRequest$outboundSchema.parse(
       customerPortalCustomersDeletePaymentMethodRequest,
     ),
-  );
-}
-
-export function customerPortalCustomersDeletePaymentMethodRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalCustomersDeletePaymentMethodRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalCustomersDeletePaymentMethodRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalCustomersDeletePaymentMethodRequest' from JSON`,
   );
 }

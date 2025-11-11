@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerBenefitGrantCustomUpdate = {
   benefitType: "custom";
 };
-
-/** @internal */
-export const CustomerBenefitGrantCustomUpdate$inboundSchema: z.ZodType<
-  CustomerBenefitGrantCustomUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  benefit_type: z.literal("custom"),
-}).transform((v) => {
-  return remap$(v, {
-    "benefit_type": "benefitType",
-  });
-});
 
 /** @internal */
 export type CustomerBenefitGrantCustomUpdate$Outbound = {
@@ -43,19 +27,6 @@ export const CustomerBenefitGrantCustomUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantCustomUpdate$ {
-  /** @deprecated use `CustomerBenefitGrantCustomUpdate$inboundSchema` instead. */
-  export const inboundSchema = CustomerBenefitGrantCustomUpdate$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantCustomUpdate$outboundSchema` instead. */
-  export const outboundSchema = CustomerBenefitGrantCustomUpdate$outboundSchema;
-  /** @deprecated use `CustomerBenefitGrantCustomUpdate$Outbound` instead. */
-  export type Outbound = CustomerBenefitGrantCustomUpdate$Outbound;
-}
-
 export function customerBenefitGrantCustomUpdateToJSON(
   customerBenefitGrantCustomUpdate: CustomerBenefitGrantCustomUpdate,
 ): string {
@@ -63,15 +34,5 @@ export function customerBenefitGrantCustomUpdateToJSON(
     CustomerBenefitGrantCustomUpdate$outboundSchema.parse(
       customerBenefitGrantCustomUpdate,
     ),
-  );
-}
-
-export function customerBenefitGrantCustomUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerBenefitGrantCustomUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerBenefitGrantCustomUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerBenefitGrantCustomUpdate' from JSON`,
   );
 }

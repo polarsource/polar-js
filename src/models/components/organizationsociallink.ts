@@ -29,7 +29,6 @@ export const OrganizationSocialLink$inboundSchema: z.ZodType<
   platform: OrganizationSocialPlatforms$inboundSchema,
   url: z.string(),
 });
-
 /** @internal */
 export type OrganizationSocialLink$Outbound = {
   platform: string;
@@ -46,19 +45,6 @@ export const OrganizationSocialLink$outboundSchema: z.ZodType<
   url: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationSocialLink$ {
-  /** @deprecated use `OrganizationSocialLink$inboundSchema` instead. */
-  export const inboundSchema = OrganizationSocialLink$inboundSchema;
-  /** @deprecated use `OrganizationSocialLink$outboundSchema` instead. */
-  export const outboundSchema = OrganizationSocialLink$outboundSchema;
-  /** @deprecated use `OrganizationSocialLink$Outbound` instead. */
-  export type Outbound = OrganizationSocialLink$Outbound;
-}
-
 export function organizationSocialLinkToJSON(
   organizationSocialLink: OrganizationSocialLink,
 ): string {
@@ -66,7 +52,6 @@ export function organizationSocialLinkToJSON(
     OrganizationSocialLink$outboundSchema.parse(organizationSocialLink),
   );
 }
-
 export function organizationSocialLinkFromJSON(
   jsonString: string,
 ): SafeParseResult<OrganizationSocialLink, SDKValidationError> {

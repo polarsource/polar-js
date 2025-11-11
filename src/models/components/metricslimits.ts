@@ -11,8 +11,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   MetricsIntervalsLimits,
   MetricsIntervalsLimits$inboundSchema,
-  MetricsIntervalsLimits$Outbound,
-  MetricsIntervalsLimits$outboundSchema,
 } from "./metricsintervalslimits.js";
 
 /**
@@ -42,43 +40,6 @@ export const MetricsLimits$inboundSchema: z.ZodType<
     "min_date": "minDate",
   });
 });
-
-/** @internal */
-export type MetricsLimits$Outbound = {
-  min_date: string;
-  intervals: MetricsIntervalsLimits$Outbound;
-};
-
-/** @internal */
-export const MetricsLimits$outboundSchema: z.ZodType<
-  MetricsLimits$Outbound,
-  z.ZodTypeDef,
-  MetricsLimits
-> = z.object({
-  minDate: z.instanceof(RFCDate).transform(v => v.toString()),
-  intervals: MetricsIntervalsLimits$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    minDate: "min_date",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsLimits$ {
-  /** @deprecated use `MetricsLimits$inboundSchema` instead. */
-  export const inboundSchema = MetricsLimits$inboundSchema;
-  /** @deprecated use `MetricsLimits$outboundSchema` instead. */
-  export const outboundSchema = MetricsLimits$outboundSchema;
-  /** @deprecated use `MetricsLimits$Outbound` instead. */
-  export type Outbound = MetricsLimits$Outbound;
-}
-
-export function metricsLimitsToJSON(metricsLimits: MetricsLimits): string {
-  return JSON.stringify(MetricsLimits$outboundSchema.parse(metricsLimits));
-}
 
 export function metricsLimitsFromJSON(
   jsonString: string,

@@ -4,42 +4,33 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AttachedCustomFieldCreate,
-  AttachedCustomFieldCreate$inboundSchema,
   AttachedCustomFieldCreate$Outbound,
   AttachedCustomFieldCreate$outboundSchema,
 } from "./attachedcustomfieldcreate.js";
 import {
   ProductPriceCustomCreate,
-  ProductPriceCustomCreate$inboundSchema,
   ProductPriceCustomCreate$Outbound,
   ProductPriceCustomCreate$outboundSchema,
 } from "./productpricecustomcreate.js";
 import {
   ProductPriceFixedCreate,
-  ProductPriceFixedCreate$inboundSchema,
   ProductPriceFixedCreate$Outbound,
   ProductPriceFixedCreate$outboundSchema,
 } from "./productpricefixedcreate.js";
 import {
   ProductPriceFreeCreate,
-  ProductPriceFreeCreate$inboundSchema,
   ProductPriceFreeCreate$Outbound,
   ProductPriceFreeCreate$outboundSchema,
 } from "./productpricefreecreate.js";
 import {
   ProductPriceMeteredUnitCreate,
-  ProductPriceMeteredUnitCreate$inboundSchema,
   ProductPriceMeteredUnitCreate$Outbound,
   ProductPriceMeteredUnitCreate$outboundSchema,
 } from "./productpricemeteredunitcreate.js";
 import {
   ProductPriceSeatBasedCreate,
-  ProductPriceSeatBasedCreate$inboundSchema,
   ProductPriceSeatBasedCreate$Outbound,
   ProductPriceSeatBasedCreate$outboundSchema,
 } from "./productpriceseatbasedcreate.js";
@@ -111,13 +102,6 @@ export type ProductCreateOneTime = {
 };
 
 /** @internal */
-export const ProductCreateOneTimeMetadata$inboundSchema: z.ZodType<
-  ProductCreateOneTimeMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type ProductCreateOneTimeMetadata$Outbound =
   | string
   | number
@@ -131,19 +115,6 @@ export const ProductCreateOneTimeMetadata$outboundSchema: z.ZodType<
   ProductCreateOneTimeMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductCreateOneTimeMetadata$ {
-  /** @deprecated use `ProductCreateOneTimeMetadata$inboundSchema` instead. */
-  export const inboundSchema = ProductCreateOneTimeMetadata$inboundSchema;
-  /** @deprecated use `ProductCreateOneTimeMetadata$outboundSchema` instead. */
-  export const outboundSchema = ProductCreateOneTimeMetadata$outboundSchema;
-  /** @deprecated use `ProductCreateOneTimeMetadata$Outbound` instead. */
-  export type Outbound = ProductCreateOneTimeMetadata$Outbound;
-}
-
 export function productCreateOneTimeMetadataToJSON(
   productCreateOneTimeMetadata: ProductCreateOneTimeMetadata,
 ): string {
@@ -153,49 +124,6 @@ export function productCreateOneTimeMetadataToJSON(
     ),
   );
 }
-
-export function productCreateOneTimeMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductCreateOneTimeMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductCreateOneTimeMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductCreateOneTimeMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const ProductCreateOneTimePrices$inboundSchema: z.ZodType<
-  ProductCreateOneTimePrices,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  ProductPriceMeteredUnitCreate$inboundSchema.and(
-    z.object({ amount_type: z.literal("metered_unit") }).transform((v) => ({
-      amountType: v.amount_type,
-    })),
-  ),
-  ProductPriceFixedCreate$inboundSchema.and(
-    z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
-      amountType: v.amount_type,
-    })),
-  ),
-  ProductPriceSeatBasedCreate$inboundSchema.and(
-    z.object({ amount_type: z.literal("seat_based") }).transform((v) => ({
-      amountType: v.amount_type,
-    })),
-  ),
-  ProductPriceCustomCreate$inboundSchema.and(
-    z.object({ amount_type: z.literal("custom") }).transform((v) => ({
-      amountType: v.amount_type,
-    })),
-  ),
-  ProductPriceFreeCreate$inboundSchema.and(
-    z.object({ amount_type: z.literal("free") }).transform((v) => ({
-      amountType: v.amount_type,
-    })),
-  ),
-]);
 
 /** @internal */
 export type ProductCreateOneTimePrices$Outbound =
@@ -238,19 +166,6 @@ export const ProductCreateOneTimePrices$outboundSchema: z.ZodType<
   ),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductCreateOneTimePrices$ {
-  /** @deprecated use `ProductCreateOneTimePrices$inboundSchema` instead. */
-  export const inboundSchema = ProductCreateOneTimePrices$inboundSchema;
-  /** @deprecated use `ProductCreateOneTimePrices$outboundSchema` instead. */
-  export const outboundSchema = ProductCreateOneTimePrices$outboundSchema;
-  /** @deprecated use `ProductCreateOneTimePrices$Outbound` instead. */
-  export type Outbound = ProductCreateOneTimePrices$Outbound;
-}
-
 export function productCreateOneTimePricesToJSON(
   productCreateOneTimePrices: ProductCreateOneTimePrices,
 ): string {
@@ -258,71 +173,6 @@ export function productCreateOneTimePricesToJSON(
     ProductCreateOneTimePrices$outboundSchema.parse(productCreateOneTimePrices),
   );
 }
-
-export function productCreateOneTimePricesFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductCreateOneTimePrices, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductCreateOneTimePrices$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductCreateOneTimePrices' from JSON`,
-  );
-}
-
-/** @internal */
-export const ProductCreateOneTime$inboundSchema: z.ZodType<
-  ProductCreateOneTime,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  name: z.string(),
-  description: z.nullable(z.string()).optional(),
-  prices: z.array(
-    z.union([
-      ProductPriceMeteredUnitCreate$inboundSchema.and(
-        z.object({ amount_type: z.literal("metered_unit") }).transform((v) => ({
-          amountType: v.amount_type,
-        })),
-      ),
-      ProductPriceFixedCreate$inboundSchema.and(
-        z.object({ amount_type: z.literal("fixed") }).transform((v) => ({
-          amountType: v.amount_type,
-        })),
-      ),
-      ProductPriceSeatBasedCreate$inboundSchema.and(
-        z.object({ amount_type: z.literal("seat_based") }).transform((v) => ({
-          amountType: v.amount_type,
-        })),
-      ),
-      ProductPriceCustomCreate$inboundSchema.and(
-        z.object({ amount_type: z.literal("custom") }).transform((v) => ({
-          amountType: v.amount_type,
-        })),
-      ),
-      ProductPriceFreeCreate$inboundSchema.and(
-        z.object({ amount_type: z.literal("free") }).transform((v) => ({
-          amountType: v.amount_type,
-        })),
-      ),
-    ]),
-  ),
-  medias: z.nullable(z.array(z.string())).optional(),
-  attached_custom_fields: z.array(AttachedCustomFieldCreate$inboundSchema)
-    .optional(),
-  organization_id: z.nullable(z.string()).optional(),
-  recurring_interval: z.nullable(z.any()).optional(),
-  recurring_interval_count: z.nullable(z.any()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "attached_custom_fields": "attachedCustomFields",
-    "organization_id": "organizationId",
-    "recurring_interval": "recurringInterval",
-    "recurring_interval_count": "recurringIntervalCount",
-  });
-});
 
 /** @internal */
 export type ProductCreateOneTime$Outbound = {
@@ -400,33 +250,10 @@ export const ProductCreateOneTime$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductCreateOneTime$ {
-  /** @deprecated use `ProductCreateOneTime$inboundSchema` instead. */
-  export const inboundSchema = ProductCreateOneTime$inboundSchema;
-  /** @deprecated use `ProductCreateOneTime$outboundSchema` instead. */
-  export const outboundSchema = ProductCreateOneTime$outboundSchema;
-  /** @deprecated use `ProductCreateOneTime$Outbound` instead. */
-  export type Outbound = ProductCreateOneTime$Outbound;
-}
-
 export function productCreateOneTimeToJSON(
   productCreateOneTime: ProductCreateOneTime,
 ): string {
   return JSON.stringify(
     ProductCreateOneTime$outboundSchema.parse(productCreateOneTime),
-  );
-}
-
-export function productCreateOneTimeFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductCreateOneTime, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductCreateOneTime$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductCreateOneTime' from JSON`,
   );
 }

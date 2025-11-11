@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Properties to create a benefit of type `discord`.
@@ -22,23 +19,6 @@ export type BenefitDiscordCreateProperties = {
    */
   kickMember: boolean;
 };
-
-/** @internal */
-export const BenefitDiscordCreateProperties$inboundSchema: z.ZodType<
-  BenefitDiscordCreateProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  guild_token: z.string(),
-  role_id: z.string(),
-  kick_member: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    "guild_token": "guildToken",
-    "role_id": "roleId",
-    "kick_member": "kickMember",
-  });
-});
 
 /** @internal */
 export type BenefitDiscordCreateProperties$Outbound = {
@@ -64,19 +44,6 @@ export const BenefitDiscordCreateProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDiscordCreateProperties$ {
-  /** @deprecated use `BenefitDiscordCreateProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitDiscordCreateProperties$inboundSchema;
-  /** @deprecated use `BenefitDiscordCreateProperties$outboundSchema` instead. */
-  export const outboundSchema = BenefitDiscordCreateProperties$outboundSchema;
-  /** @deprecated use `BenefitDiscordCreateProperties$Outbound` instead. */
-  export type Outbound = BenefitDiscordCreateProperties$Outbound;
-}
-
 export function benefitDiscordCreatePropertiesToJSON(
   benefitDiscordCreateProperties: BenefitDiscordCreateProperties,
 ): string {
@@ -84,15 +51,5 @@ export function benefitDiscordCreatePropertiesToJSON(
     BenefitDiscordCreateProperties$outboundSchema.parse(
       benefitDiscordCreateProperties,
     ),
-  );
-}
-
-export function benefitDiscordCreatePropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitDiscordCreateProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitDiscordCreateProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitDiscordCreateProperties' from JSON`,
   );
 }

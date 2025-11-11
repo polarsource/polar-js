@@ -28,44 +28,6 @@ export const Pagination$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type Pagination$Outbound = {
-  total_count: number;
-  max_page: number;
-};
-
-/** @internal */
-export const Pagination$outboundSchema: z.ZodType<
-  Pagination$Outbound,
-  z.ZodTypeDef,
-  Pagination
-> = z.object({
-  totalCount: z.number().int(),
-  maxPage: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    totalCount: "total_count",
-    maxPage: "max_page",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Pagination$ {
-  /** @deprecated use `Pagination$inboundSchema` instead. */
-  export const inboundSchema = Pagination$inboundSchema;
-  /** @deprecated use `Pagination$outboundSchema` instead. */
-  export const outboundSchema = Pagination$outboundSchema;
-  /** @deprecated use `Pagination$Outbound` instead. */
-  export type Outbound = Pagination$Outbound;
-}
-
-export function paginationToJSON(pagination: Pagination): string {
-  return JSON.stringify(Pagination$outboundSchema.parse(pagination));
-}
-
 export function paginationFromJSON(
   jsonString: string,
 ): SafeParseResult<Pagination, SDKValidationError> {

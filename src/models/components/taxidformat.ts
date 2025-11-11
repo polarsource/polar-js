@@ -100,18 +100,6 @@ export type TaxIDFormat = ClosedEnum<typeof TaxIDFormat>;
 /** @internal */
 export const TaxIDFormat$inboundSchema: z.ZodNativeEnum<typeof TaxIDFormat> = z
   .nativeEnum(TaxIDFormat);
-
 /** @internal */
 export const TaxIDFormat$outboundSchema: z.ZodNativeEnum<typeof TaxIDFormat> =
   TaxIDFormat$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TaxIDFormat$ {
-  /** @deprecated use `TaxIDFormat$inboundSchema` instead. */
-  export const inboundSchema = TaxIDFormat$inboundSchema;
-  /** @deprecated use `TaxIDFormat$outboundSchema` instead. */
-  export const outboundSchema = TaxIDFormat$outboundSchema;
-}

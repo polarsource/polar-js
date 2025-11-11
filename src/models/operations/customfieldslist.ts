@@ -8,19 +8,15 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomFieldSortProperty,
-  CustomFieldSortProperty$inboundSchema,
   CustomFieldSortProperty$outboundSchema,
 } from "../components/customfieldsortproperty.js";
 import {
   CustomFieldType,
-  CustomFieldType$inboundSchema,
   CustomFieldType$outboundSchema,
 } from "../components/customfieldtype.js";
 import {
   ListResourceCustomField,
   ListResourceCustomField$inboundSchema,
-  ListResourceCustomField$Outbound,
-  ListResourceCustomField$outboundSchema,
 } from "../components/listresourcecustomfield.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -68,14 +64,6 @@ export type CustomFieldsListResponse = {
 };
 
 /** @internal */
-export const CustomFieldsListQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<
-    CustomFieldsListQueryParamOrganizationIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type CustomFieldsListQueryParamOrganizationIDFilter$Outbound =
   | string
   | Array<string>;
@@ -88,22 +76,6 @@ export const CustomFieldsListQueryParamOrganizationIDFilter$outboundSchema:
     CustomFieldsListQueryParamOrganizationIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldsListQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `CustomFieldsListQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomFieldsListQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `CustomFieldsListQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomFieldsListQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `CustomFieldsListQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound =
-    CustomFieldsListQueryParamOrganizationIDFilter$Outbound;
-}
-
 export function customFieldsListQueryParamOrganizationIDFilterToJSON(
   customFieldsListQueryParamOrganizationIDFilter:
     CustomFieldsListQueryParamOrganizationIDFilter,
@@ -114,32 +86,6 @@ export function customFieldsListQueryParamOrganizationIDFilterToJSON(
     ),
   );
 }
-
-export function customFieldsListQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomFieldsListQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomFieldsListQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomFieldsListQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomFieldTypeFilter$inboundSchema: z.ZodType<
-  CustomFieldTypeFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  CustomFieldType$inboundSchema,
-  z.array(CustomFieldType$inboundSchema),
-]);
 
 /** @internal */
 export type CustomFieldTypeFilter$Outbound = string | Array<string>;
@@ -154,19 +100,6 @@ export const CustomFieldTypeFilter$outboundSchema: z.ZodType<
   z.array(CustomFieldType$outboundSchema),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldTypeFilter$ {
-  /** @deprecated use `CustomFieldTypeFilter$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldTypeFilter$inboundSchema;
-  /** @deprecated use `CustomFieldTypeFilter$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldTypeFilter$outboundSchema;
-  /** @deprecated use `CustomFieldTypeFilter$Outbound` instead. */
-  export type Outbound = CustomFieldTypeFilter$Outbound;
-}
-
 export function customFieldTypeFilterToJSON(
   customFieldTypeFilter: CustomFieldTypeFilter,
 ): string {
@@ -174,42 +107,6 @@ export function customFieldTypeFilterToJSON(
     CustomFieldTypeFilter$outboundSchema.parse(customFieldTypeFilter),
   );
 }
-
-export function customFieldTypeFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldTypeFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldTypeFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldTypeFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomFieldsListRequest$inboundSchema: z.ZodType<
-  CustomFieldsListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  query: z.nullable(z.string()).optional(),
-  type_filter: z.nullable(
-    z.union([
-      CustomFieldType$inboundSchema,
-      z.array(CustomFieldType$inboundSchema),
-    ]),
-  ).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(CustomFieldSortProperty$inboundSchema))
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "type_filter": "typeFilter",
-  });
-});
 
 /** @internal */
 export type CustomFieldsListRequest$Outbound = {
@@ -247,34 +144,11 @@ export const CustomFieldsListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldsListRequest$ {
-  /** @deprecated use `CustomFieldsListRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldsListRequest$inboundSchema;
-  /** @deprecated use `CustomFieldsListRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldsListRequest$outboundSchema;
-  /** @deprecated use `CustomFieldsListRequest$Outbound` instead. */
-  export type Outbound = CustomFieldsListRequest$Outbound;
-}
-
 export function customFieldsListRequestToJSON(
   customFieldsListRequest: CustomFieldsListRequest,
 ): string {
   return JSON.stringify(
     CustomFieldsListRequest$outboundSchema.parse(customFieldsListRequest),
-  );
-}
-
-export function customFieldsListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldsListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldsListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldsListRequest' from JSON`,
   );
 }
 
@@ -290,45 +164,6 @@ export const CustomFieldsListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type CustomFieldsListResponse$Outbound = {
-  Result: ListResourceCustomField$Outbound;
-};
-
-/** @internal */
-export const CustomFieldsListResponse$outboundSchema: z.ZodType<
-  CustomFieldsListResponse$Outbound,
-  z.ZodTypeDef,
-  CustomFieldsListResponse
-> = z.object({
-  result: ListResourceCustomField$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldsListResponse$ {
-  /** @deprecated use `CustomFieldsListResponse$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldsListResponse$inboundSchema;
-  /** @deprecated use `CustomFieldsListResponse$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldsListResponse$outboundSchema;
-  /** @deprecated use `CustomFieldsListResponse$Outbound` instead. */
-  export type Outbound = CustomFieldsListResponse$Outbound;
-}
-
-export function customFieldsListResponseToJSON(
-  customFieldsListResponse: CustomFieldsListResponse,
-): string {
-  return JSON.stringify(
-    CustomFieldsListResponse$outboundSchema.parse(customFieldsListResponse),
-  );
-}
 
 export function customFieldsListResponseFromJSON(
   jsonString: string,

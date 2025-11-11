@@ -37,7 +37,6 @@ export const WebhookSubscriptionCanceledPayload$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Subscription$inboundSchema,
 });
-
 /** @internal */
 export type WebhookSubscriptionCanceledPayload$Outbound = {
   type: "subscription.canceled";
@@ -56,20 +55,6 @@ export const WebhookSubscriptionCanceledPayload$outboundSchema: z.ZodType<
   data: Subscription$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookSubscriptionCanceledPayload$ {
-  /** @deprecated use `WebhookSubscriptionCanceledPayload$inboundSchema` instead. */
-  export const inboundSchema = WebhookSubscriptionCanceledPayload$inboundSchema;
-  /** @deprecated use `WebhookSubscriptionCanceledPayload$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookSubscriptionCanceledPayload$outboundSchema;
-  /** @deprecated use `WebhookSubscriptionCanceledPayload$Outbound` instead. */
-  export type Outbound = WebhookSubscriptionCanceledPayload$Outbound;
-}
-
 export function webhookSubscriptionCanceledPayloadToJSON(
   webhookSubscriptionCanceledPayload: WebhookSubscriptionCanceledPayload,
 ): string {
@@ -79,7 +64,6 @@ export function webhookSubscriptionCanceledPayloadToJSON(
     ),
   );
 }
-
 export function webhookSubscriptionCanceledPayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhookSubscriptionCanceledPayload, SDKValidationError> {

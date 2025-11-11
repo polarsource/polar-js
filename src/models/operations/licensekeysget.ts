@@ -3,22 +3,10 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LicenseKeysGetRequest = {
   id: string;
 };
-
-/** @internal */
-export const LicenseKeysGetRequest$inboundSchema: z.ZodType<
-  LicenseKeysGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type LicenseKeysGetRequest$Outbound = {
@@ -34,33 +22,10 @@ export const LicenseKeysGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LicenseKeysGetRequest$ {
-  /** @deprecated use `LicenseKeysGetRequest$inboundSchema` instead. */
-  export const inboundSchema = LicenseKeysGetRequest$inboundSchema;
-  /** @deprecated use `LicenseKeysGetRequest$outboundSchema` instead. */
-  export const outboundSchema = LicenseKeysGetRequest$outboundSchema;
-  /** @deprecated use `LicenseKeysGetRequest$Outbound` instead. */
-  export type Outbound = LicenseKeysGetRequest$Outbound;
-}
-
 export function licenseKeysGetRequestToJSON(
   licenseKeysGetRequest: LicenseKeysGetRequest,
 ): string {
   return JSON.stringify(
     LicenseKeysGetRequest$outboundSchema.parse(licenseKeysGetRequest),
-  );
-}
-
-export function licenseKeysGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<LicenseKeysGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => LicenseKeysGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LicenseKeysGetRequest' from JSON`,
   );
 }

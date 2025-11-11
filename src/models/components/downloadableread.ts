@@ -7,12 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  FileDownload,
-  FileDownload$inboundSchema,
-  FileDownload$Outbound,
-  FileDownload$outboundSchema,
-} from "./filedownload.js";
+import { FileDownload, FileDownload$inboundSchema } from "./filedownload.js";
 
 export type DownloadableRead = {
   id: string;
@@ -34,49 +29,6 @@ export const DownloadableRead$inboundSchema: z.ZodType<
     "benefit_id": "benefitId",
   });
 });
-
-/** @internal */
-export type DownloadableRead$Outbound = {
-  id: string;
-  benefit_id: string;
-  file: FileDownload$Outbound;
-};
-
-/** @internal */
-export const DownloadableRead$outboundSchema: z.ZodType<
-  DownloadableRead$Outbound,
-  z.ZodTypeDef,
-  DownloadableRead
-> = z.object({
-  id: z.string(),
-  benefitId: z.string(),
-  file: FileDownload$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    benefitId: "benefit_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DownloadableRead$ {
-  /** @deprecated use `DownloadableRead$inboundSchema` instead. */
-  export const inboundSchema = DownloadableRead$inboundSchema;
-  /** @deprecated use `DownloadableRead$outboundSchema` instead. */
-  export const outboundSchema = DownloadableRead$outboundSchema;
-  /** @deprecated use `DownloadableRead$Outbound` instead. */
-  export type Outbound = DownloadableRead$Outbound;
-}
-
-export function downloadableReadToJSON(
-  downloadableRead: DownloadableRead,
-): string {
-  return JSON.stringify(
-    DownloadableRead$outboundSchema.parse(downloadableRead),
-  );
-}
 
 export function downloadableReadFromJSON(
   jsonString: string,

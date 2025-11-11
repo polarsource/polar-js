@@ -72,7 +72,6 @@ export const SubscriptionCustomerMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type SubscriptionCustomerMetadata$Outbound =
   | string
@@ -87,19 +86,6 @@ export const SubscriptionCustomerMetadata$outboundSchema: z.ZodType<
   SubscriptionCustomerMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionCustomerMetadata$ {
-  /** @deprecated use `SubscriptionCustomerMetadata$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionCustomerMetadata$inboundSchema;
-  /** @deprecated use `SubscriptionCustomerMetadata$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionCustomerMetadata$outboundSchema;
-  /** @deprecated use `SubscriptionCustomerMetadata$Outbound` instead. */
-  export type Outbound = SubscriptionCustomerMetadata$Outbound;
-}
-
 export function subscriptionCustomerMetadataToJSON(
   subscriptionCustomerMetadata: SubscriptionCustomerMetadata,
 ): string {
@@ -109,7 +95,6 @@ export function subscriptionCustomerMetadataToJSON(
     ),
   );
 }
-
 export function subscriptionCustomerMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<SubscriptionCustomerMetadata, SDKValidationError> {
@@ -123,7 +108,6 @@ export function subscriptionCustomerMetadataFromJSON(
 /** @internal */
 export const TaxId$inboundSchema: z.ZodType<TaxId, z.ZodTypeDef, unknown> = z
   .union([z.string(), TaxIDFormat$inboundSchema]);
-
 /** @internal */
 export type TaxId$Outbound = string | string;
 
@@ -134,23 +118,9 @@ export const TaxId$outboundSchema: z.ZodType<
   TaxId
 > = z.union([z.string(), TaxIDFormat$outboundSchema]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TaxId$ {
-  /** @deprecated use `TaxId$inboundSchema` instead. */
-  export const inboundSchema = TaxId$inboundSchema;
-  /** @deprecated use `TaxId$outboundSchema` instead. */
-  export const outboundSchema = TaxId$outboundSchema;
-  /** @deprecated use `TaxId$Outbound` instead. */
-  export type Outbound = TaxId$Outbound;
-}
-
 export function taxIdToJSON(taxId: TaxId): string {
   return JSON.stringify(TaxId$outboundSchema.parse(taxId));
 }
-
 export function taxIdFromJSON(
   jsonString: string,
 ): SafeParseResult<TaxId, SDKValidationError> {
@@ -201,7 +171,6 @@ export const SubscriptionCustomer$inboundSchema: z.ZodType<
     "avatar_url": "avatarUrl",
   });
 });
-
 /** @internal */
 export type SubscriptionCustomer$Outbound = {
   id: string;
@@ -256,19 +225,6 @@ export const SubscriptionCustomer$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionCustomer$ {
-  /** @deprecated use `SubscriptionCustomer$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionCustomer$inboundSchema;
-  /** @deprecated use `SubscriptionCustomer$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionCustomer$outboundSchema;
-  /** @deprecated use `SubscriptionCustomer$Outbound` instead. */
-  export type Outbound = SubscriptionCustomer$Outbound;
-}
-
 export function subscriptionCustomerToJSON(
   subscriptionCustomer: SubscriptionCustomer,
 ): string {
@@ -276,7 +232,6 @@ export function subscriptionCustomerToJSON(
     SubscriptionCustomer$outboundSchema.parse(subscriptionCustomer),
   );
 }
-
 export function subscriptionCustomerFromJSON(
   jsonString: string,
 ): SafeParseResult<SubscriptionCustomer, SDKValidationError> {

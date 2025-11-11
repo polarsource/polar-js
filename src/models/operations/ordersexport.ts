@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -30,11 +27,6 @@ export type OrdersExportRequest = {
 };
 
 /** @internal */
-export const OrdersExportQueryParamOrganizationIDFilter$inboundSchema:
-  z.ZodType<OrdersExportQueryParamOrganizationIDFilter, z.ZodTypeDef, unknown> =
-    z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type OrdersExportQueryParamOrganizationIDFilter$Outbound =
   | string
   | Array<string>;
@@ -47,21 +39,6 @@ export const OrdersExportQueryParamOrganizationIDFilter$outboundSchema:
     OrdersExportQueryParamOrganizationIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrdersExportQueryParamOrganizationIDFilter$ {
-  /** @deprecated use `OrdersExportQueryParamOrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    OrdersExportQueryParamOrganizationIDFilter$inboundSchema;
-  /** @deprecated use `OrdersExportQueryParamOrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    OrdersExportQueryParamOrganizationIDFilter$outboundSchema;
-  /** @deprecated use `OrdersExportQueryParamOrganizationIDFilter$Outbound` instead. */
-  export type Outbound = OrdersExportQueryParamOrganizationIDFilter$Outbound;
-}
-
 export function ordersExportQueryParamOrganizationIDFilterToJSON(
   ordersExportQueryParamOrganizationIDFilter:
     OrdersExportQueryParamOrganizationIDFilter,
@@ -72,29 +49,6 @@ export function ordersExportQueryParamOrganizationIDFilterToJSON(
     ),
   );
 }
-
-export function ordersExportQueryParamOrganizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  OrdersExportQueryParamOrganizationIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      OrdersExportQueryParamOrganizationIDFilter$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'OrdersExportQueryParamOrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const OrdersExportQueryParamProductIDFilter$inboundSchema: z.ZodType<
-  OrdersExportQueryParamProductIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type OrdersExportQueryParamProductIDFilter$Outbound =
@@ -108,21 +62,6 @@ export const OrdersExportQueryParamProductIDFilter$outboundSchema: z.ZodType<
   OrdersExportQueryParamProductIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrdersExportQueryParamProductIDFilter$ {
-  /** @deprecated use `OrdersExportQueryParamProductIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    OrdersExportQueryParamProductIDFilter$inboundSchema;
-  /** @deprecated use `OrdersExportQueryParamProductIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    OrdersExportQueryParamProductIDFilter$outboundSchema;
-  /** @deprecated use `OrdersExportQueryParamProductIDFilter$Outbound` instead. */
-  export type Outbound = OrdersExportQueryParamProductIDFilter$Outbound;
-}
-
 export function ordersExportQueryParamProductIDFilterToJSON(
   ordersExportQueryParamProductIDFilter: OrdersExportQueryParamProductIDFilter,
 ): string {
@@ -132,33 +71,6 @@ export function ordersExportQueryParamProductIDFilterToJSON(
     ),
   );
 }
-
-export function ordersExportQueryParamProductIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<OrdersExportQueryParamProductIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      OrdersExportQueryParamProductIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrdersExportQueryParamProductIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const OrdersExportRequest$inboundSchema: z.ZodType<
-  OrdersExportRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "product_id": "productId",
-  });
-});
 
 /** @internal */
 export type OrdersExportRequest$Outbound = {
@@ -182,33 +94,10 @@ export const OrdersExportRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrdersExportRequest$ {
-  /** @deprecated use `OrdersExportRequest$inboundSchema` instead. */
-  export const inboundSchema = OrdersExportRequest$inboundSchema;
-  /** @deprecated use `OrdersExportRequest$outboundSchema` instead. */
-  export const outboundSchema = OrdersExportRequest$outboundSchema;
-  /** @deprecated use `OrdersExportRequest$Outbound` instead. */
-  export type Outbound = OrdersExportRequest$Outbound;
-}
-
 export function ordersExportRequestToJSON(
   ordersExportRequest: OrdersExportRequest,
 ): string {
   return JSON.stringify(
     OrdersExportRequest$outboundSchema.parse(ordersExportRequest),
-  );
-}
-
-export function ordersExportRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<OrdersExportRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrdersExportRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrdersExportRequest' from JSON`,
   );
 }

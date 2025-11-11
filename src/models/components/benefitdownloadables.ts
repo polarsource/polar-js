@@ -56,7 +56,6 @@ export const BenefitDownloadablesMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type BenefitDownloadablesMetadata$Outbound =
   | string
@@ -71,19 +70,6 @@ export const BenefitDownloadablesMetadata$outboundSchema: z.ZodType<
   BenefitDownloadablesMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadablesMetadata$ {
-  /** @deprecated use `BenefitDownloadablesMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitDownloadablesMetadata$inboundSchema;
-  /** @deprecated use `BenefitDownloadablesMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitDownloadablesMetadata$outboundSchema;
-  /** @deprecated use `BenefitDownloadablesMetadata$Outbound` instead. */
-  export type Outbound = BenefitDownloadablesMetadata$Outbound;
-}
-
 export function benefitDownloadablesMetadataToJSON(
   benefitDownloadablesMetadata: BenefitDownloadablesMetadata,
 ): string {
@@ -93,7 +79,6 @@ export function benefitDownloadablesMetadataToJSON(
     ),
   );
 }
-
 export function benefitDownloadablesMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitDownloadablesMetadata, SDKValidationError> {
@@ -131,7 +116,6 @@ export const BenefitDownloadables$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type BenefitDownloadables$Outbound = {
   id: string;
@@ -172,19 +156,6 @@ export const BenefitDownloadables$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadables$ {
-  /** @deprecated use `BenefitDownloadables$inboundSchema` instead. */
-  export const inboundSchema = BenefitDownloadables$inboundSchema;
-  /** @deprecated use `BenefitDownloadables$outboundSchema` instead. */
-  export const outboundSchema = BenefitDownloadables$outboundSchema;
-  /** @deprecated use `BenefitDownloadables$Outbound` instead. */
-  export type Outbound = BenefitDownloadables$Outbound;
-}
-
 export function benefitDownloadablesToJSON(
   benefitDownloadables: BenefitDownloadables,
 ): string {
@@ -192,7 +163,6 @@ export function benefitDownloadablesToJSON(
     BenefitDownloadables$outboundSchema.parse(benefitDownloadables),
   );
 }
-
 export function benefitDownloadablesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitDownloadables, SDKValidationError> {

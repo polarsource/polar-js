@@ -55,7 +55,6 @@ export const CustomFieldTextMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type CustomFieldTextMetadata$Outbound =
   | string
@@ -70,19 +69,6 @@ export const CustomFieldTextMetadata$outboundSchema: z.ZodType<
   CustomFieldTextMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldTextMetadata$ {
-  /** @deprecated use `CustomFieldTextMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldTextMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldTextMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldTextMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldTextMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldTextMetadata$Outbound;
-}
-
 export function customFieldTextMetadataToJSON(
   customFieldTextMetadata: CustomFieldTextMetadata,
 ): string {
@@ -90,7 +76,6 @@ export function customFieldTextMetadataToJSON(
     CustomFieldTextMetadata$outboundSchema.parse(customFieldTextMetadata),
   );
 }
-
 export function customFieldTextMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldTextMetadata, SDKValidationError> {
@@ -127,7 +112,6 @@ export const CustomFieldText$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type CustomFieldText$Outbound = {
   created_at: string;
@@ -166,25 +150,11 @@ export const CustomFieldText$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldText$ {
-  /** @deprecated use `CustomFieldText$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldText$inboundSchema;
-  /** @deprecated use `CustomFieldText$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldText$outboundSchema;
-  /** @deprecated use `CustomFieldText$Outbound` instead. */
-  export type Outbound = CustomFieldText$Outbound;
-}
-
 export function customFieldTextToJSON(
   customFieldText: CustomFieldText,
 ): string {
   return JSON.stringify(CustomFieldText$outboundSchema.parse(customFieldText));
 }
-
 export function customFieldTextFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldText, SDKValidationError> {

@@ -15,18 +15,6 @@ export type SeatStatus = ClosedEnum<typeof SeatStatus>;
 /** @internal */
 export const SeatStatus$inboundSchema: z.ZodNativeEnum<typeof SeatStatus> = z
   .nativeEnum(SeatStatus);
-
 /** @internal */
 export const SeatStatus$outboundSchema: z.ZodNativeEnum<typeof SeatStatus> =
   SeatStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SeatStatus$ {
-  /** @deprecated use `SeatStatus$inboundSchema` instead. */
-  export const inboundSchema = SeatStatus$inboundSchema;
-  /** @deprecated use `SeatStatus$outboundSchema` instead. */
-  export const outboundSchema = SeatStatus$outboundSchema;
-}

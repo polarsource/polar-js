@@ -52,34 +52,3 @@ export const MissingPaymentMethodError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type MissingPaymentMethodError$Outbound = {
-  error: "MissingPaymentMethodError";
-  detail: string;
-};
-
-/** @internal */
-export const MissingPaymentMethodError$outboundSchema: z.ZodType<
-  MissingPaymentMethodError$Outbound,
-  z.ZodTypeDef,
-  MissingPaymentMethodError
-> = z.instanceof(MissingPaymentMethodError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("MissingPaymentMethodError"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MissingPaymentMethodError$ {
-  /** @deprecated use `MissingPaymentMethodError$inboundSchema` instead. */
-  export const inboundSchema = MissingPaymentMethodError$inboundSchema;
-  /** @deprecated use `MissingPaymentMethodError$outboundSchema` instead. */
-  export const outboundSchema = MissingPaymentMethodError$outboundSchema;
-  /** @deprecated use `MissingPaymentMethodError$Outbound` instead. */
-  export type Outbound = MissingPaymentMethodError$Outbound;
-}

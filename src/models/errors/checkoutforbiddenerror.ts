@@ -8,27 +8,26 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   AlreadyActiveSubscriptionError,
   AlreadyActiveSubscriptionError$inboundSchema,
-  AlreadyActiveSubscriptionError$Outbound,
-  AlreadyActiveSubscriptionError$outboundSchema,
 } from "./alreadyactivesubscriptionerror.js";
 import {
   NotOpenCheckout,
   NotOpenCheckout$inboundSchema,
-  NotOpenCheckout$Outbound,
-  NotOpenCheckout$outboundSchema,
 } from "./notopencheckout.js";
 import {
   PaymentNotReady,
   PaymentNotReady$inboundSchema,
-  PaymentNotReady$Outbound,
-  PaymentNotReady$outboundSchema,
 } from "./paymentnotready.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
+import {
+  TrialAlreadyRedeemed,
+  TrialAlreadyRedeemed$inboundSchema,
+} from "./trialalreadyredeemed.js";
 
 export type CheckoutForbiddenError =
   | AlreadyActiveSubscriptionError
   | NotOpenCheckout
-  | PaymentNotReady;
+  | PaymentNotReady
+  | TrialAlreadyRedeemed;
 
 /** @internal */
 export const CheckoutForbiddenError$inboundSchema: z.ZodType<
@@ -39,45 +38,8 @@ export const CheckoutForbiddenError$inboundSchema: z.ZodType<
   AlreadyActiveSubscriptionError$inboundSchema,
   NotOpenCheckout$inboundSchema,
   PaymentNotReady$inboundSchema,
+  TrialAlreadyRedeemed$inboundSchema,
 ]);
-
-/** @internal */
-export type CheckoutForbiddenError$Outbound =
-  | AlreadyActiveSubscriptionError$Outbound
-  | NotOpenCheckout$Outbound
-  | PaymentNotReady$Outbound;
-
-/** @internal */
-export const CheckoutForbiddenError$outboundSchema: z.ZodType<
-  CheckoutForbiddenError$Outbound,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  AlreadyActiveSubscriptionError$outboundSchema,
-  NotOpenCheckout$outboundSchema,
-  PaymentNotReady$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutForbiddenError$ {
-  /** @deprecated use `CheckoutForbiddenError$inboundSchema` instead. */
-  export const inboundSchema = CheckoutForbiddenError$inboundSchema;
-  /** @deprecated use `CheckoutForbiddenError$outboundSchema` instead. */
-  export const outboundSchema = CheckoutForbiddenError$outboundSchema;
-  /** @deprecated use `CheckoutForbiddenError$Outbound` instead. */
-  export type Outbound = CheckoutForbiddenError$Outbound;
-}
-
-export function checkoutForbiddenErrorToJSON(
-  checkoutForbiddenError: CheckoutForbiddenError,
-): string {
-  return JSON.stringify(
-    CheckoutForbiddenError$outboundSchema.parse(checkoutForbiddenError),
-  );
-}
 
 export function checkoutForbiddenErrorFromJSON(
   jsonString: string,

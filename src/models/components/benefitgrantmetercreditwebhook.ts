@@ -142,7 +142,6 @@ export const BenefitGrantMeterCreditWebhook$inboundSchema: z.ZodType<
     "previous_properties": "previousProperties",
   });
 });
-
 /** @internal */
 export type BenefitGrantMeterCreditWebhook$Outbound = {
   created_at: string;
@@ -206,19 +205,6 @@ export const BenefitGrantMeterCreditWebhook$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantMeterCreditWebhook$ {
-  /** @deprecated use `BenefitGrantMeterCreditWebhook$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantMeterCreditWebhook$inboundSchema;
-  /** @deprecated use `BenefitGrantMeterCreditWebhook$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrantMeterCreditWebhook$outboundSchema;
-  /** @deprecated use `BenefitGrantMeterCreditWebhook$Outbound` instead. */
-  export type Outbound = BenefitGrantMeterCreditWebhook$Outbound;
-}
-
 export function benefitGrantMeterCreditWebhookToJSON(
   benefitGrantMeterCreditWebhook: BenefitGrantMeterCreditWebhook,
 ): string {
@@ -228,7 +214,6 @@ export function benefitGrantMeterCreditWebhookToJSON(
     ),
   );
 }
-
 export function benefitGrantMeterCreditWebhookFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantMeterCreditWebhook, SDKValidationError> {

@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   WalletTopUpCreate,
-  WalletTopUpCreate$inboundSchema,
   WalletTopUpCreate$Outbound,
   WalletTopUpCreate$outboundSchema,
 } from "../components/wallettopupcreate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type WalletsTopUpRequest = {
   /**
@@ -21,20 +17,6 @@ export type WalletsTopUpRequest = {
   id: string;
   walletTopUpCreate: WalletTopUpCreate;
 };
-
-/** @internal */
-export const WalletsTopUpRequest$inboundSchema: z.ZodType<
-  WalletsTopUpRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  WalletTopUpCreate: WalletTopUpCreate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "WalletTopUpCreate": "walletTopUpCreate",
-  });
-});
 
 /** @internal */
 export type WalletsTopUpRequest$Outbound = {
@@ -56,33 +38,10 @@ export const WalletsTopUpRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WalletsTopUpRequest$ {
-  /** @deprecated use `WalletsTopUpRequest$inboundSchema` instead. */
-  export const inboundSchema = WalletsTopUpRequest$inboundSchema;
-  /** @deprecated use `WalletsTopUpRequest$outboundSchema` instead. */
-  export const outboundSchema = WalletsTopUpRequest$outboundSchema;
-  /** @deprecated use `WalletsTopUpRequest$Outbound` instead. */
-  export type Outbound = WalletsTopUpRequest$Outbound;
-}
-
 export function walletsTopUpRequestToJSON(
   walletsTopUpRequest: WalletsTopUpRequest,
 ): string {
   return JSON.stringify(
     WalletsTopUpRequest$outboundSchema.parse(walletsTopUpRequest),
-  );
-}
-
-export function walletsTopUpRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<WalletsTopUpRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => WalletsTopUpRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WalletsTopUpRequest' from JSON`,
   );
 }

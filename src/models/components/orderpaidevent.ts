@@ -7,17 +7,10 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Customer,
-  Customer$inboundSchema,
-  Customer$Outbound,
-  Customer$outboundSchema,
-} from "./customer.js";
+import { Customer, Customer$inboundSchema } from "./customer.js";
 import {
   OrderPaidMetadata,
   OrderPaidMetadata$inboundSchema,
-  OrderPaidMetadata$Outbound,
-  OrderPaidMetadata$outboundSchema,
 } from "./orderpaidmetadata.js";
 
 /**
@@ -93,65 +86,6 @@ export const OrderPaidEvent$inboundSchema: z.ZodType<
     "parent_id": "parentId",
   });
 });
-
-/** @internal */
-export type OrderPaidEvent$Outbound = {
-  id: string;
-  timestamp: string;
-  organization_id: string;
-  customer_id: string | null;
-  customer: Customer$Outbound | null;
-  external_customer_id: string | null;
-  child_count: number;
-  parent_id?: string | null | undefined;
-  source: "system";
-  name: "order.paid";
-  metadata: OrderPaidMetadata$Outbound;
-};
-
-/** @internal */
-export const OrderPaidEvent$outboundSchema: z.ZodType<
-  OrderPaidEvent$Outbound,
-  z.ZodTypeDef,
-  OrderPaidEvent
-> = z.object({
-  id: z.string(),
-  timestamp: z.date().transform(v => v.toISOString()),
-  organizationId: z.string(),
-  customerId: z.nullable(z.string()),
-  customer: z.nullable(Customer$outboundSchema),
-  externalCustomerId: z.nullable(z.string()),
-  childCount: z.number().int().default(0),
-  parentId: z.nullable(z.string()).optional(),
-  source: z.literal("system"),
-  name: z.literal("order.paid"),
-  metadata: OrderPaidMetadata$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    organizationId: "organization_id",
-    customerId: "customer_id",
-    externalCustomerId: "external_customer_id",
-    childCount: "child_count",
-    parentId: "parent_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderPaidEvent$ {
-  /** @deprecated use `OrderPaidEvent$inboundSchema` instead. */
-  export const inboundSchema = OrderPaidEvent$inboundSchema;
-  /** @deprecated use `OrderPaidEvent$outboundSchema` instead. */
-  export const outboundSchema = OrderPaidEvent$outboundSchema;
-  /** @deprecated use `OrderPaidEvent$Outbound` instead. */
-  export type Outbound = OrderPaidEvent$Outbound;
-}
-
-export function orderPaidEventToJSON(orderPaidEvent: OrderPaidEvent): string {
-  return JSON.stringify(OrderPaidEvent$outboundSchema.parse(orderPaidEvent));
-}
 
 export function orderPaidEventFromJSON(
   jsonString: string,

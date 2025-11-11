@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGrantMetadata,
   BenefitGrantMetadata$inboundSchema,
-  BenefitGrantMetadata$Outbound,
-  BenefitGrantMetadata$outboundSchema,
 } from "./benefitgrantmetadata.js";
-import {
-  Customer,
-  Customer$inboundSchema,
-  Customer$Outbound,
-  Customer$outboundSchema,
-} from "./customer.js";
+import { Customer, Customer$inboundSchema } from "./customer.js";
 
 /**
  * An event created by Polar when a benefit is granted to a customer.
@@ -93,69 +86,6 @@ export const BenefitGrantedEvent$inboundSchema: z.ZodType<
     "parent_id": "parentId",
   });
 });
-
-/** @internal */
-export type BenefitGrantedEvent$Outbound = {
-  id: string;
-  timestamp: string;
-  organization_id: string;
-  customer_id: string | null;
-  customer: Customer$Outbound | null;
-  external_customer_id: string | null;
-  child_count: number;
-  parent_id?: string | null | undefined;
-  source: "system";
-  name: "benefit.granted";
-  metadata: BenefitGrantMetadata$Outbound;
-};
-
-/** @internal */
-export const BenefitGrantedEvent$outboundSchema: z.ZodType<
-  BenefitGrantedEvent$Outbound,
-  z.ZodTypeDef,
-  BenefitGrantedEvent
-> = z.object({
-  id: z.string(),
-  timestamp: z.date().transform(v => v.toISOString()),
-  organizationId: z.string(),
-  customerId: z.nullable(z.string()),
-  customer: z.nullable(Customer$outboundSchema),
-  externalCustomerId: z.nullable(z.string()),
-  childCount: z.number().int().default(0),
-  parentId: z.nullable(z.string()).optional(),
-  source: z.literal("system"),
-  name: z.literal("benefit.granted"),
-  metadata: BenefitGrantMetadata$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    organizationId: "organization_id",
-    customerId: "customer_id",
-    externalCustomerId: "external_customer_id",
-    childCount: "child_count",
-    parentId: "parent_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantedEvent$ {
-  /** @deprecated use `BenefitGrantedEvent$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantedEvent$inboundSchema;
-  /** @deprecated use `BenefitGrantedEvent$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrantedEvent$outboundSchema;
-  /** @deprecated use `BenefitGrantedEvent$Outbound` instead. */
-  export type Outbound = BenefitGrantedEvent$Outbound;
-}
-
-export function benefitGrantedEventToJSON(
-  benefitGrantedEvent: BenefitGrantedEvent,
-): string {
-  return JSON.stringify(
-    BenefitGrantedEvent$outboundSchema.parse(benefitGrantedEvent),
-  );
-}
 
 export function benefitGrantedEventFromJSON(
   jsonString: string,

@@ -3,12 +3,8 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitDiscordCreateProperties,
-  BenefitDiscordCreateProperties$inboundSchema,
   BenefitDiscordCreateProperties$Outbound,
   BenefitDiscordCreateProperties$outboundSchema,
 } from "./benefitdiscordcreateproperties.js";
@@ -41,13 +37,6 @@ export type BenefitDiscordUpdate = {
 };
 
 /** @internal */
-export const BenefitDiscordUpdateMetadata$inboundSchema: z.ZodType<
-  BenefitDiscordUpdateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type BenefitDiscordUpdateMetadata$Outbound =
   | string
   | number
@@ -61,19 +50,6 @@ export const BenefitDiscordUpdateMetadata$outboundSchema: z.ZodType<
   BenefitDiscordUpdateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDiscordUpdateMetadata$ {
-  /** @deprecated use `BenefitDiscordUpdateMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitDiscordUpdateMetadata$inboundSchema;
-  /** @deprecated use `BenefitDiscordUpdateMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitDiscordUpdateMetadata$outboundSchema;
-  /** @deprecated use `BenefitDiscordUpdateMetadata$Outbound` instead. */
-  export type Outbound = BenefitDiscordUpdateMetadata$Outbound;
-}
-
 export function benefitDiscordUpdateMetadataToJSON(
   benefitDiscordUpdateMetadata: BenefitDiscordUpdateMetadata,
 ): string {
@@ -83,31 +59,6 @@ export function benefitDiscordUpdateMetadataToJSON(
     ),
   );
 }
-
-export function benefitDiscordUpdateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitDiscordUpdateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitDiscordUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitDiscordUpdateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitDiscordUpdate$inboundSchema: z.ZodType<
-  BenefitDiscordUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  description: z.nullable(z.string()).optional(),
-  type: z.literal("discord"),
-  properties: z.nullable(BenefitDiscordCreateProperties$inboundSchema)
-    .optional(),
-});
 
 /** @internal */
 export type BenefitDiscordUpdate$Outbound = {
@@ -132,33 +83,10 @@ export const BenefitDiscordUpdate$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDiscordUpdate$ {
-  /** @deprecated use `BenefitDiscordUpdate$inboundSchema` instead. */
-  export const inboundSchema = BenefitDiscordUpdate$inboundSchema;
-  /** @deprecated use `BenefitDiscordUpdate$outboundSchema` instead. */
-  export const outboundSchema = BenefitDiscordUpdate$outboundSchema;
-  /** @deprecated use `BenefitDiscordUpdate$Outbound` instead. */
-  export type Outbound = BenefitDiscordUpdate$Outbound;
-}
-
 export function benefitDiscordUpdateToJSON(
   benefitDiscordUpdate: BenefitDiscordUpdate,
 ): string {
   return JSON.stringify(
     BenefitDiscordUpdate$outboundSchema.parse(benefitDiscordUpdate),
-  );
-}
-
-export function benefitDiscordUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitDiscordUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitDiscordUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitDiscordUpdate' from JSON`,
   );
 }

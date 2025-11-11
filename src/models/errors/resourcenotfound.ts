@@ -52,34 +52,3 @@ export const ResourceNotFound$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type ResourceNotFound$Outbound = {
-  error: "ResourceNotFound";
-  detail: string;
-};
-
-/** @internal */
-export const ResourceNotFound$outboundSchema: z.ZodType<
-  ResourceNotFound$Outbound,
-  z.ZodTypeDef,
-  ResourceNotFound
-> = z.instanceof(ResourceNotFound)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("ResourceNotFound"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ResourceNotFound$ {
-  /** @deprecated use `ResourceNotFound$inboundSchema` instead. */
-  export const inboundSchema = ResourceNotFound$inboundSchema;
-  /** @deprecated use `ResourceNotFound$outboundSchema` instead. */
-  export const outboundSchema = ResourceNotFound$outboundSchema;
-  /** @deprecated use `ResourceNotFound$Outbound` instead. */
-  export type Outbound = ResourceNotFound$Outbound;
-}

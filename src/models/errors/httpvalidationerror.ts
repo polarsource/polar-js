@@ -70,16 +70,3 @@ export const HTTPValidationError$outboundSchema: z.ZodType<
   .pipe(z.object({
     detail: z.array(ValidationError$outboundSchema).optional(),
   }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace HTTPValidationError$ {
-  /** @deprecated use `HTTPValidationError$inboundSchema` instead. */
-  export const inboundSchema = HTTPValidationError$inboundSchema;
-  /** @deprecated use `HTTPValidationError$outboundSchema` instead. */
-  export const outboundSchema = HTTPValidationError$outboundSchema;
-  /** @deprecated use `HTTPValidationError$Outbound` instead. */
-  export type Outbound = HTTPValidationError$Outbound;
-}

@@ -350,6 +350,7 @@ run();
 | errors.AlreadyActiveSubscriptionError | 403                                   | application/json                      |
 | errors.NotOpenCheckout                | 403                                   | application/json                      |
 | errors.PaymentNotReady                | 403                                   | application/json                      |
+| errors.TrialAlreadyRedeemed           | 403                                   | application/json                      |
 | errors.ResourceNotFound               | 404                                   | application/json                      |
 | errors.HTTPValidationError            | 422                                   | application/json                      |
 | errors.SDKError                       | 4XX, 5XX                              | \*/\*                                 |
@@ -508,6 +509,7 @@ run();
 | errors.AlreadyActiveSubscriptionError | 403                                   | application/json                      |
 | errors.NotOpenCheckout                | 403                                   | application/json                      |
 | errors.PaymentNotReady                | 403                                   | application/json                      |
+| errors.TrialAlreadyRedeemed           | 403                                   | application/json                      |
 | errors.ResourceNotFound               | 404                                   | application/json                      |
 | errors.ExpiredCheckoutError           | 410                                   | application/json                      |
 | errors.HTTPValidationError            | 422                                   | application/json                      |
@@ -602,6 +604,7 @@ run();
 | errors.AlreadyActiveSubscriptionError | 403                                   | application/json                      |
 | errors.NotOpenCheckout                | 403                                   | application/json                      |
 | errors.PaymentNotReady                | 403                                   | application/json                      |
+| errors.TrialAlreadyRedeemed           | 403                                   | application/json                      |
 | errors.ResourceNotFound               | 404                                   | application/json                      |
 | errors.ExpiredCheckoutError           | 410                                   | application/json                      |
 | errors.HTTPValidationError            | 422                                   | application/json                      |

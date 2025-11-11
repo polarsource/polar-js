@@ -31,43 +31,6 @@ export const CardPaymentMetadata$inboundSchema: z.ZodType<
   last4: z.string(),
 });
 
-/** @internal */
-export type CardPaymentMetadata$Outbound = {
-  brand: string;
-  last4: string;
-};
-
-/** @internal */
-export const CardPaymentMetadata$outboundSchema: z.ZodType<
-  CardPaymentMetadata$Outbound,
-  z.ZodTypeDef,
-  CardPaymentMetadata
-> = z.object({
-  brand: z.string(),
-  last4: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CardPaymentMetadata$ {
-  /** @deprecated use `CardPaymentMetadata$inboundSchema` instead. */
-  export const inboundSchema = CardPaymentMetadata$inboundSchema;
-  /** @deprecated use `CardPaymentMetadata$outboundSchema` instead. */
-  export const outboundSchema = CardPaymentMetadata$outboundSchema;
-  /** @deprecated use `CardPaymentMetadata$Outbound` instead. */
-  export type Outbound = CardPaymentMetadata$Outbound;
-}
-
-export function cardPaymentMetadataToJSON(
-  cardPaymentMetadata: CardPaymentMetadata,
-): string {
-  return JSON.stringify(
-    CardPaymentMetadata$outboundSchema.parse(cardPaymentMetadata),
-  );
-}
-
 export function cardPaymentMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CardPaymentMetadata, SDKValidationError> {

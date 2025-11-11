@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SubscriptionProrationBehavior,
-  SubscriptionProrationBehavior$inboundSchema,
   SubscriptionProrationBehavior$outboundSchema,
 } from "./subscriptionprorationbehavior.js";
 
@@ -23,21 +19,6 @@ export type CustomerSubscriptionUpdateSeats = {
    */
   prorationBehavior?: SubscriptionProrationBehavior | null | undefined;
 };
-
-/** @internal */
-export const CustomerSubscriptionUpdateSeats$inboundSchema: z.ZodType<
-  CustomerSubscriptionUpdateSeats,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  seats: z.number().int(),
-  proration_behavior: z.nullable(SubscriptionProrationBehavior$inboundSchema)
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "proration_behavior": "prorationBehavior",
-  });
-});
 
 /** @internal */
 export type CustomerSubscriptionUpdateSeats$Outbound = {
@@ -60,19 +41,6 @@ export const CustomerSubscriptionUpdateSeats$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSubscriptionUpdateSeats$ {
-  /** @deprecated use `CustomerSubscriptionUpdateSeats$inboundSchema` instead. */
-  export const inboundSchema = CustomerSubscriptionUpdateSeats$inboundSchema;
-  /** @deprecated use `CustomerSubscriptionUpdateSeats$outboundSchema` instead. */
-  export const outboundSchema = CustomerSubscriptionUpdateSeats$outboundSchema;
-  /** @deprecated use `CustomerSubscriptionUpdateSeats$Outbound` instead. */
-  export type Outbound = CustomerSubscriptionUpdateSeats$Outbound;
-}
-
 export function customerSubscriptionUpdateSeatsToJSON(
   customerSubscriptionUpdateSeats: CustomerSubscriptionUpdateSeats,
 ): string {
@@ -80,15 +48,5 @@ export function customerSubscriptionUpdateSeatsToJSON(
     CustomerSubscriptionUpdateSeats$outboundSchema.parse(
       customerSubscriptionUpdateSeats,
     ),
-  );
-}
-
-export function customerSubscriptionUpdateSeatsFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerSubscriptionUpdateSeats, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerSubscriptionUpdateSeats$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerSubscriptionUpdateSeats' from JSON`,
   );
 }

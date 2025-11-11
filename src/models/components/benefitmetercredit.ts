@@ -66,7 +66,6 @@ export const BenefitMeterCreditMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type BenefitMeterCreditMetadata$Outbound =
   | string
@@ -81,19 +80,6 @@ export const BenefitMeterCreditMetadata$outboundSchema: z.ZodType<
   BenefitMeterCreditMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitMeterCreditMetadata$ {
-  /** @deprecated use `BenefitMeterCreditMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitMeterCreditMetadata$inboundSchema;
-  /** @deprecated use `BenefitMeterCreditMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitMeterCreditMetadata$outboundSchema;
-  /** @deprecated use `BenefitMeterCreditMetadata$Outbound` instead. */
-  export type Outbound = BenefitMeterCreditMetadata$Outbound;
-}
-
 export function benefitMeterCreditMetadataToJSON(
   benefitMeterCreditMetadata: BenefitMeterCreditMetadata,
 ): string {
@@ -101,7 +87,6 @@ export function benefitMeterCreditMetadataToJSON(
     BenefitMeterCreditMetadata$outboundSchema.parse(benefitMeterCreditMetadata),
   );
 }
-
 export function benefitMeterCreditMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitMeterCreditMetadata, SDKValidationError> {
@@ -139,7 +124,6 @@ export const BenefitMeterCredit$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type BenefitMeterCredit$Outbound = {
   id: string;
@@ -180,19 +164,6 @@ export const BenefitMeterCredit$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitMeterCredit$ {
-  /** @deprecated use `BenefitMeterCredit$inboundSchema` instead. */
-  export const inboundSchema = BenefitMeterCredit$inboundSchema;
-  /** @deprecated use `BenefitMeterCredit$outboundSchema` instead. */
-  export const outboundSchema = BenefitMeterCredit$outboundSchema;
-  /** @deprecated use `BenefitMeterCredit$Outbound` instead. */
-  export type Outbound = BenefitMeterCredit$Outbound;
-}
-
 export function benefitMeterCreditToJSON(
   benefitMeterCredit: BenefitMeterCredit,
 ): string {
@@ -200,7 +171,6 @@ export function benefitMeterCreditToJSON(
     BenefitMeterCredit$outboundSchema.parse(benefitMeterCredit),
   );
 }
-
 export function benefitMeterCreditFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitMeterCredit, SDKValidationError> {

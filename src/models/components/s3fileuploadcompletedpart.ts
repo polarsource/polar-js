@@ -4,31 +4,12 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type S3FileUploadCompletedPart = {
   number: number;
   checksumEtag: string;
   checksumSha256Base64: string | null;
 };
-
-/** @internal */
-export const S3FileUploadCompletedPart$inboundSchema: z.ZodType<
-  S3FileUploadCompletedPart,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  number: z.number().int(),
-  checksum_etag: z.string(),
-  checksum_sha256_base64: z.nullable(z.string()),
-}).transform((v) => {
-  return remap$(v, {
-    "checksum_etag": "checksumEtag",
-    "checksum_sha256_base64": "checksumSha256Base64",
-  });
-});
 
 /** @internal */
 export type S3FileUploadCompletedPart$Outbound = {
@@ -53,33 +34,10 @@ export const S3FileUploadCompletedPart$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace S3FileUploadCompletedPart$ {
-  /** @deprecated use `S3FileUploadCompletedPart$inboundSchema` instead. */
-  export const inboundSchema = S3FileUploadCompletedPart$inboundSchema;
-  /** @deprecated use `S3FileUploadCompletedPart$outboundSchema` instead. */
-  export const outboundSchema = S3FileUploadCompletedPart$outboundSchema;
-  /** @deprecated use `S3FileUploadCompletedPart$Outbound` instead. */
-  export type Outbound = S3FileUploadCompletedPart$Outbound;
-}
-
 export function s3FileUploadCompletedPartToJSON(
   s3FileUploadCompletedPart: S3FileUploadCompletedPart,
 ): string {
   return JSON.stringify(
     S3FileUploadCompletedPart$outboundSchema.parse(s3FileUploadCompletedPart),
-  );
-}
-
-export function s3FileUploadCompletedPartFromJSON(
-  jsonString: string,
-): SafeParseResult<S3FileUploadCompletedPart, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => S3FileUploadCompletedPart$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'S3FileUploadCompletedPart' from JSON`,
   );
 }

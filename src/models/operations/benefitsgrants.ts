@@ -9,8 +9,6 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ListResourceBenefitGrant,
   ListResourceBenefitGrant$inboundSchema,
-  ListResourceBenefitGrant$Outbound,
-  ListResourceBenefitGrant$outboundSchema,
 } from "../components/listresourcebenefitgrant.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -44,13 +42,6 @@ export type BenefitsGrantsResponse = {
 };
 
 /** @internal */
-export const QueryParamCustomerIDFilter$inboundSchema: z.ZodType<
-  QueryParamCustomerIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type QueryParamCustomerIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
@@ -60,19 +51,6 @@ export const QueryParamCustomerIDFilter$outboundSchema: z.ZodType<
   QueryParamCustomerIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryParamCustomerIDFilter$ {
-  /** @deprecated use `QueryParamCustomerIDFilter$inboundSchema` instead. */
-  export const inboundSchema = QueryParamCustomerIDFilter$inboundSchema;
-  /** @deprecated use `QueryParamCustomerIDFilter$outboundSchema` instead. */
-  export const outboundSchema = QueryParamCustomerIDFilter$outboundSchema;
-  /** @deprecated use `QueryParamCustomerIDFilter$Outbound` instead. */
-  export type Outbound = QueryParamCustomerIDFilter$Outbound;
-}
-
 export function queryParamCustomerIDFilterToJSON(
   queryParamCustomerIDFilter: QueryParamCustomerIDFilter,
 ): string {
@@ -80,35 +58,6 @@ export function queryParamCustomerIDFilterToJSON(
     QueryParamCustomerIDFilter$outboundSchema.parse(queryParamCustomerIDFilter),
   );
 }
-
-export function queryParamCustomerIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<QueryParamCustomerIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => QueryParamCustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamCustomerIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitsGrantsRequest$inboundSchema: z.ZodType<
-  BenefitsGrantsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  is_granted: z.nullable(z.boolean()).optional(),
-  customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-}).transform((v) => {
-  return remap$(v, {
-    "is_granted": "isGranted",
-    "customer_id": "customerId",
-  });
-});
 
 /** @internal */
 export type BenefitsGrantsRequest$Outbound = {
@@ -137,34 +86,11 @@ export const BenefitsGrantsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitsGrantsRequest$ {
-  /** @deprecated use `BenefitsGrantsRequest$inboundSchema` instead. */
-  export const inboundSchema = BenefitsGrantsRequest$inboundSchema;
-  /** @deprecated use `BenefitsGrantsRequest$outboundSchema` instead. */
-  export const outboundSchema = BenefitsGrantsRequest$outboundSchema;
-  /** @deprecated use `BenefitsGrantsRequest$Outbound` instead. */
-  export type Outbound = BenefitsGrantsRequest$Outbound;
-}
-
 export function benefitsGrantsRequestToJSON(
   benefitsGrantsRequest: BenefitsGrantsRequest,
 ): string {
   return JSON.stringify(
     BenefitsGrantsRequest$outboundSchema.parse(benefitsGrantsRequest),
-  );
-}
-
-export function benefitsGrantsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitsGrantsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitsGrantsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitsGrantsRequest' from JSON`,
   );
 }
 
@@ -180,45 +106,6 @@ export const BenefitsGrantsResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type BenefitsGrantsResponse$Outbound = {
-  Result: ListResourceBenefitGrant$Outbound;
-};
-
-/** @internal */
-export const BenefitsGrantsResponse$outboundSchema: z.ZodType<
-  BenefitsGrantsResponse$Outbound,
-  z.ZodTypeDef,
-  BenefitsGrantsResponse
-> = z.object({
-  result: ListResourceBenefitGrant$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitsGrantsResponse$ {
-  /** @deprecated use `BenefitsGrantsResponse$inboundSchema` instead. */
-  export const inboundSchema = BenefitsGrantsResponse$inboundSchema;
-  /** @deprecated use `BenefitsGrantsResponse$outboundSchema` instead. */
-  export const outboundSchema = BenefitsGrantsResponse$outboundSchema;
-  /** @deprecated use `BenefitsGrantsResponse$Outbound` instead. */
-  export type Outbound = BenefitsGrantsResponse$Outbound;
-}
-
-export function benefitsGrantsResponseToJSON(
-  benefitsGrantsResponse: BenefitsGrantsResponse,
-): string {
-  return JSON.stringify(
-    BenefitsGrantsResponse$outboundSchema.parse(benefitsGrantsResponse),
-  );
-}
 
 export function benefitsGrantsResponseFromJSON(
   jsonString: string,

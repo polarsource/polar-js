@@ -19,7 +19,6 @@ export const CountAggregation$inboundSchema: z.ZodType<
 > = z.object({
   func: z.literal("count").default("count"),
 });
-
 /** @internal */
 export type CountAggregation$Outbound = {
   func: "count";
@@ -34,19 +33,6 @@ export const CountAggregation$outboundSchema: z.ZodType<
   func: z.literal("count").default("count" as const),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CountAggregation$ {
-  /** @deprecated use `CountAggregation$inboundSchema` instead. */
-  export const inboundSchema = CountAggregation$inboundSchema;
-  /** @deprecated use `CountAggregation$outboundSchema` instead. */
-  export const outboundSchema = CountAggregation$outboundSchema;
-  /** @deprecated use `CountAggregation$Outbound` instead. */
-  export type Outbound = CountAggregation$Outbound;
-}
-
 export function countAggregationToJSON(
   countAggregation: CountAggregation,
 ): string {
@@ -54,7 +40,6 @@ export function countAggregationToJSON(
     CountAggregation$outboundSchema.parse(countAggregation),
   );
 }
-
 export function countAggregationFromJSON(
   jsonString: string,
 ): SafeParseResult<CountAggregation, SDKValidationError> {

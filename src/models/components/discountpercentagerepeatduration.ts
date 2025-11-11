@@ -10,19 +10,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
   DiscountDuration$inboundSchema,
-  DiscountDuration$outboundSchema,
 } from "./discountduration.js";
 import {
   DiscountProduct,
   DiscountProduct$inboundSchema,
-  DiscountProduct$Outbound,
-  DiscountProduct$outboundSchema,
 } from "./discountproduct.js";
-import {
-  DiscountType,
-  DiscountType$inboundSchema,
-  DiscountType$outboundSchema,
-} from "./discounttype.js";
+import { DiscountType, DiscountType$inboundSchema } from "./discounttype.js";
 
 export type DiscountPercentageRepeatDurationMetadata =
   | string
@@ -95,46 +88,6 @@ export const DiscountPercentageRepeatDurationMetadata$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/** @internal */
-export type DiscountPercentageRepeatDurationMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const DiscountPercentageRepeatDurationMetadata$outboundSchema: z.ZodType<
-  DiscountPercentageRepeatDurationMetadata$Outbound,
-  z.ZodTypeDef,
-  DiscountPercentageRepeatDurationMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountPercentageRepeatDurationMetadata$ {
-  /** @deprecated use `DiscountPercentageRepeatDurationMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountPercentageRepeatDurationMetadata$inboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDurationMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountPercentageRepeatDurationMetadata$outboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDurationMetadata$Outbound` instead. */
-  export type Outbound = DiscountPercentageRepeatDurationMetadata$Outbound;
-}
-
-export function discountPercentageRepeatDurationMetadataToJSON(
-  discountPercentageRepeatDurationMetadata:
-    DiscountPercentageRepeatDurationMetadata,
-): string {
-  return JSON.stringify(
-    DiscountPercentageRepeatDurationMetadata$outboundSchema.parse(
-      discountPercentageRepeatDurationMetadata,
-    ),
-  );
-}
-
 export function discountPercentageRepeatDurationMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -194,87 +147,6 @@ export const DiscountPercentageRepeatDuration$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type DiscountPercentageRepeatDuration$Outbound = {
-  duration: string;
-  duration_in_months: number;
-  type: string;
-  basis_points: number;
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  metadata: { [k: string]: string | number | number | boolean };
-  name: string;
-  code: string | null;
-  starts_at: string | null;
-  ends_at: string | null;
-  max_redemptions: number | null;
-  redemptions_count: number;
-  organization_id: string;
-  products: Array<DiscountProduct$Outbound>;
-};
-
-/** @internal */
-export const DiscountPercentageRepeatDuration$outboundSchema: z.ZodType<
-  DiscountPercentageRepeatDuration$Outbound,
-  z.ZodTypeDef,
-  DiscountPercentageRepeatDuration
-> = z.object({
-  duration: DiscountDuration$outboundSchema,
-  durationInMonths: z.number().int(),
-  type: DiscountType$outboundSchema,
-  basisPoints: z.number().int(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  name: z.string(),
-  code: z.nullable(z.string()),
-  startsAt: z.nullable(z.date().transform(v => v.toISOString())),
-  endsAt: z.nullable(z.date().transform(v => v.toISOString())),
-  maxRedemptions: z.nullable(z.number().int()),
-  redemptionsCount: z.number().int(),
-  organizationId: z.string(),
-  products: z.array(DiscountProduct$outboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    durationInMonths: "duration_in_months",
-    basisPoints: "basis_points",
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    startsAt: "starts_at",
-    endsAt: "ends_at",
-    maxRedemptions: "max_redemptions",
-    redemptionsCount: "redemptions_count",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountPercentageRepeatDuration$ {
-  /** @deprecated use `DiscountPercentageRepeatDuration$inboundSchema` instead. */
-  export const inboundSchema = DiscountPercentageRepeatDuration$inboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDuration$outboundSchema` instead. */
-  export const outboundSchema = DiscountPercentageRepeatDuration$outboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDuration$Outbound` instead. */
-  export type Outbound = DiscountPercentageRepeatDuration$Outbound;
-}
-
-export function discountPercentageRepeatDurationToJSON(
-  discountPercentageRepeatDuration: DiscountPercentageRepeatDuration,
-): string {
-  return JSON.stringify(
-    DiscountPercentageRepeatDuration$outboundSchema.parse(
-      discountPercentageRepeatDuration,
-    ),
-  );
-}
 
 export function discountPercentageRepeatDurationFromJSON(
   jsonString: string,

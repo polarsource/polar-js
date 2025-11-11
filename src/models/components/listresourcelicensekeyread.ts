@@ -9,15 +9,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LicenseKeyRead,
   LicenseKeyRead$inboundSchema,
-  LicenseKeyRead$Outbound,
-  LicenseKeyRead$outboundSchema,
 } from "./licensekeyread.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceLicenseKeyRead = {
   items: Array<LicenseKeyRead>;
@@ -33,43 +26,6 @@ export const ListResourceLicenseKeyRead$inboundSchema: z.ZodType<
   items: z.array(LicenseKeyRead$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceLicenseKeyRead$Outbound = {
-  items: Array<LicenseKeyRead$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceLicenseKeyRead$outboundSchema: z.ZodType<
-  ListResourceLicenseKeyRead$Outbound,
-  z.ZodTypeDef,
-  ListResourceLicenseKeyRead
-> = z.object({
-  items: z.array(LicenseKeyRead$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceLicenseKeyRead$ {
-  /** @deprecated use `ListResourceLicenseKeyRead$inboundSchema` instead. */
-  export const inboundSchema = ListResourceLicenseKeyRead$inboundSchema;
-  /** @deprecated use `ListResourceLicenseKeyRead$outboundSchema` instead. */
-  export const outboundSchema = ListResourceLicenseKeyRead$outboundSchema;
-  /** @deprecated use `ListResourceLicenseKeyRead$Outbound` instead. */
-  export type Outbound = ListResourceLicenseKeyRead$Outbound;
-}
-
-export function listResourceLicenseKeyReadToJSON(
-  listResourceLicenseKeyRead: ListResourceLicenseKeyRead,
-): string {
-  return JSON.stringify(
-    ListResourceLicenseKeyRead$outboundSchema.parse(listResourceLicenseKeyRead),
-  );
-}
 
 export function listResourceLicenseKeyReadFromJSON(
   jsonString: string,

@@ -31,43 +31,6 @@ export const CustomerOrderPaymentStatus$inboundSchema: z.ZodType<
   error: z.nullable(z.string()).optional(),
 });
 
-/** @internal */
-export type CustomerOrderPaymentStatus$Outbound = {
-  status: string;
-  error?: string | null | undefined;
-};
-
-/** @internal */
-export const CustomerOrderPaymentStatus$outboundSchema: z.ZodType<
-  CustomerOrderPaymentStatus$Outbound,
-  z.ZodTypeDef,
-  CustomerOrderPaymentStatus
-> = z.object({
-  status: z.string(),
-  error: z.nullable(z.string()).optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerOrderPaymentStatus$ {
-  /** @deprecated use `CustomerOrderPaymentStatus$inboundSchema` instead. */
-  export const inboundSchema = CustomerOrderPaymentStatus$inboundSchema;
-  /** @deprecated use `CustomerOrderPaymentStatus$outboundSchema` instead. */
-  export const outboundSchema = CustomerOrderPaymentStatus$outboundSchema;
-  /** @deprecated use `CustomerOrderPaymentStatus$Outbound` instead. */
-  export type Outbound = CustomerOrderPaymentStatus$Outbound;
-}
-
-export function customerOrderPaymentStatusToJSON(
-  customerOrderPaymentStatus: CustomerOrderPaymentStatus,
-): string {
-  return JSON.stringify(
-    CustomerOrderPaymentStatus$outboundSchema.parse(customerOrderPaymentStatus),
-  );
-}
-
 export function customerOrderPaymentStatusFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerOrderPaymentStatus, SDKValidationError> {

@@ -66,7 +66,6 @@ export const CustomerStateMeter$inboundSchema: z.ZodType<
     "credited_units": "creditedUnits",
   });
 });
-
 /** @internal */
 export type CustomerStateMeter$Outbound = {
   id: string;
@@ -101,19 +100,6 @@ export const CustomerStateMeter$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerStateMeter$ {
-  /** @deprecated use `CustomerStateMeter$inboundSchema` instead. */
-  export const inboundSchema = CustomerStateMeter$inboundSchema;
-  /** @deprecated use `CustomerStateMeter$outboundSchema` instead. */
-  export const outboundSchema = CustomerStateMeter$outboundSchema;
-  /** @deprecated use `CustomerStateMeter$Outbound` instead. */
-  export type Outbound = CustomerStateMeter$Outbound;
-}
-
 export function customerStateMeterToJSON(
   customerStateMeter: CustomerStateMeter,
 ): string {
@@ -121,7 +107,6 @@ export function customerStateMeterToJSON(
     CustomerStateMeter$outboundSchema.parse(customerStateMeter),
   );
 }
-
 export function customerStateMeterFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerStateMeter, SDKValidationError> {

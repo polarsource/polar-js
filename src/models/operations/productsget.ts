@@ -3,22 +3,10 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ProductsGetRequest = {
   id: string;
 };
-
-/** @internal */
-export const ProductsGetRequest$inboundSchema: z.ZodType<
-  ProductsGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type ProductsGetRequest$Outbound = {
@@ -34,33 +22,10 @@ export const ProductsGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductsGetRequest$ {
-  /** @deprecated use `ProductsGetRequest$inboundSchema` instead. */
-  export const inboundSchema = ProductsGetRequest$inboundSchema;
-  /** @deprecated use `ProductsGetRequest$outboundSchema` instead. */
-  export const outboundSchema = ProductsGetRequest$outboundSchema;
-  /** @deprecated use `ProductsGetRequest$Outbound` instead. */
-  export type Outbound = ProductsGetRequest$Outbound;
-}
-
 export function productsGetRequestToJSON(
   productsGetRequest: ProductsGetRequest,
 ): string {
   return JSON.stringify(
     ProductsGetRequest$outboundSchema.parse(productsGetRequest),
-  );
-}
-
-export function productsGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductsGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductsGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductsGetRequest' from JSON`,
   );
 }

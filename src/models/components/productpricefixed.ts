@@ -88,7 +88,6 @@ export const ProductPriceFixed$inboundSchema: z.ZodType<
     "price_amount": "priceAmount",
   });
 });
-
 /** @internal */
 export type ProductPriceFixed$Outbound = {
   created_at: string;
@@ -132,19 +131,6 @@ export const ProductPriceFixed$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceFixed$ {
-  /** @deprecated use `ProductPriceFixed$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceFixed$inboundSchema;
-  /** @deprecated use `ProductPriceFixed$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceFixed$outboundSchema;
-  /** @deprecated use `ProductPriceFixed$Outbound` instead. */
-  export type Outbound = ProductPriceFixed$Outbound;
-}
-
 export function productPriceFixedToJSON(
   productPriceFixed: ProductPriceFixed,
 ): string {
@@ -152,7 +138,6 @@ export function productPriceFixedToJSON(
     ProductPriceFixed$outboundSchema.parse(productPriceFixed),
   );
 }
-
 export function productPriceFixedFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductPriceFixed, SDKValidationError> {

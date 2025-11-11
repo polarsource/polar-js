@@ -3,12 +3,8 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitMeterCreditCreateProperties,
-  BenefitMeterCreditCreateProperties$inboundSchema,
   BenefitMeterCreditCreateProperties$Outbound,
   BenefitMeterCreditCreateProperties$outboundSchema,
 } from "./benefitmetercreditcreateproperties.js";
@@ -45,13 +41,6 @@ export type BenefitMeterCreditUpdate = {
 };
 
 /** @internal */
-export const BenefitMeterCreditUpdateMetadata$inboundSchema: z.ZodType<
-  BenefitMeterCreditUpdateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type BenefitMeterCreditUpdateMetadata$Outbound =
   | string
   | number
@@ -65,19 +54,6 @@ export const BenefitMeterCreditUpdateMetadata$outboundSchema: z.ZodType<
   BenefitMeterCreditUpdateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitMeterCreditUpdateMetadata$ {
-  /** @deprecated use `BenefitMeterCreditUpdateMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitMeterCreditUpdateMetadata$inboundSchema;
-  /** @deprecated use `BenefitMeterCreditUpdateMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitMeterCreditUpdateMetadata$outboundSchema;
-  /** @deprecated use `BenefitMeterCreditUpdateMetadata$Outbound` instead. */
-  export type Outbound = BenefitMeterCreditUpdateMetadata$Outbound;
-}
-
 export function benefitMeterCreditUpdateMetadataToJSON(
   benefitMeterCreditUpdateMetadata: BenefitMeterCreditUpdateMetadata,
 ): string {
@@ -87,31 +63,6 @@ export function benefitMeterCreditUpdateMetadataToJSON(
     ),
   );
 }
-
-export function benefitMeterCreditUpdateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitMeterCreditUpdateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitMeterCreditUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitMeterCreditUpdateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitMeterCreditUpdate$inboundSchema: z.ZodType<
-  BenefitMeterCreditUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  description: z.nullable(z.string()).optional(),
-  type: z.literal("meter_credit"),
-  properties: z.nullable(BenefitMeterCreditCreateProperties$inboundSchema)
-    .optional(),
-});
 
 /** @internal */
 export type BenefitMeterCreditUpdate$Outbound = {
@@ -136,33 +87,10 @@ export const BenefitMeterCreditUpdate$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitMeterCreditUpdate$ {
-  /** @deprecated use `BenefitMeterCreditUpdate$inboundSchema` instead. */
-  export const inboundSchema = BenefitMeterCreditUpdate$inboundSchema;
-  /** @deprecated use `BenefitMeterCreditUpdate$outboundSchema` instead. */
-  export const outboundSchema = BenefitMeterCreditUpdate$outboundSchema;
-  /** @deprecated use `BenefitMeterCreditUpdate$Outbound` instead. */
-  export type Outbound = BenefitMeterCreditUpdate$Outbound;
-}
-
 export function benefitMeterCreditUpdateToJSON(
   benefitMeterCreditUpdate: BenefitMeterCreditUpdate,
 ): string {
   return JSON.stringify(
     BenefitMeterCreditUpdate$outboundSchema.parse(benefitMeterCreditUpdate),
-  );
-}
-
-export function benefitMeterCreditUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitMeterCreditUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitMeterCreditUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitMeterCreditUpdate' from JSON`,
   );
 }

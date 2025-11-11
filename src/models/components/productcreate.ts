@@ -3,33 +3,18 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductCreateOneTime,
-  ProductCreateOneTime$inboundSchema,
   ProductCreateOneTime$Outbound,
   ProductCreateOneTime$outboundSchema,
 } from "./productcreateonetime.js";
 import {
   ProductCreateRecurring,
-  ProductCreateRecurring$inboundSchema,
   ProductCreateRecurring$Outbound,
   ProductCreateRecurring$outboundSchema,
 } from "./productcreaterecurring.js";
 
 export type ProductCreate = ProductCreateRecurring | ProductCreateOneTime;
-
-/** @internal */
-export const ProductCreate$inboundSchema: z.ZodType<
-  ProductCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  ProductCreateRecurring$inboundSchema,
-  ProductCreateOneTime$inboundSchema,
-]);
 
 /** @internal */
 export type ProductCreate$Outbound =
@@ -46,29 +31,6 @@ export const ProductCreate$outboundSchema: z.ZodType<
   ProductCreateOneTime$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductCreate$ {
-  /** @deprecated use `ProductCreate$inboundSchema` instead. */
-  export const inboundSchema = ProductCreate$inboundSchema;
-  /** @deprecated use `ProductCreate$outboundSchema` instead. */
-  export const outboundSchema = ProductCreate$outboundSchema;
-  /** @deprecated use `ProductCreate$Outbound` instead. */
-  export type Outbound = ProductCreate$Outbound;
-}
-
 export function productCreateToJSON(productCreate: ProductCreate): string {
   return JSON.stringify(ProductCreate$outboundSchema.parse(productCreate));
-}
-
-export function productCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductCreate' from JSON`,
-  );
 }

@@ -8,11 +8,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  SubType,
-  SubType$inboundSchema,
-  SubType$outboundSchema,
-} from "./subtype.js";
+import { SubType, SubType$inboundSchema } from "./subtype.js";
 
 export const TokenType = {
   AccessToken: "access_token",
@@ -38,21 +34,6 @@ export const TokenType$inboundSchema: z.ZodNativeEnum<typeof TokenType> = z
   .nativeEnum(TokenType);
 
 /** @internal */
-export const TokenType$outboundSchema: z.ZodNativeEnum<typeof TokenType> =
-  TokenType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenType$ {
-  /** @deprecated use `TokenType$inboundSchema` instead. */
-  export const inboundSchema = TokenType$inboundSchema;
-  /** @deprecated use `TokenType$outboundSchema` instead. */
-  export const outboundSchema = TokenType$outboundSchema;
-}
-
-/** @internal */
 export const IntrospectTokenResponse$inboundSchema: z.ZodType<
   IntrospectTokenResponse,
   z.ZodTypeDef,
@@ -75,65 +56,6 @@ export const IntrospectTokenResponse$inboundSchema: z.ZodType<
     "sub_type": "subType",
   });
 });
-
-/** @internal */
-export type IntrospectTokenResponse$Outbound = {
-  active: boolean;
-  client_id: string;
-  token_type: string;
-  scope: string;
-  sub_type: string;
-  sub: string;
-  aud: string;
-  iss: string;
-  exp: number;
-  iat: number;
-};
-
-/** @internal */
-export const IntrospectTokenResponse$outboundSchema: z.ZodType<
-  IntrospectTokenResponse$Outbound,
-  z.ZodTypeDef,
-  IntrospectTokenResponse
-> = z.object({
-  active: z.boolean(),
-  clientId: z.string(),
-  tokenType: TokenType$outboundSchema,
-  scope: z.string(),
-  subType: SubType$outboundSchema,
-  sub: z.string(),
-  aud: z.string(),
-  iss: z.string(),
-  exp: z.number().int(),
-  iat: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    clientId: "client_id",
-    tokenType: "token_type",
-    subType: "sub_type",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IntrospectTokenResponse$ {
-  /** @deprecated use `IntrospectTokenResponse$inboundSchema` instead. */
-  export const inboundSchema = IntrospectTokenResponse$inboundSchema;
-  /** @deprecated use `IntrospectTokenResponse$outboundSchema` instead. */
-  export const outboundSchema = IntrospectTokenResponse$outboundSchema;
-  /** @deprecated use `IntrospectTokenResponse$Outbound` instead. */
-  export type Outbound = IntrospectTokenResponse$Outbound;
-}
-
-export function introspectTokenResponseToJSON(
-  introspectTokenResponse: IntrospectTokenResponse,
-): string {
-  return JSON.stringify(
-    IntrospectTokenResponse$outboundSchema.parse(introspectTokenResponse),
-  );
-}
 
 export function introspectTokenResponseFromJSON(
   jsonString: string,

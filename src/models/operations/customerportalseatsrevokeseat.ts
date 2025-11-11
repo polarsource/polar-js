@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalSeatsRevokeSeatSecurity = {
   customerSession: string;
@@ -15,19 +12,6 @@ export type CustomerPortalSeatsRevokeSeatSecurity = {
 export type CustomerPortalSeatsRevokeSeatRequest = {
   seatId: string;
 };
-
-/** @internal */
-export const CustomerPortalSeatsRevokeSeatSecurity$inboundSchema: z.ZodType<
-  CustomerPortalSeatsRevokeSeatSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
 
 /** @internal */
 export type CustomerPortalSeatsRevokeSeatSecurity$Outbound = {
@@ -47,21 +31,6 @@ export const CustomerPortalSeatsRevokeSeatSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalSeatsRevokeSeatSecurity$ {
-  /** @deprecated use `CustomerPortalSeatsRevokeSeatSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalSeatsRevokeSeatSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalSeatsRevokeSeatSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalSeatsRevokeSeatSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalSeatsRevokeSeatSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalSeatsRevokeSeatSecurity$Outbound;
-}
-
 export function customerPortalSeatsRevokeSeatSecurityToJSON(
   customerPortalSeatsRevokeSeatSecurity: CustomerPortalSeatsRevokeSeatSecurity,
 ): string {
@@ -71,30 +40,6 @@ export function customerPortalSeatsRevokeSeatSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalSeatsRevokeSeatSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalSeatsRevokeSeatSecurity, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalSeatsRevokeSeatSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalSeatsRevokeSeatSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalSeatsRevokeSeatRequest$inboundSchema: z.ZodType<
-  CustomerPortalSeatsRevokeSeatRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  seat_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "seat_id": "seatId",
-  });
-});
 
 /** @internal */
 export type CustomerPortalSeatsRevokeSeatRequest$Outbound = {
@@ -114,21 +59,6 @@ export const CustomerPortalSeatsRevokeSeatRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalSeatsRevokeSeatRequest$ {
-  /** @deprecated use `CustomerPortalSeatsRevokeSeatRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalSeatsRevokeSeatRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalSeatsRevokeSeatRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalSeatsRevokeSeatRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalSeatsRevokeSeatRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalSeatsRevokeSeatRequest$Outbound;
-}
-
 export function customerPortalSeatsRevokeSeatRequestToJSON(
   customerPortalSeatsRevokeSeatRequest: CustomerPortalSeatsRevokeSeatRequest,
 ): string {
@@ -136,16 +66,5 @@ export function customerPortalSeatsRevokeSeatRequestToJSON(
     CustomerPortalSeatsRevokeSeatRequest$outboundSchema.parse(
       customerPortalSeatsRevokeSeatRequest,
     ),
-  );
-}
-
-export function customerPortalSeatsRevokeSeatRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalSeatsRevokeSeatRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalSeatsRevokeSeatRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalSeatsRevokeSeatRequest' from JSON`,
   );
 }

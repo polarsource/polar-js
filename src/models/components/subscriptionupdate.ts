@@ -3,42 +3,33 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SubscriptionCancel,
-  SubscriptionCancel$inboundSchema,
   SubscriptionCancel$Outbound,
   SubscriptionCancel$outboundSchema,
 } from "./subscriptioncancel.js";
 import {
   SubscriptionRevoke,
-  SubscriptionRevoke$inboundSchema,
   SubscriptionRevoke$Outbound,
   SubscriptionRevoke$outboundSchema,
 } from "./subscriptionrevoke.js";
 import {
   SubscriptionUpdateDiscount,
-  SubscriptionUpdateDiscount$inboundSchema,
   SubscriptionUpdateDiscount$Outbound,
   SubscriptionUpdateDiscount$outboundSchema,
 } from "./subscriptionupdatediscount.js";
 import {
   SubscriptionUpdateProduct,
-  SubscriptionUpdateProduct$inboundSchema,
   SubscriptionUpdateProduct$Outbound,
   SubscriptionUpdateProduct$outboundSchema,
 } from "./subscriptionupdateproduct.js";
 import {
   SubscriptionUpdateSeats,
-  SubscriptionUpdateSeats$inboundSchema,
   SubscriptionUpdateSeats$Outbound,
   SubscriptionUpdateSeats$outboundSchema,
 } from "./subscriptionupdateseats.js";
 import {
   SubscriptionUpdateTrial,
-  SubscriptionUpdateTrial$inboundSchema,
   SubscriptionUpdateTrial$Outbound,
   SubscriptionUpdateTrial$outboundSchema,
 } from "./subscriptionupdatetrial.js";
@@ -50,20 +41,6 @@ export type SubscriptionUpdate =
   | SubscriptionUpdateSeats
   | SubscriptionCancel
   | SubscriptionRevoke;
-
-/** @internal */
-export const SubscriptionUpdate$inboundSchema: z.ZodType<
-  SubscriptionUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  SubscriptionUpdateProduct$inboundSchema,
-  SubscriptionUpdateDiscount$inboundSchema,
-  SubscriptionUpdateTrial$inboundSchema,
-  SubscriptionUpdateSeats$inboundSchema,
-  SubscriptionCancel$inboundSchema,
-  SubscriptionRevoke$inboundSchema,
-]);
 
 /** @internal */
 export type SubscriptionUpdate$Outbound =
@@ -88,33 +65,10 @@ export const SubscriptionUpdate$outboundSchema: z.ZodType<
   SubscriptionRevoke$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionUpdate$ {
-  /** @deprecated use `SubscriptionUpdate$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionUpdate$inboundSchema;
-  /** @deprecated use `SubscriptionUpdate$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionUpdate$outboundSchema;
-  /** @deprecated use `SubscriptionUpdate$Outbound` instead. */
-  export type Outbound = SubscriptionUpdate$Outbound;
-}
-
 export function subscriptionUpdateToJSON(
   subscriptionUpdate: SubscriptionUpdate,
 ): string {
   return JSON.stringify(
     SubscriptionUpdate$outboundSchema.parse(subscriptionUpdate),
-  );
-}
-
-export function subscriptionUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionUpdate' from JSON`,
   );
 }

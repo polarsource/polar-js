@@ -7,11 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  MetricType,
-  MetricType$inboundSchema,
-  MetricType$outboundSchema,
-} from "./metrictype.js";
+import { MetricType, MetricType$inboundSchema } from "./metrictype.js";
 
 /**
  * Information about a metric.
@@ -39,45 +35,6 @@ export const Metric$inboundSchema: z.ZodType<Metric, z.ZodTypeDef, unknown> = z
       "display_name": "displayName",
     });
   });
-
-/** @internal */
-export type Metric$Outbound = {
-  slug: string;
-  display_name: string;
-  type: string;
-};
-
-/** @internal */
-export const Metric$outboundSchema: z.ZodType<
-  Metric$Outbound,
-  z.ZodTypeDef,
-  Metric
-> = z.object({
-  slug: z.string(),
-  displayName: z.string(),
-  type: MetricType$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    displayName: "display_name",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Metric$ {
-  /** @deprecated use `Metric$inboundSchema` instead. */
-  export const inboundSchema = Metric$inboundSchema;
-  /** @deprecated use `Metric$outboundSchema` instead. */
-  export const outboundSchema = Metric$outboundSchema;
-  /** @deprecated use `Metric$Outbound` instead. */
-  export type Outbound = Metric$Outbound;
-}
-
-export function metricToJSON(metric: Metric): string {
-  return JSON.stringify(Metric$outboundSchema.parse(metric));
-}
 
 export function metricFromJSON(
   jsonString: string,

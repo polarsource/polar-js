@@ -46,52 +46,6 @@ export const CustomerCustomerMeterMeter$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type CustomerCustomerMeterMeter$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  name: string;
-};
-
-/** @internal */
-export const CustomerCustomerMeterMeter$outboundSchema: z.ZodType<
-  CustomerCustomerMeterMeter$Outbound,
-  z.ZodTypeDef,
-  CustomerCustomerMeterMeter
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  name: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerCustomerMeterMeter$ {
-  /** @deprecated use `CustomerCustomerMeterMeter$inboundSchema` instead. */
-  export const inboundSchema = CustomerCustomerMeterMeter$inboundSchema;
-  /** @deprecated use `CustomerCustomerMeterMeter$outboundSchema` instead. */
-  export const outboundSchema = CustomerCustomerMeterMeter$outboundSchema;
-  /** @deprecated use `CustomerCustomerMeterMeter$Outbound` instead. */
-  export type Outbound = CustomerCustomerMeterMeter$Outbound;
-}
-
-export function customerCustomerMeterMeterToJSON(
-  customerCustomerMeterMeter: CustomerCustomerMeterMeter,
-): string {
-  return JSON.stringify(
-    CustomerCustomerMeterMeter$outboundSchema.parse(customerCustomerMeterMeter),
-  );
-}
-
 export function customerCustomerMeterMeterFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerCustomerMeterMeter, SDKValidationError> {

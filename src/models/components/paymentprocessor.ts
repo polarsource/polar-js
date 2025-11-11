@@ -14,19 +14,7 @@ export type PaymentProcessor = ClosedEnum<typeof PaymentProcessor>;
 export const PaymentProcessor$inboundSchema: z.ZodNativeEnum<
   typeof PaymentProcessor
 > = z.nativeEnum(PaymentProcessor);
-
 /** @internal */
 export const PaymentProcessor$outboundSchema: z.ZodNativeEnum<
   typeof PaymentProcessor
 > = PaymentProcessor$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentProcessor$ {
-  /** @deprecated use `PaymentProcessor$inboundSchema` instead. */
-  export const inboundSchema = PaymentProcessor$inboundSchema;
-  /** @deprecated use `PaymentProcessor$outboundSchema` instead. */
-  export const outboundSchema = PaymentProcessor$outboundSchema;
-}

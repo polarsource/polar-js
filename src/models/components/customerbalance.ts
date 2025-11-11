@@ -31,41 +31,6 @@ export const CustomerBalance$inboundSchema: z.ZodType<
   currency: z.string(),
 });
 
-/** @internal */
-export type CustomerBalance$Outbound = {
-  balance: number;
-  currency: string;
-};
-
-/** @internal */
-export const CustomerBalance$outboundSchema: z.ZodType<
-  CustomerBalance$Outbound,
-  z.ZodTypeDef,
-  CustomerBalance
-> = z.object({
-  balance: z.number().int(),
-  currency: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBalance$ {
-  /** @deprecated use `CustomerBalance$inboundSchema` instead. */
-  export const inboundSchema = CustomerBalance$inboundSchema;
-  /** @deprecated use `CustomerBalance$outboundSchema` instead. */
-  export const outboundSchema = CustomerBalance$outboundSchema;
-  /** @deprecated use `CustomerBalance$Outbound` instead. */
-  export type Outbound = CustomerBalance$Outbound;
-}
-
-export function customerBalanceToJSON(
-  customerBalance: CustomerBalance,
-): string {
-  return JSON.stringify(CustomerBalance$outboundSchema.parse(customerBalance));
-}
-
 export function customerBalanceFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerBalance, SDKValidationError> {

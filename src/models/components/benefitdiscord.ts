@@ -66,7 +66,6 @@ export const BenefitDiscordMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type BenefitDiscordMetadata$Outbound =
   | string
@@ -81,19 +80,6 @@ export const BenefitDiscordMetadata$outboundSchema: z.ZodType<
   BenefitDiscordMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDiscordMetadata$ {
-  /** @deprecated use `BenefitDiscordMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitDiscordMetadata$inboundSchema;
-  /** @deprecated use `BenefitDiscordMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitDiscordMetadata$outboundSchema;
-  /** @deprecated use `BenefitDiscordMetadata$Outbound` instead. */
-  export type Outbound = BenefitDiscordMetadata$Outbound;
-}
-
 export function benefitDiscordMetadataToJSON(
   benefitDiscordMetadata: BenefitDiscordMetadata,
 ): string {
@@ -101,7 +87,6 @@ export function benefitDiscordMetadataToJSON(
     BenefitDiscordMetadata$outboundSchema.parse(benefitDiscordMetadata),
   );
 }
-
 export function benefitDiscordMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitDiscordMetadata, SDKValidationError> {
@@ -139,7 +124,6 @@ export const BenefitDiscord$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type BenefitDiscord$Outbound = {
   id: string;
@@ -180,23 +164,9 @@ export const BenefitDiscord$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDiscord$ {
-  /** @deprecated use `BenefitDiscord$inboundSchema` instead. */
-  export const inboundSchema = BenefitDiscord$inboundSchema;
-  /** @deprecated use `BenefitDiscord$outboundSchema` instead. */
-  export const outboundSchema = BenefitDiscord$outboundSchema;
-  /** @deprecated use `BenefitDiscord$Outbound` instead. */
-  export type Outbound = BenefitDiscord$Outbound;
-}
-
 export function benefitDiscordToJSON(benefitDiscord: BenefitDiscord): string {
   return JSON.stringify(BenefitDiscord$outboundSchema.parse(benefitDiscord));
 }
-
 export function benefitDiscordFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitDiscord, SDKValidationError> {

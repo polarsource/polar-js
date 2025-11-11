@@ -36,7 +36,6 @@ export const WebhookRefundUpdatedPayload$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Refund$inboundSchema,
 });
-
 /** @internal */
 export type WebhookRefundUpdatedPayload$Outbound = {
   type: "refund.updated";
@@ -55,19 +54,6 @@ export const WebhookRefundUpdatedPayload$outboundSchema: z.ZodType<
   data: Refund$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookRefundUpdatedPayload$ {
-  /** @deprecated use `WebhookRefundUpdatedPayload$inboundSchema` instead. */
-  export const inboundSchema = WebhookRefundUpdatedPayload$inboundSchema;
-  /** @deprecated use `WebhookRefundUpdatedPayload$outboundSchema` instead. */
-  export const outboundSchema = WebhookRefundUpdatedPayload$outboundSchema;
-  /** @deprecated use `WebhookRefundUpdatedPayload$Outbound` instead. */
-  export type Outbound = WebhookRefundUpdatedPayload$Outbound;
-}
-
 export function webhookRefundUpdatedPayloadToJSON(
   webhookRefundUpdatedPayload: WebhookRefundUpdatedPayload,
 ): string {
@@ -77,7 +63,6 @@ export function webhookRefundUpdatedPayloadToJSON(
     ),
   );
 }
-
 export function webhookRefundUpdatedPayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhookRefundUpdatedPayload, SDKValidationError> {

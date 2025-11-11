@@ -4,36 +4,16 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   OAuth2ClientConfigurationUpdate,
-  OAuth2ClientConfigurationUpdate$inboundSchema,
   OAuth2ClientConfigurationUpdate$Outbound,
   OAuth2ClientConfigurationUpdate$outboundSchema,
 } from "../components/oauth2clientconfigurationupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Oauth2ClientsOauth2UpdateClientRequest = {
   clientId: string;
   oAuth2ClientConfigurationUpdate: OAuth2ClientConfigurationUpdate;
 };
-
-/** @internal */
-export const Oauth2ClientsOauth2UpdateClientRequest$inboundSchema: z.ZodType<
-  Oauth2ClientsOauth2UpdateClientRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  client_id: z.string(),
-  OAuth2ClientConfigurationUpdate:
-    OAuth2ClientConfigurationUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "client_id": "clientId",
-    "OAuth2ClientConfigurationUpdate": "oAuth2ClientConfigurationUpdate",
-  });
-});
 
 /** @internal */
 export type Oauth2ClientsOauth2UpdateClientRequest$Outbound = {
@@ -57,21 +37,6 @@ export const Oauth2ClientsOauth2UpdateClientRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Oauth2ClientsOauth2UpdateClientRequest$ {
-  /** @deprecated use `Oauth2ClientsOauth2UpdateClientRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    Oauth2ClientsOauth2UpdateClientRequest$inboundSchema;
-  /** @deprecated use `Oauth2ClientsOauth2UpdateClientRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    Oauth2ClientsOauth2UpdateClientRequest$outboundSchema;
-  /** @deprecated use `Oauth2ClientsOauth2UpdateClientRequest$Outbound` instead. */
-  export type Outbound = Oauth2ClientsOauth2UpdateClientRequest$Outbound;
-}
-
 export function oauth2ClientsOauth2UpdateClientRequestToJSON(
   oauth2ClientsOauth2UpdateClientRequest:
     Oauth2ClientsOauth2UpdateClientRequest,
@@ -80,16 +45,5 @@ export function oauth2ClientsOauth2UpdateClientRequestToJSON(
     Oauth2ClientsOauth2UpdateClientRequest$outboundSchema.parse(
       oauth2ClientsOauth2UpdateClientRequest,
     ),
-  );
-}
-
-export function oauth2ClientsOauth2UpdateClientRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<Oauth2ClientsOauth2UpdateClientRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      Oauth2ClientsOauth2UpdateClientRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Oauth2ClientsOauth2UpdateClientRequest' from JSON`,
   );
 }

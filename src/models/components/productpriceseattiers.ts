@@ -31,7 +31,6 @@ export const ProductPriceSeatTiers$inboundSchema: z.ZodType<
 > = z.object({
   tiers: z.array(ProductPriceSeatTier$inboundSchema),
 });
-
 /** @internal */
 export type ProductPriceSeatTiers$Outbound = {
   tiers: Array<ProductPriceSeatTier$Outbound>;
@@ -46,19 +45,6 @@ export const ProductPriceSeatTiers$outboundSchema: z.ZodType<
   tiers: z.array(ProductPriceSeatTier$outboundSchema),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceSeatTiers$ {
-  /** @deprecated use `ProductPriceSeatTiers$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceSeatTiers$inboundSchema;
-  /** @deprecated use `ProductPriceSeatTiers$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceSeatTiers$outboundSchema;
-  /** @deprecated use `ProductPriceSeatTiers$Outbound` instead. */
-  export type Outbound = ProductPriceSeatTiers$Outbound;
-}
-
 export function productPriceSeatTiersToJSON(
   productPriceSeatTiers: ProductPriceSeatTiers,
 ): string {
@@ -66,7 +52,6 @@ export function productPriceSeatTiersToJSON(
     ProductPriceSeatTiers$outboundSchema.parse(productPriceSeatTiers),
   );
 }
-
 export function productPriceSeatTiersFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductPriceSeatTiers, SDKValidationError> {

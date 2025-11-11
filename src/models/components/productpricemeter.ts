@@ -30,7 +30,6 @@ export const ProductPriceMeter$inboundSchema: z.ZodType<
   id: z.string(),
   name: z.string(),
 });
-
 /** @internal */
 export type ProductPriceMeter$Outbound = {
   id: string;
@@ -47,19 +46,6 @@ export const ProductPriceMeter$outboundSchema: z.ZodType<
   name: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceMeter$ {
-  /** @deprecated use `ProductPriceMeter$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceMeter$inboundSchema;
-  /** @deprecated use `ProductPriceMeter$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceMeter$outboundSchema;
-  /** @deprecated use `ProductPriceMeter$Outbound` instead. */
-  export type Outbound = ProductPriceMeter$Outbound;
-}
-
 export function productPriceMeterToJSON(
   productPriceMeter: ProductPriceMeter,
 ): string {
@@ -67,7 +53,6 @@ export function productPriceMeterToJSON(
     ProductPriceMeter$outboundSchema.parse(productPriceMeter),
   );
 }
-
 export function productPriceMeterFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductPriceMeter, SDKValidationError> {

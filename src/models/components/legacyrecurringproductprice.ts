@@ -52,7 +52,6 @@ export const LegacyRecurringProductPrice$inboundSchema: z.ZodType<
     })),
   ),
 ]);
-
 /** @internal */
 export type LegacyRecurringProductPrice$Outbound =
   | (LegacyRecurringProductPriceCustom$Outbound & { amount_type: "custom" })
@@ -82,19 +81,6 @@ export const LegacyRecurringProductPrice$outboundSchema: z.ZodType<
   ),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LegacyRecurringProductPrice$ {
-  /** @deprecated use `LegacyRecurringProductPrice$inboundSchema` instead. */
-  export const inboundSchema = LegacyRecurringProductPrice$inboundSchema;
-  /** @deprecated use `LegacyRecurringProductPrice$outboundSchema` instead. */
-  export const outboundSchema = LegacyRecurringProductPrice$outboundSchema;
-  /** @deprecated use `LegacyRecurringProductPrice$Outbound` instead. */
-  export type Outbound = LegacyRecurringProductPrice$Outbound;
-}
-
 export function legacyRecurringProductPriceToJSON(
   legacyRecurringProductPrice: LegacyRecurringProductPrice,
 ): string {
@@ -104,7 +90,6 @@ export function legacyRecurringProductPriceToJSON(
     ),
   );
 }
-
 export function legacyRecurringProductPriceFromJSON(
   jsonString: string,
 ): SafeParseResult<LegacyRecurringProductPrice, SDKValidationError> {

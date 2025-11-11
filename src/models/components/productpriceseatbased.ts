@@ -94,7 +94,6 @@ export const ProductPriceSeatBased$inboundSchema: z.ZodType<
     "seat_tiers": "seatTiers",
   });
 });
-
 /** @internal */
 export type ProductPriceSeatBased$Outbound = {
   created_at: string;
@@ -138,19 +137,6 @@ export const ProductPriceSeatBased$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceSeatBased$ {
-  /** @deprecated use `ProductPriceSeatBased$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceSeatBased$inboundSchema;
-  /** @deprecated use `ProductPriceSeatBased$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceSeatBased$outboundSchema;
-  /** @deprecated use `ProductPriceSeatBased$Outbound` instead. */
-  export type Outbound = ProductPriceSeatBased$Outbound;
-}
-
 export function productPriceSeatBasedToJSON(
   productPriceSeatBased: ProductPriceSeatBased,
 ): string {
@@ -158,7 +144,6 @@ export function productPriceSeatBasedToJSON(
     ProductPriceSeatBased$outboundSchema.parse(productPriceSeatBased),
   );
 }
-
 export function productPriceSeatBasedFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductPriceSeatBased, SDKValidationError> {

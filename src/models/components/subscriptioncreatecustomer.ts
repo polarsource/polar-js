@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionCreateCustomerMetadata =
   | string
@@ -45,13 +42,6 @@ export type SubscriptionCreateCustomer = {
 };
 
 /** @internal */
-export const SubscriptionCreateCustomerMetadata$inboundSchema: z.ZodType<
-  SubscriptionCreateCustomerMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type SubscriptionCreateCustomerMetadata$Outbound =
   | string
   | number
@@ -65,20 +55,6 @@ export const SubscriptionCreateCustomerMetadata$outboundSchema: z.ZodType<
   SubscriptionCreateCustomerMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionCreateCustomerMetadata$ {
-  /** @deprecated use `SubscriptionCreateCustomerMetadata$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionCreateCustomerMetadata$inboundSchema;
-  /** @deprecated use `SubscriptionCreateCustomerMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    SubscriptionCreateCustomerMetadata$outboundSchema;
-  /** @deprecated use `SubscriptionCreateCustomerMetadata$Outbound` instead. */
-  export type Outbound = SubscriptionCreateCustomerMetadata$Outbound;
-}
-
 export function subscriptionCreateCustomerMetadataToJSON(
   subscriptionCreateCustomerMetadata: SubscriptionCreateCustomerMetadata,
 ): string {
@@ -88,35 +64,6 @@ export function subscriptionCreateCustomerMetadataToJSON(
     ),
   );
 }
-
-export function subscriptionCreateCustomerMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionCreateCustomerMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      SubscriptionCreateCustomerMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionCreateCustomerMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const SubscriptionCreateCustomer$inboundSchema: z.ZodType<
-  SubscriptionCreateCustomer,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  product_id: z.string(),
-  customer_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "product_id": "productId",
-    "customer_id": "customerId",
-  });
-});
 
 /** @internal */
 export type SubscriptionCreateCustomer$Outbound = {
@@ -143,33 +90,10 @@ export const SubscriptionCreateCustomer$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionCreateCustomer$ {
-  /** @deprecated use `SubscriptionCreateCustomer$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionCreateCustomer$inboundSchema;
-  /** @deprecated use `SubscriptionCreateCustomer$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionCreateCustomer$outboundSchema;
-  /** @deprecated use `SubscriptionCreateCustomer$Outbound` instead. */
-  export type Outbound = SubscriptionCreateCustomer$Outbound;
-}
-
 export function subscriptionCreateCustomerToJSON(
   subscriptionCreateCustomer: SubscriptionCreateCustomer,
 ): string {
   return JSON.stringify(
     SubscriptionCreateCustomer$outboundSchema.parse(subscriptionCreateCustomer),
-  );
-}
-
-export function subscriptionCreateCustomerFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionCreateCustomer, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionCreateCustomer$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionCreateCustomer' from JSON`,
   );
 }

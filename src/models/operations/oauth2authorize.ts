@@ -8,14 +8,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   AuthorizeResponseOrganization,
   AuthorizeResponseOrganization$inboundSchema,
-  AuthorizeResponseOrganization$Outbound,
-  AuthorizeResponseOrganization$outboundSchema,
 } from "../components/authorizeresponseorganization.js";
 import {
   AuthorizeResponseUser,
   AuthorizeResponseUser$inboundSchema,
-  AuthorizeResponseUser$Outbound,
-  AuthorizeResponseUser$outboundSchema,
 } from "../components/authorizeresponseuser.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -43,55 +39,6 @@ export const Oauth2AuthorizeResponseOauth2Authorize$inboundSchema: z.ZodType<
     })),
   ),
 ]);
-
-/** @internal */
-export type Oauth2AuthorizeResponseOauth2Authorize$Outbound =
-  | (AuthorizeResponseOrganization$Outbound & { sub_type: "organization" })
-  | (AuthorizeResponseUser$Outbound & { sub_type: "user" });
-
-/** @internal */
-export const Oauth2AuthorizeResponseOauth2Authorize$outboundSchema: z.ZodType<
-  Oauth2AuthorizeResponseOauth2Authorize$Outbound,
-  z.ZodTypeDef,
-  Oauth2AuthorizeResponseOauth2Authorize
-> = z.union([
-  AuthorizeResponseOrganization$outboundSchema.and(
-    z.object({ subType: z.literal("organization") }).transform((v) => ({
-      sub_type: v.subType,
-    })),
-  ),
-  AuthorizeResponseUser$outboundSchema.and(
-    z.object({ subType: z.literal("user") }).transform((v) => ({
-      sub_type: v.subType,
-    })),
-  ),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Oauth2AuthorizeResponseOauth2Authorize$ {
-  /** @deprecated use `Oauth2AuthorizeResponseOauth2Authorize$inboundSchema` instead. */
-  export const inboundSchema =
-    Oauth2AuthorizeResponseOauth2Authorize$inboundSchema;
-  /** @deprecated use `Oauth2AuthorizeResponseOauth2Authorize$outboundSchema` instead. */
-  export const outboundSchema =
-    Oauth2AuthorizeResponseOauth2Authorize$outboundSchema;
-  /** @deprecated use `Oauth2AuthorizeResponseOauth2Authorize$Outbound` instead. */
-  export type Outbound = Oauth2AuthorizeResponseOauth2Authorize$Outbound;
-}
-
-export function oauth2AuthorizeResponseOauth2AuthorizeToJSON(
-  oauth2AuthorizeResponseOauth2Authorize:
-    Oauth2AuthorizeResponseOauth2Authorize,
-): string {
-  return JSON.stringify(
-    Oauth2AuthorizeResponseOauth2Authorize$outboundSchema.parse(
-      oauth2AuthorizeResponseOauth2Authorize,
-    ),
-  );
-}
 
 export function oauth2AuthorizeResponseOauth2AuthorizeFromJSON(
   jsonString: string,

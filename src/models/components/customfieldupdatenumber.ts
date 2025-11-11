@@ -3,12 +3,8 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldNumberProperties,
-  CustomFieldNumberProperties$inboundSchema,
   CustomFieldNumberProperties$Outbound,
   CustomFieldNumberProperties$outboundSchema,
 } from "./customfieldnumberproperties.js";
@@ -46,13 +42,6 @@ export type CustomFieldUpdateNumber = {
 };
 
 /** @internal */
-export const CustomFieldUpdateNumberMetadata$inboundSchema: z.ZodType<
-  CustomFieldUpdateNumberMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type CustomFieldUpdateNumberMetadata$Outbound =
   | string
   | number
@@ -66,19 +55,6 @@ export const CustomFieldUpdateNumberMetadata$outboundSchema: z.ZodType<
   CustomFieldUpdateNumberMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdateNumberMetadata$ {
-  /** @deprecated use `CustomFieldUpdateNumberMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdateNumberMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldUpdateNumberMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdateNumberMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldUpdateNumberMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldUpdateNumberMetadata$Outbound;
-}
-
 export function customFieldUpdateNumberMetadataToJSON(
   customFieldUpdateNumberMetadata: CustomFieldUpdateNumberMetadata,
 ): string {
@@ -88,31 +64,6 @@ export function customFieldUpdateNumberMetadataToJSON(
     ),
   );
 }
-
-export function customFieldUpdateNumberMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldUpdateNumberMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldUpdateNumberMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldUpdateNumberMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomFieldUpdateNumber$inboundSchema: z.ZodType<
-  CustomFieldUpdateNumber,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  name: z.nullable(z.string()).optional(),
-  slug: z.nullable(z.string()).optional(),
-  type: z.literal("number"),
-  properties: z.nullable(CustomFieldNumberProperties$inboundSchema).optional(),
-});
 
 /** @internal */
 export type CustomFieldUpdateNumber$Outbound = {
@@ -138,33 +89,10 @@ export const CustomFieldUpdateNumber$outboundSchema: z.ZodType<
   properties: z.nullable(CustomFieldNumberProperties$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdateNumber$ {
-  /** @deprecated use `CustomFieldUpdateNumber$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdateNumber$inboundSchema;
-  /** @deprecated use `CustomFieldUpdateNumber$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdateNumber$outboundSchema;
-  /** @deprecated use `CustomFieldUpdateNumber$Outbound` instead. */
-  export type Outbound = CustomFieldUpdateNumber$Outbound;
-}
-
 export function customFieldUpdateNumberToJSON(
   customFieldUpdateNumber: CustomFieldUpdateNumber,
 ): string {
   return JSON.stringify(
     CustomFieldUpdateNumber$outboundSchema.parse(customFieldUpdateNumber),
-  );
-}
-
-export function customFieldUpdateNumberFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldUpdateNumber, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldUpdateNumber$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldUpdateNumber' from JSON`,
   );
 }

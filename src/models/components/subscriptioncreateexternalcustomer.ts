@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionCreateExternalCustomerMetadata =
   | string
@@ -45,11 +42,6 @@ export type SubscriptionCreateExternalCustomer = {
 };
 
 /** @internal */
-export const SubscriptionCreateExternalCustomerMetadata$inboundSchema:
-  z.ZodType<SubscriptionCreateExternalCustomerMetadata, z.ZodTypeDef, unknown> =
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type SubscriptionCreateExternalCustomerMetadata$Outbound =
   | string
   | number
@@ -64,21 +56,6 @@ export const SubscriptionCreateExternalCustomerMetadata$outboundSchema:
     SubscriptionCreateExternalCustomerMetadata
   > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionCreateExternalCustomerMetadata$ {
-  /** @deprecated use `SubscriptionCreateExternalCustomerMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    SubscriptionCreateExternalCustomerMetadata$inboundSchema;
-  /** @deprecated use `SubscriptionCreateExternalCustomerMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    SubscriptionCreateExternalCustomerMetadata$outboundSchema;
-  /** @deprecated use `SubscriptionCreateExternalCustomerMetadata$Outbound` instead. */
-  export type Outbound = SubscriptionCreateExternalCustomerMetadata$Outbound;
-}
-
 export function subscriptionCreateExternalCustomerMetadataToJSON(
   subscriptionCreateExternalCustomerMetadata:
     SubscriptionCreateExternalCustomerMetadata,
@@ -89,40 +66,6 @@ export function subscriptionCreateExternalCustomerMetadataToJSON(
     ),
   );
 }
-
-export function subscriptionCreateExternalCustomerMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  SubscriptionCreateExternalCustomerMetadata,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      SubscriptionCreateExternalCustomerMetadata$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'SubscriptionCreateExternalCustomerMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const SubscriptionCreateExternalCustomer$inboundSchema: z.ZodType<
-  SubscriptionCreateExternalCustomer,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  product_id: z.string(),
-  external_customer_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "product_id": "productId",
-    "external_customer_id": "externalCustomerId",
-  });
-});
 
 /** @internal */
 export type SubscriptionCreateExternalCustomer$Outbound = {
@@ -149,20 +92,6 @@ export const SubscriptionCreateExternalCustomer$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionCreateExternalCustomer$ {
-  /** @deprecated use `SubscriptionCreateExternalCustomer$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionCreateExternalCustomer$inboundSchema;
-  /** @deprecated use `SubscriptionCreateExternalCustomer$outboundSchema` instead. */
-  export const outboundSchema =
-    SubscriptionCreateExternalCustomer$outboundSchema;
-  /** @deprecated use `SubscriptionCreateExternalCustomer$Outbound` instead. */
-  export type Outbound = SubscriptionCreateExternalCustomer$Outbound;
-}
-
 export function subscriptionCreateExternalCustomerToJSON(
   subscriptionCreateExternalCustomer: SubscriptionCreateExternalCustomer,
 ): string {
@@ -170,16 +99,5 @@ export function subscriptionCreateExternalCustomerToJSON(
     SubscriptionCreateExternalCustomer$outboundSchema.parse(
       subscriptionCreateExternalCustomer,
     ),
-  );
-}
-
-export function subscriptionCreateExternalCustomerFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionCreateExternalCustomer, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      SubscriptionCreateExternalCustomer$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionCreateExternalCustomer' from JSON`,
   );
 }

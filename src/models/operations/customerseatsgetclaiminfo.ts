@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerSeatsGetClaimInfoRequest = {
   invitationToken: string;
 };
-
-/** @internal */
-export const CustomerSeatsGetClaimInfoRequest$inboundSchema: z.ZodType<
-  CustomerSeatsGetClaimInfoRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  invitation_token: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "invitation_token": "invitationToken",
-  });
-});
 
 /** @internal */
 export type CustomerSeatsGetClaimInfoRequest$Outbound = {
@@ -43,19 +27,6 @@ export const CustomerSeatsGetClaimInfoRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSeatsGetClaimInfoRequest$ {
-  /** @deprecated use `CustomerSeatsGetClaimInfoRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomerSeatsGetClaimInfoRequest$inboundSchema;
-  /** @deprecated use `CustomerSeatsGetClaimInfoRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomerSeatsGetClaimInfoRequest$outboundSchema;
-  /** @deprecated use `CustomerSeatsGetClaimInfoRequest$Outbound` instead. */
-  export type Outbound = CustomerSeatsGetClaimInfoRequest$Outbound;
-}
-
 export function customerSeatsGetClaimInfoRequestToJSON(
   customerSeatsGetClaimInfoRequest: CustomerSeatsGetClaimInfoRequest,
 ): string {
@@ -63,15 +34,5 @@ export function customerSeatsGetClaimInfoRequestToJSON(
     CustomerSeatsGetClaimInfoRequest$outboundSchema.parse(
       customerSeatsGetClaimInfoRequest,
     ),
-  );
-}
-
-export function customerSeatsGetClaimInfoRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerSeatsGetClaimInfoRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerSeatsGetClaimInfoRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerSeatsGetClaimInfoRequest' from JSON`,
   );
 }

@@ -141,7 +141,6 @@ export const BenefitGrantDiscordWebhook$inboundSchema: z.ZodType<
     "previous_properties": "previousProperties",
   });
 });
-
 /** @internal */
 export type BenefitGrantDiscordWebhook$Outbound = {
   created_at: string;
@@ -204,19 +203,6 @@ export const BenefitGrantDiscordWebhook$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantDiscordWebhook$ {
-  /** @deprecated use `BenefitGrantDiscordWebhook$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantDiscordWebhook$inboundSchema;
-  /** @deprecated use `BenefitGrantDiscordWebhook$outboundSchema` instead. */
-  export const outboundSchema = BenefitGrantDiscordWebhook$outboundSchema;
-  /** @deprecated use `BenefitGrantDiscordWebhook$Outbound` instead. */
-  export type Outbound = BenefitGrantDiscordWebhook$Outbound;
-}
-
 export function benefitGrantDiscordWebhookToJSON(
   benefitGrantDiscordWebhook: BenefitGrantDiscordWebhook,
 ): string {
@@ -224,7 +210,6 @@ export function benefitGrantDiscordWebhookToJSON(
     BenefitGrantDiscordWebhook$outboundSchema.parse(benefitGrantDiscordWebhook),
   );
 }
-
 export function benefitGrantDiscordWebhookFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantDiscordWebhook, SDKValidationError> {

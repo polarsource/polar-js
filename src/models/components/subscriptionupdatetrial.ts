@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionUpdateTrial = {
   /**
@@ -14,19 +11,6 @@ export type SubscriptionUpdateTrial = {
    */
   trialEnd: Date;
 };
-
-/** @internal */
-export const SubscriptionUpdateTrial$inboundSchema: z.ZodType<
-  SubscriptionUpdateTrial,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  trial_end: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-}).transform((v) => {
-  return remap$(v, {
-    "trial_end": "trialEnd",
-  });
-});
 
 /** @internal */
 export type SubscriptionUpdateTrial$Outbound = {
@@ -46,33 +30,10 @@ export const SubscriptionUpdateTrial$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionUpdateTrial$ {
-  /** @deprecated use `SubscriptionUpdateTrial$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionUpdateTrial$inboundSchema;
-  /** @deprecated use `SubscriptionUpdateTrial$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionUpdateTrial$outboundSchema;
-  /** @deprecated use `SubscriptionUpdateTrial$Outbound` instead. */
-  export type Outbound = SubscriptionUpdateTrial$Outbound;
-}
-
 export function subscriptionUpdateTrialToJSON(
   subscriptionUpdateTrial: SubscriptionUpdateTrial,
 ): string {
   return JSON.stringify(
     SubscriptionUpdateTrial$outboundSchema.parse(subscriptionUpdateTrial),
-  );
-}
-
-export function subscriptionUpdateTrialFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionUpdateTrial, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionUpdateTrial$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionUpdateTrial' from JSON`,
   );
 }

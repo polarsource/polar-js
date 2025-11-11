@@ -4,27 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalCustomersAddPaymentMethodSecurity = {
   customerSession: string;
 };
-
-/** @internal */
-export const CustomerPortalCustomersAddPaymentMethodSecurity$inboundSchema:
-  z.ZodType<
-    CustomerPortalCustomersAddPaymentMethodSecurity,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    customer_session: z.string(),
-  }).transform((v) => {
-    return remap$(v, {
-      "customer_session": "customerSession",
-    });
-  });
 
 /** @internal */
 export type CustomerPortalCustomersAddPaymentMethodSecurity$Outbound = {
@@ -45,22 +28,6 @@ export const CustomerPortalCustomersAddPaymentMethodSecurity$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalCustomersAddPaymentMethodSecurity$ {
-  /** @deprecated use `CustomerPortalCustomersAddPaymentMethodSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalCustomersAddPaymentMethodSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalCustomersAddPaymentMethodSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalCustomersAddPaymentMethodSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalCustomersAddPaymentMethodSecurity$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalCustomersAddPaymentMethodSecurity$Outbound;
-}
-
 export function customerPortalCustomersAddPaymentMethodSecurityToJSON(
   customerPortalCustomersAddPaymentMethodSecurity:
     CustomerPortalCustomersAddPaymentMethodSecurity,
@@ -69,21 +36,5 @@ export function customerPortalCustomersAddPaymentMethodSecurityToJSON(
     CustomerPortalCustomersAddPaymentMethodSecurity$outboundSchema.parse(
       customerPortalCustomersAddPaymentMethodSecurity,
     ),
-  );
-}
-
-export function customerPortalCustomersAddPaymentMethodSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalCustomersAddPaymentMethodSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalCustomersAddPaymentMethodSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalCustomersAddPaymentMethodSecurity' from JSON`,
   );
 }

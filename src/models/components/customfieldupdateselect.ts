@@ -3,12 +3,8 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldSelectProperties,
-  CustomFieldSelectProperties$inboundSchema,
   CustomFieldSelectProperties$Outbound,
   CustomFieldSelectProperties$outboundSchema,
 } from "./customfieldselectproperties.js";
@@ -46,13 +42,6 @@ export type CustomFieldUpdateSelect = {
 };
 
 /** @internal */
-export const CustomFieldUpdateSelectMetadata$inboundSchema: z.ZodType<
-  CustomFieldUpdateSelectMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type CustomFieldUpdateSelectMetadata$Outbound =
   | string
   | number
@@ -66,19 +55,6 @@ export const CustomFieldUpdateSelectMetadata$outboundSchema: z.ZodType<
   CustomFieldUpdateSelectMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdateSelectMetadata$ {
-  /** @deprecated use `CustomFieldUpdateSelectMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdateSelectMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldUpdateSelectMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdateSelectMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldUpdateSelectMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldUpdateSelectMetadata$Outbound;
-}
-
 export function customFieldUpdateSelectMetadataToJSON(
   customFieldUpdateSelectMetadata: CustomFieldUpdateSelectMetadata,
 ): string {
@@ -88,31 +64,6 @@ export function customFieldUpdateSelectMetadataToJSON(
     ),
   );
 }
-
-export function customFieldUpdateSelectMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldUpdateSelectMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldUpdateSelectMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldUpdateSelectMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomFieldUpdateSelect$inboundSchema: z.ZodType<
-  CustomFieldUpdateSelect,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  name: z.nullable(z.string()).optional(),
-  slug: z.nullable(z.string()).optional(),
-  type: z.literal("select"),
-  properties: z.nullable(CustomFieldSelectProperties$inboundSchema).optional(),
-});
 
 /** @internal */
 export type CustomFieldUpdateSelect$Outbound = {
@@ -138,33 +89,10 @@ export const CustomFieldUpdateSelect$outboundSchema: z.ZodType<
   properties: z.nullable(CustomFieldSelectProperties$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldUpdateSelect$ {
-  /** @deprecated use `CustomFieldUpdateSelect$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldUpdateSelect$inboundSchema;
-  /** @deprecated use `CustomFieldUpdateSelect$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldUpdateSelect$outboundSchema;
-  /** @deprecated use `CustomFieldUpdateSelect$Outbound` instead. */
-  export type Outbound = CustomFieldUpdateSelect$Outbound;
-}
-
 export function customFieldUpdateSelectToJSON(
   customFieldUpdateSelect: CustomFieldUpdateSelect,
 ): string {
   return JSON.stringify(
     CustomFieldUpdateSelect$outboundSchema.parse(customFieldUpdateSelect),
-  );
-}
-
-export function customFieldUpdateSelectFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldUpdateSelect, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldUpdateSelect$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldUpdateSelect' from JSON`,
   );
 }

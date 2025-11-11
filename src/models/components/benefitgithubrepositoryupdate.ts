@@ -3,12 +3,8 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGitHubRepositoryCreateProperties,
-  BenefitGitHubRepositoryCreateProperties$inboundSchema,
   BenefitGitHubRepositoryCreateProperties$Outbound,
   BenefitGitHubRepositoryCreateProperties$outboundSchema,
 } from "./benefitgithubrepositorycreateproperties.js";
@@ -45,13 +41,6 @@ export type BenefitGitHubRepositoryUpdate = {
 };
 
 /** @internal */
-export const BenefitGitHubRepositoryUpdateMetadata$inboundSchema: z.ZodType<
-  BenefitGitHubRepositoryUpdateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type BenefitGitHubRepositoryUpdateMetadata$Outbound =
   | string
   | number
@@ -65,21 +54,6 @@ export const BenefitGitHubRepositoryUpdateMetadata$outboundSchema: z.ZodType<
   BenefitGitHubRepositoryUpdateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositoryUpdateMetadata$ {
-  /** @deprecated use `BenefitGitHubRepositoryUpdateMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitGitHubRepositoryUpdateMetadata$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryUpdateMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGitHubRepositoryUpdateMetadata$outboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryUpdateMetadata$Outbound` instead. */
-  export type Outbound = BenefitGitHubRepositoryUpdateMetadata$Outbound;
-}
-
 export function benefitGitHubRepositoryUpdateMetadataToJSON(
   benefitGitHubRepositoryUpdateMetadata: BenefitGitHubRepositoryUpdateMetadata,
 ): string {
@@ -89,32 +63,6 @@ export function benefitGitHubRepositoryUpdateMetadataToJSON(
     ),
   );
 }
-
-export function benefitGitHubRepositoryUpdateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitGitHubRepositoryUpdateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      BenefitGitHubRepositoryUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitGitHubRepositoryUpdateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitGitHubRepositoryUpdate$inboundSchema: z.ZodType<
-  BenefitGitHubRepositoryUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  description: z.nullable(z.string()).optional(),
-  type: z.literal("github_repository"),
-  properties: z.nullable(BenefitGitHubRepositoryCreateProperties$inboundSchema)
-    .optional(),
-});
 
 /** @internal */
 export type BenefitGitHubRepositoryUpdate$Outbound = {
@@ -142,19 +90,6 @@ export const BenefitGitHubRepositoryUpdate$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositoryUpdate$ {
-  /** @deprecated use `BenefitGitHubRepositoryUpdate$inboundSchema` instead. */
-  export const inboundSchema = BenefitGitHubRepositoryUpdate$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryUpdate$outboundSchema` instead. */
-  export const outboundSchema = BenefitGitHubRepositoryUpdate$outboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryUpdate$Outbound` instead. */
-  export type Outbound = BenefitGitHubRepositoryUpdate$Outbound;
-}
-
 export function benefitGitHubRepositoryUpdateToJSON(
   benefitGitHubRepositoryUpdate: BenefitGitHubRepositoryUpdate,
 ): string {
@@ -162,15 +97,5 @@ export function benefitGitHubRepositoryUpdateToJSON(
     BenefitGitHubRepositoryUpdate$outboundSchema.parse(
       benefitGitHubRepositoryUpdate,
     ),
-  );
-}
-
-export function benefitGitHubRepositoryUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitGitHubRepositoryUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitGitHubRepositoryUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitGitHubRepositoryUpdate' from JSON`,
   );
 }

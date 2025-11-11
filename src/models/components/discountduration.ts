@@ -16,19 +16,7 @@ export type DiscountDuration = ClosedEnum<typeof DiscountDuration>;
 export const DiscountDuration$inboundSchema: z.ZodNativeEnum<
   typeof DiscountDuration
 > = z.nativeEnum(DiscountDuration);
-
 /** @internal */
 export const DiscountDuration$outboundSchema: z.ZodNativeEnum<
   typeof DiscountDuration
 > = DiscountDuration$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountDuration$ {
-  /** @deprecated use `DiscountDuration$inboundSchema` instead. */
-  export const inboundSchema = DiscountDuration$inboundSchema;
-  /** @deprecated use `DiscountDuration$outboundSchema` instead. */
-  export const outboundSchema = DiscountDuration$outboundSchema;
-}

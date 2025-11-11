@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DiscountsGetRequest = {
   /**
@@ -13,15 +10,6 @@ export type DiscountsGetRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const DiscountsGetRequest$inboundSchema: z.ZodType<
-  DiscountsGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type DiscountsGetRequest$Outbound = {
@@ -37,33 +25,10 @@ export const DiscountsGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountsGetRequest$ {
-  /** @deprecated use `DiscountsGetRequest$inboundSchema` instead. */
-  export const inboundSchema = DiscountsGetRequest$inboundSchema;
-  /** @deprecated use `DiscountsGetRequest$outboundSchema` instead. */
-  export const outboundSchema = DiscountsGetRequest$outboundSchema;
-  /** @deprecated use `DiscountsGetRequest$Outbound` instead. */
-  export type Outbound = DiscountsGetRequest$Outbound;
-}
-
 export function discountsGetRequestToJSON(
   discountsGetRequest: DiscountsGetRequest,
 ): string {
   return JSON.stringify(
     DiscountsGetRequest$outboundSchema.parse(discountsGetRequest),
-  );
-}
-
-export function discountsGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<DiscountsGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DiscountsGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DiscountsGetRequest' from JSON`,
   );
 }

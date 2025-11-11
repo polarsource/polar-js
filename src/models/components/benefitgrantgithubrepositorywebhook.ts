@@ -145,7 +145,6 @@ export const BenefitGrantGitHubRepositoryWebhook$inboundSchema: z.ZodType<
     "previous_properties": "previousProperties",
   });
 });
-
 /** @internal */
 export type BenefitGrantGitHubRepositoryWebhook$Outbound = {
   created_at: string;
@@ -209,21 +208,6 @@ export const BenefitGrantGitHubRepositoryWebhook$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantGitHubRepositoryWebhook$ {
-  /** @deprecated use `BenefitGrantGitHubRepositoryWebhook$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitGrantGitHubRepositoryWebhook$inboundSchema;
-  /** @deprecated use `BenefitGrantGitHubRepositoryWebhook$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGrantGitHubRepositoryWebhook$outboundSchema;
-  /** @deprecated use `BenefitGrantGitHubRepositoryWebhook$Outbound` instead. */
-  export type Outbound = BenefitGrantGitHubRepositoryWebhook$Outbound;
-}
-
 export function benefitGrantGitHubRepositoryWebhookToJSON(
   benefitGrantGitHubRepositoryWebhook: BenefitGrantGitHubRepositoryWebhook,
 ): string {
@@ -233,7 +217,6 @@ export function benefitGrantGitHubRepositoryWebhookToJSON(
     ),
   );
 }
-
 export function benefitGrantGitHubRepositoryWebhookFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantGitHubRepositoryWebhook, SDKValidationError> {

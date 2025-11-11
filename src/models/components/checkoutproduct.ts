@@ -119,7 +119,6 @@ export const CheckoutProductPrices$inboundSchema: z.ZodType<
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
-
 /** @internal */
 export type CheckoutProductPrices$Outbound =
   | LegacyRecurringProductPrice$Outbound
@@ -135,19 +134,6 @@ export const CheckoutProductPrices$outboundSchema: z.ZodType<
   ProductPrice$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutProductPrices$ {
-  /** @deprecated use `CheckoutProductPrices$inboundSchema` instead. */
-  export const inboundSchema = CheckoutProductPrices$inboundSchema;
-  /** @deprecated use `CheckoutProductPrices$outboundSchema` instead. */
-  export const outboundSchema = CheckoutProductPrices$outboundSchema;
-  /** @deprecated use `CheckoutProductPrices$Outbound` instead. */
-  export type Outbound = CheckoutProductPrices$Outbound;
-}
-
 export function checkoutProductPricesToJSON(
   checkoutProductPrices: CheckoutProductPrices,
 ): string {
@@ -155,7 +141,6 @@ export function checkoutProductPricesToJSON(
     CheckoutProductPrices$outboundSchema.parse(checkoutProductPrices),
   );
 }
-
 export function checkoutProductPricesFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutProductPrices, SDKValidationError> {
@@ -207,7 +192,6 @@ export const CheckoutProduct$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type CheckoutProduct$Outbound = {
   id: string;
@@ -267,25 +251,11 @@ export const CheckoutProduct$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutProduct$ {
-  /** @deprecated use `CheckoutProduct$inboundSchema` instead. */
-  export const inboundSchema = CheckoutProduct$inboundSchema;
-  /** @deprecated use `CheckoutProduct$outboundSchema` instead. */
-  export const outboundSchema = CheckoutProduct$outboundSchema;
-  /** @deprecated use `CheckoutProduct$Outbound` instead. */
-  export type Outbound = CheckoutProduct$Outbound;
-}
-
 export function checkoutProductToJSON(
   checkoutProduct: CheckoutProduct,
 ): string {
   return JSON.stringify(CheckoutProduct$outboundSchema.parse(checkoutProduct));
 }
-
 export function checkoutProductFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutProduct, SDKValidationError> {

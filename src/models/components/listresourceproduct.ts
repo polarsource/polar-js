@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
-import {
-  Product,
-  Product$inboundSchema,
-  Product$Outbound,
-  Product$outboundSchema,
-} from "./product.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
+import { Product, Product$inboundSchema } from "./product.js";
 
 export type ListResourceProduct = {
   items: Array<Product>;
@@ -33,43 +23,6 @@ export const ListResourceProduct$inboundSchema: z.ZodType<
   items: z.array(Product$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceProduct$Outbound = {
-  items: Array<Product$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceProduct$outboundSchema: z.ZodType<
-  ListResourceProduct$Outbound,
-  z.ZodTypeDef,
-  ListResourceProduct
-> = z.object({
-  items: z.array(Product$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceProduct$ {
-  /** @deprecated use `ListResourceProduct$inboundSchema` instead. */
-  export const inboundSchema = ListResourceProduct$inboundSchema;
-  /** @deprecated use `ListResourceProduct$outboundSchema` instead. */
-  export const outboundSchema = ListResourceProduct$outboundSchema;
-  /** @deprecated use `ListResourceProduct$Outbound` instead. */
-  export type Outbound = ListResourceProduct$Outbound;
-}
-
-export function listResourceProductToJSON(
-  listResourceProduct: ListResourceProduct,
-): string {
-  return JSON.stringify(
-    ListResourceProduct$outboundSchema.parse(listResourceProduct),
-  );
-}
 
 export function listResourceProductFromJSON(
   jsonString: string,

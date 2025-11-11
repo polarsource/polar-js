@@ -9,18 +9,14 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ListResourceSubscription,
   ListResourceSubscription$inboundSchema,
-  ListResourceSubscription$Outbound,
-  ListResourceSubscription$outboundSchema,
 } from "../components/listresourcesubscription.js";
 import {
   MetadataQuery,
-  MetadataQuery$inboundSchema,
   MetadataQuery$Outbound,
   MetadataQuery$outboundSchema,
 } from "../components/subscriptionslist.js";
 import {
   SubscriptionSortProperty,
-  SubscriptionSortProperty$inboundSchema,
   SubscriptionSortProperty$outboundSchema,
 } from "../components/subscriptionsortproperty.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -76,6 +72,10 @@ export type SubscriptionsListRequest = {
    */
   active?: boolean | null | undefined;
   /**
+   * Filter by subscriptions that are set to cancel at period end.
+   */
+  cancelAtPeriodEnd?: boolean | null | undefined;
+  /**
    * Page number, defaults to 1.
    */
   page?: number | undefined;
@@ -98,13 +98,6 @@ export type SubscriptionsListResponse = {
 };
 
 /** @internal */
-export const OrganizationIDFilter$inboundSchema: z.ZodType<
-  OrganizationIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type OrganizationIDFilter$Outbound = string | Array<string>;
 
 /** @internal */
@@ -114,19 +107,6 @@ export const OrganizationIDFilter$outboundSchema: z.ZodType<
   OrganizationIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationIDFilter$ {
-  /** @deprecated use `OrganizationIDFilter$inboundSchema` instead. */
-  export const inboundSchema = OrganizationIDFilter$inboundSchema;
-  /** @deprecated use `OrganizationIDFilter$outboundSchema` instead. */
-  export const outboundSchema = OrganizationIDFilter$outboundSchema;
-  /** @deprecated use `OrganizationIDFilter$Outbound` instead. */
-  export type Outbound = OrganizationIDFilter$Outbound;
-}
-
 export function organizationIDFilterToJSON(
   organizationIDFilter: OrganizationIDFilter,
 ): string {
@@ -134,23 +114,6 @@ export function organizationIDFilterToJSON(
     OrganizationIDFilter$outboundSchema.parse(organizationIDFilter),
   );
 }
-
-export function organizationIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<OrganizationIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrganizationIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrganizationIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const ProductIDFilter$inboundSchema: z.ZodType<
-  ProductIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type ProductIDFilter$Outbound = string | Array<string>;
@@ -162,41 +125,11 @@ export const ProductIDFilter$outboundSchema: z.ZodType<
   ProductIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductIDFilter$ {
-  /** @deprecated use `ProductIDFilter$inboundSchema` instead. */
-  export const inboundSchema = ProductIDFilter$inboundSchema;
-  /** @deprecated use `ProductIDFilter$outboundSchema` instead. */
-  export const outboundSchema = ProductIDFilter$outboundSchema;
-  /** @deprecated use `ProductIDFilter$Outbound` instead. */
-  export type Outbound = ProductIDFilter$Outbound;
-}
-
 export function productIDFilterToJSON(
   productIDFilter: ProductIDFilter,
 ): string {
   return JSON.stringify(ProductIDFilter$outboundSchema.parse(productIDFilter));
 }
-
-export function productIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerIDFilter$inboundSchema: z.ZodType<
-  CustomerIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type CustomerIDFilter$Outbound = string | Array<string>;
@@ -208,19 +141,6 @@ export const CustomerIDFilter$outboundSchema: z.ZodType<
   CustomerIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerIDFilter$ {
-  /** @deprecated use `CustomerIDFilter$inboundSchema` instead. */
-  export const inboundSchema = CustomerIDFilter$inboundSchema;
-  /** @deprecated use `CustomerIDFilter$outboundSchema` instead. */
-  export const outboundSchema = CustomerIDFilter$outboundSchema;
-  /** @deprecated use `CustomerIDFilter$Outbound` instead. */
-  export type Outbound = CustomerIDFilter$Outbound;
-}
-
 export function customerIDFilterToJSON(
   customerIDFilter: CustomerIDFilter,
 ): string {
@@ -228,23 +148,6 @@ export function customerIDFilterToJSON(
     CustomerIDFilter$outboundSchema.parse(customerIDFilter),
   );
 }
-
-export function customerIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const ExternalCustomerIDFilter$inboundSchema: z.ZodType<
-  ExternalCustomerIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type ExternalCustomerIDFilter$Outbound = string | Array<string>;
@@ -256,19 +159,6 @@ export const ExternalCustomerIDFilter$outboundSchema: z.ZodType<
   ExternalCustomerIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ExternalCustomerIDFilter$ {
-  /** @deprecated use `ExternalCustomerIDFilter$inboundSchema` instead. */
-  export const inboundSchema = ExternalCustomerIDFilter$inboundSchema;
-  /** @deprecated use `ExternalCustomerIDFilter$outboundSchema` instead. */
-  export const outboundSchema = ExternalCustomerIDFilter$outboundSchema;
-  /** @deprecated use `ExternalCustomerIDFilter$Outbound` instead. */
-  export type Outbound = ExternalCustomerIDFilter$Outbound;
-}
-
 export function externalCustomerIDFilterToJSON(
   externalCustomerIDFilter: ExternalCustomerIDFilter,
 ): string {
@@ -276,23 +166,6 @@ export function externalCustomerIDFilterToJSON(
     ExternalCustomerIDFilter$outboundSchema.parse(externalCustomerIDFilter),
   );
 }
-
-export function externalCustomerIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<ExternalCustomerIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ExternalCustomerIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ExternalCustomerIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const DiscountIDFilter$inboundSchema: z.ZodType<
-  DiscountIDFilter,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type DiscountIDFilter$Outbound = string | Array<string>;
@@ -304,19 +177,6 @@ export const DiscountIDFilter$outboundSchema: z.ZodType<
   DiscountIDFilter
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountIDFilter$ {
-  /** @deprecated use `DiscountIDFilter$inboundSchema` instead. */
-  export const inboundSchema = DiscountIDFilter$inboundSchema;
-  /** @deprecated use `DiscountIDFilter$outboundSchema` instead. */
-  export const outboundSchema = DiscountIDFilter$outboundSchema;
-  /** @deprecated use `DiscountIDFilter$Outbound` instead. */
-  export type Outbound = DiscountIDFilter$Outbound;
-}
-
 export function discountIDFilterToJSON(
   discountIDFilter: DiscountIDFilter,
 ): string {
@@ -324,48 +184,6 @@ export function discountIDFilterToJSON(
     DiscountIDFilter$outboundSchema.parse(discountIDFilter),
   );
 }
-
-export function discountIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<DiscountIDFilter, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DiscountIDFilter$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DiscountIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const SubscriptionsListRequest$inboundSchema: z.ZodType<
-  SubscriptionsListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  product_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  external_customer_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  discount_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  active: z.nullable(z.boolean()).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(SubscriptionSortProperty$inboundSchema))
-    .optional(),
-  metadata: z.nullable(z.record(z.lazy(() => MetadataQuery$inboundSchema)))
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "product_id": "productId",
-    "customer_id": "customerId",
-    "external_customer_id": "externalCustomerId",
-    "discount_id": "discountId",
-  });
-});
 
 /** @internal */
 export type SubscriptionsListRequest$Outbound = {
@@ -375,6 +193,7 @@ export type SubscriptionsListRequest$Outbound = {
   external_customer_id?: string | Array<string> | null | undefined;
   discount_id?: string | Array<string> | null | undefined;
   active?: boolean | null | undefined;
+  cancel_at_period_end?: boolean | null | undefined;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -395,6 +214,7 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodType<
     .optional(),
   discountId: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
   active: z.nullable(z.boolean()).optional(),
+  cancelAtPeriodEnd: z.nullable(z.boolean()).optional(),
   page: z.number().int().default(1),
   limit: z.number().int().default(10),
   sorting: z.nullable(z.array(SubscriptionSortProperty$outboundSchema))
@@ -408,37 +228,15 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodType<
     customerId: "customer_id",
     externalCustomerId: "external_customer_id",
     discountId: "discount_id",
+    cancelAtPeriodEnd: "cancel_at_period_end",
   });
 });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionsListRequest$ {
-  /** @deprecated use `SubscriptionsListRequest$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionsListRequest$inboundSchema;
-  /** @deprecated use `SubscriptionsListRequest$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionsListRequest$outboundSchema;
-  /** @deprecated use `SubscriptionsListRequest$Outbound` instead. */
-  export type Outbound = SubscriptionsListRequest$Outbound;
-}
 
 export function subscriptionsListRequestToJSON(
   subscriptionsListRequest: SubscriptionsListRequest,
 ): string {
   return JSON.stringify(
     SubscriptionsListRequest$outboundSchema.parse(subscriptionsListRequest),
-  );
-}
-
-export function subscriptionsListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionsListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionsListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionsListRequest' from JSON`,
   );
 }
 
@@ -454,45 +252,6 @@ export const SubscriptionsListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type SubscriptionsListResponse$Outbound = {
-  Result: ListResourceSubscription$Outbound;
-};
-
-/** @internal */
-export const SubscriptionsListResponse$outboundSchema: z.ZodType<
-  SubscriptionsListResponse$Outbound,
-  z.ZodTypeDef,
-  SubscriptionsListResponse
-> = z.object({
-  result: ListResourceSubscription$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionsListResponse$ {
-  /** @deprecated use `SubscriptionsListResponse$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionsListResponse$inboundSchema;
-  /** @deprecated use `SubscriptionsListResponse$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionsListResponse$outboundSchema;
-  /** @deprecated use `SubscriptionsListResponse$Outbound` instead. */
-  export type Outbound = SubscriptionsListResponse$Outbound;
-}
-
-export function subscriptionsListResponseToJSON(
-  subscriptionsListResponse: SubscriptionsListResponse,
-): string {
-  return JSON.stringify(
-    SubscriptionsListResponse$outboundSchema.parse(subscriptionsListResponse),
-  );
-}
 
 export function subscriptionsListResponseFromJSON(
   jsonString: string,

@@ -9,8 +9,6 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ListResourceWebhookEndpoint,
   ListResourceWebhookEndpoint$inboundSchema,
-  ListResourceWebhookEndpoint$Outbound,
-  ListResourceWebhookEndpoint$outboundSchema,
 } from "../components/listresourcewebhookendpoint.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -39,13 +37,6 @@ export type WebhooksListWebhookEndpointsResponse = {
 };
 
 /** @internal */
-export const QueryParamOrganizationId$inboundSchema: z.ZodType<
-  QueryParamOrganizationId,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type QueryParamOrganizationId$Outbound = string | Array<string>;
 
 /** @internal */
@@ -55,19 +46,6 @@ export const QueryParamOrganizationId$outboundSchema: z.ZodType<
   QueryParamOrganizationId
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryParamOrganizationId$ {
-  /** @deprecated use `QueryParamOrganizationId$inboundSchema` instead. */
-  export const inboundSchema = QueryParamOrganizationId$inboundSchema;
-  /** @deprecated use `QueryParamOrganizationId$outboundSchema` instead. */
-  export const outboundSchema = QueryParamOrganizationId$outboundSchema;
-  /** @deprecated use `QueryParamOrganizationId$Outbound` instead. */
-  export type Outbound = QueryParamOrganizationId$Outbound;
-}
-
 export function queryParamOrganizationIdToJSON(
   queryParamOrganizationId: QueryParamOrganizationId,
 ): string {
@@ -75,32 +53,6 @@ export function queryParamOrganizationIdToJSON(
     QueryParamOrganizationId$outboundSchema.parse(queryParamOrganizationId),
   );
 }
-
-export function queryParamOrganizationIdFromJSON(
-  jsonString: string,
-): SafeParseResult<QueryParamOrganizationId, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => QueryParamOrganizationId$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryParamOrganizationId' from JSON`,
-  );
-}
-
-/** @internal */
-export const WebhooksListWebhookEndpointsRequest$inboundSchema: z.ZodType<
-  WebhooksListWebhookEndpointsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type WebhooksListWebhookEndpointsRequest$Outbound = {
@@ -125,21 +77,6 @@ export const WebhooksListWebhookEndpointsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhooksListWebhookEndpointsRequest$ {
-  /** @deprecated use `WebhooksListWebhookEndpointsRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    WebhooksListWebhookEndpointsRequest$inboundSchema;
-  /** @deprecated use `WebhooksListWebhookEndpointsRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhooksListWebhookEndpointsRequest$outboundSchema;
-  /** @deprecated use `WebhooksListWebhookEndpointsRequest$Outbound` instead. */
-  export type Outbound = WebhooksListWebhookEndpointsRequest$Outbound;
-}
-
 export function webhooksListWebhookEndpointsRequestToJSON(
   webhooksListWebhookEndpointsRequest: WebhooksListWebhookEndpointsRequest,
 ): string {
@@ -147,17 +84,6 @@ export function webhooksListWebhookEndpointsRequestToJSON(
     WebhooksListWebhookEndpointsRequest$outboundSchema.parse(
       webhooksListWebhookEndpointsRequest,
     ),
-  );
-}
-
-export function webhooksListWebhookEndpointsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<WebhooksListWebhookEndpointsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      WebhooksListWebhookEndpointsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WebhooksListWebhookEndpointsRequest' from JSON`,
   );
 }
 
@@ -173,49 +99,6 @@ export const WebhooksListWebhookEndpointsResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type WebhooksListWebhookEndpointsResponse$Outbound = {
-  Result: ListResourceWebhookEndpoint$Outbound;
-};
-
-/** @internal */
-export const WebhooksListWebhookEndpointsResponse$outboundSchema: z.ZodType<
-  WebhooksListWebhookEndpointsResponse$Outbound,
-  z.ZodTypeDef,
-  WebhooksListWebhookEndpointsResponse
-> = z.object({
-  result: ListResourceWebhookEndpoint$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhooksListWebhookEndpointsResponse$ {
-  /** @deprecated use `WebhooksListWebhookEndpointsResponse$inboundSchema` instead. */
-  export const inboundSchema =
-    WebhooksListWebhookEndpointsResponse$inboundSchema;
-  /** @deprecated use `WebhooksListWebhookEndpointsResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhooksListWebhookEndpointsResponse$outboundSchema;
-  /** @deprecated use `WebhooksListWebhookEndpointsResponse$Outbound` instead. */
-  export type Outbound = WebhooksListWebhookEndpointsResponse$Outbound;
-}
-
-export function webhooksListWebhookEndpointsResponseToJSON(
-  webhooksListWebhookEndpointsResponse: WebhooksListWebhookEndpointsResponse,
-): string {
-  return JSON.stringify(
-    WebhooksListWebhookEndpointsResponse$outboundSchema.parse(
-      webhooksListWebhookEndpointsResponse,
-    ),
-  );
-}
 
 export function webhooksListWebhookEndpointsResponseFromJSON(
   jsonString: string,

@@ -3,12 +3,8 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitLicenseKeysCreateProperties,
-  BenefitLicenseKeysCreateProperties$inboundSchema,
   BenefitLicenseKeysCreateProperties$Outbound,
   BenefitLicenseKeysCreateProperties$outboundSchema,
 } from "./benefitlicensekeyscreateproperties.js";
@@ -45,13 +41,6 @@ export type BenefitLicenseKeysUpdate = {
 };
 
 /** @internal */
-export const BenefitLicenseKeysUpdateMetadata$inboundSchema: z.ZodType<
-  BenefitLicenseKeysUpdateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type BenefitLicenseKeysUpdateMetadata$Outbound =
   | string
   | number
@@ -65,19 +54,6 @@ export const BenefitLicenseKeysUpdateMetadata$outboundSchema: z.ZodType<
   BenefitLicenseKeysUpdateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeysUpdateMetadata$ {
-  /** @deprecated use `BenefitLicenseKeysUpdateMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitLicenseKeysUpdateMetadata$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeysUpdateMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitLicenseKeysUpdateMetadata$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeysUpdateMetadata$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeysUpdateMetadata$Outbound;
-}
-
 export function benefitLicenseKeysUpdateMetadataToJSON(
   benefitLicenseKeysUpdateMetadata: BenefitLicenseKeysUpdateMetadata,
 ): string {
@@ -87,31 +63,6 @@ export function benefitLicenseKeysUpdateMetadataToJSON(
     ),
   );
 }
-
-export function benefitLicenseKeysUpdateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitLicenseKeysUpdateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitLicenseKeysUpdateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitLicenseKeysUpdateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitLicenseKeysUpdate$inboundSchema: z.ZodType<
-  BenefitLicenseKeysUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  description: z.nullable(z.string()).optional(),
-  type: z.literal("license_keys"),
-  properties: z.nullable(BenefitLicenseKeysCreateProperties$inboundSchema)
-    .optional(),
-});
 
 /** @internal */
 export type BenefitLicenseKeysUpdate$Outbound = {
@@ -136,33 +87,10 @@ export const BenefitLicenseKeysUpdate$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeysUpdate$ {
-  /** @deprecated use `BenefitLicenseKeysUpdate$inboundSchema` instead. */
-  export const inboundSchema = BenefitLicenseKeysUpdate$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeysUpdate$outboundSchema` instead. */
-  export const outboundSchema = BenefitLicenseKeysUpdate$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeysUpdate$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeysUpdate$Outbound;
-}
-
 export function benefitLicenseKeysUpdateToJSON(
   benefitLicenseKeysUpdate: BenefitLicenseKeysUpdate,
 ): string {
   return JSON.stringify(
     BenefitLicenseKeysUpdate$outboundSchema.parse(benefitLicenseKeysUpdate),
-  );
-}
-
-export function benefitLicenseKeysUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitLicenseKeysUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitLicenseKeysUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitLicenseKeysUpdate' from JSON`,
   );
 }

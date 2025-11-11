@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerBenefitGrantMeterCreditUpdate = {
   benefitType: "meter_credit";
 };
-
-/** @internal */
-export const CustomerBenefitGrantMeterCreditUpdate$inboundSchema: z.ZodType<
-  CustomerBenefitGrantMeterCreditUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  benefit_type: z.literal("meter_credit"),
-}).transform((v) => {
-  return remap$(v, {
-    "benefit_type": "benefitType",
-  });
-});
 
 /** @internal */
 export type CustomerBenefitGrantMeterCreditUpdate$Outbound = {
@@ -43,21 +27,6 @@ export const CustomerBenefitGrantMeterCreditUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantMeterCreditUpdate$ {
-  /** @deprecated use `CustomerBenefitGrantMeterCreditUpdate$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerBenefitGrantMeterCreditUpdate$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantMeterCreditUpdate$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantMeterCreditUpdate$outboundSchema;
-  /** @deprecated use `CustomerBenefitGrantMeterCreditUpdate$Outbound` instead. */
-  export type Outbound = CustomerBenefitGrantMeterCreditUpdate$Outbound;
-}
-
 export function customerBenefitGrantMeterCreditUpdateToJSON(
   customerBenefitGrantMeterCreditUpdate: CustomerBenefitGrantMeterCreditUpdate,
 ): string {
@@ -65,16 +34,5 @@ export function customerBenefitGrantMeterCreditUpdateToJSON(
     CustomerBenefitGrantMeterCreditUpdate$outboundSchema.parse(
       customerBenefitGrantMeterCreditUpdate,
     ),
-  );
-}
-
-export function customerBenefitGrantMeterCreditUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerBenefitGrantMeterCreditUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerBenefitGrantMeterCreditUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerBenefitGrantMeterCreditUpdate' from JSON`,
   );
 }

@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Customer,
-  Customer$inboundSchema,
-  Customer$Outbound,
-  Customer$outboundSchema,
-} from "./customer.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Customer, Customer$inboundSchema } from "./customer.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceCustomer = {
   items: Array<Customer>;
@@ -33,43 +23,6 @@ export const ListResourceCustomer$inboundSchema: z.ZodType<
   items: z.array(Customer$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceCustomer$Outbound = {
-  items: Array<Customer$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceCustomer$outboundSchema: z.ZodType<
-  ListResourceCustomer$Outbound,
-  z.ZodTypeDef,
-  ListResourceCustomer
-> = z.object({
-  items: z.array(Customer$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceCustomer$ {
-  /** @deprecated use `ListResourceCustomer$inboundSchema` instead. */
-  export const inboundSchema = ListResourceCustomer$inboundSchema;
-  /** @deprecated use `ListResourceCustomer$outboundSchema` instead. */
-  export const outboundSchema = ListResourceCustomer$outboundSchema;
-  /** @deprecated use `ListResourceCustomer$Outbound` instead. */
-  export type Outbound = ListResourceCustomer$Outbound;
-}
-
-export function listResourceCustomerToJSON(
-  listResourceCustomer: ListResourceCustomer,
-): string {
-  return JSON.stringify(
-    ListResourceCustomer$outboundSchema.parse(listResourceCustomer),
-  );
-}
 
 export function listResourceCustomerFromJSON(
   jsonString: string,

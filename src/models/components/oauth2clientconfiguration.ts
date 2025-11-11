@@ -4,15 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  SubType,
-  SubType$inboundSchema,
-  SubType$outboundSchema,
-} from "./subtype.js";
+import { SubType, SubType$outboundSchema } from "./subtype.js";
 
 export const TokenEndpointAuthMethod = {
   ClientSecretBasic: "client_secret_basic",
@@ -44,80 +37,13 @@ export type OAuth2ClientConfiguration = {
 };
 
 /** @internal */
-export const TokenEndpointAuthMethod$inboundSchema: z.ZodNativeEnum<
+export const TokenEndpointAuthMethod$outboundSchema: z.ZodNativeEnum<
   typeof TokenEndpointAuthMethod
 > = z.nativeEnum(TokenEndpointAuthMethod);
 
 /** @internal */
-export const TokenEndpointAuthMethod$outboundSchema: z.ZodNativeEnum<
-  typeof TokenEndpointAuthMethod
-> = TokenEndpointAuthMethod$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenEndpointAuthMethod$ {
-  /** @deprecated use `TokenEndpointAuthMethod$inboundSchema` instead. */
-  export const inboundSchema = TokenEndpointAuthMethod$inboundSchema;
-  /** @deprecated use `TokenEndpointAuthMethod$outboundSchema` instead. */
-  export const outboundSchema = TokenEndpointAuthMethod$outboundSchema;
-}
-
-/** @internal */
-export const GrantTypes$inboundSchema: z.ZodNativeEnum<typeof GrantTypes> = z
+export const GrantTypes$outboundSchema: z.ZodNativeEnum<typeof GrantTypes> = z
   .nativeEnum(GrantTypes);
-
-/** @internal */
-export const GrantTypes$outboundSchema: z.ZodNativeEnum<typeof GrantTypes> =
-  GrantTypes$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GrantTypes$ {
-  /** @deprecated use `GrantTypes$inboundSchema` instead. */
-  export const inboundSchema = GrantTypes$inboundSchema;
-  /** @deprecated use `GrantTypes$outboundSchema` instead. */
-  export const outboundSchema = GrantTypes$outboundSchema;
-}
-
-/** @internal */
-export const OAuth2ClientConfiguration$inboundSchema: z.ZodType<
-  OAuth2ClientConfiguration,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  redirect_uris: z.array(z.string()),
-  token_endpoint_auth_method: TokenEndpointAuthMethod$inboundSchema.default(
-    "client_secret_post",
-  ),
-  grant_types: z.array(GrantTypes$inboundSchema).optional(),
-  response_types: z.array(z.string()).optional(),
-  scope: z.string().default(
-    "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write transactions:read transactions:write payouts:read payouts:write products:read products:write benefits:read benefits:write events:read events:write meters:read meters:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write wallets:read wallets:write customer_meters:read customer_sessions:write customer_seats:read customer_seats:write orders:read orders:write refunds:read refunds:write payments:read metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write notifications:read notifications:write notification_recipients:read notification_recipients:write",
-  ),
-  client_name: z.string(),
-  client_uri: z.nullable(z.string()).optional(),
-  logo_uri: z.nullable(z.string()).optional(),
-  tos_uri: z.nullable(z.string()).optional(),
-  policy_uri: z.nullable(z.string()).optional(),
-  default_sub_type: SubType$inboundSchema.optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "redirect_uris": "redirectUris",
-    "token_endpoint_auth_method": "tokenEndpointAuthMethod",
-    "grant_types": "grantTypes",
-    "response_types": "responseTypes",
-    "client_name": "clientName",
-    "client_uri": "clientUri",
-    "logo_uri": "logoUri",
-    "tos_uri": "tosUri",
-    "policy_uri": "policyUri",
-    "default_sub_type": "defaultSubType",
-  });
-});
 
 /** @internal */
 export type OAuth2ClientConfiguration$Outbound = {
@@ -170,33 +96,10 @@ export const OAuth2ClientConfiguration$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OAuth2ClientConfiguration$ {
-  /** @deprecated use `OAuth2ClientConfiguration$inboundSchema` instead. */
-  export const inboundSchema = OAuth2ClientConfiguration$inboundSchema;
-  /** @deprecated use `OAuth2ClientConfiguration$outboundSchema` instead. */
-  export const outboundSchema = OAuth2ClientConfiguration$outboundSchema;
-  /** @deprecated use `OAuth2ClientConfiguration$Outbound` instead. */
-  export type Outbound = OAuth2ClientConfiguration$Outbound;
-}
-
 export function oAuth2ClientConfigurationToJSON(
   oAuth2ClientConfiguration: OAuth2ClientConfiguration,
 ): string {
   return JSON.stringify(
     OAuth2ClientConfiguration$outboundSchema.parse(oAuth2ClientConfiguration),
-  );
-}
-
-export function oAuth2ClientConfigurationFromJSON(
-  jsonString: string,
-): SafeParseResult<OAuth2ClientConfiguration, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OAuth2ClientConfiguration$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OAuth2ClientConfiguration' from JSON`,
   );
 }

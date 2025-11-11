@@ -3,18 +3,13 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CostMetadataInput,
-  CostMetadataInput$inboundSchema,
   CostMetadataInput$Outbound,
   CostMetadataInput$outboundSchema,
 } from "./costmetadatainput.js";
 import {
   LLMMetadata,
-  LLMMetadata$inboundSchema,
   LLMMetadata$Outbound,
   LLMMetadata$outboundSchema,
 } from "./llmmetadata.js";
@@ -26,20 +21,6 @@ export type EventMetadataInput =
   | number
   | number
   | boolean;
-
-/** @internal */
-export const EventMetadataInput$inboundSchema: z.ZodType<
-  EventMetadataInput,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  LLMMetadata$inboundSchema,
-  CostMetadataInput$inboundSchema,
-  z.string(),
-  z.number().int(),
-  z.number(),
-  z.boolean(),
-]);
 
 /** @internal */
 export type EventMetadataInput$Outbound =
@@ -64,33 +45,10 @@ export const EventMetadataInput$outboundSchema: z.ZodType<
   z.boolean(),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventMetadataInput$ {
-  /** @deprecated use `EventMetadataInput$inboundSchema` instead. */
-  export const inboundSchema = EventMetadataInput$inboundSchema;
-  /** @deprecated use `EventMetadataInput$outboundSchema` instead. */
-  export const outboundSchema = EventMetadataInput$outboundSchema;
-  /** @deprecated use `EventMetadataInput$Outbound` instead. */
-  export type Outbound = EventMetadataInput$Outbound;
-}
-
 export function eventMetadataInputToJSON(
   eventMetadataInput: EventMetadataInput,
 ): string {
   return JSON.stringify(
     EventMetadataInput$outboundSchema.parse(eventMetadataInput),
-  );
-}
-
-export function eventMetadataInputFromJSON(
-  jsonString: string,
-): SafeParseResult<EventMetadataInput, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EventMetadataInput$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EventMetadataInput' from JSON`,
   );
 }

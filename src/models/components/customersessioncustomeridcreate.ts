@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Schema for creating a customer session using a customer ID.
@@ -21,21 +18,6 @@ export type CustomerSessionCustomerIDCreate = {
    */
   customerId: string;
 };
-
-/** @internal */
-export const CustomerSessionCustomerIDCreate$inboundSchema: z.ZodType<
-  CustomerSessionCustomerIDCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  return_url: z.nullable(z.string()).optional(),
-  customer_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "return_url": "returnUrl",
-    "customer_id": "customerId",
-  });
-});
 
 /** @internal */
 export type CustomerSessionCustomerIDCreate$Outbound = {
@@ -58,19 +40,6 @@ export const CustomerSessionCustomerIDCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSessionCustomerIDCreate$ {
-  /** @deprecated use `CustomerSessionCustomerIDCreate$inboundSchema` instead. */
-  export const inboundSchema = CustomerSessionCustomerIDCreate$inboundSchema;
-  /** @deprecated use `CustomerSessionCustomerIDCreate$outboundSchema` instead. */
-  export const outboundSchema = CustomerSessionCustomerIDCreate$outboundSchema;
-  /** @deprecated use `CustomerSessionCustomerIDCreate$Outbound` instead. */
-  export type Outbound = CustomerSessionCustomerIDCreate$Outbound;
-}
-
 export function customerSessionCustomerIDCreateToJSON(
   customerSessionCustomerIDCreate: CustomerSessionCustomerIDCreate,
 ): string {
@@ -78,15 +47,5 @@ export function customerSessionCustomerIDCreateToJSON(
     CustomerSessionCustomerIDCreate$outboundSchema.parse(
       customerSessionCustomerIDCreate,
     ),
-  );
-}
-
-export function customerSessionCustomerIDCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerSessionCustomerIDCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerSessionCustomerIDCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerSessionCustomerIDCreate' from JSON`,
   );
 }

@@ -10,14 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGitHubRepositorySubscriberProperties,
   BenefitGitHubRepositorySubscriberProperties$inboundSchema,
-  BenefitGitHubRepositorySubscriberProperties$Outbound,
-  BenefitGitHubRepositorySubscriberProperties$outboundSchema,
 } from "./benefitgithubrepositorysubscriberproperties.js";
 import {
   BenefitSubscriberOrganization,
   BenefitSubscriberOrganization$inboundSchema,
-  BenefitSubscriberOrganization$Outbound,
-  BenefitSubscriberOrganization$outboundSchema,
 } from "./benefitsubscriberorganization.js";
 
 export type BenefitGitHubRepositorySubscriberMetadata =
@@ -71,47 +67,6 @@ export const BenefitGitHubRepositorySubscriberMetadata$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/** @internal */
-export type BenefitGitHubRepositorySubscriberMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const BenefitGitHubRepositorySubscriberMetadata$outboundSchema:
-  z.ZodType<
-    BenefitGitHubRepositorySubscriberMetadata$Outbound,
-    z.ZodTypeDef,
-    BenefitGitHubRepositorySubscriberMetadata
-  > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositorySubscriberMetadata$ {
-  /** @deprecated use `BenefitGitHubRepositorySubscriberMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitGitHubRepositorySubscriberMetadata$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositorySubscriberMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGitHubRepositorySubscriberMetadata$outboundSchema;
-  /** @deprecated use `BenefitGitHubRepositorySubscriberMetadata$Outbound` instead. */
-  export type Outbound = BenefitGitHubRepositorySubscriberMetadata$Outbound;
-}
-
-export function benefitGitHubRepositorySubscriberMetadataToJSON(
-  benefitGitHubRepositorySubscriberMetadata:
-    BenefitGitHubRepositorySubscriberMetadata,
-): string {
-  return JSON.stringify(
-    BenefitGitHubRepositorySubscriberMetadata$outboundSchema.parse(
-      benefitGitHubRepositorySubscriberMetadata,
-    ),
-  );
-}
-
 export function benefitGitHubRepositorySubscriberMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -156,72 +111,6 @@ export const BenefitGitHubRepositorySubscriber$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type BenefitGitHubRepositorySubscriber$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  type: "github_repository";
-  description: string;
-  selectable: boolean;
-  deletable: boolean;
-  organization_id: string;
-  metadata: { [k: string]: string | number | number | boolean };
-  organization: BenefitSubscriberOrganization$Outbound;
-  properties: BenefitGitHubRepositorySubscriberProperties$Outbound;
-};
-
-/** @internal */
-export const BenefitGitHubRepositorySubscriber$outboundSchema: z.ZodType<
-  BenefitGitHubRepositorySubscriber$Outbound,
-  z.ZodTypeDef,
-  BenefitGitHubRepositorySubscriber
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  type: z.literal("github_repository"),
-  description: z.string(),
-  selectable: z.boolean(),
-  deletable: z.boolean(),
-  organizationId: z.string(),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  organization: BenefitSubscriberOrganization$outboundSchema,
-  properties: BenefitGitHubRepositorySubscriberProperties$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositorySubscriber$ {
-  /** @deprecated use `BenefitGitHubRepositorySubscriber$inboundSchema` instead. */
-  export const inboundSchema = BenefitGitHubRepositorySubscriber$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositorySubscriber$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGitHubRepositorySubscriber$outboundSchema;
-  /** @deprecated use `BenefitGitHubRepositorySubscriber$Outbound` instead. */
-  export type Outbound = BenefitGitHubRepositorySubscriber$Outbound;
-}
-
-export function benefitGitHubRepositorySubscriberToJSON(
-  benefitGitHubRepositorySubscriber: BenefitGitHubRepositorySubscriber,
-): string {
-  return JSON.stringify(
-    BenefitGitHubRepositorySubscriber$outboundSchema.parse(
-      benefitGitHubRepositorySubscriber,
-    ),
-  );
-}
 
 export function benefitGitHubRepositorySubscriberFromJSON(
   jsonString: string,

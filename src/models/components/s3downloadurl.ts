@@ -29,45 +29,6 @@ export const S3DownloadURL$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type S3DownloadURL$Outbound = {
-  url: string;
-  headers?: { [k: string]: string } | undefined;
-  expires_at: string;
-};
-
-/** @internal */
-export const S3DownloadURL$outboundSchema: z.ZodType<
-  S3DownloadURL$Outbound,
-  z.ZodTypeDef,
-  S3DownloadURL
-> = z.object({
-  url: z.string(),
-  headers: z.record(z.string()).optional(),
-  expiresAt: z.date().transform(v => v.toISOString()),
-}).transform((v) => {
-  return remap$(v, {
-    expiresAt: "expires_at",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace S3DownloadURL$ {
-  /** @deprecated use `S3DownloadURL$inboundSchema` instead. */
-  export const inboundSchema = S3DownloadURL$inboundSchema;
-  /** @deprecated use `S3DownloadURL$outboundSchema` instead. */
-  export const outboundSchema = S3DownloadURL$outboundSchema;
-  /** @deprecated use `S3DownloadURL$Outbound` instead. */
-  export type Outbound = S3DownloadURL$Outbound;
-}
-
-export function s3DownloadURLToJSON(s3DownloadURL: S3DownloadURL): string {
-  return JSON.stringify(S3DownloadURL$outboundSchema.parse(s3DownloadURL));
-}
-
 export function s3DownloadURLFromJSON(
   jsonString: string,
 ): SafeParseResult<S3DownloadURL, SDKValidationError> {

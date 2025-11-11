@@ -16,18 +16,6 @@ export type RefundStatus = ClosedEnum<typeof RefundStatus>;
 /** @internal */
 export const RefundStatus$inboundSchema: z.ZodNativeEnum<typeof RefundStatus> =
   z.nativeEnum(RefundStatus);
-
 /** @internal */
 export const RefundStatus$outboundSchema: z.ZodNativeEnum<typeof RefundStatus> =
   RefundStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RefundStatus$ {
-  /** @deprecated use `RefundStatus$inboundSchema` instead. */
-  export const inboundSchema = RefundStatus$inboundSchema;
-  /** @deprecated use `RefundStatus$outboundSchema` instead. */
-  export const outboundSchema = RefundStatus$outboundSchema;
-}

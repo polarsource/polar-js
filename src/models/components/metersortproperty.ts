@@ -14,22 +14,6 @@ export const MeterSortProperty = {
 export type MeterSortProperty = ClosedEnum<typeof MeterSortProperty>;
 
 /** @internal */
-export const MeterSortProperty$inboundSchema: z.ZodNativeEnum<
-  typeof MeterSortProperty
-> = z.nativeEnum(MeterSortProperty);
-
-/** @internal */
 export const MeterSortProperty$outboundSchema: z.ZodNativeEnum<
   typeof MeterSortProperty
-> = MeterSortProperty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MeterSortProperty$ {
-  /** @deprecated use `MeterSortProperty$inboundSchema` instead. */
-  export const inboundSchema = MeterSortProperty$inboundSchema;
-  /** @deprecated use `MeterSortProperty$outboundSchema` instead. */
-  export const outboundSchema = MeterSortProperty$outboundSchema;
-}
+> = z.nativeEnum(MeterSortProperty);

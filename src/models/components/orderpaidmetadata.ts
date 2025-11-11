@@ -31,51 +31,6 @@ export const OrderPaidMetadata$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type OrderPaidMetadata$Outbound = {
-  order_id: string;
-  amount: number;
-  currency: string;
-  backfilled?: boolean | undefined;
-};
-
-/** @internal */
-export const OrderPaidMetadata$outboundSchema: z.ZodType<
-  OrderPaidMetadata$Outbound,
-  z.ZodTypeDef,
-  OrderPaidMetadata
-> = z.object({
-  orderId: z.string(),
-  amount: z.number().int(),
-  currency: z.string(),
-  backfilled: z.boolean().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    orderId: "order_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderPaidMetadata$ {
-  /** @deprecated use `OrderPaidMetadata$inboundSchema` instead. */
-  export const inboundSchema = OrderPaidMetadata$inboundSchema;
-  /** @deprecated use `OrderPaidMetadata$outboundSchema` instead. */
-  export const outboundSchema = OrderPaidMetadata$outboundSchema;
-  /** @deprecated use `OrderPaidMetadata$Outbound` instead. */
-  export type Outbound = OrderPaidMetadata$Outbound;
-}
-
-export function orderPaidMetadataToJSON(
-  orderPaidMetadata: OrderPaidMetadata,
-): string {
-  return JSON.stringify(
-    OrderPaidMetadata$outboundSchema.parse(orderPaidMetadata),
-  );
-}
-
 export function orderPaidMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderPaidMetadata, SDKValidationError> {

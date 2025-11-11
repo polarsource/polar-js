@@ -4,29 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitLicenseKeyActivationCreateProperties = {
   limit: number;
   enableCustomerAdmin: boolean;
 };
-
-/** @internal */
-export const BenefitLicenseKeyActivationCreateProperties$inboundSchema:
-  z.ZodType<
-    BenefitLicenseKeyActivationCreateProperties,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    limit: z.number().int(),
-    enable_customer_admin: z.boolean(),
-  }).transform((v) => {
-    return remap$(v, {
-      "enable_customer_admin": "enableCustomerAdmin",
-    });
-  });
 
 /** @internal */
 export type BenefitLicenseKeyActivationCreateProperties$Outbound = {
@@ -49,21 +31,6 @@ export const BenefitLicenseKeyActivationCreateProperties$outboundSchema:
     });
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeyActivationCreateProperties$ {
-  /** @deprecated use `BenefitLicenseKeyActivationCreateProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitLicenseKeyActivationCreateProperties$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeyActivationCreateProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitLicenseKeyActivationCreateProperties$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeyActivationCreateProperties$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeyActivationCreateProperties$Outbound;
-}
-
 export function benefitLicenseKeyActivationCreatePropertiesToJSON(
   benefitLicenseKeyActivationCreateProperties:
     BenefitLicenseKeyActivationCreateProperties,
@@ -72,21 +39,5 @@ export function benefitLicenseKeyActivationCreatePropertiesToJSON(
     BenefitLicenseKeyActivationCreateProperties$outboundSchema.parse(
       benefitLicenseKeyActivationCreateProperties,
     ),
-  );
-}
-
-export function benefitLicenseKeyActivationCreatePropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  BenefitLicenseKeyActivationCreateProperties,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      BenefitLicenseKeyActivationCreateProperties$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'BenefitLicenseKeyActivationCreateProperties' from JSON`,
   );
 }

@@ -55,7 +55,6 @@ export const CustomFieldDateMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type CustomFieldDateMetadata$Outbound =
   | string
@@ -70,19 +69,6 @@ export const CustomFieldDateMetadata$outboundSchema: z.ZodType<
   CustomFieldDateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldDateMetadata$ {
-  /** @deprecated use `CustomFieldDateMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldDateMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldDateMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldDateMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldDateMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldDateMetadata$Outbound;
-}
-
 export function customFieldDateMetadataToJSON(
   customFieldDateMetadata: CustomFieldDateMetadata,
 ): string {
@@ -90,7 +76,6 @@ export function customFieldDateMetadataToJSON(
     CustomFieldDateMetadata$outboundSchema.parse(customFieldDateMetadata),
   );
 }
-
 export function customFieldDateMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldDateMetadata, SDKValidationError> {
@@ -127,7 +112,6 @@ export const CustomFieldDate$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type CustomFieldDate$Outbound = {
   created_at: string;
@@ -166,25 +150,11 @@ export const CustomFieldDate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldDate$ {
-  /** @deprecated use `CustomFieldDate$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldDate$inboundSchema;
-  /** @deprecated use `CustomFieldDate$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldDate$outboundSchema;
-  /** @deprecated use `CustomFieldDate$Outbound` instead. */
-  export type Outbound = CustomFieldDate$Outbound;
-}
-
 export function customFieldDateToJSON(
   customFieldDate: CustomFieldDate,
 ): string {
   return JSON.stringify(CustomFieldDate$outboundSchema.parse(customFieldDate));
 }
-
 export function customFieldDateFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldDate, SDKValidationError> {

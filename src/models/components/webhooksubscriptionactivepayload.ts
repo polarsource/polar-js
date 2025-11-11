@@ -37,7 +37,6 @@ export const WebhookSubscriptionActivePayload$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Subscription$inboundSchema,
 });
-
 /** @internal */
 export type WebhookSubscriptionActivePayload$Outbound = {
   type: "subscription.active";
@@ -56,19 +55,6 @@ export const WebhookSubscriptionActivePayload$outboundSchema: z.ZodType<
   data: Subscription$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookSubscriptionActivePayload$ {
-  /** @deprecated use `WebhookSubscriptionActivePayload$inboundSchema` instead. */
-  export const inboundSchema = WebhookSubscriptionActivePayload$inboundSchema;
-  /** @deprecated use `WebhookSubscriptionActivePayload$outboundSchema` instead. */
-  export const outboundSchema = WebhookSubscriptionActivePayload$outboundSchema;
-  /** @deprecated use `WebhookSubscriptionActivePayload$Outbound` instead. */
-  export type Outbound = WebhookSubscriptionActivePayload$Outbound;
-}
-
 export function webhookSubscriptionActivePayloadToJSON(
   webhookSubscriptionActivePayload: WebhookSubscriptionActivePayload,
 ): string {
@@ -78,7 +64,6 @@ export function webhookSubscriptionActivePayloadToJSON(
     ),
   );
 }
-
 export function webhookSubscriptionActivePayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhookSubscriptionActivePayload, SDKValidationError> {

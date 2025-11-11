@@ -23,7 +23,6 @@ export type FilterClause = {
 /** @internal */
 export const Value$inboundSchema: z.ZodType<Value, z.ZodTypeDef, unknown> = z
   .union([z.string(), z.number().int(), z.boolean()]);
-
 /** @internal */
 export type Value$Outbound = string | number | boolean;
 
@@ -34,23 +33,9 @@ export const Value$outboundSchema: z.ZodType<
   Value
 > = z.union([z.string(), z.number().int(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Value$ {
-  /** @deprecated use `Value$inboundSchema` instead. */
-  export const inboundSchema = Value$inboundSchema;
-  /** @deprecated use `Value$outboundSchema` instead. */
-  export const outboundSchema = Value$outboundSchema;
-  /** @deprecated use `Value$Outbound` instead. */
-  export type Outbound = Value$Outbound;
-}
-
 export function valueToJSON(value: Value): string {
   return JSON.stringify(Value$outboundSchema.parse(value));
 }
-
 export function valueFromJSON(
   jsonString: string,
 ): SafeParseResult<Value, SDKValidationError> {
@@ -71,7 +56,6 @@ export const FilterClause$inboundSchema: z.ZodType<
   operator: FilterOperator$inboundSchema,
   value: z.union([z.string(), z.number().int(), z.boolean()]),
 });
-
 /** @internal */
 export type FilterClause$Outbound = {
   property: string;
@@ -90,23 +74,9 @@ export const FilterClause$outboundSchema: z.ZodType<
   value: z.union([z.string(), z.number().int(), z.boolean()]),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FilterClause$ {
-  /** @deprecated use `FilterClause$inboundSchema` instead. */
-  export const inboundSchema = FilterClause$inboundSchema;
-  /** @deprecated use `FilterClause$outboundSchema` instead. */
-  export const outboundSchema = FilterClause$outboundSchema;
-  /** @deprecated use `FilterClause$Outbound` instead. */
-  export type Outbound = FilterClause$Outbound;
-}
-
 export function filterClauseToJSON(filterClause: FilterClause): string {
   return JSON.stringify(FilterClause$outboundSchema.parse(filterClause));
 }
-
 export function filterClauseFromJSON(
   jsonString: string,
 ): SafeParseResult<FilterClause, SDKValidationError> {

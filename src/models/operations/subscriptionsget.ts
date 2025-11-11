@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionsGetRequest = {
   /**
@@ -13,15 +10,6 @@ export type SubscriptionsGetRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const SubscriptionsGetRequest$inboundSchema: z.ZodType<
-  SubscriptionsGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type SubscriptionsGetRequest$Outbound = {
@@ -37,33 +25,10 @@ export const SubscriptionsGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionsGetRequest$ {
-  /** @deprecated use `SubscriptionsGetRequest$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionsGetRequest$inboundSchema;
-  /** @deprecated use `SubscriptionsGetRequest$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionsGetRequest$outboundSchema;
-  /** @deprecated use `SubscriptionsGetRequest$Outbound` instead. */
-  export type Outbound = SubscriptionsGetRequest$Outbound;
-}
-
 export function subscriptionsGetRequestToJSON(
   subscriptionsGetRequest: SubscriptionsGetRequest,
 ): string {
   return JSON.stringify(
     SubscriptionsGetRequest$outboundSchema.parse(subscriptionsGetRequest),
-  );
-}
-
-export function subscriptionsGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionsGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionsGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionsGetRequest' from JSON`,
   );
 }

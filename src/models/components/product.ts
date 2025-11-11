@@ -129,7 +129,6 @@ export const ProductMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type ProductMetadata$Outbound = string | number | number | boolean;
 
@@ -140,25 +139,11 @@ export const ProductMetadata$outboundSchema: z.ZodType<
   ProductMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductMetadata$ {
-  /** @deprecated use `ProductMetadata$inboundSchema` instead. */
-  export const inboundSchema = ProductMetadata$inboundSchema;
-  /** @deprecated use `ProductMetadata$outboundSchema` instead. */
-  export const outboundSchema = ProductMetadata$outboundSchema;
-  /** @deprecated use `ProductMetadata$Outbound` instead. */
-  export type Outbound = ProductMetadata$Outbound;
-}
-
 export function productMetadataToJSON(
   productMetadata: ProductMetadata,
 ): string {
   return JSON.stringify(ProductMetadata$outboundSchema.parse(productMetadata));
 }
-
 export function productMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductMetadata, SDKValidationError> {
@@ -175,7 +160,6 @@ export const Prices$inboundSchema: z.ZodType<Prices, z.ZodTypeDef, unknown> = z
     LegacyRecurringProductPrice$inboundSchema,
     ProductPrice$inboundSchema,
   ]);
-
 /** @internal */
 export type Prices$Outbound =
   | LegacyRecurringProductPrice$Outbound
@@ -191,23 +175,9 @@ export const Prices$outboundSchema: z.ZodType<
   ProductPrice$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Prices$ {
-  /** @deprecated use `Prices$inboundSchema` instead. */
-  export const inboundSchema = Prices$inboundSchema;
-  /** @deprecated use `Prices$outboundSchema` instead. */
-  export const outboundSchema = Prices$outboundSchema;
-  /** @deprecated use `Prices$Outbound` instead. */
-  export type Outbound = Prices$Outbound;
-}
-
 export function pricesToJSON(prices: Prices): string {
   return JSON.stringify(Prices$outboundSchema.parse(prices));
 }
-
 export function pricesFromJSON(
   jsonString: string,
 ): SafeParseResult<Prices, SDKValidationError> {
@@ -263,7 +233,6 @@ export const Product$inboundSchema: z.ZodType<Product, z.ZodTypeDef, unknown> =
       "attached_custom_fields": "attachedCustomFields",
     });
   });
-
 /** @internal */
 export type Product$Outbound = {
   id: string;
@@ -330,23 +299,9 @@ export const Product$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Product$ {
-  /** @deprecated use `Product$inboundSchema` instead. */
-  export const inboundSchema = Product$inboundSchema;
-  /** @deprecated use `Product$outboundSchema` instead. */
-  export const outboundSchema = Product$outboundSchema;
-  /** @deprecated use `Product$Outbound` instead. */
-  export type Outbound = Product$Outbound;
-}
-
 export function productToJSON(product: Product): string {
   return JSON.stringify(Product$outboundSchema.parse(product));
 }
-
 export function productFromJSON(
   jsonString: string,
 ): SafeParseResult<Product, SDKValidationError> {

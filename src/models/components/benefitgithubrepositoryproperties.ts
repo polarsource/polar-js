@@ -45,21 +45,9 @@ export type BenefitGitHubRepositoryProperties = {
 /** @internal */
 export const Permission$inboundSchema: z.ZodNativeEnum<typeof Permission> = z
   .nativeEnum(Permission);
-
 /** @internal */
 export const Permission$outboundSchema: z.ZodNativeEnum<typeof Permission> =
   Permission$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Permission$ {
-  /** @deprecated use `Permission$inboundSchema` instead. */
-  export const inboundSchema = Permission$inboundSchema;
-  /** @deprecated use `Permission$outboundSchema` instead. */
-  export const outboundSchema = Permission$outboundSchema;
-}
 
 /** @internal */
 export const BenefitGitHubRepositoryProperties$inboundSchema: z.ZodType<
@@ -76,7 +64,6 @@ export const BenefitGitHubRepositoryProperties$inboundSchema: z.ZodType<
     "repository_name": "repositoryName",
   });
 });
-
 /** @internal */
 export type BenefitGitHubRepositoryProperties$Outbound = {
   repository_owner: string;
@@ -100,20 +87,6 @@ export const BenefitGitHubRepositoryProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGitHubRepositoryProperties$ {
-  /** @deprecated use `BenefitGitHubRepositoryProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitGitHubRepositoryProperties$inboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGitHubRepositoryProperties$outboundSchema;
-  /** @deprecated use `BenefitGitHubRepositoryProperties$Outbound` instead. */
-  export type Outbound = BenefitGitHubRepositoryProperties$Outbound;
-}
-
 export function benefitGitHubRepositoryPropertiesToJSON(
   benefitGitHubRepositoryProperties: BenefitGitHubRepositoryProperties,
 ): string {
@@ -123,7 +96,6 @@ export function benefitGitHubRepositoryPropertiesToJSON(
     ),
   );
 }
-
 export function benefitGitHubRepositoryPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGitHubRepositoryProperties, SDKValidationError> {

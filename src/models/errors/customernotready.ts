@@ -52,34 +52,3 @@ export const CustomerNotReady$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type CustomerNotReady$Outbound = {
-  error: "CustomerNotReady";
-  detail: string;
-};
-
-/** @internal */
-export const CustomerNotReady$outboundSchema: z.ZodType<
-  CustomerNotReady$Outbound,
-  z.ZodTypeDef,
-  CustomerNotReady
-> = z.instanceof(CustomerNotReady)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("CustomerNotReady"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerNotReady$ {
-  /** @deprecated use `CustomerNotReady$inboundSchema` instead. */
-  export const inboundSchema = CustomerNotReady$inboundSchema;
-  /** @deprecated use `CustomerNotReady$outboundSchema` instead. */
-  export const outboundSchema = CustomerNotReady$outboundSchema;
-  /** @deprecated use `CustomerNotReady$Outbound` instead. */
-  export type Outbound = CustomerNotReady$Outbound;
-}

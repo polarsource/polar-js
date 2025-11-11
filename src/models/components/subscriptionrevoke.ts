@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerCancellationReason,
-  CustomerCancellationReason$inboundSchema,
   CustomerCancellationReason$outboundSchema,
 } from "./customercancellationreason.js";
 
@@ -57,24 +53,6 @@ export type SubscriptionRevoke = {
 };
 
 /** @internal */
-export const SubscriptionRevoke$inboundSchema: z.ZodType<
-  SubscriptionRevoke,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_cancellation_reason: z.nullable(
-    CustomerCancellationReason$inboundSchema,
-  ).optional(),
-  customer_cancellation_comment: z.nullable(z.string()).optional(),
-  revoke: z.literal(true),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_cancellation_reason": "customerCancellationReason",
-    "customer_cancellation_comment": "customerCancellationComment",
-  });
-});
-
-/** @internal */
 export type SubscriptionRevoke$Outbound = {
   customer_cancellation_reason?: string | null | undefined;
   customer_cancellation_comment?: string | null | undefined;
@@ -99,33 +77,10 @@ export const SubscriptionRevoke$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionRevoke$ {
-  /** @deprecated use `SubscriptionRevoke$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionRevoke$inboundSchema;
-  /** @deprecated use `SubscriptionRevoke$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionRevoke$outboundSchema;
-  /** @deprecated use `SubscriptionRevoke$Outbound` instead. */
-  export type Outbound = SubscriptionRevoke$Outbound;
-}
-
 export function subscriptionRevokeToJSON(
   subscriptionRevoke: SubscriptionRevoke,
 ): string {
   return JSON.stringify(
     SubscriptionRevoke$outboundSchema.parse(subscriptionRevoke),
-  );
-}
-
-export function subscriptionRevokeFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionRevoke, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionRevoke$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionRevoke' from JSON`,
   );
 }

@@ -9,26 +9,15 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DownloadableFileRead,
   DownloadableFileRead$inboundSchema,
-  DownloadableFileRead$Outbound,
-  DownloadableFileRead$outboundSchema,
 } from "./downloadablefileread.js";
 import {
   OrganizationAvatarFileRead,
   OrganizationAvatarFileRead$inboundSchema,
-  OrganizationAvatarFileRead$Outbound,
-  OrganizationAvatarFileRead$outboundSchema,
 } from "./organizationavatarfileread.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
-  ProductMediaFileRead$Outbound,
-  ProductMediaFileRead$outboundSchema,
 } from "./productmediafileread.js";
 
 export type FileRead =
@@ -68,52 +57,6 @@ export const FileRead$inboundSchema: z.ZodType<
   ),
 ]);
 
-/** @internal */
-export type FileRead$Outbound =
-  | (OrganizationAvatarFileRead$Outbound & { service: "organization_avatar" })
-  | (ProductMediaFileRead$Outbound & { service: "product_media" })
-  | (DownloadableFileRead$Outbound & { service: "downloadable" });
-
-/** @internal */
-export const FileRead$outboundSchema: z.ZodType<
-  FileRead$Outbound,
-  z.ZodTypeDef,
-  FileRead
-> = z.union([
-  OrganizationAvatarFileRead$outboundSchema.and(
-    z.object({ service: z.literal("organization_avatar") }).transform((v) => ({
-      service: v.service,
-    })),
-  ),
-  ProductMediaFileRead$outboundSchema.and(
-    z.object({ service: z.literal("product_media") }).transform((v) => ({
-      service: v.service,
-    })),
-  ),
-  DownloadableFileRead$outboundSchema.and(
-    z.object({ service: z.literal("downloadable") }).transform((v) => ({
-      service: v.service,
-    })),
-  ),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FileRead$ {
-  /** @deprecated use `FileRead$inboundSchema` instead. */
-  export const inboundSchema = FileRead$inboundSchema;
-  /** @deprecated use `FileRead$outboundSchema` instead. */
-  export const outboundSchema = FileRead$outboundSchema;
-  /** @deprecated use `FileRead$Outbound` instead. */
-  export type Outbound = FileRead$Outbound;
-}
-
-export function fileReadToJSON(fileRead: FileRead): string {
-  return JSON.stringify(FileRead$outboundSchema.parse(fileRead));
-}
-
 export function fileReadFromJSON(
   jsonString: string,
 ): SafeParseResult<FileRead, SDKValidationError> {
@@ -151,65 +94,6 @@ export const ListResourceFileRead$inboundSchema: z.ZodType<
   ),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceFileRead$Outbound = {
-  items: Array<
-    | (OrganizationAvatarFileRead$Outbound & { service: "organization_avatar" })
-    | (ProductMediaFileRead$Outbound & { service: "product_media" })
-    | (DownloadableFileRead$Outbound & { service: "downloadable" })
-  >;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceFileRead$outboundSchema: z.ZodType<
-  ListResourceFileRead$Outbound,
-  z.ZodTypeDef,
-  ListResourceFileRead
-> = z.object({
-  items: z.array(
-    z.union([
-      OrganizationAvatarFileRead$outboundSchema.and(
-        z.object({ service: z.literal("organization_avatar") }).transform((
-          v,
-        ) => ({ service: v.service })),
-      ),
-      ProductMediaFileRead$outboundSchema.and(
-        z.object({ service: z.literal("product_media") }).transform((v) => ({
-          service: v.service,
-        })),
-      ),
-      DownloadableFileRead$outboundSchema.and(
-        z.object({ service: z.literal("downloadable") }).transform((v) => ({
-          service: v.service,
-        })),
-      ),
-    ]),
-  ),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceFileRead$ {
-  /** @deprecated use `ListResourceFileRead$inboundSchema` instead. */
-  export const inboundSchema = ListResourceFileRead$inboundSchema;
-  /** @deprecated use `ListResourceFileRead$outboundSchema` instead. */
-  export const outboundSchema = ListResourceFileRead$outboundSchema;
-  /** @deprecated use `ListResourceFileRead$Outbound` instead. */
-  export type Outbound = ListResourceFileRead$Outbound;
-}
-
-export function listResourceFileReadToJSON(
-  listResourceFileRead: ListResourceFileRead,
-): string {
-  return JSON.stringify(
-    ListResourceFileRead$outboundSchema.parse(listResourceFileRead),
-  );
-}
 
 export function listResourceFileReadFromJSON(
   jsonString: string,

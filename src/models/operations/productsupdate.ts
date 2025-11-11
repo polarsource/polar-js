@@ -4,34 +4,16 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ProductUpdate,
-  ProductUpdate$inboundSchema,
   ProductUpdate$Outbound,
   ProductUpdate$outboundSchema,
 } from "../components/productupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ProductsUpdateRequest = {
   id: string;
   productUpdate: ProductUpdate;
 };
-
-/** @internal */
-export const ProductsUpdateRequest$inboundSchema: z.ZodType<
-  ProductsUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  ProductUpdate: ProductUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "ProductUpdate": "productUpdate",
-  });
-});
 
 /** @internal */
 export type ProductsUpdateRequest$Outbound = {
@@ -53,33 +35,10 @@ export const ProductsUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductsUpdateRequest$ {
-  /** @deprecated use `ProductsUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = ProductsUpdateRequest$inboundSchema;
-  /** @deprecated use `ProductsUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = ProductsUpdateRequest$outboundSchema;
-  /** @deprecated use `ProductsUpdateRequest$Outbound` instead. */
-  export type Outbound = ProductsUpdateRequest$Outbound;
-}
-
 export function productsUpdateRequestToJSON(
   productsUpdateRequest: ProductsUpdateRequest,
 ): string {
   return JSON.stringify(
     ProductsUpdateRequest$outboundSchema.parse(productsUpdateRequest),
-  );
-}
-
-export function productsUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductsUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductsUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductsUpdateRequest' from JSON`,
   );
 }

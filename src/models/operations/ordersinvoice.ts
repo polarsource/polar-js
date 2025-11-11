@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrdersInvoiceRequest = {
   /**
@@ -13,15 +10,6 @@ export type OrdersInvoiceRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const OrdersInvoiceRequest$inboundSchema: z.ZodType<
-  OrdersInvoiceRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type OrdersInvoiceRequest$Outbound = {
@@ -37,33 +25,10 @@ export const OrdersInvoiceRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrdersInvoiceRequest$ {
-  /** @deprecated use `OrdersInvoiceRequest$inboundSchema` instead. */
-  export const inboundSchema = OrdersInvoiceRequest$inboundSchema;
-  /** @deprecated use `OrdersInvoiceRequest$outboundSchema` instead. */
-  export const outboundSchema = OrdersInvoiceRequest$outboundSchema;
-  /** @deprecated use `OrdersInvoiceRequest$Outbound` instead. */
-  export type Outbound = OrdersInvoiceRequest$Outbound;
-}
-
 export function ordersInvoiceRequestToJSON(
   ordersInvoiceRequest: OrdersInvoiceRequest,
 ): string {
   return JSON.stringify(
     OrdersInvoiceRequest$outboundSchema.parse(ordersInvoiceRequest),
-  );
-}
-
-export function ordersInvoiceRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<OrdersInvoiceRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrdersInvoiceRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrdersInvoiceRequest' from JSON`,
   );
 }

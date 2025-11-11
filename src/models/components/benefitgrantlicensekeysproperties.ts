@@ -27,7 +27,6 @@ export const BenefitGrantLicenseKeysProperties$inboundSchema: z.ZodType<
     "display_key": "displayKey",
   });
 });
-
 /** @internal */
 export type BenefitGrantLicenseKeysProperties$Outbound = {
   license_key_id?: string | undefined;
@@ -49,20 +48,6 @@ export const BenefitGrantLicenseKeysProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantLicenseKeysProperties$ {
-  /** @deprecated use `BenefitGrantLicenseKeysProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitGrantLicenseKeysProperties$inboundSchema;
-  /** @deprecated use `BenefitGrantLicenseKeysProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGrantLicenseKeysProperties$outboundSchema;
-  /** @deprecated use `BenefitGrantLicenseKeysProperties$Outbound` instead. */
-  export type Outbound = BenefitGrantLicenseKeysProperties$Outbound;
-}
-
 export function benefitGrantLicenseKeysPropertiesToJSON(
   benefitGrantLicenseKeysProperties: BenefitGrantLicenseKeysProperties,
 ): string {
@@ -72,7 +57,6 @@ export function benefitGrantLicenseKeysPropertiesToJSON(
     ),
   );
 }
-
 export function benefitGrantLicenseKeysPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantLicenseKeysProperties, SDKValidationError> {

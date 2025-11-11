@@ -19,7 +19,6 @@ export const BenefitGrantDownloadablesProperties$inboundSchema: z.ZodType<
 > = z.object({
   files: z.array(z.string()).optional(),
 });
-
 /** @internal */
 export type BenefitGrantDownloadablesProperties$Outbound = {
   files?: Array<string> | undefined;
@@ -34,21 +33,6 @@ export const BenefitGrantDownloadablesProperties$outboundSchema: z.ZodType<
   files: z.array(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitGrantDownloadablesProperties$ {
-  /** @deprecated use `BenefitGrantDownloadablesProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitGrantDownloadablesProperties$inboundSchema;
-  /** @deprecated use `BenefitGrantDownloadablesProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitGrantDownloadablesProperties$outboundSchema;
-  /** @deprecated use `BenefitGrantDownloadablesProperties$Outbound` instead. */
-  export type Outbound = BenefitGrantDownloadablesProperties$Outbound;
-}
-
 export function benefitGrantDownloadablesPropertiesToJSON(
   benefitGrantDownloadablesProperties: BenefitGrantDownloadablesProperties,
 ): string {
@@ -58,7 +42,6 @@ export function benefitGrantDownloadablesPropertiesToJSON(
     ),
   );
 }
-
 export function benefitGrantDownloadablesPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitGrantDownloadablesProperties, SDKValidationError> {

@@ -23,19 +23,7 @@ export type OrganizationSocialPlatforms = ClosedEnum<
 export const OrganizationSocialPlatforms$inboundSchema: z.ZodNativeEnum<
   typeof OrganizationSocialPlatforms
 > = z.nativeEnum(OrganizationSocialPlatforms);
-
 /** @internal */
 export const OrganizationSocialPlatforms$outboundSchema: z.ZodNativeEnum<
   typeof OrganizationSocialPlatforms
 > = OrganizationSocialPlatforms$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationSocialPlatforms$ {
-  /** @deprecated use `OrganizationSocialPlatforms$inboundSchema` instead. */
-  export const inboundSchema = OrganizationSocialPlatforms$inboundSchema;
-  /** @deprecated use `OrganizationSocialPlatforms$outboundSchema` instead. */
-  export const outboundSchema = OrganizationSocialPlatforms$outboundSchema;
-}

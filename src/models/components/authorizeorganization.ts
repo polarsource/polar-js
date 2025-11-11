@@ -29,49 +29,6 @@ export const AuthorizeOrganization$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type AuthorizeOrganization$Outbound = {
-  id: string;
-  slug: string;
-  avatar_url: string | null;
-};
-
-/** @internal */
-export const AuthorizeOrganization$outboundSchema: z.ZodType<
-  AuthorizeOrganization$Outbound,
-  z.ZodTypeDef,
-  AuthorizeOrganization
-> = z.object({
-  id: z.string(),
-  slug: z.string(),
-  avatarUrl: z.nullable(z.string()),
-}).transform((v) => {
-  return remap$(v, {
-    avatarUrl: "avatar_url",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizeOrganization$ {
-  /** @deprecated use `AuthorizeOrganization$inboundSchema` instead. */
-  export const inboundSchema = AuthorizeOrganization$inboundSchema;
-  /** @deprecated use `AuthorizeOrganization$outboundSchema` instead. */
-  export const outboundSchema = AuthorizeOrganization$outboundSchema;
-  /** @deprecated use `AuthorizeOrganization$Outbound` instead. */
-  export type Outbound = AuthorizeOrganization$Outbound;
-}
-
-export function authorizeOrganizationToJSON(
-  authorizeOrganization: AuthorizeOrganization,
-): string {
-  return JSON.stringify(
-    AuthorizeOrganization$outboundSchema.parse(authorizeOrganization),
-  );
-}
-
 export function authorizeOrganizationFromJSON(
   jsonString: string,
 ): SafeParseResult<AuthorizeOrganization, SDKValidationError> {

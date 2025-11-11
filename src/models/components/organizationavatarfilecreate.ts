@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   S3FileCreateMultipart,
-  S3FileCreateMultipart$inboundSchema,
   S3FileCreateMultipart$Outbound,
   S3FileCreateMultipart$outboundSchema,
 } from "./s3filecreatemultipart.js";
@@ -33,28 +29,6 @@ export type OrganizationAvatarFileCreate = {
   service: "organization_avatar";
   version?: string | null | undefined;
 };
-
-/** @internal */
-export const OrganizationAvatarFileCreate$inboundSchema: z.ZodType<
-  OrganizationAvatarFileCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.string()).optional(),
-  name: z.string(),
-  mime_type: z.string(),
-  size: z.number().int(),
-  checksum_sha256_base64: z.nullable(z.string()).optional(),
-  upload: S3FileCreateMultipart$inboundSchema,
-  service: z.literal("organization_avatar"),
-  version: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "mime_type": "mimeType",
-    "checksum_sha256_base64": "checksumSha256Base64",
-  });
-});
 
 /** @internal */
 export type OrganizationAvatarFileCreate$Outbound = {
@@ -90,19 +64,6 @@ export const OrganizationAvatarFileCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationAvatarFileCreate$ {
-  /** @deprecated use `OrganizationAvatarFileCreate$inboundSchema` instead. */
-  export const inboundSchema = OrganizationAvatarFileCreate$inboundSchema;
-  /** @deprecated use `OrganizationAvatarFileCreate$outboundSchema` instead. */
-  export const outboundSchema = OrganizationAvatarFileCreate$outboundSchema;
-  /** @deprecated use `OrganizationAvatarFileCreate$Outbound` instead. */
-  export type Outbound = OrganizationAvatarFileCreate$Outbound;
-}
-
 export function organizationAvatarFileCreateToJSON(
   organizationAvatarFileCreate: OrganizationAvatarFileCreate,
 ): string {
@@ -110,15 +71,5 @@ export function organizationAvatarFileCreateToJSON(
     OrganizationAvatarFileCreate$outboundSchema.parse(
       organizationAvatarFileCreate,
     ),
-  );
-}
-
-export function organizationAvatarFileCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<OrganizationAvatarFileCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrganizationAvatarFileCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrganizationAvatarFileCreate' from JSON`,
   );
 }

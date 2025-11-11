@@ -52,34 +52,3 @@ export const PaymentNotReady$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type PaymentNotReady$Outbound = {
-  error: "PaymentNotReady";
-  detail: string;
-};
-
-/** @internal */
-export const PaymentNotReady$outboundSchema: z.ZodType<
-  PaymentNotReady$Outbound,
-  z.ZodTypeDef,
-  PaymentNotReady
-> = z.instanceof(PaymentNotReady)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("PaymentNotReady"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentNotReady$ {
-  /** @deprecated use `PaymentNotReady$inboundSchema` instead. */
-  export const inboundSchema = PaymentNotReady$inboundSchema;
-  /** @deprecated use `PaymentNotReady$outboundSchema` instead. */
-  export const outboundSchema = PaymentNotReady$outboundSchema;
-  /** @deprecated use `PaymentNotReady$Outbound` instead. */
-  export type Outbound = PaymentNotReady$Outbound;
-}

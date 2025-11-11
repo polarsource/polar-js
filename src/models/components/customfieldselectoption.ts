@@ -21,7 +21,6 @@ export const CustomFieldSelectOption$inboundSchema: z.ZodType<
   value: z.string(),
   label: z.string(),
 });
-
 /** @internal */
 export type CustomFieldSelectOption$Outbound = {
   value: string;
@@ -38,19 +37,6 @@ export const CustomFieldSelectOption$outboundSchema: z.ZodType<
   label: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldSelectOption$ {
-  /** @deprecated use `CustomFieldSelectOption$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldSelectOption$inboundSchema;
-  /** @deprecated use `CustomFieldSelectOption$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldSelectOption$outboundSchema;
-  /** @deprecated use `CustomFieldSelectOption$Outbound` instead. */
-  export type Outbound = CustomFieldSelectOption$Outbound;
-}
-
 export function customFieldSelectOptionToJSON(
   customFieldSelectOption: CustomFieldSelectOption,
 ): string {
@@ -58,7 +44,6 @@ export function customFieldSelectOptionToJSON(
     CustomFieldSelectOption$outboundSchema.parse(customFieldSelectOption),
   );
 }
-
 export function customFieldSelectOptionFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldSelectOption, SDKValidationError> {

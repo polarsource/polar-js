@@ -66,7 +66,6 @@ export const BenefitCustomMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type BenefitCustomMetadata$Outbound = string | number | number | boolean;
 
@@ -77,19 +76,6 @@ export const BenefitCustomMetadata$outboundSchema: z.ZodType<
   BenefitCustomMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustomMetadata$ {
-  /** @deprecated use `BenefitCustomMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustomMetadata$inboundSchema;
-  /** @deprecated use `BenefitCustomMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustomMetadata$outboundSchema;
-  /** @deprecated use `BenefitCustomMetadata$Outbound` instead. */
-  export type Outbound = BenefitCustomMetadata$Outbound;
-}
-
 export function benefitCustomMetadataToJSON(
   benefitCustomMetadata: BenefitCustomMetadata,
 ): string {
@@ -97,7 +83,6 @@ export function benefitCustomMetadataToJSON(
     BenefitCustomMetadata$outboundSchema.parse(benefitCustomMetadata),
   );
 }
-
 export function benefitCustomMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitCustomMetadata, SDKValidationError> {
@@ -135,7 +120,6 @@ export const BenefitCustom$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type BenefitCustom$Outbound = {
   id: string;
@@ -176,23 +160,9 @@ export const BenefitCustom$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustom$ {
-  /** @deprecated use `BenefitCustom$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustom$inboundSchema;
-  /** @deprecated use `BenefitCustom$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustom$outboundSchema;
-  /** @deprecated use `BenefitCustom$Outbound` instead. */
-  export type Outbound = BenefitCustom$Outbound;
-}
-
 export function benefitCustomToJSON(benefitCustom: BenefitCustom): string {
   return JSON.stringify(BenefitCustom$outboundSchema.parse(benefitCustom));
 }
-
 export function benefitCustomFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitCustom, SDKValidationError> {

@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   S3FileCreateMultipart,
-  S3FileCreateMultipart$inboundSchema,
   S3FileCreateMultipart$Outbound,
   S3FileCreateMultipart$outboundSchema,
 } from "./s3filecreatemultipart.js";
@@ -27,28 +23,6 @@ export type DownloadableFileCreate = {
   service: "downloadable";
   version?: string | null | undefined;
 };
-
-/** @internal */
-export const DownloadableFileCreate$inboundSchema: z.ZodType<
-  DownloadableFileCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.string()).optional(),
-  name: z.string(),
-  mime_type: z.string(),
-  size: z.number().int(),
-  checksum_sha256_base64: z.nullable(z.string()).optional(),
-  upload: S3FileCreateMultipart$inboundSchema,
-  service: z.literal("downloadable"),
-  version: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-    "mime_type": "mimeType",
-    "checksum_sha256_base64": "checksumSha256Base64",
-  });
-});
 
 /** @internal */
 export type DownloadableFileCreate$Outbound = {
@@ -84,33 +58,10 @@ export const DownloadableFileCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DownloadableFileCreate$ {
-  /** @deprecated use `DownloadableFileCreate$inboundSchema` instead. */
-  export const inboundSchema = DownloadableFileCreate$inboundSchema;
-  /** @deprecated use `DownloadableFileCreate$outboundSchema` instead. */
-  export const outboundSchema = DownloadableFileCreate$outboundSchema;
-  /** @deprecated use `DownloadableFileCreate$Outbound` instead. */
-  export type Outbound = DownloadableFileCreate$Outbound;
-}
-
 export function downloadableFileCreateToJSON(
   downloadableFileCreate: DownloadableFileCreate,
 ): string {
   return JSON.stringify(
     DownloadableFileCreate$outboundSchema.parse(downloadableFileCreate),
-  );
-}
-
-export function downloadableFileCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<DownloadableFileCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DownloadableFileCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DownloadableFileCreate' from JSON`,
   );
 }

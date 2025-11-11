@@ -34,7 +34,6 @@ export const CustomFieldDateProperties$inboundSchema: z.ZodType<
     "form_placeholder": "formPlaceholder",
   });
 });
-
 /** @internal */
 export type CustomFieldDateProperties$Outbound = {
   form_label?: string | undefined;
@@ -63,19 +62,6 @@ export const CustomFieldDateProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldDateProperties$ {
-  /** @deprecated use `CustomFieldDateProperties$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldDateProperties$inboundSchema;
-  /** @deprecated use `CustomFieldDateProperties$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldDateProperties$outboundSchema;
-  /** @deprecated use `CustomFieldDateProperties$Outbound` instead. */
-  export type Outbound = CustomFieldDateProperties$Outbound;
-}
-
 export function customFieldDatePropertiesToJSON(
   customFieldDateProperties: CustomFieldDateProperties,
 ): string {
@@ -83,7 +69,6 @@ export function customFieldDatePropertiesToJSON(
     CustomFieldDateProperties$outboundSchema.parse(customFieldDateProperties),
   );
 }
-
 export function customFieldDatePropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldDateProperties, SDKValidationError> {

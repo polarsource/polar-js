@@ -7,87 +7,53 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Address,
-  Address$inboundSchema,
-  Address$Outbound,
-  Address$outboundSchema,
-} from "./address.js";
+import { Address, Address$inboundSchema } from "./address.js";
 import {
   AttachedCustomField,
   AttachedCustomField$inboundSchema,
-  AttachedCustomField$Outbound,
-  AttachedCustomField$outboundSchema,
 } from "./attachedcustomfield.js";
 import {
   CheckoutBillingAddressFields,
   CheckoutBillingAddressFields$inboundSchema,
-  CheckoutBillingAddressFields$Outbound,
-  CheckoutBillingAddressFields$outboundSchema,
 } from "./checkoutbillingaddressfields.js";
 import {
   CheckoutDiscountFixedOnceForeverDuration,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
-  CheckoutDiscountFixedOnceForeverDuration$Outbound,
-  CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
 } from "./checkoutdiscountfixedonceforeverduration.js";
 import {
   CheckoutDiscountFixedRepeatDuration,
   CheckoutDiscountFixedRepeatDuration$inboundSchema,
-  CheckoutDiscountFixedRepeatDuration$Outbound,
-  CheckoutDiscountFixedRepeatDuration$outboundSchema,
 } from "./checkoutdiscountfixedrepeatduration.js";
 import {
   CheckoutDiscountPercentageOnceForeverDuration,
   CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
-  CheckoutDiscountPercentageOnceForeverDuration$Outbound,
-  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
 } from "./checkoutdiscountpercentageonceforeverduration.js";
 import {
   CheckoutDiscountPercentageRepeatDuration,
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
-  CheckoutDiscountPercentageRepeatDuration$Outbound,
-  CheckoutDiscountPercentageRepeatDuration$outboundSchema,
 } from "./checkoutdiscountpercentagerepeatduration.js";
 import {
   CheckoutOrganization,
   CheckoutOrganization$inboundSchema,
-  CheckoutOrganization$Outbound,
-  CheckoutOrganization$outboundSchema,
 } from "./checkoutorganization.js";
 import {
   CheckoutProduct,
   CheckoutProduct$inboundSchema,
-  CheckoutProduct$Outbound,
-  CheckoutProduct$outboundSchema,
 } from "./checkoutproduct.js";
 import {
   CheckoutStatus,
   CheckoutStatus$inboundSchema,
-  CheckoutStatus$outboundSchema,
 } from "./checkoutstatus.js";
 import {
   LegacyRecurringProductPrice,
   LegacyRecurringProductPrice$inboundSchema,
-  LegacyRecurringProductPrice$Outbound,
-  LegacyRecurringProductPrice$outboundSchema,
 } from "./legacyrecurringproductprice.js";
 import {
   PaymentProcessor,
   PaymentProcessor$inboundSchema,
-  PaymentProcessor$outboundSchema,
 } from "./paymentprocessor.js";
-import {
-  ProductPrice,
-  ProductPrice$inboundSchema,
-  ProductPrice$Outbound,
-  ProductPrice$outboundSchema,
-} from "./productprice.js";
-import {
-  TrialInterval,
-  TrialInterval$inboundSchema,
-  TrialInterval$outboundSchema,
-} from "./trialinterval.js";
+import { ProductPrice, ProductPrice$inboundSchema } from "./productprice.js";
+import { TrialInterval, TrialInterval$inboundSchema } from "./trialinterval.js";
 
 export type CheckoutPublicCustomFieldData = string | number | boolean | Date;
 
@@ -181,6 +147,10 @@ export type CheckoutPublic = {
    * Currency code of the checkout session.
    */
   currency: string;
+  /**
+   * Whether to enable the trial period for the checkout session. If `false`, the trial period will be disabled, even if the selected product has a trial configured.
+   */
+  allowTrial: boolean | null;
   /**
    * Interval unit of the trial period, if any. This value is either set from the checkout, if `trial_interval` is set, or from the selected product.
    */
@@ -290,48 +260,6 @@ export const CheckoutPublicCustomFieldData$inboundSchema: z.ZodType<
   z.string().datetime({ offset: true }).transform(v => new Date(v)),
 ]);
 
-/** @internal */
-export type CheckoutPublicCustomFieldData$Outbound =
-  | string
-  | number
-  | boolean
-  | string;
-
-/** @internal */
-export const CheckoutPublicCustomFieldData$outboundSchema: z.ZodType<
-  CheckoutPublicCustomFieldData$Outbound,
-  z.ZodTypeDef,
-  CheckoutPublicCustomFieldData
-> = z.union([
-  z.string(),
-  z.number().int(),
-  z.boolean(),
-  z.date().transform(v => v.toISOString()),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutPublicCustomFieldData$ {
-  /** @deprecated use `CheckoutPublicCustomFieldData$inboundSchema` instead. */
-  export const inboundSchema = CheckoutPublicCustomFieldData$inboundSchema;
-  /** @deprecated use `CheckoutPublicCustomFieldData$outboundSchema` instead. */
-  export const outboundSchema = CheckoutPublicCustomFieldData$outboundSchema;
-  /** @deprecated use `CheckoutPublicCustomFieldData$Outbound` instead. */
-  export type Outbound = CheckoutPublicCustomFieldData$Outbound;
-}
-
-export function checkoutPublicCustomFieldDataToJSON(
-  checkoutPublicCustomFieldData: CheckoutPublicCustomFieldData,
-): string {
-  return JSON.stringify(
-    CheckoutPublicCustomFieldData$outboundSchema.parse(
-      checkoutPublicCustomFieldData,
-    ),
-  );
-}
-
 export function checkoutPublicCustomFieldDataFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutPublicCustomFieldData, SDKValidationError> {
@@ -351,42 +279,6 @@ export const CheckoutPublicProductPrice$inboundSchema: z.ZodType<
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
-
-/** @internal */
-export type CheckoutPublicProductPrice$Outbound =
-  | LegacyRecurringProductPrice$Outbound
-  | ProductPrice$Outbound;
-
-/** @internal */
-export const CheckoutPublicProductPrice$outboundSchema: z.ZodType<
-  CheckoutPublicProductPrice$Outbound,
-  z.ZodTypeDef,
-  CheckoutPublicProductPrice
-> = z.union([
-  LegacyRecurringProductPrice$outboundSchema,
-  ProductPrice$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutPublicProductPrice$ {
-  /** @deprecated use `CheckoutPublicProductPrice$inboundSchema` instead. */
-  export const inboundSchema = CheckoutPublicProductPrice$inboundSchema;
-  /** @deprecated use `CheckoutPublicProductPrice$outboundSchema` instead. */
-  export const outboundSchema = CheckoutPublicProductPrice$outboundSchema;
-  /** @deprecated use `CheckoutPublicProductPrice$Outbound` instead. */
-  export type Outbound = CheckoutPublicProductPrice$Outbound;
-}
-
-export function checkoutPublicProductPriceToJSON(
-  checkoutPublicProductPrice: CheckoutPublicProductPrice,
-): string {
-  return JSON.stringify(
-    CheckoutPublicProductPrice$outboundSchema.parse(checkoutPublicProductPrice),
-  );
-}
 
 export function checkoutPublicProductPriceFromJSON(
   jsonString: string,
@@ -409,46 +301,6 @@ export const CheckoutPublicDiscount$inboundSchema: z.ZodType<
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
   CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
 ]);
-
-/** @internal */
-export type CheckoutPublicDiscount$Outbound =
-  | CheckoutDiscountFixedRepeatDuration$Outbound
-  | CheckoutDiscountFixedOnceForeverDuration$Outbound
-  | CheckoutDiscountPercentageRepeatDuration$Outbound
-  | CheckoutDiscountPercentageOnceForeverDuration$Outbound;
-
-/** @internal */
-export const CheckoutPublicDiscount$outboundSchema: z.ZodType<
-  CheckoutPublicDiscount$Outbound,
-  z.ZodTypeDef,
-  CheckoutPublicDiscount
-> = z.union([
-  CheckoutDiscountFixedRepeatDuration$outboundSchema,
-  CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
-  CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-  CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutPublicDiscount$ {
-  /** @deprecated use `CheckoutPublicDiscount$inboundSchema` instead. */
-  export const inboundSchema = CheckoutPublicDiscount$inboundSchema;
-  /** @deprecated use `CheckoutPublicDiscount$outboundSchema` instead. */
-  export const outboundSchema = CheckoutPublicDiscount$outboundSchema;
-  /** @deprecated use `CheckoutPublicDiscount$Outbound` instead. */
-  export type Outbound = CheckoutPublicDiscount$Outbound;
-}
-
-export function checkoutPublicDiscountToJSON(
-  checkoutPublicDiscount: CheckoutPublicDiscount,
-): string {
-  return JSON.stringify(
-    CheckoutPublicDiscount$outboundSchema.parse(checkoutPublicDiscount),
-  );
-}
 
 export function checkoutPublicDiscountFromJSON(
   jsonString: string,
@@ -497,6 +349,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
   tax_amount: z.nullable(z.number().int()),
   total_amount: z.number().int(),
   currency: z.string(),
+  allow_trial: z.nullable(z.boolean()),
   active_trial_interval: z.nullable(TrialInterval$inboundSchema),
   active_trial_interval_count: z.nullable(z.number().int()),
   trial_end: z.nullable(
@@ -559,6 +412,7 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     "net_amount": "netAmount",
     "tax_amount": "taxAmount",
     "total_amount": "totalAmount",
+    "allow_trial": "allowTrial",
     "active_trial_interval": "activeTrialInterval",
     "active_trial_interval_count": "activeTrialIntervalCount",
     "trial_end": "trialEnd",
@@ -587,209 +441,6 @@ export const CheckoutPublic$inboundSchema: z.ZodType<
     "attached_custom_fields": "attachedCustomFields",
   });
 });
-
-/** @internal */
-export type CheckoutPublic$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  custom_field_data?:
-    | { [k: string]: string | number | boolean | string | null }
-    | undefined;
-  payment_processor: string;
-  status: string;
-  client_secret: string;
-  url: string;
-  expires_at: string;
-  success_url: string;
-  return_url: string | null;
-  embed_origin: string | null;
-  amount: number;
-  seats?: number | null | undefined;
-  price_per_seat?: number | null | undefined;
-  discount_amount: number;
-  net_amount: number;
-  tax_amount: number | null;
-  total_amount: number;
-  currency: string;
-  active_trial_interval: string | null;
-  active_trial_interval_count: number | null;
-  trial_end: string | null;
-  organization_id: string;
-  product_id: string | null;
-  product_price_id: string | null;
-  discount_id: string | null;
-  allow_discount_codes: boolean;
-  require_billing_address: boolean;
-  is_discount_applicable: boolean;
-  is_free_product_price: boolean;
-  is_payment_required: boolean;
-  is_payment_setup_required: boolean;
-  is_payment_form_required: boolean;
-  customer_id: string | null;
-  is_business_customer: boolean;
-  customer_name: string | null;
-  customer_email: string | null;
-  customer_ip_address: string | null;
-  customer_billing_name: string | null;
-  customer_billing_address: Address$Outbound | null;
-  customer_tax_id: string | null;
-  payment_processor_metadata: { [k: string]: string };
-  billing_address_fields: CheckoutBillingAddressFields$Outbound;
-  products: Array<CheckoutProduct$Outbound>;
-  product: CheckoutProduct$Outbound | null;
-  product_price:
-    | LegacyRecurringProductPrice$Outbound
-    | ProductPrice$Outbound
-    | null;
-  discount:
-    | CheckoutDiscountFixedRepeatDuration$Outbound
-    | CheckoutDiscountFixedOnceForeverDuration$Outbound
-    | CheckoutDiscountPercentageRepeatDuration$Outbound
-    | CheckoutDiscountPercentageOnceForeverDuration$Outbound
-    | null;
-  organization: CheckoutOrganization$Outbound;
-  attached_custom_fields: Array<AttachedCustomField$Outbound> | null;
-};
-
-/** @internal */
-export const CheckoutPublic$outboundSchema: z.ZodType<
-  CheckoutPublic$Outbound,
-  z.ZodTypeDef,
-  CheckoutPublic
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  customFieldData: z.record(
-    z.nullable(
-      z.union([
-        z.string(),
-        z.number().int(),
-        z.boolean(),
-        z.date().transform(v => v.toISOString()),
-      ]),
-    ),
-  ).optional(),
-  paymentProcessor: PaymentProcessor$outboundSchema,
-  status: CheckoutStatus$outboundSchema,
-  clientSecret: z.string(),
-  url: z.string(),
-  expiresAt: z.date().transform(v => v.toISOString()),
-  successUrl: z.string(),
-  returnUrl: z.nullable(z.string()),
-  embedOrigin: z.nullable(z.string()),
-  amount: z.number().int(),
-  seats: z.nullable(z.number().int()).optional(),
-  pricePerSeat: z.nullable(z.number().int()).optional(),
-  discountAmount: z.number().int(),
-  netAmount: z.number().int(),
-  taxAmount: z.nullable(z.number().int()),
-  totalAmount: z.number().int(),
-  currency: z.string(),
-  activeTrialInterval: z.nullable(TrialInterval$outboundSchema),
-  activeTrialIntervalCount: z.nullable(z.number().int()),
-  trialEnd: z.nullable(z.date().transform(v => v.toISOString())),
-  organizationId: z.string(),
-  productId: z.nullable(z.string()),
-  productPriceId: z.nullable(z.string()),
-  discountId: z.nullable(z.string()),
-  allowDiscountCodes: z.boolean(),
-  requireBillingAddress: z.boolean(),
-  isDiscountApplicable: z.boolean(),
-  isFreeProductPrice: z.boolean(),
-  isPaymentRequired: z.boolean(),
-  isPaymentSetupRequired: z.boolean(),
-  isPaymentFormRequired: z.boolean(),
-  customerId: z.nullable(z.string()),
-  isBusinessCustomer: z.boolean(),
-  customerName: z.nullable(z.string()),
-  customerEmail: z.nullable(z.string()),
-  customerIpAddress: z.nullable(z.string()),
-  customerBillingName: z.nullable(z.string()),
-  customerBillingAddress: z.nullable(Address$outboundSchema),
-  customerTaxId: z.nullable(z.string()),
-  paymentProcessorMetadata: z.record(z.string()),
-  billingAddressFields: CheckoutBillingAddressFields$outboundSchema,
-  products: z.array(CheckoutProduct$outboundSchema),
-  product: z.nullable(CheckoutProduct$outboundSchema),
-  productPrice: z.nullable(
-    z.union([
-      LegacyRecurringProductPrice$outboundSchema,
-      ProductPrice$outboundSchema,
-    ]),
-  ),
-  discount: z.nullable(
-    z.union([
-      CheckoutDiscountFixedRepeatDuration$outboundSchema,
-      CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
-      CheckoutDiscountPercentageRepeatDuration$outboundSchema,
-      CheckoutDiscountPercentageOnceForeverDuration$outboundSchema,
-    ]),
-  ),
-  organization: CheckoutOrganization$outboundSchema,
-  attachedCustomFields: z.nullable(z.array(AttachedCustomField$outboundSchema)),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    customFieldData: "custom_field_data",
-    paymentProcessor: "payment_processor",
-    clientSecret: "client_secret",
-    expiresAt: "expires_at",
-    successUrl: "success_url",
-    returnUrl: "return_url",
-    embedOrigin: "embed_origin",
-    pricePerSeat: "price_per_seat",
-    discountAmount: "discount_amount",
-    netAmount: "net_amount",
-    taxAmount: "tax_amount",
-    totalAmount: "total_amount",
-    activeTrialInterval: "active_trial_interval",
-    activeTrialIntervalCount: "active_trial_interval_count",
-    trialEnd: "trial_end",
-    organizationId: "organization_id",
-    productId: "product_id",
-    productPriceId: "product_price_id",
-    discountId: "discount_id",
-    allowDiscountCodes: "allow_discount_codes",
-    requireBillingAddress: "require_billing_address",
-    isDiscountApplicable: "is_discount_applicable",
-    isFreeProductPrice: "is_free_product_price",
-    isPaymentRequired: "is_payment_required",
-    isPaymentSetupRequired: "is_payment_setup_required",
-    isPaymentFormRequired: "is_payment_form_required",
-    customerId: "customer_id",
-    isBusinessCustomer: "is_business_customer",
-    customerName: "customer_name",
-    customerEmail: "customer_email",
-    customerIpAddress: "customer_ip_address",
-    customerBillingName: "customer_billing_name",
-    customerBillingAddress: "customer_billing_address",
-    customerTaxId: "customer_tax_id",
-    paymentProcessorMetadata: "payment_processor_metadata",
-    billingAddressFields: "billing_address_fields",
-    productPrice: "product_price",
-    attachedCustomFields: "attached_custom_fields",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutPublic$ {
-  /** @deprecated use `CheckoutPublic$inboundSchema` instead. */
-  export const inboundSchema = CheckoutPublic$inboundSchema;
-  /** @deprecated use `CheckoutPublic$outboundSchema` instead. */
-  export const outboundSchema = CheckoutPublic$outboundSchema;
-  /** @deprecated use `CheckoutPublic$Outbound` instead. */
-  export type Outbound = CheckoutPublic$Outbound;
-}
-
-export function checkoutPublicToJSON(checkoutPublic: CheckoutPublic): string {
-  return JSON.stringify(CheckoutPublic$outboundSchema.parse(checkoutPublic));
-}
 
 export function checkoutPublicFromJSON(
   jsonString: string,

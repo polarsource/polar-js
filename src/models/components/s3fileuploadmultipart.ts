@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   S3FileUploadPart,
   S3FileUploadPart$inboundSchema,
-  S3FileUploadPart$Outbound,
-  S3FileUploadPart$outboundSchema,
 } from "./s3fileuploadpart.js";
 
 export type S3FileUploadMultipart = {
@@ -29,45 +27,6 @@ export const S3FileUploadMultipart$inboundSchema: z.ZodType<
   path: z.string(),
   parts: z.array(S3FileUploadPart$inboundSchema),
 });
-
-/** @internal */
-export type S3FileUploadMultipart$Outbound = {
-  id: string;
-  path: string;
-  parts: Array<S3FileUploadPart$Outbound>;
-};
-
-/** @internal */
-export const S3FileUploadMultipart$outboundSchema: z.ZodType<
-  S3FileUploadMultipart$Outbound,
-  z.ZodTypeDef,
-  S3FileUploadMultipart
-> = z.object({
-  id: z.string(),
-  path: z.string(),
-  parts: z.array(S3FileUploadPart$outboundSchema),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace S3FileUploadMultipart$ {
-  /** @deprecated use `S3FileUploadMultipart$inboundSchema` instead. */
-  export const inboundSchema = S3FileUploadMultipart$inboundSchema;
-  /** @deprecated use `S3FileUploadMultipart$outboundSchema` instead. */
-  export const outboundSchema = S3FileUploadMultipart$outboundSchema;
-  /** @deprecated use `S3FileUploadMultipart$Outbound` instead. */
-  export type Outbound = S3FileUploadMultipart$Outbound;
-}
-
-export function s3FileUploadMultipartToJSON(
-  s3FileUploadMultipart: S3FileUploadMultipart,
-): string {
-  return JSON.stringify(
-    S3FileUploadMultipart$outboundSchema.parse(s3FileUploadMultipart),
-  );
-}
 
 export function s3FileUploadMultipartFromJSON(
   jsonString: string,

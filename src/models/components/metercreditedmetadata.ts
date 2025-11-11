@@ -29,49 +29,6 @@ export const MeterCreditedMetadata$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type MeterCreditedMetadata$Outbound = {
-  meter_id: string;
-  units: number;
-  rollover: boolean;
-};
-
-/** @internal */
-export const MeterCreditedMetadata$outboundSchema: z.ZodType<
-  MeterCreditedMetadata$Outbound,
-  z.ZodTypeDef,
-  MeterCreditedMetadata
-> = z.object({
-  meterId: z.string(),
-  units: z.number().int(),
-  rollover: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    meterId: "meter_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MeterCreditedMetadata$ {
-  /** @deprecated use `MeterCreditedMetadata$inboundSchema` instead. */
-  export const inboundSchema = MeterCreditedMetadata$inboundSchema;
-  /** @deprecated use `MeterCreditedMetadata$outboundSchema` instead. */
-  export const outboundSchema = MeterCreditedMetadata$outboundSchema;
-  /** @deprecated use `MeterCreditedMetadata$Outbound` instead. */
-  export type Outbound = MeterCreditedMetadata$Outbound;
-}
-
-export function meterCreditedMetadataToJSON(
-  meterCreditedMetadata: MeterCreditedMetadata,
-): string {
-  return JSON.stringify(
-    MeterCreditedMetadata$outboundSchema.parse(meterCreditedMetadata),
-  );
-}
-
 export function meterCreditedMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<MeterCreditedMetadata, SDKValidationError> {

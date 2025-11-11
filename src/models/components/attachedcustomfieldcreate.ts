@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Schema to attach a custom field to a resource.
@@ -21,20 +18,6 @@ export type AttachedCustomFieldCreate = {
    */
   required: boolean;
 };
-
-/** @internal */
-export const AttachedCustomFieldCreate$inboundSchema: z.ZodType<
-  AttachedCustomFieldCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  custom_field_id: z.string(),
-  required: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    "custom_field_id": "customFieldId",
-  });
-});
 
 /** @internal */
 export type AttachedCustomFieldCreate$Outbound = {
@@ -56,33 +39,10 @@ export const AttachedCustomFieldCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AttachedCustomFieldCreate$ {
-  /** @deprecated use `AttachedCustomFieldCreate$inboundSchema` instead. */
-  export const inboundSchema = AttachedCustomFieldCreate$inboundSchema;
-  /** @deprecated use `AttachedCustomFieldCreate$outboundSchema` instead. */
-  export const outboundSchema = AttachedCustomFieldCreate$outboundSchema;
-  /** @deprecated use `AttachedCustomFieldCreate$Outbound` instead. */
-  export type Outbound = AttachedCustomFieldCreate$Outbound;
-}
-
 export function attachedCustomFieldCreateToJSON(
   attachedCustomFieldCreate: AttachedCustomFieldCreate,
 ): string {
   return JSON.stringify(
     AttachedCustomFieldCreate$outboundSchema.parse(attachedCustomFieldCreate),
-  );
-}
-
-export function attachedCustomFieldCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<AttachedCustomFieldCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AttachedCustomFieldCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AttachedCustomFieldCreate' from JSON`,
   );
 }

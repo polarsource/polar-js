@@ -52,34 +52,3 @@ export const PaymentError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type PaymentError$Outbound = {
-  error: "PaymentError";
-  detail: string;
-};
-
-/** @internal */
-export const PaymentError$outboundSchema: z.ZodType<
-  PaymentError$Outbound,
-  z.ZodTypeDef,
-  PaymentError
-> = z.instanceof(PaymentError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("PaymentError"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentError$ {
-  /** @deprecated use `PaymentError$inboundSchema` instead. */
-  export const inboundSchema = PaymentError$inboundSchema;
-  /** @deprecated use `PaymentError$outboundSchema` instead. */
-  export const outboundSchema = PaymentError$outboundSchema;
-  /** @deprecated use `PaymentError$Outbound` instead. */
-  export type Outbound = PaymentError$Outbound;
-}

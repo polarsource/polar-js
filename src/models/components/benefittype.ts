@@ -18,18 +18,6 @@ export type BenefitType = ClosedEnum<typeof BenefitType>;
 /** @internal */
 export const BenefitType$inboundSchema: z.ZodNativeEnum<typeof BenefitType> = z
   .nativeEnum(BenefitType);
-
 /** @internal */
 export const BenefitType$outboundSchema: z.ZodNativeEnum<typeof BenefitType> =
   BenefitType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitType$ {
-  /** @deprecated use `BenefitType$inboundSchema` instead. */
-  export const inboundSchema = BenefitType$inboundSchema;
-  /** @deprecated use `BenefitType$outboundSchema` instead. */
-  export const outboundSchema = BenefitType$outboundSchema;
-}

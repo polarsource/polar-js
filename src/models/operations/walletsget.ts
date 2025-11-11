@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type WalletsGetRequest = {
   /**
@@ -13,15 +10,6 @@ export type WalletsGetRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const WalletsGetRequest$inboundSchema: z.ZodType<
-  WalletsGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type WalletsGetRequest$Outbound = {
@@ -37,33 +25,10 @@ export const WalletsGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WalletsGetRequest$ {
-  /** @deprecated use `WalletsGetRequest$inboundSchema` instead. */
-  export const inboundSchema = WalletsGetRequest$inboundSchema;
-  /** @deprecated use `WalletsGetRequest$outboundSchema` instead. */
-  export const outboundSchema = WalletsGetRequest$outboundSchema;
-  /** @deprecated use `WalletsGetRequest$Outbound` instead. */
-  export type Outbound = WalletsGetRequest$Outbound;
-}
-
 export function walletsGetRequestToJSON(
   walletsGetRequest: WalletsGetRequest,
 ): string {
   return JSON.stringify(
     WalletsGetRequest$outboundSchema.parse(walletsGetRequest),
-  );
-}
-
-export function walletsGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<WalletsGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => WalletsGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WalletsGetRequest' from JSON`,
   );
 }

@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomerOrderUpdate,
-  CustomerOrderUpdate$inboundSchema,
   CustomerOrderUpdate$Outbound,
   CustomerOrderUpdate$outboundSchema,
 } from "../components/customerorderupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerPortalOrdersUpdateSecurity = {
   customerSession: string;
@@ -25,19 +21,6 @@ export type CustomerPortalOrdersUpdateRequest = {
   id: string;
   customerOrderUpdate: CustomerOrderUpdate;
 };
-
-/** @internal */
-export const CustomerPortalOrdersUpdateSecurity$inboundSchema: z.ZodType<
-  CustomerPortalOrdersUpdateSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
 
 /** @internal */
 export type CustomerPortalOrdersUpdateSecurity$Outbound = {
@@ -57,20 +40,6 @@ export const CustomerPortalOrdersUpdateSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersUpdateSecurity$ {
-  /** @deprecated use `CustomerPortalOrdersUpdateSecurity$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalOrdersUpdateSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersUpdateSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersUpdateSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersUpdateSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersUpdateSecurity$Outbound;
-}
-
 export function customerPortalOrdersUpdateSecurityToJSON(
   customerPortalOrdersUpdateSecurity: CustomerPortalOrdersUpdateSecurity,
 ): string {
@@ -80,31 +49,6 @@ export function customerPortalOrdersUpdateSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalOrdersUpdateSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalOrdersUpdateSecurity, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalOrdersUpdateSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersUpdateSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalOrdersUpdateRequest$inboundSchema: z.ZodType<
-  CustomerPortalOrdersUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  CustomerOrderUpdate: CustomerOrderUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "CustomerOrderUpdate": "customerOrderUpdate",
-  });
-});
 
 /** @internal */
 export type CustomerPortalOrdersUpdateRequest$Outbound = {
@@ -126,20 +70,6 @@ export const CustomerPortalOrdersUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalOrdersUpdateRequest$ {
-  /** @deprecated use `CustomerPortalOrdersUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalOrdersUpdateRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalOrdersUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalOrdersUpdateRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalOrdersUpdateRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalOrdersUpdateRequest$Outbound;
-}
-
 export function customerPortalOrdersUpdateRequestToJSON(
   customerPortalOrdersUpdateRequest: CustomerPortalOrdersUpdateRequest,
 ): string {
@@ -147,15 +77,5 @@ export function customerPortalOrdersUpdateRequestToJSON(
     CustomerPortalOrdersUpdateRequest$outboundSchema.parse(
       customerPortalOrdersUpdateRequest,
     ),
-  );
-}
-
-export function customerPortalOrdersUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalOrdersUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerPortalOrdersUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalOrdersUpdateRequest' from JSON`,
   );
 }

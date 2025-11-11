@@ -6,24 +6,9 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  MetricPeriod,
-  MetricPeriod$inboundSchema,
-  MetricPeriod$Outbound,
-  MetricPeriod$outboundSchema,
-} from "./metricperiod.js";
-import {
-  Metrics,
-  Metrics$inboundSchema,
-  Metrics$Outbound,
-  Metrics$outboundSchema,
-} from "./metrics.js";
-import {
-  MetricsTotals,
-  MetricsTotals$inboundSchema,
-  MetricsTotals$Outbound,
-  MetricsTotals$outboundSchema,
-} from "./metricstotals.js";
+import { MetricPeriod, MetricPeriod$inboundSchema } from "./metricperiod.js";
+import { Metrics, Metrics$inboundSchema } from "./metrics.js";
+import { MetricsTotals, MetricsTotals$inboundSchema } from "./metricstotals.js";
 
 /**
  * Metrics response schema.
@@ -47,43 +32,6 @@ export const MetricsResponse$inboundSchema: z.ZodType<
   totals: MetricsTotals$inboundSchema,
   metrics: Metrics$inboundSchema,
 });
-
-/** @internal */
-export type MetricsResponse$Outbound = {
-  periods: Array<MetricPeriod$Outbound>;
-  totals: MetricsTotals$Outbound;
-  metrics: Metrics$Outbound;
-};
-
-/** @internal */
-export const MetricsResponse$outboundSchema: z.ZodType<
-  MetricsResponse$Outbound,
-  z.ZodTypeDef,
-  MetricsResponse
-> = z.object({
-  periods: z.array(MetricPeriod$outboundSchema),
-  totals: MetricsTotals$outboundSchema,
-  metrics: Metrics$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MetricsResponse$ {
-  /** @deprecated use `MetricsResponse$inboundSchema` instead. */
-  export const inboundSchema = MetricsResponse$inboundSchema;
-  /** @deprecated use `MetricsResponse$outboundSchema` instead. */
-  export const outboundSchema = MetricsResponse$outboundSchema;
-  /** @deprecated use `MetricsResponse$Outbound` instead. */
-  export type Outbound = MetricsResponse$Outbound;
-}
-
-export function metricsResponseToJSON(
-  metricsResponse: MetricsResponse,
-): string {
-  return JSON.stringify(MetricsResponse$outboundSchema.parse(metricsResponse));
-}
 
 export function metricsResponseFromJSON(
   jsonString: string,

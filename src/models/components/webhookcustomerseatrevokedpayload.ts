@@ -36,7 +36,6 @@ export const WebhookCustomerSeatRevokedPayload$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: CustomerSeat$inboundSchema,
 });
-
 /** @internal */
 export type WebhookCustomerSeatRevokedPayload$Outbound = {
   type: "customer_seat.revoked";
@@ -55,20 +54,6 @@ export const WebhookCustomerSeatRevokedPayload$outboundSchema: z.ZodType<
   data: CustomerSeat$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookCustomerSeatRevokedPayload$ {
-  /** @deprecated use `WebhookCustomerSeatRevokedPayload$inboundSchema` instead. */
-  export const inboundSchema = WebhookCustomerSeatRevokedPayload$inboundSchema;
-  /** @deprecated use `WebhookCustomerSeatRevokedPayload$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookCustomerSeatRevokedPayload$outboundSchema;
-  /** @deprecated use `WebhookCustomerSeatRevokedPayload$Outbound` instead. */
-  export type Outbound = WebhookCustomerSeatRevokedPayload$Outbound;
-}
-
 export function webhookCustomerSeatRevokedPayloadToJSON(
   webhookCustomerSeatRevokedPayload: WebhookCustomerSeatRevokedPayload,
 ): string {
@@ -78,7 +63,6 @@ export function webhookCustomerSeatRevokedPayloadToJSON(
     ),
   );
 }
-
 export function webhookCustomerSeatRevokedPayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhookCustomerSeatRevokedPayload, SDKValidationError> {

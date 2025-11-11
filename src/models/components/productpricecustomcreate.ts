@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Schema to create a pay-what-you-want price.
@@ -30,27 +27,6 @@ export type ProductPriceCustomCreate = {
    */
   presetAmount?: number | null | undefined;
 };
-
-/** @internal */
-export const ProductPriceCustomCreate$inboundSchema: z.ZodType<
-  ProductPriceCustomCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  amount_type: z.literal("custom"),
-  price_currency: z.string().default("usd"),
-  minimum_amount: z.nullable(z.number().int()).optional(),
-  maximum_amount: z.nullable(z.number().int()).optional(),
-  preset_amount: z.nullable(z.number().int()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "amount_type": "amountType",
-    "price_currency": "priceCurrency",
-    "minimum_amount": "minimumAmount",
-    "maximum_amount": "maximumAmount",
-    "preset_amount": "presetAmount",
-  });
-});
 
 /** @internal */
 export type ProductPriceCustomCreate$Outbound = {
@@ -82,33 +58,10 @@ export const ProductPriceCustomCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceCustomCreate$ {
-  /** @deprecated use `ProductPriceCustomCreate$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceCustomCreate$inboundSchema;
-  /** @deprecated use `ProductPriceCustomCreate$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceCustomCreate$outboundSchema;
-  /** @deprecated use `ProductPriceCustomCreate$Outbound` instead. */
-  export type Outbound = ProductPriceCustomCreate$Outbound;
-}
-
 export function productPriceCustomCreateToJSON(
   productPriceCustomCreate: ProductPriceCustomCreate,
 ): string {
   return JSON.stringify(
     ProductPriceCustomCreate$outboundSchema.parse(productPriceCustomCreate),
-  );
-}
-
-export function productPriceCustomCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductPriceCustomCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductPriceCustomCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductPriceCustomCreate' from JSON`,
   );
 }

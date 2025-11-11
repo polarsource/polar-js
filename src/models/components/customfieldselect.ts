@@ -55,7 +55,6 @@ export const CustomFieldSelectMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type CustomFieldSelectMetadata$Outbound =
   | string
@@ -70,19 +69,6 @@ export const CustomFieldSelectMetadata$outboundSchema: z.ZodType<
   CustomFieldSelectMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldSelectMetadata$ {
-  /** @deprecated use `CustomFieldSelectMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldSelectMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldSelectMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldSelectMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldSelectMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldSelectMetadata$Outbound;
-}
-
 export function customFieldSelectMetadataToJSON(
   customFieldSelectMetadata: CustomFieldSelectMetadata,
 ): string {
@@ -90,7 +76,6 @@ export function customFieldSelectMetadataToJSON(
     CustomFieldSelectMetadata$outboundSchema.parse(customFieldSelectMetadata),
   );
 }
-
 export function customFieldSelectMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldSelectMetadata, SDKValidationError> {
@@ -127,7 +112,6 @@ export const CustomFieldSelect$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type CustomFieldSelect$Outbound = {
   created_at: string;
@@ -166,19 +150,6 @@ export const CustomFieldSelect$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldSelect$ {
-  /** @deprecated use `CustomFieldSelect$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldSelect$inboundSchema;
-  /** @deprecated use `CustomFieldSelect$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldSelect$outboundSchema;
-  /** @deprecated use `CustomFieldSelect$Outbound` instead. */
-  export type Outbound = CustomFieldSelect$Outbound;
-}
-
 export function customFieldSelectToJSON(
   customFieldSelect: CustomFieldSelect,
 ): string {
@@ -186,7 +157,6 @@ export function customFieldSelectToJSON(
     CustomFieldSelect$outboundSchema.parse(customFieldSelect),
   );
 }
-
 export function customFieldSelectFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldSelect, SDKValidationError> {

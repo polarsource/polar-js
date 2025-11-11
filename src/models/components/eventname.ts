@@ -7,11 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  EventSource,
-  EventSource$inboundSchema,
-  EventSource$outboundSchema,
-} from "./eventsource.js";
+import { EventSource, EventSource$inboundSchema } from "./eventsource.js";
 
 export type EventName = {
   /**
@@ -50,50 +46,6 @@ export const EventName$inboundSchema: z.ZodType<
     "last_seen": "lastSeen",
   });
 });
-
-/** @internal */
-export type EventName$Outbound = {
-  name: string;
-  source: string;
-  occurrences: number;
-  first_seen: string;
-  last_seen: string;
-};
-
-/** @internal */
-export const EventName$outboundSchema: z.ZodType<
-  EventName$Outbound,
-  z.ZodTypeDef,
-  EventName
-> = z.object({
-  name: z.string(),
-  source: EventSource$outboundSchema,
-  occurrences: z.number().int(),
-  firstSeen: z.date().transform(v => v.toISOString()),
-  lastSeen: z.date().transform(v => v.toISOString()),
-}).transform((v) => {
-  return remap$(v, {
-    firstSeen: "first_seen",
-    lastSeen: "last_seen",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventName$ {
-  /** @deprecated use `EventName$inboundSchema` instead. */
-  export const inboundSchema = EventName$inboundSchema;
-  /** @deprecated use `EventName$outboundSchema` instead. */
-  export const outboundSchema = EventName$outboundSchema;
-  /** @deprecated use `EventName$Outbound` instead. */
-  export type Outbound = EventName$Outbound;
-}
-
-export function eventNameToJSON(eventName: EventName): string {
-  return JSON.stringify(EventName$outboundSchema.parse(eventName));
-}
 
 export function eventNameFromJSON(
   jsonString: string,

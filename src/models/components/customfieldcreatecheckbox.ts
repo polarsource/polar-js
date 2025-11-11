@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldCheckboxProperties,
-  CustomFieldCheckboxProperties$inboundSchema,
   CustomFieldCheckboxProperties$Outbound,
   CustomFieldCheckboxProperties$outboundSchema,
 } from "./customfieldcheckboxproperties.js";
@@ -57,13 +53,6 @@ export type CustomFieldCreateCheckbox = {
 };
 
 /** @internal */
-export const CustomFieldCreateCheckboxMetadata$inboundSchema: z.ZodType<
-  CustomFieldCreateCheckboxMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type CustomFieldCreateCheckboxMetadata$Outbound =
   | string
   | number
@@ -77,20 +66,6 @@ export const CustomFieldCreateCheckboxMetadata$outboundSchema: z.ZodType<
   CustomFieldCreateCheckboxMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateCheckboxMetadata$ {
-  /** @deprecated use `CustomFieldCreateCheckboxMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateCheckboxMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldCreateCheckboxMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomFieldCreateCheckboxMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldCreateCheckboxMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldCreateCheckboxMetadata$Outbound;
-}
-
 export function customFieldCreateCheckboxMetadataToJSON(
   customFieldCreateCheckboxMetadata: CustomFieldCreateCheckboxMetadata,
 ): string {
@@ -100,36 +75,6 @@ export function customFieldCreateCheckboxMetadataToJSON(
     ),
   );
 }
-
-export function customFieldCreateCheckboxMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldCreateCheckboxMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldCreateCheckboxMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldCreateCheckboxMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomFieldCreateCheckbox$inboundSchema: z.ZodType<
-  CustomFieldCreateCheckbox,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  type: z.literal("checkbox"),
-  slug: z.string(),
-  name: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  properties: CustomFieldCheckboxProperties$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type CustomFieldCreateCheckbox$Outbound = {
@@ -161,33 +106,10 @@ export const CustomFieldCreateCheckbox$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateCheckbox$ {
-  /** @deprecated use `CustomFieldCreateCheckbox$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateCheckbox$inboundSchema;
-  /** @deprecated use `CustomFieldCreateCheckbox$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateCheckbox$outboundSchema;
-  /** @deprecated use `CustomFieldCreateCheckbox$Outbound` instead. */
-  export type Outbound = CustomFieldCreateCheckbox$Outbound;
-}
-
 export function customFieldCreateCheckboxToJSON(
   customFieldCreateCheckbox: CustomFieldCreateCheckbox,
 ): string {
   return JSON.stringify(
     CustomFieldCreateCheckbox$outboundSchema.parse(customFieldCreateCheckbox),
-  );
-}
-
-export function customFieldCreateCheckboxFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldCreateCheckbox, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldCreateCheckbox$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldCreateCheckbox' from JSON`,
   );
 }

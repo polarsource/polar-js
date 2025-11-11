@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  EventName,
-  EventName$inboundSchema,
-  EventName$Outbound,
-  EventName$outboundSchema,
-} from "./eventname.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { EventName, EventName$inboundSchema } from "./eventname.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceEventName = {
   items: Array<EventName>;
@@ -33,43 +23,6 @@ export const ListResourceEventName$inboundSchema: z.ZodType<
   items: z.array(EventName$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceEventName$Outbound = {
-  items: Array<EventName$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceEventName$outboundSchema: z.ZodType<
-  ListResourceEventName$Outbound,
-  z.ZodTypeDef,
-  ListResourceEventName
-> = z.object({
-  items: z.array(EventName$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceEventName$ {
-  /** @deprecated use `ListResourceEventName$inboundSchema` instead. */
-  export const inboundSchema = ListResourceEventName$inboundSchema;
-  /** @deprecated use `ListResourceEventName$outboundSchema` instead. */
-  export const outboundSchema = ListResourceEventName$outboundSchema;
-  /** @deprecated use `ListResourceEventName$Outbound` instead. */
-  export type Outbound = ListResourceEventName$Outbound;
-}
-
-export function listResourceEventNameToJSON(
-  listResourceEventName: ListResourceEventName,
-): string {
-  return JSON.stringify(
-    ListResourceEventName$outboundSchema.parse(listResourceEventName),
-  );
-}
 
 export function listResourceEventNameFromJSON(
   jsonString: string,

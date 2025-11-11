@@ -7,17 +7,10 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Customer,
-  Customer$inboundSchema,
-  Customer$Outbound,
-  Customer$outboundSchema,
-} from "./customer.js";
+import { Customer, Customer$inboundSchema } from "./customer.js";
 import {
   SubscriptionCycledMetadata,
   SubscriptionCycledMetadata$inboundSchema,
-  SubscriptionCycledMetadata$Outbound,
-  SubscriptionCycledMetadata$outboundSchema,
 } from "./subscriptioncycledmetadata.js";
 
 /**
@@ -93,69 +86,6 @@ export const SubscriptionCycledEvent$inboundSchema: z.ZodType<
     "parent_id": "parentId",
   });
 });
-
-/** @internal */
-export type SubscriptionCycledEvent$Outbound = {
-  id: string;
-  timestamp: string;
-  organization_id: string;
-  customer_id: string | null;
-  customer: Customer$Outbound | null;
-  external_customer_id: string | null;
-  child_count: number;
-  parent_id?: string | null | undefined;
-  source: "system";
-  name: "subscription.cycled";
-  metadata: SubscriptionCycledMetadata$Outbound;
-};
-
-/** @internal */
-export const SubscriptionCycledEvent$outboundSchema: z.ZodType<
-  SubscriptionCycledEvent$Outbound,
-  z.ZodTypeDef,
-  SubscriptionCycledEvent
-> = z.object({
-  id: z.string(),
-  timestamp: z.date().transform(v => v.toISOString()),
-  organizationId: z.string(),
-  customerId: z.nullable(z.string()),
-  customer: z.nullable(Customer$outboundSchema),
-  externalCustomerId: z.nullable(z.string()),
-  childCount: z.number().int().default(0),
-  parentId: z.nullable(z.string()).optional(),
-  source: z.literal("system"),
-  name: z.literal("subscription.cycled"),
-  metadata: SubscriptionCycledMetadata$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    organizationId: "organization_id",
-    customerId: "customer_id",
-    externalCustomerId: "external_customer_id",
-    childCount: "child_count",
-    parentId: "parent_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionCycledEvent$ {
-  /** @deprecated use `SubscriptionCycledEvent$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionCycledEvent$inboundSchema;
-  /** @deprecated use `SubscriptionCycledEvent$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionCycledEvent$outboundSchema;
-  /** @deprecated use `SubscriptionCycledEvent$Outbound` instead. */
-  export type Outbound = SubscriptionCycledEvent$Outbound;
-}
-
-export function subscriptionCycledEventToJSON(
-  subscriptionCycledEvent: SubscriptionCycledEvent,
-): string {
-  return JSON.stringify(
-    SubscriptionCycledEvent$outboundSchema.parse(subscriptionCycledEvent),
-  );
-}
 
 export function subscriptionCycledEventFromJSON(
   jsonString: string,

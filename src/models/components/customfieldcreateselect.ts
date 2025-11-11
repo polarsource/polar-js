@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldSelectProperties,
-  CustomFieldSelectProperties$inboundSchema,
   CustomFieldSelectProperties$Outbound,
   CustomFieldSelectProperties$outboundSchema,
 } from "./customfieldselectproperties.js";
@@ -57,13 +53,6 @@ export type CustomFieldCreateSelect = {
 };
 
 /** @internal */
-export const CustomFieldCreateSelectMetadata$inboundSchema: z.ZodType<
-  CustomFieldCreateSelectMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type CustomFieldCreateSelectMetadata$Outbound =
   | string
   | number
@@ -77,19 +66,6 @@ export const CustomFieldCreateSelectMetadata$outboundSchema: z.ZodType<
   CustomFieldCreateSelectMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateSelectMetadata$ {
-  /** @deprecated use `CustomFieldCreateSelectMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateSelectMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldCreateSelectMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateSelectMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldCreateSelectMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldCreateSelectMetadata$Outbound;
-}
-
 export function customFieldCreateSelectMetadataToJSON(
   customFieldCreateSelectMetadata: CustomFieldCreateSelectMetadata,
 ): string {
@@ -99,36 +75,6 @@ export function customFieldCreateSelectMetadataToJSON(
     ),
   );
 }
-
-export function customFieldCreateSelectMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldCreateSelectMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldCreateSelectMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldCreateSelectMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomFieldCreateSelect$inboundSchema: z.ZodType<
-  CustomFieldCreateSelect,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  type: z.literal("select"),
-  slug: z.string(),
-  name: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  properties: CustomFieldSelectProperties$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type CustomFieldCreateSelect$Outbound = {
@@ -160,33 +106,10 @@ export const CustomFieldCreateSelect$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateSelect$ {
-  /** @deprecated use `CustomFieldCreateSelect$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateSelect$inboundSchema;
-  /** @deprecated use `CustomFieldCreateSelect$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateSelect$outboundSchema;
-  /** @deprecated use `CustomFieldCreateSelect$Outbound` instead. */
-  export type Outbound = CustomFieldCreateSelect$Outbound;
-}
-
 export function customFieldCreateSelectToJSON(
   customFieldCreateSelect: CustomFieldCreateSelect,
 ): string {
   return JSON.stringify(
     CustomFieldCreateSelect$outboundSchema.parse(customFieldCreateSelect),
-  );
-}
-
-export function customFieldCreateSelectFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldCreateSelect, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldCreateSelect$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldCreateSelect' from JSON`,
   );
 }

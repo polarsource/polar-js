@@ -52,34 +52,3 @@ export const RefundAmountTooHigh$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type RefundAmountTooHigh$Outbound = {
-  error: "RefundAmountTooHigh";
-  detail: string;
-};
-
-/** @internal */
-export const RefundAmountTooHigh$outboundSchema: z.ZodType<
-  RefundAmountTooHigh$Outbound,
-  z.ZodTypeDef,
-  RefundAmountTooHigh
-> = z.instanceof(RefundAmountTooHigh)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("RefundAmountTooHigh"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RefundAmountTooHigh$ {
-  /** @deprecated use `RefundAmountTooHigh$inboundSchema` instead. */
-  export const inboundSchema = RefundAmountTooHigh$inboundSchema;
-  /** @deprecated use `RefundAmountTooHigh$outboundSchema` instead. */
-  export const outboundSchema = RefundAmountTooHigh$outboundSchema;
-  /** @deprecated use `RefundAmountTooHigh$Outbound` instead. */
-  export type Outbound = RefundAmountTooHigh$Outbound;
-}

@@ -82,7 +82,6 @@ export const DiscountPercentageRepeatDurationBaseMetadata$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type DiscountPercentageRepeatDurationBaseMetadata$Outbound =
   | string
@@ -98,21 +97,6 @@ export const DiscountPercentageRepeatDurationBaseMetadata$outboundSchema:
     DiscountPercentageRepeatDurationBaseMetadata
   > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountPercentageRepeatDurationBaseMetadata$ {
-  /** @deprecated use `DiscountPercentageRepeatDurationBaseMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountPercentageRepeatDurationBaseMetadata$inboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDurationBaseMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountPercentageRepeatDurationBaseMetadata$outboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDurationBaseMetadata$Outbound` instead. */
-  export type Outbound = DiscountPercentageRepeatDurationBaseMetadata$Outbound;
-}
-
 export function discountPercentageRepeatDurationBaseMetadataToJSON(
   discountPercentageRepeatDurationBaseMetadata:
     DiscountPercentageRepeatDurationBaseMetadata,
@@ -123,7 +107,6 @@ export function discountPercentageRepeatDurationBaseMetadataToJSON(
     ),
   );
 }
-
 export function discountPercentageRepeatDurationBaseMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -182,7 +165,6 @@ export const DiscountPercentageRepeatDurationBase$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type DiscountPercentageRepeatDurationBase$Outbound = {
   duration: string;
@@ -239,21 +221,6 @@ export const DiscountPercentageRepeatDurationBase$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountPercentageRepeatDurationBase$ {
-  /** @deprecated use `DiscountPercentageRepeatDurationBase$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountPercentageRepeatDurationBase$inboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDurationBase$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountPercentageRepeatDurationBase$outboundSchema;
-  /** @deprecated use `DiscountPercentageRepeatDurationBase$Outbound` instead. */
-  export type Outbound = DiscountPercentageRepeatDurationBase$Outbound;
-}
-
 export function discountPercentageRepeatDurationBaseToJSON(
   discountPercentageRepeatDurationBase: DiscountPercentageRepeatDurationBase,
 ): string {
@@ -263,7 +230,6 @@ export function discountPercentageRepeatDurationBaseToJSON(
     ),
   );
 }
-
 export function discountPercentageRepeatDurationBaseFromJSON(
   jsonString: string,
 ): SafeParseResult<DiscountPercentageRepeatDurationBase, SDKValidationError> {

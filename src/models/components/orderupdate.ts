@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AddressInput,
-  AddressInput$inboundSchema,
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
@@ -27,21 +23,6 @@ export type OrderUpdate = {
    */
   billingAddress: AddressInput | null;
 };
-
-/** @internal */
-export const OrderUpdate$inboundSchema: z.ZodType<
-  OrderUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  billing_name: z.nullable(z.string()),
-  billing_address: z.nullable(AddressInput$inboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    "billing_name": "billingName",
-    "billing_address": "billingAddress",
-  });
-});
 
 /** @internal */
 export type OrderUpdate$Outbound = {
@@ -64,29 +45,6 @@ export const OrderUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderUpdate$ {
-  /** @deprecated use `OrderUpdate$inboundSchema` instead. */
-  export const inboundSchema = OrderUpdate$inboundSchema;
-  /** @deprecated use `OrderUpdate$outboundSchema` instead. */
-  export const outboundSchema = OrderUpdate$outboundSchema;
-  /** @deprecated use `OrderUpdate$Outbound` instead. */
-  export type Outbound = OrderUpdate$Outbound;
-}
-
 export function orderUpdateToJSON(orderUpdate: OrderUpdate): string {
   return JSON.stringify(OrderUpdate$outboundSchema.parse(orderUpdate));
-}
-
-export function orderUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<OrderUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrderUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrderUpdate' from JSON`,
-  );
 }

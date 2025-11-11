@@ -10,14 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   FileServiceTypes,
   FileServiceTypes$inboundSchema,
-  FileServiceTypes$outboundSchema,
 } from "./fileservicetypes.js";
-import {
-  S3DownloadURL,
-  S3DownloadURL$inboundSchema,
-  S3DownloadURL$Outbound,
-  S3DownloadURL$outboundSchema,
-} from "./s3downloadurl.js";
+import { S3DownloadURL, S3DownloadURL$inboundSchema } from "./s3downloadurl.js";
 
 export type FileDownload = {
   /**
@@ -78,79 +72,6 @@ export const FileDownload$inboundSchema: z.ZodType<
     "size_readable": "sizeReadable",
   });
 });
-
-/** @internal */
-export type FileDownload$Outbound = {
-  id: string;
-  organization_id: string;
-  name: string;
-  path: string;
-  mime_type: string;
-  size: number;
-  storage_version: string | null;
-  checksum_etag: string | null;
-  checksum_sha256_base64: string | null;
-  checksum_sha256_hex: string | null;
-  last_modified_at: string | null;
-  download: S3DownloadURL$Outbound;
-  version: string | null;
-  is_uploaded: boolean;
-  service: string;
-  size_readable: string;
-};
-
-/** @internal */
-export const FileDownload$outboundSchema: z.ZodType<
-  FileDownload$Outbound,
-  z.ZodTypeDef,
-  FileDownload
-> = z.object({
-  id: z.string(),
-  organizationId: z.string(),
-  name: z.string(),
-  path: z.string(),
-  mimeType: z.string(),
-  size: z.number().int(),
-  storageVersion: z.nullable(z.string()),
-  checksumEtag: z.nullable(z.string()),
-  checksumSha256Base64: z.nullable(z.string()),
-  checksumSha256Hex: z.nullable(z.string()),
-  lastModifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  download: S3DownloadURL$outboundSchema,
-  version: z.nullable(z.string()),
-  isUploaded: z.boolean(),
-  service: FileServiceTypes$outboundSchema,
-  sizeReadable: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    organizationId: "organization_id",
-    mimeType: "mime_type",
-    storageVersion: "storage_version",
-    checksumEtag: "checksum_etag",
-    checksumSha256Base64: "checksum_sha256_base64",
-    checksumSha256Hex: "checksum_sha256_hex",
-    lastModifiedAt: "last_modified_at",
-    isUploaded: "is_uploaded",
-    sizeReadable: "size_readable",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FileDownload$ {
-  /** @deprecated use `FileDownload$inboundSchema` instead. */
-  export const inboundSchema = FileDownload$inboundSchema;
-  /** @deprecated use `FileDownload$outboundSchema` instead. */
-  export const outboundSchema = FileDownload$outboundSchema;
-  /** @deprecated use `FileDownload$Outbound` instead. */
-  export type Outbound = FileDownload$Outbound;
-}
-
-export function fileDownloadToJSON(fileDownload: FileDownload): string {
-  return JSON.stringify(FileDownload$outboundSchema.parse(fileDownload));
-}
 
 export function fileDownloadFromJSON(
   jsonString: string,

@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Checkout,
-  Checkout$inboundSchema,
-  Checkout$Outbound,
-  Checkout$outboundSchema,
-} from "./checkout.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Checkout, Checkout$inboundSchema } from "./checkout.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceCheckout = {
   items: Array<Checkout>;
@@ -33,43 +23,6 @@ export const ListResourceCheckout$inboundSchema: z.ZodType<
   items: z.array(Checkout$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceCheckout$Outbound = {
-  items: Array<Checkout$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceCheckout$outboundSchema: z.ZodType<
-  ListResourceCheckout$Outbound,
-  z.ZodTypeDef,
-  ListResourceCheckout
-> = z.object({
-  items: z.array(Checkout$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceCheckout$ {
-  /** @deprecated use `ListResourceCheckout$inboundSchema` instead. */
-  export const inboundSchema = ListResourceCheckout$inboundSchema;
-  /** @deprecated use `ListResourceCheckout$outboundSchema` instead. */
-  export const outboundSchema = ListResourceCheckout$outboundSchema;
-  /** @deprecated use `ListResourceCheckout$Outbound` instead. */
-  export type Outbound = ListResourceCheckout$Outbound;
-}
-
-export function listResourceCheckoutToJSON(
-  listResourceCheckout: ListResourceCheckout,
-): string {
-  return JSON.stringify(
-    ListResourceCheckout$outboundSchema.parse(listResourceCheckout),
-  );
-}
 
 export function listResourceCheckoutFromJSON(
   jsonString: string,

@@ -34,54 +34,6 @@ export const PaymentMethodCardMetadata$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type PaymentMethodCardMetadata$Outbound = {
-  brand: string;
-  last4: string;
-  exp_month: number;
-  exp_year: number;
-  wallet?: string | null | undefined;
-};
-
-/** @internal */
-export const PaymentMethodCardMetadata$outboundSchema: z.ZodType<
-  PaymentMethodCardMetadata$Outbound,
-  z.ZodTypeDef,
-  PaymentMethodCardMetadata
-> = z.object({
-  brand: z.string(),
-  last4: z.string(),
-  expMonth: z.number().int(),
-  expYear: z.number().int(),
-  wallet: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    expMonth: "exp_month",
-    expYear: "exp_year",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PaymentMethodCardMetadata$ {
-  /** @deprecated use `PaymentMethodCardMetadata$inboundSchema` instead. */
-  export const inboundSchema = PaymentMethodCardMetadata$inboundSchema;
-  /** @deprecated use `PaymentMethodCardMetadata$outboundSchema` instead. */
-  export const outboundSchema = PaymentMethodCardMetadata$outboundSchema;
-  /** @deprecated use `PaymentMethodCardMetadata$Outbound` instead. */
-  export type Outbound = PaymentMethodCardMetadata$Outbound;
-}
-
-export function paymentMethodCardMetadataToJSON(
-  paymentMethodCardMetadata: PaymentMethodCardMetadata,
-): string {
-  return JSON.stringify(
-    PaymentMethodCardMetadata$outboundSchema.parse(paymentMethodCardMetadata),
-  );
-}
-
 export function paymentMethodCardMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<PaymentMethodCardMetadata, SDKValidationError> {

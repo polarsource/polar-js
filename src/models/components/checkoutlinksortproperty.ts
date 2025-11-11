@@ -20,22 +20,6 @@ export type CheckoutLinkSortProperty = ClosedEnum<
 >;
 
 /** @internal */
-export const CheckoutLinkSortProperty$inboundSchema: z.ZodNativeEnum<
-  typeof CheckoutLinkSortProperty
-> = z.nativeEnum(CheckoutLinkSortProperty);
-
-/** @internal */
 export const CheckoutLinkSortProperty$outboundSchema: z.ZodNativeEnum<
   typeof CheckoutLinkSortProperty
-> = CheckoutLinkSortProperty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkSortProperty$ {
-  /** @deprecated use `CheckoutLinkSortProperty$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkSortProperty$inboundSchema;
-  /** @deprecated use `CheckoutLinkSortProperty$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinkSortProperty$outboundSchema;
-}
+> = z.nativeEnum(CheckoutLinkSortProperty);

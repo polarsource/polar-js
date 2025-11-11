@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerBenefitGrantDownloadablesUpdate = {
   benefitType: "downloadables";
 };
-
-/** @internal */
-export const CustomerBenefitGrantDownloadablesUpdate$inboundSchema: z.ZodType<
-  CustomerBenefitGrantDownloadablesUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  benefit_type: z.literal("downloadables"),
-}).transform((v) => {
-  return remap$(v, {
-    "benefit_type": "benefitType",
-  });
-});
 
 /** @internal */
 export type CustomerBenefitGrantDownloadablesUpdate$Outbound = {
@@ -43,21 +27,6 @@ export const CustomerBenefitGrantDownloadablesUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantDownloadablesUpdate$ {
-  /** @deprecated use `CustomerBenefitGrantDownloadablesUpdate$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerBenefitGrantDownloadablesUpdate$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDownloadablesUpdate$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantDownloadablesUpdate$outboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDownloadablesUpdate$Outbound` instead. */
-  export type Outbound = CustomerBenefitGrantDownloadablesUpdate$Outbound;
-}
-
 export function customerBenefitGrantDownloadablesUpdateToJSON(
   customerBenefitGrantDownloadablesUpdate:
     CustomerBenefitGrantDownloadablesUpdate,
@@ -66,21 +35,5 @@ export function customerBenefitGrantDownloadablesUpdateToJSON(
     CustomerBenefitGrantDownloadablesUpdate$outboundSchema.parse(
       customerBenefitGrantDownloadablesUpdate,
     ),
-  );
-}
-
-export function customerBenefitGrantDownloadablesUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerBenefitGrantDownloadablesUpdate,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerBenefitGrantDownloadablesUpdate$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerBenefitGrantDownloadablesUpdate' from JSON`,
   );
 }

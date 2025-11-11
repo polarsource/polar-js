@@ -61,7 +61,6 @@ export const Benefit$inboundSchema: z.ZodType<Benefit, z.ZodTypeDef, unknown> =
     BenefitLicenseKeys$inboundSchema,
     BenefitMeterCredit$inboundSchema,
   ]);
-
 /** @internal */
 export type Benefit$Outbound =
   | BenefitCustom$Outbound
@@ -85,23 +84,9 @@ export const Benefit$outboundSchema: z.ZodType<
   BenefitMeterCredit$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Benefit$ {
-  /** @deprecated use `Benefit$inboundSchema` instead. */
-  export const inboundSchema = Benefit$inboundSchema;
-  /** @deprecated use `Benefit$outboundSchema` instead. */
-  export const outboundSchema = Benefit$outboundSchema;
-  /** @deprecated use `Benefit$Outbound` instead. */
-  export type Outbound = Benefit$Outbound;
-}
-
 export function benefitToJSON(benefit: Benefit): string {
   return JSON.stringify(Benefit$outboundSchema.parse(benefit));
 }
-
 export function benefitFromJSON(
   jsonString: string,
 ): SafeParseResult<Benefit, SDKValidationError> {

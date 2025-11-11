@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CheckoutLinksDeleteRequest = {
   /**
@@ -13,15 +10,6 @@ export type CheckoutLinksDeleteRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const CheckoutLinksDeleteRequest$inboundSchema: z.ZodType<
-  CheckoutLinksDeleteRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type CheckoutLinksDeleteRequest$Outbound = {
@@ -37,33 +25,10 @@ export const CheckoutLinksDeleteRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinksDeleteRequest$ {
-  /** @deprecated use `CheckoutLinksDeleteRequest$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinksDeleteRequest$inboundSchema;
-  /** @deprecated use `CheckoutLinksDeleteRequest$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinksDeleteRequest$outboundSchema;
-  /** @deprecated use `CheckoutLinksDeleteRequest$Outbound` instead. */
-  export type Outbound = CheckoutLinksDeleteRequest$Outbound;
-}
-
 export function checkoutLinksDeleteRequestToJSON(
   checkoutLinksDeleteRequest: CheckoutLinksDeleteRequest,
 ): string {
   return JSON.stringify(
     CheckoutLinksDeleteRequest$outboundSchema.parse(checkoutLinksDeleteRequest),
-  );
-}
-
-export function checkoutLinksDeleteRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutLinksDeleteRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutLinksDeleteRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutLinksDeleteRequest' from JSON`,
   );
 }

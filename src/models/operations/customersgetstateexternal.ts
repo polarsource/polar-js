@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomersGetStateExternalRequest = {
   /**
@@ -14,19 +11,6 @@ export type CustomersGetStateExternalRequest = {
    */
   externalId: string;
 };
-
-/** @internal */
-export const CustomersGetStateExternalRequest$inboundSchema: z.ZodType<
-  CustomersGetStateExternalRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  external_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "external_id": "externalId",
-  });
-});
 
 /** @internal */
 export type CustomersGetStateExternalRequest$Outbound = {
@@ -46,19 +30,6 @@ export const CustomersGetStateExternalRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomersGetStateExternalRequest$ {
-  /** @deprecated use `CustomersGetStateExternalRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomersGetStateExternalRequest$inboundSchema;
-  /** @deprecated use `CustomersGetStateExternalRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomersGetStateExternalRequest$outboundSchema;
-  /** @deprecated use `CustomersGetStateExternalRequest$Outbound` instead. */
-  export type Outbound = CustomersGetStateExternalRequest$Outbound;
-}
-
 export function customersGetStateExternalRequestToJSON(
   customersGetStateExternalRequest: CustomersGetStateExternalRequest,
 ): string {
@@ -66,15 +37,5 @@ export function customersGetStateExternalRequestToJSON(
     CustomersGetStateExternalRequest$outboundSchema.parse(
       customersGetStateExternalRequest,
     ),
-  );
-}
-
-export function customersGetStateExternalRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomersGetStateExternalRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomersGetStateExternalRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomersGetStateExternalRequest' from JSON`,
   );
 }

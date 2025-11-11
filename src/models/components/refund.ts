@@ -52,7 +52,6 @@ export const RefundMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type RefundMetadata$Outbound = string | number | number | boolean;
 
@@ -63,23 +62,9 @@ export const RefundMetadata$outboundSchema: z.ZodType<
   RefundMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RefundMetadata$ {
-  /** @deprecated use `RefundMetadata$inboundSchema` instead. */
-  export const inboundSchema = RefundMetadata$inboundSchema;
-  /** @deprecated use `RefundMetadata$outboundSchema` instead. */
-  export const outboundSchema = RefundMetadata$outboundSchema;
-  /** @deprecated use `RefundMetadata$Outbound` instead. */
-  export type Outbound = RefundMetadata$Outbound;
-}
-
 export function refundMetadataToJSON(refundMetadata: RefundMetadata): string {
   return JSON.stringify(RefundMetadata$outboundSchema.parse(refundMetadata));
 }
-
 export function refundMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<RefundMetadata, SDKValidationError> {
@@ -125,7 +110,6 @@ export const Refund$inboundSchema: z.ZodType<Refund, z.ZodTypeDef, unknown> = z
       "revoke_benefits": "revokeBenefits",
     });
   });
-
 /** @internal */
 export type Refund$Outbound = {
   created_at: string;
@@ -179,23 +163,9 @@ export const Refund$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Refund$ {
-  /** @deprecated use `Refund$inboundSchema` instead. */
-  export const inboundSchema = Refund$inboundSchema;
-  /** @deprecated use `Refund$outboundSchema` instead. */
-  export const outboundSchema = Refund$outboundSchema;
-  /** @deprecated use `Refund$Outbound` instead. */
-  export type Outbound = Refund$Outbound;
-}
-
 export function refundToJSON(refund: Refund): string {
   return JSON.stringify(Refund$outboundSchema.parse(refund));
 }
-
 export function refundFromJSON(
   jsonString: string,
 ): SafeParseResult<Refund, SDKValidationError> {

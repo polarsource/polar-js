@@ -25,50 +25,6 @@ export const BenefitDownloadablesSubscriberProperties$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type BenefitDownloadablesSubscriberProperties$Outbound = {
-  active_files: Array<string>;
-};
-
-/** @internal */
-export const BenefitDownloadablesSubscriberProperties$outboundSchema: z.ZodType<
-  BenefitDownloadablesSubscriberProperties$Outbound,
-  z.ZodTypeDef,
-  BenefitDownloadablesSubscriberProperties
-> = z.object({
-  activeFiles: z.array(z.string()),
-}).transform((v) => {
-  return remap$(v, {
-    activeFiles: "active_files",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDownloadablesSubscriberProperties$ {
-  /** @deprecated use `BenefitDownloadablesSubscriberProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitDownloadablesSubscriberProperties$inboundSchema;
-  /** @deprecated use `BenefitDownloadablesSubscriberProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitDownloadablesSubscriberProperties$outboundSchema;
-  /** @deprecated use `BenefitDownloadablesSubscriberProperties$Outbound` instead. */
-  export type Outbound = BenefitDownloadablesSubscriberProperties$Outbound;
-}
-
-export function benefitDownloadablesSubscriberPropertiesToJSON(
-  benefitDownloadablesSubscriberProperties:
-    BenefitDownloadablesSubscriberProperties,
-): string {
-  return JSON.stringify(
-    BenefitDownloadablesSubscriberProperties$outboundSchema.parse(
-      benefitDownloadablesSubscriberProperties,
-    ),
-  );
-}
-
 export function benefitDownloadablesSubscriberPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<

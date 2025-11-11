@@ -14,22 +14,6 @@ export const RefundSortProperty = {
 export type RefundSortProperty = ClosedEnum<typeof RefundSortProperty>;
 
 /** @internal */
-export const RefundSortProperty$inboundSchema: z.ZodNativeEnum<
-  typeof RefundSortProperty
-> = z.nativeEnum(RefundSortProperty);
-
-/** @internal */
 export const RefundSortProperty$outboundSchema: z.ZodNativeEnum<
   typeof RefundSortProperty
-> = RefundSortProperty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RefundSortProperty$ {
-  /** @deprecated use `RefundSortProperty$inboundSchema` instead. */
-  export const inboundSchema = RefundSortProperty$inboundSchema;
-  /** @deprecated use `RefundSortProperty$outboundSchema` instead. */
-  export const outboundSchema = RefundSortProperty$outboundSchema;
-}
+> = z.nativeEnum(RefundSortProperty);

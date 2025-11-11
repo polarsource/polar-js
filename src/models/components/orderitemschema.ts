@@ -70,7 +70,6 @@ export const OrderItemSchema$inboundSchema: z.ZodType<
     "product_price_id": "productPriceId",
   });
 });
-
 /** @internal */
 export type OrderItemSchema$Outbound = {
   created_at: string;
@@ -106,25 +105,11 @@ export const OrderItemSchema$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderItemSchema$ {
-  /** @deprecated use `OrderItemSchema$inboundSchema` instead. */
-  export const inboundSchema = OrderItemSchema$inboundSchema;
-  /** @deprecated use `OrderItemSchema$outboundSchema` instead. */
-  export const outboundSchema = OrderItemSchema$outboundSchema;
-  /** @deprecated use `OrderItemSchema$Outbound` instead. */
-  export type Outbound = OrderItemSchema$Outbound;
-}
-
 export function orderItemSchemaToJSON(
   orderItemSchema: OrderItemSchema,
 ): string {
   return JSON.stringify(OrderItemSchema$outboundSchema.parse(orderItemSchema));
 }
-
 export function orderItemSchemaFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderItemSchema, SDKValidationError> {

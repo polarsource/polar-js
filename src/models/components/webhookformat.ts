@@ -16,19 +16,7 @@ export type WebhookFormat = ClosedEnum<typeof WebhookFormat>;
 export const WebhookFormat$inboundSchema: z.ZodNativeEnum<
   typeof WebhookFormat
 > = z.nativeEnum(WebhookFormat);
-
 /** @internal */
 export const WebhookFormat$outboundSchema: z.ZodNativeEnum<
   typeof WebhookFormat
 > = WebhookFormat$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookFormat$ {
-  /** @deprecated use `WebhookFormat$inboundSchema` instead. */
-  export const inboundSchema = WebhookFormat$inboundSchema;
-  /** @deprecated use `WebhookFormat$outboundSchema` instead. */
-  export const outboundSchema = WebhookFormat$outboundSchema;
-}

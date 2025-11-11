@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   TrialInterval,
-  TrialInterval$inboundSchema,
   TrialInterval$outboundSchema,
 } from "./trialinterval.js";
 
@@ -79,13 +75,6 @@ export type CheckoutLinkCreateProduct = {
 };
 
 /** @internal */
-export const CheckoutLinkCreateProductMetadata$inboundSchema: z.ZodType<
-  CheckoutLinkCreateProductMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type CheckoutLinkCreateProductMetadata$Outbound =
   | string
   | number
@@ -99,20 +88,6 @@ export const CheckoutLinkCreateProductMetadata$outboundSchema: z.ZodType<
   CheckoutLinkCreateProductMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkCreateProductMetadata$ {
-  /** @deprecated use `CheckoutLinkCreateProductMetadata$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkCreateProductMetadata$inboundSchema;
-  /** @deprecated use `CheckoutLinkCreateProductMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutLinkCreateProductMetadata$outboundSchema;
-  /** @deprecated use `CheckoutLinkCreateProductMetadata$Outbound` instead. */
-  export type Outbound = CheckoutLinkCreateProductMetadata$Outbound;
-}
-
 export function checkoutLinkCreateProductMetadataToJSON(
   checkoutLinkCreateProductMetadata: CheckoutLinkCreateProductMetadata,
 ): string {
@@ -122,47 +97,6 @@ export function checkoutLinkCreateProductMetadataToJSON(
     ),
   );
 }
-
-export function checkoutLinkCreateProductMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutLinkCreateProductMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutLinkCreateProductMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutLinkCreateProductMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CheckoutLinkCreateProduct$inboundSchema: z.ZodType<
-  CheckoutLinkCreateProduct,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  trial_interval: z.nullable(TrialInterval$inboundSchema).optional(),
-  trial_interval_count: z.nullable(z.number().int()).optional(),
-  payment_processor: z.literal("stripe"),
-  label: z.nullable(z.string()).optional(),
-  allow_discount_codes: z.boolean().default(true),
-  require_billing_address: z.boolean().default(false),
-  discount_id: z.nullable(z.string()).optional(),
-  success_url: z.nullable(z.string()).optional(),
-  product_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "trial_interval": "trialInterval",
-    "trial_interval_count": "trialIntervalCount",
-    "payment_processor": "paymentProcessor",
-    "allow_discount_codes": "allowDiscountCodes",
-    "require_billing_address": "requireBillingAddress",
-    "discount_id": "discountId",
-    "success_url": "successUrl",
-    "product_id": "productId",
-  });
-});
 
 /** @internal */
 export type CheckoutLinkCreateProduct$Outbound = {
@@ -209,33 +143,10 @@ export const CheckoutLinkCreateProduct$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkCreateProduct$ {
-  /** @deprecated use `CheckoutLinkCreateProduct$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkCreateProduct$inboundSchema;
-  /** @deprecated use `CheckoutLinkCreateProduct$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinkCreateProduct$outboundSchema;
-  /** @deprecated use `CheckoutLinkCreateProduct$Outbound` instead. */
-  export type Outbound = CheckoutLinkCreateProduct$Outbound;
-}
-
 export function checkoutLinkCreateProductToJSON(
   checkoutLinkCreateProduct: CheckoutLinkCreateProduct,
 ): string {
   return JSON.stringify(
     CheckoutLinkCreateProduct$outboundSchema.parse(checkoutLinkCreateProduct),
-  );
-}
-
-export function checkoutLinkCreateProductFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutLinkCreateProduct, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutLinkCreateProduct$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutLinkCreateProduct' from JSON`,
   );
 }

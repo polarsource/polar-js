@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type WebhooksRedeliverWebhookEventRequest = {
   /**
@@ -13,15 +10,6 @@ export type WebhooksRedeliverWebhookEventRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const WebhooksRedeliverWebhookEventRequest$inboundSchema: z.ZodType<
-  WebhooksRedeliverWebhookEventRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type WebhooksRedeliverWebhookEventRequest$Outbound = {
@@ -37,21 +25,6 @@ export const WebhooksRedeliverWebhookEventRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhooksRedeliverWebhookEventRequest$ {
-  /** @deprecated use `WebhooksRedeliverWebhookEventRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    WebhooksRedeliverWebhookEventRequest$inboundSchema;
-  /** @deprecated use `WebhooksRedeliverWebhookEventRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhooksRedeliverWebhookEventRequest$outboundSchema;
-  /** @deprecated use `WebhooksRedeliverWebhookEventRequest$Outbound` instead. */
-  export type Outbound = WebhooksRedeliverWebhookEventRequest$Outbound;
-}
-
 export function webhooksRedeliverWebhookEventRequestToJSON(
   webhooksRedeliverWebhookEventRequest: WebhooksRedeliverWebhookEventRequest,
 ): string {
@@ -59,16 +32,5 @@ export function webhooksRedeliverWebhookEventRequestToJSON(
     WebhooksRedeliverWebhookEventRequest$outboundSchema.parse(
       webhooksRedeliverWebhookEventRequest,
     ),
-  );
-}
-
-export function webhooksRedeliverWebhookEventRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<WebhooksRedeliverWebhookEventRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      WebhooksRedeliverWebhookEventRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'WebhooksRedeliverWebhookEventRequest' from JSON`,
   );
 }

@@ -52,34 +52,3 @@ export const MissingInvoiceBillingDetails$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type MissingInvoiceBillingDetails$Outbound = {
-  error: "MissingInvoiceBillingDetails";
-  detail: string;
-};
-
-/** @internal */
-export const MissingInvoiceBillingDetails$outboundSchema: z.ZodType<
-  MissingInvoiceBillingDetails$Outbound,
-  z.ZodTypeDef,
-  MissingInvoiceBillingDetails
-> = z.instanceof(MissingInvoiceBillingDetails)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("MissingInvoiceBillingDetails"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace MissingInvoiceBillingDetails$ {
-  /** @deprecated use `MissingInvoiceBillingDetails$inboundSchema` instead. */
-  export const inboundSchema = MissingInvoiceBillingDetails$inboundSchema;
-  /** @deprecated use `MissingInvoiceBillingDetails$outboundSchema` instead. */
-  export const outboundSchema = MissingInvoiceBillingDetails$outboundSchema;
-  /** @deprecated use `MissingInvoiceBillingDetails$Outbound` instead. */
-  export type Outbound = MissingInvoiceBillingDetails$Outbound;
-}

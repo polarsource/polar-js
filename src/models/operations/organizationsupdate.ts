@@ -4,34 +4,16 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   OrganizationUpdate,
-  OrganizationUpdate$inboundSchema,
   OrganizationUpdate$Outbound,
   OrganizationUpdate$outboundSchema,
 } from "../components/organizationupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrganizationsUpdateRequest = {
   id: string;
   organizationUpdate: OrganizationUpdate;
 };
-
-/** @internal */
-export const OrganizationsUpdateRequest$inboundSchema: z.ZodType<
-  OrganizationsUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  OrganizationUpdate: OrganizationUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "OrganizationUpdate": "organizationUpdate",
-  });
-});
 
 /** @internal */
 export type OrganizationsUpdateRequest$Outbound = {
@@ -53,33 +35,10 @@ export const OrganizationsUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationsUpdateRequest$ {
-  /** @deprecated use `OrganizationsUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = OrganizationsUpdateRequest$inboundSchema;
-  /** @deprecated use `OrganizationsUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = OrganizationsUpdateRequest$outboundSchema;
-  /** @deprecated use `OrganizationsUpdateRequest$Outbound` instead. */
-  export type Outbound = OrganizationsUpdateRequest$Outbound;
-}
-
 export function organizationsUpdateRequestToJSON(
   organizationsUpdateRequest: OrganizationsUpdateRequest,
 ): string {
   return JSON.stringify(
     OrganizationsUpdateRequest$outboundSchema.parse(organizationsUpdateRequest),
-  );
-}
-
-export function organizationsUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<OrganizationsUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrganizationsUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrganizationsUpdateRequest' from JSON`,
   );
 }

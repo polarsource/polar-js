@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionUpdateDiscount = {
   /**
@@ -14,19 +11,6 @@ export type SubscriptionUpdateDiscount = {
    */
   discountId: string | null;
 };
-
-/** @internal */
-export const SubscriptionUpdateDiscount$inboundSchema: z.ZodType<
-  SubscriptionUpdateDiscount,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  discount_id: z.nullable(z.string()),
-}).transform((v) => {
-  return remap$(v, {
-    "discount_id": "discountId",
-  });
-});
 
 /** @internal */
 export type SubscriptionUpdateDiscount$Outbound = {
@@ -46,33 +30,10 @@ export const SubscriptionUpdateDiscount$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionUpdateDiscount$ {
-  /** @deprecated use `SubscriptionUpdateDiscount$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionUpdateDiscount$inboundSchema;
-  /** @deprecated use `SubscriptionUpdateDiscount$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionUpdateDiscount$outboundSchema;
-  /** @deprecated use `SubscriptionUpdateDiscount$Outbound` instead. */
-  export type Outbound = SubscriptionUpdateDiscount$Outbound;
-}
-
 export function subscriptionUpdateDiscountToJSON(
   subscriptionUpdateDiscount: SubscriptionUpdateDiscount,
 ): string {
   return JSON.stringify(
     SubscriptionUpdateDiscount$outboundSchema.parse(subscriptionUpdateDiscount),
-  );
-}
-
-export function subscriptionUpdateDiscountFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionUpdateDiscount, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionUpdateDiscount$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionUpdateDiscount' from JSON`,
   );
 }

@@ -52,34 +52,3 @@ export const NotPermitted$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type NotPermitted$Outbound = {
-  error: "NotPermitted";
-  detail: string;
-};
-
-/** @internal */
-export const NotPermitted$outboundSchema: z.ZodType<
-  NotPermitted$Outbound,
-  z.ZodTypeDef,
-  NotPermitted
-> = z.instanceof(NotPermitted)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("NotPermitted"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NotPermitted$ {
-  /** @deprecated use `NotPermitted$inboundSchema` instead. */
-  export const inboundSchema = NotPermitted$inboundSchema;
-  /** @deprecated use `NotPermitted$outboundSchema` instead. */
-  export const outboundSchema = NotPermitted$outboundSchema;
-  /** @deprecated use `NotPermitted$Outbound` instead. */
-  export type Outbound = NotPermitted$Outbound;
-}

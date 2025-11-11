@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Filter by organization ID.
@@ -21,13 +18,6 @@ export type CustomersExportRequest = {
 };
 
 /** @internal */
-export const CustomersExportQueryParamOrganizationId$inboundSchema: z.ZodType<
-  CustomersExportQueryParamOrganizationId,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.array(z.string())]);
-
-/** @internal */
 export type CustomersExportQueryParamOrganizationId$Outbound =
   | string
   | Array<string>;
@@ -39,21 +29,6 @@ export const CustomersExportQueryParamOrganizationId$outboundSchema: z.ZodType<
   CustomersExportQueryParamOrganizationId
 > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomersExportQueryParamOrganizationId$ {
-  /** @deprecated use `CustomersExportQueryParamOrganizationId$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomersExportQueryParamOrganizationId$inboundSchema;
-  /** @deprecated use `CustomersExportQueryParamOrganizationId$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomersExportQueryParamOrganizationId$outboundSchema;
-  /** @deprecated use `CustomersExportQueryParamOrganizationId$Outbound` instead. */
-  export type Outbound = CustomersExportQueryParamOrganizationId$Outbound;
-}
-
 export function customersExportQueryParamOrganizationIdToJSON(
   customersExportQueryParamOrganizationId:
     CustomersExportQueryParamOrganizationId,
@@ -64,36 +39,6 @@ export function customersExportQueryParamOrganizationIdToJSON(
     ),
   );
 }
-
-export function customersExportQueryParamOrganizationIdFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomersExportQueryParamOrganizationId,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomersExportQueryParamOrganizationId$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomersExportQueryParamOrganizationId' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomersExportRequest$inboundSchema: z.ZodType<
-  CustomersExportRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  organization_id: z.nullable(z.union([z.string(), z.array(z.string())]))
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type CustomersExportRequest$Outbound = {
@@ -114,33 +59,10 @@ export const CustomersExportRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomersExportRequest$ {
-  /** @deprecated use `CustomersExportRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomersExportRequest$inboundSchema;
-  /** @deprecated use `CustomersExportRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomersExportRequest$outboundSchema;
-  /** @deprecated use `CustomersExportRequest$Outbound` instead. */
-  export type Outbound = CustomersExportRequest$Outbound;
-}
-
 export function customersExportRequestToJSON(
   customersExportRequest: CustomersExportRequest,
 ): string {
   return JSON.stringify(
     CustomersExportRequest$outboundSchema.parse(customersExportRequest),
-  );
-}
-
-export function customersExportRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomersExportRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomersExportRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomersExportRequest' from JSON`,
   );
 }

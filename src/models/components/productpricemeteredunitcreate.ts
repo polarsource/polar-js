@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The price per unit in cents. Supports up to 12 decimal places.
@@ -37,13 +34,6 @@ export type ProductPriceMeteredUnitCreate = {
 };
 
 /** @internal */
-export const UnitAmount$inboundSchema: z.ZodType<
-  UnitAmount,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.number(), z.string()]);
-
-/** @internal */
 export type UnitAmount$Outbound = number | string;
 
 /** @internal */
@@ -53,53 +43,9 @@ export const UnitAmount$outboundSchema: z.ZodType<
   UnitAmount
 > = z.union([z.number(), z.string()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UnitAmount$ {
-  /** @deprecated use `UnitAmount$inboundSchema` instead. */
-  export const inboundSchema = UnitAmount$inboundSchema;
-  /** @deprecated use `UnitAmount$outboundSchema` instead. */
-  export const outboundSchema = UnitAmount$outboundSchema;
-  /** @deprecated use `UnitAmount$Outbound` instead. */
-  export type Outbound = UnitAmount$Outbound;
-}
-
 export function unitAmountToJSON(unitAmount: UnitAmount): string {
   return JSON.stringify(UnitAmount$outboundSchema.parse(unitAmount));
 }
-
-export function unitAmountFromJSON(
-  jsonString: string,
-): SafeParseResult<UnitAmount, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => UnitAmount$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'UnitAmount' from JSON`,
-  );
-}
-
-/** @internal */
-export const ProductPriceMeteredUnitCreate$inboundSchema: z.ZodType<
-  ProductPriceMeteredUnitCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  amount_type: z.literal("metered_unit"),
-  meter_id: z.string(),
-  price_currency: z.string().default("usd"),
-  unit_amount: z.union([z.number(), z.string()]),
-  cap_amount: z.nullable(z.number().int()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "amount_type": "amountType",
-    "meter_id": "meterId",
-    "price_currency": "priceCurrency",
-    "unit_amount": "unitAmount",
-    "cap_amount": "capAmount",
-  });
-});
 
 /** @internal */
 export type ProductPriceMeteredUnitCreate$Outbound = {
@@ -131,19 +77,6 @@ export const ProductPriceMeteredUnitCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceMeteredUnitCreate$ {
-  /** @deprecated use `ProductPriceMeteredUnitCreate$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceMeteredUnitCreate$inboundSchema;
-  /** @deprecated use `ProductPriceMeteredUnitCreate$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceMeteredUnitCreate$outboundSchema;
-  /** @deprecated use `ProductPriceMeteredUnitCreate$Outbound` instead. */
-  export type Outbound = ProductPriceMeteredUnitCreate$Outbound;
-}
-
 export function productPriceMeteredUnitCreateToJSON(
   productPriceMeteredUnitCreate: ProductPriceMeteredUnitCreate,
 ): string {
@@ -151,15 +84,5 @@ export function productPriceMeteredUnitCreateToJSON(
     ProductPriceMeteredUnitCreate$outboundSchema.parse(
       productPriceMeteredUnitCreate,
     ),
-  );
-}
-
-export function productPriceMeteredUnitCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductPriceMeteredUnitCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductPriceMeteredUnitCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductPriceMeteredUnitCreate' from JSON`,
   );
 }

@@ -9,86 +9,58 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitCycledEvent,
   BenefitCycledEvent$inboundSchema,
-  BenefitCycledEvent$Outbound,
-  BenefitCycledEvent$outboundSchema,
 } from "./benefitcycledevent.js";
 import {
   BenefitGrantedEvent,
   BenefitGrantedEvent$inboundSchema,
-  BenefitGrantedEvent$Outbound,
-  BenefitGrantedEvent$outboundSchema,
 } from "./benefitgrantedevent.js";
 import {
   BenefitRevokedEvent,
   BenefitRevokedEvent$inboundSchema,
-  BenefitRevokedEvent$Outbound,
-  BenefitRevokedEvent$outboundSchema,
 } from "./benefitrevokedevent.js";
 import {
   BenefitUpdatedEvent,
   BenefitUpdatedEvent$inboundSchema,
-  BenefitUpdatedEvent$Outbound,
-  BenefitUpdatedEvent$outboundSchema,
 } from "./benefitupdatedevent.js";
 import {
   CustomerCreatedEvent,
   CustomerCreatedEvent$inboundSchema,
-  CustomerCreatedEvent$Outbound,
-  CustomerCreatedEvent$outboundSchema,
 } from "./customercreatedevent.js";
 import {
   CustomerDeletedEvent,
   CustomerDeletedEvent$inboundSchema,
-  CustomerDeletedEvent$Outbound,
-  CustomerDeletedEvent$outboundSchema,
 } from "./customerdeletedevent.js";
 import {
   CustomerUpdatedEvent,
   CustomerUpdatedEvent$inboundSchema,
-  CustomerUpdatedEvent$Outbound,
-  CustomerUpdatedEvent$outboundSchema,
 } from "./customerupdatedevent.js";
 import {
   MeterCreditEvent,
   MeterCreditEvent$inboundSchema,
-  MeterCreditEvent$Outbound,
-  MeterCreditEvent$outboundSchema,
 } from "./metercreditevent.js";
 import {
   MeterResetEvent,
   MeterResetEvent$inboundSchema,
-  MeterResetEvent$Outbound,
-  MeterResetEvent$outboundSchema,
 } from "./meterresetevent.js";
 import {
   OrderPaidEvent,
   OrderPaidEvent$inboundSchema,
-  OrderPaidEvent$Outbound,
-  OrderPaidEvent$outboundSchema,
 } from "./orderpaidevent.js";
 import {
   OrderRefundedEvent,
   OrderRefundedEvent$inboundSchema,
-  OrderRefundedEvent$Outbound,
-  OrderRefundedEvent$outboundSchema,
 } from "./orderrefundedevent.js";
 import {
   SubscriptionCycledEvent,
   SubscriptionCycledEvent$inboundSchema,
-  SubscriptionCycledEvent$Outbound,
-  SubscriptionCycledEvent$outboundSchema,
 } from "./subscriptioncycledevent.js";
 import {
   SubscriptionProductUpdatedEvent,
   SubscriptionProductUpdatedEvent$inboundSchema,
-  SubscriptionProductUpdatedEvent$Outbound,
-  SubscriptionProductUpdatedEvent$outboundSchema,
 } from "./subscriptionproductupdatedevent.js";
 import {
   SubscriptionRevokedEvent,
   SubscriptionRevokedEvent$inboundSchema,
-  SubscriptionRevokedEvent$Outbound,
-  SubscriptionRevokedEvent$outboundSchema,
 } from "./subscriptionrevokedevent.js";
 
 export type SystemEvent =
@@ -184,120 +156,6 @@ export const SystemEvent$inboundSchema: z.ZodType<
     })),
   ),
 ]);
-
-/** @internal */
-export type SystemEvent$Outbound =
-  | (BenefitCycledEvent$Outbound & { name: "benefit.cycled" })
-  | (BenefitGrantedEvent$Outbound & { name: "benefit.granted" })
-  | (BenefitRevokedEvent$Outbound & { name: "benefit.revoked" })
-  | (BenefitUpdatedEvent$Outbound & { name: "benefit.updated" })
-  | (CustomerCreatedEvent$Outbound & { name: "customer.created" })
-  | (CustomerDeletedEvent$Outbound & { name: "customer.deleted" })
-  | (CustomerUpdatedEvent$Outbound & { name: "customer.updated" })
-  | (MeterCreditEvent$Outbound & { name: "meter.credited" })
-  | (MeterResetEvent$Outbound & { name: "meter.reset" })
-  | (OrderPaidEvent$Outbound & { name: "order.paid" })
-  | (OrderRefundedEvent$Outbound & { name: "order.refunded" })
-  | (SubscriptionCycledEvent$Outbound & { name: "subscription.cycled" })
-  | (SubscriptionProductUpdatedEvent$Outbound & {
-    name: "subscription.product_updated";
-  })
-  | (SubscriptionRevokedEvent$Outbound & { name: "subscription.revoked" });
-
-/** @internal */
-export const SystemEvent$outboundSchema: z.ZodType<
-  SystemEvent$Outbound,
-  z.ZodTypeDef,
-  SystemEvent
-> = z.union([
-  BenefitCycledEvent$outboundSchema.and(
-    z.object({ name: z.literal("benefit.cycled") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  BenefitGrantedEvent$outboundSchema.and(
-    z.object({ name: z.literal("benefit.granted") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  BenefitRevokedEvent$outboundSchema.and(
-    z.object({ name: z.literal("benefit.revoked") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  BenefitUpdatedEvent$outboundSchema.and(
-    z.object({ name: z.literal("benefit.updated") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  CustomerCreatedEvent$outboundSchema.and(
-    z.object({ name: z.literal("customer.created") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  CustomerDeletedEvent$outboundSchema.and(
-    z.object({ name: z.literal("customer.deleted") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  CustomerUpdatedEvent$outboundSchema.and(
-    z.object({ name: z.literal("customer.updated") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  MeterCreditEvent$outboundSchema.and(
-    z.object({ name: z.literal("meter.credited") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  MeterResetEvent$outboundSchema.and(
-    z.object({ name: z.literal("meter.reset") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  OrderPaidEvent$outboundSchema.and(
-    z.object({ name: z.literal("order.paid") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  OrderRefundedEvent$outboundSchema.and(
-    z.object({ name: z.literal("order.refunded") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  SubscriptionCycledEvent$outboundSchema.and(
-    z.object({ name: z.literal("subscription.cycled") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-  SubscriptionProductUpdatedEvent$outboundSchema.and(
-    z.object({ name: z.literal("subscription.product_updated") }).transform((
-      v,
-    ) => ({ name: v.name })),
-  ),
-  SubscriptionRevokedEvent$outboundSchema.and(
-    z.object({ name: z.literal("subscription.revoked") }).transform((v) => ({
-      name: v.name,
-    })),
-  ),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SystemEvent$ {
-  /** @deprecated use `SystemEvent$inboundSchema` instead. */
-  export const inboundSchema = SystemEvent$inboundSchema;
-  /** @deprecated use `SystemEvent$outboundSchema` instead. */
-  export const outboundSchema = SystemEvent$outboundSchema;
-  /** @deprecated use `SystemEvent$Outbound` instead. */
-  export type Outbound = SystemEvent$Outbound;
-}
-
-export function systemEventToJSON(systemEvent: SystemEvent): string {
-  return JSON.stringify(SystemEvent$outboundSchema.parse(systemEvent));
-}
 
 export function systemEventFromJSON(
   jsonString: string,

@@ -8,14 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomerWalletSortProperty,
-  CustomerWalletSortProperty$inboundSchema,
   CustomerWalletSortProperty$outboundSchema,
 } from "../components/customerwalletsortproperty.js";
 import {
   ListResourceCustomerWallet,
   ListResourceCustomerWallet$inboundSchema,
-  ListResourceCustomerWallet$Outbound,
-  ListResourceCustomerWallet$outboundSchema,
 } from "../components/listresourcecustomerwallet.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -43,19 +40,6 @@ export type CustomerPortalWalletsListResponse = {
 };
 
 /** @internal */
-export const CustomerPortalWalletsListSecurity$inboundSchema: z.ZodType<
-  CustomerPortalWalletsListSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
-
-/** @internal */
 export type CustomerPortalWalletsListSecurity$Outbound = {
   customer_session: string;
 };
@@ -73,20 +57,6 @@ export const CustomerPortalWalletsListSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalWalletsListSecurity$ {
-  /** @deprecated use `CustomerPortalWalletsListSecurity$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalWalletsListSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalWalletsListSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalWalletsListSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalWalletsListSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalWalletsListSecurity$Outbound;
-}
-
 export function customerPortalWalletsListSecurityToJSON(
   customerPortalWalletsListSecurity: CustomerPortalWalletsListSecurity,
 ): string {
@@ -96,28 +66,6 @@ export function customerPortalWalletsListSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalWalletsListSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalWalletsListSecurity, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerPortalWalletsListSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalWalletsListSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalWalletsListRequest$inboundSchema: z.ZodType<
-  CustomerPortalWalletsListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-  sorting: z.nullable(z.array(CustomerWalletSortProperty$inboundSchema))
-    .optional(),
-});
 
 /** @internal */
 export type CustomerPortalWalletsListRequest$Outbound = {
@@ -138,19 +86,6 @@ export const CustomerPortalWalletsListRequest$outboundSchema: z.ZodType<
     .optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalWalletsListRequest$ {
-  /** @deprecated use `CustomerPortalWalletsListRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalWalletsListRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalWalletsListRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomerPortalWalletsListRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalWalletsListRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalWalletsListRequest$Outbound;
-}
-
 export function customerPortalWalletsListRequestToJSON(
   customerPortalWalletsListRequest: CustomerPortalWalletsListRequest,
 ): string {
@@ -158,16 +93,6 @@ export function customerPortalWalletsListRequestToJSON(
     CustomerPortalWalletsListRequest$outboundSchema.parse(
       customerPortalWalletsListRequest,
     ),
-  );
-}
-
-export function customerPortalWalletsListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalWalletsListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerPortalWalletsListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalWalletsListRequest' from JSON`,
   );
 }
 
@@ -183,48 +108,6 @@ export const CustomerPortalWalletsListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type CustomerPortalWalletsListResponse$Outbound = {
-  Result: ListResourceCustomerWallet$Outbound;
-};
-
-/** @internal */
-export const CustomerPortalWalletsListResponse$outboundSchema: z.ZodType<
-  CustomerPortalWalletsListResponse$Outbound,
-  z.ZodTypeDef,
-  CustomerPortalWalletsListResponse
-> = z.object({
-  result: ListResourceCustomerWallet$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalWalletsListResponse$ {
-  /** @deprecated use `CustomerPortalWalletsListResponse$inboundSchema` instead. */
-  export const inboundSchema = CustomerPortalWalletsListResponse$inboundSchema;
-  /** @deprecated use `CustomerPortalWalletsListResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalWalletsListResponse$outboundSchema;
-  /** @deprecated use `CustomerPortalWalletsListResponse$Outbound` instead. */
-  export type Outbound = CustomerPortalWalletsListResponse$Outbound;
-}
-
-export function customerPortalWalletsListResponseToJSON(
-  customerPortalWalletsListResponse: CustomerPortalWalletsListResponse,
-): string {
-  return JSON.stringify(
-    CustomerPortalWalletsListResponse$outboundSchema.parse(
-      customerPortalWalletsListResponse,
-    ),
-  );
-}
 
 export function customerPortalWalletsListResponseFromJSON(
   jsonString: string,

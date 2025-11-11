@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerBenefitGrantDiscordPropertiesUpdate,
-  CustomerBenefitGrantDiscordPropertiesUpdate$inboundSchema,
   CustomerBenefitGrantDiscordPropertiesUpdate$Outbound,
   CustomerBenefitGrantDiscordPropertiesUpdate$outboundSchema,
 } from "./customerbenefitgrantdiscordpropertiesupdate.js";
@@ -18,20 +14,6 @@ export type CustomerBenefitGrantDiscordUpdate = {
   benefitType: "discord";
   properties: CustomerBenefitGrantDiscordPropertiesUpdate;
 };
-
-/** @internal */
-export const CustomerBenefitGrantDiscordUpdate$inboundSchema: z.ZodType<
-  CustomerBenefitGrantDiscordUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  benefit_type: z.literal("discord"),
-  properties: CustomerBenefitGrantDiscordPropertiesUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "benefit_type": "benefitType",
-  });
-});
 
 /** @internal */
 export type CustomerBenefitGrantDiscordUpdate$Outbound = {
@@ -53,20 +35,6 @@ export const CustomerBenefitGrantDiscordUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerBenefitGrantDiscordUpdate$ {
-  /** @deprecated use `CustomerBenefitGrantDiscordUpdate$inboundSchema` instead. */
-  export const inboundSchema = CustomerBenefitGrantDiscordUpdate$inboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDiscordUpdate$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerBenefitGrantDiscordUpdate$outboundSchema;
-  /** @deprecated use `CustomerBenefitGrantDiscordUpdate$Outbound` instead. */
-  export type Outbound = CustomerBenefitGrantDiscordUpdate$Outbound;
-}
-
 export function customerBenefitGrantDiscordUpdateToJSON(
   customerBenefitGrantDiscordUpdate: CustomerBenefitGrantDiscordUpdate,
 ): string {
@@ -74,15 +42,5 @@ export function customerBenefitGrantDiscordUpdateToJSON(
     CustomerBenefitGrantDiscordUpdate$outboundSchema.parse(
       customerBenefitGrantDiscordUpdate,
     ),
-  );
-}
-
-export function customerBenefitGrantDiscordUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerBenefitGrantDiscordUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerBenefitGrantDiscordUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerBenefitGrantDiscordUpdate' from JSON`,
   );
 }

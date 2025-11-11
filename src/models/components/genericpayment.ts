@@ -10,13 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PaymentProcessor,
   PaymentProcessor$inboundSchema,
-  PaymentProcessor$outboundSchema,
 } from "./paymentprocessor.js";
-import {
-  PaymentStatus,
-  PaymentStatus$inboundSchema,
-  PaymentStatus$outboundSchema,
-} from "./paymentstatus.js";
+import { PaymentStatus, PaymentStatus$inboundSchema } from "./paymentstatus.js";
 
 /**
  * Schema of a payment with a generic payment method.
@@ -108,74 +103,6 @@ export const GenericPayment$inboundSchema: z.ZodType<
     "processor_metadata": "processorMetadata",
   });
 });
-
-/** @internal */
-export type GenericPayment$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  processor: string;
-  status: string;
-  amount: number;
-  currency: string;
-  method: string;
-  decline_reason: string | null;
-  decline_message: string | null;
-  organization_id: string;
-  checkout_id: string | null;
-  order_id: string | null;
-  processor_metadata?: { [k: string]: any } | undefined;
-};
-
-/** @internal */
-export const GenericPayment$outboundSchema: z.ZodType<
-  GenericPayment$Outbound,
-  z.ZodTypeDef,
-  GenericPayment
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  processor: PaymentProcessor$outboundSchema,
-  status: PaymentStatus$outboundSchema,
-  amount: z.number().int(),
-  currency: z.string(),
-  method: z.string(),
-  declineReason: z.nullable(z.string()),
-  declineMessage: z.nullable(z.string()),
-  organizationId: z.string(),
-  checkoutId: z.nullable(z.string()),
-  orderId: z.nullable(z.string()),
-  processorMetadata: z.record(z.any()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    declineReason: "decline_reason",
-    declineMessage: "decline_message",
-    organizationId: "organization_id",
-    checkoutId: "checkout_id",
-    orderId: "order_id",
-    processorMetadata: "processor_metadata",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GenericPayment$ {
-  /** @deprecated use `GenericPayment$inboundSchema` instead. */
-  export const inboundSchema = GenericPayment$inboundSchema;
-  /** @deprecated use `GenericPayment$outboundSchema` instead. */
-  export const outboundSchema = GenericPayment$outboundSchema;
-  /** @deprecated use `GenericPayment$Outbound` instead. */
-  export type Outbound = GenericPayment$Outbound;
-}
-
-export function genericPaymentToJSON(genericPayment: GenericPayment): string {
-  return JSON.stringify(GenericPayment$outboundSchema.parse(genericPayment));
-}
 
 export function genericPaymentFromJSON(
   jsonString: string,

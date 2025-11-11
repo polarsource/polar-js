@@ -3,22 +3,10 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrganizationsGetRequest = {
   id: string;
 };
-
-/** @internal */
-export const OrganizationsGetRequest$inboundSchema: z.ZodType<
-  OrganizationsGetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type OrganizationsGetRequest$Outbound = {
@@ -34,33 +22,10 @@ export const OrganizationsGetRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationsGetRequest$ {
-  /** @deprecated use `OrganizationsGetRequest$inboundSchema` instead. */
-  export const inboundSchema = OrganizationsGetRequest$inboundSchema;
-  /** @deprecated use `OrganizationsGetRequest$outboundSchema` instead. */
-  export const outboundSchema = OrganizationsGetRequest$outboundSchema;
-  /** @deprecated use `OrganizationsGetRequest$Outbound` instead. */
-  export type Outbound = OrganizationsGetRequest$Outbound;
-}
-
 export function organizationsGetRequestToJSON(
   organizationsGetRequest: OrganizationsGetRequest,
 ): string {
   return JSON.stringify(
     OrganizationsGetRequest$outboundSchema.parse(organizationsGetRequest),
-  );
-}
-
-export function organizationsGetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<OrganizationsGetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrganizationsGetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrganizationsGetRequest' from JSON`,
   );
 }

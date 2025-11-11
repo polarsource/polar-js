@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SeatAssign = {
   /**
@@ -42,31 +39,6 @@ export type SeatAssign = {
    */
   immediateClaim?: boolean | undefined;
 };
-
-/** @internal */
-export const SeatAssign$inboundSchema: z.ZodType<
-  SeatAssign,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  subscription_id: z.nullable(z.string()).optional(),
-  checkout_id: z.nullable(z.string()).optional(),
-  order_id: z.nullable(z.string()).optional(),
-  email: z.nullable(z.string()).optional(),
-  external_customer_id: z.nullable(z.string()).optional(),
-  customer_id: z.nullable(z.string()).optional(),
-  metadata: z.nullable(z.record(z.any())).optional(),
-  immediate_claim: z.boolean().default(false),
-}).transform((v) => {
-  return remap$(v, {
-    "subscription_id": "subscriptionId",
-    "checkout_id": "checkoutId",
-    "order_id": "orderId",
-    "external_customer_id": "externalCustomerId",
-    "customer_id": "customerId",
-    "immediate_claim": "immediateClaim",
-  });
-});
 
 /** @internal */
 export type SeatAssign$Outbound = {
@@ -105,29 +77,6 @@ export const SeatAssign$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SeatAssign$ {
-  /** @deprecated use `SeatAssign$inboundSchema` instead. */
-  export const inboundSchema = SeatAssign$inboundSchema;
-  /** @deprecated use `SeatAssign$outboundSchema` instead. */
-  export const outboundSchema = SeatAssign$outboundSchema;
-  /** @deprecated use `SeatAssign$Outbound` instead. */
-  export type Outbound = SeatAssign$Outbound;
-}
-
 export function seatAssignToJSON(seatAssign: SeatAssign): string {
   return JSON.stringify(SeatAssign$outboundSchema.parse(seatAssign));
-}
-
-export function seatAssignFromJSON(
-  jsonString: string,
-): SafeParseResult<SeatAssign, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SeatAssign$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SeatAssign' from JSON`,
-  );
 }

@@ -28,43 +28,6 @@ export const CostMetadataOutput$inboundSchema: z.ZodType<
   currency: z.string(),
 });
 
-/** @internal */
-export type CostMetadataOutput$Outbound = {
-  amount: string;
-  currency: string;
-};
-
-/** @internal */
-export const CostMetadataOutput$outboundSchema: z.ZodType<
-  CostMetadataOutput$Outbound,
-  z.ZodTypeDef,
-  CostMetadataOutput
-> = z.object({
-  amount: z.string(),
-  currency: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CostMetadataOutput$ {
-  /** @deprecated use `CostMetadataOutput$inboundSchema` instead. */
-  export const inboundSchema = CostMetadataOutput$inboundSchema;
-  /** @deprecated use `CostMetadataOutput$outboundSchema` instead. */
-  export const outboundSchema = CostMetadataOutput$outboundSchema;
-  /** @deprecated use `CostMetadataOutput$Outbound` instead. */
-  export type Outbound = CostMetadataOutput$Outbound;
-}
-
-export function costMetadataOutputToJSON(
-  costMetadataOutput: CostMetadataOutput,
-): string {
-  return JSON.stringify(
-    CostMetadataOutput$outboundSchema.parse(costMetadataOutput),
-  );
-}
-
 export function costMetadataOutputFromJSON(
   jsonString: string,
 ): SafeParseResult<CostMetadataOutput, SDKValidationError> {

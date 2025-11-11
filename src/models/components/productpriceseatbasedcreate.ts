@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductPriceSeatTiers,
-  ProductPriceSeatTiers$inboundSchema,
   ProductPriceSeatTiers$Outbound,
   ProductPriceSeatTiers$outboundSchema,
 } from "./productpriceseattiers.js";
@@ -28,23 +24,6 @@ export type ProductPriceSeatBasedCreate = {
    */
   seatTiers: ProductPriceSeatTiers;
 };
-
-/** @internal */
-export const ProductPriceSeatBasedCreate$inboundSchema: z.ZodType<
-  ProductPriceSeatBasedCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  amount_type: z.literal("seat_based"),
-  price_currency: z.string().default("usd"),
-  seat_tiers: ProductPriceSeatTiers$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "amount_type": "amountType",
-    "price_currency": "priceCurrency",
-    "seat_tiers": "seatTiers",
-  });
-});
 
 /** @internal */
 export type ProductPriceSeatBasedCreate$Outbound = {
@@ -70,19 +49,6 @@ export const ProductPriceSeatBasedCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceSeatBasedCreate$ {
-  /** @deprecated use `ProductPriceSeatBasedCreate$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceSeatBasedCreate$inboundSchema;
-  /** @deprecated use `ProductPriceSeatBasedCreate$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceSeatBasedCreate$outboundSchema;
-  /** @deprecated use `ProductPriceSeatBasedCreate$Outbound` instead. */
-  export type Outbound = ProductPriceSeatBasedCreate$Outbound;
-}
-
 export function productPriceSeatBasedCreateToJSON(
   productPriceSeatBasedCreate: ProductPriceSeatBasedCreate,
 ): string {
@@ -90,15 +56,5 @@ export function productPriceSeatBasedCreateToJSON(
     ProductPriceSeatBasedCreate$outboundSchema.parse(
       productPriceSeatBasedCreate,
     ),
-  );
-}
-
-export function productPriceSeatBasedCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductPriceSeatBasedCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductPriceSeatBasedCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductPriceSeatBasedCreate' from JSON`,
   );
 }

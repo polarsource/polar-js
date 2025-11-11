@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerCustomerMeterMeter,
   CustomerCustomerMeterMeter$inboundSchema,
-  CustomerCustomerMeterMeter$Outbound,
-  CustomerCustomerMeterMeter$outboundSchema,
 } from "./customercustomermetermeter.js";
 
 export type CustomerCustomerMeter = {
@@ -77,66 +75,6 @@ export const CustomerCustomerMeter$inboundSchema: z.ZodType<
     "credited_units": "creditedUnits",
   });
 });
-
-/** @internal */
-export type CustomerCustomerMeter$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  customer_id: string;
-  meter_id: string;
-  consumed_units: number;
-  credited_units: number;
-  balance: number;
-  meter: CustomerCustomerMeterMeter$Outbound;
-};
-
-/** @internal */
-export const CustomerCustomerMeter$outboundSchema: z.ZodType<
-  CustomerCustomerMeter$Outbound,
-  z.ZodTypeDef,
-  CustomerCustomerMeter
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  customerId: z.string(),
-  meterId: z.string(),
-  consumedUnits: z.number(),
-  creditedUnits: z.number().int(),
-  balance: z.number(),
-  meter: CustomerCustomerMeterMeter$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    customerId: "customer_id",
-    meterId: "meter_id",
-    consumedUnits: "consumed_units",
-    creditedUnits: "credited_units",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerCustomerMeter$ {
-  /** @deprecated use `CustomerCustomerMeter$inboundSchema` instead. */
-  export const inboundSchema = CustomerCustomerMeter$inboundSchema;
-  /** @deprecated use `CustomerCustomerMeter$outboundSchema` instead. */
-  export const outboundSchema = CustomerCustomerMeter$outboundSchema;
-  /** @deprecated use `CustomerCustomerMeter$Outbound` instead. */
-  export type Outbound = CustomerCustomerMeter$Outbound;
-}
-
-export function customerCustomerMeterToJSON(
-  customerCustomerMeter: CustomerCustomerMeter,
-): string {
-  return JSON.stringify(
-    CustomerCustomerMeter$outboundSchema.parse(customerCustomerMeter),
-  );
-}
 
 export function customerCustomerMeterFromJSON(
   jsonString: string,

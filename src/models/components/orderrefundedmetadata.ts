@@ -32,52 +32,6 @@ export const OrderRefundedMetadata$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type OrderRefundedMetadata$Outbound = {
-  order_id: string;
-  refunded_amount: number;
-  currency: string;
-  backfilled?: boolean | undefined;
-};
-
-/** @internal */
-export const OrderRefundedMetadata$outboundSchema: z.ZodType<
-  OrderRefundedMetadata$Outbound,
-  z.ZodTypeDef,
-  OrderRefundedMetadata
-> = z.object({
-  orderId: z.string(),
-  refundedAmount: z.number().int(),
-  currency: z.string(),
-  backfilled: z.boolean().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    orderId: "order_id",
-    refundedAmount: "refunded_amount",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderRefundedMetadata$ {
-  /** @deprecated use `OrderRefundedMetadata$inboundSchema` instead. */
-  export const inboundSchema = OrderRefundedMetadata$inboundSchema;
-  /** @deprecated use `OrderRefundedMetadata$outboundSchema` instead. */
-  export const outboundSchema = OrderRefundedMetadata$outboundSchema;
-  /** @deprecated use `OrderRefundedMetadata$Outbound` instead. */
-  export type Outbound = OrderRefundedMetadata$Outbound;
-}
-
-export function orderRefundedMetadataToJSON(
-  orderRefundedMetadata: OrderRefundedMetadata,
-): string {
-  return JSON.stringify(
-    OrderRefundedMetadata$outboundSchema.parse(orderRefundedMetadata),
-  );
-}
-
 export function orderRefundedMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderRefundedMetadata, SDKValidationError> {

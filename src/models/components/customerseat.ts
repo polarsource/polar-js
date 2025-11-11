@@ -101,7 +101,6 @@ export const CustomerSeat$inboundSchema: z.ZodType<
     "seat_metadata": "seatMetadata",
   });
 });
-
 /** @internal */
 export type CustomerSeat$Outbound = {
   created_at: string;
@@ -152,23 +151,9 @@ export const CustomerSeat$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSeat$ {
-  /** @deprecated use `CustomerSeat$inboundSchema` instead. */
-  export const inboundSchema = CustomerSeat$inboundSchema;
-  /** @deprecated use `CustomerSeat$outboundSchema` instead. */
-  export const outboundSchema = CustomerSeat$outboundSchema;
-  /** @deprecated use `CustomerSeat$Outbound` instead. */
-  export type Outbound = CustomerSeat$Outbound;
-}
-
 export function customerSeatToJSON(customerSeat: CustomerSeat): string {
   return JSON.stringify(CustomerSeat$outboundSchema.parse(customerSeat));
 }
-
 export function customerSeatFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerSeat, SDKValidationError> {

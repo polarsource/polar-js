@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitMeterCreditCreateProperties,
-  BenefitMeterCreditCreateProperties$inboundSchema,
   BenefitMeterCreditCreateProperties$Outbound,
   BenefitMeterCreditCreateProperties$outboundSchema,
 } from "./benefitmetercreditcreateproperties.js";
@@ -56,13 +52,6 @@ export type BenefitMeterCreditCreate = {
 };
 
 /** @internal */
-export const BenefitMeterCreditCreateMetadata$inboundSchema: z.ZodType<
-  BenefitMeterCreditCreateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type BenefitMeterCreditCreateMetadata$Outbound =
   | string
   | number
@@ -76,19 +65,6 @@ export const BenefitMeterCreditCreateMetadata$outboundSchema: z.ZodType<
   BenefitMeterCreditCreateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitMeterCreditCreateMetadata$ {
-  /** @deprecated use `BenefitMeterCreditCreateMetadata$inboundSchema` instead. */
-  export const inboundSchema = BenefitMeterCreditCreateMetadata$inboundSchema;
-  /** @deprecated use `BenefitMeterCreditCreateMetadata$outboundSchema` instead. */
-  export const outboundSchema = BenefitMeterCreditCreateMetadata$outboundSchema;
-  /** @deprecated use `BenefitMeterCreditCreateMetadata$Outbound` instead. */
-  export type Outbound = BenefitMeterCreditCreateMetadata$Outbound;
-}
-
 export function benefitMeterCreditCreateMetadataToJSON(
   benefitMeterCreditCreateMetadata: BenefitMeterCreditCreateMetadata,
 ): string {
@@ -98,35 +74,6 @@ export function benefitMeterCreditCreateMetadataToJSON(
     ),
   );
 }
-
-export function benefitMeterCreditCreateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitMeterCreditCreateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitMeterCreditCreateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitMeterCreditCreateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitMeterCreditCreate$inboundSchema: z.ZodType<
-  BenefitMeterCreditCreate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  type: z.literal("meter_credit"),
-  description: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  properties: BenefitMeterCreditCreateProperties$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type BenefitMeterCreditCreate$Outbound = {
@@ -156,33 +103,10 @@ export const BenefitMeterCreditCreate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitMeterCreditCreate$ {
-  /** @deprecated use `BenefitMeterCreditCreate$inboundSchema` instead. */
-  export const inboundSchema = BenefitMeterCreditCreate$inboundSchema;
-  /** @deprecated use `BenefitMeterCreditCreate$outboundSchema` instead. */
-  export const outboundSchema = BenefitMeterCreditCreate$outboundSchema;
-  /** @deprecated use `BenefitMeterCreditCreate$Outbound` instead. */
-  export type Outbound = BenefitMeterCreditCreate$Outbound;
-}
-
 export function benefitMeterCreditCreateToJSON(
   benefitMeterCreditCreate: BenefitMeterCreditCreate,
 ): string {
   return JSON.stringify(
     BenefitMeterCreditCreate$outboundSchema.parse(benefitMeterCreditCreate),
-  );
-}
-
-export function benefitMeterCreditCreateFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitMeterCreditCreate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitMeterCreditCreate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitMeterCreditCreate' from JSON`,
   );
 }

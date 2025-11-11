@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
-import {
-  Wallet,
-  Wallet$inboundSchema,
-  Wallet$Outbound,
-  Wallet$outboundSchema,
-} from "./wallet.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
+import { Wallet, Wallet$inboundSchema } from "./wallet.js";
 
 export type ListResourceWallet = {
   items: Array<Wallet>;
@@ -33,43 +23,6 @@ export const ListResourceWallet$inboundSchema: z.ZodType<
   items: z.array(Wallet$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceWallet$Outbound = {
-  items: Array<Wallet$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceWallet$outboundSchema: z.ZodType<
-  ListResourceWallet$Outbound,
-  z.ZodTypeDef,
-  ListResourceWallet
-> = z.object({
-  items: z.array(Wallet$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceWallet$ {
-  /** @deprecated use `ListResourceWallet$inboundSchema` instead. */
-  export const inboundSchema = ListResourceWallet$inboundSchema;
-  /** @deprecated use `ListResourceWallet$outboundSchema` instead. */
-  export const outboundSchema = ListResourceWallet$outboundSchema;
-  /** @deprecated use `ListResourceWallet$Outbound` instead. */
-  export type Outbound = ListResourceWallet$Outbound;
-}
-
-export function listResourceWalletToJSON(
-  listResourceWallet: ListResourceWallet,
-): string {
-  return JSON.stringify(
-    ListResourceWallet$outboundSchema.parse(listResourceWallet),
-  );
-}
 
 export function listResourceWalletFromJSON(
   jsonString: string,

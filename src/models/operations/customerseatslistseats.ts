@@ -4,29 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerSeatsListSeatsRequest = {
   subscriptionId?: string | null | undefined;
   orderId?: string | null | undefined;
 };
-
-/** @internal */
-export const CustomerSeatsListSeatsRequest$inboundSchema: z.ZodType<
-  CustomerSeatsListSeatsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  subscription_id: z.nullable(z.string()).optional(),
-  order_id: z.nullable(z.string()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "subscription_id": "subscriptionId",
-    "order_id": "orderId",
-  });
-});
 
 /** @internal */
 export type CustomerSeatsListSeatsRequest$Outbound = {
@@ -49,19 +31,6 @@ export const CustomerSeatsListSeatsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSeatsListSeatsRequest$ {
-  /** @deprecated use `CustomerSeatsListSeatsRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomerSeatsListSeatsRequest$inboundSchema;
-  /** @deprecated use `CustomerSeatsListSeatsRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomerSeatsListSeatsRequest$outboundSchema;
-  /** @deprecated use `CustomerSeatsListSeatsRequest$Outbound` instead. */
-  export type Outbound = CustomerSeatsListSeatsRequest$Outbound;
-}
-
 export function customerSeatsListSeatsRequestToJSON(
   customerSeatsListSeatsRequest: CustomerSeatsListSeatsRequest,
 ): string {
@@ -69,15 +38,5 @@ export function customerSeatsListSeatsRequestToJSON(
     CustomerSeatsListSeatsRequest$outboundSchema.parse(
       customerSeatsListSeatsRequest,
     ),
-  );
-}
-
-export function customerSeatsListSeatsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerSeatsListSeatsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerSeatsListSeatsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerSeatsListSeatsRequest' from JSON`,
   );
 }

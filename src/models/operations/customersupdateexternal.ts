@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomerUpdateExternalID,
-  CustomerUpdateExternalID$inboundSchema,
   CustomerUpdateExternalID$Outbound,
   CustomerUpdateExternalID$outboundSchema,
 } from "../components/customerupdateexternalid.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomersUpdateExternalRequest = {
   /**
@@ -21,21 +17,6 @@ export type CustomersUpdateExternalRequest = {
   externalId: string;
   customerUpdateExternalID: CustomerUpdateExternalID;
 };
-
-/** @internal */
-export const CustomersUpdateExternalRequest$inboundSchema: z.ZodType<
-  CustomersUpdateExternalRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  external_id: z.string(),
-  CustomerUpdateExternalID: CustomerUpdateExternalID$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "external_id": "externalId",
-    "CustomerUpdateExternalID": "customerUpdateExternalID",
-  });
-});
 
 /** @internal */
 export type CustomersUpdateExternalRequest$Outbound = {
@@ -58,19 +39,6 @@ export const CustomersUpdateExternalRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomersUpdateExternalRequest$ {
-  /** @deprecated use `CustomersUpdateExternalRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomersUpdateExternalRequest$inboundSchema;
-  /** @deprecated use `CustomersUpdateExternalRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomersUpdateExternalRequest$outboundSchema;
-  /** @deprecated use `CustomersUpdateExternalRequest$Outbound` instead. */
-  export type Outbound = CustomersUpdateExternalRequest$Outbound;
-}
-
 export function customersUpdateExternalRequestToJSON(
   customersUpdateExternalRequest: CustomersUpdateExternalRequest,
 ): string {
@@ -78,15 +46,5 @@ export function customersUpdateExternalRequestToJSON(
     CustomersUpdateExternalRequest$outboundSchema.parse(
       customersUpdateExternalRequest,
     ),
-  );
-}
-
-export function customersUpdateExternalRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomersUpdateExternalRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomersUpdateExternalRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomersUpdateExternalRequest' from JSON`,
   );
 }

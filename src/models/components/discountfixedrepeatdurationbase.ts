@@ -79,7 +79,6 @@ export const DiscountFixedRepeatDurationBaseMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type DiscountFixedRepeatDurationBaseMetadata$Outbound =
   | string
@@ -94,21 +93,6 @@ export const DiscountFixedRepeatDurationBaseMetadata$outboundSchema: z.ZodType<
   DiscountFixedRepeatDurationBaseMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountFixedRepeatDurationBaseMetadata$ {
-  /** @deprecated use `DiscountFixedRepeatDurationBaseMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    DiscountFixedRepeatDurationBaseMetadata$inboundSchema;
-  /** @deprecated use `DiscountFixedRepeatDurationBaseMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    DiscountFixedRepeatDurationBaseMetadata$outboundSchema;
-  /** @deprecated use `DiscountFixedRepeatDurationBaseMetadata$Outbound` instead. */
-  export type Outbound = DiscountFixedRepeatDurationBaseMetadata$Outbound;
-}
-
 export function discountFixedRepeatDurationBaseMetadataToJSON(
   discountFixedRepeatDurationBaseMetadata:
     DiscountFixedRepeatDurationBaseMetadata,
@@ -119,7 +103,6 @@ export function discountFixedRepeatDurationBaseMetadataToJSON(
     ),
   );
 }
-
 export function discountFixedRepeatDurationBaseMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -178,7 +161,6 @@ export const DiscountFixedRepeatDurationBase$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type DiscountFixedRepeatDurationBase$Outbound = {
   duration: string;
@@ -236,19 +218,6 @@ export const DiscountFixedRepeatDurationBase$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DiscountFixedRepeatDurationBase$ {
-  /** @deprecated use `DiscountFixedRepeatDurationBase$inboundSchema` instead. */
-  export const inboundSchema = DiscountFixedRepeatDurationBase$inboundSchema;
-  /** @deprecated use `DiscountFixedRepeatDurationBase$outboundSchema` instead. */
-  export const outboundSchema = DiscountFixedRepeatDurationBase$outboundSchema;
-  /** @deprecated use `DiscountFixedRepeatDurationBase$Outbound` instead. */
-  export type Outbound = DiscountFixedRepeatDurationBase$Outbound;
-}
-
 export function discountFixedRepeatDurationBaseToJSON(
   discountFixedRepeatDurationBase: DiscountFixedRepeatDurationBase,
 ): string {
@@ -258,7 +227,6 @@ export function discountFixedRepeatDurationBaseToJSON(
     ),
   );
 }
-
 export function discountFixedRepeatDurationBaseFromJSON(
   jsonString: string,
 ): SafeParseResult<DiscountFixedRepeatDurationBase, SDKValidationError> {

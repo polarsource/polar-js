@@ -100,7 +100,6 @@ export const ProductPriceCustom$inboundSchema: z.ZodType<
     "preset_amount": "presetAmount",
   });
 });
-
 /** @internal */
 export type ProductPriceCustom$Outbound = {
   created_at: string;
@@ -150,19 +149,6 @@ export const ProductPriceCustom$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductPriceCustom$ {
-  /** @deprecated use `ProductPriceCustom$inboundSchema` instead. */
-  export const inboundSchema = ProductPriceCustom$inboundSchema;
-  /** @deprecated use `ProductPriceCustom$outboundSchema` instead. */
-  export const outboundSchema = ProductPriceCustom$outboundSchema;
-  /** @deprecated use `ProductPriceCustom$Outbound` instead. */
-  export type Outbound = ProductPriceCustom$Outbound;
-}
-
 export function productPriceCustomToJSON(
   productPriceCustom: ProductPriceCustom,
 ): string {
@@ -170,7 +156,6 @@ export function productPriceCustomToJSON(
     ProductPriceCustom$outboundSchema.parse(productPriceCustom),
   );
 }
-
 export function productPriceCustomFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductPriceCustom, SDKValidationError> {

@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   CustomFieldUpdate,
-  CustomFieldUpdate$inboundSchema,
   CustomFieldUpdate$Outbound,
   CustomFieldUpdate$outboundSchema,
 } from "../components/customfieldupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldsUpdateRequest = {
   /**
@@ -21,20 +17,6 @@ export type CustomFieldsUpdateRequest = {
   id: string;
   customFieldUpdate: CustomFieldUpdate;
 };
-
-/** @internal */
-export const CustomFieldsUpdateRequest$inboundSchema: z.ZodType<
-  CustomFieldsUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  CustomFieldUpdate: CustomFieldUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "CustomFieldUpdate": "customFieldUpdate",
-  });
-});
 
 /** @internal */
 export type CustomFieldsUpdateRequest$Outbound = {
@@ -56,33 +38,10 @@ export const CustomFieldsUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldsUpdateRequest$ {
-  /** @deprecated use `CustomFieldsUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldsUpdateRequest$inboundSchema;
-  /** @deprecated use `CustomFieldsUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldsUpdateRequest$outboundSchema;
-  /** @deprecated use `CustomFieldsUpdateRequest$Outbound` instead. */
-  export type Outbound = CustomFieldsUpdateRequest$Outbound;
-}
-
 export function customFieldsUpdateRequestToJSON(
   customFieldsUpdateRequest: CustomFieldsUpdateRequest,
 ): string {
   return JSON.stringify(
     CustomFieldsUpdateRequest$outboundSchema.parse(customFieldsUpdateRequest),
-  );
-}
-
-export function customFieldsUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldsUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldsUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldsUpdateRequest' from JSON`,
   );
 }

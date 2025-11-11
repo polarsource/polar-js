@@ -57,7 +57,6 @@ export const CheckoutDiscountFixedRepeatDuration$inboundSchema: z.ZodType<
     "duration_in_months": "durationInMonths",
   });
 });
-
 /** @internal */
 export type CheckoutDiscountFixedRepeatDuration$Outbound = {
   duration: string;
@@ -90,21 +89,6 @@ export const CheckoutDiscountFixedRepeatDuration$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutDiscountFixedRepeatDuration$ {
-  /** @deprecated use `CheckoutDiscountFixedRepeatDuration$inboundSchema` instead. */
-  export const inboundSchema =
-    CheckoutDiscountFixedRepeatDuration$inboundSchema;
-  /** @deprecated use `CheckoutDiscountFixedRepeatDuration$outboundSchema` instead. */
-  export const outboundSchema =
-    CheckoutDiscountFixedRepeatDuration$outboundSchema;
-  /** @deprecated use `CheckoutDiscountFixedRepeatDuration$Outbound` instead. */
-  export type Outbound = CheckoutDiscountFixedRepeatDuration$Outbound;
-}
-
 export function checkoutDiscountFixedRepeatDurationToJSON(
   checkoutDiscountFixedRepeatDuration: CheckoutDiscountFixedRepeatDuration,
 ): string {
@@ -114,7 +98,6 @@ export function checkoutDiscountFixedRepeatDurationToJSON(
     ),
   );
 }
-
 export function checkoutDiscountFixedRepeatDurationFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutDiscountFixedRepeatDuration, SDKValidationError> {

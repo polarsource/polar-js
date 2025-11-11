@@ -14,18 +14,6 @@ export type EventSource = ClosedEnum<typeof EventSource>;
 /** @internal */
 export const EventSource$inboundSchema: z.ZodNativeEnum<typeof EventSource> = z
   .nativeEnum(EventSource);
-
 /** @internal */
 export const EventSource$outboundSchema: z.ZodNativeEnum<typeof EventSource> =
   EventSource$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventSource$ {
-  /** @deprecated use `EventSource$inboundSchema` instead. */
-  export const inboundSchema = EventSource$inboundSchema;
-  /** @deprecated use `EventSource$outboundSchema` instead. */
-  export const outboundSchema = EventSource$outboundSchema;
-}

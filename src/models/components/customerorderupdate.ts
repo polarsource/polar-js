@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AddressInput,
-  AddressInput$inboundSchema,
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
@@ -27,21 +23,6 @@ export type CustomerOrderUpdate = {
    */
   billingAddress: AddressInput | null;
 };
-
-/** @internal */
-export const CustomerOrderUpdate$inboundSchema: z.ZodType<
-  CustomerOrderUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  billing_name: z.nullable(z.string()),
-  billing_address: z.nullable(AddressInput$inboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    "billing_name": "billingName",
-    "billing_address": "billingAddress",
-  });
-});
 
 /** @internal */
 export type CustomerOrderUpdate$Outbound = {
@@ -64,33 +45,10 @@ export const CustomerOrderUpdate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerOrderUpdate$ {
-  /** @deprecated use `CustomerOrderUpdate$inboundSchema` instead. */
-  export const inboundSchema = CustomerOrderUpdate$inboundSchema;
-  /** @deprecated use `CustomerOrderUpdate$outboundSchema` instead. */
-  export const outboundSchema = CustomerOrderUpdate$outboundSchema;
-  /** @deprecated use `CustomerOrderUpdate$Outbound` instead. */
-  export type Outbound = CustomerOrderUpdate$Outbound;
-}
-
 export function customerOrderUpdateToJSON(
   customerOrderUpdate: CustomerOrderUpdate,
 ): string {
   return JSON.stringify(
     CustomerOrderUpdate$outboundSchema.parse(customerOrderUpdate),
-  );
-}
-
-export function customerOrderUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerOrderUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomerOrderUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerOrderUpdate' from JSON`,
   );
 }

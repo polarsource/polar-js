@@ -4,12 +4,8 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldDateProperties,
-  CustomFieldDateProperties$inboundSchema,
   CustomFieldDateProperties$Outbound,
   CustomFieldDateProperties$outboundSchema,
 } from "./customfielddateproperties.js";
@@ -53,13 +49,6 @@ export type CustomFieldCreateDate = {
 };
 
 /** @internal */
-export const CustomFieldCreateDateMetadata$inboundSchema: z.ZodType<
-  CustomFieldCreateDateMetadata,
-  z.ZodTypeDef,
-  unknown
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/** @internal */
 export type CustomFieldCreateDateMetadata$Outbound =
   | string
   | number
@@ -73,19 +62,6 @@ export const CustomFieldCreateDateMetadata$outboundSchema: z.ZodType<
   CustomFieldCreateDateMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateDateMetadata$ {
-  /** @deprecated use `CustomFieldCreateDateMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateDateMetadata$inboundSchema;
-  /** @deprecated use `CustomFieldCreateDateMetadata$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateDateMetadata$outboundSchema;
-  /** @deprecated use `CustomFieldCreateDateMetadata$Outbound` instead. */
-  export type Outbound = CustomFieldCreateDateMetadata$Outbound;
-}
-
 export function customFieldCreateDateMetadataToJSON(
   customFieldCreateDateMetadata: CustomFieldCreateDateMetadata,
 ): string {
@@ -95,36 +71,6 @@ export function customFieldCreateDateMetadataToJSON(
     ),
   );
 }
-
-export function customFieldCreateDateMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldCreateDateMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldCreateDateMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldCreateDateMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomFieldCreateDate$inboundSchema: z.ZodType<
-  CustomFieldCreateDate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ).optional(),
-  type: z.literal("date"),
-  slug: z.string(),
-  name: z.string(),
-  organization_id: z.nullable(z.string()).optional(),
-  properties: CustomFieldDateProperties$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "organization_id": "organizationId",
-  });
-});
 
 /** @internal */
 export type CustomFieldCreateDate$Outbound = {
@@ -156,33 +102,10 @@ export const CustomFieldCreateDate$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldCreateDate$ {
-  /** @deprecated use `CustomFieldCreateDate$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldCreateDate$inboundSchema;
-  /** @deprecated use `CustomFieldCreateDate$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldCreateDate$outboundSchema;
-  /** @deprecated use `CustomFieldCreateDate$Outbound` instead. */
-  export type Outbound = CustomFieldCreateDate$Outbound;
-}
-
 export function customFieldCreateDateToJSON(
   customFieldCreateDate: CustomFieldCreateDate,
 ): string {
   return JSON.stringify(
     CustomFieldCreateDate$outboundSchema.parse(customFieldCreateDate),
-  );
-}
-
-export function customFieldCreateDateFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldCreateDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldCreateDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldCreateDate' from JSON`,
   );
 }

@@ -16,22 +16,6 @@ export const CustomerSortProperty = {
 export type CustomerSortProperty = ClosedEnum<typeof CustomerSortProperty>;
 
 /** @internal */
-export const CustomerSortProperty$inboundSchema: z.ZodNativeEnum<
-  typeof CustomerSortProperty
-> = z.nativeEnum(CustomerSortProperty);
-
-/** @internal */
 export const CustomerSortProperty$outboundSchema: z.ZodNativeEnum<
   typeof CustomerSortProperty
-> = CustomerSortProperty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSortProperty$ {
-  /** @deprecated use `CustomerSortProperty$inboundSchema` instead. */
-  export const inboundSchema = CustomerSortProperty$inboundSchema;
-  /** @deprecated use `CustomerSortProperty$outboundSchema` instead. */
-  export const outboundSchema = CustomerSortProperty$outboundSchema;
-}
+> = z.nativeEnum(CustomerSortProperty);

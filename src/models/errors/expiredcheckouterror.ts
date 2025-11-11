@@ -52,34 +52,3 @@ export const ExpiredCheckoutError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type ExpiredCheckoutError$Outbound = {
-  error: "ExpiredCheckoutError";
-  detail: string;
-};
-
-/** @internal */
-export const ExpiredCheckoutError$outboundSchema: z.ZodType<
-  ExpiredCheckoutError$Outbound,
-  z.ZodTypeDef,
-  ExpiredCheckoutError
-> = z.instanceof(ExpiredCheckoutError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("ExpiredCheckoutError"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ExpiredCheckoutError$ {
-  /** @deprecated use `ExpiredCheckoutError$inboundSchema` instead. */
-  export const inboundSchema = ExpiredCheckoutError$inboundSchema;
-  /** @deprecated use `ExpiredCheckoutError$outboundSchema` instead. */
-  export const outboundSchema = ExpiredCheckoutError$outboundSchema;
-  /** @deprecated use `ExpiredCheckoutError$Outbound` instead. */
-  export type Outbound = ExpiredCheckoutError$Outbound;
-}

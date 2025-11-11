@@ -4,26 +4,10 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerSeatsResendInvitationRequest = {
   seatId: string;
 };
-
-/** @internal */
-export const CustomerSeatsResendInvitationRequest$inboundSchema: z.ZodType<
-  CustomerSeatsResendInvitationRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  seat_id: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "seat_id": "seatId",
-  });
-});
 
 /** @internal */
 export type CustomerSeatsResendInvitationRequest$Outbound = {
@@ -43,21 +27,6 @@ export const CustomerSeatsResendInvitationRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerSeatsResendInvitationRequest$ {
-  /** @deprecated use `CustomerSeatsResendInvitationRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerSeatsResendInvitationRequest$inboundSchema;
-  /** @deprecated use `CustomerSeatsResendInvitationRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerSeatsResendInvitationRequest$outboundSchema;
-  /** @deprecated use `CustomerSeatsResendInvitationRequest$Outbound` instead. */
-  export type Outbound = CustomerSeatsResendInvitationRequest$Outbound;
-}
-
 export function customerSeatsResendInvitationRequestToJSON(
   customerSeatsResendInvitationRequest: CustomerSeatsResendInvitationRequest,
 ): string {
@@ -65,16 +34,5 @@ export function customerSeatsResendInvitationRequestToJSON(
     CustomerSeatsResendInvitationRequest$outboundSchema.parse(
       customerSeatsResendInvitationRequest,
     ),
-  );
-}
-
-export function customerSeatsResendInvitationRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerSeatsResendInvitationRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerSeatsResendInvitationRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerSeatsResendInvitationRequest' from JSON`,
   );
 }

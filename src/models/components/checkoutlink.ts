@@ -10,43 +10,28 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CheckoutLinkProduct,
   CheckoutLinkProduct$inboundSchema,
-  CheckoutLinkProduct$Outbound,
-  CheckoutLinkProduct$outboundSchema,
 } from "./checkoutlinkproduct.js";
 import {
   DiscountFixedOnceForeverDurationBase,
   DiscountFixedOnceForeverDurationBase$inboundSchema,
-  DiscountFixedOnceForeverDurationBase$Outbound,
-  DiscountFixedOnceForeverDurationBase$outboundSchema,
 } from "./discountfixedonceforeverdurationbase.js";
 import {
   DiscountFixedRepeatDurationBase,
   DiscountFixedRepeatDurationBase$inboundSchema,
-  DiscountFixedRepeatDurationBase$Outbound,
-  DiscountFixedRepeatDurationBase$outboundSchema,
 } from "./discountfixedrepeatdurationbase.js";
 import {
   DiscountPercentageOnceForeverDurationBase,
   DiscountPercentageOnceForeverDurationBase$inboundSchema,
-  DiscountPercentageOnceForeverDurationBase$Outbound,
-  DiscountPercentageOnceForeverDurationBase$outboundSchema,
 } from "./discountpercentageonceforeverdurationbase.js";
 import {
   DiscountPercentageRepeatDurationBase,
   DiscountPercentageRepeatDurationBase$inboundSchema,
-  DiscountPercentageRepeatDurationBase$Outbound,
-  DiscountPercentageRepeatDurationBase$outboundSchema,
 } from "./discountpercentagerepeatdurationbase.js";
 import {
   PaymentProcessor,
   PaymentProcessor$inboundSchema,
-  PaymentProcessor$outboundSchema,
 } from "./paymentprocessor.js";
-import {
-  TrialInterval,
-  TrialInterval$inboundSchema,
-  TrialInterval$outboundSchema,
-} from "./trialinterval.js";
+import { TrialInterval, TrialInterval$inboundSchema } from "./trialinterval.js";
 
 export type CheckoutLinkMetadata = string | number | number | boolean;
 
@@ -127,37 +112,6 @@ export const CheckoutLinkMetadata$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/** @internal */
-export type CheckoutLinkMetadata$Outbound = string | number | number | boolean;
-
-/** @internal */
-export const CheckoutLinkMetadata$outboundSchema: z.ZodType<
-  CheckoutLinkMetadata$Outbound,
-  z.ZodTypeDef,
-  CheckoutLinkMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkMetadata$ {
-  /** @deprecated use `CheckoutLinkMetadata$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkMetadata$inboundSchema;
-  /** @deprecated use `CheckoutLinkMetadata$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinkMetadata$outboundSchema;
-  /** @deprecated use `CheckoutLinkMetadata$Outbound` instead. */
-  export type Outbound = CheckoutLinkMetadata$Outbound;
-}
-
-export function checkoutLinkMetadataToJSON(
-  checkoutLinkMetadata: CheckoutLinkMetadata,
-): string {
-  return JSON.stringify(
-    CheckoutLinkMetadata$outboundSchema.parse(checkoutLinkMetadata),
-  );
-}
-
 export function checkoutLinkMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CheckoutLinkMetadata, SDKValidationError> {
@@ -179,46 +133,6 @@ export const CheckoutLinkDiscount$inboundSchema: z.ZodType<
   DiscountPercentageRepeatDurationBase$inboundSchema,
   DiscountPercentageOnceForeverDurationBase$inboundSchema,
 ]);
-
-/** @internal */
-export type CheckoutLinkDiscount$Outbound =
-  | DiscountFixedRepeatDurationBase$Outbound
-  | DiscountFixedOnceForeverDurationBase$Outbound
-  | DiscountPercentageRepeatDurationBase$Outbound
-  | DiscountPercentageOnceForeverDurationBase$Outbound;
-
-/** @internal */
-export const CheckoutLinkDiscount$outboundSchema: z.ZodType<
-  CheckoutLinkDiscount$Outbound,
-  z.ZodTypeDef,
-  CheckoutLinkDiscount
-> = z.union([
-  DiscountFixedRepeatDurationBase$outboundSchema,
-  DiscountFixedOnceForeverDurationBase$outboundSchema,
-  DiscountPercentageRepeatDurationBase$outboundSchema,
-  DiscountPercentageOnceForeverDurationBase$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLinkDiscount$ {
-  /** @deprecated use `CheckoutLinkDiscount$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLinkDiscount$inboundSchema;
-  /** @deprecated use `CheckoutLinkDiscount$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLinkDiscount$outboundSchema;
-  /** @deprecated use `CheckoutLinkDiscount$Outbound` instead. */
-  export type Outbound = CheckoutLinkDiscount$Outbound;
-}
-
-export function checkoutLinkDiscountToJSON(
-  checkoutLinkDiscount: CheckoutLinkDiscount,
-): string {
-  return JSON.stringify(
-    CheckoutLinkDiscount$outboundSchema.parse(checkoutLinkDiscount),
-  );
-}
 
 export function checkoutLinkDiscountFromJSON(
   jsonString: string,
@@ -279,97 +193,6 @@ export const CheckoutLink$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type CheckoutLink$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  trial_interval: string | null;
-  trial_interval_count: number | null;
-  metadata: { [k: string]: string | number | number | boolean };
-  payment_processor: string;
-  client_secret: string;
-  success_url: string | null;
-  label: string | null;
-  allow_discount_codes: boolean;
-  require_billing_address: boolean;
-  discount_id: string | null;
-  organization_id: string;
-  products: Array<CheckoutLinkProduct$Outbound>;
-  discount:
-    | DiscountFixedRepeatDurationBase$Outbound
-    | DiscountFixedOnceForeverDurationBase$Outbound
-    | DiscountPercentageRepeatDurationBase$Outbound
-    | DiscountPercentageOnceForeverDurationBase$Outbound
-    | null;
-  url: string;
-};
-
-/** @internal */
-export const CheckoutLink$outboundSchema: z.ZodType<
-  CheckoutLink$Outbound,
-  z.ZodTypeDef,
-  CheckoutLink
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  trialInterval: z.nullable(TrialInterval$outboundSchema),
-  trialIntervalCount: z.nullable(z.number().int()),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  paymentProcessor: PaymentProcessor$outboundSchema,
-  clientSecret: z.string(),
-  successUrl: z.nullable(z.string()),
-  label: z.nullable(z.string()),
-  allowDiscountCodes: z.boolean(),
-  requireBillingAddress: z.boolean(),
-  discountId: z.nullable(z.string()),
-  organizationId: z.string(),
-  products: z.array(CheckoutLinkProduct$outboundSchema),
-  discount: z.nullable(
-    z.union([
-      DiscountFixedRepeatDurationBase$outboundSchema,
-      DiscountFixedOnceForeverDurationBase$outboundSchema,
-      DiscountPercentageRepeatDurationBase$outboundSchema,
-      DiscountPercentageOnceForeverDurationBase$outboundSchema,
-    ]),
-  ),
-  url: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    trialInterval: "trial_interval",
-    trialIntervalCount: "trial_interval_count",
-    paymentProcessor: "payment_processor",
-    clientSecret: "client_secret",
-    successUrl: "success_url",
-    allowDiscountCodes: "allow_discount_codes",
-    requireBillingAddress: "require_billing_address",
-    discountId: "discount_id",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CheckoutLink$ {
-  /** @deprecated use `CheckoutLink$inboundSchema` instead. */
-  export const inboundSchema = CheckoutLink$inboundSchema;
-  /** @deprecated use `CheckoutLink$outboundSchema` instead. */
-  export const outboundSchema = CheckoutLink$outboundSchema;
-  /** @deprecated use `CheckoutLink$Outbound` instead. */
-  export type Outbound = CheckoutLink$Outbound;
-}
-
-export function checkoutLinkToJSON(checkoutLink: CheckoutLink): string {
-  return JSON.stringify(CheckoutLink$outboundSchema.parse(checkoutLink));
-}
 
 export function checkoutLinkFromJSON(
   jsonString: string,

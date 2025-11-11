@@ -4,10 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const CountryAlpha2Input = {
   Ad: "AD",
@@ -267,43 +264,9 @@ export type AddressInput = {
 };
 
 /** @internal */
-export const CountryAlpha2Input$inboundSchema: z.ZodNativeEnum<
-  typeof CountryAlpha2Input
-> = z.nativeEnum(CountryAlpha2Input);
-
-/** @internal */
 export const CountryAlpha2Input$outboundSchema: z.ZodNativeEnum<
   typeof CountryAlpha2Input
-> = CountryAlpha2Input$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CountryAlpha2Input$ {
-  /** @deprecated use `CountryAlpha2Input$inboundSchema` instead. */
-  export const inboundSchema = CountryAlpha2Input$inboundSchema;
-  /** @deprecated use `CountryAlpha2Input$outboundSchema` instead. */
-  export const outboundSchema = CountryAlpha2Input$outboundSchema;
-}
-
-/** @internal */
-export const AddressInput$inboundSchema: z.ZodType<
-  AddressInput,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  line1: z.nullable(z.string()).optional(),
-  line2: z.nullable(z.string()).optional(),
-  postal_code: z.nullable(z.string()).optional(),
-  city: z.nullable(z.string()).optional(),
-  state: z.nullable(z.string()).optional(),
-  country: CountryAlpha2Input$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "postal_code": "postalCode",
-  });
-});
+> = z.nativeEnum(CountryAlpha2Input);
 
 /** @internal */
 export type AddressInput$Outbound = {
@@ -333,29 +296,6 @@ export const AddressInput$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AddressInput$ {
-  /** @deprecated use `AddressInput$inboundSchema` instead. */
-  export const inboundSchema = AddressInput$inboundSchema;
-  /** @deprecated use `AddressInput$outboundSchema` instead. */
-  export const outboundSchema = AddressInput$outboundSchema;
-  /** @deprecated use `AddressInput$Outbound` instead. */
-  export type Outbound = AddressInput$Outbound;
-}
-
 export function addressInputToJSON(addressInput: AddressInput): string {
   return JSON.stringify(AddressInput$outboundSchema.parse(addressInput));
-}
-
-export function addressInputFromJSON(
-  jsonString: string,
-): SafeParseResult<AddressInput, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AddressInput$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AddressInput' from JSON`,
-  );
 }

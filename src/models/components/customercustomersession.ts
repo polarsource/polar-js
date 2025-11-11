@@ -28,48 +28,6 @@ export const CustomerCustomerSession$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type CustomerCustomerSession$Outbound = {
-  expires_at: string;
-  return_url: string | null;
-};
-
-/** @internal */
-export const CustomerCustomerSession$outboundSchema: z.ZodType<
-  CustomerCustomerSession$Outbound,
-  z.ZodTypeDef,
-  CustomerCustomerSession
-> = z.object({
-  expiresAt: z.date().transform(v => v.toISOString()),
-  returnUrl: z.nullable(z.string()),
-}).transform((v) => {
-  return remap$(v, {
-    expiresAt: "expires_at",
-    returnUrl: "return_url",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerCustomerSession$ {
-  /** @deprecated use `CustomerCustomerSession$inboundSchema` instead. */
-  export const inboundSchema = CustomerCustomerSession$inboundSchema;
-  /** @deprecated use `CustomerCustomerSession$outboundSchema` instead. */
-  export const outboundSchema = CustomerCustomerSession$outboundSchema;
-  /** @deprecated use `CustomerCustomerSession$Outbound` instead. */
-  export type Outbound = CustomerCustomerSession$Outbound;
-}
-
-export function customerCustomerSessionToJSON(
-  customerCustomerSession: CustomerCustomerSession,
-): string {
-  return JSON.stringify(
-    CustomerCustomerSession$outboundSchema.parse(customerCustomerSession),
-  );
-}
-
 export function customerCustomerSessionFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerCustomerSession, SDKValidationError> {

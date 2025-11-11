@@ -7,17 +7,10 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Customer,
-  Customer$inboundSchema,
-  Customer$Outbound,
-  Customer$outboundSchema,
-} from "./customer.js";
+import { Customer, Customer$inboundSchema } from "./customer.js";
 import {
   OrderRefundedMetadata,
   OrderRefundedMetadata$inboundSchema,
-  OrderRefundedMetadata$Outbound,
-  OrderRefundedMetadata$outboundSchema,
 } from "./orderrefundedmetadata.js";
 
 /**
@@ -93,69 +86,6 @@ export const OrderRefundedEvent$inboundSchema: z.ZodType<
     "parent_id": "parentId",
   });
 });
-
-/** @internal */
-export type OrderRefundedEvent$Outbound = {
-  id: string;
-  timestamp: string;
-  organization_id: string;
-  customer_id: string | null;
-  customer: Customer$Outbound | null;
-  external_customer_id: string | null;
-  child_count: number;
-  parent_id?: string | null | undefined;
-  source: "system";
-  name: "order.refunded";
-  metadata: OrderRefundedMetadata$Outbound;
-};
-
-/** @internal */
-export const OrderRefundedEvent$outboundSchema: z.ZodType<
-  OrderRefundedEvent$Outbound,
-  z.ZodTypeDef,
-  OrderRefundedEvent
-> = z.object({
-  id: z.string(),
-  timestamp: z.date().transform(v => v.toISOString()),
-  organizationId: z.string(),
-  customerId: z.nullable(z.string()),
-  customer: z.nullable(Customer$outboundSchema),
-  externalCustomerId: z.nullable(z.string()),
-  childCount: z.number().int().default(0),
-  parentId: z.nullable(z.string()).optional(),
-  source: z.literal("system"),
-  name: z.literal("order.refunded"),
-  metadata: OrderRefundedMetadata$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    organizationId: "organization_id",
-    customerId: "customer_id",
-    externalCustomerId: "external_customer_id",
-    childCount: "child_count",
-    parentId: "parent_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderRefundedEvent$ {
-  /** @deprecated use `OrderRefundedEvent$inboundSchema` instead. */
-  export const inboundSchema = OrderRefundedEvent$inboundSchema;
-  /** @deprecated use `OrderRefundedEvent$outboundSchema` instead. */
-  export const outboundSchema = OrderRefundedEvent$outboundSchema;
-  /** @deprecated use `OrderRefundedEvent$Outbound` instead. */
-  export type Outbound = OrderRefundedEvent$Outbound;
-}
-
-export function orderRefundedEventToJSON(
-  orderRefundedEvent: OrderRefundedEvent,
-): string {
-  return JSON.stringify(
-    OrderRefundedEvent$outboundSchema.parse(orderRefundedEvent),
-  );
-}
 
 export function orderRefundedEventFromJSON(
   jsonString: string,

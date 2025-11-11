@@ -64,53 +64,6 @@ export const CustomerWallet$inboundSchema: z.ZodType<
   });
 });
 
-/** @internal */
-export type CustomerWallet$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  customer_id: string;
-  balance: number;
-  currency: string;
-};
-
-/** @internal */
-export const CustomerWallet$outboundSchema: z.ZodType<
-  CustomerWallet$Outbound,
-  z.ZodTypeDef,
-  CustomerWallet
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  customerId: z.string(),
-  balance: z.number().int(),
-  currency: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    customerId: "customer_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerWallet$ {
-  /** @deprecated use `CustomerWallet$inboundSchema` instead. */
-  export const inboundSchema = CustomerWallet$inboundSchema;
-  /** @deprecated use `CustomerWallet$outboundSchema` instead. */
-  export const outboundSchema = CustomerWallet$outboundSchema;
-  /** @deprecated use `CustomerWallet$Outbound` instead. */
-  export type Outbound = CustomerWallet$Outbound;
-}
-
-export function customerWalletToJSON(customerWallet: CustomerWallet): string {
-  return JSON.stringify(CustomerWallet$outboundSchema.parse(customerWallet));
-}
-
 export function customerWalletFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerWallet, SDKValidationError> {

@@ -10,13 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   WebhookEventType,
   WebhookEventType$inboundSchema,
-  WebhookEventType$outboundSchema,
 } from "./webhookeventtype.js";
-import {
-  WebhookFormat,
-  WebhookFormat$inboundSchema,
-  WebhookFormat$outboundSchema,
-} from "./webhookformat.js";
+import { WebhookFormat, WebhookFormat$inboundSchema } from "./webhookformat.js";
 
 /**
  * A webhook endpoint.
@@ -81,61 +76,6 @@ export const WebhookEndpoint$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type WebhookEndpoint$Outbound = {
-  created_at: string;
-  modified_at: string | null;
-  id: string;
-  url: string;
-  format: string;
-  secret: string;
-  organization_id: string;
-  events: Array<string>;
-  enabled: boolean;
-};
-
-/** @internal */
-export const WebhookEndpoint$outboundSchema: z.ZodType<
-  WebhookEndpoint$Outbound,
-  z.ZodTypeDef,
-  WebhookEndpoint
-> = z.object({
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  id: z.string(),
-  url: z.string(),
-  format: WebhookFormat$outboundSchema,
-  secret: z.string(),
-  organizationId: z.string(),
-  events: z.array(WebhookEventType$outboundSchema),
-  enabled: z.boolean(),
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookEndpoint$ {
-  /** @deprecated use `WebhookEndpoint$inboundSchema` instead. */
-  export const inboundSchema = WebhookEndpoint$inboundSchema;
-  /** @deprecated use `WebhookEndpoint$outboundSchema` instead. */
-  export const outboundSchema = WebhookEndpoint$outboundSchema;
-  /** @deprecated use `WebhookEndpoint$Outbound` instead. */
-  export type Outbound = WebhookEndpoint$Outbound;
-}
-
-export function webhookEndpointToJSON(
-  webhookEndpoint: WebhookEndpoint,
-): string {
-  return JSON.stringify(WebhookEndpoint$outboundSchema.parse(webhookEndpoint));
-}
 
 export function webhookEndpointFromJSON(
   jsonString: string,

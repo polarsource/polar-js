@@ -52,34 +52,3 @@ export const SubscriptionLocked$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type SubscriptionLocked$Outbound = {
-  error: "SubscriptionLocked";
-  detail: string;
-};
-
-/** @internal */
-export const SubscriptionLocked$outboundSchema: z.ZodType<
-  SubscriptionLocked$Outbound,
-  z.ZodTypeDef,
-  SubscriptionLocked
-> = z.instanceof(SubscriptionLocked)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("SubscriptionLocked"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionLocked$ {
-  /** @deprecated use `SubscriptionLocked$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionLocked$inboundSchema;
-  /** @deprecated use `SubscriptionLocked$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionLocked$outboundSchema;
-  /** @deprecated use `SubscriptionLocked$Outbound` instead. */
-  export type Outbound = SubscriptionLocked$Outbound;
-}

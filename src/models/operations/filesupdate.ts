@@ -9,26 +9,19 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   DownloadableFileRead,
   DownloadableFileRead$inboundSchema,
-  DownloadableFileRead$Outbound,
-  DownloadableFileRead$outboundSchema,
 } from "../components/downloadablefileread.js";
 import {
   FilePatch,
-  FilePatch$inboundSchema,
   FilePatch$Outbound,
   FilePatch$outboundSchema,
 } from "../components/filepatch.js";
 import {
   OrganizationAvatarFileRead,
   OrganizationAvatarFileRead$inboundSchema,
-  OrganizationAvatarFileRead$Outbound,
-  OrganizationAvatarFileRead$outboundSchema,
 } from "../components/organizationavatarfileread.js";
 import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
-  ProductMediaFileRead$Outbound,
-  ProductMediaFileRead$outboundSchema,
 } from "../components/productmediafileread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -47,20 +40,6 @@ export type FilesUpdateResponseFilesUpdate =
   | (ProductMediaFileRead & { service: "product_media" })
   | (OrganizationAvatarFileRead & { service: "organization_avatar" })
   | (DownloadableFileRead & { service: "downloadable" });
-
-/** @internal */
-export const FilesUpdateRequest$inboundSchema: z.ZodType<
-  FilesUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  FilePatch: FilePatch$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "FilePatch": "filePatch",
-  });
-});
 
 /** @internal */
 export type FilesUpdateRequest$Outbound = {
@@ -82,34 +61,11 @@ export const FilesUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FilesUpdateRequest$ {
-  /** @deprecated use `FilesUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = FilesUpdateRequest$inboundSchema;
-  /** @deprecated use `FilesUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = FilesUpdateRequest$outboundSchema;
-  /** @deprecated use `FilesUpdateRequest$Outbound` instead. */
-  export type Outbound = FilesUpdateRequest$Outbound;
-}
-
 export function filesUpdateRequestToJSON(
   filesUpdateRequest: FilesUpdateRequest,
 ): string {
   return JSON.stringify(
     FilesUpdateRequest$outboundSchema.parse(filesUpdateRequest),
-  );
-}
-
-export function filesUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<FilesUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FilesUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FilesUpdateRequest' from JSON`,
   );
 }
 
@@ -135,58 +91,6 @@ export const FilesUpdateResponseFilesUpdate$inboundSchema: z.ZodType<
     })),
   ),
 ]);
-
-/** @internal */
-export type FilesUpdateResponseFilesUpdate$Outbound =
-  | (ProductMediaFileRead$Outbound & { service: "product_media" })
-  | (OrganizationAvatarFileRead$Outbound & { service: "organization_avatar" })
-  | (DownloadableFileRead$Outbound & { service: "downloadable" });
-
-/** @internal */
-export const FilesUpdateResponseFilesUpdate$outboundSchema: z.ZodType<
-  FilesUpdateResponseFilesUpdate$Outbound,
-  z.ZodTypeDef,
-  FilesUpdateResponseFilesUpdate
-> = z.union([
-  ProductMediaFileRead$outboundSchema.and(
-    z.object({ service: z.literal("product_media") }).transform((v) => ({
-      service: v.service,
-    })),
-  ),
-  OrganizationAvatarFileRead$outboundSchema.and(
-    z.object({ service: z.literal("organization_avatar") }).transform((v) => ({
-      service: v.service,
-    })),
-  ),
-  DownloadableFileRead$outboundSchema.and(
-    z.object({ service: z.literal("downloadable") }).transform((v) => ({
-      service: v.service,
-    })),
-  ),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FilesUpdateResponseFilesUpdate$ {
-  /** @deprecated use `FilesUpdateResponseFilesUpdate$inboundSchema` instead. */
-  export const inboundSchema = FilesUpdateResponseFilesUpdate$inboundSchema;
-  /** @deprecated use `FilesUpdateResponseFilesUpdate$outboundSchema` instead. */
-  export const outboundSchema = FilesUpdateResponseFilesUpdate$outboundSchema;
-  /** @deprecated use `FilesUpdateResponseFilesUpdate$Outbound` instead. */
-  export type Outbound = FilesUpdateResponseFilesUpdate$Outbound;
-}
-
-export function filesUpdateResponseFilesUpdateToJSON(
-  filesUpdateResponseFilesUpdate: FilesUpdateResponseFilesUpdate,
-): string {
-  return JSON.stringify(
-    FilesUpdateResponseFilesUpdate$outboundSchema.parse(
-      filesUpdateResponseFilesUpdate,
-    ),
-  );
-}
 
 export function filesUpdateResponseFilesUpdateFromJSON(
   jsonString: string,

@@ -128,7 +128,6 @@ export const CustomerStateSubscriptionCustomFieldData$inboundSchema: z.ZodType<
   z.boolean(),
   z.string().datetime({ offset: true }).transform(v => new Date(v)),
 ]);
-
 /** @internal */
 export type CustomerStateSubscriptionCustomFieldData$Outbound =
   | string
@@ -148,21 +147,6 @@ export const CustomerStateSubscriptionCustomFieldData$outboundSchema: z.ZodType<
   z.date().transform(v => v.toISOString()),
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerStateSubscriptionCustomFieldData$ {
-  /** @deprecated use `CustomerStateSubscriptionCustomFieldData$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerStateSubscriptionCustomFieldData$inboundSchema;
-  /** @deprecated use `CustomerStateSubscriptionCustomFieldData$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerStateSubscriptionCustomFieldData$outboundSchema;
-  /** @deprecated use `CustomerStateSubscriptionCustomFieldData$Outbound` instead. */
-  export type Outbound = CustomerStateSubscriptionCustomFieldData$Outbound;
-}
-
 export function customerStateSubscriptionCustomFieldDataToJSON(
   customerStateSubscriptionCustomFieldData:
     CustomerStateSubscriptionCustomFieldData,
@@ -173,7 +157,6 @@ export function customerStateSubscriptionCustomFieldDataToJSON(
     ),
   );
 }
-
 export function customerStateSubscriptionCustomFieldDataFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -196,7 +179,6 @@ export const CustomerStateSubscriptionMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type CustomerStateSubscriptionMetadata$Outbound =
   | string
@@ -211,20 +193,6 @@ export const CustomerStateSubscriptionMetadata$outboundSchema: z.ZodType<
   CustomerStateSubscriptionMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerStateSubscriptionMetadata$ {
-  /** @deprecated use `CustomerStateSubscriptionMetadata$inboundSchema` instead. */
-  export const inboundSchema = CustomerStateSubscriptionMetadata$inboundSchema;
-  /** @deprecated use `CustomerStateSubscriptionMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerStateSubscriptionMetadata$outboundSchema;
-  /** @deprecated use `CustomerStateSubscriptionMetadata$Outbound` instead. */
-  export type Outbound = CustomerStateSubscriptionMetadata$Outbound;
-}
-
 export function customerStateSubscriptionMetadataToJSON(
   customerStateSubscriptionMetadata: CustomerStateSubscriptionMetadata,
 ): string {
@@ -234,7 +202,6 @@ export function customerStateSubscriptionMetadataToJSON(
     ),
   );
 }
-
 export function customerStateSubscriptionMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerStateSubscriptionMetadata, SDKValidationError> {
@@ -248,21 +215,9 @@ export function customerStateSubscriptionMetadataFromJSON(
 /** @internal */
 export const Status$inboundSchema: z.ZodNativeEnum<typeof Status> = z
   .nativeEnum(Status);
-
 /** @internal */
 export const Status$outboundSchema: z.ZodNativeEnum<typeof Status> =
   Status$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Status$ {
-  /** @deprecated use `Status$inboundSchema` instead. */
-  export const inboundSchema = Status$inboundSchema;
-  /** @deprecated use `Status$outboundSchema` instead. */
-  export const outboundSchema = Status$outboundSchema;
-}
 
 /** @internal */
 export const CustomerStateSubscription$inboundSchema: z.ZodType<
@@ -335,7 +290,6 @@ export const CustomerStateSubscription$inboundSchema: z.ZodType<
     "discount_id": "discountId",
   });
 });
-
 /** @internal */
 export type CustomerStateSubscription$Outbound = {
   id: string;
@@ -418,19 +372,6 @@ export const CustomerStateSubscription$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerStateSubscription$ {
-  /** @deprecated use `CustomerStateSubscription$inboundSchema` instead. */
-  export const inboundSchema = CustomerStateSubscription$inboundSchema;
-  /** @deprecated use `CustomerStateSubscription$outboundSchema` instead. */
-  export const outboundSchema = CustomerStateSubscription$outboundSchema;
-  /** @deprecated use `CustomerStateSubscription$Outbound` instead. */
-  export type Outbound = CustomerStateSubscription$Outbound;
-}
-
 export function customerStateSubscriptionToJSON(
   customerStateSubscription: CustomerStateSubscription,
 ): string {
@@ -438,7 +379,6 @@ export function customerStateSubscriptionToJSON(
     CustomerStateSubscription$outboundSchema.parse(customerStateSubscription),
   );
 }
-
 export function customerStateSubscriptionFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomerStateSubscription, SDKValidationError> {

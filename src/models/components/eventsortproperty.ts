@@ -12,22 +12,6 @@ export const EventSortProperty = {
 export type EventSortProperty = ClosedEnum<typeof EventSortProperty>;
 
 /** @internal */
-export const EventSortProperty$inboundSchema: z.ZodNativeEnum<
-  typeof EventSortProperty
-> = z.nativeEnum(EventSortProperty);
-
-/** @internal */
 export const EventSortProperty$outboundSchema: z.ZodNativeEnum<
   typeof EventSortProperty
-> = EventSortProperty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventSortProperty$ {
-  /** @deprecated use `EventSortProperty$inboundSchema` instead. */
-  export const inboundSchema = EventSortProperty$inboundSchema;
-  /** @deprecated use `EventSortProperty$outboundSchema` instead. */
-  export const outboundSchema = EventSortProperty$outboundSchema;
-}
+> = z.nativeEnum(EventSortProperty);

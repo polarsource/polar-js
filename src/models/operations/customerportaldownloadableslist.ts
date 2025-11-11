@@ -9,8 +9,6 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ListResourceDownloadableRead,
   ListResourceDownloadableRead$inboundSchema,
-  ListResourceDownloadableRead$Outbound,
-  ListResourceDownloadableRead$outboundSchema,
 } from "../components/listresourcedownloadableread.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -45,19 +43,6 @@ export type CustomerPortalDownloadablesListResponse = {
 };
 
 /** @internal */
-export const CustomerPortalDownloadablesListSecurity$inboundSchema: z.ZodType<
-  CustomerPortalDownloadablesListSecurity,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  customer_session: z.string(),
-}).transform((v) => {
-  return remap$(v, {
-    "customer_session": "customerSession",
-  });
-});
-
-/** @internal */
 export type CustomerPortalDownloadablesListSecurity$Outbound = {
   customer_session: string;
 };
@@ -75,21 +60,6 @@ export const CustomerPortalDownloadablesListSecurity$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalDownloadablesListSecurity$ {
-  /** @deprecated use `CustomerPortalDownloadablesListSecurity$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalDownloadablesListSecurity$inboundSchema;
-  /** @deprecated use `CustomerPortalDownloadablesListSecurity$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalDownloadablesListSecurity$outboundSchema;
-  /** @deprecated use `CustomerPortalDownloadablesListSecurity$Outbound` instead. */
-  export type Outbound = CustomerPortalDownloadablesListSecurity$Outbound;
-}
-
 export function customerPortalDownloadablesListSecurityToJSON(
   customerPortalDownloadablesListSecurity:
     CustomerPortalDownloadablesListSecurity,
@@ -100,30 +70,6 @@ export function customerPortalDownloadablesListSecurityToJSON(
     ),
   );
 }
-
-export function customerPortalDownloadablesListSecurityFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalDownloadablesListSecurity,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalDownloadablesListSecurity$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CustomerPortalDownloadablesListSecurity' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalDownloadablesListQueryParamBenefitIDFilter$inboundSchema:
-  z.ZodType<
-    CustomerPortalDownloadablesListQueryParamBenefitIDFilter,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([z.string(), z.array(z.string())]);
 
 /** @internal */
 export type CustomerPortalDownloadablesListQueryParamBenefitIDFilter$Outbound =
@@ -138,22 +84,6 @@ export const CustomerPortalDownloadablesListQueryParamBenefitIDFilter$outboundSc
     CustomerPortalDownloadablesListQueryParamBenefitIDFilter
   > = z.union([z.string(), z.array(z.string())]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalDownloadablesListQueryParamBenefitIDFilter$ {
-  /** @deprecated use `CustomerPortalDownloadablesListQueryParamBenefitIDFilter$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalDownloadablesListQueryParamBenefitIDFilter$inboundSchema;
-  /** @deprecated use `CustomerPortalDownloadablesListQueryParamBenefitIDFilter$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalDownloadablesListQueryParamBenefitIDFilter$outboundSchema;
-  /** @deprecated use `CustomerPortalDownloadablesListQueryParamBenefitIDFilter$Outbound` instead. */
-  export type Outbound =
-    CustomerPortalDownloadablesListQueryParamBenefitIDFilter$Outbound;
-}
-
 export function customerPortalDownloadablesListQueryParamBenefitIDFilterToJSON(
   customerPortalDownloadablesListQueryParamBenefitIDFilter:
     CustomerPortalDownloadablesListQueryParamBenefitIDFilter,
@@ -163,36 +93,6 @@ export function customerPortalDownloadablesListQueryParamBenefitIDFilterToJSON(
       .parse(customerPortalDownloadablesListQueryParamBenefitIDFilter),
   );
 }
-
-export function customerPortalDownloadablesListQueryParamBenefitIDFilterFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CustomerPortalDownloadablesListQueryParamBenefitIDFilter,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalDownloadablesListQueryParamBenefitIDFilter$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalDownloadablesListQueryParamBenefitIDFilter' from JSON`,
-  );
-}
-
-/** @internal */
-export const CustomerPortalDownloadablesListRequest$inboundSchema: z.ZodType<
-  CustomerPortalDownloadablesListRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  benefit_id: z.nullable(z.union([z.string(), z.array(z.string())])).optional(),
-  page: z.number().int().default(1),
-  limit: z.number().int().default(10),
-}).transform((v) => {
-  return remap$(v, {
-    "benefit_id": "benefitId",
-  });
-});
 
 /** @internal */
 export type CustomerPortalDownloadablesListRequest$Outbound = {
@@ -216,21 +116,6 @@ export const CustomerPortalDownloadablesListRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalDownloadablesListRequest$ {
-  /** @deprecated use `CustomerPortalDownloadablesListRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalDownloadablesListRequest$inboundSchema;
-  /** @deprecated use `CustomerPortalDownloadablesListRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalDownloadablesListRequest$outboundSchema;
-  /** @deprecated use `CustomerPortalDownloadablesListRequest$Outbound` instead. */
-  export type Outbound = CustomerPortalDownloadablesListRequest$Outbound;
-}
-
 export function customerPortalDownloadablesListRequestToJSON(
   customerPortalDownloadablesListRequest:
     CustomerPortalDownloadablesListRequest,
@@ -239,17 +124,6 @@ export function customerPortalDownloadablesListRequestToJSON(
     CustomerPortalDownloadablesListRequest$outboundSchema.parse(
       customerPortalDownloadablesListRequest,
     ),
-  );
-}
-
-export function customerPortalDownloadablesListRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomerPortalDownloadablesListRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CustomerPortalDownloadablesListRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomerPortalDownloadablesListRequest' from JSON`,
   );
 }
 
@@ -265,50 +139,6 @@ export const CustomerPortalDownloadablesListResponse$inboundSchema: z.ZodType<
     "Result": "result",
   });
 });
-
-/** @internal */
-export type CustomerPortalDownloadablesListResponse$Outbound = {
-  Result: ListResourceDownloadableRead$Outbound;
-};
-
-/** @internal */
-export const CustomerPortalDownloadablesListResponse$outboundSchema: z.ZodType<
-  CustomerPortalDownloadablesListResponse$Outbound,
-  z.ZodTypeDef,
-  CustomerPortalDownloadablesListResponse
-> = z.object({
-  result: ListResourceDownloadableRead$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    result: "Result",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomerPortalDownloadablesListResponse$ {
-  /** @deprecated use `CustomerPortalDownloadablesListResponse$inboundSchema` instead. */
-  export const inboundSchema =
-    CustomerPortalDownloadablesListResponse$inboundSchema;
-  /** @deprecated use `CustomerPortalDownloadablesListResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    CustomerPortalDownloadablesListResponse$outboundSchema;
-  /** @deprecated use `CustomerPortalDownloadablesListResponse$Outbound` instead. */
-  export type Outbound = CustomerPortalDownloadablesListResponse$Outbound;
-}
-
-export function customerPortalDownloadablesListResponseToJSON(
-  customerPortalDownloadablesListResponse:
-    CustomerPortalDownloadablesListResponse,
-): string {
-  return JSON.stringify(
-    CustomerPortalDownloadablesListResponse$outboundSchema.parse(
-      customerPortalDownloadablesListResponse,
-    ),
-  );
-}
 
 export function customerPortalDownloadablesListResponseFromJSON(
   jsonString: string,

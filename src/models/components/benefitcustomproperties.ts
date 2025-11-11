@@ -22,7 +22,6 @@ export const BenefitCustomProperties$inboundSchema: z.ZodType<
 > = z.object({
   note: z.nullable(z.string()),
 });
-
 /** @internal */
 export type BenefitCustomProperties$Outbound = {
   note: string | null;
@@ -37,19 +36,6 @@ export const BenefitCustomProperties$outboundSchema: z.ZodType<
   note: z.nullable(z.string()),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitCustomProperties$ {
-  /** @deprecated use `BenefitCustomProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitCustomProperties$inboundSchema;
-  /** @deprecated use `BenefitCustomProperties$outboundSchema` instead. */
-  export const outboundSchema = BenefitCustomProperties$outboundSchema;
-  /** @deprecated use `BenefitCustomProperties$Outbound` instead. */
-  export type Outbound = BenefitCustomProperties$Outbound;
-}
-
 export function benefitCustomPropertiesToJSON(
   benefitCustomProperties: BenefitCustomProperties,
 ): string {
@@ -57,7 +43,6 @@ export function benefitCustomPropertiesToJSON(
     BenefitCustomProperties$outboundSchema.parse(benefitCustomProperties),
   );
 }
-
 export function benefitCustomPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitCustomProperties, SDKValidationError> {

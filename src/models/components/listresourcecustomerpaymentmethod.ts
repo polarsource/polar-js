@@ -9,15 +9,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerPaymentMethod,
   CustomerPaymentMethod$inboundSchema,
-  CustomerPaymentMethod$Outbound,
-  CustomerPaymentMethod$outboundSchema,
 } from "./customerpaymentmethod.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceCustomerPaymentMethod = {
   items: Array<CustomerPaymentMethod>;
@@ -33,46 +26,6 @@ export const ListResourceCustomerPaymentMethod$inboundSchema: z.ZodType<
   items: z.array(CustomerPaymentMethod$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceCustomerPaymentMethod$Outbound = {
-  items: Array<CustomerPaymentMethod$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceCustomerPaymentMethod$outboundSchema: z.ZodType<
-  ListResourceCustomerPaymentMethod$Outbound,
-  z.ZodTypeDef,
-  ListResourceCustomerPaymentMethod
-> = z.object({
-  items: z.array(CustomerPaymentMethod$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceCustomerPaymentMethod$ {
-  /** @deprecated use `ListResourceCustomerPaymentMethod$inboundSchema` instead. */
-  export const inboundSchema = ListResourceCustomerPaymentMethod$inboundSchema;
-  /** @deprecated use `ListResourceCustomerPaymentMethod$outboundSchema` instead. */
-  export const outboundSchema =
-    ListResourceCustomerPaymentMethod$outboundSchema;
-  /** @deprecated use `ListResourceCustomerPaymentMethod$Outbound` instead. */
-  export type Outbound = ListResourceCustomerPaymentMethod$Outbound;
-}
-
-export function listResourceCustomerPaymentMethodToJSON(
-  listResourceCustomerPaymentMethod: ListResourceCustomerPaymentMethod,
-): string {
-  return JSON.stringify(
-    ListResourceCustomerPaymentMethod$outboundSchema.parse(
-      listResourceCustomerPaymentMethod,
-    ),
-  );
-}
 
 export function listResourceCustomerPaymentMethodFromJSON(
   jsonString: string,

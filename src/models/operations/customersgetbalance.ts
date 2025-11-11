@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomersGetBalanceRequest = {
   /**
@@ -13,15 +10,6 @@ export type CustomersGetBalanceRequest = {
    */
   id: string;
 };
-
-/** @internal */
-export const CustomersGetBalanceRequest$inboundSchema: z.ZodType<
-  CustomersGetBalanceRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-});
 
 /** @internal */
 export type CustomersGetBalanceRequest$Outbound = {
@@ -37,33 +25,10 @@ export const CustomersGetBalanceRequest$outboundSchema: z.ZodType<
   id: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomersGetBalanceRequest$ {
-  /** @deprecated use `CustomersGetBalanceRequest$inboundSchema` instead. */
-  export const inboundSchema = CustomersGetBalanceRequest$inboundSchema;
-  /** @deprecated use `CustomersGetBalanceRequest$outboundSchema` instead. */
-  export const outboundSchema = CustomersGetBalanceRequest$outboundSchema;
-  /** @deprecated use `CustomersGetBalanceRequest$Outbound` instead. */
-  export type Outbound = CustomersGetBalanceRequest$Outbound;
-}
-
 export function customersGetBalanceRequestToJSON(
   customersGetBalanceRequest: CustomersGetBalanceRequest,
 ): string {
   return JSON.stringify(
     CustomersGetBalanceRequest$outboundSchema.parse(customersGetBalanceRequest),
-  );
-}
-
-export function customersGetBalanceRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomersGetBalanceRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomersGetBalanceRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomersGetBalanceRequest' from JSON`,
   );
 }

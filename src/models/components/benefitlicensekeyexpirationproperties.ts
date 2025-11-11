@@ -23,21 +23,9 @@ export type BenefitLicenseKeyExpirationProperties = {
 /** @internal */
 export const Timeframe$inboundSchema: z.ZodNativeEnum<typeof Timeframe> = z
   .nativeEnum(Timeframe);
-
 /** @internal */
 export const Timeframe$outboundSchema: z.ZodNativeEnum<typeof Timeframe> =
   Timeframe$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Timeframe$ {
-  /** @deprecated use `Timeframe$inboundSchema` instead. */
-  export const inboundSchema = Timeframe$inboundSchema;
-  /** @deprecated use `Timeframe$outboundSchema` instead. */
-  export const outboundSchema = Timeframe$outboundSchema;
-}
 
 /** @internal */
 export const BenefitLicenseKeyExpirationProperties$inboundSchema: z.ZodType<
@@ -48,7 +36,6 @@ export const BenefitLicenseKeyExpirationProperties$inboundSchema: z.ZodType<
   ttl: z.number().int(),
   timeframe: Timeframe$inboundSchema,
 });
-
 /** @internal */
 export type BenefitLicenseKeyExpirationProperties$Outbound = {
   ttl: number;
@@ -65,21 +52,6 @@ export const BenefitLicenseKeyExpirationProperties$outboundSchema: z.ZodType<
   timeframe: Timeframe$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeyExpirationProperties$ {
-  /** @deprecated use `BenefitLicenseKeyExpirationProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitLicenseKeyExpirationProperties$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeyExpirationProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitLicenseKeyExpirationProperties$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeyExpirationProperties$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeyExpirationProperties$Outbound;
-}
-
 export function benefitLicenseKeyExpirationPropertiesToJSON(
   benefitLicenseKeyExpirationProperties: BenefitLicenseKeyExpirationProperties,
 ): string {
@@ -89,7 +61,6 @@ export function benefitLicenseKeyExpirationPropertiesToJSON(
     ),
   );
 }
-
 export function benefitLicenseKeyExpirationPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitLicenseKeyExpirationProperties, SDKValidationError> {

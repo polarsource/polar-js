@@ -6,18 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  CustomerOrder,
-  CustomerOrder$inboundSchema,
-  CustomerOrder$Outbound,
-  CustomerOrder$outboundSchema,
-} from "./customerorder.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { CustomerOrder, CustomerOrder$inboundSchema } from "./customerorder.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceCustomerOrder = {
   items: Array<CustomerOrder>;
@@ -33,43 +23,6 @@ export const ListResourceCustomerOrder$inboundSchema: z.ZodType<
   items: z.array(CustomerOrder$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceCustomerOrder$Outbound = {
-  items: Array<CustomerOrder$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceCustomerOrder$outboundSchema: z.ZodType<
-  ListResourceCustomerOrder$Outbound,
-  z.ZodTypeDef,
-  ListResourceCustomerOrder
-> = z.object({
-  items: z.array(CustomerOrder$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceCustomerOrder$ {
-  /** @deprecated use `ListResourceCustomerOrder$inboundSchema` instead. */
-  export const inboundSchema = ListResourceCustomerOrder$inboundSchema;
-  /** @deprecated use `ListResourceCustomerOrder$outboundSchema` instead. */
-  export const outboundSchema = ListResourceCustomerOrder$outboundSchema;
-  /** @deprecated use `ListResourceCustomerOrder$Outbound` instead. */
-  export type Outbound = ListResourceCustomerOrder$Outbound;
-}
-
-export function listResourceCustomerOrderToJSON(
-  listResourceCustomerOrder: ListResourceCustomerOrder,
-): string {
-  return JSON.stringify(
-    ListResourceCustomerOrder$outboundSchema.parse(listResourceCustomerOrder),
-  );
-}
 
 export function listResourceCustomerOrderFromJSON(
   jsonString: string,

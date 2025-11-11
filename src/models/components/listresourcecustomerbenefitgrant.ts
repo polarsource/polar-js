@@ -9,15 +9,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerBenefitGrant,
   CustomerBenefitGrant$inboundSchema,
-  CustomerBenefitGrant$Outbound,
-  CustomerBenefitGrant$outboundSchema,
 } from "./customerbenefitgrant.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceCustomerBenefitGrant = {
   items: Array<CustomerBenefitGrant>;
@@ -33,45 +26,6 @@ export const ListResourceCustomerBenefitGrant$inboundSchema: z.ZodType<
   items: z.array(CustomerBenefitGrant$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceCustomerBenefitGrant$Outbound = {
-  items: Array<CustomerBenefitGrant$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceCustomerBenefitGrant$outboundSchema: z.ZodType<
-  ListResourceCustomerBenefitGrant$Outbound,
-  z.ZodTypeDef,
-  ListResourceCustomerBenefitGrant
-> = z.object({
-  items: z.array(CustomerBenefitGrant$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceCustomerBenefitGrant$ {
-  /** @deprecated use `ListResourceCustomerBenefitGrant$inboundSchema` instead. */
-  export const inboundSchema = ListResourceCustomerBenefitGrant$inboundSchema;
-  /** @deprecated use `ListResourceCustomerBenefitGrant$outboundSchema` instead. */
-  export const outboundSchema = ListResourceCustomerBenefitGrant$outboundSchema;
-  /** @deprecated use `ListResourceCustomerBenefitGrant$Outbound` instead. */
-  export type Outbound = ListResourceCustomerBenefitGrant$Outbound;
-}
-
-export function listResourceCustomerBenefitGrantToJSON(
-  listResourceCustomerBenefitGrant: ListResourceCustomerBenefitGrant,
-): string {
-  return JSON.stringify(
-    ListResourceCustomerBenefitGrant$outboundSchema.parse(
-      listResourceCustomerBenefitGrant,
-    ),
-  );
-}
 
 export function listResourceCustomerBenefitGrantFromJSON(
   jsonString: string,

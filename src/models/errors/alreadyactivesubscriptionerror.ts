@@ -52,34 +52,3 @@ export const AlreadyActiveSubscriptionError$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type AlreadyActiveSubscriptionError$Outbound = {
-  error: "AlreadyActiveSubscriptionError";
-  detail: string;
-};
-
-/** @internal */
-export const AlreadyActiveSubscriptionError$outboundSchema: z.ZodType<
-  AlreadyActiveSubscriptionError$Outbound,
-  z.ZodTypeDef,
-  AlreadyActiveSubscriptionError
-> = z.instanceof(AlreadyActiveSubscriptionError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    error: z.literal("AlreadyActiveSubscriptionError"),
-    detail: z.string(),
-  }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AlreadyActiveSubscriptionError$ {
-  /** @deprecated use `AlreadyActiveSubscriptionError$inboundSchema` instead. */
-  export const inboundSchema = AlreadyActiveSubscriptionError$inboundSchema;
-  /** @deprecated use `AlreadyActiveSubscriptionError$outboundSchema` instead. */
-  export const outboundSchema = AlreadyActiveSubscriptionError$outboundSchema;
-  /** @deprecated use `AlreadyActiveSubscriptionError$Outbound` instead. */
-  export type Outbound = AlreadyActiveSubscriptionError$Outbound;
-}

@@ -9,15 +9,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DownloadableRead,
   DownloadableRead$inboundSchema,
-  DownloadableRead$Outbound,
-  DownloadableRead$outboundSchema,
 } from "./downloadableread.js";
-import {
-  Pagination,
-  Pagination$inboundSchema,
-  Pagination$Outbound,
-  Pagination$outboundSchema,
-} from "./pagination.js";
+import { Pagination, Pagination$inboundSchema } from "./pagination.js";
 
 export type ListResourceDownloadableRead = {
   items: Array<DownloadableRead>;
@@ -33,45 +26,6 @@ export const ListResourceDownloadableRead$inboundSchema: z.ZodType<
   items: z.array(DownloadableRead$inboundSchema),
   pagination: Pagination$inboundSchema,
 });
-
-/** @internal */
-export type ListResourceDownloadableRead$Outbound = {
-  items: Array<DownloadableRead$Outbound>;
-  pagination: Pagination$Outbound;
-};
-
-/** @internal */
-export const ListResourceDownloadableRead$outboundSchema: z.ZodType<
-  ListResourceDownloadableRead$Outbound,
-  z.ZodTypeDef,
-  ListResourceDownloadableRead
-> = z.object({
-  items: z.array(DownloadableRead$outboundSchema),
-  pagination: Pagination$outboundSchema,
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ListResourceDownloadableRead$ {
-  /** @deprecated use `ListResourceDownloadableRead$inboundSchema` instead. */
-  export const inboundSchema = ListResourceDownloadableRead$inboundSchema;
-  /** @deprecated use `ListResourceDownloadableRead$outboundSchema` instead. */
-  export const outboundSchema = ListResourceDownloadableRead$outboundSchema;
-  /** @deprecated use `ListResourceDownloadableRead$Outbound` instead. */
-  export type Outbound = ListResourceDownloadableRead$Outbound;
-}
-
-export function listResourceDownloadableReadToJSON(
-  listResourceDownloadableRead: ListResourceDownloadableRead,
-): string {
-  return JSON.stringify(
-    ListResourceDownloadableRead$outboundSchema.parse(
-      listResourceDownloadableRead,
-    ),
-  );
-}
 
 export function listResourceDownloadableReadFromJSON(
   jsonString: string,

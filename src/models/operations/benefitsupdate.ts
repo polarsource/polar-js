@@ -4,45 +4,36 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   BenefitCustomUpdate,
-  BenefitCustomUpdate$inboundSchema,
   BenefitCustomUpdate$Outbound,
   BenefitCustomUpdate$outboundSchema,
 } from "../components/benefitcustomupdate.js";
 import {
   BenefitDiscordUpdate,
-  BenefitDiscordUpdate$inboundSchema,
   BenefitDiscordUpdate$Outbound,
   BenefitDiscordUpdate$outboundSchema,
 } from "../components/benefitdiscordupdate.js";
 import {
   BenefitDownloadablesUpdate,
-  BenefitDownloadablesUpdate$inboundSchema,
   BenefitDownloadablesUpdate$Outbound,
   BenefitDownloadablesUpdate$outboundSchema,
 } from "../components/benefitdownloadablesupdate.js";
 import {
   BenefitGitHubRepositoryUpdate,
-  BenefitGitHubRepositoryUpdate$inboundSchema,
   BenefitGitHubRepositoryUpdate$Outbound,
   BenefitGitHubRepositoryUpdate$outboundSchema,
 } from "../components/benefitgithubrepositoryupdate.js";
 import {
   BenefitLicenseKeysUpdate,
-  BenefitLicenseKeysUpdate$inboundSchema,
   BenefitLicenseKeysUpdate$Outbound,
   BenefitLicenseKeysUpdate$outboundSchema,
 } from "../components/benefitlicensekeysupdate.js";
 import {
   BenefitMeterCreditUpdate,
-  BenefitMeterCreditUpdate$inboundSchema,
   BenefitMeterCreditUpdate$Outbound,
   BenefitMeterCreditUpdate$outboundSchema,
 } from "../components/benefitmetercreditupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitsUpdateBenefitUpdate =
   | BenefitCustomUpdate
@@ -62,20 +53,6 @@ export type BenefitsUpdateRequest = {
     | BenefitLicenseKeysUpdate
     | BenefitMeterCreditUpdate;
 };
-
-/** @internal */
-export const BenefitsUpdateBenefitUpdate$inboundSchema: z.ZodType<
-  BenefitsUpdateBenefitUpdate,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  BenefitCustomUpdate$inboundSchema,
-  BenefitDiscordUpdate$inboundSchema,
-  BenefitGitHubRepositoryUpdate$inboundSchema,
-  BenefitDownloadablesUpdate$inboundSchema,
-  BenefitLicenseKeysUpdate$inboundSchema,
-  BenefitMeterCreditUpdate$inboundSchema,
-]);
 
 /** @internal */
 export type BenefitsUpdateBenefitUpdate$Outbound =
@@ -100,19 +77,6 @@ export const BenefitsUpdateBenefitUpdate$outboundSchema: z.ZodType<
   BenefitMeterCreditUpdate$outboundSchema,
 ]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitsUpdateBenefitUpdate$ {
-  /** @deprecated use `BenefitsUpdateBenefitUpdate$inboundSchema` instead. */
-  export const inboundSchema = BenefitsUpdateBenefitUpdate$inboundSchema;
-  /** @deprecated use `BenefitsUpdateBenefitUpdate$outboundSchema` instead. */
-  export const outboundSchema = BenefitsUpdateBenefitUpdate$outboundSchema;
-  /** @deprecated use `BenefitsUpdateBenefitUpdate$Outbound` instead. */
-  export type Outbound = BenefitsUpdateBenefitUpdate$Outbound;
-}
-
 export function benefitsUpdateBenefitUpdateToJSON(
   benefitsUpdateBenefitUpdate: BenefitsUpdateBenefitUpdate,
 ): string {
@@ -122,37 +86,6 @@ export function benefitsUpdateBenefitUpdateToJSON(
     ),
   );
 }
-
-export function benefitsUpdateBenefitUpdateFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitsUpdateBenefitUpdate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitsUpdateBenefitUpdate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitsUpdateBenefitUpdate' from JSON`,
-  );
-}
-
-/** @internal */
-export const BenefitsUpdateRequest$inboundSchema: z.ZodType<
-  BenefitsUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  RequestBody: z.union([
-    BenefitCustomUpdate$inboundSchema,
-    BenefitDiscordUpdate$inboundSchema,
-    BenefitGitHubRepositoryUpdate$inboundSchema,
-    BenefitDownloadablesUpdate$inboundSchema,
-    BenefitLicenseKeysUpdate$inboundSchema,
-    BenefitMeterCreditUpdate$inboundSchema,
-  ]),
-}).transform((v) => {
-  return remap$(v, {
-    "RequestBody": "requestBody",
-  });
-});
 
 /** @internal */
 export type BenefitsUpdateRequest$Outbound = {
@@ -187,33 +120,10 @@ export const BenefitsUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitsUpdateRequest$ {
-  /** @deprecated use `BenefitsUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = BenefitsUpdateRequest$inboundSchema;
-  /** @deprecated use `BenefitsUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = BenefitsUpdateRequest$outboundSchema;
-  /** @deprecated use `BenefitsUpdateRequest$Outbound` instead. */
-  export type Outbound = BenefitsUpdateRequest$Outbound;
-}
-
 export function benefitsUpdateRequestToJSON(
   benefitsUpdateRequest: BenefitsUpdateRequest,
 ): string {
   return JSON.stringify(
     BenefitsUpdateRequest$outboundSchema.parse(benefitsUpdateRequest),
-  );
-}
-
-export function benefitsUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitsUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitsUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitsUpdateRequest' from JSON`,
   );
 }

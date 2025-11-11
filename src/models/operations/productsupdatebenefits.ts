@@ -4,34 +4,16 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   ProductBenefitsUpdate,
-  ProductBenefitsUpdate$inboundSchema,
   ProductBenefitsUpdate$Outbound,
   ProductBenefitsUpdate$outboundSchema,
 } from "../components/productbenefitsupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ProductsUpdateBenefitsRequest = {
   id: string;
   productBenefitsUpdate: ProductBenefitsUpdate;
 };
-
-/** @internal */
-export const ProductsUpdateBenefitsRequest$inboundSchema: z.ZodType<
-  ProductsUpdateBenefitsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  ProductBenefitsUpdate: ProductBenefitsUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "ProductBenefitsUpdate": "productBenefitsUpdate",
-  });
-});
 
 /** @internal */
 export type ProductsUpdateBenefitsRequest$Outbound = {
@@ -53,19 +35,6 @@ export const ProductsUpdateBenefitsRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ProductsUpdateBenefitsRequest$ {
-  /** @deprecated use `ProductsUpdateBenefitsRequest$inboundSchema` instead. */
-  export const inboundSchema = ProductsUpdateBenefitsRequest$inboundSchema;
-  /** @deprecated use `ProductsUpdateBenefitsRequest$outboundSchema` instead. */
-  export const outboundSchema = ProductsUpdateBenefitsRequest$outboundSchema;
-  /** @deprecated use `ProductsUpdateBenefitsRequest$Outbound` instead. */
-  export type Outbound = ProductsUpdateBenefitsRequest$Outbound;
-}
-
 export function productsUpdateBenefitsRequestToJSON(
   productsUpdateBenefitsRequest: ProductsUpdateBenefitsRequest,
 ): string {
@@ -73,15 +42,5 @@ export function productsUpdateBenefitsRequestToJSON(
     ProductsUpdateBenefitsRequest$outboundSchema.parse(
       productsUpdateBenefitsRequest,
     ),
-  );
-}
-
-export function productsUpdateBenefitsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductsUpdateBenefitsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductsUpdateBenefitsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductsUpdateBenefitsRequest' from JSON`,
   );
 }

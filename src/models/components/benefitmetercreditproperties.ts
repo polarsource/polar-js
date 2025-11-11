@@ -31,7 +31,6 @@ export const BenefitMeterCreditProperties$inboundSchema: z.ZodType<
     "meter_id": "meterId",
   });
 });
-
 /** @internal */
 export type BenefitMeterCreditProperties$Outbound = {
   units: number;
@@ -54,19 +53,6 @@ export const BenefitMeterCreditProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitMeterCreditProperties$ {
-  /** @deprecated use `BenefitMeterCreditProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitMeterCreditProperties$inboundSchema;
-  /** @deprecated use `BenefitMeterCreditProperties$outboundSchema` instead. */
-  export const outboundSchema = BenefitMeterCreditProperties$outboundSchema;
-  /** @deprecated use `BenefitMeterCreditProperties$Outbound` instead. */
-  export type Outbound = BenefitMeterCreditProperties$Outbound;
-}
-
 export function benefitMeterCreditPropertiesToJSON(
   benefitMeterCreditProperties: BenefitMeterCreditProperties,
 ): string {
@@ -76,7 +62,6 @@ export function benefitMeterCreditPropertiesToJSON(
     ),
   );
 }
-
 export function benefitMeterCreditPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitMeterCreditProperties, SDKValidationError> {

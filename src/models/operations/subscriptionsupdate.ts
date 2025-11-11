@@ -4,15 +4,11 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   SubscriptionUpdate,
-  SubscriptionUpdate$inboundSchema,
   SubscriptionUpdate$Outbound,
   SubscriptionUpdate$outboundSchema,
 } from "../components/subscriptionupdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionsUpdateRequest = {
   /**
@@ -21,20 +17,6 @@ export type SubscriptionsUpdateRequest = {
   id: string;
   subscriptionUpdate: SubscriptionUpdate;
 };
-
-/** @internal */
-export const SubscriptionsUpdateRequest$inboundSchema: z.ZodType<
-  SubscriptionsUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  SubscriptionUpdate: SubscriptionUpdate$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "SubscriptionUpdate": "subscriptionUpdate",
-  });
-});
 
 /** @internal */
 export type SubscriptionsUpdateRequest$Outbound = {
@@ -56,33 +38,10 @@ export const SubscriptionsUpdateRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionsUpdateRequest$ {
-  /** @deprecated use `SubscriptionsUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionsUpdateRequest$inboundSchema;
-  /** @deprecated use `SubscriptionsUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionsUpdateRequest$outboundSchema;
-  /** @deprecated use `SubscriptionsUpdateRequest$Outbound` instead. */
-  export type Outbound = SubscriptionsUpdateRequest$Outbound;
-}
-
 export function subscriptionsUpdateRequestToJSON(
   subscriptionsUpdateRequest: SubscriptionsUpdateRequest,
 ): string {
   return JSON.stringify(
     SubscriptionsUpdateRequest$outboundSchema.parse(subscriptionsUpdateRequest),
-  );
-}
-
-export function subscriptionsUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionsUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionsUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionsUpdateRequest' from JSON`,
   );
 }

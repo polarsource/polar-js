@@ -36,7 +36,6 @@ export const WebhookBenefitCreatedPayload$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: Benefit$inboundSchema,
 });
-
 /** @internal */
 export type WebhookBenefitCreatedPayload$Outbound = {
   type: "benefit.created";
@@ -55,19 +54,6 @@ export const WebhookBenefitCreatedPayload$outboundSchema: z.ZodType<
   data: Benefit$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookBenefitCreatedPayload$ {
-  /** @deprecated use `WebhookBenefitCreatedPayload$inboundSchema` instead. */
-  export const inboundSchema = WebhookBenefitCreatedPayload$inboundSchema;
-  /** @deprecated use `WebhookBenefitCreatedPayload$outboundSchema` instead. */
-  export const outboundSchema = WebhookBenefitCreatedPayload$outboundSchema;
-  /** @deprecated use `WebhookBenefitCreatedPayload$Outbound` instead. */
-  export type Outbound = WebhookBenefitCreatedPayload$Outbound;
-}
-
 export function webhookBenefitCreatedPayloadToJSON(
   webhookBenefitCreatedPayload: WebhookBenefitCreatedPayload,
 ): string {
@@ -77,7 +63,6 @@ export function webhookBenefitCreatedPayloadToJSON(
     ),
   );
 }
-
 export function webhookBenefitCreatedPayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhookBenefitCreatedPayload, SDKValidationError> {

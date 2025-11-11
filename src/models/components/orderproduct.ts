@@ -78,7 +78,6 @@ export const OrderProductMetadata$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
 /** @internal */
 export type OrderProductMetadata$Outbound = string | number | number | boolean;
 
@@ -89,19 +88,6 @@ export const OrderProductMetadata$outboundSchema: z.ZodType<
   OrderProductMetadata
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderProductMetadata$ {
-  /** @deprecated use `OrderProductMetadata$inboundSchema` instead. */
-  export const inboundSchema = OrderProductMetadata$inboundSchema;
-  /** @deprecated use `OrderProductMetadata$outboundSchema` instead. */
-  export const outboundSchema = OrderProductMetadata$outboundSchema;
-  /** @deprecated use `OrderProductMetadata$Outbound` instead. */
-  export type Outbound = OrderProductMetadata$Outbound;
-}
-
 export function orderProductMetadataToJSON(
   orderProductMetadata: OrderProductMetadata,
 ): string {
@@ -109,7 +95,6 @@ export function orderProductMetadataToJSON(
     OrderProductMetadata$outboundSchema.parse(orderProductMetadata),
   );
 }
-
 export function orderProductMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderProductMetadata, SDKValidationError> {
@@ -156,7 +141,6 @@ export const OrderProduct$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
 /** @internal */
 export type OrderProduct$Outbound = {
   metadata: { [k: string]: string | number | number | boolean };
@@ -209,23 +193,9 @@ export const OrderProduct$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderProduct$ {
-  /** @deprecated use `OrderProduct$inboundSchema` instead. */
-  export const inboundSchema = OrderProduct$inboundSchema;
-  /** @deprecated use `OrderProduct$outboundSchema` instead. */
-  export const outboundSchema = OrderProduct$outboundSchema;
-  /** @deprecated use `OrderProduct$Outbound` instead. */
-  export type Outbound = OrderProduct$Outbound;
-}
-
 export function orderProductToJSON(orderProduct: OrderProduct): string {
   return JSON.stringify(OrderProduct$outboundSchema.parse(orderProduct));
 }
-
 export function orderProductFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderProduct, SDKValidationError> {

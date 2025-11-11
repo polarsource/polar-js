@@ -74,7 +74,6 @@ export const SubscriptionMeter$inboundSchema: z.ZodType<
     "meter_id": "meterId",
   });
 });
-
 /** @internal */
 export type SubscriptionMeter$Outbound = {
   created_at: string;
@@ -111,19 +110,6 @@ export const SubscriptionMeter$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubscriptionMeter$ {
-  /** @deprecated use `SubscriptionMeter$inboundSchema` instead. */
-  export const inboundSchema = SubscriptionMeter$inboundSchema;
-  /** @deprecated use `SubscriptionMeter$outboundSchema` instead. */
-  export const outboundSchema = SubscriptionMeter$outboundSchema;
-  /** @deprecated use `SubscriptionMeter$Outbound` instead. */
-  export type Outbound = SubscriptionMeter$Outbound;
-}
-
 export function subscriptionMeterToJSON(
   subscriptionMeter: SubscriptionMeter,
 ): string {
@@ -131,7 +117,6 @@ export function subscriptionMeterToJSON(
     SubscriptionMeter$outboundSchema.parse(subscriptionMeter),
   );
 }
-
 export function subscriptionMeterFromJSON(
   jsonString: string,
 ): SafeParseResult<SubscriptionMeter, SDKValidationError> {

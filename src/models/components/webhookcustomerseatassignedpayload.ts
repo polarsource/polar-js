@@ -37,7 +37,6 @@ export const WebhookCustomerSeatAssignedPayload$inboundSchema: z.ZodType<
   timestamp: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   data: CustomerSeat$inboundSchema,
 });
-
 /** @internal */
 export type WebhookCustomerSeatAssignedPayload$Outbound = {
   type: "customer_seat.assigned";
@@ -56,20 +55,6 @@ export const WebhookCustomerSeatAssignedPayload$outboundSchema: z.ZodType<
   data: CustomerSeat$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace WebhookCustomerSeatAssignedPayload$ {
-  /** @deprecated use `WebhookCustomerSeatAssignedPayload$inboundSchema` instead. */
-  export const inboundSchema = WebhookCustomerSeatAssignedPayload$inboundSchema;
-  /** @deprecated use `WebhookCustomerSeatAssignedPayload$outboundSchema` instead. */
-  export const outboundSchema =
-    WebhookCustomerSeatAssignedPayload$outboundSchema;
-  /** @deprecated use `WebhookCustomerSeatAssignedPayload$Outbound` instead. */
-  export type Outbound = WebhookCustomerSeatAssignedPayload$Outbound;
-}
-
 export function webhookCustomerSeatAssignedPayloadToJSON(
   webhookCustomerSeatAssignedPayload: WebhookCustomerSeatAssignedPayload,
 ): string {
@@ -79,7 +64,6 @@ export function webhookCustomerSeatAssignedPayloadToJSON(
     ),
   );
 }
-
 export function webhookCustomerSeatAssignedPayloadFromJSON(
   jsonString: string,
 ): SafeParseResult<WebhookCustomerSeatAssignedPayload, SDKValidationError> {

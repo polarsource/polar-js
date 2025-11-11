@@ -34,7 +34,6 @@ export const CustomFieldNumberProperties$inboundSchema: z.ZodType<
     "form_placeholder": "formPlaceholder",
   });
 });
-
 /** @internal */
 export type CustomFieldNumberProperties$Outbound = {
   form_label?: string | undefined;
@@ -63,19 +62,6 @@ export const CustomFieldNumberProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CustomFieldNumberProperties$ {
-  /** @deprecated use `CustomFieldNumberProperties$inboundSchema` instead. */
-  export const inboundSchema = CustomFieldNumberProperties$inboundSchema;
-  /** @deprecated use `CustomFieldNumberProperties$outboundSchema` instead. */
-  export const outboundSchema = CustomFieldNumberProperties$outboundSchema;
-  /** @deprecated use `CustomFieldNumberProperties$Outbound` instead. */
-  export type Outbound = CustomFieldNumberProperties$Outbound;
-}
-
 export function customFieldNumberPropertiesToJSON(
   customFieldNumberProperties: CustomFieldNumberProperties,
 ): string {
@@ -85,7 +71,6 @@ export function customFieldNumberPropertiesToJSON(
     ),
   );
 }
-
 export function customFieldNumberPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<CustomFieldNumberProperties, SDKValidationError> {

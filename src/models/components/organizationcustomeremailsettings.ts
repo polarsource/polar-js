@@ -45,7 +45,6 @@ export const OrganizationCustomerEmailSettings$inboundSchema: z.ZodType<
     "subscription_updated": "subscriptionUpdated",
   });
 });
-
 /** @internal */
 export type OrganizationCustomerEmailSettings$Outbound = {
   order_confirmation: boolean;
@@ -85,20 +84,6 @@ export const OrganizationCustomerEmailSettings$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrganizationCustomerEmailSettings$ {
-  /** @deprecated use `OrganizationCustomerEmailSettings$inboundSchema` instead. */
-  export const inboundSchema = OrganizationCustomerEmailSettings$inboundSchema;
-  /** @deprecated use `OrganizationCustomerEmailSettings$outboundSchema` instead. */
-  export const outboundSchema =
-    OrganizationCustomerEmailSettings$outboundSchema;
-  /** @deprecated use `OrganizationCustomerEmailSettings$Outbound` instead. */
-  export type Outbound = OrganizationCustomerEmailSettings$Outbound;
-}
-
 export function organizationCustomerEmailSettingsToJSON(
   organizationCustomerEmailSettings: OrganizationCustomerEmailSettings,
 ): string {
@@ -108,7 +93,6 @@ export function organizationCustomerEmailSettingsToJSON(
     ),
   );
 }
-
 export function organizationCustomerEmailSettingsFromJSON(
   jsonString: string,
 ): SafeParseResult<OrganizationCustomerEmailSettings, SDKValidationError> {

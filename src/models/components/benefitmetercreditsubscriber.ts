@@ -10,14 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitMeterCreditSubscriberProperties,
   BenefitMeterCreditSubscriberProperties$inboundSchema,
-  BenefitMeterCreditSubscriberProperties$Outbound,
-  BenefitMeterCreditSubscriberProperties$outboundSchema,
 } from "./benefitmetercreditsubscriberproperties.js";
 import {
   BenefitSubscriberOrganization,
   BenefitSubscriberOrganization$inboundSchema,
-  BenefitSubscriberOrganization$Outbound,
-  BenefitSubscriberOrganization$outboundSchema,
 } from "./benefitsubscriberorganization.js";
 
 export type BenefitMeterCreditSubscriberMetadata =
@@ -71,45 +67,6 @@ export const BenefitMeterCreditSubscriberMetadata$inboundSchema: z.ZodType<
   unknown
 > = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
 
-/** @internal */
-export type BenefitMeterCreditSubscriberMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const BenefitMeterCreditSubscriberMetadata$outboundSchema: z.ZodType<
-  BenefitMeterCreditSubscriberMetadata$Outbound,
-  z.ZodTypeDef,
-  BenefitMeterCreditSubscriberMetadata
-> = z.union([z.string(), z.number().int(), z.number(), z.boolean()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitMeterCreditSubscriberMetadata$ {
-  /** @deprecated use `BenefitMeterCreditSubscriberMetadata$inboundSchema` instead. */
-  export const inboundSchema =
-    BenefitMeterCreditSubscriberMetadata$inboundSchema;
-  /** @deprecated use `BenefitMeterCreditSubscriberMetadata$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitMeterCreditSubscriberMetadata$outboundSchema;
-  /** @deprecated use `BenefitMeterCreditSubscriberMetadata$Outbound` instead. */
-  export type Outbound = BenefitMeterCreditSubscriberMetadata$Outbound;
-}
-
-export function benefitMeterCreditSubscriberMetadataToJSON(
-  benefitMeterCreditSubscriberMetadata: BenefitMeterCreditSubscriberMetadata,
-): string {
-  return JSON.stringify(
-    BenefitMeterCreditSubscriberMetadata$outboundSchema.parse(
-      benefitMeterCreditSubscriberMetadata,
-    ),
-  );
-}
-
 export function benefitMeterCreditSubscriberMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitMeterCreditSubscriberMetadata, SDKValidationError> {
@@ -149,71 +106,6 @@ export const BenefitMeterCreditSubscriber$inboundSchema: z.ZodType<
     "organization_id": "organizationId",
   });
 });
-
-/** @internal */
-export type BenefitMeterCreditSubscriber$Outbound = {
-  id: string;
-  created_at: string;
-  modified_at: string | null;
-  type: "meter_credit";
-  description: string;
-  selectable: boolean;
-  deletable: boolean;
-  organization_id: string;
-  metadata: { [k: string]: string | number | number | boolean };
-  organization: BenefitSubscriberOrganization$Outbound;
-  properties: BenefitMeterCreditSubscriberProperties$Outbound;
-};
-
-/** @internal */
-export const BenefitMeterCreditSubscriber$outboundSchema: z.ZodType<
-  BenefitMeterCreditSubscriber$Outbound,
-  z.ZodTypeDef,
-  BenefitMeterCreditSubscriber
-> = z.object({
-  id: z.string(),
-  createdAt: z.date().transform(v => v.toISOString()),
-  modifiedAt: z.nullable(z.date().transform(v => v.toISOString())),
-  type: z.literal("meter_credit"),
-  description: z.string(),
-  selectable: z.boolean(),
-  deletable: z.boolean(),
-  organizationId: z.string(),
-  metadata: z.record(
-    z.union([z.string(), z.number().int(), z.number(), z.boolean()]),
-  ),
-  organization: BenefitSubscriberOrganization$outboundSchema,
-  properties: BenefitMeterCreditSubscriberProperties$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    createdAt: "created_at",
-    modifiedAt: "modified_at",
-    organizationId: "organization_id",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitMeterCreditSubscriber$ {
-  /** @deprecated use `BenefitMeterCreditSubscriber$inboundSchema` instead. */
-  export const inboundSchema = BenefitMeterCreditSubscriber$inboundSchema;
-  /** @deprecated use `BenefitMeterCreditSubscriber$outboundSchema` instead. */
-  export const outboundSchema = BenefitMeterCreditSubscriber$outboundSchema;
-  /** @deprecated use `BenefitMeterCreditSubscriber$Outbound` instead. */
-  export type Outbound = BenefitMeterCreditSubscriber$Outbound;
-}
-
-export function benefitMeterCreditSubscriberToJSON(
-  benefitMeterCreditSubscriber: BenefitMeterCreditSubscriber,
-): string {
-  return JSON.stringify(
-    BenefitMeterCreditSubscriber$outboundSchema.parse(
-      benefitMeterCreditSubscriber,
-    ),
-  );
-}
 
 export function benefitMeterCreditSubscriberFromJSON(
   jsonString: string,

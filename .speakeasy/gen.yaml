@@ -22,12 +22,13 @@ generation:
     hoistGlobalSecurity: true
   schemas:
     allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.41.1
+  version: 0.41.2
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies:
@@ -40,6 +41,7 @@ typescript:
       ts-jest: '*'
   additionalPackageJSON: {}
   additionalScripts: {}
+  alwaysIncludeInboundAndOutbound: false
   author: Speakeasy
   baseErrorName: PolarError
   clientServerStatusCodesAsErrors: true
@@ -50,6 +52,7 @@ typescript:
   enableReactQuery: false
   enumFormat: union
   envVarPrefix: POLAR
+  exportZodModelNamespace: false
   flattenGlobalSecurity: true
   flatteningOrder: body-first
   generateExamples: true

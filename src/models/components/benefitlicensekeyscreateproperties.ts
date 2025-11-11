@@ -4,18 +4,13 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitLicenseKeyActivationCreateProperties,
-  BenefitLicenseKeyActivationCreateProperties$inboundSchema,
   BenefitLicenseKeyActivationCreateProperties$Outbound,
   BenefitLicenseKeyActivationCreateProperties$outboundSchema,
 } from "./benefitlicensekeyactivationcreateproperties.js";
 import {
   BenefitLicenseKeyExpirationProperties,
-  BenefitLicenseKeyExpirationProperties$inboundSchema,
   BenefitLicenseKeyExpirationProperties$Outbound,
   BenefitLicenseKeyExpirationProperties$outboundSchema,
 } from "./benefitlicensekeyexpirationproperties.js";
@@ -26,25 +21,6 @@ export type BenefitLicenseKeysCreateProperties = {
   activations?: BenefitLicenseKeyActivationCreateProperties | null | undefined;
   limitUsage?: number | null | undefined;
 };
-
-/** @internal */
-export const BenefitLicenseKeysCreateProperties$inboundSchema: z.ZodType<
-  BenefitLicenseKeysCreateProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  prefix: z.nullable(z.string()).optional(),
-  expires: z.nullable(BenefitLicenseKeyExpirationProperties$inboundSchema)
-    .optional(),
-  activations: z.nullable(
-    BenefitLicenseKeyActivationCreateProperties$inboundSchema,
-  ).optional(),
-  limit_usage: z.nullable(z.number().int()).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "limit_usage": "limitUsage",
-  });
-});
 
 /** @internal */
 export type BenefitLicenseKeysCreateProperties$Outbound = {
@@ -76,20 +52,6 @@ export const BenefitLicenseKeysCreateProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitLicenseKeysCreateProperties$ {
-  /** @deprecated use `BenefitLicenseKeysCreateProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitLicenseKeysCreateProperties$inboundSchema;
-  /** @deprecated use `BenefitLicenseKeysCreateProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    BenefitLicenseKeysCreateProperties$outboundSchema;
-  /** @deprecated use `BenefitLicenseKeysCreateProperties$Outbound` instead. */
-  export type Outbound = BenefitLicenseKeysCreateProperties$Outbound;
-}
-
 export function benefitLicenseKeysCreatePropertiesToJSON(
   benefitLicenseKeysCreateProperties: BenefitLicenseKeysCreateProperties,
 ): string {
@@ -97,16 +59,5 @@ export function benefitLicenseKeysCreatePropertiesToJSON(
     BenefitLicenseKeysCreateProperties$outboundSchema.parse(
       benefitLicenseKeysCreateProperties,
     ),
-  );
-}
-
-export function benefitLicenseKeysCreatePropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitLicenseKeysCreateProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      BenefitLicenseKeysCreateProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitLicenseKeysCreateProperties' from JSON`,
   );
 }

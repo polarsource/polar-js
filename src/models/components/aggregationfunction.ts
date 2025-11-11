@@ -16,22 +16,6 @@ export const AggregationFunction = {
 export type AggregationFunction = ClosedEnum<typeof AggregationFunction>;
 
 /** @internal */
-export const AggregationFunction$inboundSchema: z.ZodNativeEnum<
-  typeof AggregationFunction
-> = z.nativeEnum(AggregationFunction);
-
-/** @internal */
 export const AggregationFunction$outboundSchema: z.ZodNativeEnum<
   typeof AggregationFunction
-> = AggregationFunction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AggregationFunction$ {
-  /** @deprecated use `AggregationFunction$inboundSchema` instead. */
-  export const inboundSchema = AggregationFunction$inboundSchema;
-  /** @deprecated use `AggregationFunction$outboundSchema` instead. */
-  export const outboundSchema = AggregationFunction$outboundSchema;
-}
+> = z.nativeEnum(AggregationFunction);

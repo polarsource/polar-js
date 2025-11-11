@@ -45,7 +45,6 @@ export const BenefitDiscordProperties$inboundSchema: z.ZodType<
     "guild_token": "guildToken",
   });
 });
-
 /** @internal */
 export type BenefitDiscordProperties$Outbound = {
   guild_id: string;
@@ -73,19 +72,6 @@ export const BenefitDiscordProperties$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BenefitDiscordProperties$ {
-  /** @deprecated use `BenefitDiscordProperties$inboundSchema` instead. */
-  export const inboundSchema = BenefitDiscordProperties$inboundSchema;
-  /** @deprecated use `BenefitDiscordProperties$outboundSchema` instead. */
-  export const outboundSchema = BenefitDiscordProperties$outboundSchema;
-  /** @deprecated use `BenefitDiscordProperties$Outbound` instead. */
-  export type Outbound = BenefitDiscordProperties$Outbound;
-}
-
 export function benefitDiscordPropertiesToJSON(
   benefitDiscordProperties: BenefitDiscordProperties,
 ): string {
@@ -93,7 +79,6 @@ export function benefitDiscordPropertiesToJSON(
     BenefitDiscordProperties$outboundSchema.parse(benefitDiscordProperties),
   );
 }
-
 export function benefitDiscordPropertiesFromJSON(
   jsonString: string,
 ): SafeParseResult<BenefitDiscordProperties, SDKValidationError> {
