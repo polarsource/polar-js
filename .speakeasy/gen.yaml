@@ -33,7 +33,6 @@ typescript:
   additionalDependencies:
     dependencies:
       standardwebhooks: ^1.0.0
-      zod: ^3.25.76
     devDependencies:
       '@types/jest': '*'
       '@types/node': '*'
@@ -75,6 +74,7 @@ typescript:
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
+  unionStrategy: left-to-right
   usageSDKInitImports: []
   useIndexModules: false
-  zodVersion: v3
+  zodVersion: v4-mini
