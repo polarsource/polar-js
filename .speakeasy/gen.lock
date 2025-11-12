@@ -3,10 +3,10 @@ id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
   docChecksum: fe9dad9abac1aab3e6e0f20db7cd1884
   docVersion: 0.1.0
-  speakeasyVersion: 1.653.0
-  generationVersion: 2.748.0
-  releaseVersion: 0.41.2
-  configChecksum: a5ae3683e3633cb4dde91c69eef6861e
+  speakeasyVersion: 1.654.0
+  generationVersion: 2.750.0
+  releaseVersion: 0.41.3
+  configChecksum: 52501711b628f5b1129e5bca52118d5c
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.26.4
+    core: 3.26.5
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.1
@@ -4126,4 +4126,3 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.organizations.update()`: \n  *  `request.organizationUpdate.subscriptionSettings.preventTrialAbuse` **Added** **Breaking** :warning:\n  *  `response.subscription_settings.preventTrialAbuse` **Added**\n* `polar.EndpointcheckoutUpdatedPost()`: \n  *  `request.data.allowTrial` **Added** **Breaking** :warning:\n* `polar.EndpointorganizationUpdatedPost()`: \n  *  `request.data.subscriptionSettings.preventTrialAbuse` **Added** **Breaking** :warning:\n* `polar.EndpointcheckoutCreatedPost()`: \n  *  `request.data.allowTrial` **Added** **Breaking** :warning:\n* `polar.organizations.create()`: \n  *  `request.subscriptionSettings.preventTrialAbuse` **Added** **Breaking** :warning:\n  *  `response.subscription_settings.preventTrialAbuse` **Added**\n* `polar.organizations.list()`:  `response.items.[].subscriptionSettings.preventTrialAbuse` **Added**\n* `polar.organizations.get()`:  `response.subscription_settings.preventTrialAbuse` **Added**\n* `polar.subscriptions.list()`: \n  *  `request.cancelAtPeriodEnd` **Added**\n* `polar.checkouts.list()`:  `response.items.[].allowTrial` **Added**\n* `polar.checkouts.create()`: \n  *  `request.allowTrial` **Added**\n  *  `response.allow_trial` **Added**\n* `polar.checkouts.get()`:  `response.allow_trial` **Added**\n* `polar.checkouts.update()`: \n  *  `request.checkoutUpdate.allowTrial` **Added**\n  *  `response.allow_trial` **Added**\n  *  `error.[trialalreadyredeemed]` **Added**\n* `polar.checkouts.clientGet()`:  `response.allow_trial` **Added**\n* `polar.checkouts.clientUpdate()`: \n  *  `request.checkoutUpdatePublic.allowTrial` **Added**\n  *  `response.allow_trial` **Added**\n  *  `error.[trialalreadyredeemed]` **Added**\n* `polar.checkouts.clientConfirm()`: \n  *  `request.checkoutConfirmStripe.allowTrial` **Added**\n  *  `response.allow_trial` **Added**\n  *  `error.[trialalreadyredeemed]` **Added**\n"
