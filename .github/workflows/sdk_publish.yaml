@@ -4,16 +4,18 @@ permissions:
   contents: write
   pull-requests: write
   statuses: write
+  id-token: write
 "on":
   push:
     branches:
       - main
     paths:
-      - RELEASES.md
-      - '*/RELEASES.md'
+      - .speakeasy/gen.lock
 jobs:
   publish:
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
+    with:
+      target: polar
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       npm_token: ${{ secrets.NPM_TOKEN }}
