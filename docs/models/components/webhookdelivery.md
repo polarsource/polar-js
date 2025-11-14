@@ -18,9 +18,10 @@ let value: WebhookDelivery = {
     createdAt: new Date("2024-03-26T01:11:54.111Z"),
     modifiedAt: new Date("2023-11-22T09:27:46.946Z"),
     id: "<value>",
+    skipped: false,
     payload: "<value>",
-    type: "subscription.active",
-    isArchived: false,
+    type: "benefit_grant.updated",
+    isArchived: true,
   },
 };
 ```

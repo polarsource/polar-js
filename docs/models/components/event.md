@@ -36,11 +36,9 @@ const value: components.SystemEvent = {
   externalCustomerId: "<id>",
   childCount: 0,
   source: "system",
-  name: "meter.credited",
+  name: "meter.reset",
   metadata: {
     meterId: "<id>",
-    units: 329918,
-    rollover: true,
   },
 };
 ```

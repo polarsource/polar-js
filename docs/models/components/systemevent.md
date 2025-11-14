@@ -329,7 +329,7 @@ const value: components.MeterCreditEvent = {
   name: "meter.credited",
   metadata: {
     meterId: "<id>",
-    units: 329918,
+    units: 232955,
     rollover: true,
   },
 };
@@ -529,6 +529,48 @@ const value: components.SubscriptionRevokedEvent = {
   name: "subscription.revoked",
   metadata: {
     subscriptionId: "<id>",
+  },
+};
+```
+
+### `components.SubscriptionSeatsUpdatedEvent`
+
+```typescript
+const value: components.SubscriptionSeatsUpdatedEvent = {
+  id: "<value>",
+  timestamp: new Date("2024-05-18T05:34:00.364Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2024-04-26T10:19:45.222Z"),
+    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: "<id>",
+  source: "system",
+  name: "subscription.seats_updated",
+  metadata: {
+    subscriptionId: "<id>",
+    oldSeats: 364115,
+    newSeats: 300496,
+    prorationBehavior: "<value>",
   },
 };
 ```

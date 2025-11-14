@@ -35,6 +35,14 @@ const value: components.SubscriptionUpdateSeats = {
 };
 ```
 
+### `components.SubscriptionUpdateBillingPeriod`
+
+```typescript
+const value: components.SubscriptionUpdateBillingPeriod = {
+  currentBillingPeriodEnd: new Date("2025-11-17T15:45:43.046Z"),
+};
+```
+
 ### `components.SubscriptionCancel`
 
 ```typescript
