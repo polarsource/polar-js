@@ -1,15 +1,15 @@
-# MeterCreditEvent
+# SubscriptionSeatsUpdatedEvent
 
-An event created by Polar when credits are added to a customer meter.
+An event created by Polar when a the seats on a subscription is changed.
 
 ## Example Usage
 
 ```typescript
-import { MeterCreditEvent } from "@polar-sh/sdk/models/components/metercreditevent.js";
+import { SubscriptionSeatsUpdatedEvent } from "@polar-sh/sdk/models/components/subscriptionseatsupdatedevent.js";
 
-let value: MeterCreditEvent = {
+let value: SubscriptionSeatsUpdatedEvent = {
   id: "<value>",
-  timestamp: new Date("2023-07-17T16:23:37.725Z"),
+  timestamp: new Date("2024-05-18T05:34:00.364Z"),
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   customerId: "<value>",
   customer: {
@@ -36,11 +36,12 @@ let value: MeterCreditEvent = {
   },
   externalCustomerId: "<id>",
   source: "system",
-  name: "meter.credited",
+  name: "subscription.seats_updated",
   metadata: {
-    meterId: "<id>",
-    units: 232955,
-    rollover: true,
+    subscriptionId: "<id>",
+    oldSeats: 364115,
+    newSeats: 300496,
+    prorationBehavior: "<value>",
   },
 };
 ```
@@ -59,4 +60,4 @@ let value: MeterCreditEvent = {
 | `parentId`                                                                                                                     | *string*                                                                                                                       | :heavy_minus_sign:                                                                                                             | The ID of the parent event.                                                                                                    |                                                                                                                                |
 | `source`                                                                                                                       | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API. |                                                                                                                                |
 | `name`                                                                                                                         | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | The name of the event.                                                                                                         |                                                                                                                                |
-| `metadata`                                                                                                                     | [components.MeterCreditedMetadata](../../models/components/metercreditedmetadata.md)                                           | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |                                                                                                                                |
+| `metadata`                                                                                                                     | [components.SubscriptionSeatsUpdatedMetadata](../../models/components/subscriptionseatsupdatedmetadata.md)                     | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |                                                                                                                                |

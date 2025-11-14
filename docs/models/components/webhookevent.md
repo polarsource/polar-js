@@ -17,9 +17,10 @@ let value: WebhookEvent = {
   createdAt: new Date("2025-11-22T22:13:57.512Z"),
   modifiedAt: null,
   id: "<value>",
+  skipped: false,
   payload: "<value>",
-  type: "subscription.updated",
-  isArchived: true,
+  type: "order.updated",
+  isArchived: false,
 };
 ```
 
@@ -32,6 +33,7 @@ let value: WebhookEvent = {
 | `id`                                                                                                             | *string*                                                                                                         | :heavy_check_mark:                                                                                               | The ID of the object.                                                                                            |
 | `lastHttpCode`                                                                                                   | *number*                                                                                                         | :heavy_minus_sign:                                                                                               | Last HTTP code returned by the URL. `null` if no delviery has been attempted or if the endpoint was unreachable. |
 | `succeeded`                                                                                                      | *boolean*                                                                                                        | :heavy_minus_sign:                                                                                               | Whether this event was successfully delivered. `null` if no delivery has been attempted.                         |
+| `skipped`                                                                                                        | *boolean*                                                                                                        | :heavy_check_mark:                                                                                               | Whether this event was skipped because the webhook endpoint was disabled.                                        |
 | `payload`                                                                                                        | *string*                                                                                                         | :heavy_check_mark:                                                                                               | The payload of the webhook event.                                                                                |
 | `type`                                                                                                           | [components.WebhookEventType](../../models/components/webhookeventtype.md)                                       | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `isArchived`                                                                                                     | *boolean*                                                                                                        | :heavy_check_mark:                                                                                               | Whether this event is archived. Archived events can't be redelivered, and the payload is not accessible anymore. |

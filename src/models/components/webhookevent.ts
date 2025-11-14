@@ -45,6 +45,10 @@ export type WebhookEvent = {
    */
   succeeded?: boolean | null | undefined;
   /**
+   * Whether this event was skipped because the webhook endpoint was disabled.
+   */
+  skipped: boolean;
+  /**
    * The payload of the webhook event.
    */
   payload: string | null;
@@ -66,6 +70,7 @@ export const WebhookEvent$inboundSchema: z.ZodMiniType<WebhookEvent, unknown> =
       id: z.string(),
       last_http_code: z.optional(z.nullable(z.int())),
       succeeded: z.optional(z.nullable(z.boolean())),
+      skipped: z.boolean(),
       payload: z.nullable(z.string()),
       type: WebhookEventType$inboundSchema,
       is_archived: z.boolean(),

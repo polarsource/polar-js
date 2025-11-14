@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: fe9dad9abac1aab3e6e0f20db7cd1884
+  docChecksum: 0187b1bdbbeb494e12710ba785039921
   docVersion: 0.1.0
-  speakeasyVersion: 1.654.0
-  generationVersion: 2.750.0
-  releaseVersion: 0.41.3
-  configChecksum: 52501711b628f5b1129e5bca52118d5c
+  speakeasyVersion: 1.656.2
+  generationVersion: 2.753.6
+  releaseVersion: 0.41.4
+  configChecksum: 923e4146187847b6ad568106465b1096
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.26.5
+    core: 3.26.6
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.1
@@ -711,9 +711,12 @@ generatedFiles:
   - docs/models/components/subscriptionrevoke.md
   - docs/models/components/subscriptionrevokedevent.md
   - docs/models/components/subscriptionrevokedmetadata.md
+  - docs/models/components/subscriptionseatsupdatedevent.md
+  - docs/models/components/subscriptionseatsupdatedmetadata.md
   - docs/models/components/subscriptionsortproperty.md
   - docs/models/components/subscriptionstatus.md
   - docs/models/components/subscriptionupdate.md
+  - docs/models/components/subscriptionupdatebillingperiod.md
   - docs/models/components/subscriptionupdatediscount.md
   - docs/models/components/subscriptionupdateproduct.md
   - docs/models/components/subscriptionupdateseats.md
@@ -1728,10 +1731,13 @@ generatedFiles:
   - src/models/components/subscriptionrevoke.ts
   - src/models/components/subscriptionrevokedevent.ts
   - src/models/components/subscriptionrevokedmetadata.ts
+  - src/models/components/subscriptionseatsupdatedevent.ts
+  - src/models/components/subscriptionseatsupdatedmetadata.ts
   - src/models/components/subscriptionslist.ts
   - src/models/components/subscriptionsortproperty.ts
   - src/models/components/subscriptionstatus.ts
   - src/models/components/subscriptionupdate.ts
+  - src/models/components/subscriptionupdatebillingperiod.ts
   - src/models/components/subscriptionupdatediscount.ts
   - src/models/components/subscriptionupdateproduct.ts
   - src/models/components/subscriptionupdateseats.ts
@@ -4126,3 +4132,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.events.list()`:  `response.items.[].[systemEvent]` **Changed** **Breaking** :warning:\n* `polar.events.get()`:  `response.[systemevent]` **Changed** **Breaking** :warning:\n* `polar.subscriptions.update()`: \n  *  `request.subscriptionUpdate.[subscriptionUpdateBillingPeriod]` **Added**\n* `polar.webhooks.listWebhookDeliveries()`:  `response.items.[].webhookEvent.skipped` **Added**\n"

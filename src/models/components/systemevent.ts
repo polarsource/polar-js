@@ -62,6 +62,10 @@ import {
   SubscriptionRevokedEvent,
   SubscriptionRevokedEvent$inboundSchema,
 } from "./subscriptionrevokedevent.js";
+import {
+  SubscriptionSeatsUpdatedEvent,
+  SubscriptionSeatsUpdatedEvent$inboundSchema,
+} from "./subscriptionseatsupdatedevent.js";
 
 export type SystemEvent =
   | (BenefitCycledEvent & { name: "benefit.cycled" })
@@ -77,7 +81,8 @@ export type SystemEvent =
   | (OrderRefundedEvent & { name: "order.refunded" })
   | (SubscriptionCycledEvent & { name: "subscription.cycled" })
   | (SubscriptionProductUpdatedEvent & { name: "subscription.product_updated" })
-  | (SubscriptionRevokedEvent & { name: "subscription.revoked" });
+  | (SubscriptionRevokedEvent & { name: "subscription.revoked" })
+  | (SubscriptionSeatsUpdatedEvent & { name: "subscription.seats_updated" });
 
 /** @internal */
 export const SystemEvent$inboundSchema: z.ZodMiniType<SystemEvent, unknown> = z
@@ -137,6 +142,10 @@ export const SystemEvent$inboundSchema: z.ZodMiniType<SystemEvent, unknown> = z
     z.intersection(
       SubscriptionRevokedEvent$inboundSchema,
       z.object({ name: z.literal("subscription.revoked") }),
+    ),
+    z.intersection(
+      SubscriptionSeatsUpdatedEvent$inboundSchema,
+      z.object({ name: z.literal("subscription.seats_updated") }),
     ),
   ]);
 
