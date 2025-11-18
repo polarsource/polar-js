@@ -83,9 +83,12 @@ export const BenefitDiscordSubscriber$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     id: z.string(),
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     modified_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     type: z.literal("discord"),
     description: z.string(),

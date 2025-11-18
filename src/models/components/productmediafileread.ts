@@ -51,12 +51,15 @@ export const ProductMediaFileRead$inboundSchema: z.ZodMiniType<
     checksum_sha256_base64: z.nullable(z.string()),
     checksum_sha256_hex: z.nullable(z.string()),
     last_modified_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     version: z.nullable(z.string()),
     service: z.literal("product_media"),
     is_uploaded: z.boolean(),
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     size_readable: z.string(),
     public_url: z.string(),
   }),

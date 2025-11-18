@@ -131,9 +131,12 @@ export const CustomerOrder$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     id: z.string(),
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     modified_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     status: OrderStatus$inboundSchema,
     paid: z.boolean(),
@@ -164,7 +167,10 @@ export const CustomerOrder$inboundSchema: z.ZodMiniType<
     items: z.array(OrderItemSchema$inboundSchema),
     description: z.string(),
     next_payment_attempt_at: z.optional(
-      z.nullable(z.pipe(z.iso.datetime(), z.transform(v => new Date(v)))),
+      z.nullable(z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      )),
     ),
   }),
   z.transform((v) => {

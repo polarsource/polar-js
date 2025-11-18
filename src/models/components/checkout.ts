@@ -89,6 +89,8 @@ export type CheckoutMetadata = string | number | number | boolean;
 
 export type CheckoutProductPrice = LegacyRecurringProductPrice | ProductPrice;
 
+export type CheckoutPrices = LegacyRecurringProductPrice | ProductPrice;
+
 export type CheckoutDiscount =
   | CheckoutDiscountFixedRepeatDuration
   | CheckoutDiscountFixedOnceForeverDuration
@@ -203,6 +205,8 @@ export type Checkout = {
   productId: string | null;
   /**
    * ID of the product price to checkout.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   productPriceId: string | null;
   /**
@@ -283,8 +287,16 @@ export type Checkout = {
   product: CheckoutProduct | null;
   /**
    * Price of the selected product.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   productPrice: LegacyRecurringProductPrice | ProductPrice | null;
+  /**
+   * Mapping of product IDs to their list of prices.
+   */
+  prices:
+    | { [k: string]: Array<LegacyRecurringProductPrice | ProductPrice> }
+    | null;
   discount:
     | CheckoutDiscountFixedRepeatDuration
     | CheckoutDiscountFixedOnceForeverDuration
@@ -304,7 +316,7 @@ export const CheckoutCustomFieldData$inboundSchema: z.ZodMiniType<
   z.string(),
   z.int(),
   z.boolean(),
-  z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+  z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
 ]);
 /** @internal */
 export type CheckoutCustomFieldData$Outbound =
@@ -412,6 +424,41 @@ export function checkoutProductPriceFromJSON(
 }
 
 /** @internal */
+export const CheckoutPrices$inboundSchema: z.ZodMiniType<
+  CheckoutPrices,
+  unknown
+> = z.union([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
+/** @internal */
+export type CheckoutPrices$Outbound =
+  | LegacyRecurringProductPrice$Outbound
+  | ProductPrice$Outbound;
+
+/** @internal */
+export const CheckoutPrices$outboundSchema: z.ZodMiniType<
+  CheckoutPrices$Outbound,
+  CheckoutPrices
+> = z.union([
+  LegacyRecurringProductPrice$outboundSchema,
+  ProductPrice$outboundSchema,
+]);
+
+export function checkoutPricesToJSON(checkoutPrices: CheckoutPrices): string {
+  return JSON.stringify(CheckoutPrices$outboundSchema.parse(checkoutPrices));
+}
+export function checkoutPricesFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutPrices, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutPrices$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutPrices' from JSON`,
+  );
+}
+
+/** @internal */
 export const CheckoutDiscount$inboundSchema: z.ZodMiniType<
   CheckoutDiscount,
   unknown
@@ -491,11 +538,13 @@ export function customerMetadataFromJSON(
 export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
   z.object({
     id: z.string(),
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
-    modified_at: z.nullable(z.pipe(
-      z.iso.datetime(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
       z.transform(v => new Date(v)),
-    )),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
     custom_field_data: z.optional(
       z.record(
         z.string(),
@@ -504,7 +553,10 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
             z.string(),
             z.int(),
             z.boolean(),
-            z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+            z.pipe(
+              z.iso.datetime({ offset: true }),
+              z.transform(v => new Date(v)),
+            ),
           ]),
         ),
       ),
@@ -513,7 +565,10 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
     status: CheckoutStatus$inboundSchema,
     client_secret: z.string(),
     url: z.string(),
-    expires_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    expires_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     success_url: z.string(),
     return_url: z.nullable(z.string()),
     embed_origin: z.nullable(z.string()),
@@ -529,7 +584,7 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
     active_trial_interval: z.nullable(TrialInterval$inboundSchema),
     active_trial_interval_count: z.nullable(z.int()),
     trial_end: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     organization_id: z.string(),
     product_id: z.nullable(z.string()),
@@ -567,6 +622,17 @@ export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),
+    ),
+    prices: z.nullable(
+      z.record(
+        z.string(),
+        z.array(
+          z.union([
+            LegacyRecurringProductPrice$inboundSchema,
+            ProductPrice$inboundSchema,
+          ]),
+        ),
+      ),
     ),
     discount: z.nullable(
       z.union([
@@ -697,6 +763,11 @@ export type Checkout$Outbound = {
     | LegacyRecurringProductPrice$Outbound
     | ProductPrice$Outbound
     | null;
+  prices: {
+    [k: string]: Array<
+      LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound
+    >;
+  } | null;
   discount:
     | CheckoutDiscountFixedRepeatDuration$Outbound
     | CheckoutDiscountFixedOnceForeverDuration$Outbound
@@ -786,6 +857,17 @@ export const Checkout$outboundSchema: z.ZodMiniType<
         LegacyRecurringProductPrice$outboundSchema,
         ProductPrice$outboundSchema,
       ]),
+    ),
+    prices: z.nullable(
+      z.record(
+        z.string(),
+        z.array(
+          z.union([
+            LegacyRecurringProductPrice$outboundSchema,
+            ProductPrice$outboundSchema,
+          ]),
+        ),
+      ),
     ),
     discount: z.nullable(
       z.union([

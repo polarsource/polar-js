@@ -46,11 +46,13 @@ export type Wallet = {
 export const Wallet$inboundSchema: z.ZodMiniType<Wallet, unknown> = z.pipe(
   z.object({
     id: z.string(),
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
-    modified_at: z.nullable(z.pipe(
-      z.iso.datetime(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
       z.transform(v => new Date(v)),
-    )),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
     customer_id: z.string(),
     balance: z.int(),
     currency: z.string(),

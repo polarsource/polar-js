@@ -67,7 +67,10 @@ export const BenefitRevokedEvent$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     id: z.string(),
-    timestamp: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    timestamp: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     organization_id: z.string(),
     customer_id: z.nullable(z.string()),
     customer: z.nullable(Customer$inboundSchema),

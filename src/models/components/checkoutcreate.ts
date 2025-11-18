@@ -10,6 +10,31 @@ import {
   AddressInput$outboundSchema,
 } from "./addressinput.js";
 import {
+  ProductPriceCustomCreate,
+  ProductPriceCustomCreate$Outbound,
+  ProductPriceCustomCreate$outboundSchema,
+} from "./productpricecustomcreate.js";
+import {
+  ProductPriceFixedCreate,
+  ProductPriceFixedCreate$Outbound,
+  ProductPriceFixedCreate$outboundSchema,
+} from "./productpricefixedcreate.js";
+import {
+  ProductPriceFreeCreate,
+  ProductPriceFreeCreate$Outbound,
+  ProductPriceFreeCreate$outboundSchema,
+} from "./productpricefreecreate.js";
+import {
+  ProductPriceMeteredUnitCreate,
+  ProductPriceMeteredUnitCreate$Outbound,
+  ProductPriceMeteredUnitCreate$outboundSchema,
+} from "./productpricemeteredunitcreate.js";
+import {
+  ProductPriceSeatBasedCreate,
+  ProductPriceSeatBasedCreate$Outbound,
+  ProductPriceSeatBasedCreate$outboundSchema,
+} from "./productpriceseatbasedcreate.js";
+import {
   TrialInterval,
   TrialInterval$outboundSchema,
 } from "./trialinterval.js";
@@ -19,6 +44,13 @@ export type CheckoutCreateMetadata = string | number | number | boolean;
 export type CheckoutCreateCustomFieldData = string | number | boolean | Date;
 
 export type CheckoutCreateCustomerMetadata = string | number | number | boolean;
+
+export type CheckoutCreatePrices =
+  | (ProductPriceMeteredUnitCreate & { amountType: "metered_unit" })
+  | (ProductPriceFixedCreate & { amountType: "fixed" })
+  | (ProductPriceSeatBasedCreate & { amountType: "seat_based" })
+  | (ProductPriceCustomCreate & { amountType: "custom" })
+  | (ProductPriceFreeCreate & { amountType: "free" });
 
 /**
  * Create a new checkout session from a list of products.
@@ -137,6 +169,21 @@ export type CheckoutCreate = {
    * List of product IDs available to select at that checkout. The first one will be selected by default.
    */
   products: Array<string>;
+  /**
+   * Optional mapping of product IDs to a list of ad-hoc prices to create for that product. If not set, catalog prices of the product will be used.
+   */
+  prices?:
+    | {
+      [k: string]: Array<
+        | (ProductPriceMeteredUnitCreate & { amountType: "metered_unit" })
+        | (ProductPriceFixedCreate & { amountType: "fixed" })
+        | (ProductPriceSeatBasedCreate & { amountType: "seat_based" })
+        | (ProductPriceCustomCreate & { amountType: "custom" })
+        | (ProductPriceFreeCreate & { amountType: "free" })
+      >;
+    }
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -212,6 +259,64 @@ export function checkoutCreateCustomerMetadataToJSON(
 }
 
 /** @internal */
+export type CheckoutCreatePrices$Outbound =
+  | (ProductPriceMeteredUnitCreate$Outbound & { amount_type: "metered_unit" })
+  | (ProductPriceFixedCreate$Outbound & { amount_type: "fixed" })
+  | (ProductPriceSeatBasedCreate$Outbound & { amount_type: "seat_based" })
+  | (ProductPriceCustomCreate$Outbound & { amount_type: "custom" })
+  | (ProductPriceFreeCreate$Outbound & { amount_type: "free" });
+
+/** @internal */
+export const CheckoutCreatePrices$outboundSchema: z.ZodMiniType<
+  CheckoutCreatePrices$Outbound,
+  CheckoutCreatePrices
+> = z.union([
+  z.intersection(
+    ProductPriceMeteredUnitCreate$outboundSchema,
+    z.pipe(
+      z.object({ amountType: z.literal("metered_unit") }),
+      z.transform((v) => ({ amount_type: v.amountType })),
+    ),
+  ),
+  z.intersection(
+    ProductPriceFixedCreate$outboundSchema,
+    z.pipe(
+      z.object({ amountType: z.literal("fixed") }),
+      z.transform((v) => ({ amount_type: v.amountType })),
+    ),
+  ),
+  z.intersection(
+    ProductPriceSeatBasedCreate$outboundSchema,
+    z.pipe(
+      z.object({ amountType: z.literal("seat_based") }),
+      z.transform((v) => ({ amount_type: v.amountType })),
+    ),
+  ),
+  z.intersection(
+    ProductPriceCustomCreate$outboundSchema,
+    z.pipe(
+      z.object({ amountType: z.literal("custom") }),
+      z.transform((v) => ({ amount_type: v.amountType })),
+    ),
+  ),
+  z.intersection(
+    ProductPriceFreeCreate$outboundSchema,
+    z.pipe(
+      z.object({ amountType: z.literal("free") }),
+      z.transform((v) => ({ amount_type: v.amountType })),
+    ),
+  ),
+]);
+
+export function checkoutCreatePricesToJSON(
+  checkoutCreatePrices: CheckoutCreatePrices,
+): string {
+  return JSON.stringify(
+    CheckoutCreatePrices$outboundSchema.parse(checkoutCreatePrices),
+  );
+}
+
+/** @internal */
 export type CheckoutCreate$Outbound = {
   trial_interval?: string | null | undefined;
   trial_interval_count?: number | null | undefined;
@@ -242,6 +347,20 @@ export type CheckoutCreate$Outbound = {
   return_url?: string | null | undefined;
   embed_origin?: string | null | undefined;
   products: Array<string>;
+  prices?:
+    | {
+      [k: string]: Array<
+        | (ProductPriceMeteredUnitCreate$Outbound & {
+          amount_type: "metered_unit";
+        })
+        | (ProductPriceFixedCreate$Outbound & { amount_type: "fixed" })
+        | (ProductPriceSeatBasedCreate$Outbound & { amount_type: "seat_based" })
+        | (ProductPriceCustomCreate$Outbound & { amount_type: "custom" })
+        | (ProductPriceFreeCreate$Outbound & { amount_type: "free" })
+      >;
+    }
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -297,6 +416,52 @@ export const CheckoutCreate$outboundSchema: z.ZodMiniType<
     returnUrl: z.optional(z.nullable(z.string())),
     embedOrigin: z.optional(z.nullable(z.string())),
     products: z.array(z.string()),
+    prices: z.optional(
+      z.nullable(
+        z.record(
+          z.string(),
+          z.array(
+            z.union([
+              z.intersection(
+                ProductPriceMeteredUnitCreate$outboundSchema,
+                z.pipe(
+                  z.object({ amountType: z.literal("metered_unit") }),
+                  z.transform((v) => ({ amount_type: v.amountType })),
+                ),
+              ),
+              z.intersection(
+                ProductPriceFixedCreate$outboundSchema,
+                z.pipe(
+                  z.object({ amountType: z.literal("fixed") }),
+                  z.transform((v) => ({ amount_type: v.amountType })),
+                ),
+              ),
+              z.intersection(
+                ProductPriceSeatBasedCreate$outboundSchema,
+                z.pipe(
+                  z.object({ amountType: z.literal("seat_based") }),
+                  z.transform((v) => ({ amount_type: v.amountType })),
+                ),
+              ),
+              z.intersection(
+                ProductPriceCustomCreate$outboundSchema,
+                z.pipe(
+                  z.object({ amountType: z.literal("custom") }),
+                  z.transform((v) => ({ amount_type: v.amountType })),
+                ),
+              ),
+              z.intersection(
+                ProductPriceFreeCreate$outboundSchema,
+                z.pipe(
+                  z.object({ amountType: z.literal("free") }),
+                  z.transform((v) => ({ amount_type: v.amountType })),
+                ),
+              ),
+            ]),
+          ),
+        ),
+      ),
+    ),
   }),
   z.transform((v) => {
     return remap$(v, {

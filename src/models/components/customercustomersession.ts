@@ -19,7 +19,10 @@ export const CustomerCustomerSession$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    expires_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    expires_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     return_url: z.nullable(z.string()),
   }),
   z.transform((v) => {

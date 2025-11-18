@@ -53,9 +53,12 @@ export const LicenseKeyActivationRead$inboundSchema: z.ZodMiniType<
       z.string(),
       z.union([z.string(), z.int(), z.number(), z.boolean()]),
     ),
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     modified_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     license_key: LicenseKeyRead$inboundSchema,
   }),

@@ -80,8 +80,6 @@ export type MetricsTotalsCanceledSubscriptionsUnused = number | number;
 
 export type MetricsTotalsCanceledSubscriptionsOther = number | number;
 
-export type MetricsTotalsChurnRate = number | number;
-
 export type MetricsTotalsGrossMargin = number | number;
 
 export type MetricsTotalsGrossMarginPercentage = number | number;
@@ -125,7 +123,6 @@ export type MetricsTotals = {
   canceledSubscriptionsTooExpensive: number | number;
   canceledSubscriptionsUnused: number | number;
   canceledSubscriptionsOther: number | number;
-  churnRate: number | number;
   grossMargin: number | number;
   grossMarginPercentage: number | number;
   cashflow: number | number;
@@ -784,22 +781,6 @@ export function metricsTotalsCanceledSubscriptionsOtherFromJSON(
 }
 
 /** @internal */
-export const MetricsTotalsChurnRate$inboundSchema: z.ZodMiniType<
-  MetricsTotalsChurnRate,
-  unknown
-> = z.union([z.int(), z.number()]);
-
-export function metricsTotalsChurnRateFromJSON(
-  jsonString: string,
-): SafeParseResult<MetricsTotalsChurnRate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => MetricsTotalsChurnRate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MetricsTotalsChurnRate' from JSON`,
-  );
-}
-
-/** @internal */
 export const MetricsTotalsGrossMargin$inboundSchema: z.ZodMiniType<
   MetricsTotalsGrossMargin,
   unknown
@@ -890,7 +871,6 @@ export const MetricsTotals$inboundSchema: z.ZodMiniType<
     canceled_subscriptions_too_expensive: z.union([z.int(), z.number()]),
     canceled_subscriptions_unused: z.union([z.int(), z.number()]),
     canceled_subscriptions_other: z.union([z.int(), z.number()]),
-    churn_rate: z.union([z.int(), z.number()]),
     gross_margin: z.union([z.int(), z.number()]),
     gross_margin_percentage: z.union([z.int(), z.number()]),
     cashflow: z.union([z.int(), z.number()]),
@@ -933,7 +913,6 @@ export const MetricsTotals$inboundSchema: z.ZodMiniType<
         "canceledSubscriptionsTooExpensive",
       "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
       "canceled_subscriptions_other": "canceledSubscriptionsOther",
-      "churn_rate": "churnRate",
       "gross_margin": "grossMargin",
       "gross_margin_percentage": "grossMarginPercentage",
     });

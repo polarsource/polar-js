@@ -65,9 +65,12 @@ export type CustomerSeat = {
 export const CustomerSeat$inboundSchema: z.ZodMiniType<CustomerSeat, unknown> =
   z.pipe(
     z.object({
-      created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      created_at: z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      ),
       modified_at: z.nullable(
-        z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
       id: z.string(),
       subscription_id: z.optional(z.nullable(z.string())),
@@ -76,13 +79,22 @@ export const CustomerSeat$inboundSchema: z.ZodMiniType<CustomerSeat, unknown> =
       customer_id: z.optional(z.nullable(z.string())),
       customer_email: z.optional(z.nullable(z.string())),
       invitation_token_expires_at: z.optional(
-        z.nullable(z.pipe(z.iso.datetime(), z.transform(v => new Date(v)))),
+        z.nullable(z.pipe(
+          z.iso.datetime({ offset: true }),
+          z.transform(v => new Date(v)),
+        )),
       ),
       claimed_at: z.optional(
-        z.nullable(z.pipe(z.iso.datetime(), z.transform(v => new Date(v)))),
+        z.nullable(z.pipe(
+          z.iso.datetime({ offset: true }),
+          z.transform(v => new Date(v)),
+        )),
       ),
       revoked_at: z.optional(
-        z.nullable(z.pipe(z.iso.datetime(), z.transform(v => new Date(v)))),
+        z.nullable(z.pipe(
+          z.iso.datetime({ offset: true }),
+          z.transform(v => new Date(v)),
+        )),
       ),
       seat_metadata: z.optional(z.nullable(z.record(z.string(), z.any()))),
     }),

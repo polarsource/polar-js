@@ -13,13 +13,14 @@ let value: LegacyRecurringProductPriceCustom = {
   createdAt: new Date("2024-12-07T03:04:39.121Z"),
   modifiedAt: new Date("2023-07-09T04:58:27.438Z"),
   id: "<value>",
+  source: "catalog",
   amountType: "custom",
   isArchived: true,
   productId: "<value>",
   type: "recurring",
   recurringInterval: "day",
   priceCurrency: "<value>",
-  minimumAmount: 96295,
+  minimumAmount: null,
   maximumAmount: 385918,
   presetAmount: 774449,
   legacy: true,
@@ -33,6 +34,7 @@ let value: LegacyRecurringProductPriceCustom = {
 | `createdAt`                                                                                          | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)        | :heavy_check_mark:                                                                                   | Creation timestamp of the object.                                                                    |
 | `modifiedAt`                                                                                         | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)        | :heavy_check_mark:                                                                                   | Last modification timestamp of the object.                                                           |
 | `id`                                                                                                 | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the price.                                                                                 |
+| `source`                                                                                             | [components.ProductPriceSource](../../models/components/productpricesource.md)                       | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `amountType`                                                                                         | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `isArchived`                                                                                         | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | Whether the price is archived and no longer available.                                               |
 | `productId`                                                                                          | *string*                                                                                             | :heavy_check_mark:                                                                                   | The ID of the product owning the price.                                                              |

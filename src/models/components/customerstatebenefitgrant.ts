@@ -176,11 +176,17 @@ export const CustomerStateBenefitGrant$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     id: z.string(),
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
     ),
-    granted_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    granted_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     benefit_id: z.string(),
     benefit_type: BenefitType$inboundSchema,
     benefit_metadata: z.record(

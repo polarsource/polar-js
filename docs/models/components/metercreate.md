@@ -9,12 +9,7 @@ let value: MeterCreate = {
   name: "<value>",
   filter: {
     conjunction: "and",
-    clauses: [
-      {
-        conjunction: "or",
-        clauses: [],
-      },
-    ],
+    clauses: [],
   },
   aggregation: {
     func: "avg",

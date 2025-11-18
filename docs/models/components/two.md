@@ -46,8 +46,8 @@ const value: components.ProductPriceSeatBasedCreate = {
   seatTiers: {
     tiers: [
       {
-        minSeats: 922152,
-        pricePerSeat: 415895,
+        minSeats: 415895,
+        pricePerSeat: 164973,
       },
     ],
   },
