@@ -8,6 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  ProductPriceSource,
+  ProductPriceSource$inboundSchema,
+  ProductPriceSource$outboundSchema,
+} from "./productpricesource.js";
+import {
   ProductPriceType,
   ProductPriceType$inboundSchema,
   ProductPriceType$outboundSchema,
@@ -34,6 +39,7 @@ export type ProductPriceCustom = {
    * The ID of the price.
    */
   id: string;
+  source: ProductPriceSource;
   amountType: "custom";
   /**
    * Whether the price is archived and no longer available.
@@ -72,11 +78,15 @@ export const ProductPriceCustom$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     modified_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     id: z.string(),
+    source: ProductPriceSource$inboundSchema,
     amount_type: z.literal("custom"),
     is_archived: z.boolean(),
     product_id: z.string(),
@@ -107,6 +117,7 @@ export type ProductPriceCustom$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
+  source: string;
   amount_type: "custom";
   is_archived: boolean;
   product_id: string;
@@ -127,6 +138,7 @@ export const ProductPriceCustom$outboundSchema: z.ZodMiniType<
     createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
     modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     id: z.string(),
+    source: ProductPriceSource$outboundSchema,
     amountType: z.literal("custom"),
     isArchived: z.boolean(),
     productId: z.string(),

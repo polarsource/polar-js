@@ -129,9 +129,12 @@ export const DiscountPercentageRepeatDurationBase$inboundSchema: z.ZodMiniType<
     duration_in_months: z.int(),
     type: DiscountType$inboundSchema,
     basis_points: z.int(),
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     modified_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     id: z.string(),
     metadata: z.record(
@@ -141,10 +144,10 @@ export const DiscountPercentageRepeatDurationBase$inboundSchema: z.ZodMiniType<
     name: z.string(),
     code: z.nullable(z.string()),
     starts_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     ends_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     max_redemptions: z.nullable(z.int()),
     redemptions_count: z.int(),

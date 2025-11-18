@@ -28,69 +28,46 @@ let value: Product = {
       createdAt: new Date("2025-07-19T05:16:33.878Z"),
       modifiedAt: new Date("2024-12-14T03:45:00.109Z"),
       id: "<value>",
+      source: "catalog",
       amountType: "seat_based",
       isArchived: true,
       productId: "<value>",
-      type: "one_time",
-      recurringInterval: "week",
+      type: "recurring",
+      recurringInterval: "year",
       priceCurrency: "<value>",
       seatTiers: {
         tiers: [
           {
-            minSeats: 922152,
-            pricePerSeat: 415895,
+            minSeats: 415895,
+            pricePerSeat: 164973,
           },
         ],
       },
     },
   ],
-  benefits: [
+  benefits: [],
+  medias: [
     {
       id: "<value>",
-      createdAt: new Date("2025-01-09T18:16:10.566Z"),
-      modifiedAt: new Date("2025-01-13T18:10:25.062Z"),
-      type: "discord",
-      description: "whether regularly necessary",
-      selectable: false,
-      deletable: false,
       organizationId: "<value>",
-      metadata: {
-        "key": "<value>",
-      },
-      properties: {
-        guildId: "<id>",
-        roleId: "<id>",
-        kickMember: false,
-        guildToken: "<value>",
-      },
+      name: "<value>",
+      path: "/var/yp",
+      mimeType: "<value>",
+      size: 678611,
+      storageVersion: null,
+      checksumEtag: "<value>",
+      checksumSha256Base64: "<value>",
+      checksumSha256Hex: "<value>",
+      lastModifiedAt: new Date("2023-09-01T23:53:55.808Z"),
+      version: "<value>",
+      service: "product_media",
+      isUploaded: false,
+      createdAt: new Date("2023-02-02T09:12:11.130Z"),
+      sizeReadable: "<value>",
+      publicUrl: "https://unhealthy-unibody.net",
     },
   ],
-  medias: [],
-  attachedCustomFields: [
-    {
-      customFieldId: "<value>",
-      customField: {
-        createdAt: new Date("2023-10-09T02:00:40.564Z"),
-        modifiedAt: new Date("2025-12-28T07:21:00.728Z"),
-        id: "<value>",
-        metadata: {},
-        type: "select",
-        slug: "<value>",
-        name: "<value>",
-        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-        properties: {
-          options: [
-            {
-              value: "<value>",
-              label: "<value>",
-            },
-          ],
-        },
-      },
-      order: 922916,
-      required: false,
-    },
-  ],
+  attachedCustomFields: [],
 };
 ```
 

@@ -29,7 +29,10 @@ export const S3FileUploadPart$inboundSchema: z.ZodMiniType<
     chunk_end: z.int(),
     checksum_sha256_base64: z.optional(z.nullable(z.string())),
     url: z.string(),
-    expires_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    expires_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     headers: z.optional(z.record(z.string(), z.string())),
   }),
   z.transform((v) => {

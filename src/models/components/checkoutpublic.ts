@@ -61,6 +61,8 @@ export type CheckoutPublicProductPrice =
   | LegacyRecurringProductPrice
   | ProductPrice;
 
+export type CheckoutPublicPrices = LegacyRecurringProductPrice | ProductPrice;
+
 export type CheckoutPublicDiscount =
   | CheckoutDiscountFixedRepeatDuration
   | CheckoutDiscountFixedOnceForeverDuration
@@ -173,6 +175,8 @@ export type CheckoutPublic = {
   productId: string | null;
   /**
    * ID of the product price to checkout.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   productPriceId: string | null;
   /**
@@ -236,8 +240,16 @@ export type CheckoutPublic = {
   product: CheckoutProduct | null;
   /**
    * Price of the selected product.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   productPrice: LegacyRecurringProductPrice | ProductPrice | null;
+  /**
+   * Mapping of product IDs to their list of prices.
+   */
+  prices:
+    | { [k: string]: Array<LegacyRecurringProductPrice | ProductPrice> }
+    | null;
   discount:
     | CheckoutDiscountFixedRepeatDuration
     | CheckoutDiscountFixedOnceForeverDuration
@@ -256,7 +268,7 @@ export const CheckoutPublicCustomFieldData$inboundSchema: z.ZodMiniType<
   z.string(),
   z.int(),
   z.boolean(),
-  z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+  z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
 ]);
 
 export function checkoutPublicCustomFieldDataFromJSON(
@@ -289,6 +301,25 @@ export function checkoutPublicProductPriceFromJSON(
 }
 
 /** @internal */
+export const CheckoutPublicPrices$inboundSchema: z.ZodMiniType<
+  CheckoutPublicPrices,
+  unknown
+> = z.union([
+  LegacyRecurringProductPrice$inboundSchema,
+  ProductPrice$inboundSchema,
+]);
+
+export function checkoutPublicPricesFromJSON(
+  jsonString: string,
+): SafeParseResult<CheckoutPublicPrices, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CheckoutPublicPrices$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CheckoutPublicPrices' from JSON`,
+  );
+}
+
+/** @internal */
 export const CheckoutPublicDiscount$inboundSchema: z.ZodMiniType<
   CheckoutPublicDiscount,
   unknown
@@ -316,9 +347,12 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     id: z.string(),
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     modified_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     custom_field_data: z.optional(
       z.record(
@@ -328,7 +362,10 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
             z.string(),
             z.int(),
             z.boolean(),
-            z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+            z.pipe(
+              z.iso.datetime({ offset: true }),
+              z.transform(v => new Date(v)),
+            ),
           ]),
         ),
       ),
@@ -337,7 +374,10 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
     status: CheckoutStatus$inboundSchema,
     client_secret: z.string(),
     url: z.string(),
-    expires_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    expires_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     success_url: z.string(),
     return_url: z.nullable(z.string()),
     embed_origin: z.nullable(z.string()),
@@ -353,7 +393,7 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
     active_trial_interval: z.nullable(TrialInterval$inboundSchema),
     active_trial_interval_count: z.nullable(z.int()),
     trial_end: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     organization_id: z.string(),
     product_id: z.nullable(z.string()),
@@ -383,6 +423,17 @@ export const CheckoutPublic$inboundSchema: z.ZodMiniType<
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),
+    ),
+    prices: z.nullable(
+      z.record(
+        z.string(),
+        z.array(
+          z.union([
+            LegacyRecurringProductPrice$inboundSchema,
+            ProductPrice$inboundSchema,
+          ]),
+        ),
+      ),
     ),
     discount: z.nullable(
       z.union([

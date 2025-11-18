@@ -50,7 +50,7 @@ export const FileDownload$inboundSchema: z.ZodMiniType<FileDownload, unknown> =
       checksum_sha256_base64: z.nullable(z.string()),
       checksum_sha256_hex: z.nullable(z.string()),
       last_modified_at: z.nullable(
-        z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
       download: S3DownloadURL$inboundSchema,
       version: z.nullable(z.string()),

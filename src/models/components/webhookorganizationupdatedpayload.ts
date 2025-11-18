@@ -32,7 +32,10 @@ export const WebhookOrganizationUpdatedPayload$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   type: z.literal("organization.updated"),
-  timestamp: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+  timestamp: z.pipe(
+    z.iso.datetime({ offset: true }),
+    z.transform(v => new Date(v)),
+  ),
   data: Organization$inboundSchema,
 });
 /** @internal */

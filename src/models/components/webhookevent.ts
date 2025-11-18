@@ -63,9 +63,12 @@ export type WebhookEvent = {
 export const WebhookEvent$inboundSchema: z.ZodMiniType<WebhookEvent, unknown> =
   z.pipe(
     z.object({
-      created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      created_at: z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      ),
       modified_at: z.nullable(
-        z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
       id: z.string(),
       last_http_code: z.optional(z.nullable(z.int())),

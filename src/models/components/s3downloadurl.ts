@@ -22,7 +22,10 @@ export const S3DownloadURL$inboundSchema: z.ZodMiniType<
   z.object({
     url: z.string(),
     headers: z.optional(z.record(z.string(), z.string())),
-    expires_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    expires_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
   }),
   z.transform((v) => {
     return remap$(v, {

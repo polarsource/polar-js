@@ -11,8 +11,9 @@ let value: ProductPriceSeatBased = {
   createdAt: new Date("2023-09-18T05:03:38.369Z"),
   modifiedAt: new Date("2025-08-16T14:25:55.727Z"),
   id: "<value>",
+  source: "catalog",
   amountType: "seat_based",
-  isArchived: true,
+  isArchived: false,
   productId: "<value>",
   type: "recurring",
   recurringInterval: "month",
@@ -20,8 +21,8 @@ let value: ProductPriceSeatBased = {
   seatTiers: {
     tiers: [
       {
-        minSeats: 922152,
-        pricePerSeat: 415895,
+        minSeats: 415895,
+        pricePerSeat: 164973,
       },
     ],
   },
@@ -35,6 +36,7 @@ let value: ProductPriceSeatBased = {
 | `createdAt`                                                                                                             | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Creation timestamp of the object.                                                                                       |
 | `modifiedAt`                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                           | :heavy_check_mark:                                                                                                      | Last modification timestamp of the object.                                                                              |
 | `id`                                                                                                                    | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the price.                                                                                                    |
+| `source`                                                                                                                | [components.ProductPriceSource](../../models/components/productpricesource.md)                                          | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `amountType`                                                                                                            | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | N/A                                                                                                                     |
 | `isArchived`                                                                                                            | *boolean*                                                                                                               | :heavy_check_mark:                                                                                                      | Whether the price is archived and no longer available.                                                                  |
 | `productId`                                                                                                             | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | The ID of the product owning the price.                                                                                 |

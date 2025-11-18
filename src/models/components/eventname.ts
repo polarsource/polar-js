@@ -36,8 +36,14 @@ export const EventName$inboundSchema: z.ZodMiniType<EventName, unknown> = z
       name: z.string(),
       source: EventSource$inboundSchema,
       occurrences: z.int(),
-      first_seen: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
-      last_seen: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      first_seen: z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      ),
+      last_seen: z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      ),
     }),
     z.transform((v) => {
       return remap$(v, {

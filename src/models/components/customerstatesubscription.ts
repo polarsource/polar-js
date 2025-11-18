@@ -123,7 +123,7 @@ export const CustomerStateSubscriptionCustomFieldData$inboundSchema:
     z.string(),
     z.int(),
     z.boolean(),
-    z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
   ]);
 /** @internal */
 export type CustomerStateSubscriptionCustomFieldData$Outbound =
@@ -222,9 +222,12 @@ export const CustomerStateSubscription$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     id: z.string(),
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
     modified_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     custom_field_data: z.optional(
       z.record(
@@ -234,7 +237,10 @@ export const CustomerStateSubscription$inboundSchema: z.ZodMiniType<
             z.string(),
             z.int(),
             z.boolean(),
-            z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+            z.pipe(
+              z.iso.datetime({ offset: true }),
+              z.transform(v => new Date(v)),
+            ),
           ]),
         ),
       ),
@@ -248,27 +254,27 @@ export const CustomerStateSubscription$inboundSchema: z.ZodMiniType<
     currency: z.string(),
     recurring_interval: SubscriptionRecurringInterval$inboundSchema,
     current_period_start: z.pipe(
-      z.iso.datetime(),
+      z.iso.datetime({ offset: true }),
       z.transform(v => new Date(v)),
     ),
     current_period_end: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     trial_start: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     trial_end: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     cancel_at_period_end: z.boolean(),
     canceled_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     started_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     ends_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     product_id: z.string(),
     discount_id: z.nullable(z.string()),

@@ -112,9 +112,12 @@ export const OrderProduct$inboundSchema: z.ZodMiniType<OrderProduct, unknown> =
         z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
       id: z.string(),
-      created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      created_at: z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      ),
       modified_at: z.nullable(
-        z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
       ),
       trial_interval: z.nullable(TrialInterval$inboundSchema),
       trial_interval_count: z.nullable(z.int()),

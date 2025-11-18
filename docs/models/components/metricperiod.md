@@ -43,10 +43,9 @@ let value: MetricPeriod = {
   canceledSubscriptionsTooExpensive: 7462.17,
   canceledSubscriptionsUnused: 9646.7,
   canceledSubscriptionsOther: 131528,
-  churnRate: 7914.5,
-  grossMargin: 637942,
-  grossMarginPercentage: 48133,
-  cashflow: 572961,
+  grossMargin: 7914.5,
+  grossMarginPercentage: 637942,
+  cashflow: 48133,
 };
 ```
 
@@ -91,7 +90,6 @@ let value: MetricPeriod = {
 | `canceledSubscriptionsTooExpensive`                                                           | *components.CanceledSubscriptionsTooExpensive*                                                | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `canceledSubscriptionsUnused`                                                                 | *components.CanceledSubscriptionsUnused*                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `canceledSubscriptionsOther`                                                                  | *components.CanceledSubscriptionsOther*                                                       | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `churnRate`                                                                                   | *components.ChurnRate*                                                                        | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `grossMargin`                                                                                 | *components.GrossMargin*                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `grossMarginPercentage`                                                                       | *components.GrossMarginPercentage*                                                            | :heavy_check_mark:                                                                            | N/A                                                                                           |
 | `cashflow`                                                                                    | *components.Cashflow*                                                                         | :heavy_check_mark:                                                                            | N/A                                                                                           |

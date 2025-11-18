@@ -131,11 +131,13 @@ export function customerTaxIdFromJSON(
 export const Customer$inboundSchema: z.ZodMiniType<Customer, unknown> = z.pipe(
   z.object({
     id: z.string(),
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
-    modified_at: z.nullable(z.pipe(
-      z.iso.datetime(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
       z.transform(v => new Date(v)),
-    )),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
     metadata: z.record(
       z.string(),
       z.union([z.string(), z.int(), z.number(), z.boolean()]),
@@ -150,7 +152,7 @@ export const Customer$inboundSchema: z.ZodMiniType<Customer, unknown> = z.pipe(
     ),
     organization_id: z.string(),
     deleted_at: z.nullable(
-      z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
     ),
     avatar_url: z.string(),
   }),

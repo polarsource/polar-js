@@ -26,56 +26,25 @@ let value: CheckoutLinkProduct = {
       createdAt: new Date("2024-02-13T16:10:48.243Z"),
       modifiedAt: new Date("2025-01-21T17:16:14.204Z"),
       id: "<value>",
+      source: "ad_hoc",
       amountType: "seat_based",
-      isArchived: false,
+      isArchived: true,
       productId: "<value>",
       type: "one_time",
-      recurringInterval: null,
+      recurringInterval: "year",
       priceCurrency: "<value>",
       seatTiers: {
         tiers: [
           {
-            minSeats: 922152,
-            pricePerSeat: 415895,
+            minSeats: 415895,
+            pricePerSeat: 164973,
           },
         ],
       },
     },
   ],
-  benefits: [
-    {
-      id: "<value>",
-      createdAt: new Date("2025-09-12T21:51:12.650Z"),
-      modifiedAt: null,
-      type: "meter_credit",
-      description:
-        "median dependency outside unique cautiously solidly meh times",
-      selectable: false,
-      deletable: false,
-      organizationId: "<value>",
-    },
-  ],
-  medias: [
-    {
-      id: "<value>",
-      organizationId: "<value>",
-      name: "<value>",
-      path: "/System",
-      mimeType: "<value>",
-      size: 253860,
-      storageVersion: "<value>",
-      checksumEtag: null,
-      checksumSha256Base64: "<value>",
-      checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2025-05-07T09:27:30.846Z"),
-      version: "<value>",
-      service: "product_media",
-      isUploaded: false,
-      createdAt: new Date("2024-10-16T05:58:33.681Z"),
-      sizeReadable: "<value>",
-      publicUrl: "https://slow-bonfire.net/",
-    },
-  ],
+  benefits: [],
+  medias: [],
 };
 ```
 

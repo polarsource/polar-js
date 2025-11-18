@@ -76,11 +76,13 @@ export function refundMetadataFromJSON(
 /** @internal */
 export const Refund$inboundSchema: z.ZodMiniType<Refund, unknown> = z.pipe(
   z.object({
-    created_at: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
-    modified_at: z.nullable(z.pipe(
-      z.iso.datetime(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
       z.transform(v => new Date(v)),
-    )),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
     id: z.string(),
     metadata: z.record(
       z.string(),

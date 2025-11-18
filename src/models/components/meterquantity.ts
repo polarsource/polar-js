@@ -23,7 +23,10 @@ export const MeterQuantity$inboundSchema: z.ZodMiniType<
   MeterQuantity,
   unknown
 > = z.object({
-  timestamp: z.pipe(z.iso.datetime(), z.transform(v => new Date(v))),
+  timestamp: z.pipe(
+    z.iso.datetime({ offset: true }),
+    z.transform(v => new Date(v)),
+  ),
   quantity: z.number(),
 });
 
