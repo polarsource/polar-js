@@ -18,18 +18,18 @@ let value: BenefitMeterCreditSubscriber = {
     "key": 246653,
   },
   organization: {
-    createdAt: new Date("2024-07-06T05:20:15.511Z"),
-    modifiedAt: new Date("2024-10-26T03:36:06.540Z"),
+    createdAt: new Date("2023-02-09T14:46:30.040Z"),
+    modifiedAt: new Date("2024-07-28T16:12:54.009Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://handy-impact.net",
+    avatarUrl: "https://spotless-knight.com/",
     prorationBehavior: "prorate",
     allowCustomerUpdates: true,
   },
   properties: {
-    units: 430943,
-    rollover: true,
+    units: 246327,
+    rollover: false,
     meterId: "<value>",
   },
 };

@@ -50,6 +50,10 @@ export type UserEvent = {
    */
   parentId?: string | null | undefined;
   /**
+   * Human readable label of the event type.
+   */
+  label: string;
+  /**
    * The name of the event.
    */
   name: string;
@@ -75,6 +79,7 @@ export const UserEvent$inboundSchema: z.ZodMiniType<UserEvent, unknown> = z
       external_customer_id: z.nullable(z.string()),
       child_count: z._default(z.int(), 0),
       parent_id: z.optional(z.nullable(z.string())),
+      label: z.string(),
       name: z.string(),
       source: z.literal("user"),
       metadata: z.record(z.string(), EventMetadataOutput$inboundSchema),

@@ -80,6 +80,10 @@ export type CanceledSubscriptionsUnused = number | number;
 
 export type CanceledSubscriptionsOther = number | number;
 
+export type ChurnedSubscriptions = number | number;
+
+export type ChurnRate = number | number;
+
 export type GrossMargin = number | number;
 
 export type GrossMarginPercentage = number | number;
@@ -127,6 +131,8 @@ export type MetricPeriod = {
   canceledSubscriptionsTooExpensive: number | number;
   canceledSubscriptionsUnused: number | number;
   canceledSubscriptionsOther: number | number;
+  churnedSubscriptions: number | number;
+  churnRate: number | number;
   grossMargin: number | number;
   grossMarginPercentage: number | number;
   cashflow: number | number;
@@ -706,6 +712,36 @@ export function canceledSubscriptionsOtherFromJSON(
 }
 
 /** @internal */
+export const ChurnedSubscriptions$inboundSchema: z.ZodMiniType<
+  ChurnedSubscriptions,
+  unknown
+> = z.union([z.int(), z.number()]);
+
+export function churnedSubscriptionsFromJSON(
+  jsonString: string,
+): SafeParseResult<ChurnedSubscriptions, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ChurnedSubscriptions$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ChurnedSubscriptions' from JSON`,
+  );
+}
+
+/** @internal */
+export const ChurnRate$inboundSchema: z.ZodMiniType<ChurnRate, unknown> = z
+  .union([z.int(), z.number()]);
+
+export function churnRateFromJSON(
+  jsonString: string,
+): SafeParseResult<ChurnRate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ChurnRate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ChurnRate' from JSON`,
+  );
+}
+
+/** @internal */
 export const GrossMargin$inboundSchema: z.ZodMiniType<GrossMargin, unknown> = z
   .union([z.int(), z.number()]);
 
@@ -794,6 +830,8 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
       canceled_subscriptions_too_expensive: z.union([z.int(), z.number()]),
       canceled_subscriptions_unused: z.union([z.int(), z.number()]),
       canceled_subscriptions_other: z.union([z.int(), z.number()]),
+      churned_subscriptions: z.union([z.int(), z.number()]),
+      churn_rate: z.union([z.int(), z.number()]),
       gross_margin: z.union([z.int(), z.number()]),
       gross_margin_percentage: z.union([z.int(), z.number()]),
       cashflow: z.union([z.int(), z.number()]),
@@ -837,6 +875,8 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
           "canceledSubscriptionsTooExpensive",
         "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
         "canceled_subscriptions_other": "canceledSubscriptionsOther",
+        "churned_subscriptions": "churnedSubscriptions",
+        "churn_rate": "churnRate",
         "gross_margin": "grossMargin",
         "gross_margin_percentage": "grossMarginPercentage",
       });

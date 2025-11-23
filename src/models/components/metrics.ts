@@ -157,6 +157,14 @@ export type Metrics = {
   /**
    * Information about a metric.
    */
+  churnedSubscriptions: Metric;
+  /**
+   * Information about a metric.
+   */
+  churnRate: Metric;
+  /**
+   * Information about a metric.
+   */
   grossMargin: Metric;
   /**
    * Information about a metric.
@@ -207,6 +215,8 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
     canceled_subscriptions_too_expensive: Metric$inboundSchema,
     canceled_subscriptions_unused: Metric$inboundSchema,
     canceled_subscriptions_other: Metric$inboundSchema,
+    churned_subscriptions: Metric$inboundSchema,
+    churn_rate: Metric$inboundSchema,
     gross_margin: Metric$inboundSchema,
     gross_margin_percentage: Metric$inboundSchema,
     cashflow: Metric$inboundSchema,
@@ -249,6 +259,8 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
         "canceledSubscriptionsTooExpensive",
       "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
       "canceled_subscriptions_other": "canceledSubscriptionsOther",
+      "churned_subscriptions": "churnedSubscriptions",
+      "churn_rate": "churnRate",
       "gross_margin": "grossMargin",
       "gross_margin_percentage": "grossMarginPercentage",
     });

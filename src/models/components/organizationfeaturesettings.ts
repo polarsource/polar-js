@@ -25,6 +25,10 @@ export type OrganizationFeatureSettings = {
    * If this organization has Wallets enabled
    */
   walletsEnabled?: boolean | undefined;
+  /**
+   * If this organization has the Member model enabled
+   */
+  memberModelEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -37,6 +41,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
     seat_based_pricing_enabled: z._default(z.boolean(), false),
     revops_enabled: z._default(z.boolean(), false),
     wallets_enabled: z._default(z.boolean(), false),
+    member_model_enabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -44,6 +49,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "seat_based_pricing_enabled": "seatBasedPricingEnabled",
       "revops_enabled": "revopsEnabled",
       "wallets_enabled": "walletsEnabled",
+      "member_model_enabled": "memberModelEnabled",
     });
   }),
 );
@@ -53,6 +59,7 @@ export type OrganizationFeatureSettings$Outbound = {
   seat_based_pricing_enabled: boolean;
   revops_enabled: boolean;
   wallets_enabled: boolean;
+  member_model_enabled: boolean;
 };
 
 /** @internal */
@@ -65,6 +72,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     seatBasedPricingEnabled: z._default(z.boolean(), false),
     revopsEnabled: z._default(z.boolean(), false),
     walletsEnabled: z._default(z.boolean(), false),
+    memberModelEnabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -72,6 +80,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       seatBasedPricingEnabled: "seat_based_pricing_enabled",
       revopsEnabled: "revops_enabled",
       walletsEnabled: "wallets_enabled",
+      memberModelEnabled: "member_model_enabled",
     });
   }),
 );

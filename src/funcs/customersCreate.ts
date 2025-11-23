@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { PolarCore } from "../core.js";
-import { encodeJSON } from "../lib/encodings.js";
+import { encodeFormQuery, encodeJSON } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -12,13 +12,9 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  Customer,
-  Customer$inboundSchema,
-} from "../models/components/customer.js";
-import {
-  CustomerCreate,
-  CustomerCreate$outboundSchema,
-} from "../models/components/customercreate.js";
+  CustomerWithMembers,
+  CustomerWithMembers$inboundSchema,
+} from "../models/components/customerwithmembers.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -33,6 +29,10 @@ import {
 import { PolarError } from "../models/errors/polarerror.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
+import {
+  CustomersCreateRequest,
+  CustomersCreateRequest$outboundSchema,
+} from "../models/operations/customerscreate.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
@@ -46,11 +46,11 @@ import { Result } from "../types/fp.js";
  */
 export function customersCreate(
   client: PolarCore,
-  request: CustomerCreate,
+  request: CustomersCreateRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    Customer,
+    CustomerWithMembers,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -71,12 +71,12 @@ export function customersCreate(
 
 async function $do(
   client: PolarCore,
-  request: CustomerCreate,
+  request: CustomersCreateRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      Customer,
+      CustomerWithMembers,
       | HTTPValidationError
       | PolarError
       | ResponseValidationError
@@ -92,16 +92,20 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.parse(CustomerCreate$outboundSchema, value),
+    (value) => z.parse(CustomersCreateRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload, { explode: true });
+  const body = encodeJSON("body", payload.CustomerCreate, { explode: true });
 
   const path = pathToFunc("/v1/customers/")();
+
+  const query = encodeFormQuery({
+    "include_members": payload.include_members,
+  });
 
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
@@ -133,6 +137,7 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
+    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
@@ -158,7 +163,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    Customer,
+    CustomerWithMembers,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -169,7 +174,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, Customer$inboundSchema),
+    M.json(201, CustomerWithMembers$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

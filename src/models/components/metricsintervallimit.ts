@@ -13,6 +13,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type MetricsIntervalLimit = {
   /**
+   * Minimum number of days for this interval.
+   */
+  minDays: number;
+  /**
    * Maximum number of days for this interval.
    */
   maxDays: number;
@@ -24,10 +28,12 @@ export const MetricsIntervalLimit$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
+    min_days: z.int(),
     max_days: z.int(),
   }),
   z.transform((v) => {
     return remap$(v, {
+      "min_days": "minDays",
       "max_days": "maxDays",
     });
   }),

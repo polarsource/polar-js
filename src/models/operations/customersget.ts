@@ -3,26 +3,40 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 
 export type CustomersGetRequest = {
   /**
    * The customer ID.
    */
   id: string;
+  /**
+   * Include members in the response. Only populated when set to true.
+   */
+  includeMembers?: boolean | undefined;
 };
 
 /** @internal */
 export type CustomersGetRequest$Outbound = {
   id: string;
+  include_members: boolean;
 };
 
 /** @internal */
 export const CustomersGetRequest$outboundSchema: z.ZodMiniType<
   CustomersGetRequest$Outbound,
   CustomersGetRequest
-> = z.object({
-  id: z.string(),
-});
+> = z.pipe(
+  z.object({
+    id: z.string(),
+    includeMembers: z._default(z.boolean(), false),
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      includeMembers: "include_members",
+    });
+  }),
+);
 
 export function customersGetRequestToJSON(
   customersGetRequest: CustomersGetRequest,

@@ -18,11 +18,9 @@ const value: components.BenefitGrantDiscordWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
-    metadata: {
-      "key": "<value>",
-    },
+    createdAt: new Date("2024-03-11T16:11:12.405Z"),
+    modifiedAt: new Date("2024-05-26T23:55:45.640Z"),
+    metadata: {},
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
@@ -35,7 +33,7 @@ const value: components.BenefitGrantDiscordWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2024-09-12T11:45:35.154Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
@@ -76,11 +74,9 @@ const value: components.BenefitGrantCustomWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
-    metadata: {
-      "key": "<value>",
-    },
+    createdAt: new Date("2024-03-11T16:11:12.405Z"),
+    modifiedAt: new Date("2024-05-26T23:55:45.640Z"),
+    metadata: {},
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
@@ -93,7 +89,7 @@ const value: components.BenefitGrantCustomWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2024-09-12T11:45:35.154Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
@@ -129,11 +125,9 @@ const value: components.BenefitGrantGitHubRepositoryWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
-    metadata: {
-      "key": "<value>",
-    },
+    createdAt: new Date("2024-03-11T16:11:12.405Z"),
+    modifiedAt: new Date("2024-05-26T23:55:45.640Z"),
+    metadata: {},
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
@@ -146,7 +140,7 @@ const value: components.BenefitGrantGitHubRepositoryWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2024-09-12T11:45:35.154Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
@@ -186,11 +180,9 @@ const value: components.BenefitGrantDownloadablesWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
-    metadata: {
-      "key": "<value>",
-    },
+    createdAt: new Date("2024-03-11T16:11:12.405Z"),
+    modifiedAt: new Date("2024-05-26T23:55:45.640Z"),
+    metadata: {},
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
@@ -203,7 +195,7 @@ const value: components.BenefitGrantDownloadablesWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2024-09-12T11:45:35.154Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
@@ -247,11 +239,9 @@ const value: components.BenefitGrantLicenseKeysWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
-    metadata: {
-      "key": "<value>",
-    },
+    createdAt: new Date("2024-03-11T16:11:12.405Z"),
+    modifiedAt: new Date("2024-05-26T23:55:45.640Z"),
+    metadata: {},
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
@@ -264,19 +254,22 @@ const value: components.BenefitGrantLicenseKeysWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2024-09-12T11:45:35.154Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2024-01-09T05:46:42.550Z"),
-    modifiedAt: new Date("2025-02-03T07:44:40.734Z"),
+    createdAt: new Date("2024-04-26T10:19:45.222Z"),
+    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
     type: "license_keys",
-    description: "monasticism when that",
+    description:
+      "ruddy accompanist questionably sympathetically whoever staid catalyze",
     selectable: true,
-    deletable: true,
+    deletable: false,
     organizationId: "<value>",
-    metadata: {},
+    metadata: {
+      "key": 818.42,
+    },
     properties: {
       prefix: "<value>",
       expires: {
@@ -309,11 +302,9 @@ const value: components.BenefitGrantMeterCreditWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
-    metadata: {
-      "key": "<value>",
-    },
+    createdAt: new Date("2024-03-11T16:11:12.405Z"),
+    modifiedAt: new Date("2024-05-26T23:55:45.640Z"),
+    metadata: {},
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
@@ -326,7 +317,7 @@ const value: components.BenefitGrantMeterCreditWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2024-09-12T11:45:35.154Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
@@ -341,7 +332,7 @@ const value: components.BenefitGrantMeterCreditWebhook = {
     organizationId: "<value>",
     metadata: {},
     properties: {
-      units: 298008,
+      units: 76669,
       rollover: false,
       meterId: "<value>",
     },

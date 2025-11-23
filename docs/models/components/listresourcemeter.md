@@ -14,7 +14,7 @@ let value: ListResourceMeter = {
       id: "<value>",
       name: "<value>",
       filter: {
-        conjunction: "and",
+        conjunction: "or",
         clauses: [],
       },
       aggregation: {
@@ -25,8 +25,8 @@ let value: ListResourceMeter = {
     },
   ],
   pagination: {
-    totalCount: 279990,
-    maxPage: 718643,
+    totalCount: 296266,
+    maxPage: 544155,
   },
 };
 ```

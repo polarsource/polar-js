@@ -16,3 +16,4 @@ let value: OrganizationFeatureSettings = {};
 | `seatBasedPricingEnabled`                           | *boolean*                                           | :heavy_minus_sign:                                  | If this organization has seat-based pricing enabled |
 | `revopsEnabled`                                     | *boolean*                                           | :heavy_minus_sign:                                  | If this organization has RevOps enabled             |
 | `walletsEnabled`                                    | *boolean*                                           | :heavy_minus_sign:                                  | If this organization has Wallets enabled            |
+| `memberModelEnabled`                                | *boolean*                                           | :heavy_minus_sign:                                  | If this organization has the Member model enabled   |

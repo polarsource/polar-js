@@ -15,12 +15,17 @@ export type CustomersUpdateRequest = {
    * The customer ID.
    */
   id: string;
+  /**
+   * Include members in the response. Only populated when set to true.
+   */
+  includeMembers?: boolean | undefined;
   customerUpdate: CustomerUpdate;
 };
 
 /** @internal */
 export type CustomersUpdateRequest$Outbound = {
   id: string;
+  include_members: boolean;
   CustomerUpdate: CustomerUpdate$Outbound;
 };
 
@@ -31,10 +36,12 @@ export const CustomersUpdateRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     id: z.string(),
+    includeMembers: z._default(z.boolean(), false),
     customerUpdate: CustomerUpdate$outboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {
+      includeMembers: "include_members",
       customerUpdate: "CustomerUpdate",
     });
   }),
