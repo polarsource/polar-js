@@ -12,6 +12,8 @@ export const CustomerBenefitGrantSortProperty = {
   MinusType: "-type",
   Organization: "organization",
   MinusOrganization: "-organization",
+  ProductBenefit: "product_benefit",
+  MinusProductBenefit: "-product_benefit",
 } as const;
 export type CustomerBenefitGrantSortProperty = ClosedEnum<
   typeof CustomerBenefitGrantSortProperty

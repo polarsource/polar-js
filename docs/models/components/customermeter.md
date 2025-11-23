@@ -18,11 +18,9 @@ let value: CustomerMeter = {
   balance: 75,
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
-    metadata: {
-      "key": "<value>",
-    },
+    createdAt: new Date("2024-03-11T16:11:12.405Z"),
+    modifiedAt: new Date("2024-05-26T23:55:45.640Z"),
+    metadata: {},
     externalId: "usr_1337",
     email: "customer@example.com",
     emailVerified: true,
@@ -35,23 +33,20 @@ let value: CustomerMeter = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2024-09-12T11:45:35.154Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   meter: {
-    metadata: {
-      "key": 1984.38,
-    },
-    createdAt: new Date("2025-02-06T15:53:25.753Z"),
-    modifiedAt: new Date("2023-08-07T08:10:45.405Z"),
+    metadata: {},
+    createdAt: new Date("2025-01-05T19:13:23.632Z"),
+    modifiedAt: new Date("2025-10-09T02:26:38.751Z"),
     id: "<value>",
     name: "<value>",
     filter: {
-      conjunction: "and",
+      conjunction: "or",
       clauses: [],
     },
     aggregation: {
-      func: "avg",
       property: "<value>",
     },
     organizationId: "<value>",

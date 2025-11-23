@@ -10,11 +10,16 @@ export type CustomersGetExternalRequest = {
    * The customer external ID.
    */
   externalId: string;
+  /**
+   * Include members in the response. Only populated when set to true.
+   */
+  includeMembers?: boolean | undefined;
 };
 
 /** @internal */
 export type CustomersGetExternalRequest$Outbound = {
   external_id: string;
+  include_members: boolean;
 };
 
 /** @internal */
@@ -24,10 +29,12 @@ export const CustomersGetExternalRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     externalId: z.string(),
+    includeMembers: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
       externalId: "external_id",
+      includeMembers: "include_members",
     });
   }),
 );

@@ -50,6 +50,10 @@ export type SubscriptionSeatsUpdatedEvent = {
    */
   parentId?: string | null | undefined;
   /**
+   * Human readable label of the event type.
+   */
+  label: string;
+  /**
    * The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API.
    */
   source: "system";
@@ -77,6 +81,7 @@ export const SubscriptionSeatsUpdatedEvent$inboundSchema: z.ZodMiniType<
     external_customer_id: z.nullable(z.string()),
     child_count: z._default(z.int(), 0),
     parent_id: z.optional(z.nullable(z.string())),
+    label: z.string(),
     source: z.literal("system"),
     name: z.literal("subscription.seats_updated"),
     metadata: SubscriptionSeatsUpdatedMetadata$inboundSchema,

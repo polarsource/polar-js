@@ -9,6 +9,11 @@ import {
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
+import {
+  OwnerCreate,
+  OwnerCreate$Outbound,
+  OwnerCreate$outboundSchema,
+} from "./ownercreate.js";
 import { TaxIDFormat, TaxIDFormat$outboundSchema } from "./taxidformat.js";
 
 export type CustomerCreateMetadata = string | number | number | boolean;
@@ -47,6 +52,10 @@ export type CustomerCreate = {
    * The ID of the organization owning the customer. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
+  /**
+   * Optional owner member to create with the customer. If not provided, an owner member will be automatically created using the customer's email and name.
+   */
+  owner?: OwnerCreate | null | undefined;
 };
 
 /** @internal */
@@ -96,6 +105,7 @@ export type CustomerCreate$Outbound = {
   billing_address?: AddressInput$Outbound | null | undefined;
   tax_id?: Array<string | string | null> | null | undefined;
   organization_id?: string | null | undefined;
+  owner?: OwnerCreate$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -120,6 +130,7 @@ export const CustomerCreate$outboundSchema: z.ZodMiniType<
       ),
     ),
     organizationId: z.optional(z.nullable(z.string())),
+    owner: z.optional(z.nullable(OwnerCreate$outboundSchema)),
   }),
   z.transform((v) => {
     return remap$(v, {

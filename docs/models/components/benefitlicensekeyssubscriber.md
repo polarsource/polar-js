@@ -18,12 +18,12 @@ let value: BenefitLicenseKeysSubscriber = {
     "key": 8092.3,
   },
   organization: {
-    createdAt: new Date("2024-07-06T05:20:15.511Z"),
-    modifiedAt: new Date("2024-10-26T03:36:06.540Z"),
+    createdAt: new Date("2023-02-09T14:46:30.040Z"),
+    modifiedAt: new Date("2024-07-28T16:12:54.009Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://handy-impact.net",
+    avatarUrl: "https://spotless-knight.com/",
     prorationBehavior: "prorate",
     allowCustomerUpdates: true,
   },
@@ -37,7 +37,7 @@ let value: BenefitLicenseKeysSubscriber = {
       limit: 777902,
       enableCustomerAdmin: true,
     },
-    limitUsage: 216327,
+    limitUsage: 977381,
   },
 };
 ```

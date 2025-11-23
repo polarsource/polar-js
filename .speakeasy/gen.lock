@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: 09e1f6113805a421c6e13724d923d6bc
+  docChecksum: 17eedb15a0ade1fa29a0fd77f5f373bd
   docVersion: 0.1.0
-  speakeasyVersion: 1.658.2
-  generationVersion: 2.755.9
-  releaseVersion: 0.41.5
-  configChecksum: 091f0e73c61b122fd6156d098da2ca6d
+  speakeasyVersion: 1.660.0
+  generationVersion: 2.760.2
+  releaseVersion: 0.41.6
+  configChecksum: 9527e8503e5fbd2fca08f2a4b6633942
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.26.7
+    core: 3.26.9
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.1
@@ -36,7 +36,7 @@ features:
     sdkHooks: 0.3.0
     serverIDs: 2.81.2
     unions: 2.86.0
-    webhooks: 1.5.0
+    webhooks: 1.5.1
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -233,6 +233,8 @@ generatedFiles:
   - docs/models/components/checkoutupdatemetadata.md
   - docs/models/components/checkoutupdatepublic.md
   - docs/models/components/checkoutupdatepubliccustomfielddata.md
+  - docs/models/components/churnedsubscriptions.md
+  - docs/models/components/churnrate.md
   - docs/models/components/clauses.md
   - docs/models/components/committedmonthlyrecurringrevenue.md
   - docs/models/components/conditions.md
@@ -246,7 +248,6 @@ generatedFiles:
   - docs/models/components/cumulativecosts.md
   - docs/models/components/cumulativerevenue.md
   - docs/models/components/customer.md
-  - docs/models/components/customerbalance.md
   - docs/models/components/customerbenefitgrant.md
   - docs/models/components/customerbenefitgrantcustom.md
   - docs/models/components/customerbenefitgrantcustomupdate.md
@@ -344,6 +345,9 @@ generatedFiles:
   - docs/models/components/customerupdatetaxid.md
   - docs/models/components/customerwallet.md
   - docs/models/components/customerwalletsortproperty.md
+  - docs/models/components/customerwithmembers.md
+  - docs/models/components/customerwithmembersmetadata.md
+  - docs/models/components/customerwithmemberstaxid.md
   - docs/models/components/customfield.md
   - docs/models/components/customfieldcheckbox.md
   - docs/models/components/customfieldcheckboxmetadata.md
@@ -434,6 +438,8 @@ generatedFiles:
   - docs/models/components/eventsingestresponse.md
   - docs/models/components/eventsortproperty.md
   - docs/models/components/eventsource.md
+  - docs/models/components/eventtype.md
+  - docs/models/components/eventtypeupdate.md
   - docs/models/components/existingproductprice.md
   - docs/models/components/filecreate.md
   - docs/models/components/filedownload.md
@@ -478,7 +484,6 @@ generatedFiles:
   - docs/models/components/listresourcebenefitgrant.md
   - docs/models/components/listresourcecheckout.md
   - docs/models/components/listresourcecheckoutlink.md
-  - docs/models/components/listresourcecustomer.md
   - docs/models/components/listresourcecustomerbenefitgrant.md
   - docs/models/components/listresourcecustomercustomermeter.md
   - docs/models/components/listresourcecustomermeter.md
@@ -486,6 +491,7 @@ generatedFiles:
   - docs/models/components/listresourcecustomerpaymentmethod.md
   - docs/models/components/listresourcecustomersubscription.md
   - docs/models/components/listresourcecustomerwallet.md
+  - docs/models/components/listresourcecustomerwithmembers.md
   - docs/models/components/listresourcecustomfield.md
   - docs/models/components/listresourcediscount.md
   - docs/models/components/listresourcedownloadableread.md
@@ -493,17 +499,20 @@ generatedFiles:
   - docs/models/components/listresourceeventname.md
   - docs/models/components/listresourcefileread.md
   - docs/models/components/listresourcelicensekeyread.md
+  - docs/models/components/listresourcemember.md
   - docs/models/components/listresourcemeter.md
   - docs/models/components/listresourceorder.md
   - docs/models/components/listresourceorganization.md
   - docs/models/components/listresourceproduct.md
   - docs/models/components/listresourcerefund.md
   - docs/models/components/listresourcesubscription.md
-  - docs/models/components/listresourcewallet.md
   - docs/models/components/listresourcewebhookdelivery.md
   - docs/models/components/listresourcewebhookendpoint.md
   - docs/models/components/llmmetadata.md
   - docs/models/components/loc.md
+  - docs/models/components/member.md
+  - docs/models/components/memberrole.md
+  - docs/models/components/membersortproperty.md
   - docs/models/components/meta.md
   - docs/models/components/metadata.md
   - docs/models/components/metadataquery.md
@@ -546,6 +555,8 @@ generatedFiles:
   - docs/models/components/metricstotalscashflow.md
   - docs/models/components/metricstotalscheckouts.md
   - docs/models/components/metricstotalscheckoutsconversion.md
+  - docs/models/components/metricstotalschurnedsubscriptions.md
+  - docs/models/components/metricstotalschurnrate.md
   - docs/models/components/metricstotalscommittedmonthlyrecurringrevenue.md
   - docs/models/components/metricstotalscostperuser.md
   - docs/models/components/metricstotalscosts.md
@@ -621,6 +632,7 @@ generatedFiles:
   - docs/models/components/organizationstatus.md
   - docs/models/components/organizationsubscriptionsettings.md
   - docs/models/components/organizationupdate.md
+  - docs/models/components/ownercreate.md
   - docs/models/components/pagination.md
   - docs/models/components/payment.md
   - docs/models/components/paymentmethodcard.md
@@ -746,9 +758,6 @@ generatedFiles:
   - docs/models/components/validatedlicensekey.md
   - docs/models/components/validationerror.md
   - docs/models/components/value.md
-  - docs/models/components/wallet.md
-  - docs/models/components/walletsortproperty.md
-  - docs/models/components/wallettopupcreate.md
   - docs/models/components/webhookbenefitcreatedpayload.md
   - docs/models/components/webhookbenefitgrantcreatedpayload.md
   - docs/models/components/webhookbenefitgrantcycledpayload.md
@@ -796,7 +805,6 @@ generatedFiles:
   - docs/models/errors/expiredcheckouterror.md
   - docs/models/errors/httpvalidationerror.md
   - docs/models/errors/missinginvoicebillingdetails.md
-  - docs/models/errors/missingpaymentmethoderror.md
   - docs/models/errors/notopencheckout.md
   - docs/models/errors/notpaidorder.md
   - docs/models/errors/notpermitted.md
@@ -804,7 +812,6 @@ generatedFiles:
   - docs/models/errors/ordersgenerateinvoiceresponse422ordersgenerateinvoice.md
   - docs/models/errors/paymentalreadyinprogress.md
   - docs/models/errors/paymenterror.md
-  - docs/models/errors/paymentintentfailederror.md
   - docs/models/errors/paymentmethodinusebyactivesubscription.md
   - docs/models/errors/paymentnotready.md
   - docs/models/errors/refundamounttoohigh.md
@@ -927,6 +934,7 @@ generatedFiles:
   - docs/models/operations/customerportalwalletslistrequest.md
   - docs/models/operations/customerportalwalletslistresponse.md
   - docs/models/operations/customerportalwalletslistsecurity.md
+  - docs/models/operations/customerscreaterequest.md
   - docs/models/operations/customersdeleteexternalrequest.md
   - docs/models/operations/customersdeleterequest.md
   - docs/models/operations/customerseatsgetclaiminforequest.md
@@ -936,7 +944,6 @@ generatedFiles:
   - docs/models/operations/customersessionscreatecustomersessioncreate.md
   - docs/models/operations/customersexportqueryparamorganizationid.md
   - docs/models/operations/customersexportrequest.md
-  - docs/models/operations/customersgetbalancerequest.md
   - docs/models/operations/customersgetexternalrequest.md
   - docs/models/operations/customersgetrequest.md
   - docs/models/operations/customersgetstateexternalrequest.md
@@ -971,6 +978,7 @@ generatedFiles:
   - docs/models/operations/eventslistqueryparamorganizationidfilter.md
   - docs/models/operations/eventslistrequest.md
   - docs/models/operations/eventslistresponse.md
+  - docs/models/operations/eventtypesupdateeventtyperequest.md
   - docs/models/operations/externalcustomeridfilter.md
   - docs/models/operations/fileidfilter.md
   - docs/models/operations/filesdeleterequest.md
@@ -987,6 +995,8 @@ generatedFiles:
   - docs/models/operations/licensekeyslistrequest.md
   - docs/models/operations/licensekeyslistresponse.md
   - docs/models/operations/licensekeysupdaterequest.md
+  - docs/models/operations/memberslistmembersrequest.md
+  - docs/models/operations/memberslistmembersresponse.md
   - docs/models/operations/meteridfilter.md
   - docs/models/operations/metersgetrequest.md
   - docs/models/operations/meterslistqueryparamorganizationidfilter.md
@@ -1071,12 +1081,6 @@ generatedFiles:
   - docs/models/operations/subscriptionslistresponse.md
   - docs/models/operations/subscriptionsrevokerequest.md
   - docs/models/operations/subscriptionsupdaterequest.md
-  - docs/models/operations/walletsgetrequest.md
-  - docs/models/operations/walletslistqueryparamcustomeridfilter.md
-  - docs/models/operations/walletslistqueryparamorganizationidfilter.md
-  - docs/models/operations/walletslistrequest.md
-  - docs/models/operations/walletslistresponse.md
-  - docs/models/operations/walletstopuprequest.md
   - docs/models/operations/webhooksdeletewebhookendpointrequest.md
   - docs/models/operations/webhooksgetwebhookendpointrequest.md
   - docs/models/operations/webhookslistwebhookdeliveriesrequest.md
@@ -1100,8 +1104,10 @@ generatedFiles:
   - docs/sdks/discounts/README.md
   - docs/sdks/downloadables/README.md
   - docs/sdks/events/README.md
+  - docs/sdks/eventtypes/README.md
   - docs/sdks/files/README.md
   - docs/sdks/licensekeys/README.md
+  - docs/sdks/members/README.md
   - docs/sdks/meters/README.md
   - docs/sdks/metrics/README.md
   - docs/sdks/oauth2/README.md
@@ -1115,7 +1121,6 @@ generatedFiles:
   - docs/sdks/polarorders/README.md
   - docs/sdks/polarorganizations/README.md
   - docs/sdks/polarsubscriptions/README.md
-  - docs/sdks/polarwallets/README.md
   - docs/sdks/products/README.md
   - docs/sdks/refunds/README.md
   - docs/sdks/seats/README.md
@@ -1206,7 +1211,6 @@ generatedFiles:
   - src/funcs/customersDeleteExternal.ts
   - src/funcs/customersExport.ts
   - src/funcs/customersGet.ts
-  - src/funcs/customersGetBalance.ts
   - src/funcs/customersGetExternal.ts
   - src/funcs/customersGetState.ts
   - src/funcs/customersGetStateExternal.ts
@@ -1218,6 +1222,7 @@ generatedFiles:
   - src/funcs/discountsGet.ts
   - src/funcs/discountsList.ts
   - src/funcs/discountsUpdate.ts
+  - src/funcs/eventTypesUpdateEventType.ts
   - src/funcs/eventsGet.ts
   - src/funcs/eventsIngest.ts
   - src/funcs/eventsList.ts
@@ -1234,6 +1239,7 @@ generatedFiles:
   - src/funcs/licenseKeysList.ts
   - src/funcs/licenseKeysUpdate.ts
   - src/funcs/licenseKeysValidate.ts
+  - src/funcs/membersListMembers.ts
   - src/funcs/metersCreate.ts
   - src/funcs/metersGet.ts
   - src/funcs/metersList.ts
@@ -1275,9 +1281,7 @@ generatedFiles:
   - src/funcs/subscriptionsList.ts
   - src/funcs/subscriptionsRevoke.ts
   - src/funcs/subscriptionsUpdate.ts
-  - src/funcs/walletsGet.ts
-  - src/funcs/walletsList.ts
-  - src/funcs/walletsTopUp.ts
+  - src/funcs/validateWebhook.ts
   - src/funcs/webhooksCreateWebhookEndpoint.ts
   - src/funcs/webhooksDeleteWebhookEndpoint.ts
   - src/funcs/webhooksGetWebhookEndpoint.ts
@@ -1419,7 +1423,6 @@ generatedFiles:
   - src/models/components/costmetadataoutput.ts
   - src/models/components/countaggregation.ts
   - src/models/components/customer.ts
-  - src/models/components/customerbalance.ts
   - src/models/components/customerbenefitgrant.ts
   - src/models/components/customerbenefitgrantcustom.ts
   - src/models/components/customerbenefitgrantcustomupdate.ts
@@ -1497,6 +1500,7 @@ generatedFiles:
   - src/models/components/customerupdateexternalid.ts
   - src/models/components/customerwallet.ts
   - src/models/components/customerwalletsortproperty.ts
+  - src/models/components/customerwithmembers.ts
   - src/models/components/customfield.ts
   - src/models/components/customfieldcheckbox.ts
   - src/models/components/customfieldcheckboxproperties.ts
@@ -1556,6 +1560,8 @@ generatedFiles:
   - src/models/components/eventsingestresponse.ts
   - src/models/components/eventsortproperty.ts
   - src/models/components/eventsource.ts
+  - src/models/components/eventtype.ts
+  - src/models/components/eventtypeupdate.ts
   - src/models/components/existingproductprice.ts
   - src/models/components/filecreate.ts
   - src/models/components/filedownload.ts
@@ -1589,7 +1595,6 @@ generatedFiles:
   - src/models/components/listresourcebenefitgrant.ts
   - src/models/components/listresourcecheckout.ts
   - src/models/components/listresourcecheckoutlink.ts
-  - src/models/components/listresourcecustomer.ts
   - src/models/components/listresourcecustomerbenefitgrant.ts
   - src/models/components/listresourcecustomercustomermeter.ts
   - src/models/components/listresourcecustomermeter.ts
@@ -1597,6 +1602,7 @@ generatedFiles:
   - src/models/components/listresourcecustomerpaymentmethod.ts
   - src/models/components/listresourcecustomersubscription.ts
   - src/models/components/listresourcecustomerwallet.ts
+  - src/models/components/listresourcecustomerwithmembers.ts
   - src/models/components/listresourcecustomfield.ts
   - src/models/components/listresourcediscount.ts
   - src/models/components/listresourcedownloadableread.ts
@@ -1604,16 +1610,19 @@ generatedFiles:
   - src/models/components/listresourceeventname.ts
   - src/models/components/listresourcefileread.ts
   - src/models/components/listresourcelicensekeyread.ts
+  - src/models/components/listresourcemember.ts
   - src/models/components/listresourcemeter.ts
   - src/models/components/listresourceorder.ts
   - src/models/components/listresourceorganization.ts
   - src/models/components/listresourceproduct.ts
   - src/models/components/listresourcerefund.ts
   - src/models/components/listresourcesubscription.ts
-  - src/models/components/listresourcewallet.ts
   - src/models/components/listresourcewebhookdelivery.ts
   - src/models/components/listresourcewebhookendpoint.ts
   - src/models/components/llmmetadata.ts
+  - src/models/components/member.ts
+  - src/models/components/memberrole.ts
+  - src/models/components/membersortproperty.ts
   - src/models/components/meter.ts
   - src/models/components/metercreate.ts
   - src/models/components/metercreditedmetadata.ts
@@ -1664,6 +1673,7 @@ generatedFiles:
   - src/models/components/organizationstatus.ts
   - src/models/components/organizationsubscriptionsettings.ts
   - src/models/components/organizationupdate.ts
+  - src/models/components/ownercreate.ts
   - src/models/components/pagination.ts
   - src/models/components/payment.ts
   - src/models/components/paymentmethodcard.ts
@@ -1758,9 +1768,6 @@ generatedFiles:
   - src/models/components/userinfouser.ts
   - src/models/components/validatedlicensekey.ts
   - src/models/components/validationerror.ts
-  - src/models/components/wallet.ts
-  - src/models/components/walletsortproperty.ts
-  - src/models/components/wallettopupcreate.ts
   - src/models/components/webhookbenefitcreatedpayload.ts
   - src/models/components/webhookbenefitgrantcreatedpayload.ts
   - src/models/components/webhookbenefitgrantcycledpayload.ts
@@ -1808,7 +1815,6 @@ generatedFiles:
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/httpvalidationerror.ts
   - src/models/errors/missinginvoicebillingdetails.ts
-  - src/models/errors/missingpaymentmethoderror.ts
   - src/models/errors/notopencheckout.ts
   - src/models/errors/notpaidorder.ts
   - src/models/errors/notpermitted.ts
@@ -1816,7 +1822,6 @@ generatedFiles:
   - src/models/errors/ordersgenerateinvoice.ts
   - src/models/errors/paymentalreadyinprogress.ts
   - src/models/errors/paymenterror.ts
-  - src/models/errors/paymentintentfailederror.ts
   - src/models/errors/paymentmethodinusebyactivesubscription.ts
   - src/models/errors/paymentnotready.ts
   - src/models/errors/polarerror.ts
@@ -1881,6 +1886,7 @@ generatedFiles:
   - src/models/operations/customerportalsubscriptionsupdate.ts
   - src/models/operations/customerportalwalletsget.ts
   - src/models/operations/customerportalwalletslist.ts
+  - src/models/operations/customerscreate.ts
   - src/models/operations/customersdelete.ts
   - src/models/operations/customersdeleteexternal.ts
   - src/models/operations/customerseatsgetclaiminfo.ts
@@ -1890,7 +1896,6 @@ generatedFiles:
   - src/models/operations/customersessionscreate.ts
   - src/models/operations/customersexport.ts
   - src/models/operations/customersget.ts
-  - src/models/operations/customersgetbalance.ts
   - src/models/operations/customersgetexternal.ts
   - src/models/operations/customersgetstate.ts
   - src/models/operations/customersgetstateexternal.ts
@@ -1908,6 +1913,7 @@ generatedFiles:
   - src/models/operations/eventsget.ts
   - src/models/operations/eventslist.ts
   - src/models/operations/eventslistnames.ts
+  - src/models/operations/eventtypesupdateeventtype.ts
   - src/models/operations/filesdelete.ts
   - src/models/operations/fileslist.ts
   - src/models/operations/filesupdate.ts
@@ -1916,6 +1922,7 @@ generatedFiles:
   - src/models/operations/licensekeysgetactivation.ts
   - src/models/operations/licensekeyslist.ts
   - src/models/operations/licensekeysupdate.ts
+  - src/models/operations/memberslistmembers.ts
   - src/models/operations/metersget.ts
   - src/models/operations/meterslist.ts
   - src/models/operations/metersquantities.ts
@@ -1949,9 +1956,6 @@ generatedFiles:
   - src/models/operations/subscriptionslist.ts
   - src/models/operations/subscriptionsrevoke.ts
   - src/models/operations/subscriptionsupdate.ts
-  - src/models/operations/walletsget.ts
-  - src/models/operations/walletslist.ts
-  - src/models/operations/walletstopup.ts
   - src/models/operations/webhooksdeletewebhookendpoint.ts
   - src/models/operations/webhooksgetwebhookendpoint.ts
   - src/models/operations/webhookslistwebhookdeliveries.ts
@@ -1974,8 +1978,10 @@ generatedFiles:
   - src/sdk/discounts.ts
   - src/sdk/downloadables.ts
   - src/sdk/events.ts
+  - src/sdk/eventtypes.ts
   - src/sdk/files.ts
   - src/sdk/licensekeys.ts
+  - src/sdk/members.ts
   - src/sdk/meters.ts
   - src/sdk/metrics.ts
   - src/sdk/oauth2.ts
@@ -1989,7 +1995,6 @@ generatedFiles:
   - src/sdk/polarorders.ts
   - src/sdk/polarorganizations.ts
   - src/sdk/polarsubscriptions.ts
-  - src/sdk/polarwallets.ts
   - src/sdk/products.ts
   - src/sdk/refunds.ts
   - src/sdk/sdk.ts
@@ -2005,6 +2010,7 @@ generatedFiles:
   - src/types/operations.ts
   - src/types/rfcdate.ts
   - src/types/streams.ts
+  - src/types/unrecognized.ts
   - src/types/webhooks.ts
   - tsconfig.json
 examples:
@@ -2268,7 +2274,7 @@ examples:
         application/json: {"name": "<value>", "slug": "<value>"}
       responses:
         "201":
-          application/json: {"created_at": "2024-12-19T02:20:41.368Z", "modified_at": "2025-03-11T17:26:29.230Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://substantial-wasabi.name", "proration_behavior": "prorate", "allow_customer_updates": false, "email": "Queen_Homenick@gmail.com", "website": "<value>", "socials": [{"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}], "status": "denied", "details_submitted_at": "2023-03-22T18:01:32.205Z", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 655199, "prevent_trial_abuse": false}, "notification_settings": {"new_order": false, "new_subscription": false}, "customer_email_settings": {"order_confirmation": false, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_past_due": false, "subscription_revoked": false, "subscription_uncanceled": true, "subscription_updated": false}}
+          application/json: {"created_at": "2024-12-19T02:20:41.368Z", "modified_at": "2025-03-11T17:26:29.230Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://substantial-wasabi.name", "proration_behavior": "prorate", "allow_customer_updates": false, "email": "Queen_Homenick@gmail.com", "website": "<value>", "socials": [{"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}, {"platform": "other", "url": "https://enchanted-hose.biz"}], "status": "denied", "details_submitted_at": "2023-03-22T18:01:32.205Z", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false, "member_model_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 655199, "prevent_trial_abuse": false}, "notification_settings": {"new_order": false, "new_subscription": false}, "customer_email_settings": {"order_confirmation": false, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_past_due": false, "subscription_revoked": false, "subscription_uncanceled": true, "subscription_updated": false}}
         "422":
           application/json: {}
   organizations:get:
@@ -2278,7 +2284,7 @@ examples:
           id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737"
       responses:
         "200":
-          application/json: {"created_at": "2024-06-18T23:12:24.609Z", "modified_at": "2024-04-06T22:00:49.347Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://vast-shipper.biz/", "proration_behavior": "invoice", "allow_customer_updates": true, "email": "Aron.Aufderhar@hotmail.com", "website": "<value>", "socials": [], "status": "onboarding_started", "details_submitted_at": "2023-03-07T16:26:10.747Z", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 488109, "prevent_trial_abuse": true}, "notification_settings": {"new_order": true, "new_subscription": true}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": true, "subscription_confirmation": true, "subscription_cycled": false, "subscription_past_due": false, "subscription_revoked": true, "subscription_uncanceled": false, "subscription_updated": true}}
+          application/json: {"created_at": "2024-06-18T23:12:24.609Z", "modified_at": "2024-04-06T22:00:49.347Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://vast-shipper.biz/", "proration_behavior": "invoice", "allow_customer_updates": true, "email": "Aron.Aufderhar@hotmail.com", "website": "<value>", "socials": [], "status": "onboarding_started", "details_submitted_at": "2023-03-07T16:26:10.747Z", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false, "member_model_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": true, "allow_customer_updates": true, "proration_behavior": "invoice", "benefit_revocation_grace_period": 488109, "prevent_trial_abuse": true}, "notification_settings": {"new_order": true, "new_subscription": true}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": true, "subscription_confirmation": true, "subscription_cycled": false, "subscription_past_due": false, "subscription_revoked": true, "subscription_uncanceled": false, "subscription_updated": true}}
         "404":
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
@@ -2292,7 +2298,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"created_at": "2024-01-10T12:09:47.665Z", "modified_at": "2025-05-23T11:37:55.182Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://outstanding-gastropod.info", "proration_behavior": "invoice", "allow_customer_updates": false, "email": "Kaleb36@gmail.com", "website": "<value>", "socials": [{"platform": "tiktok", "url": "https://official-gerbil.biz/"}], "status": "onboarding_started", "details_submitted_at": "2024-05-05T07:08:22.735Z", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": false, "allow_customer_updates": false, "proration_behavior": "prorate", "benefit_revocation_grace_period": 341703, "prevent_trial_abuse": true}, "notification_settings": {"new_order": true, "new_subscription": false}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_past_due": true, "subscription_revoked": true, "subscription_uncanceled": true, "subscription_updated": false}}
+          application/json: {"created_at": "2024-01-10T12:09:47.665Z", "modified_at": "2025-05-23T11:37:55.182Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://outstanding-gastropod.info", "proration_behavior": "invoice", "allow_customer_updates": false, "email": "Kaleb36@gmail.com", "website": "<value>", "socials": [{"platform": "tiktok", "url": "https://official-gerbil.biz/"}], "status": "onboarding_started", "details_submitted_at": "2024-05-05T07:08:22.735Z", "feature_settings": {"issue_funding_enabled": false, "seat_based_pricing_enabled": false, "revops_enabled": false, "wallets_enabled": false, "member_model_enabled": false}, "subscription_settings": {"allow_multiple_subscriptions": false, "allow_customer_updates": false, "proration_behavior": "prorate", "benefit_revocation_grace_period": 341703, "prevent_trial_abuse": true}, "notification_settings": {"new_order": true, "new_subscription": false}, "customer_email_settings": {"order_confirmation": true, "subscription_cancellation": false, "subscription_confirmation": false, "subscription_cycled": false, "subscription_past_due": true, "subscription_revoked": true, "subscription_uncanceled": true, "subscription_updated": false}}
         "403":
           application/json: {"error": "NotPermitted", "detail": "<value>"}
         "404":
@@ -2412,7 +2418,7 @@ examples:
   oauth2:clients:oauth2:create_client:
     speakeasy-default-oauth2-:clients:oauth2-:create-client:
       requestBody:
-        application/json: {"redirect_uris": ["https://impolite-hippodrome.com/", "https://acidic-tomography.net/"], "token_endpoint_auth_method": "client_secret_post", "scope": "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write transactions:read transactions:write payouts:read payouts:write products:read products:write benefits:read benefits:write events:read events:write meters:read meters:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write wallets:read wallets:write customer_meters:read customer_sessions:write customer_seats:read customer_seats:write orders:read orders:write refunds:read refunds:write payments:read metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write notifications:read notifications:write notification_recipients:read notification_recipients:write", "client_name": "<value>"}
+        application/json: {"redirect_uris": ["https://impolite-hippodrome.com/", "https://acidic-tomography.net/"], "token_endpoint_auth_method": "client_secret_post", "scope": "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write transactions:read transactions:write payouts:read payouts:write products:read products:write benefits:read benefits:write events:read events:write meters:read meters:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write members:read members:write wallets:read wallets:write customer_meters:read customer_sessions:write customer_seats:read customer_seats:write orders:read orders:write refunds:read refunds:write payments:read metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write notifications:read notifications:write notification_recipients:read notification_recipients:write", "client_name": "<value>"}
       responses:
         "200":
           application/json: "<value>"
@@ -2434,7 +2440,7 @@ examples:
         path:
           client_id: "<id>"
       requestBody:
-        application/json: {"redirect_uris": ["https://classic-cantaloupe.org", "https://corrupt-status.biz/"], "token_endpoint_auth_method": "client_secret_post", "scope": "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write transactions:read transactions:write payouts:read payouts:write products:read products:write benefits:read benefits:write events:read events:write meters:read meters:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write wallets:read wallets:write customer_meters:read customer_sessions:write customer_seats:read customer_seats:write orders:read orders:write refunds:read refunds:write payments:read metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write notifications:read notifications:write notification_recipients:read notification_recipients:write", "client_name": "<value>", "client_id": "<id>"}
+        application/json: {"redirect_uris": ["https://classic-cantaloupe.org", "https://corrupt-status.biz/"], "token_endpoint_auth_method": "client_secret_post", "scope": "openid profile email user:read organizations:read organizations:write custom_fields:read custom_fields:write discounts:read discounts:write checkout_links:read checkout_links:write checkouts:read checkouts:write transactions:read transactions:write payouts:read payouts:write products:read products:write benefits:read benefits:write events:read events:write meters:read meters:write files:read files:write subscriptions:read subscriptions:write customers:read customers:write members:read members:write wallets:read wallets:write customer_meters:read customer_sessions:write customer_seats:read customer_seats:write orders:read orders:write refunds:read refunds:write payments:read metrics:read webhooks:read webhooks:write external_organizations:read license_keys:read license_keys:write repositories:read repositories:write issues:read issues:write customer_portal:read customer_portal:write notifications:read notifications:write notification_recipients:read notification_recipients:write", "client_name": "<value>", "client_id": "<id>"}
       responses:
         "200":
           application/json: "<value>"
@@ -2678,7 +2684,7 @@ examples:
           id: "<value>"
       responses:
         "200":
-          application/json: {"id": "<value>", "created_at": "2024-08-11T03:11:01.239Z", "modified_at": "2023-07-09T08:26:25.978Z", "payment_processor": "stripe", "status": "failed", "client_secret": "<value>", "url": "https://second-hand-costume.name", "expires_at": "2024-02-29T17:22:54.724Z", "success_url": "https://powerful-jogging.info/", "return_url": "https://willing-ribbon.net/", "embed_origin": "<value>", "amount": 601699, "discount_amount": 565134, "net_amount": 604568, "tax_amount": 435126, "total_amount": 202456, "currency": "Chilean Peso", "allow_trial": true, "active_trial_interval": "day", "active_trial_interval_count": 759954, "trial_end": "2023-08-04T19:41:02.160Z", "organization_id": "<value>", "product_id": "<value>", "product_price_id": "<value>", "discount_id": "<value>", "allow_discount_codes": false, "require_billing_address": false, "is_discount_applicable": false, "is_free_product_price": true, "is_payment_required": false, "is_payment_setup_required": true, "is_payment_form_required": false, "customer_id": "<value>", "is_business_customer": false, "customer_name": "<value>", "customer_email": "<value>", "customer_ip_address": "<value>", "customer_billing_name": "<value>", "customer_billing_address": {"country": "US"}, "customer_tax_id": "<id>", "payment_processor_metadata": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "billing_address_fields": {"country": "optional", "state": "required", "city": "disabled", "postal_code": "disabled", "line1": "disabled", "line2": "required"}, "trial_interval": "week", "trial_interval_count": 626845, "metadata": {"key": "<value>"}, "external_customer_id": "<id>", "customer_external_id": "<id>", "products": [], "product": {"id": "<value>", "created_at": "2024-05-24T23:34:40.295Z", "modified_at": "2023-06-24T17:35:50.631Z", "trial_interval": "week", "trial_interval_count": 565134, "name": "<value>", "description": "defensive before litter", "recurring_interval": "month", "recurring_interval_count": 172766, "is_recurring": true, "is_archived": true, "organization_id": "<value>", "prices": [], "benefits": [], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/sbin", "mime_type": "<value>", "size": 88132, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2023-08-25T12:06:48.574Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2025-05-24T20:26:10.981Z", "size_readable": "<value>", "public_url": "https://untried-pomelo.info/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/sbin", "mime_type": "<value>", "size": 88132, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2023-08-25T12:06:48.574Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2025-05-24T20:26:10.981Z", "size_readable": "<value>", "public_url": "https://untried-pomelo.info/"}]}, "product_price": {"created_at": "2024-08-17T13:31:09.375Z", "modified_at": "2023-03-31T08:32:51.153Z", "id": "<value>", "source": "ad_hoc", "amount_type": "free", "is_archived": true, "product_id": "<value>", "type": "recurring", "recurring_interval": "month", "legacy": true}, "prices": {"key": [{"created_at": "2024-08-14T06:11:53.782Z", "modified_at": "2023-10-11T06:44:37.699Z", "id": "<value>", "source": "ad_hoc", "amount_type": "custom", "is_archived": true, "product_id": "<value>", "type": "one_time", "recurring_interval": "month", "price_currency": "<value>", "minimum_amount": 435126, "maximum_amount": 178822, "preset_amount": 885841}], "key1": [{"created_at": "2024-06-01T08:39:53.259Z", "modified_at": "2023-01-19T07:29:34.550Z", "id": "<value>", "source": "ad_hoc", "amount_type": "fixed", "is_archived": true, "product_id": "<value>", "type": "recurring", "recurring_interval": "day", "price_currency": "<value>", "price_amount": 202970, "legacy": true}], "key2": []}, "discount": {"duration": "repeating", "duration_in_months": 798046, "type": "fixed", "basis_points": 969481, "id": "<value>", "name": "<value>", "code": "<value>"}, "subscription_id": "<value>", "attached_custom_fields": [], "customer_metadata": {"key": 35277}}
+          application/json: {"id": "<value>", "created_at": "2024-08-11T03:11:01.239Z", "modified_at": "2023-07-09T08:26:25.978Z", "payment_processor": "stripe", "status": "failed", "client_secret": "<value>", "url": "https://second-hand-costume.name", "expires_at": "2024-02-29T17:22:54.724Z", "success_url": "https://powerful-jogging.info/", "return_url": "https://willing-ribbon.net/", "embed_origin": "<value>", "amount": 601699, "discount_amount": 565134, "net_amount": 604568, "tax_amount": 435126, "total_amount": 202456, "currency": "Chilean Peso", "allow_trial": true, "active_trial_interval": "day", "active_trial_interval_count": 759954, "trial_end": "2023-08-04T19:41:02.160Z", "organization_id": "<value>", "product_id": "<value>", "product_price_id": "<value>", "discount_id": "<value>", "allow_discount_codes": false, "require_billing_address": false, "is_discount_applicable": false, "is_free_product_price": true, "is_payment_required": false, "is_payment_setup_required": true, "is_payment_form_required": false, "customer_id": "<value>", "is_business_customer": false, "customer_name": "<value>", "customer_email": "<value>", "customer_ip_address": "<value>", "customer_billing_name": "<value>", "customer_billing_address": {"country": "US"}, "customer_tax_id": "<id>", "payment_processor_metadata": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "billing_address_fields": {"country": "optional", "state": "required", "city": "disabled", "postal_code": "disabled", "line1": "disabled", "line2": "required"}, "trial_interval": "week", "trial_interval_count": 626845, "metadata": {"key": "<value>"}, "external_customer_id": "<id>", "customer_external_id": "<id>", "products": [], "product": {"id": "<value>", "created_at": "2024-05-24T23:34:40.295Z", "modified_at": "2023-06-24T17:35:50.631Z", "trial_interval": "week", "trial_interval_count": 565134, "name": "<value>", "description": "defensive before litter", "recurring_interval": "month", "recurring_interval_count": 172766, "is_recurring": true, "is_archived": true, "organization_id": "<value>", "prices": [], "benefits": [], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/sbin", "mime_type": "<value>", "size": 88132, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2023-08-25T12:06:48.574Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2025-05-24T20:26:10.981Z", "size_readable": "<value>", "public_url": "https://untried-pomelo.info/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/sbin", "mime_type": "<value>", "size": 88132, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2023-08-25T12:06:48.574Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2025-05-24T20:26:10.981Z", "size_readable": "<value>", "public_url": "https://untried-pomelo.info/"}]}, "product_price": {"created_at": "2024-08-17T13:31:09.375Z", "modified_at": "2023-03-31T08:32:51.153Z", "id": "<value>", "source": "ad_hoc", "amount_type": "free", "is_archived": true, "product_id": "<value>", "type": "recurring", "recurring_interval": "month", "legacy": true}, "prices": {"key": [{"created_at": "2024-08-14T06:11:53.782Z", "modified_at": "2023-10-11T06:44:37.699Z", "id": "<value>", "source": "ad_hoc", "amount_type": "custom", "is_archived": true, "product_id": "<value>", "type": "recurring", "recurring_interval": "month", "price_currency": "<value>", "minimum_amount": 435126, "maximum_amount": 178822, "preset_amount": 885841, "legacy": true}], "key1": [{"created_at": "2024-06-01T08:39:53.259Z", "modified_at": "2023-01-19T07:29:34.550Z", "id": "<value>", "source": "ad_hoc", "amount_type": "fixed", "is_archived": true, "product_id": "<value>", "type": "recurring", "recurring_interval": "day", "price_currency": "<value>", "price_amount": 202970, "legacy": true}], "key2": []}, "discount": {"duration": "repeating", "duration_in_months": 798046, "type": "fixed", "basis_points": 969481, "id": "<value>", "name": "<value>", "code": "<value>"}, "subscription_id": "<value>", "attached_custom_fields": [], "customer_metadata": {"key": 35277}}
         "404":
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
@@ -2722,7 +2728,7 @@ examples:
         application/json: {"customer_name": "John Doe", "customer_billing_address": {"country": "US"}, "allow_trial": false}
       responses:
         "200":
-          application/json: {"id": "<value>", "created_at": "2024-07-23T03:29:25.334Z", "modified_at": "2023-07-30T20:21:38.608Z", "payment_processor": "stripe", "status": "expired", "client_secret": "<value>", "url": "https://wordy-metabolite.biz/", "expires_at": "2023-06-01T07:35:27.557Z", "success_url": "https://direct-gradient.name/", "return_url": null, "embed_origin": "<value>", "amount": 128460, "discount_amount": 784848, "net_amount": 566134, "tax_amount": 108102, "total_amount": 304494, "currency": "CFP Franc", "allow_trial": null, "active_trial_interval": null, "active_trial_interval_count": 192380, "trial_end": "2023-10-31T15:08:35.342Z", "organization_id": "<value>", "product_id": "<value>", "product_price_id": "<value>", "discount_id": "<value>", "allow_discount_codes": false, "require_billing_address": false, "is_discount_applicable": true, "is_free_product_price": false, "is_payment_required": true, "is_payment_setup_required": true, "is_payment_form_required": false, "customer_id": "<value>", "is_business_customer": true, "customer_name": "<value>", "customer_email": "<value>", "customer_ip_address": "<value>", "customer_billing_name": "<value>", "customer_billing_address": {"country": "US"}, "customer_tax_id": "<id>", "payment_processor_metadata": {"key": "<value>"}, "billing_address_fields": {"country": "required", "state": "optional", "city": "required", "postal_code": "required", "line1": "required", "line2": "disabled"}, "products": [{"id": "<value>", "created_at": "2024-08-21T22:47:32.897Z", "modified_at": "2024-12-28T18:58:22.635Z", "trial_interval": "month", "trial_interval_count": 138062, "name": "<value>", "description": "until synthesise instead divert indeed oh phrase fisherman bowling", "recurring_interval": "year", "recurring_interval_count": null, "is_recurring": false, "is_archived": true, "organization_id": "<value>", "prices": [{"created_at": "2023-07-30T20:21:38.608Z", "modified_at": "2023-10-31T15:08:35.342Z", "id": "<value>", "source": "catalog", "amount_type": "fixed", "is_archived": false, "product_id": "<value>", "type": "recurring", "recurring_interval": "year", "price_currency": "<value>", "price_amount": 330194, "legacy": true}], "benefits": [{"id": "<value>", "created_at": "2024-09-04T19:51:17.364Z", "modified_at": "2025-08-17T17:13:08.432Z", "type": "license_keys", "description": "aha instead forenenst brush next bah", "selectable": false, "deletable": false, "organization_id": "<value>"}, {"id": "<value>", "created_at": "2024-09-04T19:51:17.364Z", "modified_at": "2025-08-17T17:13:08.432Z", "type": "license_keys", "description": "aha instead forenenst brush next bah", "selectable": false, "deletable": false, "organization_id": "<value>"}, {"id": "<value>", "created_at": "2024-09-04T19:51:17.364Z", "modified_at": "2025-08-17T17:13:08.432Z", "type": "license_keys", "description": "aha instead forenenst brush next bah", "selectable": false, "deletable": false, "organization_id": "<value>"}], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}]}], "product": {"id": "<value>", "created_at": "2025-09-02T13:33:06.739Z", "modified_at": "2024-07-21T15:33:47.494Z", "trial_interval": "day", "trial_interval_count": 636727, "name": "<value>", "description": "overburden loftily pfft silently shudder mmm who", "recurring_interval": "year", "recurring_interval_count": 192380, "is_recurring": false, "is_archived": false, "organization_id": "<value>", "prices": [{"created_at": "2023-08-03T11:06:01.091Z", "modified_at": "2024-11-28T20:27:45.245Z", "id": "<value>", "source": "ad_hoc", "amount_type": "fixed", "is_archived": true, "product_id": "<value>", "type": "recurring", "recurring_interval": "year", "price_currency": "<value>", "price_amount": 566134, "legacy": true}], "benefits": [{"id": "<value>", "created_at": "2024-09-04T19:51:17.364Z", "modified_at": "2025-08-17T17:13:08.432Z", "type": "license_keys", "description": "aha instead forenenst brush next bah", "selectable": false, "deletable": false, "organization_id": "<value>"}, {"id": "<value>", "created_at": "2024-09-04T19:51:17.364Z", "modified_at": "2025-08-17T17:13:08.432Z", "type": "license_keys", "description": "aha instead forenenst brush next bah", "selectable": false, "deletable": false, "organization_id": "<value>"}], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}]}, "product_price": {"created_at": "2023-01-08T23:00:31.069Z", "modified_at": "2023-09-07T11:25:07.070Z", "id": "<value>", "source": "catalog", "amount_type": "free", "is_archived": false, "product_id": "<value>", "type": "recurring", "recurring_interval": "month", "legacy": true}, "prices": {"key": [{"created_at": "2023-06-01T07:35:27.557Z", "modified_at": "2023-08-03T11:06:01.091Z", "id": "<value>", "source": "catalog", "amount_type": "fixed", "is_archived": false, "product_id": "<value>", "type": "one_time", "recurring_interval": "month", "price_currency": "<value>", "price_amount": 108102}]}, "discount": {"duration": "forever", "duration_in_months": 601738, "type": "fixed", "amount": 458064, "currency": "Armenian Dram", "id": "<value>", "name": "<value>", "code": "<value>"}, "organization": {"created_at": "2025-04-12T05:47:02.565Z", "modified_at": "2025-01-28T05:59:52.906Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://well-groomed-embarrassment.net/", "proration_behavior": "invoice", "allow_customer_updates": false}, "attached_custom_fields": [{"custom_field_id": "<value>", "custom_field": {"created_at": "2023-03-31T08:25:33.432Z", "modified_at": "2025-03-21T01:21:45.618Z", "id": "<value>", "metadata": {"key": "<value>", "key1": 848391, "key2": 422.88}, "type": "number", "slug": "<value>", "name": "<value>", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "properties": {}}, "order": 47495, "required": false}, {"custom_field_id": "<value>", "custom_field": {"created_at": "2023-03-31T08:25:33.432Z", "modified_at": "2025-03-21T01:21:45.618Z", "id": "<value>", "metadata": {"key": "<value>", "key1": 848391, "key2": 422.88}, "type": "number", "slug": "<value>", "name": "<value>", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "properties": {}}, "order": 47495, "required": false}, {"custom_field_id": "<value>", "custom_field": {"created_at": "2023-03-31T08:25:33.432Z", "modified_at": "2025-03-21T01:21:45.618Z", "id": "<value>", "metadata": {"key": "<value>", "key1": 848391, "key2": 422.88}, "type": "number", "slug": "<value>", "name": "<value>", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "properties": {}}, "order": 47495, "required": false}]}
+          application/json: {"id": "<value>", "created_at": "2024-07-23T03:29:25.334Z", "modified_at": "2023-07-30T20:21:38.608Z", "payment_processor": "stripe", "status": "expired", "client_secret": "<value>", "url": "https://wordy-metabolite.biz/", "expires_at": "2023-06-01T07:35:27.557Z", "success_url": "https://direct-gradient.name/", "return_url": null, "embed_origin": "<value>", "amount": 128460, "discount_amount": 784848, "net_amount": 566134, "tax_amount": 108102, "total_amount": 304494, "currency": "CFP Franc", "allow_trial": null, "active_trial_interval": null, "active_trial_interval_count": 192380, "trial_end": "2023-10-31T15:08:35.342Z", "organization_id": "<value>", "product_id": "<value>", "product_price_id": "<value>", "discount_id": "<value>", "allow_discount_codes": false, "require_billing_address": false, "is_discount_applicable": true, "is_free_product_price": false, "is_payment_required": true, "is_payment_setup_required": true, "is_payment_form_required": false, "customer_id": "<value>", "is_business_customer": true, "customer_name": "<value>", "customer_email": "<value>", "customer_ip_address": "<value>", "customer_billing_name": "<value>", "customer_billing_address": {"country": "US"}, "customer_tax_id": "<id>", "payment_processor_metadata": {"key": "<value>"}, "billing_address_fields": {"country": "required", "state": "optional", "city": "required", "postal_code": "required", "line1": "required", "line2": "disabled"}, "products": [{"id": "<value>", "created_at": "2024-08-21T22:47:32.897Z", "modified_at": "2024-12-28T18:58:22.635Z", "trial_interval": "month", "trial_interval_count": 138062, "name": "<value>", "description": "until synthesise instead divert indeed oh phrase fisherman bowling", "recurring_interval": "year", "recurring_interval_count": null, "is_recurring": false, "is_archived": true, "organization_id": "<value>", "prices": [{"created_at": "2023-07-30T20:21:38.608Z", "modified_at": "2023-10-31T15:08:35.342Z", "id": "<value>", "source": "catalog", "amount_type": "fixed", "is_archived": false, "product_id": "<value>", "type": "recurring", "recurring_interval": "year", "price_currency": "<value>", "price_amount": 330194, "legacy": true}], "benefits": [{"id": "<value>", "created_at": "2024-09-04T19:51:17.364Z", "modified_at": "2025-08-17T17:13:08.432Z", "type": "license_keys", "description": "aha instead forenenst brush next bah", "selectable": false, "deletable": false, "organization_id": "<value>"}, {"id": "<value>", "created_at": "2024-09-04T19:51:17.364Z", "modified_at": "2025-08-17T17:13:08.432Z", "type": "license_keys", "description": "aha instead forenenst brush next bah", "selectable": false, "deletable": false, "organization_id": "<value>"}, {"id": "<value>", "created_at": "2024-09-04T19:51:17.364Z", "modified_at": "2025-08-17T17:13:08.432Z", "type": "license_keys", "description": "aha instead forenenst brush next bah", "selectable": false, "deletable": false, "organization_id": "<value>"}], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}]}], "product": {"id": "<value>", "created_at": "2025-09-02T13:33:06.739Z", "modified_at": "2024-07-21T15:33:47.494Z", "trial_interval": "day", "trial_interval_count": 636727, "name": "<value>", "description": "overburden loftily pfft silently shudder mmm who", "recurring_interval": "year", "recurring_interval_count": 192380, "is_recurring": false, "is_archived": false, "organization_id": "<value>", "prices": [{"created_at": "2023-08-03T11:06:01.091Z", "modified_at": "2024-11-28T20:27:45.245Z", "id": "<value>", "source": "ad_hoc", "amount_type": "fixed", "is_archived": true, "product_id": "<value>", "type": "recurring", "recurring_interval": "year", "price_currency": "<value>", "price_amount": 566134, "legacy": true}], "benefits": [{"id": "<value>", "created_at": "2024-09-04T19:51:17.364Z", "modified_at": "2025-08-17T17:13:08.432Z", "type": "license_keys", "description": "aha instead forenenst brush next bah", "selectable": false, "deletable": false, "organization_id": "<value>"}, {"id": "<value>", "created_at": "2024-09-04T19:51:17.364Z", "modified_at": "2025-08-17T17:13:08.432Z", "type": "license_keys", "description": "aha instead forenenst brush next bah", "selectable": false, "deletable": false, "organization_id": "<value>"}], "medias": [{"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}, {"id": "<value>", "organization_id": "<value>", "name": "<value>", "path": "/usr/src", "mime_type": "<value>", "size": 451285, "storage_version": "<value>", "checksum_etag": "<value>", "checksum_sha256_base64": "<value>", "checksum_sha256_hex": "<value>", "last_modified_at": "2025-10-12T21:33:36.481Z", "version": "<value>", "service": "product_media", "is_uploaded": false, "created_at": "2023-08-15T21:23:17.230Z", "size_readable": "<value>", "public_url": "https://gracious-formula.name/"}]}, "product_price": {"created_at": "2023-01-08T23:00:31.069Z", "modified_at": "2023-09-07T11:25:07.070Z", "id": "<value>", "source": "catalog", "amount_type": "free", "is_archived": false, "product_id": "<value>", "type": "recurring", "recurring_interval": "month", "legacy": true}, "prices": {"key": [{"created_at": "2023-06-01T07:35:27.557Z", "modified_at": "2023-08-03T11:06:01.091Z", "id": "<value>", "source": "catalog", "amount_type": "fixed", "is_archived": false, "product_id": "<value>", "type": "recurring", "recurring_interval": "month", "price_currency": "<value>", "price_amount": 108102, "legacy": true}]}, "discount": {"duration": "forever", "duration_in_months": 601738, "type": "fixed", "amount": 458064, "currency": "Armenian Dram", "id": "<value>", "name": "<value>", "code": "<value>"}, "organization": {"created_at": "2025-04-12T05:47:02.565Z", "modified_at": "2025-01-28T05:59:52.906Z", "id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "name": "<value>", "slug": "<value>", "avatar_url": "https://well-groomed-embarrassment.net/", "proration_behavior": "invoice", "allow_customer_updates": false}, "attached_custom_fields": [{"custom_field_id": "<value>", "custom_field": {"created_at": "2023-03-31T08:25:33.432Z", "modified_at": "2025-03-21T01:21:45.618Z", "id": "<value>", "metadata": {"key": "<value>", "key1": 848391, "key2": 422.88}, "type": "number", "slug": "<value>", "name": "<value>", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "properties": {}}, "order": 47495, "required": false}, {"custom_field_id": "<value>", "custom_field": {"created_at": "2023-03-31T08:25:33.432Z", "modified_at": "2025-03-21T01:21:45.618Z", "id": "<value>", "metadata": {"key": "<value>", "key1": 848391, "key2": 422.88}, "type": "number", "slug": "<value>", "name": "<value>", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "properties": {}}, "order": 47495, "required": false}, {"custom_field_id": "<value>", "custom_field": {"created_at": "2023-03-31T08:25:33.432Z", "modified_at": "2025-03-21T01:21:45.618Z", "id": "<value>", "metadata": {"key": "<value>", "key1": 848391, "key2": 422.88}, "type": "number", "slug": "<value>", "name": "<value>", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "properties": {}}, "order": 47495, "required": false}]}
         "403":
           application/json: {"error": "AlreadyActiveSubscriptionError", "detail": "<value>"}
         "404":
@@ -2827,14 +2833,14 @@ examples:
           timezone: "UTC"
       responses:
         "200":
-          application/json: {"periods": [{"timestamp": "2024-11-05T16:37:46.152Z", "orders": 2313.41, "revenue": 3697.18, "net_revenue": 7366.16, "cumulative_revenue": 160547, "net_cumulative_revenue": 620.86, "costs": 7366.16, "cumulative_costs": 620.86, "average_order_value": 8348.91, "net_average_order_value": 615596, "average_revenue_per_user": 7366.16, "cost_per_user": 620.86, "active_user_by_event": 615596, "one_time_products": 6315.62, "one_time_products_revenue": 271957, "one_time_products_net_revenue": 2313.41, "new_subscriptions": 225346, "new_subscriptions_revenue": 5903.37, "new_subscriptions_net_revenue": 3697.18, "renewed_subscriptions": 146.2, "renewed_subscriptions_revenue": 3772.41, "renewed_subscriptions_net_revenue": 160547, "active_subscriptions": 1692.89, "monthly_recurring_revenue": 5809.97, "committed_monthly_recurring_revenue": 7366.16, "checkouts": 6229.46, "succeeded_checkouts": 464.75, "checkouts_conversion": 536209, "canceled_subscriptions": 7366.16, "canceled_subscriptions_customer_service": 620.86, "canceled_subscriptions_low_quality": 615596, "canceled_subscriptions_missing_features": 2313.41, "canceled_subscriptions_switched_service": 3697.18, "canceled_subscriptions_too_complex": 160547, "canceled_subscriptions_too_expensive": 8348.91, "canceled_subscriptions_unused": 6315.62, "canceled_subscriptions_other": 271957, "gross_margin": 3697.18, "gross_margin_percentage": 160547, "cashflow": 8348.91}], "totals": {"orders": 300394, "revenue": 980988, "net_revenue": 8348.91, "cumulative_revenue": 5367.66, "net_cumulative_revenue": 6315.62, "costs": 615596, "cumulative_costs": 2313.41, "average_order_value": 7320.73, "net_average_order_value": 271957, "average_revenue_per_user": 6315.62, "cost_per_user": 271957, "active_user_by_event": 225346, "one_time_products": 772559, "one_time_products_revenue": 875093, "one_time_products_net_revenue": 225346, "new_subscriptions": 903196, "new_subscriptions_revenue": 18.97, "new_subscriptions_net_revenue": 5903.37, "renewed_subscriptions": 723.93, "renewed_subscriptions_revenue": 846052, "renewed_subscriptions_net_revenue": 146.2, "active_subscriptions": 5698.58, "monthly_recurring_revenue": 180851, "committed_monthly_recurring_revenue": 620.86, "checkouts": 5307.17, "succeeded_checkouts": 9995.79, "checkouts_conversion": 5883.46, "canceled_subscriptions": 225346, "canceled_subscriptions_customer_service": 5903.37, "canceled_subscriptions_low_quality": 146.2, "canceled_subscriptions_missing_features": 3772.41, "canceled_subscriptions_switched_service": 1692.89, "canceled_subscriptions_too_complex": 5809.97, "canceled_subscriptions_too_expensive": 6229.46, "canceled_subscriptions_unused": 464.75, "canceled_subscriptions_other": 536209, "gross_margin": 146.2, "gross_margin_percentage": 3772.41, "cashflow": 1692.89}, "metrics": {"orders": {"slug": "<value>", "display_name": "Mortimer35", "type": "percentage"}, "revenue": {"slug": "<value>", "display_name": "Cruz.Yundt29", "type": "scalar"}, "net_revenue": {"slug": "<value>", "display_name": "Noemie.Pagac", "type": "currency"}, "cumulative_revenue": {"slug": "<value>", "display_name": "Keshaun_Mraz87", "type": "scalar"}, "net_cumulative_revenue": {"slug": "<value>", "display_name": "Lina.Bayer53", "type": "scalar"}, "costs": {"slug": "<value>", "display_name": "Piper65", "type": "currency"}, "cumulative_costs": {"slug": "<value>", "display_name": "Lonnie22", "type": "currency"}, "average_order_value": {"slug": "<value>", "display_name": "Therese_Marks93", "type": "percentage"}, "net_average_order_value": {"slug": "<value>", "display_name": "Christine_Mertz-Leuschke73", "type": "percentage"}, "average_revenue_per_user": {"slug": "<value>", "display_name": "Wilton_Langosh92", "type": "scalar"}, "cost_per_user": {"slug": "<value>", "display_name": "Kailyn.Gutkowski", "type": "currency_sub_cent"}, "active_user_by_event": {"slug": "<value>", "display_name": "Richmond22", "type": "currency"}, "one_time_products": {"slug": "<value>", "display_name": "Roslyn.White86", "type": "scalar"}, "one_time_products_revenue": {"slug": "<value>", "display_name": "Henderson.Herman17", "type": "percentage"}, "one_time_products_net_revenue": {"slug": "<value>", "display_name": "Daniella_Herzog72", "type": "percentage"}, "new_subscriptions": {"slug": "<value>", "display_name": "Jamaal_Mueller91", "type": "percentage"}, "new_subscriptions_revenue": {"slug": "<value>", "display_name": "Kaylee25", "type": "currency"}, "new_subscriptions_net_revenue": {"slug": "<value>", "display_name": "Antonina_Stamm", "type": "scalar"}, "renewed_subscriptions": {"slug": "<value>", "display_name": "Leland_Yundt", "type": "scalar"}, "renewed_subscriptions_revenue": {"slug": "<value>", "display_name": "Dalton_Waters92", "type": "scalar"}, "renewed_subscriptions_net_revenue": {"slug": "<value>", "display_name": "Vincenza_Yundt", "type": "percentage"}, "active_subscriptions": {"slug": "<value>", "display_name": "Alfonzo_Daugherty", "type": "percentage"}, "monthly_recurring_revenue": {"slug": "<value>", "display_name": "Diana97", "type": "currency"}, "committed_monthly_recurring_revenue": {"slug": "<value>", "display_name": "Garrett.Stokes", "type": "scalar"}, "checkouts": {"slug": "<value>", "display_name": "Magdalen_Goodwin-Schoen", "type": "scalar"}, "succeeded_checkouts": {"slug": "<value>", "display_name": "Ida37", "type": "scalar"}, "checkouts_conversion": {"slug": "<value>", "display_name": "Savion.Gerlach", "type": "percentage"}, "canceled_subscriptions": {"slug": "<value>", "display_name": "Corine_Denesik", "type": "percentage"}, "canceled_subscriptions_customer_service": {"slug": "<value>", "display_name": "Moses.Rutherford", "type": "percentage"}, "canceled_subscriptions_low_quality": {"slug": "<value>", "display_name": "Modesta6", "type": "percentage"}, "canceled_subscriptions_missing_features": {"slug": "<value>", "display_name": "Kevon53", "type": "percentage"}, "canceled_subscriptions_switched_service": {"slug": "<value>", "display_name": "Wilmer_Renner55", "type": "currency"}, "canceled_subscriptions_too_complex": {"slug": "<value>", "display_name": "Maximo.Emard98", "type": "scalar"}, "canceled_subscriptions_too_expensive": {"slug": "<value>", "display_name": "Eleazar_Mante", "type": "percentage"}, "canceled_subscriptions_unused": {"slug": "<value>", "display_name": "Alford.Walker", "type": "percentage"}, "canceled_subscriptions_other": {"slug": "<value>", "display_name": "Arnold.Stanton94", "type": "percentage"}, "gross_margin": {"slug": "<value>", "display_name": "Rosalia.Hilll", "type": "percentage"}, "gross_margin_percentage": {"slug": "<value>", "display_name": "Zora_McKenzie-Renner55", "type": "currency"}, "cashflow": {"slug": "<value>", "display_name": "Maximo.Emard98", "type": "currency"}}}
+          application/json: {"periods": [{"timestamp": "2024-11-05T16:37:46.152Z", "orders": 2313.41, "revenue": 3697.18, "net_revenue": 7366.16, "cumulative_revenue": 160547, "net_cumulative_revenue": 620.86, "costs": 7366.16, "cumulative_costs": 620.86, "average_order_value": 8348.91, "net_average_order_value": 615596, "average_revenue_per_user": 7366.16, "cost_per_user": 620.86, "active_user_by_event": 615596, "one_time_products": 6315.62, "one_time_products_revenue": 271957, "one_time_products_net_revenue": 2313.41, "new_subscriptions": 225346, "new_subscriptions_revenue": 5903.37, "new_subscriptions_net_revenue": 3697.18, "renewed_subscriptions": 146.2, "renewed_subscriptions_revenue": 3772.41, "renewed_subscriptions_net_revenue": 160547, "active_subscriptions": 1692.89, "monthly_recurring_revenue": 5809.97, "committed_monthly_recurring_revenue": 7366.16, "checkouts": 6229.46, "succeeded_checkouts": 464.75, "checkouts_conversion": 536209, "canceled_subscriptions": 7366.16, "canceled_subscriptions_customer_service": 620.86, "canceled_subscriptions_low_quality": 615596, "canceled_subscriptions_missing_features": 2313.41, "canceled_subscriptions_switched_service": 3697.18, "canceled_subscriptions_too_complex": 160547, "canceled_subscriptions_too_expensive": 8348.91, "canceled_subscriptions_unused": 6315.62, "canceled_subscriptions_other": 271957, "churned_subscriptions": 7366.16, "churn_rate": 620.86, "gross_margin": 3697.18, "gross_margin_percentage": 160547, "cashflow": 8348.91}], "totals": {"orders": 300394, "revenue": 980988, "net_revenue": 8348.91, "cumulative_revenue": 5367.66, "net_cumulative_revenue": 6315.62, "costs": 615596, "cumulative_costs": 2313.41, "average_order_value": 7320.73, "net_average_order_value": 271957, "average_revenue_per_user": 6315.62, "cost_per_user": 271957, "active_user_by_event": 225346, "one_time_products": 772559, "one_time_products_revenue": 875093, "one_time_products_net_revenue": 225346, "new_subscriptions": 903196, "new_subscriptions_revenue": 18.97, "new_subscriptions_net_revenue": 5903.37, "renewed_subscriptions": 723.93, "renewed_subscriptions_revenue": 846052, "renewed_subscriptions_net_revenue": 146.2, "active_subscriptions": 5698.58, "monthly_recurring_revenue": 180851, "committed_monthly_recurring_revenue": 620.86, "checkouts": 5307.17, "succeeded_checkouts": 9995.79, "checkouts_conversion": 5883.46, "canceled_subscriptions": 225346, "canceled_subscriptions_customer_service": 5903.37, "canceled_subscriptions_low_quality": 146.2, "canceled_subscriptions_missing_features": 3772.41, "canceled_subscriptions_switched_service": 1692.89, "canceled_subscriptions_too_complex": 5809.97, "canceled_subscriptions_too_expensive": 6229.46, "canceled_subscriptions_unused": 464.75, "canceled_subscriptions_other": 536209, "churned_subscriptions": 615596, "churn_rate": 2313.41, "gross_margin": 146.2, "gross_margin_percentage": 3772.41, "cashflow": 1692.89}, "metrics": {"orders": {"slug": "<value>", "display_name": "Mortimer35", "type": "percentage"}, "revenue": {"slug": "<value>", "display_name": "Cruz.Yundt29", "type": "scalar"}, "net_revenue": {"slug": "<value>", "display_name": "Noemie.Pagac", "type": "currency"}, "cumulative_revenue": {"slug": "<value>", "display_name": "Keshaun_Mraz87", "type": "scalar"}, "net_cumulative_revenue": {"slug": "<value>", "display_name": "Lina.Bayer53", "type": "scalar"}, "costs": {"slug": "<value>", "display_name": "Piper65", "type": "currency"}, "cumulative_costs": {"slug": "<value>", "display_name": "Lonnie22", "type": "currency"}, "average_order_value": {"slug": "<value>", "display_name": "Therese_Marks93", "type": "percentage"}, "net_average_order_value": {"slug": "<value>", "display_name": "Christine_Mertz-Leuschke73", "type": "percentage"}, "average_revenue_per_user": {"slug": "<value>", "display_name": "Wilton_Langosh92", "type": "scalar"}, "cost_per_user": {"slug": "<value>", "display_name": "Kailyn.Gutkowski", "type": "currency_sub_cent"}, "active_user_by_event": {"slug": "<value>", "display_name": "Richmond22", "type": "currency"}, "one_time_products": {"slug": "<value>", "display_name": "Roslyn.White86", "type": "scalar"}, "one_time_products_revenue": {"slug": "<value>", "display_name": "Henderson.Herman17", "type": "percentage"}, "one_time_products_net_revenue": {"slug": "<value>", "display_name": "Daniella_Herzog72", "type": "percentage"}, "new_subscriptions": {"slug": "<value>", "display_name": "Jamaal_Mueller91", "type": "percentage"}, "new_subscriptions_revenue": {"slug": "<value>", "display_name": "Kaylee25", "type": "currency"}, "new_subscriptions_net_revenue": {"slug": "<value>", "display_name": "Antonina_Stamm", "type": "scalar"}, "renewed_subscriptions": {"slug": "<value>", "display_name": "Leland_Yundt", "type": "scalar"}, "renewed_subscriptions_revenue": {"slug": "<value>", "display_name": "Dalton_Waters92", "type": "scalar"}, "renewed_subscriptions_net_revenue": {"slug": "<value>", "display_name": "Vincenza_Yundt", "type": "percentage"}, "active_subscriptions": {"slug": "<value>", "display_name": "Alfonzo_Daugherty", "type": "percentage"}, "monthly_recurring_revenue": {"slug": "<value>", "display_name": "Diana97", "type": "currency"}, "committed_monthly_recurring_revenue": {"slug": "<value>", "display_name": "Garrett.Stokes", "type": "scalar"}, "checkouts": {"slug": "<value>", "display_name": "Magdalen_Goodwin-Schoen", "type": "scalar"}, "succeeded_checkouts": {"slug": "<value>", "display_name": "Ida37", "type": "scalar"}, "checkouts_conversion": {"slug": "<value>", "display_name": "Savion.Gerlach", "type": "percentage"}, "canceled_subscriptions": {"slug": "<value>", "display_name": "Corine_Denesik", "type": "percentage"}, "canceled_subscriptions_customer_service": {"slug": "<value>", "display_name": "Moses.Rutherford", "type": "percentage"}, "canceled_subscriptions_low_quality": {"slug": "<value>", "display_name": "Modesta6", "type": "percentage"}, "canceled_subscriptions_missing_features": {"slug": "<value>", "display_name": "Kevon53", "type": "percentage"}, "canceled_subscriptions_switched_service": {"slug": "<value>", "display_name": "Wilmer_Renner55", "type": "currency"}, "canceled_subscriptions_too_complex": {"slug": "<value>", "display_name": "Maximo.Emard98", "type": "scalar"}, "canceled_subscriptions_too_expensive": {"slug": "<value>", "display_name": "Eleazar_Mante", "type": "percentage"}, "canceled_subscriptions_unused": {"slug": "<value>", "display_name": "Alford.Walker", "type": "percentage"}, "canceled_subscriptions_other": {"slug": "<value>", "display_name": "Arnold.Stanton94", "type": "percentage"}, "churned_subscriptions": {"slug": "<value>", "display_name": "Piper65", "type": "currency_sub_cent"}, "churn_rate": {"slug": "<value>", "display_name": "Lonnie22", "type": "currency_sub_cent"}, "gross_margin": {"slug": "<value>", "display_name": "Rosalia.Hilll", "type": "percentage"}, "gross_margin_percentage": {"slug": "<value>", "display_name": "Zora_McKenzie-Renner55", "type": "currency"}, "cashflow": {"slug": "<value>", "display_name": "Maximo.Emard98", "type": "currency"}}}
         "422":
           application/json: {}
   metrics:limits:
     speakeasy-default-metrics:limits:
       responses:
         "200":
-          application/json: {"min_date": "2025-01-01", "intervals": {"hour": {"max_days": 760658}, "day": {"max_days": 144714}, "week": {"max_days": 73495}, "month": {"max_days": 917281}, "year": {"max_days": 923290}}}
+          application/json: {"min_date": "2025-01-01", "intervals": {"hour": {"min_days": 667816, "max_days": 760658}, "day": {"min_days": 760658, "max_days": 144714}, "week": {"min_days": 144714, "max_days": 73495}, "month": {"min_days": 73495, "max_days": 917281}, "year": {"min_days": 917281, "max_days": 923290}}}
   license_keys:list:
     speakeasy-default-license-keys:list:
       parameters:
@@ -3074,6 +3080,7 @@ examples:
           organization_id: "1dbfc517-0bbf-4301-9ba8-555ca42b9737"
           page: 1
           limit: 10
+          include_members: false
       responses:
         "200":
           application/json: {"items": [{"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2025-01-24T11:10:48.726Z", "modified_at": "2023-03-06T17:31:52.935Z", "metadata": {"key": 712185, "key1": true}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-09-16T01:33:30.089Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2025-01-24T11:10:48.726Z", "modified_at": "2023-03-06T17:31:52.935Z", "metadata": {"key": 712185, "key1": true}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-09-16T01:33:30.089Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2025-01-24T11:10:48.726Z", "modified_at": "2023-03-06T17:31:52.935Z", "metadata": {"key": 712185, "key1": true}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["FR61954506077", "eu_vat"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-09-16T01:33:30.089Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}], "pagination": {"total_count": 72225, "max_page": 542988}}
@@ -3081,11 +3088,14 @@ examples:
           application/json: {}
   customers:create:
     speakeasy-default-customers:create:
+      parameters:
+        query:
+          include_members: false
       requestBody:
-        application/json: {"external_id": "usr_1337", "email": "customer@example.com", "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737"}
+        application/json: {"external_id": "usr_1337", "email": "customer@example.com", "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "owner": {"email": "member@example.com", "name": "Jane Doe", "external_id": "usr_1337"}}
       responses:
         "201":
-          application/json: {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-01-30T12:59:57.612Z", "modified_at": "2024-05-13T07:49:27.386Z", "metadata": {"key": 185844}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-12-23T07:32:24.258Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}
+          application/json: {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-01-30T12:59:57.612Z", "modified_at": "2024-05-13T07:49:27.386Z", "metadata": {"key": 185844}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-12-23T07:32:24.258Z", "members": [{"id": "<value>", "created_at": "2025-12-18T06:01:42.001Z", "modified_at": null, "customer_id": "<value>", "email": "member@example.com", "name": "Jane Doe", "external_id": "usr_1337", "role": "billing_manager"}], "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}
         "422":
           application/json: {}
   customers:get:
@@ -3093,9 +3103,11 @@ examples:
       parameters:
         path:
           id: "<value>"
+        query:
+          include_members: false
       responses:
         "200":
-          application/json: {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-02-07T11:56:28.687Z", "modified_at": "2025-04-11T04:39:55.315Z", "metadata": {"key": 1717.43}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-10-16T22:08:12.797Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}
+          application/json: {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-02-07T11:56:28.687Z", "modified_at": "2025-04-11T04:39:55.315Z", "metadata": {"key": 1717.43}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-10-16T22:08:12.797Z", "members": [{"id": "<value>", "created_at": "2023-02-07T11:56:28.687Z", "modified_at": "2024-03-20T09:58:07.343Z", "customer_id": "<value>", "email": "member@example.com", "name": "Jane Doe", "external_id": "usr_1337", "role": "billing_manager"}], "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}
         "404":
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
@@ -3105,11 +3117,13 @@ examples:
       parameters:
         path:
           id: "<value>"
+        query:
+          include_members: false
       requestBody:
         application/json: {"email": "customer@example.com", "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "external_id": "usr_1337"}
       responses:
         "200":
-          application/json: {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-01-16T19:45:46.501Z", "modified_at": "2023-03-21T14:17:32.110Z", "metadata": {"key": 761250, "key1": 9200.15}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-05-03T01:35:52.946Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}
+          application/json: {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-01-16T19:45:46.501Z", "modified_at": "2023-03-21T14:17:32.110Z", "metadata": {"key": 761250, "key1": 9200.15}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-05-03T01:35:52.946Z", "members": [{"id": "<value>", "created_at": "2025-06-11T23:12:33.726Z", "modified_at": "2023-01-16T19:45:46.501Z", "customer_id": "<value>", "email": "member@example.com", "name": "Jane Doe", "external_id": "usr_1337", "role": "owner"}], "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}
         "404":
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
@@ -3129,9 +3143,11 @@ examples:
       parameters:
         path:
           external_id: "<id>"
+        query:
+          include_members: false
       responses:
         "200":
-          application/json: {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-08-16T18:20:25.397Z", "modified_at": "2025-10-19T22:27:24.925Z", "metadata": {"key": 913197, "key1": 3287.9}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-12-28T14:27:18.058Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}
+          application/json: {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-08-16T18:20:25.397Z", "modified_at": "2025-10-19T22:27:24.925Z", "metadata": {"key": 913197, "key1": 3287.9}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-12-28T14:27:18.058Z", "members": [{"id": "<value>", "created_at": "2023-08-16T18:20:25.397Z", "modified_at": "2024-10-25T08:30:34.593Z", "customer_id": "<value>", "email": "member@example.com", "name": "Jane Doe", "external_id": "usr_1337", "role": "owner"}], "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}
         "404":
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
@@ -3141,11 +3157,13 @@ examples:
       parameters:
         path:
           external_id: "<id>"
+        query:
+          include_members: false
       requestBody:
         application/json: {"email": "customer@example.com", "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"]}
       responses:
         "200":
-          application/json: {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-11-10T15:58:41.008Z", "modified_at": "2024-12-21T02:28:59.698Z", "metadata": {"key": true}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2023-06-08T13:52:37.706Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}
+          application/json: {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2024-11-10T15:58:41.008Z", "modified_at": "2024-12-21T02:28:59.698Z", "metadata": {"key": true}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2023-06-08T13:52:37.706Z", "members": [{"id": "<value>", "created_at": "2023-04-19T12:10:23.341Z", "modified_at": "2024-11-10T15:58:41.008Z", "customer_id": "<value>", "email": "member@example.com", "name": "Jane Doe", "external_id": "usr_1337", "role": "billing_manager"}], "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}
         "404":
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
@@ -3497,7 +3515,7 @@ examples:
           hierarchical: false
       responses:
         "200":
-          application/json: {"items": [{"id": "<value>", "timestamp": "2024-10-18T16:53:49.550Z", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-07-21T19:02:11.375Z", "modified_at": "2025-06-07T22:31:55.492Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-12-11T18:14:49.510Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "external_customer_id": "<id>", "child_count": 0, "name": "<value>", "source": "user", "metadata": {"key": 1295.78}}, {"id": "<value>", "timestamp": "2024-10-18T16:53:49.550Z", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-07-21T19:02:11.375Z", "modified_at": "2025-06-07T22:31:55.492Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2024-12-11T18:14:49.510Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "external_customer_id": "<id>", "child_count": 0, "name": "<value>", "source": "user", "metadata": {"key": 1295.78}}], "pagination": {"total_count": 66641, "max_page": 73758}}
+          application/json: {"items": [{"id": "<value>", "timestamp": "2024-07-30T15:11:47.563Z", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-05-23T00:25:25.220Z", "modified_at": "2025-11-05T19:10:02.206Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": null, "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}, "external_customer_id": "<id>", "child_count": 0, "label": "<value>", "name": "<value>", "source": "user", "metadata": {}}, {"id": "<value>", "timestamp": "2024-07-30T15:11:47.563Z", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2023-05-23T00:25:25.220Z", "modified_at": "2025-11-05T19:10:02.206Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": null, "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}, "external_customer_id": "<id>", "child_count": 0, "label": "<value>", "name": "<value>", "source": "user", "metadata": {}}], "pagination": {"total_count": 66641, "max_page": 73758}}
         "422":
           application/json: {}
   events:list_names:
@@ -3519,7 +3537,7 @@ examples:
           id: "<value>"
       responses:
         "200":
-          application/json: {"id": "<value>", "timestamp": "2025-12-29T20:03:49.261Z", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2025-09-22T14:34:23.075Z", "modified_at": "2023-02-16T11:15:28.010Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "SE"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-06-02T11:41:47.678Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=blank"}, "external_customer_id": "<id>", "child_count": 0, "name": "<value>", "source": "user", "metadata": {"key": "<value>", "key1": false, "key2": false}}
+          application/json: {"id": "<value>", "timestamp": "2025-12-29T20:03:49.261Z", "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "customer_id": "<value>", "customer": {"id": "992fae2a-2a17-4b7a-8d9e-e287cf90131b", "created_at": "2025-09-22T14:34:23.075Z", "modified_at": "2023-02-16T11:15:28.010Z", "metadata": {}, "external_id": "usr_1337", "email": "customer@example.com", "email_verified": true, "name": "John Doe", "billing_address": {"country": "US"}, "tax_id": ["911144442", "us_ein"], "organization_id": "1dbfc517-0bbf-4301-9ba8-555ca42b9737", "deleted_at": "2025-06-02T11:41:47.678Z", "avatar_url": "https://www.gravatar.com/avatar/xxx?d=404"}, "external_customer_id": "<id>", "child_count": 0, "label": "<value>", "name": "<value>", "source": "user", "metadata": {"key": "<value>", "key1": false, "key2": false}}
         "404":
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
@@ -4134,6 +4152,29 @@ examples:
           application/json: {"error": "ResourceNotFound", "detail": "<value>"}
         "422":
           application/json: {}
+  members:list_members:
+    speakeasy-default-members:list-members:
+      parameters:
+        query:
+          page: 1
+          limit: 10
+      responses:
+        "200":
+          application/json: {"items": [], "pagination": {"total_count": 479953, "max_page": 585469}}
+        "422":
+          application/json: {}
+  event_types:update_event_type:
+    speakeasy-default-event-types:update-event-type:
+      parameters:
+        path:
+          id: "<value>"
+      requestBody:
+        application/json: {"label": "<value>"}
+      responses:
+        "200":
+          application/json: {"created_at": "2024-09-25T17:46:42.690Z", "modified_at": "2023-07-13T17:21:52.933Z", "id": "<value>", "name": "<value>", "label": "<value>", "organization_id": "<value>"}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.EndpointcheckoutCreatedPost()`: \n  *  `request.data` **Changed** **Breaking** :warning:\n* `polar.EndpointcheckoutUpdatedPost()`: \n  *  `request.data` **Changed** **Breaking** :warning:\n* `polar.EndpointsubscriptionCreatedPost()`: \n  *  `request.data.product.prices.[]` **Changed** **Breaking** :warning:\n* `polar.EndpointsubscriptionUpdatedPost()`: \n  *  `request.data.product.prices.[]` **Changed** **Breaking** :warning:\n* `polar.EndpointsubscriptionActivePost()`: \n  *  `request.data.product.prices.[]` **Changed** **Breaking** :warning:\n* `polar.EndpointsubscriptionCanceledPost()`: \n  *  `request.data.product.prices.[]` **Changed** **Breaking** :warning:\n* `polar.EndpointsubscriptionUncanceledPost()`: \n  *  `request.data.product.prices.[]` **Changed** **Breaking** :warning:\n* `polar.EndpointsubscriptionRevokedPost()`: \n  *  `request.data.product.prices.[]` **Changed** **Breaking** :warning:\n* `polar.EndpointproductCreatedPost()`: \n  *  `request.data.prices.[]` **Changed** **Breaking** :warning:\n* `polar.EndpointproductUpdatedPost()`: \n  *  `request.data.prices.[]` **Changed** **Breaking** :warning:\n* `polar.metrics.get()`:  `response` **Changed** **Breaking** :warning:\n* `polar.checkouts.list()`:  `response.items.[]` **Changed**\n* `polar.checkouts.clientConfirm()`:  `response` **Changed**\n* `polar.subscriptions.revoke()`:  `response.product.prices.[]` **Changed**\n* `polar.subscriptions.update()`:  `response.product.prices.[]` **Changed**\n* `polar.products.list()`:  `response.items.[].prices.[]` **Changed**\n* `polar.products.create()`:  `response.prices.[]` **Changed**\n* `polar.products.get()`:  `response.prices.[]` **Changed**\n* `polar.products.update()`:  `response.prices.[]` **Changed**\n* `polar.products.updateBenefits()`:  `response.prices.[]` **Changed**\n* `polar.subscriptions.create()`:  `response.product.prices.[]` **Changed**\n* `polar.checkouts.create()`: \n  *  `request.prices` **Added**\n  *  `response` **Changed**\n* `polar.checkouts.get()`:  `response` **Changed**\n* `polar.checkouts.update()`:  `response` **Changed**\n* `polar.checkouts.clientGet()`:  `response` **Changed**\n* `polar.checkouts.clientUpdate()`:  `response` **Changed**\n* `polar.subscriptions.get()`:  `response.product.prices.[]` **Changed**\n* `polar.subscriptions.list()`:  `response.items.[].product.prices.[]` **Changed**\n* `polar.checkoutLinks.list()`:  `response.items.[].products.[].prices.[]` **Changed**\n* `polar.checkoutLinks.create()`:  `response.products.[].prices.[]` **Changed**\n* `polar.checkoutLinks.get()`:  `response.products.[].prices.[]` **Changed**\n* `polar.checkoutLinks.update()`:  `response.products.[].prices.[]` **Changed**\n* `polar.customerPortal.seats.listClaimedSubscriptions()`:  `response.[].product.prices.[]` **Changed**\n* `polar.customerPortal.orders.list()`:  `response.items.[].product.prices.[]` **Changed**\n* `polar.customerPortal.orders.get()`:  `response.product.prices.[]` **Changed**\n* `polar.customerPortal.orders.update()`:  `response.product.prices.[]` **Changed**\n* `polar.customerPortal.organizations.get()`:  `response.products.[].prices.[]` **Changed**\n* `polar.customerPortal.subscriptions.list()`:  `response.items.[].product.prices.[]` **Changed**\n* `polar.customerPortal.subscriptions.get()`:  `response.product.prices.[]` **Changed**\n* `polar.customerPortal.subscriptions.cancel()`:  `response.product.prices.[]` **Changed**\n* `polar.customerPortal.subscriptions.update()`:  `response.product.prices.[]` **Changed**\n"
+releaseNotes: "## Typescript SDK Changes Detected:\n* `polar.customers.create()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.members` **Added**\n* `polar.metrics.get()`:  `response` **Changed**\n* `polar.customers.getBalance()`: **Deleted** **Breaking** :warning:\n* `polar.wallets.list()`: **Deleted** **Breaking** :warning:\n* `polar.wallets.get()`: **Deleted** **Breaking** :warning:\n* `polar.wallets.topUp()`: **Deleted** **Breaking** :warning:\n* `polar.organizations.list()`:  `response.items.[].featureSettings.memberModelEnabled` **Added**\n* `polar.organizations.create()`: \n  *  `request.featureSettings.memberModelEnabled` **Added**\n  *  `response.feature_settings.memberModelEnabled` **Added**\n* `polar.organizations.get()`:  `response.feature_settings.memberModelEnabled` **Added**\n* `polar.members.listMembers()`: **Added**\n* `polar.organizations.update()`: \n  *  `request.organizationUpdate.featureSettings.memberModelEnabled` **Added**\n  *  `response.feature_settings.memberModelEnabled` **Added**\n* `polar.eventTypes.updateEventType()`: **Added**\n* `polar.customers.list()`: \n  *  `request.includeMembers` **Added**\n  *  `response.items.[].members` **Added**\n* `polar.metrics.limits()`:  `response.intervals.hour.minDays` **Added**\n* `polar.customers.get()`: \n  *  `request.includeMembers` **Added**\n  *  `response.members` **Added**\n* `polar.customers.update()`: \n  *  `request.includeMembers` **Added**\n  *  `response.members` **Added**\n* `polar.customers.getExternal()`: \n  *  `request.includeMembers` **Added**\n  *  `response.members` **Added**\n* `polar.customers.updateExternal()`: \n  *  `request.includeMembers` **Added**\n  *  `response.members` **Added**\n* `polar.customerPortal.benefitGrants.list()`: \n  *  `request.sorting` **Changed**\n* `polar.events.list()`:  `response.items.[]` **Changed**\n* `polar.events.get()`:  `response` **Changed**\n"
