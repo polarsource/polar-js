@@ -10,7 +10,7 @@ import { RefundedAlready } from "@polar-sh/sdk/models/errors/refundedalready.js"
 
 ## Fields
 
-| Field              | Type               | Required           | Description        | Example            |
-| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `error`            | *string*           | :heavy_check_mark: | N/A                | RefundedAlready    |
-| `detail`           | *string*           | :heavy_check_mark: | N/A                |                    |
+| Field               | Type                | Required            | Description         | Example             |
+| ------------------- | ------------------- | ------------------- | ------------------- | ------------------- |
+| `error`             | *"RefundedAlready"* | :heavy_check_mark:  | N/A                 | RefundedAlready     |
+| `detail`            | *string*            | :heavy_check_mark:  | N/A                 |                     |

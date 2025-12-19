@@ -54,14 +54,23 @@ let value: ListResourceCustomerOrder = {
         benefits: [],
         medias: [],
         organization: {
-          createdAt: new Date("2025-09-30T11:33:49.764Z"),
-          modifiedAt: new Date("2023-03-14T19:22:24.375Z"),
+          createdAt: new Date("2023-09-17T13:02:40.897Z"),
+          modifiedAt: null,
           id: "<value>",
           name: "<value>",
           slug: "<value>",
-          avatarUrl: "https://forceful-grass.com/",
+          avatarUrl: "https://peaceful-address.net",
           prorationBehavior: "invoice",
-          allowCustomerUpdates: true,
+          allowCustomerUpdates: false,
+          customerPortalSettings: {
+            usage: {
+              show: true,
+            },
+            subscription: {
+              updateSeats: false,
+              updatePlan: true,
+            },
+          },
         },
       },
       subscription: {
@@ -94,8 +103,8 @@ let value: ListResourceCustomerOrder = {
     },
   ],
   pagination: {
-    totalCount: 279990,
-    maxPage: 718643,
+    totalCount: 296266,
+    maxPage: 544155,
   },
 };
 ```

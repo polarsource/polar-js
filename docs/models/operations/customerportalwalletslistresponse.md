@@ -18,8 +18,8 @@ let value: CustomerPortalWalletsListResponse = {
       },
     ],
     pagination: {
-      totalCount: 279990,
-      maxPage: 718643,
+      totalCount: 296266,
+      maxPage: 544155,
     },
   },
 };

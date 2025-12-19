@@ -7,7 +7,6 @@ import { customersDelete } from "../funcs/customersDelete.js";
 import { customersDeleteExternal } from "../funcs/customersDeleteExternal.js";
 import { customersExport } from "../funcs/customersExport.js";
 import { customersGet } from "../funcs/customersGet.js";
-import { customersGetBalance } from "../funcs/customersGetBalance.js";
 import { customersGetExternal } from "../funcs/customersGetExternal.js";
 import { customersGetState } from "../funcs/customersGetState.js";
 import { customersGetStateExternal } from "../funcs/customersGetStateExternal.js";
@@ -15,15 +14,13 @@ import { customersList } from "../funcs/customersList.js";
 import { customersUpdate } from "../funcs/customersUpdate.js";
 import { customersUpdateExternal } from "../funcs/customersUpdateExternal.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import { Customer } from "../models/components/customer.js";
-import { CustomerBalance } from "../models/components/customerbalance.js";
-import { CustomerCreate } from "../models/components/customercreate.js";
 import { CustomerState } from "../models/components/customerstate.js";
+import { CustomerWithMembers } from "../models/components/customerwithmembers.js";
+import { CustomersCreateRequest } from "../models/operations/customerscreate.js";
 import { CustomersDeleteRequest } from "../models/operations/customersdelete.js";
 import { CustomersDeleteExternalRequest } from "../models/operations/customersdeleteexternal.js";
 import { CustomersExportRequest } from "../models/operations/customersexport.js";
 import { CustomersGetRequest } from "../models/operations/customersget.js";
-import { CustomersGetBalanceRequest } from "../models/operations/customersgetbalance.js";
 import { CustomersGetExternalRequest } from "../models/operations/customersgetexternal.js";
 import { CustomersGetStateRequest } from "../models/operations/customersgetstate.js";
 import { CustomersGetStateExternalRequest } from "../models/operations/customersgetstateexternal.js";
@@ -65,9 +62,9 @@ export class Customers extends ClientSDK {
    * **Scopes**: `customers:write`
    */
   async create(
-    request: CustomerCreate,
+    request: CustomersCreateRequest,
     options?: RequestOptions,
-  ): Promise<Customer> {
+  ): Promise<CustomerWithMembers> {
     return unwrapAsync(customersCreate(
       this,
       request,
@@ -105,7 +102,7 @@ export class Customers extends ClientSDK {
   async get(
     request: CustomersGetRequest,
     options?: RequestOptions,
-  ): Promise<Customer> {
+  ): Promise<CustomerWithMembers> {
     return unwrapAsync(customersGet(
       this,
       request,
@@ -124,7 +121,7 @@ export class Customers extends ClientSDK {
   async update(
     request: CustomersUpdateRequest,
     options?: RequestOptions,
-  ): Promise<Customer> {
+  ): Promise<CustomerWithMembers> {
     return unwrapAsync(customersUpdate(
       this,
       request,
@@ -174,7 +171,7 @@ export class Customers extends ClientSDK {
   async getExternal(
     request: CustomersGetExternalRequest,
     options?: RequestOptions,
-  ): Promise<Customer> {
+  ): Promise<CustomerWithMembers> {
     return unwrapAsync(customersGetExternal(
       this,
       request,
@@ -193,7 +190,7 @@ export class Customers extends ClientSDK {
   async updateExternal(
     request: CustomersUpdateExternalRequest,
     options?: RequestOptions,
-  ): Promise<Customer> {
+  ): Promise<CustomerWithMembers> {
     return unwrapAsync(customersUpdateExternal(
       this,
       request,
@@ -266,25 +263,6 @@ export class Customers extends ClientSDK {
     options?: RequestOptions,
   ): Promise<CustomerState> {
     return unwrapAsync(customersGetStateExternal(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Get Customer Balance
-   *
-   * @remarks
-   * Get customer balance information.
-   *
-   * **Scopes**: `customers:read` `customers:write`
-   */
-  async getBalance(
-    request: CustomersGetBalanceRequest,
-    options?: RequestOptions,
-  ): Promise<CustomerBalance> {
-    return unwrapAsync(customersGetBalance(
       this,
       request,
       options,

@@ -1,5 +1,4 @@
-# PolarBenefitGrants
-(*customerPortal.benefitGrants*)
+# CustomerPortal.BenefitGrants
 
 ## Overview
 

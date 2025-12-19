@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
@@ -17,12 +18,12 @@ import {
   DiscountType$inboundSchema,
   DiscountType$outboundSchema,
 } from "./discounttype.js";
-
-export type DiscountPercentageOnceForeverDurationBaseMetadata =
-  | string
-  | number
-  | number
-  | boolean;
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
 
 export type DiscountPercentageOnceForeverDurationBase = {
   duration: DiscountDuration;
@@ -43,7 +44,7 @@ export type DiscountPercentageOnceForeverDurationBase = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * Name of the discount. Will be displayed to the customer when the discount is applied.
    */
@@ -75,79 +76,23 @@ export type DiscountPercentageOnceForeverDurationBase = {
 };
 
 /** @internal */
-export const DiscountPercentageOnceForeverDurationBaseMetadata$inboundSchema:
-  z.ZodMiniType<DiscountPercentageOnceForeverDurationBaseMetadata, unknown> = z
-    .union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type DiscountPercentageOnceForeverDurationBaseMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const DiscountPercentageOnceForeverDurationBaseMetadata$outboundSchema:
-  z.ZodMiniType<
-    DiscountPercentageOnceForeverDurationBaseMetadata$Outbound,
-    DiscountPercentageOnceForeverDurationBaseMetadata
-  > = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function discountPercentageOnceForeverDurationBaseMetadataToJSON(
-  discountPercentageOnceForeverDurationBaseMetadata:
-    DiscountPercentageOnceForeverDurationBaseMetadata,
-): string {
-  return JSON.stringify(
-    DiscountPercentageOnceForeverDurationBaseMetadata$outboundSchema.parse(
-      discountPercentageOnceForeverDurationBaseMetadata,
-    ),
-  );
-}
-export function discountPercentageOnceForeverDurationBaseMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DiscountPercentageOnceForeverDurationBaseMetadata,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DiscountPercentageOnceForeverDurationBaseMetadata$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DiscountPercentageOnceForeverDurationBaseMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const DiscountPercentageOnceForeverDurationBase$inboundSchema:
   z.ZodMiniType<DiscountPercentageOnceForeverDurationBase, unknown> = z.pipe(
     z.object({
       duration: DiscountDuration$inboundSchema,
       type: DiscountType$inboundSchema,
-      basis_points: z.int(),
-      created_at: z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      ),
-      modified_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      id: z.string(),
-      metadata: z.record(
-        z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
-      ),
-      name: z.string(),
-      code: z.nullable(z.string()),
-      starts_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      ends_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      max_redemptions: z.nullable(z.int()),
-      redemptions_count: z.int(),
-      organization_id: z.string(),
+      basis_points: types.number(),
+      created_at: types.date(),
+      modified_at: types.nullable(types.date()),
+      id: types.string(),
+      metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+      name: types.string(),
+      code: types.nullable(types.string()),
+      starts_at: types.nullable(types.date()),
+      ends_at: types.nullable(types.date()),
+      max_redemptions: types.nullable(types.number()),
+      redemptions_count: types.number(),
+      organization_id: types.string(),
     }),
     z.transform((v) => {
       return remap$(v, {
@@ -170,7 +115,7 @@ export type DiscountPercentageOnceForeverDurationBase$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   name: string;
   code: string | null;
   starts_at: string | null;
@@ -195,10 +140,7 @@ export const DiscountPercentageOnceForeverDurationBase$outboundSchema:
         z.pipe(z.date(), z.transform(v => v.toISOString())),
       ),
       id: z.string(),
-      metadata: z.record(
-        z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
-      ),
+      metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
       name: z.string(),
       code: z.nullable(z.string()),
       startsAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),

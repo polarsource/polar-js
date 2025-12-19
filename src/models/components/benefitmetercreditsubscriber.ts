@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitMeterCreditSubscriberProperties,
@@ -15,12 +16,10 @@ import {
   BenefitSubscriberOrganization,
   BenefitSubscriberOrganization$inboundSchema,
 } from "./benefitsubscriberorganization.js";
-
-export type BenefitMeterCreditSubscriberMetadata =
-  | string
-  | number
-  | number
-  | boolean;
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+} from "./metadataoutputtype.js";
 
 export type BenefitMeterCreditSubscriber = {
   /**
@@ -52,7 +51,7 @@ export type BenefitMeterCreditSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   organization: BenefitSubscriberOrganization;
   /**
    * Properties available to subscribers for a benefit of type `meter_unit`.
@@ -61,45 +60,20 @@ export type BenefitMeterCreditSubscriber = {
 };
 
 /** @internal */
-export const BenefitMeterCreditSubscriberMetadata$inboundSchema: z.ZodMiniType<
-  BenefitMeterCreditSubscriberMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function benefitMeterCreditSubscriberMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitMeterCreditSubscriberMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      BenefitMeterCreditSubscriberMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitMeterCreditSubscriberMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const BenefitMeterCreditSubscriber$inboundSchema: z.ZodMiniType<
   BenefitMeterCreditSubscriber,
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    type: z.literal("meter_credit"),
-    description: z.string(),
-    selectable: z.boolean(),
-    deletable: z.boolean(),
-    organization_id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    type: types.literal("meter_credit"),
+    description: types.string(),
+    selectable: types.boolean(),
+    deletable: types.boolean(),
+    organization_id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     organization: BenefitSubscriberOrganization$inboundSchema,
     properties: BenefitMeterCreditSubscriberProperties$inboundSchema,
   }),

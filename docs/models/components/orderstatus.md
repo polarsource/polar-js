@@ -10,6 +10,8 @@ let value: OrderStatus = "partially_refunded";
 
 ## Values
 
+This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
+
 ```typescript
-"pending" | "paid" | "refunded" | "partially_refunded"
+"pending" | "paid" | "refunded" | "partially_refunded" | Unrecognized<string>
 ```

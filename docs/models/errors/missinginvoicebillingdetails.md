@@ -10,7 +10,7 @@ import { MissingInvoiceBillingDetails } from "@polar-sh/sdk/models/errors/missin
 
 ## Fields
 
-| Field                        | Type                         | Required                     | Description                  | Example                      |
-| ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
-| `error`                      | *string*                     | :heavy_check_mark:           | N/A                          | MissingInvoiceBillingDetails |
-| `detail`                     | *string*                     | :heavy_check_mark:           | N/A                          |                              |
+| Field                            | Type                             | Required                         | Description                      | Example                          |
+| -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- |
+| `error`                          | *"MissingInvoiceBillingDetails"* | :heavy_check_mark:               | N/A                              | MissingInvoiceBillingDetails     |
+| `detail`                         | *string*                         | :heavy_check_mark:               | N/A                              |                                  |

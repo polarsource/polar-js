@@ -8,8 +8,8 @@ import { ListResourceCustomerPaymentMethod } from "@polar-sh/sdk/models/componen
 let value: ListResourceCustomerPaymentMethod = {
   items: [],
   pagination: {
-    totalCount: 279990,
-    maxPage: 718643,
+    totalCount: 296266,
+    maxPage: 544155,
   },
 };
 ```

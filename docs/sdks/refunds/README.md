@@ -1,5 +1,4 @@
 # Refunds
-(*refunds*)
 
 ## Overview
 
@@ -10,7 +9,7 @@
 
 ## list
 
-List products.
+List refunds.
 
 **Scopes**: `refunds:read` `refunds:write`
 
@@ -165,7 +164,6 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.RefundAmountTooHigh | 400                        | application/json           |
 | errors.RefundedAlready     | 403                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |

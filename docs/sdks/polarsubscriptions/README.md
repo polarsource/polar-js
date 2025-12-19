@@ -1,5 +1,4 @@
-# PolarSubscriptions
-(*customerPortal.subscriptions*)
+# CustomerPortal.Subscriptions
 
 ## Overview
 

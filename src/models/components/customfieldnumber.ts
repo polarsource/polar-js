@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldNumberProperties,
@@ -13,8 +14,12 @@ import {
   CustomFieldNumberProperties$Outbound,
   CustomFieldNumberProperties$outboundSchema,
 } from "./customfieldnumberproperties.js";
-
-export type CustomFieldNumberMetadata = string | number | number | boolean;
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
 
 /**
  * Schema for a custom field of type number.
@@ -32,7 +37,7 @@ export type CustomFieldNumber = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   type: "number";
   /**
    * Identifier of the custom field. It'll be used as key when storing the value.
@@ -50,62 +55,19 @@ export type CustomFieldNumber = {
 };
 
 /** @internal */
-export const CustomFieldNumberMetadata$inboundSchema: z.ZodMiniType<
-  CustomFieldNumberMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type CustomFieldNumberMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const CustomFieldNumberMetadata$outboundSchema: z.ZodMiniType<
-  CustomFieldNumberMetadata$Outbound,
-  CustomFieldNumberMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function customFieldNumberMetadataToJSON(
-  customFieldNumberMetadata: CustomFieldNumberMetadata,
-): string {
-  return JSON.stringify(
-    CustomFieldNumberMetadata$outboundSchema.parse(customFieldNumberMetadata),
-  );
-}
-export function customFieldNumberMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldNumberMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldNumberMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldNumberMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const CustomFieldNumber$inboundSchema: z.ZodMiniType<
   CustomFieldNumber,
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
-    type: z.literal("number"),
-    slug: z.string(),
-    name: z.string(),
-    organization_id: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+    type: types.literal("number"),
+    slug: types.string(),
+    name: types.string(),
+    organization_id: types.string(),
     properties: CustomFieldNumberProperties$inboundSchema,
   }),
   z.transform((v) => {
@@ -121,7 +83,7 @@ export type CustomFieldNumber$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   type: "number";
   slug: string;
   name: string;
@@ -138,10 +100,7 @@ export const CustomFieldNumber$outboundSchema: z.ZodMiniType<
     createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
     modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     type: z.literal("number"),
     slug: z.string(),
     name: z.string(),

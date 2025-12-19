@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { FileDownload, FileDownload$inboundSchema } from "./filedownload.js";
 
@@ -21,8 +22,8 @@ export const DownloadableRead$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    benefit_id: z.string(),
+    id: types.string(),
+    benefit_id: types.string(),
     file: FileDownload$inboundSchema,
   }),
   z.transform((v) => {

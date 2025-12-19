@@ -13,8 +13,8 @@ const value: components.BenefitCycledEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -30,10 +30,11 @@ const value: components.BenefitCycledEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "benefit.cycled",
   metadata: {
@@ -54,8 +55,8 @@ const value: components.BenefitGrantedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -71,10 +72,11 @@ const value: components.BenefitGrantedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "benefit.granted",
   metadata: {
@@ -95,8 +97,8 @@ const value: components.BenefitRevokedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -112,10 +114,11 @@ const value: components.BenefitRevokedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "benefit.revoked",
   metadata: {
@@ -136,8 +139,8 @@ const value: components.BenefitUpdatedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -153,16 +156,58 @@ const value: components.BenefitUpdatedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "benefit.updated",
   metadata: {
     benefitId: "<id>",
     benefitGrantId: "<id>",
     benefitType: "github_repository",
+  },
+};
+```
+
+### `components.CheckoutCreatedEvent`
+
+```typescript
+const value: components.CheckoutCreatedEvent = {
+  id: "<value>",
+  timestamp: new Date("2024-08-26T12:49:12.221Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: "<id>",
+  label: "<value>",
+  source: "system",
+  name: "checkout.created",
+  metadata: {
+    checkoutId: "<id>",
+    checkoutStatus: "<value>",
   },
 };
 ```
@@ -177,8 +222,8 @@ const value: components.CustomerCreatedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -194,10 +239,11 @@ const value: components.CustomerCreatedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "customer.created",
   metadata: {
@@ -219,8 +265,8 @@ const value: components.CustomerDeletedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -236,10 +282,11 @@ const value: components.CustomerDeletedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "customer.deleted",
   metadata: {
@@ -261,8 +308,8 @@ const value: components.CustomerUpdatedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -278,10 +325,11 @@ const value: components.CustomerUpdatedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "customer.updated",
   metadata: {
@@ -304,8 +352,8 @@ const value: components.MeterCreditEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -321,10 +369,11 @@ const value: components.MeterCreditEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "meter.credited",
   metadata: {
@@ -345,8 +394,8 @@ const value: components.MeterResetEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -362,10 +411,11 @@ const value: components.MeterResetEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "meter.reset",
   metadata: {
@@ -384,12 +434,12 @@ const value: components.OrderPaidEvent = {
   customerId: "<value>",
   customer: null,
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "order.paid",
   metadata: {
     orderId: "<id>",
-    amount: 52059,
-    currency: "Riel",
+    amount: 329918,
   },
 };
 ```
@@ -404,6 +454,7 @@ const value: components.OrderRefundedEvent = {
   customerId: "<value>",
   customer: null,
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "order.refunded",
   metadata: {
@@ -414,18 +465,18 @@ const value: components.OrderRefundedEvent = {
 };
 ```
 
-### `components.SubscriptionCycledEvent`
+### `components.SubscriptionBillingPeriodUpdatedEvent`
 
 ```typescript
-const value: components.SubscriptionCycledEvent = {
+const value: components.SubscriptionBillingPeriodUpdatedEvent = {
   id: "<value>",
-  timestamp: new Date("2025-11-09T07:53:52.767Z"),
+  timestamp: new Date("2023-12-25T21:00:19.285Z"),
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -441,10 +492,144 @@ const value: components.SubscriptionCycledEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: "<id>",
+  label: "<value>",
+  source: "system",
+  name: "subscription.billing_period_updated",
+  metadata: {
+    subscriptionId: "<id>",
+    oldPeriodEnd: "<value>",
+    newPeriodEnd: "<value>",
+  },
+};
+```
+
+### `components.SubscriptionCanceledEvent`
+
+```typescript
+const value: components.SubscriptionCanceledEvent = {
+  id: "<value>",
+  timestamp: new Date("2023-09-08T06:12:44.390Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: "<id>",
+  label: "<value>",
+  source: "system",
+  name: "subscription.canceled",
+  metadata: {
+    subscriptionId: "<id>",
+    amount: 920401,
+    currency: "Swedish Krona",
+    recurringInterval: "<value>",
+    recurringIntervalCount: 545143,
+    canceledAt: "<value>",
+  },
+};
+```
+
+### `components.SubscriptionCreatedEvent`
+
+```typescript
+const value: components.SubscriptionCreatedEvent = {
+  id: "<value>",
+  timestamp: new Date("2023-07-23T19:31:54.976Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: "<id>",
+  label: "<value>",
+  source: "system",
+  name: "subscription.created",
+  metadata: {
+    subscriptionId: "<id>",
+    productId: "<id>",
+    amount: 691361,
+    currency: "Algerian Dinar",
+    recurringInterval: "<value>",
+    recurringIntervalCount: 785084,
+    startedAt: "<value>",
+  },
+};
+```
+
+### `components.SubscriptionCycledEvent`
+
+```typescript
+const value: components.SubscriptionCycledEvent = {
+  id: "<value>",
+  timestamp: new Date("2025-11-09T07:53:52.767Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: null,
+  label: "<value>",
   source: "system",
   name: "subscription.cycled",
   metadata: {
@@ -463,8 +648,8 @@ const value: components.SubscriptionProductUpdatedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -480,10 +665,11 @@ const value: components.SubscriptionProductUpdatedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "subscription.product_updated",
   metadata: {
@@ -504,8 +690,8 @@ const value: components.SubscriptionRevokedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -521,10 +707,11 @@ const value: components.SubscriptionRevokedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "subscription.revoked",
   metadata: {
@@ -543,8 +730,8 @@ const value: components.SubscriptionSeatsUpdatedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -560,10 +747,11 @@ const value: components.SubscriptionSeatsUpdatedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "subscription.seats_updated",
   metadata: {
@@ -571,6 +759,51 @@ const value: components.SubscriptionSeatsUpdatedEvent = {
     oldSeats: 364115,
     newSeats: 300496,
     prorationBehavior: "<value>",
+  },
+};
+```
+
+### `components.SubscriptionUncanceledEvent`
+
+```typescript
+const value: components.SubscriptionUncanceledEvent = {
+  id: "<value>",
+  timestamp: new Date("2023-02-26T06:45:26.893Z"),
+  organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+  customerId: "<value>",
+  customer: {
+    id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    metadata: {
+      "key": "<value>",
+    },
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    emailVerified: true,
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
+  },
+  externalCustomerId: "<id>",
+  label: "<value>",
+  source: "system",
+  name: "subscription.uncanceled",
+  metadata: {
+    subscriptionId: "<id>",
+    productId: "<id>",
+    amount: 479667,
+    currency: "Rupiah",
+    recurringInterval: "<value>",
+    recurringIntervalCount: 383594,
   },
 };
 ```

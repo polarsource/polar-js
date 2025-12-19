@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { PolarCore } from "../core.js";
-import { dlv } from "../lib/dlv.js";
 import {
   encodeDeepObjectQuery,
   encodeFormQuery,
@@ -33,17 +32,11 @@ import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
   EventsListRequest,
   EventsListRequest$outboundSchema,
-  EventsListResponse,
-  EventsListResponse$inboundSchema,
+  EventsListResponseEventsList,
+  EventsListResponseEventsList$inboundSchema,
 } from "../models/operations/eventslist.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
-import {
-  createPageIterator,
-  haltIterator,
-  PageIterator,
-  Paginator,
-} from "../types/operations.js";
 
 /**
  * List Events
@@ -58,20 +51,17 @@ export function eventsList(
   request: EventsListRequest,
   options?: RequestOptions,
 ): APIPromise<
-  PageIterator<
-    Result<
-      EventsListResponse,
-      | HTTPValidationError
-      | PolarError
-      | ResponseValidationError
-      | ConnectionError
-      | RequestAbortedError
-      | RequestTimeoutError
-      | InvalidRequestError
-      | UnexpectedClientError
-      | SDKValidationError
-    >,
-    { page: number }
+  Result<
+    EventsListResponseEventsList,
+    | HTTPValidationError
+    | PolarError
+    | ResponseValidationError
+    | ConnectionError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >
 > {
   return new APIPromise($do(
@@ -87,20 +77,17 @@ async function $do(
   options?: RequestOptions,
 ): Promise<
   [
-    PageIterator<
-      Result<
-        EventsListResponse,
-        | HTTPValidationError
-        | PolarError
-        | ResponseValidationError
-        | ConnectionError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | InvalidRequestError
-        | UnexpectedClientError
-        | SDKValidationError
-      >,
-      { page: number }
+    Result<
+      EventsListResponseEventsList,
+      | HTTPValidationError
+      | PolarError
+      | ResponseValidationError
+      | ConnectionError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
     >,
     APICall,
   ]
@@ -111,7 +98,7 @@ async function $do(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return [haltIterator(parsed), { status: "invalid" }];
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -124,10 +111,10 @@ async function $do(
     }),
     encodeFormQuery({
       "customer_id": payload.customer_id,
+      "depth": payload.depth,
       "end_timestamp": payload.end_timestamp,
       "external_customer_id": payload.external_customer_id,
       "filter": payload.filter,
-      "hierarchical": payload.hierarchical,
       "limit": payload.limit,
       "meter_id": payload.meter_id,
       "name": payload.name,
@@ -176,7 +163,7 @@ async function $do(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return [haltIterator(requestRes), { status: "invalid" }];
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -187,7 +174,7 @@ async function $do(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return [haltIterator(doResult), { status: "request-error", request: req }];
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -195,8 +182,8 @@ async function $do(
     HttpMeta: { Response: response, Request: req },
   };
 
-  const [result, raw] = await M.match<
-    EventsListResponse,
+  const [result] = await M.match<
+    EventsListResponseEventsList,
     | HTTPValidationError
     | PolarError
     | ResponseValidationError
@@ -207,74 +194,14 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, EventsListResponse$inboundSchema, { key: "Result" }),
+    M.json(200, EventsListResponseEventsList$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });
   if (!result.ok) {
-    return [haltIterator(result), {
-      status: "complete",
-      request: req,
-      response,
-    }];
+    return [result, { status: "complete", request: req, response }];
   }
 
-  const nextFunc = (
-    responseData: unknown,
-  ): {
-    next: Paginator<
-      Result<
-        EventsListResponse,
-        | HTTPValidationError
-        | PolarError
-        | ResponseValidationError
-        | ConnectionError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | InvalidRequestError
-        | UnexpectedClientError
-        | SDKValidationError
-      >
-    >;
-    "~next"?: { page: number };
-  } => {
-    const page = request?.page ?? 1;
-    const nextPage = page + 1;
-    const numPages = dlv(responseData, "pagination.max_page");
-    if (typeof numPages !== "number" || numPages <= page) {
-      return { next: () => null };
-    }
-
-    if (!responseData) {
-      return { next: () => null };
-    }
-    const results = dlv(responseData, "items");
-    if (!Array.isArray(results) || !results.length) {
-      return { next: () => null };
-    }
-    const limit = request?.limit ?? 10;
-    if (results.length < limit) {
-      return { next: () => null };
-    }
-
-    const nextVal = () =>
-      eventsList(
-        client,
-        {
-          ...request,
-          page: nextPage,
-        },
-        options,
-      );
-
-    return { next: nextVal, "~next": { page: nextPage } };
-  };
-
-  const page = { ...result, ...nextFunc(raw) };
-  return [{ ...page, ...createPageIterator(page, (v) => !v.ok) }, {
-    status: "complete",
-    request: req,
-    response,
-  }];
+  return [result, { status: "complete", request: req, response }];
 }

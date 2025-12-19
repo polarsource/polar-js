@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitDownloadablesProperties,
@@ -13,8 +14,12 @@ import {
   BenefitDownloadablesProperties$Outbound,
   BenefitDownloadablesProperties$outboundSchema,
 } from "./benefitdownloadablesproperties.js";
-
-export type BenefitDownloadablesMetadata = string | number | number | boolean;
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
 
 export type BenefitDownloadables = {
   /**
@@ -46,46 +51,9 @@ export type BenefitDownloadables = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   properties: BenefitDownloadablesProperties;
 };
-
-/** @internal */
-export const BenefitDownloadablesMetadata$inboundSchema: z.ZodMiniType<
-  BenefitDownloadablesMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type BenefitDownloadablesMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const BenefitDownloadablesMetadata$outboundSchema: z.ZodMiniType<
-  BenefitDownloadablesMetadata$Outbound,
-  BenefitDownloadablesMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function benefitDownloadablesMetadataToJSON(
-  benefitDownloadablesMetadata: BenefitDownloadablesMetadata,
-): string {
-  return JSON.stringify(
-    BenefitDownloadablesMetadata$outboundSchema.parse(
-      benefitDownloadablesMetadata,
-    ),
-  );
-}
-export function benefitDownloadablesMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitDownloadablesMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitDownloadablesMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitDownloadablesMetadata' from JSON`,
-  );
-}
 
 /** @internal */
 export const BenefitDownloadables$inboundSchema: z.ZodMiniType<
@@ -93,23 +61,15 @@ export const BenefitDownloadables$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    type: z.literal("downloadables"),
-    description: z.string(),
-    selectable: z.boolean(),
-    deletable: z.boolean(),
-    organization_id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    type: types.literal("downloadables"),
+    description: types.string(),
+    selectable: types.boolean(),
+    deletable: types.boolean(),
+    organization_id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     properties: BenefitDownloadablesProperties$inboundSchema,
   }),
   z.transform((v) => {
@@ -130,7 +90,7 @@ export type BenefitDownloadables$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   properties: BenefitDownloadablesProperties$Outbound;
 };
 
@@ -148,10 +108,7 @@ export const BenefitDownloadables$outboundSchema: z.ZodMiniType<
     selectable: z.boolean(),
     deletable: z.boolean(),
     organizationId: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     properties: BenefitDownloadablesProperties$outboundSchema,
   }),
   z.transform((v) => {

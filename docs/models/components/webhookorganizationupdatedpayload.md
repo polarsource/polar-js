@@ -31,22 +31,31 @@ let value: WebhookOrganizationUpdatedPayload = {
       allowMultipleSubscriptions: true,
       allowCustomerUpdates: false,
       prorationBehavior: "invoice",
-      benefitRevocationGracePeriod: 164496,
-      preventTrialAbuse: true,
+      benefitRevocationGracePeriod: 288227,
+      preventTrialAbuse: false,
     },
     notificationSettings: {
-      newOrder: false,
-      newSubscription: true,
+      newOrder: true,
+      newSubscription: false,
     },
     customerEmailSettings: {
       orderConfirmation: true,
       subscriptionCancellation: true,
-      subscriptionConfirmation: true,
+      subscriptionConfirmation: false,
       subscriptionCycled: false,
-      subscriptionPastDue: true,
+      subscriptionPastDue: false,
       subscriptionRevoked: false,
       subscriptionUncanceled: false,
-      subscriptionUpdated: false,
+      subscriptionUpdated: true,
+    },
+    customerPortalSettings: {
+      usage: {
+        show: true,
+      },
+      subscription: {
+        updateSeats: false,
+        updatePlan: true,
+      },
     },
   },
 };
@@ -56,6 +65,6 @@ let value: WebhookOrganizationUpdatedPayload = {
 
 | Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | organization.updated                                                                          |
+| `type`                                                                                        | *"organization.updated"*                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | organization.updated                                                                          |
 | `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `data`                                                                                        | [components.Organization](../../models/components/organization.md)                            | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

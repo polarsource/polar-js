@@ -35,51 +35,33 @@ import {
 } from "./benefitmetercreditcreate.js";
 
 export type BenefitCreate =
-  | (BenefitCustomCreate & { type: "custom" })
-  | (BenefitDiscordCreate & { type: "discord" })
-  | (BenefitDownloadablesCreate & { type: "downloadables" })
-  | (BenefitGitHubRepositoryCreate & { type: "github_repository" })
-  | (BenefitLicenseKeysCreate & { type: "license_keys" })
-  | (BenefitMeterCreditCreate & { type: "meter_credit" });
+  | BenefitCustomCreate
+  | BenefitDiscordCreate
+  | BenefitDownloadablesCreate
+  | BenefitGitHubRepositoryCreate
+  | BenefitLicenseKeysCreate
+  | BenefitMeterCreditCreate;
 
 /** @internal */
 export type BenefitCreate$Outbound =
-  | (BenefitCustomCreate$Outbound & { type: "custom" })
-  | (BenefitDiscordCreate$Outbound & { type: "discord" })
-  | (BenefitDownloadablesCreate$Outbound & { type: "downloadables" })
-  | (BenefitGitHubRepositoryCreate$Outbound & { type: "github_repository" })
-  | (BenefitLicenseKeysCreate$Outbound & { type: "license_keys" })
-  | (BenefitMeterCreditCreate$Outbound & { type: "meter_credit" });
+  | BenefitCustomCreate$Outbound
+  | BenefitDiscordCreate$Outbound
+  | BenefitDownloadablesCreate$Outbound
+  | BenefitGitHubRepositoryCreate$Outbound
+  | BenefitLicenseKeysCreate$Outbound
+  | BenefitMeterCreditCreate$Outbound;
 
 /** @internal */
 export const BenefitCreate$outboundSchema: z.ZodMiniType<
   BenefitCreate$Outbound,
   BenefitCreate
 > = z.union([
-  z.intersection(
-    BenefitCustomCreate$outboundSchema,
-    z.object({ type: z.literal("custom") }),
-  ),
-  z.intersection(
-    BenefitDiscordCreate$outboundSchema,
-    z.object({ type: z.literal("discord") }),
-  ),
-  z.intersection(
-    BenefitDownloadablesCreate$outboundSchema,
-    z.object({ type: z.literal("downloadables") }),
-  ),
-  z.intersection(
-    BenefitGitHubRepositoryCreate$outboundSchema,
-    z.object({ type: z.literal("github_repository") }),
-  ),
-  z.intersection(
-    BenefitLicenseKeysCreate$outboundSchema,
-    z.object({ type: z.literal("license_keys") }),
-  ),
-  z.intersection(
-    BenefitMeterCreditCreate$outboundSchema,
-    z.object({ type: z.literal("meter_credit") }),
-  ),
+  BenefitCustomCreate$outboundSchema,
+  BenefitDiscordCreate$outboundSchema,
+  BenefitDownloadablesCreate$outboundSchema,
+  BenefitGitHubRepositoryCreate$outboundSchema,
+  BenefitLicenseKeysCreate$outboundSchema,
+  BenefitMeterCreditCreate$outboundSchema,
 ]);
 
 export function benefitCreateToJSON(benefitCreate: BenefitCreate): string {

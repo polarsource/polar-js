@@ -4,6 +4,8 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   AuthorizeResponseOrganization,
@@ -19,27 +21,17 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * Successful Response
  */
 export type Oauth2AuthorizeResponseOauth2Authorize =
-  | (AuthorizeResponseOrganization & { subType: "organization" })
-  | (AuthorizeResponseUser & { subType: "user" });
+  | AuthorizeResponseUser
+  | AuthorizeResponseOrganization
+  | discriminatedUnionTypes.Unknown<"subType">;
 
 /** @internal */
 export const Oauth2AuthorizeResponseOauth2Authorize$inboundSchema:
-  z.ZodMiniType<Oauth2AuthorizeResponseOauth2Authorize, unknown> = z.union([
-    z.intersection(
-      AuthorizeResponseOrganization$inboundSchema,
-      z.pipe(
-        z.object({ sub_type: z.literal("organization") }),
-        z.transform((v) => ({ subType: v.sub_type })),
-      ),
-    ),
-    z.intersection(
-      AuthorizeResponseUser$inboundSchema,
-      z.pipe(
-        z.object({ sub_type: z.literal("user") }),
-        z.transform((v) => ({ subType: v.sub_type })),
-      ),
-    ),
-  ]);
+  z.ZodMiniType<Oauth2AuthorizeResponseOauth2Authorize, unknown> =
+    discriminatedUnion("sub_type", {
+      user: AuthorizeResponseUser$inboundSchema,
+      organization: AuthorizeResponseOrganization$inboundSchema,
+    }, { outputPropertyName: "subType" });
 
 export function oauth2AuthorizeResponseOauth2AuthorizeFromJSON(
   jsonString: string,

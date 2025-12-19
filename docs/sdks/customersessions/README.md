@@ -1,5 +1,4 @@
 # CustomerSessions
-(*customerSessions*)
 
 ## Overview
 

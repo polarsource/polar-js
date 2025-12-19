@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGrantLicenseKeysProperties,
@@ -36,6 +37,7 @@ export type CustomerBenefitGrantLicenseKeys = {
   grantedAt: Date | null;
   revokedAt: Date | null;
   customerId: string;
+  memberId?: string | null | undefined;
   benefitId: string;
   subscriptionId: string | null;
   orderId: string | null;
@@ -52,26 +54,18 @@ export const CustomerBenefitGrantLicenseKeys$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    granted_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    revoked_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    customer_id: z.string(),
-    benefit_id: z.string(),
-    subscription_id: z.nullable(z.string()),
-    order_id: z.nullable(z.string()),
-    is_granted: z.boolean(),
-    is_revoked: z.boolean(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    granted_at: types.nullable(types.date()),
+    revoked_at: types.nullable(types.date()),
+    customer_id: types.string(),
+    member_id: z.optional(z.nullable(types.string())),
+    benefit_id: types.string(),
+    subscription_id: types.nullable(types.string()),
+    order_id: types.nullable(types.string()),
+    is_granted: types.boolean(),
+    is_revoked: types.boolean(),
     customer: CustomerPortalCustomer$inboundSchema,
     benefit: BenefitLicenseKeysSubscriber$inboundSchema,
     properties: BenefitGrantLicenseKeysProperties$inboundSchema,
@@ -83,6 +77,7 @@ export const CustomerBenefitGrantLicenseKeys$inboundSchema: z.ZodMiniType<
       "granted_at": "grantedAt",
       "revoked_at": "revokedAt",
       "customer_id": "customerId",
+      "member_id": "memberId",
       "benefit_id": "benefitId",
       "subscription_id": "subscriptionId",
       "order_id": "orderId",

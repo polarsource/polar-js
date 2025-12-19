@@ -123,6 +123,8 @@ async function $do(
       "metadata": payload.metadata,
     }),
     encodeFormQuery({
+      "exclude_id": payload.exclude_id,
+      "id": payload.id,
       "limit": payload.limit,
       "organization_id": payload.organization_id,
       "page": payload.page,

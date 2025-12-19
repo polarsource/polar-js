@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
@@ -16,12 +17,10 @@ import {
   DiscountProduct$inboundSchema,
 } from "./discountproduct.js";
 import { DiscountType, DiscountType$inboundSchema } from "./discounttype.js";
-
-export type DiscountFixedOnceForeverDurationMetadata =
-  | string
-  | number
-  | number
-  | boolean;
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+} from "./metadataoutputtype.js";
 
 /**
  * Schema for a fixed amount discount that is applied once or forever.
@@ -43,7 +42,7 @@ export type DiscountFixedOnceForeverDuration = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * Name of the discount. Will be displayed to the customer when the discount is applied.
    */
@@ -76,31 +75,6 @@ export type DiscountFixedOnceForeverDuration = {
 };
 
 /** @internal */
-export const DiscountFixedOnceForeverDurationMetadata$inboundSchema:
-  z.ZodMiniType<DiscountFixedOnceForeverDurationMetadata, unknown> = z.union([
-    z.string(),
-    z.int(),
-    z.number(),
-    z.boolean(),
-  ]);
-
-export function discountFixedOnceForeverDurationMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DiscountFixedOnceForeverDurationMetadata,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DiscountFixedOnceForeverDurationMetadata$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DiscountFixedOnceForeverDurationMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const DiscountFixedOnceForeverDuration$inboundSchema: z.ZodMiniType<
   DiscountFixedOnceForeverDuration,
   unknown
@@ -108,31 +82,19 @@ export const DiscountFixedOnceForeverDuration$inboundSchema: z.ZodMiniType<
   z.object({
     duration: DiscountDuration$inboundSchema,
     type: DiscountType$inboundSchema,
-    amount: z.int(),
-    currency: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
-    name: z.string(),
-    code: z.nullable(z.string()),
-    starts_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    ends_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    max_redemptions: z.nullable(z.int()),
-    redemptions_count: z.int(),
-    organization_id: z.string(),
+    amount: types.number(),
+    currency: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+    name: types.string(),
+    code: types.nullable(types.string()),
+    starts_at: types.nullable(types.date()),
+    ends_at: types.nullable(types.date()),
+    max_redemptions: types.nullable(types.number()),
+    redemptions_count: types.number(),
+    organization_id: types.string(),
     products: z.array(DiscountProduct$inboundSchema),
   }),
   z.transform((v) => {

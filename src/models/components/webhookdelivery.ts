@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { WebhookEvent, WebhookEvent$inboundSchema } from "./webhookevent.js";
 
@@ -57,17 +58,12 @@ export const WebhookDelivery$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    succeeded: z.boolean(),
-    http_code: z.nullable(z.int()),
-    response: z.nullable(z.string()),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    succeeded: types.boolean(),
+    http_code: types.nullable(types.number()),
+    response: types.nullable(types.string()),
     webhook_event: WebhookEvent$inboundSchema,
   }),
   z.transform((v) => {

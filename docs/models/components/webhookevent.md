@@ -19,7 +19,7 @@ let value: WebhookEvent = {
   id: "<value>",
   skipped: false,
   payload: "<value>",
-  type: "order.updated",
+  type: "order.paid",
   isArchived: false,
 };
 ```

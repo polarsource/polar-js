@@ -8,8 +8,8 @@ import { ListResourceWebhookEndpoint } from "@polar-sh/sdk/models/components/lis
 let value: ListResourceWebhookEndpoint = {
   items: [],
   pagination: {
-    totalCount: 279990,
-    maxPage: 718643,
+    totalCount: 296266,
+    maxPage: 544155,
   },
 };
 ```

@@ -13,7 +13,7 @@ import { EventsIngestResponse } from "../models/components/eventsingestresponse.
 import { EventsGetRequest } from "../models/operations/eventsget.js";
 import {
   EventsListRequest,
-  EventsListResponse,
+  EventsListResponseEventsList,
 } from "../models/operations/eventslist.js";
 import {
   EventsListNamesRequest,
@@ -34,8 +34,8 @@ export class Events extends ClientSDK {
   async list(
     request: EventsListRequest,
     options?: RequestOptions,
-  ): Promise<PageIterator<EventsListResponse, { page: number }>> {
-    return unwrapResultIterator(eventsList(
+  ): Promise<EventsListResponseEventsList> {
+    return unwrapAsync(eventsList(
       this,
       request,
       options,

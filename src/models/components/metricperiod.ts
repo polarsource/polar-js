@@ -6,6 +6,8 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Orders = number | number;
@@ -52,6 +54,8 @@ export type RenewedSubscriptionsNetRevenue = number | number;
 
 export type ActiveSubscriptions = number | number;
 
+export type CommittedSubscriptions = number | number;
+
 export type MonthlyRecurringRevenue = number | number;
 
 export type CommittedMonthlyRecurringRevenue = number | number;
@@ -80,6 +84,12 @@ export type CanceledSubscriptionsUnused = number | number;
 
 export type CanceledSubscriptionsOther = number | number;
 
+export type ChurnedSubscriptions = number | number;
+
+export type ChurnRate = number | number;
+
+export type Ltv = number | number;
+
 export type GrossMargin = number | number;
 
 export type GrossMarginPercentage = number | number;
@@ -91,51 +101,55 @@ export type MetricPeriod = {
    * Timestamp of this period data.
    */
   timestamp: Date;
-  orders: number | number;
-  revenue: number | number;
-  netRevenue: number | number;
-  cumulativeRevenue: number | number;
-  netCumulativeRevenue: number | number;
-  costs: number | number;
-  cumulativeCosts: number | number;
-  averageOrderValue: number | number;
-  netAverageOrderValue: number | number;
-  averageRevenuePerUser: number | number;
-  costPerUser: number | number;
-  activeUserByEvent: number | number;
-  oneTimeProducts: number | number;
-  oneTimeProductsRevenue: number | number;
-  oneTimeProductsNetRevenue: number | number;
-  newSubscriptions: number | number;
-  newSubscriptionsRevenue: number | number;
-  newSubscriptionsNetRevenue: number | number;
-  renewedSubscriptions: number | number;
-  renewedSubscriptionsRevenue: number | number;
-  renewedSubscriptionsNetRevenue: number | number;
-  activeSubscriptions: number | number;
-  monthlyRecurringRevenue: number | number;
-  committedMonthlyRecurringRevenue: number | number;
-  checkouts: number | number;
-  succeededCheckouts: number | number;
-  checkoutsConversion: number | number;
-  canceledSubscriptions: number | number;
-  canceledSubscriptionsCustomerService: number | number;
-  canceledSubscriptionsLowQuality: number | number;
-  canceledSubscriptionsMissingFeatures: number | number;
-  canceledSubscriptionsSwitchedService: number | number;
-  canceledSubscriptionsTooComplex: number | number;
-  canceledSubscriptionsTooExpensive: number | number;
-  canceledSubscriptionsUnused: number | number;
-  canceledSubscriptionsOther: number | number;
-  grossMargin: number | number;
-  grossMarginPercentage: number | number;
-  cashflow: number | number;
+  orders?: number | number | null | undefined;
+  revenue?: number | number | null | undefined;
+  netRevenue?: number | number | null | undefined;
+  cumulativeRevenue?: number | number | null | undefined;
+  netCumulativeRevenue?: number | number | null | undefined;
+  costs?: number | number | null | undefined;
+  cumulativeCosts?: number | number | null | undefined;
+  averageOrderValue?: number | number | null | undefined;
+  netAverageOrderValue?: number | number | null | undefined;
+  averageRevenuePerUser?: number | number | null | undefined;
+  costPerUser?: number | number | null | undefined;
+  activeUserByEvent?: number | number | null | undefined;
+  oneTimeProducts?: number | number | null | undefined;
+  oneTimeProductsRevenue?: number | number | null | undefined;
+  oneTimeProductsNetRevenue?: number | number | null | undefined;
+  newSubscriptions?: number | number | null | undefined;
+  newSubscriptionsRevenue?: number | number | null | undefined;
+  newSubscriptionsNetRevenue?: number | number | null | undefined;
+  renewedSubscriptions?: number | number | null | undefined;
+  renewedSubscriptionsRevenue?: number | number | null | undefined;
+  renewedSubscriptionsNetRevenue?: number | number | null | undefined;
+  activeSubscriptions?: number | number | null | undefined;
+  committedSubscriptions?: number | number | null | undefined;
+  monthlyRecurringRevenue?: number | number | null | undefined;
+  committedMonthlyRecurringRevenue?: number | number | null | undefined;
+  checkouts?: number | number | null | undefined;
+  succeededCheckouts?: number | number | null | undefined;
+  checkoutsConversion?: number | number | null | undefined;
+  canceledSubscriptions?: number | number | null | undefined;
+  canceledSubscriptionsCustomerService?: number | number | null | undefined;
+  canceledSubscriptionsLowQuality?: number | number | null | undefined;
+  canceledSubscriptionsMissingFeatures?: number | number | null | undefined;
+  canceledSubscriptionsSwitchedService?: number | number | null | undefined;
+  canceledSubscriptionsTooComplex?: number | number | null | undefined;
+  canceledSubscriptionsTooExpensive?: number | number | null | undefined;
+  canceledSubscriptionsUnused?: number | number | null | undefined;
+  canceledSubscriptionsOther?: number | number | null | undefined;
+  churnedSubscriptions?: number | number | null | undefined;
+  churnRate?: number | number | null | undefined;
+  ltv?: number | number | null | undefined;
+  grossMargin?: number | number | null | undefined;
+  grossMarginPercentage?: number | number | null | undefined;
+  cashflow?: number | number | null | undefined;
 };
 
 /** @internal */
-export const Orders$inboundSchema: z.ZodMiniType<Orders, unknown> = z.union([
-  z.int(),
-  z.number(),
+export const Orders$inboundSchema: z.ZodMiniType<Orders, unknown> = smartUnion([
+  types.number(),
+  types.number(),
 ]);
 
 export function ordersFromJSON(
@@ -149,10 +163,8 @@ export function ordersFromJSON(
 }
 
 /** @internal */
-export const Revenue$inboundSchema: z.ZodMiniType<Revenue, unknown> = z.union([
-  z.int(),
-  z.number(),
-]);
+export const Revenue$inboundSchema: z.ZodMiniType<Revenue, unknown> =
+  smartUnion([types.number(), types.number()]);
 
 export function revenueFromJSON(
   jsonString: string,
@@ -165,8 +177,8 @@ export function revenueFromJSON(
 }
 
 /** @internal */
-export const NetRevenue$inboundSchema: z.ZodMiniType<NetRevenue, unknown> = z
-  .union([z.int(), z.number()]);
+export const NetRevenue$inboundSchema: z.ZodMiniType<NetRevenue, unknown> =
+  smartUnion([types.number(), types.number()]);
 
 export function netRevenueFromJSON(
   jsonString: string,
@@ -182,7 +194,7 @@ export function netRevenueFromJSON(
 export const CumulativeRevenue$inboundSchema: z.ZodMiniType<
   CumulativeRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function cumulativeRevenueFromJSON(
   jsonString: string,
@@ -198,7 +210,7 @@ export function cumulativeRevenueFromJSON(
 export const NetCumulativeRevenue$inboundSchema: z.ZodMiniType<
   NetCumulativeRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function netCumulativeRevenueFromJSON(
   jsonString: string,
@@ -211,9 +223,9 @@ export function netCumulativeRevenueFromJSON(
 }
 
 /** @internal */
-export const Costs$inboundSchema: z.ZodMiniType<Costs, unknown> = z.union([
-  z.int(),
-  z.number(),
+export const Costs$inboundSchema: z.ZodMiniType<Costs, unknown> = smartUnion([
+  types.number(),
+  types.number(),
 ]);
 
 export function costsFromJSON(
@@ -230,7 +242,7 @@ export function costsFromJSON(
 export const CumulativeCosts$inboundSchema: z.ZodMiniType<
   CumulativeCosts,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function cumulativeCostsFromJSON(
   jsonString: string,
@@ -246,7 +258,7 @@ export function cumulativeCostsFromJSON(
 export const AverageOrderValue$inboundSchema: z.ZodMiniType<
   AverageOrderValue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function averageOrderValueFromJSON(
   jsonString: string,
@@ -262,7 +274,7 @@ export function averageOrderValueFromJSON(
 export const NetAverageOrderValue$inboundSchema: z.ZodMiniType<
   NetAverageOrderValue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function netAverageOrderValueFromJSON(
   jsonString: string,
@@ -278,7 +290,7 @@ export function netAverageOrderValueFromJSON(
 export const AverageRevenuePerUser$inboundSchema: z.ZodMiniType<
   AverageRevenuePerUser,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function averageRevenuePerUserFromJSON(
   jsonString: string,
@@ -291,8 +303,8 @@ export function averageRevenuePerUserFromJSON(
 }
 
 /** @internal */
-export const CostPerUser$inboundSchema: z.ZodMiniType<CostPerUser, unknown> = z
-  .union([z.int(), z.number()]);
+export const CostPerUser$inboundSchema: z.ZodMiniType<CostPerUser, unknown> =
+  smartUnion([types.number(), types.number()]);
 
 export function costPerUserFromJSON(
   jsonString: string,
@@ -308,7 +320,7 @@ export function costPerUserFromJSON(
 export const ActiveUserByEvent$inboundSchema: z.ZodMiniType<
   ActiveUserByEvent,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function activeUserByEventFromJSON(
   jsonString: string,
@@ -324,7 +336,7 @@ export function activeUserByEventFromJSON(
 export const OneTimeProducts$inboundSchema: z.ZodMiniType<
   OneTimeProducts,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function oneTimeProductsFromJSON(
   jsonString: string,
@@ -340,7 +352,7 @@ export function oneTimeProductsFromJSON(
 export const OneTimeProductsRevenue$inboundSchema: z.ZodMiniType<
   OneTimeProductsRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function oneTimeProductsRevenueFromJSON(
   jsonString: string,
@@ -356,7 +368,7 @@ export function oneTimeProductsRevenueFromJSON(
 export const OneTimeProductsNetRevenue$inboundSchema: z.ZodMiniType<
   OneTimeProductsNetRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function oneTimeProductsNetRevenueFromJSON(
   jsonString: string,
@@ -372,7 +384,7 @@ export function oneTimeProductsNetRevenueFromJSON(
 export const NewSubscriptions$inboundSchema: z.ZodMiniType<
   NewSubscriptions,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function newSubscriptionsFromJSON(
   jsonString: string,
@@ -388,7 +400,7 @@ export function newSubscriptionsFromJSON(
 export const NewSubscriptionsRevenue$inboundSchema: z.ZodMiniType<
   NewSubscriptionsRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function newSubscriptionsRevenueFromJSON(
   jsonString: string,
@@ -404,7 +416,7 @@ export function newSubscriptionsRevenueFromJSON(
 export const NewSubscriptionsNetRevenue$inboundSchema: z.ZodMiniType<
   NewSubscriptionsNetRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function newSubscriptionsNetRevenueFromJSON(
   jsonString: string,
@@ -420,7 +432,7 @@ export function newSubscriptionsNetRevenueFromJSON(
 export const RenewedSubscriptions$inboundSchema: z.ZodMiniType<
   RenewedSubscriptions,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function renewedSubscriptionsFromJSON(
   jsonString: string,
@@ -436,7 +448,7 @@ export function renewedSubscriptionsFromJSON(
 export const RenewedSubscriptionsRevenue$inboundSchema: z.ZodMiniType<
   RenewedSubscriptionsRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function renewedSubscriptionsRevenueFromJSON(
   jsonString: string,
@@ -452,7 +464,7 @@ export function renewedSubscriptionsRevenueFromJSON(
 export const RenewedSubscriptionsNetRevenue$inboundSchema: z.ZodMiniType<
   RenewedSubscriptionsNetRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function renewedSubscriptionsNetRevenueFromJSON(
   jsonString: string,
@@ -468,7 +480,7 @@ export function renewedSubscriptionsNetRevenueFromJSON(
 export const ActiveSubscriptions$inboundSchema: z.ZodMiniType<
   ActiveSubscriptions,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function activeSubscriptionsFromJSON(
   jsonString: string,
@@ -481,10 +493,26 @@ export function activeSubscriptionsFromJSON(
 }
 
 /** @internal */
+export const CommittedSubscriptions$inboundSchema: z.ZodMiniType<
+  CommittedSubscriptions,
+  unknown
+> = smartUnion([types.number(), types.number()]);
+
+export function committedSubscriptionsFromJSON(
+  jsonString: string,
+): SafeParseResult<CommittedSubscriptions, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CommittedSubscriptions$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CommittedSubscriptions' from JSON`,
+  );
+}
+
+/** @internal */
 export const MonthlyRecurringRevenue$inboundSchema: z.ZodMiniType<
   MonthlyRecurringRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function monthlyRecurringRevenueFromJSON(
   jsonString: string,
@@ -500,7 +528,7 @@ export function monthlyRecurringRevenueFromJSON(
 export const CommittedMonthlyRecurringRevenue$inboundSchema: z.ZodMiniType<
   CommittedMonthlyRecurringRevenue,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function committedMonthlyRecurringRevenueFromJSON(
   jsonString: string,
@@ -513,8 +541,8 @@ export function committedMonthlyRecurringRevenueFromJSON(
 }
 
 /** @internal */
-export const Checkouts$inboundSchema: z.ZodMiniType<Checkouts, unknown> = z
-  .union([z.int(), z.number()]);
+export const Checkouts$inboundSchema: z.ZodMiniType<Checkouts, unknown> =
+  smartUnion([types.number(), types.number()]);
 
 export function checkoutsFromJSON(
   jsonString: string,
@@ -530,7 +558,7 @@ export function checkoutsFromJSON(
 export const SucceededCheckouts$inboundSchema: z.ZodMiniType<
   SucceededCheckouts,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function succeededCheckoutsFromJSON(
   jsonString: string,
@@ -546,7 +574,7 @@ export function succeededCheckoutsFromJSON(
 export const CheckoutsConversion$inboundSchema: z.ZodMiniType<
   CheckoutsConversion,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function checkoutsConversionFromJSON(
   jsonString: string,
@@ -562,7 +590,7 @@ export function checkoutsConversionFromJSON(
 export const CanceledSubscriptions$inboundSchema: z.ZodMiniType<
   CanceledSubscriptions,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function canceledSubscriptionsFromJSON(
   jsonString: string,
@@ -578,7 +606,7 @@ export function canceledSubscriptionsFromJSON(
 export const CanceledSubscriptionsCustomerService$inboundSchema: z.ZodMiniType<
   CanceledSubscriptionsCustomerService,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function canceledSubscriptionsCustomerServiceFromJSON(
   jsonString: string,
@@ -595,7 +623,7 @@ export function canceledSubscriptionsCustomerServiceFromJSON(
 export const CanceledSubscriptionsLowQuality$inboundSchema: z.ZodMiniType<
   CanceledSubscriptionsLowQuality,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function canceledSubscriptionsLowQualityFromJSON(
   jsonString: string,
@@ -611,7 +639,7 @@ export function canceledSubscriptionsLowQualityFromJSON(
 export const CanceledSubscriptionsMissingFeatures$inboundSchema: z.ZodMiniType<
   CanceledSubscriptionsMissingFeatures,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function canceledSubscriptionsMissingFeaturesFromJSON(
   jsonString: string,
@@ -628,7 +656,7 @@ export function canceledSubscriptionsMissingFeaturesFromJSON(
 export const CanceledSubscriptionsSwitchedService$inboundSchema: z.ZodMiniType<
   CanceledSubscriptionsSwitchedService,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function canceledSubscriptionsSwitchedServiceFromJSON(
   jsonString: string,
@@ -645,7 +673,7 @@ export function canceledSubscriptionsSwitchedServiceFromJSON(
 export const CanceledSubscriptionsTooComplex$inboundSchema: z.ZodMiniType<
   CanceledSubscriptionsTooComplex,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function canceledSubscriptionsTooComplexFromJSON(
   jsonString: string,
@@ -661,7 +689,7 @@ export function canceledSubscriptionsTooComplexFromJSON(
 export const CanceledSubscriptionsTooExpensive$inboundSchema: z.ZodMiniType<
   CanceledSubscriptionsTooExpensive,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function canceledSubscriptionsTooExpensiveFromJSON(
   jsonString: string,
@@ -677,7 +705,7 @@ export function canceledSubscriptionsTooExpensiveFromJSON(
 export const CanceledSubscriptionsUnused$inboundSchema: z.ZodMiniType<
   CanceledSubscriptionsUnused,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function canceledSubscriptionsUnusedFromJSON(
   jsonString: string,
@@ -693,7 +721,7 @@ export function canceledSubscriptionsUnusedFromJSON(
 export const CanceledSubscriptionsOther$inboundSchema: z.ZodMiniType<
   CanceledSubscriptionsOther,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function canceledSubscriptionsOtherFromJSON(
   jsonString: string,
@@ -706,8 +734,54 @@ export function canceledSubscriptionsOtherFromJSON(
 }
 
 /** @internal */
-export const GrossMargin$inboundSchema: z.ZodMiniType<GrossMargin, unknown> = z
-  .union([z.int(), z.number()]);
+export const ChurnedSubscriptions$inboundSchema: z.ZodMiniType<
+  ChurnedSubscriptions,
+  unknown
+> = smartUnion([types.number(), types.number()]);
+
+export function churnedSubscriptionsFromJSON(
+  jsonString: string,
+): SafeParseResult<ChurnedSubscriptions, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ChurnedSubscriptions$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ChurnedSubscriptions' from JSON`,
+  );
+}
+
+/** @internal */
+export const ChurnRate$inboundSchema: z.ZodMiniType<ChurnRate, unknown> =
+  smartUnion([types.number(), types.number()]);
+
+export function churnRateFromJSON(
+  jsonString: string,
+): SafeParseResult<ChurnRate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ChurnRate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ChurnRate' from JSON`,
+  );
+}
+
+/** @internal */
+export const Ltv$inboundSchema: z.ZodMiniType<Ltv, unknown> = smartUnion([
+  types.number(),
+  types.number(),
+]);
+
+export function ltvFromJSON(
+  jsonString: string,
+): SafeParseResult<Ltv, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Ltv$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Ltv' from JSON`,
+  );
+}
+
+/** @internal */
+export const GrossMargin$inboundSchema: z.ZodMiniType<GrossMargin, unknown> =
+  smartUnion([types.number(), types.number()]);
 
 export function grossMarginFromJSON(
   jsonString: string,
@@ -723,7 +797,7 @@ export function grossMarginFromJSON(
 export const GrossMarginPercentage$inboundSchema: z.ZodMiniType<
   GrossMarginPercentage,
   unknown
-> = z.union([z.int(), z.number()]);
+> = smartUnion([types.number(), types.number()]);
 
 export function grossMarginPercentageFromJSON(
   jsonString: string,
@@ -736,9 +810,8 @@ export function grossMarginPercentageFromJSON(
 }
 
 /** @internal */
-export const Cashflow$inboundSchema: z.ZodMiniType<Cashflow, unknown> = z.union(
-  [z.int(), z.number()],
-);
+export const Cashflow$inboundSchema: z.ZodMiniType<Cashflow, unknown> =
+  smartUnion([types.number(), types.number()]);
 
 export function cashflowFromJSON(
   jsonString: string,
@@ -754,49 +827,134 @@ export function cashflowFromJSON(
 export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
   z.pipe(
     z.object({
-      timestamp: z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
+      timestamp: types.date(),
+      orders: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
       ),
-      orders: z.union([z.int(), z.number()]),
-      revenue: z.union([z.int(), z.number()]),
-      net_revenue: z.union([z.int(), z.number()]),
-      cumulative_revenue: z.union([z.int(), z.number()]),
-      net_cumulative_revenue: z.union([z.int(), z.number()]),
-      costs: z.union([z.int(), z.number()]),
-      cumulative_costs: z.union([z.int(), z.number()]),
-      average_order_value: z.union([z.int(), z.number()]),
-      net_average_order_value: z.union([z.int(), z.number()]),
-      average_revenue_per_user: z.union([z.int(), z.number()]),
-      cost_per_user: z.union([z.int(), z.number()]),
-      active_user_by_event: z.union([z.int(), z.number()]),
-      one_time_products: z.union([z.int(), z.number()]),
-      one_time_products_revenue: z.union([z.int(), z.number()]),
-      one_time_products_net_revenue: z.union([z.int(), z.number()]),
-      new_subscriptions: z.union([z.int(), z.number()]),
-      new_subscriptions_revenue: z.union([z.int(), z.number()]),
-      new_subscriptions_net_revenue: z.union([z.int(), z.number()]),
-      renewed_subscriptions: z.union([z.int(), z.number()]),
-      renewed_subscriptions_revenue: z.union([z.int(), z.number()]),
-      renewed_subscriptions_net_revenue: z.union([z.int(), z.number()]),
-      active_subscriptions: z.union([z.int(), z.number()]),
-      monthly_recurring_revenue: z.union([z.int(), z.number()]),
-      committed_monthly_recurring_revenue: z.union([z.int(), z.number()]),
-      checkouts: z.union([z.int(), z.number()]),
-      succeeded_checkouts: z.union([z.int(), z.number()]),
-      checkouts_conversion: z.union([z.int(), z.number()]),
-      canceled_subscriptions: z.union([z.int(), z.number()]),
-      canceled_subscriptions_customer_service: z.union([z.int(), z.number()]),
-      canceled_subscriptions_low_quality: z.union([z.int(), z.number()]),
-      canceled_subscriptions_missing_features: z.union([z.int(), z.number()]),
-      canceled_subscriptions_switched_service: z.union([z.int(), z.number()]),
-      canceled_subscriptions_too_complex: z.union([z.int(), z.number()]),
-      canceled_subscriptions_too_expensive: z.union([z.int(), z.number()]),
-      canceled_subscriptions_unused: z.union([z.int(), z.number()]),
-      canceled_subscriptions_other: z.union([z.int(), z.number()]),
-      gross_margin: z.union([z.int(), z.number()]),
-      gross_margin_percentage: z.union([z.int(), z.number()]),
-      cashflow: z.union([z.int(), z.number()]),
+      revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      net_revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      cumulative_revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      net_cumulative_revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      costs: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      cumulative_costs: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      average_order_value: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      net_average_order_value: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      average_revenue_per_user: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      cost_per_user: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      active_user_by_event: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      one_time_products: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      one_time_products_revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      one_time_products_net_revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      new_subscriptions: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      new_subscriptions_revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      new_subscriptions_net_revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      renewed_subscriptions: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      renewed_subscriptions_revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      renewed_subscriptions_net_revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      active_subscriptions: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      committed_subscriptions: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      monthly_recurring_revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      committed_monthly_recurring_revenue: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      checkouts: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      succeeded_checkouts: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      checkouts_conversion: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      canceled_subscriptions: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      canceled_subscriptions_customer_service: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      canceled_subscriptions_low_quality: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      canceled_subscriptions_missing_features: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      canceled_subscriptions_switched_service: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      canceled_subscriptions_too_complex: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      canceled_subscriptions_too_expensive: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      canceled_subscriptions_unused: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      canceled_subscriptions_other: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      churned_subscriptions: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      churn_rate: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      ltv: z.optional(z.nullable(smartUnion([types.number(), types.number()]))),
+      gross_margin: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      gross_margin_percentage: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
+      cashflow: z.optional(
+        z.nullable(smartUnion([types.number(), types.number()])),
+      ),
     }),
     z.transform((v) => {
       return remap$(v, {
@@ -819,6 +977,7 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
         "renewed_subscriptions_revenue": "renewedSubscriptionsRevenue",
         "renewed_subscriptions_net_revenue": "renewedSubscriptionsNetRevenue",
         "active_subscriptions": "activeSubscriptions",
+        "committed_subscriptions": "committedSubscriptions",
         "monthly_recurring_revenue": "monthlyRecurringRevenue",
         "committed_monthly_recurring_revenue":
           "committedMonthlyRecurringRevenue",
@@ -837,6 +996,8 @@ export const MetricPeriod$inboundSchema: z.ZodMiniType<MetricPeriod, unknown> =
           "canceledSubscriptionsTooExpensive",
         "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
         "canceled_subscriptions_other": "canceledSubscriptionsOther",
+        "churned_subscriptions": "churnedSubscriptions",
+        "churn_rate": "churnRate",
         "gross_margin": "grossMargin",
         "gross_margin_percentage": "grossMarginPercentage",
       });

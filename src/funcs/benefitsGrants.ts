@@ -133,6 +133,7 @@ async function $do(
     "customer_id": payload.customer_id,
     "is_granted": payload.is_granted,
     "limit": payload.limit,
+    "member_id": payload.member_id,
     "page": payload.page,
   });
 

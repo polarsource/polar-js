@@ -5,6 +5,8 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   DownloadableFileRead,
@@ -37,9 +39,10 @@ export type FilesUploadedRequest = {
  * File upload completed.
  */
 export type FilesUploadedResponseFilesUploaded =
-  | (ProductMediaFileRead & { service: "product_media" })
-  | (OrganizationAvatarFileRead & { service: "organization_avatar" })
-  | (DownloadableFileRead & { service: "downloadable" });
+  | DownloadableFileRead
+  | ProductMediaFileRead
+  | OrganizationAvatarFileRead
+  | discriminatedUnionTypes.Unknown<"service">;
 
 /** @internal */
 export type FilesUploadedRequest$Outbound = {
@@ -75,20 +78,11 @@ export function filesUploadedRequestToJSON(
 export const FilesUploadedResponseFilesUploaded$inboundSchema: z.ZodMiniType<
   FilesUploadedResponseFilesUploaded,
   unknown
-> = z.union([
-  z.intersection(
-    ProductMediaFileRead$inboundSchema,
-    z.object({ service: z.literal("product_media") }),
-  ),
-  z.intersection(
-    OrganizationAvatarFileRead$inboundSchema,
-    z.object({ service: z.literal("organization_avatar") }),
-  ),
-  z.intersection(
-    DownloadableFileRead$inboundSchema,
-    z.object({ service: z.literal("downloadable") }),
-  ),
-]);
+> = discriminatedUnion("service", {
+  downloadable: DownloadableFileRead$inboundSchema,
+  product_media: ProductMediaFileRead$inboundSchema,
+  organization_avatar: OrganizationAvatarFileRead$inboundSchema,
+});
 
 export function filesUploadedResponseFilesUploadedFromJSON(
   jsonString: string,

@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Order,
@@ -25,7 +26,8 @@ import {
  * * A subscription is renewed. In this case, `billing_reason` is set to `subscription_cycle`.
  * * A subscription is upgraded or downgraded with an immediate proration invoice. In this case, `billing_reason` is set to `subscription_update`.
  *
- * <Warning>The order might not be paid yet, so the `status` field might be `pending`.</Warning>
+ * > [!WARNING]
+ * > The order might not be paid yet, so the `status` field might be `pending`.
  *
  * **Discord & Slack support:** Full
  */
@@ -40,11 +42,8 @@ export const WebhookOrderCreatedPayload$inboundSchema: z.ZodMiniType<
   WebhookOrderCreatedPayload,
   unknown
 > = z.object({
-  type: z.literal("order.created"),
-  timestamp: z.pipe(
-    z.iso.datetime({ offset: true }),
-    z.transform(v => new Date(v)),
-  ),
+  type: types.literal("order.created"),
+  timestamp: types.date(),
   data: Order$inboundSchema,
 });
 /** @internal */

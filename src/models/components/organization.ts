@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   OrganizationCustomerEmailSettings,
@@ -13,6 +14,12 @@ import {
   OrganizationCustomerEmailSettings$Outbound,
   OrganizationCustomerEmailSettings$outboundSchema,
 } from "./organizationcustomeremailsettings.js";
+import {
+  OrganizationCustomerPortalSettings,
+  OrganizationCustomerPortalSettings$inboundSchema,
+  OrganizationCustomerPortalSettings$Outbound,
+  OrganizationCustomerPortalSettings$outboundSchema,
+} from "./organizationcustomerportalsettings.js";
 import {
   OrganizationFeatureSettings,
   OrganizationFeatureSettings$inboundSchema,
@@ -102,36 +109,34 @@ export type Organization = {
   subscriptionSettings: OrganizationSubscriptionSettings;
   notificationSettings: OrganizationNotificationSettings;
   customerEmailSettings: OrganizationCustomerEmailSettings;
+  customerPortalSettings: OrganizationCustomerPortalSettings;
 };
 
 /** @internal */
 export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
   z.pipe(
     z.object({
-      created_at: z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      ),
-      modified_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      id: z.string(),
-      name: z.string(),
-      slug: z.string(),
-      avatar_url: z.nullable(z.string()),
+      created_at: types.date(),
+      modified_at: types.nullable(types.date()),
+      id: types.string(),
+      name: types.string(),
+      slug: types.string(),
+      avatar_url: types.nullable(types.string()),
       proration_behavior: SubscriptionProrationBehavior$inboundSchema,
-      allow_customer_updates: z.boolean(),
-      email: z.nullable(z.string()),
-      website: z.nullable(z.string()),
+      allow_customer_updates: types.boolean(),
+      email: types.nullable(types.string()),
+      website: types.nullable(types.string()),
       socials: z.array(OrganizationSocialLink$inboundSchema),
       status: OrganizationStatus$inboundSchema,
-      details_submitted_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+      details_submitted_at: types.nullable(types.date()),
+      feature_settings: types.nullable(
+        OrganizationFeatureSettings$inboundSchema,
       ),
-      feature_settings: z.nullable(OrganizationFeatureSettings$inboundSchema),
       subscription_settings: OrganizationSubscriptionSettings$inboundSchema,
       notification_settings: OrganizationNotificationSettings$inboundSchema,
       customer_email_settings: OrganizationCustomerEmailSettings$inboundSchema,
+      customer_portal_settings:
+        OrganizationCustomerPortalSettings$inboundSchema,
     }),
     z.transform((v) => {
       return remap$(v, {
@@ -145,6 +150,7 @@ export const Organization$inboundSchema: z.ZodMiniType<Organization, unknown> =
         "subscription_settings": "subscriptionSettings",
         "notification_settings": "notificationSettings",
         "customer_email_settings": "customerEmailSettings",
+        "customer_portal_settings": "customerPortalSettings",
       });
     }),
   );
@@ -167,6 +173,7 @@ export type Organization$Outbound = {
   subscription_settings: OrganizationSubscriptionSettings$Outbound;
   notification_settings: OrganizationNotificationSettings$Outbound;
   customer_email_settings: OrganizationCustomerEmailSettings$Outbound;
+  customer_portal_settings: OrganizationCustomerPortalSettings$Outbound;
 };
 
 /** @internal */
@@ -194,6 +201,7 @@ export const Organization$outboundSchema: z.ZodMiniType<
     subscriptionSettings: OrganizationSubscriptionSettings$outboundSchema,
     notificationSettings: OrganizationNotificationSettings$outboundSchema,
     customerEmailSettings: OrganizationCustomerEmailSettings$outboundSchema,
+    customerPortalSettings: OrganizationCustomerPortalSettings$outboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -207,6 +215,7 @@ export const Organization$outboundSchema: z.ZodMiniType<
       subscriptionSettings: "subscription_settings",
       notificationSettings: "notification_settings",
       customerEmailSettings: "customer_email_settings",
+      customerPortalSettings: "customer_portal_settings",
     });
   }),
 );

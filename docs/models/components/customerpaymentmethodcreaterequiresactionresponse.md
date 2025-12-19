@@ -13,7 +13,7 @@ let value: CustomerPaymentMethodCreateRequiresActionResponse = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `status`           | *string*           | :heavy_check_mark: | N/A                |
-| `clientSecret`     | *string*           | :heavy_check_mark: | N/A                |
+| Field               | Type                | Required            | Description         |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+| `status`            | *"requires_action"* | :heavy_check_mark:  | N/A                 |
+| `clientSecret`      | *string*            | :heavy_check_mark:  | N/A                 |

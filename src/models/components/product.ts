@@ -6,6 +6,8 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AttachedCustomField,
@@ -25,6 +27,12 @@ import {
   LegacyRecurringProductPrice$Outbound,
   LegacyRecurringProductPrice$outboundSchema,
 } from "./legacyrecurringproductprice.js";
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
 import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
@@ -47,8 +55,6 @@ import {
   TrialInterval$inboundSchema,
   TrialInterval$outboundSchema,
 } from "./trialinterval.js";
-
-export type ProductMetadata = string | number | number | boolean;
 
 export type Prices = LegacyRecurringProductPrice | ProductPrice;
 
@@ -104,7 +110,7 @@ export type Product = {
    * The ID of the organization owning the product.
    */
   organizationId: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * List of prices for this product.
    */
@@ -124,36 +130,7 @@ export type Product = {
 };
 
 /** @internal */
-export const ProductMetadata$inboundSchema: z.ZodMiniType<
-  ProductMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type ProductMetadata$Outbound = string | number | number | boolean;
-
-/** @internal */
-export const ProductMetadata$outboundSchema: z.ZodMiniType<
-  ProductMetadata$Outbound,
-  ProductMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function productMetadataToJSON(
-  productMetadata: ProductMetadata,
-): string {
-  return JSON.stringify(ProductMetadata$outboundSchema.parse(productMetadata));
-}
-export function productMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<ProductMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ProductMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ProductMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const Prices$inboundSchema: z.ZodMiniType<Prices, unknown> = z.union([
+export const Prices$inboundSchema: z.ZodMiniType<Prices, unknown> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -163,8 +140,8 @@ export type Prices$Outbound =
   | ProductPrice$Outbound;
 
 /** @internal */
-export const Prices$outboundSchema: z.ZodMiniType<Prices$Outbound, Prices> = z
-  .union([
+export const Prices$outboundSchema: z.ZodMiniType<Prices$Outbound, Prices> =
+  smartUnion([
     LegacyRecurringProductPrice$outboundSchema,
     ProductPrice$outboundSchema,
   ]);
@@ -185,29 +162,23 @@ export function pricesFromJSON(
 /** @internal */
 export const Product$inboundSchema: z.ZodMiniType<Product, unknown> = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    trial_interval: types.nullable(TrialInterval$inboundSchema),
+    trial_interval_count: types.nullable(types.number()),
+    name: types.string(),
+    description: types.nullable(types.string()),
+    recurring_interval: types.nullable(
+      SubscriptionRecurringInterval$inboundSchema,
     ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    trial_interval: z.nullable(TrialInterval$inboundSchema),
-    trial_interval_count: z.nullable(z.int()),
-    name: z.string(),
-    description: z.nullable(z.string()),
-    recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
-    recurring_interval_count: z.nullable(z.int()),
-    is_recurring: z.boolean(),
-    is_archived: z.boolean(),
-    organization_id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    recurring_interval_count: types.nullable(types.number()),
+    is_recurring: types.boolean(),
+    is_archived: types.boolean(),
+    organization_id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     prices: z.array(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),
@@ -245,7 +216,7 @@ export type Product$Outbound = {
   is_recurring: boolean;
   is_archived: boolean;
   organization_id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   prices: Array<LegacyRecurringProductPrice$Outbound | ProductPrice$Outbound>;
   benefits: Array<Benefit$Outbound>;
   medias: Array<ProductMediaFileRead$Outbound>;
@@ -272,12 +243,9 @@ export const Product$outboundSchema: z.ZodMiniType<Product$Outbound, Product> =
       isRecurring: z.boolean(),
       isArchived: z.boolean(),
       organizationId: z.string(),
-      metadata: z.record(
-        z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
-      ),
+      metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
       prices: z.array(
-        z.union([
+        smartUnion([
           LegacyRecurringProductPrice$outboundSchema,
           ProductPrice$outboundSchema,
         ]),

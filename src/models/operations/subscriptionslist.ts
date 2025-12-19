@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceSubscription,
   ListResourceSubscription$inboundSchema,
@@ -104,7 +105,7 @@ export type OrganizationIDFilter$Outbound = string | Array<string>;
 export const OrganizationIDFilter$outboundSchema: z.ZodMiniType<
   OrganizationIDFilter$Outbound,
   OrganizationIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function organizationIDFilterToJSON(
   organizationIDFilter: OrganizationIDFilter,
@@ -121,7 +122,7 @@ export type ProductIDFilter$Outbound = string | Array<string>;
 export const ProductIDFilter$outboundSchema: z.ZodMiniType<
   ProductIDFilter$Outbound,
   ProductIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function productIDFilterToJSON(
   productIDFilter: ProductIDFilter,
@@ -136,7 +137,7 @@ export type CustomerIDFilter$Outbound = string | Array<string>;
 export const CustomerIDFilter$outboundSchema: z.ZodMiniType<
   CustomerIDFilter$Outbound,
   CustomerIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerIDFilterToJSON(
   customerIDFilter: CustomerIDFilter,
@@ -153,7 +154,7 @@ export type ExternalCustomerIDFilter$Outbound = string | Array<string>;
 export const ExternalCustomerIDFilter$outboundSchema: z.ZodMiniType<
   ExternalCustomerIDFilter$Outbound,
   ExternalCustomerIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function externalCustomerIDFilterToJSON(
   externalCustomerIDFilter: ExternalCustomerIDFilter,
@@ -170,7 +171,7 @@ export type DiscountIDFilter$Outbound = string | Array<string>;
 export const DiscountIDFilter$outboundSchema: z.ZodMiniType<
   DiscountIDFilter$Outbound,
   DiscountIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function discountIDFilterToJSON(
   discountIDFilter: DiscountIDFilter,
@@ -202,19 +203,19 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     productId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     externalCustomerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     discountId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     active: z.optional(z.nullable(z.boolean())),
     cancelAtPeriodEnd: z.optional(z.nullable(z.boolean())),
@@ -223,11 +224,10 @@ export const SubscriptionsListRequest$outboundSchema: z.ZodMiniType<
     sorting: z.optional(
       z.nullable(z.array(SubscriptionSortProperty$outboundSchema)),
     ),
-    metadata: z.optional(
-      z.nullable(
-        z.record(z.string(), z.lazy(() => MetadataQuery$outboundSchema)),
-      ),
-    ),
+    metadata: z.optional(z.nullable(z.record(
+      z.string(),
+      z.lazy(() => MetadataQuery$outboundSchema),
+    ))),
   }),
   z.transform((v) => {
     return remap$(v, {

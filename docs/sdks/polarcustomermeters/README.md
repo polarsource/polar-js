@@ -1,5 +1,4 @@
-# PolarCustomerMeters
-(*customerPortal.customerMeters*)
+# CustomerPortal.CustomerMeters
 
 ## Overview
 

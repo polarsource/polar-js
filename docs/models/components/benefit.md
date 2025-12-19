@@ -140,7 +140,7 @@ const value: components.BenefitMeterCredit = {
   organizationId: "<value>",
   metadata: {},
   properties: {
-    units: 298008,
+    units: 76669,
     rollover: false,
     meterId: "<value>",
   },

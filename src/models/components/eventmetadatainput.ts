@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   CostMetadataInput,
   CostMetadataInput$Outbound,
@@ -35,7 +36,7 @@ export type EventMetadataInput$Outbound =
 export const EventMetadataInput$outboundSchema: z.ZodMiniType<
   EventMetadataInput$Outbound,
   EventMetadataInput
-> = z.union([
+> = smartUnion([
   LLMMetadata$outboundSchema,
   CostMetadataInput$outboundSchema,
   z.string(),

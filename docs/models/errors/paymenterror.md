@@ -12,5 +12,5 @@ import { PaymentError } from "@polar-sh/sdk/models/errors/paymenterror.js";
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `error`            | *string*           | :heavy_check_mark: | N/A                | PaymentError       |
+| `error`            | *"PaymentError"*   | :heavy_check_mark: | N/A                | PaymentError       |
 | `detail`           | *string*           | :heavy_check_mark: | N/A                |                    |

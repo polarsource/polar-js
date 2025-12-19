@@ -19,4 +19,3 @@ let value: OrderRefundedMetadata = {
 | `orderId`          | *string*           | :heavy_check_mark: | N/A                |
 | `refundedAmount`   | *number*           | :heavy_check_mark: | N/A                |
 | `currency`         | *string*           | :heavy_check_mark: | N/A                |
-| `backfilled`       | *boolean*          | :heavy_minus_sign: | N/A                |

@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   TrialInterval,
   TrialInterval$outboundSchema,
@@ -84,7 +85,7 @@ export type CheckoutLinkCreateProductsMetadata$Outbound =
 export const CheckoutLinkCreateProductsMetadata$outboundSchema: z.ZodMiniType<
   CheckoutLinkCreateProductsMetadata$Outbound,
   CheckoutLinkCreateProductsMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function checkoutLinkCreateProductsMetadataToJSON(
   checkoutLinkCreateProductsMetadata: CheckoutLinkCreateProductsMetadata,
@@ -119,7 +120,7 @@ export const CheckoutLinkCreateProducts$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     trialInterval: z.optional(z.nullable(TrialInterval$outboundSchema)),

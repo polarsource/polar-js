@@ -32,10 +32,10 @@ let value: Subscription = {
   metadata: {},
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-10-21T10:07:05.567Z"),
-    modifiedAt: new Date("2025-10-06T23:18:15.275Z"),
+    createdAt: new Date("2025-05-06T20:26:26.597Z"),
+    modifiedAt: new Date("2023-10-27T12:38:37.731Z"),
     metadata: {
-      "key": 8022.6,
+      "key": 612623,
     },
     externalId: "usr_1337",
     email: "customer@example.com",
@@ -49,59 +49,48 @@ let value: Subscription = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-25T13:44:27.391Z"),
+    deletedAt: new Date("2023-09-12T22:43:44.126Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   product: {
     id: "<value>",
-    createdAt: new Date("2024-06-29T11:55:37.867Z"),
-    modifiedAt: null,
+    createdAt: new Date("2024-02-04T10:44:12.276Z"),
+    modifiedAt: new Date("2024-01-03T02:01:45.933Z"),
     trialInterval: "week",
-    trialIntervalCount: 279574,
+    trialIntervalCount: 889423,
     name: "<value>",
-    description: "sense busily outside extremely challenge",
-    recurringInterval: "month",
+    description: "joyously biodegrade beside",
+    recurringInterval: "year",
     recurringIntervalCount: null,
-    isRecurring: false,
-    isArchived: true,
+    isRecurring: true,
+    isArchived: false,
     organizationId: "<value>",
     metadata: {
-      "key": 3270.53,
+      "key": 9159.56,
     },
-    prices: [
+    prices: [],
+    benefits: [
       {
-        createdAt: new Date("2024-08-30T00:59:04.800Z"),
-        modifiedAt: new Date("2023-11-19T07:09:34.058Z"),
         id: "<value>",
-        source: "catalog",
-        amountType: "free",
-        isArchived: true,
-        productId: "<value>",
-        type: "recurring",
-        recurringInterval: "day",
-        legacy: true,
-      },
-    ],
-    benefits: [],
-    medias: [],
-    attachedCustomFields: [
-      {
-        customFieldId: "<value>",
-        customField: {
-          createdAt: new Date("2025-03-25T19:23:20.887Z"),
-          modifiedAt: null,
-          id: "<value>",
-          metadata: {},
-          type: "text",
-          slug: "<value>",
-          name: "<value>",
-          organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-          properties: {},
+        createdAt: new Date("2024-11-20T23:12:51.407Z"),
+        modifiedAt: new Date("2023-01-07T14:45:36.833Z"),
+        type: "meter_credit",
+        description: "yowza revoke in heavenly cautious wearily",
+        selectable: false,
+        deletable: false,
+        organizationId: "<value>",
+        metadata: {
+          "key": "<value>",
         },
-        order: 110523,
-        required: true,
+        properties: {
+          units: 76669,
+          rollover: false,
+          meterId: "<value>",
+        },
       },
     ],
+    medias: [],
+    attachedCustomFields: [],
   },
   discount: null,
   prices: [
@@ -130,19 +119,17 @@ let value: Subscription = {
       amount: 0,
       meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
       meter: {
-        metadata: {
-          "key": 1984.38,
-        },
-        createdAt: new Date("2025-02-06T15:53:25.753Z"),
-        modifiedAt: new Date("2023-08-07T08:10:45.405Z"),
+        metadata: {},
+        createdAt: new Date("2025-01-05T19:13:23.632Z"),
+        modifiedAt: new Date("2025-10-09T02:26:38.751Z"),
         id: "<value>",
         name: "<value>",
         filter: {
-          conjunction: "and",
+          conjunction: "or",
           clauses: [],
         },
         aggregation: {
-          func: "avg",
+          func: "unique",
           property: "<value>",
         },
         organizationId: "<value>",
@@ -180,7 +167,7 @@ let value: Subscription = {
 | `seats`                                                                                                                                                                          | *number*                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                               | The number of seats for seat-based subscriptions. None for non-seat subscriptions.                                                                                               |                                                                                                                                                                                  |
 | `customerCancellationReason`                                                                                                                                                     | [components.CustomerCancellationReason](../../models/components/customercancellationreason.md)                                                                                   | :heavy_check_mark:                                                                                                                                                               | N/A                                                                                                                                                                              |                                                                                                                                                                                  |
 | `customerCancellationComment`                                                                                                                                                    | *string*                                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                               | N/A                                                                                                                                                                              |                                                                                                                                                                                  |
-| `metadata`                                                                                                                                                                       | Record<string, *components.Metadata*>                                                                                                                                            | :heavy_check_mark:                                                                                                                                                               | N/A                                                                                                                                                                              |                                                                                                                                                                                  |
+| `metadata`                                                                                                                                                                       | Record<string, *components.MetadataOutputType*>                                                                                                                                  | :heavy_check_mark:                                                                                                                                                               | N/A                                                                                                                                                                              |                                                                                                                                                                                  |
 | `customFieldData`                                                                                                                                                                | Record<string, *components.CustomFieldData*>                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                               | Key-value object storing custom field values.                                                                                                                                    |                                                                                                                                                                                  |
 | `customer`                                                                                                                                                                       | [components.SubscriptionCustomer](../../models/components/subscriptioncustomer.md)                                                                                               | :heavy_check_mark:                                                                                                                                                               | N/A                                                                                                                                                                              |                                                                                                                                                                                  |
 | `product`                                                                                                                                                                        | [components.Product](../../models/components/product.md)                                                                                                                         | :heavy_check_mark:                                                                                                                                                               | A product.                                                                                                                                                                       |                                                                                                                                                                                  |

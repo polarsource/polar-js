@@ -10,6 +10,8 @@ let value: TokenType = "refresh_token";
 
 ## Values
 
+This is an open enum. Unrecognized values will be captured as the `Unrecognized<string>` branded type.
+
 ```typescript
-"access_token" | "refresh_token"
+"access_token" | "refresh_token" | Unrecognized<string>
 ```

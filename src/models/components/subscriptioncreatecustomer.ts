@@ -4,12 +4,9 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 
-export type SubscriptionCreateCustomerMetadata =
-  | string
-  | number
-  | number
-  | boolean;
+export type Metadata = string | number | number | boolean;
 
 /**
  * Create a subscription for an existing customer.
@@ -42,26 +39,16 @@ export type SubscriptionCreateCustomer = {
 };
 
 /** @internal */
-export type SubscriptionCreateCustomerMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
+export type Metadata$Outbound = string | number | number | boolean;
 
 /** @internal */
-export const SubscriptionCreateCustomerMetadata$outboundSchema: z.ZodMiniType<
-  SubscriptionCreateCustomerMetadata$Outbound,
-  SubscriptionCreateCustomerMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+export const Metadata$outboundSchema: z.ZodMiniType<
+  Metadata$Outbound,
+  Metadata
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
-export function subscriptionCreateCustomerMetadataToJSON(
-  subscriptionCreateCustomerMetadata: SubscriptionCreateCustomerMetadata,
-): string {
-  return JSON.stringify(
-    SubscriptionCreateCustomerMetadata$outboundSchema.parse(
-      subscriptionCreateCustomerMetadata,
-    ),
-  );
+export function metadataToJSON(metadata: Metadata): string {
+  return JSON.stringify(Metadata$outboundSchema.parse(metadata));
 }
 
 /** @internal */
@@ -80,7 +67,7 @@ export const SubscriptionCreateCustomer$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     productId: z.string(),

@@ -12,5 +12,5 @@ import { Unauthorized } from "@polar-sh/sdk/models/errors/unauthorized.js";
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `error`            | *string*           | :heavy_check_mark: | N/A                | Unauthorized       |
+| `error`            | *"Unauthorized"*   | :heavy_check_mark: | N/A                | Unauthorized       |
 | `detail`           | *string*           | :heavy_check_mark: | N/A                |                    |

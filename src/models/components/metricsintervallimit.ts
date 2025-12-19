@@ -6,12 +6,17 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Date interval limit to get metrics for a given interval.
  */
 export type MetricsIntervalLimit = {
+  /**
+   * Minimum number of days for this interval.
+   */
+  minDays: number;
   /**
    * Maximum number of days for this interval.
    */
@@ -24,10 +29,12 @@ export const MetricsIntervalLimit$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    max_days: z.int(),
+    min_days: types.number(),
+    max_days: types.number(),
   }),
   z.transform((v) => {
     return remap$(v, {
+      "min_days": "minDays",
       "max_days": "maxDays",
     });
   }),

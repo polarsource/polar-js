@@ -3,20 +3,23 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const LicenseKeyStatus = {
   Granted: "granted",
   Revoked: "revoked",
   Disabled: "disabled",
 } as const;
-export type LicenseKeyStatus = ClosedEnum<typeof LicenseKeyStatus>;
+export type LicenseKeyStatus = OpenEnum<typeof LicenseKeyStatus>;
 
 /** @internal */
-export const LicenseKeyStatus$inboundSchema: z.ZodMiniEnum<
-  typeof LicenseKeyStatus
-> = z.enum(LicenseKeyStatus);
+export const LicenseKeyStatus$inboundSchema: z.ZodMiniType<
+  LicenseKeyStatus,
+  unknown
+> = openEnums.inboundSchema(LicenseKeyStatus);
 /** @internal */
-export const LicenseKeyStatus$outboundSchema: z.ZodMiniEnum<
-  typeof LicenseKeyStatus
-> = LicenseKeyStatus$inboundSchema;
+export const LicenseKeyStatus$outboundSchema: z.ZodMiniType<
+  string,
+  LicenseKeyStatus
+> = openEnums.outboundSchema(LicenseKeyStatus);

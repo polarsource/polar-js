@@ -1,5 +1,4 @@
-# CustomerSession
-(*customerPortal.customerSession*)
+# CustomerPortal.CustomerSession
 
 ## Overview
 

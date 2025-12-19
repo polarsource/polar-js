@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGrantError,
@@ -74,6 +75,10 @@ export type BenefitGrantLicenseKeysWebhook = {
    */
   customerId: string;
   /**
+   * The ID of the member concerned by this grant.
+   */
+  memberId?: string | null | undefined;
+  /**
    * The ID of the benefit concerned by this grant.
    */
   benefitId: string;
@@ -96,32 +101,18 @@ export const BenefitGrantLicenseKeysWebhook$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    granted_at: z.optional(
-      z.nullable(z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      )),
-    ),
-    is_granted: z.boolean(),
-    revoked_at: z.optional(
-      z.nullable(z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      )),
-    ),
-    is_revoked: z.boolean(),
-    subscription_id: z.nullable(z.string()),
-    order_id: z.nullable(z.string()),
-    customer_id: z.string(),
-    benefit_id: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    granted_at: z.optional(z.nullable(types.date())),
+    is_granted: types.boolean(),
+    revoked_at: z.optional(z.nullable(types.date())),
+    is_revoked: types.boolean(),
+    subscription_id: types.nullable(types.string()),
+    order_id: types.nullable(types.string()),
+    customer_id: types.string(),
+    member_id: z.optional(z.nullable(types.string())),
+    benefit_id: types.string(),
     error: z.optional(z.nullable(BenefitGrantError$inboundSchema)),
     customer: Customer$inboundSchema,
     benefit: BenefitLicenseKeys$inboundSchema,
@@ -141,6 +132,7 @@ export const BenefitGrantLicenseKeysWebhook$inboundSchema: z.ZodMiniType<
       "subscription_id": "subscriptionId",
       "order_id": "orderId",
       "customer_id": "customerId",
+      "member_id": "memberId",
       "benefit_id": "benefitId",
       "previous_properties": "previousProperties",
     });
@@ -158,6 +150,7 @@ export type BenefitGrantLicenseKeysWebhook$Outbound = {
   subscription_id: string | null;
   order_id: string | null;
   customer_id: string;
+  member_id?: string | null | undefined;
   benefit_id: string;
   error?: BenefitGrantError$Outbound | null | undefined;
   customer: Customer$Outbound;
@@ -189,6 +182,7 @@ export const BenefitGrantLicenseKeysWebhook$outboundSchema: z.ZodMiniType<
     subscriptionId: z.nullable(z.string()),
     orderId: z.nullable(z.string()),
     customerId: z.string(),
+    memberId: z.optional(z.nullable(z.string())),
     benefitId: z.string(),
     error: z.optional(z.nullable(BenefitGrantError$outboundSchema)),
     customer: Customer$outboundSchema,
@@ -209,6 +203,7 @@ export const BenefitGrantLicenseKeysWebhook$outboundSchema: z.ZodMiniType<
       subscriptionId: "subscription_id",
       orderId: "order_id",
       customerId: "customer_id",
+      memberId: "member_id",
       benefitId: "benefit_id",
       previousProperties: "previous_properties",
     });

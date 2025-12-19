@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGitHubRepositorySubscriberProperties,
@@ -15,12 +16,10 @@ import {
   BenefitSubscriberOrganization,
   BenefitSubscriberOrganization$inboundSchema,
 } from "./benefitsubscriberorganization.js";
-
-export type BenefitGitHubRepositorySubscriberMetadata =
-  | string
-  | number
-  | number
-  | boolean;
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+} from "./metadataoutputtype.js";
 
 export type BenefitGitHubRepositorySubscriber = {
   /**
@@ -52,7 +51,7 @@ export type BenefitGitHubRepositorySubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   organization: BenefitSubscriberOrganization;
   /**
    * Properties available to subscribers for a benefit of type `github_repository`.
@@ -61,53 +60,20 @@ export type BenefitGitHubRepositorySubscriber = {
 };
 
 /** @internal */
-export const BenefitGitHubRepositorySubscriberMetadata$inboundSchema:
-  z.ZodMiniType<BenefitGitHubRepositorySubscriberMetadata, unknown> = z.union([
-    z.string(),
-    z.int(),
-    z.number(),
-    z.boolean(),
-  ]);
-
-export function benefitGitHubRepositorySubscriberMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  BenefitGitHubRepositorySubscriberMetadata,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      BenefitGitHubRepositorySubscriberMetadata$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'BenefitGitHubRepositorySubscriberMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const BenefitGitHubRepositorySubscriber$inboundSchema: z.ZodMiniType<
   BenefitGitHubRepositorySubscriber,
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    type: z.literal("github_repository"),
-    description: z.string(),
-    selectable: z.boolean(),
-    deletable: z.boolean(),
-    organization_id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    type: types.literal("github_repository"),
+    description: types.string(),
+    selectable: types.boolean(),
+    deletable: types.boolean(),
+    organization_id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     organization: BenefitSubscriberOrganization$inboundSchema,
     properties: BenefitGitHubRepositorySubscriberProperties$inboundSchema,
   }),

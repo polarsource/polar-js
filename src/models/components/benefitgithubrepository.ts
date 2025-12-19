@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGitHubRepositoryProperties,
@@ -13,12 +14,12 @@ import {
   BenefitGitHubRepositoryProperties$Outbound,
   BenefitGitHubRepositoryProperties$outboundSchema,
 } from "./benefitgithubrepositoryproperties.js";
-
-export type BenefitGitHubRepositoryMetadata =
-  | string
-  | number
-  | number
-  | boolean;
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
 
 /**
  * A benefit of type `github_repository`.
@@ -57,7 +58,7 @@ export type BenefitGitHubRepository = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * Properties for a benefit of type `github_repository`.
    */
@@ -65,65 +66,20 @@ export type BenefitGitHubRepository = {
 };
 
 /** @internal */
-export const BenefitGitHubRepositoryMetadata$inboundSchema: z.ZodMiniType<
-  BenefitGitHubRepositoryMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type BenefitGitHubRepositoryMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const BenefitGitHubRepositoryMetadata$outboundSchema: z.ZodMiniType<
-  BenefitGitHubRepositoryMetadata$Outbound,
-  BenefitGitHubRepositoryMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function benefitGitHubRepositoryMetadataToJSON(
-  benefitGitHubRepositoryMetadata: BenefitGitHubRepositoryMetadata,
-): string {
-  return JSON.stringify(
-    BenefitGitHubRepositoryMetadata$outboundSchema.parse(
-      benefitGitHubRepositoryMetadata,
-    ),
-  );
-}
-export function benefitGitHubRepositoryMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitGitHubRepositoryMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitGitHubRepositoryMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitGitHubRepositoryMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const BenefitGitHubRepository$inboundSchema: z.ZodMiniType<
   BenefitGitHubRepository,
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    type: z.literal("github_repository"),
-    description: z.string(),
-    selectable: z.boolean(),
-    deletable: z.boolean(),
-    organization_id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    type: types.literal("github_repository"),
+    description: types.string(),
+    selectable: types.boolean(),
+    deletable: types.boolean(),
+    organization_id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     properties: BenefitGitHubRepositoryProperties$inboundSchema,
   }),
   z.transform((v) => {
@@ -144,7 +100,7 @@ export type BenefitGitHubRepository$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   properties: BenefitGitHubRepositoryProperties$Outbound;
 };
 
@@ -162,10 +118,7 @@ export const BenefitGitHubRepository$outboundSchema: z.ZodMiniType<
     selectable: z.boolean(),
     deletable: z.boolean(),
     organizationId: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     properties: BenefitGitHubRepositoryProperties$outboundSchema,
   }),
   z.transform((v) => {

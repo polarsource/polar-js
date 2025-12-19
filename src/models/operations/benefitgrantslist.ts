@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitGrantSortProperty,
   BenefitGrantSortProperty$outboundSchema,
@@ -71,7 +72,7 @@ export const BenefitGrantsListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     BenefitGrantsListQueryParamOrganizationIDFilter$Outbound,
     BenefitGrantsListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function benefitGrantsListQueryParamOrganizationIDFilterToJSON(
   benefitGrantsListQueryParamOrganizationIDFilter:
@@ -94,7 +95,7 @@ export const BenefitGrantsListQueryParamCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     BenefitGrantsListQueryParamCustomerIDFilter$Outbound,
     BenefitGrantsListQueryParamCustomerIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function benefitGrantsListQueryParamCustomerIDFilterToJSON(
   benefitGrantsListQueryParamCustomerIDFilter:
@@ -124,10 +125,10 @@ export const BenefitGrantsListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     isGranted: z.optional(z.nullable(z.boolean())),
     page: z._default(z.int(), 1),

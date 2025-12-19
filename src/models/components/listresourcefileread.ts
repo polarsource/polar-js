@@ -4,6 +4,8 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -21,36 +23,28 @@ import {
 } from "./productmediafileread.js";
 
 export type FileRead =
-  | (OrganizationAvatarFileRead & { service: "organization_avatar" })
-  | (ProductMediaFileRead & { service: "product_media" })
-  | (DownloadableFileRead & { service: "downloadable" });
+  | DownloadableFileRead
+  | OrganizationAvatarFileRead
+  | ProductMediaFileRead
+  | discriminatedUnionTypes.Unknown<"service">;
 
 export type ListResourceFileRead = {
   items: Array<
-    | (OrganizationAvatarFileRead & { service: "organization_avatar" })
-    | (ProductMediaFileRead & { service: "product_media" })
-    | (DownloadableFileRead & { service: "downloadable" })
+    | DownloadableFileRead
+    | OrganizationAvatarFileRead
+    | ProductMediaFileRead
+    | discriminatedUnionTypes.Unknown<"service">
   >;
   pagination: Pagination;
 };
 
 /** @internal */
-export const FileRead$inboundSchema: z.ZodMiniType<FileRead, unknown> = z.union(
-  [
-    z.intersection(
-      OrganizationAvatarFileRead$inboundSchema,
-      z.object({ service: z.literal("organization_avatar") }),
-    ),
-    z.intersection(
-      ProductMediaFileRead$inboundSchema,
-      z.object({ service: z.literal("product_media") }),
-    ),
-    z.intersection(
-      DownloadableFileRead$inboundSchema,
-      z.object({ service: z.literal("downloadable") }),
-    ),
-  ],
-);
+export const FileRead$inboundSchema: z.ZodMiniType<FileRead, unknown> =
+  discriminatedUnion("service", {
+    downloadable: DownloadableFileRead$inboundSchema,
+    organization_avatar: OrganizationAvatarFileRead$inboundSchema,
+    product_media: ProductMediaFileRead$inboundSchema,
+  });
 
 export function fileReadFromJSON(
   jsonString: string,
@@ -68,20 +62,11 @@ export const ListResourceFileRead$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   items: z.array(
-    z.union([
-      z.intersection(
-        OrganizationAvatarFileRead$inboundSchema,
-        z.object({ service: z.literal("organization_avatar") }),
-      ),
-      z.intersection(
-        ProductMediaFileRead$inboundSchema,
-        z.object({ service: z.literal("product_media") }),
-      ),
-      z.intersection(
-        DownloadableFileRead$inboundSchema,
-        z.object({ service: z.literal("downloadable") }),
-      ),
-    ]),
+    discriminatedUnion("service", {
+      downloadable: DownloadableFileRead$inboundSchema,
+      organization_avatar: OrganizationAvatarFileRead$inboundSchema,
+      product_media: ProductMediaFileRead$inboundSchema,
+    }),
   ),
   pagination: Pagination$inboundSchema,
 });

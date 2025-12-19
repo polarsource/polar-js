@@ -3,7 +3,8 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const OrganizationSocialPlatforms = {
   X: "x",
@@ -15,15 +16,17 @@ export const OrganizationSocialPlatforms = {
   Linkedin: "linkedin",
   Other: "other",
 } as const;
-export type OrganizationSocialPlatforms = ClosedEnum<
+export type OrganizationSocialPlatforms = OpenEnum<
   typeof OrganizationSocialPlatforms
 >;
 
 /** @internal */
-export const OrganizationSocialPlatforms$inboundSchema: z.ZodMiniEnum<
-  typeof OrganizationSocialPlatforms
-> = z.enum(OrganizationSocialPlatforms);
+export const OrganizationSocialPlatforms$inboundSchema: z.ZodMiniType<
+  OrganizationSocialPlatforms,
+  unknown
+> = openEnums.inboundSchema(OrganizationSocialPlatforms);
 /** @internal */
-export const OrganizationSocialPlatforms$outboundSchema: z.ZodMiniEnum<
-  typeof OrganizationSocialPlatforms
-> = OrganizationSocialPlatforms$inboundSchema;
+export const OrganizationSocialPlatforms$outboundSchema: z.ZodMiniType<
+  string,
+  OrganizationSocialPlatforms
+> = openEnums.outboundSchema(OrganizationSocialPlatforms);

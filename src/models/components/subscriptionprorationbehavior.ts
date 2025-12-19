@@ -3,21 +3,24 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const SubscriptionProrationBehavior = {
   Invoice: "invoice",
   Prorate: "prorate",
 } as const;
-export type SubscriptionProrationBehavior = ClosedEnum<
+export type SubscriptionProrationBehavior = OpenEnum<
   typeof SubscriptionProrationBehavior
 >;
 
 /** @internal */
-export const SubscriptionProrationBehavior$inboundSchema: z.ZodMiniEnum<
-  typeof SubscriptionProrationBehavior
-> = z.enum(SubscriptionProrationBehavior);
+export const SubscriptionProrationBehavior$inboundSchema: z.ZodMiniType<
+  SubscriptionProrationBehavior,
+  unknown
+> = openEnums.inboundSchema(SubscriptionProrationBehavior);
 /** @internal */
-export const SubscriptionProrationBehavior$outboundSchema: z.ZodMiniEnum<
-  typeof SubscriptionProrationBehavior
-> = SubscriptionProrationBehavior$inboundSchema;
+export const SubscriptionProrationBehavior$outboundSchema: z.ZodMiniType<
+  string,
+  SubscriptionProrationBehavior
+> = openEnums.outboundSchema(SubscriptionProrationBehavior);

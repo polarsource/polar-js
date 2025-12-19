@@ -1,5 +1,4 @@
-# Seats
-(*customerPortal.seats*)
+# CustomerPortal.Seats
 
 ## Overview
 

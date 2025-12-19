@@ -26,28 +26,37 @@ let value: ListResourceOrganization = {
         allowMultipleSubscriptions: true,
         allowCustomerUpdates: false,
         prorationBehavior: "invoice",
-        benefitRevocationGracePeriod: 164496,
-        preventTrialAbuse: true,
+        benefitRevocationGracePeriod: 288227,
+        preventTrialAbuse: false,
       },
       notificationSettings: {
-        newOrder: false,
-        newSubscription: true,
+        newOrder: true,
+        newSubscription: false,
       },
       customerEmailSettings: {
         orderConfirmation: true,
         subscriptionCancellation: true,
-        subscriptionConfirmation: true,
+        subscriptionConfirmation: false,
         subscriptionCycled: false,
-        subscriptionPastDue: true,
+        subscriptionPastDue: false,
         subscriptionRevoked: false,
         subscriptionUncanceled: false,
-        subscriptionUpdated: false,
+        subscriptionUpdated: true,
+      },
+      customerPortalSettings: {
+        usage: {
+          show: true,
+        },
+        subscription: {
+          updateSeats: false,
+          updatePlan: true,
+        },
       },
     },
   ],
   pagination: {
-    totalCount: 279990,
-    maxPage: 718643,
+    totalCount: 296266,
+    maxPage: 544155,
   },
 };
 ```

@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LicenseKeyCustomer,
@@ -53,31 +54,22 @@ export const LicenseKeyRead$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    organization_id: z.string(),
-    customer_id: z.string(),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    organization_id: types.string(),
+    customer_id: types.string(),
     customer: LicenseKeyCustomer$inboundSchema,
-    benefit_id: z.string(),
-    key: z.string(),
-    display_key: z.string(),
+    benefit_id: types.string(),
+    key: types.string(),
+    display_key: types.string(),
     status: LicenseKeyStatus$inboundSchema,
-    limit_activations: z.nullable(z.int()),
-    usage: z.int(),
-    limit_usage: z.nullable(z.int()),
-    validations: z.int(),
-    last_validated_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    expires_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
+    limit_activations: types.nullable(types.number()),
+    usage: types.number(),
+    limit_usage: types.nullable(types.number()),
+    validations: types.number(),
+    last_validated_at: types.nullable(types.date()),
+    expires_at: types.nullable(types.date()),
   }),
   z.transform((v) => {
     return remap$(v, {

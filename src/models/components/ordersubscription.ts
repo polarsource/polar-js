@@ -6,12 +6,19 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerCancellationReason,
   CustomerCancellationReason$inboundSchema,
   CustomerCancellationReason$outboundSchema,
 } from "./customercancellationreason.js";
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
@@ -23,10 +30,8 @@ import {
   SubscriptionStatus$outboundSchema,
 } from "./subscriptionstatus.js";
 
-export type OrderSubscriptionMetadata = string | number | number | boolean;
-
 export type OrderSubscription = {
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * Creation timestamp of the object.
    */
@@ -111,98 +116,38 @@ export type OrderSubscription = {
 };
 
 /** @internal */
-export const OrderSubscriptionMetadata$inboundSchema: z.ZodMiniType<
-  OrderSubscriptionMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type OrderSubscriptionMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const OrderSubscriptionMetadata$outboundSchema: z.ZodMiniType<
-  OrderSubscriptionMetadata$Outbound,
-  OrderSubscriptionMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function orderSubscriptionMetadataToJSON(
-  orderSubscriptionMetadata: OrderSubscriptionMetadata,
-): string {
-  return JSON.stringify(
-    OrderSubscriptionMetadata$outboundSchema.parse(orderSubscriptionMetadata),
-  );
-}
-export function orderSubscriptionMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<OrderSubscriptionMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrderSubscriptionMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrderSubscriptionMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const OrderSubscription$inboundSchema: z.ZodMiniType<
   OrderSubscription,
   unknown
 > = z.pipe(
   z.object({
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    amount: z.int(),
-    currency: z.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    amount: types.number(),
+    currency: types.string(),
     recurring_interval: SubscriptionRecurringInterval$inboundSchema,
-    recurring_interval_count: z.int(),
+    recurring_interval_count: types.number(),
     status: SubscriptionStatus$inboundSchema,
-    current_period_start: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    current_period_end: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    trial_start: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    trial_end: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    cancel_at_period_end: z.boolean(),
-    canceled_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    started_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    ends_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    ended_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    customer_id: z.string(),
-    product_id: z.string(),
-    discount_id: z.nullable(z.string()),
-    checkout_id: z.nullable(z.string()),
-    seats: z.optional(z.nullable(z.int())),
-    customer_cancellation_reason: z.nullable(
+    current_period_start: types.date(),
+    current_period_end: types.nullable(types.date()),
+    trial_start: types.nullable(types.date()),
+    trial_end: types.nullable(types.date()),
+    cancel_at_period_end: types.boolean(),
+    canceled_at: types.nullable(types.date()),
+    started_at: types.nullable(types.date()),
+    ends_at: types.nullable(types.date()),
+    ended_at: types.nullable(types.date()),
+    customer_id: types.string(),
+    product_id: types.string(),
+    discount_id: types.nullable(types.string()),
+    checkout_id: types.nullable(types.string()),
+    seats: z.optional(z.nullable(types.number())),
+    customer_cancellation_reason: types.nullable(
       CustomerCancellationReason$inboundSchema,
     ),
-    customer_cancellation_comment: z.nullable(z.string()),
+    customer_cancellation_comment: types.nullable(types.string()),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -230,7 +175,7 @@ export const OrderSubscription$inboundSchema: z.ZodMiniType<
 );
 /** @internal */
 export type OrderSubscription$Outbound = {
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   created_at: string;
   modified_at: string | null;
   id: string;
@@ -263,10 +208,7 @@ export const OrderSubscription$outboundSchema: z.ZodMiniType<
   OrderSubscription
 > = z.pipe(
   z.object({
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
     modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     id: z.string(),

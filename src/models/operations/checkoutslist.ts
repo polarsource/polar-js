@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   CheckoutSortProperty,
   CheckoutSortProperty$outboundSchema,
@@ -40,7 +41,7 @@ export type CheckoutsListQueryParamCustomerIDFilter = string | Array<string>;
 /**
  * Filter by checkout session status.
  */
-export type StatusFilter = CheckoutStatus | Array<CheckoutStatus>;
+export type QueryParamStatusFilter = CheckoutStatus | Array<CheckoutStatus>;
 
 export type CheckoutsListRequest = {
   /**
@@ -91,7 +92,7 @@ export const CheckoutsListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     CheckoutsListQueryParamOrganizationIDFilter$Outbound,
     CheckoutsListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function checkoutsListQueryParamOrganizationIDFilterToJSON(
   checkoutsListQueryParamOrganizationIDFilter:
@@ -114,7 +115,7 @@ export const CheckoutsListQueryParamProductIDFilter$outboundSchema:
   z.ZodMiniType<
     CheckoutsListQueryParamProductIDFilter$Outbound,
     CheckoutsListQueryParamProductIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function checkoutsListQueryParamProductIDFilterToJSON(
   checkoutsListQueryParamProductIDFilter:
@@ -137,7 +138,7 @@ export const CheckoutsListQueryParamCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     CheckoutsListQueryParamCustomerIDFilter$Outbound,
     CheckoutsListQueryParamCustomerIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function checkoutsListQueryParamCustomerIDFilterToJSON(
   checkoutsListQueryParamCustomerIDFilter:
@@ -151,19 +152,23 @@ export function checkoutsListQueryParamCustomerIDFilterToJSON(
 }
 
 /** @internal */
-export type StatusFilter$Outbound = string | Array<string>;
+export type QueryParamStatusFilter$Outbound = string | Array<string>;
 
 /** @internal */
-export const StatusFilter$outboundSchema: z.ZodMiniType<
-  StatusFilter$Outbound,
-  StatusFilter
-> = z.union([
+export const QueryParamStatusFilter$outboundSchema: z.ZodMiniType<
+  QueryParamStatusFilter$Outbound,
+  QueryParamStatusFilter
+> = smartUnion([
   CheckoutStatus$outboundSchema,
   z.array(CheckoutStatus$outboundSchema),
 ]);
 
-export function statusFilterToJSON(statusFilter: StatusFilter): string {
-  return JSON.stringify(StatusFilter$outboundSchema.parse(statusFilter));
+export function queryParamStatusFilterToJSON(
+  queryParamStatusFilter: QueryParamStatusFilter,
+): string {
+  return JSON.stringify(
+    QueryParamStatusFilter$outboundSchema.parse(queryParamStatusFilter),
+  );
 }
 
 /** @internal */
@@ -185,17 +190,17 @@ export const CheckoutsListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     productId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     status: z.optional(
       z.nullable(
-        z.union([
+        smartUnion([
           CheckoutStatus$outboundSchema,
           z.array(CheckoutStatus$outboundSchema),
         ]),

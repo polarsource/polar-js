@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { EventSource, EventSource$inboundSchema } from "./eventsource.js";
 
@@ -33,17 +34,11 @@ export type EventName = {
 export const EventName$inboundSchema: z.ZodMiniType<EventName, unknown> = z
   .pipe(
     z.object({
-      name: z.string(),
+      name: types.string(),
       source: EventSource$inboundSchema,
-      occurrences: z.int(),
-      first_seen: z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      ),
-      last_seen: z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      ),
+      occurrences: types.number(),
+      first_seen: types.date(),
+      last_seen: types.date(),
     }),
     z.transform((v) => {
       return remap$(v, {

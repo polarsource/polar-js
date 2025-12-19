@@ -5,6 +5,8 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Loc = string | number;
@@ -16,15 +18,15 @@ export type ValidationError = {
 };
 
 /** @internal */
-export const Loc$inboundSchema: z.ZodMiniType<Loc, unknown> = z.union([
-  z.string(),
-  z.int(),
+export const Loc$inboundSchema: z.ZodMiniType<Loc, unknown> = smartUnion([
+  types.string(),
+  types.number(),
 ]);
 /** @internal */
 export type Loc$Outbound = string | number;
 
 /** @internal */
-export const Loc$outboundSchema: z.ZodMiniType<Loc$Outbound, Loc> = z.union([
+export const Loc$outboundSchema: z.ZodMiniType<Loc$Outbound, Loc> = smartUnion([
   z.string(),
   z.int(),
 ]);
@@ -47,9 +49,9 @@ export const ValidationError$inboundSchema: z.ZodMiniType<
   ValidationError,
   unknown
 > = z.object({
-  loc: z.array(z.union([z.string(), z.int()])),
-  msg: z.string(),
-  type: z.string(),
+  loc: z.array(smartUnion([types.string(), types.number()])),
+  msg: types.string(),
+  type: types.string(),
 });
 /** @internal */
 export type ValidationError$Outbound = {
@@ -63,7 +65,7 @@ export const ValidationError$outboundSchema: z.ZodMiniType<
   ValidationError$Outbound,
   ValidationError
 > = z.object({
-  loc: z.array(z.union([z.string(), z.int()])),
+  loc: z.array(smartUnion([z.string(), z.int()])),
   msg: z.string(),
   type: z.string(),
 });

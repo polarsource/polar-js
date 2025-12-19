@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LLMMetadata = {
@@ -47,14 +48,14 @@ export type LLMMetadata = {
 export const LLMMetadata$inboundSchema: z.ZodMiniType<LLMMetadata, unknown> = z
   .pipe(
     z.object({
-      vendor: z.string(),
-      model: z.string(),
-      prompt: z.optional(z.nullable(z.string())),
-      response: z.optional(z.nullable(z.string())),
-      input_tokens: z.int(),
-      cached_input_tokens: z.optional(z.int()),
-      output_tokens: z.int(),
-      total_tokens: z.int(),
+      vendor: types.string(),
+      model: types.string(),
+      prompt: z.optional(z.nullable(types.string())),
+      response: z.optional(z.nullable(types.string())),
+      input_tokens: types.number(),
+      cached_input_tokens: types.optional(types.number()),
+      output_tokens: types.number(),
+      total_tokens: types.number(),
     }),
     z.transform((v) => {
       return remap$(v, {

@@ -10,7 +10,7 @@ import { AlreadyActiveSubscriptionError } from "@polar-sh/sdk/models/errors/alre
 
 ## Fields
 
-| Field                          | Type                           | Required                       | Description                    | Example                        |
-| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
-| `error`                        | *string*                       | :heavy_check_mark:             | N/A                            | AlreadyActiveSubscriptionError |
-| `detail`                       | *string*                       | :heavy_check_mark:             | N/A                            |                                |
+| Field                              | Type                               | Required                           | Description                        | Example                            |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| `error`                            | *"AlreadyActiveSubscriptionError"* | :heavy_check_mark:                 | N/A                                | AlreadyActiveSubscriptionError     |
+| `detail`                           | *string*                           | :heavy_check_mark:                 | N/A                                |                                    |

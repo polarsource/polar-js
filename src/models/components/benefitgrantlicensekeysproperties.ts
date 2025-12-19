@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitGrantLicenseKeysProperties = {
@@ -19,8 +20,8 @@ export const BenefitGrantLicenseKeysProperties$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    license_key_id: z.optional(z.string()),
-    display_key: z.optional(z.string()),
+    license_key_id: types.optional(types.string()),
+    display_key: types.optional(types.string()),
   }),
   z.transform((v) => {
     return remap$(v, {

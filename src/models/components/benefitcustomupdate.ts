@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitCustomProperties,
   BenefitCustomProperties$Outbound,
@@ -47,7 +48,7 @@ export type BenefitCustomUpdateMetadata$Outbound =
 export const BenefitCustomUpdateMetadata$outboundSchema: z.ZodMiniType<
   BenefitCustomUpdateMetadata$Outbound,
   BenefitCustomUpdateMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function benefitCustomUpdateMetadataToJSON(
   benefitCustomUpdateMetadata: BenefitCustomUpdateMetadata,
@@ -75,7 +76,7 @@ export const BenefitCustomUpdate$outboundSchema: z.ZodMiniType<
   metadata: z.optional(
     z.record(
       z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
+      smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
     ),
   ),
   description: z.optional(z.nullable(z.string())),

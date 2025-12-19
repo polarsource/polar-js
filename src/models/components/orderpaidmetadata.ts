@@ -6,13 +6,24 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrderPaidMetadata = {
   orderId: string;
+  productId?: string | undefined;
+  billingType?: string | undefined;
   amount: number;
-  currency: string;
-  backfilled?: boolean | undefined;
+  currency?: string | undefined;
+  netAmount?: number | undefined;
+  taxAmount?: number | undefined;
+  appliedBalanceAmount?: number | undefined;
+  discountAmount?: number | undefined;
+  discountId?: string | undefined;
+  platformFee?: number | undefined;
+  subscriptionId?: string | undefined;
+  recurringInterval?: string | undefined;
+  recurringIntervalCount?: number | undefined;
 };
 
 /** @internal */
@@ -21,14 +32,35 @@ export const OrderPaidMetadata$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    order_id: z.string(),
-    amount: z.int(),
-    currency: z.string(),
-    backfilled: z.optional(z.boolean()),
+    order_id: types.string(),
+    product_id: types.optional(types.string()),
+    billing_type: types.optional(types.string()),
+    amount: types.number(),
+    currency: types.optional(types.string()),
+    net_amount: types.optional(types.number()),
+    tax_amount: types.optional(types.number()),
+    applied_balance_amount: types.optional(types.number()),
+    discount_amount: types.optional(types.number()),
+    discount_id: types.optional(types.string()),
+    platform_fee: types.optional(types.number()),
+    subscription_id: types.optional(types.string()),
+    recurring_interval: types.optional(types.string()),
+    recurring_interval_count: types.optional(types.number()),
   }),
   z.transform((v) => {
     return remap$(v, {
       "order_id": "orderId",
+      "product_id": "productId",
+      "billing_type": "billingType",
+      "net_amount": "netAmount",
+      "tax_amount": "taxAmount",
+      "applied_balance_amount": "appliedBalanceAmount",
+      "discount_amount": "discountAmount",
+      "discount_id": "discountId",
+      "platform_fee": "platformFee",
+      "subscription_id": "subscriptionId",
+      "recurring_interval": "recurringInterval",
+      "recurring_interval_count": "recurringIntervalCount",
     });
   }),
 );

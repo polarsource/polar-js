@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceBenefitGrant,
   ListResourceBenefitGrant$inboundSchema,
@@ -17,6 +18,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type QueryParamCustomerIDFilter = string | Array<string>;
 
+/**
+ * Filter by member.
+ */
+export type MemberIDFilter = string | Array<string>;
+
 export type BenefitsGrantsRequest = {
   id: string;
   /**
@@ -27,6 +33,10 @@ export type BenefitsGrantsRequest = {
    * Filter by customer.
    */
   customerId?: string | Array<string> | null | undefined;
+  /**
+   * Filter by member.
+   */
+  memberId?: string | Array<string> | null | undefined;
   /**
    * Page number, defaults to 1.
    */
@@ -48,7 +58,7 @@ export type QueryParamCustomerIDFilter$Outbound = string | Array<string>;
 export const QueryParamCustomerIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamCustomerIDFilter$Outbound,
   QueryParamCustomerIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function queryParamCustomerIDFilterToJSON(
   queryParamCustomerIDFilter: QueryParamCustomerIDFilter,
@@ -59,10 +69,24 @@ export function queryParamCustomerIDFilterToJSON(
 }
 
 /** @internal */
+export type MemberIDFilter$Outbound = string | Array<string>;
+
+/** @internal */
+export const MemberIDFilter$outboundSchema: z.ZodMiniType<
+  MemberIDFilter$Outbound,
+  MemberIDFilter
+> = smartUnion([z.string(), z.array(z.string())]);
+
+export function memberIDFilterToJSON(memberIDFilter: MemberIDFilter): string {
+  return JSON.stringify(MemberIDFilter$outboundSchema.parse(memberIDFilter));
+}
+
+/** @internal */
 export type BenefitsGrantsRequest$Outbound = {
   id: string;
   is_granted?: boolean | null | undefined;
   customer_id?: string | Array<string> | null | undefined;
+  member_id?: string | Array<string> | null | undefined;
   page: number;
   limit: number;
 };
@@ -76,7 +100,10 @@ export const BenefitsGrantsRequest$outboundSchema: z.ZodMiniType<
     id: z.string(),
     isGranted: z.optional(z.nullable(z.boolean())),
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
+    memberId: z.optional(
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
@@ -85,6 +112,7 @@ export const BenefitsGrantsRequest$outboundSchema: z.ZodMiniType<
     return remap$(v, {
       isGranted: "is_granted",
       customerId: "customer_id",
+      memberId: "member_id",
     });
   }),
 );

@@ -15,7 +15,9 @@ const value: components.PropertyAggregation = {
 ### `components.CountAggregation`
 
 ```typescript
-const value: components.CountAggregation = {};
+const value: components.CountAggregation = {
+  func: "count",
+};
 ```
 
 ### `components.PropertyAggregation`
@@ -49,6 +51,7 @@ const value: components.PropertyAggregation = {
 
 ```typescript
 const value: components.UniqueAggregation = {
+  func: "unique",
   property: "<value>",
 };
 ```

@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitLicenseKeysSubscriberProperties,
@@ -15,12 +16,10 @@ import {
   BenefitSubscriberOrganization,
   BenefitSubscriberOrganization$inboundSchema,
 } from "./benefitsubscriberorganization.js";
-
-export type BenefitLicenseKeysSubscriberMetadata =
-  | string
-  | number
-  | number
-  | boolean;
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+} from "./metadataoutputtype.js";
 
 export type BenefitLicenseKeysSubscriber = {
   /**
@@ -52,27 +51,10 @@ export type BenefitLicenseKeysSubscriber = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   organization: BenefitSubscriberOrganization;
   properties: BenefitLicenseKeysSubscriberProperties;
 };
-
-/** @internal */
-export const BenefitLicenseKeysSubscriberMetadata$inboundSchema: z.ZodMiniType<
-  BenefitLicenseKeysSubscriberMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function benefitLicenseKeysSubscriberMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitLicenseKeysSubscriberMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      BenefitLicenseKeysSubscriberMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitLicenseKeysSubscriberMetadata' from JSON`,
-  );
-}
 
 /** @internal */
 export const BenefitLicenseKeysSubscriber$inboundSchema: z.ZodMiniType<
@@ -80,23 +62,15 @@ export const BenefitLicenseKeysSubscriber$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    type: z.literal("license_keys"),
-    description: z.string(),
-    selectable: z.boolean(),
-    deletable: z.boolean(),
-    organization_id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    type: types.literal("license_keys"),
+    description: types.string(),
+    selectable: types.boolean(),
+    deletable: types.boolean(),
+    organization_id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     organization: BenefitSubscriberOrganization$inboundSchema,
     properties: BenefitLicenseKeysSubscriberProperties$inboundSchema,
   }),

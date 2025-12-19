@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrganizationFeatureSettings = {
@@ -25,6 +26,10 @@ export type OrganizationFeatureSettings = {
    * If this organization has Wallets enabled
    */
   walletsEnabled?: boolean | undefined;
+  /**
+   * If this organization has the Member model enabled
+   */
+  memberModelEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -33,10 +38,11 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    issue_funding_enabled: z._default(z.boolean(), false),
-    seat_based_pricing_enabled: z._default(z.boolean(), false),
-    revops_enabled: z._default(z.boolean(), false),
-    wallets_enabled: z._default(z.boolean(), false),
+    issue_funding_enabled: z._default(types.boolean(), false),
+    seat_based_pricing_enabled: z._default(types.boolean(), false),
+    revops_enabled: z._default(types.boolean(), false),
+    wallets_enabled: z._default(types.boolean(), false),
+    member_model_enabled: z._default(types.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -44,6 +50,7 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
       "seat_based_pricing_enabled": "seatBasedPricingEnabled",
       "revops_enabled": "revopsEnabled",
       "wallets_enabled": "walletsEnabled",
+      "member_model_enabled": "memberModelEnabled",
     });
   }),
 );
@@ -53,6 +60,7 @@ export type OrganizationFeatureSettings$Outbound = {
   seat_based_pricing_enabled: boolean;
   revops_enabled: boolean;
   wallets_enabled: boolean;
+  member_model_enabled: boolean;
 };
 
 /** @internal */
@@ -65,6 +73,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
     seatBasedPricingEnabled: z._default(z.boolean(), false),
     revopsEnabled: z._default(z.boolean(), false),
     walletsEnabled: z._default(z.boolean(), false),
+    memberModelEnabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -72,6 +81,7 @@ export const OrganizationFeatureSettings$outboundSchema: z.ZodMiniType<
       seatBasedPricingEnabled: "seat_based_pricing_enabled",
       revopsEnabled: "revops_enabled",
       walletsEnabled: "wallets_enabled",
+      memberModelEnabled: "member_model_enabled",
     });
   }),
 );

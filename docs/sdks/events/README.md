@@ -1,5 +1,4 @@
 # Events
-(*events*)
 
 ## Overview
 
@@ -31,9 +30,7 @@ async function run() {
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
-  for await (const page of result) {
-    console.log(page);
-  }
+  console.log(result);
 }
 
 run();
@@ -59,9 +56,7 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    for await (const page of result) {
-    console.log(page);
-  }
+    console.log(result);
   } else {
     console.log("eventsList failed:", res.error);
   }
@@ -81,7 +76,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.EventsListResponse](../../models/operations/eventslistresponse.md)\>**
+**Promise\<[operations.EventsListResponseEventsList](../../models/operations/eventslistresponseeventslist.md)\>**
 
 ### Errors
 

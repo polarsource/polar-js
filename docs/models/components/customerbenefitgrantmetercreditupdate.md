@@ -14,4 +14,4 @@ let value: CustomerBenefitGrantMeterCreditUpdate = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `benefitType`      | *string*           | :heavy_check_mark: | N/A                |
+| `benefitType`      | *"meter_credit"*   | :heavy_check_mark: | N/A                |

@@ -1,21 +1,21 @@
 # QueryParamStatusFilter
 
-Filter by payment status.
+Filter by checkout session status.
 
 
 ## Supported Types
 
-### `components.PaymentStatus`
+### `components.CheckoutStatus`
 
 ```typescript
-const value: components.PaymentStatus = "succeeded";
+const value: components.CheckoutStatus = "open";
 ```
 
-### `components.PaymentStatus[]`
+### `components.CheckoutStatus[]`
 
 ```typescript
-const value: components.PaymentStatus[] = [
-  "failed",
+const value: components.CheckoutStatus[] = [
+  "open",
 ];
 ```
 

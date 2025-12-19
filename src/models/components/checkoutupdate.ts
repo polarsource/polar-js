@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   AddressInput,
   AddressInput$Outbound,
@@ -136,7 +137,7 @@ export type CheckoutUpdateCustomFieldData$Outbound =
 export const CheckoutUpdateCustomFieldData$outboundSchema: z.ZodMiniType<
   CheckoutUpdateCustomFieldData$Outbound,
   CheckoutUpdateCustomFieldData
-> = z.union([
+> = smartUnion([
   z.string(),
   z.int(),
   z.boolean(),
@@ -164,7 +165,7 @@ export type CheckoutUpdateMetadata$Outbound =
 export const CheckoutUpdateMetadata$outboundSchema: z.ZodMiniType<
   CheckoutUpdateMetadata$Outbound,
   CheckoutUpdateMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function checkoutUpdateMetadataToJSON(
   checkoutUpdateMetadata: CheckoutUpdateMetadata,
@@ -185,7 +186,7 @@ export type CheckoutUpdateCustomerMetadata$Outbound =
 export const CheckoutUpdateCustomerMetadata$outboundSchema: z.ZodMiniType<
   CheckoutUpdateCustomerMetadata$Outbound,
   CheckoutUpdateCustomerMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function checkoutUpdateCustomerMetadataToJSON(
   checkoutUpdateCustomerMetadata: CheckoutUpdateCustomerMetadata,
@@ -239,7 +240,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.nullable(
-          z.union([
+          smartUnion([
             z.string(),
             z.int(),
             z.boolean(),
@@ -263,7 +264,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     discountId: z.optional(z.nullable(z.string())),
@@ -275,7 +276,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodMiniType<
       z.nullable(
         z.record(
           z.string(),
-          z.union([z.string(), z.int(), z.number(), z.boolean()]),
+          smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
         ),
       ),
     ),

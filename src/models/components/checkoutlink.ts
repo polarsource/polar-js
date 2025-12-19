@@ -6,6 +6,8 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CheckoutLinkProduct,
@@ -28,12 +30,14 @@ import {
   DiscountPercentageRepeatDurationBase$inboundSchema,
 } from "./discountpercentagerepeatdurationbase.js";
 import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+} from "./metadataoutputtype.js";
+import {
   PaymentProcessor,
   PaymentProcessor$inboundSchema,
 } from "./paymentprocessor.js";
 import { TrialInterval, TrialInterval$inboundSchema } from "./trialinterval.js";
-
-export type CheckoutLinkMetadata = string | number | number | boolean;
 
 export type CheckoutLinkDiscount =
   | DiscountFixedRepeatDurationBase
@@ -65,7 +69,7 @@ export type CheckoutLink = {
    * The number of interval units for the trial period.
    */
   trialIntervalCount: number | null;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   paymentProcessor: PaymentProcessor;
   /**
    * Client secret used to access the checkout link.
@@ -106,26 +110,10 @@ export type CheckoutLink = {
 };
 
 /** @internal */
-export const CheckoutLinkMetadata$inboundSchema: z.ZodMiniType<
-  CheckoutLinkMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function checkoutLinkMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutLinkMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutLinkMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutLinkMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const CheckoutLinkDiscount$inboundSchema: z.ZodMiniType<
   CheckoutLinkDiscount,
   unknown
-> = z.union([
+> = smartUnion([
   DiscountFixedRepeatDurationBase$inboundSchema,
   DiscountFixedOnceForeverDurationBase$inboundSchema,
   DiscountPercentageRepeatDurationBase$inboundSchema,
@@ -146,38 +134,30 @@ export function checkoutLinkDiscountFromJSON(
 export const CheckoutLink$inboundSchema: z.ZodMiniType<CheckoutLink, unknown> =
   z.pipe(
     z.object({
-      id: z.string(),
-      created_at: z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      ),
-      modified_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      trial_interval: z.nullable(TrialInterval$inboundSchema),
-      trial_interval_count: z.nullable(z.int()),
-      metadata: z.record(
-        z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
-      ),
+      id: types.string(),
+      created_at: types.date(),
+      modified_at: types.nullable(types.date()),
+      trial_interval: types.nullable(TrialInterval$inboundSchema),
+      trial_interval_count: types.nullable(types.number()),
+      metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
       payment_processor: PaymentProcessor$inboundSchema,
-      client_secret: z.string(),
-      success_url: z.nullable(z.string()),
-      label: z.nullable(z.string()),
-      allow_discount_codes: z.boolean(),
-      require_billing_address: z.boolean(),
-      discount_id: z.nullable(z.string()),
-      organization_id: z.string(),
+      client_secret: types.string(),
+      success_url: types.nullable(types.string()),
+      label: types.nullable(types.string()),
+      allow_discount_codes: types.boolean(),
+      require_billing_address: types.boolean(),
+      discount_id: types.nullable(types.string()),
+      organization_id: types.string(),
       products: z.array(CheckoutLinkProduct$inboundSchema),
-      discount: z.nullable(
-        z.union([
+      discount: types.nullable(
+        smartUnion([
           DiscountFixedRepeatDurationBase$inboundSchema,
           DiscountFixedOnceForeverDurationBase$inboundSchema,
           DiscountPercentageRepeatDurationBase$inboundSchema,
           DiscountPercentageOnceForeverDurationBase$inboundSchema,
         ]),
       ),
-      url: z.string(),
+      url: types.string(),
     }),
     z.transform((v) => {
       return remap$(v, {

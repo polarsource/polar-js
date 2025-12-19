@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomFieldTextProperties = {
@@ -23,12 +24,12 @@ export const CustomFieldTextProperties$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    form_label: z.optional(z.string()),
-    form_help_text: z.optional(z.string()),
-    form_placeholder: z.optional(z.string()),
-    textarea: z.optional(z.boolean()),
-    min_length: z.optional(z.int()),
-    max_length: z.optional(z.int()),
+    form_label: types.optional(types.string()),
+    form_help_text: types.optional(types.string()),
+    form_placeholder: types.optional(types.string()),
+    textarea: types.optional(types.boolean()),
+    min_length: types.optional(types.number()),
+    max_length: types.optional(types.number()),
   }),
   z.transform((v) => {
     return remap$(v, {

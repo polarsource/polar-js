@@ -5,6 +5,8 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   FilterOperator,
@@ -21,17 +23,17 @@ export type FilterClause = {
 };
 
 /** @internal */
-export const Value$inboundSchema: z.ZodMiniType<Value, unknown> = z.union([
-  z.string(),
-  z.int(),
-  z.boolean(),
+export const Value$inboundSchema: z.ZodMiniType<Value, unknown> = smartUnion([
+  types.string(),
+  types.number(),
+  types.boolean(),
 ]);
 /** @internal */
 export type Value$Outbound = string | number | boolean;
 
 /** @internal */
-export const Value$outboundSchema: z.ZodMiniType<Value$Outbound, Value> = z
-  .union([z.string(), z.int(), z.boolean()]);
+export const Value$outboundSchema: z.ZodMiniType<Value$Outbound, Value> =
+  smartUnion([z.string(), z.int(), z.boolean()]);
 
 export function valueToJSON(value: Value): string {
   return JSON.stringify(Value$outboundSchema.parse(value));
@@ -49,9 +51,9 @@ export function valueFromJSON(
 /** @internal */
 export const FilterClause$inboundSchema: z.ZodMiniType<FilterClause, unknown> =
   z.object({
-    property: z.string(),
+    property: types.string(),
     operator: FilterOperator$inboundSchema,
-    value: z.union([z.string(), z.int(), z.boolean()]),
+    value: smartUnion([types.string(), types.number(), types.boolean()]),
   });
 /** @internal */
 export type FilterClause$Outbound = {
@@ -67,7 +69,7 @@ export const FilterClause$outboundSchema: z.ZodMiniType<
 > = z.object({
   property: z.string(),
   operator: FilterOperator$outboundSchema,
-  value: z.union([z.string(), z.int(), z.boolean()]),
+  value: smartUnion([z.string(), z.int(), z.boolean()]),
 });
 
 export function filterClauseToJSON(filterClause: FilterClause): string {

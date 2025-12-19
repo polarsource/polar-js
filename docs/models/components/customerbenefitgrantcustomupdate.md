@@ -14,4 +14,4 @@ let value: CustomerBenefitGrantCustomUpdate = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `benefitType`      | *string*           | :heavy_check_mark: | N/A                |
+| `benefitType`      | *"custom"*         | :heavy_check_mark: | N/A                |

@@ -24,8 +24,8 @@ let value: WebhookBenefitGrantUpdatedPayload = {
     benefitId: "<value>",
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2024-04-26T10:19:45.222Z"),
-      modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+      createdAt: new Date("2023-06-05T21:28:32.740Z"),
+      modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
       metadata: {
         "key": "<value>",
       },
@@ -41,7 +41,7 @@ let value: WebhookBenefitGrantUpdatedPayload = {
         "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+      deletedAt: new Date("2025-09-04T17:38:48.600Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
     },
     benefit: {
@@ -67,6 +67,6 @@ let value: WebhookBenefitGrantUpdatedPayload = {
 
 | Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | benefit_grant.updated                                                                         |
+| `type`                                                                                        | *"benefit_grant.updated"*                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           | benefit_grant.updated                                                                         |
 | `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `data`                                                                                        | *components.BenefitGrantWebhook*                                                              | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

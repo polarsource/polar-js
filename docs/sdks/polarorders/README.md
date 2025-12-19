@@ -1,5 +1,4 @@
-# PolarOrders
-(*customerPortal.orders*)
+# CustomerPortal.Orders
 
 ## Overview
 

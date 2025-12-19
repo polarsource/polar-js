@@ -10,7 +10,7 @@ import { PaymentMethodInUseByActiveSubscription } from "@polar-sh/sdk/models/err
 
 ## Fields
 
-| Field                                  | Type                                   | Required                               | Description                            | Example                                |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| `error`                                | *string*                               | :heavy_check_mark:                     | N/A                                    | PaymentMethodInUseByActiveSubscription |
-| `detail`                               | *string*                               | :heavy_check_mark:                     | N/A                                    |                                        |
+| Field                                      | Type                                       | Required                                   | Description                                | Example                                    |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| `error`                                    | *"PaymentMethodInUseByActiveSubscription"* | :heavy_check_mark:                         | N/A                                        | PaymentMethodInUseByActiveSubscription     |
+| `detail`                                   | *string*                                   | :heavy_check_mark:                         | N/A                                        |                                            |

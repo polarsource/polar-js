@@ -6,6 +6,8 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
@@ -14,12 +16,16 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
+import {
   TaxIDFormat,
   TaxIDFormat$inboundSchema,
   TaxIDFormat$outboundSchema,
 } from "./taxidformat.js";
-
-export type SubscriptionCustomerMetadata = string | number | number | boolean;
 
 export type TaxId = string | TaxIDFormat;
 
@@ -36,7 +42,7 @@ export type SubscriptionCustomer = {
    * Last modification timestamp of the object.
    */
   modifiedAt: Date | null;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.
    */
@@ -67,53 +73,16 @@ export type SubscriptionCustomer = {
 };
 
 /** @internal */
-export const SubscriptionCustomerMetadata$inboundSchema: z.ZodMiniType<
-  SubscriptionCustomerMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type SubscriptionCustomerMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const SubscriptionCustomerMetadata$outboundSchema: z.ZodMiniType<
-  SubscriptionCustomerMetadata$Outbound,
-  SubscriptionCustomerMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function subscriptionCustomerMetadataToJSON(
-  subscriptionCustomerMetadata: SubscriptionCustomerMetadata,
-): string {
-  return JSON.stringify(
-    SubscriptionCustomerMetadata$outboundSchema.parse(
-      subscriptionCustomerMetadata,
-    ),
-  );
-}
-export function subscriptionCustomerMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<SubscriptionCustomerMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubscriptionCustomerMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubscriptionCustomerMetadata' from JSON`,
-  );
-}
-
-/** @internal */
-export const TaxId$inboundSchema: z.ZodMiniType<TaxId, unknown> = z.union([
-  z.string(),
+export const TaxId$inboundSchema: z.ZodMiniType<TaxId, unknown> = smartUnion([
+  types.string(),
   TaxIDFormat$inboundSchema,
 ]);
 /** @internal */
 export type TaxId$Outbound = string | string;
 
 /** @internal */
-export const TaxId$outboundSchema: z.ZodMiniType<TaxId$Outbound, TaxId> = z
-  .union([z.string(), TaxIDFormat$outboundSchema]);
+export const TaxId$outboundSchema: z.ZodMiniType<TaxId$Outbound, TaxId> =
+  smartUnion([z.string(), TaxIDFormat$outboundSchema]);
 
 export function taxIdToJSON(taxId: TaxId): string {
   return JSON.stringify(TaxId$outboundSchema.parse(taxId));
@@ -134,31 +103,23 @@ export const SubscriptionCustomer$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+    external_id: types.nullable(types.string()),
+    email: types.string(),
+    email_verified: types.boolean(),
+    name: types.nullable(types.string()),
+    billing_address: types.nullable(Address$inboundSchema),
+    tax_id: types.nullable(
+      z.array(
+        types.nullable(smartUnion([types.string(), TaxIDFormat$inboundSchema])),
+      ),
     ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
-    external_id: z.nullable(z.string()),
-    email: z.string(),
-    email_verified: z.boolean(),
-    name: z.nullable(z.string()),
-    billing_address: z.nullable(Address$inboundSchema),
-    tax_id: z.nullable(
-      z.array(z.nullable(z.union([z.string(), TaxIDFormat$inboundSchema]))),
-    ),
-    organization_id: z.string(),
-    deleted_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    avatar_url: z.string(),
+    organization_id: types.string(),
+    deleted_at: types.nullable(types.date()),
+    avatar_url: types.string(),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -179,7 +140,7 @@ export type SubscriptionCustomer$Outbound = {
   id: string;
   created_at: string;
   modified_at: string | null;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   external_id: string | null;
   email: string;
   email_verified: boolean;
@@ -200,17 +161,14 @@ export const SubscriptionCustomer$outboundSchema: z.ZodMiniType<
     id: z.string(),
     createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
     modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     externalId: z.nullable(z.string()),
     email: z.string(),
     emailVerified: z.boolean(),
     name: z.nullable(z.string()),
     billingAddress: z.nullable(Address$outboundSchema),
     taxId: z.nullable(
-      z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
+      z.array(z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema]))),
     ),
     organizationId: z.string(),
     deletedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),

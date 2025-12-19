@@ -4,11 +4,17 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   AddressInput,
   AddressInput$Outbound,
   AddressInput$outboundSchema,
 } from "./addressinput.js";
+import {
+  OwnerCreate,
+  OwnerCreate$Outbound,
+  OwnerCreate$outboundSchema,
+} from "./ownercreate.js";
 import { TaxIDFormat, TaxIDFormat$outboundSchema } from "./taxidformat.js";
 
 export type CustomerCreateMetadata = string | number | number | boolean;
@@ -47,6 +53,10 @@ export type CustomerCreate = {
    * The ID of the organization owning the customer. **Required unless you use an organization token.**
    */
   organizationId?: string | null | undefined;
+  /**
+   * Optional owner member to create with the customer. If not provided, an owner member will be automatically created using the customer's email and name.
+   */
+  owner?: OwnerCreate | null | undefined;
 };
 
 /** @internal */
@@ -60,7 +70,7 @@ export type CustomerCreateMetadata$Outbound =
 export const CustomerCreateMetadata$outboundSchema: z.ZodMiniType<
   CustomerCreateMetadata$Outbound,
   CustomerCreateMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function customerCreateMetadataToJSON(
   customerCreateMetadata: CustomerCreateMetadata,
@@ -77,7 +87,7 @@ export type CustomerCreateTaxId$Outbound = string | string;
 export const CustomerCreateTaxId$outboundSchema: z.ZodMiniType<
   CustomerCreateTaxId$Outbound,
   CustomerCreateTaxId
-> = z.union([z.string(), TaxIDFormat$outboundSchema]);
+> = smartUnion([z.string(), TaxIDFormat$outboundSchema]);
 
 export function customerCreateTaxIdToJSON(
   customerCreateTaxId: CustomerCreateTaxId,
@@ -96,6 +106,7 @@ export type CustomerCreate$Outbound = {
   billing_address?: AddressInput$Outbound | null | undefined;
   tax_id?: Array<string | string | null> | null | undefined;
   organization_id?: string | null | undefined;
+  owner?: OwnerCreate$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -107,7 +118,7 @@ export const CustomerCreate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     externalId: z.optional(z.nullable(z.string())),
@@ -116,10 +127,13 @@ export const CustomerCreate$outboundSchema: z.ZodMiniType<
     billingAddress: z.optional(z.nullable(AddressInput$outboundSchema)),
     taxId: z.optional(
       z.nullable(
-        z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
+        z.array(
+          z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema])),
+        ),
       ),
     ),
     organizationId: z.optional(z.nullable(z.string())),
+    owner: z.optional(z.nullable(OwnerCreate$outboundSchema)),
   }),
   z.transform((v) => {
     return remap$(v, {

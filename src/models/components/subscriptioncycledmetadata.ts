@@ -6,10 +6,16 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionCycledMetadata = {
   subscriptionId: string;
+  productId?: string | undefined;
+  amount?: number | undefined;
+  currency?: string | undefined;
+  recurringInterval?: string | undefined;
+  recurringIntervalCount?: number | undefined;
 };
 
 /** @internal */
@@ -18,11 +24,19 @@ export const SubscriptionCycledMetadata$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    subscription_id: z.string(),
+    subscription_id: types.string(),
+    product_id: types.optional(types.string()),
+    amount: types.optional(types.number()),
+    currency: types.optional(types.string()),
+    recurring_interval: types.optional(types.string()),
+    recurring_interval_count: types.optional(types.number()),
   }),
   z.transform((v) => {
     return remap$(v, {
       "subscription_id": "subscriptionId",
+      "product_id": "productId",
+      "recurring_interval": "recurringInterval",
+      "recurring_interval_count": "recurringIntervalCount",
     });
   }),
 );

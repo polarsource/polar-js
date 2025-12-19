@@ -16,7 +16,7 @@ let value: ProductPriceCustomCreate = {
 
 | Field                                             | Type                                              | Required                                          | Description                                       |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| `amountType`                                      | *string*                                          | :heavy_check_mark:                                | N/A                                               |
+| `amountType`                                      | *"custom"*                                        | :heavy_check_mark:                                | N/A                                               |
 | `priceCurrency`                                   | *string*                                          | :heavy_minus_sign:                                | The currency. Currently, only `usd` is supported. |
 | `minimumAmount`                                   | *number*                                          | :heavy_minus_sign:                                | The minimum amount the customer can pay.          |
 | `maximumAmount`                                   | *number*                                          | :heavy_minus_sign:                                | The maximum amount the customer can pay.          |

@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Subscription,
@@ -14,10 +15,12 @@ import {
 } from "./subscription.js";
 
 /**
- * Sent when a subscription is revoked, the user loses access immediately.
+ * Sent when a subscription is revoked and the user loses access immediately.
  *
  * @remarks
- * Happens when the subscription is canceled, or payment is past due.
+ * Happens when the subscription is canceled or payment retries are exhausted (status becomes `unpaid`).
+ *
+ * For payment failures that can still be recovered, see `subscription.past_due`.
  *
  * **Discord & Slack support:** Full
  */
@@ -32,11 +35,8 @@ export const WebhookSubscriptionRevokedPayload$inboundSchema: z.ZodMiniType<
   WebhookSubscriptionRevokedPayload,
   unknown
 > = z.object({
-  type: z.literal("subscription.revoked"),
-  timestamp: z.pipe(
-    z.iso.datetime({ offset: true }),
-    z.transform(v => new Date(v)),
-  ),
+  type: types.literal("subscription.revoked"),
+  timestamp: types.date(),
   data: Subscription$inboundSchema,
 });
 /** @internal */
