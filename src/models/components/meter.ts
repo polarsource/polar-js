@@ -5,7 +5,10 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CountAggregation,
@@ -20,6 +23,12 @@ import {
   Filter$outboundSchema,
 } from "./filter.js";
 import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
+import {
   PropertyAggregation,
   PropertyAggregation$inboundSchema,
   PropertyAggregation$Outbound,
@@ -32,21 +41,20 @@ import {
   UniqueAggregation$outboundSchema,
 } from "./uniqueaggregation.js";
 
-export type MeterMetadata = string | number | number | boolean;
-
 /**
  * The aggregation to apply on the filtered events to calculate the meter.
  */
 export type MeterAggregation =
   | (PropertyAggregation & { func: "avg" })
+  | CountAggregation
   | (PropertyAggregation & { func: "max" })
   | (PropertyAggregation & { func: "min" })
   | (PropertyAggregation & { func: "sum" })
-  | (UniqueAggregation & { func: "unique" })
-  | (CountAggregation & { func: "count" });
+  | UniqueAggregation
+  | discriminatedUnionTypes.Unknown<"func">;
 
 export type Meter = {
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * Creation timestamp of the object.
    */
@@ -69,11 +77,12 @@ export type Meter = {
    */
   aggregation:
     | (PropertyAggregation & { func: "avg" })
+    | CountAggregation
     | (PropertyAggregation & { func: "max" })
     | (PropertyAggregation & { func: "min" })
     | (PropertyAggregation & { func: "sum" })
-    | (UniqueAggregation & { func: "unique" })
-    | (CountAggregation & { func: "count" });
+    | UniqueAggregation
+    | discriminatedUnionTypes.Unknown<"func">;
   /**
    * The ID of the organization owning the meter.
    */
@@ -85,70 +94,37 @@ export type Meter = {
 };
 
 /** @internal */
-export const MeterMetadata$inboundSchema: z.ZodMiniType<
-  MeterMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type MeterMetadata$Outbound = string | number | number | boolean;
-
-/** @internal */
-export const MeterMetadata$outboundSchema: z.ZodMiniType<
-  MeterMetadata$Outbound,
-  MeterMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function meterMetadataToJSON(meterMetadata: MeterMetadata): string {
-  return JSON.stringify(MeterMetadata$outboundSchema.parse(meterMetadata));
-}
-export function meterMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<MeterMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => MeterMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'MeterMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const MeterAggregation$inboundSchema: z.ZodMiniType<
   MeterAggregation,
   unknown
-> = z.union([
-  z.intersection(
+> = discriminatedUnion("func", {
+  avg: z.intersection(
     PropertyAggregation$inboundSchema,
     z.object({ func: z.literal("avg") }),
   ),
-  z.intersection(
+  count: CountAggregation$inboundSchema,
+  max: z.intersection(
     PropertyAggregation$inboundSchema,
     z.object({ func: z.literal("max") }),
   ),
-  z.intersection(
+  min: z.intersection(
     PropertyAggregation$inboundSchema,
     z.object({ func: z.literal("min") }),
   ),
-  z.intersection(
+  sum: z.intersection(
     PropertyAggregation$inboundSchema,
     z.object({ func: z.literal("sum") }),
   ),
-  z.intersection(
-    UniqueAggregation$inboundSchema,
-    z.object({ func: z.literal("unique") }),
-  ),
-  z.intersection(
-    CountAggregation$inboundSchema,
-    z.object({ func: z.literal("count") }),
-  ),
-]);
+  unique: UniqueAggregation$inboundSchema,
+});
 /** @internal */
 export type MeterAggregation$Outbound =
   | (PropertyAggregation$Outbound & { func: "avg" })
+  | CountAggregation$Outbound
   | (PropertyAggregation$Outbound & { func: "max" })
   | (PropertyAggregation$Outbound & { func: "min" })
   | (PropertyAggregation$Outbound & { func: "sum" })
-  | (UniqueAggregation$Outbound & { func: "unique" })
-  | (CountAggregation$Outbound & { func: "count" });
+  | UniqueAggregation$Outbound;
 
 /** @internal */
 export const MeterAggregation$outboundSchema: z.ZodMiniType<
@@ -159,6 +135,7 @@ export const MeterAggregation$outboundSchema: z.ZodMiniType<
     PropertyAggregation$outboundSchema,
     z.object({ func: z.literal("avg") }),
   ),
+  CountAggregation$outboundSchema,
   z.intersection(
     PropertyAggregation$outboundSchema,
     z.object({ func: z.literal("max") }),
@@ -171,14 +148,7 @@ export const MeterAggregation$outboundSchema: z.ZodMiniType<
     PropertyAggregation$outboundSchema,
     z.object({ func: z.literal("sum") }),
   ),
-  z.intersection(
-    UniqueAggregation$outboundSchema,
-    z.object({ func: z.literal("unique") }),
-  ),
-  z.intersection(
-    CountAggregation$outboundSchema,
-    z.object({ func: z.literal("count") }),
-  ),
+  UniqueAggregation$outboundSchema,
 ]);
 
 export function meterAggregationToJSON(
@@ -201,53 +171,34 @@ export function meterAggregationFromJSON(
 /** @internal */
 export const Meter$inboundSchema: z.ZodMiniType<Meter, unknown> = z.pipe(
   z.object({
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    name: z.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    name: types.string(),
     filter: Filter$inboundSchema,
-    aggregation: z.union([
-      z.intersection(
+    aggregation: discriminatedUnion("func", {
+      avg: z.intersection(
         PropertyAggregation$inboundSchema,
         z.object({ func: z.literal("avg") }),
       ),
-      z.intersection(
+      count: CountAggregation$inboundSchema,
+      max: z.intersection(
         PropertyAggregation$inboundSchema,
         z.object({ func: z.literal("max") }),
       ),
-      z.intersection(
+      min: z.intersection(
         PropertyAggregation$inboundSchema,
         z.object({ func: z.literal("min") }),
       ),
-      z.intersection(
+      sum: z.intersection(
         PropertyAggregation$inboundSchema,
         z.object({ func: z.literal("sum") }),
       ),
-      z.intersection(
-        UniqueAggregation$inboundSchema,
-        z.object({ func: z.literal("unique") }),
-      ),
-      z.intersection(
-        CountAggregation$inboundSchema,
-        z.object({ func: z.literal("count") }),
-      ),
-    ]),
-    organization_id: z.string(),
-    archived_at: z.optional(
-      z.nullable(z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      )),
-    ),
+      unique: UniqueAggregation$inboundSchema,
+    }),
+    organization_id: types.string(),
+    archived_at: z.optional(z.nullable(types.date())),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -260,7 +211,7 @@ export const Meter$inboundSchema: z.ZodMiniType<Meter, unknown> = z.pipe(
 );
 /** @internal */
 export type Meter$Outbound = {
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   created_at: string;
   modified_at: string | null;
   id: string;
@@ -268,11 +219,11 @@ export type Meter$Outbound = {
   filter: Filter$Outbound;
   aggregation:
     | (PropertyAggregation$Outbound & { func: "avg" })
+    | CountAggregation$Outbound
     | (PropertyAggregation$Outbound & { func: "max" })
     | (PropertyAggregation$Outbound & { func: "min" })
     | (PropertyAggregation$Outbound & { func: "sum" })
-    | (UniqueAggregation$Outbound & { func: "unique" })
-    | (CountAggregation$Outbound & { func: "count" });
+    | UniqueAggregation$Outbound;
   organization_id: string;
   archived_at?: string | null | undefined;
 };
@@ -281,10 +232,7 @@ export type Meter$Outbound = {
 export const Meter$outboundSchema: z.ZodMiniType<Meter$Outbound, Meter> = z
   .pipe(
     z.object({
-      metadata: z.record(
-        z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
-      ),
+      metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
       createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
       modifiedAt: z.nullable(
         z.pipe(z.date(), z.transform(v => v.toISOString())),
@@ -297,6 +245,7 @@ export const Meter$outboundSchema: z.ZodMiniType<Meter$Outbound, Meter> = z
           PropertyAggregation$outboundSchema,
           z.object({ func: z.literal("avg") }),
         ),
+        CountAggregation$outboundSchema,
         z.intersection(
           PropertyAggregation$outboundSchema,
           z.object({ func: z.literal("max") }),
@@ -309,14 +258,7 @@ export const Meter$outboundSchema: z.ZodMiniType<Meter$Outbound, Meter> = z
           PropertyAggregation$outboundSchema,
           z.object({ func: z.literal("sum") }),
         ),
-        z.intersection(
-          UniqueAggregation$outboundSchema,
-          z.object({ func: z.literal("unique") }),
-        ),
-        z.intersection(
-          CountAggregation$outboundSchema,
-          z.object({ func: z.literal("count") }),
-        ),
+        UniqueAggregation$outboundSchema,
       ]),
       organizationId: z.string(),
       archivedAt: z.optional(

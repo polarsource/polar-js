@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UserInfoUser = {
@@ -19,10 +20,10 @@ export type UserInfoUser = {
 export const UserInfoUser$inboundSchema: z.ZodMiniType<UserInfoUser, unknown> =
   z.pipe(
     z.object({
-      sub: z.string(),
-      name: z.optional(z.nullable(z.string())),
-      email: z.optional(z.nullable(z.string())),
-      email_verified: z.optional(z.nullable(z.boolean())),
+      sub: types.string(),
+      name: z.optional(z.nullable(types.string())),
+      email: z.optional(z.nullable(types.string())),
+      email_verified: z.optional(z.nullable(types.boolean())),
     }),
     z.transform((v) => {
       return remap$(v, {

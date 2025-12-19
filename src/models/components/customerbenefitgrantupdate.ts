@@ -35,79 +35,33 @@ import {
 } from "./customerbenefitgrantmetercreditupdate.js";
 
 export type CustomerBenefitGrantUpdate =
-  | (CustomerBenefitGrantDiscordUpdate & { benefitType: "discord" })
-  | (CustomerBenefitGrantGitHubRepositoryUpdate & {
-    benefitType: "github_repository";
-  })
-  | (CustomerBenefitGrantCustomUpdate & { benefitType: "custom" })
-  | (CustomerBenefitGrantDownloadablesUpdate & { benefitType: "downloadables" })
-  | (CustomerBenefitGrantLicenseKeysUpdate & { benefitType: "license_keys" })
-  | (CustomerBenefitGrantMeterCreditUpdate & { benefitType: "meter_credit" });
+  | CustomerBenefitGrantCustomUpdate
+  | CustomerBenefitGrantDiscordUpdate
+  | CustomerBenefitGrantDownloadablesUpdate
+  | CustomerBenefitGrantGitHubRepositoryUpdate
+  | CustomerBenefitGrantLicenseKeysUpdate
+  | CustomerBenefitGrantMeterCreditUpdate;
 
 /** @internal */
 export type CustomerBenefitGrantUpdate$Outbound =
-  | (CustomerBenefitGrantDiscordUpdate$Outbound & { benefit_type: "discord" })
-  | (CustomerBenefitGrantGitHubRepositoryUpdate$Outbound & {
-    benefit_type: "github_repository";
-  })
-  | (CustomerBenefitGrantCustomUpdate$Outbound & { benefit_type: "custom" })
-  | (CustomerBenefitGrantDownloadablesUpdate$Outbound & {
-    benefit_type: "downloadables";
-  })
-  | (CustomerBenefitGrantLicenseKeysUpdate$Outbound & {
-    benefit_type: "license_keys";
-  })
-  | (CustomerBenefitGrantMeterCreditUpdate$Outbound & {
-    benefit_type: "meter_credit";
-  });
+  | CustomerBenefitGrantCustomUpdate$Outbound
+  | CustomerBenefitGrantDiscordUpdate$Outbound
+  | CustomerBenefitGrantDownloadablesUpdate$Outbound
+  | CustomerBenefitGrantGitHubRepositoryUpdate$Outbound
+  | CustomerBenefitGrantLicenseKeysUpdate$Outbound
+  | CustomerBenefitGrantMeterCreditUpdate$Outbound;
 
 /** @internal */
 export const CustomerBenefitGrantUpdate$outboundSchema: z.ZodMiniType<
   CustomerBenefitGrantUpdate$Outbound,
   CustomerBenefitGrantUpdate
 > = z.union([
-  z.intersection(
-    CustomerBenefitGrantDiscordUpdate$outboundSchema,
-    z.pipe(
-      z.object({ benefitType: z.literal("discord") }),
-      z.transform((v) => ({ benefit_type: v.benefitType })),
-    ),
-  ),
-  z.intersection(
-    CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema,
-    z.pipe(
-      z.object({ benefitType: z.literal("github_repository") }),
-      z.transform((v) => ({ benefit_type: v.benefitType })),
-    ),
-  ),
-  z.intersection(
-    CustomerBenefitGrantCustomUpdate$outboundSchema,
-    z.pipe(
-      z.object({ benefitType: z.literal("custom") }),
-      z.transform((v) => ({ benefit_type: v.benefitType })),
-    ),
-  ),
-  z.intersection(
-    CustomerBenefitGrantDownloadablesUpdate$outboundSchema,
-    z.pipe(
-      z.object({ benefitType: z.literal("downloadables") }),
-      z.transform((v) => ({ benefit_type: v.benefitType })),
-    ),
-  ),
-  z.intersection(
-    CustomerBenefitGrantLicenseKeysUpdate$outboundSchema,
-    z.pipe(
-      z.object({ benefitType: z.literal("license_keys") }),
-      z.transform((v) => ({ benefit_type: v.benefitType })),
-    ),
-  ),
-  z.intersection(
-    CustomerBenefitGrantMeterCreditUpdate$outboundSchema,
-    z.pipe(
-      z.object({ benefitType: z.literal("meter_credit") }),
-      z.transform((v) => ({ benefit_type: v.benefitType })),
-    ),
-  ),
+  CustomerBenefitGrantCustomUpdate$outboundSchema,
+  CustomerBenefitGrantDiscordUpdate$outboundSchema,
+  CustomerBenefitGrantDownloadablesUpdate$outboundSchema,
+  CustomerBenefitGrantGitHubRepositoryUpdate$outboundSchema,
+  CustomerBenefitGrantLicenseKeysUpdate$outboundSchema,
+  CustomerBenefitGrantMeterCreditUpdate$outboundSchema,
 ]);
 
 export function customerBenefitGrantUpdateToJSON(

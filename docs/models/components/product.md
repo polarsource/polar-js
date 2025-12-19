@@ -51,23 +51,42 @@ let value: Product = {
       id: "<value>",
       organizationId: "<value>",
       name: "<value>",
-      path: "/var/yp",
+      path: "/opt/bin",
       mimeType: "<value>",
-      size: 678611,
-      storageVersion: null,
+      size: 366381,
+      storageVersion: "<value>",
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2023-09-01T23:53:55.808Z"),
+      lastModifiedAt: new Date("2024-06-28T06:21:21.363Z"),
       version: "<value>",
       service: "product_media",
       isUploaded: false,
-      createdAt: new Date("2023-02-02T09:12:11.130Z"),
+      createdAt: new Date("2025-06-12T01:48:20.505Z"),
       sizeReadable: "<value>",
-      publicUrl: "https://unhealthy-unibody.net",
+      publicUrl: "https://entire-slipper.org",
     },
   ],
-  attachedCustomFields: [],
+  attachedCustomFields: [
+    {
+      customFieldId: "<value>",
+      customField: {
+        createdAt: new Date("2023-12-03T03:18:51.837Z"),
+        modifiedAt: new Date("2025-09-25T14:22:13.198Z"),
+        id: "<value>",
+        metadata: {
+          "key": 3666.38,
+        },
+        type: "checkbox",
+        slug: "<value>",
+        name: "<value>",
+        organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+        properties: {},
+      },
+      order: 979536,
+      required: false,
+    },
+  ],
 };
 ```
 
@@ -87,7 +106,7 @@ let value: Product = {
 | `isRecurring`                                                                                                                                                                                                | *boolean*                                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                           | Whether the product is a subscription.                                                                                                                                                                       |
 | `isArchived`                                                                                                                                                                                                 | *boolean*                                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                           | Whether the product is archived and no longer available.                                                                                                                                                     |
 | `organizationId`                                                                                                                                                                                             | *string*                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                           | The ID of the organization owning the product.                                                                                                                                                               |
-| `metadata`                                                                                                                                                                                                   | Record<string, *components.ProductMetadata*>                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                           | N/A                                                                                                                                                                                                          |
+| `metadata`                                                                                                                                                                                                   | Record<string, *components.MetadataOutputType*>                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                           | N/A                                                                                                                                                                                                          |
 | `prices`                                                                                                                                                                                                     | *components.Prices*[]                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                           | List of prices for this product.                                                                                                                                                                             |
 | `benefits`                                                                                                                                                                                                   | *components.Benefit*[]                                                                                                                                                                                       | :heavy_check_mark:                                                                                                                                                                                           | List of benefits granted by the product.                                                                                                                                                                     |
 | `medias`                                                                                                                                                                                                     | [components.ProductMediaFileRead](../../models/components/productmediafileread.md)[]                                                                                                                         | :heavy_check_mark:                                                                                                                                                                                           | List of medias associated to the product.                                                                                                                                                                    |

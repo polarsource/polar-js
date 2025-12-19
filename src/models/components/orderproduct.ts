@@ -6,7 +6,14 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
@@ -18,10 +25,8 @@ import {
   TrialInterval$outboundSchema,
 } from "./trialinterval.js";
 
-export type OrderProductMetadata = string | number | number | boolean;
-
 export type OrderProduct = {
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * The ID of the object.
    */
@@ -73,63 +78,24 @@ export type OrderProduct = {
 };
 
 /** @internal */
-export const OrderProductMetadata$inboundSchema: z.ZodMiniType<
-  OrderProductMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type OrderProductMetadata$Outbound = string | number | number | boolean;
-
-/** @internal */
-export const OrderProductMetadata$outboundSchema: z.ZodMiniType<
-  OrderProductMetadata$Outbound,
-  OrderProductMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function orderProductMetadataToJSON(
-  orderProductMetadata: OrderProductMetadata,
-): string {
-  return JSON.stringify(
-    OrderProductMetadata$outboundSchema.parse(orderProductMetadata),
-  );
-}
-export function orderProductMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<OrderProductMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrderProductMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrderProductMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const OrderProduct$inboundSchema: z.ZodMiniType<OrderProduct, unknown> =
   z.pipe(
     z.object({
-      metadata: z.record(
-        z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
-      ),
-      id: z.string(),
-      created_at: z.pipe(
-        z.iso.datetime({ offset: true }),
-        z.transform(v => new Date(v)),
-      ),
-      modified_at: z.nullable(
-        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-      ),
-      trial_interval: z.nullable(TrialInterval$inboundSchema),
-      trial_interval_count: z.nullable(z.int()),
-      name: z.string(),
-      description: z.nullable(z.string()),
-      recurring_interval: z.nullable(
+      metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+      id: types.string(),
+      created_at: types.date(),
+      modified_at: types.nullable(types.date()),
+      trial_interval: types.nullable(TrialInterval$inboundSchema),
+      trial_interval_count: types.nullable(types.number()),
+      name: types.string(),
+      description: types.nullable(types.string()),
+      recurring_interval: types.nullable(
         SubscriptionRecurringInterval$inboundSchema,
       ),
-      recurring_interval_count: z.nullable(z.int()),
-      is_recurring: z.boolean(),
-      is_archived: z.boolean(),
-      organization_id: z.string(),
+      recurring_interval_count: types.nullable(types.number()),
+      is_recurring: types.boolean(),
+      is_archived: types.boolean(),
+      organization_id: types.string(),
     }),
     z.transform((v) => {
       return remap$(v, {
@@ -147,7 +113,7 @@ export const OrderProduct$inboundSchema: z.ZodMiniType<OrderProduct, unknown> =
   );
 /** @internal */
 export type OrderProduct$Outbound = {
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   id: string;
   created_at: string;
   modified_at: string | null;
@@ -168,10 +134,7 @@ export const OrderProduct$outboundSchema: z.ZodMiniType<
   OrderProduct
 > = z.pipe(
   z.object({
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     id: z.string(),
     createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
     modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),

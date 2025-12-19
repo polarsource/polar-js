@@ -10,7 +10,7 @@ import { ExpiredCheckoutError } from "@polar-sh/sdk/models/errors/expiredcheckou
 
 ## Fields
 
-| Field                | Type                 | Required             | Description          | Example              |
-| -------------------- | -------------------- | -------------------- | -------------------- | -------------------- |
-| `error`              | *string*             | :heavy_check_mark:   | N/A                  | ExpiredCheckoutError |
-| `detail`             | *string*             | :heavy_check_mark:   | N/A                  |                      |
+| Field                    | Type                     | Required                 | Description              | Example                  |
+| ------------------------ | ------------------------ | ------------------------ | ------------------------ | ------------------------ |
+| `error`                  | *"ExpiredCheckoutError"* | :heavy_check_mark:       | N/A                      | ExpiredCheckoutError     |
+| `detail`                 | *string*                 | :heavy_check_mark:       | N/A                      |                          |

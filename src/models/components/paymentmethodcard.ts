@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PaymentMethodCardMetadata,
@@ -41,17 +42,12 @@ export const PaymentMethodCard$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
     processor: PaymentProcessor$inboundSchema,
-    customer_id: z.string(),
-    type: z.literal("card"),
+    customer_id: types.string(),
+    type: types.literal("card"),
     method_metadata: PaymentMethodCardMetadata$inboundSchema,
   }),
   z.transform((v) => {

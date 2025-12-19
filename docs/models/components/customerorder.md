@@ -52,14 +52,23 @@ let value: CustomerOrder = {
     benefits: [],
     medias: [],
     organization: {
-      createdAt: new Date("2025-09-30T11:33:49.764Z"),
-      modifiedAt: new Date("2023-03-14T19:22:24.375Z"),
+      createdAt: new Date("2023-09-17T13:02:40.897Z"),
+      modifiedAt: null,
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://forceful-grass.com/",
+      avatarUrl: "https://peaceful-address.net",
       prorationBehavior: "invoice",
-      allowCustomerUpdates: true,
+      allowCustomerUpdates: false,
+      customerPortalSettings: {
+        usage: {
+          show: true,
+        },
+        subscription: {
+          updateSeats: false,
+          updatePlan: true,
+        },
+      },
     },
   },
   subscription: {
@@ -89,8 +98,8 @@ let value: CustomerOrder = {
   },
   items: [
     {
-      createdAt: new Date("2024-02-10T21:00:41.494Z"),
-      modifiedAt: new Date("2024-06-05T21:57:00.887Z"),
+      createdAt: new Date("2025-07-29T12:39:40.191Z"),
+      modifiedAt: new Date("2025-07-27T15:03:31.368Z"),
       id: "<value>",
       label: "Pro Plan",
       amount: 10000,

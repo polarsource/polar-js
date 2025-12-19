@@ -3,7 +3,8 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 /**
  * List of supported tax ID formats.
@@ -95,11 +96,11 @@ export const TaxIDFormat = {
  *
  * Ref: https://docs.stripe.com/billing/customer/tax-ids#supported-tax-id
  */
-export type TaxIDFormat = ClosedEnum<typeof TaxIDFormat>;
+export type TaxIDFormat = OpenEnum<typeof TaxIDFormat>;
 
 /** @internal */
-export const TaxIDFormat$inboundSchema: z.ZodMiniEnum<typeof TaxIDFormat> = z
-  .enum(TaxIDFormat);
+export const TaxIDFormat$inboundSchema: z.ZodMiniType<TaxIDFormat, unknown> =
+  openEnums.inboundSchema(TaxIDFormat);
 /** @internal */
-export const TaxIDFormat$outboundSchema: z.ZodMiniEnum<typeof TaxIDFormat> =
-  TaxIDFormat$inboundSchema;
+export const TaxIDFormat$outboundSchema: z.ZodMiniType<string, TaxIDFormat> =
+  openEnums.outboundSchema(TaxIDFormat);

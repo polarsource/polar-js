@@ -1,5 +1,4 @@
 # Products
-(*products*)
 
 ## Overview
 

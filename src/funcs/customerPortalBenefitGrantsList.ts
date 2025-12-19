@@ -123,6 +123,7 @@ async function $do(
     "benefit_id": payload.benefit_id,
     "checkout_id": payload.checkout_id,
     "limit": payload.limit,
+    "member_id": payload.member_id,
     "order_id": payload.order_id,
     "page": payload.page,
     "sorting": payload.sorting,

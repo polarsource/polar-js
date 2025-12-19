@@ -30,45 +30,30 @@ import {
 } from "./customfieldcreatetext.js";
 
 export type CustomFieldCreate =
-  | (CustomFieldCreateCheckbox & { type: "checkbox" })
-  | (CustomFieldCreateDate & { type: "date" })
-  | (CustomFieldCreateNumber & { type: "number" })
-  | (CustomFieldCreateSelect & { type: "select" })
-  | (CustomFieldCreateText & { type: "text" });
+  | CustomFieldCreateCheckbox
+  | CustomFieldCreateDate
+  | CustomFieldCreateNumber
+  | CustomFieldCreateSelect
+  | CustomFieldCreateText;
 
 /** @internal */
 export type CustomFieldCreate$Outbound =
-  | (CustomFieldCreateCheckbox$Outbound & { type: "checkbox" })
-  | (CustomFieldCreateDate$Outbound & { type: "date" })
-  | (CustomFieldCreateNumber$Outbound & { type: "number" })
-  | (CustomFieldCreateSelect$Outbound & { type: "select" })
-  | (CustomFieldCreateText$Outbound & { type: "text" });
+  | CustomFieldCreateCheckbox$Outbound
+  | CustomFieldCreateDate$Outbound
+  | CustomFieldCreateNumber$Outbound
+  | CustomFieldCreateSelect$Outbound
+  | CustomFieldCreateText$Outbound;
 
 /** @internal */
 export const CustomFieldCreate$outboundSchema: z.ZodMiniType<
   CustomFieldCreate$Outbound,
   CustomFieldCreate
 > = z.union([
-  z.intersection(
-    CustomFieldCreateCheckbox$outboundSchema,
-    z.object({ type: z.literal("checkbox") }),
-  ),
-  z.intersection(
-    CustomFieldCreateDate$outboundSchema,
-    z.object({ type: z.literal("date") }),
-  ),
-  z.intersection(
-    CustomFieldCreateNumber$outboundSchema,
-    z.object({ type: z.literal("number") }),
-  ),
-  z.intersection(
-    CustomFieldCreateSelect$outboundSchema,
-    z.object({ type: z.literal("select") }),
-  ),
-  z.intersection(
-    CustomFieldCreateText$outboundSchema,
-    z.object({ type: z.literal("text") }),
-  ),
+  CustomFieldCreateCheckbox$outboundSchema,
+  CustomFieldCreateDate$outboundSchema,
+  CustomFieldCreateNumber$outboundSchema,
+  CustomFieldCreateSelect$outboundSchema,
+  CustomFieldCreateText$outboundSchema,
 ]);
 
 export function customFieldCreateToJSON(

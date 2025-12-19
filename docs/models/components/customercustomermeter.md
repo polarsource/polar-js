@@ -15,8 +15,8 @@ let value: CustomerCustomerMeter = {
   creditedUnits: 100,
   balance: 75,
   meter: {
-    createdAt: new Date("2025-10-22T08:20:44.088Z"),
-    modifiedAt: new Date("2023-06-24T10:10:24.566Z"),
+    createdAt: new Date("2024-07-09T14:31:46.959Z"),
+    modifiedAt: new Date("2024-10-28T13:02:25.281Z"),
     id: "<value>",
     name: "<value>",
   },

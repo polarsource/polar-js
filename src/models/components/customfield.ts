@@ -4,6 +4,8 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -38,69 +40,40 @@ import {
 } from "./customfieldtext.js";
 
 export type CustomField =
-  | (CustomFieldCheckbox & { type: "checkbox" })
-  | (CustomFieldDate & { type: "date" })
-  | (CustomFieldNumber & { type: "number" })
-  | (CustomFieldSelect & { type: "select" })
-  | (CustomFieldText & { type: "text" });
+  | CustomFieldCheckbox
+  | CustomFieldDate
+  | CustomFieldNumber
+  | CustomFieldSelect
+  | CustomFieldText
+  | discriminatedUnionTypes.Unknown<"type">;
 
 /** @internal */
-export const CustomField$inboundSchema: z.ZodMiniType<CustomField, unknown> = z
-  .union([
-    z.intersection(
-      CustomFieldCheckbox$inboundSchema,
-      z.object({ type: z.literal("checkbox") }),
-    ),
-    z.intersection(
-      CustomFieldDate$inboundSchema,
-      z.object({ type: z.literal("date") }),
-    ),
-    z.intersection(
-      CustomFieldNumber$inboundSchema,
-      z.object({ type: z.literal("number") }),
-    ),
-    z.intersection(
-      CustomFieldSelect$inboundSchema,
-      z.object({ type: z.literal("select") }),
-    ),
-    z.intersection(
-      CustomFieldText$inboundSchema,
-      z.object({ type: z.literal("text") }),
-    ),
-  ]);
+export const CustomField$inboundSchema: z.ZodMiniType<CustomField, unknown> =
+  discriminatedUnion("type", {
+    checkbox: CustomFieldCheckbox$inboundSchema,
+    date: CustomFieldDate$inboundSchema,
+    number: CustomFieldNumber$inboundSchema,
+    select: CustomFieldSelect$inboundSchema,
+    text: CustomFieldText$inboundSchema,
+  });
 /** @internal */
 export type CustomField$Outbound =
-  | (CustomFieldCheckbox$Outbound & { type: "checkbox" })
-  | (CustomFieldDate$Outbound & { type: "date" })
-  | (CustomFieldNumber$Outbound & { type: "number" })
-  | (CustomFieldSelect$Outbound & { type: "select" })
-  | (CustomFieldText$Outbound & { type: "text" });
+  | CustomFieldCheckbox$Outbound
+  | CustomFieldDate$Outbound
+  | CustomFieldNumber$Outbound
+  | CustomFieldSelect$Outbound
+  | CustomFieldText$Outbound;
 
 /** @internal */
 export const CustomField$outboundSchema: z.ZodMiniType<
   CustomField$Outbound,
   CustomField
 > = z.union([
-  z.intersection(
-    CustomFieldCheckbox$outboundSchema,
-    z.object({ type: z.literal("checkbox") }),
-  ),
-  z.intersection(
-    CustomFieldDate$outboundSchema,
-    z.object({ type: z.literal("date") }),
-  ),
-  z.intersection(
-    CustomFieldNumber$outboundSchema,
-    z.object({ type: z.literal("number") }),
-  ),
-  z.intersection(
-    CustomFieldSelect$outboundSchema,
-    z.object({ type: z.literal("select") }),
-  ),
-  z.intersection(
-    CustomFieldText$outboundSchema,
-    z.object({ type: z.literal("text") }),
-  ),
+  CustomFieldCheckbox$outboundSchema,
+  CustomFieldDate$outboundSchema,
+  CustomFieldNumber$outboundSchema,
+  CustomFieldSelect$outboundSchema,
+  CustomFieldText$outboundSchema,
 ]);
 
 export function customFieldToJSON(customField: CustomField): string {

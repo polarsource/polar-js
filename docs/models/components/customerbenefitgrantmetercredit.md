@@ -18,13 +18,13 @@ let value: CustomerBenefitGrantMeterCredit = {
   isGranted: false,
   isRevoked: false,
   customer: {
-    createdAt: new Date("2025-10-07T04:17:24.786Z"),
-    modifiedAt: new Date("2025-05-05T02:01:44.871Z"),
+    createdAt: new Date("2023-10-06T17:24:11.012Z"),
+    modifiedAt: new Date("2023-12-28T23:55:37.070Z"),
     id: "<value>",
-    email: "Sedrick_Paucek@hotmail.com",
+    email: "Greg77@hotmail.com",
     emailVerified: true,
     name: "<value>",
-    billingName: "<value>",
+    billingName: null,
     billingAddress: {
       country: "US",
     },
@@ -32,32 +32,38 @@ let value: CustomerBenefitGrantMeterCredit = {
       "911144442",
       "us_ein",
     ],
-    oauthAccounts: {},
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2023-07-10T03:04:33.155Z"),
-    modifiedAt: new Date("2023-06-26T20:31:24.411Z"),
+    createdAt: new Date("2023-10-05T20:32:44.950Z"),
+    modifiedAt: new Date("2024-09-25T16:16:12.273Z"),
     type: "meter_credit",
-    description:
-      "yowza er dreamily gadzooks eventually outrun playfully mortally",
+    description: "considering kiddingly direct or",
     selectable: false,
     deletable: true,
     organizationId: "<value>",
-    metadata: {},
+    metadata: {
+      "key": true,
+    },
     organization: {
-      createdAt: new Date("2024-07-06T05:20:15.511Z"),
-      modifiedAt: new Date("2024-10-26T03:36:06.540Z"),
+      createdAt: new Date("2023-02-09T14:46:30.040Z"),
+      modifiedAt: new Date("2024-07-28T16:12:54.009Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://handy-impact.net",
+      avatarUrl: "https://spotless-knight.com/",
       prorationBehavior: "prorate",
       allowCustomerUpdates: true,
     },
     properties: {
-      units: 430943,
-      rollover: true,
+      units: 246327,
+      rollover: false,
       meterId: "<value>",
     },
   },
@@ -75,6 +81,7 @@ let value: CustomerBenefitGrantMeterCredit = {
 | `grantedAt`                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `revokedAt`                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `customerId`                                                                                                 | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `memberId`                                                                                                   | *string*                                                                                                     | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
 | `benefitId`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `subscriptionId`                                                                                             | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `orderId`                                                                                                    | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

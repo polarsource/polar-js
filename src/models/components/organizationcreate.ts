@@ -10,6 +10,11 @@ import {
   OrganizationCustomerEmailSettings$outboundSchema,
 } from "./organizationcustomeremailsettings.js";
 import {
+  OrganizationCustomerPortalSettings,
+  OrganizationCustomerPortalSettings$Outbound,
+  OrganizationCustomerPortalSettings$outboundSchema,
+} from "./organizationcustomerportalsettings.js";
+import {
   OrganizationDetails,
   OrganizationDetails$Outbound,
   OrganizationDetails$outboundSchema,
@@ -59,6 +64,10 @@ export type OrganizationCreate = {
   subscriptionSettings?: OrganizationSubscriptionSettings | null | undefined;
   notificationSettings?: OrganizationNotificationSettings | null | undefined;
   customerEmailSettings?: OrganizationCustomerEmailSettings | null | undefined;
+  customerPortalSettings?:
+    | OrganizationCustomerPortalSettings
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -81,6 +90,10 @@ export type OrganizationCreate$Outbound = {
     | undefined;
   customer_email_settings?:
     | OrganizationCustomerEmailSettings$Outbound
+    | null
+    | undefined;
+  customer_portal_settings?:
+    | OrganizationCustomerPortalSettings$Outbound
     | null
     | undefined;
 };
@@ -112,6 +125,9 @@ export const OrganizationCreate$outboundSchema: z.ZodMiniType<
     customerEmailSettings: z.optional(
       z.nullable(OrganizationCustomerEmailSettings$outboundSchema),
     ),
+    customerPortalSettings: z.optional(
+      z.nullable(OrganizationCustomerPortalSettings$outboundSchema),
+    ),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -120,6 +136,7 @@ export const OrganizationCreate$outboundSchema: z.ZodMiniType<
       subscriptionSettings: "subscription_settings",
       notificationSettings: "notification_settings",
       customerEmailSettings: "customer_email_settings",
+      customerPortalSettings: "customer_portal_settings",
     });
   }),
 );

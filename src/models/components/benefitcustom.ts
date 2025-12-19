@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitCustomProperties,
@@ -13,8 +14,12 @@ import {
   BenefitCustomProperties$Outbound,
   BenefitCustomProperties$outboundSchema,
 } from "./benefitcustomproperties.js";
-
-export type BenefitCustomMetadata = string | number | number | boolean;
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
 
 /**
  * A benefit of type `custom`.
@@ -53,7 +58,7 @@ export type BenefitCustom = {
    * The ID of the organization owning the benefit.
    */
   organizationId: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * Properties for a benefit of type `custom`.
    */
@@ -61,59 +66,20 @@ export type BenefitCustom = {
 };
 
 /** @internal */
-export const BenefitCustomMetadata$inboundSchema: z.ZodMiniType<
-  BenefitCustomMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type BenefitCustomMetadata$Outbound = string | number | number | boolean;
-
-/** @internal */
-export const BenefitCustomMetadata$outboundSchema: z.ZodMiniType<
-  BenefitCustomMetadata$Outbound,
-  BenefitCustomMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function benefitCustomMetadataToJSON(
-  benefitCustomMetadata: BenefitCustomMetadata,
-): string {
-  return JSON.stringify(
-    BenefitCustomMetadata$outboundSchema.parse(benefitCustomMetadata),
-  );
-}
-export function benefitCustomMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<BenefitCustomMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BenefitCustomMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BenefitCustomMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const BenefitCustom$inboundSchema: z.ZodMiniType<
   BenefitCustom,
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    type: z.literal("custom"),
-    description: z.string(),
-    selectable: z.boolean(),
-    deletable: z.boolean(),
-    organization_id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    type: types.literal("custom"),
+    description: types.string(),
+    selectable: types.boolean(),
+    deletable: types.boolean(),
+    organization_id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     properties: BenefitCustomProperties$inboundSchema,
   }),
   z.transform((v) => {
@@ -134,7 +100,7 @@ export type BenefitCustom$Outbound = {
   selectable: boolean;
   deletable: boolean;
   organization_id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   properties: BenefitCustomProperties$Outbound;
 };
 
@@ -152,10 +118,7 @@ export const BenefitCustom$outboundSchema: z.ZodMiniType<
     selectable: z.boolean(),
     deletable: z.boolean(),
     organizationId: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     properties: BenefitCustomProperties$outboundSchema,
   }),
   z.transform((v) => {

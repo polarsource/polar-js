@@ -17,6 +17,6 @@ let value: ProductPriceFixedCreate = {
 
 | Field                                             | Type                                              | Required                                          | Description                                       |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| `amountType`                                      | *string*                                          | :heavy_check_mark:                                | N/A                                               |
+| `amountType`                                      | *"fixed"*                                         | :heavy_check_mark:                                | N/A                                               |
 | `priceAmount`                                     | *number*                                          | :heavy_check_mark:                                | The price in cents.                               |
 | `priceCurrency`                                   | *string*                                          | :heavy_minus_sign:                                | The currency. Currently, only `usd` is supported. |

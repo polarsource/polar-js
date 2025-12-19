@@ -22,11 +22,11 @@ let value: CustomerSubscriptionProduct = {
   benefits: [
     {
       id: "<value>",
-      createdAt: new Date("2025-09-12T21:51:12.650Z"),
-      modifiedAt: null,
-      type: "meter_credit",
+      createdAt: new Date("2025-12-10T05:32:38.930Z"),
+      modifiedAt: new Date("2025-06-03T12:53:20.835Z"),
+      type: "custom",
       description:
-        "median dependency outside unique cautiously solidly meh times",
+        "twist beside frivolous gad catalog spirited unless rewarding frequent unto",
       selectable: false,
       deletable: false,
       organizationId: "<value>",
@@ -34,14 +34,23 @@ let value: CustomerSubscriptionProduct = {
   ],
   medias: [],
   organization: {
-    createdAt: new Date("2025-09-30T11:33:49.764Z"),
-    modifiedAt: new Date("2023-03-14T19:22:24.375Z"),
+    createdAt: new Date("2023-09-17T13:02:40.897Z"),
+    modifiedAt: null,
     id: "<value>",
     name: "<value>",
     slug: "<value>",
-    avatarUrl: "https://forceful-grass.com/",
+    avatarUrl: "https://peaceful-address.net",
     prorationBehavior: "invoice",
-    allowCustomerUpdates: true,
+    allowCustomerUpdates: false,
+    customerPortalSettings: {
+      usage: {
+        show: true,
+      },
+      subscription: {
+        updateSeats: false,
+        updatePlan: true,
+      },
+    },
   },
 };
 ```

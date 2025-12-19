@@ -3,18 +3,23 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const WebhookFormat = {
   Raw: "raw",
   Discord: "discord",
   Slack: "slack",
 } as const;
-export type WebhookFormat = ClosedEnum<typeof WebhookFormat>;
+export type WebhookFormat = OpenEnum<typeof WebhookFormat>;
 
 /** @internal */
-export const WebhookFormat$inboundSchema: z.ZodMiniEnum<typeof WebhookFormat> =
-  z.enum(WebhookFormat);
+export const WebhookFormat$inboundSchema: z.ZodMiniType<
+  WebhookFormat,
+  unknown
+> = openEnums.inboundSchema(WebhookFormat);
 /** @internal */
-export const WebhookFormat$outboundSchema: z.ZodMiniEnum<typeof WebhookFormat> =
-  WebhookFormat$inboundSchema;
+export const WebhookFormat$outboundSchema: z.ZodMiniType<
+  string,
+  WebhookFormat
+> = openEnums.outboundSchema(WebhookFormat);

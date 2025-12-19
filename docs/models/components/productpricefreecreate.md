@@ -16,4 +16,4 @@ let value: ProductPriceFreeCreate = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `amountType`       | *string*           | :heavy_check_mark: | N/A                |
+| `amountType`       | *"free"*           | :heavy_check_mark: | N/A                |

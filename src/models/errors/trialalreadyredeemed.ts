@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import * as types from "../../types/primitives.js";
 import { PolarError } from "./polarerror.js";
 
 export type TrialAlreadyRedeemedData = {
@@ -39,8 +40,8 @@ export const TrialAlreadyRedeemed$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    error: z.literal("TrialAlreadyRedeemed"),
-    detail: z.string(),
+    error: types.literal("TrialAlreadyRedeemed"),
+    detail: types.string(),
     request$: z.custom<Request>(x => x instanceof Request),
     response$: z.custom<Response>(x => x instanceof Response),
     body$: z.string(),

@@ -3,7 +3,8 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const WebhookEventType = {
   CheckoutCreated: "checkout.created",
@@ -25,6 +26,7 @@ export const WebhookEventType = {
   SubscriptionCanceled: "subscription.canceled",
   SubscriptionUncanceled: "subscription.uncanceled",
   SubscriptionRevoked: "subscription.revoked",
+  SubscriptionPastDue: "subscription.past_due",
   RefundCreated: "refund.created",
   RefundUpdated: "refund.updated",
   ProductCreated: "product.created",
@@ -37,13 +39,15 @@ export const WebhookEventType = {
   BenefitGrantRevoked: "benefit_grant.revoked",
   OrganizationUpdated: "organization.updated",
 } as const;
-export type WebhookEventType = ClosedEnum<typeof WebhookEventType>;
+export type WebhookEventType = OpenEnum<typeof WebhookEventType>;
 
 /** @internal */
-export const WebhookEventType$inboundSchema: z.ZodMiniEnum<
-  typeof WebhookEventType
-> = z.enum(WebhookEventType);
+export const WebhookEventType$inboundSchema: z.ZodMiniType<
+  WebhookEventType,
+  unknown
+> = openEnums.inboundSchema(WebhookEventType);
 /** @internal */
-export const WebhookEventType$outboundSchema: z.ZodMiniEnum<
-  typeof WebhookEventType
-> = WebhookEventType$inboundSchema;
+export const WebhookEventType$outboundSchema: z.ZodMiniType<
+  string,
+  WebhookEventType
+> = openEnums.outboundSchema(WebhookEventType);

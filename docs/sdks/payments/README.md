@@ -1,5 +1,4 @@
 # Payments
-(*payments*)
 
 ## Overview
 

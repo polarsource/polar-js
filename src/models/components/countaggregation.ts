@@ -5,10 +5,11 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CountAggregation = {
-  func?: "count" | undefined;
+  func: "count";
 };
 
 /** @internal */
@@ -16,7 +17,7 @@ export const CountAggregation$inboundSchema: z.ZodMiniType<
   CountAggregation,
   unknown
 > = z.object({
-  func: z._default(z.literal("count"), "count"),
+  func: types.literal("count"),
 });
 /** @internal */
 export type CountAggregation$Outbound = {
@@ -28,7 +29,7 @@ export const CountAggregation$outboundSchema: z.ZodMiniType<
   CountAggregation$Outbound,
   CountAggregation
 > = z.object({
-  func: z._default(z.literal("count"), "count" as const),
+  func: z.literal("count"),
 });
 
 export function countAggregationToJSON(

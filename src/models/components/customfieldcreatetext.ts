@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomFieldTextProperties,
   CustomFieldTextProperties$Outbound,
@@ -59,7 +60,7 @@ export type CustomFieldCreateTextMetadata$Outbound =
 export const CustomFieldCreateTextMetadata$outboundSchema: z.ZodMiniType<
   CustomFieldCreateTextMetadata$Outbound,
   CustomFieldCreateTextMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function customFieldCreateTextMetadataToJSON(
   customFieldCreateTextMetadata: CustomFieldCreateTextMetadata,
@@ -90,7 +91,7 @@ export const CustomFieldCreateText$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
+        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     type: z.literal("text"),

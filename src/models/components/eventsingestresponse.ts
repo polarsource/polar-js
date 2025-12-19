@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type EventsIngestResponse = {
@@ -15,7 +16,7 @@ export type EventsIngestResponse = {
   /**
    * Number of duplicate events skipped.
    */
-  duplicates?: number | undefined;
+  duplicates: number;
 };
 
 /** @internal */
@@ -23,8 +24,8 @@ export const EventsIngestResponse$inboundSchema: z.ZodMiniType<
   EventsIngestResponse,
   unknown
 > = z.object({
-  inserted: z.int(),
-  duplicates: z._default(z.int(), 0),
+  inserted: types.number(),
+  duplicates: z._default(types.number(), 0),
 });
 
 export function eventsIngestResponseFromJSON(

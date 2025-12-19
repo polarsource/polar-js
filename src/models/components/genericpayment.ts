@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PaymentProcessor,
@@ -75,25 +76,20 @@ export const GenericPayment$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
     processor: PaymentProcessor$inboundSchema,
     status: PaymentStatus$inboundSchema,
-    amount: z.int(),
-    currency: z.string(),
-    method: z.string(),
-    decline_reason: z.nullable(z.string()),
-    decline_message: z.nullable(z.string()),
-    organization_id: z.string(),
-    checkout_id: z.nullable(z.string()),
-    order_id: z.nullable(z.string()),
-    processor_metadata: z.optional(z.record(z.string(), z.any())),
+    amount: types.number(),
+    currency: types.string(),
+    method: types.string(),
+    decline_reason: types.nullable(types.string()),
+    decline_message: types.nullable(types.string()),
+    organization_id: types.string(),
+    checkout_id: types.nullable(types.string()),
+    order_id: types.nullable(types.string()),
+    processor_metadata: types.optional(z.record(z.string(), z.any())),
   }),
   z.transform((v) => {
     return remap$(v, {

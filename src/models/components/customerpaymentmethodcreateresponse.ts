@@ -4,6 +4,8 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -16,25 +18,19 @@ import {
 } from "./customerpaymentmethodcreatesucceededresponse.js";
 
 export type CustomerPaymentMethodCreateResponse =
-  | (CustomerPaymentMethodCreateRequiresActionResponse & {
-    status: "requires_action";
-  })
-  | (CustomerPaymentMethodCreateSucceededResponse & { status: "succeeded" });
+  | CustomerPaymentMethodCreateRequiresActionResponse
+  | CustomerPaymentMethodCreateSucceededResponse
+  | discriminatedUnionTypes.Unknown<"status">;
 
 /** @internal */
 export const CustomerPaymentMethodCreateResponse$inboundSchema: z.ZodMiniType<
   CustomerPaymentMethodCreateResponse,
   unknown
-> = z.union([
-  z.intersection(
+> = discriminatedUnion("status", {
+  requires_action:
     CustomerPaymentMethodCreateRequiresActionResponse$inboundSchema,
-    z.object({ status: z.literal("requires_action") }),
-  ),
-  z.intersection(
-    CustomerPaymentMethodCreateSucceededResponse$inboundSchema,
-    z.object({ status: z.literal("succeeded") }),
-  ),
-]);
+  succeeded: CustomerPaymentMethodCreateSucceededResponse$inboundSchema,
+});
 
 export function customerPaymentMethodCreateResponseFromJSON(
   jsonString: string,

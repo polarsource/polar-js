@@ -12,8 +12,8 @@ import { PolarLicenseKeys } from "./polarlicensekeys.js";
 import { PolarOrders } from "./polarorders.js";
 import { PolarOrganizations } from "./polarorganizations.js";
 import { PolarSubscriptions } from "./polarsubscriptions.js";
-import { PolarWallets } from "./polarwallets.js";
 import { Seats } from "./seats.js";
+import { Wallets } from "./wallets.js";
 
 export class CustomerPortal extends ClientSDK {
   private _benefitGrants?: PolarBenefitGrants;
@@ -66,8 +66,8 @@ export class CustomerPortal extends ClientSDK {
     return (this._subscriptions ??= new PolarSubscriptions(this._options));
   }
 
-  private _wallets?: PolarWallets;
-  get wallets(): PolarWallets {
-    return (this._wallets ??= new PolarWallets(this._options));
+  private _wallets?: Wallets;
+  get wallets(): Wallets {
+    return (this._wallets ??= new Wallets(this._options));
   }
 }

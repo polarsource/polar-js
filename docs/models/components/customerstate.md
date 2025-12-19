@@ -63,22 +63,20 @@ let value: CustomerState = {
   grantedBenefits: [
     {
       id: "d322132c-a9d0-4e0d-b8d3-d81ad021a3a9",
-      createdAt: new Date("2023-03-22T19:19:39.234Z"),
-      modifiedAt: new Date("2023-03-24T14:16:16.143Z"),
+      createdAt: new Date("2025-07-13T15:26:30.510Z"),
+      modifiedAt: new Date("2024-10-06T12:02:58.817Z"),
       grantedAt: new Date("2025-01-03T13:37:00Z"),
       benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
-      benefitType: "downloadables",
-      benefitMetadata: {
-        "key": "value",
-      },
+      benefitType: "custom",
+      benefitMetadata: {},
       properties: {},
     },
   ],
   activeMeters: [
     {
       id: "<value>",
-      createdAt: new Date("2024-12-08T11:33:48.224Z"),
-      modifiedAt: new Date("2025-01-16T06:03:11.033Z"),
+      createdAt: new Date("2023-10-05T13:19:32.493Z"),
+      modifiedAt: new Date("2025-12-21T02:14:43.337Z"),
       meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
       consumedUnits: 25,
       creditedUnits: 100,
@@ -96,7 +94,7 @@ let value: CustomerState = {
 | `id`                                                                                                                                                            | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | The ID of the customer.                                                                                                                                         | 992fae2a-2a17-4b7a-8d9e-e287cf90131b                                                                                                                            |
 | `createdAt`                                                                                                                                                     | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                   | :heavy_check_mark:                                                                                                                                              | Creation timestamp of the object.                                                                                                                               |                                                                                                                                                                 |
 | `modifiedAt`                                                                                                                                                    | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                   | :heavy_check_mark:                                                                                                                                              | Last modification timestamp of the object.                                                                                                                      |                                                                                                                                                                 |
-| `metadata`                                                                                                                                                      | Record<string, *components.CustomerStateMetadata*>                                                                                                              | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |                                                                                                                                                                 |
+| `metadata`                                                                                                                                                      | Record<string, *components.MetadataOutputType*>                                                                                                                 | :heavy_check_mark:                                                                                                                                              | N/A                                                                                                                                                             |                                                                                                                                                                 |
 | `externalId`                                                                                                                                                    | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | The ID of the customer in your system. This must be unique within the organization. Once set, it can't be updated.                                              | usr_1337                                                                                                                                                        |
 | `email`                                                                                                                                                         | *string*                                                                                                                                                        | :heavy_check_mark:                                                                                                                                              | The email address of the customer. This must be unique within the organization.                                                                                 | customer@example.com                                                                                                                                            |
 | `emailVerified`                                                                                                                                                 | *boolean*                                                                                                                                                       | :heavy_check_mark:                                                                                                                                              | Whether the customer email address is verified. The address is automatically verified when the customer accesses the customer portal using their email address. | true                                                                                                                                                            |

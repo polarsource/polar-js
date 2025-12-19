@@ -45,7 +45,7 @@ import {
  * List Refunds
  *
  * @remarks
- * List products.
+ * List refunds.
  *
  * **Scopes**: `refunds:read` `refunds:write`
  */

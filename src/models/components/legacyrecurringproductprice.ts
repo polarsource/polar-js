@@ -4,6 +4,8 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -26,69 +28,34 @@ import {
 } from "./legacyrecurringproductpricefree.js";
 
 export type LegacyRecurringProductPrice =
-  | (LegacyRecurringProductPriceCustom & { amountType: "custom" })
-  | (LegacyRecurringProductPriceFixed & { amountType: "fixed" })
-  | (LegacyRecurringProductPriceFree & { amountType: "free" });
+  | LegacyRecurringProductPriceCustom
+  | LegacyRecurringProductPriceFixed
+  | LegacyRecurringProductPriceFree
+  | discriminatedUnionTypes.Unknown<"amountType">;
 
 /** @internal */
 export const LegacyRecurringProductPrice$inboundSchema: z.ZodMiniType<
   LegacyRecurringProductPrice,
   unknown
-> = z.union([
-  z.intersection(
-    LegacyRecurringProductPriceCustom$inboundSchema,
-    z.pipe(
-      z.object({ amount_type: z.literal("custom") }),
-      z.transform((v) => ({ amountType: v.amount_type })),
-    ),
-  ),
-  z.intersection(
-    LegacyRecurringProductPriceFixed$inboundSchema,
-    z.pipe(
-      z.object({ amount_type: z.literal("fixed") }),
-      z.transform((v) => ({ amountType: v.amount_type })),
-    ),
-  ),
-  z.intersection(
-    LegacyRecurringProductPriceFree$inboundSchema,
-    z.pipe(
-      z.object({ amount_type: z.literal("free") }),
-      z.transform((v) => ({ amountType: v.amount_type })),
-    ),
-  ),
-]);
+> = discriminatedUnion("amount_type", {
+  custom: LegacyRecurringProductPriceCustom$inboundSchema,
+  fixed: LegacyRecurringProductPriceFixed$inboundSchema,
+  free: LegacyRecurringProductPriceFree$inboundSchema,
+}, { outputPropertyName: "amountType" });
 /** @internal */
 export type LegacyRecurringProductPrice$Outbound =
-  | (LegacyRecurringProductPriceCustom$Outbound & { amount_type: "custom" })
-  | (LegacyRecurringProductPriceFixed$Outbound & { amount_type: "fixed" })
-  | (LegacyRecurringProductPriceFree$Outbound & { amount_type: "free" });
+  | LegacyRecurringProductPriceCustom$Outbound
+  | LegacyRecurringProductPriceFixed$Outbound
+  | LegacyRecurringProductPriceFree$Outbound;
 
 /** @internal */
 export const LegacyRecurringProductPrice$outboundSchema: z.ZodMiniType<
   LegacyRecurringProductPrice$Outbound,
   LegacyRecurringProductPrice
 > = z.union([
-  z.intersection(
-    LegacyRecurringProductPriceCustom$outboundSchema,
-    z.pipe(
-      z.object({ amountType: z.literal("custom") }),
-      z.transform((v) => ({ amount_type: v.amountType })),
-    ),
-  ),
-  z.intersection(
-    LegacyRecurringProductPriceFixed$outboundSchema,
-    z.pipe(
-      z.object({ amountType: z.literal("fixed") }),
-      z.transform((v) => ({ amount_type: v.amountType })),
-    ),
-  ),
-  z.intersection(
-    LegacyRecurringProductPriceFree$outboundSchema,
-    z.pipe(
-      z.object({ amountType: z.literal("free") }),
-      z.transform((v) => ({ amount_type: v.amountType })),
-    ),
-  ),
+  LegacyRecurringProductPriceCustom$outboundSchema,
+  LegacyRecurringProductPriceFixed$outboundSchema,
+  LegacyRecurringProductPriceFree$outboundSchema,
 ]);
 
 export function legacyRecurringProductPriceToJSON(

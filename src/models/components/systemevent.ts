@@ -4,6 +4,8 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -22,6 +24,10 @@ import {
   BenefitUpdatedEvent,
   BenefitUpdatedEvent$inboundSchema,
 } from "./benefitupdatedevent.js";
+import {
+  CheckoutCreatedEvent,
+  CheckoutCreatedEvent$inboundSchema,
+} from "./checkoutcreatedevent.js";
 import {
   CustomerCreatedEvent,
   CustomerCreatedEvent$inboundSchema,
@@ -51,6 +57,18 @@ import {
   OrderRefundedEvent$inboundSchema,
 } from "./orderrefundedevent.js";
 import {
+  SubscriptionBillingPeriodUpdatedEvent,
+  SubscriptionBillingPeriodUpdatedEvent$inboundSchema,
+} from "./subscriptionbillingperiodupdatedevent.js";
+import {
+  SubscriptionCanceledEvent,
+  SubscriptionCanceledEvent$inboundSchema,
+} from "./subscriptioncanceledevent.js";
+import {
+  SubscriptionCreatedEvent,
+  SubscriptionCreatedEvent$inboundSchema,
+} from "./subscriptioncreatedevent.js";
+import {
   SubscriptionCycledEvent,
   SubscriptionCycledEvent$inboundSchema,
 } from "./subscriptioncycledevent.js";
@@ -66,88 +84,60 @@ import {
   SubscriptionSeatsUpdatedEvent,
   SubscriptionSeatsUpdatedEvent$inboundSchema,
 } from "./subscriptionseatsupdatedevent.js";
+import {
+  SubscriptionUncanceledEvent,
+  SubscriptionUncanceledEvent$inboundSchema,
+} from "./subscriptionuncanceledevent.js";
 
 export type SystemEvent =
-  | (BenefitCycledEvent & { name: "benefit.cycled" })
-  | (BenefitGrantedEvent & { name: "benefit.granted" })
-  | (BenefitRevokedEvent & { name: "benefit.revoked" })
-  | (BenefitUpdatedEvent & { name: "benefit.updated" })
-  | (CustomerCreatedEvent & { name: "customer.created" })
-  | (CustomerDeletedEvent & { name: "customer.deleted" })
-  | (CustomerUpdatedEvent & { name: "customer.updated" })
-  | (MeterCreditEvent & { name: "meter.credited" })
-  | (MeterResetEvent & { name: "meter.reset" })
-  | (OrderPaidEvent & { name: "order.paid" })
-  | (OrderRefundedEvent & { name: "order.refunded" })
-  | (SubscriptionCycledEvent & { name: "subscription.cycled" })
-  | (SubscriptionProductUpdatedEvent & { name: "subscription.product_updated" })
-  | (SubscriptionRevokedEvent & { name: "subscription.revoked" })
-  | (SubscriptionSeatsUpdatedEvent & { name: "subscription.seats_updated" });
+  | BenefitCycledEvent
+  | BenefitGrantedEvent
+  | BenefitRevokedEvent
+  | BenefitUpdatedEvent
+  | CheckoutCreatedEvent
+  | CustomerCreatedEvent
+  | CustomerDeletedEvent
+  | CustomerUpdatedEvent
+  | MeterCreditEvent
+  | MeterResetEvent
+  | OrderPaidEvent
+  | OrderRefundedEvent
+  | SubscriptionBillingPeriodUpdatedEvent
+  | SubscriptionCanceledEvent
+  | SubscriptionCreatedEvent
+  | SubscriptionCycledEvent
+  | SubscriptionProductUpdatedEvent
+  | SubscriptionRevokedEvent
+  | SubscriptionSeatsUpdatedEvent
+  | SubscriptionUncanceledEvent
+  | discriminatedUnionTypes.Unknown<"name">;
 
 /** @internal */
-export const SystemEvent$inboundSchema: z.ZodMiniType<SystemEvent, unknown> = z
-  .union([
-    z.intersection(
-      BenefitCycledEvent$inboundSchema,
-      z.object({ name: z.literal("benefit.cycled") }),
-    ),
-    z.intersection(
-      BenefitGrantedEvent$inboundSchema,
-      z.object({ name: z.literal("benefit.granted") }),
-    ),
-    z.intersection(
-      BenefitRevokedEvent$inboundSchema,
-      z.object({ name: z.literal("benefit.revoked") }),
-    ),
-    z.intersection(
-      BenefitUpdatedEvent$inboundSchema,
-      z.object({ name: z.literal("benefit.updated") }),
-    ),
-    z.intersection(
-      CustomerCreatedEvent$inboundSchema,
-      z.object({ name: z.literal("customer.created") }),
-    ),
-    z.intersection(
-      CustomerDeletedEvent$inboundSchema,
-      z.object({ name: z.literal("customer.deleted") }),
-    ),
-    z.intersection(
-      CustomerUpdatedEvent$inboundSchema,
-      z.object({ name: z.literal("customer.updated") }),
-    ),
-    z.intersection(
-      MeterCreditEvent$inboundSchema,
-      z.object({ name: z.literal("meter.credited") }),
-    ),
-    z.intersection(
-      MeterResetEvent$inboundSchema,
-      z.object({ name: z.literal("meter.reset") }),
-    ),
-    z.intersection(
-      OrderPaidEvent$inboundSchema,
-      z.object({ name: z.literal("order.paid") }),
-    ),
-    z.intersection(
-      OrderRefundedEvent$inboundSchema,
-      z.object({ name: z.literal("order.refunded") }),
-    ),
-    z.intersection(
-      SubscriptionCycledEvent$inboundSchema,
-      z.object({ name: z.literal("subscription.cycled") }),
-    ),
-    z.intersection(
+export const SystemEvent$inboundSchema: z.ZodMiniType<SystemEvent, unknown> =
+  discriminatedUnion("name", {
+    ["benefit.cycled"]: BenefitCycledEvent$inboundSchema,
+    ["benefit.granted"]: BenefitGrantedEvent$inboundSchema,
+    ["benefit.revoked"]: BenefitRevokedEvent$inboundSchema,
+    ["benefit.updated"]: BenefitUpdatedEvent$inboundSchema,
+    ["checkout.created"]: CheckoutCreatedEvent$inboundSchema,
+    ["customer.created"]: CustomerCreatedEvent$inboundSchema,
+    ["customer.deleted"]: CustomerDeletedEvent$inboundSchema,
+    ["customer.updated"]: CustomerUpdatedEvent$inboundSchema,
+    ["meter.credited"]: MeterCreditEvent$inboundSchema,
+    ["meter.reset"]: MeterResetEvent$inboundSchema,
+    ["order.paid"]: OrderPaidEvent$inboundSchema,
+    ["order.refunded"]: OrderRefundedEvent$inboundSchema,
+    ["subscription.billing_period_updated"]:
+      SubscriptionBillingPeriodUpdatedEvent$inboundSchema,
+    ["subscription.canceled"]: SubscriptionCanceledEvent$inboundSchema,
+    ["subscription.created"]: SubscriptionCreatedEvent$inboundSchema,
+    ["subscription.cycled"]: SubscriptionCycledEvent$inboundSchema,
+    ["subscription.product_updated"]:
       SubscriptionProductUpdatedEvent$inboundSchema,
-      z.object({ name: z.literal("subscription.product_updated") }),
-    ),
-    z.intersection(
-      SubscriptionRevokedEvent$inboundSchema,
-      z.object({ name: z.literal("subscription.revoked") }),
-    ),
-    z.intersection(
-      SubscriptionSeatsUpdatedEvent$inboundSchema,
-      z.object({ name: z.literal("subscription.seats_updated") }),
-    ),
-  ]);
+    ["subscription.revoked"]: SubscriptionRevokedEvent$inboundSchema,
+    ["subscription.seats_updated"]: SubscriptionSeatsUpdatedEvent$inboundSchema,
+    ["subscription.uncanceled"]: SubscriptionUncanceledEvent$inboundSchema,
+  });
 
 export function systemEventFromJSON(
   jsonString: string,

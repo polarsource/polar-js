@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -26,8 +27,8 @@ export const ProductPriceMeter$inboundSchema: z.ZodMiniType<
   ProductPriceMeter,
   unknown
 > = z.object({
-  id: z.string(),
-  name: z.string(),
+  id: types.string(),
+  name: types.string(),
 });
 /** @internal */
 export type ProductPriceMeter$Outbound = {

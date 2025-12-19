@@ -14,8 +14,8 @@ let value: BenefitUpdatedEvent = {
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -31,10 +31,11 @@ let value: BenefitUpdatedEvent = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   externalCustomerId: "<id>",
+  label: "<value>",
   source: "system",
   name: "benefit.updated",
   metadata: {
@@ -57,6 +58,7 @@ let value: BenefitUpdatedEvent = {
 | `externalCustomerId`                                                                                                           | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | ID of the customer in your system associated with the event.                                                                   |                                                                                                                                |
 | `childCount`                                                                                                                   | *number*                                                                                                                       | :heavy_minus_sign:                                                                                                             | Number of direct child events linked to this event.                                                                            |                                                                                                                                |
 | `parentId`                                                                                                                     | *string*                                                                                                                       | :heavy_minus_sign:                                                                                                             | The ID of the parent event.                                                                                                    |                                                                                                                                |
-| `source`                                                                                                                       | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API. |                                                                                                                                |
-| `name`                                                                                                                         | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | The name of the event.                                                                                                         |                                                                                                                                |
+| `label`                                                                                                                        | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | Human readable label of the event type.                                                                                        |                                                                                                                                |
+| `source`                                                                                                                       | *"system"*                                                                                                                     | :heavy_check_mark:                                                                                                             | The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API. |                                                                                                                                |
+| `name`                                                                                                                         | *"benefit.updated"*                                                                                                            | :heavy_check_mark:                                                                                                             | The name of the event.                                                                                                         |                                                                                                                                |
 | `metadata`                                                                                                                     | [components.BenefitGrantMetadata](../../models/components/benefitgrantmetadata.md)                                             | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |                                                                                                                                |

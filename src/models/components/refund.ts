@@ -6,7 +6,20 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
+import {
+  RefundDispute,
+  RefundDispute$inboundSchema,
+  RefundDispute$Outbound,
+  RefundDispute$outboundSchema,
+} from "./refunddispute.js";
 import {
   RefundReason,
   RefundReason$inboundSchema,
@@ -17,8 +30,6 @@ import {
   RefundStatus$inboundSchema,
   RefundStatus$outboundSchema,
 } from "./refundstatus.js";
-
-export type RefundMetadata = string | number | number | boolean;
 
 export type Refund = {
   /**
@@ -33,7 +44,7 @@ export type Refund = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   status: RefundStatus;
   reason: RefundReason;
   amount: number;
@@ -44,60 +55,27 @@ export type Refund = {
   subscriptionId: string | null;
   customerId: string;
   revokeBenefits: boolean;
+  dispute: RefundDispute | null;
 };
-
-/** @internal */
-export const RefundMetadata$inboundSchema: z.ZodMiniType<
-  RefundMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type RefundMetadata$Outbound = string | number | number | boolean;
-
-/** @internal */
-export const RefundMetadata$outboundSchema: z.ZodMiniType<
-  RefundMetadata$Outbound,
-  RefundMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function refundMetadataToJSON(refundMetadata: RefundMetadata): string {
-  return JSON.stringify(RefundMetadata$outboundSchema.parse(refundMetadata));
-}
-export function refundMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<RefundMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => RefundMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'RefundMetadata' from JSON`,
-  );
-}
 
 /** @internal */
 export const Refund$inboundSchema: z.ZodMiniType<Refund, unknown> = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
     status: RefundStatus$inboundSchema,
     reason: RefundReason$inboundSchema,
-    amount: z.int(),
-    tax_amount: z.int(),
-    currency: z.string(),
-    organization_id: z.string(),
-    order_id: z.string(),
-    subscription_id: z.nullable(z.string()),
-    customer_id: z.string(),
-    revoke_benefits: z.boolean(),
+    amount: types.number(),
+    tax_amount: types.number(),
+    currency: types.string(),
+    organization_id: types.string(),
+    order_id: types.string(),
+    subscription_id: types.nullable(types.string()),
+    customer_id: types.string(),
+    revoke_benefits: types.boolean(),
+    dispute: types.nullable(RefundDispute$inboundSchema),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -117,7 +95,7 @@ export type Refund$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   status: string;
   reason: string;
   amount: number;
@@ -128,6 +106,7 @@ export type Refund$Outbound = {
   subscription_id: string | null;
   customer_id: string;
   revoke_benefits: boolean;
+  dispute: RefundDispute$Outbound | null;
 };
 
 /** @internal */
@@ -139,10 +118,7 @@ export const Refund$outboundSchema: z.ZodMiniType<Refund$Outbound, Refund> = z
         z.pipe(z.date(), z.transform(v => v.toISOString())),
       ),
       id: z.string(),
-      metadata: z.record(
-        z.string(),
-        z.union([z.string(), z.int(), z.number(), z.boolean()]),
-      ),
+      metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
       status: RefundStatus$outboundSchema,
       reason: RefundReason$outboundSchema,
       amount: z.int(),
@@ -153,6 +129,7 @@ export const Refund$outboundSchema: z.ZodMiniType<Refund$Outbound, Refund> = z
       subscriptionId: z.nullable(z.string()),
       customerId: z.string(),
       revokeBenefits: z.boolean(),
+      dispute: z.nullable(RefundDispute$outboundSchema),
     }),
     z.transform((v) => {
       return remap$(v, {

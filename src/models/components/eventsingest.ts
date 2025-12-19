@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   EventCreateCustomer,
   EventCreateCustomer$Outbound,
@@ -29,8 +30,8 @@ export type Events$Outbound =
   | EventCreateExternalCustomer$Outbound;
 
 /** @internal */
-export const Events$outboundSchema: z.ZodMiniType<Events$Outbound, Events> = z
-  .union([
+export const Events$outboundSchema: z.ZodMiniType<Events$Outbound, Events> =
+  smartUnion([
     EventCreateCustomer$outboundSchema,
     EventCreateExternalCustomer$outboundSchema,
   ]);
@@ -52,7 +53,7 @@ export const EventsIngest$outboundSchema: z.ZodMiniType<
   EventsIngest
 > = z.object({
   events: z.array(
-    z.union([
+    smartUnion([
       EventCreateCustomer$outboundSchema,
       EventCreateExternalCustomer$outboundSchema,
     ]),

@@ -28,5 +28,5 @@ let value: CustomerPaymentMethodCreateSucceededResponse = {
 
 | Field                              | Type                               | Required                           | Description                        |
 | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| `status`                           | *string*                           | :heavy_check_mark:                 | N/A                                |
+| `status`                           | *"succeeded"*                      | :heavy_check_mark:                 | N/A                                |
 | `paymentMethod`                    | *components.CustomerPaymentMethod* | :heavy_check_mark:                 | N/A                                |

@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { MetricType, MetricType$inboundSchema } from "./metrictype.js";
 
@@ -27,8 +28,8 @@ export type Metric = {
 /** @internal */
 export const Metric$inboundSchema: z.ZodMiniType<Metric, unknown> = z.pipe(
   z.object({
-    slug: z.string(),
-    display_name: z.string(),
+    slug: types.string(),
+    display_name: types.string(),
     type: MetricType$inboundSchema,
   }),
   z.transform((v) => {

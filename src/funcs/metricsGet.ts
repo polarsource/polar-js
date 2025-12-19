@@ -110,6 +110,7 @@ async function $do(
     "customer_id": payload.customer_id,
     "end_date": payload.end_date,
     "interval": payload.interval,
+    "metrics": payload.metrics,
     "organization_id": payload.organization_id,
     "product_id": payload.product_id,
     "start_date": payload.start_date,

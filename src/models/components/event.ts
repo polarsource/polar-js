@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { SystemEvent, SystemEvent$inboundSchema } from "./systemevent.js";
 import { UserEvent, UserEvent$inboundSchema } from "./userevent.js";
@@ -12,7 +13,7 @@ import { UserEvent, UserEvent$inboundSchema } from "./userevent.js";
 export type Event = UserEvent | SystemEvent;
 
 /** @internal */
-export const Event$inboundSchema: z.ZodMiniType<Event, unknown> = z.union([
+export const Event$inboundSchema: z.ZodMiniType<Event, unknown> = smartUnion([
   UserEvent$inboundSchema,
   SystemEvent$inboundSchema,
 ]);

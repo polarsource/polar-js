@@ -10,7 +10,7 @@ import { TrialAlreadyRedeemed } from "@polar-sh/sdk/models/errors/trialalreadyre
 
 ## Fields
 
-| Field                | Type                 | Required             | Description          | Example              |
-| -------------------- | -------------------- | -------------------- | -------------------- | -------------------- |
-| `error`              | *string*             | :heavy_check_mark:   | N/A                  | TrialAlreadyRedeemed |
-| `detail`             | *string*             | :heavy_check_mark:   | N/A                  |                      |
+| Field                    | Type                     | Required                 | Description              | Example                  |
+| ------------------------ | ------------------------ | ------------------------ | ------------------------ | ------------------------ |
+| `error`                  | *"TrialAlreadyRedeemed"* | :heavy_check_mark:       | N/A                      | TrialAlreadyRedeemed     |
+| `detail`                 | *string*                 | :heavy_check_mark:       | N/A                      |                          |

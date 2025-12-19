@@ -20,33 +20,24 @@ import {
 } from "./productmediafilecreate.js";
 
 export type FileCreate =
-  | (DownloadableFileCreate & { service: "downloadable" })
-  | (OrganizationAvatarFileCreate & { service: "organization_avatar" })
-  | (ProductMediaFileCreate & { service: "product_media" });
+  | DownloadableFileCreate
+  | OrganizationAvatarFileCreate
+  | ProductMediaFileCreate;
 
 /** @internal */
 export type FileCreate$Outbound =
-  | (DownloadableFileCreate$Outbound & { service: "downloadable" })
-  | (OrganizationAvatarFileCreate$Outbound & { service: "organization_avatar" })
-  | (ProductMediaFileCreate$Outbound & { service: "product_media" });
+  | DownloadableFileCreate$Outbound
+  | OrganizationAvatarFileCreate$Outbound
+  | ProductMediaFileCreate$Outbound;
 
 /** @internal */
 export const FileCreate$outboundSchema: z.ZodMiniType<
   FileCreate$Outbound,
   FileCreate
 > = z.union([
-  z.intersection(
-    DownloadableFileCreate$outboundSchema,
-    z.object({ service: z.literal("downloadable") }),
-  ),
-  z.intersection(
-    OrganizationAvatarFileCreate$outboundSchema,
-    z.object({ service: z.literal("organization_avatar") }),
-  ),
-  z.intersection(
-    ProductMediaFileCreate$outboundSchema,
-    z.object({ service: z.literal("product_media") }),
-  ),
+  DownloadableFileCreate$outboundSchema,
+  OrganizationAvatarFileCreate$outboundSchema,
+  ProductMediaFileCreate$outboundSchema,
 ]);
 
 export function fileCreateToJSON(fileCreate: FileCreate): string {

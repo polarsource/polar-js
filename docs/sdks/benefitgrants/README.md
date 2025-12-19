@@ -1,5 +1,4 @@
 # BenefitGrants
-(*benefitGrants*)
 
 ## Overview
 

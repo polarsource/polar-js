@@ -6,6 +6,7 @@
 import { UniqueAggregation } from "@polar-sh/sdk/models/components/uniqueaggregation.js";
 
 let value: UniqueAggregation = {
+  func: "unique",
   property: "<value>",
 };
 ```
@@ -14,5 +15,5 @@ let value: UniqueAggregation = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `func`             | *string*           | :heavy_minus_sign: | N/A                |
+| `func`             | *"unique"*         | :heavy_check_mark: | N/A                |
 | `property`         | *string*           | :heavy_check_mark: | N/A                |

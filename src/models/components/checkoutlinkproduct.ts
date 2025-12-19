@@ -6,12 +6,18 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { BenefitPublic, BenefitPublic$inboundSchema } from "./benefitpublic.js";
 import {
   LegacyRecurringProductPrice,
   LegacyRecurringProductPrice$inboundSchema,
 } from "./legacyrecurringproductprice.js";
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+} from "./metadataoutputtype.js";
 import {
   ProductMediaFileRead,
   ProductMediaFileRead$inboundSchema,
@@ -23,8 +29,6 @@ import {
 } from "./subscriptionrecurringinterval.js";
 import { TrialInterval, TrialInterval$inboundSchema } from "./trialinterval.js";
 
-export type CheckoutLinkProductMetadata = string | number | number | boolean;
-
 export type CheckoutLinkProductPrices =
   | LegacyRecurringProductPrice
   | ProductPrice;
@@ -33,7 +37,7 @@ export type CheckoutLinkProductPrices =
  * Product data for a checkout link.
  */
 export type CheckoutLinkProduct = {
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * The ID of the object.
    */
@@ -97,26 +101,10 @@ export type CheckoutLinkProduct = {
 };
 
 /** @internal */
-export const CheckoutLinkProductMetadata$inboundSchema: z.ZodMiniType<
-  CheckoutLinkProductMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function checkoutLinkProductMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutLinkProductMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutLinkProductMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutLinkProductMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const CheckoutLinkProductPrices$inboundSchema: z.ZodMiniType<
   CheckoutLinkProductPrices,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -137,29 +125,23 @@ export const CheckoutLinkProduct$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    trial_interval: types.nullable(TrialInterval$inboundSchema),
+    trial_interval_count: types.nullable(types.number()),
+    name: types.string(),
+    description: types.nullable(types.string()),
+    recurring_interval: types.nullable(
+      SubscriptionRecurringInterval$inboundSchema,
     ),
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    trial_interval: z.nullable(TrialInterval$inboundSchema),
-    trial_interval_count: z.nullable(z.int()),
-    name: z.string(),
-    description: z.nullable(z.string()),
-    recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
-    recurring_interval_count: z.nullable(z.int()),
-    is_recurring: z.boolean(),
-    is_archived: z.boolean(),
-    organization_id: z.string(),
+    recurring_interval_count: types.nullable(types.number()),
+    is_recurring: types.boolean(),
+    is_archived: types.boolean(),
+    organization_id: types.string(),
     prices: z.array(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),

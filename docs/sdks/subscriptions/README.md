@@ -1,5 +1,4 @@
 # Subscriptions
-(*subscriptions*)
 
 ## Overview
 

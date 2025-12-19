@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -26,8 +27,8 @@ export const CustomerOrderPaymentStatus$inboundSchema: z.ZodMiniType<
   CustomerOrderPaymentStatus,
   unknown
 > = z.object({
-  status: z.string(),
-  error: z.optional(z.nullable(z.string())),
+  status: types.string(),
+  error: z.optional(z.nullable(types.string())),
 });
 
 export function customerOrderPaymentStatusFromJSON(

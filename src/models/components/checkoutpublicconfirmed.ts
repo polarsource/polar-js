@@ -6,6 +6,8 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address, Address$inboundSchema } from "./address.js";
 import {
@@ -270,11 +272,11 @@ export type CheckoutPublicConfirmed = {
 
 /** @internal */
 export const CheckoutPublicConfirmedCustomFieldData$inboundSchema:
-  z.ZodMiniType<CheckoutPublicConfirmedCustomFieldData, unknown> = z.union([
-    z.string(),
-    z.int(),
-    z.boolean(),
-    z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+  z.ZodMiniType<CheckoutPublicConfirmedCustomFieldData, unknown> = smartUnion([
+    types.string(),
+    types.number(),
+    types.boolean(),
+    types.date(),
   ]);
 
 export function checkoutPublicConfirmedCustomFieldDataFromJSON(
@@ -292,7 +294,7 @@ export function checkoutPublicConfirmedCustomFieldDataFromJSON(
 export const CheckoutPublicConfirmedProductPrice$inboundSchema: z.ZodMiniType<
   CheckoutPublicConfirmedProductPrice,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -312,7 +314,7 @@ export function checkoutPublicConfirmedProductPriceFromJSON(
 export const CheckoutPublicConfirmedPrices$inboundSchema: z.ZodMiniType<
   CheckoutPublicConfirmedPrices,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -331,7 +333,7 @@ export function checkoutPublicConfirmedPricesFromJSON(
 export const CheckoutPublicConfirmedDiscount$inboundSchema: z.ZodMiniType<
   CheckoutPublicConfirmedDiscount,
   unknown
-> = z.union([
+> = smartUnion([
   CheckoutDiscountFixedRepeatDuration$inboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
@@ -354,97 +356,84 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    custom_field_data: z.optional(
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    custom_field_data: types.optional(
       z.record(
         z.string(),
-        z.nullable(
-          z.union([
-            z.string(),
-            z.int(),
-            z.boolean(),
-            z.pipe(
-              z.iso.datetime({ offset: true }),
-              z.transform(v => new Date(v)),
-            ),
+        types.nullable(
+          smartUnion([
+            types.string(),
+            types.number(),
+            types.boolean(),
+            types.date(),
           ]),
         ),
       ),
     ),
     payment_processor: PaymentProcessor$inboundSchema,
-    status: z.literal("confirmed"),
-    client_secret: z.string(),
-    url: z.string(),
-    expires_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    success_url: z.string(),
-    return_url: z.nullable(z.string()),
-    embed_origin: z.nullable(z.string()),
-    amount: z.int(),
-    seats: z.optional(z.nullable(z.int())),
-    price_per_seat: z.optional(z.nullable(z.int())),
-    discount_amount: z.int(),
-    net_amount: z.int(),
-    tax_amount: z.nullable(z.int()),
-    total_amount: z.int(),
-    currency: z.string(),
-    allow_trial: z.nullable(z.boolean()),
-    active_trial_interval: z.nullable(TrialInterval$inboundSchema),
-    active_trial_interval_count: z.nullable(z.int()),
-    trial_end: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    organization_id: z.string(),
-    product_id: z.nullable(z.string()),
-    product_price_id: z.nullable(z.string()),
-    discount_id: z.nullable(z.string()),
-    allow_discount_codes: z.boolean(),
-    require_billing_address: z.boolean(),
-    is_discount_applicable: z.boolean(),
-    is_free_product_price: z.boolean(),
-    is_payment_required: z.boolean(),
-    is_payment_setup_required: z.boolean(),
-    is_payment_form_required: z.boolean(),
-    customer_id: z.nullable(z.string()),
-    is_business_customer: z.boolean(),
-    customer_name: z.nullable(z.string()),
-    customer_email: z.nullable(z.string()),
-    customer_ip_address: z.nullable(z.string()),
-    customer_billing_name: z.nullable(z.string()),
-    customer_billing_address: z.nullable(Address$inboundSchema),
-    customer_tax_id: z.nullable(z.string()),
-    payment_processor_metadata: z.record(z.string(), z.string()),
+    status: types.literal("confirmed"),
+    client_secret: types.string(),
+    url: types.string(),
+    expires_at: types.date(),
+    success_url: types.string(),
+    return_url: types.nullable(types.string()),
+    embed_origin: types.nullable(types.string()),
+    amount: types.number(),
+    seats: z.optional(z.nullable(types.number())),
+    price_per_seat: z.optional(z.nullable(types.number())),
+    discount_amount: types.number(),
+    net_amount: types.number(),
+    tax_amount: types.nullable(types.number()),
+    total_amount: types.number(),
+    currency: types.string(),
+    allow_trial: types.nullable(types.boolean()),
+    active_trial_interval: types.nullable(TrialInterval$inboundSchema),
+    active_trial_interval_count: types.nullable(types.number()),
+    trial_end: types.nullable(types.date()),
+    organization_id: types.string(),
+    product_id: types.nullable(types.string()),
+    product_price_id: types.nullable(types.string()),
+    discount_id: types.nullable(types.string()),
+    allow_discount_codes: types.boolean(),
+    require_billing_address: types.boolean(),
+    is_discount_applicable: types.boolean(),
+    is_free_product_price: types.boolean(),
+    is_payment_required: types.boolean(),
+    is_payment_setup_required: types.boolean(),
+    is_payment_form_required: types.boolean(),
+    customer_id: types.nullable(types.string()),
+    is_business_customer: types.boolean(),
+    customer_name: types.nullable(types.string()),
+    customer_email: types.nullable(types.string()),
+    customer_ip_address: types.nullable(types.string()),
+    customer_billing_name: types.nullable(types.string()),
+    customer_billing_address: types.nullable(Address$inboundSchema),
+    customer_tax_id: types.nullable(types.string()),
+    payment_processor_metadata: z.record(z.string(), types.string()),
     billing_address_fields: CheckoutBillingAddressFields$inboundSchema,
     products: z.array(CheckoutProduct$inboundSchema),
-    product: z.nullable(CheckoutProduct$inboundSchema),
-    product_price: z.nullable(
-      z.union([
+    product: types.nullable(CheckoutProduct$inboundSchema),
+    product_price: types.nullable(
+      smartUnion([
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),
     ),
-    prices: z.nullable(
+    prices: types.nullable(
       z.record(
         z.string(),
         z.array(
-          z.union([
+          smartUnion([
             LegacyRecurringProductPrice$inboundSchema,
             ProductPrice$inboundSchema,
           ]),
         ),
       ),
     ),
-    discount: z.nullable(
-      z.union([
+    discount: types.nullable(
+      smartUnion([
         CheckoutDiscountFixedRepeatDuration$inboundSchema,
         CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
         CheckoutDiscountPercentageRepeatDuration$inboundSchema,
@@ -452,10 +441,10 @@ export const CheckoutPublicConfirmed$inboundSchema: z.ZodMiniType<
       ]),
     ),
     organization: CheckoutOrganization$inboundSchema,
-    attached_custom_fields: z.nullable(
+    attached_custom_fields: types.nullable(
       z.array(AttachedCustomField$inboundSchema),
     ),
-    customer_session_token: z.string(),
+    customer_session_token: types.string(),
   }),
   z.transform((v) => {
     return remap$(v, {

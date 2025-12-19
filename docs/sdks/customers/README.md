@@ -1,5 +1,4 @@
 # Customers
-(*customers*)
 
 ## Overview
 
@@ -16,7 +15,6 @@
 * [deleteExternal](#deleteexternal) - Delete Customer by External ID
 * [getState](#getstate) - Get Customer State
 * [getStateExternal](#getstateexternal) - Get Customer State by External ID
-* [getBalance](#getbalance) - Get Customer Balance
 
 ## list
 
@@ -116,17 +114,24 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.customers.create({
-    externalId: "usr_1337",
-    email: "customer@example.com",
-    name: "John Doe",
-    billingAddress: {
-      country: "US",
+    customerCreate: {
+      externalId: "usr_1337",
+      email: "customer@example.com",
+      name: "John Doe",
+      billingAddress: {
+        country: "US",
+      },
+      taxId: [
+        "911144442",
+        "us_ein",
+      ],
+      organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      owner: {
+        email: "member@example.com",
+        name: "Jane Doe",
+        externalId: "usr_1337",
+      },
     },
-    taxId: [
-      "911144442",
-      "us_ein",
-    ],
-    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
 
   console.log(result);
@@ -151,17 +156,24 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await customersCreate(polar, {
-    externalId: "usr_1337",
-    email: "customer@example.com",
-    name: "John Doe",
-    billingAddress: {
-      country: "US",
+    customerCreate: {
+      externalId: "usr_1337",
+      email: "customer@example.com",
+      name: "John Doe",
+      billingAddress: {
+        country: "US",
+      },
+      taxId: [
+        "911144442",
+        "us_ein",
+      ],
+      organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+      owner: {
+        email: "member@example.com",
+        name: "Jane Doe",
+        externalId: "usr_1337",
+      },
     },
-    taxId: [
-      "911144442",
-      "us_ein",
-    ],
-    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -178,14 +190,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [components.CustomerCreate](../../models/components/customercreate.md)                                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CustomersCreateRequest](../../models/operations/customerscreaterequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.Customer](../../models/components/customer.md)\>**
+**Promise\<[components.CustomerWithMembers](../../models/components/customerwithmembers.md)\>**
 
 ### Errors
 
@@ -337,7 +349,7 @@ run();
 
 ### Response
 
-**Promise\<[components.Customer](../../models/components/customer.md)\>**
+**Promise\<[components.CustomerWithMembers](../../models/components/customerwithmembers.md)\>**
 
 ### Errors
 
@@ -438,7 +450,7 @@ run();
 
 ### Response
 
-**Promise\<[components.Customer](../../models/components/customer.md)\>**
+**Promise\<[components.CustomerWithMembers](../../models/components/customerwithmembers.md)\>**
 
 ### Errors
 
@@ -604,7 +616,7 @@ run();
 
 ### Response
 
-**Promise\<[components.Customer](../../models/components/customer.md)\>**
+**Promise\<[components.CustomerWithMembers](../../models/components/customerwithmembers.md)\>**
 
 ### Errors
 
@@ -703,7 +715,7 @@ run();
 
 ### Response
 
-**Promise\<[components.Customer](../../models/components/customer.md)\>**
+**Promise\<[components.CustomerWithMembers](../../models/components/customerwithmembers.md)\>**
 
 ### Errors
 
@@ -949,83 +961,6 @@ run();
 ### Response
 
 **Promise\<[components.CustomerState](../../models/components/customerstate.md)\>**
-
-### Errors
-
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ResourceNotFound    | 404                        | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
-
-## getBalance
-
-Get customer balance information.
-
-**Scopes**: `customers:read` `customers:write`
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="customers:get_balance" method="get" path="/v1/customers/{id}/balance" -->
-```typescript
-import { Polar } from "@polar-sh/sdk";
-
-const polar = new Polar({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
-
-async function run() {
-  const result = await polar.customers.getBalance({
-    id: "<value>",
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { PolarCore } from "@polar-sh/sdk/core.js";
-import { customersGetBalance } from "@polar-sh/sdk/funcs/customersGetBalance.js";
-
-// Use `PolarCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const polar = new PolarCore({
-  accessToken: process.env["POLAR_ACCESS_TOKEN"] ?? "",
-});
-
-async function run() {
-  const res = await customersGetBalance(polar, {
-    id: "<value>",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("customersGetBalance failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CustomersGetBalanceRequest](../../models/operations/customersgetbalancerequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[components.CustomerBalance](../../models/components/customerbalance.md)\>**
 
 ### Errors
 

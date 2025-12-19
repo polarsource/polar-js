@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResource,
   ListResource$inboundSchema,
@@ -38,7 +39,9 @@ export type PaymentsListQueryParamOrderIDFilter = string | Array<string>;
 /**
  * Filter by payment status.
  */
-export type QueryParamStatusFilter = PaymentStatus | Array<PaymentStatus>;
+export type PaymentsListQueryParamStatusFilter =
+  | PaymentStatus
+  | Array<PaymentStatus>;
 
 /**
  * Filter by payment method.
@@ -103,7 +106,7 @@ export const PaymentsListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     PaymentsListQueryParamOrganizationIDFilter$Outbound,
     PaymentsListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function paymentsListQueryParamOrganizationIDFilterToJSON(
   paymentsListQueryParamOrganizationIDFilter:
@@ -126,7 +129,7 @@ export const PaymentsListQueryParamCheckoutIDFilter$outboundSchema:
   z.ZodMiniType<
     PaymentsListQueryParamCheckoutIDFilter$Outbound,
     PaymentsListQueryParamCheckoutIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function paymentsListQueryParamCheckoutIDFilterToJSON(
   paymentsListQueryParamCheckoutIDFilter:
@@ -148,7 +151,7 @@ export type PaymentsListQueryParamOrderIDFilter$Outbound =
 export const PaymentsListQueryParamOrderIDFilter$outboundSchema: z.ZodMiniType<
   PaymentsListQueryParamOrderIDFilter$Outbound,
   PaymentsListQueryParamOrderIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function paymentsListQueryParamOrderIDFilterToJSON(
   paymentsListQueryParamOrderIDFilter: PaymentsListQueryParamOrderIDFilter,
@@ -161,22 +164,26 @@ export function paymentsListQueryParamOrderIDFilterToJSON(
 }
 
 /** @internal */
-export type QueryParamStatusFilter$Outbound = string | Array<string>;
+export type PaymentsListQueryParamStatusFilter$Outbound =
+  | string
+  | Array<string>;
 
 /** @internal */
-export const QueryParamStatusFilter$outboundSchema: z.ZodMiniType<
-  QueryParamStatusFilter$Outbound,
-  QueryParamStatusFilter
-> = z.union([
+export const PaymentsListQueryParamStatusFilter$outboundSchema: z.ZodMiniType<
+  PaymentsListQueryParamStatusFilter$Outbound,
+  PaymentsListQueryParamStatusFilter
+> = smartUnion([
   PaymentStatus$outboundSchema,
   z.array(PaymentStatus$outboundSchema),
 ]);
 
-export function queryParamStatusFilterToJSON(
-  queryParamStatusFilter: QueryParamStatusFilter,
+export function paymentsListQueryParamStatusFilterToJSON(
+  paymentsListQueryParamStatusFilter: PaymentsListQueryParamStatusFilter,
 ): string {
   return JSON.stringify(
-    QueryParamStatusFilter$outboundSchema.parse(queryParamStatusFilter),
+    PaymentsListQueryParamStatusFilter$outboundSchema.parse(
+      paymentsListQueryParamStatusFilter,
+    ),
   );
 }
 
@@ -187,7 +194,7 @@ export type MethodFilter$Outbound = string | Array<string>;
 export const MethodFilter$outboundSchema: z.ZodMiniType<
   MethodFilter$Outbound,
   MethodFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function methodFilterToJSON(methodFilter: MethodFilter): string {
   return JSON.stringify(MethodFilter$outboundSchema.parse(methodFilter));
@@ -200,7 +207,7 @@ export type CustomerEmailFilter$Outbound = string | Array<string>;
 export const CustomerEmailFilter$outboundSchema: z.ZodMiniType<
   CustomerEmailFilter$Outbound,
   CustomerEmailFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerEmailFilterToJSON(
   customerEmailFilter: CustomerEmailFilter,
@@ -230,23 +237,27 @@ export const PaymentsListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     checkoutId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
-    orderId: z.optional(z.nullable(z.union([z.string(), z.array(z.string())]))),
+    orderId: z.optional(
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
     status: z.optional(
       z.nullable(
-        z.union([
+        smartUnion([
           PaymentStatus$outboundSchema,
           z.array(PaymentStatus$outboundSchema),
         ]),
       ),
     ),
-    method: z.optional(z.nullable(z.union([z.string(), z.array(z.string())]))),
+    method: z.optional(
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
     customerEmail: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),

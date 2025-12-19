@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OAuth2ClientPublic = {
@@ -31,19 +32,14 @@ export const OAuth2ClientPublic$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    client_id: z.string(),
-    client_name: z.nullable(z.string()),
-    client_uri: z.nullable(z.string()),
-    logo_uri: z.nullable(z.string()),
-    tos_uri: z.nullable(z.string()),
-    policy_uri: z.nullable(z.string()),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    client_id: types.string(),
+    client_name: types.nullable(types.string()),
+    client_uri: types.nullable(types.string()),
+    logo_uri: types.nullable(types.string()),
+    tos_uri: types.nullable(types.string()),
+    policy_uri: types.nullable(types.string()),
   }),
   z.transform((v) => {
     return remap$(v, {

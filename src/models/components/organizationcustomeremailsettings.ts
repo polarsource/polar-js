@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrganizationCustomerEmailSettings = {
@@ -25,14 +26,14 @@ export const OrganizationCustomerEmailSettings$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    order_confirmation: z.boolean(),
-    subscription_cancellation: z.boolean(),
-    subscription_confirmation: z.boolean(),
-    subscription_cycled: z.boolean(),
-    subscription_past_due: z.boolean(),
-    subscription_revoked: z.boolean(),
-    subscription_uncanceled: z.boolean(),
-    subscription_updated: z.boolean(),
+    order_confirmation: types.boolean(),
+    subscription_cancellation: types.boolean(),
+    subscription_confirmation: types.boolean(),
+    subscription_cycled: types.boolean(),
+    subscription_past_due: types.boolean(),
+    subscription_revoked: types.boolean(),
+    subscription_uncanceled: types.boolean(),
+    subscription_updated: types.boolean(),
   }),
   z.transform((v) => {
     return remap$(v, {

@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceRefund,
   ListResourceRefund$inboundSchema,
@@ -91,7 +92,7 @@ export type RefundIDFilter$Outbound = string | Array<string>;
 export const RefundIDFilter$outboundSchema: z.ZodMiniType<
   RefundIDFilter$Outbound,
   RefundIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function refundIDFilterToJSON(refundIDFilter: RefundIDFilter): string {
   return JSON.stringify(RefundIDFilter$outboundSchema.parse(refundIDFilter));
@@ -107,7 +108,7 @@ export const RefundsListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     RefundsListQueryParamOrganizationIDFilter$Outbound,
     RefundsListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function refundsListQueryParamOrganizationIDFilterToJSON(
   refundsListQueryParamOrganizationIDFilter:
@@ -127,7 +128,7 @@ export type OrderIDFilter$Outbound = string | Array<string>;
 export const OrderIDFilter$outboundSchema: z.ZodMiniType<
   OrderIDFilter$Outbound,
   OrderIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function orderIDFilterToJSON(orderIDFilter: OrderIDFilter): string {
   return JSON.stringify(OrderIDFilter$outboundSchema.parse(orderIDFilter));
@@ -140,7 +141,7 @@ export type SubscriptionIDFilter$Outbound = string | Array<string>;
 export const SubscriptionIDFilter$outboundSchema: z.ZodMiniType<
   SubscriptionIDFilter$Outbound,
   SubscriptionIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function subscriptionIDFilterToJSON(
   subscriptionIDFilter: SubscriptionIDFilter,
@@ -160,7 +161,7 @@ export const RefundsListQueryParamCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     RefundsListQueryParamCustomerIDFilter$Outbound,
     RefundsListQueryParamCustomerIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function refundsListQueryParamCustomerIDFilterToJSON(
   refundsListQueryParamCustomerIDFilter: RefundsListQueryParamCustomerIDFilter,
@@ -191,16 +192,18 @@ export const RefundsListRequest$outboundSchema: z.ZodMiniType<
   RefundsListRequest
 > = z.pipe(
   z.object({
-    id: z.optional(z.nullable(z.union([z.string(), z.array(z.string())]))),
+    id: z.optional(z.nullable(smartUnion([z.string(), z.array(z.string())]))),
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
-    orderId: z.optional(z.nullable(z.union([z.string(), z.array(z.string())]))),
+    orderId: z.optional(
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+    ),
     subscriptionId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     succeeded: z.optional(z.nullable(z.boolean())),
     page: z._default(z.int(), 1),

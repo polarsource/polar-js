@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldTextProperties,
@@ -13,8 +14,12 @@ import {
   CustomFieldTextProperties$Outbound,
   CustomFieldTextProperties$outboundSchema,
 } from "./customfieldtextproperties.js";
-
-export type CustomFieldTextMetadata = string | number | number | boolean;
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
 
 /**
  * Schema for a custom field of type text.
@@ -32,7 +37,7 @@ export type CustomFieldText = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   type: "text";
   /**
    * Identifier of the custom field. It'll be used as key when storing the value.
@@ -50,62 +55,19 @@ export type CustomFieldText = {
 };
 
 /** @internal */
-export const CustomFieldTextMetadata$inboundSchema: z.ZodMiniType<
-  CustomFieldTextMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type CustomFieldTextMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const CustomFieldTextMetadata$outboundSchema: z.ZodMiniType<
-  CustomFieldTextMetadata$Outbound,
-  CustomFieldTextMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function customFieldTextMetadataToJSON(
-  customFieldTextMetadata: CustomFieldTextMetadata,
-): string {
-  return JSON.stringify(
-    CustomFieldTextMetadata$outboundSchema.parse(customFieldTextMetadata),
-  );
-}
-export function customFieldTextMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldTextMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldTextMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldTextMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const CustomFieldText$inboundSchema: z.ZodMiniType<
   CustomFieldText,
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
-    type: z.literal("text"),
-    slug: z.string(),
-    name: z.string(),
-    organization_id: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+    type: types.literal("text"),
+    slug: types.string(),
+    name: types.string(),
+    organization_id: types.string(),
     properties: CustomFieldTextProperties$inboundSchema,
   }),
   z.transform((v) => {
@@ -121,7 +83,7 @@ export type CustomFieldText$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   type: "text";
   slug: string;
   name: string;
@@ -138,10 +100,7 @@ export const CustomFieldText$outboundSchema: z.ZodMiniType<
     createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
     modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     type: z.literal("text"),
     slug: z.string(),
     name: z.string(),

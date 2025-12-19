@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BenefitGrantMetadata,
@@ -44,11 +45,15 @@ export type BenefitGrantedEvent = {
   /**
    * Number of direct child events linked to this event.
    */
-  childCount?: number | undefined;
+  childCount: number;
   /**
    * The ID of the parent event.
    */
   parentId?: string | null | undefined;
+  /**
+   * Human readable label of the event type.
+   */
+  label: string;
   /**
    * The source of the event. `system` events are created by Polar. `user` events are the one you create through our ingestion API.
    */
@@ -66,19 +71,17 @@ export const BenefitGrantedEvent$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: z.string(),
-    timestamp: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    organization_id: z.string(),
-    customer_id: z.nullable(z.string()),
-    customer: z.nullable(Customer$inboundSchema),
-    external_customer_id: z.nullable(z.string()),
-    child_count: z._default(z.int(), 0),
-    parent_id: z.optional(z.nullable(z.string())),
-    source: z.literal("system"),
-    name: z.literal("benefit.granted"),
+    id: types.string(),
+    timestamp: types.date(),
+    organization_id: types.string(),
+    customer_id: types.nullable(types.string()),
+    customer: types.nullable(Customer$inboundSchema),
+    external_customer_id: types.nullable(types.string()),
+    child_count: z._default(types.number(), 0),
+    parent_id: z.optional(z.nullable(types.string())),
+    label: types.string(),
+    source: types.literal("system"),
+    name: types.literal("benefit.granted"),
     metadata: BenefitGrantMetadata$inboundSchema,
   }),
   z.transform((v) => {

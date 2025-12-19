@@ -27,6 +27,7 @@ let value: WebhookRefundCreatedPayload = {
     subscriptionId: "<value>",
     customerId: "<value>",
     revokeBenefits: true,
+    dispute: null,
   },
 };
 ```
@@ -35,6 +36,6 @@ let value: WebhookRefundCreatedPayload = {
 
 | Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `type`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           | refund.created                                                                                |
+| `type`                                                                                        | *"refund.created"*                                                                            | :heavy_check_mark:                                                                            | N/A                                                                                           | refund.created                                                                                |
 | `timestamp`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `data`                                                                                        | [components.Refund](../../models/components/refund.md)                                        | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

@@ -1,5 +1,4 @@
-# Downloadables
-(*customerPortal.downloadables*)
+# CustomerPortal.Downloadables
 
 ## Overview
 

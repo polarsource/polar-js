@@ -1,5 +1,4 @@
-# PolarOrganizations
-(*customerPortal.organizations*)
+# CustomerPortal.Organizations
 
 ## Overview
 

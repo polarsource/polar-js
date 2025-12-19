@@ -5,8 +5,10 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const CountryAlpha2 = {
@@ -260,7 +262,7 @@ export const CountryAlpha2 = {
   Zm: "ZM",
   Zw: "ZW",
 } as const;
-export type CountryAlpha2 = ClosedEnum<typeof CountryAlpha2>;
+export type CountryAlpha2 = OpenEnum<typeof CountryAlpha2>;
 
 export type Address = {
   line1?: string | null | undefined;
@@ -272,20 +274,24 @@ export type Address = {
 };
 
 /** @internal */
-export const CountryAlpha2$inboundSchema: z.ZodMiniEnum<typeof CountryAlpha2> =
-  z.enum(CountryAlpha2);
+export const CountryAlpha2$inboundSchema: z.ZodMiniType<
+  CountryAlpha2,
+  unknown
+> = openEnums.inboundSchema(CountryAlpha2);
 /** @internal */
-export const CountryAlpha2$outboundSchema: z.ZodMiniEnum<typeof CountryAlpha2> =
-  CountryAlpha2$inboundSchema;
+export const CountryAlpha2$outboundSchema: z.ZodMiniType<
+  string,
+  CountryAlpha2
+> = openEnums.outboundSchema(CountryAlpha2);
 
 /** @internal */
 export const Address$inboundSchema: z.ZodMiniType<Address, unknown> = z.pipe(
   z.object({
-    line1: z.optional(z.nullable(z.string())),
-    line2: z.optional(z.nullable(z.string())),
-    postal_code: z.optional(z.nullable(z.string())),
-    city: z.optional(z.nullable(z.string())),
-    state: z.optional(z.nullable(z.string())),
+    line1: z.optional(z.nullable(types.string())),
+    line2: z.optional(z.nullable(types.string())),
+    postal_code: z.optional(z.nullable(types.string())),
+    city: z.optional(z.nullable(types.string())),
+    state: z.optional(z.nullable(types.string())),
     country: CountryAlpha2$inboundSchema,
   }),
   z.transform((v) => {

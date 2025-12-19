@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Subscription,
@@ -18,11 +19,11 @@ import {
  *
  * @remarks
  *
- * If you want more specific events, you can listen to `subscription.active`, `subscription.canceled`, and `subscription.revoked`.
+ * If you want more specific events, you can listen to `subscription.active`, `subscription.canceled`, `subscription.past_due`, and `subscription.revoked`.
  *
  * To listen specifically for renewals, you can listen to `order.created` events and check the `billing_reason` field.
  *
- * **Discord & Slack support:** On cancellation and revocation. Renewals are skipped.
+ * **Discord & Slack support:** On cancellation, past due, and revocation. Renewals are skipped.
  */
 export type WebhookSubscriptionUpdatedPayload = {
   type: "subscription.updated";
@@ -35,11 +36,8 @@ export const WebhookSubscriptionUpdatedPayload$inboundSchema: z.ZodMiniType<
   WebhookSubscriptionUpdatedPayload,
   unknown
 > = z.object({
-  type: z.literal("subscription.updated"),
-  timestamp: z.pipe(
-    z.iso.datetime({ offset: true }),
-    z.transform(v => new Date(v)),
-  ),
+  type: types.literal("subscription.updated"),
+  timestamp: types.date(),
   data: Subscription$inboundSchema,
 });
 /** @internal */

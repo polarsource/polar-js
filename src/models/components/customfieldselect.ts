@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomFieldSelectProperties,
@@ -13,8 +14,12 @@ import {
   CustomFieldSelectProperties$Outbound,
   CustomFieldSelectProperties$outboundSchema,
 } from "./customfieldselectproperties.js";
-
-export type CustomFieldSelectMetadata = string | number | number | boolean;
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
 
 /**
  * Schema for a custom field of type select.
@@ -32,7 +37,7 @@ export type CustomFieldSelect = {
    * The ID of the object.
    */
   id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   type: "select";
   /**
    * Identifier of the custom field. It'll be used as key when storing the value.
@@ -50,62 +55,19 @@ export type CustomFieldSelect = {
 };
 
 /** @internal */
-export const CustomFieldSelectMetadata$inboundSchema: z.ZodMiniType<
-  CustomFieldSelectMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type CustomFieldSelectMetadata$Outbound =
-  | string
-  | number
-  | number
-  | boolean;
-
-/** @internal */
-export const CustomFieldSelectMetadata$outboundSchema: z.ZodMiniType<
-  CustomFieldSelectMetadata$Outbound,
-  CustomFieldSelectMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function customFieldSelectMetadataToJSON(
-  customFieldSelectMetadata: CustomFieldSelectMetadata,
-): string {
-  return JSON.stringify(
-    CustomFieldSelectMetadata$outboundSchema.parse(customFieldSelectMetadata),
-  );
-}
-export function customFieldSelectMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CustomFieldSelectMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CustomFieldSelectMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CustomFieldSelectMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const CustomFieldSelect$inboundSchema: z.ZodMiniType<
   CustomFieldSelect,
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
-    type: z.literal("select"),
-    slug: z.string(),
-    name: z.string(),
-    organization_id: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+    type: types.literal("select"),
+    slug: types.string(),
+    name: types.string(),
+    organization_id: types.string(),
     properties: CustomFieldSelectProperties$inboundSchema,
   }),
   z.transform((v) => {
@@ -121,7 +83,7 @@ export type CustomFieldSelect$Outbound = {
   created_at: string;
   modified_at: string | null;
   id: string;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   type: "select";
   slug: string;
   name: string;
@@ -138,10 +100,7 @@ export const CustomFieldSelect$outboundSchema: z.ZodMiniType<
     createdAt: z.pipe(z.date(), z.transform(v => v.toISOString())),
     modifiedAt: z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
     id: z.string(),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     type: z.literal("select"),
     slug: z.string(),
     name: z.string(),

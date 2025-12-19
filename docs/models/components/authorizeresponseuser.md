@@ -7,22 +7,24 @@ import { AuthorizeResponseUser } from "@polar-sh/sdk/models/components/authorize
 
 let value: AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2024-01-29T12:13:57.857Z"),
-    modifiedAt: new Date("2024-10-29T18:01:51.537Z"),
+    createdAt: new Date("2025-11-06T09:00:45.294Z"),
+    modifiedAt: new Date("2025-02-22T00:03:05.093Z"),
     clientId: "<id>",
-    clientName: "<value>",
-    clientUri: "https://unhappy-kit.name/",
-    logoUri: "https://gifted-celsius.org",
-    tosUri: null,
-    policyUri: "https://somber-populist.org",
+    clientName: null,
+    clientUri: "https://bossy-formamide.com",
+    logoUri: null,
+    tosUri: "https://advanced-ferret.org/",
+    policyUri: "https://pleasant-event.com/",
   },
   subType: "user",
   sub: {
     id: "<value>",
-    email: "Ignacio35@gmail.com",
-    avatarUrl: "https://soulful-minion.net",
+    email: "Molly.Quitzon@gmail.com",
+    avatarUrl: null,
   },
-  scopes: [],
+  scopes: [
+    "organizations:write",
+  ],
 };
 ```
 
@@ -31,6 +33,6 @@ let value: AuthorizeResponseUser = {
 | Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | `client`                                                                       | [components.OAuth2ClientPublic](../../models/components/oauth2clientpublic.md) | :heavy_check_mark:                                                             | N/A                                                                            |
-| `subType`                                                                      | *string*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `subType`                                                                      | *"user"*                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
 | `sub`                                                                          | [components.AuthorizeUser](../../models/components/authorizeuser.md)           | :heavy_check_mark:                                                             | N/A                                                                            |
 | `scopes`                                                                       | [components.Scope](../../models/components/scope.md)[]                         | :heavy_check_mark:                                                             | N/A                                                                            |

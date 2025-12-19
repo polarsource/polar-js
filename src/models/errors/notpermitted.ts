@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import * as types from "../../types/primitives.js";
 import { PolarError } from "./polarerror.js";
 
 export type NotPermittedData = {
@@ -37,8 +38,8 @@ export class NotPermitted extends PolarError {
 export const NotPermitted$inboundSchema: z.ZodMiniType<NotPermitted, unknown> =
   z.pipe(
     z.object({
-      error: z.literal("NotPermitted"),
-      detail: z.string(),
+      error: types.literal("NotPermitted"),
+      detail: types.string(),
       request$: z.custom<Request>(x => x instanceof Request),
       response$: z.custom<Response>(x => x instanceof Response),
       body$: z.string(),

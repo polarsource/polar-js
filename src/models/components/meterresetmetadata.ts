@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type MeterResetMetadata = {
@@ -18,7 +19,7 @@ export const MeterResetMetadata$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    meter_id: z.string(),
+    meter_id: types.string(),
   }),
   z.transform((v) => {
     return remap$(v, {

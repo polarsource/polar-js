@@ -14,4 +14,4 @@ let value: CustomerBenefitGrantLicenseKeysUpdate = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `benefitType`      | *string*           | :heavy_check_mark: | N/A                |
+| `benefitType`      | *"license_keys"*   | :heavy_check_mark: | N/A                |

@@ -6,14 +6,15 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomerSortProperty,
   CustomerSortProperty$outboundSchema,
 } from "../components/customersortproperty.js";
 import {
-  ListResourceCustomer,
-  ListResourceCustomer$inboundSchema,
-} from "../components/listresourcecustomer.js";
+  ListResourceCustomerWithMembers,
+  ListResourceCustomerWithMembers$inboundSchema,
+} from "../components/listresourcecustomerwithmembers.js";
 import {
   MetadataQuery,
   MetadataQuery$Outbound,
@@ -42,6 +43,10 @@ export type CustomersListRequest = {
    */
   query?: string | null | undefined;
   /**
+   * Include members in the response. Only populated when set to true.
+   */
+  includeMembers?: boolean | undefined;
+  /**
    * Page number, defaults to 1.
    */
   page?: number | undefined;
@@ -60,7 +65,7 @@ export type CustomersListRequest = {
 };
 
 export type CustomersListResponse = {
-  result: ListResourceCustomer;
+  result: ListResourceCustomerWithMembers;
 };
 
 /** @internal */
@@ -73,7 +78,7 @@ export const CustomersListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     CustomersListQueryParamOrganizationIDFilter$Outbound,
     CustomersListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function customersListQueryParamOrganizationIDFilterToJSON(
   customersListQueryParamOrganizationIDFilter:
@@ -91,6 +96,7 @@ export type CustomersListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   email?: string | null | undefined;
   query?: string | null | undefined;
+  include_members: boolean;
   page: number;
   limit: number;
   sorting?: Array<string> | null | undefined;
@@ -104,10 +110,11 @@ export const CustomersListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     email: z.optional(z.nullable(z.string())),
     query: z.optional(z.nullable(z.string())),
+    includeMembers: z._default(z.boolean(), false),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),
     sorting: z.optional(
@@ -120,6 +127,7 @@ export const CustomersListRequest$outboundSchema: z.ZodMiniType<
   z.transform((v) => {
     return remap$(v, {
       organizationId: "organization_id",
+      includeMembers: "include_members",
     });
   }),
 );
@@ -138,7 +146,7 @@ export const CustomersListResponse$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    Result: ListResourceCustomer$inboundSchema,
+    Result: ListResourceCustomerWithMembers$inboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {

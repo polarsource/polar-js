@@ -10,206 +10,113 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Metric, Metric$inboundSchema } from "./metric.js";
 
 export type Metrics = {
-  /**
-   * Information about a metric.
-   */
-  orders: Metric;
-  /**
-   * Information about a metric.
-   */
-  revenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  netRevenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  cumulativeRevenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  netCumulativeRevenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  costs: Metric;
-  /**
-   * Information about a metric.
-   */
-  cumulativeCosts: Metric;
-  /**
-   * Information about a metric.
-   */
-  averageOrderValue: Metric;
-  /**
-   * Information about a metric.
-   */
-  netAverageOrderValue: Metric;
-  /**
-   * Information about a metric.
-   */
-  averageRevenuePerUser: Metric;
-  /**
-   * Information about a metric.
-   */
-  costPerUser: Metric;
-  /**
-   * Information about a metric.
-   */
-  activeUserByEvent: Metric;
-  /**
-   * Information about a metric.
-   */
-  oneTimeProducts: Metric;
-  /**
-   * Information about a metric.
-   */
-  oneTimeProductsRevenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  oneTimeProductsNetRevenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  newSubscriptions: Metric;
-  /**
-   * Information about a metric.
-   */
-  newSubscriptionsRevenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  newSubscriptionsNetRevenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  renewedSubscriptions: Metric;
-  /**
-   * Information about a metric.
-   */
-  renewedSubscriptionsRevenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  renewedSubscriptionsNetRevenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  activeSubscriptions: Metric;
-  /**
-   * Information about a metric.
-   */
-  monthlyRecurringRevenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  committedMonthlyRecurringRevenue: Metric;
-  /**
-   * Information about a metric.
-   */
-  checkouts: Metric;
-  /**
-   * Information about a metric.
-   */
-  succeededCheckouts: Metric;
-  /**
-   * Information about a metric.
-   */
-  checkoutsConversion: Metric;
-  /**
-   * Information about a metric.
-   */
-  canceledSubscriptions: Metric;
-  /**
-   * Information about a metric.
-   */
-  canceledSubscriptionsCustomerService: Metric;
-  /**
-   * Information about a metric.
-   */
-  canceledSubscriptionsLowQuality: Metric;
-  /**
-   * Information about a metric.
-   */
-  canceledSubscriptionsMissingFeatures: Metric;
-  /**
-   * Information about a metric.
-   */
-  canceledSubscriptionsSwitchedService: Metric;
-  /**
-   * Information about a metric.
-   */
-  canceledSubscriptionsTooComplex: Metric;
-  /**
-   * Information about a metric.
-   */
-  canceledSubscriptionsTooExpensive: Metric;
-  /**
-   * Information about a metric.
-   */
-  canceledSubscriptionsUnused: Metric;
-  /**
-   * Information about a metric.
-   */
-  canceledSubscriptionsOther: Metric;
-  /**
-   * Information about a metric.
-   */
-  grossMargin: Metric;
-  /**
-   * Information about a metric.
-   */
-  grossMarginPercentage: Metric;
-  /**
-   * Information about a metric.
-   */
-  cashflow: Metric;
+  orders?: Metric | null | undefined;
+  revenue?: Metric | null | undefined;
+  netRevenue?: Metric | null | undefined;
+  cumulativeRevenue?: Metric | null | undefined;
+  netCumulativeRevenue?: Metric | null | undefined;
+  costs?: Metric | null | undefined;
+  cumulativeCosts?: Metric | null | undefined;
+  averageOrderValue?: Metric | null | undefined;
+  netAverageOrderValue?: Metric | null | undefined;
+  averageRevenuePerUser?: Metric | null | undefined;
+  costPerUser?: Metric | null | undefined;
+  activeUserByEvent?: Metric | null | undefined;
+  oneTimeProducts?: Metric | null | undefined;
+  oneTimeProductsRevenue?: Metric | null | undefined;
+  oneTimeProductsNetRevenue?: Metric | null | undefined;
+  newSubscriptions?: Metric | null | undefined;
+  newSubscriptionsRevenue?: Metric | null | undefined;
+  newSubscriptionsNetRevenue?: Metric | null | undefined;
+  renewedSubscriptions?: Metric | null | undefined;
+  renewedSubscriptionsRevenue?: Metric | null | undefined;
+  renewedSubscriptionsNetRevenue?: Metric | null | undefined;
+  activeSubscriptions?: Metric | null | undefined;
+  committedSubscriptions?: Metric | null | undefined;
+  monthlyRecurringRevenue?: Metric | null | undefined;
+  committedMonthlyRecurringRevenue?: Metric | null | undefined;
+  checkouts?: Metric | null | undefined;
+  succeededCheckouts?: Metric | null | undefined;
+  checkoutsConversion?: Metric | null | undefined;
+  canceledSubscriptions?: Metric | null | undefined;
+  canceledSubscriptionsCustomerService?: Metric | null | undefined;
+  canceledSubscriptionsLowQuality?: Metric | null | undefined;
+  canceledSubscriptionsMissingFeatures?: Metric | null | undefined;
+  canceledSubscriptionsSwitchedService?: Metric | null | undefined;
+  canceledSubscriptionsTooComplex?: Metric | null | undefined;
+  canceledSubscriptionsTooExpensive?: Metric | null | undefined;
+  canceledSubscriptionsUnused?: Metric | null | undefined;
+  canceledSubscriptionsOther?: Metric | null | undefined;
+  churnedSubscriptions?: Metric | null | undefined;
+  churnRate?: Metric | null | undefined;
+  ltv?: Metric | null | undefined;
+  grossMargin?: Metric | null | undefined;
+  grossMarginPercentage?: Metric | null | undefined;
+  cashflow?: Metric | null | undefined;
 };
 
 /** @internal */
 export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
   z.object({
-    orders: Metric$inboundSchema,
-    revenue: Metric$inboundSchema,
-    net_revenue: Metric$inboundSchema,
-    cumulative_revenue: Metric$inboundSchema,
-    net_cumulative_revenue: Metric$inboundSchema,
-    costs: Metric$inboundSchema,
-    cumulative_costs: Metric$inboundSchema,
-    average_order_value: Metric$inboundSchema,
-    net_average_order_value: Metric$inboundSchema,
-    average_revenue_per_user: Metric$inboundSchema,
-    cost_per_user: Metric$inboundSchema,
-    active_user_by_event: Metric$inboundSchema,
-    one_time_products: Metric$inboundSchema,
-    one_time_products_revenue: Metric$inboundSchema,
-    one_time_products_net_revenue: Metric$inboundSchema,
-    new_subscriptions: Metric$inboundSchema,
-    new_subscriptions_revenue: Metric$inboundSchema,
-    new_subscriptions_net_revenue: Metric$inboundSchema,
-    renewed_subscriptions: Metric$inboundSchema,
-    renewed_subscriptions_revenue: Metric$inboundSchema,
-    renewed_subscriptions_net_revenue: Metric$inboundSchema,
-    active_subscriptions: Metric$inboundSchema,
-    monthly_recurring_revenue: Metric$inboundSchema,
-    committed_monthly_recurring_revenue: Metric$inboundSchema,
-    checkouts: Metric$inboundSchema,
-    succeeded_checkouts: Metric$inboundSchema,
-    checkouts_conversion: Metric$inboundSchema,
-    canceled_subscriptions: Metric$inboundSchema,
-    canceled_subscriptions_customer_service: Metric$inboundSchema,
-    canceled_subscriptions_low_quality: Metric$inboundSchema,
-    canceled_subscriptions_missing_features: Metric$inboundSchema,
-    canceled_subscriptions_switched_service: Metric$inboundSchema,
-    canceled_subscriptions_too_complex: Metric$inboundSchema,
-    canceled_subscriptions_too_expensive: Metric$inboundSchema,
-    canceled_subscriptions_unused: Metric$inboundSchema,
-    canceled_subscriptions_other: Metric$inboundSchema,
-    gross_margin: Metric$inboundSchema,
-    gross_margin_percentage: Metric$inboundSchema,
-    cashflow: Metric$inboundSchema,
+    orders: z.optional(z.nullable(Metric$inboundSchema)),
+    revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    net_revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    cumulative_revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    net_cumulative_revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    costs: z.optional(z.nullable(Metric$inboundSchema)),
+    cumulative_costs: z.optional(z.nullable(Metric$inboundSchema)),
+    average_order_value: z.optional(z.nullable(Metric$inboundSchema)),
+    net_average_order_value: z.optional(z.nullable(Metric$inboundSchema)),
+    average_revenue_per_user: z.optional(z.nullable(Metric$inboundSchema)),
+    cost_per_user: z.optional(z.nullable(Metric$inboundSchema)),
+    active_user_by_event: z.optional(z.nullable(Metric$inboundSchema)),
+    one_time_products: z.optional(z.nullable(Metric$inboundSchema)),
+    one_time_products_revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    one_time_products_net_revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    new_subscriptions: z.optional(z.nullable(Metric$inboundSchema)),
+    new_subscriptions_revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    new_subscriptions_net_revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    renewed_subscriptions: z.optional(z.nullable(Metric$inboundSchema)),
+    renewed_subscriptions_revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    renewed_subscriptions_net_revenue: z.optional(
+      z.nullable(Metric$inboundSchema),
+    ),
+    active_subscriptions: z.optional(z.nullable(Metric$inboundSchema)),
+    committed_subscriptions: z.optional(z.nullable(Metric$inboundSchema)),
+    monthly_recurring_revenue: z.optional(z.nullable(Metric$inboundSchema)),
+    committed_monthly_recurring_revenue: z.optional(
+      z.nullable(Metric$inboundSchema),
+    ),
+    checkouts: z.optional(z.nullable(Metric$inboundSchema)),
+    succeeded_checkouts: z.optional(z.nullable(Metric$inboundSchema)),
+    checkouts_conversion: z.optional(z.nullable(Metric$inboundSchema)),
+    canceled_subscriptions: z.optional(z.nullable(Metric$inboundSchema)),
+    canceled_subscriptions_customer_service: z.optional(
+      z.nullable(Metric$inboundSchema),
+    ),
+    canceled_subscriptions_low_quality: z.optional(
+      z.nullable(Metric$inboundSchema),
+    ),
+    canceled_subscriptions_missing_features: z.optional(
+      z.nullable(Metric$inboundSchema),
+    ),
+    canceled_subscriptions_switched_service: z.optional(
+      z.nullable(Metric$inboundSchema),
+    ),
+    canceled_subscriptions_too_complex: z.optional(
+      z.nullable(Metric$inboundSchema),
+    ),
+    canceled_subscriptions_too_expensive: z.optional(
+      z.nullable(Metric$inboundSchema),
+    ),
+    canceled_subscriptions_unused: z.optional(z.nullable(Metric$inboundSchema)),
+    canceled_subscriptions_other: z.optional(z.nullable(Metric$inboundSchema)),
+    churned_subscriptions: z.optional(z.nullable(Metric$inboundSchema)),
+    churn_rate: z.optional(z.nullable(Metric$inboundSchema)),
+    ltv: z.optional(z.nullable(Metric$inboundSchema)),
+    gross_margin: z.optional(z.nullable(Metric$inboundSchema)),
+    gross_margin_percentage: z.optional(z.nullable(Metric$inboundSchema)),
+    cashflow: z.optional(z.nullable(Metric$inboundSchema)),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -232,6 +139,7 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
       "renewed_subscriptions_revenue": "renewedSubscriptionsRevenue",
       "renewed_subscriptions_net_revenue": "renewedSubscriptionsNetRevenue",
       "active_subscriptions": "activeSubscriptions",
+      "committed_subscriptions": "committedSubscriptions",
       "monthly_recurring_revenue": "monthlyRecurringRevenue",
       "committed_monthly_recurring_revenue": "committedMonthlyRecurringRevenue",
       "succeeded_checkouts": "succeededCheckouts",
@@ -249,6 +157,8 @@ export const Metrics$inboundSchema: z.ZodMiniType<Metrics, unknown> = z.pipe(
         "canceledSubscriptionsTooExpensive",
       "canceled_subscriptions_unused": "canceledSubscriptionsUnused",
       "canceled_subscriptions_other": "canceledSubscriptionsOther",
+      "churned_subscriptions": "churnedSubscriptions",
+      "churn_rate": "churnRate",
       "gross_margin": "grossMargin",
       "gross_margin_percentage": "grossMarginPercentage",
     });

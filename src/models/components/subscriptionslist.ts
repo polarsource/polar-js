@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { smartUnion } from "../../types/smartUnion.js";
 
 export type MetadataQuery =
   | string
@@ -25,7 +26,7 @@ export type MetadataQuery$Outbound =
 export const MetadataQuery$outboundSchema: z.ZodMiniType<
   MetadataQuery$Outbound,
   MetadataQuery
-> = z.union([
+> = smartUnion([
   z.string(),
   z.int(),
   z.boolean(),

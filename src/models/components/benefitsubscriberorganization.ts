@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SubscriptionProrationBehavior,
@@ -50,19 +51,14 @@ export const BenefitSubscriberOrganization$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
-    name: z.string(),
-    slug: z.string(),
-    avatar_url: z.nullable(z.string()),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
+    name: types.string(),
+    slug: types.string(),
+    avatar_url: types.nullable(types.string()),
     proration_behavior: SubscriptionProrationBehavior$inboundSchema,
-    allow_customer_updates: z.boolean(),
+    allow_customer_updates: types.boolean(),
   }),
   z.transform((v) => {
     return remap$(v, {

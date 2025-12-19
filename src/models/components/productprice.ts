@@ -4,6 +4,8 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
+import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
+import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -38,99 +40,40 @@ import {
 } from "./productpriceseatbased.js";
 
 export type ProductPrice =
-  | (ProductPriceMeteredUnit & { amountType: "metered_unit" })
-  | (ProductPriceCustom & { amountType: "custom" })
-  | (ProductPriceFixed & { amountType: "fixed" })
-  | (ProductPriceSeatBased & { amountType: "seat_based" })
-  | (ProductPriceFree & { amountType: "free" });
+  | ProductPriceCustom
+  | ProductPriceFixed
+  | ProductPriceFree
+  | ProductPriceMeteredUnit
+  | ProductPriceSeatBased
+  | discriminatedUnionTypes.Unknown<"amountType">;
 
 /** @internal */
 export const ProductPrice$inboundSchema: z.ZodMiniType<ProductPrice, unknown> =
-  z.union([
-    z.intersection(
-      ProductPriceMeteredUnit$inboundSchema,
-      z.pipe(
-        z.object({ amount_type: z.literal("metered_unit") }),
-        z.transform((v) => ({ amountType: v.amount_type })),
-      ),
-    ),
-    z.intersection(
-      ProductPriceCustom$inboundSchema,
-      z.pipe(
-        z.object({ amount_type: z.literal("custom") }),
-        z.transform((v) => ({ amountType: v.amount_type })),
-      ),
-    ),
-    z.intersection(
-      ProductPriceFixed$inboundSchema,
-      z.pipe(
-        z.object({ amount_type: z.literal("fixed") }),
-        z.transform((v) => ({ amountType: v.amount_type })),
-      ),
-    ),
-    z.intersection(
-      ProductPriceSeatBased$inboundSchema,
-      z.pipe(
-        z.object({ amount_type: z.literal("seat_based") }),
-        z.transform((v) => ({ amountType: v.amount_type })),
-      ),
-    ),
-    z.intersection(
-      ProductPriceFree$inboundSchema,
-      z.pipe(
-        z.object({ amount_type: z.literal("free") }),
-        z.transform((v) => ({ amountType: v.amount_type })),
-      ),
-    ),
-  ]);
+  discriminatedUnion("amount_type", {
+    custom: ProductPriceCustom$inboundSchema,
+    fixed: ProductPriceFixed$inboundSchema,
+    free: ProductPriceFree$inboundSchema,
+    metered_unit: ProductPriceMeteredUnit$inboundSchema,
+    seat_based: ProductPriceSeatBased$inboundSchema,
+  }, { outputPropertyName: "amountType" });
 /** @internal */
 export type ProductPrice$Outbound =
-  | (ProductPriceMeteredUnit$Outbound & { amount_type: "metered_unit" })
-  | (ProductPriceCustom$Outbound & { amount_type: "custom" })
-  | (ProductPriceFixed$Outbound & { amount_type: "fixed" })
-  | (ProductPriceSeatBased$Outbound & { amount_type: "seat_based" })
-  | (ProductPriceFree$Outbound & { amount_type: "free" });
+  | ProductPriceCustom$Outbound
+  | ProductPriceFixed$Outbound
+  | ProductPriceFree$Outbound
+  | ProductPriceMeteredUnit$Outbound
+  | ProductPriceSeatBased$Outbound;
 
 /** @internal */
 export const ProductPrice$outboundSchema: z.ZodMiniType<
   ProductPrice$Outbound,
   ProductPrice
 > = z.union([
-  z.intersection(
-    ProductPriceMeteredUnit$outboundSchema,
-    z.pipe(
-      z.object({ amountType: z.literal("metered_unit") }),
-      z.transform((v) => ({ amount_type: v.amountType })),
-    ),
-  ),
-  z.intersection(
-    ProductPriceCustom$outboundSchema,
-    z.pipe(
-      z.object({ amountType: z.literal("custom") }),
-      z.transform((v) => ({ amount_type: v.amountType })),
-    ),
-  ),
-  z.intersection(
-    ProductPriceFixed$outboundSchema,
-    z.pipe(
-      z.object({ amountType: z.literal("fixed") }),
-      z.transform((v) => ({ amount_type: v.amountType })),
-    ),
-  ),
-  z.intersection(
-    ProductPriceSeatBased$outboundSchema,
-    z.pipe(
-      z.object({ amountType: z.literal("seat_based") }),
-      z.transform((v) => ({ amount_type: v.amountType })),
-    ),
-  ),
-  z.intersection(
-    ProductPriceFree$outboundSchema,
-    z.pipe(
-      z.object({ amountType: z.literal("free") }),
-      z.transform((v) => ({ amount_type: v.amountType })),
-    ),
-  ),
+  ProductPriceCustom$outboundSchema,
+  ProductPriceFixed$outboundSchema,
+  ProductPriceFree$outboundSchema,
+  ProductPriceMeteredUnit$outboundSchema,
+  ProductPriceSeatBased$outboundSchema,
 ]);
 
 export function productPriceToJSON(productPrice: ProductPrice): string {

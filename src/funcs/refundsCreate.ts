@@ -29,10 +29,6 @@ import {
 } from "../models/errors/httpvalidationerror.js";
 import { PolarError } from "../models/errors/polarerror.js";
 import {
-  RefundAmountTooHigh,
-  RefundAmountTooHigh$inboundSchema,
-} from "../models/errors/refundamounttoohigh.js";
-import {
   RefundedAlready,
   RefundedAlready$inboundSchema,
 } from "../models/errors/refundedalready.js";
@@ -40,6 +36,7 @@ import { ResponseValidationError } from "../models/errors/responsevalidationerro
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
+import * as types$ from "../types/primitives.js";
 
 /**
  * Create Refund
@@ -56,7 +53,6 @@ export function refundsCreate(
 ): APIPromise<
   Result<
     Refund | undefined,
-    | RefundAmountTooHigh
     | RefundedAlready
     | HTTPValidationError
     | PolarError
@@ -84,7 +80,6 @@ async function $do(
   [
     Result<
       Refund | undefined,
-      | RefundAmountTooHigh
       | RefundedAlready
       | HTTPValidationError
       | PolarError
@@ -153,7 +148,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "403", "422", "4XX", "5XX"],
+    errorCodes: ["403", "422", "4XX", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -168,7 +163,6 @@ async function $do(
 
   const [result] = await M.match<
     Refund | undefined,
-    | RefundAmountTooHigh
     | RefundedAlready
     | HTTPValidationError
     | PolarError
@@ -180,9 +174,8 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, z.optional(Refund$inboundSchema)),
-    M.nil(201, z.optional(Refund$inboundSchema)),
-    M.jsonErr(400, RefundAmountTooHigh$inboundSchema),
+    M.json(200, types$.optional(Refund$inboundSchema)),
+    M.nil(201, types$.optional(Refund$inboundSchema)),
     M.jsonErr(403, RefundedAlready$inboundSchema),
     M.jsonErr(422, HTTPValidationError$inboundSchema),
     M.fail("4XX"),

@@ -17,8 +17,8 @@ let value: BenefitGrant = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2024-04-26T10:19:45.222Z"),
-    modifiedAt: new Date("2025-02-01T06:50:40.155Z"),
+    createdAt: new Date("2023-06-05T21:28:32.740Z"),
+    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -34,7 +34,7 @@ let value: BenefitGrant = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-01T02:27:46.266Z"),
+    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
@@ -71,6 +71,7 @@ let value: BenefitGrant = {
 | `subscriptionId`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the subscription that granted this benefit.                                         |
 | `orderId`                                                                                     | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the order that granted this benefit.                                                |
 | `customerId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the customer concerned by this grant.                                               |
+| `memberId`                                                                                    | *string*                                                                                      | :heavy_minus_sign:                                                                            | The ID of the member concerned by this grant.                                                 |
 | `benefitId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the benefit concerned by this grant.                                                |
 | `error`                                                                                       | [components.BenefitGrantError](../../models/components/benefitgranterror.md)                  | :heavy_minus_sign:                                                                            | The error information if the benefit grant failed with an unrecoverable error.                |
 | `customer`                                                                                    | [components.Customer](../../models/components/customer.md)                                    | :heavy_check_mark:                                                                            | A customer in an organization.                                                                |

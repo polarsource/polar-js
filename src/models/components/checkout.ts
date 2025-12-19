@@ -6,6 +6,8 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
@@ -67,6 +69,12 @@ import {
   LegacyRecurringProductPrice$outboundSchema,
 } from "./legacyrecurringproductprice.js";
 import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+  MetadataOutputType$Outbound,
+  MetadataOutputType$outboundSchema,
+} from "./metadataoutputtype.js";
+import {
   PaymentProcessor,
   PaymentProcessor$inboundSchema,
   PaymentProcessor$outboundSchema,
@@ -84,8 +92,6 @@ import {
 } from "./trialinterval.js";
 
 export type CheckoutCustomFieldData = string | number | boolean | Date;
-
-export type CheckoutMetadata = string | number | number | boolean;
 
 export type CheckoutProductPrice = LegacyRecurringProductPrice | ProductPrice;
 
@@ -268,7 +274,7 @@ export type Checkout = {
    * The number of interval units for the trial period.
    */
   trialIntervalCount: number | null;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * ID of the customer in your system. If a matching customer exists on Polar, the resulting order will be linked to this customer. Otherwise, a new customer will be created with this external ID set.
    */
@@ -312,12 +318,7 @@ export type Checkout = {
 export const CheckoutCustomFieldData$inboundSchema: z.ZodMiniType<
   CheckoutCustomFieldData,
   unknown
-> = z.union([
-  z.string(),
-  z.int(),
-  z.boolean(),
-  z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-]);
+> = smartUnion([types.string(), types.number(), types.boolean(), types.date()]);
 /** @internal */
 export type CheckoutCustomFieldData$Outbound =
   | string
@@ -329,7 +330,7 @@ export type CheckoutCustomFieldData$Outbound =
 export const CheckoutCustomFieldData$outboundSchema: z.ZodMiniType<
   CheckoutCustomFieldData$Outbound,
   CheckoutCustomFieldData
-> = z.union([
+> = smartUnion([
   z.string(),
   z.int(),
   z.boolean(),
@@ -354,41 +355,10 @@ export function checkoutCustomFieldDataFromJSON(
 }
 
 /** @internal */
-export const CheckoutMetadata$inboundSchema: z.ZodMiniType<
-  CheckoutMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-/** @internal */
-export type CheckoutMetadata$Outbound = string | number | number | boolean;
-
-/** @internal */
-export const CheckoutMetadata$outboundSchema: z.ZodMiniType<
-  CheckoutMetadata$Outbound,
-  CheckoutMetadata
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function checkoutMetadataToJSON(
-  checkoutMetadata: CheckoutMetadata,
-): string {
-  return JSON.stringify(
-    CheckoutMetadata$outboundSchema.parse(checkoutMetadata),
-  );
-}
-export function checkoutMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<CheckoutMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CheckoutMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CheckoutMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const CheckoutProductPrice$inboundSchema: z.ZodMiniType<
   CheckoutProductPrice,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -401,7 +371,7 @@ export type CheckoutProductPrice$Outbound =
 export const CheckoutProductPrice$outboundSchema: z.ZodMiniType<
   CheckoutProductPrice$Outbound,
   CheckoutProductPrice
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$outboundSchema,
   ProductPrice$outboundSchema,
 ]);
@@ -427,7 +397,7 @@ export function checkoutProductPriceFromJSON(
 export const CheckoutPrices$inboundSchema: z.ZodMiniType<
   CheckoutPrices,
   unknown
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -440,7 +410,7 @@ export type CheckoutPrices$Outbound =
 export const CheckoutPrices$outboundSchema: z.ZodMiniType<
   CheckoutPrices$Outbound,
   CheckoutPrices
-> = z.union([
+> = smartUnion([
   LegacyRecurringProductPrice$outboundSchema,
   ProductPrice$outboundSchema,
 ]);
@@ -462,7 +432,7 @@ export function checkoutPricesFromJSON(
 export const CheckoutDiscount$inboundSchema: z.ZodMiniType<
   CheckoutDiscount,
   unknown
-> = z.union([
+> = smartUnion([
   CheckoutDiscountFixedRepeatDuration$inboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
   CheckoutDiscountPercentageRepeatDuration$inboundSchema,
@@ -479,7 +449,7 @@ export type CheckoutDiscount$Outbound =
 export const CheckoutDiscount$outboundSchema: z.ZodMiniType<
   CheckoutDiscount$Outbound,
   CheckoutDiscount
-> = z.union([
+> = smartUnion([
   CheckoutDiscountFixedRepeatDuration$outboundSchema,
   CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
   CheckoutDiscountPercentageRepeatDuration$outboundSchema,
@@ -507,7 +477,7 @@ export function checkoutDiscountFromJSON(
 export const CustomerMetadata$inboundSchema: z.ZodMiniType<
   CustomerMetadata,
   unknown
-> = z.union([z.string(), z.int(), z.boolean()]);
+> = smartUnion([types.string(), types.number(), types.boolean()]);
 /** @internal */
 export type CustomerMetadata$Outbound = string | number | boolean;
 
@@ -515,7 +485,7 @@ export type CustomerMetadata$Outbound = string | number | boolean;
 export const CustomerMetadata$outboundSchema: z.ZodMiniType<
   CustomerMetadata$Outbound,
   CustomerMetadata
-> = z.union([z.string(), z.int(), z.boolean()]);
+> = smartUnion([z.string(), z.int(), z.boolean()]);
 
 export function customerMetadataToJSON(
   customerMetadata: CustomerMetadata,
@@ -537,118 +507,102 @@ export function customerMetadataFromJSON(
 /** @internal */
 export const Checkout$inboundSchema: z.ZodMiniType<Checkout, unknown> = z.pipe(
   z.object({
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    custom_field_data: z.optional(
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    custom_field_data: types.optional(
       z.record(
         z.string(),
-        z.nullable(
-          z.union([
-            z.string(),
-            z.int(),
-            z.boolean(),
-            z.pipe(
-              z.iso.datetime({ offset: true }),
-              z.transform(v => new Date(v)),
-            ),
+        types.nullable(
+          smartUnion([
+            types.string(),
+            types.number(),
+            types.boolean(),
+            types.date(),
           ]),
         ),
       ),
     ),
     payment_processor: PaymentProcessor$inboundSchema,
     status: CheckoutStatus$inboundSchema,
-    client_secret: z.string(),
-    url: z.string(),
-    expires_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    success_url: z.string(),
-    return_url: z.nullable(z.string()),
-    embed_origin: z.nullable(z.string()),
-    amount: z.int(),
-    seats: z.optional(z.nullable(z.int())),
-    price_per_seat: z.optional(z.nullable(z.int())),
-    discount_amount: z.int(),
-    net_amount: z.int(),
-    tax_amount: z.nullable(z.int()),
-    total_amount: z.int(),
-    currency: z.string(),
-    allow_trial: z.nullable(z.boolean()),
-    active_trial_interval: z.nullable(TrialInterval$inboundSchema),
-    active_trial_interval_count: z.nullable(z.int()),
-    trial_end: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    organization_id: z.string(),
-    product_id: z.nullable(z.string()),
-    product_price_id: z.nullable(z.string()),
-    discount_id: z.nullable(z.string()),
-    allow_discount_codes: z.boolean(),
-    require_billing_address: z.boolean(),
-    is_discount_applicable: z.boolean(),
-    is_free_product_price: z.boolean(),
-    is_payment_required: z.boolean(),
-    is_payment_setup_required: z.boolean(),
-    is_payment_form_required: z.boolean(),
-    customer_id: z.nullable(z.string()),
-    is_business_customer: z.boolean(),
-    customer_name: z.nullable(z.string()),
-    customer_email: z.nullable(z.string()),
-    customer_ip_address: z.nullable(z.string()),
-    customer_billing_name: z.nullable(z.string()),
-    customer_billing_address: z.nullable(Address$inboundSchema),
-    customer_tax_id: z.nullable(z.string()),
-    payment_processor_metadata: z.record(z.string(), z.string()),
+    client_secret: types.string(),
+    url: types.string(),
+    expires_at: types.date(),
+    success_url: types.string(),
+    return_url: types.nullable(types.string()),
+    embed_origin: types.nullable(types.string()),
+    amount: types.number(),
+    seats: z.optional(z.nullable(types.number())),
+    price_per_seat: z.optional(z.nullable(types.number())),
+    discount_amount: types.number(),
+    net_amount: types.number(),
+    tax_amount: types.nullable(types.number()),
+    total_amount: types.number(),
+    currency: types.string(),
+    allow_trial: types.nullable(types.boolean()),
+    active_trial_interval: types.nullable(TrialInterval$inboundSchema),
+    active_trial_interval_count: types.nullable(types.number()),
+    trial_end: types.nullable(types.date()),
+    organization_id: types.string(),
+    product_id: types.nullable(types.string()),
+    product_price_id: types.nullable(types.string()),
+    discount_id: types.nullable(types.string()),
+    allow_discount_codes: types.boolean(),
+    require_billing_address: types.boolean(),
+    is_discount_applicable: types.boolean(),
+    is_free_product_price: types.boolean(),
+    is_payment_required: types.boolean(),
+    is_payment_setup_required: types.boolean(),
+    is_payment_form_required: types.boolean(),
+    customer_id: types.nullable(types.string()),
+    is_business_customer: types.boolean(),
+    customer_name: types.nullable(types.string()),
+    customer_email: types.nullable(types.string()),
+    customer_ip_address: types.nullable(types.string()),
+    customer_billing_name: types.nullable(types.string()),
+    customer_billing_address: types.nullable(Address$inboundSchema),
+    customer_tax_id: types.nullable(types.string()),
+    payment_processor_metadata: z.record(z.string(), types.string()),
     billing_address_fields: CheckoutBillingAddressFields$inboundSchema,
-    trial_interval: z.nullable(TrialInterval$inboundSchema),
-    trial_interval_count: z.nullable(z.int()),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
-    external_customer_id: z.nullable(z.string()),
-    customer_external_id: z.nullable(z.string()),
+    trial_interval: types.nullable(TrialInterval$inboundSchema),
+    trial_interval_count: types.nullable(types.number()),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+    external_customer_id: types.nullable(types.string()),
+    customer_external_id: types.nullable(types.string()),
     products: z.array(CheckoutProduct$inboundSchema),
-    product: z.nullable(CheckoutProduct$inboundSchema),
-    product_price: z.nullable(
-      z.union([
+    product: types.nullable(CheckoutProduct$inboundSchema),
+    product_price: types.nullable(
+      smartUnion([
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),
     ),
-    prices: z.nullable(
+    prices: types.nullable(
       z.record(
         z.string(),
         z.array(
-          z.union([
+          smartUnion([
             LegacyRecurringProductPrice$inboundSchema,
             ProductPrice$inboundSchema,
           ]),
         ),
       ),
     ),
-    discount: z.nullable(
-      z.union([
+    discount: types.nullable(
+      smartUnion([
         CheckoutDiscountFixedRepeatDuration$inboundSchema,
         CheckoutDiscountFixedOnceForeverDuration$inboundSchema,
         CheckoutDiscountPercentageRepeatDuration$inboundSchema,
         CheckoutDiscountPercentageOnceForeverDuration$inboundSchema,
       ]),
     ),
-    subscription_id: z.nullable(z.string()),
-    attached_custom_fields: z.nullable(
+    subscription_id: types.nullable(types.string()),
+    attached_custom_fields: types.nullable(
       z.array(AttachedCustomField$inboundSchema),
     ),
     customer_metadata: z.record(
       z.string(),
-      z.union([z.string(), z.int(), z.boolean()]),
+      smartUnion([types.string(), types.number(), types.boolean()]),
     ),
   }),
   z.transform((v) => {
@@ -754,7 +708,7 @@ export type Checkout$Outbound = {
   billing_address_fields: CheckoutBillingAddressFields$Outbound;
   trial_interval: string | null;
   trial_interval_count: number | null;
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType$Outbound };
   external_customer_id: string | null;
   customer_external_id: string | null;
   products: Array<CheckoutProduct$Outbound>;
@@ -792,7 +746,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.nullable(
-          z.union([
+          smartUnion([
             z.string(),
             z.int(),
             z.boolean(),
@@ -844,16 +798,13 @@ export const Checkout$outboundSchema: z.ZodMiniType<
     billingAddressFields: CheckoutBillingAddressFields$outboundSchema,
     trialInterval: z.nullable(TrialInterval$outboundSchema),
     trialIntervalCount: z.nullable(z.int()),
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
-    ),
+    metadata: z.record(z.string(), MetadataOutputType$outboundSchema),
     externalCustomerId: z.nullable(z.string()),
     customerExternalId: z.nullable(z.string()),
     products: z.array(CheckoutProduct$outboundSchema),
     product: z.nullable(CheckoutProduct$outboundSchema),
     productPrice: z.nullable(
-      z.union([
+      smartUnion([
         LegacyRecurringProductPrice$outboundSchema,
         ProductPrice$outboundSchema,
       ]),
@@ -862,7 +813,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.array(
-          z.union([
+          smartUnion([
             LegacyRecurringProductPrice$outboundSchema,
             ProductPrice$outboundSchema,
           ]),
@@ -870,7 +821,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
       ),
     ),
     discount: z.nullable(
-      z.union([
+      smartUnion([
         CheckoutDiscountFixedRepeatDuration$outboundSchema,
         CheckoutDiscountFixedOnceForeverDuration$outboundSchema,
         CheckoutDiscountPercentageRepeatDuration$outboundSchema,
@@ -883,7 +834,7 @@ export const Checkout$outboundSchema: z.ZodMiniType<
     ),
     customerMetadata: z.record(
       z.string(),
-      z.union([z.string(), z.int(), z.boolean()]),
+      smartUnion([z.string(), z.int(), z.boolean()]),
     ),
   }),
   z.transform((v) => {

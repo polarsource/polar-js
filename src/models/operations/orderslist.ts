@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceOrder,
   ListResourceOrder$inboundSchema,
@@ -118,7 +119,7 @@ export const OrdersListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     OrdersListQueryParamOrganizationIDFilter$Outbound,
     OrdersListQueryParamOrganizationIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function ordersListQueryParamOrganizationIDFilterToJSON(
   ordersListQueryParamOrganizationIDFilter:
@@ -140,7 +141,7 @@ export type OrdersListQueryParamProductIDFilter$Outbound =
 export const OrdersListQueryParamProductIDFilter$outboundSchema: z.ZodMiniType<
   OrdersListQueryParamProductIDFilter$Outbound,
   OrdersListQueryParamProductIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function ordersListQueryParamProductIDFilterToJSON(
   ordersListQueryParamProductIDFilter: OrdersListQueryParamProductIDFilter,
@@ -159,7 +160,7 @@ export type ProductBillingTypeFilter$Outbound = string | Array<string>;
 export const ProductBillingTypeFilter$outboundSchema: z.ZodMiniType<
   ProductBillingTypeFilter$Outbound,
   ProductBillingTypeFilter
-> = z.union([
+> = smartUnion([
   ProductBillingType$outboundSchema,
   z.array(ProductBillingType$outboundSchema),
 ]);
@@ -179,7 +180,7 @@ export type QueryParamDiscountIDFilter$Outbound = string | Array<string>;
 export const QueryParamDiscountIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamDiscountIDFilter$Outbound,
   QueryParamDiscountIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function queryParamDiscountIDFilterToJSON(
   queryParamDiscountIDFilter: QueryParamDiscountIDFilter,
@@ -198,7 +199,7 @@ export type OrdersListQueryParamCustomerIDFilter$Outbound =
 export const OrdersListQueryParamCustomerIDFilter$outboundSchema: z.ZodMiniType<
   OrdersListQueryParamCustomerIDFilter$Outbound,
   OrdersListQueryParamCustomerIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function ordersListQueryParamCustomerIDFilterToJSON(
   ordersListQueryParamCustomerIDFilter: OrdersListQueryParamCustomerIDFilter,
@@ -217,7 +218,7 @@ export type CheckoutIDFilter$Outbound = string | Array<string>;
 export const CheckoutIDFilter$outboundSchema: z.ZodMiniType<
   CheckoutIDFilter$Outbound,
   CheckoutIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function checkoutIDFilterToJSON(
   checkoutIDFilter: CheckoutIDFilter,
@@ -248,27 +249,27 @@ export const OrdersListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     productId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     productBillingType: z.optional(
       z.nullable(
-        z.union([
+        smartUnion([
           ProductBillingType$outboundSchema,
           z.array(ProductBillingType$outboundSchema),
         ]),
       ),
     ),
     discountId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     customerId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     checkoutId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),

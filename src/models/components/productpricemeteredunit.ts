@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductPriceMeter,
@@ -88,24 +89,21 @@ export const ProductPriceMeteredUnit$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    id: z.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    id: types.string(),
     source: ProductPriceSource$inboundSchema,
-    amount_type: z.literal("metered_unit"),
-    is_archived: z.boolean(),
-    product_id: z.string(),
+    amount_type: types.literal("metered_unit"),
+    is_archived: types.boolean(),
+    product_id: types.string(),
     type: ProductPriceType$inboundSchema,
-    recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
-    price_currency: z.string(),
-    unit_amount: z.string(),
-    cap_amount: z.nullable(z.int()),
-    meter_id: z.string(),
+    recurring_interval: types.nullable(
+      SubscriptionRecurringInterval$inboundSchema,
+    ),
+    price_currency: types.string(),
+    unit_amount: types.string(),
+    cap_amount: types.nullable(types.number()),
+    meter_id: types.string(),
     meter: ProductPriceMeter$inboundSchema,
   }),
   z.transform((v) => {

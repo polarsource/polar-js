@@ -1,5 +1,4 @@
-# PolarLicenseKeys
-(*customerPortal.licenseKeys*)
+# CustomerPortal.LicenseKeys
 
 ## Overview
 

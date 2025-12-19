@@ -15,7 +15,7 @@ let value: CustomerStateBenefitGrant = {
   benefitId: "397a17aa-15cf-4cb4-9333-18040203cf98",
   benefitType: "license_keys",
   benefitMetadata: {
-    "key": "value",
+    "key": 936,
   },
   properties: {},
 };
@@ -31,5 +31,5 @@ let value: CustomerStateBenefitGrant = {
 | `grantedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | The timestamp when the benefit was granted.                                                   | 2025-01-03T13:37:00Z                                                                          |
 | `benefitId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the benefit concerned by this grant.                                                | 397a17aa-15cf-4cb4-9333-18040203cf98                                                          |
 | `benefitType`                                                                                 | [components.BenefitType](../../models/components/benefittype.md)                              | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
-| `benefitMetadata`                                                                             | Record<string, *components.BenefitMetadata*>                                                  | :heavy_check_mark:                                                                            | The metadata of the benefit concerned by this grant.                                          | {<br/>"key": "value"<br/>}                                                                    |
+| `benefitMetadata`                                                                             | Record<string, *components.MetadataOutputType*>                                               | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `properties`                                                                                  | *components.CustomerStateBenefitGrantProperties*                                              | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

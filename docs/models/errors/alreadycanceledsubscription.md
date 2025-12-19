@@ -10,7 +10,7 @@ import { AlreadyCanceledSubscription } from "@polar-sh/sdk/models/errors/already
 
 ## Fields
 
-| Field                       | Type                        | Required                    | Description                 | Example                     |
-| --------------------------- | --------------------------- | --------------------------- | --------------------------- | --------------------------- |
-| `error`                     | *string*                    | :heavy_check_mark:          | N/A                         | AlreadyCanceledSubscription |
-| `detail`                    | *string*                    | :heavy_check_mark:          | N/A                         |                             |
+| Field                           | Type                            | Required                        | Description                     | Example                         |
+| ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
+| `error`                         | *"AlreadyCanceledSubscription"* | :heavy_check_mark:              | N/A                             | AlreadyCanceledSubscription     |
+| `detail`                        | *string*                        | :heavy_check_mark:              | N/A                             |                                 |

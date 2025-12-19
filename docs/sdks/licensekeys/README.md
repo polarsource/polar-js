@@ -1,5 +1,4 @@
 # LicenseKeys
-(*licenseKeys*)
 
 ## Overview
 

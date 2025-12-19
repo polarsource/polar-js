@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceDownloadableRead,
   ListResourceDownloadableRead$inboundSchema,
@@ -84,7 +85,7 @@ export const CustomerPortalDownloadablesListQueryParamBenefitIDFilter$outboundSc
   z.ZodMiniType<
     CustomerPortalDownloadablesListQueryParamBenefitIDFilter$Outbound,
     CustomerPortalDownloadablesListQueryParamBenefitIDFilter
-  > = z.union([z.string(), z.array(z.string())]);
+  > = smartUnion([z.string(), z.array(z.string())]);
 
 export function customerPortalDownloadablesListQueryParamBenefitIDFilterToJSON(
   customerPortalDownloadablesListQueryParamBenefitIDFilter:
@@ -111,7 +112,7 @@ export const CustomerPortalDownloadablesListRequest$outboundSchema:
   > = z.pipe(
     z.object({
       benefitId: z.optional(
-        z.nullable(z.union([z.string(), z.array(z.string())])),
+        z.nullable(smartUnion([z.string(), z.array(z.string())])),
       ),
       page: z._default(z.int(), 1),
       limit: z._default(z.int(), 10),

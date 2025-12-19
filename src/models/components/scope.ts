@@ -3,13 +3,15 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const Scope = {
   Openid: "openid",
   Profile: "profile",
   Email: "email",
   UserRead: "user:read",
+  UserWrite: "user:write",
   WebRead: "web:read",
   WebWrite: "web:write",
   OrganizationsRead: "organizations:read",
@@ -40,8 +42,11 @@ export const Scope = {
   SubscriptionsWrite: "subscriptions:write",
   CustomersRead: "customers:read",
   CustomersWrite: "customers:write",
+  MembersRead: "members:read",
+  MembersWrite: "members:write",
   WalletsRead: "wallets:read",
   WalletsWrite: "wallets:write",
+  DisputesRead: "disputes:read",
   CustomerMetersRead: "customer_meters:read",
   CustomerSessionsWrite: "customer_sessions:write",
   CustomerSeatsRead: "customer_seats:read",
@@ -68,7 +73,8 @@ export const Scope = {
   NotificationRecipientsRead: "notification_recipients:read",
   NotificationRecipientsWrite: "notification_recipients:write",
 } as const;
-export type Scope = ClosedEnum<typeof Scope>;
+export type Scope = OpenEnum<typeof Scope>;
 
 /** @internal */
-export const Scope$inboundSchema: z.ZodMiniEnum<typeof Scope> = z.enum(Scope);
+export const Scope$inboundSchema: z.ZodMiniType<Scope, unknown> = openEnums
+  .inboundSchema(Scope);

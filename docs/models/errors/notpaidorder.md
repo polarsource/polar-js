@@ -12,5 +12,5 @@ import { NotPaidOrder } from "@polar-sh/sdk/models/errors/notpaidorder.js";
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `error`            | *string*           | :heavy_check_mark: | N/A                | NotPaidOrder       |
+| `error`            | *"NotPaidOrder"*   | :heavy_check_mark: | N/A                | NotPaidOrder       |
 | `detail`           | *string*           | :heavy_check_mark: | N/A                |                    |

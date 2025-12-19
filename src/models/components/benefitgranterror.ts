@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitGrantError = {
@@ -18,9 +19,9 @@ export const BenefitGrantError$inboundSchema: z.ZodMiniType<
   BenefitGrantError,
   unknown
 > = z.object({
-  message: z.string(),
-  type: z.string(),
-  timestamp: z.string(),
+  message: types.string(),
+  type: types.string(),
+  timestamp: types.string(),
 });
 /** @internal */
 export type BenefitGrantError$Outbound = {

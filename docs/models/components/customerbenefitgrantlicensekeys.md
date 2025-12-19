@@ -18,13 +18,13 @@ let value: CustomerBenefitGrantLicenseKeys = {
   isGranted: false,
   isRevoked: false,
   customer: {
-    createdAt: new Date("2025-10-07T04:17:24.786Z"),
-    modifiedAt: new Date("2025-05-05T02:01:44.871Z"),
+    createdAt: new Date("2023-10-06T17:24:11.012Z"),
+    modifiedAt: new Date("2023-12-28T23:55:37.070Z"),
     id: "<value>",
-    email: "Sedrick_Paucek@hotmail.com",
+    email: "Greg77@hotmail.com",
     emailVerified: true,
     name: "<value>",
-    billingName: "<value>",
+    billingName: null,
     billingAddress: {
       country: "US",
     },
@@ -32,27 +32,30 @@ let value: CustomerBenefitGrantLicenseKeys = {
       "911144442",
       "us_ein",
     ],
-    oauthAccounts: {},
+    oauthAccounts: {
+      "key": {
+        accountId: "<id>",
+        accountUsername: "<value>",
+      },
+    },
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2024-06-21T03:24:54.887Z"),
-    modifiedAt: new Date("2024-02-08T05:32:59.931Z"),
+    createdAt: new Date("2025-10-07T04:17:24.786Z"),
+    modifiedAt: new Date("2025-05-05T02:01:44.871Z"),
     type: "license_keys",
-    description: "mathematics limited except however father",
+    description: "light indeed mmm scary import cricket wear mysteriously",
     selectable: false,
-    deletable: true,
+    deletable: false,
     organizationId: "<value>",
-    metadata: {
-      "key": true,
-    },
+    metadata: {},
     organization: {
-      createdAt: new Date("2024-07-06T05:20:15.511Z"),
-      modifiedAt: new Date("2024-10-26T03:36:06.540Z"),
+      createdAt: new Date("2023-02-09T14:46:30.040Z"),
+      modifiedAt: new Date("2024-07-28T16:12:54.009Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",
-      avatarUrl: "https://handy-impact.net",
+      avatarUrl: "https://spotless-knight.com/",
       prorationBehavior: "prorate",
       allowCustomerUpdates: true,
     },
@@ -66,7 +69,7 @@ let value: CustomerBenefitGrantLicenseKeys = {
         limit: 777902,
         enableCustomerAdmin: true,
       },
-      limitUsage: 216327,
+      limitUsage: 977381,
     },
   },
   properties: {},
@@ -83,6 +86,7 @@ let value: CustomerBenefitGrantLicenseKeys = {
 | `grantedAt`                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `revokedAt`                                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `customerId`                                                                                                 | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `memberId`                                                                                                   | *string*                                                                                                     | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
 | `benefitId`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `subscriptionId`                                                                                             | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `orderId`                                                                                                    | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

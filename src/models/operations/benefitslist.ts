@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitSortProperty,
   BenefitSortProperty$outboundSchema,
@@ -35,6 +36,16 @@ export type QueryParamOrganizationIDFilter = string | Array<string>;
  */
 export type BenefitTypeFilter = BenefitType | Array<BenefitType>;
 
+/**
+ * Filter by benefit IDs.
+ */
+export type FilterIDs = string | Array<string>;
+
+/**
+ * Exclude benefits with these IDs.
+ */
+export type ExcludeIDs = string | Array<string>;
+
 export type BenefitsListRequest = {
   /**
    * Filter by organization ID.
@@ -44,6 +55,14 @@ export type BenefitsListRequest = {
    * Filter by benefit type.
    */
   typeFilter?: BenefitType | Array<BenefitType> | null | undefined;
+  /**
+   * Filter by benefit IDs.
+   */
+  id?: string | Array<string> | null | undefined;
+  /**
+   * Exclude benefits with these IDs.
+   */
+  excludeId?: string | Array<string> | null | undefined;
   /**
    * Filter by description.
    */
@@ -77,7 +96,7 @@ export type QueryParamOrganizationIDFilter$Outbound = string | Array<string>;
 export const QueryParamOrganizationIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamOrganizationIDFilter$Outbound,
   QueryParamOrganizationIDFilter
-> = z.union([z.string(), z.array(z.string())]);
+> = smartUnion([z.string(), z.array(z.string())]);
 
 export function queryParamOrganizationIDFilterToJSON(
   queryParamOrganizationIDFilter: QueryParamOrganizationIDFilter,
@@ -96,7 +115,10 @@ export type BenefitTypeFilter$Outbound = string | Array<string>;
 export const BenefitTypeFilter$outboundSchema: z.ZodMiniType<
   BenefitTypeFilter$Outbound,
   BenefitTypeFilter
-> = z.union([BenefitType$outboundSchema, z.array(BenefitType$outboundSchema)]);
+> = smartUnion([
+  BenefitType$outboundSchema,
+  z.array(BenefitType$outboundSchema),
+]);
 
 export function benefitTypeFilterToJSON(
   benefitTypeFilter: BenefitTypeFilter,
@@ -107,9 +129,37 @@ export function benefitTypeFilterToJSON(
 }
 
 /** @internal */
+export type FilterIDs$Outbound = string | Array<string>;
+
+/** @internal */
+export const FilterIDs$outboundSchema: z.ZodMiniType<
+  FilterIDs$Outbound,
+  FilterIDs
+> = smartUnion([z.string(), z.array(z.string())]);
+
+export function filterIDsToJSON(filterIDs: FilterIDs): string {
+  return JSON.stringify(FilterIDs$outboundSchema.parse(filterIDs));
+}
+
+/** @internal */
+export type ExcludeIDs$Outbound = string | Array<string>;
+
+/** @internal */
+export const ExcludeIDs$outboundSchema: z.ZodMiniType<
+  ExcludeIDs$Outbound,
+  ExcludeIDs
+> = smartUnion([z.string(), z.array(z.string())]);
+
+export function excludeIDsToJSON(excludeIDs: ExcludeIDs): string {
+  return JSON.stringify(ExcludeIDs$outboundSchema.parse(excludeIDs));
+}
+
+/** @internal */
 export type BenefitsListRequest$Outbound = {
   organization_id?: string | Array<string> | null | undefined;
   type_filter?: string | Array<string> | null | undefined;
+  id?: string | Array<string> | null | undefined;
+  exclude_id?: string | Array<string> | null | undefined;
   query?: string | null | undefined;
   page: number;
   limit: number;
@@ -124,15 +174,19 @@ export const BenefitsListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(z.union([z.string(), z.array(z.string())])),
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     typeFilter: z.optional(
       z.nullable(
-        z.union([
+        smartUnion([
           BenefitType$outboundSchema,
           z.array(BenefitType$outboundSchema),
         ]),
       ),
+    ),
+    id: z.optional(z.nullable(smartUnion([z.string(), z.array(z.string())]))),
+    excludeId: z.optional(
+      z.nullable(smartUnion([z.string(), z.array(z.string())])),
     ),
     query: z.optional(z.nullable(z.string())),
     page: z._default(z.int(), 1),
@@ -148,6 +202,7 @@ export const BenefitsListRequest$outboundSchema: z.ZodMiniType<
     return remap$(v, {
       organizationId: "organization_id",
       typeFilter: "type_filter",
+      excludeId: "exclude_id",
     });
   }),
 );

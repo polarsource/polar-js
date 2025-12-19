@@ -1,5 +1,4 @@
-# PolarCustomers
-(*customerPortal.customers*)
+# CustomerPortal.Customers
 
 ## Overview
 

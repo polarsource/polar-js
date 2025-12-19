@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smartUnion.js";
 import {
   UserInfoOrganization,
   UserInfoOrganization$inboundSchema,
@@ -26,7 +27,10 @@ export type Oauth2UserinfoResponseOauth2Userinfo =
 export const Oauth2UserinfoResponseOauth2Userinfo$inboundSchema: z.ZodMiniType<
   Oauth2UserinfoResponseOauth2Userinfo,
   unknown
-> = z.union([UserInfoUser$inboundSchema, UserInfoOrganization$inboundSchema]);
+> = smartUnion([
+  UserInfoUser$inboundSchema,
+  UserInfoOrganization$inboundSchema,
+]);
 
 export function oauth2UserinfoResponseOauth2UserinfoFromJSON(
   jsonString: string,

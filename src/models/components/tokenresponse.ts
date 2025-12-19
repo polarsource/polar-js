@@ -6,6 +6,7 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type TokenResponse = {
@@ -23,12 +24,12 @@ export const TokenResponse$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    access_token: z.string(),
-    token_type: z.literal("Bearer"),
-    expires_in: z.int(),
-    refresh_token: z.nullable(z.string()),
-    scope: z.string(),
-    id_token: z.string(),
+    access_token: types.string(),
+    token_type: types.literal("Bearer"),
+    expires_in: types.number(),
+    refresh_token: types.nullable(types.string()),
+    scope: types.string(),
+    id_token: types.string(),
   }),
   z.transform((v) => {
     return remap$(v, {

@@ -3,22 +3,23 @@
  */
 
 import * as z from "zod/v4-mini";
-import { ClosedEnum } from "../../types/enums.js";
+import * as openEnums from "../../types/enums.js";
+import { OpenEnum } from "../../types/enums.js";
 
 export const BillingAddressFieldMode = {
   Required: "required",
   Optional: "optional",
   Disabled: "disabled",
 } as const;
-export type BillingAddressFieldMode = ClosedEnum<
-  typeof BillingAddressFieldMode
->;
+export type BillingAddressFieldMode = OpenEnum<typeof BillingAddressFieldMode>;
 
 /** @internal */
-export const BillingAddressFieldMode$inboundSchema: z.ZodMiniEnum<
-  typeof BillingAddressFieldMode
-> = z.enum(BillingAddressFieldMode);
+export const BillingAddressFieldMode$inboundSchema: z.ZodMiniType<
+  BillingAddressFieldMode,
+  unknown
+> = openEnums.inboundSchema(BillingAddressFieldMode);
 /** @internal */
-export const BillingAddressFieldMode$outboundSchema: z.ZodMiniEnum<
-  typeof BillingAddressFieldMode
-> = BillingAddressFieldMode$inboundSchema;
+export const BillingAddressFieldMode$outboundSchema: z.ZodMiniType<
+  string,
+  BillingAddressFieldMode
+> = openEnums.outboundSchema(BillingAddressFieldMode);

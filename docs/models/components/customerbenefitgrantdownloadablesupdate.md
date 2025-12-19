@@ -14,4 +14,4 @@ let value: CustomerBenefitGrantDownloadablesUpdate = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `benefitType`      | *string*           | :heavy_check_mark: | N/A                |
+| `benefitType`      | *"downloadables"*  | :heavy_check_mark: | N/A                |

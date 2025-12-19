@@ -6,20 +6,23 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  MetadataOutputType,
+  MetadataOutputType$inboundSchema,
+} from "./metadataoutputtype.js";
 import {
   SubscriptionRecurringInterval,
   SubscriptionRecurringInterval$inboundSchema,
 } from "./subscriptionrecurringinterval.js";
 import { TrialInterval, TrialInterval$inboundSchema } from "./trialinterval.js";
 
-export type DiscountProductMetadata = string | number | number | boolean;
-
 /**
  * A product that a discount can be applied to.
  */
 export type DiscountProduct = {
-  metadata: { [k: string]: string | number | number | boolean };
+  metadata: { [k: string]: MetadataOutputType };
   /**
    * The ID of the object.
    */
@@ -71,48 +74,26 @@ export type DiscountProduct = {
 };
 
 /** @internal */
-export const DiscountProductMetadata$inboundSchema: z.ZodMiniType<
-  DiscountProductMetadata,
-  unknown
-> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
-
-export function discountProductMetadataFromJSON(
-  jsonString: string,
-): SafeParseResult<DiscountProductMetadata, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DiscountProductMetadata$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DiscountProductMetadata' from JSON`,
-  );
-}
-
-/** @internal */
 export const DiscountProduct$inboundSchema: z.ZodMiniType<
   DiscountProduct,
   unknown
 > = z.pipe(
   z.object({
-    metadata: z.record(
-      z.string(),
-      z.union([z.string(), z.int(), z.number(), z.boolean()]),
+    metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
+    id: types.string(),
+    created_at: types.date(),
+    modified_at: types.nullable(types.date()),
+    trial_interval: types.nullable(TrialInterval$inboundSchema),
+    trial_interval_count: types.nullable(types.number()),
+    name: types.string(),
+    description: types.nullable(types.string()),
+    recurring_interval: types.nullable(
+      SubscriptionRecurringInterval$inboundSchema,
     ),
-    id: z.string(),
-    created_at: z.pipe(
-      z.iso.datetime({ offset: true }),
-      z.transform(v => new Date(v)),
-    ),
-    modified_at: z.nullable(
-      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
-    ),
-    trial_interval: z.nullable(TrialInterval$inboundSchema),
-    trial_interval_count: z.nullable(z.int()),
-    name: z.string(),
-    description: z.nullable(z.string()),
-    recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
-    recurring_interval_count: z.nullable(z.int()),
-    is_recurring: z.boolean(),
-    is_archived: z.boolean(),
-    organization_id: z.string(),
+    recurring_interval_count: types.nullable(types.number()),
+    is_recurring: types.boolean(),
+    is_archived: types.boolean(),
+    organization_id: types.string(),
   }),
   z.transform((v) => {
     return remap$(v, {
