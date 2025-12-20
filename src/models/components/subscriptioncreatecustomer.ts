@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 
 export type Metadata = string | number | number | boolean;
 
@@ -45,7 +44,7 @@ export type Metadata$Outbound = string | number | number | boolean;
 export const Metadata$outboundSchema: z.ZodMiniType<
   Metadata$Outbound,
   Metadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function metadataToJSON(metadata: Metadata): string {
   return JSON.stringify(Metadata$outboundSchema.parse(metadata));
@@ -67,7 +66,7 @@ export const SubscriptionCreateCustomer$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     productId: z.string(),

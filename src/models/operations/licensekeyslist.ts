@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceLicenseKeyRead,
   ListResourceLicenseKeyRead$inboundSchema,
@@ -58,7 +57,7 @@ export const LicenseKeysListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     LicenseKeysListQueryParamOrganizationIDFilter$Outbound,
     LicenseKeysListQueryParamOrganizationIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function licenseKeysListQueryParamOrganizationIDFilterToJSON(
   licenseKeysListQueryParamOrganizationIDFilter:
@@ -78,7 +77,7 @@ export type QueryParamBenefitIDFilter$Outbound = string | Array<string>;
 export const QueryParamBenefitIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamBenefitIDFilter$Outbound,
   QueryParamBenefitIDFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function queryParamBenefitIDFilterToJSON(
   queryParamBenefitIDFilter: QueryParamBenefitIDFilter,
@@ -103,10 +102,10 @@ export const LicenseKeysListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     benefitId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),

@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type S3FileUploadPart = {
@@ -25,13 +24,16 @@ export const S3FileUploadPart$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    number: types.number(),
-    chunk_start: types.number(),
-    chunk_end: types.number(),
-    checksum_sha256_base64: z.optional(z.nullable(types.string())),
-    url: types.string(),
-    expires_at: types.date(),
-    headers: types.optional(z.record(z.string(), types.string())),
+    number: z.int(),
+    chunk_start: z.int(),
+    chunk_end: z.int(),
+    checksum_sha256_base64: z.optional(z.nullable(z.string())),
+    url: z.string(),
+    expires_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    headers: z.optional(z.record(z.string(), z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {

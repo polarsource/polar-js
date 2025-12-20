@@ -5,7 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -21,7 +20,7 @@ export type OrderInvoice = {
 /** @internal */
 export const OrderInvoice$inboundSchema: z.ZodMiniType<OrderInvoice, unknown> =
   z.object({
-    url: types.string(),
+    url: z.string(),
   });
 
 export function orderInvoiceFromJSON(

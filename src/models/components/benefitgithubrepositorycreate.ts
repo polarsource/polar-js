@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitGitHubRepositoryCreateProperties,
   BenefitGitHubRepositoryCreateProperties$Outbound,
@@ -61,7 +60,7 @@ export const BenefitGitHubRepositoryCreateMetadata$outboundSchema:
   z.ZodMiniType<
     BenefitGitHubRepositoryCreateMetadata$Outbound,
     BenefitGitHubRepositoryCreateMetadata
-  > = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+  > = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function benefitGitHubRepositoryCreateMetadataToJSON(
   benefitGitHubRepositoryCreateMetadata: BenefitGitHubRepositoryCreateMetadata,
@@ -91,7 +90,7 @@ export const BenefitGitHubRepositoryCreate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     type: z.literal("github_repository"),

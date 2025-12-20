@@ -5,7 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type MeterQuantity = {
@@ -24,8 +23,11 @@ export const MeterQuantity$inboundSchema: z.ZodMiniType<
   MeterQuantity,
   unknown
 > = z.object({
-  timestamp: types.date(),
-  quantity: types.number(),
+  timestamp: z.pipe(
+    z.iso.datetime({ offset: true }),
+    z.transform(v => new Date(v)),
+  ),
+  quantity: z.number(),
 });
 
 export function meterQuantityFromJSON(

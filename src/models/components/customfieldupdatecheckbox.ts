@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomFieldCheckboxProperties,
   CustomFieldCheckboxProperties$Outbound,
@@ -53,7 +52,7 @@ export type CustomFieldUpdateCheckboxMetadata$Outbound =
 export const CustomFieldUpdateCheckboxMetadata$outboundSchema: z.ZodMiniType<
   CustomFieldUpdateCheckboxMetadata$Outbound,
   CustomFieldUpdateCheckboxMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function customFieldUpdateCheckboxMetadataToJSON(
   customFieldUpdateCheckboxMetadata: CustomFieldUpdateCheckboxMetadata,
@@ -82,7 +81,7 @@ export const CustomFieldUpdateCheckbox$outboundSchema: z.ZodMiniType<
   metadata: z.optional(
     z.record(
       z.string(),
-      smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+      z.union([z.string(), z.int(), z.number(), z.boolean()]),
     ),
   ),
   name: z.optional(z.nullable(z.string())),

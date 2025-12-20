@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitLicenseKeysCreateProperties,
   BenefitLicenseKeysCreateProperties$Outbound,
@@ -57,7 +56,7 @@ export type BenefitLicenseKeysCreateMetadata$Outbound =
 export const BenefitLicenseKeysCreateMetadata$outboundSchema: z.ZodMiniType<
   BenefitLicenseKeysCreateMetadata$Outbound,
   BenefitLicenseKeysCreateMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function benefitLicenseKeysCreateMetadataToJSON(
   benefitLicenseKeysCreateMetadata: BenefitLicenseKeysCreateMetadata,
@@ -87,7 +86,7 @@ export const BenefitLicenseKeysCreate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     type: z.literal("license_keys"),

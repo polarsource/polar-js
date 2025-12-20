@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import { RefundReason, RefundReason$outboundSchema } from "./refundreason.js";
 
 export type RefundCreateMetadata = string | number | number | boolean;
@@ -56,7 +55,7 @@ export type RefundCreateMetadata$Outbound = string | number | number | boolean;
 export const RefundCreateMetadata$outboundSchema: z.ZodMiniType<
   RefundCreateMetadata$Outbound,
   RefundCreateMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function refundCreateMetadataToJSON(
   refundCreateMetadata: RefundCreateMetadata,
@@ -85,7 +84,7 @@ export const RefundCreate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     orderId: z.string(),

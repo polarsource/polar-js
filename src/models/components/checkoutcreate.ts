@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   AddressInput,
   AddressInput$Outbound,
@@ -198,7 +197,7 @@ export type CheckoutCreateMetadata$Outbound =
 export const CheckoutCreateMetadata$outboundSchema: z.ZodMiniType<
   CheckoutCreateMetadata$Outbound,
   CheckoutCreateMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function checkoutCreateMetadataToJSON(
   checkoutCreateMetadata: CheckoutCreateMetadata,
@@ -219,7 +218,7 @@ export type CheckoutCreateCustomFieldData$Outbound =
 export const CheckoutCreateCustomFieldData$outboundSchema: z.ZodMiniType<
   CheckoutCreateCustomFieldData$Outbound,
   CheckoutCreateCustomFieldData
-> = smartUnion([
+> = z.union([
   z.string(),
   z.int(),
   z.boolean(),
@@ -247,7 +246,7 @@ export type CheckoutCreateCustomerMetadata$Outbound =
 export const CheckoutCreateCustomerMetadata$outboundSchema: z.ZodMiniType<
   CheckoutCreateCustomerMetadata$Outbound,
   CheckoutCreateCustomerMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function checkoutCreateCustomerMetadataToJSON(
   checkoutCreateCustomerMetadata: CheckoutCreateCustomerMetadata,
@@ -343,14 +342,14 @@ export const CheckoutCreate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     customFieldData: z.optional(
       z.record(
         z.string(),
         z.nullable(
-          smartUnion([
+          z.union([
             z.string(),
             z.int(),
             z.boolean(),
@@ -377,7 +376,7 @@ export const CheckoutCreate$outboundSchema: z.ZodMiniType<
     customerMetadata: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     subscriptionId: z.optional(z.nullable(z.string())),

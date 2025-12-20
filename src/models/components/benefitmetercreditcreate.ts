@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitMeterCreditCreateProperties,
   BenefitMeterCreditCreateProperties$Outbound,
@@ -63,7 +62,7 @@ export type BenefitMeterCreditCreateMetadata$Outbound =
 export const BenefitMeterCreditCreateMetadata$outboundSchema: z.ZodMiniType<
   BenefitMeterCreditCreateMetadata$Outbound,
   BenefitMeterCreditCreateMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function benefitMeterCreditCreateMetadataToJSON(
   benefitMeterCreditCreateMetadata: BenefitMeterCreditCreateMetadata,
@@ -93,7 +92,7 @@ export const BenefitMeterCreditCreate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     type: z.literal("meter_credit"),

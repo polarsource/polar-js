@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomerOrderSortProperty,
   CustomerOrderSortProperty$outboundSchema,
@@ -125,7 +124,7 @@ export const CustomerPortalOrdersListQueryParamProductIDFilter$outboundSchema:
   z.ZodMiniType<
     CustomerPortalOrdersListQueryParamProductIDFilter$Outbound,
     CustomerPortalOrdersListQueryParamProductIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function customerPortalOrdersListQueryParamProductIDFilterToJSON(
   customerPortalOrdersListQueryParamProductIDFilter:
@@ -148,7 +147,7 @@ export const CustomerPortalOrdersListQueryParamProductBillingTypeFilter$outbound
   z.ZodMiniType<
     CustomerPortalOrdersListQueryParamProductBillingTypeFilter$Outbound,
     CustomerPortalOrdersListQueryParamProductBillingTypeFilter
-  > = smartUnion([
+  > = z.union([
     ProductBillingType$outboundSchema,
     z.array(ProductBillingType$outboundSchema),
   ]);
@@ -173,7 +172,7 @@ export const CustomerPortalOrdersListQueryParamSubscriptionIDFilter$outboundSche
   z.ZodMiniType<
     CustomerPortalOrdersListQueryParamSubscriptionIDFilter$Outbound,
     CustomerPortalOrdersListQueryParamSubscriptionIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function customerPortalOrdersListQueryParamSubscriptionIDFilterToJSON(
   customerPortalOrdersListQueryParamSubscriptionIDFilter:
@@ -204,18 +203,18 @@ export const CustomerPortalOrdersListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     productId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     productBillingType: z.optional(
       z.nullable(
-        smartUnion([
+        z.union([
           ProductBillingType$outboundSchema,
           z.array(ProductBillingType$outboundSchema),
         ]),
       ),
     ),
     subscriptionId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     query: z.optional(z.nullable(z.string())),
     page: z._default(z.int(), 1),

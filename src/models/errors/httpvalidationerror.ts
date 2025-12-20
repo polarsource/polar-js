@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as types from "../../types/primitives.js";
 import {
   ValidationError,
   ValidationError$inboundSchema,
@@ -43,7 +42,7 @@ export const HTTPValidationError$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    detail: types.optional(z.array(ValidationError$inboundSchema)),
+    detail: z.optional(z.array(ValidationError$inboundSchema)),
     request$: z.custom<Request>(x => x instanceof Request),
     response$: z.custom<Response>(x => x instanceof Response),
     body$: z.string(),

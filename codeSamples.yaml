@@ -434,7 +434,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customers.create({\n    customerCreate: {\n      externalId: \"usr_1337\",\n      email: \"customer@example.com\",\n      name: \"John Doe\",\n      billingAddress: {\n        country: \"US\",\n      },\n      taxId: [\n        \"911144442\",\n        \"us_ein\",\n      ],\n      organizationId: \"1dbfc517-0bbf-4301-9ba8-555ca42b9737\",\n      owner: {\n        email: \"member@example.com\",\n        name: \"Jane Doe\",\n        externalId: \"usr_1337\",\n      },\n    },\n  });\n\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.customers.create({\n    externalId: \"usr_1337\",\n    email: \"customer@example.com\",\n    name: \"John Doe\",\n    billingAddress: {\n      country: \"US\",\n    },\n    taxId: [\n      \"911144442\",\n      \"us_ein\",\n    ],\n    organizationId: \"1dbfc517-0bbf-4301-9ba8-555ca42b9737\",\n    owner: {\n      email: \"member@example.com\",\n      name: \"Jane Doe\",\n      externalId: \"usr_1337\",\n    },\n  });\n\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/customers/export"]["get"]
     update:
       "x-codeSamples":
@@ -692,7 +692,7 @@ actions:
       "x-codeSamples":
         - "lang": "typescript"
           "label": "Typescript (SDK)"
-          "source": "import { Polar } from \"@polar-sh/sdk\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.metrics.get({\n    startDate: new Date(\"2025-03-14\"),\n    endDate: new Date(\"2025-03-18\"),\n    interval: \"hour\",\n    organizationId: null,\n  });\n\n  console.log(result);\n}\n\nrun();"
+          "source": "import { Polar } from \"@polar-sh/sdk\";\nimport { RFCDate } from \"@polar-sh/sdk/types/rfcdate.js\";\n\nconst polar = new Polar({\n  accessToken: process.env[\"POLAR_ACCESS_TOKEN\"] ?? \"\",\n});\n\nasync function run() {\n  const result = await polar.metrics.get({\n    startDate: new RFCDate(\"2025-03-14\"),\n    endDate: new RFCDate(\"2025-03-18\"),\n    interval: \"hour\",\n    organizationId: null,\n  });\n\n  console.log(result);\n}\n\nrun();"
   - target: $["paths"]["/v1/metrics/limits"]["get"]
     update:
       "x-codeSamples":

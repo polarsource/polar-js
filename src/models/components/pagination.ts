@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Pagination = {
@@ -18,8 +17,8 @@ export type Pagination = {
 export const Pagination$inboundSchema: z.ZodMiniType<Pagination, unknown> = z
   .pipe(
     z.object({
-      total_count: types.number(),
-      max_page: types.number(),
+      total_count: z.int(),
+      max_page: z.int(),
     }),
     z.transform((v) => {
       return remap$(v, {

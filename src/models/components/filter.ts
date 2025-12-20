@@ -5,7 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   FilterClause,
@@ -30,10 +29,7 @@ export type Clauses = FilterClause | Filter;
 export const Filter$inboundSchema: z.ZodMiniType<Filter, unknown> = z.object({
   conjunction: FilterConjunction$inboundSchema,
   clauses: z.array(
-    smartUnion([
-      FilterClause$inboundSchema,
-      z.lazy(() => Filter$inboundSchema),
-    ]),
+    z.union([FilterClause$inboundSchema, z.lazy(() => Filter$inboundSchema)]),
   ),
 });
 /** @internal */
@@ -47,7 +43,7 @@ export const Filter$outboundSchema: z.ZodMiniType<Filter$Outbound, Filter> = z
   .object({
     conjunction: FilterConjunction$outboundSchema,
     clauses: z.array(
-      smartUnion([
+      z.union([
         FilterClause$outboundSchema,
         z.lazy(() => Filter$outboundSchema),
       ]),
@@ -68,17 +64,16 @@ export function filterFromJSON(
 }
 
 /** @internal */
-export const Clauses$inboundSchema: z.ZodMiniType<Clauses, unknown> =
-  smartUnion([FilterClause$inboundSchema, z.lazy(() => Filter$inboundSchema)]);
+export const Clauses$inboundSchema: z.ZodMiniType<Clauses, unknown> = z.union([
+  FilterClause$inboundSchema,
+  z.lazy(() => Filter$inboundSchema),
+]);
 /** @internal */
 export type Clauses$Outbound = FilterClause$Outbound | Filter$Outbound;
 
 /** @internal */
 export const Clauses$outboundSchema: z.ZodMiniType<Clauses$Outbound, Clauses> =
-  smartUnion([
-    FilterClause$outboundSchema,
-    z.lazy(() => Filter$outboundSchema),
-  ]);
+  z.union([FilterClause$outboundSchema, z.lazy(() => Filter$outboundSchema)]);
 
 export function clausesToJSON(clauses: Clauses): string {
   return JSON.stringify(Clauses$outboundSchema.parse(clauses));

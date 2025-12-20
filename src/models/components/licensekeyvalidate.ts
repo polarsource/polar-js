@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 
 export type Conditions = string | number | number | boolean;
 
@@ -40,7 +39,7 @@ export type Conditions$Outbound = string | number | number | boolean;
 export const Conditions$outboundSchema: z.ZodMiniType<
   Conditions$Outbound,
   Conditions
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function conditionsToJSON(conditions: Conditions): string {
   return JSON.stringify(Conditions$outboundSchema.parse(conditions));
@@ -72,7 +71,7 @@ export const LicenseKeyValidate$outboundSchema: z.ZodMiniType<
     conditions: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
   }),

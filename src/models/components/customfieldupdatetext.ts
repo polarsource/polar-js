@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomFieldTextProperties,
   CustomFieldTextProperties$Outbound,
@@ -49,7 +48,7 @@ export type CustomFieldUpdateTextMetadata$Outbound =
 export const CustomFieldUpdateTextMetadata$outboundSchema: z.ZodMiniType<
   CustomFieldUpdateTextMetadata$Outbound,
   CustomFieldUpdateTextMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function customFieldUpdateTextMetadataToJSON(
   customFieldUpdateTextMetadata: CustomFieldUpdateTextMetadata,
@@ -78,7 +77,7 @@ export const CustomFieldUpdateText$outboundSchema: z.ZodMiniType<
   metadata: z.optional(
     z.record(
       z.string(),
-      smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+      z.union([z.string(), z.int(), z.number(), z.boolean()]),
     ),
   ),
   name: z.optional(z.nullable(z.string())),

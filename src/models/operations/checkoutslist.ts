@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   CheckoutSortProperty,
   CheckoutSortProperty$outboundSchema,
@@ -92,7 +91,7 @@ export const CheckoutsListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     CheckoutsListQueryParamOrganizationIDFilter$Outbound,
     CheckoutsListQueryParamOrganizationIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function checkoutsListQueryParamOrganizationIDFilterToJSON(
   checkoutsListQueryParamOrganizationIDFilter:
@@ -115,7 +114,7 @@ export const CheckoutsListQueryParamProductIDFilter$outboundSchema:
   z.ZodMiniType<
     CheckoutsListQueryParamProductIDFilter$Outbound,
     CheckoutsListQueryParamProductIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function checkoutsListQueryParamProductIDFilterToJSON(
   checkoutsListQueryParamProductIDFilter:
@@ -138,7 +137,7 @@ export const CheckoutsListQueryParamCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     CheckoutsListQueryParamCustomerIDFilter$Outbound,
     CheckoutsListQueryParamCustomerIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function checkoutsListQueryParamCustomerIDFilterToJSON(
   checkoutsListQueryParamCustomerIDFilter:
@@ -158,7 +157,7 @@ export type QueryParamStatusFilter$Outbound = string | Array<string>;
 export const QueryParamStatusFilter$outboundSchema: z.ZodMiniType<
   QueryParamStatusFilter$Outbound,
   QueryParamStatusFilter
-> = smartUnion([
+> = z.union([
   CheckoutStatus$outboundSchema,
   z.array(CheckoutStatus$outboundSchema),
 ]);
@@ -190,17 +189,17 @@ export const CheckoutsListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     productId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     customerId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     status: z.optional(
       z.nullable(
-        smartUnion([
+        z.union([
           CheckoutStatus$outboundSchema,
           z.array(CheckoutStatus$outboundSchema),
         ]),

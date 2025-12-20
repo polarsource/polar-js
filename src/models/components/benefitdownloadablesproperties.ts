@@ -5,7 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitDownloadablesProperties = {
@@ -18,8 +17,8 @@ export const BenefitDownloadablesProperties$inboundSchema: z.ZodMiniType<
   BenefitDownloadablesProperties,
   unknown
 > = z.object({
-  archived: z.record(z.string(), types.boolean()),
-  files: z.array(types.string()),
+  archived: z.record(z.string(), z.boolean()),
+  files: z.array(z.string()),
 });
 /** @internal */
 export type BenefitDownloadablesProperties$Outbound = {

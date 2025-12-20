@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { BenefitType, BenefitType$inboundSchema } from "./benefittype.js";
 
@@ -22,8 +21,8 @@ export const BenefitGrantMetadata$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    benefit_id: types.string(),
-    benefit_grant_id: types.string(),
+    benefit_id: z.string(),
+    benefit_grant_id: z.string(),
     benefit_type: BenefitType$inboundSchema,
   }),
   z.transform((v) => {

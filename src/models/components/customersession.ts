@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Customer, Customer$inboundSchema } from "./customer.js";
 
@@ -43,14 +42,22 @@ export const CustomerSession$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: types.date(),
-    modified_at: types.nullable(types.date()),
-    id: types.string(),
-    token: types.string(),
-    expires_at: types.date(),
-    return_url: types.nullable(types.string()),
-    customer_portal_url: types.string(),
-    customer_id: types.string(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    id: z.string(),
+    token: z.string(),
+    expires_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    return_url: z.nullable(z.string()),
+    customer_portal_url: z.string(),
+    customer_id: z.string(),
     customer: Customer$inboundSchema,
   }),
   z.transform((v) => {

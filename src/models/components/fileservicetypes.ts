@@ -3,18 +3,16 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 
 export const FileServiceTypes = {
   Downloadable: "downloadable",
   ProductMedia: "product_media",
   OrganizationAvatar: "organization_avatar",
 } as const;
-export type FileServiceTypes = OpenEnum<typeof FileServiceTypes>;
+export type FileServiceTypes = ClosedEnum<typeof FileServiceTypes>;
 
 /** @internal */
-export const FileServiceTypes$inboundSchema: z.ZodMiniType<
-  FileServiceTypes,
-  unknown
-> = openEnums.inboundSchema(FileServiceTypes);
+export const FileServiceTypes$inboundSchema: z.ZodMiniEnum<
+  typeof FileServiceTypes
+> = z.enum(FileServiceTypes);

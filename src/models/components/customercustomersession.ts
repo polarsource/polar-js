@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CustomerCustomerSession = {
@@ -20,8 +19,11 @@ export const CustomerCustomerSession$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    expires_at: types.date(),
-    return_url: types.nullable(types.string()),
+    expires_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    return_url: z.nullable(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {

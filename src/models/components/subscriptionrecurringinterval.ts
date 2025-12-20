@@ -3,8 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 
 export const SubscriptionRecurringInterval = {
   Day: "day",
@@ -12,17 +11,15 @@ export const SubscriptionRecurringInterval = {
   Month: "month",
   Year: "year",
 } as const;
-export type SubscriptionRecurringInterval = OpenEnum<
+export type SubscriptionRecurringInterval = ClosedEnum<
   typeof SubscriptionRecurringInterval
 >;
 
 /** @internal */
-export const SubscriptionRecurringInterval$inboundSchema: z.ZodMiniType<
-  SubscriptionRecurringInterval,
-  unknown
-> = openEnums.inboundSchema(SubscriptionRecurringInterval);
+export const SubscriptionRecurringInterval$inboundSchema: z.ZodMiniEnum<
+  typeof SubscriptionRecurringInterval
+> = z.enum(SubscriptionRecurringInterval);
 /** @internal */
-export const SubscriptionRecurringInterval$outboundSchema: z.ZodMiniType<
-  string,
-  SubscriptionRecurringInterval
-> = openEnums.outboundSchema(SubscriptionRecurringInterval);
+export const SubscriptionRecurringInterval$outboundSchema: z.ZodMiniEnum<
+  typeof SubscriptionRecurringInterval
+> = SubscriptionRecurringInterval$inboundSchema;

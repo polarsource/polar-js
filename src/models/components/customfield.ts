@@ -4,8 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
-import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
-import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -44,18 +42,17 @@ export type CustomField =
   | CustomFieldDate
   | CustomFieldNumber
   | CustomFieldSelect
-  | CustomFieldText
-  | discriminatedUnionTypes.Unknown<"type">;
+  | CustomFieldText;
 
 /** @internal */
-export const CustomField$inboundSchema: z.ZodMiniType<CustomField, unknown> =
-  discriminatedUnion("type", {
-    checkbox: CustomFieldCheckbox$inboundSchema,
-    date: CustomFieldDate$inboundSchema,
-    number: CustomFieldNumber$inboundSchema,
-    select: CustomFieldSelect$inboundSchema,
-    text: CustomFieldText$inboundSchema,
-  });
+export const CustomField$inboundSchema: z.ZodMiniType<CustomField, unknown> = z
+  .union([
+    CustomFieldCheckbox$inboundSchema,
+    CustomFieldDate$inboundSchema,
+    CustomFieldNumber$inboundSchema,
+    CustomFieldSelect$inboundSchema,
+    CustomFieldText$inboundSchema,
+  ]);
 /** @internal */
 export type CustomField$Outbound =
   | CustomFieldCheckbox$Outbound

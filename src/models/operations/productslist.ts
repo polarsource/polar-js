@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceProduct,
   ListResourceProduct$inboundSchema,
@@ -91,7 +90,7 @@ export type QueryParamProductIDFilter$Outbound = string | Array<string>;
 export const QueryParamProductIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamProductIDFilter$Outbound,
   QueryParamProductIDFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function queryParamProductIDFilterToJSON(
   queryParamProductIDFilter: QueryParamProductIDFilter,
@@ -111,7 +110,7 @@ export const ProductsListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     ProductsListQueryParamOrganizationIDFilter$Outbound,
     ProductsListQueryParamOrganizationIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function productsListQueryParamOrganizationIDFilterToJSON(
   productsListQueryParamOrganizationIDFilter:
@@ -131,7 +130,7 @@ export type BenefitIDFilter$Outbound = string | Array<string>;
 export const BenefitIDFilter$outboundSchema: z.ZodMiniType<
   BenefitIDFilter$Outbound,
   BenefitIDFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function benefitIDFilterToJSON(
   benefitIDFilter: BenefitIDFilter,
@@ -159,15 +158,15 @@ export const ProductsListRequest$outboundSchema: z.ZodMiniType<
   ProductsListRequest
 > = z.pipe(
   z.object({
-    id: z.optional(z.nullable(smartUnion([z.string(), z.array(z.string())]))),
+    id: z.optional(z.nullable(z.union([z.string(), z.array(z.string())]))),
     organizationId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     query: z.optional(z.nullable(z.string())),
     isArchived: z.optional(z.nullable(z.boolean())),
     isRecurring: z.optional(z.nullable(z.boolean())),
     benefitId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),

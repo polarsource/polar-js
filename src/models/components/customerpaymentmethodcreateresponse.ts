@@ -4,8 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
-import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
-import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -19,18 +17,16 @@ import {
 
 export type CustomerPaymentMethodCreateResponse =
   | CustomerPaymentMethodCreateRequiresActionResponse
-  | CustomerPaymentMethodCreateSucceededResponse
-  | discriminatedUnionTypes.Unknown<"status">;
+  | CustomerPaymentMethodCreateSucceededResponse;
 
 /** @internal */
 export const CustomerPaymentMethodCreateResponse$inboundSchema: z.ZodMiniType<
   CustomerPaymentMethodCreateResponse,
   unknown
-> = discriminatedUnion("status", {
-  requires_action:
-    CustomerPaymentMethodCreateRequiresActionResponse$inboundSchema,
-  succeeded: CustomerPaymentMethodCreateSucceededResponse$inboundSchema,
-});
+> = z.union([
+  CustomerPaymentMethodCreateRequiresActionResponse$inboundSchema,
+  CustomerPaymentMethodCreateSucceededResponse$inboundSchema,
+]);
 
 export function customerPaymentMethodCreateResponseFromJSON(
   jsonString: string,

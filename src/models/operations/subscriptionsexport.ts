@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 
 /**
  * Filter by organization ID.
@@ -25,7 +24,7 @@ export type OrganizationId$Outbound = string | Array<string>;
 export const OrganizationId$outboundSchema: z.ZodMiniType<
   OrganizationId$Outbound,
   OrganizationId
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function organizationIdToJSON(organizationId: OrganizationId): string {
   return JSON.stringify(OrganizationId$outboundSchema.parse(organizationId));
@@ -43,7 +42,7 @@ export const SubscriptionsExportRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
   }),
   z.transform((v) => {

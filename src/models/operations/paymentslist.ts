@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResource,
   ListResource$inboundSchema,
@@ -106,7 +105,7 @@ export const PaymentsListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     PaymentsListQueryParamOrganizationIDFilter$Outbound,
     PaymentsListQueryParamOrganizationIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function paymentsListQueryParamOrganizationIDFilterToJSON(
   paymentsListQueryParamOrganizationIDFilter:
@@ -129,7 +128,7 @@ export const PaymentsListQueryParamCheckoutIDFilter$outboundSchema:
   z.ZodMiniType<
     PaymentsListQueryParamCheckoutIDFilter$Outbound,
     PaymentsListQueryParamCheckoutIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function paymentsListQueryParamCheckoutIDFilterToJSON(
   paymentsListQueryParamCheckoutIDFilter:
@@ -151,7 +150,7 @@ export type PaymentsListQueryParamOrderIDFilter$Outbound =
 export const PaymentsListQueryParamOrderIDFilter$outboundSchema: z.ZodMiniType<
   PaymentsListQueryParamOrderIDFilter$Outbound,
   PaymentsListQueryParamOrderIDFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function paymentsListQueryParamOrderIDFilterToJSON(
   paymentsListQueryParamOrderIDFilter: PaymentsListQueryParamOrderIDFilter,
@@ -172,7 +171,7 @@ export type PaymentsListQueryParamStatusFilter$Outbound =
 export const PaymentsListQueryParamStatusFilter$outboundSchema: z.ZodMiniType<
   PaymentsListQueryParamStatusFilter$Outbound,
   PaymentsListQueryParamStatusFilter
-> = smartUnion([
+> = z.union([
   PaymentStatus$outboundSchema,
   z.array(PaymentStatus$outboundSchema),
 ]);
@@ -194,7 +193,7 @@ export type MethodFilter$Outbound = string | Array<string>;
 export const MethodFilter$outboundSchema: z.ZodMiniType<
   MethodFilter$Outbound,
   MethodFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function methodFilterToJSON(methodFilter: MethodFilter): string {
   return JSON.stringify(MethodFilter$outboundSchema.parse(methodFilter));
@@ -207,7 +206,7 @@ export type CustomerEmailFilter$Outbound = string | Array<string>;
 export const CustomerEmailFilter$outboundSchema: z.ZodMiniType<
   CustomerEmailFilter$Outbound,
   CustomerEmailFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function customerEmailFilterToJSON(
   customerEmailFilter: CustomerEmailFilter,
@@ -237,27 +236,23 @@ export const PaymentsListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     checkoutId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
-    orderId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
-    ),
+    orderId: z.optional(z.nullable(z.union([z.string(), z.array(z.string())]))),
     status: z.optional(
       z.nullable(
-        smartUnion([
+        z.union([
           PaymentStatus$outboundSchema,
           z.array(PaymentStatus$outboundSchema),
         ]),
       ),
     ),
-    method: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
-    ),
+    method: z.optional(z.nullable(z.union([z.string(), z.array(z.string())]))),
     customerEmail: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),

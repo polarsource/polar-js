@@ -14,9 +14,9 @@ import { customersList } from "../funcs/customersList.js";
 import { customersUpdate } from "../funcs/customersUpdate.js";
 import { customersUpdateExternal } from "../funcs/customersUpdateExternal.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import { CustomerCreate } from "../models/components/customercreate.js";
 import { CustomerState } from "../models/components/customerstate.js";
 import { CustomerWithMembers } from "../models/components/customerwithmembers.js";
-import { CustomersCreateRequest } from "../models/operations/customerscreate.js";
 import { CustomersDeleteRequest } from "../models/operations/customersdelete.js";
 import { CustomersDeleteExternalRequest } from "../models/operations/customersdeleteexternal.js";
 import { CustomersExportRequest } from "../models/operations/customersexport.js";
@@ -62,7 +62,7 @@ export class Customers extends ClientSDK {
    * **Scopes**: `customers:write`
    */
   async create(
-    request: CustomersCreateRequest,
+    request: CustomerCreate,
     options?: RequestOptions,
   ): Promise<CustomerWithMembers> {
     return unwrapAsync(customersCreate(

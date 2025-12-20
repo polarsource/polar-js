@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -41,23 +40,28 @@ export const ProductMediaFileRead$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: types.string(),
-    organization_id: types.string(),
-    name: types.string(),
-    path: types.string(),
-    mime_type: types.string(),
-    size: types.number(),
-    storage_version: types.nullable(types.string()),
-    checksum_etag: types.nullable(types.string()),
-    checksum_sha256_base64: types.nullable(types.string()),
-    checksum_sha256_hex: types.nullable(types.string()),
-    last_modified_at: types.nullable(types.date()),
-    version: types.nullable(types.string()),
-    service: types.literal("product_media"),
-    is_uploaded: types.boolean(),
-    created_at: types.date(),
-    size_readable: types.string(),
-    public_url: types.string(),
+    id: z.string(),
+    organization_id: z.string(),
+    name: z.string(),
+    path: z.string(),
+    mime_type: z.string(),
+    size: z.int(),
+    storage_version: z.nullable(z.string()),
+    checksum_etag: z.nullable(z.string()),
+    checksum_sha256_base64: z.nullable(z.string()),
+    checksum_sha256_hex: z.nullable(z.string()),
+    last_modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    version: z.nullable(z.string()),
+    service: z.literal("product_media"),
+    is_uploaded: z.boolean(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    size_readable: z.string(),
+    public_url: z.string(),
   }),
   z.transform((v) => {
     return remap$(v, {

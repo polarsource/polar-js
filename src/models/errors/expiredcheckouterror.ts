@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as types from "../../types/primitives.js";
 import { PolarError } from "./polarerror.js";
 
 export type ExpiredCheckoutErrorData = {
@@ -40,8 +39,8 @@ export const ExpiredCheckoutError$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    error: types.literal("ExpiredCheckoutError"),
-    detail: types.string(),
+    error: z.literal("ExpiredCheckoutError"),
+    detail: z.string(),
     request$: z.custom<Request>(x => x instanceof Request),
     response$: z.custom<Response>(x => x instanceof Response),
     body$: z.string(),
