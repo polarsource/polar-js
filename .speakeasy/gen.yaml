@@ -23,7 +23,6 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
-  persistentEdits: {}
   tests:
     generateTests: true
     generateNewTests: false
@@ -55,9 +54,6 @@ typescript:
   exportZodModelNamespace: false
   flattenGlobalSecurity: true
   flatteningOrder: body-first
-  formStringArrayEncodeMode: encoded-string
-  forwardCompatibleEnumsByDefault: true
-  forwardCompatibleUnionsByDefault: tagged-only
   generateExamples: true
   imports:
     option: openapi
@@ -67,22 +63,18 @@ typescript:
       operations: models/operations
       shared: models/components
       webhooks: models/webhooks
-  inferUnionDiscriminators: true
   inputModelSuffix: input
   jsonpath: legacy
-  laxMode: lax
   maxMethodParams: 0
   methodArguments: require-security-and-request
   modelPropertyCasing: camel
   moduleFormat: dual
-  multipartArrayFormat: legacy
   outputModelSuffix: output
   packageName: '@polar-sh/sdk'
-  preApplyUnionDiscriminators: true
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
-  unionStrategy: populated-fields
+  unionStrategy: left-to-right
   usageSDKInitImports: []
   useIndexModules: false
   zodVersion: v4-mini
