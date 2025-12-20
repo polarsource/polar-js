@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   ListResourceWebhookDelivery,
   ListResourceWebhookDelivery$inboundSchema,
@@ -52,7 +51,7 @@ export type EndpointId$Outbound = string | Array<string>;
 export const EndpointId$outboundSchema: z.ZodMiniType<
   EndpointId$Outbound,
   EndpointId
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function endpointIdToJSON(endpointId: EndpointId): string {
   return JSON.stringify(EndpointId$outboundSchema.parse(endpointId));
@@ -74,7 +73,7 @@ export const WebhooksListWebhookDeliveriesRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     endpointId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     startTimestamp: z.optional(
       z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),

@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
@@ -46,13 +45,13 @@ export const CheckoutDiscountFixedRepeatDuration$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     duration: DiscountDuration$inboundSchema,
-    duration_in_months: types.number(),
+    duration_in_months: z.int(),
     type: DiscountType$inboundSchema,
-    amount: types.number(),
-    currency: types.string(),
-    id: types.string(),
-    name: types.string(),
-    code: types.nullable(types.string()),
+    amount: z.int(),
+    currency: z.string(),
+    id: z.string(),
+    name: z.string(),
+    code: z.nullable(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {

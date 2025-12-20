@@ -5,7 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerBenefitGrantCustom,
@@ -44,7 +43,7 @@ export type CustomerBenefitGrant =
 export const CustomerBenefitGrant$inboundSchema: z.ZodMiniType<
   CustomerBenefitGrant,
   unknown
-> = smartUnion([
+> = z.union([
   CustomerBenefitGrantDiscord$inboundSchema,
   CustomerBenefitGrantGitHubRepository$inboundSchema,
   CustomerBenefitGrantDownloadables$inboundSchema,

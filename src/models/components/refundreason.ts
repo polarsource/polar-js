@@ -3,8 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 
 export const RefundReason = {
   Duplicate: "duplicate",
@@ -15,11 +14,11 @@ export const RefundReason = {
   DisputePrevention: "dispute_prevention",
   Other: "other",
 } as const;
-export type RefundReason = OpenEnum<typeof RefundReason>;
+export type RefundReason = ClosedEnum<typeof RefundReason>;
 
 /** @internal */
-export const RefundReason$inboundSchema: z.ZodMiniType<RefundReason, unknown> =
-  openEnums.inboundSchema(RefundReason);
+export const RefundReason$inboundSchema: z.ZodMiniEnum<typeof RefundReason> = z
+  .enum(RefundReason);
 /** @internal */
-export const RefundReason$outboundSchema: z.ZodMiniType<string, RefundReason> =
-  openEnums.outboundSchema(RefundReason);
+export const RefundReason$outboundSchema: z.ZodMiniEnum<typeof RefundReason> =
+  RefundReason$inboundSchema;

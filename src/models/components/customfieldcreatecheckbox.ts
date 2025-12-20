@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomFieldCheckboxProperties,
   CustomFieldCheckboxProperties$Outbound,
@@ -64,7 +63,7 @@ export type CustomFieldCreateCheckboxMetadata$Outbound =
 export const CustomFieldCreateCheckboxMetadata$outboundSchema: z.ZodMiniType<
   CustomFieldCreateCheckboxMetadata$Outbound,
   CustomFieldCreateCheckboxMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function customFieldCreateCheckboxMetadataToJSON(
   customFieldCreateCheckboxMetadata: CustomFieldCreateCheckboxMetadata,
@@ -95,7 +94,7 @@ export const CustomFieldCreateCheckbox$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     type: z.literal("checkbox"),

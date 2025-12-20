@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerPaymentMethod,
@@ -22,7 +21,7 @@ export type CustomerPaymentMethodCreateSucceededResponse = {
 export const CustomerPaymentMethodCreateSucceededResponse$inboundSchema:
   z.ZodMiniType<CustomerPaymentMethodCreateSucceededResponse, unknown> = z.pipe(
     z.object({
-      status: types.literal("succeeded"),
+      status: z.literal("succeeded"),
       payment_method: CustomerPaymentMethod$inboundSchema,
     }),
     z.transform((v) => {

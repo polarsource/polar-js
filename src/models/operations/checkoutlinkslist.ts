@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   CheckoutLinkSortProperty,
   CheckoutLinkSortProperty$outboundSchema,
@@ -66,7 +65,7 @@ export const CheckoutLinksListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     CheckoutLinksListQueryParamOrganizationIDFilter$Outbound,
     CheckoutLinksListQueryParamOrganizationIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function checkoutLinksListQueryParamOrganizationIDFilterToJSON(
   checkoutLinksListQueryParamOrganizationIDFilter:
@@ -89,7 +88,7 @@ export const CheckoutLinksListQueryParamProductIDFilter$outboundSchema:
   z.ZodMiniType<
     CheckoutLinksListQueryParamProductIDFilter$Outbound,
     CheckoutLinksListQueryParamProductIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function checkoutLinksListQueryParamProductIDFilterToJSON(
   checkoutLinksListQueryParamProductIDFilter:
@@ -118,10 +117,10 @@ export const CheckoutLinksListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     productId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     page: z._default(z.int(), 1),
     limit: z._default(z.int(), 10),

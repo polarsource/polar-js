@@ -114,23 +114,21 @@ const polar = new Polar({
 
 async function run() {
   const result = await polar.customers.create({
-    customerCreate: {
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    owner: {
+      email: "member@example.com",
+      name: "Jane Doe",
       externalId: "usr_1337",
-      email: "customer@example.com",
-      name: "John Doe",
-      billingAddress: {
-        country: "US",
-      },
-      taxId: [
-        "911144442",
-        "us_ein",
-      ],
-      organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      owner: {
-        email: "member@example.com",
-        name: "Jane Doe",
-        externalId: "usr_1337",
-      },
     },
   });
 
@@ -156,23 +154,21 @@ const polar = new PolarCore({
 
 async function run() {
   const res = await customersCreate(polar, {
-    customerCreate: {
+    externalId: "usr_1337",
+    email: "customer@example.com",
+    name: "John Doe",
+    billingAddress: {
+      country: "US",
+    },
+    taxId: [
+      "911144442",
+      "us_ein",
+    ],
+    organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+    owner: {
+      email: "member@example.com",
+      name: "Jane Doe",
       externalId: "usr_1337",
-      email: "customer@example.com",
-      name: "John Doe",
-      billingAddress: {
-        country: "US",
-      },
-      taxId: [
-        "911144442",
-        "us_ein",
-      ],
-      organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      owner: {
-        email: "member@example.com",
-        name: "Jane Doe",
-        externalId: "usr_1337",
-      },
     },
   });
   if (res.ok) {
@@ -190,7 +186,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CustomersCreateRequest](../../models/operations/customerscreaterequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [components.CustomerCreate](../../models/components/customercreate.md)                                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

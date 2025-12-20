@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DiscountDuration,
@@ -44,10 +43,10 @@ export const CheckoutDiscountPercentageOnceForeverDuration$inboundSchema:
       z.object({
         duration: DiscountDuration$inboundSchema,
         type: DiscountType$inboundSchema,
-        basis_points: types.number(),
-        id: types.string(),
-        name: types.string(),
-        code: types.nullable(types.string()),
+        basis_points: z.int(),
+        id: z.string(),
+        name: z.string(),
+        code: z.nullable(z.string()),
       }),
       z.transform((v) => {
         return remap$(v, {

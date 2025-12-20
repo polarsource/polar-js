@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 
 /**
  * Filter by organization ID.
@@ -37,7 +36,7 @@ export const OrdersExportQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     OrdersExportQueryParamOrganizationIDFilter$Outbound,
     OrdersExportQueryParamOrganizationIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function ordersExportQueryParamOrganizationIDFilterToJSON(
   ordersExportQueryParamOrganizationIDFilter:
@@ -60,7 +59,7 @@ export const OrdersExportQueryParamProductIDFilter$outboundSchema:
   z.ZodMiniType<
     OrdersExportQueryParamProductIDFilter$Outbound,
     OrdersExportQueryParamProductIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function ordersExportQueryParamProductIDFilterToJSON(
   ordersExportQueryParamProductIDFilter: OrdersExportQueryParamProductIDFilter,
@@ -85,10 +84,10 @@ export const OrdersExportRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     productId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
   }),
   z.transform((v) => {

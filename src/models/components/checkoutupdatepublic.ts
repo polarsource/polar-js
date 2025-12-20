@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   AddressInput,
   AddressInput$Outbound,
@@ -69,7 +68,7 @@ export type CheckoutUpdatePublicCustomFieldData$Outbound =
 export const CheckoutUpdatePublicCustomFieldData$outboundSchema: z.ZodMiniType<
   CheckoutUpdatePublicCustomFieldData$Outbound,
   CheckoutUpdatePublicCustomFieldData
-> = smartUnion([
+> = z.union([
   z.string(),
   z.int(),
   z.boolean(),
@@ -115,7 +114,7 @@ export const CheckoutUpdatePublic$outboundSchema: z.ZodMiniType<
       z.record(
         z.string(),
         z.nullable(
-          smartUnion([
+          z.union([
             z.string(),
             z.int(),
             z.boolean(),

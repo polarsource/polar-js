@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomerSessionCustomerExternalIDCreate,
   CustomerSessionCustomerExternalIDCreate$Outbound,
@@ -29,7 +28,7 @@ export const CustomerSessionsCreateCustomerSessionCreate$outboundSchema:
   z.ZodMiniType<
     CustomerSessionsCreateCustomerSessionCreate$Outbound,
     CustomerSessionsCreateCustomerSessionCreate
-  > = smartUnion([
+  > = z.union([
     CustomerSessionCustomerIDCreate$outboundSchema,
     CustomerSessionCustomerExternalIDCreate$outboundSchema,
   ]);

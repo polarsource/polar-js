@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AuthorizeOrganization,
@@ -33,8 +32,8 @@ export const AuthorizeResponseOrganization$inboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     client: OAuth2ClientPublic$inboundSchema,
-    sub_type: types.literal("organization"),
-    sub: types.nullable(AuthorizeOrganization$inboundSchema),
+    sub_type: z.literal("organization"),
+    sub: z.nullable(AuthorizeOrganization$inboundSchema),
     scopes: z.array(Scope$inboundSchema),
     organizations: z.array(AuthorizeOrganization$inboundSchema),
   }),

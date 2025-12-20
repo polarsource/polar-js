@@ -6,8 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
@@ -208,7 +206,12 @@ export type Order = {
 export const OrderCustomFieldData$inboundSchema: z.ZodMiniType<
   OrderCustomFieldData,
   unknown
-> = smartUnion([types.string(), types.number(), types.boolean(), types.date()]);
+> = z.union([
+  z.string(),
+  z.int(),
+  z.boolean(),
+  z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+]);
 /** @internal */
 export type OrderCustomFieldData$Outbound = string | number | boolean | string;
 
@@ -216,7 +219,7 @@ export type OrderCustomFieldData$Outbound = string | number | boolean | string;
 export const OrderCustomFieldData$outboundSchema: z.ZodMiniType<
   OrderCustomFieldData$Outbound,
   OrderCustomFieldData
-> = smartUnion([
+> = z.union([
   z.string(),
   z.int(),
   z.boolean(),
@@ -244,7 +247,7 @@ export function orderCustomFieldDataFromJSON(
 export const OrderDiscount$inboundSchema: z.ZodMiniType<
   OrderDiscount,
   unknown
-> = smartUnion([
+> = z.union([
   DiscountFixedRepeatDurationBase$inboundSchema,
   DiscountFixedOnceForeverDurationBase$inboundSchema,
   DiscountPercentageRepeatDurationBase$inboundSchema,
@@ -261,7 +264,7 @@ export type OrderDiscount$Outbound =
 export const OrderDiscount$outboundSchema: z.ZodMiniType<
   OrderDiscount$Outbound,
   OrderDiscount
-> = smartUnion([
+> = z.union([
   DiscountFixedRepeatDurationBase$outboundSchema,
   DiscountFixedOnceForeverDurationBase$outboundSchema,
   DiscountPercentageRepeatDurationBase$outboundSchema,
@@ -284,62 +287,70 @@ export function orderDiscountFromJSON(
 /** @internal */
 export const Order$inboundSchema: z.ZodMiniType<Order, unknown> = z.pipe(
   z.object({
-    id: types.string(),
-    created_at: types.date(),
-    modified_at: types.nullable(types.date()),
+    id: z.string(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
     status: OrderStatus$inboundSchema,
-    paid: types.boolean(),
-    subtotal_amount: types.number(),
-    discount_amount: types.number(),
-    net_amount: types.number(),
-    tax_amount: types.number(),
-    total_amount: types.number(),
-    applied_balance_amount: types.number(),
-    due_amount: types.number(),
-    refunded_amount: types.number(),
-    refunded_tax_amount: types.number(),
-    currency: types.string(),
+    paid: z.boolean(),
+    subtotal_amount: z.int(),
+    discount_amount: z.int(),
+    net_amount: z.int(),
+    tax_amount: z.int(),
+    total_amount: z.int(),
+    applied_balance_amount: z.int(),
+    due_amount: z.int(),
+    refunded_amount: z.int(),
+    refunded_tax_amount: z.int(),
+    currency: z.string(),
     billing_reason: OrderBillingReason$inboundSchema,
-    billing_name: types.nullable(types.string()),
-    billing_address: types.nullable(Address$inboundSchema),
-    invoice_number: types.string(),
-    is_invoice_generated: types.boolean(),
-    seats: z.optional(z.nullable(types.number())),
-    customer_id: types.string(),
-    product_id: types.nullable(types.string()),
-    discount_id: types.nullable(types.string()),
-    subscription_id: types.nullable(types.string()),
-    checkout_id: types.nullable(types.string()),
+    billing_name: z.nullable(z.string()),
+    billing_address: z.nullable(Address$inboundSchema),
+    invoice_number: z.string(),
+    is_invoice_generated: z.boolean(),
+    seats: z.optional(z.nullable(z.int())),
+    customer_id: z.string(),
+    product_id: z.nullable(z.string()),
+    discount_id: z.nullable(z.string()),
+    subscription_id: z.nullable(z.string()),
+    checkout_id: z.nullable(z.string()),
     metadata: z.record(z.string(), MetadataOutputType$inboundSchema),
-    custom_field_data: types.optional(
+    custom_field_data: z.optional(
       z.record(
         z.string(),
-        types.nullable(
-          smartUnion([
-            types.string(),
-            types.number(),
-            types.boolean(),
-            types.date(),
+        z.nullable(
+          z.union([
+            z.string(),
+            z.int(),
+            z.boolean(),
+            z.pipe(
+              z.iso.datetime({ offset: true }),
+              z.transform(v => new Date(v)),
+            ),
           ]),
         ),
       ),
     ),
-    platform_fee_amount: types.number(),
-    platform_fee_currency: types.nullable(types.string()),
+    platform_fee_amount: z.int(),
+    platform_fee_currency: z.nullable(z.string()),
     customer: OrderCustomer$inboundSchema,
-    user_id: types.string(),
-    product: types.nullable(OrderProduct$inboundSchema),
-    discount: types.nullable(
-      smartUnion([
+    user_id: z.string(),
+    product: z.nullable(OrderProduct$inboundSchema),
+    discount: z.nullable(
+      z.union([
         DiscountFixedRepeatDurationBase$inboundSchema,
         DiscountFixedOnceForeverDurationBase$inboundSchema,
         DiscountPercentageRepeatDurationBase$inboundSchema,
         DiscountPercentageOnceForeverDurationBase$inboundSchema,
       ]),
     ),
-    subscription: types.nullable(OrderSubscription$inboundSchema),
+    subscription: z.nullable(OrderSubscription$inboundSchema),
     items: z.array(OrderItemSchema$inboundSchema),
-    description: types.string(),
+    description: z.string(),
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -456,7 +467,7 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
         z.record(
           z.string(),
           z.nullable(
-            smartUnion([
+            z.union([
               z.string(),
               z.int(),
               z.boolean(),
@@ -471,7 +482,7 @@ export const Order$outboundSchema: z.ZodMiniType<Order$Outbound, Order> = z
       userId: z.string(),
       product: z.nullable(OrderProduct$outboundSchema),
       discount: z.nullable(
-        smartUnion([
+        z.union([
           DiscountFixedRepeatDurationBase$outboundSchema,
           DiscountFixedOnceForeverDurationBase$outboundSchema,
           DiscountPercentageRepeatDurationBase$outboundSchema,

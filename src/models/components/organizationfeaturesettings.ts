@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrganizationFeatureSettings = {
@@ -38,11 +37,11 @@ export const OrganizationFeatureSettings$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    issue_funding_enabled: z._default(types.boolean(), false),
-    seat_based_pricing_enabled: z._default(types.boolean(), false),
-    revops_enabled: z._default(types.boolean(), false),
-    wallets_enabled: z._default(types.boolean(), false),
-    member_model_enabled: z._default(types.boolean(), false),
+    issue_funding_enabled: z._default(z.boolean(), false),
+    seat_based_pricing_enabled: z._default(z.boolean(), false),
+    revops_enabled: z._default(z.boolean(), false),
+    wallets_enabled: z._default(z.boolean(), false),
+    member_model_enabled: z._default(z.boolean(), false),
   }),
   z.transform((v) => {
     return remap$(v, {

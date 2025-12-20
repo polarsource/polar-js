@@ -5,7 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { CardPayment, CardPayment$inboundSchema } from "./cardpayment.js";
 import {
@@ -16,8 +15,10 @@ import {
 export type Payment = CardPayment | GenericPayment;
 
 /** @internal */
-export const Payment$inboundSchema: z.ZodMiniType<Payment, unknown> =
-  smartUnion([CardPayment$inboundSchema, GenericPayment$inboundSchema]);
+export const Payment$inboundSchema: z.ZodMiniType<Payment, unknown> = z.union([
+  CardPayment$inboundSchema,
+  GenericPayment$inboundSchema,
+]);
 
 export function paymentFromJSON(
   jsonString: string,

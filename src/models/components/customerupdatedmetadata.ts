@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerUpdatedFields,
@@ -27,10 +26,10 @@ export const CustomerUpdatedMetadata$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    customer_id: types.string(),
-    customer_email: types.string(),
-    customer_name: types.nullable(types.string()),
-    customer_external_id: types.nullable(types.string()),
+    customer_id: z.string(),
+    customer_email: z.string(),
+    customer_name: z.nullable(z.string()),
+    customer_external_id: z.nullable(z.string()),
     updated_fields: CustomerUpdatedFields$inboundSchema,
   }),
   z.transform((v) => {

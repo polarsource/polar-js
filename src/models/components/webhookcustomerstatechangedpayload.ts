@@ -5,7 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CustomerState,
@@ -47,8 +46,11 @@ export const WebhookCustomerStateChangedPayload$inboundSchema: z.ZodMiniType<
   WebhookCustomerStateChangedPayload,
   unknown
 > = z.object({
-  type: types.literal("customer.state_changed"),
-  timestamp: types.date(),
+  type: z.literal("customer.state_changed"),
+  timestamp: z.pipe(
+    z.iso.datetime({ offset: true }),
+    z.transform(v => new Date(v)),
+  ),
   data: CustomerState$inboundSchema,
 });
 /** @internal */

@@ -5,8 +5,6 @@
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type MetadataOutputType = string | number | number | boolean;
@@ -15,12 +13,7 @@ export type MetadataOutputType = string | number | number | boolean;
 export const MetadataOutputType$inboundSchema: z.ZodMiniType<
   MetadataOutputType,
   unknown
-> = smartUnion([
-  types.string(),
-  types.number(),
-  types.number(),
-  types.boolean(),
-]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 /** @internal */
 export type MetadataOutputType$Outbound = string | number | number | boolean;
 
@@ -28,7 +21,7 @@ export type MetadataOutputType$Outbound = string | number | number | boolean;
 export const MetadataOutputType$outboundSchema: z.ZodMiniType<
   MetadataOutputType$Outbound,
   MetadataOutputType
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function metadataOutputTypeToJSON(
   metadataOutputType: MetadataOutputType,

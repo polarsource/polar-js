@@ -3,22 +3,19 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 
 export const FilterConjunction = {
   And: "and",
   Or: "or",
 } as const;
-export type FilterConjunction = OpenEnum<typeof FilterConjunction>;
+export type FilterConjunction = ClosedEnum<typeof FilterConjunction>;
 
 /** @internal */
-export const FilterConjunction$inboundSchema: z.ZodMiniType<
-  FilterConjunction,
-  unknown
-> = openEnums.inboundSchema(FilterConjunction);
+export const FilterConjunction$inboundSchema: z.ZodMiniEnum<
+  typeof FilterConjunction
+> = z.enum(FilterConjunction);
 /** @internal */
-export const FilterConjunction$outboundSchema: z.ZodMiniType<
-  string,
-  FilterConjunction
-> = openEnums.outboundSchema(FilterConjunction);
+export const FilterConjunction$outboundSchema: z.ZodMiniEnum<
+  typeof FilterConjunction
+> = FilterConjunction$inboundSchema;

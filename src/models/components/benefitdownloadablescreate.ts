@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitDownloadablesCreateProperties,
   BenefitDownloadablesCreateProperties$Outbound,
@@ -57,7 +56,7 @@ export type BenefitDownloadablesCreateMetadata$Outbound =
 export const BenefitDownloadablesCreateMetadata$outboundSchema: z.ZodMiniType<
   BenefitDownloadablesCreateMetadata$Outbound,
   BenefitDownloadablesCreateMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function benefitDownloadablesCreateMetadataToJSON(
   benefitDownloadablesCreateMetadata: BenefitDownloadablesCreateMetadata,
@@ -87,7 +86,7 @@ export const BenefitDownloadablesCreate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     type: z.literal("downloadables"),

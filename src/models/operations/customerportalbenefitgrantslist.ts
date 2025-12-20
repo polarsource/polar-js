@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   BenefitType,
   BenefitType$outboundSchema,
@@ -141,10 +140,7 @@ export type QueryParamBenefitTypeFilter$Outbound = string | Array<string>;
 export const QueryParamBenefitTypeFilter$outboundSchema: z.ZodMiniType<
   QueryParamBenefitTypeFilter$Outbound,
   QueryParamBenefitTypeFilter
-> = smartUnion([
-  BenefitType$outboundSchema,
-  z.array(BenefitType$outboundSchema),
-]);
+> = z.union([BenefitType$outboundSchema, z.array(BenefitType$outboundSchema)]);
 
 export function queryParamBenefitTypeFilterToJSON(
   queryParamBenefitTypeFilter: QueryParamBenefitTypeFilter,
@@ -166,7 +162,7 @@ export const CustomerPortalBenefitGrantsListQueryParamBenefitIDFilter$outboundSc
   z.ZodMiniType<
     CustomerPortalBenefitGrantsListQueryParamBenefitIDFilter$Outbound,
     CustomerPortalBenefitGrantsListQueryParamBenefitIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function customerPortalBenefitGrantsListQueryParamBenefitIDFilterToJSON(
   customerPortalBenefitGrantsListQueryParamBenefitIDFilter:
@@ -185,7 +181,7 @@ export type QueryParamCheckoutIDFilter$Outbound = string | Array<string>;
 export const QueryParamCheckoutIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamCheckoutIDFilter$Outbound,
   QueryParamCheckoutIDFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function queryParamCheckoutIDFilterToJSON(
   queryParamCheckoutIDFilter: QueryParamCheckoutIDFilter,
@@ -205,7 +201,7 @@ export const CustomerPortalBenefitGrantsListQueryParamOrderIDFilter$outboundSche
   z.ZodMiniType<
     CustomerPortalBenefitGrantsListQueryParamOrderIDFilter$Outbound,
     CustomerPortalBenefitGrantsListQueryParamOrderIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function customerPortalBenefitGrantsListQueryParamOrderIDFilterToJSON(
   customerPortalBenefitGrantsListQueryParamOrderIDFilter:
@@ -225,7 +221,7 @@ export type QueryParamSubscriptionIDFilter$Outbound = string | Array<string>;
 export const QueryParamSubscriptionIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamSubscriptionIDFilter$Outbound,
   QueryParamSubscriptionIDFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function queryParamSubscriptionIDFilterToJSON(
   queryParamSubscriptionIDFilter: QueryParamSubscriptionIDFilter,
@@ -244,7 +240,7 @@ export type QueryParamMemberIDFilter$Outbound = string | Array<string>;
 export const QueryParamMemberIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamMemberIDFilter$Outbound,
   QueryParamMemberIDFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function queryParamMemberIDFilterToJSON(
   queryParamMemberIDFilter: QueryParamMemberIDFilter,
@@ -276,26 +272,26 @@ export const CustomerPortalBenefitGrantsListRequest$outboundSchema:
     z.object({
       typeFilter: z.optional(
         z.nullable(
-          smartUnion([
+          z.union([
             BenefitType$outboundSchema,
             z.array(BenefitType$outboundSchema),
           ]),
         ),
       ),
       benefitId: z.optional(
-        z.nullable(smartUnion([z.string(), z.array(z.string())])),
+        z.nullable(z.union([z.string(), z.array(z.string())])),
       ),
       checkoutId: z.optional(
-        z.nullable(smartUnion([z.string(), z.array(z.string())])),
+        z.nullable(z.union([z.string(), z.array(z.string())])),
       ),
       orderId: z.optional(
-        z.nullable(smartUnion([z.string(), z.array(z.string())])),
+        z.nullable(z.union([z.string(), z.array(z.string())])),
       ),
       subscriptionId: z.optional(
-        z.nullable(smartUnion([z.string(), z.array(z.string())])),
+        z.nullable(z.union([z.string(), z.array(z.string())])),
       ),
       memberId: z.optional(
-        z.nullable(smartUnion([z.string(), z.array(z.string())])),
+        z.nullable(z.union([z.string(), z.array(z.string())])),
       ),
       page: z._default(z.int(), 1),
       limit: z._default(z.int(), 10),

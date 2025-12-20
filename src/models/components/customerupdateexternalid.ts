@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   AddressInput,
   AddressInput$Outbound,
@@ -57,7 +56,7 @@ export type CustomerUpdateExternalIDMetadata$Outbound =
 export const CustomerUpdateExternalIDMetadata$outboundSchema: z.ZodMiniType<
   CustomerUpdateExternalIDMetadata$Outbound,
   CustomerUpdateExternalIDMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function customerUpdateExternalIDMetadataToJSON(
   customerUpdateExternalIDMetadata: CustomerUpdateExternalIDMetadata,
@@ -76,7 +75,7 @@ export type CustomerUpdateExternalIDTaxID$Outbound = string | string;
 export const CustomerUpdateExternalIDTaxID$outboundSchema: z.ZodMiniType<
   CustomerUpdateExternalIDTaxID$Outbound,
   CustomerUpdateExternalIDTaxID
-> = smartUnion([z.string(), TaxIDFormat$outboundSchema]);
+> = z.union([z.string(), TaxIDFormat$outboundSchema]);
 
 export function customerUpdateExternalIDTaxIDToJSON(
   customerUpdateExternalIDTaxID: CustomerUpdateExternalIDTaxID,
@@ -106,7 +105,7 @@ export const CustomerUpdateExternalID$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     email: z.optional(z.nullable(z.string())),
@@ -114,9 +113,7 @@ export const CustomerUpdateExternalID$outboundSchema: z.ZodMiniType<
     billingAddress: z.optional(z.nullable(AddressInput$outboundSchema)),
     taxId: z.optional(
       z.nullable(
-        z.array(
-          z.nullable(smartUnion([z.string(), TaxIDFormat$outboundSchema])),
-        ),
+        z.array(z.nullable(z.union([z.string(), TaxIDFormat$outboundSchema]))),
       ),
     ),
   }),

@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomFieldDateProperties,
   CustomFieldDateProperties$Outbound,
@@ -60,7 +59,7 @@ export type CustomFieldCreateDateMetadata$Outbound =
 export const CustomFieldCreateDateMetadata$outboundSchema: z.ZodMiniType<
   CustomFieldCreateDateMetadata$Outbound,
   CustomFieldCreateDateMetadata
-> = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+> = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function customFieldCreateDateMetadataToJSON(
   customFieldCreateDateMetadata: CustomFieldCreateDateMetadata,
@@ -91,7 +90,7 @@ export const CustomFieldCreateDate$outboundSchema: z.ZodMiniType<
     metadata: z.optional(
       z.record(
         z.string(),
-        smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+        z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
     type: z.literal("date"),

@@ -15,17 +15,12 @@ export type CustomersUpdateExternalRequest = {
    * The customer external ID.
    */
   externalId: string;
-  /**
-   * Include members in the response. Only populated when set to true.
-   */
-  includeMembers?: boolean | undefined;
   customerUpdateExternalID: CustomerUpdateExternalID;
 };
 
 /** @internal */
 export type CustomersUpdateExternalRequest$Outbound = {
   external_id: string;
-  include_members: boolean;
   CustomerUpdateExternalID: CustomerUpdateExternalID$Outbound;
 };
 
@@ -36,13 +31,11 @@ export const CustomersUpdateExternalRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     externalId: z.string(),
-    includeMembers: z._default(z.boolean(), false),
     customerUpdateExternalID: CustomerUpdateExternalID$outboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {
       externalId: "external_id",
-      includeMembers: "include_members",
       customerUpdateExternalID: "CustomerUpdateExternalID",
     });
   }),

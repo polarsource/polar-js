@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   DiscountFixedOnceForeverDurationCreate,
   DiscountFixedOnceForeverDurationCreate$Outbound,
@@ -42,7 +41,7 @@ export type DiscountCreate$Outbound =
 export const DiscountCreate$outboundSchema: z.ZodMiniType<
   DiscountCreate$Outbound,
   DiscountCreate
-> = smartUnion([
+> = z.union([
   DiscountFixedRepeatDurationCreate$outboundSchema,
   DiscountPercentageRepeatDurationCreate$outboundSchema,
   DiscountFixedOnceForeverDurationCreate$outboundSchema,

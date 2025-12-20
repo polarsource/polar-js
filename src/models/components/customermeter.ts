@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Customer, Customer$inboundSchema } from "./customer.js";
 import { Meter, Meter$inboundSchema } from "./meter.js";
@@ -60,14 +59,19 @@ export const CustomerMeter$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: types.string(),
-    created_at: types.date(),
-    modified_at: types.nullable(types.date()),
-    customer_id: types.string(),
-    meter_id: types.string(),
-    consumed_units: types.number(),
-    credited_units: types.number(),
-    balance: types.number(),
+    id: z.string(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    customer_id: z.string(),
+    meter_id: z.string(),
+    consumed_units: z.number(),
+    credited_units: z.int(),
+    balance: z.number(),
     customer: Customer$inboundSchema,
     meter: Meter$inboundSchema,
   }),

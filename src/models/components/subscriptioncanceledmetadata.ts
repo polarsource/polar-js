@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionCanceledMetadata = {
@@ -29,17 +28,17 @@ export const SubscriptionCanceledMetadata$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    subscription_id: types.string(),
-    product_id: types.optional(types.string()),
-    amount: types.number(),
-    currency: types.string(),
-    recurring_interval: types.string(),
-    recurring_interval_count: types.number(),
-    customer_cancellation_reason: types.optional(types.string()),
-    customer_cancellation_comment: types.optional(types.string()),
-    canceled_at: types.string(),
-    ends_at: types.optional(types.string()),
-    cancel_at_period_end: types.optional(types.boolean()),
+    subscription_id: z.string(),
+    product_id: z.optional(z.string()),
+    amount: z.int(),
+    currency: z.string(),
+    recurring_interval: z.string(),
+    recurring_interval_count: z.int(),
+    customer_cancellation_reason: z.optional(z.string()),
+    customer_cancellation_comment: z.optional(z.string()),
+    canceled_at: z.string(),
+    ends_at: z.optional(z.string()),
+    cancel_at_period_end: z.optional(z.boolean()),
   }),
   z.transform((v) => {
     return remap$(v, {

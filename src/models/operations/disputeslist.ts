@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   DisputeSortProperty,
   DisputeSortProperty$outboundSchema,
@@ -77,7 +76,7 @@ export const DisputesListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     DisputesListQueryParamOrganizationIDFilter$Outbound,
     DisputesListQueryParamOrganizationIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function disputesListQueryParamOrganizationIDFilterToJSON(
   disputesListQueryParamOrganizationIDFilter:
@@ -97,7 +96,7 @@ export type QueryParamOrderIDFilter$Outbound = string | Array<string>;
 export const QueryParamOrderIDFilter$outboundSchema: z.ZodMiniType<
   QueryParamOrderIDFilter$Outbound,
   QueryParamOrderIDFilter
-> = smartUnion([z.string(), z.array(z.string())]);
+> = z.union([z.string(), z.array(z.string())]);
 
 export function queryParamOrderIDFilterToJSON(
   queryParamOrderIDFilter: QueryParamOrderIDFilter,
@@ -114,7 +113,7 @@ export type StatusFilter$Outbound = string | Array<string>;
 export const StatusFilter$outboundSchema: z.ZodMiniType<
   StatusFilter$Outbound,
   StatusFilter
-> = smartUnion([
+> = z.union([
   DisputeStatus$outboundSchema,
   z.array(DisputeStatus$outboundSchema),
 ]);
@@ -140,14 +139,12 @@ export const DisputesListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
-    orderId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
-    ),
+    orderId: z.optional(z.nullable(z.union([z.string(), z.array(z.string())]))),
     status: z.optional(
       z.nullable(
-        smartUnion([
+        z.union([
           DisputeStatus$outboundSchema,
           z.array(DisputeStatus$outboundSchema),
         ]),

@@ -4,7 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   DiscountDuration,
   DiscountDuration$outboundSchema,
@@ -86,7 +85,7 @@ export const DiscountFixedOnceForeverDurationCreateMetadata$outboundSchema:
   z.ZodMiniType<
     DiscountFixedOnceForeverDurationCreateMetadata$Outbound,
     DiscountFixedOnceForeverDurationCreateMetadata
-  > = smartUnion([z.string(), z.int(), z.number(), z.boolean()]);
+  > = z.union([z.string(), z.int(), z.number(), z.boolean()]);
 
 export function discountFixedOnceForeverDurationCreateMetadataToJSON(
   discountFixedOnceForeverDurationCreateMetadata:
@@ -129,7 +128,7 @@ export const DiscountFixedOnceForeverDurationCreate$outboundSchema:
       metadata: z.optional(
         z.record(
           z.string(),
-          smartUnion([z.string(), z.int(), z.number(), z.boolean()]),
+          z.union([z.string(), z.int(), z.number(), z.boolean()]),
         ),
       ),
       name: z.string(),

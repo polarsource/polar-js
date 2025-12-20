@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -53,14 +52,19 @@ export const OrderItemSchema$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    created_at: types.date(),
-    modified_at: types.nullable(types.date()),
-    id: types.string(),
-    label: types.string(),
-    amount: types.number(),
-    tax_amount: types.number(),
-    proration: types.boolean(),
-    product_price_id: types.nullable(types.string()),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
+    ),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    id: z.string(),
+    label: z.string(),
+    amount: z.int(),
+    tax_amount: z.int(),
+    proration: z.boolean(),
+    product_price_id: z.nullable(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {

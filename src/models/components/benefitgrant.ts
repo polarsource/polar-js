@@ -6,8 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Benefit, Benefit$inboundSchema } from "./benefit.js";
 import {
@@ -110,8 +108,8 @@ export type BenefitGrant = {
 };
 
 /** @internal */
-export const Properties$inboundSchema: z.ZodMiniType<Properties, unknown> =
-  smartUnion([
+export const Properties$inboundSchema: z.ZodMiniType<Properties, unknown> = z
+  .union([
     BenefitGrantDiscordProperties$inboundSchema,
     BenefitGrantGitHubRepositoryProperties$inboundSchema,
     BenefitGrantDownloadablesProperties$inboundSchema,
@@ -133,22 +131,37 @@ export function propertiesFromJSON(
 export const BenefitGrant$inboundSchema: z.ZodMiniType<BenefitGrant, unknown> =
   z.pipe(
     z.object({
-      created_at: types.date(),
-      modified_at: types.nullable(types.date()),
-      id: types.string(),
-      granted_at: z.optional(z.nullable(types.date())),
-      is_granted: types.boolean(),
-      revoked_at: z.optional(z.nullable(types.date())),
-      is_revoked: types.boolean(),
-      subscription_id: types.nullable(types.string()),
-      order_id: types.nullable(types.string()),
-      customer_id: types.string(),
-      member_id: z.optional(z.nullable(types.string())),
-      benefit_id: types.string(),
+      created_at: z.pipe(
+        z.iso.datetime({ offset: true }),
+        z.transform(v => new Date(v)),
+      ),
+      modified_at: z.nullable(
+        z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+      ),
+      id: z.string(),
+      granted_at: z.optional(
+        z.nullable(z.pipe(
+          z.iso.datetime({ offset: true }),
+          z.transform(v => new Date(v)),
+        )),
+      ),
+      is_granted: z.boolean(),
+      revoked_at: z.optional(
+        z.nullable(z.pipe(
+          z.iso.datetime({ offset: true }),
+          z.transform(v => new Date(v)),
+        )),
+      ),
+      is_revoked: z.boolean(),
+      subscription_id: z.nullable(z.string()),
+      order_id: z.nullable(z.string()),
+      customer_id: z.string(),
+      member_id: z.optional(z.nullable(z.string())),
+      benefit_id: z.string(),
       error: z.optional(z.nullable(BenefitGrantError$inboundSchema)),
       customer: Customer$inboundSchema,
       benefit: Benefit$inboundSchema,
-      properties: smartUnion([
+      properties: z.union([
         BenefitGrantDiscordProperties$inboundSchema,
         BenefitGrantGitHubRepositoryProperties$inboundSchema,
         BenefitGrantDownloadablesProperties$inboundSchema,

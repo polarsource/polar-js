@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SubscriptionUncanceledMetadata = {
@@ -24,12 +23,12 @@ export const SubscriptionUncanceledMetadata$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    subscription_id: types.string(),
-    product_id: types.string(),
-    amount: types.number(),
-    currency: types.string(),
-    recurring_interval: types.string(),
-    recurring_interval_count: types.number(),
+    subscription_id: z.string(),
+    product_id: z.string(),
+    amount: z.int(),
+    currency: z.string(),
+    recurring_interval: z.string(),
+    recurring_interval_count: z.int(),
   }),
   z.transform((v) => {
     return remap$(v, {

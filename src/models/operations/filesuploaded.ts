@@ -5,8 +5,6 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
-import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
-import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import {
   DownloadableFileRead,
@@ -41,8 +39,7 @@ export type FilesUploadedRequest = {
 export type FilesUploadedResponseFilesUploaded =
   | DownloadableFileRead
   | ProductMediaFileRead
-  | OrganizationAvatarFileRead
-  | discriminatedUnionTypes.Unknown<"service">;
+  | OrganizationAvatarFileRead;
 
 /** @internal */
 export type FilesUploadedRequest$Outbound = {
@@ -78,11 +75,11 @@ export function filesUploadedRequestToJSON(
 export const FilesUploadedResponseFilesUploaded$inboundSchema: z.ZodMiniType<
   FilesUploadedResponseFilesUploaded,
   unknown
-> = discriminatedUnion("service", {
-  downloadable: DownloadableFileRead$inboundSchema,
-  product_media: ProductMediaFileRead$inboundSchema,
-  organization_avatar: OrganizationAvatarFileRead$inboundSchema,
-});
+> = z.union([
+  DownloadableFileRead$inboundSchema,
+  ProductMediaFileRead$inboundSchema,
+  OrganizationAvatarFileRead$inboundSchema,
+]);
 
 export function filesUploadedResponseFilesUploadedFromJSON(
   jsonString: string,

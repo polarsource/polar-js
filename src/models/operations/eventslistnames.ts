@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   EventNamesSortProperty,
   EventNamesSortProperty$outboundSchema,
@@ -94,7 +93,7 @@ export const EventsListNamesQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     EventsListNamesQueryParamOrganizationIDFilter$Outbound,
     EventsListNamesQueryParamOrganizationIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function eventsListNamesQueryParamOrganizationIDFilterToJSON(
   eventsListNamesQueryParamOrganizationIDFilter:
@@ -117,7 +116,7 @@ export const EventsListNamesQueryParamCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     EventsListNamesQueryParamCustomerIDFilter$Outbound,
     EventsListNamesQueryParamCustomerIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function eventsListNamesQueryParamCustomerIDFilterToJSON(
   eventsListNamesQueryParamCustomerIDFilter:
@@ -140,7 +139,7 @@ export const EventsListNamesQueryParamExternalCustomerIDFilter$outboundSchema:
   z.ZodMiniType<
     EventsListNamesQueryParamExternalCustomerIDFilter$Outbound,
     EventsListNamesQueryParamExternalCustomerIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function eventsListNamesQueryParamExternalCustomerIDFilterToJSON(
   eventsListNamesQueryParamExternalCustomerIDFilter:
@@ -160,10 +159,7 @@ export type QueryParamSourceFilter$Outbound = string | Array<string>;
 export const QueryParamSourceFilter$outboundSchema: z.ZodMiniType<
   QueryParamSourceFilter$Outbound,
   QueryParamSourceFilter
-> = smartUnion([
-  EventSource$outboundSchema,
-  z.array(EventSource$outboundSchema),
-]);
+> = z.union([EventSource$outboundSchema, z.array(EventSource$outboundSchema)]);
 
 export function queryParamSourceFilterToJSON(
   queryParamSourceFilter: QueryParamSourceFilter,
@@ -192,17 +188,17 @@ export const EventsListNamesRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     customerId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     externalCustomerId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     source: z.optional(
       z.nullable(
-        smartUnion([
+        z.union([
           EventSource$outboundSchema,
           z.array(EventSource$outboundSchema),
         ]),

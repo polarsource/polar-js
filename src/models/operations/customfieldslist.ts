@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import {
   CustomFieldSortProperty,
   CustomFieldSortProperty$outboundSchema,
@@ -74,7 +73,7 @@ export const CustomFieldsListQueryParamOrganizationIDFilter$outboundSchema:
   z.ZodMiniType<
     CustomFieldsListQueryParamOrganizationIDFilter$Outbound,
     CustomFieldsListQueryParamOrganizationIDFilter
-  > = smartUnion([z.string(), z.array(z.string())]);
+  > = z.union([z.string(), z.array(z.string())]);
 
 export function customFieldsListQueryParamOrganizationIDFilterToJSON(
   customFieldsListQueryParamOrganizationIDFilter:
@@ -94,7 +93,7 @@ export type CustomFieldTypeFilter$Outbound = string | Array<string>;
 export const CustomFieldTypeFilter$outboundSchema: z.ZodMiniType<
   CustomFieldTypeFilter$Outbound,
   CustomFieldTypeFilter
-> = smartUnion([
+> = z.union([
   CustomFieldType$outboundSchema,
   z.array(CustomFieldType$outboundSchema),
 ]);
@@ -124,12 +123,12 @@ export const CustomFieldsListRequest$outboundSchema: z.ZodMiniType<
 > = z.pipe(
   z.object({
     organizationId: z.optional(
-      z.nullable(smartUnion([z.string(), z.array(z.string())])),
+      z.nullable(z.union([z.string(), z.array(z.string())])),
     ),
     query: z.optional(z.nullable(z.string())),
     typeFilter: z.optional(
       z.nullable(
-        smartUnion([
+        z.union([
           CustomFieldType$outboundSchema,
           z.array(CustomFieldType$outboundSchema),
         ]),

@@ -6,8 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
-import { smartUnion } from "../../types/smartUnion.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { BenefitPublic, BenefitPublic$inboundSchema } from "./benefitpublic.js";
 import {
@@ -101,7 +99,7 @@ export type CustomerOrderProduct = {
 export const CustomerOrderProductPrices$inboundSchema: z.ZodMiniType<
   CustomerOrderProductPrices,
   unknown
-> = smartUnion([
+> = z.union([
   LegacyRecurringProductPrice$inboundSchema,
   ProductPrice$inboundSchema,
 ]);
@@ -122,22 +120,25 @@ export const CustomerOrderProduct$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    id: types.string(),
-    created_at: types.date(),
-    modified_at: types.nullable(types.date()),
-    trial_interval: types.nullable(TrialInterval$inboundSchema),
-    trial_interval_count: types.nullable(types.number()),
-    name: types.string(),
-    description: types.nullable(types.string()),
-    recurring_interval: types.nullable(
-      SubscriptionRecurringInterval$inboundSchema,
+    id: z.string(),
+    created_at: z.pipe(
+      z.iso.datetime({ offset: true }),
+      z.transform(v => new Date(v)),
     ),
-    recurring_interval_count: types.nullable(types.number()),
-    is_recurring: types.boolean(),
-    is_archived: types.boolean(),
-    organization_id: types.string(),
+    modified_at: z.nullable(
+      z.pipe(z.iso.datetime({ offset: true }), z.transform(v => new Date(v))),
+    ),
+    trial_interval: z.nullable(TrialInterval$inboundSchema),
+    trial_interval_count: z.nullable(z.int()),
+    name: z.string(),
+    description: z.nullable(z.string()),
+    recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
+    recurring_interval_count: z.nullable(z.int()),
+    is_recurring: z.boolean(),
+    is_archived: z.boolean(),
+    organization_id: z.string(),
     prices: z.array(
-      smartUnion([
+      z.union([
         LegacyRecurringProductPrice$inboundSchema,
         ProductPrice$inboundSchema,
       ]),

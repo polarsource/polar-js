@@ -3,23 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as openEnums from "../../types/enums.js";
-import { OpenEnum } from "../../types/enums.js";
+import { ClosedEnum } from "../../types/enums.js";
 
 export const DiscountDuration = {
   Once: "once",
   Forever: "forever",
   Repeating: "repeating",
 } as const;
-export type DiscountDuration = OpenEnum<typeof DiscountDuration>;
+export type DiscountDuration = ClosedEnum<typeof DiscountDuration>;
 
 /** @internal */
-export const DiscountDuration$inboundSchema: z.ZodMiniType<
-  DiscountDuration,
-  unknown
-> = openEnums.inboundSchema(DiscountDuration);
+export const DiscountDuration$inboundSchema: z.ZodMiniEnum<
+  typeof DiscountDuration
+> = z.enum(DiscountDuration);
 /** @internal */
-export const DiscountDuration$outboundSchema: z.ZodMiniType<
-  string,
-  DiscountDuration
-> = openEnums.outboundSchema(DiscountDuration);
+export const DiscountDuration$outboundSchema: z.ZodMiniEnum<
+  typeof DiscountDuration
+> = DiscountDuration$inboundSchema;

@@ -4,8 +4,6 @@
 
 import * as z from "zod/v4-mini";
 import { safeParse } from "../../lib/schemas.js";
-import * as discriminatedUnionTypes from "../../types/discriminatedUnion.js";
-import { discriminatedUnion } from "../../types/discriminatedUnion.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -51,19 +49,17 @@ export type Benefit =
   | BenefitGitHubRepository
   | BenefitDownloadables
   | BenefitLicenseKeys
-  | BenefitMeterCredit
-  | discriminatedUnionTypes.Unknown<"type">;
+  | BenefitMeterCredit;
 
 /** @internal */
-export const Benefit$inboundSchema: z.ZodMiniType<Benefit, unknown> =
-  discriminatedUnion("type", {
-    custom: BenefitCustom$inboundSchema,
-    discord: BenefitDiscord$inboundSchema,
-    github_repository: BenefitGitHubRepository$inboundSchema,
-    downloadables: BenefitDownloadables$inboundSchema,
-    license_keys: BenefitLicenseKeys$inboundSchema,
-    meter_credit: BenefitMeterCredit$inboundSchema,
-  });
+export const Benefit$inboundSchema: z.ZodMiniType<Benefit, unknown> = z.union([
+  BenefitCustom$inboundSchema,
+  BenefitDiscord$inboundSchema,
+  BenefitGitHubRepository$inboundSchema,
+  BenefitDownloadables$inboundSchema,
+  BenefitLicenseKeys$inboundSchema,
+  BenefitMeterCredit$inboundSchema,
+]);
 /** @internal */
 export type Benefit$Outbound =
   | BenefitCustom$Outbound

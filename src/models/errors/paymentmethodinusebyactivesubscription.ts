@@ -3,7 +3,6 @@
  */
 
 import * as z from "zod/v4-mini";
-import * as types from "../../types/primitives.js";
 import { PolarError } from "./polarerror.js";
 
 export type PaymentMethodInUseByActiveSubscriptionData = {
@@ -38,8 +37,8 @@ export class PaymentMethodInUseByActiveSubscription extends PolarError {
 export const PaymentMethodInUseByActiveSubscription$inboundSchema:
   z.ZodMiniType<PaymentMethodInUseByActiveSubscription, unknown> = z.pipe(
     z.object({
-      error: types.literal("PaymentMethodInUseByActiveSubscription"),
-      detail: types.string(),
+      error: z.literal("PaymentMethodInUseByActiveSubscription"),
+      detail: z.string(),
       request$: z.custom<Request>(x => x instanceof Request),
       response$: z.custom<Response>(x => x instanceof Response),
       body$: z.string(),

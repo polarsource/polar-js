@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BenefitGrantMeterCreditProperties = {
@@ -21,9 +20,9 @@ export const BenefitGrantMeterCreditProperties$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    last_credited_meter_id: types.optional(types.string()),
-    last_credited_units: types.optional(types.number()),
-    last_credited_at: types.optional(types.string()),
+    last_credited_meter_id: z.optional(z.string()),
+    last_credited_units: z.optional(z.int()),
+    last_credited_at: z.optional(z.string()),
   }),
   z.transform((v) => {
     return remap$(v, {

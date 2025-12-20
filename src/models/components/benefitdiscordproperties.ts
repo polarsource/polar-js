@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as types from "../../types/primitives.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
@@ -34,10 +33,10 @@ export const BenefitDiscordProperties$inboundSchema: z.ZodMiniType<
   unknown
 > = z.pipe(
   z.object({
-    guild_id: types.string(),
-    role_id: types.string(),
-    kick_member: types.boolean(),
-    guild_token: types.string(),
+    guild_id: z.string(),
+    role_id: z.string(),
+    kick_member: z.boolean(),
+    guild_token: z.string(),
   }),
   z.transform((v) => {
     return remap$(v, {
