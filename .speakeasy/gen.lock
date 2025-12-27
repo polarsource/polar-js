@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 983150e6-ebc8-43fe-9b18-750461aad344
 management:
-  docChecksum: a5a8c1249451fce585283c190ea50332
+  docChecksum: 551dbb6df578516bd25860734d4c9b86
   docVersion: 0.1.0
-  speakeasyVersion: 1.680.3
-  generationVersion: 2.788.5
-  releaseVersion: 0.42.1
-  configChecksum: 715f1fa4f5c78d20ae65d15245ab72c6
+  speakeasyVersion: 1.680.5
+  generationVersion: 2.788.7
+  releaseVersion: 0.42.2
+  configChecksum: 8fbd538328d4d28d14b6bf41f5d89021
   repoURL: https://github.com/polarsource/polar-js.git
   installationURL: https://github.com/polarsource/polar-js
   published: true
 persistentEdits:
-  generation_id: 328b93a3-e779-40a5-ace0-93052b555e11
-  pristine_commit_hash: 985bea2a7861e5677ee3666500c5f512d636fc3e
-  pristine_tree_hash: 6d2bfe0055862613087856e1ec41a3490b183b94
+  generation_id: f1116152-ecd1-4029-80f1-ac14237f7e02
+  pristine_commit_hash: edcade806525293ae0aeeb6bd97e88de00d96f5f
+  pristine_tree_hash: b4f38a8e834651b2be7aa8a215bb2bba39210657
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.26.16
+    core: 3.26.17
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     devContainers: 2.90.1
@@ -3008,8 +3008,8 @@ trackedFiles:
     pristine_git_object: a6e12aeb9a13d2ab058a8ab6339c1fe47a1d9c01
   docs/models/components/webhooksubscriptionuncanceledpayload.md:
     id: dcc032678766
-    last_write_checksum: sha1:cc13a2b8f8a6495a9c9d09b75430e90acbb3feb6
-    pristine_git_object: cd60bc3a99c29b02cdd32683bdbca65488c409ff
+    last_write_checksum: sha1:d3e66dd46075ea72bd0d230d4f00340cd3d5e849
+    pristine_git_object: de2610a1e740516e6e877dc91a3e3fb53468c479
   docs/models/components/webhooksubscriptionupdatedpayload.md:
     id: 4c43efe43191
     last_write_checksum: sha1:af38fd0502c9ad51eaf0aa017b9385e391112f2f
@@ -4428,12 +4428,12 @@ trackedFiles:
     pristine_git_object: 81b74b46d6979f928ebe4b20753635ba6f9a3882
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:44f8cbde699b4e369eefbf65740f966a38f148f7
-    pristine_git_object: 6d0a99ee9db6b0fc8e590a9df106e63a90204d3a
+    last_write_checksum: sha1:5c333926444611714a6e6553f87a16a83498cec7
+    pristine_git_object: 8e2a93928a6a133cd371a141f68e38027d6949e3
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:8a89fe0e513c36fd1fe52941cd3a2b0dbaa43aae
-    pristine_git_object: 7463982d3c22a3c80938b5731e5db20d913868e6
+    last_write_checksum: sha1:01beb52bb3eaefe40ff61e9b802b84017cbd3368
+    pristine_git_object: 83db00e0a27fa90ceb6bbcd35d34f43836ec9d8d
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:6c0a3d0582afbdfea5d4052e704a9e0b6e29c273
@@ -5092,8 +5092,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:2aa8e0845cf323f889d0e51f0a383b08f4db35d9
-    pristine_git_object: fde3d75c32e24c7b8dffa788a5c182929f6312d0
+    last_write_checksum: sha1:6a335b536d086940721e623fd2ccd67b3f946080
+    pristine_git_object: 9a80d739ed835319c3046ed16270d240ffa76bb9
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -7232,8 +7232,8 @@ trackedFiles:
     pristine_git_object: 0214d052d21e31d2367fbf91ce82b04eaae05204
   src/models/components/webhooksubscriptionuncanceledpayload.ts:
     id: 881e6a3a7e03
-    last_write_checksum: sha1:3b8bcffd7de3d29449826c279efa55a697eb8130
-    pristine_git_object: a47aae8678dd354ae12afbe06009d5da13893aea
+    last_write_checksum: sha1:e542d01650b8cf6a66b5cdeb7aa7c7be535bf4d2
+    pristine_git_object: 45b8ebc537978e177cafaeb9f99254119123008d
   src/models/components/webhooksubscriptionupdatedpayload.ts:
     id: 26003c8be655
     last_write_checksum: sha1:910648e99ed459c5c7da7756af35771b94eb9497
@@ -10304,7 +10304,6 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes:\n* `polar.customers.list()`: \n  *  `request.includeMembers` **Removed** **Breaking** :warning:\n* `polar.customers.create()`:  `request` **Changed** **Breaking** :warning:\n* `polar.customers.get()`: \n  *  `request.includeMembers` **Removed** **Breaking** :warning:\n* `polar.customers.update()`: \n  *  `request.includeMembers` **Removed** **Breaking** :warning:\n* `polar.customers.getExternal()`: \n  *  `request.includeMembers` **Removed** **Breaking** :warning:\n* `polar.customers.updateExternal()`: \n  *  `request.includeMembers` **Removed** **Breaking** :warning:\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
