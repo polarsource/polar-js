@@ -9,8 +9,8 @@ let value: EventName = {
   name: "<value>",
   source: "user",
   occurrences: 195850,
-  firstSeen: new Date("2024-12-21T07:07:24.710Z"),
-  lastSeen: new Date("2025-02-05T23:11:22.498Z"),
+  firstSeen: new Date("2025-12-21T07:07:24.710Z"),
+  lastSeen: new Date("2026-02-05T23:11:22.498Z"),
 };
 ```
 

@@ -8,8 +8,8 @@ A webhook endpoint.
 import { WebhookEndpoint } from "@polar-sh/sdk/models/components/webhookendpoint.js";
 
 let value: WebhookEndpoint = {
-  createdAt: new Date("2025-11-07T23:32:02.142Z"),
-  modifiedAt: new Date("2025-04-09T02:24:33.049Z"),
+  createdAt: new Date("2026-11-07T23:32:02.142Z"),
+  modifiedAt: new Date("2026-04-09T02:24:33.049Z"),
   id: "<value>",
   url: "https://webhook.site/cb791d80-f26e-4f8c-be88-6e56054192b0",
   format: "discord",

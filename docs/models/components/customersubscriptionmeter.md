@@ -6,16 +6,16 @@
 import { CustomerSubscriptionMeter } from "@polar-sh/sdk/models/components/customersubscriptionmeter.js";
 
 let value: CustomerSubscriptionMeter = {
-  createdAt: new Date("2023-05-31T13:00:37.766Z"),
-  modifiedAt: new Date("2025-05-29T17:54:25.258Z"),
+  createdAt: new Date("2024-05-30T13:00:37.766Z"),
+  modifiedAt: new Date("2026-05-29T17:54:25.258Z"),
   id: "<value>",
   consumedUnits: 25,
   creditedUnits: 100,
   amount: 0,
   meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
   meter: {
-    createdAt: new Date("2023-05-13T23:55:31.561Z"),
-    modifiedAt: new Date("2023-08-11T07:10:38.626Z"),
+    createdAt: new Date("2024-05-12T23:55:31.561Z"),
+    modifiedAt: new Date("2024-08-10T07:10:38.626Z"),
     id: "<value>",
     name: "<value>",
   },

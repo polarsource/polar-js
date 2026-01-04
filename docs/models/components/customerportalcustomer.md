@@ -6,8 +6,8 @@
 import { CustomerPortalCustomer } from "@polar-sh/sdk/models/components/customerportalcustomer.js";
 
 let value: CustomerPortalCustomer = {
-  createdAt: new Date("2023-04-03T06:47:49.140Z"),
-  modifiedAt: new Date("2025-03-12T05:12:55.257Z"),
+  createdAt: new Date("2024-04-02T06:47:49.140Z"),
+  modifiedAt: new Date("2026-03-12T05:12:55.257Z"),
   id: "<value>",
   email: "Katharina.Frami89@gmail.com",
   emailVerified: true,

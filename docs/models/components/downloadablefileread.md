@@ -18,11 +18,11 @@ let value: DownloadableFileRead = {
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2023-11-01T10:53:02.231Z"),
+  lastModifiedAt: new Date("2024-10-31T10:53:02.231Z"),
   version: "<value>",
   service: "downloadable",
   isUploaded: true,
-  createdAt: new Date("2023-06-01T05:20:04.314Z"),
+  createdAt: new Date("2024-05-31T05:20:04.314Z"),
   sizeReadable: "<value>",
 };
 ```

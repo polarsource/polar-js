@@ -7,7 +7,7 @@ import { S3DownloadURL } from "@polar-sh/sdk/models/components/s3downloadurl.js"
 
 let value: S3DownloadURL = {
   url: "https://best-lay.org/",
-  expiresAt: new Date("2023-12-05T22:14:20.034Z"),
+  expiresAt: new Date("2024-12-04T22:14:20.034Z"),
 };
 ```
 

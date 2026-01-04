@@ -7,8 +7,8 @@ import { AuthorizeResponseUser } from "@polar-sh/sdk/models/components/authorize
 
 let value: AuthorizeResponseUser = {
   client: {
-    createdAt: new Date("2025-11-06T09:00:45.294Z"),
-    modifiedAt: new Date("2025-02-22T00:03:05.093Z"),
+    createdAt: new Date("2026-11-06T09:00:45.294Z"),
+    modifiedAt: new Date("2026-02-22T00:03:05.093Z"),
     clientId: "<id>",
     clientName: null,
     clientUri: "https://bossy-formamide.com",

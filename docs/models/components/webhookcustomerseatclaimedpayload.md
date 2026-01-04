@@ -11,10 +11,10 @@ import { WebhookCustomerSeatClaimedPayload } from "@polar-sh/sdk/models/componen
 
 let value: WebhookCustomerSeatClaimedPayload = {
   type: "customer_seat.claimed",
-  timestamp: new Date("2024-01-03T02:28:41.970Z"),
+  timestamp: new Date("2025-01-02T02:28:41.970Z"),
   data: {
-    createdAt: new Date("2024-08-30T15:13:29.736Z"),
-    modifiedAt: new Date("2023-10-11T18:38:33.972Z"),
+    createdAt: new Date("2025-08-30T15:13:29.736Z"),
+    modifiedAt: new Date("2024-10-10T18:38:33.972Z"),
     id: "c913995a-f8f6-4f86-baf7-95adb32a1f73",
     status: "claimed",
   },

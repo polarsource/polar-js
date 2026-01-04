@@ -6,8 +6,8 @@
 import { CustomerSeat } from "@polar-sh/sdk/models/components/customerseat.js";
 
 let value: CustomerSeat = {
-  createdAt: new Date("2024-02-11T15:22:33.873Z"),
-  modifiedAt: new Date("2025-10-09T03:50:35.674Z"),
+  createdAt: new Date("2025-02-10T15:22:33.873Z"),
+  modifiedAt: new Date("2026-10-09T03:50:35.674Z"),
   id: "1f465dbd-351b-4777-90e1-11283ba41d87",
   status: "claimed",
 };

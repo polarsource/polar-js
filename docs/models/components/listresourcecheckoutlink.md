@@ -9,8 +9,8 @@ let value: ListResourceCheckoutLink = {
   items: [
     {
       id: "<value>",
-      createdAt: new Date("2023-07-06T14:44:50.101Z"),
-      modifiedAt: new Date("2024-02-04T11:19:52.791Z"),
+      createdAt: new Date("2024-07-05T14:44:50.101Z"),
+      modifiedAt: new Date("2025-02-03T11:19:52.791Z"),
       trialInterval: "year",
       trialIntervalCount: null,
       metadata: {
@@ -30,8 +30,8 @@ let value: ListResourceCheckoutLink = {
             "key": 286697,
           },
           id: "<value>",
-          createdAt: new Date("2024-08-04T15:56:23.244Z"),
-          modifiedAt: new Date("2025-07-13T16:36:37.984Z"),
+          createdAt: new Date("2025-08-04T15:56:23.244Z"),
+          modifiedAt: new Date("2026-07-13T16:36:37.984Z"),
           trialInterval: "week",
           trialIntervalCount: 560922,
           name: "<value>",
@@ -44,8 +44,8 @@ let value: ListResourceCheckoutLink = {
           organizationId: "<value>",
           prices: [
             {
-              createdAt: new Date("2024-06-23T04:46:35.152Z"),
-              modifiedAt: new Date("2024-05-30T10:02:42.927Z"),
+              createdAt: new Date("2025-06-23T04:46:35.152Z"),
+              modifiedAt: new Date("2025-05-30T10:02:42.927Z"),
               id: "<value>",
               source: "ad_hoc",
               amountType: "free",
@@ -65,16 +65,16 @@ let value: ListResourceCheckoutLink = {
         type: "percentage",
         amount: 1000,
         currency: "usd",
-        createdAt: new Date("2024-04-08T09:15:27.816Z"),
-        modifiedAt: new Date("2025-10-02T19:46:14.425Z"),
+        createdAt: new Date("2025-04-08T09:15:27.816Z"),
+        modifiedAt: new Date("2026-10-02T19:46:14.425Z"),
         id: "<value>",
         metadata: {
           "key": 2173.06,
         },
         name: "<value>",
         code: "<value>",
-        startsAt: new Date("2024-07-22T01:23:46.436Z"),
-        endsAt: new Date("2023-10-25T03:56:27.220Z"),
+        startsAt: new Date("2025-07-22T01:23:46.436Z"),
+        endsAt: new Date("2024-10-24T03:56:27.220Z"),
         maxRedemptions: 50796,
         redemptionsCount: 458242,
         organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
