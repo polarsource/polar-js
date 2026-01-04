@@ -8,10 +8,10 @@ import { ListResourceCustomerBenefitGrant } from "@polar-sh/sdk/models/component
 let value: ListResourceCustomerBenefitGrant = {
   items: [
     {
-      createdAt: new Date("2023-10-02T12:22:46.823Z"),
-      modifiedAt: new Date("2025-05-28T07:05:09.153Z"),
+      createdAt: new Date("2024-10-01T12:22:46.823Z"),
+      modifiedAt: new Date("2026-05-28T07:05:09.153Z"),
       id: "<value>",
-      grantedAt: new Date("2025-03-02T17:39:16.099Z"),
+      grantedAt: new Date("2026-03-02T17:39:16.099Z"),
       revokedAt: null,
       customerId: "<value>",
       benefitId: "<value>",
@@ -20,8 +20,8 @@ let value: ListResourceCustomerBenefitGrant = {
       isGranted: false,
       isRevoked: false,
       customer: {
-        createdAt: new Date("2023-10-06T17:24:11.012Z"),
-        modifiedAt: new Date("2023-12-28T23:55:37.070Z"),
+        createdAt: new Date("2024-10-05T17:24:11.012Z"),
+        modifiedAt: new Date("2024-12-27T23:55:37.070Z"),
         id: "<value>",
         email: "Greg77@hotmail.com",
         emailVerified: true,
@@ -43,8 +43,8 @@ let value: ListResourceCustomerBenefitGrant = {
       },
       benefit: {
         id: "<value>",
-        createdAt: new Date("2025-10-07T04:17:24.786Z"),
-        modifiedAt: new Date("2025-05-05T02:01:44.871Z"),
+        createdAt: new Date("2026-10-07T04:17:24.786Z"),
+        modifiedAt: new Date("2026-05-05T02:01:44.871Z"),
         type: "license_keys",
         description: "light indeed mmm scary import cricket wear mysteriously",
         selectable: false,
@@ -52,8 +52,8 @@ let value: ListResourceCustomerBenefitGrant = {
         organizationId: "<value>",
         metadata: {},
         organization: {
-          createdAt: new Date("2023-02-09T14:46:30.040Z"),
-          modifiedAt: new Date("2024-07-28T16:12:54.009Z"),
+          createdAt: new Date("2024-02-09T14:46:30.040Z"),
+          modifiedAt: new Date("2025-07-28T16:12:54.009Z"),
           id: "<value>",
           name: "<value>",
           slug: "<value>",

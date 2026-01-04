@@ -12,7 +12,7 @@ let value: DiscountProduct = {
     "key": "<value>",
   },
   id: "<value>",
-  createdAt: new Date("2023-10-14T18:44:12.681Z"),
+  createdAt: new Date("2024-10-13T18:44:12.681Z"),
   modifiedAt: null,
   trialInterval: "day",
   trialIntervalCount: 567187,

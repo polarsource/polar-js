@@ -7,8 +7,8 @@ import { BenefitDiscordSubscriber } from "@polar-sh/sdk/models/components/benefi
 
 let value: BenefitDiscordSubscriber = {
   id: "<value>",
-  createdAt: new Date("2024-07-24T23:28:24.019Z"),
-  modifiedAt: new Date("2024-10-02T09:01:18.978Z"),
+  createdAt: new Date("2025-07-24T23:28:24.019Z"),
+  modifiedAt: new Date("2025-10-02T09:01:18.978Z"),
   type: "discord",
   description: "pish metallic eyeliner",
   selectable: true,
@@ -18,8 +18,8 @@ let value: BenefitDiscordSubscriber = {
     "key": 110104,
   },
   organization: {
-    createdAt: new Date("2023-02-09T14:46:30.040Z"),
-    modifiedAt: new Date("2024-07-28T16:12:54.009Z"),
+    createdAt: new Date("2024-02-09T14:46:30.040Z"),
+    modifiedAt: new Date("2025-07-28T16:12:54.009Z"),
     id: "<value>",
     name: "<value>",
     slug: "<value>",

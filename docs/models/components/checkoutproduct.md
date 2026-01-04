@@ -9,8 +9,8 @@ import { CheckoutProduct } from "@polar-sh/sdk/models/components/checkoutproduct
 
 let value: CheckoutProduct = {
   id: "<value>",
-  createdAt: new Date("2023-07-11T03:33:42.639Z"),
-  modifiedAt: new Date("2025-08-26T16:53:10.047Z"),
+  createdAt: new Date("2024-07-10T03:33:42.639Z"),
+  modifiedAt: new Date("2026-08-26T16:53:10.047Z"),
   trialInterval: "year",
   trialIntervalCount: 654499,
   name: "<value>",

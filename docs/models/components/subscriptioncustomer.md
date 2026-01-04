@@ -7,8 +7,8 @@ import { SubscriptionCustomer } from "@polar-sh/sdk/models/components/subscripti
 
 let value: SubscriptionCustomer = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2025-11-11T19:45:03.999Z"),
-  modifiedAt: new Date("2025-03-04T16:01:41.611Z"),
+  createdAt: new Date("2026-11-11T19:45:03.999Z"),
+  modifiedAt: new Date("2026-03-04T16:01:41.611Z"),
   metadata: {
     "key": 1758.61,
   },
@@ -24,7 +24,7 @@ let value: SubscriptionCustomer = {
     "us_ein",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2023-03-10T01:29:08.813Z"),
+  deletedAt: new Date("2024-03-09T01:29:08.813Z"),
   avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
 };
 ```

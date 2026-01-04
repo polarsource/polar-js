@@ -8,8 +8,8 @@ A seat-based price for a product.
 import { ProductPriceSeatBased } from "@polar-sh/sdk/models/components/productpriceseatbased.js";
 
 let value: ProductPriceSeatBased = {
-  createdAt: new Date("2023-09-18T05:03:38.369Z"),
-  modifiedAt: new Date("2025-08-16T14:25:55.727Z"),
+  createdAt: new Date("2024-09-17T05:03:38.369Z"),
+  modifiedAt: new Date("2026-08-16T14:25:55.727Z"),
   id: "<value>",
   source: "catalog",
   amountType: "seat_based",

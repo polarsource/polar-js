@@ -9,8 +9,8 @@ import { Member } from "@polar-sh/sdk/models/components/member.js";
 
 let value: Member = {
   id: "<value>",
-  createdAt: new Date("2025-07-16T23:20:52.758Z"),
-  modifiedAt: new Date("2024-10-27T19:33:03.848Z"),
+  createdAt: new Date("2026-07-16T23:20:52.758Z"),
+  modifiedAt: new Date("2025-10-27T19:33:03.848Z"),
   customerId: "<value>",
   email: "member@example.com",
   name: "Jane Doe",

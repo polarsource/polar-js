@@ -6,8 +6,8 @@
 import { Organization } from "@polar-sh/sdk/models/components/organization.js";
 
 let value: Organization = {
-  createdAt: new Date("2025-08-18T16:08:36.319Z"),
-  modifiedAt: new Date("2024-09-21T03:00:08.692Z"),
+  createdAt: new Date("2026-08-18T16:08:36.319Z"),
+  modifiedAt: new Date("2025-09-21T03:00:08.692Z"),
   id: "<value>",
   name: "<value>",
   slug: "<value>",
@@ -23,7 +23,7 @@ let value: Organization = {
     },
   ],
   status: "active",
-  detailsSubmittedAt: new Date("2023-08-02T14:19:41.512Z"),
+  detailsSubmittedAt: new Date("2024-08-01T14:19:41.512Z"),
   featureSettings: {},
   subscriptionSettings: {
     allowMultipleSubscriptions: true,

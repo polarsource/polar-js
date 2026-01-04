@@ -8,8 +8,8 @@ import { OrderProduct } from "@polar-sh/sdk/models/components/orderproduct.js";
 let value: OrderProduct = {
   metadata: {},
   id: "<value>",
-  createdAt: new Date("2023-04-21T04:52:20.100Z"),
-  modifiedAt: new Date("2024-08-23T10:14:02.533Z"),
+  createdAt: new Date("2024-04-20T04:52:20.100Z"),
+  modifiedAt: new Date("2025-08-23T10:14:02.533Z"),
   trialInterval: "week",
   trialIntervalCount: 747281,
   name: "<value>",

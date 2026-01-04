@@ -10,8 +10,8 @@ A pay-what-you-want recurring price for a product, i.e. a subscription.
 import { LegacyRecurringProductPriceCustom } from "@polar-sh/sdk/models/components/legacyrecurringproductpricecustom.js";
 
 let value: LegacyRecurringProductPriceCustom = {
-  createdAt: new Date("2024-12-07T03:04:39.121Z"),
-  modifiedAt: new Date("2023-07-09T04:58:27.438Z"),
+  createdAt: new Date("2025-12-07T03:04:39.121Z"),
+  modifiedAt: new Date("2024-07-08T04:58:27.438Z"),
   id: "<value>",
   source: "catalog",
   amountType: "custom",

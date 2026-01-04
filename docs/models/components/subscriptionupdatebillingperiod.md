@@ -6,7 +6,7 @@
 import { SubscriptionUpdateBillingPeriod } from "@polar-sh/sdk/models/components/subscriptionupdatebillingperiod.js";
 
 let value: SubscriptionUpdateBillingPeriod = {
-  currentBillingPeriodEnd: new Date("2025-11-17T15:45:43.046Z"),
+  currentBillingPeriodEnd: new Date("2026-11-17T15:45:43.046Z"),
 };
 ```
 

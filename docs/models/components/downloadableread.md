@@ -19,10 +19,10 @@ let value: DownloadableRead = {
     checksumEtag: "<value>",
     checksumSha256Base64: "<value>",
     checksumSha256Hex: "<value>",
-    lastModifiedAt: new Date("2025-01-20T00:04:35.382Z"),
+    lastModifiedAt: new Date("2026-01-20T00:04:35.382Z"),
     download: {
       url: "https://paltry-appliance.com",
-      expiresAt: new Date("2025-06-23T20:33:37.622Z"),
+      expiresAt: new Date("2026-06-23T20:33:37.622Z"),
     },
     version: "<value>",
     isUploaded: true,

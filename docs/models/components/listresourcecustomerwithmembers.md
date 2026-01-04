@@ -9,8 +9,8 @@ let value: ListResourceCustomerWithMembers = {
   items: [
     {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2023-05-03T07:25:03.229Z"),
-      modifiedAt: new Date("2024-01-28T19:57:22.709Z"),
+      createdAt: new Date("2024-05-02T07:25:03.229Z"),
+      modifiedAt: new Date("2025-01-27T19:57:22.709Z"),
       metadata: {
         "key": 5548.12,
       },
@@ -26,12 +26,12 @@ let value: ListResourceCustomerWithMembers = {
         "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2024-07-01T11:24:39.161Z"),
+      deletedAt: new Date("2025-07-01T11:24:39.161Z"),
       members: [
         {
           id: "<value>",
-          createdAt: new Date("2024-08-01T07:55:55.149Z"),
-          modifiedAt: new Date("2024-11-08T18:04:44.616Z"),
+          createdAt: new Date("2025-08-01T07:55:55.149Z"),
+          modifiedAt: new Date("2025-11-08T18:04:44.616Z"),
           customerId: "<value>",
           email: "member@example.com",
           name: "Jane Doe",

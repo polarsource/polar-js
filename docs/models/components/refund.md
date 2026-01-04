@@ -6,8 +6,8 @@
 import { Refund } from "@polar-sh/sdk/models/components/refund.js";
 
 let value: Refund = {
-  createdAt: new Date("2025-12-04T20:21:23.175Z"),
-  modifiedAt: new Date("2023-10-13T16:58:34.242Z"),
+  createdAt: new Date("2026-12-04T20:21:23.175Z"),
+  modifiedAt: new Date("2024-10-12T16:58:34.242Z"),
   id: "<value>",
   metadata: {},
   status: "pending",
@@ -21,8 +21,8 @@ let value: Refund = {
   customerId: "<value>",
   revokeBenefits: false,
   dispute: {
-    createdAt: new Date("2025-01-29T09:21:00.593Z"),
-    modifiedAt: new Date("2023-12-04T04:55:20.270Z"),
+    createdAt: new Date("2026-01-29T09:21:00.593Z"),
+    modifiedAt: new Date("2024-12-03T04:55:20.270Z"),
     id: "<value>",
     status: "prevented",
     resolved: false,

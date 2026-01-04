@@ -10,8 +10,8 @@ let value: CustomerPortalWalletsListResponse = {
     items: [
       {
         id: "<value>",
-        createdAt: new Date("2023-03-24T21:59:08.847Z"),
-        modifiedAt: new Date("2024-04-12T14:32:45.125Z"),
+        createdAt: new Date("2024-03-23T21:59:08.847Z"),
+        modifiedAt: new Date("2025-04-12T14:32:45.125Z"),
         customerId: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
         balance: 5000,
         currency: "usd",
