@@ -6,8 +6,8 @@
 import { BenefitGrantDownloadablesWebhook } from "@polar-sh/sdk/models/components/benefitgrantdownloadableswebhook.js";
 
 let value: BenefitGrantDownloadablesWebhook = {
-  createdAt: new Date("2025-09-16T06:48:34.889Z"),
-  modifiedAt: new Date("2023-05-19T09:10:18.729Z"),
+  createdAt: new Date("2026-09-16T06:48:34.889Z"),
+  modifiedAt: new Date("2024-05-18T09:10:18.729Z"),
   id: "<value>",
   isGranted: true,
   isRevoked: false,
@@ -17,8 +17,8 @@ let value: BenefitGrantDownloadablesWebhook = {
   benefitId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2023-06-05T21:28:32.740Z"),
-    modifiedAt: new Date("2023-03-22T15:56:34.258Z"),
+    createdAt: new Date("2024-06-04T21:28:32.740Z"),
+    modifiedAt: new Date("2024-03-21T15:56:34.258Z"),
     metadata: {
       "key": "<value>",
     },
@@ -34,13 +34,13 @@ let value: BenefitGrantDownloadablesWebhook = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-09-04T17:38:48.600Z"),
+    deletedAt: new Date("2026-09-04T17:38:48.600Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2025-02-09T09:21:30.385Z"),
-    modifiedAt: new Date("2023-09-01T08:02:14.520Z"),
+    createdAt: new Date("2026-02-09T09:21:30.385Z"),
+    modifiedAt: new Date("2024-08-31T08:02:14.520Z"),
     type: "downloadables",
     description: "gladly rapidly record excluding because ill",
     selectable: false,

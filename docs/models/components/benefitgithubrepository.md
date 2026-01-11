@@ -11,8 +11,8 @@ import { BenefitGitHubRepository } from "@polar-sh/sdk/models/components/benefit
 
 let value: BenefitGitHubRepository = {
   id: "<value>",
-  createdAt: new Date("2025-09-20T17:50:31.812Z"),
-  modifiedAt: new Date("2023-09-09T10:06:16.908Z"),
+  createdAt: new Date("2026-09-20T17:50:31.812Z"),
+  modifiedAt: new Date("2024-09-08T10:06:16.908Z"),
   type: "github_repository",
   description: "hoarse secrecy entwine stunning energetically",
   selectable: true,

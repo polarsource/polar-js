@@ -16,10 +16,10 @@ let value: FileDownload = {
   checksumEtag: "<value>",
   checksumSha256Base64: null,
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2025-08-23T11:29:28.133Z"),
+  lastModifiedAt: new Date("2026-08-23T11:29:28.133Z"),
   download: {
     url: "https://paltry-appliance.com",
-    expiresAt: new Date("2025-06-23T20:33:37.622Z"),
+    expiresAt: new Date("2026-06-23T20:33:37.622Z"),
   },
   version: null,
   isUploaded: true,

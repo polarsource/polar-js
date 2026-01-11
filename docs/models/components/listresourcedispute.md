@@ -8,8 +8,8 @@ import { ListResourceDispute } from "@polar-sh/sdk/models/components/listresourc
 let value: ListResourceDispute = {
   items: [
     {
-      createdAt: new Date("2025-01-23T11:46:08.897Z"),
-      modifiedAt: new Date("2025-05-29T01:03:10.998Z"),
+      createdAt: new Date("2026-01-23T11:46:08.897Z"),
+      modifiedAt: new Date("2026-05-29T01:03:10.998Z"),
       id: "<value>",
       status: "needs_response",
       resolved: false,

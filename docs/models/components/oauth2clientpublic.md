@@ -6,8 +6,8 @@
 import { OAuth2ClientPublic } from "@polar-sh/sdk/models/components/oauth2clientpublic.js";
 
 let value: OAuth2ClientPublic = {
-  createdAt: new Date("2024-07-21T06:12:06.220Z"),
-  modifiedAt: new Date("2024-04-22T15:21:57.564Z"),
+  createdAt: new Date("2025-07-21T06:12:06.220Z"),
+  modifiedAt: new Date("2025-04-22T15:21:57.564Z"),
   clientId: "<id>",
   clientName: "<value>",
   clientUri: "https://deserted-dulcimer.name",

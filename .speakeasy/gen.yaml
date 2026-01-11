@@ -29,7 +29,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.42.1
+  version: 0.42.2
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies:
@@ -53,6 +53,7 @@ typescript:
   enumFormat: union
   envVarPrefix: POLAR
   exportZodModelNamespace: false
+  flatAdditionalProperties: false
   flattenGlobalSecurity: true
   flatteningOrder: body-first
   formStringArrayEncodeMode: encoded-string
@@ -79,6 +80,7 @@ typescript:
   outputModelSuffix: output
   packageName: '@polar-sh/sdk'
   preApplyUnionDiscriminators: true
+  preserveModelFieldNames: false
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2

@@ -23,7 +23,7 @@ const value: components.SubscriptionUpdateDiscount = {
 
 ```typescript
 const value: components.SubscriptionUpdateTrial = {
-  trialEnd: new Date("2023-10-12T00:45:49.772Z"),
+  trialEnd: new Date("2024-10-11T00:45:49.772Z"),
 };
 ```
 
@@ -39,7 +39,7 @@ const value: components.SubscriptionUpdateSeats = {
 
 ```typescript
 const value: components.SubscriptionUpdateBillingPeriod = {
-  currentBillingPeriodEnd: new Date("2025-11-17T15:45:43.046Z"),
+  currentBillingPeriodEnd: new Date("2026-11-17T15:45:43.046Z"),
 };
 ```
 

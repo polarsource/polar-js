@@ -9,8 +9,8 @@ import { CustomerStateMeter } from "@polar-sh/sdk/models/components/customerstat
 
 let value: CustomerStateMeter = {
   id: "<value>",
-  createdAt: new Date("2024-11-22T20:57:08.686Z"),
-  modifiedAt: new Date("2023-09-20T20:48:46.999Z"),
+  createdAt: new Date("2025-11-22T20:57:08.686Z"),
+  modifiedAt: new Date("2024-09-19T20:48:46.999Z"),
   meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
   consumedUnits: 25,
   creditedUnits: 100,
