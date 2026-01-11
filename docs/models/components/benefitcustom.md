@@ -11,8 +11,8 @@ import { BenefitCustom } from "@polar-sh/sdk/models/components/benefitcustom.js"
 
 let value: BenefitCustom = {
   id: "<value>",
-  createdAt: new Date("2023-08-26T14:42:37.044Z"),
-  modifiedAt: new Date("2024-04-13T00:00:15.234Z"),
+  createdAt: new Date("2024-08-25T14:42:37.044Z"),
+  modifiedAt: new Date("2025-04-13T00:00:15.234Z"),
   type: "custom",
   description: "how nor limited scoff ownership",
   selectable: false,

@@ -9,8 +9,8 @@ let value: RefundsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-10-30T22:59:40.030Z"),
-        modifiedAt: new Date("2025-08-14T03:01:16.173Z"),
+        createdAt: new Date("2025-10-30T22:59:40.030Z"),
+        modifiedAt: new Date("2026-08-14T03:01:16.173Z"),
         id: "<value>",
         metadata: {
           "key": 933688,
@@ -26,8 +26,8 @@ let value: RefundsListResponse = {
         customerId: "<value>",
         revokeBenefits: false,
         dispute: {
-          createdAt: new Date("2025-01-29T09:21:00.593Z"),
-          modifiedAt: new Date("2023-12-04T04:55:20.270Z"),
+          createdAt: new Date("2026-01-29T09:21:00.593Z"),
+          modifiedAt: new Date("2024-12-03T04:55:20.270Z"),
           id: "<value>",
           status: "prevented",
           resolved: false,

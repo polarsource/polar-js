@@ -9,13 +9,13 @@ import { Checkout } from "@polar-sh/sdk/models/components/checkout.js";
 
 let value: Checkout = {
   id: "<value>",
-  createdAt: new Date("2024-05-25T00:29:55.609Z"),
-  modifiedAt: new Date("2025-10-11T19:30:55.646Z"),
+  createdAt: new Date("2025-05-25T00:29:55.609Z"),
+  modifiedAt: new Date("2026-10-11T19:30:55.646Z"),
   paymentProcessor: "stripe",
   status: "confirmed",
   clientSecret: "<value>",
   url: "https://shimmering-stock.biz",
-  expiresAt: new Date("2025-02-21T19:05:57.890Z"),
+  expiresAt: new Date("2026-02-21T19:05:57.890Z"),
   successUrl: "https://fortunate-coast.org/",
   returnUrl: "https://yellow-cafe.biz/",
   embedOrigin: "<value>",
@@ -28,7 +28,7 @@ let value: Checkout = {
   allowTrial: true,
   activeTrialInterval: "month",
   activeTrialIntervalCount: 734156,
-  trialEnd: new Date("2024-12-22T03:21:34.225Z"),
+  trialEnd: new Date("2025-12-22T03:21:34.225Z"),
   organizationId: "<value>",
   productId: "<value>",
   productPriceId: "<value>",
@@ -73,8 +73,8 @@ let value: Checkout = {
   products: [
     {
       id: "<value>",
-      createdAt: new Date("2025-07-19T04:13:46.135Z"),
-      modifiedAt: new Date("2025-07-22T18:50:39.998Z"),
+      createdAt: new Date("2026-07-19T04:13:46.135Z"),
+      modifiedAt: new Date("2026-07-22T18:50:39.998Z"),
       trialInterval: "year",
       trialIntervalCount: 224994,
       name: "<value>",
@@ -88,8 +88,8 @@ let value: Checkout = {
       benefits: [
         {
           id: "<value>",
-          createdAt: new Date("2025-12-10T05:32:38.930Z"),
-          modifiedAt: new Date("2025-06-03T12:53:20.835Z"),
+          createdAt: new Date("2026-12-10T05:32:38.930Z"),
+          modifiedAt: new Date("2026-06-03T12:53:20.835Z"),
           type: "custom",
           description:
             "twist beside frivolous gad catalog spirited unless rewarding frequent unto",
@@ -110,11 +110,11 @@ let value: Checkout = {
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
           checksumSha256Hex: "<value>",
-          lastModifiedAt: new Date("2024-06-28T06:21:21.363Z"),
+          lastModifiedAt: new Date("2025-06-28T06:21:21.363Z"),
           version: "<value>",
           service: "product_media",
           isUploaded: false,
-          createdAt: new Date("2025-06-12T01:48:20.505Z"),
+          createdAt: new Date("2026-06-12T01:48:20.505Z"),
           sizeReadable: "<value>",
           publicUrl: "https://entire-slipper.org",
         },
@@ -123,8 +123,8 @@ let value: Checkout = {
   ],
   product: {
     id: "<value>",
-    createdAt: new Date("2023-09-11T23:23:11.462Z"),
-    modifiedAt: new Date("2025-06-21T11:29:42.298Z"),
+    createdAt: new Date("2024-09-10T23:23:11.462Z"),
+    modifiedAt: new Date("2026-06-21T11:29:42.298Z"),
     trialInterval: null,
     trialIntervalCount: 547986,
     name: "<value>",
@@ -136,8 +136,8 @@ let value: Checkout = {
     organizationId: "<value>",
     prices: [
       {
-        createdAt: new Date("2025-07-19T08:59:53.775Z"),
-        modifiedAt: new Date("2024-05-30T17:44:54.237Z"),
+        createdAt: new Date("2026-07-19T08:59:53.775Z"),
+        modifiedAt: new Date("2025-05-30T17:44:54.237Z"),
         id: "<value>",
         source: "ad_hoc",
         amountType: "metered_unit",
@@ -158,8 +158,8 @@ let value: Checkout = {
     benefits: [
       {
         id: "<value>",
-        createdAt: new Date("2025-12-10T05:32:38.930Z"),
-        modifiedAt: new Date("2025-06-03T12:53:20.835Z"),
+        createdAt: new Date("2026-12-10T05:32:38.930Z"),
+        modifiedAt: new Date("2026-06-03T12:53:20.835Z"),
         type: "custom",
         description:
           "twist beside frivolous gad catalog spirited unless rewarding frequent unto",
@@ -180,19 +180,19 @@ let value: Checkout = {
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-06-28T06:21:21.363Z"),
+        lastModifiedAt: new Date("2025-06-28T06:21:21.363Z"),
         version: "<value>",
         service: "product_media",
         isUploaded: false,
-        createdAt: new Date("2025-06-12T01:48:20.505Z"),
+        createdAt: new Date("2026-06-12T01:48:20.505Z"),
         sizeReadable: "<value>",
         publicUrl: "https://entire-slipper.org",
       },
     ],
   },
   productPrice: {
-    createdAt: new Date("2024-12-18T11:09:36.166Z"),
-    modifiedAt: new Date("2024-05-04T04:22:55.984Z"),
+    createdAt: new Date("2025-12-18T11:09:36.166Z"),
+    modifiedAt: new Date("2025-05-04T04:22:55.984Z"),
     id: "<value>",
     source: "ad_hoc",
     amountType: "custom",
@@ -209,8 +209,8 @@ let value: Checkout = {
   prices: {
     "key": [
       {
-        createdAt: new Date("2023-06-08T16:00:03.730Z"),
-        modifiedAt: new Date("2025-04-23T11:27:42.721Z"),
+        createdAt: new Date("2024-06-07T16:00:03.730Z"),
+        modifiedAt: new Date("2026-04-23T11:27:42.721Z"),
         id: "<value>",
         source: "ad_hoc",
         amountType: "fixed",
@@ -230,8 +230,8 @@ let value: Checkout = {
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2023-12-03T03:18:51.837Z"),
-        modifiedAt: new Date("2025-09-25T14:22:13.198Z"),
+        createdAt: new Date("2024-12-02T03:18:51.837Z"),
+        modifiedAt: new Date("2026-09-25T14:22:13.198Z"),
         id: "<value>",
         metadata: {
           "key": 3666.38,

@@ -8,8 +8,8 @@ Schema of a payment with a card payment method.
 import { CardPayment } from "@polar-sh/sdk/models/components/cardpayment.js";
 
 let value: CardPayment = {
-  createdAt: new Date("2024-08-19T22:20:52.095Z"),
-  modifiedAt: new Date("2024-02-13T06:48:23.838Z"),
+  createdAt: new Date("2025-08-19T22:20:52.095Z"),
+  modifiedAt: new Date("2025-02-12T06:48:23.838Z"),
   id: "<value>",
   processor: "stripe",
   status: "succeeded",

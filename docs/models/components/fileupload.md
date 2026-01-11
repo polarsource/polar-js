@@ -16,7 +16,7 @@ let value: FileUpload = {
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: null,
-  lastModifiedAt: new Date("2023-05-03T20:11:20.299Z"),
+  lastModifiedAt: new Date("2024-05-02T20:11:20.299Z"),
   upload: {
     id: "<id>",
     path: "/etc/periodic",
@@ -26,7 +26,7 @@ let value: FileUpload = {
         chunkStart: 591725,
         chunkEnd: 880119,
         url: "https://scornful-decryption.net/",
-        expiresAt: new Date("2024-03-19T02:17:36.566Z"),
+        expiresAt: new Date("2025-03-19T02:17:36.566Z"),
       },
     ],
   },

@@ -7,7 +7,7 @@ import { Meter } from "@polar-sh/sdk/models/components/meter.js";
 
 let value: Meter = {
   metadata: {},
-  createdAt: new Date("2023-07-18T04:53:21.925Z"),
+  createdAt: new Date("2024-07-17T04:53:21.925Z"),
   modifiedAt: null,
   id: "<value>",
   name: "<value>",

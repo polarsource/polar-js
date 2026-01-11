@@ -6,8 +6,8 @@
 import { CheckoutOrganization } from "@polar-sh/sdk/models/components/checkoutorganization.js";
 
 let value: CheckoutOrganization = {
-  createdAt: new Date("2023-12-16T13:26:37.014Z"),
-  modifiedAt: new Date("2024-02-14T18:17:21.202Z"),
+  createdAt: new Date("2024-12-15T13:26:37.014Z"),
+  modifiedAt: new Date("2025-02-13T18:17:21.202Z"),
   id: "<value>",
   name: "<value>",
   slug: "<value>",

@@ -7,8 +7,8 @@ import { AuthorizeResponseOrganization } from "@polar-sh/sdk/models/components/a
 
 let value: AuthorizeResponseOrganization = {
   client: {
-    createdAt: new Date("2025-11-06T09:00:45.294Z"),
-    modifiedAt: new Date("2025-02-22T00:03:05.093Z"),
+    createdAt: new Date("2026-11-06T09:00:45.294Z"),
+    modifiedAt: new Date("2026-02-22T00:03:05.093Z"),
     clientId: "<id>",
     clientName: null,
     clientUri: "https://bossy-formamide.com",
@@ -35,4 +35,5 @@ let value: AuthorizeResponseOrganization = {
 | `subType`                                                                              | *"organization"*                                                                       | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `sub`                                                                                  | [components.AuthorizeOrganization](../../models/components/authorizeorganization.md)   | :heavy_check_mark:                                                                     | N/A                                                                                    |
 | `scopes`                                                                               | [components.Scope](../../models/components/scope.md)[]                                 | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `scopeDisplayNames`                                                                    | Record<string, *string*>                                                               | :heavy_minus_sign:                                                                     | N/A                                                                                    |
 | `organizations`                                                                        | [components.AuthorizeOrganization](../../models/components/authorizeorganization.md)[] | :heavy_check_mark:                                                                     | N/A                                                                                    |

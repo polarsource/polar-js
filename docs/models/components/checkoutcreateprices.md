@@ -44,12 +44,7 @@ const value: components.ProductPriceMeteredUnitCreate = {
 const value: components.ProductPriceSeatBasedCreate = {
   amountType: "seat_based",
   seatTiers: {
-    tiers: [
-      {
-        minSeats: 415895,
-        pricePerSeat: 164973,
-      },
-    ],
+    tiers: [],
   },
 };
 ```

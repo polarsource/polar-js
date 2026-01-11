@@ -1,6 +1,10 @@
 # WebhookSubscriptionUncanceledPayload
 
-Sent when a subscription is uncanceled.
+Sent when a customer revokes a pending cancellation.
+
+When a customer cancels with "at period end", they retain access until the
+subscription would renew. During this time, they can change their mind and
+undo the cancellation. This event is triggered when they do so.
 
 **Discord & Slack support:** Full
 
@@ -11,24 +15,24 @@ import { WebhookSubscriptionUncanceledPayload } from "@polar-sh/sdk/models/compo
 
 let value: WebhookSubscriptionUncanceledPayload = {
   type: "subscription.uncanceled",
-  timestamp: new Date("2024-03-28T06:34:59.076Z"),
+  timestamp: new Date("2025-03-28T06:34:59.076Z"),
   data: {
-    createdAt: new Date("2025-08-17T08:38:12.962Z"),
-    modifiedAt: new Date("2024-09-27T16:02:48.107Z"),
+    createdAt: new Date("2026-08-17T08:38:12.962Z"),
+    modifiedAt: new Date("2025-09-27T16:02:48.107Z"),
     id: "<value>",
     amount: 10000,
     currency: "usd",
     recurringInterval: "week",
     recurringIntervalCount: 928876,
     status: "canceled",
-    currentPeriodStart: new Date("2024-07-08T14:40:56.923Z"),
-    currentPeriodEnd: new Date("2024-08-05T00:54:37.375Z"),
+    currentPeriodStart: new Date("2025-07-08T14:40:56.923Z"),
+    currentPeriodEnd: new Date("2025-08-05T00:54:37.375Z"),
     trialStart: null,
-    trialEnd: new Date("2025-06-02T07:09:04.410Z"),
+    trialEnd: new Date("2026-06-02T07:09:04.410Z"),
     cancelAtPeriodEnd: true,
-    canceledAt: new Date("2023-02-17T00:31:21.328Z"),
-    startedAt: new Date("2024-08-09T17:28:02.277Z"),
-    endsAt: new Date("2024-12-16T10:26:19.141Z"),
+    canceledAt: new Date("2024-02-17T00:31:21.328Z"),
+    startedAt: new Date("2025-08-09T17:28:02.277Z"),
+    endsAt: new Date("2025-12-16T10:26:19.141Z"),
     endedAt: null,
     customerId: "<value>",
     productId: "<value>",
@@ -41,8 +45,8 @@ let value: WebhookSubscriptionUncanceledPayload = {
     },
     customer: {
       id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-      createdAt: new Date("2025-05-06T20:26:26.597Z"),
-      modifiedAt: new Date("2023-10-27T12:38:37.731Z"),
+      createdAt: new Date("2026-05-06T20:26:26.597Z"),
+      modifiedAt: new Date("2024-10-26T12:38:37.731Z"),
       metadata: {
         "key": 612623,
       },
@@ -58,13 +62,13 @@ let value: WebhookSubscriptionUncanceledPayload = {
         "us_ein",
       ],
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-      deletedAt: new Date("2023-09-12T22:43:44.126Z"),
+      deletedAt: new Date("2024-09-11T22:43:44.126Z"),
       avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
     },
     product: {
       id: "<value>",
-      createdAt: new Date("2024-02-04T10:44:12.276Z"),
-      modifiedAt: new Date("2024-01-03T02:01:45.933Z"),
+      createdAt: new Date("2025-02-03T10:44:12.276Z"),
+      modifiedAt: new Date("2025-01-02T02:01:45.933Z"),
       trialInterval: "week",
       trialIntervalCount: 889423,
       name: "<value>",
@@ -81,8 +85,8 @@ let value: WebhookSubscriptionUncanceledPayload = {
       benefits: [
         {
           id: "<value>",
-          createdAt: new Date("2024-11-20T23:12:51.407Z"),
-          modifiedAt: new Date("2023-01-07T14:45:36.833Z"),
+          createdAt: new Date("2025-11-20T23:12:51.407Z"),
+          modifiedAt: new Date("2024-01-07T14:45:36.833Z"),
           type: "meter_credit",
           description: "yowza revoke in heavenly cautious wearily",
           selectable: false,
@@ -105,24 +109,24 @@ let value: WebhookSubscriptionUncanceledPayload = {
       duration: "repeating",
       type: "fixed",
       basisPoints: 1000,
-      createdAt: new Date("2024-12-20T05:49:14.049Z"),
-      modifiedAt: new Date("2024-05-06T01:19:34.835Z"),
+      createdAt: new Date("2025-12-20T05:49:14.049Z"),
+      modifiedAt: new Date("2025-05-06T01:19:34.835Z"),
       id: "<value>",
       metadata: {
         "key": false,
       },
       name: "<value>",
       code: "<value>",
-      startsAt: new Date("2024-10-09T16:49:56.134Z"),
-      endsAt: new Date("2024-03-09T11:07:39.349Z"),
+      startsAt: new Date("2025-10-09T16:49:56.134Z"),
+      endsAt: new Date("2025-03-09T11:07:39.349Z"),
       maxRedemptions: 231585,
       redemptionsCount: 850103,
       organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
     },
     prices: [
       {
-        createdAt: new Date("2025-05-29T06:38:49.802Z"),
-        modifiedAt: new Date("2024-09-23T10:26:31.492Z"),
+        createdAt: new Date("2026-05-29T06:38:49.802Z"),
+        modifiedAt: new Date("2025-09-23T10:26:31.492Z"),
         id: "<value>",
         source: "ad_hoc",
         amountType: "metered_unit",
@@ -142,8 +146,8 @@ let value: WebhookSubscriptionUncanceledPayload = {
     ],
     meters: [
       {
-        createdAt: new Date("2024-06-25T13:41:11.193Z"),
-        modifiedAt: new Date("2023-03-11T20:38:31.600Z"),
+        createdAt: new Date("2025-06-25T13:41:11.193Z"),
+        modifiedAt: new Date("2024-03-10T20:38:31.600Z"),
         id: "<value>",
         consumedUnits: 25,
         creditedUnits: 100,
@@ -151,8 +155,8 @@ let value: WebhookSubscriptionUncanceledPayload = {
         meterId: "d498a884-e2cd-4d3e-8002-f536468a8b22",
         meter: {
           metadata: {},
-          createdAt: new Date("2025-01-05T19:13:23.632Z"),
-          modifiedAt: new Date("2025-10-09T02:26:38.751Z"),
+          createdAt: new Date("2026-01-05T19:13:23.632Z"),
+          modifiedAt: new Date("2026-10-09T02:26:38.751Z"),
           id: "<value>",
           name: "<value>",
           filter: {
