@@ -8,8 +8,8 @@ A pay-what-you-want price for a product.
 import { ProductPriceCustom } from "@polar-sh/sdk/models/components/productpricecustom.js";
 
 let value: ProductPriceCustom = {
-  createdAt: new Date("2023-06-12T19:38:31.503Z"),
-  modifiedAt: new Date("2025-07-14T10:09:27.768Z"),
+  createdAt: new Date("2024-06-11T19:38:31.503Z"),
+  modifiedAt: new Date("2026-07-14T10:09:27.768Z"),
   id: "<value>",
   source: "ad_hoc",
   amountType: "custom",

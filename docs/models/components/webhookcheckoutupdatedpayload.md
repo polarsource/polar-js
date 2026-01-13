@@ -11,16 +11,16 @@ import { WebhookCheckoutUpdatedPayload } from "@polar-sh/sdk/models/components/w
 
 let value: WebhookCheckoutUpdatedPayload = {
   type: "checkout.updated",
-  timestamp: new Date("2024-10-28T04:36:13.190Z"),
+  timestamp: new Date("2025-10-28T04:36:13.190Z"),
   data: {
     id: "<value>",
-    createdAt: new Date("2023-08-20T15:49:44.498Z"),
-    modifiedAt: new Date("2024-03-18T23:27:57.994Z"),
+    createdAt: new Date("2024-08-19T15:49:44.498Z"),
+    modifiedAt: new Date("2025-03-18T23:27:57.994Z"),
     paymentProcessor: "stripe",
     status: "failed",
     clientSecret: "<value>",
     url: "https://leading-vibraphone.org",
-    expiresAt: new Date("2025-04-27T02:23:43.493Z"),
+    expiresAt: new Date("2026-04-27T02:23:43.493Z"),
     successUrl: "https://interesting-video.name",
     returnUrl: "https://obedient-diagram.net/",
     embedOrigin: "<value>",
@@ -33,7 +33,7 @@ let value: WebhookCheckoutUpdatedPayload = {
     allowTrial: true,
     activeTrialInterval: "week",
     activeTrialIntervalCount: null,
-    trialEnd: new Date("2025-02-24T21:23:50.809Z"),
+    trialEnd: new Date("2026-02-24T21:23:50.809Z"),
     organizationId: "<value>",
     productId: "<value>",
     productPriceId: "<value>",
@@ -75,8 +75,8 @@ let value: WebhookCheckoutUpdatedPayload = {
     products: [],
     product: {
       id: "<value>",
-      createdAt: new Date("2023-09-11T23:23:11.462Z"),
-      modifiedAt: new Date("2025-06-21T11:29:42.298Z"),
+      createdAt: new Date("2024-09-10T23:23:11.462Z"),
+      modifiedAt: new Date("2026-06-21T11:29:42.298Z"),
       trialInterval: null,
       trialIntervalCount: 547986,
       name: "<value>",
@@ -88,8 +88,8 @@ let value: WebhookCheckoutUpdatedPayload = {
       organizationId: "<value>",
       prices: [
         {
-          createdAt: new Date("2025-07-19T08:59:53.775Z"),
-          modifiedAt: new Date("2024-05-30T17:44:54.237Z"),
+          createdAt: new Date("2026-07-19T08:59:53.775Z"),
+          modifiedAt: new Date("2025-05-30T17:44:54.237Z"),
           id: "<value>",
           source: "ad_hoc",
           amountType: "metered_unit",
@@ -110,8 +110,8 @@ let value: WebhookCheckoutUpdatedPayload = {
       benefits: [
         {
           id: "<value>",
-          createdAt: new Date("2025-12-10T05:32:38.930Z"),
-          modifiedAt: new Date("2025-06-03T12:53:20.835Z"),
+          createdAt: new Date("2026-12-10T05:32:38.930Z"),
+          modifiedAt: new Date("2026-06-03T12:53:20.835Z"),
           type: "custom",
           description:
             "twist beside frivolous gad catalog spirited unless rewarding frequent unto",
@@ -132,18 +132,18 @@ let value: WebhookCheckoutUpdatedPayload = {
           checksumEtag: "<value>",
           checksumSha256Base64: "<value>",
           checksumSha256Hex: "<value>",
-          lastModifiedAt: new Date("2024-06-28T06:21:21.363Z"),
+          lastModifiedAt: new Date("2025-06-28T06:21:21.363Z"),
           version: "<value>",
           service: "product_media",
           isUploaded: false,
-          createdAt: new Date("2025-06-12T01:48:20.505Z"),
+          createdAt: new Date("2026-06-12T01:48:20.505Z"),
           sizeReadable: "<value>",
           publicUrl: "https://entire-slipper.org",
         },
       ],
     },
     productPrice: {
-      createdAt: new Date("2025-12-07T10:38:50.125Z"),
+      createdAt: new Date("2026-12-07T10:38:50.125Z"),
       modifiedAt: null,
       id: "<value>",
       source: "catalog",
@@ -157,8 +157,8 @@ let value: WebhookCheckoutUpdatedPayload = {
     prices: {
       "key": [
         {
-          createdAt: new Date("2025-09-27T04:49:04.694Z"),
-          modifiedAt: new Date("2023-11-01T21:29:00.114Z"),
+          createdAt: new Date("2026-09-27T04:49:04.694Z"),
+          modifiedAt: new Date("2024-10-31T21:29:00.114Z"),
           id: "<value>",
           source: "ad_hoc",
           amountType: "seat_based",
@@ -174,6 +174,8 @@ let value: WebhookCheckoutUpdatedPayload = {
                 pricePerSeat: 164973,
               },
             ],
+            minimumSeats: 562315,
+            maximumSeats: 955772,
           },
         },
       ],
@@ -192,8 +194,8 @@ let value: WebhookCheckoutUpdatedPayload = {
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2023-12-03T03:18:51.837Z"),
-          modifiedAt: new Date("2025-09-25T14:22:13.198Z"),
+          createdAt: new Date("2024-12-02T03:18:51.837Z"),
+          modifiedAt: new Date("2026-09-25T14:22:13.198Z"),
           id: "<value>",
           metadata: {
             "key": 3666.38,

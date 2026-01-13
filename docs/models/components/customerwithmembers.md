@@ -9,8 +9,8 @@ import { CustomerWithMembers } from "@polar-sh/sdk/models/components/customerwit
 
 let value: CustomerWithMembers = {
   id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-  createdAt: new Date("2024-08-20T10:55:25.841Z"),
-  modifiedAt: new Date("2023-03-15T19:32:18.124Z"),
+  createdAt: new Date("2025-08-20T10:55:25.841Z"),
+  modifiedAt: new Date("2024-03-14T19:32:18.124Z"),
   metadata: {
     "key": 1009.65,
   },
@@ -26,12 +26,12 @@ let value: CustomerWithMembers = {
     "us_ein",
   ],
   organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-  deletedAt: new Date("2023-11-18T13:47:29.147Z"),
+  deletedAt: new Date("2024-11-17T13:47:29.147Z"),
   members: [
     {
       id: "<value>",
-      createdAt: new Date("2024-08-01T07:55:55.149Z"),
-      modifiedAt: new Date("2024-11-08T18:04:44.616Z"),
+      createdAt: new Date("2025-08-01T07:55:55.149Z"),
+      modifiedAt: new Date("2025-11-08T18:04:44.616Z"),
       customerId: "<value>",
       email: "member@example.com",
       name: "Jane Doe",

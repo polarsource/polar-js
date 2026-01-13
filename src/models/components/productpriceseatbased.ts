@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ProductPriceSeatTiers,
-  ProductPriceSeatTiers$inboundSchema,
-  ProductPriceSeatTiers$Outbound,
-  ProductPriceSeatTiers$outboundSchema,
-} from "./productpriceseattiers.js";
+  ProductPriceSeatTiersOutput,
+  ProductPriceSeatTiersOutput$inboundSchema,
+  ProductPriceSeatTiersOutput$Outbound,
+  ProductPriceSeatTiersOutput$outboundSchema,
+} from "./productpriceseattiersoutput.js";
 import {
   ProductPriceSource,
   ProductPriceSource$inboundSchema,
@@ -66,8 +66,14 @@ export type ProductPriceSeatBased = {
   priceCurrency: string;
   /**
    * List of pricing tiers for seat-based pricing.
+   *
+   * @remarks
+   *
+   * The minimum and maximum seat limits are derived from the tiers:
+   * - minimum_seats = first tier's min_seats
+   * - maximum_seats = last tier's max_seats (None for unlimited)
    */
-  seatTiers: ProductPriceSeatTiers;
+  seatTiers: ProductPriceSeatTiersOutput;
 };
 
 /** @internal */
@@ -91,7 +97,7 @@ export const ProductPriceSeatBased$inboundSchema: z.ZodMiniType<
     type: ProductPriceType$inboundSchema,
     recurring_interval: z.nullable(SubscriptionRecurringInterval$inboundSchema),
     price_currency: z.string(),
-    seat_tiers: ProductPriceSeatTiers$inboundSchema,
+    seat_tiers: ProductPriceSeatTiersOutput$inboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {
@@ -118,7 +124,7 @@ export type ProductPriceSeatBased$Outbound = {
   type: string;
   recurring_interval: string | null;
   price_currency: string;
-  seat_tiers: ProductPriceSeatTiers$Outbound;
+  seat_tiers: ProductPriceSeatTiersOutput$Outbound;
 };
 
 /** @internal */
@@ -137,7 +143,7 @@ export const ProductPriceSeatBased$outboundSchema: z.ZodMiniType<
     type: ProductPriceType$outboundSchema,
     recurringInterval: z.nullable(SubscriptionRecurringInterval$outboundSchema),
     priceCurrency: z.string(),
-    seatTiers: ProductPriceSeatTiers$outboundSchema,
+    seatTiers: ProductPriceSeatTiersOutput$outboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {

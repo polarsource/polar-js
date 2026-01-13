@@ -7,6 +7,26 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
+  BalanceDisputeEvent,
+  BalanceDisputeEvent$inboundSchema,
+} from "./balancedisputeevent.js";
+import {
+  BalanceDisputeReversalEvent,
+  BalanceDisputeReversalEvent$inboundSchema,
+} from "./balancedisputereversalevent.js";
+import {
+  BalanceOrderEvent,
+  BalanceOrderEvent$inboundSchema,
+} from "./balanceorderevent.js";
+import {
+  BalanceRefundEvent,
+  BalanceRefundEvent$inboundSchema,
+} from "./balancerefundevent.js";
+import {
+  BalanceRefundReversalEvent,
+  BalanceRefundReversalEvent$inboundSchema,
+} from "./balancerefundreversalevent.js";
+import {
   BenefitCycledEvent,
   BenefitCycledEvent$inboundSchema,
 } from "./benefitcycledevent.js";
@@ -88,6 +108,11 @@ import {
 } from "./subscriptionuncanceledevent.js";
 
 export type SystemEvent =
+  | BalanceDisputeEvent
+  | BalanceDisputeReversalEvent
+  | BalanceOrderEvent
+  | BalanceRefundEvent
+  | BalanceRefundReversalEvent
   | BenefitCycledEvent
   | BenefitGrantedEvent
   | BenefitRevokedEvent
@@ -112,6 +137,11 @@ export type SystemEvent =
 /** @internal */
 export const SystemEvent$inboundSchema: z.ZodMiniType<SystemEvent, unknown> = z
   .union([
+    BalanceDisputeEvent$inboundSchema,
+    BalanceDisputeReversalEvent$inboundSchema,
+    BalanceOrderEvent$inboundSchema,
+    BalanceRefundEvent$inboundSchema,
+    BalanceRefundReversalEvent$inboundSchema,
     BenefitCycledEvent$inboundSchema,
     BenefitGrantedEvent$inboundSchema,
     BenefitRevokedEvent$inboundSchema,

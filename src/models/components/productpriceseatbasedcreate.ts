@@ -5,10 +5,10 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  ProductPriceSeatTiers,
-  ProductPriceSeatTiers$Outbound,
-  ProductPriceSeatTiers$outboundSchema,
-} from "./productpriceseattiers.js";
+  ProductPriceSeatTiersInput,
+  ProductPriceSeatTiersInput$Outbound,
+  ProductPriceSeatTiersInput$outboundSchema,
+} from "./productpriceseattiersinput.js";
 
 /**
  * Schema to create a seat-based price with volume-based tiers.
@@ -21,15 +21,21 @@ export type ProductPriceSeatBasedCreate = {
   priceCurrency?: string | undefined;
   /**
    * List of pricing tiers for seat-based pricing.
+   *
+   * @remarks
+   *
+   * The minimum and maximum seat limits are derived from the tiers:
+   * - minimum_seats = first tier's min_seats
+   * - maximum_seats = last tier's max_seats (None for unlimited)
    */
-  seatTiers: ProductPriceSeatTiers;
+  seatTiers: ProductPriceSeatTiersInput;
 };
 
 /** @internal */
 export type ProductPriceSeatBasedCreate$Outbound = {
   amount_type: "seat_based";
   price_currency: string;
-  seat_tiers: ProductPriceSeatTiers$Outbound;
+  seat_tiers: ProductPriceSeatTiersInput$Outbound;
 };
 
 /** @internal */
@@ -40,7 +46,7 @@ export const ProductPriceSeatBasedCreate$outboundSchema: z.ZodMiniType<
   z.object({
     amountType: z.literal("seat_based"),
     priceCurrency: z._default(z.string(), "usd"),
-    seatTiers: ProductPriceSeatTiers$outboundSchema,
+    seatTiers: ProductPriceSeatTiersInput$outboundSchema,
   }),
   z.transform((v) => {
     return remap$(v, {

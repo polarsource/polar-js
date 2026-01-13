@@ -8,8 +8,8 @@ Current consumption and spending for a subscription meter.
 import { CustomerStateSubscriptionMeter } from "@polar-sh/sdk/models/components/customerstatesubscriptionmeter.js";
 
 let value: CustomerStateSubscriptionMeter = {
-  createdAt: new Date("2024-11-14T21:59:47.289Z"),
-  modifiedAt: new Date("2025-06-09T04:40:55.250Z"),
+  createdAt: new Date("2025-11-14T21:59:47.289Z"),
+  modifiedAt: new Date("2026-06-09T04:40:55.250Z"),
   id: "<value>",
   consumedUnits: 25,
   creditedUnits: 100,

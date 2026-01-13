@@ -10,7 +10,7 @@ let value: S3FileUploadPart = {
   chunkStart: 514571,
   chunkEnd: 490550,
   url: "https://wavy-porter.net",
-  expiresAt: new Date("2024-11-30T16:50:46.248Z"),
+  expiresAt: new Date("2025-11-30T16:50:46.248Z"),
 };
 ```
 

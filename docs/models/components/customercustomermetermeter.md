@@ -6,8 +6,8 @@
 import { CustomerCustomerMeterMeter } from "@polar-sh/sdk/models/components/customercustomermetermeter.js";
 
 let value: CustomerCustomerMeterMeter = {
-  createdAt: new Date("2025-02-28T01:11:23.278Z"),
-  modifiedAt: new Date("2024-05-30T06:08:19.050Z"),
+  createdAt: new Date("2026-02-28T01:11:23.278Z"),
+  modifiedAt: new Date("2025-05-30T06:08:19.050Z"),
   id: "<value>",
   name: "<value>",
 };

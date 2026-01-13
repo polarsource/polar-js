@@ -9,8 +9,8 @@ let value: CustomerPaymentMethodCreateSucceededResponse = {
   status: "succeeded",
   paymentMethod: {
     id: "<value>",
-    createdAt: new Date("2024-10-23T19:49:37.911Z"),
-    modifiedAt: new Date("2023-09-26T15:17:52.236Z"),
+    createdAt: new Date("2025-10-23T19:49:37.911Z"),
+    modifiedAt: new Date("2024-09-25T15:17:52.236Z"),
     processor: "stripe",
     customerId: "<value>",
     type: "card",

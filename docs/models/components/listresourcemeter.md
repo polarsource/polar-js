@@ -9,8 +9,8 @@ let value: ListResourceMeter = {
   items: [
     {
       metadata: {},
-      createdAt: new Date("2023-01-09T16:18:53.335Z"),
-      modifiedAt: new Date("2023-09-06T03:20:48.650Z"),
+      createdAt: new Date("2024-01-09T16:18:53.335Z"),
+      modifiedAt: new Date("2024-09-05T03:20:48.650Z"),
       id: "<value>",
       name: "<value>",
       filter: {

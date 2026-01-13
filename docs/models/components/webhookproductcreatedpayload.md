@@ -11,11 +11,11 @@ import { WebhookProductCreatedPayload } from "@polar-sh/sdk/models/components/we
 
 let value: WebhookProductCreatedPayload = {
   type: "product.created",
-  timestamp: new Date("2023-05-19T12:16:27.570Z"),
+  timestamp: new Date("2024-05-18T12:16:27.570Z"),
   data: {
     id: "<value>",
-    createdAt: new Date("2025-09-03T21:58:48.594Z"),
-    modifiedAt: new Date("2024-07-19T00:50:54.843Z"),
+    createdAt: new Date("2026-09-03T21:58:48.594Z"),
+    modifiedAt: new Date("2025-07-19T00:50:54.843Z"),
     trialInterval: "month",
     trialIntervalCount: 226310,
     name: "<value>",
@@ -30,8 +30,8 @@ let value: WebhookProductCreatedPayload = {
     benefits: [
       {
         id: "<value>",
-        createdAt: new Date("2023-05-31T22:25:46.704Z"),
-        modifiedAt: new Date("2023-07-23T01:35:07.884Z"),
+        createdAt: new Date("2024-05-30T22:25:46.704Z"),
+        modifiedAt: new Date("2024-07-22T01:35:07.884Z"),
         type: "license_keys",
         description:
           "hmph depend pish behind chainstay spattering actually owlishly to",
@@ -65,11 +65,11 @@ let value: WebhookProductCreatedPayload = {
         checksumEtag: "<value>",
         checksumSha256Base64: "<value>",
         checksumSha256Hex: "<value>",
-        lastModifiedAt: new Date("2024-06-28T06:21:21.363Z"),
+        lastModifiedAt: new Date("2025-06-28T06:21:21.363Z"),
         version: "<value>",
         service: "product_media",
         isUploaded: false,
-        createdAt: new Date("2025-06-12T01:48:20.505Z"),
+        createdAt: new Date("2026-06-12T01:48:20.505Z"),
         sizeReadable: "<value>",
         publicUrl: "https://entire-slipper.org",
       },
@@ -78,8 +78,8 @@ let value: WebhookProductCreatedPayload = {
       {
         customFieldId: "<value>",
         customField: {
-          createdAt: new Date("2023-12-03T03:18:51.837Z"),
-          modifiedAt: new Date("2025-09-25T14:22:13.198Z"),
+          createdAt: new Date("2024-12-02T03:18:51.837Z"),
+          modifiedAt: new Date("2026-09-25T14:22:13.198Z"),
           id: "<value>",
           metadata: {
             "key": 3666.38,

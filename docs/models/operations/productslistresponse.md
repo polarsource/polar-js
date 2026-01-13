@@ -10,8 +10,8 @@ let value: ProductsListResponse = {
     items: [
       {
         id: "<value>",
-        createdAt: new Date("2024-04-08T02:10:23.808Z"),
-        modifiedAt: new Date("2025-01-20T07:32:44.012Z"),
+        createdAt: new Date("2025-04-08T02:10:23.808Z"),
+        modifiedAt: new Date("2026-01-20T07:32:44.012Z"),
         trialInterval: "month",
         trialIntervalCount: 175754,
         name: "<value>",
@@ -24,8 +24,8 @@ let value: ProductsListResponse = {
         metadata: {},
         prices: [
           {
-            createdAt: new Date("2024-01-20T19:38:49.234Z"),
-            modifiedAt: new Date("2024-11-03T13:15:47.525Z"),
+            createdAt: new Date("2025-01-19T19:38:49.234Z"),
+            modifiedAt: new Date("2025-11-03T13:15:47.525Z"),
             id: "<value>",
             source: "catalog",
             amountType: "free",
@@ -49,11 +49,11 @@ let value: ProductsListResponse = {
             checksumEtag: "<value>",
             checksumSha256Base64: "<value>",
             checksumSha256Hex: "<value>",
-            lastModifiedAt: new Date("2024-06-28T06:21:21.363Z"),
+            lastModifiedAt: new Date("2025-06-28T06:21:21.363Z"),
             version: "<value>",
             service: "product_media",
             isUploaded: false,
-            createdAt: new Date("2025-06-12T01:48:20.505Z"),
+            createdAt: new Date("2026-06-12T01:48:20.505Z"),
             sizeReadable: "<value>",
             publicUrl: "https://entire-slipper.org",
           },
@@ -62,8 +62,8 @@ let value: ProductsListResponse = {
           {
             customFieldId: "<value>",
             customField: {
-              createdAt: new Date("2023-12-03T03:18:51.837Z"),
-              modifiedAt: new Date("2025-09-25T14:22:13.198Z"),
+              createdAt: new Date("2024-12-02T03:18:51.837Z"),
+              modifiedAt: new Date("2026-09-25T14:22:13.198Z"),
               id: "<value>",
               metadata: {
                 "key": 3666.38,

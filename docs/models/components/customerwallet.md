@@ -11,8 +11,8 @@ import { CustomerWallet } from "@polar-sh/sdk/models/components/customerwallet.j
 
 let value: CustomerWallet = {
   id: "<value>",
-  createdAt: new Date("2023-01-02T12:42:41.813Z"),
-  modifiedAt: new Date("2024-07-20T12:00:05.019Z"),
+  createdAt: new Date("2024-01-02T12:42:41.813Z"),
+  modifiedAt: new Date("2025-07-20T12:00:05.019Z"),
   customerId: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
   balance: 5000,
   currency: "usd",

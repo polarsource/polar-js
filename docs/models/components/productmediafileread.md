@@ -22,7 +22,7 @@ let value: ProductMediaFileRead = {
   version: "<value>",
   service: "product_media",
   isUploaded: true,
-  createdAt: new Date("2024-11-09T15:31:59.053Z"),
+  createdAt: new Date("2025-11-09T15:31:59.053Z"),
   sizeReadable: "<value>",
   publicUrl: "https://unhealthy-analogy.com/",
 };

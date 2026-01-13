@@ -7,14 +7,14 @@ import { LicenseKeyRead } from "@polar-sh/sdk/models/components/licensekeyread.j
 
 let value: LicenseKeyRead = {
   id: "<value>",
-  createdAt: new Date("2023-01-03T22:46:45.258Z"),
-  modifiedAt: new Date("2023-06-01T06:40:27.766Z"),
+  createdAt: new Date("2024-01-03T22:46:45.258Z"),
+  modifiedAt: new Date("2024-05-31T06:40:27.766Z"),
   organizationId: "<value>",
   customerId: "<value>",
   customer: {
     id: "992fae2a-2a17-4b7a-8d9e-e287cf90131b",
-    createdAt: new Date("2025-05-26T00:47:20.880Z"),
-    modifiedAt: new Date("2024-02-26T21:20:13.315Z"),
+    createdAt: new Date("2026-05-26T00:47:20.880Z"),
+    modifiedAt: new Date("2025-02-25T21:20:13.315Z"),
     metadata: {
       "key": 1857.67,
     },
@@ -30,7 +30,7 @@ let value: LicenseKeyRead = {
       "us_ein",
     ],
     organizationId: "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
-    deletedAt: new Date("2025-05-27T20:24:19.765Z"),
+    deletedAt: new Date("2026-05-27T20:24:19.765Z"),
     avatarUrl: "https://www.gravatar.com/avatar/xxx?d=404",
   },
   benefitId: "<value>",
@@ -41,8 +41,8 @@ let value: LicenseKeyRead = {
   usage: 58668,
   limitUsage: 993604,
   validations: 533519,
-  lastValidatedAt: new Date("2025-12-19T22:26:18.159Z"),
-  expiresAt: new Date("2025-10-26T06:39:38.603Z"),
+  lastValidatedAt: new Date("2026-12-19T22:26:18.159Z"),
+  expiresAt: new Date("2026-10-26T06:39:38.603Z"),
 };
 ```
 

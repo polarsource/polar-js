@@ -6,11 +6,11 @@
 import { CustomerBenefitGrantDiscord } from "@polar-sh/sdk/models/components/customerbenefitgrantdiscord.js";
 
 let value: CustomerBenefitGrantDiscord = {
-  createdAt: new Date("2023-04-02T19:52:21.245Z"),
-  modifiedAt: new Date("2023-11-02T07:46:05.555Z"),
+  createdAt: new Date("2024-04-01T19:52:21.245Z"),
+  modifiedAt: new Date("2024-11-01T07:46:05.555Z"),
   id: "<value>",
-  grantedAt: new Date("2024-06-14T15:29:42.558Z"),
-  revokedAt: new Date("2024-02-07T19:33:05.653Z"),
+  grantedAt: new Date("2025-06-14T15:29:42.558Z"),
+  revokedAt: new Date("2025-02-06T19:33:05.653Z"),
   customerId: "<value>",
   benefitId: "<value>",
   subscriptionId: "<value>",
@@ -18,8 +18,8 @@ let value: CustomerBenefitGrantDiscord = {
   isGranted: true,
   isRevoked: false,
   customer: {
-    createdAt: new Date("2023-10-06T17:24:11.012Z"),
-    modifiedAt: new Date("2023-12-28T23:55:37.070Z"),
+    createdAt: new Date("2024-10-05T17:24:11.012Z"),
+    modifiedAt: new Date("2024-12-27T23:55:37.070Z"),
     id: "<value>",
     email: "Greg77@hotmail.com",
     emailVerified: true,
@@ -41,8 +41,8 @@ let value: CustomerBenefitGrantDiscord = {
   },
   benefit: {
     id: "<value>",
-    createdAt: new Date("2024-05-17T00:28:43.446Z"),
-    modifiedAt: new Date("2024-07-03T08:18:47.444Z"),
+    createdAt: new Date("2025-05-17T00:28:43.446Z"),
+    modifiedAt: new Date("2025-07-03T08:18:47.444Z"),
     type: "discord",
     description:
       "reasonable blah vibraphone instead loose rosy furthermore swiftly",
@@ -53,8 +53,8 @@ let value: CustomerBenefitGrantDiscord = {
       "key": 185641,
     },
     organization: {
-      createdAt: new Date("2023-02-09T14:46:30.040Z"),
-      modifiedAt: new Date("2024-07-28T16:12:54.009Z"),
+      createdAt: new Date("2024-02-09T14:46:30.040Z"),
+      modifiedAt: new Date("2025-07-28T16:12:54.009Z"),
       id: "<value>",
       name: "<value>",
       slug: "<value>",

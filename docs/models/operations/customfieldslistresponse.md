@@ -9,8 +9,8 @@ let value: CustomFieldsListResponse = {
   result: {
     items: [
       {
-        createdAt: new Date("2024-07-19T07:06:39.603Z"),
-        modifiedAt: new Date("2024-04-15T13:09:33.164Z"),
+        createdAt: new Date("2025-07-19T07:06:39.603Z"),
+        modifiedAt: new Date("2025-04-15T13:09:33.164Z"),
         id: "<value>",
         metadata: {
           "key": 149577,

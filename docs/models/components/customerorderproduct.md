@@ -7,8 +7,8 @@ import { CustomerOrderProduct } from "@polar-sh/sdk/models/components/customeror
 
 let value: CustomerOrderProduct = {
   id: "<value>",
-  createdAt: new Date("2024-01-01T00:23:40.160Z"),
-  modifiedAt: new Date("2024-09-25T02:43:11.144Z"),
+  createdAt: new Date("2024-12-31T00:23:40.160Z"),
+  modifiedAt: new Date("2025-09-25T02:43:11.144Z"),
   trialInterval: "day",
   trialIntervalCount: 972360,
   name: "<value>",
@@ -20,8 +20,8 @@ let value: CustomerOrderProduct = {
   organizationId: "<value>",
   prices: [
     {
-      createdAt: new Date("2023-08-11T14:38:39.231Z"),
-      modifiedAt: new Date("2025-05-24T17:30:19.665Z"),
+      createdAt: new Date("2024-08-10T14:38:39.231Z"),
+      modifiedAt: new Date("2026-05-24T17:30:19.665Z"),
       id: "<value>",
       source: "ad_hoc",
       amountType: "custom",
@@ -39,7 +39,7 @@ let value: CustomerOrderProduct = {
   benefits: [],
   medias: [],
   organization: {
-    createdAt: new Date("2023-09-17T13:02:40.897Z"),
+    createdAt: new Date("2024-09-16T13:02:40.897Z"),
     modifiedAt: null,
     id: "<value>",
     name: "<value>",

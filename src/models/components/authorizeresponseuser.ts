@@ -19,6 +19,7 @@ export type AuthorizeResponseUser = {
   subType: "user";
   sub: AuthorizeUser | null;
   scopes: Array<Scope>;
+  scopeDisplayNames?: { [k: string]: string } | undefined;
 };
 
 /** @internal */
@@ -31,10 +32,12 @@ export const AuthorizeResponseUser$inboundSchema: z.ZodMiniType<
     sub_type: z.literal("user"),
     sub: z.nullable(AuthorizeUser$inboundSchema),
     scopes: z.array(Scope$inboundSchema),
+    scope_display_names: z.optional(z.record(z.string(), z.string())),
   }),
   z.transform((v) => {
     return remap$(v, {
       "sub_type": "subType",
+      "scope_display_names": "scopeDisplayNames",
     });
   }),
 );

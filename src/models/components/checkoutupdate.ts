@@ -10,6 +10,10 @@ import {
   AddressInput$outboundSchema,
 } from "./addressinput.js";
 import {
+  PresentmentCurrency,
+  PresentmentCurrency$outboundSchema,
+} from "./presentmentcurrency.js";
+import {
   TrialInterval,
   TrialInterval$outboundSchema,
 } from "./trialinterval.js";
@@ -75,6 +79,7 @@ export type CheckoutUpdate = {
    * You can store up to **50 key-value pairs**.
    */
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
+  currency?: PresentmentCurrency | null | undefined;
   /**
    * ID of the discount to apply to the checkout.
    */
@@ -215,6 +220,7 @@ export type CheckoutUpdate$Outbound = {
   trial_interval?: string | null | undefined;
   trial_interval_count?: number | null | undefined;
   metadata?: { [k: string]: string | number | number | boolean } | undefined;
+  currency?: string | null | undefined;
   discount_id?: string | null | undefined;
   allow_discount_codes?: boolean | null | undefined;
   require_billing_address?: boolean | null | undefined;
@@ -266,6 +272,7 @@ export const CheckoutUpdate$outboundSchema: z.ZodMiniType<
         z.union([z.string(), z.int(), z.number(), z.boolean()]),
       ),
     ),
+    currency: z.optional(z.nullable(PresentmentCurrency$outboundSchema)),
     discountId: z.optional(z.nullable(z.string())),
     allowDiscountCodes: z.optional(z.nullable(z.boolean())),
     requireBillingAddress: z.optional(z.nullable(z.boolean())),

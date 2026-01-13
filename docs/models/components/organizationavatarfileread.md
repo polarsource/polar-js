@@ -18,11 +18,11 @@ let value: OrganizationAvatarFileRead = {
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-03-25T06:19:39.903Z"),
+  lastModifiedAt: new Date("2025-03-25T06:19:39.903Z"),
   version: "<value>",
   service: "organization_avatar",
   isUploaded: true,
-  createdAt: new Date("2024-01-22T16:01:37.037Z"),
+  createdAt: new Date("2025-01-21T16:01:37.037Z"),
   sizeReadable: "<value>",
   publicUrl: "https://useless-validity.info/",
 };

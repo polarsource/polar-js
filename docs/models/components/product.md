@@ -9,8 +9,8 @@ import { Product } from "@polar-sh/sdk/models/components/product.js";
 
 let value: Product = {
   id: "<value>",
-  createdAt: new Date("2023-06-21T18:41:01.992Z"),
-  modifiedAt: new Date("2023-01-29T12:17:53.381Z"),
+  createdAt: new Date("2024-06-20T18:41:01.992Z"),
+  modifiedAt: new Date("2024-01-29T12:17:53.381Z"),
   trialInterval: "month",
   trialIntervalCount: 744376,
   name: "<value>",
@@ -25,8 +25,8 @@ let value: Product = {
   },
   prices: [
     {
-      createdAt: new Date("2025-07-19T05:16:33.878Z"),
-      modifiedAt: new Date("2024-12-14T03:45:00.109Z"),
+      createdAt: new Date("2026-07-19T05:16:33.878Z"),
+      modifiedAt: new Date("2025-12-14T03:45:00.109Z"),
       id: "<value>",
       source: "catalog",
       amountType: "seat_based",
@@ -42,6 +42,8 @@ let value: Product = {
             pricePerSeat: 164973,
           },
         ],
+        minimumSeats: 562315,
+        maximumSeats: 955772,
       },
     },
   ],
@@ -58,11 +60,11 @@ let value: Product = {
       checksumEtag: "<value>",
       checksumSha256Base64: "<value>",
       checksumSha256Hex: "<value>",
-      lastModifiedAt: new Date("2024-06-28T06:21:21.363Z"),
+      lastModifiedAt: new Date("2025-06-28T06:21:21.363Z"),
       version: "<value>",
       service: "product_media",
       isUploaded: false,
-      createdAt: new Date("2025-06-12T01:48:20.505Z"),
+      createdAt: new Date("2026-06-12T01:48:20.505Z"),
       sizeReadable: "<value>",
       publicUrl: "https://entire-slipper.org",
     },
@@ -71,8 +73,8 @@ let value: Product = {
     {
       customFieldId: "<value>",
       customField: {
-        createdAt: new Date("2023-12-03T03:18:51.837Z"),
-        modifiedAt: new Date("2025-09-25T14:22:13.198Z"),
+        createdAt: new Date("2024-12-02T03:18:51.837Z"),
+        modifiedAt: new Date("2026-09-25T14:22:13.198Z"),
         id: "<value>",
         metadata: {
           "key": 3666.38,

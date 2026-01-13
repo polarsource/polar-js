@@ -7,8 +7,8 @@ import { PaymentMethodCard } from "@polar-sh/sdk/models/components/paymentmethod
 
 let value: PaymentMethodCard = {
   id: "<value>",
-  createdAt: new Date("2024-02-24T15:23:31.500Z"),
-  modifiedAt: new Date("2024-11-29T12:48:39.365Z"),
+  createdAt: new Date("2025-02-23T15:23:31.500Z"),
+  modifiedAt: new Date("2025-11-29T12:48:39.365Z"),
   processor: "stripe",
   customerId: "<value>",
   type: "card",

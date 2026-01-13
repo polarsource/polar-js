@@ -11,8 +11,8 @@ let value: ListResourceEventName = {
       name: "<value>",
       source: "system",
       occurrences: 155002,
-      firstSeen: new Date("2025-04-29T10:50:42.537Z"),
-      lastSeen: new Date("2024-11-19T04:30:57.304Z"),
+      firstSeen: new Date("2026-04-29T10:50:42.537Z"),
+      lastSeen: new Date("2025-11-19T04:30:57.304Z"),
     },
   ],
   pagination: {

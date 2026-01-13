@@ -6,7 +6,7 @@
 import { CustomerCustomerSession } from "@polar-sh/sdk/models/components/customercustomersession.js";
 
 let value: CustomerCustomerSession = {
-  expiresAt: new Date("2024-06-18T14:25:18.497Z"),
+  expiresAt: new Date("2025-06-18T14:25:18.497Z"),
   returnUrl: "https://unfortunate-foodstuffs.org",
 };
 ```

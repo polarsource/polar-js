@@ -7,8 +7,8 @@ import { BenefitDownloadables } from "@polar-sh/sdk/models/components/benefitdow
 
 let value: BenefitDownloadables = {
   id: "<value>",
-  createdAt: new Date("2023-10-19T18:24:22.763Z"),
-  modifiedAt: new Date("2024-09-19T16:48:07.217Z"),
+  createdAt: new Date("2024-10-18T18:24:22.763Z"),
+  modifiedAt: new Date("2025-09-19T16:48:07.217Z"),
   type: "downloadables",
   description: "supposing allocation dull scowl bootleg illiterate hmph amid",
   selectable: true,

@@ -6,16 +6,16 @@
 import { EventTypeWithStats } from "@polar-sh/sdk/models/components/eventtypewithstats.js";
 
 let value: EventTypeWithStats = {
-  createdAt: new Date("2024-04-11T05:11:49.806Z"),
-  modifiedAt: new Date("2024-03-05T12:05:43.907Z"),
+  createdAt: new Date("2025-04-11T05:11:49.806Z"),
+  modifiedAt: new Date("2025-03-05T12:05:43.907Z"),
   id: "<value>",
   name: "<value>",
   label: "<value>",
   organizationId: "<value>",
   source: "user",
   occurrences: 63616,
-  firstSeen: new Date("2023-11-29T10:41:54.172Z"),
-  lastSeen: new Date("2023-10-25T04:51:34.579Z"),
+  firstSeen: new Date("2024-11-28T10:41:54.172Z"),
+  lastSeen: new Date("2024-10-24T04:51:34.579Z"),
 };
 ```
 

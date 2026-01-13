@@ -17,11 +17,11 @@ const value: components.DownloadableFileRead = {
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2023-11-01T10:53:02.231Z"),
+  lastModifiedAt: new Date("2024-10-31T10:53:02.231Z"),
   version: "<value>",
   service: "downloadable",
   isUploaded: true,
-  createdAt: new Date("2023-06-01T05:20:04.314Z"),
+  createdAt: new Date("2024-05-31T05:20:04.314Z"),
   sizeReadable: "<value>",
 };
 ```
@@ -40,11 +40,11 @@ const value: components.OrganizationAvatarFileRead = {
   checksumEtag: "<value>",
   checksumSha256Base64: "<value>",
   checksumSha256Hex: "<value>",
-  lastModifiedAt: new Date("2024-03-25T06:19:39.903Z"),
+  lastModifiedAt: new Date("2025-03-25T06:19:39.903Z"),
   version: "<value>",
   service: "organization_avatar",
   isUploaded: true,
-  createdAt: new Date("2024-01-22T16:01:37.037Z"),
+  createdAt: new Date("2025-01-21T16:01:37.037Z"),
   sizeReadable: "<value>",
   publicUrl: "https://useless-validity.info/",
 };
@@ -68,7 +68,7 @@ const value: components.ProductMediaFileRead = {
   version: "<value>",
   service: "product_media",
   isUploaded: true,
-  createdAt: new Date("2024-11-09T15:31:59.053Z"),
+  createdAt: new Date("2025-11-09T15:31:59.053Z"),
   sizeReadable: "<value>",
   publicUrl: "https://unhealthy-analogy.com/",
 };
